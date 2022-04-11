@@ -1,0 +1,71 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:waterwavemagic",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.31,
+        "height": 0.31
+      },
+      "minecraft:type_family": {
+        "family": [
+          "magic"
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "affect_projectile": false,
+          "impact_damage": {
+            "damage": 10,
+            "knockback": true,
+            "catch_fire": false,
+            "destroy_on_hit": false,
+            "semi_random_diff_damage": false
+          },
+          "definition_event": {
+            "affectProjectile": false,
+            "eventTrigger": {
+              "event": "waterwave_particle",
+              "target": "self"
+            }
+          }
+        },
+        "power": 1.5,
+        "gravity": -0.06,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "reflect_on_hurt": false
+      },
+      "minecraft:behavior.knockback_roar": {
+        "attack_time": 0.1,
+        "knockback_damage": 4,
+        "knockback_horizontal_strength": 4,
+        "knockback_vertical_strength": 4
+      },
+      "minecraft:damage_over_time": {
+        "damage_per_hurt": 50,
+        "time_between_hurt": 2.5
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "waterwave_particle": {
+        "run_command": {
+          "command": [
+            "particle kurokumaft:water_particle ~~~"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

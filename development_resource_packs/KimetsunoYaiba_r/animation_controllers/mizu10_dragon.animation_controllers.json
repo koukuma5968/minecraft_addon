@@ -1,0 +1,29 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.mizu10_dragon" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"mizu10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 10"},
+						{"mizu10_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 101"}
+					]
+				},
+				"mizu10_1" : {
+					"animations" : [
+						"mizu10_dragon.attack"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu10_2" : {
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

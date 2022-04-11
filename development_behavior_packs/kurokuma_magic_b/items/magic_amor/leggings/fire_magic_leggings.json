@@ -1,0 +1,39 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_leggings",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:fire_magic_leggings.name"
+			},
+      "minecraft:icon": {
+          "texture": "fire_magic_leggings"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.leggings"
+			},
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_legs"
+      },
+      "minecraft:durability": {
+        "max_durability": 1500,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 2,
+      "minecraft:armor": {
+        "protection": 15
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.legs"
+      }
+    }
+  }
+}

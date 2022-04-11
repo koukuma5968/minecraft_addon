@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nichirintou_third": {
+			"loop": true,
+			"animation_length": 0.20833,
+			"bones": {
+				"rightArm": {
+					"rotation": [0, 0, 0],
+					"scale": 1
+				},
+				"nichirinto": {
+					"rotation": [-15.91914, -0.49848, -0.13487],
+					"position": [-0.3, 0.6, -1.3],
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.nichirintou_first": {
+			"loop": true,
+			"animation_length": 1.5,
+			"bones": {
+				"nichirinto": {
+					"rotation": [22.43001, 68.69274, -44.97092],
+					"position": [2, 3, 5],
+					"scale": 0.25
+				}
+			}
+		}
+	}
+}

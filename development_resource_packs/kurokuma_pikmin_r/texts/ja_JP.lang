@@ -1,0 +1,13 @@
+entity.kurokumaft:redpikmin.name=赤ピクミン
+entity.kurokumaft:yellowpikmin.name=黄ピクミン
+entity.kurokumaft:bluepikmin.name=青ピクミン
+entity.kurokumaft:featherpikmin.name=羽ピクミン
+entity.kurokumaft:rockpikmin.name=岩ピクミン
+
+item.spawn_egg.entity.kurokumaft:redpikmin.name=赤ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:yellowpikmin.name=黄ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:bluepikmin.name=青ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:featherpikmin.name=羽ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:rockpikmin.name=岩ピクミンをスポーンさせる	#
+
+item.kurokumaft:redpikmin_seed.name=赤ピクミンの種

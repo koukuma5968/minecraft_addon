@@ -1,0 +1,63 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:bamboo_knife",
+			"category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:bamboo_knife.name"
+      },
+      "minecraft:icon":{
+        "texture": "bamboo_knife"
+      },
+      "minecraft:creative_category": {
+        "parent": "item.kurokumaft:itemGroup.name.knife"
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 40
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "minecraft:bamboo" ],
+            "repair_amount": 2
+          }
+        ]
+      },
+      "minecraft:mining_speed": 1.5,
+      "minecraft:damage": 2,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:web",
+            "speed": 15
+          },
+          {
+            "block": "minecraft:bamboo",
+            "speed": 10
+          }
+        ]
+      },
+      "minecraft:throwable": {
+        "do_swing_animation": false,
+        "min_draw_duration": 0.5,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:thrown_bamboo_knife",
+        "minimum_critical_power": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:explosionmagic",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "minecraft:exploding": {
+        "minecraft:explode": {
+          "breaks_blocks": true,
+          "fuse_length": [-1,-1],
+          "fuse_lit": true,
+          "power": 6,
+          "causes_fire": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.31,
+        "height": 0.31
+      },
+      "minecraft:type_family": {
+        "family": [
+          "magic"
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "affect_projectile": false,
+          "definition_event": {
+            "affectProjectile": false,
+            "eventTrigger": {
+              "event": "kurokumaft:explosionmagic",
+              "target": "self"
+            }
+          }
+        },
+        "power": 0,
+        "gravity": 1,
+        "inertia": 0,
+        "liquid_inertia": 0
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "kurokumaft:explosionmagic": {
+        "add": {
+          "component_groups": [
+            "minecraft:exploding"
+          ]
+        }
+      }
+    }
+  }
+}

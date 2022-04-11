@@ -1,0 +1,6 @@
+entity.kurokumaft:white_tiger.name=白虎
+entity.kurokumaft:white_tiger_boss.name=四聖獣　白虎
+
+item.spawn_egg.entity.kurokumaft:white_tiger.name=白虎をスポーンさせる	#
+
+item.kurokumaft:wind_fang.name=風の牙

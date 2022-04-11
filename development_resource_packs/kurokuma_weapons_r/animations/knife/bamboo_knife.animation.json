@@ -1,0 +1,60 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.bamboo_knife.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"pole": {
+					"rotation": [174.70551, 2.89958, 21.16007],
+					"position": [2, 2, 1]
+				}
+			}
+		},
+		"animation.bamboo_knife.wield_first_person_raise": {
+			"loop": true,
+			"bones": {
+				"pole": {
+					"rotation": [92.52413, 6.09137, -86.06068],
+					"position": ["-6 + (variable.charge_amount <= 0.25 ? math.lerp(0.0, -6.5, variable.charge_amount * 4.0) : -6.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, -4.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)", "-2+ (variable.charge_amount <= 0.25 ? math.lerp(0.0, -3.0, variable.charge_amount * 4.0) : -3.0) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 3.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)", "12+ (variable.charge_amount <= 0.25 ? math.lerp(0.0, -16.5, variable.charge_amount * 4.0) : -16.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 0.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)"]
+				}
+			}
+		},
+		"animation.bamboo_knife.wield_first_person_raise_shake": {
+			"loop": true,
+			"bones": {
+				"pole": {
+					"rotation": [0, 0, 0],
+					"position": [7, "variable.charge_amount >= 1.0 ? math.sin(q.life_time * 1000.0 * 1.3) * 0.1 - math.sin(q.life_time * 45.0) * 0.5 : 0.0", 0]
+				}
+			}
+		},
+		"animation.bamboo_knife.wield_first_person_riptide": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"pole": {
+					"rotation": [252.18201, 88.66837, 74.9393],
+					"position": [-6, 2, -2]
+				}
+			}
+		},
+		"animation.bamboo_knife.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"pole": {
+					"rotation": [88.55036, -2.26037, 91.20309],
+					"position": [-4.5, 11.5, -2.5]
+				}
+			}
+		},
+		"animation.bamboo_knife.wield_third_person_raise": {
+			"loop": true,
+			"bones": {
+				"pole": {
+					"rotation": [7, 0, -40],
+					"position": [-6.7, 9, 17.5]
+				}
+			}
+		}
+	}
+}

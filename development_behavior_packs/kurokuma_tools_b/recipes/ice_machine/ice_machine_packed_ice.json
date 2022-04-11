@@ -1,0 +1,24 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+      "description": {
+        "identifier": "kurokumaft:ice_machine_packed_ice"
+      },
+  
+      "tags": [ "ice_machine" ],
+      "priority": 2,
+      "ingredients": [
+        {
+          "item": "minecraft:ice"
+        },
+        {
+          "item": "minecraft:dye",
+          "data": 4
+        }
+      ],
+      "result": 
+        { "item": "minecraft:packed_ice","count": 1 }
+    }
+    
+  }
+  

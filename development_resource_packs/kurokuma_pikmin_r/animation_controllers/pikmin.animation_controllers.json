@@ -1,0 +1,81 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.pikmin.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"attacking" : {
+					"animations" : [ "attack.rotations" ],
+					"transitions" : [
+						{
+							"default" : "variable.attack_time < 0.0"
+						}
+					]
+				},
+				"default" : {
+					"transitions" : [
+						{
+							"attacking" : "variable.attack_time >= 0.0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.pikmin.move" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [ "move" ]
+				}
+			}
+		},
+		"controller.animation.pikmin.fly" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [ "fly" ]
+				}
+			}
+		},
+		"controller.animation.pikmin.riding" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"riding" : "query.is_riding"
+						}
+					]
+				},
+				"riding" : {
+					"animations" : [ "riding.arms", "riding.legs" ],
+					"transitions" : [
+						{
+							"default" : "!query.is_riding"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.pikmin.swimming" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"swimming" : "variable.swim_amount > 0.0"
+						}
+					]
+				},
+				"swimming" : {
+					"animations" : [ "swimming" ],
+					"transitions" : [
+						{
+							"default" : "variable.swim_amount <= 0.0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

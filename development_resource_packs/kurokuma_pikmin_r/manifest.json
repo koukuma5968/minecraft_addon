@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "ピクミンアドオン",
+        "name": "kurokuma_weapons_r",
+        "uuid": "8a4a74c5-3a0e-4f9a-ac5a-17fa88a749dd",
+        "version": [1, 0, 0],
+        "min_engine_version": [1,17,0]
+    },
+    "modules": [
+        {
+            "description": "ピクミンアドオン",
+            "type": "resources",
+            "uuid": "ceab1278-ce06-466b-a27a-f4559d68ee15",
+            "version": [1, 0, 0]
+        }
+    ]
+}

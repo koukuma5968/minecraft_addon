@@ -1,0 +1,10 @@
+{
+   "scarlet_ore" : {
+      "sound" : "stone",
+      "textures" : "scarlet_ore"
+   },
+   "scarlet_gravel" : {
+      "sound" : "gravel",
+      "textures" : "scarlet_gravel"
+   }
+}

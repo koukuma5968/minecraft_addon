@@ -1,0 +1,10 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.nichirintou_mizu": {
+			"geometry": "geometry.nichirintou_mizu",
+			"materials": [ { "*": "material.default" } ],
+			"textures": [ "texture.nichirintou_mizu" ]
+		}
+	}
+}

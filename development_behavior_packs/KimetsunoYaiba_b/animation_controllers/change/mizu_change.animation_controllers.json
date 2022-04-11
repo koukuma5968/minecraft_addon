@@ -1,0 +1,113 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.mizu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "mizu1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 10 && query.is_sneaking" },
+            { "mizu2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 1 && query.is_sneaking" },
+            { "mizu3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 2 && query.is_sneaking" },
+            { "mizu4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 3 && query.is_sneaking" },
+            { "mizu5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 4 && query.is_sneaking" },
+            { "mizu6": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 5 && query.is_sneaking" },
+            { "mizu7": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 6 && query.is_sneaking" },
+            { "mizu8": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 7 && query.is_sneaking" },
+            { "mizu9": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 8 && query.is_sneaking" },
+            { "mizu10": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 9 && query.is_sneaking" }
+          ]
+        },
+        "mizu1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/scoreboard players set @s mizu 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
+            "/scoreboard players set @s mizu 2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
+            "/scoreboard players set @s mizu 3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
+            "/scoreboard players set @s mizu 4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
+            "/scoreboard players set @s mizu 5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu6":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
+            "/scoreboard players set @s mizu 6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu7":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
+            "/scoreboard players set @s mizu 7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu8":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
+            "/scoreboard players set @s mizu 8"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu9":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
+            "/scoreboard players set @s mizu 9"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu10":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
+            "/scoreboard players set @s mizu 10"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

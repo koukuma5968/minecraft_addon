@@ -1,0 +1,14 @@
+{
+   "format_version": "1.17.0",
+   "kurokumaft:ice_machine" : {
+        "sound" : "stone",
+        "textures" : {
+            "up" : "ice_machine_top",
+            "down" : "ice_machine_top",
+            "east" : "ice_machine_side",
+            "north" : "ice_machine_side",
+            "south" : "ice_machine_front",
+            "west" : "ice_machine_side"
+        }
+    }
+}

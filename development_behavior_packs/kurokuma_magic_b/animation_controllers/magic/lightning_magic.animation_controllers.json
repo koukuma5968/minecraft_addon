@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.lightning_magic.lightning_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'lightning_wand'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add lightning_wand"
+          ],
+          "on_exit": [
+            "/tag @s remove lightning_wand"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'lightning_wand'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.lightning_magic.lightning": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "lightningwall": "query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && variable.attack_time" },
+            { "spark": "!query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && variable.attack_time" }
+          ]
+        },
+        "lightningwall": {
+          "on_entry": [
+            "/function magic/lightning/lightningwall"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "spark": {
+          "on_entry": [
+            "/function magic/lightning/spark"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

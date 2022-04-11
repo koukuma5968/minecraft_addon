@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:copper_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " | ",
+      " | ",
+      " # "
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:copper_ingot"
+      },
+      "#": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:copper_sword"
+    }
+  }
+}

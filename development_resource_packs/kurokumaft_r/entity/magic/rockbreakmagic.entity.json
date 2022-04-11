@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:rockbreakmagic",
+        "materials": {
+            "default": "fireball"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/items/magic/rockbreakmagic"
+          },
+          "geometry": {
+            "default": "geometry.rockbreakmagic"
+          },
+          "animations": {
+            "shooter": "animation.stonebarrettemagic.shooter"
+          },
+          "scripts": {
+            "scale": "2.5",
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.rockbreakmagic" ]
+        }
+    }
+  }
+  

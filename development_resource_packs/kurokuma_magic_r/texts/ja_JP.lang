@@ -1,0 +1,52 @@
+container.kurokumaft:magic_enchant_table=魔法エンチャント台
+container.kurokumaft:magic_enchant_table_block=魔法エンチャント台
+container.kurokumaft:magic_enchant_table.upgrade=装備に魔法をエンチャントする
+
+tile.kurokumaft:magic_enchant_table.name=魔法エンチャント台
+tile.kurokumaft:waterwall_block.name=水ブロック
+tile.kurokumaft:lightningwall_block.name=雷ブロック
+
+item.kurokumaft:fire_magic_stone.name=§4火の魔法石
+item.kurokumaft:water_magic_stone.name=§1水の魔法石
+item.kurokumaft:stone_magic_stone.name=§7石の魔法石
+item.kurokumaft:wind_magic_stone.name=§3風の魔法石
+item.kurokumaft:lightning_magic_stone.name=§6雷の魔法石
+item.kurokumaft:ice_magic_stone.name=§f氷の魔法石
+item.kurokumaft:saint_magic_stone.name=§e光の魔法石
+item.kurokumaft:dark_magic_stone.name=§8闇の魔法石
+
+item.kurokumaft:fire_wand.name=§4火の杖 初級火魔法
+item.kurokumaft:water_wand.name=§1水の杖 初級水魔法
+item.kurokumaft:stone_wand.name=§7石の杖 初級土魔法
+item.kurokumaft:wind_wand.name=§3風の杖 初級風魔法
+item.kurokumaft:lightning_wand.name=§6雷の杖 初級雷魔法
+item.kurokumaft:snow_wand.name=§f雪の杖 初級氷魔法
+item.kurokumaft:light_wand.name=§e光の杖 初級光魔法
+item.kurokumaft:dark_wand.name=§8闇の杖 初級闇魔法
+
+item.kurokumaft:flarecircle_rod.name=§4炎の杖 フレアサークル +10
+item.kurokumaft:waterwave_rod.name=§1波の杖 ウォーターウェーブ +10
+item.kurokumaft:rock_rod.name=§7岩の杖 ロックブレイク +10
+item.kurokumaft:storm_rod.name=§3嵐の杖 ストームトルネード +10
+item.kurokumaft:thunderclap_rod.name=§6霹靂の杖 サンダークラップ +10
+item.kurokumaft:freeze_rod.name=§f凍結の杖 フリーズコンフィ +10
+
+item.kurokumaft:firestorm_staff.name=§4§l火炎旋風の錫杖 ファイアストーム +20
+item.kurokumaft:explosion_staff.name=§8§l爆炎の錫杖 エクスプロージョン +20
+item.kurokumaft:flamespark_staff.name=§6§l雷炎の錫杖 フレイムスパーク +20
+item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 メイルシュトローム +20
+item.kurokumaft:thunderstorm_staff.name=§a§l渦雷の錫杖 サンダーストーム +20
+item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 アイスペレット +20
+
+item.kurokumaft:ice_magic_sword.name=アイスマジックソード
+
+item.kurokumaft:ice_magic_helmet.name=アイスマジックヘルム
+item.kurokumaft:ice_magic_chestplate.name=アイスマジックプレート
+item.kurokumaft:ice_magic_leggings.name=アイスマジックレギンス
+item.kurokumaft:ice_magic_boots.name=アイスマジックブーツ
+
+item.kurokumaft:fire_magic_sword.name=ファイアマジックソード
+item.kurokumaft:fire_magic_helmet.name=ファイアマジックヘルム
+item.kurokumaft:fire_magic_chestplate.name=ファイアマジックプレート
+item.kurokumaft:fire_magic_leggings.name=ファイアマジックレギンス
+item.kurokumaft:fire_magic_boots.name=ファイアマジックブーツ

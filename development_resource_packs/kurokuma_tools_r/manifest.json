@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "工具アドオン",
+        "name": "kurokuma_tools_r",
+        "uuid": "c9952c66-69cd-441a-98a4-672d26071eb4",
+        "version": [1, 0, 0],
+        "min_engine_version": [1,17,0]
+    },
+    "modules": [
+        {
+            "description": "工具アドオン",
+            "type": "resources",
+            "uuid": "526c7032-488a-4531-aa56-877a6731a9c1",
+            "version": [1, 0, 0]
+        }
+    ]
+}

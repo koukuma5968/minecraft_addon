@@ -1,0 +1,32 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:windwall_block",
+			"is_experimental": false,
+            "register_to_creative_menu": false
+		},
+		"components": {
+			"minecraft:block_light_emission": 0.2,
+			"minecraft:explosion_resistance": 0.5,
+			"minecraft:creative_category": { "category": "Construction" },
+			"minecraft:destroy_time": 1.2,
+			"minecraft:block_light_absorption": 3,
+			"minecraft:friction": 0.3,
+			"minecraft:on_step_on": {
+				"event": ":wind_levitation"
+			}
+		},
+		"events": {
+			":wind_levitation": {
+				"run_command": {
+					"command": [
+						"particle kurokumaft:storm1_particle ~~1~",
+						"effect @e[r=1.5] levitation 1 5 false"
+					],
+					"target": "self"
+   			    }
+			}
+		}
+	}
+}

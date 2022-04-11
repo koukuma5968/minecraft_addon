@@ -1,0 +1,46 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:magic_enchant_table"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "sgl",
+      "dfi",
+      "mnw"
+    ],
+    "key": {
+      "s": {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      "l": {
+        "item": "kurokumaft:lightning_magic_stone"
+      },
+      "w": {
+        "item": "kurokumaft:wind_magic_stone"
+      },
+      "m": {
+        "item": "kurokumaft:water_magic_stone"
+      },
+      "f": {
+        "item": "kurokumaft:fire_magic_stone"
+      },
+      "g": {
+        "item": "minecraft:gold_block"
+      },
+      "i": {
+        "item": "minecraft:iron_block"
+      },
+      "n": {
+        "item": "minecraft:netherite_block"
+      },
+      "d": {
+        "item": "minecraft:diamond_block"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:magic_enchant_table"
+    }
+  }
+}

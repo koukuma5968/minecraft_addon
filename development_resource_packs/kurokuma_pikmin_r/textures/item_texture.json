@@ -1,0 +1,10 @@
+{
+   "resource_pack_name" : "kurokuma_magic_r",
+   "texture_data" : {
+      "redpikmin_seed": { 
+         "textures": "textures/kurokumaft/items/seed/redpikmin_seed"
+      }
+
+   },
+   "texture_name" : "atlas.items"
+}

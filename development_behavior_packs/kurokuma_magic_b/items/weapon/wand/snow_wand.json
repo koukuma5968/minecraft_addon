@@ -1,0 +1,65 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:snow_wand",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.snow_wand"
+      },
+      "minecraft:cooldown": {
+        "category": "snow_magic",
+        "duration": 1.5
+      },
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 2,
+		  "minecraft:weapon": {
+      },
+      "minecraft:use_duration": 25,
+      "minecraft:durability": {
+        "max_durability": 100
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "snow_wand"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:snow_wand.name"
+      },
+      "minecraft:on_use":{
+        "on_use":{
+          "event":"kurokumaft:deep_snow"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:deep_snow": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "tag @e[family=monster,ry=-15,rym=15,r=10,c=1] add deep_snow",
+                "execute @e[tag=deep_snow] ~~~ fill ~-1 ~-1 ~-1 ~1 ~-2 ~1 powder_snow",
+                "tag @e[tag=deep_snow] remove deep_snow"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

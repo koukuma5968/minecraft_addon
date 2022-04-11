@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:bluepikmin",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "pikmin"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/pikmin/bluepikmin"
+      },
+      "geometry": {
+        "default": "geometry.bluepikmin"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 52
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 20.3;"
+        ]
+      },
+      "animations": {
+        "move": "animation.pikmin.move",
+        "swimming": "animation.pikmin.swimming"
+      },
+      "animation_controllers": [
+        { "move": "controller.animation.pikmin.move" },
+        { "swimming": "controller.animation.pikmin.swimming" }
+      ],
+      "render_controllers": [ "controller.render.pikmin" ],
+      "enable_attachables": true
+    }
+  }
+}

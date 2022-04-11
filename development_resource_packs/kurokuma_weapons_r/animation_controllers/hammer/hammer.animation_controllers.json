@@ -1,0 +1,20 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.hammer.wield": {
+			"initial_state": "wield",
+			"states": {
+				"wield": {
+					"animations": [
+						{
+							"shake": "query.main_hand_item_use_duration > 0.0f"
+						},
+						{
+							"thrown": "query.can_damage_nearby_mobs > 0.0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,233 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.tanjiro_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "mizu1": "query.scoreboard('tanjiro') == 22 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu2": "query.scoreboard('tanjiro') == 1 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu3": "query.scoreboard('tanjiro') == 2 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu4": "query.scoreboard('tanjiro') == 3 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu5": "query.scoreboard('tanjiro') == 4 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu6": "query.scoreboard('tanjiro') == 5 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu7": "query.scoreboard('tanjiro') == 6 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu8": "query.scoreboard('tanjiro') == 7 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu9": "query.scoreboard('tanjiro') == 8 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "mizu10": "query.scoreboard('tanjiro') == 9 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami1": "query.scoreboard('tanjiro') == 10 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami2": "query.scoreboard('tanjiro') == 11 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami3": "query.scoreboard('tanjiro') == 12 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami4": "query.scoreboard('tanjiro') == 13 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami5": "query.scoreboard('tanjiro') == 14 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami6": "query.scoreboard('tanjiro') == 15 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami7": "query.scoreboard('tanjiro') == 16 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami8": "query.scoreboard('tanjiro') == 17 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami9": "query.scoreboard('tanjiro') == 18 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami10": "query.scoreboard('tanjiro') == 19 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami11": "query.scoreboard('tanjiro') == 20 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" },
+            { "hinokami12": "query.scoreboard('tanjiro') == 21 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.is_sneaking" }
+          ]
+        },
+        "mizu1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu6":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu7":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu8":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 8"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu9":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 9"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu10":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
+            "/scoreboard players set @s tanjiro 10"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 円舞\"}]}",
+            "/scoreboard players set @s tanjiro 11"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 碧羅の天\"}]}",
+            "/scoreboard players set @s tanjiro 12"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 烈日紅鏡\"}]}",
+            "/scoreboard players set @s tanjiro 13"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 灼骨炎陽\"}]}",
+            "/scoreboard players set @s tanjiro 14"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 陽華突\"}]}",
+            "/scoreboard players set @s tanjiro 15"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami6":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 日暈の龍 頭舞い\"}]}",
+            "/scoreboard players set @s tanjiro 16"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami7":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 斜陽転身\"}]}",
+            "/scoreboard players set @s tanjiro 17"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami8":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 飛輪陽炎\"}]}",
+            "/scoreboard players set @s tanjiro 18"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami9":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 輝輝恩光\"}]}",
+            "/scoreboard players set @s tanjiro 19"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami10":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 火車\"}]}",
+            "/scoreboard players set @s tanjiro 20"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami11":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 幻日虹\"}]}",
+            "/scoreboard players set @s tanjiro 21"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hinokami12":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 炎舞\"}]}",
+            "/scoreboard players set @s tanjiro 22"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

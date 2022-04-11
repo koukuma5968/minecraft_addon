@@ -1,0 +1,13 @@
+{
+   "format_version": "1.17.0",
+   "kurokumaft:magic_enchant_table" : {
+        "textures" : {
+            "down" : "magic_enchant_table_bottom",
+            "east" : "magic_enchant_table_east",
+            "north" : "magic_enchant_table_north",
+            "south" : "magic_enchant_table_south",
+            "up" : "magic_enchant_table_top",
+            "west" : "magic_enchant_table_west"
+        }
+    }
+}

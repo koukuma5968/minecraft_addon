@@ -1,0 +1,76 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.kokyu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "tanjiro_add": "query.scoreboard('tanjiro') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro')" },
+            { "tanjiro_remove": "query.scoreboard('tanjiro') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro')" },
+            { "mizu_add": "query.scoreboard('mizu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
+            { "mizu_remove": "query.scoreboard('mizu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
+            { "hi_add": "query.scoreboard('hi') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" },
+            { "hi_remove": "query.scoreboard('hi') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" }
+          ]
+        },
+        "tanjiro_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add tanjiro dummy",
+            "/scoreboard players set @s tanjiro 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "tanjiro_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s tanjiro",
+            "/scoreboard objectives remove tanjiro"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "mizu_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add mizu dummy",
+            "/scoreboard players set @s mizu 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "mizu_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s mizu",
+            "/scoreboard objectives remove mizu"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add hi dummy",
+            "/scoreboard players set @s hi 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s hi",
+            "/scoreboard objectives remove hi"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    }
+  }
+}

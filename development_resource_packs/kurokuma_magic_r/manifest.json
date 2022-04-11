@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "魔法アドオン",
+        "name": "kurokuma_magic_r",
+        "uuid": "f93bea78-77fd-4ce9-8a18-6eb10a2bd5bd",
+        "version": [1, 0, 0],
+        "min_engine_version": [1,17,0]
+    },
+    "modules": [
+        {
+            "description": "魔法アドオン",
+            "type": "resources",
+            "uuid": "5fe93994-5b72-45fe-b52f-1b10130ccf5e",
+            "version": [1, 0, 0]
+        }
+    ]
+}

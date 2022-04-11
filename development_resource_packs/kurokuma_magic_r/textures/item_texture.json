@@ -1,0 +1,137 @@
+{
+   "resource_pack_name" : "kurokuma_magic_r",
+   "texture_data" : {
+      "fire_wand": { 
+         "textures": "textures/kurokumaft/items/wand/fire_wand"
+      },
+      "water_wand": { 
+         "textures": "textures/kurokumaft/items/wand/water_wand"
+      },
+      "stone_wand": { 
+         "textures": "textures/kurokumaft/items/wand/stone_wand"
+      },
+      "wind_wand": { 
+         "textures": "textures/kurokumaft/items/wand/wind_wand"
+      },
+      "lightning_wand": { 
+         "textures": "textures/kurokumaft/items/wand/lightning_wand"
+      },
+      "snow_wand": { 
+         "textures": "textures/kurokumaft/items/wand/snow_wand"
+      },
+      "light_wand": { 
+         "textures": "textures/kurokumaft/items/wand/light_wand"
+      },
+      "dark_wand": { 
+         "textures": "textures/kurokumaft/items/wand/dark_wand"
+      },
+
+      "flarecircle_rod": { 
+         "textures": "textures/kurokumaft/items/rod/flarecircle_rod"
+      },
+      "storm_rod": { 
+         "textures": "textures/kurokumaft/items/rod/storm_rod"
+      },
+      "waterwave_rod": { 
+         "textures": "textures/kurokumaft/items/rod/waterwave_rod"
+      },
+      "rock_rod": { 
+         "textures": "textures/kurokumaft/items/rod/rock_rod"
+      },
+      "thunderclap_rod": { 
+         "textures": "textures/kurokumaft/items/rod/thunderclap_rod"
+      },
+      "freeze_rod": { 
+         "textures": "textures/kurokumaft/items/rod/freeze_rod"
+      },
+
+      "firestorm_staff": { 
+         "textures": "textures/kurokumaft/items/staff/firestorm_staff"
+      },
+      "explosion_staff": { 
+         "textures": "textures/kurokumaft/items/staff/explosion_staff"
+      },
+      "flamespark_staff": { 
+         "textures": "textures/kurokumaft/items/staff/flamespark_staff"
+      },
+      "mailstrom_staff": { 
+         "textures": "textures/kurokumaft/items/staff/mailstrom_staff"
+      },
+
+      "fire_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/fire_magic_stone"
+      },
+      "water_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/water_magic_stone"
+      },
+      "wind_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/wind_magic_stone"
+      },
+      "stone_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/stone_magic_stone"
+      },
+      "lightning_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/lightning_magic_stone"
+      },
+      "ice_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/ice_magic_stone"
+      },
+      "light_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/light_magic_stone"
+      },
+      "dark_magic_stone": { 
+         "textures": "textures/kurokumaft/items/magic/stone/dark_magic_stone"
+      },
+
+      "waterballmagic": { 
+         "textures": "textures/kurokumaft/items/magic/waterballmagic"
+      },
+      "fireballmagic": { 
+         "textures": "textures/kurokumaft/items/magic/fireballmagic"
+      },
+      "windcuttermagic": { 
+         "textures": "textures/kurokumaft/items/magic/windcuttermagic"
+      },
+      "lightningboltmagic": { 
+         "textures": "textures/kurokumaft/items/magic/lightningboltmagic"
+      },
+      "stonebarrettemagic": { 
+         "textures": "textures/kurokumaft/items/magic/stonebarrettemagic"
+      },
+      "deepsnowmagic": { 
+         "textures": "textures/kurokumaft/items/magic/deepsnowmagic"
+      },
+
+      "ice_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/ice_magic_sword"
+      },
+
+      "ice_magic_helmet": {
+         "textures" : "textures/kurokumaft/items/magic_armer/ice_magic_helmet"
+      },
+      "ice_magic_chestplate": {
+         "textures" : "textures/kurokumaft/items/magic_armer/ice_magic_chestplate"
+      },
+      "ice_magic_leggings": {
+         "textures" : "textures/kurokumaft/items/magic_armer/ice_magic_leggings"
+      },
+      "ice_magic_boots": {
+         "textures" : "textures/kurokumaft/items/magic_armer/ice_magic_boots"
+      },
+
+      "fire_magic_helmet": {
+         "textures" : "textures/kurokumaft/items/magic_armer/fire_magic_helmet"
+      },
+      "fire_magic_chestplate": {
+         "textures" : "textures/kurokumaft/items/magic_armer/fire_magic_chestplate"
+      },
+      "fire_magic_leggings": {
+         "textures" : "textures/kurokumaft/items/magic_armer/fire_magic_leggings"
+      },
+      "fire_magic_boots": {
+         "textures" : "textures/kurokumaft/items/magic_armer/fire_magic_boots"
+      }
+
+   },
+   "texture_name" : "atlas.items"
+}

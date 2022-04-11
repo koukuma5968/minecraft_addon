@@ -1,0 +1,14 @@
+{
+   "num_mip_levels" : 4,
+   "padding" : 8,
+   "resource_pack_name" : "kurokumaft_kimetsu_r",
+   "texture_data" : {
+      "scarlet_ore" : {
+         "textures" : "textures/kurokumaft/blocks/scarlet_ore"
+      },
+      "scarlet_gravel" : {
+         "textures" : "textures/kurokumaft/blocks/scarlet_gravel"
+      }
+   },
+   "texture_name" : "atlas.terrain"
+}

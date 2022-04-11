@@ -1,0 +1,24 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+      "description": {
+        "identifier": "kurokumaft:ice_machine_snow"
+      },
+  
+      "tags": [ "ice_machine" ],
+      "priority": 2,
+      "ingredients": [
+        {
+          "item": "minecraft:snowball"
+        },
+        {
+          "item": "minecraft:dye",
+          "data": 4
+        }
+      ],
+      "result": 
+        { "item": "minecraft:snow","count": 1 }
+    }
+    
+  }
+  

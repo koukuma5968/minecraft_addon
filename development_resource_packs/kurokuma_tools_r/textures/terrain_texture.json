@@ -1,0 +1,26 @@
+{
+   "resource_pack_name" : "kurokuma_tool_r",
+   "texture_name": "atlas.terrain",
+   "padding" : 8,
+   "num_mip_levels" : 4,
+   "texture_data" : {
+      "ice_machine" : {
+         "textures" : [
+            "textures/kurokumaft/blocks/ice_machine_front",
+            "textures/kurokumaft/blocks/ice_machine_side",
+            "textures/kurokumaft/blocks/ice_machine_top"
+         ]
+      },
+      "ice_machine_front" : {
+         "textures" : [
+            "textures/kurokumaft/blocks/ice_machine_front"
+         ]
+      },
+      "ice_machine_side" : {
+         "textures" : [ "textures/kurokumaft/blocks/ice_machine_side", "textures/kurokumaft/blocks/ice_machine_side" ]
+      },
+      "ice_machine_top" : {
+         "textures" : [ "textures/kurokumaft/blocks/ice_machine_top", "textures/kurokumaft/blocks/ice_machine_top" ]
+      }
+   }
+}

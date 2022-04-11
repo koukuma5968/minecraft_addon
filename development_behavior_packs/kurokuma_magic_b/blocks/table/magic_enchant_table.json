@@ -1,0 +1,50 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:magic_enchant_table",
+			"is_experimental": false,
+            "register_to_creative_menu": false
+		},
+		"components": {
+			"minecraft:explosion_resistance": 0.5,
+			"minecraft:creative_category": { "category": "Construction" },
+			"minecraft:destroy_time": 2.2,
+			"minecraft:block_light_absorption": 0,
+			"minecraft:geometry": "geometry.magic_enchant_table",
+			"minecraft:material_instances": {
+				"down": {
+					"render_method": "blend"
+				},
+				"up": {
+					"render_method": "blend"
+				},
+				"east": {
+					"render_method": "blend"
+				},
+				"west": {
+					"render_method": "blend"
+				},
+				"north": {
+					"render_method": "blend"
+				},
+				"south": {
+					"render_method": "blend"
+				},
+				"magic_enchant_table": {
+					"texture": "magic_enchant_table",
+					"render_method": "blend",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:crafting_table": {
+				"custom_description": "tile.kurokumaft:magic_enchant_table.name",
+				"grid_size": 3,
+				"crafting_tags": [
+					"magic_enchant"
+				]
+			}
+		}
+	}
+}

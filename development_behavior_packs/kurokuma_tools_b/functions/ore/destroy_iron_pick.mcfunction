@@ -1,0 +1,21 @@
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 iron_ore 0 setblock ^0 ^1 ^1 iron_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 iron_ore 0 setblock ^0 ^1 ^2 iron_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 deepslate_iron_ore 0 setblock ^0 ^1 ^1 deepslate_iron_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 deepslate_iron_ore 0 setblock ^0 ^1 ^2 deepslate_iron_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 iron_block 0 setblock ^0 ^1 ^1 iron_block 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 iron_block 0 setblock ^0 ^1 ^2 iron_block 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 coal_ore 0 setblock ^0 ^1 ^1 coal_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 coal_ore 0 setblock ^0 ^1 ^2 coal_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 deepslate_coal_ore 0 setblock ^0 ^1 ^1 deepslate_coal_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 deepslate_coal_ore 0 setblock ^0 ^1 ^2 deepslate_coal_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 redstone_block 0 setblock ^0 ^1 ^1 redstone_block 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 redstone_block 0 setblock ^0 ^1 ^2 redstone_block 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 redstone_ore 0 setblock ^0 ^1 ^1 redstone_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 redstone_ore 0 setblock ^0 ^1 ^2 redstone_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 lit_redstone_ore 0 setblock ^0 ^1 ^1 lit_redstone_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 lit_redstone_ore 0 setblock ^0 ^1 ^2 lit_redstone_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 deepslate_redstone_ore 0 setblock ^0 ^1 ^1 deepslate_redstone_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 deepslate_redstone_ore 0 setblock ^0 ^1 ^2 deepslate_redstone_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^1 lit_deepslate_redstone_ore 0 setblock ^0 ^1 ^1 deepslate_redstone_ore 0 destroy
+execute @s[tag=destroy_iron_pick] ~~~ detect ^0 ^1 ^2 lit_deepslate_redstone_ore 0 setblock ^0 ^1 ^2 deepslate_redstone_ore 0 destroy
+tag @s remove destroy_iron_pick

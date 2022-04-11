@@ -1,0 +1,89 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:firestormmagic",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": {
+       "width": 0.31,
+       "height": 0.31
+      },
+      "minecraft:projectile": {
+   
+       "on_hit": {
+          "affect_projectile": true,
+         "impact_damage": {
+           "damage": 50,
+           "knockback": false,
+           "catch_fire": true,
+           "destroy_on_hit": true,
+           "semi_random_diff_damage": false
+         },
+         "catch_fire": {
+           "fire_affected_by_griefing": true
+         },
+         "particle_on_hit": {
+          "particle_type": "kurokumaft:flames_particle",
+          "num_particle": 6,
+          "on_entity_hit": true,
+          "on_other_hit": true
+          },
+          "definition_event": {
+            "affectProjectile": false,
+            "eventTrigger": {
+              "event": "flames_particle",
+              "target": "self"
+            }
+          },
+         "remove_on_hit": { }
+       },
+       "hit_sound": "fire",
+       "power": 1.5,
+       "gravity": -0.06,
+       "inertia": 1,
+       "liquid_inertia": 1,
+       "reflect_on_hurt": true
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+       "is_pushable": true,
+       "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+       "default_values": {
+         "max_optimized_distance": 80.0,
+         "max_dropped_ticks": 7,
+         "use_motion_prediction_hints": true
+       }
+     }
+    },
+    "events": {
+      "flames_particle": {
+        "run_command": {
+          "command": [
+            "particle kurokumaft:firestome1_particle ~~~",
+            "particle kurokumaft:firestome1_particle ~~1~",
+            "particle kurokumaft:firestome2_particle ~~2~",
+            "particle kurokumaft:firestome2_particle ~~3~",
+            "particle kurokumaft:firestome3_particle ~~4~",
+            "particle kurokumaft:firestome3_particle ~~5~",
+            "particle kurokumaft:firestome4_particle ~~6~",
+            "particle kurokumaft:firestome4_particle ~~7~",
+            "particle kurokumaft:firestome5_particle ~~8~",
+            "particle kurokumaft:firestome5_particle ~~9~",
+            "particle kurokumaft:firestome5_particle ~~10~",
+            "effect @e[r=5] wither 2 50 true",
+            "effect @e[r=5] levitation 1 20 true",
+            "fill ~-1 ~ ~-1 ~1 ~ ~1 fire 0 replace"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

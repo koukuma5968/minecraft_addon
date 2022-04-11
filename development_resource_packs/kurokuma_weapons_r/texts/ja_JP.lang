@@ -1,0 +1,65 @@
+itemGroup.name.spear=槍	#
+itemGroup.name.knife=ナイフ	#
+itemGroup.name.hammer=槌 #
+
+item.kurokumaft:bamboo_spear.name=竹やり
+item.kurokumaft:wooden_spear.name=木のやり
+item.kurokumaft:stone_spear.name=石やり
+item.kurokumaft:granite_spear.name=御影石のやり
+item.kurokumaft:diorite_spear.name=閃緑岩のやり
+item.kurokumaft:andesite_spear.name=安山岩のやり
+item.kurokumaft:basalt_spear.name=玄武岩のやり
+item.kurokumaft:deep_crimson_spear.name=真紅のやり
+item.kurokumaft:crooked_spear.name=歪んだやり
+item.kurokumaft:glass_spear.name=ガラスのやり
+item.kurokumaft:lapis_spear.name=ラピスラズリスピアー
+item.kurokumaft:quartz_spear.name=クォーツスピアー
+item.kurokumaft:copper_spear.name=ブロンズスピアー
+item.kurokumaft:blue_ice_spear.name=青氷のやり
+item.kurokumaft:coal_spear.name=石炭のやり
+item.kurokumaft:sealantern_spear.name=シーランタンスピアー
+item.kurokumaft:bone_spear.name=ボーンスピアー
+item.kurokumaft:iron_spear.name=アイアンスピアー
+item.kurokumaft:golden_spear.name=ゴールデンスピアー
+item.kurokumaft:diamond_spear.name=ダイヤモンドスピアー
+item.kurokumaft:netherite_spear.name=ネザイライトスピアー
+
+item.kurokumaft:bamboo_axe.name=竹斧
+item.kurokumaft:copper_axe.name=銅の斧
+
+item.kurokumaft:bamboo_knife.name=竹のナイフ
+
+item.kurokumaft:wooden_bread.name=木刀
+
+item.kurokumaft:bamboo_sword.name=竹の剣
+item.kurokumaft:copper_sword.name=銅の剣
+item.kurokumaft:tnt_sword.name=TNTソード
+item.kurokumaft:granite_sword.name=花崗剣
+item.kurokumaft:diorite_sword.name=閃緑剣
+item.kurokumaft:andesite_sword.name=安山剣
+item.kurokumaft:basalt_sword.name=玄武剣
+item.kurokumaft:deep_crimson_sword.name=真紅の剣
+item.kurokumaft:crooked_sword.name=歪んだ剣
+item.kurokumaft:glass_sword.name=ガラスの剣
+item.kurokumaft:lapis_sword.name=ラピスラズリソード
+item.kurokumaft:quartz_sword.name=クォーツソード
+item.kurokumaft:blue_ice_sword.name=青氷剣
+item.kurokumaft:coal_sword.name=石炭剣
+item.kurokumaft:sealantern_sword.name=シーランタンソード
+item.kurokumaft:glow_sword.name=グロウソード
+item.kurokumaft:bone_sword.name=骨剣
+
+item.kurokumaft:copper_helmet.name=銅のヘルメット
+item.kurokumaft:copper_chestplate.name=銅の胸当て
+item.kurokumaft:copper_leggings.name=銅のレギンス
+item.kurokumaft:copper_boots.name=銅のブーツ
+
+item.kurokumaft:wooden_hammer.name=木槌
+item.kurokumaft:stone_hammer.name=石槌
+item.kurokumaft:iron_hammer.name=鉄のハンマー
+item.kurokumaft:golden_hammer.name=ゴールデンハンマー
+item.kurokumaft:diamond_hammer.name=ダイヤモンドハンマー
+item.kurokumaft:netherite_hammer.name=ネザライトハンマー
+
+item.kurokumaft:kettle_lid.name=なべぶた	#
+item.kurokumaft:copper_shield.name=銅の盾	#

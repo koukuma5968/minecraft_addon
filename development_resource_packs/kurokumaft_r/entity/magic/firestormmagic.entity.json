@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:firestormmagic",
+        "materials": {
+            "default": "fireball"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/items/magic/firestormmagic"
+          },
+          "geometry": {
+            "default": "geometry.firestormmagic"
+          },
+          "animations": {
+            "shooter": "animation.firestormmagic.shooter"
+          },
+          "scripts": {
+            "scale": "0.5",
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.firestormmagic" ]
+        }
+    }
+  }
+  

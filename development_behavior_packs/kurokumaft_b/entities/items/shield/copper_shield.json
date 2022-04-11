@@ -1,0 +1,77 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:copper_shield",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+
+    "components": {
+      "minecraft:nameable": {
+        "always_show": false
+      },
+			"minecraft:geometry": "geometry.magic_enchant_table",
+			"minecraft:material_instances": {
+				"down": {
+					"render_method": "blend"
+				},
+				"up": {
+					"render_method": "blend"
+				},
+				"east": {
+					"render_method": "blend"
+				},
+				"west": {
+					"render_method": "blend"
+				},
+				"north": {
+					"render_method": "blend"
+				},
+				"south": {
+					"render_method": "blend"
+				},
+				"magic_enchant_table": {
+					"texture": "magic_enchant_table",
+					"render_method": "blend",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+      "minecraft:collision_box": {
+        "width": 0.31,
+        "height": 0.31
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "event": "kurokumaft:protection"
+          }
+        ]
+      }
+    },
+    "events": {
+      "kurokumaft:protection": {
+        "run_command": {
+          "command": [
+            "effect @p protection 1 3 true"
+          ]
+        }
+      }
+    }
+  }
+}

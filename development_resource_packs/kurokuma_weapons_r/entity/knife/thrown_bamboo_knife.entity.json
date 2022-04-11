@@ -1,0 +1,15 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:thrown_bamboo_knife",
+      "textures": {
+        "default": "textures/kurokumaft/models/knife/bamboo_knife",
+        "loyalty_rope": "textures/entity/loyalty_rope"
+      },
+      "geometry": {
+        "default": "geometry.bamboo_knife"
+      }
+    }
+  }
+}

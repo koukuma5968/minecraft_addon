@@ -1,0 +1,20 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:scarlet_ore",
+			"is_experimental": false,
+            "register_to_creative_menu": false
+		},
+		"components": {
+			"minecraft:display_name": "kurokumaft:scarlet_ore",
+			"minecraft:explosion_resistance": 0,
+			"minecraft:creative_category": { "category": "Construction" },
+			"minecraft:destroy_time": 20,
+			"minecraft:block_light_absorption": 0,
+			"minecraft:loot": "loot_tables/blocks/scarlet_ore.json"
+		},
+		"events": {
+		}
+	}
+}

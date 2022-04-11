@@ -1,0 +1,61 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:thrown_bamboo_knife",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": {
+       "width": 0.11,
+       "height": 0.11
+      },
+      "minecraft:projectile": {
+       "on_hit": {
+         "affect_projectile": true,
+         "impact_damage": {
+           "damage": 3,
+           "knockback": false,
+           "catch_fire": false,
+           "destroy_on_hit": true,
+           "semi_random_diff_damage": false
+         },
+         "stick_in_ground": {
+          "shake_time" : 0
+         }
+       },
+       "hit_sound": "item.trident.hit",
+       "hit_ground_sound": "item.trident.hit_ground",
+       "power": 4,
+       "gravity": 0.10,
+       "inertia": 1,
+       "liquid_inertia": 1,
+       "uncertainty_base": 0,
+       "uncertainty_multiplier": 0,
+       "reflect_on_hurt": true,
+       "offset": [ 0, -1.5, 0 ]
+      },
+      "minecraft:giveable": {
+        "items": ["bamboo_knife"]
+      },
+      "minecraft:group_size": {
+        "radius": 5
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+       "is_pushable": false,
+       "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+       "default_values": {
+         "max_optimized_distance": 80.0,
+         "max_dropped_ticks": 7,
+         "use_motion_prediction_hints": true
+       }
+     }
+    }
+  }
+}

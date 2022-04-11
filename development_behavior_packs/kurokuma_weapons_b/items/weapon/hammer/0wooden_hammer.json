@@ -1,0 +1,91 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:wooden_hammer",
+      "category": "equipment"
+    },
+    "components": {
+      "tag:kurokumaft:is_hammer": {},
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.hammer"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 5,
+		  "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event":"kurokumaft:hammer"
+        },
+        "on_not_hurt_entity": {
+          "event":"kurokumaft:hammer"
+        }
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "position": [1.0,1.5,-2.5],
+            "scale": [0.2, 0.2, 0.2]
+          },
+          "third_person": {
+            "position": [1.0,2.2,-1.5],
+            "scale": [0.2, 0.2, 0.2]
+          }
+        }
+      },
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "sword"
+      },
+      "minecraft:use_duration": 25,
+      "minecraft:durability": {
+        "max_durability": 111
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "wooden_hammer"
+      },
+      "minecraft:throwable": {
+        "do_swing_animation": false,
+        "min_draw_duration": 0.5,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      // "minecraft:projectile": {
+      //   "projectile_entity": "kurokumaft:wooden_hammer",
+      //   "minimum_critical_power": 1.0
+      // },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:wooden_hammer.name"
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+      "kurokumaft:hammer": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "tag @e[type=!player,r=2] add hammer",
+                "particle kurokumaft:shock_particle ^ ^1 ^2.4",
+                "effect @e[tag=hammer] levitation 1 5 true",
+                "execute @e[tag=hammer,family=!undead] ~ ~ ~ effect @e[tag=hammer,family=!undead] instant_damage 1 1 true",
+                "execute @e[tag=hammer,family=undead] ~ ~ ~ effect @e[tag=hammer,family=undead] wither 1 1 true",
+                "tag @e[tag=hammer] remove hammer"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":3
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "神話アドオン",
+        "name": "kurokuma_legend_r",
+        "uuid": "1a02f617-676e-48fd-846f-01f4ac7d90fc",
+        "version": [1, 0, 0],
+        "min_engine_version": [1,17,0]
+    },
+    "modules": [
+        {
+            "description": "神話アドオン",
+            "type": "resources",
+            "uuid": "7cb91504-0278-4440-9024-3b8a948d9c51",
+            "version": [1, 0, 0]
+        }
+    ]
+}

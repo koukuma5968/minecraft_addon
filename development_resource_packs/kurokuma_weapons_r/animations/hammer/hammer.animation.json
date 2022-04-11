@@ -1,0 +1,82 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hammer.shake": {
+			"loop": true,
+			"animation_length": 7.6,
+			"override_previous_animation": true,
+			"bones": {
+				"hammer": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-117.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 11, 5]
+					},
+					"scale": 2
+				},
+				"hammer_head": {
+					"scale": 1
+				}
+			}
+		},
+		"animation.hammer.thrown": {
+			"loop": true,
+			"animation_length": 0.3,
+			"bones": {
+				"hammer": {
+					"rotation": {
+						"0.0": [-127.5, 0, 0],
+						"0.1": [-25, 0, 0],
+						"0.2": [130, 0, 0],
+						"0.3": [227.5, 0, 0]
+					},
+					"position": [0, 0, 0],
+					"scale": 2
+				}
+			}
+		},
+		"animation.hammer.first_person": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"hammer": {
+					"rotation": [44.73777, -66.29411, 84.95295],
+					"position": [0, 0, 5],
+					"scale": 2
+				}
+			}
+		},
+		"animation.hammer.third_person": {
+			"loop": true,
+			"animation_length": 0.41667,
+			"bones": {
+				"hammer": {
+					"position": [0, -1, 1],
+					"scale": 2
+				}
+			}
+		},
+		"animation.hammer.first_nomal": {
+			"animation_length": 0.41667,
+			"override_previous_animation": true,
+			"bones": {
+				"hammer": {
+					"rotation": {
+						"0.0": [5.09929, -60.51816, 95.71187],
+						"0.2083": [-24.90071, -60.51816, 95.71187],
+						"0.4167": [107.59929, -60.51816, 95.71187]
+					},
+					"position": {
+						"0.0": [0, 0, 5],
+						"0.2083": [0, -11, 0],
+						"0.4167": [-17, -2, 0]
+					},
+					"scale": 2
+				}
+			}
+		}
+	}
+}

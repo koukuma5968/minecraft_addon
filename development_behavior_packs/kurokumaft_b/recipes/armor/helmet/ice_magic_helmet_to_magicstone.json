@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:ice_magic_helmet_to_magicstone"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "priority": 3,
+    "ingredients": [
+      {
+        "item": "minecraft:diamond_helmet"
+      },
+      {
+        "item": "minecraft:packed_ice"
+      },
+      {
+        "item": "kurokumaft:water_magic_stone"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:ice_magic_helmet",
+      "count": 1
+    }
+  }
+  
+}

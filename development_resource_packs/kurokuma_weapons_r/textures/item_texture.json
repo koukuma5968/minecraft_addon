@@ -1,0 +1,83 @@
+{
+   "resource_pack_name" : "kurokuma_Resource_Pack",
+   "texture_data" : {
+      "bamboo_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/bamboo_sword"
+      },
+      "copper_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/copper_sword"
+      },
+      "tnt_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/tnt_sword"
+      },
+      "granite_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/granite_sword"
+      },
+      "glow_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/glow_sword"
+      },
+
+      "bamboo_axe" : {
+         "textures" : "textures/kurokumaft/items/axe/bamboo_axe"
+      },
+      "copper_axe" : {
+         "textures" : "textures/kurokumaft/items/axe/copper_axe"
+      },
+
+      "bamboo_spear": {
+         "textures" : "textures/kurokumaft/items/spear/bamboo_spear"
+      },
+      "wooden_spear": {
+         "textures": "textures/kurokumaft/items/spear/wooden_spear"
+      },
+
+      "bamboo_knife": {
+         "textures" : "textures/kurokumaft/items/knife/bamboo_knife"
+      },
+
+      "wooden_bread": {
+   		"textures": "textures/kurokumaft/items/bread/wooden_bread"
+      },
+
+      "wooden_hammer": {
+         "textures": "textures/kurokumaft/items/hammer/wood_hammer"
+      },
+      "stone_hammer": {
+         "textures": "textures/kurokumaft/items/hammer/stone_hammer"
+      },
+      "iron_hammer": {
+         "textures": "textures/kurokumaft/items/hammer/iron_hammer"
+      },
+      "golden_hammer": {
+         "textures": "textures/kurokumaft/items/hammer/golden_hammer"
+      },
+      "diamond_hammer": {
+         "textures": "textures/kurokumaft/items/hammer/diamond_hammer"
+      },
+      "netherite_hammer": {
+         "textures": "textures/kurokumaft/items/hammer/netherite_hammer"
+      },
+
+      "copper_helmet": {
+         "textures" : "textures/kurokumaft/items/armer/copper_helmet"
+      },
+      "copper_chestplate": {
+         "textures" : "textures/kurokumaft/items/armer/copper_chestplate"
+      },
+      "copper_leggings": {
+         "textures" : "textures/kurokumaft/items/armer/copper_leggings"
+      },
+      "copper_boots": {
+         "textures" : "textures/kurokumaft/items/armer/copper_boots"
+      },
+
+      "kettle_lid" : {
+         "textures" : "textures/kurokumaft/items/shield/kettle_lid"
+      },
+      "copper_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/copper_shield"
+      }
+
+   },
+   "texture_name" : "atlas.items"
+}

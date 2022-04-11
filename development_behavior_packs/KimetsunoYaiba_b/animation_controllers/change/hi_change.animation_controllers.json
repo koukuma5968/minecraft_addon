@@ -1,0 +1,133 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.hi_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "hi1": "query.scoreboard('hi') == 12 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi2": "query.scoreboard('hi') == 1 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi3": "query.scoreboard('hi') == 2 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi4": "query.scoreboard('hi') == 3 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi5": "query.scoreboard('hi') == 4 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi6": "query.scoreboard('hi') == 5 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi7": "query.scoreboard('hi') == 6 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi8": "query.scoreboard('hi') == 7 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi9": "query.scoreboard('hi') == 8 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi10": "query.scoreboard('hi') == 9 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi11": "query.scoreboard('hi') == 10 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" },
+            { "hi12": "query.scoreboard('hi') == 11 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.is_sneaking" }
+          ]
+        },
+        "hi1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 壱ノ型\"}]}",
+            "/scoreboard players set @s hi 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 弐ノ型\"}]}",
+            "/scoreboard players set @s hi 2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 参ノ型\"}]}",
+            "/scoreboard players set @s hi 3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 肆ノ型\"}]}",
+            "/scoreboard players set @s hi 4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 伍ノ型\"}]}",
+            "/scoreboard players set @s hi 5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi6":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 陸ノ型\"}]}",
+            "/scoreboard players set @s hi 6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi7":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 漆ノ型\"}]}",
+            "/scoreboard players set @s hi 7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi8":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 捌ノ型\"}]}",
+            "/scoreboard players set @s hi 8"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi9":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 玖ノ型\"}]}",
+            "/scoreboard players set @s hi 9"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi10":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 拾ノ型\"}]}",
+            "/scoreboard players set @s hi 10"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi11":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 拾壱ノ型\"}]}",
+            "/scoreboard players set @s hi 11"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hi12":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 拾弐ノ型\"}]}",
+            "/scoreboard players set @s hi 12"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.light_magic.light_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "light": "query.get_equipped_item_name == 'light_wand'" }
+          ]
+        },
+        "light": {
+          "on_entry": [
+            "/tag @s add light_wand"
+          ],
+          "on_exit": [
+            "/tag @s remove light_wand"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'light_wand'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.light_magic.light": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "flash": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && variable.attack_time" },
+            { "light_bread": "!query.is_sneaking && query.get_equipped_item_name == 'light_wand' && variable.attack_time" },
+            { "recovery": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && query.is_using_item" },
+            { "healing": "!query.is_sneaking && query.get_equipped_item_name == 'light_wand' && query.is_using_item" }
+          ]
+        },
+        "recovery": {
+          "on_entry": [
+            "/function magic/light/recovery"
+          ],
+          "transitions": [
+            {"default":"!query.item_in_use_duration > 0.1"}
+          ]
+        },
+        "healing": {
+          "on_entry": [
+            "/function magic/light/healing"
+          ],
+          "transitions": [
+            {"default":"!query.item_in_use_duration > 0.1"}
+          ]
+        },
+        "light_bread": {
+          "on_entry": [
+            "/function magic/light/light_bread"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "flash": {
+          "on_entry": [
+            "/function magic/light/flash"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

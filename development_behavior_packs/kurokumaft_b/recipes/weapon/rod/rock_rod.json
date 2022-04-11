@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:rock_rod"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " m ",
+      "#l#",
+      "#l#"
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:gold_ingot"
+      },
+      "m": {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:rock_rod"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.magicenchant.set_on": {
+			"initial_state": "set_on",
+			"states": {
+				"set_on": {
+					"animations": [
+						"set"
+					],
+					"transitions": [
+						{
+							"state": "query.any_animation_finished"
+						}
+						
+					]
+				},
+				"state": {
+					"animations": [
+					  "state"
+					]
+				}
+			}
+		}
+	}
+}

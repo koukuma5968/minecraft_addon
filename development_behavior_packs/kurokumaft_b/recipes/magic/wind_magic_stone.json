@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_stone"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "   ",
+      " s ",
+      " d "
+    ],
+    "key": {
+      "s": {
+        "item": "minecraft:feather"
+      },
+      "d": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wind_magic_stone"
+    }
+  }
+}

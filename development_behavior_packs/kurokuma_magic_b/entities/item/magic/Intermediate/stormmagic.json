@@ -1,0 +1,65 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:stormmagic",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.31,
+        "height": 0.31
+      },
+      "minecraft:type_family": {
+        "family": [
+          "magic"
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "affect_projectile": false,
+          "definition_event": {
+            "affectProjectile": false,
+            "eventTrigger": {
+              "event": "storm_particle",
+              "target": "self"
+            }
+          }
+        },
+        "power": 0,
+        "gravity": 1,
+        "inertia": 0,
+        "liquid_inertia": 0
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "storm_particle": {
+        "run_command": {
+          "command": [
+            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm1_particle ~~~",
+            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm2_particle ~~1~",
+            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm3_particle ~~2~",
+            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm4_particle ~~3~",
+            "effect @e[tag=storm,c=1] wither 2 5 true",
+            "effect @e[tag=storm,c=1] levitation 1 15 true"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

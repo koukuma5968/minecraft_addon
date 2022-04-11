@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:fire_wand"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "lml",
+      " # ",
+      " # "
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:lapis_block"
+      },
+      "m": {
+        "item": "kurokumaft:fire_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:fire_wand"
+    }
+  }
+}

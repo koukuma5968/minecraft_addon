@@ -1,0 +1,21 @@
+{
+   "resource_pack_name" : "kurokumaft_kimetsu_r",
+   "texture_data" : {
+      "nichirintou_tanjiro": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_tanjiro"
+      },
+      "nichirintou_hi": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hi"
+      },
+      "nichirintou_mizu": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_mizu"
+      },
+      "scarlet_ironfish": {
+         "textures" : "textures/kurokumaft/items/ore/scarlet_ironfish"
+      },
+      "scarlet_nugget": {
+         "textures" : "textures/kurokumaft/items/ore/scarlet_nugget"
+      }
+   },
+   "texture_name" : "atlas.items"
+}
