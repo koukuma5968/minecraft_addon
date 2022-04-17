@@ -6,6 +6,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
+					"/gamerule sendcommandfeedback false",
 					"/execute @s ~~~ tp @s ~~1~"
 				]
 			}
@@ -15,6 +16,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
+					"/gamerule sendcommandfeedback false",
 					"/execute @s ~~~ tp @s ~~~"
 				]
 			}
@@ -25,6 +27,7 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_hi4",
+					"/gamerule sendcommandfeedback false",
 					"/execute @s ~~~ tp @s ~~~"
 				],
 				"0.1": [
@@ -122,6 +125,7 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_hi5",
+					"/gamerule sendcommandfeedback false",
 					"/execute @s ~~~ tp @s ^^^0.5 true",
 					"/execute @s ^0^^1 damage @e[tag=!kokyu_hi5,r=1.5] 15 entity_attack",
 					"/execute @s ^0.5^^1 particle kurokumaft:hi5_particle ~~~",

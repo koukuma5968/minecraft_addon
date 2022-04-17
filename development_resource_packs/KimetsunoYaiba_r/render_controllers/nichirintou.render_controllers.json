@@ -5,6 +5,158 @@
 			"geometry": "Geometry.default",
 			"materials": [ { "*": "variable.is_enchanted ? Material.enchanted : Material.default" } ],
 			"textures": [ "Texture.default", "Texture.enchanted" ]
+		},
+		"controller.render.nichirintou_normal": {
+			"geometry": "Geometry.nichirintou",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou"]
+		},
+		"controller.render.nichirintou_tanjiro": {
+			"geometry": "Geometry.nichirintou_tanjiro",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_tanjiro"]
+		},
+		"controller.render.nichirintou_zenitu": {
+			"geometry": "Geometry.nichirintou_zenitu",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_zenitu"]
+		},
+		"controller.render.nichirintou_inosuke": {
+			"geometry": "Geometry.nichirintou_inosuke",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_inosuke"]
+		},
+		"controller.render.nichirintou_kanawo": {
+			"geometry": "Geometry.nichirintou_kanawo",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_kanawo"]
+		},
+		"controller.render.nichirintou_genya": {
+			"geometry": "Geometry.nichirintou_genya",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_genya"]
+		},
+		"controller.render.nichirintou_giyu": {
+			"geometry": "Geometry.nichirintou_giyu",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_giyu"]
+		},
+		"controller.render.nichirintou_shinobu": {
+			"geometry": "Geometry.nichirintou_shinobu",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_shinobu"]
+		},
+		"controller.render.nichirintou_kyouzyuro": {
+			"geometry": "Geometry.nichirintou_kyouzyuro",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_kyouzyuro"]
+		},
+		"controller.render.nichirintou_tengen": {
+			"geometry": "Geometry.nichirintou_tengen",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_tengen"]
+		},
+		"controller.render.nichirintou_obanai": {
+			"geometry": "Geometry.nichirintou_obanai",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_obanai"]
+		},
+		"controller.render.nichirintou_sanemi": {
+			"geometry": "Geometry.nichirintou_sanemi",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_sanemi"]
+		},
+		"controller.render.nichirintou_mituri": {
+			"geometry": "Geometry.nichirintou_mituri",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_mituri"]
+		},
+		"controller.render.nichirintou_muitiro": {
+			"geometry": "Geometry.nichirintou_muitiro",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_muitiro"]
+		},
+		"controller.render.nichirintou_gyoumei": {
+			"geometry": "Geometry.nichirintou_gyoumei",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_gyoumei"]
+		},
+		"controller.render.nichirintou_kokushibou": {
+			"geometry": "Geometry.nichirintou_kokushibou",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_kokushibou"]
+		},
+
+		"controller.render.nichirintou_mizu": {
+			"geometry": "geometry.nichirintou_mizu",
+			"materials": [ { "*": "material.default" } ],
+			"textures": [ "texture.nichirintou_mizu" ]
+		},
+		"controller.render.nichirintou_hi": {
+			"geometry": "geometry.nichirintou_hi",
+			"materials": [ { "*": "material.default" } ],
+			"textures": [ "texture.nichirintou_hi" ]
+		},
+		"controller.render.nichirintou_kaminari": {
+			"geometry": "Geometry.nichirintou_kaminari",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_kaminari"]
+		},
+		"controller.render.nichirintou_kemono": {
+			"geometry": "Geometry.nichirintou_kemono",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_kemono"]
+		},
+		"controller.render.nichirintou_mushi": {
+			"geometry": "Geometry.nichirintou_mushi",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_mushi"]
+		},
+		"controller.render.nichirintou_hana": {
+			"geometry": "Geometry.nichirintou_hana",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_hana"]
+		},
+		"controller.render.nichirintou_kasumi": {
+			"geometry": "Geometry.nichirintou_kasumi",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_kasumi"]
+		},
+		"controller.render.nichirintou_koi": {
+			"geometry": "Geometry.nichirintou_koi",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_koi"]
+		},
+		"controller.render.nichirintou_hono": {
+			"geometry": "Geometry.nichirintou_hono",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_hono"]
+		},
+		"controller.render.nichirintou_oto": {
+			"geometry": "Geometry.nichirintou_oto",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_oto"]
+		},
+		"controller.render.nichirintou_kaze": {
+			"geometry": "Geometry.nichirintou_kaze",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_kaze"]
+		},
+		"controller.render.nichirintou_iwa": {
+			"geometry": "Geometry.nichirintou_iwa",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_iwa"]
+		},
+		"controller.render.nichirintou_hebi": {
+			"geometry": "Geometry.nichirintou_hebi",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_hebi"]
+		},
+		"controller.render.nichirintou_tuki": {
+			"geometry": "Geometry.nichirintou_tuki",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.nichirintou_tuki"]
 		}
+
 	}
 }

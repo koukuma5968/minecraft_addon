@@ -4,12 +4,38 @@
       "nichirintou_tanjiro": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_tanjiro"
       },
+      "nichirintou_zenitu": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_zenitu"
+      },
+      "nichirintou_inosuke": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_inosuke"
+      },
+      "nichirintou_kyouzyuro": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kyouzyuro"
+      },
+      "nichirintou_shinobu": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_shinobu"
+      },
+
+      "nichirintou": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou"
+      },
       "nichirintou_hi": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hi"
       },
       "nichirintou_mizu": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_mizu"
       },
+      "nichirintou_kaminari": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kaminari"
+      },
+      "nichirintou_kemono": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kemono"
+      },
+      "nichirintou_hono": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hono"
+      },
+
       "scarlet_ironfish": {
          "textures" : "textures/kurokumaft/items/ore/scarlet_ironfish"
       },

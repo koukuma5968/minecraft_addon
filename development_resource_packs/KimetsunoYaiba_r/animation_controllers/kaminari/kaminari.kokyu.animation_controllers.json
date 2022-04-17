@@ -1,0 +1,33 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kaminari.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kaminari1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari') && query.variant == 1 && query.is_using_item"}
+					]
+				},
+				"kaminari1_1" : {
+					"animations" : [
+						{"kaminari.ichi_1": "variable.is_first_person"},
+						{"kaminari.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kaminari1_2":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_2" : {
+					"animations" : [
+						{"kaminari.ichi_2": "variable.is_first_person"},
+						{"kaminari.ichi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

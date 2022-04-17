@@ -12,20 +12,23 @@
           "mizu","mizu_change",
           "hi","hi_change",
           "tanjiro_change",
-          "mizu10_attack","hi_dragon_attack"
+          "mizu10_attack","hi_dragon_attack",
+          "zenitu_change",
+          "kaminari","kaminari_attack"
         ]
       },
       "animations":{
-        "kokyu_charge_water": "animation.kokyu.charge.water",
         "kokyu_charge_hi": "animation.kokyu.charge.hi",
+        "kokyu_change": "controller.animation.kokyu.kokyu_change",
+        "tanjiro_change": "controller.animation.kokyu.tanjiro_change",
         "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9","mizu10_ani": "animation.kata.mizu10",
         "hi2_ani": "animation.kata.hi2","hi2_2_ani": "animation.kata.hi2_2","hi4_ani": "animation.kata.hi4","hi5_ani": "animation.kata.hi5",
         "hi6_ani": "animation.kata.hi6","hi9_ani": "animation.kata.hi9","hi11_ani": "animation.kata.hi11",
-        "kokyu_change": "controller.animation.kokyu.kokyu_change",
         "mizu":"controller.animation.kokyu.mizu","mizu_change": "controller.animation.kokyu.mizu_change",
         "hi":"controller.animation.kokyu.hi","hi_change": "controller.animation.kokyu.hi_change",
-        "tanjiro_change": "controller.animation.kokyu.tanjiro_change",
-        "mizu10_attack": "controller.animation.kokyu.mizu10_attack","hi_dragon_attack": "controller.animation.kokyu.hi_dragon_attack"
+        "mizu10_attack": "controller.animation.kokyu.mizu10_attack","hi_dragon_attack": "controller.animation.kokyu.hi_dragon_attack",
+        "zenitu_change": "controller.animation.kokyu.zenitu_change",
+        "kaminari": "controller.animation.kokyu.kaminari","kaminari_attack": "controller.animation.kokyu.kaminari_attack"
       }
     },
 

@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+      "controller.animation.different_color": {
+        "states": {
+          "default": {
+            "transitions": [
+              { "different": "query.scoreboard('soldier_level') >= 10 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_normal') && query.is_using_item" }
+            ]
+          },
+          "different":{
+            "animations" : [ "different_color" ],
+            "transitions": [
+              {"default":"(1.0)"}
+            ]
+          }
+        }
+      }
+    }
+  }

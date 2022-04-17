@@ -1,0 +1,19 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+      "description": {
+        "identifier": "kurokumaft:scarlet_gravel_feature"
+      },
+      "count": 80,
+      "replace_rules": [
+        {
+          "places_block": "kurokumaft:scarlet_gravel",
+          "may_replace": [
+            "minecraft:stone",
+            "minecraft:gravel"
+          ]
+        }
+      ]
+    }
+  }
+  

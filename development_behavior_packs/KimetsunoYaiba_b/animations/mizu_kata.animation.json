@@ -35,6 +35,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
+					"/gamerule sendcommandfeedback false",
 					"/execute @s ~~~ tp @e[name=mizu10_doragon,c=1] ^^^1"
 				]
 			}

@@ -1,11 +1,38 @@
-item.kurokumaft:nichirintou_tanjiro.name=日輪刀 炭治郎
+item.kurokumaft:nichirintou_tanjiro.name=日輪刀 竈門 炭治郎
+item.kurokumaft:nichirintou_zenitu.name=日輪刀 我妻 善逸
+item.kurokumaft:nichirintou_inosuke.name=日輪刀 嘴平 伊之助
+item.kurokumaft:nichirintou_kanao.name=日輪刀 栗花落 カナヲ
+item.kurokumaft:nichirintou_genya.name=日輪刀 不死川 玄弥
+item.kurokumaft:nichirintou_giyu.name=日輪刀 冨岡 義勇
+item.kurokumaft:nichirintou_kyouzyuro.name=日輪刀 煉獄 杏寿郎
+item.kurokumaft:nichirintou_shinobu.name=日輪刀 胡蝶 しのぶ
+item.kurokumaft:nichirintou_tengen.name=日輪刀 宇髄 天元
+item.kurokumaft:nichirintou_obanai.name=日輪刀 伊黒 小芭内
+item.kurokumaft:nichirintou_sanemi.name=日輪刀 不死川 実弥
+item.kurokumaft:nichirintou_mituri.name=日輪刀 甘露寺 蜜璃
+item.kurokumaft:nichirintou_muitiro.name=日輪刀 時透 無一郎
+item.kurokumaft:nichirintou_gyoumei.name=日輪刀 悲鳴嶼 行冥
+item.kurokumaft:nichirintou_kokushibou.name=日輪刀 黒死牟
+item.kurokumaft:nichirintou.name=日輪刀
 item.kurokumaft:nichirintou_hi.name=日輪刀 日
 item.kurokumaft:nichirintou_mizu.name=日輪刀 水
+item.kurokumaft:nichirintou_kaminari.name=日輪刀 雷
+item.kurokumaft:nichirintou_kemono.name=日輪刀 獣
+item.kurokumaft:nichirintou_mushi.name=日輪刀 蟲
+item.kurokumaft:nichirintou_hana.name=日輪刀 花
+item.kurokumaft:nichirintou_kasumi.name=日輪刀 霞
+item.kurokumaft:nichirintou_koi.name=日輪刀 恋
+item.kurokumaft:nichirintou_hono.name=日輪刀 炎
+item.kurokumaft:nichirintou_oto.name=日輪刀 音
+item.kurokumaft:nichirintou_kaze.name=日輪刀 風
+item.kurokumaft:nichirintou_iwa.name=日輪刀 岩
+item.kurokumaft:nichirintou_hebi.name=日輪刀 蛇
+item.kurokumaft:nichirintou_tuki.name=日輪刀 月
 
 tile.kurokumaft:scarlet_gravel.name=緋の砂利
 tile.kurokumaft:scarlet_ore.name=緋の鉱石
 
-item.kurokumaft:scarlet_gravel.name=猩々緋砂鉄
+item.kurokumaft:scarlet_ironfish.name=猩々緋砂鉄
 item.kurokumaft:scarlet_nugget.name=猩々緋鉱石
 
 item.kurokumaft:kokyu_mizu1.name=水の呼吸 壱ノ型：水面切り

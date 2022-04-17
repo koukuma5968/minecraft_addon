@@ -7,6 +7,8 @@
           "transitions": [
             { "tanjiro_add": "query.scoreboard('tanjiro') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro')" },
             { "tanjiro_remove": "query.scoreboard('tanjiro') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro')" },
+            { "zenitu_add": "query.scoreboard('zenitu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu')" },
+            { "zenitu_remove": "query.scoreboard('zenitu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu')" },
             { "mizu_add": "query.scoreboard('mizu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
             { "mizu_remove": "query.scoreboard('mizu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
             { "hi_add": "query.scoreboard('hi') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" },
@@ -27,6 +29,25 @@
           "on_entry": [
             "/scoreboard players reset @s tanjiro",
             "/scoreboard objectives remove tanjiro"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "zenitu_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add zenitu dummy",
+            "/scoreboard players set @s zenitu 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "zenitu_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s zenitu",
+            "/scoreboard objectives remove zenitu"
           ],
           "transitions": [
             {"default":"(1.0)"}

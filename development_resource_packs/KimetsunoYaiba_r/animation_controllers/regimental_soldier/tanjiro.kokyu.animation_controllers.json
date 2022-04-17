@@ -1,0 +1,371 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.tanjiro.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"mizu1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 1 && query.is_using_item"},
+						{"mizu2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 2 && query.is_using_item"},
+						{"mizu3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 3 && query.is_using_item"},
+						{"mizu4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 4 && query.is_using_item"},
+						{"mizu5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 5 && query.is_using_item"},
+						{"mizu6_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 6 && query.is_using_item"},
+						{"mizu7_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 7 && query.is_using_item"},
+						{"mizu8_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 8 && query.is_using_item"},
+						{"mizu9_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 9 && variable.attack_time && !query.is_jumping"},
+						{"mizu9_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 9 && variable.attack_time && query.is_jumping"},
+						{"mizu10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 10"},
+						{"mizu10_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 101"},
+						{"hinokami1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 11 && query.is_using_item"},
+						{"hinokami2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 12 && query.is_using_item"},
+						{"hinokami3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 13 && query.is_using_item"},
+						{"hinokami4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 14 && query.is_using_item"},
+						{"hinokami5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 15 && query.is_using_item"},
+						{"hinokami6_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 16"},
+						{"hinokami7_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 17 && query.is_using_item"},
+						{"hinokami8_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 18 && query.is_using_item"},
+						{"hinokami9_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 19 && query.is_using_item"},
+						{"hinokami10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 20 && query.is_using_item"},
+						{"hinokami11_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 21 && query.is_using_item"},
+						{"hinokami12_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 22 && query.is_using_item"}
+					]
+				},
+				"mizu1_1" : {
+					"animations" : [
+						{"tanjiro_mizu.ichi_1": "variable.is_first_person"},
+						{"tanjiro_mizu.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu1_2":"query.any_animation_finished"}
+					]
+				},
+				"mizu1_2" : {
+					"animations" : [
+						{"tanjiro_mizu.ichi_2": "variable.is_first_person"},
+						{"tanjiro_mizu.ichi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu2_1" : {
+					"animations" : [
+						{"tanjiro_mizu.ni_1": "variable.is_first_person"},
+						{"tanjiro_mizu.ni_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu3_1" : {
+					"animations" : [
+						{"tanjiro_mizu.san_1": "variable.is_first_person"},
+						{"tanjiro_mizu.san_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu3_2":"query.any_animation_finished"}
+					]
+				},
+				"mizu3_2" : {
+					"animations" : [
+						{"tanjiro_mizu.san_2": "variable.is_first_person"},
+						{"tanjiro_mizu.san_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu3_3":"query.any_animation_finished"}
+					]
+				},
+				"mizu3_3" : {
+					"animations" : [
+						{"tanjiro_mizu.san_3": "variable.is_first_person"},
+						{"tanjiro_mizu.san_3": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu4_1" : {
+					"animations" : [
+						{"tanjiro_mizu.shi_1": "variable.is_first_person"},
+						{"tanjiro_mizu.shi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu4_2":"query.any_animation_finished"}
+					]
+				},
+				"mizu4_2" : {
+					"animations" : [
+						{"tanjiro_mizu.shi_2": "variable.is_first_person"},
+						{"tanjiro_mizu.shi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu5_1" : {
+					"animations" : [
+						{"tanjiro_mizu.go_1": "variable.is_first_person"},
+						{"tanjiro_mizu.go_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu5_2":"!query.is_using_item"}
+					]
+				},
+				"mizu5_2" : {
+					"animations" : [
+						{"tanjiro_mizu.go_2": "variable.is_first_person"},
+						{"tanjiro_mizu.go_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu6_1" : {
+					"animations" : [
+						{"tanjiro_mizu.roku_1": "variable.is_first_person"},
+						{"tanjiro_mizu.roku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu6_2":"!query.is_using_item"}
+					]
+				},
+				"mizu6_2" : {
+					"animations" : [
+						{"tanjiro_mizu.roku_2": "variable.is_first_person"},
+						{"tanjiro_mizu.roku_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu7_1" : {
+					"animations" : [
+						{"tanjiro_mizu.shiti_1": "variable.is_first_person"},
+						{"tanjiro_mizu.shiti_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu7_2":"!query.is_using_item"}
+					]
+				},
+				"mizu7_2" : {
+					"animations" : [
+						{"tanjiro_mizu.shiti_2": "variable.is_first_person"},
+						{"tanjiro_mizu.shiti_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu8_1" : {
+					"animations" : [
+						{"tanjiro_mizu.hati_1": "variable.is_first_person"},
+						{"tanjiro_mizu.hati_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu8_2":"!query.is_using_item"}
+					]
+				},
+				"mizu8_2" : {
+					"animations" : [
+						{"tanjiro_mizu.hati_2": "variable.is_first_person"},
+						{"tanjiro_mizu.hati_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"mizu8_3":"query.any_animation_finished"}
+					]
+				},
+				"mizu8_3" : {
+					"animations" : [
+						{"tanjiro_mizu.hati_3": "variable.is_first_person"},
+						{"tanjiro_mizu.hati_3": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu9_1" : {
+					"animations" : [
+						{"tanjiro_mizu.ku_1": "variable.is_first_person"},
+						{"tanjiro_mizu.ku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu9_2" : {
+					"animations" : [
+						{"tanjiro_mizu.ku_2": "variable.is_first_person"},
+						{"tanjiro_mizu.ku_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu10_1" : {
+					"animations" : [
+						{"tanjiro_mizu.tou_1": "variable.is_first_person"},
+						{"tanjiro_mizu.tou_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"mizu10_2" : {
+					"animations" : [
+						{"tanjiro_mizu.tou_2": "variable.is_first_person"},
+						{"tanjiro_mizu.tou_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami1_1" : {
+					"animations" : [
+						{"hinokami.ichi_1": "variable.is_first_person"},
+						{"hinokami.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami2_1" : {
+					"animations" : [
+						{"hinokami.ni_1": "variable.is_first_person"},
+						{"hinokami.ni_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hinokami2_2":"query.any_animation_finished"}
+					]
+				},
+				"hinokami2_2" : {
+					"animations" : [
+						{"hinokami.ni_2": "variable.is_first_person"},
+						{"hinokami.ni_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami3_1" : {
+					"animations" : [
+						{"hinokami.san_1": "variable.is_first_person"},
+						{"hinokami.san_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hinokami3_2":"query.any_animation_finished"}
+					]
+				},
+				"hinokami3_2" : {
+					"animations" : [
+						{"hinokami.san_2": "variable.is_first_person"},
+						{"hinokami.san_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami4_1" : {
+					"animations" : [
+						{"hinokami.shi_1": "variable.is_first_person"},
+						{"hinokami.shi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami5_1" : {
+					"animations" : [
+						{"hinokami.go_1": "variable.is_first_person"},
+						{"hinokami.go_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hinokami5_2":"!query.is_using_item"}
+					]
+				},
+				"hinokami5_2" : {
+					"animations" : [
+						{"hinokami.go_2": "variable.is_first_person"},
+						{"hinokami.go_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami6_1" : {
+					"animations" : [
+						{"hinokami.roku_1": "variable.is_first_person"},
+						{"hinokami.roku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami7_1" : {
+					"animations" : [
+						{"hinokami.shiti_1": "variable.is_first_person"},
+						{"hinokami.shiti_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami8_1" : {
+					"animations" : [
+						{"hinokami.hachi_1": "variable.is_first_person"},
+						{"hinokami.hachi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami9_1" : {
+					"animations" : [
+						{"hinokami.ku_1": "variable.is_first_person"},
+						{"hinokami.ku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami10_1" : {
+					"animations" : [
+						{"hinokami.tou_1": "variable.is_first_person"},
+						{"hinokami.tou_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami11_1" : {
+					"animations" : [
+						{"hinokami.zyuichi_1": "variable.is_first_person"},
+						{"hinokami.zyuichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hinokami12_1" : {
+					"animations" : [
+						{"hinokami.zyuni_1": "variable.is_first_person"},
+						{"hinokami.zyuni_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hinokami12_2":"query.any_animation_finished"}
+					]
+				},
+				"hinokami12_2" : {
+					"animations" : [
+						{"hinokami.zyuni_2": "variable.is_first_person"},
+						{"hinokami.zyuni_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

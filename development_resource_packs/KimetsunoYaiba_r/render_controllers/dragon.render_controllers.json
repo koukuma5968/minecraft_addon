@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+	  "controller.render.mizu10_dragon": {
+		"geometry": "Geometry.mizu10_dragon",
+		"materials": [ { "*": "Material.default" } ],
+		"textures": ["Texture.mizu10_dragon"]
+	  },
+	  "controller.render.hi_dragon": {
+		"geometry": "Geometry.hi_dragon",
+		"materials": [ { "*": "Material.default" } ],
+		"textures": ["Texture.hi_dragon"]
+	  }
+	}
+  }
+  

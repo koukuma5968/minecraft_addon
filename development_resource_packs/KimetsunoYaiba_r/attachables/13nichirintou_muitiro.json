@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:nichirintou_muitiro",
+        "materials": {
+          "default": "nichirintou",
+          "enchanted": "entity_alphatest_glint"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/items/nichirintou/3d/nichirintou_muitiro",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.nichirintou_muitiro"
+        },
+        "scripts": {
+          "animate": [
+            {"first": "variable.is_first_person"},
+            {"third": "!variable.is_first_person"}
+          ]
+        },
+        "animations": {
+          "first": "animation.nichirintou_first",
+          "third": "animation.nichirintou_third"
+        },
+        "render_controllers": ["controller.render.nichirintou"]
+      }
+    }
+  }
+  

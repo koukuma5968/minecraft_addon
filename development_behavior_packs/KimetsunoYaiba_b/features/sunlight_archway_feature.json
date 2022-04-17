@@ -1,0 +1,25 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:structure_template_feature": {
+    "description": {
+      "identifier": "kurokumaft:sunlight_archway_feature"
+    },
+    "structure_name": "mystructure:sunlight_archway",
+    "adjustment_radius": 8,
+    "facing_direction": "random",
+    "constraints": {
+      "grounded": {},
+      "unburied": {},
+      "block_intersection": {
+        "block_allowlist": [
+          "minecraft:air",
+          "minecraft:dirt",
+          "minecraft:stone",
+          "minecraft:gravel",
+          "minecraft:cobblestone",
+          "minecraft:wood"
+        ]
+      }
+    }
+  }
+}
