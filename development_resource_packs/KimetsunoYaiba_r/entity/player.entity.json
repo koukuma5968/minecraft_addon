@@ -89,7 +89,8 @@
         "hi_deep_blead_particle": "kurokumaft:hi_deep_blead_particle",
         "mizu_awa_particle": "kurokumaft:mizu_awa_particle",
         "mizu_splash_particle": "kurokumaft:mizu_splash_particle",
-        "kaminari_blead_particle": "kurokumaft:kaminari_blead_particle"
+        "kaminari_blead_particle": "kurokumaft:kaminari_blead_particle",
+        "kaze_blead_particle": "kurokumaft:kaze_blead_particle"
       },
       "scripts": {
         "scale": "0.9375",
@@ -113,12 +114,14 @@
           "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
 
           "variable.equipped_nichirintou = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou');",
+          "variable.equipped_nichirintou_two = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_two');",
           "variable.equipped_nichirintou_normal = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_normal');",
           "variable.equipped_tanjiro = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro');",
           "variable.equipped_zenitu = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu');",
           "variable.equipped_inosuke = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke');",
           "variable.equipped_kanawo = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kanawo');",
           "variable.equipped_genya = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_genya');",
+          "variable.equipped_zyuu_genya = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:zyuu_genya');",
           "variable.equipped_giyu = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu');",
           "variable.equipped_shinobu = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu');",
           "variable.equipped_kyouzyuro = query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro');",
@@ -149,17 +152,28 @@
         "animate": [
           "root",
 
-          {"first": "variable.equipped_nichirintou && variable.is_first_person"},
-          {"third": "variable.equipped_nichirintou && !variable.is_first_person"},
+          {"first": "(variable.equipped_nichirintou || variable.equipped_nichirintou_two) && variable.is_first_person"},
+          {"third": "(variable.equipped_nichirintou || variable.equipped_nichirintou_two) && !variable.is_first_person"},
+          {"nichirintou_attack_con": "(variable.equipped_nichirintou || variable.equipped_nichirintou_two)"},
+
+          {"zyuu_first": "variable.equipped_zyuu_genya && variable.is_first_person"},
+          {"zyuu_third": "variable.equipped_zyuu_genya && !variable.is_first_person"},
 
           {"tanjiro.kokyu_con": "variable.equipped_tanjiro"},
-          {"mizu.kokyu_con": "variable.equipped_mizu"},
-          {"hi.kokyu_con": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')"},
-          {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu) && query.variant == 10"},
           {"zenitu.kokyu_con": "variable.equipped_zenitu"},
           {"zenitu_attack.kokyu_con": "variable.equipped_zenitu && query.variant == 1"},
+          {"inosuke.kokyu_con": "variable.equipped_inosuke"},
+
+          {"giyu.kokyu_con": "variable.equipped_giyu"},
+
+          {"mizu.kokyu_con": "variable.equipped_mizu"},
+          {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu) && query.variant == 10"},
+          {"hi.kokyu_con": "variable.equipped_hi"},
           {"kaminari.kokyu_con": "variable.equipped_kaminari"},
-          {"kaminari_attack.kokyu_con": "variable.equipped_kaminari && query.variant == 1"}
+          {"kaminari_attack.kokyu_con": "variable.equipped_kaminari && query.variant == 1"},
+
+          {"tengen.kokyu_con": "variable.equipped_tengen"}
+
         ]
       },
       "animations": {
@@ -217,6 +231,12 @@
 
         "first": "animation.nichirintou_first",
         "third": "animation.nichirintou_third",
+        "nichirintou_attack_con": "controller.animation.nichirintou_attack",
+        "nichirintou_attack": "animation.nichirintou.attack",
+        "nichirintou_two_attack": "animation.nichirintou.two_attack",
+        "zyuu_first": "animation.zyuu_first",
+        "zyuu_third": "animation.zyuu_third",
+        "zyuu_attack": "animation.zyuu.attack",
 
         "tanjiro.kokyu_con":"controller.animation.tanjiro.kokyu",
         "tanjiro_mizu.ichi_1": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1",
@@ -312,7 +332,48 @@
         "kaminari_attack.kokyu_con":"controller.animation.kaminari_attack.kokyu",
         "kaminari.ichi_1": "animation.nichirintou_kokyu.kaminari.ichi_1",
         "kaminari.ichi_2": "animation.nichirintou_kokyu.kaminari.ichi_2",
-        "kaminari.ichi_3": "animation.nichirintou_kokyu.kaminari.ichi_3"
+        "kaminari.ichi_3": "animation.nichirintou_kokyu.kaminari.ichi_3",
+        "kaminari.ni_1": "animation.nichirintou_kokyu.kaminari.ni_1",
+        "kaminari.san_1": "animation.nichirintou_kokyu.kaminari.san_1",
+        "kaminari.san_2": "animation.nichirintou_kokyu.kaminari.san_2",
+        "kaminari.shi_1": "animation.nichirintou_kokyu.kaminari.shi_1",
+        "kaminari.shi_2": "animation.nichirintou_kokyu.kaminari.shi_2",
+        "kaminari.go_1": "animation.nichirintou_kokyu.kaminari.go_1",
+        "kaminari.roku_1": "animation.nichirintou_kokyu.kaminari.roku_1",
+
+        "inosuke.kokyu_con":"controller.animation.inosuke.kokyu",
+        "inosuke.ichi_1": "animation.nichirintou_kokyu.inosuke.ichi_1",
+
+        "giyu.kokyu_con":"controller.animation.giyu.kokyu",
+        "giyu.ichi_1": "animation.nichirintou_kokyu.giyu.ichi_1",
+        "giyu.ichi_2": "animation.nichirintou_kokyu.giyu.ichi_2",
+        "giyu.ni_1": "animation.nichirintou_kokyu.giyu.ni_1",
+        "giyu.san_1": "animation.nichirintou_kokyu.giyu.san_1",
+        "giyu.san_2": "animation.nichirintou_kokyu.giyu.san_2",
+        "giyu.san_3": "animation.nichirintou_kokyu.giyu.san_3",
+        "giyu.shi_1": "animation.nichirintou_kokyu.giyu.shi_1",
+        "giyu.shi_2": "animation.nichirintou_kokyu.giyu.shi_2",
+        "giyu.go_1": "animation.nichirintou_kokyu.giyu.go_1",
+        "giyu.go_2": "animation.nichirintou_kokyu.giyu.go_2",
+        "giyu.roku_1": "animation.nichirintou_kokyu.giyu.roku_1",
+        "giyu.roku_2": "animation.nichirintou_kokyu.giyu.roku_2",
+        "giyu.shiti_1": "animation.nichirintou_kokyu.giyu.shiti_1",
+        "giyu.shiti_2": "animation.nichirintou_kokyu.giyu.shiti_2",
+        "giyu.hati_1": "animation.nichirintou_kokyu.giyu.hati_1",
+        "giyu.hati_2": "animation.nichirintou_kokyu.giyu.hati_2",
+        "giyu.hati_3": "animation.nichirintou_kokyu.giyu.hati_3",
+        "giyu.ku_1": "animation.nichirintou_kokyu.giyu.ku_1",
+        "giyu.ku_2": "animation.nichirintou_kokyu.giyu.ku_2",
+        "giyu.tou_1": "animation.nichirintou_kokyu.giyu.tou_1",
+        "giyu.tou_2": "animation.nichirintou_kokyu.giyu.tou_2",
+        "giyu.zyuichi_1": "animation.nichirintou_kokyu.giyu.zyuichi_1",
+
+        "tengen.kokyu_con":"controller.animation.tengen.kokyu",
+        "tengen.ichi_1": "animation.nichirintou_kokyu.tengen.ichi_1",
+        "tengen.shi_1": "animation.nichirintou_kokyu.tengen.shi_1",
+        "tengen.go_1": "animation.nichirintou_kokyu.tengen.go_1",
+        "tengen.go_2": "animation.nichirintou_kokyu.tengen.go_2"
+
       },
       "render_controllers": [
         { "controller.render.player.first_person": "variable.is_first_person" },

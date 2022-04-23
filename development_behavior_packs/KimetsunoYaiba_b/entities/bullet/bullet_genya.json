@@ -1,0 +1,68 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "kurokumaft:bullet_genya",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:break_blocks": {
+                "breakable_blocks": [
+                    "glass",
+                    "glass_pane"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.01,
+                "height": 0.01
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "definition_event": {
+                      "affect_projectile": true,
+                      "event_trigger": {
+                        "event": "kurokumaft:bullet_particle",
+                        "target": "self"
+                      }
+                    },
+                    "impact_damage": {
+                        "damage": 8,
+                        "knockback": false,
+                        "semirandomdiffdamage": false,
+                        "destroyonhit": false
+                    },
+                    "remove_on_hit": { }
+                },
+                "power": 2.0,
+                "gravity": 0,
+                "inertia": 1.0,
+                "uncertaintyBase": 8,
+                "uncertaintyMultiplier": 2.5,
+                "anchor": 1,
+                "offset": [0, 0, 0],
+                "reflectOnHurt": true,
+                "catch_fire": false
+            },
+            "minecraft:physics": {},
+            "minecraft:conditional_bandwidth_optimization": {
+                "default_values": {
+                  "max_optimized_distance": 80.0,
+                  "max_dropped_ticks": 7,
+                  "use_motion_prediction_hints": true
+                }
+            }
+        },
+        "events": {
+            "kurokumaft:bullet_particle": {
+                "run_command": {
+                    "command": [
+                      "particle minecraft:large_explosion ~~~"
+                    ],
+                    "target": "self"
+                }
+            }
+        }
+    }
+}

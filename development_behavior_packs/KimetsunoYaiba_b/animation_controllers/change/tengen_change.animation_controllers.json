@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.tengen_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "tengen1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen') && query.scoreboard('tengen') == 5 && query.is_sneaking" },
+            { "tengen4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen') && query.scoreboard('tengen') == 1 && query.is_sneaking" },
+            { "tengen5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen') && query.scoreboard('tengen') == 4 && query.is_sneaking" }
+          ]
+        },
+        "tengen1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/scoreboard players set @s tengen 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "tengen4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 肆ノ型\"}]}",
+            "/scoreboard players set @s tengen 4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "tengen5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 伍ノ型\"}]}",
+            "/scoreboard players set @s tengen 5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

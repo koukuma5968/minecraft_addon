@@ -48,7 +48,7 @@
 							"origin": [-4, 24.50092, -4.23811],
 							"size": [8, 8, 8],
 							"uv": {
-								"north": {"uv": [42, 66], "uv_size": [8, 8]},
+								"north": {"uv": [73, 65], "uv_size": [8, 8]},
 								"east": {"uv": [42, 66], "uv_size": [8, 8]},
 								"south": {"uv": [42, 67], "uv_size": [8, 8]},
 								"west": {"uv": [43, 63], "uv_size": [8, 8]},
@@ -99,8 +99,7 @@
 				{
 					"name": "nichirinto",
 					"parent": "rightArm",
-					"pivot": [-6, 15.50092, -2.33811],
-					"binding": "q.item_slot_to_bone_name(c.item_slot)"
+					"pivot": [-6, 15.50092, -2.33811]
 				},
 				{
 					"name": "blade",

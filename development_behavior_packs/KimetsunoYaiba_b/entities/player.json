@@ -9,26 +9,41 @@
       "scripts":{
         "animate":[
           "kokyu_change",
-          "mizu","mizu_change",
-          "hi","hi_change",
-          "tanjiro_change",
-          "mizu10_attack","hi_dragon_attack",
-          "zenitu_change",
-          "kaminari","kaminari_attack"
+          "tanjiro_change","zenitu_change","inosuke_change","giyu_change","tengen_change",
+
+          "mizu_change","hi_change","kaminari_change",
+
+          "mizu","hi","kaminari","kedamono","oto",
+
+          "mizu10_attack","hi_dragon_attack","kaminari_attack"
         ]
       },
       "animations":{
         "kokyu_charge_hi": "animation.kokyu.charge.hi",
         "kokyu_change": "controller.animation.kokyu.kokyu_change",
         "tanjiro_change": "controller.animation.kokyu.tanjiro_change",
-        "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9","mizu10_ani": "animation.kata.mizu10",
-        "hi2_ani": "animation.kata.hi2","hi2_2_ani": "animation.kata.hi2_2","hi4_ani": "animation.kata.hi4","hi5_ani": "animation.kata.hi5",
-        "hi6_ani": "animation.kata.hi6","hi9_ani": "animation.kata.hi9","hi11_ani": "animation.kata.hi11",
-        "mizu":"controller.animation.kokyu.mizu","mizu_change": "controller.animation.kokyu.mizu_change",
-        "hi":"controller.animation.kokyu.hi","hi_change": "controller.animation.kokyu.hi_change",
-        "mizu10_attack": "controller.animation.kokyu.mizu10_attack","hi_dragon_attack": "controller.animation.kokyu.hi_dragon_attack",
         "zenitu_change": "controller.animation.kokyu.zenitu_change",
-        "kaminari": "controller.animation.kokyu.kaminari","kaminari_attack": "controller.animation.kokyu.kaminari_attack"
+        "inosuke_change": "controller.animation.kokyu.inosuke_change",
+        "giyu_change": "controller.animation.kokyu.giyu_change",
+        "tengen_change": "controller.animation.kokyu.tengen_change",
+
+        "mizu_change": "controller.animation.kokyu.mizu_change",
+        "hi_change": "controller.animation.kokyu.hi_change",
+        "kaminari_change": "controller.animation.kokyu.kaminari_change",
+
+        "mizu":"controller.animation.kokyu.mizu",
+        "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9","mizu10_ani": "animation.kata.mizu10",
+        "mizu10_attack": "controller.animation.kokyu.mizu10_attack","mizu11_ani": "animation.kata.mizu11",
+
+        "hi":"controller.animation.kokyu.hi",
+        "hi2_ani": "animation.kata.hi2","hi2_2_ani": "animation.kata.hi2_2","hi4_ani": "animation.kata.hi4","hi5_ani": "animation.kata.hi5",
+        "hi6_ani": "animation.kata.hi6","hi9_ani": "animation.kata.hi9","hi11_ani": "animation.kata.hi11","hi_dragon_attack": "controller.animation.kokyu.hi_dragon_attack",
+
+        "kaminari": "controller.animation.kokyu.kaminari","kaminari_attack": "controller.animation.kokyu.kaminari_attack",
+        "kedamono": "controller.animation.kokyu.kedamono",
+        "oto": "controller.animation.kokyu.oto",
+        "oto4_ani": "animation.kata.oto4","oto5_ani": "animation.kata.oto5"
+
       }
     },
 
@@ -66,6 +81,14 @@
         },
         "minecraft:spell_effects": {
           "remove_effects": "bad_omen"
+        }
+      },
+      "damage_clear": {
+        "minecraft:damage_sensor": {
+          "triggers": {
+            "cause": "attack",
+            "deals_damage": false
+          }
         }
       },
       "random_move": {
@@ -352,17 +375,14 @@
           "component_groups": [ "random_move" ]
         }
       },
-      "change_family": {
+      "add_damage_clear": {
         "add": {
-          "component_groups": [ "change_family" ]
+          "component_groups": [ "damage_clear" ]
         }
       },
-      "return_family": {
+      "remove_damage_clear": {
         "remove": {
-          "component_groups": [ "change_family" ]
-        },
-        "add": {
-          "component_groups": [ "return_family" ]
+          "component_groups": [ "damage_clear" ]
         }
       },
       "variant0": {

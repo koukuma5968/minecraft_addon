@@ -36,6 +36,11 @@
 			"materials": [ { "*": "Material.default" } ],
 			"textures": [ "Texture.nichirintou_genya"]
 		},
+		"controller.render.zyuu_genya": {
+			"geometry": "Geometry.zyuu_genya",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.zyuu_genya"]
+		},
 		"controller.render.nichirintou_giyu": {
 			"geometry": "Geometry.nichirintou_giyu",
 			"materials": [ { "*": "Material.default" } ],

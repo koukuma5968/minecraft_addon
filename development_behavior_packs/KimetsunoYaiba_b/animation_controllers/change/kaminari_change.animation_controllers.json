@@ -1,0 +1,73 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.kaminari_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kaminari1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari') && query.scoreboard('kaminari') == 6 && query.is_sneaking" },
+            { "kaminari2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari') && query.scoreboard('kaminari') == 1 && query.is_sneaking" },
+            { "kaminari3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari') && query.scoreboard('kaminari') == 2 && query.is_sneaking" },
+            { "kaminari4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari') && query.scoreboard('kaminari') == 3 && query.is_sneaking" },
+            { "kaminari5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari') && query.scoreboard('kaminari') == 4 && query.is_sneaking" },
+            { "kaminari6": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari') && query.scoreboard('kaminari') == 5 && query.is_sneaking" }
+          ]
+        },
+        "kaminari1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/scoreboard players set @s kaminari 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kaminari2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 弐ノ型\"}]}",
+            "/scoreboard players set @s kaminari 2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kaminari3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 参ノ型\"}]}",
+            "/scoreboard players set @s kaminari 3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kaminari4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 肆ノ型\"}]}",
+            "/scoreboard players set @s kaminari 4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kaminari5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 伍ノ型\"}]}",
+            "/scoreboard players set @s kaminari 5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kaminari6":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 陸ノ型\"}]}",
+            "/scoreboard players set @s kaminari 6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

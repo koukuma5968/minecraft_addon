@@ -243,6 +243,34 @@
 					},
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari1"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari2"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari3"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari4"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari5"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.kaminari.san_1": {
@@ -429,6 +457,34 @@
 					},
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari1"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari2"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari3"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari4"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari5"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.kaminari.shi_2": {
@@ -620,6 +676,34 @@
 					},
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari1"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari2"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari3"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari4"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari5"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "kaminari6"
+					}
+				]
 			}
 		}
 	}

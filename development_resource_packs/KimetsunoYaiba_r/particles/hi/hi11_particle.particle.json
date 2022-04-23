@@ -10,14 +10,14 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_instant": {
-				"num_particles": 20
+				"num_particles": 10
 			},
 			"minecraft:emitter_lifetime_once": {
 				"active_time": 1
 			},
 			"minecraft:emitter_shape_disc": {
 				"offset": [0, 0.5, 0],
-				"radius": 10,
+				"radius": 20,
 				"direction": [5, 5, 5]
 			},
 			"minecraft:particle_lifetime_expression": {

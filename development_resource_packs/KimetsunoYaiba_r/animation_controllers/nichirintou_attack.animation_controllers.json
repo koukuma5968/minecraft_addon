@@ -1,0 +1,41 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.nichirintou_attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou') && variable.attack_time"},
+						{"two_attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_two') && variable.attack_time"},
+						{"zyuu_attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:zyuu_genya') && variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						"nichirintou_attack"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"two_attack" : {
+					"animations" : [
+						"nichirintou_two_attack"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"zyuu_attack" : {
+					"animations" : [
+						"zyuu_attack"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

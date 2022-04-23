@@ -1,6 +1,10 @@
 {
    "resource_pack_name" : "kurokumaft_kimetsu_r",
    "texture_data" : {
+      "nichirintou": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou"
+      },
+
       "nichirintou_tanjiro": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_tanjiro"
       },
@@ -10,16 +14,31 @@
       "nichirintou_inosuke": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_inosuke"
       },
+      "nichirintou_kanawo": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kanawo"
+      },
+      "nichirintou_genya": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_genya"
+      },
+      "zyuu_genya": {
+         "textures" : "textures/kurokumaft/items/nichirintou/zyuu_genya"
+      },
+      "bullet_genya": {
+         "textures" : "textures/kurokumaft/items/bullet/bullet_genya"
+      },
+      "nichirintou_giyu": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_giyu"
+      },
       "nichirintou_kyouzyuro": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kyouzyuro"
       },
       "nichirintou_shinobu": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_shinobu"
       },
-
-      "nichirintou": {
-         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou"
+      "nichirintou_tengen": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_tengen"
       },
+
       "nichirintou_hi": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hi"
       },
@@ -28,9 +47,6 @@
       },
       "nichirintou_kaminari": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kaminari"
-      },
-      "nichirintou_kemono": {
-         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kemono"
       },
       "nichirintou_hono": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hono"

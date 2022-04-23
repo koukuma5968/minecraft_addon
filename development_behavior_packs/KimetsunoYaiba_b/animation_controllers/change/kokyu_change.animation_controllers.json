@@ -9,10 +9,20 @@
             { "tanjiro_remove": "query.scoreboard('tanjiro') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro')" },
             { "zenitu_add": "query.scoreboard('zenitu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu')" },
             { "zenitu_remove": "query.scoreboard('zenitu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu')" },
+            { "inosuke_add": "query.scoreboard('inosuke') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke')" },
+            { "inosuke_remove": "query.scoreboard('inosuke') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke')" },
+            { "giyu_add": "query.scoreboard('giyu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu')" },
+            { "giyu_remove": "query.scoreboard('giyu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu')" },
+            { "tengen_add": "query.scoreboard('tengen') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen')" },
+            { "tengen_remove": "query.scoreboard('tengen') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen')" },
+
             { "mizu_add": "query.scoreboard('mizu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
             { "mizu_remove": "query.scoreboard('mizu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
             { "hi_add": "query.scoreboard('hi') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" },
-            { "hi_remove": "query.scoreboard('hi') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" }
+            { "hi_remove": "query.scoreboard('hi') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" },
+            { "kaminari_add": "query.scoreboard('kaminari') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari')" },
+            { "kaminari_remove": "query.scoreboard('kaminari') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari')" }
+
           ]
         },
         "tanjiro_add":{
@@ -53,6 +63,64 @@
             {"default":"(1.0)"}
           ]
         },
+        "inosuke_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 壱ノ牙\"}]}",
+            "/scoreboard objectives add inosuke dummy",
+            "/scoreboard players set @s inosuke 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "inosuke_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s inosuke",
+            "/scoreboard objectives remove inosuke"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "giyu_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add giyu dummy",
+            "/scoreboard players set @s giyu 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "giyu_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s giyu",
+            "/scoreboard objectives remove giyu"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "tengen_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add tengen dummy",
+            "/scoreboard players set @s tengen 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "tengen_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s tengen",
+            "/scoreboard objectives remove tengen"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+
         "mizu_add":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
@@ -90,7 +158,27 @@
           "transitions": [
             {"default":"(1.0)"}
           ]
+        },
+        "kaminari_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add kaminari dummy",
+            "/scoreboard players set @s kaminari 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "kaminari_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s kaminari",
+            "/scoreboard objectives remove kaminari"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
         }
+
       }
     }
   }

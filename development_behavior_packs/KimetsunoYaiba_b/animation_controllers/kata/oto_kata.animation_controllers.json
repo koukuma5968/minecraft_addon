@@ -1,0 +1,78 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.oto": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_oto_attack": {
+              "input": "variable.kokyu_oto_attack = (variable.kokyu_oto_attack ?? 0);"
+            }
+          },
+          "transitions": [
+            { "oto1": "(query.scoreboard('oto') == 1 || query.scoreboard('tengen') == 1) && query.is_using_item" },
+            { "oto4": "(query.scoreboard('oto') == 4 || query.scoreboard('tengen') == 4) && query.is_using_item" },
+            { "oto5": "(query.scoreboard('oto') == 5 || query.scoreboard('tengen') == 5) && query.is_using_item" }
+          ]
+        },
+        "oto1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§e轟\"}]}",
+            "/event entity @s variant1",
+            "/tag @s add kokyu_oto1",
+  					"/execute @s ~~~ damage @e[tag=!kokyu_oto1,r=3.5] 10 entity_explosion",
+            "/effect @s resistance 99999 20 true",
+            "/effect @s fire_resistance 99999 20 true",
+            "/summon kurokumaft:oto_bom ^1^^2 minecraft:explode",
+            "/summon kurokumaft:oto_bom ^-1^^2 minecraft:explode"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/tag @s remove kokyu_oto1",
+            "/effect @s resistance 0",
+            "/effect @s fire_resistance 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 20 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
+          ]
+        },
+        "oto4":{
+          "animations" : [ "oto4_ani" ],
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§e響斬無間\"}]}",
+            "/effect @s resistance 99999 20 true",
+            "/effect @s fire_resistance 99999 20 true",
+            "/event entity @s variant4"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/effect @s resistance 0",
+            "/effect @s fire_resistance 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 100 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "oto5":{
+          "animations" : [ "oto5_ani" ],
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§e鳴弦奏々\"}]}",
+            "/event entity @s variant5",
+            "/effect @s speed 99999 5 true",
+            "/effect @s resistance 99999 20 true",
+            "/effect @s fire_resistance 99999 20 true"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/effect @s speed 0",
+            "/effect @s resistance 0",
+            "/effect @s fire_resistance 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 100 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0 && !query.is_using_item;"}
+          ]
+        }
+      }
+    }
+  }
+}

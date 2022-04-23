@@ -1,0 +1,687 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nichirintou_kokyu.tengen.ichi_1": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-137.59023, -10.1448, 31.84737],
+						"0.5": [-27.59023, -10.1448, 31.84737]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirinto2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [55, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"chaingroup2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [165, 0, 0],
+						"0.5": [77.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-138.78431, 11.44951, -27.13325],
+						"0.5": [-21.28431, 11.44951, -27.13325]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [45, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"chaingroup": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [170, 0, 0],
+						"0.5": [77.5, 0, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_kokyu.tengen.shi_1": {
+			"loop": true,
+			"animation_length": 0.66667,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [-54.21922, -62.02506, 7.24856],
+						"0.1667": [-108.46336, -0.36455, -121.9354],
+						"0.3333": [-13.46336, -0.36455, -121.9354],
+						"0.5": [-166.52799, -2.06673, 57.48233],
+						"0.6667": [-11.52799, -2.06673, 57.48233]
+					}
+				},
+				"nichirinto2": {
+					"rotation": {
+						"0.1667": [52.5, 0, 0],
+						"0.3333": [-12.5, 0, 0],
+						"0.5": [40, 0, 0]
+					}
+				},
+				"chaingroup2": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-122.00019, 8.507, 128.28739],
+						"0.1667": [-9.50019, 8.507, 128.28739],
+						"0.3333": [-170.49981, -8.507, -51.71261],
+						"0.5": [-45.49981, -8.507, -51.71261],
+						"0.6667": [-106.09659, 61.55459, -54.53885]
+					}
+				},
+				"nichirinto": {
+					"rotation": {
+						"0.1667": [50, 0, 0],
+						"0.3333": [-2.5, 0, 0],
+						"0.5": [55, 0, 0],
+						"0.6667": [2.5, 0, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				],
+				"0.5": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_kokyu.tengen.go_1": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.20833,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-149.19085, -30.98214, 51.04992]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirinto2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-12.6062, 12.60013, 5.96846],
+						"0.0833": [17.11712, 0.30805, 0.49535],
+						"0.125": [182.14019, 10.55365, 100.9861],
+						"0.1667": [-185, -2.5, -262.5],
+						"0.2083": [-184.47565, 14.6353, -264.83908]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-1.25, 1.25, -4],
+						"0.0833": [0.17, -3.83, -4.67],
+						"0.125": [-2.41, -9.41, 12.66],
+						"0.1667": [-2, -4, 14],
+						"0.2083": [-2.9, -8, 13.3]
+					}
+				},
+				"chaingroup2": {
+					"rotation": [-180, -20, 270],
+					"position": [7, -4, -2]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-160.62374, 19.90349, -44.06852]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-3.6394, 0.01594, -0.07888],
+						"0.0833": [-5.08476, 4.4866, 0.55223],
+						"0.125": [23.38271, -18.3914, -88.46391],
+						"0.1667": [22.4255, -9.17596, -84.46088],
+						"0.2083": [-10.0745, -9.17596, -84.46088]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, -0.75, -4.5],
+						"0.0833": [-0.33, -0.17, -2.67],
+						"0.125": [3.83, -1.58, -9.83],
+						"0.1667": [3, -3, -10],
+						"0.2083": [-3, -3, -9]
+					}
+				},
+				"chaingroup": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, 0, -65]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": [-4, 7, 0]
+					}
+				},
+				"chain5": {
+					"rotation": [0, 0, 15]
+				},
+				"chain6": {
+					"rotation": [0, 0, 12.5]
+				},
+				"chain7": {
+					"rotation": [0, 0, 7.5],
+					"position": [-1, 0, 0]
+				},
+				"chain8": {
+					"position": [-1, 0, 0]
+				},
+				"chain9": {
+					"position": [-1, 0, 0]
+				},
+				"chain10": {
+					"position": [-1, 0, 0]
+				},
+				"chain11": {
+					"position": [-1, 0, 0]
+				},
+				"chain12": {
+					"position": [-1, 0, 0]
+				},
+				"chain13": {
+					"position": [-1, 0, 0]
+				},
+				"chain14": {
+					"position": [-1, 0, 0]
+				},
+				"chain15": {
+					"position": [-1, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou_kokyu.tengen.go_2": {
+			"loop": true,
+			"animation_length": 0.41667,
+			"bones": {
+				"leftArm": {
+					"rotation": [-149.19085, -30.98214, 51.04992]
+				},
+				"nichirinto2": {
+					"rotation": {
+						"0.0": [-184.98087, 29.58497, -266.16989],
+						"0.0833": [-98.11329, 31.47348, -267.02191],
+						"0.1667": [-9.69494, 23.17528, -271.52872],
+						"0.25": [75.30506, 23.17528, -271.52872],
+						"0.3333": [162.80506, 23.17528, -271.52872]
+					},
+					"position": {
+						"0.0": [-0.9, -11, 10.3],
+						"0.0417": [7.1, -9.5, 8.3],
+						"0.0833": [12.1, -6, 1.3],
+						"0.125": [10.1, -2.5, -5.2],
+						"0.1667": [2.1, 0, -10.7],
+						"0.2083": [-6.9, -1, -7.7],
+						"0.25": [-11.9, -4, -1.7],
+						"0.2917": [-10.4, -8, 6.3],
+						"0.3333": [-2.9, -11, 10.3]
+					}
+				},
+				"chaingroup2": {
+					"rotation": [-180, -20, 270],
+					"position": [7, -4, -2]
+				},
+				"rightArm": {
+					"rotation": [-160.62374, 19.90349, -44.06852]
+				},
+				"nichirinto": {
+					"rotation": {
+						"0.0": [7.05284, 2.63865, -92.25182],
+						"0.0833": [90.11149, -18.83141, -101.9442],
+						"0.1667": [183.54377, -6.45731, -102.37284],
+						"0.25": [275.33956, -6.80093, -97.92164],
+						"0.3333": [367.15113, -9.76251, -93.79315]
+					},
+					"position": {
+						"0.0": [1, -4, -9],
+						"0.0417": [9.1, -1.6, -5.5],
+						"0.0833": [12, -2, 2],
+						"0.125": [9.2, -5, 11],
+						"0.1667": [0, -7, 14],
+						"0.2083": [-8.3, -8.2, 10.5],
+						"0.25": [-12, -7, 1],
+						"0.2917": [-8.4, -4.7, -7],
+						"0.3333": [0, -3, -10]
+					}
+				},
+				"chaingroup": {
+					"rotation": [177.11934, 29.8742, 84.23137],
+					"position": [-7, -5, -3]
+				},
+				"chain5": {
+					"rotation": [0, 0, 15]
+				},
+				"chain6": {
+					"rotation": [0, 0, 12.5]
+				},
+				"chain7": {
+					"rotation": [0, 0, 7.5],
+					"position": [-1, 0, 0]
+				},
+				"chain8": {
+					"position": [-1, 0, 0]
+				},
+				"chain9": {
+					"position": [-1, 0, 0]
+				},
+				"chain10": {
+					"position": [-1, 0, 0]
+				},
+				"chain11": {
+					"position": [-1, 0, 0]
+				},
+				"chain12": {
+					"position": [-1, 0, 0]
+				},
+				"chain13": {
+					"position": [-1, 0, 0]
+				},
+				"chain14": {
+					"position": [-1, 0, 0]
+				},
+				"chain15": {
+					"position": [-1, 0, 0]
+				},
+				"chain20": {
+					"rotation": [0, 0, -12.5]
+				},
+				"chain21": {
+					"rotation": [0, 0, -10]
+				},
+				"chain22": {
+					"rotation": [-1.75916, -1.61893, -14.24349],
+					"position": [1, 0, 0]
+				},
+				"chain23": {
+					"rotation": [0, 0, -15],
+					"position": [1, 0, 0]
+				},
+				"chain24": {
+					"rotation": [0, 0, -22.5],
+					"position": [1, 0, 0]
+				},
+				"chain25": {
+					"position": [1, 0, 0]
+				},
+				"chain26": {
+					"position": [1, 0, 0]
+				},
+				"chain27": {
+					"rotation": [0, 0, -25],
+					"position": [2, 0, 0]
+				},
+				"chain28": {
+					"rotation": [0, 0, -22.5],
+					"position": [3, -1, 0]
+				},
+				"chain29": {
+					"rotation": [0, 0, -25],
+					"position": [4, -1, 0]
+				},
+				"chain30": {
+					"rotation": [0, 0, -35],
+					"position": [5, -4, 0]
+				},
+				"chain31": {
+					"rotation": [0, 0, -32.5],
+					"position": [4, -4, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen1"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen2"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen3"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen4"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen5"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen6"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen7"
+					},
+					{
+						"effect": "kaze_blead_particle",
+						"locator": "tengen8"
+					}
+				]
+			}
+		}
+	}
+}

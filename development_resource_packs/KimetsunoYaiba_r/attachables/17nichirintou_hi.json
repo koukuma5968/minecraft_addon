@@ -16,8 +16,8 @@
         },
         "scripts": {
           "animate": [
-            {"first": "variable.is_first_person"},
-            {"third": "!variable.is_first_person"}
+            {"first": "c.is_first_person"},
+            {"third": "!c.is_first_person"}
           ]
         },
         "animations": {

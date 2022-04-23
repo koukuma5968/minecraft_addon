@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.kedamono": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_kedamono_attack": {
+              "input": "variable.kokyu_kedamono_attack = (variable.kokyu_kedamono_attack ?? 0);"
+            }
+          },
+          "transitions": [
+            { "kedamono1": "(query.scoreboard('inosuke') == 1 || query.scoreboard('kedamono') == 1) && query.is_using_item" }
+          ]
+        },
+        "kedamono1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7穿ち抜き\"}]}",
+            "/event entity @s variant1"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 20 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

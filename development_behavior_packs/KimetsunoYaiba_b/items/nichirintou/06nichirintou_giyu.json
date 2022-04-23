@@ -1,0 +1,78 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:nichirintou_giyu",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:nichirintou_giyu.name"
+			},
+      "tag:kurokumaft:nichirintou": {},
+      "tag:kurokumaft:nichirintou_giyu": {},
+      "minecraft:icon": {
+          "texture": "nichirintou_giyu"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.nichirintou"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:allow_off_hand": true,
+      "minecraft:durability": {
+        "max_durability": 450
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:scarlet_nugget" ],
+            "repair_amount": 5
+          }
+        ]
+      },
+      "minecraft:mining_speed": 1.5,
+      "minecraft:damage": 20,
+      "minecraft:enchantable": {
+        "value": 250,
+        "slot": "sword"
+      },
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": "supernatural",
+        "can_always_eat": true
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:web",
+            "speed": 15
+          },
+          {
+            "block": "minecraft:bamboo",
+            "speed": 10
+          }
+        ]
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      },
+      "minecraft:weapon": {
+          "on_hurt_entity": {
+              "event": "hurt_entity"
+          }
+      }
+    },
+    "events": {
+      "hurt_entity": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
+      }
+    }
+  }
+}
+

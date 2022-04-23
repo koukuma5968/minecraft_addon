@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.inosuke_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "inosuke1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke') && query.scoreboard('inosuke') == 10 && query.is_sneaking" },
+            { "inosuke2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke') && query.scoreboard('inosuke') == 1 && query.is_sneaking" }
+          ]
+        },
+        "inosuke1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 壱ノ牙\"}]}",
+            "/scoreboard players set @s inosuke 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "inosuke2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 弐ノ牙\"}]}",
+            "/scoreboard players set @s inosuke 2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

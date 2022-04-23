@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:bullet_genya",
+        "materials": {
+            "default": "fireball"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/items/bullet/bullet_genya"
+          },
+          "geometry": {
+            "default": "geometry.bullet_genya"
+          },
+          "scripts": {
+            "scale": "0.3"
+          },
+          "render_controllers": [ "controller.render.bullet" ]
+        }
+    }
+  }
+  

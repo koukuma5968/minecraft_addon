@@ -19,14 +19,13 @@
       },
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,
-      "minecraft:hand_equipped": true,
       "minecraft:durability": {
         "max_durability": 70
       },
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:nichirintou" ],
+            "items": [ "kurokumaft:scarlet_nugget" ],
             "repair_amount": 5
           }
         ]
@@ -82,9 +81,21 @@
             }
           },
           {
-            "weight": 80,
+            "weight": 70,
             "transform_item": {
               "transform": "kurokumaft:nichirintou_mizu"
+            }
+          },
+          {
+            "weight": 10,
+            "transform_item": {
+              "transform": "kurokumaft:nichirintou_kaminari"
+            }
+          },
+          {
+            "weight": 30,
+            "transform_item": {
+              "transform": "kurokumaft:nichirintou_hono"
             }
           }
         ]

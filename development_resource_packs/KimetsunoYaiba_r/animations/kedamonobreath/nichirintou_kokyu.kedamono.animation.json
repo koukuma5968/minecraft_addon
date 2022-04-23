@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nichirintou_kokyu.kedamono.ichi_1": {
+			"animation_length": 0.5,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 0, -90],
+						"0.3333": [-102.5, 0, -90],
+						"0.5": [12.5, 0, -90]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 0, 90],
+						"0.3333": [-97.5, 0, 90],
+						"0.5": [12.5, 0, 90]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [92.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirinto2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [100, 0, 0]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		}
+	}
+}

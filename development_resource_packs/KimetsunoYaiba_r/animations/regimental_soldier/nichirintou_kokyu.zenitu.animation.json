@@ -145,7 +145,7 @@
 			}
 		},
 		"animation.nichirintou_kokyu.zenitu.ichi_3": {
-			"animation_length": 1,
+			"animation_length": 0.75,
 			"bones": {
 				"root": {
 					"position": [0, -3, 0]

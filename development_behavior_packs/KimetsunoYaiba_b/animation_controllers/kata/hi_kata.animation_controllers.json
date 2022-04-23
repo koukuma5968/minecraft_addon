@@ -202,12 +202,12 @@
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§c幻日虹\"}]}",
             "/event entity @s variant21",
-            "/event entity @s change_family",
+            "/event entity @s add_damage_clear",
             "/effect @s invisibility 10 20 true"
           ],
           "on_exit": [
             "/event entity @s variant0",
-            "/event entity @s return_family",
+            "/event entity @s remove_damage_clear",
             "/effect @s invisibility 0"
           ],
           "transitions": [
