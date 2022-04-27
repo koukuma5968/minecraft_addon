@@ -24,7 +24,7 @@
 				},
 				"giyu1_1" : {
 					"animations" : [
-						{"giyu.ichi_1": "variable.is_first_person"},
+						{"giyu.ichi_1_first": "variable.is_first_person"},
 						{"giyu.ichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -33,7 +33,7 @@
 				},
 				"giyu1_2" : {
 					"animations" : [
-						{"giyu.ichi_2": "variable.is_first_person"},
+						{"giyu.ichi_2_first": "variable.is_first_person"},
 						{"giyu.ichi_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -42,7 +42,6 @@
 				},
 				"giyu2_1" : {
 					"animations" : [
-						{"giyu.ni_1": "variable.is_first_person"},
 						{"giyu.ni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -51,7 +50,6 @@
 				},
 				"giyu3_1" : {
 					"animations" : [
-						{"giyu.san_1": "variable.is_first_person"},
 						{"giyu.san_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -60,7 +58,6 @@
 				},
 				"giyu3_2" : {
 					"animations" : [
-						{"giyu.san_2": "variable.is_first_person"},
 						{"giyu.san_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -69,7 +66,6 @@
 				},
 				"giyu3_3" : {
 					"animations" : [
-						{"giyu.san_3": "variable.is_first_person"},
 						{"giyu.san_3": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -78,7 +74,6 @@
 				},
 				"giyu4_1" : {
 					"animations" : [
-						{"giyu.shi_1": "variable.is_first_person"},
 						{"giyu.shi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -87,7 +82,6 @@
 				},
 				"giyu4_2" : {
 					"animations" : [
-						{"giyu.shi_2": "variable.is_first_person"},
 						{"giyu.shi_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -96,7 +90,6 @@
 				},
 				"giyu5_1" : {
 					"animations" : [
-						{"giyu.go_1": "variable.is_first_person"},
 						{"giyu.go_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -105,7 +98,6 @@
 				},
 				"giyu5_2" : {
 					"animations" : [
-						{"giyu.go_2": "variable.is_first_person"},
 						{"giyu.go_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -114,7 +106,6 @@
 				},
 				"giyu6_1" : {
 					"animations" : [
-						{"giyu.roku_1": "variable.is_first_person"},
 						{"giyu.roku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -123,7 +114,6 @@
 				},
 				"giyu6_2" : {
 					"animations" : [
-						{"giyu.roku_2": "variable.is_first_person"},
 						{"giyu.roku_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -132,7 +122,6 @@
 				},
 				"giyu7_1" : {
 					"animations" : [
-						{"giyu.shiti_1": "variable.is_first_person"},
 						{"giyu.shiti_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -141,7 +130,6 @@
 				},
 				"giyu7_2" : {
 					"animations" : [
-						{"giyu.shiti_2": "variable.is_first_person"},
 						{"giyu.shiti_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -150,7 +138,6 @@
 				},
 				"giyu8_1" : {
 					"animations" : [
-						{"giyu.hati_1": "variable.is_first_person"},
 						{"giyu.hati_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -159,7 +146,6 @@
 				},
 				"giyu8_2" : {
 					"animations" : [
-						{"giyu.hati_2": "variable.is_first_person"},
 						{"giyu.hati_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -168,7 +154,6 @@
 				},
 				"giyu8_3" : {
 					"animations" : [
-						{"giyu.hati_3": "variable.is_first_person"},
 						{"giyu.hati_3": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -177,7 +162,6 @@
 				},
 				"giyu9_1" : {
 					"animations" : [
-						{"giyu.ku_1": "variable.is_first_person"},
 						{"giyu.ku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -186,7 +170,6 @@
 				},
 				"giyu9_2" : {
 					"animations" : [
-						{"giyu.ku_2": "variable.is_first_person"},
 						{"giyu.ku_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -204,7 +187,6 @@
 				},
 				"giyu10_2" : {
 					"animations" : [
-						{"giyu.tou_2": "variable.is_first_person"},
 						{"giyu.tou_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -213,7 +195,6 @@
 				},
 				"giyu11_1" : {
 					"animations" : [
-						{"giyu.zyuichi_1": "variable.is_first_person"},
 						{"giyu.zyuichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [

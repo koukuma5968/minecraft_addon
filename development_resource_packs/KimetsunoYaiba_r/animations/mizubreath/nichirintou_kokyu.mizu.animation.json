@@ -81,6 +81,104 @@
 				]
 			}
 		},
+		"animation.nichirintou_kokyu.mizu.ichi_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirinto": {
+					"rotation": {
+						"0.0": [36.10073, 52.31045, -22.25454],
+						"0.5": [8.77656, -83.49971, -26.72542]
+					},
+					"position": {
+						"0.0": [2, -11, 5],
+						"0.5": [1, -4, -34]
+					}
+				},
+				"nichirinto2": {
+					"rotation": [-16.23107, -68.4687, 85.79753],
+					"position": [-1, 2.3, 5],
+					"scale": 0.3
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu1"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu2"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu3"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu4"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu5"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_kokyu.mizu.ichi_2_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.66667,
+			"bones": {
+				"nichirinto": {
+					"rotation": {
+						"0.0": [11.27656, -83.49971, -26.72542],
+						"0.5": [103.78, -83.5, -26.73]
+					},
+					"position": {
+						"0.0": [1, -4, -34],
+						"0.5": [1, -7, -8]
+					}
+				},
+				"nichirinto2": {
+					"rotation": [-16.23107, -68.4687, 85.79753],
+					"position": [-1, 2.3, 5],
+					"scale": 0.3
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu1"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu2"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu3"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu4"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu5"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "mizu6"
+					}
+				]
+			}
+		},
 		"animation.nichirintou_kokyu.mizu.ni_1": {
 			"animation_length": 1.25,
 			"bones": {

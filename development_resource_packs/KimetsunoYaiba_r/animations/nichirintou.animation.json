@@ -25,14 +25,19 @@
 			"animation_length": 0.70833,
 			"bones": {
 				"nichirinto": {
-					"rotation": [22.43001, 68.69274, -44.97092],
-					"position": [2, 3, 5],
-					"scale": 0.3
+					"rotation": [14.93001, 68.69274, -44.97092],
+					"position": [2, -4, 2],
+					"scale": 0.5
 				},
 				"nichirinto2": {
-					"rotation": [-16.23107, -68.4687, 85.79753],
-					"position": [-1, 2.3, 5],
+					"rotation": [-126.53069, 0.66428, 170.68014],
+					"position": [1, -3.7, 3],
 					"scale": 0.3
+				},
+				"leftArm": {
+					"rotation": [129.97836, -10.2588, -21.93613],
+					"position": [-9, -1, 4],
+					"scale": 0.5
 				}
 			}
 		},

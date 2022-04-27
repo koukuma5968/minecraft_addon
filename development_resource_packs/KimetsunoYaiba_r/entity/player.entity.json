@@ -90,7 +90,10 @@
         "mizu_awa_particle": "kurokumaft:mizu_awa_particle",
         "mizu_splash_particle": "kurokumaft:mizu_splash_particle",
         "kaminari_blead_particle": "kurokumaft:kaminari_blead_particle",
-        "kaze_blead_particle": "kurokumaft:kaze_blead_particle"
+        "kaminari_point_particle": "kurokumaft:kaminari_point_particle",
+        "kaminari2_particle": "kurokumaft:kaminari2_particle",
+        "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
+        "hono_blead_particle": "kurokumaft:hono_blead_particle"
       },
       "scripts": {
         "scale": "0.9375",
@@ -154,7 +157,7 @@
 
           {"first": "(variable.equipped_nichirintou || variable.equipped_nichirintou_two) && variable.is_first_person"},
           {"third": "(variable.equipped_nichirintou || variable.equipped_nichirintou_two) && !variable.is_first_person"},
-          {"nichirintou_attack_con": "(variable.equipped_nichirintou || variable.equipped_nichirintou_two)"},
+          {"nichirintou_attack_con": "(variable.equipped_nichirintou || variable.equipped_nichirintou_two) && query.variant == 0"},
 
           {"zyuu_first": "variable.equipped_zyuu_genya && variable.is_first_person"},
           {"zyuu_third": "variable.equipped_zyuu_genya && !variable.is_first_person"},
@@ -165,14 +168,17 @@
           {"inosuke.kokyu_con": "variable.equipped_inosuke"},
 
           {"giyu.kokyu_con": "variable.equipped_giyu"},
+          {"kyouzyuro.kokyu_con": "variable.equipped_kyouzyuro"},
+          {"kyouzyuro_attack.kokyu_con": "variable.equipped_kyouzyuro && query.variant == 1"},
+          {"tengen.kokyu_con": "variable.equipped_tengen"},
 
           {"mizu.kokyu_con": "variable.equipped_mizu"},
           {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu) && query.variant == 10"},
           {"hi.kokyu_con": "variable.equipped_hi"},
           {"kaminari.kokyu_con": "variable.equipped_kaminari"},
           {"kaminari_attack.kokyu_con": "variable.equipped_kaminari && query.variant == 1"},
-
-          {"tengen.kokyu_con": "variable.equipped_tengen"}
+          {"hono.kokyu_con": "variable.equipped_hono"},
+          {"hono_attack.kokyu_con": "variable.equipped_hono && query.variant == 1"}
 
         ]
       },
@@ -241,6 +247,8 @@
         "tanjiro.kokyu_con":"controller.animation.tanjiro.kokyu",
         "tanjiro_mizu.ichi_1": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1",
         "tanjiro_mizu.ichi_2": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_2",
+        "tanjiro_mizu.ichi_1_first": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1_first",
+        "tanjiro_mizu.ichi_2_first": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_2_first",
         "tanjiro_mizu.ni_1": "animation.nichirintou_kokyu.tanjiro_mizu.ni_1",
         "tanjiro_mizu.san_1": "animation.nichirintou_kokyu.tanjiro_mizu.san_1",
         "tanjiro_mizu.san_2": "animation.nichirintou_kokyu.tanjiro_mizu.san_2",
@@ -280,6 +288,8 @@
         "mizu.kokyu_con":"controller.animation.mizu.kokyu",
         "mizu.ichi_1": "animation.nichirintou_kokyu.mizu.ichi_1",
         "mizu.ichi_2": "animation.nichirintou_kokyu.mizu.ichi_2",
+        "mizu.ichi_1_first": "animation.nichirintou_kokyu.mizu.ichi_1_first",
+        "mizu.ichi_2_first": "animation.nichirintou_kokyu.mizu.ichi_2_first",
         "mizu.ni_1": "animation.nichirintou_kokyu.mizu.ni_1",
         "mizu.san_1": "animation.nichirintou_kokyu.mizu.san_1",
         "mizu.san_2": "animation.nichirintou_kokyu.mizu.san_2",
@@ -347,6 +357,8 @@
         "giyu.kokyu_con":"controller.animation.giyu.kokyu",
         "giyu.ichi_1": "animation.nichirintou_kokyu.giyu.ichi_1",
         "giyu.ichi_2": "animation.nichirintou_kokyu.giyu.ichi_2",
+        "giyu.ichi_1_first": "animation.nichirintou_kokyu.giyu.ichi_1_first",
+        "giyu.ichi_2_first": "animation.nichirintou_kokyu.giyu.ichi_2_first",
         "giyu.ni_1": "animation.nichirintou_kokyu.giyu.ni_1",
         "giyu.san_1": "animation.nichirintou_kokyu.giyu.san_1",
         "giyu.san_2": "animation.nichirintou_kokyu.giyu.san_2",
@@ -367,6 +379,29 @@
         "giyu.tou_1": "animation.nichirintou_kokyu.giyu.tou_1",
         "giyu.tou_2": "animation.nichirintou_kokyu.giyu.tou_2",
         "giyu.zyuichi_1": "animation.nichirintou_kokyu.giyu.zyuichi_1",
+
+        "kyouzyuro.kokyu_con":"controller.animation.kyouzyuro.kokyu",
+        "kyouzyuro_attack.kokyu_con":"controller.animation.kyouzyuro_attack.kokyu",
+        "kyouzyuro.ichi_1": "animation.nichirintou_kokyu.kyouzyuro.ichi_1",
+        "kyouzyuro.ichi_2": "animation.nichirintou_kokyu.kyouzyuro.ichi_2",
+        "kyouzyuro.ichi_3": "animation.nichirintou_kokyu.kyouzyuro.ichi_3",
+        "kyouzyuro.ni_1": "animation.nichirintou_kokyu.kyouzyuro.ni_1",
+        "kyouzyuro.san_1": "animation.nichirintou_kokyu.kyouzyuro.san_1",
+        "kyouzyuro.shi_1": "animation.nichirintou_kokyu.kyouzyuro.shi_1",
+        "kyouzyuro.go_1": "animation.nichirintou_kokyu.kyouzyuro.go_1",
+        "kyouzyuro.ku_1": "animation.nichirintou_kokyu.kyouzyuro.ku_1",
+        "kyouzyuro.ku_2": "animation.nichirintou_kokyu.kyouzyuro.ku_2",
+        "kyouzyuro.ku_3": "animation.nichirintou_kokyu.kyouzyuro.ku_3",
+
+        "hono.kokyu_con":"controller.animation.hono.kokyu",
+        "hono_attack.kokyu_con":"controller.animation.hono_attack.kokyu",
+        "hono.ichi_1": "animation.nichirintou_kokyu.hono.ichi_1",
+        "hono.ichi_2": "animation.nichirintou_kokyu.hono.ichi_2",
+        "hono.ichi_3": "animation.nichirintou_kokyu.hono.ichi_3",
+        "hono.ni_1": "animation.nichirintou_kokyu.hono.ni_1",
+        "hono.san_1": "animation.nichirintou_kokyu.hono.san_1",
+        "hono.shi_1": "animation.nichirintou_kokyu.hono.shi_1",
+        "hono.go_1": "animation.nichirintou_kokyu.hono.go_1",
 
         "tengen.kokyu_con":"controller.animation.tengen.kokyu",
         "tengen.ichi_1": "animation.nichirintou_kokyu.tengen.ichi_1",

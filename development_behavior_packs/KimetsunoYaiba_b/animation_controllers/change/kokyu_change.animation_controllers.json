@@ -13,6 +13,8 @@
             { "inosuke_remove": "query.scoreboard('inosuke') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke')" },
             { "giyu_add": "query.scoreboard('giyu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu')" },
             { "giyu_remove": "query.scoreboard('giyu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu')" },
+            { "kyouzyuro_add": "query.scoreboard('kyouzyuro') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro')" },
+            { "kyouzyuro_remove": "query.scoreboard('kyouzyuro') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro')" },
             { "tengen_add": "query.scoreboard('tengen') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen')" },
             { "tengen_remove": "query.scoreboard('tengen') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen')" },
 
@@ -21,7 +23,9 @@
             { "hi_add": "query.scoreboard('hi') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" },
             { "hi_remove": "query.scoreboard('hi') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi')" },
             { "kaminari_add": "query.scoreboard('kaminari') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari')" },
-            { "kaminari_remove": "query.scoreboard('kaminari') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari')" }
+            { "kaminari_remove": "query.scoreboard('kaminari') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari')" },
+            { "hono_add": "query.scoreboard('hono') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono')" },
+            { "hono_remove": "query.scoreboard('hono') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono')" }
 
           ]
         },
@@ -82,6 +86,7 @@
             {"default":"(1.0)"}
           ]
         },
+
         "giyu_add":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
@@ -96,6 +101,25 @@
           "on_entry": [
             "/scoreboard players reset @s giyu",
             "/scoreboard objectives remove giyu"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "kyouzyuro_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add kyouzyuro dummy",
+            "/scoreboard players set @s kyouzyuro 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "kyouzyuro_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s kyouzyuro",
+            "/scoreboard objectives remove kyouzyuro"
           ],
           "transitions": [
             {"default":"(1.0)"}
@@ -173,6 +197,25 @@
           "on_entry": [
             "/scoreboard players reset @s kaminari",
             "/scoreboard objectives remove kaminari"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hono_add":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add hono dummy",
+            "/scoreboard players set @s hono 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hono_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s hono",
+            "/scoreboard objectives remove hono"
           ],
           "transitions": [
             {"default":"(1.0)"}

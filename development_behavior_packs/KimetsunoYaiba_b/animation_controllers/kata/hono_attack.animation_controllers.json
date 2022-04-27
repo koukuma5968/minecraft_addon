@@ -1,17 +1,17 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
-    "controller.animation.kokyu.kaminari_attack": {
+    "controller.animation.kokyu.hono_attack": {
       "states": {
         "default": {
           "transitions": [
-            { "kaminari1_attack": "query.variant == 1 && query.scoreboard('kaminari1') >= 0 && variable.attack_time" }
+            { "hono1_attack": "query.variant == 1 && query.scoreboard('hono1') >= 0 && variable.attack_time" }
           ]
         },
-        "kaminari1_attack":{
+        "hono1_attack":{
           "on_entry": [
-            "/function kaminari/kaminari1",
-            "/scoreboard players add @s kaminari1 1"
+            "/function hono/hono1",
+            "/scoreboard players add @s hono1 1"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}

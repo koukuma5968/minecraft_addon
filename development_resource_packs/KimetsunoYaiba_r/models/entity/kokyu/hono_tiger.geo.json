@@ -1,0 +1,93 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.hono_tiger",
+				"texture_width": 176,
+				"texture_height": 176,
+				"visible_bounds_width": 15,
+				"visible_bounds_height": 13,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 24, 0]
+				},
+				{
+					"name": "tiger",
+					"parent": "root",
+					"pivot": [2, 13, 0],
+					"cubes": [
+						{"origin": [-13, 4, -6], "size": [27, 24, 36], "uv": [0, 0]},
+						{"origin": [-9, 28, -6], "size": [19, 6, 22], "uv": [88, 88]},
+						{"origin": [-13, 34, -6], "size": [27, 2, 28], "uv": [0, 60]},
+						{"origin": [13, 28, 4], "size": [1, 8, 26], "uv": [54, 90]},
+						{"origin": [-13, 28, 4], "size": [1, 8, 26], "uv": [90, 0]},
+						{"origin": [-13, 28, -6], "size": [4, 6, 10], "uv": [2, 3]},
+						{"origin": [10, 28, -6], "size": [4, 6, 10], "uv": [1, 2]}
+					],
+					"locators": {
+						"hono_tiger": [1, 16, 10]
+					}
+				},
+				{
+					"name": "lowerjaw",
+					"parent": "tiger",
+					"pivot": [0, 13, 0],
+					"rotation": [10, 0, 0],
+					"cubes": [
+						{"origin": [-10, 5, -22], "size": [21, 7, 19], "uv": [0, 90]},
+						{"origin": [-8, 6, -33.7], "size": [17, 6, 11.9], "uv": [97, 116]},
+						{"origin": [5, 12, -33], "size": [2, 7, 3], "uv": [44, 1]},
+						{"origin": [-6, 12, -33], "size": [2, 8, 3], "uv": [10, 60]}
+					],
+					"locators": {
+						"hono_low_fang": [7, 15, -31],
+						"hono_low_fang2": [-5, 15, -31]
+					}
+				},
+				{
+					"name": "upwerjaw",
+					"parent": "tiger",
+					"pivot": [0, 13, 0],
+					"cubes": [
+						{"origin": [6, 20, -35], "size": [2, 9, 3], "pivot": [7, 21, -32], "rotation": [-25, 0, 0], "uv": [0, 60]},
+						{"origin": [-7, 18, -38], "size": [2, 9, 3], "pivot": [-6, 15, -29], "rotation": [-25, 0, 0], "uv": [24, 37]},
+						{"origin": [-9, 24, -34], "size": [19, 8, 13], "pivot": [0, 25, -19], "rotation": [-22.5, 0, 0], "uv": [0, 116]},
+						{"origin": [-11, 19, -20], "size": [23, 9, 19], "pivot": [0, 25, -7], "rotation": [-22.5, 0, 0], "uv": [82, 60]}
+					],
+					"locators": {
+						"hono_up_fang": [7, 25, -31],
+						"hono_up_fang2": [-6, 25, -31]
+					}
+				},
+				{
+					"name": "leftangle",
+					"parent": "tiger",
+					"pivot": [0, 13, 6],
+					"cubes": [
+						{"origin": [9, 28, 13], "size": [4, 11, 17], "uv": [127, 17]},
+						{"origin": [9, 36, 19], "size": [4, 6, 15], "pivot": [13, 39, 22], "rotation": [22.5, 0, 0], "uv": [127, 133]}
+					],
+					"locators": {
+						"hono_leftangle": [11, 40, 28]
+					}
+				},
+				{
+					"name": "righttangle",
+					"parent": "tiger",
+					"pivot": [-15, 13, 6],
+					"cubes": [
+						{"origin": [-12, 28, 13], "size": [4, 11, 17], "uv": [47, 124]},
+						{"origin": [-12, 35, 19], "size": [4, 6, 15], "pivot": [-9, 38, 21], "rotation": [22.5, 0, 0], "uv": [89, 133]}
+					],
+					"locators": {
+						"hono_righttangle": [-11, 40, 28]
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.hono_attack.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"hono1_3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.variant == 1 && variable.attack_time"}
+					]
+				},
+				"hono1_3" : {
+					"animations" : [
+						{"hono.ichi_3": "variable.is_first_person"},
+						{"hono.ichi_3": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

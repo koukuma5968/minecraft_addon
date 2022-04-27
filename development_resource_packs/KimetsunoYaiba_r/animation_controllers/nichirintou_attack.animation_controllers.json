@@ -6,14 +6,14 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou') && variable.attack_time"},
-						{"two_attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_two') && variable.attack_time"},
+						{"attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou') && query.variant == 0 && variable.attack_time"},
+						{"two_attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_two') && query.variant == 0 && variable.attack_time"},
 						{"zyuu_attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:zyuu_genya') && variable.attack_time"}
 					]
 				},
 				"attack" : {
 					"animations" : [
-						"nichirintou_attack"
+						{"nichirintou_attack": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.any_animation_finished"}
@@ -21,7 +21,7 @@
 				},
 				"two_attack" : {
 					"animations" : [
-						"nichirintou_two_attack"
+						{"nichirintou_two_attack": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.any_animation_finished"}
@@ -29,7 +29,7 @@
 				},
 				"zyuu_attack" : {
 					"animations" : [
-						"zyuu_attack"
+						{"zyuu_attack": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.any_animation_finished"}

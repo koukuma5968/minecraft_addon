@@ -2,17 +2,17 @@
   "format_version": "1.17",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:nichirintou_kyouzyuro",
+        "identifier": "kurokumaft:nichirintou_hono",
         "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
-				"value": "item.kurokumaft:nichirintou_kyouzyuro.name"
+				"value": "item.kurokumaft:nichirintou_hono.name"
 			},
       "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:nichirintou_kyouzyuro": {},
+      "tag:kurokumaft:nichirintou_hono": {},
       "minecraft:icon": {
-          "texture": "nichirintou_kyouzyuro"
+          "texture": "nichirintou_hono"
       },
       "minecraft:creative_category": {
         "parent": "itemGroup.name.nichirintou"
@@ -31,9 +31,9 @@
         ]
       },
       "minecraft:mining_speed": 0.5,
-      "minecraft:damage": 30,
+      "minecraft:damage": 8,
       "minecraft:enchantable": {
-        "value": 300,
+        "value": 50,
         "slot": "sword"
       },
       "minecraft:food": {
@@ -60,7 +60,7 @@
       },
       "minecraft:on_use": {
         "on_use": {
-          "condition": "query.scoreboard('kyouzyuro') == 5",
+          "condition": "query.scoreboard('hono') == 5",
           "event": "enko",
           "target": "self"
         }

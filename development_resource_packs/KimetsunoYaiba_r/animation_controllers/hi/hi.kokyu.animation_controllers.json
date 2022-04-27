@@ -22,7 +22,6 @@
 				},
 				"hi1_1" : {
 					"animations" : [
-						{"hi.ichi_1": "variable.is_first_person"},
 						{"hi.ichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -31,7 +30,6 @@
 				},
 				"hi2_1" : {
 					"animations" : [
-						{"hi.ni_1": "variable.is_first_person"},
 						{"hi.ni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -40,7 +38,6 @@
 				},
 				"hi2_2" : {
 					"animations" : [
-						{"hi.ni_2": "variable.is_first_person"},
 						{"hi.ni_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -49,7 +46,6 @@
 				},
 				"hi3_1" : {
 					"animations" : [
-						{"hi.san_1": "variable.is_first_person"},
 						{"hi.san_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -58,7 +54,6 @@
 				},
 				"hi3_2" : {
 					"animations" : [
-						{"hi.san_2": "variable.is_first_person"},
 						{"hi.san_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -67,7 +62,6 @@
 				},
 				"hi4_1" : {
 					"animations" : [
-						{"hi.shi_1": "variable.is_first_person"},
 						{"hi.shi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -76,7 +70,6 @@
 				},
 				"hi5_1" : {
 					"animations" : [
-						{"hi.go_1": "variable.is_first_person"},
 						{"hi.go_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -85,7 +78,6 @@
 				},
 				"hi5_2" : {
 					"animations" : [
-						{"hi.go_2": "variable.is_first_person"},
 						{"hi.go_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -94,7 +86,6 @@
 				},
 				"hi6_1" : {
 					"animations" : [
-						{"hi.roku_1": "variable.is_first_person"},
 						{"hi.roku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -103,7 +94,6 @@
 				},
 				"hi7_1" : {
 					"animations" : [
-						{"hi.shiti_1": "variable.is_first_person"},
 						{"hi.shiti_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -112,7 +102,6 @@
 				},
 				"hi8_1" : {
 					"animations" : [
-						{"hi.hachi_1": "variable.is_first_person"},
 						{"hi.hachi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -121,7 +110,6 @@
 				},
 				"hi9_1" : {
 					"animations" : [
-						{"hi.ku_1": "variable.is_first_person"},
 						{"hi.ku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -130,7 +118,6 @@
 				},
 				"hi10_1" : {
 					"animations" : [
-						{"hi.tou_1": "variable.is_first_person"},
 						{"hi.tou_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -139,7 +126,6 @@
 				},
 				"hi11_1" : {
 					"animations" : [
-						{"hi.zyuichi_1": "variable.is_first_person"},
 						{"hi.zyuichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -148,7 +134,6 @@
 				},
 				"hi12_1" : {
 					"animations" : [
-						{"hi.zyuni_1": "variable.is_first_person"},
 						{"hi.zyuni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -157,7 +142,6 @@
 				},
 				"hi12_2" : {
 					"animations" : [
-						{"hi.zyuni_2": "variable.is_first_person"},
 						{"hi.zyuni_2": "!variable.is_first_person"}
 					],
 					"transitions" : [

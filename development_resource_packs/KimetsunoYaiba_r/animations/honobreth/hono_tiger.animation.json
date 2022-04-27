@@ -1,0 +1,45 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hono_tiger.attack": {
+			"loop": true,
+			"bones": {
+				"tiger": {
+					"rotation": ["query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hono_tiger_particle",
+						"locator": "hono_tiger"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "hono_righttangle"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "hono_leftangle"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "hono_up_fang"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "hono_up_fang2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "hono_low_fang"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "hono_low_fang2"
+					}
+				]
+			}
+		}
+	}
+}

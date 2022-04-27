@@ -34,7 +34,7 @@
 				},
 				"mizu1_1" : {
 					"animations" : [
-						{"tanjiro_mizu.ichi_1": "variable.is_first_person"},
+						{"tanjiro_mizu.ichi_1_first": "variable.is_first_person"},
 						{"tanjiro_mizu.ichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -43,7 +43,7 @@
 				},
 				"mizu1_2" : {
 					"animations" : [
-						{"tanjiro_mizu.ichi_2": "variable.is_first_person"},
+						{"tanjiro_mizu.ichi_2_first": "variable.is_first_person"},
 						{"tanjiro_mizu.ichi_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -52,7 +52,6 @@
 				},
 				"mizu2_1" : {
 					"animations" : [
-						{"tanjiro_mizu.ni_1": "variable.is_first_person"},
 						{"tanjiro_mizu.ni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -61,7 +60,6 @@
 				},
 				"mizu3_1" : {
 					"animations" : [
-						{"tanjiro_mizu.san_1": "variable.is_first_person"},
 						{"tanjiro_mizu.san_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -70,7 +68,6 @@
 				},
 				"mizu3_2" : {
 					"animations" : [
-						{"tanjiro_mizu.san_2": "variable.is_first_person"},
 						{"tanjiro_mizu.san_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -79,7 +76,6 @@
 				},
 				"mizu3_3" : {
 					"animations" : [
-						{"tanjiro_mizu.san_3": "variable.is_first_person"},
 						{"tanjiro_mizu.san_3": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -88,7 +84,6 @@
 				},
 				"mizu4_1" : {
 					"animations" : [
-						{"tanjiro_mizu.shi_1": "variable.is_first_person"},
 						{"tanjiro_mizu.shi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -97,7 +92,6 @@
 				},
 				"mizu4_2" : {
 					"animations" : [
-						{"tanjiro_mizu.shi_2": "variable.is_first_person"},
 						{"tanjiro_mizu.shi_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -106,7 +100,6 @@
 				},
 				"mizu5_1" : {
 					"animations" : [
-						{"tanjiro_mizu.go_1": "variable.is_first_person"},
 						{"tanjiro_mizu.go_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -115,7 +108,6 @@
 				},
 				"mizu5_2" : {
 					"animations" : [
-						{"tanjiro_mizu.go_2": "variable.is_first_person"},
 						{"tanjiro_mizu.go_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -124,7 +116,6 @@
 				},
 				"mizu6_1" : {
 					"animations" : [
-						{"tanjiro_mizu.roku_1": "variable.is_first_person"},
 						{"tanjiro_mizu.roku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -133,7 +124,6 @@
 				},
 				"mizu6_2" : {
 					"animations" : [
-						{"tanjiro_mizu.roku_2": "variable.is_first_person"},
 						{"tanjiro_mizu.roku_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -142,7 +132,6 @@
 				},
 				"mizu7_1" : {
 					"animations" : [
-						{"tanjiro_mizu.shiti_1": "variable.is_first_person"},
 						{"tanjiro_mizu.shiti_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -151,7 +140,6 @@
 				},
 				"mizu7_2" : {
 					"animations" : [
-						{"tanjiro_mizu.shiti_2": "variable.is_first_person"},
 						{"tanjiro_mizu.shiti_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -160,7 +148,6 @@
 				},
 				"mizu8_1" : {
 					"animations" : [
-						{"tanjiro_mizu.hati_1": "variable.is_first_person"},
 						{"tanjiro_mizu.hati_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -169,7 +156,6 @@
 				},
 				"mizu8_2" : {
 					"animations" : [
-						{"tanjiro_mizu.hati_2": "variable.is_first_person"},
 						{"tanjiro_mizu.hati_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -178,7 +164,6 @@
 				},
 				"mizu8_3" : {
 					"animations" : [
-						{"tanjiro_mizu.hati_3": "variable.is_first_person"},
 						{"tanjiro_mizu.hati_3": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -187,7 +172,6 @@
 				},
 				"mizu9_1" : {
 					"animations" : [
-						{"tanjiro_mizu.ku_1": "variable.is_first_person"},
 						{"tanjiro_mizu.ku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -196,7 +180,6 @@
 				},
 				"mizu9_2" : {
 					"animations" : [
-						{"tanjiro_mizu.ku_2": "variable.is_first_person"},
 						{"tanjiro_mizu.ku_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -205,7 +188,6 @@
 				},
 				"mizu10_1" : {
 					"animations" : [
-						{"tanjiro_mizu.tou_1": "variable.is_first_person"},
 						{"tanjiro_mizu.tou_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -214,7 +196,6 @@
 				},
 				"mizu10_2" : {
 					"animations" : [
-						{"tanjiro_mizu.tou_2": "variable.is_first_person"},
 						{"tanjiro_mizu.tou_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -223,7 +204,6 @@
 				},
 				"hinokami1_1" : {
 					"animations" : [
-						{"hinokami.ichi_1": "variable.is_first_person"},
 						{"hinokami.ichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -232,7 +212,6 @@
 				},
 				"hinokami2_1" : {
 					"animations" : [
-						{"hinokami.ni_1": "variable.is_first_person"},
 						{"hinokami.ni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -241,7 +220,6 @@
 				},
 				"hinokami2_2" : {
 					"animations" : [
-						{"hinokami.ni_2": "variable.is_first_person"},
 						{"hinokami.ni_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -250,7 +228,6 @@
 				},
 				"hinokami3_1" : {
 					"animations" : [
-						{"hinokami.san_1": "variable.is_first_person"},
 						{"hinokami.san_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -259,7 +236,6 @@
 				},
 				"hinokami3_2" : {
 					"animations" : [
-						{"hinokami.san_2": "variable.is_first_person"},
 						{"hinokami.san_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -268,7 +244,6 @@
 				},
 				"hinokami4_1" : {
 					"animations" : [
-						{"hinokami.shi_1": "variable.is_first_person"},
 						{"hinokami.shi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -277,7 +252,6 @@
 				},
 				"hinokami5_1" : {
 					"animations" : [
-						{"hinokami.go_1": "variable.is_first_person"},
 						{"hinokami.go_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -286,7 +260,6 @@
 				},
 				"hinokami5_2" : {
 					"animations" : [
-						{"hinokami.go_2": "variable.is_first_person"},
 						{"hinokami.go_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -295,7 +268,6 @@
 				},
 				"hinokami6_1" : {
 					"animations" : [
-						{"hinokami.roku_1": "variable.is_first_person"},
 						{"hinokami.roku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -304,7 +276,6 @@
 				},
 				"hinokami7_1" : {
 					"animations" : [
-						{"hinokami.shiti_1": "variable.is_first_person"},
 						{"hinokami.shiti_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -313,7 +284,6 @@
 				},
 				"hinokami8_1" : {
 					"animations" : [
-						{"hinokami.hachi_1": "variable.is_first_person"},
 						{"hinokami.hachi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -322,7 +292,6 @@
 				},
 				"hinokami9_1" : {
 					"animations" : [
-						{"hinokami.ku_1": "variable.is_first_person"},
 						{"hinokami.ku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -331,7 +300,6 @@
 				},
 				"hinokami10_1" : {
 					"animations" : [
-						{"hinokami.tou_1": "variable.is_first_person"},
 						{"hinokami.tou_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -340,7 +308,6 @@
 				},
 				"hinokami11_1" : {
 					"animations" : [
-						{"hinokami.zyuichi_1": "variable.is_first_person"},
 						{"hinokami.zyuichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -349,7 +316,6 @@
 				},
 				"hinokami12_1" : {
 					"animations" : [
-						{"hinokami.zyuni_1": "variable.is_first_person"},
 						{"hinokami.zyuni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
@@ -358,7 +324,6 @@
 				},
 				"hinokami12_2" : {
 					"animations" : [
-						{"hinokami.zyuni_2": "variable.is_first_person"},
 						{"hinokami.zyuni_2": "!variable.is_first_person"}
 					],
 					"transitions" : [

@@ -10,6 +10,11 @@
 		"geometry": "Geometry.hi_dragon",
 		"materials": [ { "*": "Material.default" } ],
 		"textures": ["Texture.hi_dragon"]
+	  },
+	  "controller.render.hono_tiger": {
+		"geometry": "Geometry.hono_tiger",
+		"materials": [ { "*": "Material.default" } ],
+		"textures": ["Texture.hono_tiger"]
 	  }
 	}
   }

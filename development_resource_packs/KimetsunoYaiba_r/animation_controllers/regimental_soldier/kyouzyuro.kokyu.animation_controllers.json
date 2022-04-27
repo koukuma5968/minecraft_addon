@@ -1,0 +1,101 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kyouzyuro.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"hono1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.variant == 1 && query.is_using_item"},
+						{"hono2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.variant == 2 && query.is_using_item"},
+						{"hono3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.variant == 3 && query.is_using_item"},
+						{"hono4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.variant == 4 && query.is_using_item"},
+						{"hono5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.variant == 5 && query.is_using_item"},
+						{"hono9_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.variant == 9 && query.is_using_item"}
+					]
+				},
+				"hono1_1" : {
+					"animations" : [
+						{"kyouzyuro.ichi_1": "variable.is_first_person"},
+						{"kyouzyuro.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hono1_2":"query.any_animation_finished"}
+					]
+				},
+				"hono1_2" : {
+					"animations" : [
+						{"kyouzyuro.ichi_2": "variable.is_first_person"},
+						{"kyouzyuro.ichi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"}
+					]
+				},
+				"hono2_1" : {
+					"animations" : [
+						{"kyouzyuro.ni_1": "variable.is_first_person"},
+						{"kyouzyuro.ni_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hono3_1" : {
+					"animations" : [
+						{"kyouzyuro.san_1": "variable.is_first_person"},
+						{"kyouzyuro.san_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hono4_1" : {
+					"animations" : [
+						{"kyouzyuro.shi_1": "variable.is_first_person"},
+						{"kyouzyuro.shi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hono5_1" : {
+					"animations" : [
+						{"kyouzyuro.go_1": "variable.is_first_person"},
+						{"kyouzyuro.go_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"hono9_1" : {
+					"animations" : [
+						{"kyouzyuro.ku_1": "variable.is_first_person"},
+						{"kyouzyuro.ku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hono9_2":"query.variant == 10"}
+					]
+				},
+				"hono9_2" : {
+					"animations" : [
+						{"kyouzyuro.ku_2": "variable.is_first_person"},
+						{"kyouzyuro.ku_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hono9_3":"query.variant == 0"}
+					]
+				},
+				"hono9_3" : {
+					"animations" : [
+						{"kyouzyuro.ku_2": "variable.is_first_person"},
+						{"kyouzyuro.ku_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

@@ -1,0 +1,131 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kata.hono4": {
+			"animation_length": 1.00,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/tag @s add kokyu_hono4",
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~"
+				],
+				"0.1": [
+					"/execute @s ^1^^1 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^2^1^1.5 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^1^^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^2^1^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^1^^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^2^1^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.2": [
+					"/execute @s ^4^2^1 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^3^3^1.5 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^3^2^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^4^3^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^3^1^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^4^3^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.3": [
+					"/execute @s ^3^4^1 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^2^5^1.5 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^3^4^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^2^5^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^3^4^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^2^5^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.4": [
+					"/execute @s ^1^6^1 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^0^7^1.5 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^1^6^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^0^7^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^1^6^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^0^7^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.5": [
+					"/execute @s ^-2^6^1 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^-4^5^1.5 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^-2^6^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^-4^5^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^-2^6^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^-4^5^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.6": [
+					"/execute @s ^-6^4^1 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^-8^3^1.5 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^-6^6^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^-8^3^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^-6^4^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^-8^3^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.7": [
+					"/execute @s ^-6^2^1 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^-4^1^1.5 damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute @s ^-6^2^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^-4^1^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^-6^2^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^-4^1^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.8": [
+					"/execute @s ^-2^0^1 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^0^1^1.5 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^-2^0^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^0^1^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^-2^0^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^0^1^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"0.9": [
+					"/execute @s ^3^3^1 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^6^5^1.5 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^9^7^1 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^3^3^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^6^5^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^9^7^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^3^3^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^6^5^1.5 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^9^7^1 particle kurokumaft:hi4_fire_particle ~~~"
+				],
+				"1.0": [
+					"/execute @s ^6^9^1.5 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^3^11^1 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^0^12^1.5 damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute @s ^6^9^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^3^11^1 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^0^12^1.5 particle kurokumaft:hi4_particle ~~~",
+					"/execute @s ^6^9^1.5 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^3^11^1 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute @s ^0^12^1.5 particle kurokumaft:hi4_fire_particle ~~~",
+					"/tag @s remove kokyu_hono4"
+				]
+			}
+		},
+		"animation.kata.hono5": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @e[family=hono_tiger,c=1] ~~~ tp @e[family=hono_tiger,c=1] ^^^1 facing @e[tag=hono5_tiger_stand,c=1]"
+				]
+			}
+		},
+		"animation.kata.hono9": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @s ~~~ particle kurokumaft:hono9_particle ~~~"
+				]
+			}
+		},
+		"animation.kata.hono9_2": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @s ~~~ particle kurokumaft:hono9_2_particle ~~~"
+				]
+			}
+		}
+	}
+}

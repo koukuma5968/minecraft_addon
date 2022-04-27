@@ -1,0 +1,63 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.hono_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "hono1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.scoreboard('hono') == 5 && query.is_sneaking" },
+            { "hono2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.scoreboard('hono') == 1 && query.is_sneaking" },
+            { "hono3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.scoreboard('hono') == 2 && query.is_sneaking" },
+            { "hono4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.scoreboard('hono') == 3 && query.is_sneaking" },
+            { "hono5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.scoreboard('hono') == 4 && query.is_sneaking" }
+          ]
+        },
+        "hono1":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/scoreboard players set @s hono 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hono2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 弐ノ型\"}]}",
+            "/scoreboard players set @s hono 2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hono3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 参ノ型\"}]}",
+            "/scoreboard players set @s hono 3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hono4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 肆ノ型\"}]}",
+            "/scoreboard players set @s hono 4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hono5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 伍ノ型\"}]}",
+            "/scoreboard players set @s hono 5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

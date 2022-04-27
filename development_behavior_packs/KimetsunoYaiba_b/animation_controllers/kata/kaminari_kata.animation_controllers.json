@@ -37,13 +37,12 @@
           ],
           "on_exit": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"kaminari1\"}},{\"text\":\"連\"}]}",
-            "/event entity @s variant0",
             "/effect @s speed 0",
             "/scoreboard players reset @s kaminari1",
             "/scoreboard objectives remove kaminari1"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 200 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0;"}
+            {"kaminari1_f":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 200 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0;"}
           ]
         },
         "kaminari1":{
@@ -62,13 +61,20 @@
             "/scoreboard players set @s kaminari1 0"
           ],
           "on_exit": [
-            "/event entity @s variant0",
             "/effect @s speed 0",
             "/scoreboard players reset @s kaminari1",
             "/scoreboard objectives remove kaminari1"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 200 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 || query.scoreboard('kaminari1') == 1;"}
+            {"kaminari1_f":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 200 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 || query.scoreboard('kaminari1') == 1;"}
+          ]
+        },
+        "kaminari1_f":{
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 40 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !variable.attack_time;"}
           ]
         },
         "kaminari2":{
@@ -87,6 +93,16 @@
         "kaminari3":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§6聚蚊成雷\"}]}",
+            "/gamerule sendcommandfeedback false",
+            "/execute @s ~~~ tp @s ~~~ 0 0 true"
+          ],
+          "transitions": [
+            {"kaminari3_1":"(1.0)"}
+          ]
+        },
+        "kaminari3_1":{
+          "animations" : [ "kaminari3_ani" ],
+          "on_entry": [
             "/event entity @s variant3",
             "/function kaminari/kaminari2"
           ],
@@ -94,7 +110,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 50 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 60 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
           ]
         },
         "kaminari4":{
@@ -102,14 +118,21 @@
             "/tellraw @s {\"rawtext\":[{\"text\":\"§6遠雷\"}]}",
             "/event entity @s variant4"
           ],
+          "transitions": [
+            {"kaminari4_2":"!query.is_using_item"}
+          ]
+        },
+        "kaminari4_2":{
+          "animations" : [ "kaminari4_ani" ],
           "on_exit": [
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0;"}
           ]
         },
         "kaminari5":{
+          "animations" : [ "kaminari5_ani" ],
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§6熱界雷\"}]}",
             "/event entity @s variant5"
@@ -118,19 +141,30 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 10 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
           ]
         },
         "kaminari6":{
+          "animations" : [ "kaminari6_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6電轟雷轟\"}]}",
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6電轟雷轟\"}]}"
+          ],
+          "transitions": [
+            {"kaminari6_2":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 10 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0;"}
+          ]
+        },
+        "kaminari6_2":{
+          "animations" : [ "kaminari6_2_ani" ],
+          "on_entry": [
+            "/tag @s add kokyu_kaminari6",
             "/event entity @s variant6"
           ],
           "on_exit": [
+            "/tag @s remove kokyu_kaminari6",
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0;"}
           ]
         },
         "kaminari7":{

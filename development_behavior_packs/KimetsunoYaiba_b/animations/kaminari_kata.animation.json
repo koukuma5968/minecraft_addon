@@ -1,0 +1,165 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kata.kaminari3": {
+			"animation_length": 0.7,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/tag @s add kokyu_kaminari5",
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute @s ~~~ tp @s ^4^^2 -180 0",
+					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
+				],
+				"0.2": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute @s ~~~ tp @s ^4^^2 -90 0",
+					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
+				],
+				"0.4": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute @s ~~~ tp @s ^4^^2 0 0",
+					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
+				],
+				"0.6": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute @s ~~~ tp @s ^4^^2 90 0",
+					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning",
+					"/tag @s remove kokyu_kaminari5"
+				]
+			}
+		},
+		"animation.kata.kaminari4": {
+			"animation_length": 0.001,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/tag @s add kokyu_kaminari4",
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute @s ~~~ tp @s ^^^1 true",
+					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari4,r=1.5] 15 lightning",
+					"/tag @s remove kokyu_kaminari4"
+				]
+			}
+		},
+		"animation.kata.kaminari5": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/tag @s add kokyu_kaminari5",
+					"/execute @s ~~~ particle kurokumaft:kaminari5_particle ^^^1.5",
+					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^2 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^3 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^4 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^5 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^6 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^7 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^8 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^9 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute @s ^^^10 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/tag @s remove kokyu_kaminari5"
+				]
+			}
+		},
+		"animation.kata.kaminari6": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~1~ true"
+				]
+			}
+		},
+		"animation.kata.kaminari6_2": {
+			"animation_length": 1.0,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^-5 ^-8 ^8 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^-5 ^-8 ^8 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-5 ^-8 ^8"
+				],
+				"0.1": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^1 ^-8 ^4 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^1 ^-8 ^4 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^1 ^-8 ^4"
+				],
+				"0.2": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^6 ^-8 ^3 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^6 ^-8 ^3 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^6 ^-8 ^3"
+				],
+				"0.3": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^-5 ^-8 ^10 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^-5 ^-8 ^10 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-5 ^-8 ^10"
+				],
+				"0.4": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^7 ^-8 ^1 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^7 ^-8 ^1 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^7 ^-8 ^1"
+				],
+				"0.5": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^2 ^-8 ^2 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^2 ^-8 ^2 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^2 ^-8 ^2"
+				],
+				"0.6": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^5 ^-8 ^5 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^5 ^-8 ^5 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^5 ^-8 ^5"
+				],
+				"0.7": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^-7 ^-8 ^0 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^-7 ^-8 ^0 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-7 ^-8 ^0"
+				],
+				"0.8": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^4 ^-8 ^9 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^4 ^-8 ^9 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^4 ^-8 ^9"
+				],
+				"0.9": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^8 ^-8 ^3 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^8 ^-8 ^3 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^8 ^-8 ^3"
+				],
+				"1.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
+					"/execute @s ^-4 ^-8 ^6 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute @s ^-4 ^-8 ^6 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-4 ^-8 ^6"
+				]
+			}
+		}
+	}
+}

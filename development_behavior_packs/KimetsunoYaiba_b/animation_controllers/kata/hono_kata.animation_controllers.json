@@ -1,0 +1,140 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.hono": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_hono_attack": {
+              "input": "variable.kokyu_hono_attack = (variable.kokyu_hono_attack ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hono1": "(query.scoreboard('hono') == 1 || query.scoreboard('kyouzyuro') == 1) && query.is_using_item" },
+            { "hono2": "(query.scoreboard('hono') == 2 || query.scoreboard('kyouzyuro') == 2) && query.is_using_item" },
+            { "hono3": "(query.scoreboard('hono') == 3 || query.scoreboard('kyouzyuro') == 3) && query.is_using_item" },
+            { "hono4": "(query.scoreboard('hono') == 4 || query.scoreboard('kyouzyuro') == 4) && query.is_using_item" },
+            { "hono5": "(query.scoreboard('hono') == 5 || query.scoreboard('kyouzyuro') == 5) && query.is_using_item" },
+            { "hono9": "query.scoreboard('kyouzyuro') == 9 && query.is_using_item" }
+          ]
+        },
+        "hono1":{
+          "on_entry": [
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"hono1_2":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 10 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
+          ]
+        },
+        "hono1_2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4不知火\"}]}",
+            "/effect @s speed 99999 5 true",
+            "/scoreboard objectives add hono1 dummy",
+            "/scoreboard players set @s hono1 0"
+          ],
+          "on_exit": [
+            "/effect @s speed 0",
+            "/scoreboard players reset @s hono1",
+            "/scoreboard objectives remove hono1"
+          ],
+          "transitions": [
+            {"hono1_f":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 100 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0 || query.scoreboard('hono1') == 1;"}
+          ]
+        },
+        "hono1_f":{
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 40 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0 && !variable.attack_time;"}
+          ]
+        },
+        "hono2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4昇り炎天\"}]}",
+            "/event entity @s variant2",
+            "/function hono/hono2"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 20 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
+          ]
+        },
+        "hono3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4気炎万象\"}]}",
+            "/event entity @s variant3",
+            "/function hono/hono2"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 20 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
+          ]
+        },
+        "hono4":{
+          "animations" : [ "hono4_ani" ],
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4盛炎のうねり\"}]}",
+            "/event entity @s variant4"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 20 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
+          ]
+        },
+        "hono5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎虎\"}]}",
+            "/event entity @s variant5"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 20 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
+          ]
+        },
+        "hono9":{
+          "animations" : [ "hono9_ani" ],
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§4煉獄\"}]}",
+            "/event entity @s variant9"
+          ],
+          "transitions": [
+            {"hono9_2":"!query.is_using_item"}
+          ]
+        },
+        "hono9_2":{
+          "animations" : [ "hono9_2_ani" ],
+          "on_entry": [
+            "/effect @s speed 99999 5 true",
+            "/event entity @s variant10"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/effect @s speed 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 200 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"},
+            {"hono9_3":"variable.attack_time"}
+          ]
+        },
+        "hono9_3":{
+          "on_entry": [
+            "/function hono/hono9"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 20 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}
