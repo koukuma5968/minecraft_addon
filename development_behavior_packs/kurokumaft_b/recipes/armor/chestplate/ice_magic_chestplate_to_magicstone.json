@@ -12,10 +12,10 @@
         "item": "minecraft:diamond_chestplate"
       },
       {
-        "item": "minecraft:packed_ice"
+        "item": "minecraft:blue_ice"
       },
       {
-        "item": "kurokumaft:water_magic_stone"
+        "item": "kurokumaft:ice_magic_stone"
       }
     ],
     "result": {

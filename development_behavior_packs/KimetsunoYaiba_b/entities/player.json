@@ -43,6 +43,7 @@
 
         "kaminari": "controller.animation.kokyu.kaminari","kaminari_attack": "controller.animation.kokyu.kaminari_attack",
         "kaminari3_ani": "animation.kata.kaminari3","kaminari4_ani": "animation.kata.kaminari4","kaminari5_ani": "animation.kata.kaminari5","kaminari6_ani": "animation.kata.kaminari6","kaminari6_2_ani": "animation.kata.kaminari6_2",
+        "kaminari7_ani": "animation.kata.kaminari7",
 
         "kedamono": "controller.animation.kokyu.kedamono",
 

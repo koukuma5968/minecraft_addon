@@ -100,7 +100,6 @@
 					"name": "nichirinto",
 					"parent": "rightArm",
 					"pivot": [-6, 15.50092, -2.33811],
-					"binding": "q.item_slot_to_bone_name(c.item_slot)",
 					"locators": {
 						"hono1": [-7, 15, -7],
 						"hono2": [-6, 15, -23],

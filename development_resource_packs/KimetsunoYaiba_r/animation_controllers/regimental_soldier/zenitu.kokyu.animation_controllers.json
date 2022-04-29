@@ -30,8 +30,17 @@
 				},
 				"kaminari17_1" : {
 					"animations" : [
-						{"zenitu.ichi_3": "variable.is_first_person"},
-						{"zenitu.ichi_3": "!variable.is_first_person"}
+						{"zenitu.shiti_1": "variable.is_first_person"},
+						{"zenitu.shiti_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kaminari17_2":"!query.is_using_item"}
+					]
+				},
+				"kaminari17_2" : {
+					"animations" : [
+						{"zenitu.shiti_2": "variable.is_first_person"},
+						{"zenitu.shiti_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.variant == 0"}

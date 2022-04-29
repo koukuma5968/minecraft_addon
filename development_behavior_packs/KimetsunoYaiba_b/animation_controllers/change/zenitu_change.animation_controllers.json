@@ -6,7 +6,7 @@
         "default": {
           "transitions": [
             { "zenitu1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu') && query.scoreboard('zenitu') == 7 && query.is_sneaking" },
-            { "zenitu7": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu') && query.scoreboard('zenitu') == 4 && query.is_sneaking" }
+            { "zenitu7": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu') && query.scoreboard('zenitu') == 1 && query.is_sneaking" }
           ]
         },
         "zenitu1":{

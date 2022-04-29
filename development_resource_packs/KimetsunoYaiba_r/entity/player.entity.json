@@ -93,6 +93,7 @@
         "kaminari_point_particle": "kurokumaft:kaminari_point_particle",
         "kaminari2_particle": "kurokumaft:kaminari2_particle",
         "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
+        "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle",
         "hono_blead_particle": "kurokumaft:hono_blead_particle"
       },
       "scripts": {
@@ -337,6 +338,8 @@
         "zenitu.ichi_1": "animation.nichirintou_kokyu.zenitu.ichi_1",
         "zenitu.ichi_2": "animation.nichirintou_kokyu.zenitu.ichi_2",
         "zenitu.ichi_3": "animation.nichirintou_kokyu.zenitu.ichi_3",
+        "zenitu.shiti_1": "animation.nichirintou_kokyu.zenitu.shiti_1",
+        "zenitu.shiti_2": "animation.nichirintou_kokyu.zenitu.shiti_2",
 
         "kaminari.kokyu_con":"controller.animation.kaminari.kokyu",
         "kaminari_attack.kokyu_con":"controller.animation.kaminari_attack.kokyu",
@@ -353,6 +356,16 @@
 
         "inosuke.kokyu_con":"controller.animation.inosuke.kokyu",
         "inosuke.ichi_1": "animation.nichirintou_kokyu.inosuke.ichi_1",
+        "inosuke.ni_1": "animation.nichirintou_kokyu.inosuke.ni_1",
+        "inosuke.san_1": "animation.nichirintou_kokyu.inosuke.san_1",
+        "inosuke.shi_1": "animation.nichirintou_kokyu.inosuke.shi_1",
+        "inosuke.go_1": "animation.nichirintou_kokyu.inosuke.go_1",
+        "inosuke.roku_1": "animation.nichirintou_kokyu.inosuke.roku_1",
+        "inosuke.roku_2": "animation.nichirintou_kokyu.inosuke.roku_2",
+        "inosuke.shiti_1": "animation.nichirintou_kokyu.inosuke.shiti_1",
+        "inosuke.hati_1": "animation.nichirintou_kokyu.inosuke.hati_1",
+        "inosuke.ku_1": "animation.nichirintou_kokyu.inosuke.ku_1",
+        "inosuke.tou_1": "animation.nichirintou_kokyu.inosuke.tou_1",
 
         "giyu.kokyu_con":"controller.animation.giyu.kokyu",
         "giyu.ichi_1": "animation.nichirintou_kokyu.giyu.ichi_1",

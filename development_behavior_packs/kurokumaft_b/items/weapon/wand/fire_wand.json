@@ -34,12 +34,12 @@
       },
       "minecraft:on_use":{
         "on_use":{
-          "event":"kurokumaft:fire"
+          "event": "kurokumaft:fireball"
         }
       }
     },
     "events": {
-      "kurokumaft:fire": {
+      "kurokumaft:fireball": {
         "sequence":[
           {
             "shoot":{

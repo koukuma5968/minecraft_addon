@@ -10,7 +10,16 @@
             }
           },
           "transitions": [
-            { "kedamono1": "(query.scoreboard('inosuke') == 1 || query.scoreboard('kedamono') == 1) && query.is_using_item" }
+            { "kedamono1": "(query.scoreboard('inosuke') == 1 || query.scoreboard('kedamono') == 1) && query.is_using_item" },
+            { "kedamono2": "(query.scoreboard('inosuke') == 2 || query.scoreboard('kedamono') == 2) && query.is_using_item" },
+            { "kedamono3": "(query.scoreboard('inosuke') == 3 || query.scoreboard('kedamono') == 3) && query.is_using_item" },
+            { "kedamono4": "(query.scoreboard('inosuke') == 4 || query.scoreboard('kedamono') == 4) && query.is_using_item" },
+            { "kedamono5": "(query.scoreboard('inosuke') == 5 || query.scoreboard('kedamono') == 5) && query.is_using_item" },
+            { "kedamono6": "(query.scoreboard('inosuke') == 6 || query.scoreboard('kedamono') == 6) && query.is_using_item" },
+            { "kedamono7": "(query.scoreboard('inosuke') == 7 || query.scoreboard('kedamono') == 7) && query.is_using_item" },
+            { "kedamono8": "(query.scoreboard('inosuke') == 8 || query.scoreboard('kedamono') == 8) && query.is_using_item" },
+            { "kedamono9": "(query.scoreboard('inosuke') == 9 || query.scoreboard('kedamono') == 9) && query.is_using_item" },
+            { "kedamono10": "(query.scoreboard('inosuke') == 10 || query.scoreboard('kedamono') == 10) && query.is_using_item" }
           ]
         },
         "kedamono1":{
@@ -23,6 +32,123 @@
           ],
           "transitions": [
             {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 20 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7切り裂き\"}]}",
+            "/event entity @s variant2"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 20 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono3":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7喰い裂き\"}]}",
+            "/event entity @s variant3"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 20 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono4":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7切細裂き\"}]}",
+            "/event entity @s variant4"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 60 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono5":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7狂い裂き\"}]}",
+            "/event entity @s variant5"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 40 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono6":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7乱杭咬み\"}]}",
+            "/event entity @s variant6"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 80 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono7":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7空間識覚\"}]}",
+            "/tag @s add kokyu_kedamono7",
+            "/tag @e[tag=!kokyu_kedamono7,family=monster,r=50] add kokyu_kedamono7_target",
+            "/execute @e[tag=kokyu_kedamono7_target] ~~5~ setblock kurokumaft:glow_point 0 keep",
+            "/event entity @s variant7"
+          ],
+          "on_exit": [
+            "/tag @s remove kokyu_kedamono7",
+            "/tag @e[tag=kokyu_kedamono7_target] remove kokyu_kedamono7_target",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 60 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono8":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7爆裂猛進\"}]}",
+            "/effect @s speed 99999 5 true",
+            "/event entity @s variant8"
+          ],
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 200 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono9":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7伸・うねり裂き\"}]}",
+            "/event entity @s variant9",
+            "/event entity @s add_damage_clear"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 20 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
+          ]
+        },
+        "kedamono10":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§7円転旋牙\"}]}",
+            "/event entity @s variant10"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s remove_damage_clear"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_kedamono_attack = variable.kokyu_kedamono_attack < 100 ? variable.kokyu_kedamono_attack + 1:0;return variable.kokyu_kedamono_attack == 0;"}
           ]
         }
       }

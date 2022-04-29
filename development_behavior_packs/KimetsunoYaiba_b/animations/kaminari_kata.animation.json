@@ -160,6 +160,17 @@
 					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-4 ^-8 ^6"
 				]
 			}
+		},
+		"animation.kata.kaminari7": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ~~~ facing @e[tag=kokyu_kaminari7_target]"
+				]
+			}
 		}
 	}
 }

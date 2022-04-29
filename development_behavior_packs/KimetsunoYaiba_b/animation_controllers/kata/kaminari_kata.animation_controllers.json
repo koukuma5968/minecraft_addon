@@ -147,7 +147,8 @@
         "kaminari6":{
           "animations" : [ "kaminari6_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6電轟雷轟\"}]}"
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6電轟雷轟\"}]}",
+            "/effect @s speed 99999 10 true"
           ],
           "transitions": [
             {"kaminari6_2":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 10 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0;"}
@@ -160,6 +161,7 @@
             "/event entity @s variant6"
           ],
           "on_exit": [
+            "/effect @s speed 0",
             "/tag @s remove kokyu_kaminari6",
             "/event entity @s variant0"
           ],
@@ -168,15 +170,33 @@
           ]
         },
         "kaminari7":{
+          "animations" : [ "kaminari7_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6火雷神\"}]}",
+            "/effect @s speed 99999 20 true",
+            "/tag @s add kokyu_kaminari7",
+            "/tag @e[r=50,c=1,tag=!kokyu_kaminari7,family=monster] add kokyu_kaminari7_target",
             "/event entity @s variant7"
           ],
+          "transitions": [
+            {"kaminari7_2":"!query.is_using_item"}
+          ]
+        },
+        "kaminari7_2":{
+          "on_entry": [
+            "/tellraw @s {\"rawtext\":[{\"text\":\"§6火雷神\"}]}",
+            "/gamerule sendcommandfeedback false",
+            "/execute @e[tag=kokyu_kaminari7_target] ^^^2 tp @e[tag=kokyu_kaminari7] ~~~",
+            "/execute @s ~~~ particle kurokumaft:kaminari2_particle ~~~",
+            "/execute @s ~~~ damage @e[tag=!kokyu_kaminari7,r=15] 20 lightning"
+          ],
           "on_exit": [
+            "/effect @s speed 0",
+            "/tag @s remove kokyu_kaminari7",
+            "/tag @s remove kokyu_kaminari7_target",
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 10 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
           ]
         }
       }
