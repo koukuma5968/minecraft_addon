@@ -12,7 +12,7 @@ item.kurokumaft:stone_magic_stone.name=§7石の魔法石
 item.kurokumaft:wind_magic_stone.name=§3風の魔法石
 item.kurokumaft:lightning_magic_stone.name=§6雷の魔法石
 item.kurokumaft:ice_magic_stone.name=§f氷の魔法石
-item.kurokumaft:saint_magic_stone.name=§e光の魔法石
+item.kurokumaft:light_magic_stone.name=§e光の魔法石
 item.kurokumaft:dark_magic_stone.name=§8闇の魔法石
 
 item.kurokumaft:fire_wand.name=§4火の杖 初級火魔法

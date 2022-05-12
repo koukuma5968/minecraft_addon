@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.maga_bassar": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "cyclone": "(1.0)" }
+          ]
+        },
+        "cyclone":{
+          "on_entry": [
+            "/event entity @s variant1",
+            "/effect @e[family=monster,c=1] wither 2 10 true",
+            "/effect @e[family=monster,c=1] levitation 1 20 true"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

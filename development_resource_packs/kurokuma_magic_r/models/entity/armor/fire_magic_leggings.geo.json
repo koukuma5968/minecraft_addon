@@ -8,7 +8,12 @@
 		"visible_bounds_offset": [0, 1, 0],
 		"bones": [
 			{
+				"name": "root",
+				"pivot": [0, 0, 0]
+			},
+			{
 				"name": "waist",
+				"parent": "root",
 				"pivot": [0, 12, 0]
 			},
 			{
@@ -18,7 +23,7 @@
 			},
 			{
 				"name": "leggings",
-				"parent": "body",
+				"parent": "root",
 				"pivot": [0, 13, 0]
 			},
 			{
@@ -33,18 +38,8 @@
 				]
 			},
 			{
-				"name": "rightarm",
-				"parent": "body",
-				"pivot": [0, 24, 0]
-			},
-			{
-				"name": "leftarm",
-				"parent": "body",
-				"pivot": [0, 24, 0]
-			},
-			{
 				"name": "rightleg",
-				"parent": "body",
+				"parent": "root",
 				"pivot": [-2.25, 11, 0]
 			},
 			{
@@ -60,7 +55,7 @@
 			},
 			{
 				"name": "leftleg",
-				"parent": "body",
+				"parent": "root",
 				"pivot": [2, 11, 0]
 			},
 			{

@@ -1,0 +1,9 @@
+{
+   "resource_pack_name" : "kurokuma_ultra_monster_r",
+   "texture_data" : {
+      "maga_bassar_card": {
+         "textures" : "textures/kurokumaft/item/card/maga_bassar_card"
+      }
+   },
+   "texture_name" : "atlas.items"
+}

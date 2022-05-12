@@ -46,6 +46,7 @@
         "kaminari7_ani": "animation.kata.kaminari7",
 
         "kedamono": "controller.animation.kokyu.kedamono",
+        "kedamono4_ani": "animation.kata.kedamono4","kedamono5_ani": "animation.kata.kedamono5","kedamono6_ani": "animation.kata.kedamono6",
 
         "hono": "controller.animation.kokyu.hono","hono_attack": "controller.animation.kokyu.hono_attack",
         "hono4_ani": "animation.kata.hono4","hono9_ani": "animation.kata.hono9","hono9_2_ani": "animation.kata.hono9_2",

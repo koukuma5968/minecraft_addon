@@ -8,7 +8,12 @@
 		"visible_bounds_offset": [0, 1.5, 0],
 		"bones": [
 			{
+				"name": "root",
+				"pivot": [0, 0, 0]
+			},
+			{
 				"name": "waist",
+				"parent": "root",
 				"pivot": [0, 12, 0]
 			},
 			{

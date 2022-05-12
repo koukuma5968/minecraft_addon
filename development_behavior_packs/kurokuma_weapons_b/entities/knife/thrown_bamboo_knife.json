@@ -1,5 +1,5 @@
 {
-  "format_version": "1.17.0",
+  "format_version": "1.12.0",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:thrown_bamboo_knife",
@@ -16,7 +16,7 @@
        "on_hit": {
          "affect_projectile": true,
          "impact_damage": {
-           "damage": 3,
+           "damage": 2000000,
            "knockback": false,
            "catch_fire": false,
            "destroy_on_hit": true,
@@ -36,9 +36,6 @@
        "uncertainty_multiplier": 0,
        "reflect_on_hurt": true,
        "offset": [ 0, -1.5, 0 ]
-      },
-      "minecraft:group_size": {
-        "radius": 5
       },
       "minecraft:physics": {
       },

@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "ウルトラ怪獣アドオン",
+        "name": "kurokuma_ultra_monster_r",
+        "uuid": "15867c6f-ad6b-42eb-8a99-6ef7f67ba21e",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 16, 0]
+    },
+    "modules": [
+        {
+            "description": "ウルトラ怪獣アドオン",
+            "type": "resources",
+            "uuid": "e8fe955d-3743-4d27-ab60-1c733dc69e22",
+            "version": [1, 0, 0]
+        }
+    ]
+}

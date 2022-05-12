@@ -25,6 +25,7 @@
         "kedamono1":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7穿ち抜き\"}]}",
+            "/execute @s ^^^1 damage @e[family=monster,r=4] 10 entity_attack",
             "/event entity @s variant1"
           ],
           "on_exit": [
@@ -37,6 +38,7 @@
         "kedamono2":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7切り裂き\"}]}",
+            "/execute @s ^^^1 damage @e[family=monster,r=4] 10 entity_attack",
             "/event entity @s variant2"
           ],
           "on_exit": [
@@ -49,6 +51,7 @@
         "kedamono3":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7喰い裂き\"}]}",
+            "/execute @s ^^^1 damage @e[family=monster,r=4] 10 entity_attack",
             "/event entity @s variant3"
           ],
           "on_exit": [
@@ -59,6 +62,7 @@
           ]
         },
         "kedamono4":{
+          "animations" : [ "kedamono4_ani" ],
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7切細裂き\"}]}",
             "/event entity @s variant4"
@@ -71,6 +75,7 @@
           ]
         },
         "kedamono5":{
+          "animations" : [ "kedamono5_ani" ],
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7狂い裂き\"}]}",
             "/event entity @s variant5"
@@ -83,6 +88,7 @@
           ]
         },
         "kedamono6":{
+          "animations" : [ "kedamono6_ani" ],
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7乱杭咬み\"}]}",
             "/event entity @s variant6"
@@ -98,8 +104,8 @@
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7空間識覚\"}]}",
             "/tag @s add kokyu_kedamono7",
+            "/effect @s speed 99999 5 true",
             "/tag @e[tag=!kokyu_kedamono7,family=monster,r=50] add kokyu_kedamono7_target",
-            "/execute @e[tag=kokyu_kedamono7_target] ~~5~ setblock kurokumaft:glow_point 0 keep",
             "/event entity @s variant7"
           ],
           "on_exit": [
@@ -128,8 +134,9 @@
         "kedamono9":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7伸・うねり裂き\"}]}",
-            "/event entity @s variant9",
-            "/event entity @s add_damage_clear"
+            "/execute @s ^1^^2 damage @e[family=monster,r=2] 13 entity_attack",
+            "/execute @s ^-1^^2 damage @e[family=monster,r=2] 13 entity_attack",
+            "/event entity @s variant9"
           ],
           "on_exit": [
             "/event entity @s variant0"
@@ -141,7 +148,8 @@
         "kedamono10":{
           "on_entry": [
             "/tellraw @s {\"rawtext\":[{\"text\":\"§7円転旋牙\"}]}",
-            "/event entity @s variant10"
+            "/event entity @s variant10",
+            "/event entity @s add_damage_clear"
           ],
           "on_exit": [
             "/event entity @s variant0",

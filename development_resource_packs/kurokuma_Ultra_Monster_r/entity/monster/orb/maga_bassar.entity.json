@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:maga_bassar",
+      "materials": { "default": "bat" },
+      "textures": {
+        "default": "textures/kurokumaft/monster/orb/maga_bassar"
+      },
+      "geometry": {
+        "default": "geometry.maga_bassar"
+      },
+      "scripts": {
+        "scale": "1.5",
+        "animate": [
+          "move_con"
+        ]
+      },
+      "animations": {
+        "move": "animation.maga_bassar.move",
+        "move_con": "controller.animation.maga_bassar.move"
+      },
+      "render_controllers": [ "controller.render.bassar" ],
+      "spawn_egg": {
+        "texture": "maga_bassar_card",
+        "texture_index": 0
+      }
+    }
+  }
+}
