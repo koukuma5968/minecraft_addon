@@ -31,7 +31,7 @@
         },
         "tanjiro_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add tanjiro dummy",
             "/scoreboard players set @s tanjiro 1"
           ],
@@ -50,7 +50,7 @@
         },
         "zenitu_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add zenitu dummy",
             "/scoreboard players set @s zenitu 1"
           ],
@@ -69,7 +69,7 @@
         },
         "inosuke_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 壱ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 壱ノ牙\"}]}",
             "/scoreboard objectives add inosuke dummy",
             "/scoreboard players set @s inosuke 1"
           ],
@@ -89,7 +89,7 @@
 
         "giyu_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add giyu dummy",
             "/scoreboard players set @s giyu 1"
           ],
@@ -108,7 +108,7 @@
         },
         "kyouzyuro_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add kyouzyuro dummy",
             "/scoreboard players set @s kyouzyuro 1"
           ],
@@ -127,7 +127,7 @@
         },
         "tengen_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add tengen dummy",
             "/scoreboard players set @s tengen 1"
           ],
@@ -147,7 +147,7 @@
 
         "mizu_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add mizu dummy",
             "/scoreboard players set @s mizu 1"
           ],
@@ -166,7 +166,7 @@
         },
         "hi_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add hi dummy",
             "/scoreboard players set @s hi 1"
           ],
@@ -185,7 +185,7 @@
         },
         "kaminari_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add kaminari dummy",
             "/scoreboard players set @s kaminari 1"
           ],
@@ -204,7 +204,7 @@
         },
         "hono_add":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
             "/scoreboard objectives add hono dummy",
             "/scoreboard players set @s hono 1"
           ],

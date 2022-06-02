@@ -42,6 +42,14 @@
       "kurokumaft:stone": {
         "sequence":[
           {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンバレット\"}]}"
+              ],
+              "target": "player"
+            }
+          },
+          {
             "shoot":{
               "projectile":"kurokumaft:stonebarrettemagic",
               "launch_power":1

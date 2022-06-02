@@ -19,7 +19,7 @@
         },
         "inosuke1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 壱ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 壱ノ牙\"}]}",
             "/scoreboard players set @s inosuke 1"
           ],
           "transitions": [
@@ -28,7 +28,7 @@
         },
         "inosuke2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 弐ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 弐ノ牙\"}]}",
             "/scoreboard players set @s inosuke 2"
           ],
           "transitions": [
@@ -37,7 +37,7 @@
         },
         "inosuke3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 参ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 参ノ牙\"}]}",
             "/scoreboard players set @s inosuke 3"
           ],
           "transitions": [
@@ -46,7 +46,7 @@
         },
         "inosuke4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 肆ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 肆ノ牙\"}]}",
             "/scoreboard players set @s inosuke 4"
           ],
           "transitions": [
@@ -55,7 +55,7 @@
         },
         "inosuke5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 伍ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 伍ノ牙\"}]}",
             "/scoreboard players set @s inosuke 5"
           ],
           "transitions": [
@@ -64,7 +64,7 @@
         },
         "inosuke6":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 陸ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 陸ノ牙\"}]}",
             "/scoreboard players set @s inosuke 6"
           ],
           "transitions": [
@@ -73,7 +73,7 @@
         },
         "inosuke7":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 漆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 漆ノ型\"}]}",
             "/scoreboard players set @s inosuke 7"
           ],
           "transitions": [
@@ -82,7 +82,7 @@
         },
         "inosuke8":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 捌ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 捌ノ型\"}]}",
             "/scoreboard players set @s inosuke 8"
           ],
           "transitions": [
@@ -91,7 +91,7 @@
         },
         "inosuke9":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 玖ノ牙\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 玖ノ牙\"}]}",
             "/scoreboard players set @s inosuke 9"
           ],
           "transitions": [
@@ -100,7 +100,7 @@
         },
         "inosuke10":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§7獣の呼吸 捨ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 捨ノ型\"}]}",
             "/scoreboard players set @s inosuke 10"
           ],
           "transitions": [

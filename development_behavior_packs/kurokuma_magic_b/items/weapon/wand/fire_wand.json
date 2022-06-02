@@ -42,6 +42,14 @@
       "kurokumaft:fireball": {
         "sequence":[
           {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cファイアボール\"}]}"
+              ],
+              "target": "player"
+            }
+          },
+          {
             "shoot":{
               "projectile":"kurokumaft:fireballmagic",
               "launch_power":1

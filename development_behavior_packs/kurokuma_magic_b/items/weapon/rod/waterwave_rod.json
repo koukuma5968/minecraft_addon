@@ -26,6 +26,11 @@
         "value": 30,
         "slot": "sword"
       },
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": "supernatural",
+        "can_always_eat": true
+      },
       "minecraft:icon": {
         "texture": "waterwave_rod"
       },
@@ -34,23 +39,13 @@
       },
       "minecraft:on_use":{
         "on_use":{
-          "event":"kurokumaft:waterwave"
+          "event":"kurokumaft:damage"
         }
       }
     },
     "events": {
-      "kurokumaft:waterwave": {
+      "kurokumaft:damage": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "tag @e[family=monster,c=2,r=20] add waterwave",
-                "execute @e[tag=waterwave] ~~~ summon kurokumaft:waterwavemagic waterwave ~~~",
-                "tag @e[tag=waterwave] remove waterwave"
-              ],
-              "target": "self"
-            }
-          },
           {
             "damage":{
               "type":"durability",

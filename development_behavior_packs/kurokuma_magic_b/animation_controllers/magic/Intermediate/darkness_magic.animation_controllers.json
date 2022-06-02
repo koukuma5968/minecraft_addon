@@ -1,0 +1,76 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.dark_magic.darkness_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "darkness": "query.get_equipped_item_name == 'darkness_rod'" }
+          ]
+        },
+        "darkness": {
+          "on_entry": [
+            "/scoreboard objectives add summon_alive dummy",
+            "/tag @s add darkness_rod"
+          ],
+          "on_exit": [
+            "/scoreboard players set @p[tag=darkness_rod] summon_alive 0",
+            "/scoreboard objectives remove summon_alive dummy",
+            "/tag @s remove darkness_rod"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'darkness_rod'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.dark_magic.darkness": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "hellblast": "query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && variable.attack_time" },
+            { "dark_fang": "!query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && variable.attack_time" },
+            { "summons_skeleton": "query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && query.is_using_item && query.scoreboard('summon_alive') < 10" },
+            { "brushash": "!query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && query.is_using_item" }
+          ]
+        },
+        "summons_skeleton": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ダークスケルトン召喚\"}]}",
+            "/function magic/dark/summonsskeleton"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "brushash": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ブラストアッシュ\"}]}",
+            "/function magic/dark/brushash"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "dark_fang": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ダークファング\"}]}",
+            "/function magic/dark/dark_fang"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "hellblast": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ヘルブラスト\"}]}",
+            "/function magic/dark/hellblast"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

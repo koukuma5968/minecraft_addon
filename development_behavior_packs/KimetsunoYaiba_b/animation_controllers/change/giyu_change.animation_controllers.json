@@ -20,7 +20,7 @@
         },
         "giyu1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
             "/scoreboard players set @s giyu 1"
           ],
           "transitions": [
@@ -29,7 +29,7 @@
         },
         "giyu2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
             "/scoreboard players set @s giyu 2"
           ],
           "transitions": [
@@ -38,7 +38,7 @@
         },
         "giyu3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
             "/scoreboard players set @s giyu 3"
           ],
           "transitions": [
@@ -47,7 +47,7 @@
         },
         "giyu4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
             "/scoreboard players set @s giyu 4"
           ],
           "transitions": [
@@ -56,7 +56,7 @@
         },
         "giyu5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
             "/scoreboard players set @s giyu 5"
           ],
           "transitions": [
@@ -65,7 +65,7 @@
         },
         "giyu6":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
             "/scoreboard players set @s giyu 6"
           ],
           "transitions": [
@@ -74,7 +74,7 @@
         },
         "giyu7":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
             "/scoreboard players set @s giyu 7"
           ],
           "transitions": [
@@ -83,7 +83,7 @@
         },
         "giyu8":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
             "/scoreboard players set @s giyu 8"
           ],
           "transitions": [
@@ -92,7 +92,7 @@
         },
         "giyu9":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
             "/scoreboard players set @s giyu 9"
           ],
           "transitions": [
@@ -101,7 +101,7 @@
         },
         "giyu10":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
             "/scoreboard players set @s giyu 10"
           ],
           "transitions": [
@@ -110,7 +110,7 @@
         },
         "giyu11":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 拾壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 拾壱ノ型\"}]}",
             "/scoreboard players set @s giyu 11"
           ],
           "transitions": [

@@ -1,0 +1,76 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.linght_magic.brightness_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "darkness": "query.get_equipped_item_name == 'brightness_rod'" }
+          ]
+        },
+        "darkness": {
+          "on_entry": [
+            "/scoreboard objectives add summon_alive dummy",
+            "/tag @s add brightness_rod"
+          ],
+          "on_exit": [
+            "/scoreboard players set @p[tag=brightness_rod] summon_alive 0",
+            "/scoreboard objectives remove summon_alive dummy",
+            "/tag @s remove brightness_rod"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'brightness_rod'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.linght_magic.brightness": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "protect": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && variable.attack_time" },
+            { "areaheel": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && variable.attack_time" },
+            { "summons_golem": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item && query.scoreboard('summon_alive') < 2" },
+            { "ability": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item" }
+          ]
+        },
+        "summons_golem": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eブライトゴーレム召喚\"}]}",
+            "/function magic/light/summonsgolem"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "areaheel": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eエリアヒール\"}]}",
+            "/function magic/light/areaheel"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "ability": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eアビリティ\"}]}",
+            "/function magic/light/ability"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "protect": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eプロテクト\"}]}",
+            "/function magic/light/protect"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

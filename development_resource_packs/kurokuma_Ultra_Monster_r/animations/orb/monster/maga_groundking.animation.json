@@ -1,0 +1,51 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.maga_groundking.move": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"rightleg": {
+					"rotation": {
+						"0.0": [50, 0, 0],
+						"0.5": [-12.5, 0, 0],
+						"1.0": [50, 0, 0]
+					}
+				},
+				"leftreg": {
+					"rotation": {
+						"0.0": [-15, 0, 0],
+						"0.5": [42.5, 0, 0],
+						"1.0": [-15, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.maga_groundking.perforation": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"rightarm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-53.14932, 21.78366, 0.69021]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 0]
+					}
+				},
+				"leftarm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-52.9263, -24.73441, -4.6533]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [-1, 0, 1]
+					}
+				}
+			}
+		}
+	}
+}

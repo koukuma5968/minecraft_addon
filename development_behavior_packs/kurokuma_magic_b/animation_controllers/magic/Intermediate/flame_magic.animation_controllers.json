@@ -1,0 +1,92 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.flame_magic.flame_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'flame_rod'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add flame_rod"
+          ],
+          "on_exit": [
+            "/tag @s remove flame_rod"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'flame_rod'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.flame_magic.flame": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "framepillar": "query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && variable.attack_time" },
+            { "bumrod": "!query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && variable.attack_time" },
+            { "burstflare": "query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && query.is_using_item" },
+            { "flarecircle": "!query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && query.is_using_item" }
+          ]
+        },
+        "framepillar": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムピラー\"}]}",
+            "/tag @e[family=monster,c=1,ry=-10,rym=10,r=10] add framepillar"
+          ],
+          "transitions": [
+            {"framepillar_at":"(1.0)"}
+          ]
+        },
+        "framepillar_at": {
+          "animations" : [ "framepillar_ani" ],
+          "on_exit": [
+            "/tag @e[tag=framepillar] remove framepillar"
+          ],
+          "transitions": [
+            {"default":"variable.flame_magic = (variable.flame_magic ?? 0);variable.flame_magic = variable.flame_magic < 20 ? variable.flame_magic + 1:0;return variable.flame_magic == 0 && !variable.attack_time;"}
+          ]
+        },
+        "bumrod": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cバムロッド\"}]}",
+            "/function magic/fire/bumrod"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "burstflare": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cバーストフレア\"}]}",
+            "/function magic/fire/burstflare"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "flarecircle": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムサークル\"}]}",
+            "/tag @e[family=monster,c=3,r=20] add flamecircle",
+            "/execute @e[tag=flamecircle] ~~~ setblock ~~~ fire 0 keep"
+          ],
+          "transitions": [
+            {"flarecircle_at":"(1.0)"}
+          ]
+        },
+        "flarecircle_at": {
+          "animations" : [ "flarecircle_ani" ],
+          "on_exit": [
+            "/tag @e[tag=flamecircle] remove flamecircle"
+          ],
+          "transitions": [
+            {"default":"variable.flame_magic = (variable.flame_magic ?? 0);variable.flame_magic = variable.flame_magic < 20 ? variable.flame_magic + 1:0;return variable.flame_magic == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

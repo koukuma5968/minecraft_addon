@@ -24,17 +24,28 @@ item.kurokumaft:snow_wand.name=§f雪の杖 初級氷魔法
 item.kurokumaft:light_wand.name=§e光の杖 初級光魔法
 item.kurokumaft:dark_wand.name=§8闇の杖 初級闇魔法
 
-item.kurokumaft:flarecircle_rod.name=§4炎の杖 フレアサークル +10
-item.kurokumaft:waterwave_rod.name=§1波の杖 ウォーターウェーブ +10
-item.kurokumaft:rock_rod.name=§7岩の杖 ロックブレイク +10
-item.kurokumaft:storm_rod.name=§3嵐の杖 ストームトルネード +10
-item.kurokumaft:thunderclap_rod.name=§6霹靂の杖 サンダークラップ +10
-item.kurokumaft:freeze_rod.name=§f凍結の杖 フリーズコンフィ +10
+item.kurokumaft:flame_rod.name=§4炎の杖 中級火魔法
+item.kurokumaft:waterwave_rod.name=§1波の杖 中級水魔法
+item.kurokumaft:rock_rod.name=§7岩の杖 中級土魔法
+item.kurokumaft:storm_rod.name=§3嵐の杖 中級風魔法
+item.kurokumaft:thunderclap_rod.name=§6霹靂の杖 中級雷魔法
+item.kurokumaft:freeze_rod.name=§f凍結の杖 中級氷魔法
+item.kurokumaft:brightness_rod.name=§e輝きの杖 中級光魔法
+item.kurokumaft:darkness_rod.name=§8暗闇の杖 中級闇魔法
 
-item.kurokumaft:firestorm_staff.name=§4§l火炎旋風の錫杖 ファイアストーム +20
-item.kurokumaft:explosion_staff.name=§8§l爆炎の錫杖 エクスプロージョン +20
-item.kurokumaft:flamespark_staff.name=§6§l雷炎の錫杖 フレイムスパーク +20
-item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 メイルシュトローム +20
+item.kurokumaft:blaze_stick.name=§4火炎の杖 上級炎魔法
+item.kurokumaft:watercurrent_stick.name=§1水流の杖 上級水魔法
+item.kurokumaft:earth_stick.name=§7大地の杖 上級土魔法
+item.kurokumaft:atmosphere_stick.name=§3大気の杖 上級風魔法
+item.kurokumaft:lightningstrike_stick.name=§6落雷の杖 上級雷魔法
+item.kurokumaft:blockice_stick.name=§f氷塊の杖 上級氷魔法
+item.kurokumaft:sparkle_stick.name=§e煌めきの杖 上級光魔法
+item.kurokumaft:jetblack_stick.name=§e漆黒の杖 上級闇魔法
+
+item.kurokumaft:firestorm_staff.name=§4§l火炎旋風の錫杖 帝級合体魔法 炎風
+item.kurokumaft:explosion_staff.name=§8§l爆炎の錫杖 帝級炎魔法
+item.kurokumaft:flamespark_staff.name=§6§l雷炎の錫杖 帝級合体魔法 雷炎
+item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 帝級水魔法
 item.kurokumaft:thunderstorm_staff.name=§a§l渦雷の錫杖 サンダーストーム +20
 item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 アイスペレット +20
 

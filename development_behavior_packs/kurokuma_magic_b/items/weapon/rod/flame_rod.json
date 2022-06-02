@@ -1,0 +1,60 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:flame_rod",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.rod"
+      },
+      "minecraft:cooldown": {
+        "category": "flame_magic_rod",
+        "duration": 3.0
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 2,
+		  "minecraft:weapon": {
+      },
+      "minecraft:use_duration": 50,
+      "minecraft:durability": {
+        "max_durability": 500
+      },
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": "supernatural",
+        "can_always_eat": true
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 30,
+        "slot": "sword"
+      },
+      "minecraft:icon": {
+        "texture": "flame_rod"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:flame_rod.name"
+      },
+      "minecraft:on_use":{
+        "on_use":{
+          "event":"kurokumaft:damage"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:damage": {
+        "sequence":[
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":5
+            }
+          }
+        ]
+      }
+    }
+  }
+}

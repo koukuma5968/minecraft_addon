@@ -26,8 +26,8 @@
          "textures": "textures/kurokumaft/items/wand/dark_wand"
       },
 
-      "flarecircle_rod": { 
-         "textures": "textures/kurokumaft/items/rod/flarecircle_rod"
+      "flame_rod": { 
+         "textures": "textures/kurokumaft/items/rod/flame_rod"
       },
       "storm_rod": { 
          "textures": "textures/kurokumaft/items/rod/storm_rod"
@@ -43,6 +43,16 @@
       },
       "freeze_rod": { 
          "textures": "textures/kurokumaft/items/rod/freeze_rod"
+      },
+      "brightness_rod": { 
+         "textures": "textures/kurokumaft/items/rod/brightness_rod"
+      },
+      "darkness_rod": { 
+         "textures": "textures/kurokumaft/items/rod/darkness_rod"
+      },
+
+      "blaze_stick": { 
+         "textures": "textures/kurokumaft/items/stick/blaze_stick"
       },
 
       "firestorm_staff": { 

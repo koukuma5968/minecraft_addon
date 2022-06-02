@@ -1,9 +1,20 @@
 {
    "resource_pack_name" : "kurokuma_ultra_monster_r",
    "texture_data" : {
+      "orb_ring": {
+         "textures" : "textures/kurokumaft/item/ultra/orb_ring"
+      },
+
       "maga_bassar_card": {
          "textures" : "textures/kurokumaft/item/card/maga_bassar_card"
+      },
+      "maga_groundking_card": {
+         "textures" : "textures/kurokumaft/item/card/maga_groundking_card"
+      },
+      "maga_japper_card": {
+         "textures" : "textures/kurokumaft/item/card/maga_japper_card"
       }
+
    },
    "texture_name" : "atlas.items"
 }

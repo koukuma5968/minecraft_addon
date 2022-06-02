@@ -42,6 +42,14 @@
       "kurokumaft:lightning": {
         "sequence":[
           {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングボルト\"}]}"
+              ],
+              "target": "player"
+            }
+          },
+          {
             "shoot":{
               "projectile":"kurokumaft:lightningboltmagic",
               "launch_power":1

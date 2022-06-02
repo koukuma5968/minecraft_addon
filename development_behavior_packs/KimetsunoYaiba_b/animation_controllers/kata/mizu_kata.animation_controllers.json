@@ -33,7 +33,7 @@
         },
         "mizu1_2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水面切り\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水面切り\"}]}",
             "/event entity @s variant1",
             "/function mizu/mizu1"
           ],
@@ -46,7 +46,7 @@
         },
         "mizu2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水車\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水車\"}]}",
             "/event entity @s variant2",
             "/function mizu/mizu2"
           ],
@@ -59,7 +59,7 @@
         },
         "mizu3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9流流舞い\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9流流舞い\"}]}",
             "/event entity @s variant3",
             "/function mizu/mizu3/mizu3_1"
           ],
@@ -88,7 +88,7 @@
         },
         "mizu4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9打ち潮\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9打ち潮\"}]}",
             "/event entity @s variant4",
             "/function mizu/mizu4/mizu4_1"
           ],
@@ -117,7 +117,7 @@
         },
         "mizu5_1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9干天の慈雨\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9干天の慈雨\"}]}",
             "/function mizu/mizu5"
           ],
           "on_exit": [
@@ -138,7 +138,7 @@
         },
         "mizu6_1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9ねじれ渦\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ねじれ渦\"}]}",
             "/function mizu/mizu6/mizu6"
           ],
           "transitions": [
@@ -166,7 +166,7 @@
         },
         "mizu6_water_1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9ねじれ渦\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ねじれ渦\"}]}",
             "/function mizu/mizu6/mizu6_water"
           ],
           "transitions": [
@@ -202,7 +202,7 @@
         },
         "mizu7_2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9雫波紋突き\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9雫波紋突き\"}]}",
             "/function mizu/mizu7"
           ],
           "on_exit": [
@@ -229,7 +229,7 @@
         "mizu8_2":{
           "animations" : [ "mizu8_2_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9滝壺\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9滝壺\"}]}",
             "/function mizu/mizu8"
           ],
           "on_exit": [
@@ -242,7 +242,7 @@
         "mizu9":{
           "animations" : [ "mizu9_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水流飛沫・乱\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水流飛沫・乱\"}]}",
             "/event entity @s variant9",
             "/effect @s speed 10 5 true",
             "/effect @s jump_boost 10 3 true"
@@ -256,7 +256,7 @@
         },
         "mizu10":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9拾ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9拾ノ型\"}]}",
             "/scoreboard objectives add mizu10 dummy",
             "/scoreboard players set @s mizu10 1"
           ],
@@ -266,7 +266,7 @@
         },
         "mizu10_c":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9生生流転\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9生生流転\"}]}",
             "/event entity @s variant101"
           ],
           "on_exit": [
@@ -331,7 +331,7 @@
         "mizu11":{
           "animations" : [ "mizu11_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9凪\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9凪\"}]}",
             "/event entity @s variant11",
             "/event entity @s add_damage_clear"
           ],

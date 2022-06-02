@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.summon_alive": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "alive": "query.is_alive" }
+          ]
+        },
+        "alive": {
+          "on_entry": [
+            "/scoreboard players add @p[tag=darkness_rod] summon_alive 1"
+          ],
+          "on_exit": [
+            "/scoreboard players remove @p[tag=darkness_rod] summon_alive 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_alive"}
+          ]
+        }
+      }
+    }
+  }
+}

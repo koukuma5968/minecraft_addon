@@ -1,4 +1,15 @@
 
-entity.kurokumaft:maga_bassar.name=風の魔王獣 マガバッサー
+item.kurokumaft:orb_ring.name=オーブリング
+
+item.kurokumaft:maga_bassar_card.name=怪獣カード マガバッサー
+item.kurokumaft:maga_groundking_card.name=怪獣カード マガグランドキング
+item.kurokumaft:maga_japper_card.name=怪獣カード マガジャッパー
+
+
+ntity.kurokumaft:maga_bassar.name=風の魔王獣 マガバッサー
+entity.kurokumaft:maga_groundking.name=土の魔王獣 マガグランドキング
+entity.kurokumaft:maga_japper.name=水の魔王獣 マガジャッパー
 
 item.spawn_egg.entity.kurokumaft:maga_bassar.name=風の魔王獣 マガバッサー
+item.spawn_egg.entity.kurokumaft:maga_groundking.name=土の魔王獣 マガグランドキング
+item.spawn_egg.entity.kurokumaft:maga_japper.name=水の魔王獣 マガジャッパー

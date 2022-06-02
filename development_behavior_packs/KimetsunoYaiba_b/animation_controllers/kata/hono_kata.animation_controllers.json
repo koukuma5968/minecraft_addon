@@ -28,7 +28,7 @@
         },
         "hono1_2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4不知火\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4不知火\"}]}",
             "/effect @s speed 99999 5 true",
             "/scoreboard objectives add hono1 dummy",
             "/scoreboard players set @s hono1 0"
@@ -52,7 +52,7 @@
         },
         "hono2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4昇り炎天\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4昇り炎天\"}]}",
             "/event entity @s variant2",
             "/function hono/hono2"
           ],
@@ -65,7 +65,7 @@
         },
         "hono3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4気炎万象\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4気炎万象\"}]}",
             "/event entity @s variant3",
             "/function hono/hono2"
           ],
@@ -79,7 +79,7 @@
         "hono4":{
           "animations" : [ "hono4_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4盛炎のうねり\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4盛炎のうねり\"}]}",
             "/event entity @s variant4"
           ],
           "on_exit": [
@@ -91,7 +91,7 @@
         },
         "hono5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎虎\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎虎\"}]}",
             "/event entity @s variant5"
           ],
           "on_exit": [
@@ -104,7 +104,7 @@
         "hono9":{
           "animations" : [ "hono9_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4煉獄\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4煉獄\"}]}",
             "/event entity @s variant9"
           ],
           "transitions": [

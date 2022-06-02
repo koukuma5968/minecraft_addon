@@ -11,7 +11,7 @@
         },
         "zenitu1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
             "/scoreboard players set @s zenitu 1"
           ],
           "transitions": [
@@ -20,7 +20,7 @@
         },
         "zenitu7":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6雷の呼吸 漆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 漆ノ型\"}]}",
             "/scoreboard players set @s zenitu 7"
           ],
           "transitions": [

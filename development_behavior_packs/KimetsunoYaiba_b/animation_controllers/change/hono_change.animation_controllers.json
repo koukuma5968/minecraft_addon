@@ -14,7 +14,7 @@
         },
         "hono1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
             "/scoreboard players set @s hono 1"
           ],
           "transitions": [
@@ -23,7 +23,7 @@
         },
         "hono2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 弐ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 弐ノ型\"}]}",
             "/scoreboard players set @s hono 2"
           ],
           "transitions": [
@@ -32,7 +32,7 @@
         },
         "hono3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 参ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 参ノ型\"}]}",
             "/scoreboard players set @s hono 3"
           ],
           "transitions": [
@@ -41,7 +41,7 @@
         },
         "hono4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 肆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 肆ノ型\"}]}",
             "/scoreboard players set @s hono 4"
           ],
           "transitions": [
@@ -50,7 +50,7 @@
         },
         "hono5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§4炎の呼吸 伍ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 伍ノ型\"}]}",
             "/scoreboard players set @s hono 5"
           ],
           "transitions": [

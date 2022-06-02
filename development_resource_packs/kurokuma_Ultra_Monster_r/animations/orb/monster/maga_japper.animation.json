@@ -1,0 +1,48 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.maga_japper.move": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"wait": {
+					"rotation": [20, 0, 0],
+					"position": [0, 2, 3]
+				},
+				"rightleg": {
+					"rotation": {
+						"0.0": [35, 10, 0],
+						"0.5": [-2.5, 10, 0],
+						"1.0": [35, 10, 0]
+					}
+				},
+				"leftreg": {
+					"rotation": {
+						"0.0": [-10, -5, 0],
+						"0.5": [22.5, -5, 0],
+						"1.0": [-10, -5, 0]
+					}
+				},
+				"head": {
+					"rotation": [22.5, 0, 0],
+					"position": [0, 0, -6]
+				},
+				"rightarm": {
+					"rotation": [0, 22.5, 0]
+				},
+				"leftarm": {
+					"rotation": [0, -12.5, 0]
+				},
+				"tail": {
+					"rotation": [-30, 0, 0]
+				},
+				"leftwing": {
+					"rotation": [0, 15, 0]
+				},
+				"rightwing": {
+					"rotation": [0, -15, 0]
+				}
+			}
+		}
+	}
+}

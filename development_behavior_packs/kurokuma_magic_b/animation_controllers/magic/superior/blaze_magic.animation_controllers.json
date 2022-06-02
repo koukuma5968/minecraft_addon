@@ -1,0 +1,81 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.fire_magic.blaze_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'blaze_stick'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add blaze_stick"
+          ],
+          "on_exit": [
+            "/tag @s remove blaze_stick"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'blaze_stick'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.fire_magic.blaze": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "framepillar": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && variable.attack_time" },
+            { "bumrod": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && variable.attack_time" },
+            { "blastbomb": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" },
+            { "valleleflair": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" }
+          ]
+        },
+        "framepillar": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムピラー\"}]}",
+            "/tag @e[family=monster,c=1,ry=-10,rym=10,r=10] add framepillar"
+          ],
+          "transitions": [
+            {"framepillar_at":"(1.0)"}
+          ]
+        },
+        "framepillar_at": {
+          "animations" : [ "framepillar_ani" ],
+          "on_exit": [
+            "/tag @e[tag=framepillar] remove framepillar"
+          ],
+          "transitions": [
+            {"default":"variable.flame_magic = (variable.flame_magic ?? 0);variable.flame_magic = variable.flame_magic < 20 ? variable.flame_magic + 1:0;return variable.flame_magic == 0 && !variable.attack_time;"}
+          ]
+        },
+        "bumrod": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cバムロッド\"}]}",
+            "/function magic/fire/bumrod"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "valleleflair": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヴァルフレア\"}]}"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "blastbomb": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cブラストボム\"}]}",
+            "/function magic/fire/blastbomb"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        }
+      }
+    }
+  }
+}

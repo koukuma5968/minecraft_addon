@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:maga_japper",
+      "materials": { "default": "cow" },
+      "textures": {
+        "default": "textures/kurokumaft/orb/monster/maga_japper"
+      },
+      "geometry": {
+        "default": "geometry.maga_japper"
+      },
+      "scripts": {
+        "scale": "3.0",
+        "animate": [
+          "move_con"
+        ]
+      },
+      "animations": {
+        "move": "animation.maga_japper.move",
+        "move_con": "controller.animation.maga_japper.move"
+      },
+      "render_controllers": [ "controller.render.japper" ],
+      "spawn_egg": {
+        "texture": "maga_japper_card",
+        "texture_index": 0
+      }
+    }
+  }
+}

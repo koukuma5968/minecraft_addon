@@ -1,0 +1,82 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.water_magic.waterwave_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'waterwave_rod'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add waterwave_rod"
+          ],
+          "on_exit": [
+            "/tag @s remove waterwave_rod"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'waterwave_rod'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.water_magic.waterwave": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "waterpillar": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && variable.attack_time" },
+            { "watercutter": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && variable.attack_time" },
+            { "waterjail": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" },
+            { "waterwave": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" }
+          ]
+        },
+        "waterpillar": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターピラー\"}]}",
+            "/tag @e[family=monster,c=1,ry=-10,rym=10,r=10] add waterpillar"
+          ],
+          "transitions": [
+            {"waterpillar_at":"(1.0)"}
+          ]
+        },
+        "waterpillar_at": {
+          "animations" : [ "waterpillar_ani" ],
+          "on_exit": [
+            "/tag @e[tag=waterpillar] remove waterpillar"
+          ],
+          "transitions": [
+            {"default":"variable.waterwave_magic = (variable.waterwave_magic ?? 0);variable.waterwave_magic = variable.waterwave_magic < 20 ? variable.waterwave_magic + 1:0;return variable.waterwave_magic == 0 && !variable.attack_time;"}
+          ]
+        },
+        "watercutter": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォータカッター\"}]}",
+            "/function magic/water/watercutter"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "waterjail": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォータジェイル\"}]}",
+            "/function magic/water/waterjail"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "waterwave": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターウェーブ\"}]}",
+            "/function magic/water/waterwave"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        }
+      }
+    }
+  }
+}

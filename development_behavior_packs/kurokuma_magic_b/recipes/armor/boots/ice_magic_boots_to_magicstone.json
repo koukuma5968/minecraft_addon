@@ -1,23 +1,26 @@
 {
   "format_version": "1.12",
-  "minecraft:recipe_shapeless": {
+  "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:ice_magic_boots_to_magicstone"
     },
 
     "tags": [ "magic_enchant" ],
-    "priority": 3,
-    "ingredients": [
-      {
+    "pattern": [
+      "ibi",
+      "m m"
+    ],
+    "key": {
+      "b": {
         "item": "minecraft:diamond_boots"
       },
-      {
-        "item": "minecraft:blue_ice"
-      },
-      {
+      "m": {
         "item": "kurokumaft:ice_magic_stone"
+      },
+      "i": {
+        "item": "minecraft:blue_ice"
       }
-    ],
+    },
     "result": {
       "item": "kurokumaft:ice_magic_boots",
       "count": 1

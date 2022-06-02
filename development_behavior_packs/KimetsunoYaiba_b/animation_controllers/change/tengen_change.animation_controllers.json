@@ -12,7 +12,7 @@
         },
         "tengen1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
             "/scoreboard players set @s tengen 1"
           ],
           "transitions": [
@@ -21,7 +21,7 @@
         },
         "tengen4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 肆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 肆ノ型\"}]}",
             "/scoreboard players set @s tengen 4"
           ],
           "transitions": [
@@ -30,7 +30,7 @@
         },
         "tengen5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§e音の呼吸 伍ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 伍ノ型\"}]}",
             "/scoreboard players set @s tengen 5"
           ],
           "transitions": [

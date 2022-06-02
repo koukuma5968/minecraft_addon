@@ -15,7 +15,15 @@
           "dark","dark_change",
           "stone","stone_change",
           "snow","snow_change",
-          "wind","wind_change"
+          "wind","wind_change",
+
+          "flame","flame_change",
+          "waterwave","waterwave_change",
+          "brightness","brightness_change",
+          "darkness","darkness_change",
+
+          "blaze","blaze_change"
+          
         ]
       },
       "animations":{
@@ -26,7 +34,17 @@
         "dark":"controller.animation.dark_magic.dark","dark_change": "controller.animation.dark_magic.dark_change",
         "stone":"controller.animation.stone_magic.stone","stone_change": "controller.animation.stone_magic.stone_change",
         "snow":"controller.animation.snow_magic.snow","snow_change": "controller.animation.snow_magic.snow_change",
-        "wind":"controller.animation.wind_magic.wind","wind_change": "controller.animation.wind_magic.wind_change"
+        "wind":"controller.animation.wind_magic.wind","wind_change": "controller.animation.wind_magic.wind_change",
+
+        "flame":"controller.animation.flame_magic.flame","flame_change": "controller.animation.flame_magic.flame_change",
+        "waterwave":"controller.animation.water_magic.waterwave","waterwave_change": "controller.animation.water_magic.waterwave_change",
+        "brightness":"controller.animation.linght_magic.brightness","brightness_change": "controller.animation.linght_magic.brightness_change",
+        "darkness":"controller.animation.dark_magic.darkness","darkness_change": "controller.animation.dark_magic.darkness_change",
+
+        "blaze":"controller.animation.fire_magic.blaze","blaze_change": "controller.animation.fire_magic.blaze_change",
+
+        "framepillar_ani": "animation.fire.framepillar","flarecircle_ani": "animation.fire.flarecircle",
+        "waterpillar_ani": "animation.water.waterpillar"
       }
     },
 

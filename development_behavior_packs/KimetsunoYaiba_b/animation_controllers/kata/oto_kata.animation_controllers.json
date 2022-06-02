@@ -17,7 +17,7 @@
         },
         "oto1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§e轟\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e轟\"}]}",
             "/event entity @s variant1",
             "/tag @s add kokyu_oto1",
   					"/execute @s ~~~ damage @e[tag=!kokyu_oto1,r=3.5] 10 entity_explosion",
@@ -39,7 +39,7 @@
         "oto4":{
           "animations" : [ "oto4_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§e響斬無間\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e響斬無間\"}]}",
             "/effect @s resistance 99999 20 true",
             "/effect @s fire_resistance 99999 20 true",
             "/event entity @s variant4"
@@ -56,7 +56,7 @@
         "oto5":{
           "animations" : [ "oto5_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§e鳴弦奏々\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e鳴弦奏々\"}]}",
             "/event entity @s variant5",
             "/effect @s speed 99999 5 true",
             "/effect @s resistance 99999 20 true",

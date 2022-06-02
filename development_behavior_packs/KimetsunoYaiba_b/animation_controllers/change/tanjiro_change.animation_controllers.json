@@ -31,7 +31,7 @@
         },
         "mizu1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
             "/scoreboard players set @s tanjiro 1"
           ],
           "transitions": [
@@ -40,7 +40,7 @@
         },
         "mizu2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
             "/scoreboard players set @s tanjiro 2"
           ],
           "transitions": [
@@ -49,7 +49,7 @@
         },
         "mizu3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
             "/scoreboard players set @s tanjiro 3"
           ],
           "transitions": [
@@ -58,7 +58,7 @@
         },
         "mizu4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
             "/scoreboard players set @s tanjiro 4"
           ],
           "transitions": [
@@ -67,7 +67,7 @@
         },
         "mizu5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
             "/scoreboard players set @s tanjiro 5"
           ],
           "transitions": [
@@ -76,7 +76,7 @@
         },
         "mizu6":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
             "/scoreboard players set @s tanjiro 6"
           ],
           "transitions": [
@@ -85,7 +85,7 @@
         },
         "mizu7":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
             "/scoreboard players set @s tanjiro 7"
           ],
           "transitions": [
@@ -94,7 +94,7 @@
         },
         "mizu8":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
             "/scoreboard players set @s tanjiro 8"
           ],
           "transitions": [
@@ -103,7 +103,7 @@
         },
         "mizu9":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
             "/scoreboard players set @s tanjiro 9"
           ],
           "transitions": [
@@ -112,7 +112,7 @@
         },
         "mizu10":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
             "/scoreboard players set @s tanjiro 10"
           ],
           "transitions": [
@@ -121,7 +121,7 @@
         },
         "hinokami1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 円舞\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 円舞\"}]}",
             "/scoreboard players set @s tanjiro 11"
           ],
           "transitions": [
@@ -130,7 +130,7 @@
         },
         "hinokami2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 碧羅の天\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 碧羅の天\"}]}",
             "/scoreboard players set @s tanjiro 12"
           ],
           "transitions": [
@@ -139,7 +139,7 @@
         },
         "hinokami3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 烈日紅鏡\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 烈日紅鏡\"}]}",
             "/scoreboard players set @s tanjiro 13"
           ],
           "transitions": [
@@ -148,7 +148,7 @@
         },
         "hinokami4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 灼骨炎陽\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 灼骨炎陽\"}]}",
             "/scoreboard players set @s tanjiro 14"
           ],
           "transitions": [
@@ -157,7 +157,7 @@
         },
         "hinokami5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 陽華突\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 陽華突\"}]}",
             "/scoreboard players set @s tanjiro 15"
           ],
           "transitions": [
@@ -166,7 +166,7 @@
         },
         "hinokami6":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 日暈の龍 頭舞い\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 日暈の龍 頭舞い\"}]}",
             "/scoreboard players set @s tanjiro 16"
           ],
           "transitions": [
@@ -175,7 +175,7 @@
         },
         "hinokami7":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 斜陽転身\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 斜陽転身\"}]}",
             "/scoreboard players set @s tanjiro 17"
           ],
           "transitions": [
@@ -184,7 +184,7 @@
         },
         "hinokami8":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 飛輪陽炎\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 飛輪陽炎\"}]}",
             "/scoreboard players set @s tanjiro 18"
           ],
           "transitions": [
@@ -193,7 +193,7 @@
         },
         "hinokami9":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 輝輝恩光\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 輝輝恩光\"}]}",
             "/scoreboard players set @s tanjiro 19"
           ],
           "transitions": [
@@ -202,7 +202,7 @@
         },
         "hinokami10":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 火車\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 火車\"}]}",
             "/scoreboard players set @s tanjiro 20"
           ],
           "transitions": [
@@ -211,7 +211,7 @@
         },
         "hinokami11":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 幻日虹\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 幻日虹\"}]}",
             "/scoreboard players set @s tanjiro 21"
           ],
           "transitions": [
@@ -220,7 +220,7 @@
         },
         "hinokami12":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 炎舞\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒノカミ神楽 炎舞\"}]}",
             "/scoreboard players set @s tanjiro 22"
           ],
           "transitions": [

@@ -1,0 +1,40 @@
+{
+  "format_version": "1.17",
+  "minecraft:item" : {
+    "description": {
+        "identifier": "kurokumaft:maga_bassar_card"
+    },
+    "components": {
+        "minecraft:display_name": {
+          "value": "item.kurokumaft:maga_bassar_card.name"
+        },
+        "minecraft:icon":{
+          "texture": "maga_bassar_card"
+        },
+        "minecraft:creative_category": {
+          "parent": "itemGroup.name.ultraMonster"
+        },
+        "minecraft:max_stack_size": 1,
+        "minecraft:hand_equipped": true,
+        "minecraft:mining_speed": 1.5,
+        "minecraft:can_destroy_in_creative": true,
+        "minecraft:on_use":{
+          "on_use":{
+            "condition": "query.is_item_name_any('slot.weapon.offhand','kurokumaft:orb_ring')",
+            "event":"kurokumaft:summon_card"
+          }
+        }
+      },
+      "events": {
+        "kurokumaft:summon_card": {
+          "run_command": {
+            "command": [
+              "summon kurokumaft:maga_bassar ^^^1 minecraft:entity_spawned"
+            ],
+            "target": "self"
+          }
+        }
+      }
+  }
+}
+

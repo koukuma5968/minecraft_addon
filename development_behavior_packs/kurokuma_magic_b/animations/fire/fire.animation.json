@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.fire.framepillar": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/damage @e[tag=framepillar] 2 fire",
+					"/execute @e[tag=framepillar] ~~~ particle kurokumaft:framepillar_particle ~~~"
+				]
+			}
+		},
+		"animation.fire.flarecircle": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @e[tag=flamecircle] ~~~ particle kurokumaft:firestome1_particle ~~~",
+					"/damage @e[tag=framepillar] 3 fire"
+				]
+			}
+		}
+	}
+}

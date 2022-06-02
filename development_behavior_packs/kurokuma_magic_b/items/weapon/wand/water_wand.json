@@ -42,6 +42,14 @@
       "kurokumaft:water": {
         "sequence":[
           {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターボール\"}]}"
+              ],
+              "target": "player"
+            }
+          },
+          {
             "shoot":{
               "projectile":"kurokumaft:waterballmagic",
               "launch_power":1

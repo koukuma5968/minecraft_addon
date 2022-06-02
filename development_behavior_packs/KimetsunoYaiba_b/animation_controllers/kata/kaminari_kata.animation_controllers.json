@@ -30,13 +30,13 @@
         },
         "kaminari1_zenitu2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6霹靂一閃\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6霹靂一閃\"}]}",
             "/effect @s speed 99999 5 true",
             "/scoreboard objectives add kaminari1 dummy",
             "/scoreboard players set @s kaminari1 0"
           ],
           "on_exit": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"kaminari1\"}},{\"text\":\"連\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"kaminari1\"}},{\"text\":\"連\"}]}",
             "/effect @s speed 0",
             "/scoreboard players reset @s kaminari1",
             "/scoreboard objectives remove kaminari1"
@@ -55,7 +55,7 @@
         },
         "kaminari1_2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6霹靂一閃\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6霹靂一閃\"}]}",
             "/effect @s speed 99999 5 true",
             "/scoreboard objectives add kaminari1 dummy",
             "/scoreboard players set @s kaminari1 0"
@@ -80,7 +80,7 @@
         "kaminari2":{
           "on_entry": [
             "/event entity @s variant2",
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6稲魂\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6稲魂\"}]}",
             "/function kaminari/kaminari2"
           ],
           "on_exit": [
@@ -92,7 +92,7 @@
         },
         "kaminari3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6聚蚊成雷\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6聚蚊成雷\"}]}",
             "/gamerule sendcommandfeedback false",
             "/execute @s ~~~ tp @s ~~~ 0 0 true"
           ],
@@ -115,7 +115,7 @@
         },
         "kaminari4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6遠雷\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6遠雷\"}]}",
             "/event entity @s variant4"
           ],
           "transitions": [
@@ -134,7 +134,7 @@
         "kaminari5":{
           "animations" : [ "kaminari5_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6熱界雷\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6熱界雷\"}]}",
             "/event entity @s variant5"
           ],
           "on_exit": [
@@ -147,7 +147,7 @@
         "kaminari6":{
           "animations" : [ "kaminari6_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6電轟雷轟\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6電轟雷轟\"}]}",
             "/effect @s speed 99999 10 true"
           ],
           "transitions": [
@@ -183,7 +183,7 @@
         },
         "kaminari7_2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§6火雷神\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6火雷神\"}]}",
             "/gamerule sendcommandfeedback false",
             "/execute @e[tag=kokyu_kaminari7_target] ^^^2 tp @e[tag=kokyu_kaminari7] ~~~",
             "/execute @s ~~~ particle kurokumaft:kaminari2_particle ~~~",

@@ -21,7 +21,7 @@
         },
         "hi1":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 壱ノ型\"}]}",
             "/scoreboard players set @s hi 1"
           ],
           "transitions": [
@@ -30,7 +30,7 @@
         },
         "hi2":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 弐ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 弐ノ型\"}]}",
             "/scoreboard players set @s hi 2"
           ],
           "transitions": [
@@ -39,7 +39,7 @@
         },
         "hi3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 参ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 参ノ型\"}]}",
             "/scoreboard players set @s hi 3"
           ],
           "transitions": [
@@ -48,7 +48,7 @@
         },
         "hi4":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 肆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 肆ノ型\"}]}",
             "/scoreboard players set @s hi 4"
           ],
           "transitions": [
@@ -57,7 +57,7 @@
         },
         "hi5":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 伍ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 伍ノ型\"}]}",
             "/scoreboard players set @s hi 5"
           ],
           "transitions": [
@@ -66,7 +66,7 @@
         },
         "hi6":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 陸ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 陸ノ型\"}]}",
             "/scoreboard players set @s hi 6"
           ],
           "transitions": [
@@ -75,7 +75,7 @@
         },
         "hi7":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 漆ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 漆ノ型\"}]}",
             "/scoreboard players set @s hi 7"
           ],
           "transitions": [
@@ -84,7 +84,7 @@
         },
         "hi8":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 捌ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 捌ノ型\"}]}",
             "/scoreboard players set @s hi 8"
           ],
           "transitions": [
@@ -93,7 +93,7 @@
         },
         "hi9":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 玖ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 玖ノ型\"}]}",
             "/scoreboard players set @s hi 9"
           ],
           "transitions": [
@@ -102,7 +102,7 @@
         },
         "hi10":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 拾ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 拾ノ型\"}]}",
             "/scoreboard players set @s hi 10"
           ],
           "transitions": [
@@ -111,7 +111,7 @@
         },
         "hi11":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 拾壱ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 拾壱ノ型\"}]}",
             "/scoreboard players set @s hi 11"
           ],
           "transitions": [
@@ -120,7 +120,7 @@
         },
         "hi12":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日の呼吸 拾弐ノ型\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 拾弐ノ型\"}]}",
             "/scoreboard players set @s hi 12"
           ],
           "transitions": [

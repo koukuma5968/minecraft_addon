@@ -42,6 +42,14 @@
       "kurokumaft:wind": {
         "sequence":[
           {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aウィンドカッター\"}]}"
+              ],
+              "target": "player"
+            }
+          },
+          {
             "shoot":{
               "projectile":"kurokumaft:windcuttermagic",
               "launch_power":1

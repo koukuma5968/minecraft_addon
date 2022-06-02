@@ -27,7 +27,7 @@
         "hi1":{
           "on_entry": [
             "/event entity @s variant11",
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c円舞\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c円舞\"}]}",
             "/function hi/hi1"
           ],
           "on_exit": [
@@ -50,7 +50,7 @@
         "hi2_1":{
           "animations" : [ "hi2_2_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c碧羅の天\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c碧羅の天\"}]}",
             "/function hi/hi2"
           ],
           "on_exit": [
@@ -63,7 +63,7 @@
         },
         "hi3":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c烈日紅鏡\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c烈日紅鏡\"}]}",
             "/event entity @s variant13",
             "/function hi/hi3/hi3_1"
           ],
@@ -85,7 +85,7 @@
         "hi4":{
           "animations" : [ "hi4_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c灼骨炎陽\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c灼骨炎陽\"}]}",
             "/event entity @s variant14"
           ],
           "on_exit": [
@@ -106,7 +106,7 @@
         "hi5_1":{
           "animations" : [ "hi5_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c陽華突\"}]}"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c陽華突\"}]}"
           ],
           "on_exit": [
             "/event entity @s variant0"
@@ -118,7 +118,7 @@
         "hi6":{
           "animations" : [ "hi6_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c日暈の龍 頭舞い\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日暈の龍 頭舞い\"}]}",
             "/scoreboard objectives add hi6 dummy",
             "/scoreboard players set @s hi6 1",
             "/effect @s speed 10 10 true"
@@ -133,7 +133,7 @@
         },
         "hi7":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c斜陽転身\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c斜陽転身\"}]}",
             "/event entity @s variant17"
           ],
           "transitions": [
@@ -153,7 +153,7 @@
         },
         "hi8":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c飛輪陽炎\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c飛輪陽炎\"}]}",
             "/event entity @s variant18"
           ],
           "transitions": [
@@ -174,7 +174,7 @@
         "hi9":{
           "animations" : [ "hi9_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c輝輝恩光\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c輝輝恩光\"}]}",
             "/event entity @s variant19"
           ],
           "on_exit": [
@@ -186,7 +186,7 @@
         },
         "hi10":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c火車\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c火車\"}]}",
             "/event entity @s variant20",
             "/function hi/hi10"
           ],
@@ -200,7 +200,7 @@
         "hi11":{
           "animations" : [ "hi11_ani" ],
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c幻日虹\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c幻日虹\"}]}",
             "/event entity @s variant21",
             "/event entity @s add_damage_clear",
             "/effect @s invisibility 10 20 true"
@@ -216,7 +216,7 @@
         },
         "hi12":{
           "on_entry": [
-            "/tellraw @s {\"rawtext\":[{\"text\":\"§c炎舞\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c炎舞\"}]}",
             "/event entity @s variant22",
             "/function hi/hi12"
           ],
