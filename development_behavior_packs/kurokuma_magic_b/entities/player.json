@@ -208,6 +208,23 @@
           {
             "filters": {
               "all_of": [
+                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:fire_magic_sword"}
+              ]
+            },
+            "event": "kurokumaft:fire_magic_enchant"
+          },
+          {
+            "filters": {
+              "all_of": [
+                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:ice_magic_sword"}
+              ]
+            },
+            "event": "kurokumaft:ice_magic_enchant"
+          },
+
+          {
+            "filters": {
+              "all_of": [
                 {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:ice_magic_helmet"}
               ]
             },
@@ -306,7 +323,21 @@
         }
       },
 
-      // 氷の装備
+      "kurokumaft:fire_magic_enchant": {
+				"run_command": {
+					"command": [
+					  "enchant @s fire_aspect 2"
+					]
+				}
+      },
+      "kurokumaft:ice_magic_enchant": {
+				"run_command": {
+					"command": [
+					  "enchant @s sharpness 2"
+					]
+				}
+      },
+
       "kurokumaft:water_breathing_effect": {
 				"run_command": {
 					"command": [
@@ -317,15 +348,15 @@
 			"kurokumaft:lava_freeze": {
 				"run_command": {
 					"command": [
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ lava -1 setblock ^1^1^ ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ lava -1 setblock ^-1^1^ ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 lava -1 setblock ^^1^1 ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ lava -1 setblock ^-1^2^ ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 lava -1 setblock ^^2^1 ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 lava -1 setblock ^^2^-1 ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ lava -1 setblock ^^3^ ice"
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ lava -1 setblock ^1^1^ air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ lava -1 setblock ^-1^1^ air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 lava -1 setblock ^^1^1 air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ lava -1 setblock ^-1^2^ air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 lava -1 setblock ^^2^1 air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 lava -1 setblock ^^2^-1 air",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ lava -1 setblock ^^3^ air"
           ]
 				}
 			},
@@ -340,7 +371,9 @@
 				"run_command": {
 					"command": [
 					  "execute @e[type=player,r=1,c=1] ~~~ detect ~~-1~ water -1 setblock ~~-1~ packed_ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ~~-1~ flowing_water -1 setblock ~~-1~ packed_ice"
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ~~-1~ flowing_water -1 setblock ~~-1~ packed_ice",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^-1^-1 packed_ice -1 setblock ^^-1^-1 water",
+					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^-1^-1 flowing_water -1 packed_ice ^^-1^-1 setblock"
           ]
 				}
 			},

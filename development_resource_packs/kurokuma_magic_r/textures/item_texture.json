@@ -115,6 +115,21 @@
       "ice_magic_sword": {
          "textures" : "textures/kurokumaft/items/magic_weapon/ice_magic_sword"
       },
+      "fire_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/fire_magic_sword"
+      },
+      "stone_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/stone_magic_sword"
+      },
+      "thunder_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/thunder_magic_sword"
+      },
+      "weater_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/weater_magic_sword"
+      },
+      "wind_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/wind_magic_sword"
+      },
 
       "ice_magic_helmet": {
          "textures" : "textures/kurokumaft/items/magic_armer/ice_magic_helmet"

@@ -2,15 +2,15 @@
   "format_version": "1.17",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:ice_magic_sword",
+        "identifier": "kurokumaft:stone_magic_sword",
         "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
-				"value": "item.kurokumaft:ice_magic_sword.name"
+				"value": "item.kurokumaft:stone_magic_sword.name"
 			},
       "minecraft:icon": {
-          "texture": "ice_magic_sword"
+          "texture": "stone_magic_sword"
       },
       "minecraft:creative_category": {
 				"parent": "itemGroup.name.sword"
@@ -23,7 +23,7 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:blue_ice" ],
+            "items": [ "minecraft:stone" ],
             "repair_amount": 5
           }
         ]
@@ -43,32 +43,27 @@
             "speed": 15
           },
           {
-            "block": "minecraft:blue_ice",
-            "speed": 10
-          },
-          {
-            "block": "minecraft:ice",
+            "block": "minecraft:stone",
             "speed": 10
           }
-
         ]
       },
       "minecraft:weapon": {
           "on_hurt_entity": {
-              "event": "kurokumaft:ice_magic_sword"
+              "event": "kurokumaft:stone_magic_sword"
           }
       }
     },
     "events": {
-        "kurokumaft:ice_magic_sword": {
+        "kurokumaft:stone_magic_sword": {
           "sequence":[
             {
               "run_command": {
                 "command": [
-                  "tag @e[family=monster,c=2,r=3] add ice_magic_sword",
-                  "execute @e[tag=ice_magic_sword] ~~~ particle kurokumaft:ice_particle ~~~",
-                  "damage @e[tag=ice_magic_sword] 3 freezing",
-                  "tag @e[tag=ice_magic_sword] remove ice_magic_sword"
+                  "tag @e[family=monster,c=2,r=3] add stone_magic_sword",
+                  "execute @e[tag=stone_magic_sword] ~~~ particle kurokumaft:stone_particle ~~~",
+                  "damage @e[tag=stone_magic_sword] 3 falling_block",
+                  "tag @e[tag=stone_magic_sword] remove stone_magic_sword"
                 ],
                 "target": "self"
               }

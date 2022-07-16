@@ -50,6 +50,11 @@ item.kurokumaft:thunderstorm_staff.name=§a§l渦雷の錫杖 サンダースト
 item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 アイスペレット +20
 
 item.kurokumaft:ice_magic_sword.name=アイスマジックソード
+item.kurokumaft:fire_magic_sword.name=ファイアマジックソード
+item.kurokumaft:stone_magic_sword.name=ストーンマジックソード
+item.kurokumaft:thunder_magic_sword.name=サンダーマジックソード
+item.kurokumaft:wind_magic_sword.name=ウィンドマジックソード
+item.kurokumaft:weater_magic_sword.name=ウォーターマジックソード
 
 item.kurokumaft:ice_magic_helmet.name=アイスマジックヘルム
 item.kurokumaft:ice_magic_chestplate.name=アイスマジックプレート
