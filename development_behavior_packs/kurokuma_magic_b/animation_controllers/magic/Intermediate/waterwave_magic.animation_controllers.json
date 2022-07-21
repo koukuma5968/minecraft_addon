@@ -25,10 +25,19 @@
       "states": {
         "default": {
           "transitions": [
-            { "waterpillar": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && variable.attack_time" },
             { "watercutter": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && variable.attack_time" },
-            { "waterjail": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" },
-            { "waterwave": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" }
+            { "waterpillar": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && variable.attack_time" },
+            { "waterwave": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" },
+            { "waterjail": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" }
+          ]
+        },
+        "watercutter": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォータカッター\"}]}",
+            "/function magic/water/watercutter"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
           ]
         },
         "waterpillar": {
@@ -49,28 +58,19 @@
             {"default":"variable.waterwave_magic = (variable.waterwave_magic ?? 0);variable.waterwave_magic = variable.waterwave_magic < 20 ? variable.waterwave_magic + 1:0;return variable.waterwave_magic == 0 && !variable.attack_time;"}
           ]
         },
-        "watercutter": {
+        "waterwave": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォータカッター\"}]}",
-            "/function magic/water/watercutter"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターウェーブ\"}]}",
+            "/function magic/water/waterwave"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"default":"!query.is_using_item"}
           ]
         },
         "waterjail": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォータジェイル\"}]}",
             "/function magic/water/waterjail"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "waterwave": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターウェーブ\"}]}",
-            "/function magic/water/waterwave"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

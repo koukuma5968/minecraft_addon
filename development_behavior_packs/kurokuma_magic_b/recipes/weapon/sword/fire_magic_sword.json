@@ -2,7 +2,7 @@
   "format_version": "1.16",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "kurokumaft:ice_magic_sword"
+      "identifier": "kurokumaft:fire_magic_sword"
     },
 
     "tags": [ "magic_enchant" ],
@@ -12,14 +12,14 @@
         "item": "minecraft:diamond_sword"
       },
       {
-        "item": "minecraft:blue_ice"
+        "item": "minecraft:magma"
       },
       {
-        "item": "kurokumaft:ice_magic_stone"
+        "item": "kurokumaft:fire_magic_stone"
       }
     ],
     "result": {
-      "item": "kurokumaft:ice_magic_sword",
+      "item": "kurokumaft:fire_magic_sword",
       "count": 1
     }
   }

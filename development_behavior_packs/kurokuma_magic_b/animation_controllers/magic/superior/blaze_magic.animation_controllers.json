@@ -25,34 +25,25 @@
       "states": {
         "default": {
           "transitions": [
-            { "framepillar": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && variable.attack_time" },
-            { "bumrod": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && variable.attack_time" },
-            { "blastbomb": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" },
-            { "valleleflair": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" }
+            { "flame_shock": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && variable.attack_time" },
+            { "flare_bit": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && variable.attack_time" },
+            { "valleleflair": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" },
+            { "blastbomb": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" }
           ]
         },
-        "framepillar": {
+        "flame_shock": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムピラー\"}]}",
-            "/tag @e[family=monster,c=1,ry=-10,rym=10,r=10] add framepillar"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムショック\"}]}",
+            "/function magic/fire/flame_shock"
           ],
           "transitions": [
-            {"framepillar_at":"(1.0)"}
+            {"default":"!variable.attack_time"}
           ]
         },
-        "framepillar_at": {
-          "animations" : [ "framepillar_ani" ],
-          "on_exit": [
-            "/tag @e[tag=framepillar] remove framepillar"
-          ],
-          "transitions": [
-            {"default":"variable.flame_magic = (variable.flame_magic ?? 0);variable.flame_magic = variable.flame_magic < 20 ? variable.flame_magic + 1:0;return variable.flame_magic == 0 && !variable.attack_time;"}
-          ]
-        },
-        "bumrod": {
+        "flare_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cバムロッド\"}]}",
-            "/function magic/fire/bumrod"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレアビット\"}]}",
+            "/function magic/fire/flare_bit"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}

@@ -221,6 +221,14 @@
             },
             "event": "kurokumaft:ice_magic_enchant"
           },
+          {
+            "filters": {
+              "all_of": [
+                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:stone_magic_sword"}
+              ]
+            },
+            "event": "kurokumaft:stone_magic_enchant"
+          },
 
           {
             "filters": {
@@ -334,6 +342,13 @@
 				"run_command": {
 					"command": [
 					  "enchant @s sharpness 2"
+					]
+				}
+      },
+      "kurokumaft:stone_magic_enchant": {
+				"run_command": {
+					"command": [
+					  "enchant @s unbreaking 2"
 					]
 				}
       },

@@ -28,34 +28,16 @@
       "states": {
         "default": {
           "transitions": [
-            { "protect": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && variable.attack_time" },
             { "areaheel": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && variable.attack_time" },
-            { "summons_golem": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item && query.scoreboard('summon_alive') < 2" },
-            { "ability": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item" }
-          ]
-        },
-        "summons_golem": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eブライトゴーレム召喚\"}]}",
-            "/function magic/light/summonsgolem"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
+            { "protect": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && variable.attack_time" },
+            { "ability": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item" },
+            { "summons_golem": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item && query.scoreboard('summon_alive') < 2" }
           ]
         },
         "areaheel": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eエリアヒール\"}]}",
             "/function magic/light/areaheel"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "ability": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eアビリティ\"}]}",
-            "/function magic/light/ability"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
@@ -68,6 +50,24 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
+          ]
+        },
+        "ability": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eアビリティ\"}]}",
+            "/function magic/light/ability"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "summons_golem": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eブライトゴーレム召喚\"}]}",
+            "/function magic/light/summonsgolem"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
           ]
         }
       }

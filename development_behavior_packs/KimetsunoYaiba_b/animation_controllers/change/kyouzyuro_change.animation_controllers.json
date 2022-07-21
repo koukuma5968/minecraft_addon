@@ -1,107 +1,67 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
-    "controller.animation.kokyu.mizu_change": {
+    "controller.animation.kokyu.kyouzyuro_change": {
       "states": {
         "default": {
           "transitions": [
-            { "mizu1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 10 && query.is_sneaking" },
-            { "mizu2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 1 && query.is_sneaking" },
-            { "mizu3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 2 && query.is_sneaking" },
-            { "mizu4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 3 && query.is_sneaking" },
-            { "mizu5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 4 && query.is_sneaking" },
-            { "mizu6": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 5 && query.is_sneaking" },
-            { "mizu7": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 6 && query.is_sneaking" },
-            { "mizu8": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 7 && query.is_sneaking" },
-            { "mizu9": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 8 && query.is_sneaking" },
-            { "mizu10": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu') && query.scoreboard('mizu') == 9 && query.is_sneaking" }
+            { "kyouzyuro1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.scoreboard('kyouzyuro') == 9 && query.is_sneaking" },
+            { "kyouzyuro2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.scoreboard('kyouzyuro') == 1 && query.is_sneaking" },
+            { "kyouzyuro3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.scoreboard('kyouzyuro') == 2 && query.is_sneaking" },
+            { "kyouzyuro4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.scoreboard('kyouzyuro') == 3 && query.is_sneaking" },
+            { "kyouzyuro5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.scoreboard('kyouzyuro') == 4 && query.is_sneaking" },
+            { "kyouzyuro9": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro') && query.scoreboard('kyouzyuro') == 5 && query.is_sneaking" }
           ]
         },
-        "mizu1":{
+        "kyouzyuro1":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
-            "/scoreboard players set @s mizu 1"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/scoreboard players set @s kyouzyuro 1"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
           ]
         },
-        "mizu2":{
+        "kyouzyuro2":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
-            "/scoreboard players set @s mizu 2"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 弐ノ型\"}]}",
+            "/scoreboard players set @s kyouzyuro 2"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
           ]
         },
-        "mizu3":{
+        "kyouzyuro3":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
-            "/scoreboard players set @s mizu 3"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 参ノ型\"}]}",
+            "/scoreboard players set @s kyouzyuro 3"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
           ]
         },
-        "mizu4":{
+        "kyouzyuro4":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
-            "/scoreboard players set @s mizu 4"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 肆ノ型\"}]}",
+            "/scoreboard players set @s kyouzyuro 4"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
           ]
         },
-        "mizu5":{
+        "kyouzyuro5":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
-            "/scoreboard players set @s mizu 5"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 伍ノ型\"}]}",
+            "/scoreboard players set @s kyouzyuro 5"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
           ]
         },
-        "mizu6":{
+        "kyouzyuro9":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
-            "/scoreboard players set @s mizu 6"
-          ],
-          "transitions": [
-            {"default":"!query.is_sneaking"}
-          ]
-        },
-        "mizu7":{
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
-            "/scoreboard players set @s mizu 7"
-          ],
-          "transitions": [
-            {"default":"!query.is_sneaking"}
-          ]
-        },
-        "mizu8":{
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
-            "/scoreboard players set @s mizu 8"
-          ],
-          "transitions": [
-            {"default":"!query.is_sneaking"}
-          ]
-        },
-        "mizu9":{
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
-            "/scoreboard players set @s mizu 9"
-          ],
-          "transitions": [
-            {"default":"!query.is_sneaking"}
-          ]
-        },
-        "mizu10":{
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
-            "/scoreboard players set @s mizu 10"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 玖ノ型\"}]}",
+            "/scoreboard players set @s kyouzyuro 9"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
