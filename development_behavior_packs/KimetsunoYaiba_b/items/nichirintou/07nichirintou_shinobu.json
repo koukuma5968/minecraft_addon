@@ -9,7 +9,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_shinobu.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
+      "tag:kurokumaft:nichirintou_hori": {},
       "tag:kurokumaft:nichirintou_shinobu": {},
       "minecraft:icon": {
           "texture": "nichirintou_shinobu"
@@ -21,18 +21,22 @@
       "minecraft:allow_off_hand": true,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
-        "max_durability": 60
+        "max_durability": 500
       },
       "minecraft:repairable": {
         "repair_items": [
           {
             "items": [ "kurokumaft:scarlet_nugget" ],
-            "repair_amount": 5
+            "repair_amount": 150
+          },
+          {
+            "items": [ "kurokumaft:nichirintou_shinobu" ],
+            "repair_amount": 250
           }
         ]
       },
       "minecraft:mining_speed": 1.5,
-      "minecraft:damage": 15,
+      "minecraft:damage": 1,
       "minecraft:enchantable": {
         "value": 500,
         "slot": "sword"
@@ -67,11 +71,23 @@
     },
     "events": {
       "hurt_entity": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "execute @s ^^^1.5 effect @e[family=!player,family=!inanimate,c=1,r=3] poison 10 5 false"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":5
+            }
+          }
+        ]
       }
     }
   }

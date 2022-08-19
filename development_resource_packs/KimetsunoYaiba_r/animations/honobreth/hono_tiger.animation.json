@@ -5,7 +5,7 @@
 			"loop": true,
 			"bones": {
 				"tiger": {
-					"rotation": ["query.target_x_rotation", "-query.target_y_rotation", 0]
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
 				}
 			},
 			"particle_effects": {

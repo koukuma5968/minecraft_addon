@@ -12,17 +12,25 @@
       "minecraft:icon":{
         "texture": "kettle_lid"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "minecraft:planks" ],
+            "repair_amount": 20
+          }
+        ]
+      },
       "minecraft:creative_category": {
         "parent": "itemGroup.name.shield"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,
       "minecraft:durability": {
-        "max_damage": 10,
-        "repair_items": [
-          "minecraft:planks",
-          "minecraft:shield"
-        ]
+        "max_durability": 10,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.offhand"

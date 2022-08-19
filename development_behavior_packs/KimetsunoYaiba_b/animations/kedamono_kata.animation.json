@@ -28,6 +28,15 @@
 					"/execute @s ^^^2 damage @e[family=monster,r=1.5,c=1] 15 entity_attack"
 				]
 			}
+		},
+		"animation.kata.kedamono7": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @e[tag=kokyu_kedamono7_target] ~~~ particle kurokumaft:kedamono7_particle ~~~"
+				]
+			}
 		}
 	}
 }

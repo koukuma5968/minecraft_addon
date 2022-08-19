@@ -14,7 +14,7 @@
       },
       "minecraft:type_family": {
         "family": [
-          "magic"
+          "magic","inanimate"
         ]
       },
       "minecraft:projectile": {
@@ -43,6 +43,16 @@
       },
       "minecraft:behavior.knockback_roar": {
         "attack_time": 0.1,
+        "damage_filters": {
+          "all_of": [
+            {"test": "is_family","operator": "not","subject": "other","value": "player"}
+          ]
+        },
+        "knockback_filters": {
+          "all_of": [
+            {"test": "is_family","operator": "not","subject": "other","value": "player"}
+          ]
+        },
         "knockback_damage": 4,
         "knockback_horizontal_strength": 4,
         "knockback_vertical_strength": 4

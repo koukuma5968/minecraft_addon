@@ -1,0 +1,75 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.mushi": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_mushi_attack": {
+              "input": "variable.kokyu_mushi_attack = (variable.kokyu_mushi_attack ?? 0);"
+            }
+          },
+          "transitions": [
+            { "mushi1": "(query.scoreboard('mushi') == 1 || query.scoreboard('shinobu') == 1) && query.is_using_item" },
+            { "mushi2": "(query.scoreboard('mushi') == 2 || query.scoreboard('shinobu') == 2) && query.is_using_item" },
+            { "mushi3": "(query.scoreboard('mushi') == 3 || query.scoreboard('shinobu') == 3) && query.is_using_item" },
+            { "mushi4": "(query.scoreboard('mushi') == 4 || query.scoreboard('shinobu') == 4) && query.is_using_item" }
+          ]
+        },
+        "mushi1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5戯れ\"}]}",
+            "/event entity @s variant1",
+            "/function mushi/chou"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_mushi_attack = variable.kokyu_mushi_attack < 20 ? variable.kokyu_mushi_attack + 1:0;return variable.kokyu_mushi_attack == 0;"}
+          ]
+        },
+        "mushi2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5真靡き\"}]}",
+            "/event entity @s variant2",
+            "/function mushi/houga"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_mushi_attack = variable.kokyu_mushi_attack < 10 ? variable.kokyu_mushi_attack + 1:0;return variable.kokyu_mushi_attack == 0;"}
+          ]
+        },
+        "mushi3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5複眼六角\"}]}",
+            "/event entity @s variant3",
+            "/function mushi/seirei"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_mushi_attack = variable.kokyu_mushi_attack < 10 ? variable.kokyu_mushi_attack + 1:0;return variable.kokyu_mushi_attack == 0;"}
+          ]
+        },
+        "mushi4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5百足蛇腹\"}]}",
+            "/event entity @s variant4",
+            "/function mushi/gokou1"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/function mushi/gokou2"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_mushi_attack = variable.kokyu_mushi_attack < 100 ? variable.kokyu_mushi_attack + 1:0;return variable.kokyu_mushi_attack == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

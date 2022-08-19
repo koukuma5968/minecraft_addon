@@ -13,34 +13,28 @@
       "minecraft:icon":{
         "texture": "copper_shield"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "minecraft:copper_ingot" ],
+            "repair_amount": 20
+          }
+        ]
+      },
       "minecraft:creative_category": {
         "parent": "itemGroup.name.shield"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,
       "minecraft:durability": {
-        "max_damage": 336,
-        "repair_items": [
-          "minecraft:planks",
-          "minecraft:shield"
-        ]
+        "max_durability": 330,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.offhand"
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event":"kurokumaft:shield"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:shield": {
-        "run_command": {
-          "command": [
-            "effect @p protection 1 3 true"
-          ]
-        }
       }
     }
   }

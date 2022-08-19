@@ -21,6 +21,46 @@
       },
       "ice_machine_top" : {
          "textures" : [ "textures/kurokumaft/blocks/ice_machine_top", "textures/kurokumaft/blocks/ice_machine_top" ]
+      },
+
+      "iron_chest": {
+         "textures": "textures/kurokumaft/blocks/iron_chest"
+       },
+       "iron_chest_top": {
+         "textures": ["textures/kurokumaft/blocks/chest/iron/iron_chest_top"]
+       },
+       "iron_chest_side": {
+         "textures": ["textures/kurokumaft/blocks/chest/iron/iron_chest_side"]
+       },
+       "iron_chest_front": {
+         "textures": ["textures/kurokumaft/blocks/chest/iron/iron_chest_front"]
+       },
+
+       "golden_chest": {
+         "textures": "textures/kurokumaft/blocks/golden_chest"
+       },
+       "golden_chest_top": {
+         "textures": ["textures/kurokumaft/blocks/chest/golden/gold_chest_top"]
+       },
+       "golden_chest_side": {
+         "textures": ["textures/kurokumaft/blocks/chest/golden/gold_chest_side"]
+       },
+       "golden_chest_front": {
+         "textures": ["textures/kurokumaft/blocks/chest/golden/gold_chest_front"]
+       },
+
+       "diamond_chest": {
+        "textures": "textures/kurokumaft/blocks/diamond_chest"
+      },
+      "diamond_chest_top": {
+        "textures": ["textures/kurokumaft/blocks/chest/diamond/diamond_chest_top"]
+      },
+      "diamond_chest_side": {
+        "textures": ["textures/kurokumaft/blocks/chest/diamond/diamond_chest_side"]
+      },
+      "diamond_chest_front": {
+        "textures": ["textures/kurokumaft/blocks/chest/diamond/diamond_chest_front"]
       }
+
    }
 }

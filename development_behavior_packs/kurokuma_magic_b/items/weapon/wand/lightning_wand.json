@@ -29,6 +29,14 @@
       "minecraft:icon": {
         "texture": "lightning_wand"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:lightning_magic_stone", "kurokumaft:lightning_wand" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:lightning_wand.name"
       },
@@ -41,14 +49,6 @@
     "events": {
       "kurokumaft:lightning": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングボルト\"}]}"
-              ],
-              "target": "player"
-            }
-          },
           {
             "shoot":{
               "projectile":"kurokumaft:lightningboltmagic",

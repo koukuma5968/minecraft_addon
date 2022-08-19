@@ -2,16 +2,16 @@
 	"format_version": "1.16.100",
 	"minecraft:block": {
 		"description": {
-			"identifier": "kurokumaft:ice_machine",
-			"is_experimental": false,
-            "register_to_creative_menu": false,
-			"category": "items"
+			"identifier": "kurokumaft:ice_machine"
 		},
 		"components": {
 			"minecraft:explosion_resistance": 0.5,
-			"minecraft:creative_category": { "category": "Construction" },
+            "minecraft:creative_category": { 
+                "category": "items"
+            },
 			"minecraft:destroy_time": 2.2,
 			"minecraft:block_light_absorption": 0,
+			"minecraft:loot": "loot_tables/blocks/iron_chest.json",
 			"minecraft:crafting_table": {
 				"custom_description": "tile.kurokumaft:ice_machine.name",
 				"grid_size": 3,

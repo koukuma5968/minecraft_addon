@@ -51,6 +51,9 @@
       "nichirintou_hono": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hono"
       },
+      "nichirintou_oto": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_oto"
+      },
 
       "scarlet_ironfish": {
          "textures" : "textures/kurokumaft/items/ore/scarlet_ironfish"

@@ -6,8 +6,34 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/damage @e[tag=waterpillar] 2 drowning",
-					"/execute @e[tag=waterpillar] ~~~ particle kurokumaft:waterpillar_particle ~~~"
+					"/function magic/water/waterpillar"
+				]
+			}
+		},
+		"animation.water.aqua_shot": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function magic/water/aqua_shot/aqua_shot1"
+				],
+				"0.12": [
+					"/function magic/water/aqua_shot/aqua_shot2"
+				],
+				"0.25": [
+					"/function magic/water/aqua_shot/aqua_shot3"
+				],
+				"0.40": [
+					"/function magic/water/aqua_shot/aqua_shot4"
+				]
+			}
+		},
+		"animation.water.tidal_wave": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function magic/water/tidal_wave/tidal_wave2"
 				]
 			}
 		}

@@ -31,6 +31,14 @@
         "value": 30,
         "slot": "sword"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:fire_magic_stone", "kurokumaft:blaze_stick" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:icon": {
         "texture": "blaze_stick"
       },

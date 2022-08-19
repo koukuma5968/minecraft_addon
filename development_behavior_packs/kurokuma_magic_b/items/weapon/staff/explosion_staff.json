@@ -43,6 +43,11 @@
       "minecraft:durability": {
         "max_durability": 1500
       },
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": "supernatural",
+        "can_always_eat": true
+      },
       "minecraft:max_stack_size": 1,
       "minecraft:enchantable": {
         "value": 50.0,
@@ -51,11 +56,20 @@
       "minecraft:icon": {
         "texture": "explosion_staff"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:fire_magic_stone", "kurokumaft:stone_magic_stone", "kurokumaft:explosion_staff" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:explosion_staff.name"
       },
       "minecraft:on_use":{
         "on_use":{
+          "condition": "!query.is_sneaking",
           "event":"kurokumaft:explosion"
         }
       }
@@ -63,14 +77,6 @@
     "events": {
       "kurokumaft:explosion": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "summon kurokumaft:explosionmagic ^ ^15 ^20"
-              ],
-              "target": "self"
-            }
-          },
           {
             "damage":{
               "type":"durability",

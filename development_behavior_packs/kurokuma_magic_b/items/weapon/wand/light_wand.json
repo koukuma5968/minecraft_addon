@@ -34,6 +34,14 @@
       "minecraft:icon": {
         "texture": "light_wand"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:light_magic_stone", "kurokumaft:light_wand" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:light_wand.name"
       },

@@ -76,9 +76,11 @@
         "speed_multiplier": 1.0
       },
       "minecraft:behavior.owner_hurt_by_target": {
+        "test": "is_family","operator": "not", "subject": "other","value": "player",
         "priority": 1
       },
       "minecraft:behavior.owner_hurt_target": {
+        "test": "is_family","operator": "not", "subject": "other","value": "player",
         "priority": 2
       },
       "minecraft:is_dyeable": {
@@ -498,6 +500,12 @@
         "despawn_from_distance": {}
       },
       "minecraft:behavior.hurt_by_target": {
+        "alert_same_type": true,
+        "entity_types": {
+          "filters": {
+            "test": "is_family","operator": "not", "subject": "other","value": "player"
+          }
+        },
         "priority": 1
       },
       "minecraft:behavior.nearest_attackable_target": {

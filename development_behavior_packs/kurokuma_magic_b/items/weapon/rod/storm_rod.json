@@ -21,10 +21,27 @@
       "minecraft:durability": {
         "max_durability": 500
       },
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": "supernatural",
+        "can_always_eat": true
+      },
       "minecraft:max_stack_size": 1,
       "minecraft:enchantable": {
         "value": 30,
         "slot": "sword"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:storm_rod" ],
+            "repair_amount": 10
+          },
+          {
+            "items": [ "kurokumaft:storm_rod" ],
+            "repair_amount": 250
+          }
+        ]
       },
       "minecraft:icon": {
         "texture": "storm_rod"
@@ -41,21 +58,6 @@
     "events": {
       "kurokumaft:storm": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "tag @e[family=monster,c=5,r=20] add storm",
-                "execute @e[tag=storm] ~~~ particle kurokumaft:storm1_particle ~~~",
-                "execute @e[tag=storm] ~~~ particle kurokumaft:storm2_particle ~~1~",
-                "execute @e[tag=storm] ~~~ particle kurokumaft:storm3_particle ~~2~",
-                "execute @e[tag=storm] ~~~ particle kurokumaft:storm4_particle ~~3~",
-                "effect @e[tag=storm] wither 2 5 true",
-                "effect @e[tag=storm] levitation 1 15 true",
-                "tag @e[tag=storm] remove storm"
-              ],
-              "target": "self"
-            }
-          },
           {
             "damage":{
               "type":"durability",

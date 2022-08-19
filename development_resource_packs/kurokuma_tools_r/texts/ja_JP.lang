@@ -1,5 +1,6 @@
 item.kurokumaft:red_iron_axe.name=打出のアイアンアックス
 
+item.kurokumaft:red_copper_pickaxe.name=打出のカッパーピッケル
 item.kurokumaft:red_iron_pickaxe.name=打出のアイアンピッケル
 item.kurokumaft:red_gold_pickaxe.name=打出のゴールドピッケル
 item.kurokumaft:glow_diamond_pickaxe.name=打出のダイヤピッケル
@@ -8,3 +9,10 @@ item.kurokumaft:red_iron_shovel.name=打出のアイアンシャベル
 
 tile.kurokumaft:ice_machine.name=製氷機
 
+tile.kurokumaft:iron_chest.name=鉄のチェスト
+tile.kurokumaft:gold_chest.name=金のチェスト
+tile.kurokumaft:diamond_chest.name=ダイヤモンドのチェスト
+
+entity.kurokumaft:iron_chest_entitys.name=鉄のチェスト
+entity.kurokumaft:gold_chest_entitys.name=金のチェスト
+entity.kurokumaft:diamond_chest_entitys.name=ダイヤモンドのチェスト

@@ -1,0 +1,9 @@
+execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ lava -1 setblock ^1^1^ air
+execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ lava -1 setblock ^-1^1^ air
+execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 lava -1 setblock ^^1^1 air
+execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air
+execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air
+execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ lava -1 setblock ^-1^2^ air
+execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 lava -1 setblock ^^2^1 air
+execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 lava -1 setblock ^^2^-1 air
+execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ lava -1 setblock ^^3^ air

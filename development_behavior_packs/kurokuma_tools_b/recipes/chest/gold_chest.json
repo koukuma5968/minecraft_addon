@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:gold_chest"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "ipi",
+      "p p",
+      "ipi"
+    ],
+    "key": {
+      "p": {
+        "item": "minecraft:planks"
+      },
+      "i": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:gold_chest"
+    }
+  }
+}

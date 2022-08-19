@@ -21,8 +21,8 @@
             "/event entity @s variant1",
             "/tag @s add kokyu_oto1",
   					"/execute @s ~~~ damage @e[tag=!kokyu_oto1,r=3.5] 10 entity_explosion",
-            "/effect @s resistance 99999 20 true",
-            "/effect @s fire_resistance 99999 20 true",
+            "/effect @s resistance 99999 60 true",
+            "/effect @s fire_resistance 99999 60 true",
             "/summon kurokumaft:oto_bom ^1^^2 minecraft:explode",
             "/summon kurokumaft:oto_bom ^-1^^2 minecraft:explode"
           ],
@@ -40,8 +40,8 @@
           "animations" : [ "oto4_ani" ],
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e響斬無間\"}]}",
-            "/effect @s resistance 99999 20 true",
-            "/effect @s fire_resistance 99999 20 true",
+            "/effect @s resistance 99999 60 true",
+            "/effect @s fire_resistance 99999 60 true",
             "/event entity @s variant4"
           ],
           "on_exit": [

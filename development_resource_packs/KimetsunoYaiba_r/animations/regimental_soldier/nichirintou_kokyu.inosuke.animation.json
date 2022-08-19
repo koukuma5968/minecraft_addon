@@ -975,7 +975,7 @@
 		},
 		"animation.nichirintou_kokyu.inosuke.shiti_1": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1667,
 			"bones": {
 				"root": {
 					"rotation": [0, 0, 0],
@@ -1000,7 +1000,7 @@
 					"position": {
 						"0.0": [0, 0, 0],
 						"0.0833": [0, 0, 0],
-						"0.1667": [-9, 0, 0]
+						"0.1667": [1, 0, 0]
 					}
 				},
 				"rightArm": {
@@ -1018,7 +1018,8 @@
 					},
 					"position": {
 						"0.0": [0, 0, 0],
-						"0.1667": [8, 0, 0]
+						"0.0833": [8, 0, 0],
+						"0.1667": [-1, 0, 0]
 					}
 				},
 				"leftLeg": {

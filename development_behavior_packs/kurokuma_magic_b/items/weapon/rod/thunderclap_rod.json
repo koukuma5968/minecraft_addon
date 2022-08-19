@@ -26,6 +26,14 @@
         "value": 30,
         "slot": "sword"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:lightning_magic_stone", "kurokumaft:thunderclap_rod" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:icon": {
         "texture": "thunderclap_rod"
       },

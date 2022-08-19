@@ -20,13 +20,13 @@
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,
       "minecraft:durability": {
-        "max_durability": 70
+        "max_durability": 250
       },
       "minecraft:repairable": {
         "repair_items": [
           {
             "items": [ "kurokumaft:scarlet_nugget" ],
-            "repair_amount": 5
+            "repair_amount": 10
           }
         ]
       },
@@ -96,6 +96,12 @@
             "weight": 30,
             "transform_item": {
               "transform": "kurokumaft:nichirintou_hono"
+            }
+          },
+          {
+            "weight": 5,
+            "transform_item": {
+              "transform": "kurokumaft:nichirintou_oto"
             }
           }
         ]

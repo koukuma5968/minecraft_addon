@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:flamespark_staff"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "dgd",
+      "dfd",
+      "dsd"
+    ],
+    "key": {
+      "f": {
+        "item": "kurokumaft:flame_rod"
+      },
+      "s": {
+        "item": "kurokumaft:thunderclap_rod"
+      },
+      "g": {
+        "item": "minecraft:gold_ingot"
+      },
+      "d": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:flamespark_staff"
+    }
+  }
+}

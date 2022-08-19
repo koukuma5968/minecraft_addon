@@ -1,0 +1,72 @@
+{
+    "format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:gold_chest",
+            "properties": {
+                "kurokumaft:rotation": [ 1, 2, 3, 4, 5 ]
+            }
+		},
+        "components": {
+            "minecraft:creative_category": { 
+                "category": "items",
+                "group": "itemGroup.name.chest"
+            },
+            "minecraft:geometry": "geometry.chest_entities",
+            "minecraft:material_instances": {
+                "*": {
+                      "texture": "golden_chest",
+                      "render_method": "opaque"
+                }
+            },
+            "minecraft:on_player_placing": {
+                "event": "rotate"
+            },
+            "minecraft:pick_collision": true,
+            "minecraft:block_light_absorption": 0.5
+        },
+        "events": {
+            "rotate": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "target": "block",
+                            "command": "summon kurokumaft:gold_chest_entities ~ ~-0.5 ~ set_on_collision_box 金のチェスト"
+                        }
+                    },
+                    {
+                        "set_block_property": {
+                            "kurokumaft:rotation": "(query.cardinal_facing_2d)"
+                        }
+                    }
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 2",
+                "components": {
+                    "minecraft:rotation": [ 0, 180, 0 ]
+                }
+            },
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 3",
+                "components": { 
+                    "minecraft:rotation": [ 0, 0, 0 ]
+                }
+            },
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 4",
+                "components": {
+                    "minecraft:rotation": [ 0, 270, 0 ]
+                }
+            },
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 5",
+                "components": {
+                    "minecraft:rotation": [ 0, 90, 0 ]
+                }
+            }
+        ]
+	}
+}

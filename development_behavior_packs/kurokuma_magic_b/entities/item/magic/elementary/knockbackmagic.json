@@ -5,7 +5,8 @@
       "identifier": "kurokumaft:knockbackmagic",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
     },
     "components": {
       "minecraft:collision_box": {
@@ -25,7 +26,7 @@
           "remove_on_hit": { }
        },
        "power": 0,
-       "gravity": 0.00,
+       "gravity": 0.05,
        "inertia": 0,
        "liquid_inertia": 0,
        "reflect_on_hurt": true

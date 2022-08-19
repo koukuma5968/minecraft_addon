@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.explosion_magic.explosion_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'explosion_staff'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add explosion_staff"
+          ],
+          "on_exit": [
+            "/tag @s remove explosion_staff"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'explosion_staff'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.explosion_magic.explosion": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "flame_shock": "!query.is_sneaking && query.get_equipped_item_name == 'explosion_staff' && variable.attack_time" },
+            { "explosion": "!query.is_sneaking && query.get_equipped_item_name == 'explosion_staff' && query.is_using_item" }
+          ]
+        },
+        "flame_shock": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムショック\"}]}",
+            "/function magic/fire/flame_shock"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "explosion": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cエクスプロージョン\"}]}",
+            "/summon kurokumaft:explosionmagic ^ ^15 ^20"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        }
+      }
+    }
+  }
+}

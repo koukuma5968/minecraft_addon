@@ -33,14 +33,6 @@
 						{"hi.ni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"hi2_2":"query.any_animation_finished"}
-					]
-				},
-				"hi2_2" : {
-					"animations" : [
-						{"hi.ni_2": "!variable.is_first_person"}
-					],
-					"transitions" : [
 						{"default":"query.any_animation_finished"}
 					]
 				},

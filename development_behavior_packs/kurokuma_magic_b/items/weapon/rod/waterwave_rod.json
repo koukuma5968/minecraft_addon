@@ -31,6 +31,18 @@
         "saturation_modifier": "supernatural",
         "can_always_eat": true
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:water_magic_stone" ],
+            "repair_amount": 10
+          },
+          {
+            "items": [ "kurokumaft:waterwave_rod" ],
+            "repair_amount": 250
+          }
+        ]
+      },
       "minecraft:icon": {
         "texture": "waterwave_rod"
       },

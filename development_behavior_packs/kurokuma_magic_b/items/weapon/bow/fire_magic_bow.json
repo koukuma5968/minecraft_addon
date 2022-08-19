@@ -1,0 +1,69 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_bow",
+      "category": "equipment"
+    },
+    "components": {
+      "tag:bow": {},
+      "tag:fire_magic_bow": {},
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.fire_magic_bow"
+      },
+      "minecraft:damage": 2,
+		  "minecraft:weapon": {
+      },
+      "minecraft:durability": {
+        "max_durability": 1500
+      },
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "bow"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "fire_magic_bow"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:fire_magic_stone", "kurokumaft:fire_magic_bow" ],
+            "repair_amount": 300
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:fire_magic_bow.name"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:use_animation": "bow",
+      "minecraft:use_duration": 2,
+      "minecraft:chargeable": {
+        "movement_modifier": 0.25,
+        "on_complete": {
+          "event":"kurokumaft:fire_magic_arrow"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:fire_magic_arrow": {
+        "sequence":[
+          {
+            "shoot":{
+              "projectile":"kurokumaft:fire_magic_arrow",
+              "launch_power":1
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

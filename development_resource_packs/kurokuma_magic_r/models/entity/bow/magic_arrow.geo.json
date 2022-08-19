@@ -1,0 +1,53 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.magic_arrow",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "arrow_body",
+					"pivot": [0, 1, 0],
+					"cubes": [
+						{
+							"origin": [0, -2.5, -8],
+							"size": [0, 5, 21],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, 45],
+							"uv": {
+								"east": {"uv": [0, 0], "uv_size": [29, 8]}
+							}
+						},
+						{
+							"origin": [0, -2.5, -8],
+							"size": [0, 5, 21],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, -45],
+							"uv": {
+								"east": {"uv": [0, 0], "uv_size": [29, 8]}
+							}
+						},
+						{
+							"origin": [-2.5, -2.5, 12],
+							"size": [5, 5, 0],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 0, 45],
+							"uv": {
+								"south": {"uv": [0, 8], "uv_size": [4, 5]}
+							}
+						}
+					],
+					"locators": {
+						"arrow_body": [0, 0, 0]
+					}
+				}
+			]
+		}
+	]
+}

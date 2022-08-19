@@ -31,6 +31,14 @@
         "saturation_modifier": "supernatural",
         "can_always_eat": true
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:light_magic_stone", "kurokumaft:brightness_rod" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:icon": {
         "texture": "brightness_rod"
       },

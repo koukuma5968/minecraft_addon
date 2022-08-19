@@ -4,44 +4,21 @@
 		"description": "ピクミンアドオン",
 		"name": "kurokuma_pikmin_b",
 		"uuid": "44dba80e-2235-497a-a7b9-96ef24a63ef6",
-		"version": [
-			1,
-			0,
-			0
-		],
-		"min_engine_version": [
-			1,
-			17,
-			0
-		]
+		"version": [1,0,0],
+		"min_engine_version": [1,17,0]
 	},
 	"modules": [
 		{
 			"description": "ピクミンアドオン",
 			"type": "data",
 			"uuid": "8a5dec51-8941-4c4b-a2fb-cdbe7cff99c0",
-			"version": [
-				1,
-				0,
-				0
-			]
+			"version": [1,0,0]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "8a4a74c5-3a0e-4f9a-ac5a-17fa88a749dd",
-			"version": [
-				1,
-				0,
-				0
-			]
+			"version": [1,0,0]
 		}
-	],
-	"metadata": {
-		"generated_with": {
-			"bridge": [
-				"1.8.4"
-			]
-		}
-	}
+	]
 }

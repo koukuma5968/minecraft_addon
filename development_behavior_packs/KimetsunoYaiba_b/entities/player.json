@@ -9,11 +9,11 @@
       "scripts":{
         "animate":[
           "kokyu_change",
-          "tanjiro_change","zenitu_change","inosuke_change","giyu_change","kyouzyuro_change","tengen_change",
+          "tanjiro_change","zenitu_change","inosuke_change","giyu_change","kyouzyuro_change","tengen_change","shinobu_change",
 
-          "mizu_change","hi_change","kaminari_change","hono_change",
+          "mizu_change","hi_change","kaminari_change","hono_change","oto_change",
 
-          "mizu","hi","kaminari","kedamono","hono","oto",
+          "mizu","hi","kaminari","kedamono","hono","oto","mushi",
 
           "mizu10_attack","hi_dragon_attack","kaminari_attack","hono_attack"
         ]
@@ -27,11 +27,13 @@
         "giyu_change": "controller.animation.kokyu.giyu_change",
         "kyouzyuro_change": "controller.animation.kokyu.kyouzyuro_change",
         "tengen_change": "controller.animation.kokyu.tengen_change",
+        "shinobu_change": "controller.animation.kokyu.shinobu_change",
 
         "mizu_change": "controller.animation.kokyu.mizu_change",
         "hi_change": "controller.animation.kokyu.hi_change",
         "kaminari_change": "controller.animation.kokyu.kaminari_change",
         "hono_change": "controller.animation.kokyu.hono_change",
+        "oto_change": "controller.animation.kokyu.oto_change",
 
         "mizu":"controller.animation.kokyu.mizu",
         "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9","mizu10_ani": "animation.kata.mizu10",
@@ -46,14 +48,15 @@
         "kaminari7_ani": "animation.kata.kaminari7",
 
         "kedamono": "controller.animation.kokyu.kedamono",
-        "kedamono4_ani": "animation.kata.kedamono4","kedamono5_ani": "animation.kata.kedamono5","kedamono6_ani": "animation.kata.kedamono6",
+        "kedamono4_ani": "animation.kata.kedamono4","kedamono5_ani": "animation.kata.kedamono5","kedamono6_ani": "animation.kata.kedamono6","kedamono7_ani": "animation.kata.kedamono7",
 
         "hono": "controller.animation.kokyu.hono","hono_attack": "controller.animation.kokyu.hono_attack",
         "hono4_ani": "animation.kata.hono4","hono9_ani": "animation.kata.hono9","hono9_2_ani": "animation.kata.hono9_2",
 
         "oto": "controller.animation.kokyu.oto",
-        "oto4_ani": "animation.kata.oto4","oto5_ani": "animation.kata.oto5"
+        "oto4_ani": "animation.kata.oto4","oto5_ani": "animation.kata.oto5",
 
+        "mushi": "controller.animation.kokyu.mushi"
       }
     },
 

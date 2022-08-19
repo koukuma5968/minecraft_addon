@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.armor.shield": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "shield_guard": "(query.equipped_item_any_tag('slot.weapon.mainhand','shield') || query.equipped_item_any_tag('slot.weapon.offhand','shield')) && query.is_sneaking" }
+          ]
+        },
+        "shield_guard":{
+          "on_entry": [
+            "/tag @s add shield_guard"
+          ],
+          "on_exit": [
+            "/tag @s remove shield_guard"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

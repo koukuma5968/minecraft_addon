@@ -25,8 +25,18 @@
       "states": {
         "default": {
           "transitions": [
+            { "powdered_snow": "!query.is_sneaking && query.get_equipped_item_name == 'snow_wand' && variable.attack_time" },
             { "icewall": "query.is_sneaking && query.get_equipped_item_name == 'snow_wand' && variable.attack_time" },
-            { "powdered_snow": "!query.is_sneaking && query.get_equipped_item_name == 'snow_wand' && variable.attack_time" }
+            { "deep_snow": "query.get_equipped_item_name == 'snow_wand' && query.is_using_item" }
+          ]
+        },
+        "powdered_snow": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fパウダースノー\"}]}",
+            "/function magic/ice/powdered_snow"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
           ]
         },
         "icewall": {
@@ -38,13 +48,13 @@
             {"default":"!variable.attack_time"}
           ]
         },
-        "powdered_snow": {
+        "deep_snow": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fパウダースノー\"}]}",
-            "/function magic/ice/powdered_snow"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fディープスノー\"}]}",
+            "/function magic/ice/deep_snow"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"default":"!query.is_using_item"}
           ]
         }
       }

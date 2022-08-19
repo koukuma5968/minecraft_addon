@@ -29,6 +29,14 @@
       "minecraft:icon": {
         "texture": "water_wand"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:water_magic_stone", "kurokumaft:water_wand" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:water_wand.name"
       },
@@ -41,14 +49,6 @@
     "events": {
       "kurokumaft:water": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターボール\"}]}"
-              ],
-              "target": "player"
-            }
-          },
           {
             "shoot":{
               "projectile":"kurokumaft:waterballmagic",

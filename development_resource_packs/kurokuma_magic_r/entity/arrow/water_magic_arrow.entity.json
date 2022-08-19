@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:water_magic_arrow",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/arrow/water_magic_arrows"
+      },
+      "geometry": {
+        "default": "geometry.magic_arrow"
+      },
+      "animations": {
+        "move": "animation.magic_arrow.water_move"
+      },
+      "particle_effects": {
+        "water_arrow_particle": "kurokumaft:water_arrow_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

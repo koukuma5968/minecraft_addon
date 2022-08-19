@@ -17,6 +17,8 @@
             { "kyouzyuro_remove": "query.scoreboard('kyouzyuro') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro')" },
             { "tengen_add": "query.scoreboard('tengen') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen')" },
             { "tengen_remove": "query.scoreboard('tengen') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen')" },
+            { "shinobu_add": "query.scoreboard('shinobu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu')" },
+            { "shinobu_remove": "query.scoreboard('shinobu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu')" },
 
             { "mizu_add": "query.scoreboard('mizu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
             { "mizu_remove": "query.scoreboard('mizu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mizu')" },
@@ -25,7 +27,9 @@
             { "kaminari_add": "query.scoreboard('kaminari') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari')" },
             { "kaminari_remove": "query.scoreboard('kaminari') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kaminari')" },
             { "hono_add": "query.scoreboard('hono') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono')" },
-            { "hono_remove": "query.scoreboard('hono') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono')" }
+            { "hono_remove": "query.scoreboard('hono') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono')" },
+            { "oto_add": "query.scoreboard('oto') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_oto')" },
+            { "oto_remove": "query.scoreboard('oto') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_oto')" }
 
           ]
         },
@@ -144,6 +148,26 @@
             {"default":"(1.0)"}
           ]
         },
+        "shinobu_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蝶ノ舞\"}]}",
+            "/scoreboard objectives add shinobu dummy",
+            "/scoreboard players set @s shinobu 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "shinobu_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s shinobu",
+            "/scoreboard objectives remove shinobu"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+
 
         "mizu_add":{
           "on_entry": [
@@ -216,6 +240,25 @@
           "on_entry": [
             "/scoreboard players reset @s hono",
             "/scoreboard objectives remove hono"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "oto_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/scoreboard objectives add oto dummy",
+            "/scoreboard players set @s oto 1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "oto_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s oto",
+            "/scoreboard objectives remove oto"
           ],
           "transitions": [
             {"default":"(1.0)"}

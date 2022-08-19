@@ -5,7 +5,8 @@
       "identifier": "kurokumaft:fireballmagic",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
     },
     "components": {
       "minecraft:collision_box": {
@@ -42,8 +43,8 @@
          "remove_on_hit": { }
        },
        "hit_sound": "fire",
-       "power": 1.5,
-       "gravity": -0.06,
+       "power": 2.5,
+       "gravity": 0.02,
        "inertia": 1,
        "liquid_inertia": 1,
        "uncertainty_base": 0,

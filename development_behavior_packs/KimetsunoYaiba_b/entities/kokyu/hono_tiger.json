@@ -5,7 +5,8 @@
             "identifier": "kurokumaft:hono_tiger",
             "is_spawnable": false,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "runtime_identifier": "minecraft:arrow"
         },
         "components": {
             "minecraft:type_family": {
@@ -32,8 +33,8 @@
                     },
                     "remove_on_hit": { }
                 },
-                "power": 2.0,
-                "gravity": 0,
+                "power": 3.0,
+                "gravity": 0.05,
                 "inertia": 1.0,
                 "uncertaintyBase": 8,
                 "uncertaintyMultiplier": 2.5,

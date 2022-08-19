@@ -5,6 +5,9 @@
          "textures": "textures/kurokumaft/items/axe/red_iron_axe"
       },
 
+      "red_copper_pickaxe": { 
+         "textures": "textures/kurokumaft/items/pickaxe/red_copper_pickaxe"
+      },
       "red_iron_pickaxe": { 
          "textures": "textures/kurokumaft/items/pickaxe/red_iron_pickaxe"
       },

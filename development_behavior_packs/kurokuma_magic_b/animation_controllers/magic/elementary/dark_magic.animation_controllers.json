@@ -25,28 +25,10 @@
       "states": {
         "default": {
           "transitions": [
-            { "darkbess": "query.is_sneaking && query.get_equipped_item_name == 'dark_wand' && variable.attack_time" },
             { "dark_bread": "!query.is_sneaking && query.get_equipped_item_name == 'dark_wand' && variable.attack_time" },
-            { "invisibility": "query.is_sneaking && query.get_equipped_item_name == 'dark_wand' && query.is_using_item" },
-            { "absorption": "!query.is_sneaking && query.get_equipped_item_name == 'dark_wand' && query.is_using_item" }
-          ]
-        },
-        "invisibility": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8インビジブル\"}]}",
-            "/function magic/dark/invisibility"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "absorption": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8アブソープション\"}]}",
-            "/function magic/dark/absorption"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
+            { "darkbess": "query.is_sneaking && query.get_equipped_item_name == 'dark_wand' && variable.attack_time" },
+            { "absorption": "!query.is_sneaking && query.get_equipped_item_name == 'dark_wand' && query.is_using_item" },
+            { "invisibility": "query.is_sneaking && query.get_equipped_item_name == 'dark_wand' && query.is_using_item" }
           ]
         },
         "dark_bread": {
@@ -65,6 +47,24 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
+          ]
+        },
+        "absorption": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8アブソープション\"}]}",
+            "/function magic/dark/absorption"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "invisibility": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8インビジブル\"}]}",
+            "/function magic/dark/invisibility"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
           ]
         }
       }

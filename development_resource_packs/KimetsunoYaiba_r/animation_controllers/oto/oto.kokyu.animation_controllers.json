@@ -1,0 +1,53 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.oto.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"oto1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_oto') && query.variant == 1 && query.is_using_item"},
+						{"oto4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_oto') && query.variant == 4 && query.is_using_item"},
+						{"oto5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_oto') && query.variant == 5 && query.is_using_item"}
+					]
+				},
+				"oto1_1" : {
+					"animations" : [
+						{"oto.ichi_1": "variable.is_first_person"},
+						{"oto.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"}
+					]
+				},
+				"oto4_1" : {
+					"animations" : [
+						{"oto.shi_1": "variable.is_first_person"},
+						{"oto.shi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"}
+					]
+				},
+				"oto5_1" : {
+					"animations" : [
+						{"oto.go_1": "variable.is_first_person"},
+						{"oto.go_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"oto5_2":"query.any_animation_finished"}
+					]
+				},
+				"oto5_2" : {
+					"animations" : [
+						{"oto.go_2": "variable.is_first_person"},
+						{"oto.go_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

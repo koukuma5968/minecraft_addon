@@ -38,24 +38,13 @@
           ]
         },
         "hi2":{
-          "animations" : [ "hi2_ani" ],
           "on_entry": [
             "/event entity @s variant12",
-            "/effect @s speed 4 30 true"
-          ],
-          "transitions": [
-            {"hi2_1":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 10 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
-          ]
-        },
-        "hi2_1":{
-          "animations" : [ "hi2_2_ani" ],
-          "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c碧羅の天\"}]}",
             "/function hi/hi2"
           ],
           "on_exit": [
-            "/event entity @s variant0",
-            "/effect @s speed 0 0 true"
+            "/event entity @s variant0"
           ],
           "transitions": [
             {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 20 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}

@@ -1,0 +1,79 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.magic.bow": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "fire_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_magic_bow') && query.is_using_item" },
+            { "water_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_bow') && query.is_using_item" },
+            { "wind_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_bow') && query.is_using_item" },
+            { "stone_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','stone_magic_bow') && query.is_using_item" },
+            { "ice_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','ice_magic_bow') && query.is_using_item" }
+          ]
+        },
+        "fire_magic_bow":{
+          "animations" : [ "fire_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cファイアアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        },
+        "water_magic_bow":{
+          "animations" : [ "water_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        },
+        "wind_magic_bow":{
+          "animations" : [ "wind_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aウィンドアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        },
+        "stone_magic_bow":{
+          "animations" : [ "stone_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ロックアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        },
+        "ice_magic_bow":{
+          "animations" : [ "ice_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§1アイスアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        }
+
+      }
+    }
+  }
+}

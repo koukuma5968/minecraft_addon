@@ -29,6 +29,14 @@
       "minecraft:icon": {
         "texture": "snow_wand"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:ice_magic_stone", "kurokumaft:snow_wand" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:snow_wand.name"
       },
@@ -41,24 +49,6 @@
     "events": {
       "kurokumaft:deep_snow": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fディープスノー\"}]}"
-              ],
-              "target": "player"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "tag @e[family=monster,ry=-15,rym=15,r=10,c=1] add deep_snow",
-                "execute @e[tag=deep_snow] ~~~ fill ~-1 ~-1 ~-1 ~1 ~-2 ~1 powder_snow",
-                "tag @e[tag=deep_snow] remove deep_snow"
-              ],
-              "target": "self"
-            }
-          },
           {
             "damage":{
               "type":"durability",

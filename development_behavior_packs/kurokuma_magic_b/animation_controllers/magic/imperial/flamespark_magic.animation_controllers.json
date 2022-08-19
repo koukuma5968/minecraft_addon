@@ -1,0 +1,72 @@
+{
+  "format_version": "1.19.10",
+  "animation_controllers": {
+    "controller.animation.flamespark_magic.flamespark_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'flamespark_staff'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add flamespark_staff"
+          ],
+          "on_exit": [
+            "/tag @s remove flamespark_staff"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'flamespark_staff'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.flamespark_magic.flamespark": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "flame_shock": "!query.is_sneaking && query.get_equipped_item_name == 'flamespark_staff' && variable.attack_time" },
+            { "flamespark": "!query.is_sneaking && query.get_equipped_item_name == 'flamespark_staff' && query.is_using_item" }
+          ]
+        },
+        "flame_shock": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムショック\"}]}",
+            "/function magic/fire/flame_shock"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "flamespark": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムスパーク\"}]}",
+            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark1",
+            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark1",
+            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark2",
+            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark2",
+            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark3",
+            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark3",
+            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark4",
+            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark4"
+          ],
+          "transitions": [
+            {"flamespark_at":"(1.0)"}
+          ]
+        },
+        "flamespark_at": {
+          "animations" : [ "flamespark_ani" ],
+          "on_exit": [
+            "/tag @e[tag=flamespark1] remove flamespark1",
+            "/tag @e[tag=flamespark2] remove flamespark2",
+            "/tag @e[tag=flamespark3] remove flamespark3",
+            "/tag @e[tag=flamespark4] remove flamespark4"
+          ],
+          "transitions": [
+            {"default":"variable.flamespark_magic = (variable.flamespark_magic ?? 0);variable.flamespark_magic = variable.flamespark_magic < 60 ? variable.flamespark_magic + 1:0;return variable.flamespark_magic == 0 && !query.is_using_item;"}
+          ]
+        }
+      }
+    }
+  }
+}

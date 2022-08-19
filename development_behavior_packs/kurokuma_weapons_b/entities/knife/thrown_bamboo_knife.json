@@ -9,8 +9,8 @@
     },
     "components": {
       "minecraft:collision_box": {
-       "width": 0.11,
-       "height": 0.11
+       "width": 0.5,
+       "height": 0.5
       },
       "minecraft:projectile": {
        "on_hit": {
@@ -19,7 +19,7 @@
            "damage": 2000000,
            "knockback": false,
            "catch_fire": false,
-           "destroy_on_hit": true,
+           "destroy_on_hit": false,
            "semi_random_diff_damage": false
          },
          "stick_in_ground": {

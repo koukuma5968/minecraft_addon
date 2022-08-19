@@ -31,6 +31,14 @@
         "value": 30,
         "slot": "sword"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:dark_magic_stone", "kurokumaft:darkness_rod" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:icon": {
         "texture": "darkness_rod"
       },

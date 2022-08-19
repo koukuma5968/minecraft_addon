@@ -1,0 +1,27 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:stone_magic_sword"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "priority": 3,
+    "ingredients": [
+      {
+        "item": "minecraft:diamond_sword"
+      },
+      {
+        "item": "minecraft:stone"
+      },
+      {
+        "item": "kurokumaft:stone_magic_stone"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:stone_magic_sword",
+      "count": 1
+    }
+  }
+  
+}

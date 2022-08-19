@@ -20,13 +20,17 @@
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,
       "minecraft:durability": {
-        "max_durability": 70
+        "max_durability": 1200
       },
       "minecraft:repairable": {
         "repair_items": [
           {
             "items": [ "kurokumaft:scarlet_nugget" ],
-            "repair_amount": 5
+            "repair_amount": 150
+          },
+          {
+            "items": [ "kurokumaft:nichirintou_inosuke" ],
+            "repair_amount": 600
           }
         ]
       },
@@ -54,6 +58,12 @@
             "speed": 10
           }
         ]
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "hurt_entity",
+          "target": "self"
+        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"

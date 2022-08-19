@@ -8,6 +8,9 @@
       "is_experimental": false,
       "scripts":{
         "animate":[
+          "shield",
+          "magic_bow",
+
           "fire","fire_change",
           "water","water_change",
           "lightning","lightning_change",
@@ -22,11 +25,19 @@
           "brightness","brightness_change",
           "darkness","darkness_change",
 
-          "blaze","blaze_change"
+          "blaze","blaze_change",
+          "watercurrent","watercurrent_change",
+          "storm","storm_change",
           
+          "explosion","explosion_change",
+          "firestorm","firestorm_change",
+          "flamespark","flamespark_change"
         ]
       },
       "animations":{
+        "shield":"controller.animation.armor.shield",
+        "magic_bow": "controller.animation.magic.bow",
+
         "fire":"controller.animation.fire_magic.fire","fire_change": "controller.animation.fire_magic.fire_change",
         "water":"controller.animation.water_magic.water","water_change": "controller.animation.water_magic.water_change",
         "lightning":"controller.animation.lightning_magic.lightning","lightning_change": "controller.animation.lightning_magic.lightning_change",
@@ -42,9 +53,22 @@
         "darkness":"controller.animation.dark_magic.darkness","darkness_change": "controller.animation.dark_magic.darkness_change",
 
         "blaze":"controller.animation.fire_magic.blaze","blaze_change": "controller.animation.fire_magic.blaze_change",
+        "watercurrent":"controller.animation.water_magic.watercurrent","watercurrent_change": "controller.animation.water_magic.watercurrent_change",
+        "storm":"controller.animation.storm_magic.storm","storm_change": "controller.animation.storm_magic.storm_change",
 
-        "framepillar_ani": "animation.fire.framepillar","flarecircle_ani": "animation.fire.flarecircle",
-        "waterpillar_ani": "animation.water.waterpillar"
+        "explosion":"controller.animation.explosion_magic.explosion","explosion_change":"controller.animation.explosion_magic.explosion_change",
+        "firestorm":"controller.animation.firestorm_magic.firestorm","firestorm_change":"controller.animation.firestorm_magic.firestorm_change",
+        "flamespark":"controller.animation.flamespark_magic.flamespark","flamespark_change":"controller.animation.flamespark_magic.flamespark_change",
+
+        "framepillar_ani": "animation.fire.framepillar","flarecircle_ani": "animation.fire.flarecircle","flamespark_ani": "animation.fire.flamespark",
+        "waterpillar_ani": "animation.water.waterpillar","aqua_shot_ani": "animation.water.aqua_shot","tidal_wave_ani": "animation.water.tidal_wave",
+
+        "fire_magic_bow_frame": "animation.magic_bow.fire_magic_bow_frame",
+        "water_magic_bow_frame": "animation.magic_bow.water_magic_bow_frame",
+        "wind_magic_bow_frame": "animation.magic_bow.wind_magic_bow_frame",
+        "stone_magic_bow_frame": "animation.magic_bow.stone_magic_bow_frame",
+        "ice_magic_bow_frame": "animation.magic_bow.ice_magic_bow_frame"
+
       }
     },
 
@@ -82,6 +106,59 @@
         },
         "minecraft:spell_effects": {
           "remove_effects": "bad_omen"
+        }
+      },
+      "kurokumaft:bow_drawing": {
+        "minecraft:timer":{
+          "time": 0.1,
+          "time_down_event":{
+            "triggers": [
+              {
+                "filters":{
+                  "test": "has_tag",
+                  "operator":"==",
+                  "subject": "self",
+                  "value": "bow_drawing"
+                }
+              }
+            ],
+            "event":"kurokumaft:shot_bow"
+          }
+        }
+      },
+      "kurokumaft:shot_bow":{
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "spawn_entity": "minecraft:arrow",
+              "spawn_event": "minecraft:entity_spawned",
+              "single_use": true,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
+        }
+      },
+      "variant0": {
+        "minecraft:variant": {
+            "value": 0
+        }
+      },
+      "variant1": {
+        "minecraft:variant": {
+            "value": 1
+        }
+      },
+      "variant2": {
+        "minecraft:variant": {
+            "value": 2
+        }
+      },
+      "variant3": {
+        "minecraft:variant": {
+            "value": 3
         }
       }
     },
@@ -193,6 +270,21 @@
       "minecraft:conditional_bandwidth_optimization": {
       },
       "minecraft:block_climber": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" :[
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "shield_guard"}
+                ]
+              }
+            },
+            "deals_damage": false,
+            "on_damage_sound_event": "item.shield.block"
+          }
+        ]
+      },
       "minecraft:environment_sensor": {
         "triggers": [
           {
@@ -331,6 +423,27 @@
         }
       },
 
+      "variant0": {
+        "add": {
+          "component_groups": [ "variant0" ]
+        }
+      },
+      "variant1": {
+        "add": {
+          "component_groups": [ "variant1" ]
+        }
+      },
+      "variant2": {
+        "add": {
+          "component_groups": [ "variant2" ]
+        }
+      },
+      "variant3": {
+        "add": {
+          "component_groups": [ "variant3" ]
+        }
+      },
+
       "kurokumaft:fire_magic_enchant": {
 				"run_command": {
 					"command": [
@@ -356,91 +469,75 @@
       "kurokumaft:water_breathing_effect": {
 				"run_command": {
 					"command": [
-					  "effect @s water_breathing 1 10 true"
+					  "function magic/ice/armor/ice_helmet"
 					]
 				}
 			},
 			"kurokumaft:lava_freeze": {
 				"run_command": {
 					"command": [
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ lava -1 setblock ^1^1^ air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ lava -1 setblock ^-1^1^ air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 lava -1 setblock ^^1^1 air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ lava -1 setblock ^-1^2^ air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 lava -1 setblock ^^2^1 air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 lava -1 setblock ^^2^-1 air",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ lava -1 setblock ^^3^ air"
+            "function magic/ice/armor/ice_chestplate"
           ]
 				}
 			},
 			"kurokumaft:fire_resistance": {
 				"run_command": {
 					"command": [
-					  "effect @s fire_resistance 1 5 true"
+            "function magic/ice/armor/ice_leggings"
 					]
 				}
 			},
 			"kurokumaft:ice_walker": {
 				"run_command": {
 					"command": [
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ~~-1~ water -1 setblock ~~-1~ packed_ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ~~-1~ flowing_water -1 setblock ~~-1~ packed_ice",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^-1^-1 packed_ice -1 setblock ^^-1^-1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^-1^-1 flowing_water -1 packed_ice ^^-1^-1 setblock"
+            "function magic/ice/armor/ice_boots"
           ]
 				}
 			},
 
-      // 炎の装備
       "kurokumaft:fire_protection": {
 				"run_command": {
 					"command": [
-					  "effect @s fire_resistance 1 5 true"
+					  "function magic/fire/armor/fire_helmet"
 					]
 				}
 			},
       "kurokumaft:snow_defrosting": {
 				"run_command": {
 					"command": [
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ snow -1 setblock ^1^1^ water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ snow -1 setblock ^-1^1^ water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 snow -1 setblock ^^1^1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 snow -1 setblock ^^1^-1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 snow -1 setblock ^^1^-1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ snow -1 setblock ^-1^2^ water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 snow -1 setblock ^^2^1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 snow -1 setblock ^^2^-1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ snow -1 setblock ^^3^ water",
-
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ powder_snow -1 setblock ^1^1^ water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ powder_snow -1 setblock ^-1^1^ water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 powder_snow -1 setblock ^^1^1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 powder_snow -1 setblock ^^1^-1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 powder_snow -1 setblock ^^1^-1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ powder_snow -1 setblock ^-1^2^ water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 powder_snow -1 setblock ^^2^1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 powder_snow -1 setblock ^^2^-1 water",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ powder_snow -1 setblock ^^3^ water"
+            "function magic/fire/armor/fire_chestplate"
           ]
 				}
 			},
 			"kurokumaft:fire_strength": {
 				"run_command": {
 					"command": [
-					  "effect @s strength 1 10 true"
+            "function magic/fire/armor/fire_leggings"
 					]
 				}
 			},
 			"kurokumaft:lava_walker": {
 				"run_command": {
 					"command": [
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ~~-1~ lava -1 setblock ~~-1~ magma",
-					  "execute @e[type=player,r=1,c=1] ~~~ detect ~~-1~ flowing_lava -1 setblock ~~-1~ magma"
+            "function magic/fire/armor/fire_boots"
           ]
 				}
-			}
+			},
+
+      "kurokumaft:bow_drawing": {
+				"add": {
+          "component_groups": [ "kurokumaft:bow_drawing" ]
+        }
+			},
+      "kurokumaft:shot_bow": {
+				"remove": {
+          "component_groups": [ "kurokumaft:bow_drawing" ]
+        },
+				"add": {
+          "component_groups": [ "kurokumaft:shot_bow" ]
+        }
+      }
+
     }
   }
 }

@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.shinobu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "shinobu1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.scoreboard('shinobu') == 4 && query.is_sneaking" },
+            { "shinobu2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.scoreboard('shinobu') == 1 && query.is_sneaking" },
+            { "shinobu3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.scoreboard('shinobu') == 2 && query.is_sneaking" },
+            { "shinobu4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.scoreboard('shinobu') == 3 && query.is_sneaking" }
+          ]
+        },
+        "shinobu1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蝶ノ舞\"}]}",
+            "/scoreboard players set @s shinobu 1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "shinobu2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蜂牙ノ舞\"}]}",
+            "/scoreboard players set @s shinobu 2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "shinobu3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蜻蛉ノ舞\"}]}",
+            "/scoreboard players set @s shinobu 3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "shinobu4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蜈蚣ノ舞\"}]}",
+            "/scoreboard players set @s shinobu 4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

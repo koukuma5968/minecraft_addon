@@ -187,7 +187,7 @@
             "/gamerule sendcommandfeedback false",
             "/execute @e[tag=kokyu_kaminari7_target] ^^^2 tp @e[tag=kokyu_kaminari7] ~~~",
             "/execute @s ~~~ particle kurokumaft:kaminari2_particle ~~~",
-            "/execute @s ~~~ damage @e[tag=!kokyu_kaminari7,r=15] 20 lightning"
+            "/execute @s ~~~ damage @e[tag=!kokyu_kaminari7,r=10] 50 lightning"
           ],
           "on_exit": [
             "/effect @s speed 0",
@@ -196,7 +196,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_kaminari_attack = variable.kokyu_kaminari_attack < 20 ? variable.kokyu_kaminari_attack + 1:0;return variable.kokyu_kaminari_attack == 0;"}
           ]
         }
       }

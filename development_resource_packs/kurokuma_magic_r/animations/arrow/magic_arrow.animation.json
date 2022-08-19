@@ -1,0 +1,285 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magic_arrow.fire_move": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"arrow_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.05": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.10": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.15": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.20": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.25": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.30": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.35": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.40": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.45": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.50": {
+					"effect": "fire_arrow_particle",
+					"locator": "arrow_body"
+				}
+			}
+		},
+		"animation.magic_arrow.water_move": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"arrow_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.05": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.10": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.15": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.20": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.25": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.30": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.35": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.40": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.45": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.50": {
+					"effect": "water_arrow_particle",
+					"locator": "arrow_body"
+				}
+			}
+		},
+		"animation.magic_arrow.wind_move": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"arrow_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.05": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.10": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.15": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.20": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.25": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.30": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.35": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.40": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.45": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.50": {
+					"effect": "wind_arrow_particle",
+					"locator": "arrow_body"
+				}
+			}
+		},
+		"animation.magic_arrow.ice_move": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"arrow_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.05": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.10": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.15": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.20": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.25": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.30": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.35": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.40": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.45": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.50": {
+					"effect": "ice_arrow_particle",
+					"locator": "arrow_body"
+				}
+			}
+		},
+		"animation.magic_arrow.stone_move": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"arrow_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.05": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.10": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.15": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.20": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.25": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.30": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.35": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.40": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.45": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				},
+				"0.50": {
+					"effect": "stone_arrow_particle",
+					"locator": "arrow_body"
+				}
+			}
+		}
+	}
+}

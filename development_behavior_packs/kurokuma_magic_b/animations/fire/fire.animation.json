@@ -6,8 +6,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/damage @e[tag=framepillar] 2 fire",
-					"/execute @e[tag=framepillar] ~~~ particle kurokumaft:framepillar_particle ~~~"
+					"/function magic/fire/framepillar/framepillar2"
 				]
 			}
 		},
@@ -16,8 +15,25 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @e[tag=flamecircle] ~~~ particle kurokumaft:firestome1_particle ~~~",
-					"/damage @e[tag=framepillar] 3 fire"
+					"/function magic/fire/flarecircle/flarecircle2"
+				]
+			}
+		},
+		"animation.fire.flamespark": {
+			"animation_length": 0.4,
+			"loop": true,
+			"timeline": {
+				"0.00": [
+					"/function magic/fire/flamespark/flamespark1"
+				],
+				"0.10": [
+					"/function magic/fire/flamespark/flamespark2"
+				],
+				"0.20": [
+					"/function magic/fire/flamespark/flamespark3"
+				],
+				"0.30": [
+					"/function magic/fire/flamespark/flamespark4"
 				]
 			}
 		}

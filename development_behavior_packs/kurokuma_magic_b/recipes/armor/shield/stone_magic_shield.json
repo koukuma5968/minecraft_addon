@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:stone_magic_shield"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#d#",
+      "#m#",
+      " # "
+    ],
+    "key": {
+      "d": {
+        "item": "minecraft:diamond"
+      },
+      "m": {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:planks"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:stone_magic_shield",
+      "count": 1
+    }
+  }
+  
+}

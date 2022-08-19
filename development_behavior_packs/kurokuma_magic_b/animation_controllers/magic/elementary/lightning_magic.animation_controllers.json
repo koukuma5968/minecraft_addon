@@ -25,8 +25,18 @@
       "states": {
         "default": {
           "transitions": [
+            { "spark": "!query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && variable.attack_time" },
             { "lightningwall": "query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && variable.attack_time" },
-            { "spark": "!query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && variable.attack_time" }
+            { "lightningbolt": "query.get_equipped_item_name == 'lightning_wand' && query.is_using_item" }
+          ]
+        },
+        "spark": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6スパーク\"}]}",
+            "/function magic/lightning/spark"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
           ]
         },
         "lightningwall": {
@@ -38,13 +48,12 @@
             {"default":"!variable.attack_time"}
           ]
         },
-        "spark": {
+        "lightningbolt": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6スパーク\"}]}",
-            "/function magic/lightning/spark"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングボルト\"}]}"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"default":"!query.is_using_item"}
           ]
         }
       }

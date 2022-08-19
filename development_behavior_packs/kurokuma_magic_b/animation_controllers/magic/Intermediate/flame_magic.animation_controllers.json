@@ -43,7 +43,7 @@
         "framepillar": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムピラー\"}]}",
-            "/tag @e[family=monster,c=1,ry=-10,rym=10,r=10] add framepillar"
+            "/function magic/fire/framepillar/framepillar1"
           ],
           "transitions": [
             {"framepillar_at":"(1.0)"}
@@ -61,8 +61,7 @@
         "flarecircle": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムサークル\"}]}",
-            "/tag @e[family=monster,c=3,r=20] add flamecircle",
-            "/execute @e[tag=flamecircle] ~~~ setblock ~~~ fire 0 keep"
+            "/function magic/fire/flarecircle/flarecircle1"
           ],
           "transitions": [
             {"flarecircle_at":"(1.0)"}

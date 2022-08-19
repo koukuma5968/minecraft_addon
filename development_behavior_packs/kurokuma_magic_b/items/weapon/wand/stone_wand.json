@@ -29,6 +29,14 @@
       "minecraft:icon": {
         "texture": "stone_wand"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:stone_magic_stone", "kurokumaft:stone_wand" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_wand.name"
       },
@@ -41,14 +49,6 @@
     "events": {
       "kurokumaft:stone": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンバレット\"}]}"
-              ],
-              "target": "player"
-            }
-          },
           {
             "shoot":{
               "projectile":"kurokumaft:stonebarrettemagic",

@@ -1,0 +1,105 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:gold_chest_entities",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "set_on_collision_box": {
+        "minecraft:inventory": {
+          "inventory_size": 81,
+          "container_type": "inventory",
+          "can_be_siphoned_from": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "chest", "inanimate"
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 20,
+        "suffocate_time": 0,
+        "breathes_water": true,
+        "breathes_solids": true
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "minecraft:nameable": {
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "any_of" :[
+                  {"test": "is_family","subject": "other","operator": "!=","value": "player"},
+                  {
+                    "all_of" : [
+                      {"test": "is_family","subject": "other","value": "player"},
+                      {
+                        "none_of" : [
+                          {"test": "has_equipment","domain": "hand", "operator": "equals","subject": "player","value": "golden_pickaxe"},
+                          {"test": "has_equipment","domain": "hand", "operator": "equals","subject": "player","value": "diamond_pickaxe"},
+                          {"test": "has_equipment","domain": "hand", "operator": "equals","subject": "player","value": "netherite_pickaxe"}
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "is_family","subject": "other","value": "player"},
+                  {
+                    "any_of" : [
+                      {"test": "has_equipment","domain": "hand", "operator": "equals","subject": "player","value": "golden_pickaxe"},
+                      {"test": "has_equipment","domain": "hand", "operator": "equals","subject": "player","value": "diamond_pickaxe"},
+                      {"test": "has_equipment","domain": "hand", "operator": "equals","subject": "player","value": "netherite_pickaxe"}
+                    ]
+                  }
+                ]
+              },
+              "event": "on_breaking"
+            },
+            "deals_damage": true
+          }
+        ]
+      }
+    },
+    "events": {
+      "on_breaking": {
+        "run_command": {
+          "command": [
+            "kill @e[r=1,c=1]",
+            "setblock ~ ~ ~ air 0 destroy"
+          ]
+        }
+      },
+       "set_on_collision_box": {
+        "add": {
+          "component_groups": [
+            "set_on_collision_box"
+          ]
+        }
+      }
+    }
+  }
+}

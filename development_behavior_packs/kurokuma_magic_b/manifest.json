@@ -4,44 +4,21 @@
 		"description": "魔法アドオン",
 		"name": "kurokuma_magic_b",
 		"uuid": "cb00a6d3-381e-470a-87ea-5876cbf7ab09",
-		"version": [
-			1,
-			0,
-			0
-		],
-		"min_engine_version": [
-			1,
-			17,
-			0
-		]
+		"version": [1,0,4],
+		"min_engine_version": [1,17,0]
 	},
 	"modules": [
 		{
 			"description": "魔法アドオン",
 			"type": "data",
 			"uuid": "b69567a1-4526-458f-a255-e7dda1a488fd",
-			"version": [
-				1,
-				0,
-				0
-			]
+			"version": [1,0,4]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "f93bea78-77fd-4ce9-8a18-6eb10a2bd5bd",
-			"version": [
-				1,
-				0,
-				0
-			]
+			"version": [1,0,4]
 		}
-	],
-	"metadata": {
-		"generated_with": {
-			"bridge": [
-				"1.8.4"
-			]
-		}
-	}
+	]
 }

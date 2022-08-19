@@ -34,6 +34,14 @@
       "minecraft:icon": {
         "texture": "dark_wand"
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:dark_magic_stone", "kurokumaft:dark_wand" ],
+            "repair_amount": 10
+          }
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:dark_wand.name"
       },

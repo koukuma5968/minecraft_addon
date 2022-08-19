@@ -101,15 +101,17 @@
           ]
         },
         "kedamono7":{
+          "animations" : [ "kedamono7_ani" ],
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7空間識覚\"}]}",
             "/tag @s add kokyu_kedamono7",
             "/effect @s speed 99999 5 true",
-            "/tag @e[tag=!kokyu_kedamono7,family=monster,r=50] add kokyu_kedamono7_target",
+            "/tag @e[tag=!kokyu_kedamono7,family=!player,family=!inanimate,type=!item,r=64] add kokyu_kedamono7_target",
             "/event entity @s variant7"
           ],
           "on_exit": [
             "/tag @s remove kokyu_kedamono7",
+            "/effect @s speed 0",
             "/tag @e[tag=kokyu_kedamono7_target] remove kokyu_kedamono7_target",
             "/event entity @s variant0"
           ],
