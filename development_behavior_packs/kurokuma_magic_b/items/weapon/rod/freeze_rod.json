@@ -17,7 +17,6 @@
       "minecraft:damage": 2,
 		  "minecraft:weapon": {
       },
-      "minecraft:use_duration": 50,
       "minecraft:durability": {
         "max_durability": 500
       },
@@ -29,8 +28,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:ice_magic_stone", "kurokumaft:freeze_rod" ],
-            "repair_amount": 10
+            "items": [ "kurokumaft:ice_magic_stone" ],
+            "repair_amount": 100
+          },
+          {
+            "items": [ "kurokumaft:freeze_rod" ],
+            "repair_amount": 250
           }
         ]
       },
@@ -39,6 +42,9 @@
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:freeze_rod.name"
+      },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{

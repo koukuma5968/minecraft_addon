@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_bullet",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": ""
+      },
+      "geometry": {
+        "default": "geometry.magic_bullet"
+      },
+      "animations": {
+        "move": "animation.magic_bullet.fire_move"
+      },
+      "particle_effects": {
+        "fire_bullet_particle": "kurokumaft:fire_bullet_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

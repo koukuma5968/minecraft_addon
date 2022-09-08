@@ -51,19 +51,24 @@ item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 帝級合体魔法 �
 item.kurokumaft:thunderstorm_staff.name=§a§l渦雷の錫杖 帝級合体魔法 水雷
 item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 帝級合体魔法 氷水
 
-item.kurokumaft:ice_magic_sword.name=アイスマジックソード
-item.kurokumaft:fire_magic_sword.name=ファイアマジックソード
-item.kurokumaft:water_magic_sword.name=ウォーターマジックソード
-item.kurokumaft:stone_magic_sword.name=ストーンマジックソード
-item.kurokumaft:thunder_magic_sword.name=サンダーマジックソード
-item.kurokumaft:wind_magic_sword.name=ウィンドマジックソード
+item.kurokumaft:fire_magic_sword.name=烈火の魔法剣
+item.kurokumaft:ice_magic_sword.name=凍刃の魔法剣
+item.kurokumaft:water_magic_sword.name=流刃の魔法剣
+item.kurokumaft:stone_magic_sword.name=礫岩の魔法剣
+item.kurokumaft:thunder_magic_sword.name=雷撃の魔法剣
+item.kurokumaft:wind_magic_sword.name=刃風の魔法剣
+item.kurokumaft:holly_magic_sword.name=光華の魔法剣
+item.kurokumaft:dark_magic_sword.name=常闇の魔法剣
+item.kurokumaft:rainbow_magic_sword.name=虹の魔法剣
 
-item.kurokumaft:fire_magic_shield.name=ファイアマジックシールド
-item.kurokumaft:ice_magic_shield.name=アイスマジックシールド
-item.kurokumaft:water_magic_shield.name=ウォーターマジックシールド
-item.kurokumaft:stone_magic_shield.name=ストーンマジックシールド
-item.kurokumaft:thunder_magic_shield.name=サンダーマジックシールド
-item.kurokumaft:wind_magic_shield.name=ウィンドマジックシールド
+item.kurokumaft:fire_magic_shield.name=耐火の魔法盾
+item.kurokumaft:ice_magic_shield.name=堅氷の魔法盾
+item.kurokumaft:water_magic_shield.name=水明の魔法盾
+item.kurokumaft:stone_magic_shield.name=岩壁の魔法盾
+item.kurokumaft:thunder_magic_shield.name=雷動の魔法盾
+item.kurokumaft:wind_magic_shield.name=凱風の魔法盾
+item.kurokumaft:holly_magic_shield.name=光輝の魔法盾
+item.kurokumaft:dark_magic_shield.name=暗影の魔法盾
 
 item.kurokumaft:ice_magic_helmet.name=アイスマジックヘルム
 item.kurokumaft:ice_magic_chestplate.name=アイスマジックプレート
@@ -80,8 +85,19 @@ item.kurokumaft:water_magic_chestplate.name=ウォーターマジックプレー
 item.kurokumaft:water_magic_leggings.name=ウォーターマジックレギンス
 item.kurokumaft:water_magic_boots.name=ウォーターマジックブーツ
 
+item.kurokumaft:wind_magic_helmet.name=ウィンドマジックヘルム
+item.kurokumaft:wind_magic_chestplate.name=ウィンドマジックプレート
+item.kurokumaft:wind_magic_leggings.name=ウィンドマジックレギンス
+item.kurokumaft:wind_magic_boots.name=ウィンドマジックブーツ
+
 item.kurokumaft:fire_magic_bow.name=業火の魔弓
-item.kurokumaft:water_magic_bow.name=流麗の魔弓
-item.kurokumaft:wind_magic_bow.name=疾風の魔弓
-item.kurokumaft:stone_magic_bow.name=玄武の魔弓
 item.kurokumaft:ice_magic_bow.name=六華の魔弓
+item.kurokumaft:water_magic_bow.name=流麗の魔弓
+item.kurokumaft:stone_magic_bow.name=玄武の魔弓
+item.kurokumaft:lightning_magic_bow.name=紫電の魔弓
+item.kurokumaft:wind_magic_bow.name=疾風の魔弓
+item.kurokumaft:holly_magic_bow.name=月華の魔弓
+item.kurokumaft:dark_magic_bow.name=晦冥の魔弓
+
+item.kurokumaft:fire_magic_gun.name=災火の魔法銃
+item.kurokumaft:water_magic_gun.name=烈水の魔法銃

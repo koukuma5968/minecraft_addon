@@ -5,7 +5,8 @@
       "identifier": "kurokumaft:thrown_bamboo_knife",
       "is_spawnable": false,
       "is_summonable": false,
-      "is_experimental": false
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:thrown_trident"
     },
     "components": {
       "minecraft:collision_box": {
@@ -19,12 +20,13 @@
            "damage": 2000000,
            "knockback": false,
            "catch_fire": false,
-           "destroy_on_hit": false,
+           "destroy_on_hit": true,
            "semi_random_diff_damage": false
          },
          "stick_in_ground": {
           "shake_time" : 0
-         }
+         },
+         "remove_on_hit": {}
        },
        "hit_sound": "item.trident.hit",
        "hit_ground_sound": "item.trident.hit_ground",
@@ -35,14 +37,14 @@
        "uncertainty_base": 0,
        "uncertainty_multiplier": 0,
        "reflect_on_hurt": true,
-       "offset": [ 0, -1.5, 0 ]
+       "offset": [ -0.5, -0.1, 0 ]
       },
       "minecraft:physics": {
       },
       "minecraft:pushable": {
-       "is_pushable": false,
-       "is_pushable_by_piston": true
-      },
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
       "minecraft:conditional_bandwidth_optimization": {
        "default_values": {
          "max_optimized_distance": 80.0,

@@ -17,14 +17,8 @@
       "minecraft:damage": 2,
 		  "minecraft:weapon": {
       },
-      "minecraft:use_duration": 50,
       "minecraft:durability": {
-        "max_durability": 500
-      },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
+        "max_durability": 1000
       },
       "minecraft:max_stack_size": 1,
       "minecraft:enchantable": {
@@ -34,8 +28,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:water_magic_stone", "kurokumaft:watercurrent_stick" ],
-            "repair_amount": 10
+            "items": [ "kurokumaft:water_magic_stone" ],
+            "repair_amount": 100
+          },
+          {
+            "items": [ "kurokumaft:watercurrent_stick" ],
+            "repair_amount": 500
           }
         ]
       },
@@ -44,6 +42,9 @@
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:watercurrent_stick.name"
+      },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{

@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.lightning.flame_spark": {
+			"animation_length": 0.4,
+			"loop": true,
+			"timeline": {
+				"0.00": [
+					"/function magic/lightning/flame_spark/flame_spark_at1"
+				],
+				"0.10": [
+					"/function magic/lightning/flame_spark/flame_spark_at12"
+				],
+				"0.20": [
+					"/function magic/lightning/flame_spark/flame_spark_at13"
+				],
+				"0.30": [
+					"/function magic/lightning/flame_spark/flame_spark_at14"
+				]
+			}
+		}
+	}
+}

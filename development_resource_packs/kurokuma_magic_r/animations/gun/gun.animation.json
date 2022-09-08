@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.gun.wield": {
+			"loop": true,
+			"animation_length": 0.04167,
+			"bones": {
+				"rightitem": {
+					"rotation": ["c.is_first_person ? 38.0 : 20.0", "c.is_first_person ? -120.0 : -180.0", "c.is_first_person ? -63.0 : 0.0"],
+					"position": ["c.is_first_person ? -3.0 : -1.5", "c.is_first_person ? -3.0 : -10.0", "c.is_first_person ? -3.0 : -6.5"]
+				}
+			}
+		},
+		"animation.gun.wield_first_person_pull": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"position": [
+						-1.5,
+						" 2.5 + ( variable.charge_amount  >= 1.0 ? math.sin( (q.life_time) * 1000.0 * 1.3) * 0.1 - math.sin(q.life_time * 45.0) * 0.5 : 0.0)",
+						-4.8
+					],
+					"rotation": [-53, 8, 35]
+				}
+			}
+		}
+	}
+}

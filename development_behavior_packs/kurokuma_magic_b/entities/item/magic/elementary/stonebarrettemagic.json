@@ -40,7 +40,6 @@
        },
        "hit_sound": "tripod",
        "power": 2,
-       "offset": [10,-0.3,0],
        "gravity": 0.05,
        "inertia": 1,
        "liquid_inertia": 1,

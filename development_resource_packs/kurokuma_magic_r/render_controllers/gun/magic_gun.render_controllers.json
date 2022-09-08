@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10",
+  "render_controllers": {
+    "controller.render.magic_gun": {
+      "arrays": {
+        "textures": {
+          "array.gun_texture_frames": [
+            "texture.default",
+            "texture.magic_gun_charge_1",
+            "texture.magic_gun_charge_2",
+            "texture.magic_gun_charge_3",
+            "texture.magic_gun_charge_4",
+            "texture.magic_gun_charge_5",
+            "texture.magic_gun_charge_6",
+            "texture.magic_gun_charge_7",
+            "texture.magic_gun_charge_8",
+            "texture.magic_gun_charge_9",
+            "texture.magic_gun_charge_full"
+          ]
+        }
+      },
+      "geometry": "geometry.default",
+      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "array.gun_texture_frames[query.variant >= 10 ? 10 : query.variant]", "texture.enchanted" ]
+    }
+  }
+}
+

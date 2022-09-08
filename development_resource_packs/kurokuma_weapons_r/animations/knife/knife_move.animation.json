@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.knife.move": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"pole": {
+					"rotation": ["1.0 - query.target_x_rotation", 0, 90],
+					"position": [1, 1, 1]
+				}
+			}
+		}
+	}
+}

@@ -1,6 +1,6 @@
 {
 	"format_version": "1.8.0",
-	"geometry.fire_magic_boots": {
+	"geometry.wind_magic_boots": {
 		"texturewidth": 64,
 		"textureheight": 32,
 		"visible_bounds_width": 2,

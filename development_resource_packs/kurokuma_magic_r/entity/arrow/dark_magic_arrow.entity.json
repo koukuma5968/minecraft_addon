@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:dark_magic_arrow",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/arrow/dark_magic_arrows"
+      },
+      "geometry": {
+        "default": "geometry.magic_arrow"
+      },
+      "animations": {
+        "move": "animation.magic_arrow.dark_move"
+      },
+      "particle_effects": {
+        "dark_arrow_particle": "kurokumaft:dark_arrow_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

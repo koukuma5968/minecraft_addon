@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magic_bullet.fire_magic_bullet_frame": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @e[family=!player,r=1.5] ~~~ summon kurokumaft:fire_sword_magic ~~~"
+				]
+			}
+		},
+		"animation.magic_bullet.water_magic_bullet_frame": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/damage @e[family=!player,r=3.5] 5 drowning"
+				]
+			}
+		}
+	}
+}

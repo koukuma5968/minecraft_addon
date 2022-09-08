@@ -40,7 +40,6 @@
        },
        "hit_sound": "hurt.in.water",
        "power": 2,
-       "offset": [0,-0.3,0],
        "gravity": 0.02,
        "inertia": 1,
        "liquid_inertia": 1,

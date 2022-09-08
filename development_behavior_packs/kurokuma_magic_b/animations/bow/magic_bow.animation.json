@@ -80,6 +80,54 @@
 					"/event entity @s variant3"
 				]
 			}
+		},
+		"animation.magic_bow.lightning_magic_bow_frame": {
+			"timeline": {
+				"0.0": [
+					"/event entity @s variant0"
+				],
+				"0.5": [
+					"/event entity @s variant1"
+				],
+				"1.0": [
+					"/event entity @s variant2"
+				],
+				"1.5": [
+					"/event entity @s variant3"
+				]
+			}
+		},
+		"animation.magic_bow.dark_magic_bow_frame": {
+			"timeline": {
+				"0.0": [
+					"/event entity @s variant0"
+				],
+				"0.25": [
+					"/event entity @s variant1"
+				],
+				"0.5": [
+					"/event entity @s variant2"
+				],
+				"0.75": [
+					"/event entity @s variant3"
+				]
+			}
+		},
+		"animation.magic_bow.holly_magic_bow_frame": {
+			"timeline": {
+				"0.0": [
+					"/event entity @s variant0"
+				],
+				"0.25": [
+					"/event entity @s variant1"
+				],
+				"0.5": [
+					"/event entity @s variant2"
+				],
+				"0.75": [
+					"/event entity @s variant3"
+				]
+			}
 		}
 	}
 }

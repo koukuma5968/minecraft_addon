@@ -17,18 +17,12 @@
         "value": 15,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
-      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
 		  "minecraft:weapon": {
       },
-      "minecraft:use_duration": 25,
       "minecraft:durability": {
-        "max_durability": 100
+        "max_durability": 150
       },
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
@@ -37,13 +31,20 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:light_magic_stone", "kurokumaft:light_wand" ],
-            "repair_amount": 10
+            "items": [ "kurokumaft:light_magic_stone" ],
+            "repair_amount": 20
+          },
+          {
+            "items": [ "kurokumaft:light_wand" ],
+            "repair_amount": 100
           }
         ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:light_wand.name"
+      },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{

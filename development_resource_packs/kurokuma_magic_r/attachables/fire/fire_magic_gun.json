@@ -1,0 +1,45 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_gun",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/items/gun/fire/fire_magic_gun_empty",
+        "magic_gun_charge_1": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_1",
+        "magic_gun_charge_2": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_2",
+        "magic_gun_charge_3": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_3",
+        "magic_gun_charge_4": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_4",
+        "magic_gun_charge_5": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_5",
+        "magic_gun_charge_6": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_6",
+        "magic_gun_charge_7": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_7",
+        "magic_gun_charge_8": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_8",
+        "magic_gun_charge_9": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_9",
+        "magic_gun_charge_full": "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_full",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.magic_gun"
+      },
+      "animations": {
+        "wield": "animation.gun.wield",
+        "wield_first_person_pull": "animation.gun.wield_first_person_pull"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.charge_amount = math.clamp((query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);"
+        ],
+        "animate": [
+          "wield",
+          {
+            "wield_first_person_pull": "query.main_hand_item_use_duration > 0.0f && c.is_first_person"
+          }
+        ]
+      },
+      "render_controllers": [ "controller.render.magic_gun" ]
+    }
+  }
+}

@@ -55,25 +55,44 @@
       },
       "minecraft:weapon": {
         "on_hurt_entity": {
-          "event": "kurokumaft:hurt_entity"
+          "event": "kurokumaft:hurt_weapon"
         }
       }
     },
     "events": {
       "kurokumaft:hurt_entity": {
-        "run_command": {
-          "command": [
-            "particle kurokumaft:sweep_particle ^ ^1.8 ^2.4",
-            "execute @e[type=!player,family=!undead,r=3] ~ ~ ~ effect @e[type=!player,family=!undead,r=2] instant_damage 1 0 true",
-            "execute @e[type=!player,family=undead,r=3] ~ ~ ~ effect @e[type=!player,family=undead,r=2] wither 1 1 true",
-            "execute @e[type=!player,type=wither_skeleton,r=3] ~ ~ ~ effect @e[type=!player,type=wither_skeleton,r=2] fatal_poison 1 1 true"
-          ]
-        },
         "damage": {
           "type": "durability",
           "target": "self",
           "amount": 1
         }
+      },
+      "kurokumaft:hurt_weapon": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "particle kurokumaft:sweep_particle ^ ^1.8 ^2.4"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "damage @e[type=!player,r=2.5] 3 entity_attack"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage": {
+              "type": "durability",
+              "target": "self",
+              "amount": 1
+            }
+          }
+        ]
       }
     }
   }

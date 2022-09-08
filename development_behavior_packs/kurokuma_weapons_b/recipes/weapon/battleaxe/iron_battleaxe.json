@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:iron_battleaxe"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "AAB",
+      " BA",
+      "B A"
+    ],
+    "key": {
+      "B": {
+        "item": "minecraft:stick"
+      },
+      "A": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:iron_battleaxe"
+    }
+  }
+}

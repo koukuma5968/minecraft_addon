@@ -23,7 +23,7 @@
           "entity_types": {
             "filters": { 
                 "all_of": [
-                  { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "player"}
+                  { "test" :"is_family", "subject" : "other", "operator": "!=", "value" :  "player"}
                 ] 
             }
           }
@@ -63,6 +63,14 @@
           "event": "kill_time",
           "target": "self"
         }
+      },
+      "minecraft:behavior.owner_hurt_by_target": {
+        "test": "is_family","operator": "not", "subject": "other","value": "player",
+        "priority": 1
+      },
+      "minecraft:behavior.owner_hurt_target": {
+        "test": "is_family","operator": "not", "subject": "other","value": "player",
+        "priority": 2
       },
       "minecraft:is_tamed": {
       },
@@ -266,7 +274,7 @@
         "priority": 8
       },
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 3,
+        "priority": 4,
         "must_reach": true,
         "must_see": true,
 
@@ -274,61 +282,17 @@
           {
             "filters": {
               "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "monster"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "creeper"
-                }
+                {"test": "is_family","subject": "other","operator": "!=","value": "player"}
               ]
             },
-            "within_default": 10
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "hoglin"
-                },
-                {
-                  "test": "is_difficulty",
-                  "operator": "!=",
-                  "value": "peaceful"
-                }
-              ]
-            },
-            "max_dist": 16
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "value": "zoglin"
-                },
-                {
-                  "test": "is_difficulty",
-                  "operator": "!=",
-                  "value": "peaceful"
-                }
-              ]
-            },
-            "max_dist": 16
+            "within_default": 16
           }
         ]
       },
       "minecraft:behavior.hurt_by_target": {
-        "priority": 2,
+        "priority": 3,
         "entity_types": {
-          "filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "creeper" }
+          "filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "player" }
         }
       },
       "minecraft:persistent": {

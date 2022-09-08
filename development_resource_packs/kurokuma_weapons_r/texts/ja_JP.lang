@@ -27,9 +27,15 @@ item.kurokumaft:netherite_spear.name=ネザイライトスピアー
 item.kurokumaft:bamboo_axe.name=竹斧
 item.kurokumaft:copper_axe.name=銅の斧
 
+item.kurokumaft:bamboo_battleaxe.name=バンブーバトルアックス
+item.kurokumaft:wooden_battleaxe.name=木のバトルアックス
+item.kurokumaft:iron_battleaxe.name=鉄のバトルアックス
+
 item.kurokumaft:bamboo_knife.name=竹のナイフ
 
 item.kurokumaft:wooden_bread.name=木刀
+
+item.kurokumaft:wooden_boomerang.name=木のブーメラン
 
 item.kurokumaft:bamboo_sword.name=竹の剣
 item.kurokumaft:copper_sword.name=銅の剣

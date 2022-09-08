@@ -1,0 +1,91 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.hana": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_hana_attack": {
+              "input": "variable.kokyu_hana_attack = (variable.kokyu_hana_attack ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hana2": "(query.scoreboard('hana') == 2 || query.scoreboard('kanawo') == 2) && query.is_using_item" },
+            { "hana4": "(query.scoreboard('hana') == 4 || query.scoreboard('kanawo') == 4) && query.is_using_item" },
+            { "hana5": "(query.scoreboard('hana') == 5 || query.scoreboard('kanawo') == 5) && query.is_using_item" },
+            { "hana6": "(query.scoreboard('hana') == 6 || query.scoreboard('kanawo') == 6) && query.is_using_item" },
+            { "hana7": "(query.scoreboard('hana') == 7 || query.scoreboard('kanawo') == 7) && query.is_using_item" }
+          ]
+        },
+        "hana2":{
+          "animations" : [ "hana2_ani" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d御影梅\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s add_damage_clear"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s remove_damage_clear"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hana_attack = variable.kokyu_hana_attack < 100 ? variable.kokyu_hana_attack + 1:0;return variable.kokyu_hana_attack == 0;"}
+          ]
+        },
+        "hana4":{
+          "animations" : [ "hana4_ani" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d紅花衣\"}]}",
+            "/event entity @s variant4"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hana_attack = variable.kokyu_hana_attack < 30 ? variable.kokyu_hana_attack + 1:0;return variable.kokyu_hana_attack == 0;"}
+          ]
+        },
+        "hana5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d徒の芍薬\"}]}",
+            "/event entity @s variant5",
+            "/function hana/hana_go"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hana_attack = variable.kokyu_hana_attack < 10 ? variable.kokyu_hana_attack + 1:0;return variable.kokyu_hana_attack == 0;"}
+          ]
+        },
+        "hana6":{
+          "animations" : [ "hana6_ani" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d渦桃\"}]}",
+            "/event entity @s variant6"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hana_attack = variable.kokyu_hana_attack < 30 ? variable.kokyu_hana_attack + 1:0;return variable.kokyu_hana_attack == 0;"}
+          ]
+        },
+        "hana7":{
+          "animations" : [ "hana7_ani" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d彼岸朱眼\"}]}",
+            "/event entity @s variant7"
+          ],
+          "on_exit": [
+            "/effect @s blindness 1000 20",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hana_attack = variable.kokyu_hana_attack < 600 ? variable.kokyu_hana_attack + 1:0;return variable.kokyu_hana_attack == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

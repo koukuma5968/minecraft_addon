@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_boots_to_magicstone"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "ibi",
+      "m m"
+    ],
+    "key": {
+      "b": {
+        "item": "minecraft:diamond_boots"
+      },
+      "m": {
+        "item": "kurokumaft:wind_magic_stone"
+      },
+      "i": {
+        "item": "minecraft:emerald_block"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wind_magic_boots",
+      "count": 1
+    }
+  }
+  
+}

@@ -6,7 +6,7 @@
 			"bones": {
 				"pole": {
 					"rotation": [174.70551, 2.89958, 21.16007],
-					"position": [12, 17, 1]
+					"position": [12, 18, 3]
 				}
 			}
 		},
@@ -14,8 +14,12 @@
 			"loop": true,
 			"bones": {
 				"pole": {
-					"rotation": [92.52413, 6.09137, -86.06068],
-					"position": ["-6 + (variable.charge_amount <= 0.25 ? math.lerp(0.0, -6.5, variable.charge_amount * 4.0) : -6.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, -4.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)", "-2+ (variable.charge_amount <= 0.25 ? math.lerp(0.0, -3.0, variable.charge_amount * 4.0) : -3.0) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 3.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)", "12+ (variable.charge_amount <= 0.25 ? math.lerp(0.0, -16.5, variable.charge_amount * 4.0) : -16.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 0.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)"]
+					"rotation": [164.91363, 19.21925, -249.54699],
+					"position": [
+						"-6.0 + (variable.charge_amount <= 0.25 ? math.lerp(0.0, -6.5, variable.charge_amount * 4.0) : -6.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, -4.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)",
+						"-3.0+(variable.charge_amount <= 0.25 ? math.lerp(0.0, -3.0, variable.charge_amount * 4.0) : -3.0) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 3.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)",
+						"8.0+ (variable.charge_amount <= 0.25 ? math.lerp(0.0, -16.5, variable.charge_amount * 4.0) : -16.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 0.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)"
+					]
 				}
 			}
 		},
@@ -23,8 +27,8 @@
 			"loop": true,
 			"bones": {
 				"pole": {
-					"rotation": [0, 0, 0],
-					"position": [7, "variable.charge_amount >= 1.0 ? math.sin(q.life_time * 1000.0 * 1.3) * 0.1 - math.sin(q.life_time * 45.0) * 0.5 : 0.0", 0]
+					"rotation": [35, 0, 25],
+					"position": [1, "variable.charge_amount >= 1.0 ? math.sin(q.life_time * 1000.0 * 1.3) * 0.1 - math.sin(q.life_time * 45.0) * 0.5 : 0.0", 9]
 				}
 			}
 		},
@@ -33,7 +37,7 @@
 			"override_previous_animation": true,
 			"bones": {
 				"pole": {
-					"rotation": [252.18201, 88.66837, 74.9393],
+					"rotation": [90, 0, -90],
 					"position": [-6, 2, -2]
 				}
 			}
@@ -43,7 +47,7 @@
 			"bones": {
 				"pole": {
 					"rotation": [88.55036, -2.26037, 91.20309],
-					"position": [-0.5, 16.5, -2.5]
+					"position": [-0.5, 20.5, -2.5]
 				}
 			}
 		},

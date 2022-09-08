@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:wooden_battleaxe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AAB",
+            " BA",
+            "B A"
+        ],
+        "key": {
+            "A": {
+                "item": "planks"
+            },
+            "B": {
+                "item": "stick"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:wooden_battleaxe",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

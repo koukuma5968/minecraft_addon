@@ -9,7 +9,10 @@
             { "water_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_bow') && query.is_using_item" },
             { "wind_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_bow') && query.is_using_item" },
             { "stone_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','stone_magic_bow') && query.is_using_item" },
-            { "ice_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','ice_magic_bow') && query.is_using_item" }
+            { "ice_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','ice_magic_bow') && query.is_using_item" },
+            { "lightning_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','lightning_magic_bow') && query.is_using_item" },
+            { "dark_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','dark_magic_bow') && query.is_using_item" },
+            { "holly_magic_bow": "query.equipped_item_any_tag('slot.weapon.mainhand','holly_magic_bow') && query.is_using_item" }
           ]
         },
         "fire_magic_bow":{
@@ -66,6 +69,42 @@
           ],
           "on_exit": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§1アイスアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        },
+        "lightning_magic_bow":{
+          "animations" : [ "lightning_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダーアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        },
+        "dark_magic_bow":{
+          "animations" : [ "dark_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ダークアロー\"}]}",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+          ]
+        },
+        "holly_magic_bow":{
+          "animations" : [ "holly_magic_bow_frame" ],
+          "on_entry": [
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーアロー\"}]}",
             "/event entity @s variant0"
           ],
           "transitions": [

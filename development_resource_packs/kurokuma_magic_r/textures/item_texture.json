@@ -127,11 +127,20 @@
       "thunder_magic_sword": {
          "textures" : "textures/kurokumaft/items/magic_weapon/thunder_magic_sword"
       },
-      "weater_magic_sword": {
-         "textures" : "textures/kurokumaft/items/magic_weapon/weater_magic_sword"
+      "water_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/water_magic_sword"
       },
       "wind_magic_sword": {
          "textures" : "textures/kurokumaft/items/magic_weapon/wind_magic_sword"
+      },
+      "holly_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/holly_magic_sword"
+      },
+      "dark_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/dark_magic_sword"
+      },
+      "rainbow_magic_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/rainbow_magic_sword"
       },
 
       "ice_magic_helmet": {
@@ -299,6 +308,71 @@
       },
       "ice_magic_bow": {
          "textures" : "textures/kurokumaft/items/bow/ice/ice_magic_bow_standby"
+      },
+      "lightning_magic_bow_pulling" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/lightning/lightning_magic_bow_pulling_0",
+            "textures/kurokumaft/items/bow/lightning/lightning_magic_bow_pulling_1",
+            "textures/kurokumaft/items/bow/lightning/lightning_magic_bow_pulling_2"
+         ]
+      },
+      "lightning_magic_bow": {
+         "textures" : "textures/kurokumaft/items/bow/lightning/lightning_magic_bow_standby"
+      },
+      "holly_magic_bow_pulling" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/light/holly_magic_bow_pulling_0",
+            "textures/kurokumaft/items/bow/light/holly_magic_bow_pulling_1",
+            "textures/kurokumaft/items/bow/light/holly_magic_bow_pulling_2"
+         ]
+      },
+      "holly_magic_bow": {
+         "textures" : "textures/kurokumaft/items/bow/light/holly_magic_bow_standby"
+      },
+      "dark_magic_bow_pulling" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/dark/dark_magic_bow_pulling_0",
+            "textures/kurokumaft/items/bow/dark/dark_magic_bow_pulling_1",
+            "textures/kurokumaft/items/bow/dark/dark_magic_bow_pulling_2"
+         ]
+      },
+      "dark_magic_bow": {
+         "textures" : "textures/kurokumaft/items/bow/dark/dark_magic_bow_standby"
+      },
+
+      "fire_magic_gun": {
+         "textures" : "textures/kurokumaft/items/gun/fire/fire_magic_gun_empty"
+      },
+      "fire_magic_gun_charge" : {
+         "textures" : [
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_1",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_2",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_3",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_4",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_5",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_6",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_7",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_8",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_9",
+            "textures/kurokumaft/items/gun/fire/fire_magic_gun_charge_full"
+         ]
+      },
+      "water_magic_gun": {
+         "textures" : "textures/kurokumaft/items/gun/water/water_magic_gun_empty"
+      },
+      "water_magic_gun_charge" : {
+         "textures" : [
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_1",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_2",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_3",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_4",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_5",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_6",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_7",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_8",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_9",
+            "textures/kurokumaft/items/gun/water/water_magic_gun_charge_full"
+         ]
       }
 
    },

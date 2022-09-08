@@ -1,23 +1,25 @@
 {
   "format_version": "1.16",
-  "minecraft:recipe_shapeless": {
+  "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:fire_magic_sword"
     },
-
     "tags": [ "magic_enchant" ],
-    "priority": 3,
-    "ingredients": [
-      {
-        "item": "minecraft:diamond_sword"
-      },
-      {
+    "pattern": [
+      "lml",
+      " # "
+    ],
+    "key": {
+      "l": {
         "item": "minecraft:magma"
       },
-      {
+      "m": {
         "item": "kurokumaft:fire_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:diamond_sword"
       }
-    ],
+    },
     "result": {
       "item": "kurokumaft:fire_magic_sword",
       "count": 1

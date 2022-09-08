@@ -24,11 +24,27 @@
          "textures" : "textures/kurokumaft/items/axe/copper_axe"
       },
 
+      "bamboo_battleaxe" : {
+         "textures" : "textures/kurokumaft/items/battleaxe/bamboo_battleaxe"
+      },
+      "wooden_battleaxe" : {
+         "textures" : "textures/kurokumaft/items/battleaxe/wooden_battleaxe"
+      },
+      "iron_battleaxe" : {
+         "textures" : "textures/kurokumaft/items/battleaxe/iron_battleaxe"
+      },
+
       "bamboo_spear": {
          "textures" : "textures/kurokumaft/items/spear/bamboo_spear"
       },
       "wooden_spear": {
          "textures": "textures/kurokumaft/items/spear/wooden_spear"
+      },
+      "stone_spear": {
+         "textures": "textures/kurokumaft/items/spear/stone_spear"
+      },
+      "iron_spear": {
+         "textures": "textures/kurokumaft/items/spear/iron_spear"
       },
 
       "bamboo_knife": {
@@ -37,6 +53,10 @@
 
       "wooden_bread": {
    		"textures": "textures/kurokumaft/items/bread/wooden_bread"
+      },
+
+      "wooden_boomerang": {
+   		"textures": "textures/kurokumaft/items/boomerang/wooden_boomerang"
       },
 
       "wooden_hammer": {

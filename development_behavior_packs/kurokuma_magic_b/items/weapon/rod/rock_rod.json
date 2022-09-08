@@ -17,7 +17,6 @@
       "minecraft:damage": 2,
 		  "minecraft:weapon": {
       },
-      "minecraft:use_duration": 50,
       "minecraft:durability": {
         "max_durability": 500
       },
@@ -29,8 +28,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:stone_magic_stone", "kurokumaft:rock_rod" ],
-            "repair_amount": 10
+            "items": [ "kurokumaft:stone_magic_stone" ],
+            "repair_amount": 100
+          },
+          {
+            "items": [ "kurokumaft:rock_rod" ],
+            "repair_amount": 250
           }
         ]
       },
@@ -39,6 +42,10 @@
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:rock_rod.name"
+      },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
+        "movement_modifier": 0.25
       },
       "minecraft:on_use":{
         "on_use":{
@@ -49,18 +56,6 @@
     "events": {
       "kurokumaft:rockbreak": {
         "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "tag @e[family=monster,c=2,r=20] add rockbreak",
-                "execute @e[tag=rockbreak] ~~~ summon kurokumaft:rockbreakmagic rockbreak ~~10~",
-                "effect @e[tag=rockbreak] slowness 10 10 false",
-                "effect @e[tag=rockbreak] nausea 5 10 false",
-                "tag @e[tag=rockbreak] remove rockbreak"
-              ],
-              "target": "self"
-            }
-          },
           {
             "damage":{
               "type":"durability",

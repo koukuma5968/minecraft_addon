@@ -25,14 +25,13 @@
       "states": {
         "default": {
           "transitions": [
-            { "flame_shock": "!query.is_sneaking && query.get_equipped_item_name == 'explosion_staff' && variable.attack_time" },
+            { "mega_brand": "!query.is_sneaking && query.get_equipped_item_name == 'explosion_staff' && variable.attack_time" },
             { "explosion": "!query.is_sneaking && query.get_equipped_item_name == 'explosion_staff' && query.is_using_item" }
           ]
         },
-        "flame_shock": {
+        "mega_brand": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムショック\"}]}",
-            "/function magic/fire/flame_shock"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7メガ・ブランド\"}]}"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}

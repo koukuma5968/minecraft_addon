@@ -4,16 +4,23 @@
     "description": {
       "identifier": "kurokumaft:thrown_bamboo_knife",
       "materials": {
-        "default": "fireball"
+        "default": "arrow"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/knife/bamboo_knife"
+        "default": "textures/kurokumaft/models/knife/bamboo_knife",
+        "loyalty_rope": "textures/entity/loyalty_rope"
       },
       "geometry": {
         "default": "geometry.bamboo_knife"
       },
+      "animations": {
+        "move": "animation.knife.move"
+      },
       "scripts": {
-        "scale": "1.0"
+        "scale": "1.0",
+        "animate": [
+          "move"
+        ]
       },
       "render_controllers": [ "controller.render.thrown_default" ]
     }

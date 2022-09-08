@@ -22,6 +22,9 @@
           }
         ]
       },
+      "minecraft:knockback_resistance": {
+        "protection": 1.0
+      },
       "minecraft:creative_category": {
         "parent": "itemGroup.name.magic_shield"
       },

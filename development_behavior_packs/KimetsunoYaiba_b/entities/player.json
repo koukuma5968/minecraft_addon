@@ -9,11 +9,11 @@
       "scripts":{
         "animate":[
           "kokyu_change",
-          "tanjiro_change","zenitu_change","inosuke_change","giyu_change","kyouzyuro_change","tengen_change","shinobu_change",
+          "tanjiro_change","zenitu_change","inosuke_change","kanawo_change","giyu_change","kyouzyuro_change","tengen_change","shinobu_change",
 
           "mizu_change","hi_change","kaminari_change","hono_change","oto_change",
 
-          "mizu","hi","kaminari","kedamono","hono","oto","mushi",
+          "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi",
 
           "mizu10_attack","hi_dragon_attack","kaminari_attack","hono_attack"
         ]
@@ -24,6 +24,7 @@
         "tanjiro_change": "controller.animation.kokyu.tanjiro_change",
         "zenitu_change": "controller.animation.kokyu.zenitu_change",
         "inosuke_change": "controller.animation.kokyu.inosuke_change",
+        "kanawo_change": "controller.animation.kokyu.kanawo_change",
         "giyu_change": "controller.animation.kokyu.giyu_change",
         "kyouzyuro_change": "controller.animation.kokyu.kyouzyuro_change",
         "tengen_change": "controller.animation.kokyu.tengen_change",
@@ -49,6 +50,9 @@
 
         "kedamono": "controller.animation.kokyu.kedamono",
         "kedamono4_ani": "animation.kata.kedamono4","kedamono5_ani": "animation.kata.kedamono5","kedamono6_ani": "animation.kata.kedamono6","kedamono7_ani": "animation.kata.kedamono7",
+
+        "hana": "controller.animation.kokyu.hana",
+        "hana2_ani": "animation.kata.hana2","hana4_ani": "animation.kata.hana4","hana6_ani": "animation.kata.hana6","hana7_ani": "animation.kata.hana7",
 
         "hono": "controller.animation.kokyu.hono","hono_attack": "controller.animation.kokyu.hono_attack",
         "hono4_ani": "animation.kata.hono4","hono9_ani": "animation.kata.hono9","hono9_2_ani": "animation.kata.hono9_2",

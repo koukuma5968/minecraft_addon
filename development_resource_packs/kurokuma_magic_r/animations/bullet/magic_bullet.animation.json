@@ -1,0 +1,133 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magic_bullet.fire_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "fire_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.magic_bullet.water_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "water_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.magic_bullet.wind_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "wind_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.magic_bullet.ice_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "ice_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.magic_bullet.stone_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "stone_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.magic_bullet.lightning_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "lightning_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.magic_bullet.holly_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "holly_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.magic_bullet.dark_move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "dark_bullet_particle",
+					"locator": "bullet_body"
+				}
+			}
+		}
+	}
+}

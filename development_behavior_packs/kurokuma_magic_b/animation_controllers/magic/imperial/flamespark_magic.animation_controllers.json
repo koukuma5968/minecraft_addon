@@ -25,42 +25,32 @@
       "states": {
         "default": {
           "transitions": [
-            { "flame_shock": "!query.is_sneaking && query.get_equipped_item_name == 'flamespark_staff' && variable.attack_time" },
-            { "flamespark": "!query.is_sneaking && query.get_equipped_item_name == 'flamespark_staff' && query.is_using_item" }
+            { "dig_vault": "!query.is_sneaking && query.get_equipped_item_name == 'flamespark_staff' && variable.attack_time" },
+            { "flame_spark": "!query.is_sneaking && query.get_equipped_item_name == 'flamespark_staff' && query.is_using_item" }
           ]
         },
-        "flame_shock": {
+        "dig_vault": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムショック\"}]}",
-            "/function magic/fire/flame_shock"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ディグ・ヴォルト\"}]}",
+            "/function magic/lightning/dig_vault"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
           ]
         },
-        "flamespark": {
+        "flame_spark": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムスパーク\"}]}",
-            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark1",
-            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark1",
-            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark2",
-            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark2",
-            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark3",
-            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark3",
-            "/tag @e[family=monster,tag=,c=4,r=30] add flamespark4",
-            "/tag @e[family=hoglin,tag=,c=4,r=30] add flamespark4"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6フレイムスパーク\"}]}",
+            "/function magic/lightning/flame_spark/flame_spark1"
           ],
           "transitions": [
             {"flamespark_at":"(1.0)"}
           ]
         },
         "flamespark_at": {
-          "animations" : [ "flamespark_ani" ],
+          "animations" : [ "flame_spark_ani" ],
           "on_exit": [
-            "/tag @e[tag=flamespark1] remove flamespark1",
-            "/tag @e[tag=flamespark2] remove flamespark2",
-            "/tag @e[tag=flamespark3] remove flamespark3",
-            "/tag @e[tag=flamespark4] remove flamespark4"
+            "/function magic/lightning/flame_spark/flame_spark2"
           ],
           "transitions": [
             {"default":"variable.flamespark_magic = (variable.flamespark_magic ?? 0);variable.flamespark_magic = variable.flamespark_magic < 60 ? variable.flamespark_magic + 1:0;return variable.flamespark_magic == 0 && !query.is_using_item;"}

@@ -28,8 +28,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:ice_magic_stone", "kurokumaft:ice_magic_bow" ],
-            "repair_amount": 300
+            "items": [ "kurokumaft:ice_magic_stone" ],
+            "repair_amount": 200
+          },
+          {
+            "items": [ "kurokumaft:ice_magic_bow" ],
+            "repair_amount": 700
           }
         ]
       },

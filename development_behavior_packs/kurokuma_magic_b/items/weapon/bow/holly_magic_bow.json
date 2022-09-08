@@ -1,0 +1,74 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:holly_magic_bow",
+      "category": "equipment"
+    },
+    "components": {
+      "tag:bow": {},
+      "tag:holly_magic_bow": {},
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.holly_magic_bow"
+      },
+      "minecraft:damage": 2,
+		  "minecraft:weapon": {
+      },
+      "minecraft:durability": {
+        "max_durability": 3000
+      },
+      "minecraft:enchantable": {
+        "value": 40,
+        "slot": "bow"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "holly_magic_bow"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:light_magic_stone" ],
+            "repair_amount": 300
+          },
+          {
+            "items": [ "kurokumaft:holly_magic_bow" ],
+            "repair_amount": 1000
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:holly_magic_bow.name"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:use_animation": "bow",
+      "minecraft:use_duration": 1,
+      "minecraft:chargeable": {
+        "movement_modifier": 0.25,
+        "on_complete": {
+          "event":"kurokumaft:holly_magic_arrow"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:holly_magic_arrow": {
+        "sequence":[
+          {
+            "shoot":{
+              "projectile":"kurokumaft:holly_magic_arrow",
+              "angle_offset": 0,
+              "launch_power":1
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

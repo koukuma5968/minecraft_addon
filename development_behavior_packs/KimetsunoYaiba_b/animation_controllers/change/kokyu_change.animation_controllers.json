@@ -11,6 +11,8 @@
             { "zenitu_remove": "query.scoreboard('zenitu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu')" },
             { "inosuke_add": "query.scoreboard('inosuke') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke')" },
             { "inosuke_remove": "query.scoreboard('inosuke') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_inosuke')" },
+            { "kanawo_add": "query.scoreboard('kanawo') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kanawo')" },
+            { "kanawo_remove": "query.scoreboard('kanawo') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kanawo')" },
             { "giyu_add": "query.scoreboard('giyu') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu')" },
             { "giyu_remove": "query.scoreboard('giyu') >= 1 && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu')" },
             { "kyouzyuro_add": "query.scoreboard('kyouzyuro') == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kyouzyuro')" },
@@ -85,6 +87,25 @@
           "on_entry": [
             "/scoreboard players reset @s inosuke",
             "/scoreboard objectives remove inosuke"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "kanawo_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d花の呼吸 弐ノ型\"}]}",
+            "/scoreboard objectives add kanawo dummy",
+            "/scoreboard players set @s kanawo 2"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "kanawo_remove":{
+          "on_entry": [
+            "/scoreboard players reset @s kanawo",
+            "/scoreboard objectives remove kanawo"
           ],
           "transitions": [
             {"default":"(1.0)"}

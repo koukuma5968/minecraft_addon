@@ -1,0 +1,30 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_sword"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "lml",
+      " # "
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:emerald_block"
+      },
+      "m": {
+        "item": "kurokumaft:wind_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:diamond_sword"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wind_magic_sword",
+      "count": 1
+    }
+  }
+  
+}

@@ -19,7 +19,7 @@
       "minecraft:projectile": {
         "on_hit": {
           "impact_damage": {
-            "damage": 1,
+            "damage": 10,
             "knockback": false,
             "catch_fire": false,
             "semi_random_diff_damage": false,
@@ -33,9 +33,9 @@
           },
           "mob_effect": {
             "effect": "slowness",
-            "durationeasy": 250,
-            "durationnormal": 250,
-            "durationhard": 250,
+            "durationeasy": 25,
+            "durationnormal": 25,
+            "durationhard": 25,
             "amplifier": 10
           },
           "stick_in_ground": {

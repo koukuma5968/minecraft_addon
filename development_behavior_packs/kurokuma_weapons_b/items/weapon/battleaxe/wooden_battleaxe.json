@@ -1,0 +1,97 @@
+{
+  "format_version": "1.17",
+  "minecraft:item" : {
+    "description": {
+        "identifier": "kurokumaft:wooden_battleaxe",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:wooden_battleaxe.name"
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "position": [1.0,1.0,-3.5],
+            "scale": [0.2, 0.2, 0.2]
+          },
+          "third_person": {
+            "position": [0.75,2.5,-1.0],
+            "scale": [0.2, 0.2, 0.2]
+          }
+        }
+      },
+      "minecraft:icon":{
+        "texture": "wooden_battleaxe"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.battleaxe"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 80
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:wooden_battleaxe" ],
+            "repair_amount": 5
+          }
+        ]
+      },
+      "minecraft:mining_speed": 1.5,
+      "minecraft:damage": 6,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "axe"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:weapon": {
+          "on_hurt_entity": {
+              "event": "kurokumaft:hurt_weapon"
+          }
+      }
+    },
+    "events": {
+      "kurokumaft:hurt_entity": {
+        "sequence":[
+          {
+            "damage":{
+                "type":"durability",
+                "target":"self",
+                "amount":1
+            }
+          }
+        ]
+      },
+      "kurokumaft:hurt_weapon": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "particle kurokumaft:slash_particle ^ ^1.8 ^2.4"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "damage": {
+              "type": "entity_attack",
+              "target": "other",
+              "amount": 6
+            }
+          },
+          {
+            "damage": {
+              "type": "durability",
+              "target": "self",
+              "amount": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

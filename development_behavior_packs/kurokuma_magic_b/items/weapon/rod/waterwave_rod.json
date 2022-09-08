@@ -17,7 +17,6 @@
       "minecraft:damage": 2,
 		  "minecraft:weapon": {
       },
-      "minecraft:use_duration": 50,
       "minecraft:durability": {
         "max_durability": 500
       },
@@ -26,16 +25,11 @@
         "value": 30,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
-      },
       "minecraft:repairable": {
         "repair_items": [
           {
             "items": [ "kurokumaft:water_magic_stone" ],
-            "repair_amount": 10
+            "repair_amount": 100
           },
           {
             "items": [ "kurokumaft:waterwave_rod" ],
@@ -48,6 +42,9 @@
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:waterwave_rod.name"
+      },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{

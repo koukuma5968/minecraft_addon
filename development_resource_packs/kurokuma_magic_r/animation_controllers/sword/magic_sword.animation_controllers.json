@@ -1,0 +1,32 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.magic_sword.wield" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"first_person": "query.equipped_item_any_tag('slot.weapon.mainhand','magic_sword') && c.is_first_person"},
+						{"third_person": "query.equipped_item_any_tag('slot.weapon.mainhand','magic_sword') && !c.is_first_person"}
+					]
+				},
+				"first_person" : {
+					"animations" : [
+						"first_person"
+					],
+					"transitions" : [
+						{"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','magic_sword') || !c.is_first_person"}
+					]
+				},
+				"third_person" : {
+					"animations" : [
+						"third_person"
+					],
+					"transitions" : [
+						{"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','magic_sword') || c.is_first_person"}
+					]
+				}
+			}
+		}
+    }
+}

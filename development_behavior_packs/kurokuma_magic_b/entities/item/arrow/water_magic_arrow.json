@@ -20,7 +20,7 @@
       "minecraft:projectile": {
         "on_hit": {
           "impact_damage": {
-            "damage": 5,
+            "damage": 15,
             "knockback": false,
             "catch_fire": false,
             "semi_random_diff_damage": false,
@@ -39,12 +39,14 @@
         },
         "filter": "minecraft:player",
         "hit_sound": "bow.hit",
-        "power": 1.5,
+        "power": 2.0,
         "gravity": 0.01,
+        "inertia": 1.0,
+        "liquid_inertia": 1.8,
         "uncertainty_base": 1,
         "uncertainty_multiplier": 0,
         "should_bounce": true,
-        "offset": [ 0, 0, 0 ]
+        "offset": [ -0.2, 0, 0 ]
       },
       "minecraft:behavior.hurt_by_target": {
         "alert_same_type": true,
@@ -80,7 +82,7 @@
       "homing": {
         "run_command": {
           "command": [
-            "execute @s ~~~ tp @s ^^^1 facing @e[family=!inanimate,family=!player,type=!item,type=!xp_orb,r=10,c=1]"
+            "execute @s ~~~ tp @s ^^^1 facing @e[family=monster,r=15,c=1]"
           ],
           "target": "self"
         }

@@ -1,0 +1,73 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.rock_magic.rock_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'rock_rod'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add rock_rod"
+          ],
+          "on_exit": [
+            "/tag @s remove rock_rod"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'rock_rod'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.rock_magic.rock": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "storm_bread": "!query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && variable.attack_time" },
+            { "stone_needle": "query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && variable.attack_time" },
+            { "rock_break": "!query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && query.is_using_item" },
+            { "grey_bomb": "query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && query.is_using_item" }
+          ]
+        },
+        "storm_bread": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンブレード\"}]}",
+            "/function magic/stone/stone_bread"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "stone_needle": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンニードル\"}]}",
+            "/function magic/stone/stone_needle"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "rock_break": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ロックブレイク\"}]}",
+            "/function magic/stone/rock_break"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "grey_bomb": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7グレイボム\"}]}",
+            "/function magic/stone/grey_bomb"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -17,7 +17,6 @@
       "minecraft:damage": 2,
 		  "minecraft:weapon": {
       },
-      "minecraft:use_duration": 25,
       "minecraft:durability": {
         "max_durability": 100
       },
@@ -35,14 +34,21 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:fire_magic_stone", "kurokumaft:fire_wand" ],
+            "items": [ "kurokumaft:fire_magic_stone" ],
             "repair_amount": 10
+          },
+          {
+            "items": [ "kurokumaft:fire_wand" ],
+            "repair_amount": 50
           }
         ]
       },
       "minecraft:shooter" : {
         "charge_on_draw": true,
         "scale_power_by_draw_duration": false
+      },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{

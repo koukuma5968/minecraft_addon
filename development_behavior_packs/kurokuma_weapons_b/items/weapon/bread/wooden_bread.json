@@ -12,19 +12,6 @@
         "minecraft:icon":{
             "texture": "wooden_bread"
         },
-        "minecraft:render_offsets": {
-          "main_hand": {
-            "first_person": {
-              "rotation":[60,60,-20],
-              "position": [70,-10,-130],
-              "scale": [1.5, 1.5, 3]
-            },
-            "third_person": {
-              "position": [-1,-1,-2],
-              "scale": [0.5,0.5,0.5]
-            }
-          }
-        },
         "minecraft:creative_category": {
           "parent": "itemGroup.kurokumaft:itemGroup.name.bread"
         },

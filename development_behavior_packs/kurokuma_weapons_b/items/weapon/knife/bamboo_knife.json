@@ -28,12 +28,17 @@
           }
         ]
       },
+      "minecraft:use_animation": "trident",
       "minecraft:mining_speed": 1.5,
       "minecraft:damage": 1,
       "minecraft:enchantable": {
         "value": 15,
         "slot": "sword"
       },
+      "minecraft:chargeable": {
+        "movement_modifier": 0.25
+      },
+      "minecraft:use_duration": 50,
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
@@ -49,7 +54,7 @@
         ]
       },
       "minecraft:throwable": {
-        "do_swing_animation": false,
+        "do_swing_animation": true,
         "min_draw_duration": 0.5,
         "max_draw_duration": 1.0,
         "scale_power_by_draw_duration": true

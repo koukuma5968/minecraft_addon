@@ -28,8 +28,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:fire_magic_stone", "kurokumaft:fire_magic_bow" ],
+            "items": [ "kurokumaft:fire_magic_stone" ],
             "repair_amount": 300
+          },
+          {
+            "items": [ "kurokumaft:fire_magic_bow" ],
+            "repair_amount": 800
           }
         ]
       },

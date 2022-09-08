@@ -95,7 +95,9 @@
         "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
         "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle",
         "hono_blead_particle": "kurokumaft:hono_blead_particle",
-        "mushi_chou_particle": "kurokumaft:mushi_chou_particle"
+        "mushi_chou_particle": "kurokumaft:mushi_chou_particle",
+        "hana_bread_particle": "kurokumaft:hana_bread_particle",
+        "hana_shi_particle": "kurokumaft:hana_shi_particle"
       },
       "scripts": {
         "scale": "0.9375",
@@ -167,6 +169,7 @@
           {"zenitu.kokyu_con": "variable.equipped_zenitu"},
           {"zenitu_attack.kokyu_con": "variable.equipped_zenitu && query.variant == 1"},
           {"inosuke.kokyu_con": "variable.equipped_inosuke"},
+          {"kanawo.kokyu_con": "variable.equipped_kanawo"},
 
           {"giyu.kokyu_con": "variable.equipped_giyu"},
           {"kyouzyuro.kokyu_con": "variable.equipped_kyouzyuro"},
@@ -369,6 +372,12 @@
         "inosuke.hati_1": "animation.nichirintou_kokyu.inosuke.hati_1",
         "inosuke.ku_1": "animation.nichirintou_kokyu.inosuke.ku_1",
         "inosuke.tou_1": "animation.nichirintou_kokyu.inosuke.tou_1",
+
+        "kanawo.kokyu_con":"controller.animation.kanawo.kokyu",
+        "kanawo.ni_1": "animation.nichirintou_kokyu.kanawo.ni_1",
+        "kanawo.shi_1": "animation.nichirintou_kokyu.kanawo.shi_1",
+        "kanawo.go_1": "animation.nichirintou_kokyu.kanawo.go_1",
+        "kanawo.roku_1": "animation.nichirintou_kokyu.kanawo.roku_1",
 
         "giyu.kokyu_con":"controller.animation.giyu.kokyu",
         "giyu.ichi_1": "animation.nichirintou_kokyu.giyu.ichi_1",

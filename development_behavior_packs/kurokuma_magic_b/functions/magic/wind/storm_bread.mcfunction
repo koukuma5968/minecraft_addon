@@ -1,2 +1,2 @@
 particle kurokumaft:storm_bread_particle ^ ^1.8 ^3.5
-damage @e[ry=-10,rym=10,r=4] 2 fall
+execute @s ^^^2 damage @e[family=!player,r=4] 4 fall

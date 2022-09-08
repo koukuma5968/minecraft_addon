@@ -1,0 +1,30 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:thunder_magic_sword"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "lml",
+      " # "
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:glowstone"
+      },
+      "m": {
+        "item": "kurokumaft:lightning_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:diamond_sword"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:thunder_magic_sword",
+      "count": 1
+    }
+  }
+  
+}

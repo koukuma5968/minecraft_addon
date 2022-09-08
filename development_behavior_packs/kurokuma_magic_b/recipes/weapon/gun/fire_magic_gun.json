@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_gun"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "m##",
+      " d#",
+      "  #"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:magma"
+      },
+      "m": {
+        "item": "kurokumaft:fire_magic_stone"
+      },
+      "d": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:fire_magic_gun"
+    }
+  }
+}

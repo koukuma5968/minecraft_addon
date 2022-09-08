@@ -1,0 +1,49 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:rainbow_magic_sword"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "fmi",
+      "d#h",
+      "swt"
+    ],
+    "key": {
+      "d": {
+        "item": "kurokumaft:dark_magic_sword"
+      },
+      "f": {
+        "item": "kurokumaft:fire_magic_sword"
+      },
+      "h": {
+        "item": "kurokumaft:holly_magic_sword"
+      },
+      "i": {
+        "item": "kurokumaft:ice_magic_sword"
+      },
+      "s": {
+        "item": "kurokumaft:stone_magic_sword"
+      },
+      "t": {
+        "item": "kurokumaft:thunder_magic_sword"
+      },
+      "w": {
+        "item": "kurokumaft:wind_magic_sword"
+      },
+      "m": {
+        "item": "kurokumaft:water_magic_sword"
+      },
+      "#": {
+        "item": "minecraft:netherite_sword"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:rainbow_magic_sword",
+      "count": 1
+    }
+  }
+  
+}

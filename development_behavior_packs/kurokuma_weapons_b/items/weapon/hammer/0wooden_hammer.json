@@ -50,10 +50,10 @@
         "max_draw_duration": 1.0,
         "scale_power_by_draw_duration": true
       },
-      // "minecraft:projectile": {
-      //   "projectile_entity": "kurokumaft:wooden_hammer",
-      //   "minimum_critical_power": 1.0
-      // },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:wooden_hammer",
+        "minimum_critical_power": 1.0
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:wooden_hammer.name"
       },

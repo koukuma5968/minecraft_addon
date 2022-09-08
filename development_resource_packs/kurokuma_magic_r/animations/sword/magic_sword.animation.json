@@ -1,0 +1,185 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magic_sword.fire_wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-10, 0, 0],
+					"position": [-1, -3, -1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "fire_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.fire_wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-28.99985, 70.6486, -48.47227],
+					"position": [6, -1, 2]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "fire_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.ice_wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-10, 0, 0],
+					"position": [-1, -3, -1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "ice_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.ice_wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-28.99985, 70.6486, -48.47227],
+					"position": [6, -1, 2]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "ice_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.water_wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-10, 0, 0],
+					"position": [-1, -3, -1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "water_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.water_wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-28.99985, 70.6486, -48.47227],
+					"position": [6, -1, 2]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "water_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.wind_wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-10, 0, 0],
+					"position": [-1, -3, -1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "wind_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.wind_wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-28.99985, 70.6486, -48.47227],
+					"position": [6, -1, 2]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "wind_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.stone_wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-10, 0, 0],
+					"position": [-1, -3, -1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "stone_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.stone_wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-28.99985, 70.6486, -48.47227],
+					"position": [6, -1, 2]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "stone_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.thunder_wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-10, 0, 0],
+					"position": [-1, -3, -1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "thunder_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		},
+		"animation.magic_sword.thunder_wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightitem": {
+					"rotation": [-28.99985, 70.6486, -48.47227],
+					"position": [6, -1, 2]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "thunder_sword_particle",
+					"locator": "magic_sword"
+				}
+			}
+		}
+	}
+}

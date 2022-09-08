@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_helmet_to_magicstone"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "ihi",
+      "imi",
+      "   "
+    ],
+    "key": {
+      "h": {
+        "item": "minecraft:diamond_helmet"
+      },
+      "m": {
+        "item": "kurokumaft:wind_magic_stone"
+      },
+      "i": {
+        "item": "minecraft:emerald_block"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wind_magic_helmet",
+      "count": 1
+    }
+  }
+  
+}
