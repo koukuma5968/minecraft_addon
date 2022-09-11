@@ -9,7 +9,8 @@
             { "fire_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_magic_gun') && query.scoreboard('fire_magic_gun') >= 10 && query.is_using_item" },
             { "water_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_gun') && query.scoreboard('water_magic_gun') < 10 && query.is_using_item" },
             { "water_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_gun') && query.scoreboard('water_magic_gun') >= 10 && query.is_using_item" },
-            { "wind_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_gun') && query.is_using_item" },
+            { "wind_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_gun') && query.scoreboard('wind_magic_gun') < 10 && query.is_using_item" },
+            { "wind_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_gun') && query.scoreboard('wind_magic_gun') >= 10 && query.is_using_item" },
             { "stone_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','stone_magic_gun') && query.is_using_item" },
             { "ice_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','ice_magic_gun') && query.is_using_item" },
             { "lightning_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','lightning_magic_gun') && query.is_using_item" },
@@ -51,13 +52,13 @@
         "water_magic_gun_att":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターバースト\"}]}",
-            "/event entity @s kurokumaft:burst",
+            "/event entity @s kurokumaft:wind_magic_gun_burst",
             "/scoreboard players reset @s water_magic_gun",
             "/scoreboard objectives remove water_magic_gun",
             "/event entity @s variant0"
           ],
           "on_exit": [
-            "/event entity @s kurokumaft:burst_remove"
+            "/event entity @s kurokumaft:wind_magic_gun_burst_remove"
           ],
           "transitions": [
             {"default":"(1.0)"}
@@ -66,13 +67,26 @@
         "wind_magic_gun":{
           "animations" : [ "wind_magic_gun_frame" ],
           "on_entry": [
-          ],
-          "on_exit": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aウィンドアロー\"}]}",
-            "/event entity @s variant0"
+            "/scoreboard objectives add wind_magic_gun dummy",
+            "/scoreboard players set @s wind_magic_gun 0"
           ],
           "transitions": [
-            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "wind_magic_gun_att":{
+          "animations" : [ "wind_magic_gun_shot" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aテンペストファング\"}]}",
+            "/scoreboard players reset @s wind_magic_gun",
+            "/scoreboard objectives remove wind_magic_gun",
+            "/event entity @s variant0"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:wind_magic_gun_burst_remove"
+          ],
+          "transitions": [
+            {"default":"variable.attack = (variable.attack ?? 0);variable.attack = variable.attack < 40 ? variable.attack + 1:0;return variable.attack == 0;"}
           ]
         },
         "stone_magic_gun":{

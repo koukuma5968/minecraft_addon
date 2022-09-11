@@ -108,14 +108,58 @@
 				"0.0": [
 					"/event entity @s variant0"
 				],
-				"0.02": [
-					"/event entity @s variant1"
+				"0.1": [
+					"/event entity @s variant1",
+					"/scoreboard players add @s wind_magic_gun 1"
 				],
-				"0.06": [
-					"/event entity @s variant2"
+				"0.2": [
+					"/event entity @s variant2",
+					"/scoreboard players add @s wind_magic_gun 1"
 				],
-				"0.10": [
-					"/event entity @s variant3"
+				"0.3": [
+					"/event entity @s variant3",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"0.4": [
+					"/event entity @s variant4",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"0.5": [
+					"/event entity @s variant5",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"0.6": [
+					"/event entity @s variant6",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"0.7": [
+					"/event entity @s variant7",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"0.8": [
+					"/event entity @s variant8",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"0.9": [
+					"/event entity @s variant9",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"1.0": [
+					"/event entity @s variant10",
+					"/scoreboard players add @s wind_magic_gun 1"
+				],
+				"1.1": [
+					"/event entity @s variant11",
+					"/scoreboard players add @s wind_magic_gun 1"
+				]
+			}
+		},
+		"animation.magic_gun.wind_magic_gun_shot": {
+			"animation_length": 0.3,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/event entity @s kurokumaft:wind_magic_gun_burst"
 				]
 			}
 		},

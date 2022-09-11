@@ -4,7 +4,7 @@
         "description": "武器アドオン",
         "name": "kurokuma_weapons_r",
         "uuid": "73c6da0a-0ae1-4d2e-8b75-000428e43aae",
-        "version": [1, 0, 1],
+        "version": [1, 0, 2],
         "min_engine_version": [1,17,0]
     },
     "modules": [
@@ -12,7 +12,7 @@
             "description": "武器アドオン",
             "type": "resources",
             "uuid": "878ab913-c67c-48f0-8ba6-22b91e9a9902",
-            "version": [1, 0, 1]
+            "version": [1, 0, 2]
         }
     ]
 }

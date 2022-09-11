@@ -83,7 +83,7 @@
 
         "fire_magic_gun_frame": "animation.magic_gun.fire_magic_gun_frame",
         "water_magic_gun_frame": "animation.magic_gun.water_magic_gun_frame",
-        "wind_magic_gun_frame": "animation.magic_gun.wind_magic_gun_frame",
+        "wind_magic_gun_frame": "animation.magic_gun.wind_magic_gun_frame","wind_magic_gun_shot": "animation.magic_gun.wind_magic_gun_shot",
         "stone_magic_gun_frame": "animation.magic_gun.stone_magic_gun_frame",
         "ice_magic_gun_frame": "animation.magic_gun.ice_magic_gun_frame",
         "lightning_magic_gun_frame": "animation.magic_gun.lightning_magic_gun_frame",
@@ -174,7 +174,7 @@
         } 
       },
 
-      "kurokumaft:burst": {
+      "kurokumaft:water_magic_gun_burst": {
         "minecraft:spawn_entity": {
           "entities": [
             {
@@ -227,6 +227,20 @@
               "max_wait_time": 0,
               "spawn_entity": "kurokumaft:water_magic_bullet",
               "spawn_event": "kurokumaft:projectile_6",
+              "single_use": true,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
+        }
+      },
+      "kurokumaft:wind_magic_gun_burst": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "spawn_entity": "kurokumaft:wind_magic_bullet",
               "single_use": true,
               "num_to_spawn": 1,
               "should_leash": false
@@ -872,18 +886,33 @@
         }
 			},
 
-      "kurokumaft:burst": {
+      "kurokumaft:water_magic_gun_burst": {
         "sequence":[
           {
             "add": {
-              "component_groups": [ "kurokumaft:burst" ]
+              "component_groups": [ "kurokumaft:water_magic_gun_burst" ]
             }
           }
         ]
       },
-      "kurokumaft:burst_remove": {
+      "kurokumaft:water_magic_gun_burst_remove": {
 				"remove": {
-          "component_groups": [ "kurokumaft:burst" ]
+          "component_groups": [ "kurokumaft:water_magic_gun_burst" ]
+        }
+      },
+
+      "kurokumaft:wind_magic_gun_burst": {
+        "sequence":[
+          {
+            "add": {
+              "component_groups": [ "kurokumaft:wind_magic_gun_burst" ]
+            }
+          }
+        ]
+      },
+      "kurokumaft:wind_magic_gun_burst_remove": {
+				"remove": {
+          "component_groups": [ "kurokumaft:wind_magic_gun_burst" ]
         }
       }
     }

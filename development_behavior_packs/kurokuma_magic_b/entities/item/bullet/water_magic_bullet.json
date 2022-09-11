@@ -6,15 +6,7 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball",
-      "scripts":{
-        "animate":[
-          "water_magic_bullet_frame"
-        ]
-      },
-      "animations":{
-        "water_magic_bullet_frame": "animation.magic_bullet.water_magic_bullet_frame"
-      }
+      "runtime_identifier": "minecraft:snowball"
     },
     "component_groups": {
       "kurokumaft:projectile_1": {

@@ -373,6 +373,23 @@
             "textures/kurokumaft/items/gun/water/water_magic_gun_charge_9",
             "textures/kurokumaft/items/gun/water/water_magic_gun_charge_full"
          ]
+      },
+      "wind_magic_gun": {
+         "textures" : "textures/kurokumaft/items/gun/wind/wind_magic_gun_empty"
+      },
+      "wind_magic_gun_charge" : {
+         "textures" : [
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_1",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_2",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_3",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_4",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_5",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_6",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_7",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_8",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_9",
+            "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_full"
+         ]
       }
 
    },

@@ -18,6 +18,15 @@
 					"/damage @e[family=!player,r=3.5] 5 drowning"
 				]
 			}
+		},
+		"animation.magic_bullet.wind_magic_bullet_frame": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.2": [
+					"/execute @e[family=!player,r=4.5] ~~~ summon kurokumaft:burstflaremagic ~~~ minecraft:explode"
+				]
+			}
 		}
 	}
 }

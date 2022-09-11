@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_bullet",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": ""
+      },
+      "geometry": {
+        "default": "geometry.magic_bullet"
+      },
+      "animations": {
+        "move": "animation.magic_bullet.wind_move"
+      },
+      "particle_effects": {
+        "wind_bullet_particle": "kurokumaft:wind_bullet_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}
