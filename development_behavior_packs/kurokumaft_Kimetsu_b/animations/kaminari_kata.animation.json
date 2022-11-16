@@ -7,21 +7,25 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_kaminari5",
+					"/execute @s ~~~ tp @s ^1^^1 true",
 					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
 					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
 				],
 				"0.2": [
 					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ^2^^2 true",
 					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
 					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
 				],
 				"0.4": [
 					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ^-1^^1 true",
 					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
 					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
 				],
 				"0.6": [
 					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ^-2^^-2 true",
 					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
 					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning",
 					"/tag @s remove kokyu_kaminari5"

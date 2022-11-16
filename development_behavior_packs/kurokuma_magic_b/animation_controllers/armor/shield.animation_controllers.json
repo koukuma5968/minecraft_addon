@@ -1,22 +1,187 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
-    "controller.animation.armor.shield": {
+    "controller.animation.armor.main_shield": {
       "states": {
         "default": {
           "transitions": [
-            { "shield_guard": "(query.equipped_item_any_tag('slot.weapon.mainhand','shield') || query.equipped_item_any_tag('slot.weapon.offhand','shield')) && query.is_sneaking" }
+            {"fire_shield_guard":"query.equipped_item_any_tag('slot.weapon.mainhand','fire_shield') && query.is_sneaking"},
+            {"water_shield_guard":"query.equipped_item_any_tag('slot.weapon.mainhand','water_shield') && query.is_sneaking"},
+            {"wind_shield_guard":"query.equipped_item_any_tag('slot.weapon.mainhand','wind_shield') && query.is_sneaking"},
+            {"thunder_shield_guard":"query.equipped_item_any_tag('slot.weapon.mainhand','thunder_shield') && query.is_sneaking"},
+            {"ice_magic_shield":"query.equipped_item_any_tag('slot.weapon.mainhand','ice_shield') && query.is_sneaking"},
+            {"stone_magic_shield":"query.equipped_item_any_tag('slot.weapon.mainhand','stone_shield') && query.is_sneaking"}
           ]
         },
-        "shield_guard":{
+        "fire_shield_guard":{
           "on_entry": [
-            "/tag @s add shield_guard"
+            "/tag @s add main_shield_guard",
+            "/tag @s add fire_magic_shield_main"
           ],
           "on_exit": [
-            "/tag @s remove shield_guard"
+            "/tag @s remove main_shield_guard",
+            "/tag @s remove fire_magic_shield_main"
           ],
           "transitions": [
-            {"default":"!query.is_sneaking"}
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','fire_shield') || !query.is_sneaking"}
+          ]
+        },
+        "water_shield_guard":{
+          "on_entry": [
+            "/tag @s add main_shield_guard",
+            "/tag @s add water_magic_shield_main"
+          ],
+          "on_exit": [
+            "/tag @s remove main_shield_guard",
+            "/tag @s remove water_magic_shield_main"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','water_shield') || !query.is_sneaking"}
+          ]
+        },
+        "wind_shield_guard":{
+          "on_entry": [
+            "/tag @s add main_shield_guard",
+            "/tag @s add wind_magic_shield_main"
+          ],
+          "on_exit": [
+            "/tag @s remove main_shield_guard",
+            "/tag @s remove wind_magic_shield_main"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','wind_shield') || !query.is_sneaking"}
+          ]
+        },
+        "thunder_shield_guard":{
+          "on_entry": [
+            "/tag @s add main_shield_guard",
+            "/tag @s add thunder_magic_shield_main"
+          ],
+          "on_exit": [
+            "/tag @s remove main_shield_guard",
+            "/tag @s remove thunder_magic_shield_main"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','thunder_shield') || !query.is_sneaking"}
+          ]
+        },
+        "ice_magic_shield":{
+          "on_entry": [
+            "/tag @s add main_shield_guard",
+            "/tag @s add ice_magic_shield_main"
+          ],
+          "on_exit": [
+            "/tag @s remove main_shield_guard",
+            "/tag @s remove ice_magic_shield_main"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','ice_shield') || !query.is_sneaking"}
+          ]
+        },
+        "stone_magic_shield":{
+          "on_entry": [
+            "/tag @s add main_shield_guard",
+            "/tag @s add stone_magic_shield_main"
+          ],
+          "on_exit": [
+            "/tag @s remove main_shield_guard",
+            "/tag @s remove stone_magic_shield_main"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','stone_shield') || !query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.armor.off_shield": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"fire_shield_guard":"query.equipped_item_any_tag('slot.weapon.offhand','fire_shield') && query.is_sneaking"},
+            {"water_shield_guard":"query.equipped_item_any_tag('slot.weapon.offhand','water_shield') && query.is_sneaking"},
+            {"wind_shield_guard":"query.equipped_item_any_tag('slot.weapon.offhand','wind_shield') && query.is_sneaking"},
+            {"thunder_shield_guard":"query.equipped_item_any_tag('slot.weapon.offhand','thunder_shield') && query.is_sneaking"},
+            {"ice_magic_shield":"query.equipped_item_any_tag('slot.weapon.offhand','ice_shield') && query.is_sneaking"},
+            {"stone_magic_shield":"query.equipped_item_any_tag('slot.weapon.offhand','stone_shield') && query.is_sneaking"}
+          ]
+        },
+
+        "fire_shield_guard":{
+          "on_entry": [
+            "/tag @s add off_shield_guard",
+            "/tag @s add fire_magic_shield_off"
+          ],
+          "on_exit": [
+            "/tag @s remove off_shield_guard",
+            "/tag @s remove fire_magic_shield_off"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','fire_shield') || !query.is_sneaking"}
+          ]
+        },
+        "water_shield_guard":{
+          "on_entry": [
+            "/tag @s add off_shield_guard",
+            "/tag @s add water_magic_shield_off"
+          ],
+          "on_exit": [
+            "/tag @s remove off_shield_guard",
+            "/tag @s remove water_magic_shield_off"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','water_shield') || !query.is_sneaking"}
+          ]
+        },
+        "wind_shield_guard":{
+          "on_entry": [
+            "/tag @s add off_shield_guard",
+            "/tag @s add wind_magic_shield_off"
+          ],
+          "on_exit": [
+            "/tag @s remove off_shield_guard",
+            "/tag @s remove wind_magic_shield_off"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','wind_shield') || !query.is_sneaking"}
+          ]
+        },
+        "thunder_shield_guard":{
+          "on_entry": [
+            "/tag @s add off_shield_guard",
+            "/tag @s add thunder_magic_shield_off"
+          ],
+          "on_exit": [
+            "/tag @s remove off_shield_guard",
+            "/tag @s remove thunder_magic_shield_off"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','thunder_shield') || !query.is_sneaking"}
+          ]
+        },
+        "ice_magic_shield":{
+          "on_entry": [
+            "/tag @s add off_shield_guard",
+            "/tag @s add ice_magic_shield_off"
+          ],
+          "on_exit": [
+            "/tag @s remove off_shield_guard",
+            "/tag @s remove ice_magic_shield_off"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','ice_shield') || !query.is_sneaking"}
+          ]
+        },
+        "stone_magic_shield":{
+          "on_entry": [
+            "/tag @s add off_shield_guard",
+            "/tag @s add stone_magic_shield_off"
+          ],
+          "on_exit": [
+            "/tag @s remove off_shield_guard",
+            "/tag @s remove stone_magic_shield_off"
+          ],
+          "transitions": [
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','stone_shield') || !query.is_sneaking"}
           ]
         }
       }

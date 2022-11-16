@@ -20,7 +20,8 @@
 
       "red_iron_shovel": { 
          "textures": "textures/kurokumaft/items/shovel/red_iron_shovel"
-      }
+     }
+ 
    },
    "texture_name" : "atlas.items"
 }

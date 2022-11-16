@@ -17,8 +17,8 @@
       "minecraft:creative_category": {
         "parent": "itemGroup.name.nichirintou"
       },
-      "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,
+      "minecraft:max_stack_size": 1,
       "minecraft:durability": {
         "max_durability": 150
       },
@@ -40,11 +40,6 @@
         "value": 50,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
-      },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
@@ -59,10 +54,9 @@
           }
         ]
       },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "hurt_entity",
-          "target": "self"
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "hurt_entity"
         }
       },
       "minecraft:wearable": {

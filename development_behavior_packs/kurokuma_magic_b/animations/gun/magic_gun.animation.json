@@ -7,48 +7,37 @@
 					"/event entity @s variant0"
 				],
 				"1": [
-					"/event entity @s variant1",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant1"
 				],
 				"2": [
-					"/event entity @s variant2",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant2"
 				],
 				"3": [
-					"/event entity @s variant3",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant3"
 				],
 				"4": [
-					"/event entity @s variant4",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant4"
 				],
 				"5": [
-					"/event entity @s variant5",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant5"
 				],
 				"6": [
-					"/event entity @s variant6",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant6"
 				],
 				"7": [
-					"/event entity @s variant7",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant7"
 				],
 				"8": [
-					"/event entity @s variant8",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant8"
 				],
 				"9": [
-					"/event entity @s variant9",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant9"
 				],
 				"10": [
-					"/event entity @s variant10",
-					"/scoreboard players add @s fire_magic_gun 1"
+					"/event entity @s variant10"
 				],
-				"11": [
-					"/event entity @s variant11",
-					"/scoreboard players add @s fire_magic_gun 1"
+				"10.1": [
+					"/event entity @s variant11"
 				]
 			}
 		},
@@ -58,48 +47,37 @@
 					"/event entity @s variant0"
 				],
 				"0.25": [
-					"/event entity @s variant1",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant1"
 				],
 				"0.5": [
-					"/event entity @s variant2",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant2"
 				],
 				"0.75": [
-					"/event entity @s variant3",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant3"
 				],
 				"1": [
-					"/event entity @s variant4",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant4"
 				],
 				"1.25": [
-					"/event entity @s variant5",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant5"
 				],
 				"1.5": [
-					"/event entity @s variant6",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant6"
 				],
 				"1.75": [
-					"/event entity @s variant7",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant7"
 				],
 				"2": [
-					"/event entity @s variant8",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant8"
 				],
 				"2.25": [
-					"/event entity @s variant9",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant9"
 				],
 				"2.5": [
-					"/event entity @s variant10",
-					"/scoreboard players add @s water_magic_gun 1"
+					"/event entity @s variant10"
 				],
-				"2.75": [
-					"/event entity @s variant11",
-					"/scoreboard players add @s water_magic_gun 1"
+				"2.51": [
+					"/event entity @s variant11"
 				]
 			}
 		},
@@ -109,48 +87,37 @@
 					"/event entity @s variant0"
 				],
 				"0.1": [
-					"/event entity @s variant1",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant1"
 				],
 				"0.2": [
-					"/event entity @s variant2",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant2"
 				],
 				"0.3": [
-					"/event entity @s variant3",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant3"
 				],
 				"0.4": [
-					"/event entity @s variant4",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant4"
 				],
 				"0.5": [
-					"/event entity @s variant5",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant5"
 				],
 				"0.6": [
-					"/event entity @s variant6",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant6"
 				],
 				"0.7": [
-					"/event entity @s variant7",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant7"
 				],
 				"0.8": [
-					"/event entity @s variant8",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant8"
 				],
 				"0.9": [
-					"/event entity @s variant9",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant9"
 				],
 				"1.0": [
-					"/event entity @s variant10",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant10"
 				],
 				"1.1": [
-					"/event entity @s variant11",
-					"/scoreboard players add @s wind_magic_gun 1"
+					"/event entity @s variant11"
 				]
 			}
 		},
@@ -208,6 +175,30 @@
 				],
 				"1.5": [
 					"/event entity @s variant3"
+				],
+				"2.0": [
+					"/event entity @s variant4"
+				],
+				"2.5": [
+					"/event entity @s variant5"
+				],
+				"3.0": [
+					"/event entity @s variant6"
+				],
+				"3.5": [
+					"/event entity @s variant7"
+				],
+				"4.0": [
+					"/event entity @s variant8"
+				],
+				"4.5": [
+					"/event entity @s variant9"
+				],
+				"5.0": [
+					"/event entity @s variant10"
+				],
+				"5.1": [
+					"/event entity @s variant11"
 				]
 			}
 		},

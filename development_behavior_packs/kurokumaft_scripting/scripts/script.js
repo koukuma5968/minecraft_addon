@@ -1,18 +1,69 @@
-import { world } from "mojang-minecraft";
+import { world } from "@minecraft/server";
+
+world.events.itemUseOn.subscribe(event => {
+    if (hitEntity.typeId === "minecraft:armor_stand") {
+        print(event.source, event.item.typeId);
+    }
+});
 
 world.events.entityHit.subscribe(event => {
-    let entity = event.hitEntity;
-    var players = world.getPlayers();
-    for(var player of players) {
-        if (!(entity === undefined) && player.nameTag == entity.nameTag) {
-            var tags = player.getTags();
-            for(var tag of tags) {
-                if (tag == "shield_guard") {
-                    print(entity, entity.nameTag);
-                }
+    if (!(event.hitEntity === undefined)) {
+        let hitEntity = event.hitEntity;
+        if (hitEntity.typeId === "minecraft:armor_stand") {
+            let objs = world.scoreboard.getObjectives();
+            let entity = event.entity;
+            var comps = entity.getComponents();
+            for (var i=0; i<comps.length; i++) {
+                print(entity, comps[i].typeId);
             }
+            var x = false; 
+            var y = false; 
+            var z = false; 
+            for (var i=0; i<objs.length; i++) {
+                print(entity, objs[i].id);
+                if (objs[i].id === "home_x") {
+                    var x = true; 
+                }
+                if (objs[i].id === "home_y") {
+                    var y = true; 
+                }
+                if (objs[i].id === "home_z") {
+                    var z = true; 
+                }
+            };
+            var command = "";
+            if (!x) {
+                command = "scoreboard objectives add home_x dummy";
+                entity.runCommand(command);
+            }
+            if (!y) {
+                command = "scoreboard objectives add home_y dummy";
+                entity.runCommand(command);
+            }
+            if (!z) {
+                command = "scoreboard objectives add home_z dummy";
+                entity.runCommand(command);
+            }
+            command = "scoreboard players add ";
+
         }
+    } else if (!(event.hitBlock === undefined)) {
+        let block = event.hitBlock;
+        print(event.entity, block.typeId);
     }
+
+});
+
+// world.events.itemStopCharge.subscribe(event => {
+//     let item = event.itemStack;
+//     print(event.source, item.typeId);
+//     home_tp(event.source);
+// });
+
+world.events.entityHurt.subscribe(event => {
+    let entity = event.hurtEntity;
+    print(entity, event.damage);
+
 });
 
 function shield_guard(entity) {
@@ -42,5 +93,10 @@ function shield_guard(entity) {
 
 function print(entity, value) {
     let text = "say \"" + value + "\""
+    entity.runCommand(text);
+};
+
+function home_tp(entity) {
+    let text = "tp @s " + home_base
     entity.runCommand(text);
 };

@@ -390,6 +390,61 @@
             "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_9",
             "textures/kurokumaft/items/gun/wind/wind_magic_gun_charge_full"
          ]
+      },
+      "lightning_magic_gun": {
+         "textures" : "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_empty"
+      },
+      "lightning_magic_gun_charge" : {
+         "textures" : [
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_1",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_2",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_3",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_4",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_5",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_6",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_7",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_8",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_9",
+            "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_full"
+         ]
+      },
+
+      "fire_magic_bread": {
+         "textures" : "textures/kurokumaft/items/bread/fire_magic_bread"
+      },
+
+      "magma_blow": {
+         "textures" : "textures/kurokumaft/items/globe/magma_blow"
+      },
+
+      "fire_flagstone": {
+         "textures" : "textures/kurokumaft/items/flagstone/fire_flagstone"
+      },
+
+      "fire_grimoire": {
+         "textures" : "textures/kurokumaft/items/grimoire/fire_grimoire"
+      },
+
+      "fire_horse_summon_stone": {
+         "textures" : "textures/kurokumaft/items/summon_stone/fire_horse_summon_stone"
+      },
+      "storm_eagle_summon_stone": {
+         "textures" : "textures/kurokumaft/items/summon_stone/storm_eagle_summon_stone"
+      },
+
+      "repatriation_fruit": {
+         "textures" : "textures/kurokumaft/items/food/repatriation_fruit"
+      },
+
+      "home_gate": {
+         "textures" : "textures/kurokumaft/blocks/home_gate"
+      },
+
+      "magic_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/egg/egg_maguma_golem",
+            "textures/kurokumaft/items/egg/egg_blue_ice_golem"
+         ]
       }
 
    },

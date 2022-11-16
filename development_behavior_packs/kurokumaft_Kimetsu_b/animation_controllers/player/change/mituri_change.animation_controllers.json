@@ -1,0 +1,63 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.mituri_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "mituri1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 6 && query.is_sneaking" },
+            { "mituri2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 1 && query.is_sneaking" },
+            { "mituri3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 2 && query.is_sneaking" },
+            { "mituri5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 3 && query.is_sneaking" },
+            { "mituri6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 5 && query.is_sneaking" }
+          ]
+        },
+        "mituri1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mituri2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋の呼吸 弐ノ型\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mituri3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋の呼吸 参ノ型\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mituri5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mituri6":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋の呼吸 陸ノ型\"}]}",
+            "/event entity @s variant6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -7,6 +7,7 @@
     },
     "components": {
       "tag:shield": {},
+      "tag:fire_shield": {},
       "minecraft:use_duration":5,
       "minecraft:display_name": {
         "value": "item.kurokumaft:fire_magic_shield.name"

@@ -1,0 +1,206 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.giyu.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"giyu1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu6_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 6 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu7_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 7 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu8_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 8 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu9_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 9 && query.mark_variant == 1 && variable.attack_time && !query.is_jumping"},
+						{"giyu9_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 9 && query.mark_variant == 1 && variable.attack_time && query.is_jumping"},
+						{"giyu10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 10 && query.mark_variant == 2"},
+						{"giyu10_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 101 && query.mark_variant == 3"},
+						{"giyu11_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 11 && query.mark_variant == 1 && variable.attack_time"}
+					]
+				},
+				"giyu1_1" : {
+					"animations" : [
+						{"giyu.ichi_1_first": "variable.is_first_person"},
+						{"giyu.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu1_2":"!query.is_using_item"}
+					]
+				},
+				"giyu1_2" : {
+					"animations" : [
+						{"giyu.ichi_2_first": "variable.is_first_person"},
+						{"giyu.ichi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu2_1" : {
+					"animations" : [
+						{"giyu.ni_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu3_1" : {
+					"animations" : [
+						{"giyu.san_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu3_2":"query.any_animation_finished"}
+					]
+				},
+				"giyu3_2" : {
+					"animations" : [
+						{"giyu.san_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu3_3":"query.any_animation_finished"}
+					]
+				},
+				"giyu3_3" : {
+					"animations" : [
+						{"giyu.san_3": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu4_1" : {
+					"animations" : [
+						{"giyu.shi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu4_2":"query.any_animation_finished"}
+					]
+				},
+				"giyu4_2" : {
+					"animations" : [
+						{"giyu.shi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu5_1" : {
+					"animations" : [
+						{"giyu.go_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu5_2":"!query.is_using_item"}
+					]
+				},
+				"giyu5_2" : {
+					"animations" : [
+						{"giyu.go_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu6_1" : {
+					"animations" : [
+						{"giyu.roku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu6_2":"!query.is_using_item"}
+					]
+				},
+				"giyu6_2" : {
+					"animations" : [
+						{"giyu.roku_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu7_1" : {
+					"animations" : [
+						{"giyu.shiti_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu7_2":"!query.is_using_item"}
+					]
+				},
+				"giyu7_2" : {
+					"animations" : [
+						{"giyu.shiti_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu8_1" : {
+					"animations" : [
+						{"giyu.hati_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu8_2":"!query.is_using_item"}
+					]
+				},
+				"giyu8_2" : {
+					"animations" : [
+						{"giyu.hati_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"giyu8_3":"query.any_animation_finished"}
+					]
+				},
+				"giyu8_3" : {
+					"animations" : [
+						{"giyu.hati_3": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu9_1" : {
+					"animations" : [
+						{"giyu.ku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu9_2" : {
+					"animations" : [
+						{"giyu.ku_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu10_1" : {
+					"animations" : [
+						{"giyu.tou_1": "variable.is_first_person"},
+						{"giyu.tou_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu10_2" : {
+					"animations" : [
+						{"giyu.tou_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"giyu11_1" : {
+					"animations" : [
+						{"giyu.zyuichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

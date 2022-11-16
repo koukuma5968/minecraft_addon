@@ -14,11 +14,11 @@
 			"minecraft:block_light_absorption": 3,
 			"minecraft:friction": 0.3,
 			"minecraft:on_step_on": {
-				"event": ":water_damage"
+				"event": "kurokumaft:water_damage"
 			}
 		},
 		"events": {
-			":water_damage": {
+			"kurokumaft:water_damage": {
 			  "damage": {
 				"amount": 1,
 				"target": "other",

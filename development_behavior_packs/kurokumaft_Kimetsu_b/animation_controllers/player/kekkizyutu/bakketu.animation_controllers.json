@@ -1,0 +1,47 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kekkizyutu.bakketu": {
+      "states": {
+        "default": {
+          "variables": {
+            "bakketu": {
+              "input": "variable.bakketu = (variable.bakketu ?? 0);"
+            }
+          },
+          "transitions": [
+            { "bakketu": "query.is_item_name_any('slot.weapon.offhand',0,'kurokumaft:bakketu') && variable.attack_time" }
+          ]
+        },
+        "bakketu":{
+          "animations" : [ "bakketu_target" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"血気術\"}]}",
+            "/tag @s add bakketu",
+            "/tag @e[tag=!bakketu,family=!player,family=!regimental_soldier,r=8] add bakketu_enemy",
+            "/tag @e[tag=!bakketu,family=player,r=8] add bakketu_ally",
+            "/tag @e[tag=!bakketu,family=regimental_soldier,r=8] add bakketu_ally",
+            "/tag @e[tag=!bakketu,family=villager,r=8] add bakketu_ally"
+          ],
+          "transitions": [
+            {"bakketu2":"variable.bakketu = variable.bakketu < 30 ? variable.bakketu + 1:0;return variable.bakketu == 0;"}
+          ]
+        },
+        "bakketu2":{
+          "animations" : [ "bakketu_fire" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"爆血\"}]}"
+          ],
+          "on_exit": [
+            "/tag @s remove bakketu",
+            "/tag @e[tag=bakketu_enemy] remove bakketu_enemy",
+            "/tag @e[tag=bakketu_ally] remove bakketu_ally"
+          ],
+          "transitions": [
+            {"default":"variable.bakketu = variable.bakketu < 80 ? variable.bakketu + 1:0;return variable.bakketu == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

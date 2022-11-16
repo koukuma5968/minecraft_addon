@@ -31,34 +31,41 @@ item.kurokumaft:nichirintou_iwa.name=日輪刀 岩
 item.kurokumaft:nichirintou_hebi.name=日輪刀 蛇
 item.kurokumaft:nichirintou_tuki.name=日輪刀 月
 
+item.kurokumaft:bakketu.name=血気術 爆血
+
 tile.kurokumaft:scarlet_gravel.name=緋の砂利
 tile.kurokumaft:scarlet_ore.name=緋の鉱石
 
 item.kurokumaft:scarlet_ironfish.name=猩々緋砂鉄
 item.kurokumaft:scarlet_nugget.name=猩々緋鉱石
 
-item.kurokumaft:kokyu_mizu1.name=水の呼吸 壱ノ型：水面切り
-item.kurokumaft:kokyu_mizu2.name=水の呼吸 弐ノ型：水車
-item.kurokumaft:kokyu_mizu3.name=水の呼吸 参ノ型：流流舞い
-item.kurokumaft:kokyu_mizu4.name=水の呼吸 肆ノ型：打ち潮
-item.kurokumaft:kokyu_mizu5.name=水の呼吸 伍ノ型：干天の慈雨
-item.kurokumaft:kokyu_mizu6.name=水の呼吸 陸ノ型：ねじれ渦
-item.kurokumaft:kokyu_mizu7.name=水の呼吸 漆ノ型：雫波紋突き
-item.kurokumaft:kokyu_mizu8.name=水の呼吸 捌ノ型：滝壺
-item.kurokumaft:kokyu_mizu9.name=水の呼吸 玖ノ型：水流飛沫・乱
-item.kurokumaft:kokyu_mizu10.name=水の呼吸 拾ノ型：生生流転
-item.kurokumaft:kokyu_mizu11.name=水の呼吸 拾壱ノ型：凪
+entity.kurokumaft:tanjiro.name=竈門 炭次郎
+entity.kurokumaft:zenitu.name=我妻 善逸
+entity.kurokumaft:inosuke.name=嘴平 伊之助
+entity.kurokumaft:kanawo.name=栗花落 カナヲ
+entity.kurokumaft:nezuko.name=竈門 ねずこ
 
-item.kurokumaft:kokyu_hinokami1.name=ヒノカミ神楽 壱ノ型：円舞
-item.kurokumaft:kokyu_hinokami2.name=ヒノカミ神楽 弐ノ型：碧羅の天
-item.kurokumaft:kokyu_hinokami3.name=ヒノカミ神楽 参ノ型：烈日紅鏡
-item.kurokumaft:kokyu_hinokami4.name=ヒノカミ神楽 肆ノ型：灼骨炎陽
-item.kurokumaft:kokyu_hinokami5.name=ヒノカミ神楽 伍ノ型：陽華突
-item.kurokumaft:kokyu_hinokami6.name=ヒノカミ神楽 陸ノ型：日暈の龍 頭舞い
-item.kurokumaft:kokyu_hinokami7.name=ヒノカミ神楽 漆ノ型：斜陽転身
-item.kurokumaft:kokyu_hinokami8.name=ヒノカミ神楽 捌ノ型：飛輪陽炎
-item.kurokumaft:kokyu_hinokami9.name=ヒノカミ神楽 玖ノ型：輝輝恩光
-item.kurokumaft:kokyu_hinokami10.name=ヒノカミ神楽 拾ノ型：火車
-item.kurokumaft:kokyu_hinokami11.name=ヒノカミ神楽 拾壱ノ型：幻日虹
-item.kurokumaft:kokyu_hinokami12.name=ヒノカミ神楽 拾弐ノ型：炎舞
+item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
+item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
+item.spawn_egg.entity.kurokumaft:inosuke.name=嘴平 伊之助
+item.spawn_egg.entity.kurokumaft:kanawo.name=栗花落 カナヲ
+item.spawn_egg.entity.kurokumaft:nezuko.name=竈門 ねずこ
 
+item.kurokumaft:soldier_jacket_guy.name=隊士服上着(男)
+item.kurokumaft:soldier_pants_guy.name=隊士服ズボン(男)
+item.kurokumaft:soldier_jacket_girl.name=隊士服上着(女)
+item.kurokumaft:soldier_skirt_girl.name=隊士服キュロット(女)
+
+item.kurokumaft:tanjiro_tabi.name=炭次郎の足袋
+item.kurokumaft:tanjiro_haori_soldier_jacket.name=炭次郎の羽織(隊士服)
+
+item.kurokumaft:nezuko_kimono.name=ねずこの着物
+
+item.kurokumaft:zenitu_tabi.name=善逸の足袋
+item.kurokumaft:zenitu_haori_soldier_jacket.name=善逸の羽織(隊士服)
+
+item.kurokumaft:kanawo_hair_band.name=カナヲの髪飾り
+item.kurokumaft:kanawo_boots.name=カナヲのブーツ
+
+item.kurokumaft:inosuke_headdress.name=イノシシの頭
+item.kurokumaft:inosuke_hakama.name=伊之助の袴

@@ -1,0 +1,21 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:tanjiro_tabi",
+        "materials": {
+          "default": "armor",
+          "enchanted": "armor_enchanted"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/armor/tanjiro/tanjiro_uniform",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.tanjiro_tabi"
+        },
+        "render_controllers": ["controller.render.armor"]
+      }
+    }
+  }
+  

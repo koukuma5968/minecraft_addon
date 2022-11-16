@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"particle_effect": {
 		"description": {
-			"identifier": "kurokumaft:fire_sword_particle",
+			"identifier": "kurokumaft:fire_bread_particle",
 			"basic_render_parameters": {
 				"material": "particles_alpha",
 				"texture": "textures/particle/particles"
@@ -10,26 +10,26 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": 10,
-				"max_particles": 20
+				"spawn_rate": 50,
+				"max_particles": 150
 			},
-			"minecraft:emitter_lifetime_expression": {
-				"activation_expression": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_magic_sword')"
+			"minecraft:emitter_lifetime_once": {
+				"active_time": 2
 			},
 			"minecraft:emitter_shape_sphere": {
-				"offset": [0, -1, 0],
-				"radius": 3.5,
+				"offset": ["math.random(-0.5, 0.5)", -0.25, 0],
+				"radius": "math.random(0, 0.25)",
 				"direction": "outwards"
 			},
 			"minecraft:particle_lifetime_expression": {
 				"max_lifetime": 1
 			},
-			"minecraft:particle_initial_speed": 2,
+			"minecraft:particle_initial_speed": 0.5,
 			"minecraft:particle_motion_dynamic": {
-				"linear_acceleration": [0, 1, 0]
+				"linear_acceleration": ["math.random(-0.5, 0.5)", "math.random(0, 2.0)", "math.random(-0.5, 0.5)"]
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.05, 0.05],
+				"size": [0.1, 0.1],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 128,

@@ -10,6 +10,7 @@
 				"value": "item.kurokumaft:nichirintou_mizu.name"
 			},
       "tag:kurokumaft:nichirintou": {},
+      "tag:kurokumaft:kokyu_mizu": {},
       "tag:kurokumaft:nichirintou_mizu": {},
       "minecraft:icon": {
           "texture": "nichirintou_mizu"
@@ -18,8 +19,6 @@
         "parent": "itemGroup.name.nichirintou"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:allow_off_hand": true,
-      "minecraft:hand_equipped": true,
       "minecraft:durability": {
         "max_durability": 1200
       },
@@ -41,11 +40,6 @@
         "value": 50,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
-      },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
@@ -60,10 +54,9 @@
           }
         ]
       },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "hurt_entity",
-          "target": "self"
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "hurt_entity"
         }
       },
       "minecraft:wearable": {

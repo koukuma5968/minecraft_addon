@@ -5,25 +5,26 @@
       "states": {
         "default": {
           "transitions": [
-            { "fire_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_magic_gun') && query.scoreboard('fire_magic_gun') < 10 && query.is_using_item" },
-            { "fire_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_magic_gun') && query.scoreboard('fire_magic_gun') >= 10 && query.is_using_item" },
-            { "water_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_gun') && query.scoreboard('water_magic_gun') < 10 && query.is_using_item" },
-            { "water_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_gun') && query.scoreboard('water_magic_gun') >= 10 && query.is_using_item" },
-            { "wind_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_gun') && query.scoreboard('wind_magic_gun') < 10 && query.is_using_item" },
-            { "wind_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_gun') && query.scoreboard('wind_magic_gun') >= 10 && query.is_using_item" },
-            { "stone_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','stone_magic_gun') && query.is_using_item" },
-            { "ice_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','ice_magic_gun') && query.is_using_item" },
-            { "lightning_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','lightning_magic_gun') && query.is_using_item" },
-            { "dark_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','dark_magic_gun') && query.is_using_item" },
-            { "holly_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','holly_magic_gun') && query.is_using_item" }
+            { "fire_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "fire_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_magic_gun') && query.variant >= 10 && query.is_using_item" },
+            { "water_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "water_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','water_magic_gun') && query.variant >= 10 && query.is_using_item" },
+            { "wind_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "wind_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','wind_magic_gun') && query.variant >= 10 && query.is_using_item" },
+            { "stone_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','stone_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "stone_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','stone_magic_gun') && query.variant >= 10 && query.is_using_item" },
+            { "ice_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','ice_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "ice_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','ice_magic_gun') && query.variant >= 10 && query.is_using_item" },
+            { "lightning_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','lightning_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "lightning_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','lightning_magic_gun') && query.variant >= 10 && query.is_using_item" },
+            { "dark_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','dark_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "dark_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','dark_magic_gun') && query.variant >= 10 && query.is_using_item" },
+            { "holly_magic_gun": "query.equipped_item_any_tag('slot.weapon.mainhand','holly_magic_gun') && query.variant < 10 && query.is_using_item" },
+            { "holly_magic_gun_att": "query.equipped_item_any_tag('slot.weapon.mainhand','holly_magic_gun') && query.variant >= 10 && query.is_using_item" }
           ]
         },
         "fire_magic_gun":{
           "animations" : [ "fire_magic_gun_frame" ],
-          "on_entry": [
-            "/scoreboard objectives add fire_magic_gun dummy",
-            "/scoreboard players set @s fire_magic_gun 0"
-          ],
           "transitions": [
             {"default":"!query.is_using_item"}
           ]
@@ -31,8 +32,6 @@
         "fire_magic_gun_att":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヒートハザード\"}]}",
-            "/scoreboard players reset @s fire_magic_gun",
-            "/scoreboard objectives remove fire_magic_gun",
             "/event entity @s variant0"
           ],
           "transitions": [
@@ -41,10 +40,6 @@
         },
         "water_magic_gun":{
           "animations" : [ "water_magic_gun_frame" ],
-          "on_entry": [
-            "/scoreboard objectives add water_magic_gun dummy",
-            "/scoreboard players set @s water_magic_gun 0"
-          ],
           "transitions": [
             {"default":"!query.is_using_item"}
           ]
@@ -52,9 +47,45 @@
         "water_magic_gun_att":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターバースト\"}]}",
+            "/event entity @s kurokumaft:water_magic_gun_burst",
+            "/event entity @s variant0"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:water_magic_gun_burst_remove"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "wind_magic_gun":{
+          "animations" : [ "wind_magic_gun_frame" ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "wind_magic_gun_att":{
+          "animations" : [ "wind_magic_gun_shot" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aテンペストファング\"}]}",
+            "/event entity @s variant0"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:wind_magic_gun_burst_remove"
+          ],
+          "transitions": [
+            {"default":"variable.wind_magic_gun_attack = (variable.wind_magic_gun_attack ?? 0);variable.wind_magic_gun_attack = variable.wind_magic_gun_attack < 40 ? variable.wind_magic_gun_attack + 1:0;return variable.wind_magic_gun_attack == 0;"}
+          ]
+        },
+        "stone_magic_gun":{
+          "animations" : [ "stone_magic_gun_frame" ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "stone_magic_gun_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターバースト\"}]}",
             "/event entity @s kurokumaft:wind_magic_gun_burst",
-            "/scoreboard players reset @s water_magic_gun",
-            "/scoreboard objectives remove water_magic_gun",
             "/event entity @s variant0"
           ],
           "on_exit": [
@@ -64,92 +95,74 @@
             {"default":"(1.0)"}
           ]
         },
-        "wind_magic_gun":{
-          "animations" : [ "wind_magic_gun_frame" ],
-          "on_entry": [
-            "/scoreboard objectives add wind_magic_gun dummy",
-            "/scoreboard players set @s wind_magic_gun 0"
-          ],
+        "ice_magic_gun":{
+          "animations" : [ "ice_magic_gun_frame" ],
           "transitions": [
             {"default":"!query.is_using_item"}
           ]
         },
-        "wind_magic_gun_att":{
-          "animations" : [ "wind_magic_gun_shot" ],
+        "ice_magic_gun_att":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aテンペストファング\"}]}",
-            "/scoreboard players reset @s wind_magic_gun",
-            "/scoreboard objectives remove wind_magic_gun",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターバースト\"}]}",
+            "/event entity @s kurokumaft:wind_magic_gun_burst",
             "/event entity @s variant0"
           ],
           "on_exit": [
             "/event entity @s kurokumaft:wind_magic_gun_burst_remove"
           ],
           "transitions": [
-            {"default":"variable.attack = (variable.attack ?? 0);variable.attack = variable.attack < 40 ? variable.attack + 1:0;return variable.attack == 0;"}
-          ]
-        },
-        "stone_magic_gun":{
-          "animations" : [ "stone_magic_gun_frame" ],
-          "on_entry": [
-          ],
-          "on_exit": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ロックアロー\"}]}",
-            "/event entity @s variant0"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
-          ]
-        },
-        "ice_magic_gun":{
-          "animations" : [ "ice_magic_gun_frame" ],
-          "on_entry": [
-          ],
-          "on_exit": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§1アイスアロー\"}]}",
-            "/event entity @s variant0"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+            {"default":"(1.0)"}
           ]
         },
         "lightning_magic_gun":{
           "animations" : [ "lightning_magic_gun_frame" ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "lightning_magic_gun_att":{
           "on_entry": [
-          ],
-          "on_exit": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダーアロー\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aアマラガン\"}]}",
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+            {"default":"(1.0)"}
           ]
         },
         "dark_magic_gun":{
           "animations" : [ "dark_magic_gun_frame" ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "dark_magic_gun_att":{
           "on_entry": [
-          ],
-          "on_exit": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ダークアロー\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターバースト\"}]}",
             "/event entity @s variant0"
           ],
+          "on_exit": [
+          ],
           "transitions": [
-            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+            {"default":"(1.0)"}
           ]
         },
         "holly_magic_gun":{
           "animations" : [ "holly_magic_gun_frame" ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "holly_magic_gun_att":{
           "on_entry": [
-          ],
-          "on_exit": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーアロー\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターバースト\"}]}",
             "/event entity @s variant0"
           ],
+          "on_exit": [
+          ],
           "transitions": [
-            {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
+            {"default":"(1.0)"}
           ]
         }
-
       }
     }
   }

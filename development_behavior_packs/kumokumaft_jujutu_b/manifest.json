@@ -1,0 +1,24 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "呪術廻戦アドオン",
+		"name": "kumokumaft_jujutu_b",
+		"uuid": "2133337a-846d-474a-92f0-d620089c000b",
+		"version": [1,0,0],
+		"min_engine_version": [1,16,0]
+	},
+	"modules": [
+		{
+			"description": "呪術廻戦アドオン",
+			"type": "data",
+			"uuid": "2696ceea-6a47-46ca-8412-983758f37837",
+			"version": [1,0,0]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "6ae81902-6611-4410-a3f1-ba2f73890eed",
+			"version": [1,0,0]
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_bread",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/bread/fire_magic_bread",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.magic_bread"
+      },
+      "animations": {
+        "magic_bread_con": "controller.animation.magic_bread.wield",
+        "first_person": "animation.bread.wield_first_person",
+        "third_person": "animation.bread.wield_third_person",
+        "attack_first_person": "animation.bread.attack_first_person",
+        "attack_third_person": "animation.bread.attack_third_person"
+      },
+      "particle_effects": {
+        "fire_bread_particle": "kurokumaft:fire_bread_particle"
+      },
+      "scripts": {
+        "animate": [
+          "magic_bread_con"
+        ]
+      },
+      "render_controllers": [ "controller.render.magic_sword" ]
+    }
+  }
+}

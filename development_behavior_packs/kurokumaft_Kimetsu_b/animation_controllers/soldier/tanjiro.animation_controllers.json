@@ -1,0 +1,497 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.tanjiro.kokyu": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "mizu1": "query.variant == 1 && query.mark_variant == 0" },
+            { "mizu2": "query.variant == 2 && query.mark_variant == 0" },
+            { "mizu3": "query.variant == 3 && query.mark_variant == 0" },
+            { "mizu4": "query.variant == 4 && query.mark_variant == 0" },
+            { "mizu5": "query.variant == 5 && query.mark_variant == 0" },
+            { "mizu6": "query.variant == 6 && query.mark_variant == 0" },
+            { "mizu7": "query.variant == 7 && query.mark_variant == 0" },
+            { "mizu8": "query.variant == 8 && query.mark_variant == 0" },
+            { "mizu9": "query.variant == 9 && query.mark_variant == 0" },
+            { "mizu10": "query.variant == 10 && query.mark_variant == 0" },
+            { "hi1": "query.variant == 11 && query.mark_variant == 0" },
+            { "hi2": "query.variant == 12 && query.mark_variant == 0" },
+            { "hi3": "query.variant == 13 && query.mark_variant == 0" },
+            { "hi4": "query.variant == 14 && query.mark_variant == 0" },
+            { "hi5": "query.variant == 15 && query.mark_variant == 0" },
+            { "hi6": "query.variant == 16 && query.mark_variant == 0" },
+            { "hi7": "query.variant == 17 && query.mark_variant == 0" },
+            { "hi8": "query.variant == 18 && query.mark_variant == 0" },
+            { "hi9": "query.variant == 19 && query.mark_variant == 0" },
+            { "hi10": "query.variant == 20 && query.mark_variant == 0" },
+            { "hi11": "query.variant == 21 && query.mark_variant == 0" },
+            { "hi12": "query.variant == 22 && query.mark_variant == 0" }
+          ]
+        },
+        "mizu1":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu1_2":"variable.attack_time"}
+          ]
+        },
+        "mizu1_2":{
+          "on_entry": [
+            "/function mizu/mizu1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mizu/mizu2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 30.0"}
+          ]
+        },
+        "mizu3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mizu/mizu3/mizu3_1"
+          ],
+          "transitions": [
+            {"mizu3_1":"query.life_time > 10.0"}
+          ]
+        },
+        "mizu3_1":{
+          "on_entry": [
+            "/function mizu/mizu3/mizu3_2"
+          ],
+          "transitions": [
+            {"mizu3_2":"query.life_time > 10.0"}
+          ]
+        },
+        "mizu3_2":{
+          "on_entry": [
+            "/function mizu/mizu3/mizu3_3"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu4":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mizu/mizu4/mizu4_1"
+          ],
+          "transitions": [
+            {"mizu4_1":"query.life_time > 10.0"}
+          ]
+        },
+        "mizu4_1":{
+          "on_entry": [
+            "/function mizu/mizu4/mizu4_2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu5":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu5_1":"variable.attack_time"}
+          ]
+        },
+        "mizu5_1":{
+          "on_entry": [
+            "/function mizu/mizu5"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu6":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu6_1":"!query.is_in_water"},
+            {"mizu6_water_1":"query.is_in_water"}
+          ]
+        },
+        "mizu6_1":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6"
+          ],
+          "transitions": [
+            {"mizu6_2":"query.life_time > 5.0"}
+          ]
+        },
+        "mizu6_2":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6"
+          ],
+          "transitions": [
+            {"mizu6_3":"query.life_time > 5.0"}
+          ]
+        },
+        "mizu6_3":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu6_water_1":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6_water"
+          ],
+          "transitions": [
+            {"mizu6_water_2":"query.life_time > 5.0"}
+          ]
+        },
+        "mizu6_water_2":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6_water"
+          ],
+          "transitions": [
+            {"mizu6_water_3":"query.life_time > 5.0"}
+          ]
+        },
+        "mizu6_water_3":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6_water"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu7":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu7_2":"variable.attack_time"}
+          ]
+        },
+        "mizu7_2":{
+          "on_entry": [
+            "/function mizu/mizu7"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu8":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu8_1":"query.life_time > 10.0"}
+          ]
+        },
+        "mizu8_1":{
+          "animations" : [ "mizu8_ani" ],
+          "transitions": [
+            {"mizu8_2":"query.life_time > 10.0"}
+          ]
+        },
+        "mizu8_2":{
+          "animations" : [ "mizu8_2_ani" ],
+          "on_entry": [
+            "/function mizu/mizu8"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/execute @s ~~~ tp @s ~~-1~"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "mizu9":{
+          "animations" : [ "mizu9_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 10 5 true",
+            "/effect @s jump_boost 10 3 true"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 50.0"}
+          ]
+        },
+        "mizu10":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu10_c":"query.life_time > 10.0"}
+          ]
+        },
+        "mizu10_c":{
+          "on_entry": [
+            "/event entity @s mark_variant3"
+          ],
+          "transitions": [
+            {"mizu10_f1":"(1.0)"}
+          ]
+        },
+        "mizu10_f1":{
+          "on_entry": [
+            "/function mizu/mizu10/mizu10_4",
+            "/event entity @s kurokumaft:mizu10_doragon"
+          ],
+          "transitions": [
+            {"mizu10_f2":"(1.0)"}
+          ]
+        },
+        "mizu10_f2":{
+          "animations" : [ "mizu10_ani" ],
+          "on_exit": [
+            "/event entity @s kurokumaft:mizu10_doragon_remove",
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 50.0"}
+          ]
+        },
+        "hi1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi3/hi3_1"
+          ],
+          "transitions": [
+            {"hi3_1":"query.life_time > 10.0"}
+          ]
+        },
+        "hi3_1":{
+          "on_entry": [
+            "/function hi/hi3/hi3_2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi4":{
+          "animations" : [ "hi4_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi5":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi5_1":{
+          "animations" : [ "hi5_ani" ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi6":{
+          "animations" : [ "hi6_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 10 10 true"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 50.0"}
+          ]
+        },
+        "hi7":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hi7_1":"variable.attack_time"}
+          ]
+        },
+        "hi7_1":{
+          "on_entry": [
+            "/function hi/hi7"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi8":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hi8_1":"query.life_time > 10.0"}
+          ]
+        },
+        "hi8_1":{
+          "on_entry": [
+            "/function hi/hi8"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi9":{
+          "animations" : [ "hi9_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi10":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi10"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi11":{
+          "animations" : [ "hi11_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/event entity @s add_damage_clear",
+            "/effect @s invisibility 10 20 true"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0",
+            "/event entity @s remove_damage_clear",
+            "/effect @s invisibility 0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 50.0"}
+          ]
+        },
+        "hi12":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi12"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        },
+        "hi12_1":{
+          "on_entry": [
+            "/function hi/hi12"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        }
+      }
+    }
+  }
+}

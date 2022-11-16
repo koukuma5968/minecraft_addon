@@ -1,0 +1,228 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.hi": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_hi_attack": {
+              "input": "variable.kokyu_hi_attack = (variable.kokyu_hi_attack ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hi1": "query.variant == 11 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi2": "query.variant == 12 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi3": "query.variant == 13 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi4": "query.variant == 14 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.mark_variant == 0 && query.is_using_item" },
+            { "hi5": "query.variant == 15 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi6": "query.variant == 16 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.mark_variant == 0 && query.is_using_item" },
+            { "hi7": "query.variant == 17 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi8": "query.variant == 18 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi9": "query.variant == 19 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi10": "query.variant == 20 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi11": "query.variant == 21 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
+            { "hi12": "query.variant == 22 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" }
+          ]
+        },
+        "hi1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c円舞\"}]}",
+            "/function hi/hi1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c碧羅の天\"}]}",
+            "/function hi/hi2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c烈日紅鏡\"}]}",
+            "/function hi/hi3/hi3_1"
+          ],
+          "transitions": [
+            {"hi3_1":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 10 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "hi3_1":{
+          "on_entry": [
+            "/function hi/hi3/hi3_2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi4":{
+          "animations" : [ "hi4_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c灼骨炎陽\"}]}"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 15 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0;"}
+          ]
+        },
+        "hi5":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hi5_1":"!query.is_using_item"}
+          ]
+        },
+        "hi5_1":{
+          "animations" : [ "hi5_ani" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c陽華突\"}]}"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 8 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0;"}
+          ]
+        },
+        "hi6":{
+          "animations" : [ "hi6_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日暈の龍 頭舞い\"}]}",
+            "/effect @s speed 10 10 true"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 200 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "hi7":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c斜陽転身\"}]}"
+          ],
+          "transitions": [
+            {"hi7_1":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 10 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "hi7_1":{
+          "on_entry": [
+            "/function hi/hi7"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi8":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c飛輪陽炎\"}]}"
+          ],
+          "transitions": [
+            {"hi8_1":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 10 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "hi8_1":{
+          "on_entry": [
+            "/function hi/hi8"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi9":{
+          "animations" : [ "hi9_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c輝輝恩光\"}]}"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 20 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "hi10":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c火車\"}]}",
+            "/function hi/hi10"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi11":{
+          "animations" : [ "hi11_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c幻日虹\"}]}",
+            "/event entity @s add_damage_clear",
+            "/effect @s invisibility 10 20 true"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s remove_damage_clear",
+            "/effect @s invisibility 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 200 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "hi12":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c炎舞\"}]}",
+            "/function hi/hi12"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 20 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "hi12_1":{
+          "on_entry": [
+            "/function hi/hi12"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    }
+  }
+}

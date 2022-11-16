@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.shinobu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "shinobu1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 4 && query.is_sneaking" },
+            { "shinobu2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 1 && query.is_sneaking" },
+            { "shinobu3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 2 && query.is_sneaking" },
+            { "shinobu4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 3 && query.is_sneaking" }
+          ]
+        },
+        "shinobu1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蝶ノ舞\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "shinobu2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蜂牙ノ舞\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "shinobu3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蜻蛉ノ舞\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "shinobu4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蜈蚣ノ舞\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+	"format_version": "1.17.0",
+	"animations": {
+		"animation.fire_horse.eat": {
+			"loop": true,
+			"bones": {
+				"neck": {
+					"rotation": ["variable.eat_anim * (110.0 + math.sin((query.life_time * 20.0) * 57.3) * 2.86)", 0, 0]
+				}
+			}
+		},
+		"animation.fire_horse.look_at_player": {
+			"loop": true,
+			"bones": {
+				"Neck": {
+					"rotation": ["variable.head_x_rot", "(1.0 + variable.inverse_max_stand_eat) * 0.0", 0]
+				}
+			}
+		},
+		"animation.fire_horse.walk": {
+			"loop": true,
+			"animation_length": 1,
+			"bones": {
+				"BagL": {
+					"rotation": ["variable.leg_x_rot_anim / 5.0", 0, 0]
+				},
+				"BagR": {
+					"rotation": ["-variable.leg_x_rot_anim / 5.0", 0, 0]
+				},
+				"LegBL": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-22.5, 0, 0],
+						"0.5": [0, 0, 0],
+						"0.75": [22.5, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"LegBR": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [22.5, 0, 0],
+						"0.5": [0, 0, 0],
+						"0.75": [-22.5, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"LegFL": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [22.5, 0, 0],
+						"0.5": [0, 0, 0],
+						"0.75": [-22.5, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"LegFR": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-22.5, 0, 0],
+						"0.5": [0, 0, 0],
+						"0.75": [22.5, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				},
+				"Tail": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [0, 0, 17.5],
+						"0.5": [0, 0, 0],
+						"0.75": [0, 0, -17.5],
+						"1.0": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

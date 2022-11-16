@@ -6,11 +6,11 @@
         "category": "equipment"
     },
     "components": {
+      "tag:kurokumaft:zyuu": {},
+      "tag:kurokumaft:zyuu_genya": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:zyuu_genya.name"
 			},
-      "tag:kurokumaft:zyuu": {},
-      "tag:kurokumaft:zyuu_genya": {},
       "minecraft:icon": {
           "texture": "zyuu_genya"
       },
@@ -18,7 +18,6 @@
         "parent": "itemGroup.name.zyuu"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:allow_off_hand": true,
       "minecraft:durability": {
         "max_durability": 1000
       },
@@ -33,6 +32,8 @@
             "repair_amount": 500
           }
         ]
+      },
+      "minecraft:chargeable": {
       },
       "minecraft:on_use": {
         "on_use": {

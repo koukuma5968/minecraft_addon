@@ -1,0 +1,167 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.inosuke.kokyu": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_inosuke": {
+              "input": "variable.kokyu_inosuke = (variable.kokyu_inosuke ?? 0);"
+            }
+          },
+          "transitions": [
+            { "kedamono1": "query.variant == 1 && query.mark_variant == 0" },
+            { "kedamono2": "query.variant == 2 && query.mark_variant == 0" },
+            { "kedamono3": "query.variant == 3 && query.mark_variant == 0" },
+            { "kedamono4": "query.variant == 4 && query.mark_variant == 0" },
+            { "kedamono5": "query.variant == 5 && query.mark_variant == 0" },
+            { "kedamono6": "query.variant == 6 && query.mark_variant == 0" },
+            { "kedamono7": "query.variant == 7 && query.mark_variant == 0" },
+            { "kedamono8": "query.variant == 8 && query.mark_variant == 0" },
+            { "kedamono9": "query.variant == 9 && query.mark_variant == 0" },
+            { "kedamono10": "query.variant == 10 && query.mark_variant == 0" }
+          ]
+        },
+        "kedamono1":{
+          "on_entry": [
+            "/execute @s ^^^1 damage @e[family=monster,family=dragon,r=4] 10 entity_attack",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono2":{
+          "on_entry": [
+            "/execute @s ^^^1 damage @e[family=monster,family=dragon,r=4] 10 entity_attack",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono3":{
+          "on_entry": [
+            "/execute @s ^^^1 damage @e[family=monster,family=dragon,r=4] 10 entity_attack",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono4":{
+          "animations" : [ "kedamono4_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 60 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono5":{
+          "animations" : [ "kedamono5_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 60 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono6":{
+          "animations" : [ "kedamono6_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 80 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono7":{
+          "animations" : [ "kedamono7_ani" ],
+          "on_entry": [
+            "/tag @s add kokyu_kedamono7",
+            "/effect @s speed 99999 5 true",
+            "/tag @e[tag=!kokyu_kedamono7,family=!player,family=!inanimate,type=!item,r=64] add kokyu_kedamono7_target",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/tag @s remove kokyu_kedamono7",
+            "/effect @s speed 0",
+            "/tag @e[tag=kokyu_kedamono7_target] remove kokyu_kedamono7_target",
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 100 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono8":{
+          "on_entry": [
+            "/effect @s speed 99999 5 true",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 80 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono9":{
+          "on_entry": [
+            "/execute @s ^1^^2 damage @e[family=monster,family=dragon,r=2] 13 entity_attack",
+            "/execute @s ^-1^^2 damage @e[family=monster,family=dragon,r=2] 13 entity_attack",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        },
+        "kedamono10":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/event entity @s add_damage_clear"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0",
+            "/event entity @s remove_damage_clear"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 80 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

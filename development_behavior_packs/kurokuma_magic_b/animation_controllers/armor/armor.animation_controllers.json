@@ -5,27 +5,32 @@
       "states": {
         "default": {
           "transitions": [
-            { "wind_chest_slow_falling": "query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate') && !query.is_jumping" },
-            { "wind_chest_levitation": "query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate') && query.is_jumping" }
+            { "wind_chest_mounting": "query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate')" }
+          ]
+        },
+        "wind_chest_mounting":{
+          "transitions": [
+            {"default":"!query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate')"},
+            {"wind_chest_slow_falling":"!query.is_jumping"},
+            {"wind_chest_levitation":"query.is_jumping"}
           ]
         },
         "wind_chest_slow_falling":{
+          "animations" : [ "wind_magic_landing" ],
           "on_entry": [
-            "/effect @s slow_falling 10 20 true"
+            "/event entity @s kurokumaft:wind_hover_remove"
           ],
           "transitions": [
-            {"default":"(1.0)"}
+            {"wind_chest_mounting":"(1.0)"}
           ]
         },
         "wind_chest_levitation":{
+          "animations" : [ "wind_magic_takeoff" ],
           "on_entry": [
-            "/effect @s levitation 10 10 true"
-          ],
-          "on_exit": [
-            "/effect @s levitation 0"
+            "/event entity @s kurokumaft:wind_hover"
           ],
           "transitions": [
-            {"wind_chest_slow_falling":"variable.wind_chest = (variable.wind_chest ?? 0);variable.wind_chest = variable.wind_chest < 30 ? variable.wind_chest + 1:0;return variable.wind_chest == 0;"}
+            {"wind_chest_slow_falling":"!query.is_jumping"}
           ]
         }
       }

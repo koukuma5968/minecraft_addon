@@ -1,0 +1,52 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.zenitu.kokyu_player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kaminari1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu') && query.variant == 11 && query.mark_variant == 1 && query.is_using_item"},
+						{"kaminari17_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu') && query.variant == 7 && query.mark_variant == 1 && query.is_using_item"}
+					]
+				},
+				"kaminari1_1" : {
+					"animations" : [
+						{"zenitu.ichi_1": "variable.is_first_person"},
+						{"zenitu.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kaminari1_2":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_2" : {
+					"animations" : [
+						{"zenitu.ichi_2": "variable.is_first_person"},
+						{"zenitu.ichi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaminari17_1" : {
+					"animations" : [
+						{"zenitu.shiti_1": "variable.is_first_person"},
+						{"zenitu.shiti_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kaminari17_2":"!query.is_using_item"}
+					]
+				},
+				"kaminari17_2" : {
+					"animations" : [
+						{"zenitu.shiti_2": "variable.is_first_person"},
+						{"zenitu.shiti_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

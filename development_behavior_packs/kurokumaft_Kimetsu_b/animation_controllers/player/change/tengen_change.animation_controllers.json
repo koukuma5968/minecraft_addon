@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.tengen_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "tengen1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen') && query.variant == 5 && query.is_sneaking" },
+            { "tengen4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen') && query.variant == 1 && query.is_sneaking" },
+            { "tengen5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen') && query.variant == 4 && query.is_sneaking" }
+          ]
+        },
+        "tengen1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "tengen4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 肆ノ型\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "tengen5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

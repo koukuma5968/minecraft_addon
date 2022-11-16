@@ -1,0 +1,73 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.kyouzyuro_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kyouzyuro1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 9 && query.is_sneaking" },
+            { "kyouzyuro2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 1 && query.is_sneaking" },
+            { "kyouzyuro3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 2 && query.is_sneaking" },
+            { "kyouzyuro4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 3 && query.is_sneaking" },
+            { "kyouzyuro5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 4 && query.is_sneaking" },
+            { "kyouzyuro9": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 5 && query.is_sneaking" }
+          ]
+        },
+        "kyouzyuro1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kyouzyuro2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 弐ノ型\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kyouzyuro3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 参ノ型\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kyouzyuro4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 肆ノ型\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kyouzyuro5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kyouzyuro9":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 玖ノ型\"}]}",
+            "/event entity @s variant9"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

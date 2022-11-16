@@ -33,8 +33,8 @@
           ],
           "on_exit": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターアロー\"}]}",
-            "/event entity @s variant0"
-          ],
+            "/event entity @s kurokumaft:water_magic_arrow_shoot",
+            "/event entity @s variant0"          ],
           "transitions": [
             {"default":"!query.is_using_item || query.item_max_use_duration <= query.item_in_use_duration"}
           ]

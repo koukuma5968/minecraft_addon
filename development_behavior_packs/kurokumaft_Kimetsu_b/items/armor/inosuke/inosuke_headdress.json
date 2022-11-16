@@ -1,0 +1,48 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:inosuke_headdress",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:inosuke_headdress.name"
+			},
+      "minecraft:icon": {
+          "texture": "inosuke_headdress"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.helmet"
+			},
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:inosuke_headdress" ],
+            "repair_amount": 250
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_head"
+      },
+      "minecraft:durability": {
+        "max_durability": 1500,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:armor": {
+        "protection": 60,
+        "texture_type": "elytra"
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}

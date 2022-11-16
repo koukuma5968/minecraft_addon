@@ -1,0 +1,113 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.mizu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "mizu1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 10 && query.is_sneaking" },
+            { "mizu2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 1 && query.is_sneaking" },
+            { "mizu3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 2 && query.is_sneaking" },
+            { "mizu4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 3 && query.is_sneaking" },
+            { "mizu5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 4 && query.is_sneaking" },
+            { "mizu6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 5 && query.is_sneaking" },
+            { "mizu7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 6 && query.is_sneaking" },
+            { "mizu8": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 7 && query.is_sneaking" },
+            { "mizu9": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 8 && query.is_sneaking" },
+            { "mizu10": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu') && query.variant == 9 && query.is_sneaking" }
+          ]
+        },
+        "mizu1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu6":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
+            "/event entity @s variant6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu7":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
+            "/event entity @s variant7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu8":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
+            "/event entity @s variant8"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu9":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
+            "/event entity @s variant9"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "mizu10":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
+            "/event entity @s variant10"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

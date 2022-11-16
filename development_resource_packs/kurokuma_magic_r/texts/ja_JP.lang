@@ -1,12 +1,42 @@
 container.kurokumaft:magic_enchant_table=魔法エンチャント台
 container.kurokumaft:magic_enchant_table_block=魔法エンチャント台
 container.kurokumaft:magic_enchant_table.upgrade=装備に魔法をエンチャントする
+container.kurokumaft:magma_portal=マグマポータル
+
+entity.kurokumaft:maguma_golem.name=§4マグマゴーレム
+entity.kurokumaft:redstone_golem.name=§4レッドストーンゴーレム
+entity.kurokumaft:bule_ice_golem.name=§fブルーアイスゴーレム
+
+entity.kurokumaft:fire_horse.name=§4フレイムホース
+entity.kurokumaft:storm_eagle.name=§3ストームイーグル
+
+entity.kurokumaft:fire_zombie.name=§4ファイアゾンビ
+entity.kurokumaft:thunder_zombie.name=§6サンダーゾンビ
+
+entity.kurokumaft:home_gate.name=拠点の石碑
+
+item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレム
+item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレム
+
+item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビ
+item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビ
+
+item.spawn_egg.entity.kurokumaft:fire_horse.name=フレイムホースをスポーンさせる	#
+action.interact.ride.kurokumaft:fire_horse=乗る	#
+action.hint.exit.console.kurokumaft:fire_horse=:_input_key.sneak: を押して降りる	#
+
+item.spawn_egg.entity.kurokumaft:storm_eagle.name=ストームイーグルをスポーンさせる	#
+action.interact.ride.kurokumaft:storm_eagle=乗る	#
+action.hint.exit.console.kurokumaft:storm_eagle=:_input_key.sneak: を押して降りる	#
 
 itemGroup.name.magic_shield=魔法の盾
 
 tile.kurokumaft:magic_enchant_table.name=魔法エンチャント台
 tile.kurokumaft:waterwall_block.name=水ブロック
 tile.kurokumaft:lightningwall_block.name=雷ブロック
+tile.kurokumaft:windwall_block.name=風ブロック
+tile.kurokumaft:magma_portal.name=マグマポータル
+tile.kurokumaft:magma_portal_gate.name=ゲートブロック（炎）
 
 item.kurokumaft:fire_magic_stone.name=§4火の魔法石
 item.kurokumaft:water_magic_stone.name=§1水の魔法石
@@ -51,54 +81,70 @@ item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 帝級合体魔法 �
 item.kurokumaft:thunderstorm_staff.name=§a§l渦雷の錫杖 帝級合体魔法 水雷
 item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 帝級合体魔法 氷水
 
-item.kurokumaft:fire_magic_sword.name=烈火の魔法剣
-item.kurokumaft:ice_magic_sword.name=凍刃の魔法剣
-item.kurokumaft:water_magic_sword.name=流刃の魔法剣
-item.kurokumaft:stone_magic_sword.name=礫岩の魔法剣
-item.kurokumaft:thunder_magic_sword.name=雷撃の魔法剣
-item.kurokumaft:wind_magic_sword.name=刃風の魔法剣
-item.kurokumaft:holly_magic_sword.name=光華の魔法剣
-item.kurokumaft:dark_magic_sword.name=常闇の魔法剣
+item.kurokumaft:fire_magic_sword.name=§4烈火の魔法剣
+item.kurokumaft:ice_magic_sword.name=§f凍刃の魔法剣
+item.kurokumaft:water_magic_sword.name=§1流刃の魔法剣
+item.kurokumaft:stone_magic_sword.name=§7礫岩の魔法剣
+item.kurokumaft:thunder_magic_sword.name=§6雷撃の魔法剣
+item.kurokumaft:wind_magic_sword.name=§3刃風の魔法剣
+item.kurokumaft:holly_magic_sword.name=§e光華の魔法剣
+item.kurokumaft:dark_magic_sword.name=§e常闇の魔法剣
 item.kurokumaft:rainbow_magic_sword.name=虹の魔法剣
 
-item.kurokumaft:fire_magic_shield.name=耐火の魔法盾
-item.kurokumaft:ice_magic_shield.name=堅氷の魔法盾
-item.kurokumaft:water_magic_shield.name=水明の魔法盾
-item.kurokumaft:stone_magic_shield.name=岩壁の魔法盾
-item.kurokumaft:thunder_magic_shield.name=雷動の魔法盾
-item.kurokumaft:wind_magic_shield.name=凱風の魔法盾
-item.kurokumaft:holly_magic_shield.name=光輝の魔法盾
-item.kurokumaft:dark_magic_shield.name=暗影の魔法盾
+item.kurokumaft:fire_magic_shield.name=§4耐火の魔法盾
+item.kurokumaft:ice_magic_shield.name=§f堅氷の魔法盾
+item.kurokumaft:water_magic_shield.name=§1水明の魔法盾
+item.kurokumaft:stone_magic_shield.name=§7岩壁の魔法盾
+item.kurokumaft:thunder_magic_shield.name=§6雷動の魔法盾
+item.kurokumaft:wind_magic_shield.name=§3凱風の魔法盾
+item.kurokumaft:holly_magic_shield.name=§e光輝の魔法盾
+item.kurokumaft:dark_magic_shield.name=§e暗影の魔法盾
 
-item.kurokumaft:ice_magic_helmet.name=アイスマジックヘルム
-item.kurokumaft:ice_magic_chestplate.name=アイスマジックプレート
-item.kurokumaft:ice_magic_leggings.name=アイスマジックレギンス
-item.kurokumaft:ice_magic_boots.name=アイスマジックブーツ
+item.kurokumaft:ice_magic_helmet.name=§fアイスマジックヘルム
+item.kurokumaft:ice_magic_chestplate.name=§fアイスマジックプレート
+item.kurokumaft:ice_magic_leggings.name=§fアイスマジックレギンス
+item.kurokumaft:ice_magic_boots.name=§fアイスマジックブーツ
 
-item.kurokumaft:fire_magic_helmet.name=ファイアマジックヘルム
-item.kurokumaft:fire_magic_chestplate.name=ファイアマジックプレート
-item.kurokumaft:fire_magic_leggings.name=ファイアマジックレギンス
-item.kurokumaft:fire_magic_boots.name=ファイアマジックブーツ
+item.kurokumaft:fire_magic_helmet.name=§4ファイアマジックヘルム
+item.kurokumaft:fire_magic_chestplate.name=§4ファイアマジックプレート
+item.kurokumaft:fire_magic_leggings.name=§4ファイアマジックレギンス
+item.kurokumaft:fire_magic_boots.name=§4ファイアマジックブーツ
 
-item.kurokumaft:water_magic_helmet.name=ウォーターマジックヘルム
-item.kurokumaft:water_magic_chestplate.name=ウォーターマジックプレート
-item.kurokumaft:water_magic_leggings.name=ウォーターマジックレギンス
-item.kurokumaft:water_magic_boots.name=ウォーターマジックブーツ
+item.kurokumaft:water_magic_helmet.name=§1ウォーターマジックヘルム
+item.kurokumaft:water_magic_chestplate.name=§1ウォーターマジックプレート
+item.kurokumaft:water_magic_leggings.name=§1ウォーターマジックレギンス
+item.kurokumaft:water_magic_boots.name=§1ウォーターマジックブーツ
 
-item.kurokumaft:wind_magic_helmet.name=ウィンドマジックヘルム
-item.kurokumaft:wind_magic_chestplate.name=ウィンドマジックプレート
-item.kurokumaft:wind_magic_leggings.name=ウィンドマジックレギンス
-item.kurokumaft:wind_magic_boots.name=ウィンドマジックブーツ
+item.kurokumaft:wind_magic_helmet.name=§3ウィンドマジックヘルム
+item.kurokumaft:wind_magic_chestplate.name=§3ウィンドマジックプレート
+item.kurokumaft:wind_magic_leggings.name=§3ウィンドマジックレギンス
+item.kurokumaft:wind_magic_boots.name=§3ウィンドマジックブーツ
 
-item.kurokumaft:fire_magic_bow.name=業火の魔弓
-item.kurokumaft:ice_magic_bow.name=六華の魔弓
-item.kurokumaft:water_magic_bow.name=流麗の魔弓
-item.kurokumaft:stone_magic_bow.name=玄武の魔弓
-item.kurokumaft:lightning_magic_bow.name=紫電の魔弓
-item.kurokumaft:wind_magic_bow.name=疾風の魔弓
-item.kurokumaft:holly_magic_bow.name=月華の魔弓
-item.kurokumaft:dark_magic_bow.name=晦冥の魔弓
+item.kurokumaft:fire_magic_bow.name=§4業火の魔弓
+item.kurokumaft:ice_magic_bow.name=§f六華の魔弓
+item.kurokumaft:water_magic_bow.name=§1流麗の魔弓
+item.kurokumaft:stone_magic_bow.name=§7玄武の魔弓
+item.kurokumaft:lightning_magic_bow.name=§6紫電の魔弓
+item.kurokumaft:wind_magic_bow.name=§3疾風の魔弓
+item.kurokumaft:holly_magic_bow.name=§e月華の魔弓
+item.kurokumaft:dark_magic_bow.name=§e晦冥の魔弓
 
-item.kurokumaft:fire_magic_gun.name=災火の魔法銃
-item.kurokumaft:water_magic_gun.name=烈水の魔法銃
-item.kurokumaft:wind_magic_gun.name=嵐牙の魔法銃
+item.kurokumaft:fire_magic_gun.name=§4災火の魔法銃
+item.kurokumaft:water_magic_gun.name=§1烈水の魔法銃
+item.kurokumaft:wind_magic_gun.name=§3嵐牙の魔法銃
+item.kurokumaft:lightning_magic_gun.name=§6万雷の魔法銃
+
+item.kurokumaft:fire_magic_bread.name=§4紅蓮の妖魔刀
+
+item.kurokumaft:magma_blow.name=§4マグマブロー
+
+item.kurokumaft:fire_flagstone.name=§4火の魔法石と打ち金
+
+item.kurokumaft:fire_grimoire.name=§4炎の魔導書
+
+item.kurokumaft:fire_horse_summon_stone.name=召喚の魔石（フレイムホース）
+item.kurokumaft:storm_eagle_summon_stone.name=召喚の魔石（ストームイーグル）
+
+item.kurokumaft:repatriation_fruit.name=帰還の実
+item.kurokumaft:home_gate.name=拠点の石碑
+

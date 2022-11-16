@@ -1,0 +1,42 @@
+{
+	"format_version": "1.19.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:magma_portal_y",
+			"is_experimental": false,
+            "register_to_creative_menu": false
+		},
+		"components": {
+			"minecraft:aim_collision": true,
+			"minecraft:collision_box": false,
+			"minecraft:breathability": "air",
+			"minecraft:explosion_resistance": 0.0,
+			"minecraft:flammable": false,
+			"minecraft:loot": "loot_tables/block/magma_portal.json",
+            "minecraft:geometry": "geometry.magma_portal_y",
+			"minecraft:creative_category": { "category": "Items" },
+			"minecraft:on_interact": {
+				"event": "portal_tp"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "magma_portal",
+                    "face_dimming": false,
+					"render_method": "blend"
+				}
+			}
+		},
+        "events": {
+            "portal_tp": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "target": "self",
+                            "command": "titleraw @a actionbar {\"rawtext\":[{\"text\":\"§cマグマポータル\"}]}"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

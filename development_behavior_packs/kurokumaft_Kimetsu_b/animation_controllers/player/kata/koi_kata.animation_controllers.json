@@ -1,0 +1,105 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.koi": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_koi_attack": {
+              "input": "variable.kokyu_koi_attack = (variable.kokyu_koi_attack ?? 0);"
+            }
+          },
+          "transitions": [
+            { "koi1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_koi') && query.variant == 1 && query.mark_variant == 0 && query.is_using_item" },
+            { "koi2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_koi') && query.variant == 2 && query.mark_variant == 0 && query.is_using_item" },
+            { "koi3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_koi') && query.variant == 3 && query.mark_variant == 0 && query.is_using_item" },
+            { "koi5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_koi') && query.variant == 5 && query.mark_variant == 0 && query.is_using_item" },
+            { "koi6": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_koi') && query.variant == 6 && query.mark_variant == 0 && query.is_using_item" }
+          ]
+        },
+        "koi1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 99999 5 true"
+          ],
+          "transitions": [
+            {"koi1_f":"variable.kokyu_koi_attack = variable.kokyu_koi_attack < 200 ? variable.kokyu_koi_attack + 1:0;return variable.kokyu_koi_attack == 0;"},
+            {"koi1_2":"variable.attack_time"}
+          ]
+        },
+        "koi1_f":{
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/effect @s speed 0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "koi1_2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d初恋のわななき\"}]}",
+            "/event entity @s mark_variant2",
+            "/function koi/koi1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0",
+            "/effect @s speed 0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "koi2":{
+          "animations" : [ "koi2_ani" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d懊悩巡る恋\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_koi_attack = variable.kokyu_koi_attack < 60 ? variable.kokyu_koi_attack + 1:0;return variable.kokyu_koi_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "koi3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋猫しぐれ\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "koi5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d揺らめく恋情・乱れ爪\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "koi6":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d猫足恋風\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:bakketu",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:bakketu.name"
+			},
+      "tag:kurokumaft:kekkizyutu": {},
+      "tag:kurokumaft:bakketu": {},
+      "minecraft:icon": {
+          "texture": "bakketu"
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "scale": [0.0, 0.0, 0.0]
+          },
+          "third_person": {
+            "scale": [0.0, 0.0, 0.0]
+          }
+        },
+        "off_hand": {
+          "first_person": { 
+            "scale": [0.0, 0.0, 0.0]
+          },
+          "third_person": {
+            "scale": [0.0, 0.0, 0.0]
+          }
+        }
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.kekkizyutu"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 0,
+      "minecraft:allow_off_hand": true,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:use_duration": 20,
+      "minecraft:chargeable": {
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.offhand"
+      }
+    },
+    "events": {
+    }
+  }
+}
+

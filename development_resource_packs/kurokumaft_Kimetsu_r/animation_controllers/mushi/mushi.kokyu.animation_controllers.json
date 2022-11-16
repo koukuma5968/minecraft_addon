@@ -1,0 +1,54 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.mushi.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"mushi1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 1 && query.is_using_item"},
+						{"mushi2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 2 && query.is_using_item"},
+						{"mushi3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 3 && query.is_using_item"},
+						{"mushi4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 4 && query.is_using_item"}
+					]
+				},
+				"mushi1" : {
+					"animations" : [
+						{"mushi.chou": "variable.is_first_person"},
+						{"mushi.chou": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"mushi2" : {
+					"animations" : [
+						{"mushi.houga": "variable.is_first_person"},
+						{"mushi.houga": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"mushi3" : {
+					"animations" : [
+						{"mushi.seirei": "variable.is_first_person"},
+						{"mushi.seirei": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"mushi4" : {
+					"animations" : [
+						{"mushi.gokou": "variable.is_first_person"},
+						{"mushi.gokou": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

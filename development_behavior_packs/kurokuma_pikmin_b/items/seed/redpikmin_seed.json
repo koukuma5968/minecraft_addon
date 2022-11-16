@@ -2,7 +2,8 @@
   "format_version": "1.17",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:redpikmin_seed"
+      "identifier": "kurokumaft:redpikmin_seed",
+      "category": "items"
     },
 
     "components": {

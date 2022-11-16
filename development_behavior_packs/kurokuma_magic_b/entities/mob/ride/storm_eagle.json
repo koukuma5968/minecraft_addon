@@ -1,0 +1,497 @@
+{
+  "format_version": "1.17.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:storm_eagle",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+          "rider","hover"
+        ]
+      },
+      "animations":{
+        "rider":"controller.animation.storm_eagle.rider",
+        "hover":"controller.animation.storm_eagle.hover",
+        "takeoff":"animation.storm_eagle.takeoff",
+        "landing":"animation.storm_eagle.landing"
+      }
+    },
+    "component_groups": {
+      "kurokumaft:storm_eagle_wild": {
+        "minecraft:rideable": {
+          "seat_count": 2,
+          "family_types": [
+            "player",
+            "zombie"
+          ],
+          "interact_text": "action.interact.mount",
+          "seats": {
+            "position": [ 0.0, 1.1, -0.2 ]
+          }
+
+        },
+        "minecraft:movement.fly": {
+          "speed_multiplier": 0.2,
+          "max_turn": 0.5
+        },
+  
+        "minecraft:behavior.float_wander": {
+          "xz_dist": 5,
+          "y_dist": 6,
+          "y_offset": -2.0,
+          "random_reselect": true,
+          "float_duration": [ 0.1, 0.35 ]
+        },
+  
+        "minecraft:behavior.mount_pathing": {
+          "priority": 2,
+          "speed_multiplier": 0.2,
+          "target_dist": 0.0,
+          "track_target": true
+        },
+        "minecraft:flying_speed": {
+          "value": 0.2
+        },
+        "minecraft:movement": {
+          "value": 0.1
+        },
+        "minecraft:tameable": {
+          "probability": 1.0,
+          "tame_items": [
+            "carrot",
+            "golden_carrot",
+            "apple",
+            "golden_apple"
+          ],
+          "tame_event": {
+            "event": "minecraft:on_tame",
+            "target": "self"
+          }
+        },
+        "minecraft:tamemount": {
+          "min_temper": 0,
+          "max_temper": 10,
+          "feed_text": "action.interact.feed",
+          "feed_items": [
+            {
+              "item": "apple",
+              "temper_mod": 3
+            },
+            {
+              "item": "carrot",
+              "temper_mod": 5
+            },
+            {
+              "item": "golden_carrot",
+              "temper_mod": 10
+            },
+            {
+              "item": "golden_apple",
+              "temper_mod": 10
+            },
+            {
+              "item": "appleEnchanted",
+              "temper_mod": 10
+            }
+          ],
+          "tame_event": {
+            "event": "minecraft:on_tame",
+            "target": "self"
+          }
+        }
+      },
+
+      "kurokumaft:storm_eagle_tamed": {
+        "minecraft:is_tamed": {
+        },
+        "minecraft:behavior.follow_owner": {
+          "priority": 3,
+          "speed_multiplier": 1.2,
+          "start_distance": 10,
+          "stop_distance": 16
+        },
+        "minecraft:flying_speed": {
+          "value": 0.2
+        },
+        "minecraft:movement": {
+          "value": 0.1
+        },
+ 
+        "minecraft:rideable": {
+          "seat_count": 2,
+          "crouching_skip_interact": true,
+          "family_types": [
+            "player"
+          ],
+          "interact_text": "action.interact.ride.horse",
+          "seats": {
+            "position": [ 0.0, 1.1, -0.5 ]
+          }
+
+        },
+        "minecraft:strength": {
+          "value": 100,
+          "max": 200
+        },
+        "minecraft:inventory": {
+          "inventory_size": 14,
+          "container_type": "horse",
+          "additional_slots_per_strength": 3
+        },
+        "minecraft:breedable": {
+          "require_tame": true,
+          "inherit_tamed": false,
+          "breeds_with": [
+            {
+              "mate_type": "minecraft:horse",
+              "baby_type": "minecraft:horse",
+              "breed_event": {
+                "event": "minecraft:entity_born",
+                "target": "baby"
+              }
+            },
+            {
+              "mate_type": "minecraft:donkey",
+              "baby_type": "minecraft:mule",
+              "breed_event": {
+                "event": "minecraft:entity_born",
+                "target": "baby"
+              }
+            }
+          ],
+          "breed_items": [
+            "golden_carrot",
+            "golden_apple",
+            "appleEnchanted"
+          ]
+        },
+        "minecraft:behavior.tempt": {
+          "priority": 5,
+          "speed_multiplier": 1.2,
+          "items": [
+            "golden_apple",
+            "appleEnchanted",
+            "golden_carrot"
+          ]
+        },
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "play_sounds": "armor.equip_generic",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "chest"
+                    }
+                  ]
+                },
+                "event": "minecraft:on_chest",
+                "target": "self"
+              },
+              "use_item": true,
+              "interact_text": "action.interact.attachchest"
+            }
+          ]
+        }
+      },
+
+      "kurokumaft:ride_hover": {
+        "minecraft:movement.hover": {
+          "max_turn": 90.0
+        }
+      },
+      "kurokumaft:ride_landing": {
+        "minecraft:movement.fly": {
+          "max_turn": 90.0
+        }
+      },
+
+      "mark_variant0": {
+        "minecraft:mark_variant": {
+            "value": 0
+        }
+      },
+      "mark_variant1": {
+        "minecraft:mark_variant": {
+            "value": 1
+        }
+      },
+
+      "minecraft:horse_chested": {
+        "minecraft:is_chested": {
+
+        }
+      },
+
+      "minecraft:horse_saddled": {
+        "minecraft:is_saddled": {
+        },
+        "minecraft:input_ground_controlled": {
+        },
+        "minecraft:behavior.player_ride_tamed": {
+        }
+      }
+
+    },
+
+    "components": {
+      "minecraft:experience_reward": {
+        "on_bred": "Math.Random(7,15)",
+        "on_death": "query.last_hit_by_player ? 15 : 0"
+      },
+      "minecraft:attack": {
+        "damage": 6
+      },
+
+      "minecraft:behavior.beg": {
+        "look_distance": 8,
+        "look_time": [ 2, 4 ],
+        "items": [ "chicken", "cooked_chicken", "carrot", "golden_carrot",
+                   "rotten_flesh", "muttonraw", "muttoncooked", "rabbit", "cooked_rabbit" ]
+      },
+      "minecraft:health": {
+        "value": {
+          "range_min": 100,
+          "range_max": 250
+        }
+      },
+      "minecraft:game_event_movement_tracking": {
+        "emit_flap": true
+      },
+      "minecraft:follow_range": {
+        "value": 8,
+        "max": 16
+      },
+
+      "minecraft:equippable": {
+        "slots": [
+          {
+            "slot": 0,
+            "item": "saddle",
+            "accepted_items": [ "saddle" ],
+            "on_equip": {
+              "event": "minecraft:horse_saddled"
+            },
+            "on_unequip": {
+              "event": "minecraft:horse_unsaddled"
+            }
+          },
+          {
+            "slot": 1,
+            "item": "horsearmoriron",
+            "accepted_items": [
+              "horsearmorleather",
+              "horsearmoriron",
+              "horsearmorgold",
+              "horsearmordiamond"
+            ]
+          }
+        ]
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0
+      },
+      "minecraft:balloonable": {
+      },
+
+      "minecraft:can_fly": {
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:type_family": {
+        "family": [ "eagle", "mob" ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.2,
+        "height": 0.8
+      },
+      "minecraft:navigation.fly": {
+        "can_path_over_water": true,
+        "can_sink": false,
+        "can_pass_doors": false,
+        "can_path_from_air": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true,
+        "avoid_sun": false
+      },
+      "minecraft:annotation.break_door": {
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "fall",
+          "deals_damage": false
+        }
+      },
+      "minecraft:jump.static": {
+      },
+
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 6
+          }
+
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0,
+        "breathes_air": true
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 2,
+        "attack_interval": 5,
+        "burst_interval": 0.2,
+        "burst_shots": 3,
+        "ranged_fov": 270,
+        "attack_radius": 64,
+        "charge_shoot_trigger": 2,
+        "charge_charged_trigger": 1
+      },
+      "minecraft:shooter": {
+        "def": "kurokumaft:windcuttermagic"
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 7,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 6,
+        "probability": 0.02
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 9
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 25.0,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "monster" }
+              ]
+            },
+            "max_dist": 80
+          }
+        ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:storm_eagle_wild"
+          ]
+        }
+      },
+
+      "minecraft:on_tame": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:storm_eagle_wild"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "kurokumaft:storm_eagle_tamed"
+          ]
+        }
+      },
+
+      "minecraft:horse_saddled": {
+        "add": {
+          "component_groups": [
+            "minecraft:horse_saddled"
+          ]
+        }
+      },
+      "minecraft:horse_unsaddled": {
+        "remove": {
+          "component_groups": [
+            "minecraft:horse_saddled"
+          ]
+        }
+      },
+
+      "minecraft:on_chest": {
+        "add": {
+          "component_groups": [
+            "minecraft:horse_chested"
+          ]
+        }
+      },
+
+      "kurokumaft:ride_hover": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:ride_landing"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "kurokumaft:ride_hover"
+          ]
+        }
+      },
+      "kurokumaft:ride_landing": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:ride_hover"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "kurokumaft:ride_landing"
+          ]
+        }
+      },
+
+      "mark_variant0": {
+        "add": {
+          "component_groups": [
+            "mark_variant0"
+          ]
+        }
+      },
+      "mark_variant1": {
+        "add": {
+          "component_groups": [
+            "mark_variant1"
+          ]
+        }
+      }
+    }
+  }
+}

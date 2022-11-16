@@ -231,8 +231,8 @@
         "family": [ "inanimate"  ]
       },
       "minecraft:collision_box": {
-        "width": 1.0,
-        "height": 1.0
+        "width": 5.0,
+        "height": 5.0
       },
       "minecraft:projectile": {
         "on_hit": {
@@ -260,7 +260,7 @@
         "offset": [ 0, 0, 0 ]
       },
       "minecraft:timer": {
-        "time": [0.35,0.35],
+        "time": [0.30,0.30],
         "time_down_event": { 
           "event": "kurokumaft:despawn"
         }

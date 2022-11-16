@@ -13,8 +13,8 @@
                 "family": [ "hono_tiger" ]
             },
             "minecraft:collision_box": {
-                "width": 0.01,
-                "height": 0.01
+                "width": 5.0,
+                "height": 5.0
             },
             "minecraft:projectile": {
                 "on_hit": {

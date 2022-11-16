@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.grimoire.fire_change": {
+      "states": {
+        "default": {
+          "variables": {
+            "fire_grimoire": {
+              "input": "variable.fire_grimoire = (variable.fire_grimoire ?? 0);"
+            }
+          },
+          "transitions": [
+            { "fire_ball_burst": "query.equipped_item_any_tag('slot.weapon.mainhand','fire_grimoire') && query.is_using_item" }
+          ]
+        },
+        "fire_ball_burst":{
+          "on_entry": [
+            "/event entity @s variant1"
+          ],
+          "on_exit": [
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.fire_grimoire = variable.fire_grimoire < 20 ? variable.fire_grimoire + 1:0;return variable.fire_grimoire == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

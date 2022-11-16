@@ -1,5 +1,5 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.19.30",
   "minecraft:item": {
     "description": {
         "identifier": "kurokumaft:nichirintou_tengen",
@@ -10,6 +10,7 @@
 				"value": "item.kurokumaft:nichirintou_tengen.name"
 			},
       "tag:kurokumaft:nichirintou_two": {},
+      "tag:kurokumaft:kokyu_oto": {},
       "tag:kurokumaft:nichirintou_tengen": {},
       "minecraft:icon": {
           "texture": "nichirintou_tengen"
@@ -40,11 +41,6 @@
         "value": 300,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
-      },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
@@ -59,19 +55,18 @@
           }
         ]
       },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "hurt_entity",
-          "target": "self"
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "hurt_entity"
         }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"
       },
       "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "hurt_entity"
-          }
+        "on_hurt_entity": {
+            "event": "hurt_entity"
+        }
       }
     },
     "events": {

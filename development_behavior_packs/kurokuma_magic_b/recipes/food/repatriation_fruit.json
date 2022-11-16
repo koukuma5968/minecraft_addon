@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:repatriation_fruit"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "ggg",
+      "gcg",
+      "ggg"
+    ],
+    "key": {
+      "c": {
+        "item": "minecraft:chorus_fruit"
+      },
+      "g": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:repatriation_fruit"
+    }
+  }
+}

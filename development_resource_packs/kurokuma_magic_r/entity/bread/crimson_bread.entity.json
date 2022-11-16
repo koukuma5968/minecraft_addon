@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:crimson_bread",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/bread/fire_magic_bread"
+          },
+          "geometry": {
+            "default": "geometry.crimson_bread"
+          },
+          "animations": {
+            "shooter": "animation.crimson_bread.shooter"
+          },
+          "particle_effects": {
+            "fire_bread_particle": "kurokumaft:fire_bread_particle"
+          },
+          "scripts": {
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

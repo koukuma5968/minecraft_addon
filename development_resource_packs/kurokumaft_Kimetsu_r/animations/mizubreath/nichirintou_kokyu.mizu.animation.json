@@ -55,27 +55,19 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu1"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu2"
-					},
-					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu3"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu4"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu5"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu6"
 					}
 				]
@@ -88,11 +80,11 @@
 				"nichirinto": {
 					"rotation": {
 						"0.0": [36.10073, 52.31045, -22.25454],
-						"0.5": [8.77656, -83.49971, -26.72542]
+						"0.5": [6.35423, -81.02091, -24.2814]
 					},
 					"position": {
 						"0.0": [2, -11, 5],
-						"0.5": [1, -4, -34]
+						"0.5": [7, 6, -21]
 					}
 				},
 				"nichirinto2": {
@@ -103,14 +95,6 @@
 			},
 			"particle_effects": {
 				"0.0": [
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu1"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu2"
-					},
 					{
 						"effect": "mizu_awa_particle",
 						"locator": "mizu3"
@@ -136,12 +120,12 @@
 			"bones": {
 				"nichirinto": {
 					"rotation": {
-						"0.0": [11.27656, -83.49971, -26.72542],
-						"0.5": [103.78, -83.5, -26.73]
+						"0.0": [6.35423, -81.02091, -24.2814],
+						"0.5": [119.98573, -82.29394, 25.26507]
 					},
 					"position": {
-						"0.0": [1, -4, -34],
-						"0.5": [1, -7, -8]
+						"0.0": [7, 6, -21],
+						"0.5": [2, -11, 5]
 					}
 				},
 				"nichirinto2": {
@@ -153,27 +137,19 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu1"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu2"
-					},
-					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu3"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu4"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu5"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu6"
 					}
 				]
@@ -270,79 +246,37 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu1"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu2"
-					},
-					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu3"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu4"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu5"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu6"
 					}
 				],
 				"0.5": [
 					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu1"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu2"
-					},
-					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu3"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu4"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu5"
 					},
 					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu6"
-					}
-				],
-				"1.0": [
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu1"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu2"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu3"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu4"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "mizu5"
-					},
-					{
-						"effect": "mizu_awa_particle",
+						"effect": "mizu_splash_particle",
 						"locator": "mizu6"
 					}
 				]

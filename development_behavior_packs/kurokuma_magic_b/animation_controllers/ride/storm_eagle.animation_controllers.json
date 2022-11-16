@@ -1,0 +1,55 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.storm_eagle.rider": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"storm_eagle_rider": "query.has_rider"}
+					]
+				},
+				"storm_eagle_rider": {
+					"on_entry": [
+						"/tag @s add storm_eagle_rider"
+					],
+					"animations" : [ "landing", "takeoff" ],
+					"on_exit": [
+						"/event entity @s mark_variant0",
+						"/tag @s remove storm_eagle_rider"
+					],
+					"transitions": [
+						{"default": "!query.has_rider"}
+					]
+				}
+			}
+		},
+		"controller.animation.storm_eagle.hover": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"hover": "query.mark_variant == 1"}
+					]
+				},
+				"hover": {
+					"on_entry": [
+						"/event entity @s kurokumaft:ride_hover"
+					],
+					"transitions": [
+						{"landing": "query.mark_variant == 0"}
+					]
+				},
+				"landing": {
+					"on_entry": [
+						"/effect @s speed 0",
+						"/event entity @s kurokumaft:ride_landing"
+					],
+					"transitions": [
+						{"default": "(1.0)"}
+					]
+				}
+			}
+		}
+	}
+}

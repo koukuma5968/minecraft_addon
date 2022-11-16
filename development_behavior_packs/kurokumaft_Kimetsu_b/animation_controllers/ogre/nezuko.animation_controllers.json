@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.nezuko.kekkizyutu": {
+      "states": {
+        "default": {
+          "variables": {
+            "bakketu": {
+              "input": "variable.nezuko_bakketu = (variable.nezuko_bakketu ?? 0);"
+            }
+          },
+          "transitions": [
+            { "bakketu": "query.variant == 1 && query.mark_variant == 0" }
+          ]
+        },
+        "bakketu":{
+          "animations" : [ "bakketu_target" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/tag @s add bakketu",
+            "/tag @e[tag=!bakketu,family=!player,family=!regimental_soldier,r=8] add bakketu_enemy",
+            "/tag @e[tag=!bakketu,family=player,r=8] add bakketu_ally",
+            "/tag @e[tag=!bakketu,family=regimental_soldier,r=8] add bakketu_ally",
+            "/tag @e[tag=!bakketu,family=villager,r=8] add bakketu_ally"
+          ],
+          "transitions": [
+            {"bakketu2":"variable.nezuko_bakketu = variable.nezuko_bakketu < 30 ? variable.nezuko_bakketu + 1:0;return variable.nezuko_bakketu == 0;"}
+          ]
+        },
+        "bakketu2":{
+          "animations" : [ "bakketu_fire" ],
+          "on_exit": [
+            "/tag @s remove bakketu",
+            "/tag @e[tag=bakketu_enemy] remove bakketu_enemy",
+            "/tag @e[tag=bakketu_ally] remove bakketu_ally",
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"variable.nezuko_bakketu = variable.nezuko_bakketu < 80 ? variable.nezuko_bakketu + 1:0;return variable.nezuko_bakketu == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

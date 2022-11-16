@@ -1,0 +1,53 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:nichirintou_tanjiro",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_pants_guy",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:tanjiro_tabi",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_jacket_guy",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "kurokumaft:tanjiro_haori_soldier_jacket",
+          "weight": 5
+        }
+      ]
+    }
+
+  ]
+}

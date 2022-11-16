@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.burning_hell": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "end_tp": "query.scoreboard('burning_hell') == 1" }
+          ]
+        },
+        "end_tp": {
+          "on_entry": [
+            "/effect @s blindness 3 10 true",
+            "/execute @s ~~200~ fill ~-1 ~0 ~-1 ~1 ~0 ~1 end_portal",
+            "/tp @s ~~201~"
+          ],
+          "transitions": [
+            { "burning_hell_structures": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
+          ]
+        },
+        "burning_hell_structures": {
+          "on_entry": [
+            "/structure load burning_hell_1 -564 100 -564",
+            "/structure load burning_hell_2 -564 100 -500",
+            "/structure load burning_hell_3 -500 100 -564",
+            "/structure load burning_hell_4 -500 100 -500"
+          ],
+          "transitions": [
+            { "burning_hell_tp": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
+          ]
+        },
+        "burning_hell_tp": {
+          "on_entry": [
+            "/execute @s ~~~ detect ~~-1~ obsidian -1 tp @s -544 130 -464"
+          ],
+          "transitions": [
+            { "stand_kill": "(1.0)" }
+          ]
+        },
+        "stand_kill": {
+          "on_entry": [
+            "/scoreboard players reset @s burning_hell",
+            "/scoreboard objectives remove burning_hell"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        }
+      }
+    }
+  }
+}

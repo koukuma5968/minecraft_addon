@@ -14,11 +14,11 @@
 			"minecraft:block_light_absorption": 3,
 			"minecraft:friction": 0.3,
 			"minecraft:on_step_on": {
-				"event": ":wind_levitation"
+				"event": "kurokumaft:wind_levitation"
 			}
 		},
 		"events": {
-			":wind_levitation": {
+			"kurokumaft:wind_levitation": {
 				"run_command": {
 					"command": [
 						"particle kurokumaft:storm1_particle ~~1~",

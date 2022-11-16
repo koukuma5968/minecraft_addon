@@ -1,0 +1,27 @@
+{
+	"format_version": "1.8.0",
+	"animations": {	
+		"animation.storm_eagle.takeoff": {
+			"timeline": {
+			    "0.0": [
+					"/execute @p[rx=10,rxm=-90,c=1,r=2] ~ ~ ~ effect @e[tag=storm_eagle_rider,c=1,r=1.5] speed 2 40 true",
+					"/execute @p[rx=39,rxm=11,c=1,r=2] ~ ~ ~ effect @e[tag=storm_eagle_rider,c=1,r=1.5] speed 2 25 true",
+					"/execute @p[rx=20,rxm=-90,c=1,r=2] ~ ~ ~ event entity @e[tag=storm_eagle_rider,c=1,r=1.5] mark_variant1",
+					"/execute @p[rx=-15,rxm=-90,c=1,r=2] ~ ~ ~ effect @e[tag=storm_eagle_rider,c=1,r=1.5] levitation 1 10 true"
+				]
+			},
+			"animation_length": 0.01,
+			"loop": true
+		},
+		"animation.storm_eagle.landing": {
+			"timeline": {
+			    "0.0": [
+					"/execute @p[rx=90,rxm=40,c=1,r=2] ~ ~ ~ event entity @e[tag=storm_eagle_rider,c=1,r=1.5] mark_variant0",
+					"/execute @p[rx=90,rxm=40,c=1,r=2] ~ ~ ~ effect @e[tag=storm_eagle_rider,c=1,r=1.5] slow_falling 1 5 true"
+				]
+			},
+			"animation_length": 0.01,
+			"loop": true
+		}
+	}
+}

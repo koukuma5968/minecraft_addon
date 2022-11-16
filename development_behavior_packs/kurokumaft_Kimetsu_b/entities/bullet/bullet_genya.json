@@ -5,7 +5,8 @@
             "identifier": "kurokumaft:bullet_genya",
             "is_spawnable": false,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "runtime_identifier": "minecraft:snowball"
         },
         "components": {
             "minecraft:break_blocks": {
@@ -15,8 +16,8 @@
                 ]
             },
             "minecraft:collision_box": {
-                "width": 0.01,
-                "height": 0.01
+                "width": 0.25,
+                "height": 0.25
             },
             "minecraft:projectile": {
                 "on_hit": {

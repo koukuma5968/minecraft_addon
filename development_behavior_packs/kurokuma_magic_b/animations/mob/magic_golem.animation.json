@@ -1,0 +1,53 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.blue_ice_golem.shot": {
+			"animation_length": 6.00,
+			"loop": true,
+			"timeline": {
+				"4.5": [
+					"/event entity @s kurokumaft:deepsnow"
+				],
+				"4.6": [
+					"/event entity @s kurokumaft:deepsnow_remove"
+				],
+				"5.0": [
+					"/event entity @s kurokumaft:deepsnow"
+				],
+				"5.1": [
+					"/event entity @s kurokumaft:deepsnow_remove"
+				],
+				"5.5": [
+					"/event entity @s kurokumaft:deepsnow"
+				],
+				"5.6": [
+					"/event entity @s kurokumaft:deepsnow_remove"
+				]
+			}
+		},
+		"animation.magma_golem.shot": {
+			"animation_length": 10.00,
+			"loop": true,
+			"timeline": {
+				"2.5": [
+					"/event entity @s kurokumaft:fireball"
+				],
+				"2.6": [
+					"/event entity @s kurokumaft:fireball_remove"
+				],
+				"5.0": [
+					"/event entity @s kurokumaft:fireball"
+				],
+				"5.1": [
+					"/event entity @s kurokumaft:fireball_remove"
+				],
+				"7.5": [
+					"/event entity @s kurokumaft:fireball"
+				],
+				"7.6": [
+					"/event entity @s kurokumaft:fireball_remove"
+				]
+			}
+		}
+	}
+}

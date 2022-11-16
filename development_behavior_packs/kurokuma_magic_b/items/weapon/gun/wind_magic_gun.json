@@ -48,7 +48,7 @@
       },
       "minecraft:on_use":{
         "on_use":{
-          "condition": "query.scoreboard('wind_magic_gun') >= 10",
+          "condition": "query.variant >= 10",
           "event":"kurokumaft:wind_magic_bullet"
         }
       }

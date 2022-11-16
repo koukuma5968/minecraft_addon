@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:magma_golem",
+      "materials": {
+        "default": "skeleton"
+      },
+      "geometry": {
+        "default": "geometry.magma_golem"
+      },
+      "spawn_egg": {
+        "texture": "magic_spawn_egg",
+        "texture_index": 0
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/golem/magma_golem",
+        "cracked_high": "textures/entity/iron_golem/cracked_high",
+        "cracked_med": "textures/entity/iron_golem/cracked_medium",
+        "cracked_low": "textures/entity/iron_golem/cracked_low",
+        "cracked_none": "textures/entity/iron_golem/cracked_none"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.attack_animation_tick = 0.0;",
+          "variable.offer_flower_tick = 0.0;",
+          "variable.modified_tcos0 = 0.0;"
+        ],
+        "animate": [
+          "arm_movement",
+          "move_con"
+        ]
+      },
+      "animations": {
+        "attack": "animation.magma_golem.attack",
+        "flower": "animation.magma_golem.flower",
+        "move": "animation.magma_golem.move",
+        "move_to_target": "animation.magma_golem.move_to_target",
+        "walk": "animation.magma_golem.walk",
+        "walk_to_target": "animation.magma_golem.walk_to_target",
+        "arm_movement": "controller.animation.golem.arm_movement",
+        "move_con": "controller.animation.golem.move"
+      },
+      "render_controllers": [ "controller.render.magic_golem", "controller.render.magic_golem_cracks" ],
+      "enable_attachables": true
+    }
+  }
+}

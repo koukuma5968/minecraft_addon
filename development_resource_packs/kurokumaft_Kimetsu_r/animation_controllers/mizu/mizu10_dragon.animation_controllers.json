@@ -6,8 +6,8 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"mizu10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 10"},
-						{"mizu10_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tanjiro') && query.variant == 101"}
+						{"mizu10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.variant == 10 && query.mark_variant == 2"},
+						{"mizu10_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.variant == 10 && query.mark_variant == 3"}
 					]
 				},
 				"mizu10_1" : {

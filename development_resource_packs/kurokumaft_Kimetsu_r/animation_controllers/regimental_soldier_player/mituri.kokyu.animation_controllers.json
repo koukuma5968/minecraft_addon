@@ -1,0 +1,82 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.mituri.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"koi1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mituri') && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
+						{"koi2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mituri') && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
+						{"koi3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mituri') && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
+						{"koi5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mituri') && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"},
+						{"koi6_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mituri') && query.variant == 6 && query.mark_variant == 1 && query.is_using_item"}
+					]
+				},
+				"koi1_1" : {
+					"animations" : [
+						{"mituri.ichi_1": "variable.is_first_person"},
+						{"mituri.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"koi1_2":"variable.attack_time"}
+					]
+				},
+				"koi1_2" : {
+					"animations" : [
+						{"mituri.ichi_2": "variable.is_first_person"},
+						{"mituri.ichi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"koi2_1" : {
+					"animations" : [
+						{"mituri.ni_1": "variable.is_first_person"},
+						{"mituri.ni_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"koi2_2":"query.any_animation_finished"}
+					]
+				},
+				"koi2_2" : {
+					"animations" : [
+						{"mituri.ni_2": "variable.is_first_person"},
+						{"mituri.ni_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"koi3_1" : {
+					"animations" : [
+						{"mituri.san": "variable.is_first_person"},
+						{"mituri.san": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"koi5_1" : {
+					"animations" : [
+						{"mituri.go": "variable.is_first_person"},
+						{"mituri.go": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"koi6_1" : {
+					"animations" : [
+						{"mituri.roku": "variable.is_first_person"},
+						{"mituri.roku": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

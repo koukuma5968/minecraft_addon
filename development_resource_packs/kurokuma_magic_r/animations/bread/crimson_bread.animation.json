@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.crimson_bread.shooter": {
+			"loop": true,
+			"animation_length": 0.04,
+			"bones": {
+				"crimson_bread": {
+					"rotation": {
+						"0.0": ["query.target_x_rotation", "0", 0],
+						"0.02": ["query.target_x_rotation", "90", 0],
+						"0.03": ["query.target_x_rotation", "180", 0],
+						"0.04": ["query.target_x_rotation", "270", 0],
+						"0.05": ["query.target_x_rotation", "360", 0]
+					},
+					"position": [0, 0, 0],
+					"scale": 0.75
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "fire_bread_particle",
+					"locator": "crimson_bread1"
+				},
+				"0.2": {
+					"effect": "fire_bread_particle",
+					"locator": "crimson_bread1"
+				}
+			}
+		}
+	}
+}

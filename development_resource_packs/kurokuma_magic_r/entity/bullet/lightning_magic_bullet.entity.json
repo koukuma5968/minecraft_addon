@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:lightning_magic_bullet",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": ""
+      },
+      "geometry": {
+        "default": "geometry.magic_bullet"
+      },
+      "animations": {
+        "move": "animation.magic_bullet.lightning_move"
+      },
+      "particle_effects": {
+        "lightning_bullet_particle": "kurokumaft:lightning_bullet_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

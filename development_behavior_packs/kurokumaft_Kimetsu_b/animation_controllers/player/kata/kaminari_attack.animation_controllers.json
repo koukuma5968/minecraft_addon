@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.kaminari_attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kaminari1_attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kaminari') && query.variant == 11 && variable.attack_time" }
+          ]
+        },
+        "kaminari1_attack":{
+          "on_entry": [
+            "/function kaminari/kaminari1",
+            "/scoreboard players add @s kaminari1 1"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

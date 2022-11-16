@@ -10,16 +10,5 @@
             "south" : "ice_machine_front",
             "west" : "ice_machine_side"
         }
-    },
-    "kurokumaft:iron_chest" : {
-        "sound" : "metal",
-        "textures" : {
-            "up" : "iron_chest_top",
-            "down" : "iron_chest_top",
-            "east" : "iron_chest_side",
-            "north" : "iron_chest_side",
-            "south" : "iron_chest_front",
-            "west" : "iron_chest_side"
-        }
     }
 }

@@ -40,7 +40,6 @@
 		},
 		"components": {
 			"minecraft:explosion_resistance": 0.1,
-			"minecraft:creative_category": { "category": "crop" },
 			"minecraft:destroy_time": 0.1,
 			"minecraft:block_light_absorption": 1,
 			"minecraft:on_placed": {

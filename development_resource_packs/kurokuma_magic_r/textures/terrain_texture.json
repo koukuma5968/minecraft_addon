@@ -33,7 +33,11 @@
       },
       "windwall_block" : {
          "textures" : "textures/kurokumaft/blocks/windwall_block"
+      },
+
+      "magma_portal_gate" : {
+         "textures" : "textures/kurokumaft/blocks/magma_portal_gate"
       }
- 
+
    }
 }

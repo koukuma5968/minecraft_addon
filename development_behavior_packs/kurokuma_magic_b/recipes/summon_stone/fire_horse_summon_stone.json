@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:fire_horse_summon_stone"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "lml",
+      "mem",
+      "lml"
+    ],
+    "key": {
+      "e": {
+        "item": "minecraft:ender_eye"
+      },
+      "m": {
+        "item": "kurokumaft:fire_magic_stone"
+      },
+      "l": {
+        "item": "minecraft:leather"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:fire_horse_summon_stone"
+    }
+  }
+}

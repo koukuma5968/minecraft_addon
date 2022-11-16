@@ -41,7 +41,7 @@
       "render_controllers": [ "controller.render.white_tiger" ],
       "spawn_egg": {
         "texture": "spawn_egg",
-        "texture_index": 70
+        "texture_index": 55
       }
     }
   }

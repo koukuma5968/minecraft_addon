@@ -6,11 +6,11 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"hono1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.variant == 1 && query.is_using_item"},
-						{"hono2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.variant == 2 && query.is_using_item"},
-						{"hono3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.variant == 3 && query.is_using_item"},
-						{"hono4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.variant == 4 && query.is_using_item"},
-						{"hono5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hono') && query.variant == 5 && query.is_using_item"}
+						{"hono1_1": "query.variant == 1 && query.is_using_item"},
+						{"hono2_1": "query.variant == 2 && query.is_using_item"},
+						{"hono3_1": "query.variant == 3 && query.is_using_item"},
+						{"hono4_1": "query.variant == 4 && query.is_using_item"},
+						{"hono5_1": "query.variant == 5 && query.is_using_item"}
 					]
 				},
 				"hono1_1" : {
@@ -28,7 +28,7 @@
 						{"hono.ichi_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"default":"query.variant == 0"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"hono2_1" : {

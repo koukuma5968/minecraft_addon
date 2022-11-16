@@ -1,0 +1,23 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.zenitu_attack.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kaminari1_3": "query.variant == 1 && variable.attack_time"}
+					]
+				},
+				"kaminari1_3" : {
+					"animations" : [
+						"zenitu.ichi_3"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

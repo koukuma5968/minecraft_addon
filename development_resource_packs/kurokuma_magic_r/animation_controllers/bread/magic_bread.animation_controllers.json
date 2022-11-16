@@ -1,0 +1,50 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.magic_bread.wield" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"first_person": "query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') && c.is_first_person && query.variant == 0"},
+						{"third_person": "query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') && !c.is_first_person && query.variant == 0"},
+						{"attack_first_person": "query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') && c.is_first_person && query.variant == 1"},
+						{"attack_third_person": "query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') && !c.is_first_person && query.variant == 1"}
+					]
+				},
+				"first_person" : {
+					"animations" : [
+						"first_person"
+					],
+					"transitions" : [
+						{"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') || !c.is_first_person || query.variant == 1"}
+					]
+				},
+				"third_person" : {
+					"animations" : [
+						"third_person"
+					],
+					"transitions" : [
+						{"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') || c.is_first_person || query.variant == 1"}
+					]
+				},
+				"attack_first_person" : {
+					"animations" : [
+						"attack_first_person"
+					],
+					"transitions" : [
+						{"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') || !c.is_first_person || query.variant == 0"}
+					]
+				},
+				"attack_third_person" : {
+					"animations" : [
+						"attack_third_person"
+					],
+					"transitions" : [
+						{"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','magic_bread') || c.is_first_person || query.variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

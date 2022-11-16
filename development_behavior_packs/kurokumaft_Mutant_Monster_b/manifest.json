@@ -1,0 +1,24 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "ミュータントモンスターアドオン",
+		"name": "kurokumaft_Mutant_Monster_b",
+		"uuid": "05651d0d-934b-4a9a-8682-4e29735d9e0c",
+		"version": [1,0,0],
+		"min_engine_version": [1,16,0]
+	},
+	"modules": [
+		{
+			"description": "ミュータントモンスターアドオン",
+			"type": "data",
+			"uuid": "af63b86a-cb23-4232-9177-376618ef9b85",
+			"version": [1,0,0]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "56abb0cd-0ed7-48ff-9466-478ddf1cd7d7",
+			"version": [1,0,0]
+		}
+	]
+}

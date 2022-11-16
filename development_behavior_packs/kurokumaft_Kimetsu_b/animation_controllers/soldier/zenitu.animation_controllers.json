@@ -1,0 +1,64 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.zenitu.kokyu": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kaminari1": "query.variant == 1 && query.mark_variant == 0" },
+            { "kaminari7": "query.variant == 7 && query.mark_variant == 0" }
+          ]
+        },
+        "kaminari1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 99999 5 true"
+          ],
+          "transitions": [
+            {"kaminari1_2":"variable.attack_time"}
+          ]
+        },
+        "kaminari1_2":{
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 5.0"}
+          ]
+        },
+        "kaminari7":{
+          "animations" : [ "kaminari7_ani" ],
+          "on_entry": [
+            "/effect @s speed 99999 20 true",
+            "/tag @s add kokyu_kaminari7",
+            "/tag @e[r=50,c=1,tag=!kokyu_kaminari7,family=monster] add kokyu_kaminari7_target",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kaminari7_2":"query.life_time > 10.0"}
+          ]
+        },
+        "kaminari7_2":{
+          "on_entry": [
+            "/gamerule sendcommandfeedback false",
+            "/execute @e[tag=kokyu_kaminari7_target] ^^^2 tp @e[tag=kokyu_kaminari7] ~~~",
+            "/execute @s ~~~ particle kurokumaft:kaminari2_particle ~~~",
+            "/execute @s ~~~ damage @e[tag=!kokyu_kaminari7,r=10] 50 lightning"
+          ],
+          "on_exit": [
+            "/effect @s speed 0",
+            "/tag @s remove kokyu_kaminari7",
+            "/tag @s remove kokyu_kaminari7_target",
+            "/event entity @s mark_variant0",
+            "/event entity @s variant0"
+          ],
+          "transitions": [
+            {"default":"query.life_time > 20.0"}
+          ]
+        }
+      }
+    }
+  }
+}

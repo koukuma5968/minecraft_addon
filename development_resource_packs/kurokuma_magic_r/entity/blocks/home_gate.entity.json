@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:home_gate",
+        "materials": {
+            "default": "armor_stand"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/blocks/home_gate"
+          },
+          "geometry": {
+            "default": "geometry.home_gate"
+          },
+          "render_controllers": [ "controller.render.armor_stand" ]
+        }
+    }
+  }
+  

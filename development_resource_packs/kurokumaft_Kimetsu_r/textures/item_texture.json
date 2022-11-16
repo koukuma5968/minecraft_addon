@@ -38,6 +38,9 @@
       "nichirintou_tengen": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_tengen"
       },
+      "nichirintou_mituri": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_mituri"
+      },
 
       "nichirintou_hi": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hi"
@@ -54,13 +57,85 @@
       "nichirintou_oto": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_oto"
       },
+      "nichirintou_mushi": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_mushi"
+      },
 
       "scarlet_ironfish": {
          "textures" : "textures/kurokumaft/items/ore/scarlet_ironfish"
       },
       "scarlet_nugget": {
          "textures" : "textures/kurokumaft/items/ore/scarlet_nugget"
+      },
+
+      "tanjiro_haori_soldier_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/tanjiro/tanjiro_haori_soldier_jacket"
+      },
+      "tanjiro_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/tanjiro/tanjiro_tabi"
+      },
+
+      "nezuko_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/nezuko/nezuko_kimono"
+      },
+      "nezuko_haori": {
+         "textures" : "textures/kurokumaft/items/armor/nezuko/nezuko_haori"
+      },
+      "nezuko_mask": {
+         "textures" : "textures/kurokumaft/items/armor/nezuko/nezuko_mask"
+      },
+      "nezuko_boots": {
+         "textures" : "textures/kurokumaft/items/armor/nezuko/nezuko_boots"
+      },
+
+      "kanawo_hair_band": {
+         "textures" : "textures/kurokumaft/items/armor/kanawo/kanawo_hair_band"
+      },
+      "kanawo_boots": {
+         "textures" : "textures/kurokumaft/items/armor/kanawo/kanawo_boots"
+      },
+
+      "zenitu_haori_soldier_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/zenitu/zenitu_haori_soldier_jacket"
+      },
+      "zenitu_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/zenitu/zenitu_tabi"
+      },
+
+      "inosuke_headdress": {
+         "textures" : "textures/kurokumaft/items/armor/inosuke/inosuke_headdress"
+      },
+      "inosuke_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/inosuke/inosuke_hakama"
+      },
+
+      "soldier_jacket_guy": {
+         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_guy"
+      },
+      "soldier_pants_guy": {
+         "textures" : "textures/kurokumaft/items/armor/soldier_pants_guy"
+      },
+      "soldier_jacket_girl": {
+         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_girl"
+      },
+      "soldier_skirt_girl": {
+         "textures" : "textures/kurokumaft/items/armor/soldier_skirt_girl"
+      },
+
+      "bakketu": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/bakketu"
+      },
+
+      "soldier_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/soldier/tanjiro_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/zenitu_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/inosuke_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/kanawo_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/nezuko_egg"
+         ]
       }
+
    },
    "texture_name" : "atlas.items"
 }

@@ -10,6 +10,7 @@
 				"value": "item.kurokumaft:nichirintou_zenitu.name"
 			},
       "tag:kurokumaft:nichirintou": {},
+      "tag:kurokumaft:kokyu_kaminari": {},
       "tag:kurokumaft:nichirintou_zenitu": {},
       "minecraft:icon": {
           "texture": "nichirintou_zenitu"
@@ -41,10 +42,10 @@
         "value": 50,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "hurt_entity"
+        }
       },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
@@ -59,12 +60,6 @@
             "speed": 10
           }
         ]
-      },
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "hurt_entity",
-          "target": "self"
-        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"

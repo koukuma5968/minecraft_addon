@@ -13,11 +13,11 @@
 			"minecraft:destroy_time": 2.2,
 			"minecraft:block_light_absorption": 0,
 			"minecraft:on_step_on": {
-				"event": "lightning_damage"
+				"event": "kurokumaft:lightning_damage"
 			}
 		},
 		"events": {
-			"lightning_damage": {
+			"kurokumaft:lightning_damage": {
 			  "damage": {
 				"amount": 3,
 				"target": "other",

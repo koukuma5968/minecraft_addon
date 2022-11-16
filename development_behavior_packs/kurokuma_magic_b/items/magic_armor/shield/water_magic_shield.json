@@ -7,6 +7,7 @@
     },
     "components": {
       "tag:shield": {},
+      "tag:water_shield": {},
       "minecraft:use_duration":5,
       "minecraft:display_name": {
         "value": "item.kurokumaft:water_magic_shield.name"
@@ -17,8 +18,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:blue_ice", "kurokumaft:water_magic_shield" ],
+            "items": [ "minecraft:blue_ice" ],
             "repair_amount": 5
+          },
+          {
+            "items": [ "kurokumaft:water_magic_shield" ],
+            "repair_amount": 400
           }
         ]
       },

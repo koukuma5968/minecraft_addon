@@ -225,6 +225,14 @@
 					"locator": "shinobu4"
 				}
 			}
+		},
+		"animation.nichirintou_kokyu.shinobu.gokou": {
+			"loop": true,
+			"bones": {
+				"nichirinto": {
+					"scale": 0
+				}
+			}
 		}
 	}
 }

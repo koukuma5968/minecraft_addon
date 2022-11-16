@@ -22,7 +22,7 @@
 			}
 		},
 		"animation.kata.hi4": {
-			"animation_length": 1.00,
+			"animation_length": 0.50,
 			"loop": true,
 			"timeline": {
 				"0.0": [
@@ -30,7 +30,7 @@
 					"/gamerule sendcommandfeedback false",
 					"/execute @s ~~~ tp @s ~~~"
 				],
-				"0.1": [
+				"0.05": [
 					"/execute @s ^1^^1 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^2^1^1.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^1^^1 particle kurokumaft:hi4_particle ~~~",
@@ -38,7 +38,7 @@
 					"/execute @s ^1^^1 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^2^1^1.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.2": [
+				"0.10": [
 					"/execute @s ^4^2^2 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^3^3^2.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^3^2^2 particle kurokumaft:hi4_particle ~~~",
@@ -46,7 +46,7 @@
 					"/execute @s ^3^1^2 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^4^3^2.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.3": [
+				"0.15": [
 					"/execute @s ^3^4^3 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^2^5^3.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^3^4^3 particle kurokumaft:hi4_particle ~~~",
@@ -54,7 +54,7 @@
 					"/execute @s ^3^4^3 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^2^5^3.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.4": [
+				"0.20": [
 					"/execute @s ^1^6^4 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^0^7^4.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^1^6^4 particle kurokumaft:hi4_particle ~~~",
@@ -62,7 +62,7 @@
 					"/execute @s ^1^6^4 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^0^7^4.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.5": [
+				"0.25": [
 					"/execute @s ^-2^6^5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^-4^5^5.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^-2^6^5 particle kurokumaft:hi4_particle ~~~",
@@ -70,7 +70,7 @@
 					"/execute @s ^-2^6^5 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^-4^5^5.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.6": [
+				"0.30": [
 					"/execute @s ^-6^4^6 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^-8^3^6.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^-6^6^6 particle kurokumaft:hi4_particle ~~~",
@@ -78,7 +78,7 @@
 					"/execute @s ^-6^4^6 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^-8^3^6.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.7": [
+				"0.35": [
 					"/execute @s ^-6^2^7 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^-4^1^7.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
 					"/execute @s ^-6^2^7 particle kurokumaft:hi4_particle ~~~",
@@ -86,7 +86,7 @@
 					"/execute @s ^-6^2^7 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^-4^1^7.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.8": [
+				"0.40": [
 					"/execute @s ^-2^0^8 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
 					"/execute @s ^0^1^8.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
 					"/execute @s ^-2^0^8 particle kurokumaft:hi4_particle ~~~",
@@ -94,7 +94,7 @@
 					"/execute @s ^-2^0^8 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^0^1^8.5 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"0.9": [
+				"0.45": [
 					"/execute @s ^3^3^9 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
 					"/execute @s ^6^5^9.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
 					"/execute @s ^9^7^10 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
@@ -105,7 +105,7 @@
 					"/execute @s ^6^5^9.5 particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute @s ^9^7^10 particle kurokumaft:hi4_fire_particle ~~~"
 				],
-				"1.0": [
+				"0.50": [
 					"/execute @s ^6^9^10.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
 					"/execute @s ^3^11^11 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
 					"/execute @s ^0^12^11.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",

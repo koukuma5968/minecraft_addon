@@ -30,5 +30,24 @@
             "side" : "windwall_block",
             "up" : "windwall_block"
         }
+    },
+    "kurokumaft:magma_portal": {
+        "sound" : "glass",
+        "textures" : {
+            "down" : "magma_portal",
+            "east" : "magma_portal",
+            "north" : "magma_portal",
+            "south" : "magma_portal",
+            "up" : "magma_portal",
+            "west" : "magma_portal"
+        }
+    },
+    "kurokumaft:magma_portal_gate": {
+        "textures" : {
+            "down" : "magma_portal_gate",
+            "side" : "magma_portal_gate",
+            "up" : "magma_portal_gate"
+        }
     }
+
 }

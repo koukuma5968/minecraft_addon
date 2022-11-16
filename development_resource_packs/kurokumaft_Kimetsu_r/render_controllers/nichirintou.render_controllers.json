@@ -4,7 +4,18 @@
 		"controller.render.nichirintou": {
 			"geometry": "Geometry.default",
 			"materials": [ { "*": "variable.is_enchanted ? Material.enchanted : Material.default" } ],
-			"textures": [ "Texture.default", "Texture.enchanted" ]
+			"arrays": {
+				"textures": {
+				  "Array.owner": [
+					"Texture.default",
+					"Texture.player"
+				  ]
+				}
+			},
+			"textures": [ 
+				"Array.owner[query.owner_identifier != 'minecraft:armor_stand']", 
+				"Texture.enchanted" 
+			]
 		},
 		"controller.render.nichirintou_normal": {
 			"geometry": "Geometry.nichirintou",

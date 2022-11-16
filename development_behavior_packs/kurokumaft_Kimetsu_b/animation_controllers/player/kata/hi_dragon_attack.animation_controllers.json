@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.hi_dragon_attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "attack": "query.variant == 16 && query.mark_variant == 1 && variable.attack_time" }
+          ]
+        },
+        "attack":{
+          "on_entry": [
+            "/tag @s add kokyu_hi6",
+            "/event entity @s mark_variant2",
+            "/execute @s ~~~ damage @e[tag=!kokyu_hi6,r=5] 15 entity_attack"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant1",
+            "/tag @s remove kokyu_hi6"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

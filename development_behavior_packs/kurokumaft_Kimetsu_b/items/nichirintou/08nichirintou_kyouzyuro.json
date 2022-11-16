@@ -10,6 +10,7 @@
 				"value": "item.kurokumaft:nichirintou_kyouzyuro.name"
 			},
       "tag:kurokumaft:nichirintou": {},
+      "tag:kurokumaft:kokyu_hono": {},
       "tag:kurokumaft:nichirintou_kyouzyuro": {},
       "minecraft:icon": {
           "texture": "nichirintou_kyouzyuro"
@@ -18,7 +19,6 @@
         "parent": "itemGroup.name.nichirintou"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:allow_off_hand": true,
       "minecraft:durability": {
         "max_durability": 6000
       },
@@ -40,11 +40,6 @@
         "value": 300,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
-      },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
@@ -62,9 +57,14 @@
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"
       },
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "hurt_entity"
+        }
+      },
       "minecraft:on_use": {
         "on_use": {
-          "condition": "query.scoreboard('kyouzyuro') == 5",
+          "condition": "query.variant == 5",
           "event": "enko",
           "target": "self"
         }

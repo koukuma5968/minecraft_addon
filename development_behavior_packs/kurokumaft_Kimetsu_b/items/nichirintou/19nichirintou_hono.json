@@ -2,23 +2,20 @@
   "format_version": "1.17",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:nichirintou_hono",
-        "category": "equipment"
+      "identifier": "kurokumaft:nichirintou_hono",
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_hono.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:nichirintou_hono": {},
       "minecraft:icon": {
-          "texture": "nichirintou_hono"
+        "texture": "nichirintou_hono"
       },
       "minecraft:creative_category": {
         "parent": "itemGroup.name.nichirintou"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:allow_off_hand": true,
       "minecraft:durability": {
         "max_durability": 1200
       },
@@ -40,11 +37,6 @@
         "value": 50,
         "slot": "sword"
       },
-      "minecraft:food": {
-        "nutrition": 0,
-        "saturation_modifier": "supernatural",
-        "can_always_eat": true
-      },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
@@ -62,17 +54,22 @@
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"
       },
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "hurt_entity"
+        }
+      },
       "minecraft:on_use": {
         "on_use": {
-          "condition": "query.scoreboard('hono') == 5",
+          "condition": "query.variant == 5",
           "event": "enko",
           "target": "self"
         }
       },
       "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "hurt_entity"
-          }
+        "on_hurt_entity": {
+          "event": "hurt_entity"
+        }
       }
     },
     "events": {

@@ -135,7 +135,7 @@
 		},
 		"animation.nichirintou_kokyu.kyouzyuro.ichi_3": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 1,
+			"animation_length": 0.83333,
 			"bones": {
 				"rightArm": {
 					"rotation": {
@@ -597,7 +597,6 @@
 		},
 		"animation.nichirintou_kokyu.kyouzyuro.ku_2": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
 			"bones": {
 				"body": {
 					"rotation": [15, 0, 0],
@@ -618,15 +617,7 @@
 				}
 			},
 			"particle_effects": {
-				"0.1667": [
-					{
-						"effect": "hono_blead_particle",
-						"locator": "kyouzyuro1"
-					},
-					{
-						"effect": "hono_blead_particle",
-						"locator": "kyouzyuro2"
-					},
+				"0.0": [
 					{
 						"effect": "hono_blead_particle",
 						"locator": "kyouzyuro3"

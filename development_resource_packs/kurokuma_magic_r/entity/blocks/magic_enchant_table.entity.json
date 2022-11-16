@@ -7,7 +7,7 @@
             "default": "armor_stand"
           },
           "textures": {
-            "default": "textures/kurokumaft/items/blocks/magic_enchant_table"
+            "default": "textures/kurokumaft/blocks/magic_enchant_table"
           },
           "geometry": {
             "default": "geometry.magic_enchant_table"

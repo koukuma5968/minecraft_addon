@@ -1,0 +1,26 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+      "description": {
+        "identifier": "kurokumaft:scarlet_feature"
+      },
+      "count": 5,
+      "replace_rules": [
+        {
+          "places_block": "kurokumaft:scarlet_ore",
+          "may_replace": [
+            "minecraft:stone",
+            "minecraft:iron_ore"
+          ]
+        },
+        {
+          "places_block": "kurokumaft:scarlet_gravel",
+          "may_replace": [
+            "minecraft:gravel",
+            "minecraft:coal_ore"
+          ]
+        }
+      ]
+    }
+  }
+  

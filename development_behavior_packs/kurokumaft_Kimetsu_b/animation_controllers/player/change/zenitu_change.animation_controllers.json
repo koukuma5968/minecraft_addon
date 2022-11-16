@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.zenitu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "zenitu1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_zenitu') && query.variant == 7 && query.is_sneaking" },
+            { "zenitu7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_zenitu') && query.variant == 11 && query.is_sneaking" }
+          ]
+        },
+        "zenitu1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant11"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "zenitu7":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 漆ノ型\"}]}",
+            "/event entity @s variant7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

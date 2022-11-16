@@ -1,0 +1,241 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.kokyu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "nichirintou_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou')" },
+            { "tanjiro_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tanjiro')" },
+            { "zenitu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_zenitu')" },
+            { "inosuke_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke')" },
+            { "kanawo_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo')" },
+            { "genya_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_genya')" },
+            { "zyuu_genya_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:zyuu_genya')" },
+            { "giyu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu')" },
+            { "shinobu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu')" },
+            { "kyouzyuro_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro')" },
+            { "tengen_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen')" },
+            { "mituri_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri')" },
+
+            { "mizu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu')" },
+            { "hi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hi')" },
+            { "kaminari_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari')" },
+            { "hono_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono')" },
+            { "mushi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mushi')" },
+            { "oto_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_oto')" }
+
+          ]
+        },
+        "nichirintou_add":{
+          "on_entry": [
+            "/event entity @s kurokumaft:nichirintou",
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou')"}
+          ]
+        },
+        "tanjiro_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_tanjiro",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tanjiro')"}
+          ]
+        },
+        "zenitu_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_zenitu",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_zenitu')"}
+          ]
+        },
+        "inosuke_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7獣の呼吸 壱ノ牙\"}]}",
+            "/event entity @s kurokumaft:nichirintou_inosuke",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke')"}
+          ]
+        },
+        "kanawo_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d花の呼吸 弐ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_kanawo",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo')"}
+          ]
+        },
+        "genya_add":{
+          "on_entry": [
+            "/event entity @s kurokumaft:nichirintou_kanawo",
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_genya')"}
+          ]
+        },
+        "zyuu_genya_add":{
+          "on_entry": [
+            "/event entity @s kurokumaft:nichirintou_kanawo",
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:zyuu_genya')"}
+          ]
+        },
+
+        "giyu_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_giyu",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu')"}
+          ]
+        },
+        "kyouzyuro_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_kyouzyuro",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro')"}
+          ]
+        },
+        "tengen_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_tengen",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen')"}
+          ]
+        },
+        "shinobu_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蝶ノ舞\"}]}",
+            "/event entity @s kurokumaft:nichirintou_shinobu",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu')"}
+          ]
+        },
+        "mituri_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_mituri",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri')"}
+          ]
+        },
+
+        "mizu_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_mizu",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu')"}
+          ]
+        },
+        "hi_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c日の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_hi",
+            "/event entity @s variant11",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hi')"}
+          ]
+        },
+        "kaminari_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6雷の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_kaminari",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari')"}
+          ]
+        },
+        "hono_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§4炎の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_hono",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono')"}
+          ]
+        },
+        "oto_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e音の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_oto",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_oto')"}
+          ]
+        },
+        "mushi_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5蟲の呼吸 蝶ノ舞\"}]}",
+            "/event entity @s kurokumaft:nichirintou_mushi",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mushi')"}
+          ]
+        },
+
+        "variant_remove":{
+          "on_entry": [
+            "/event entity @s kurokumaft:nichirintou_remove",
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    }
+  }
+}

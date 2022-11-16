@@ -1,0 +1,127 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.storm_eagle.move": {
+			"loop": true,
+			"animation_length": 0.375,
+			"bones": {
+				"head": {
+					"rotation": [30, 0, 0],
+					"position": [0, 0, -15]
+				},
+				"body": {
+					"rotation": [25, 0, 0],
+					"position": [0, 0, -3]
+				},
+				"rightWing": {
+					"rotation": {
+						"0.0": [0, 0, 17.5],
+						"0.1667": [0, 35, 17.5],
+						"0.375": [0, -27.5, 17.5]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightarm": {
+					"rotation": [-22.5, 0, 0]
+				},
+				"leftWing": {
+					"rotation": {
+						"0.0": [0, 0, -15],
+						"0.1667": [0, -35, -15],
+						"0.375": [0, 27.5, -15]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftarm": {
+					"rotation": [-22.5, 0, 0]
+				},
+				"top": {
+					"rotation": [-30, 0, 0],
+					"position": [0, -5, -5]
+				},
+				"neck": {
+					"position": [0, -5, -3.7]
+				},
+				"wait": {
+					"position": [0, -2, -1]
+				},
+				"tail": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [25, 0, 0],
+						"0.2083": [-30, 0, 0],
+						"0.2917": [-2.5, 0, 0],
+						"0.375": [-15, 0, 0]
+					}
+				},
+				"rightfeather": {
+					"rotation": [0, 0, -15]
+				},
+				"leftfeather": {
+					"rotation": [0, 0, 15]
+				},
+				"rightfeather2": {
+					"rotation": [0, 0, -7.5]
+				},
+				"rightfeather3": {
+					"rotation": [0, 0, -2.5]
+				},
+				"rightfeather4": {
+					"rotation": [0, 0, 2.5]
+				},
+				"rightfeather5": {
+					"rotation": [0, 0, 7.5]
+				},
+				"rightfeather6": {
+					"rotation": [0, 0, 12.5]
+				},
+				"rightfeather7": {
+					"rotation": [0, 0, 17.5]
+				},
+				"rightfeather8": {
+					"rotation": [0, 0, 22.5]
+				},
+				"rightfeather9": {
+					"rotation": [0, 0, 30]
+				},
+				"leftfeather2": {
+					"rotation": [0, 0, 7.5]
+				},
+				"leftfeather3": {
+					"rotation": [0, 0, 2.5]
+				},
+				"leftfeather4": {
+					"rotation": [0, 0, -2.5]
+				},
+				"leftfeather5": {
+					"rotation": [0, 0, -7.5]
+				},
+				"leftfeather6": {
+					"rotation": [0, 0, -12.5]
+				},
+				"leftfeather7": {
+					"rotation": [0, 0, -17.5]
+				},
+				"leftfeather8": {
+					"rotation": [0, 0, -22.5]
+				},
+				"leftfeather9": {
+					"rotation": [0, 0, -30]
+				}
+			}
+		},
+		"animation.storm_eagle.rider": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"root": {
+					"rotation": [50, 0, 0]
+				},
+				"top": {
+					"rotation": [-50, 0, 0],
+					"position": [0, -5, -4]
+				}
+			}
+		}
+	}
+}

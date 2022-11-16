@@ -1,0 +1,63 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.kanawo_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kanawo2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 7 && query.is_sneaking" },
+            { "kanawo4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 2 && query.is_sneaking" },
+            { "kanawo5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 4 && query.is_sneaking" },
+            { "kanawo6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 5 && query.is_sneaking" },
+            { "kanawo7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 6 && query.is_sneaking" }
+          ]
+        },
+        "kanawo2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d花の呼吸 弐ノ型\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kanawo4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d花の呼吸 肆ノ型\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kanawo5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d花の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kanawo6":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d花の呼吸 陸ノ型\"}]}",
+            "/event entity @s variant6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kanawo7":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d花の呼吸 終ノ型\"}]}",
+            "/event entity @s variant7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

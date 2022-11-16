@@ -225,7 +225,10 @@
 						"0.0": [0, 0, 0],
 						"0.3333": [70, 0, 0]
 					},
-					"position": [0, 0, 0]
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3333": [0, -6, -1]
+					}
 				},
 				"leftLeg": {
 					"rotation": {
@@ -243,15 +246,7 @@
 				}
 			},
 			"particle_effects": {
-				"0.1667": [
-					{
-						"effect": "hono_blead_particle",
-						"locator": "hono1"
-					},
-					{
-						"effect": "hono_blead_particle",
-						"locator": "hono2"
-					},
+				"0.0": [
 					{
 						"effect": "hono_blead_particle",
 						"locator": "hono3"

@@ -1,0 +1,18 @@
+{
+    "serialize_name": "kurokumaftKimetuSkinPack",
+    "localization_name": "KimetuSkin",
+    "skins": [
+      {
+        "localization_name": "tanjiroSkin",
+        "geometry": "geometry.humanoid.custom",
+        "texture": "tanjiro.png",
+        "type": "free"
+      },
+      {
+        "localization_name": "kanawoSkin",
+        "geometry": "geometry.humanoid.customSlim",
+        "texture": "kanawo.png",
+        "type": "free"
+      }
+    ]
+  }

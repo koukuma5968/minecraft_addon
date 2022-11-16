@@ -1,0 +1,123 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.giyu_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "giyu1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 11 && query.is_sneaking" },
+            { "giyu2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 1 && query.is_sneaking" },
+            { "giyu3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 2 && query.is_sneaking" },
+            { "giyu4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 3 && query.is_sneaking" },
+            { "giyu5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 4 && query.is_sneaking" },
+            { "giyu6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 5 && query.is_sneaking" },
+            { "giyu7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 6 && query.is_sneaking" },
+            { "giyu8": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 7 && query.is_sneaking" },
+            { "giyu9": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 8 && query.is_sneaking" },
+            { "giyu10": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 9 && query.is_sneaking" },
+            { "giyu11": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 10 && query.is_sneaking" }
+          ]
+        },
+        "giyu1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu6":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 陸ノ型\"}]}",
+            "/event entity @s variant6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu7":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 漆ノ型\"}]}",
+            "/event entity @s variant7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu8":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 捌ノ型\"}]}",
+            "/event entity @s variant8"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu9":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 玖ノ型\"}]}",
+            "/event entity @s variant9"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu10":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 拾ノ型\"}]}",
+            "/event entity @s variant10"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "giyu11":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 拾壱ノ型\"}]}",
+            "/event entity @s variant11"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}
