@@ -1,0 +1,24 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.sanemi_attack.kokyu_player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kaze1_3": "variable.equipped_sanemi && query.variant == 1 && query.mark_variant == 1 && variable.attack_time"}
+					]
+				},
+				"kaze1_3" : {
+					"animations" : [
+						{"sanemi.ichi_3": "variable.is_first_person"},
+						{"sanemi.ichi_3": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

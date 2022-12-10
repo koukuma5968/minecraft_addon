@@ -9,7 +9,6 @@
         },
         "textures": {
           "default": "textures/kurokumaft/models/nichirintou/nichirintou_genya",
-          "player": "textures/kurokumaft/models/nichirintou/no_image",
           "enchanted": "textures/misc/enchanted_item_glint"
         },
         "geometry": {
@@ -17,13 +16,13 @@
         },
         "scripts": {
           "animate": [
-            {"hidden": "query.owner_identifier != 'minecraft:armor_stand'"},
-            {"third": "query.owner_identifier == 'minecraft:armor_stand'"}
+            {"first": "c.is_first_person"},
+            {"third": "!c.is_first_person"}
           ]
         },
         "animations": {
-          "hidden": "animation.nichirintou_hidden",
-          "third": "animation.nichirintou_third"
+          "first": "animation.genya_first",
+          "third": "animation.genya_third"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

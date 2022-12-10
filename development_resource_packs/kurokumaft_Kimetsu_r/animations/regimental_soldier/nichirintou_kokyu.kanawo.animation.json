@@ -1,6 +1,55 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.kanawo_first": {
+			"loop": true,
+			"animation_length": 0.70833,
+			"bones": {
+				"kanawo_nichirinto": {
+					"rotation": [14.93001, 68.69274, -44.97092],
+					"position": [2, -4, 2],
+					"scale": 0.5
+				}
+			}
+		},
+		"animation.kanawo_third": {
+			"loop": true,
+			"bones": {
+				"kanawo_nichirinto": {
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.kanawo.attack": {
+			"animation_length": 0.75,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [-115.10814, 14.49974, -90.49648],
+						"0.5": [31.44557, 0.53968, -89.83013]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [-91.54445, -16.87952, 77.49797],
+						"0.5": [35.71139, -2.50597, 92.59933]
+					}
+				},
+				"kanawo_nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [32.5, 0, 0],
+						"0.5": [20, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.2083": [0, -3, 0]
+					}
+				}
+			}
+		},
 		"animation.nichirintou_kokyu.kanawo.ni_1": {
 			"loop": true,
 			"animation_length": 0.5,
@@ -25,7 +74,7 @@
 						"0.5": [-15.93807, -31.45025, 119.48967]
 					}
 				},
-				"nichirinto": {
+				"kanawo_nichirinto": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.0417": [-22.5, 0, 0],
@@ -418,7 +467,7 @@
 					},
 					"position": [0, 0, 0]
 				},
-				"nichirinto": {
+				"kanawo_nichirinto": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.1667": [0, 0, 0],
@@ -1135,7 +1184,7 @@
 						"0.75": [-14.18606, 19.16596, -61.63753]
 					}
 				},
-				"nichirinto": {
+				"kanawo_nichirinto": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.0417": [-22.5, 0, 0],
@@ -1761,7 +1810,7 @@
 					},
 					"position": [0, 0, 0]
 				},
-				"nichirinto": {
+				"kanawo_nichirinto": {
 					"rotation": [0, 0, 0],
 					"position": [0, 0, 0]
 				},

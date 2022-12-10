@@ -1,0 +1,48 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:nezuko_head",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:nezuko_head.name"
+			},
+      "minecraft:icon": {
+          "texture": "nezuko_head"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.skull"
+			},
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:nezuko_head" ],
+            "repair_amount": 250
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_head"
+      },
+      "minecraft:durability": {
+        "max_durability": 2500,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:armor": {
+        "protection": 30,
+        "texture_type": "elytra"
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}

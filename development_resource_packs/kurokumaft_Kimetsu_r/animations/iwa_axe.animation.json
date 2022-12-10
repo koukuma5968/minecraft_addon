@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.iwa_axe.shot": {
+			"loop": true,
+			"bones": {
+				"iwa_axe": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"scale": 0.75
+				}
+			}
+		}
+	}
+}

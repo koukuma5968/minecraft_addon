@@ -5,17 +5,17 @@
       "states": {
         "default": {
           "transitions": [
-            { "giyu1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 11 && query.is_sneaking" },
-            { "giyu2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 1 && query.is_sneaking" },
-            { "giyu3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 2 && query.is_sneaking" },
-            { "giyu4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 3 && query.is_sneaking" },
-            { "giyu5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 4 && query.is_sneaking" },
-            { "giyu6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 5 && query.is_sneaking" },
-            { "giyu7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 6 && query.is_sneaking" },
-            { "giyu8": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 7 && query.is_sneaking" },
-            { "giyu9": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 8 && query.is_sneaking" },
-            { "giyu10": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 9 && query.is_sneaking" },
-            { "giyu11": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_giyu') && query.variant == 10 && query.is_sneaking" }
+            { "giyu1": "query.skin_id == 5 && query.variant == 11 && query.is_sneaking" },
+            { "giyu2": "query.skin_id == 5 && query.variant == 1 && query.is_sneaking" },
+            { "giyu3": "query.skin_id == 5 && query.variant == 2 && query.is_sneaking" },
+            { "giyu4": "query.skin_id == 5 && query.variant == 3 && query.is_sneaking" },
+            { "giyu5": "query.skin_id == 5 && query.variant == 4 && query.is_sneaking" },
+            { "giyu6": "query.skin_id == 5 && query.variant == 5 && query.is_sneaking" },
+            { "giyu7": "query.skin_id == 5 && query.variant == 6 && query.is_sneaking" },
+            { "giyu8": "query.skin_id == 5 && query.variant == 7 && query.is_sneaking" },
+            { "giyu9": "query.skin_id == 5 && query.variant == 8 && query.is_sneaking" },
+            { "giyu10": "query.skin_id == 5 && query.variant == 9 && query.is_sneaking" },
+            { "giyu11": "query.skin_id == 5 && query.variant == 10 && query.is_sneaking" }
           ]
         },
         "giyu1":{

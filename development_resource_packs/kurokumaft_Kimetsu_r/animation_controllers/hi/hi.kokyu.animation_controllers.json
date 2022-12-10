@@ -1,23 +1,41 @@
 {
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
+		"controller.animation.hi.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						{"hi_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		},
 		"controller.animation.hi.kokyu" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"hi1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 11 && query.is_using_item"},
-						{"hi2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 12 && query.is_using_item"},
-						{"hi3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 13 && query.is_using_item"},
-						{"hi4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 14 && query.mark_variant == 1 && query.is_using_item"},
-						{"hi5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 15 && query.is_using_item"},
-						{"hi6_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 16 && query.mark_variant == 2"},
-						{"hi7_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 17 && query.is_using_item"},
-						{"hi8_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 18 && query.is_using_item"},
-						{"hi9_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 19 && query.is_using_item"},
-						{"hi10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 20 && query.is_using_item"},
-						{"hi11_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 21 && query.is_using_item"},
-						{"hi12_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_hi') && query.variant == 22 && query.is_using_item"}
+						{"hi1_1": "variable.equipped_hi && query.variant == 11 && query.is_using_item"},
+						{"hi2_1": "variable.equipped_hi && query.variant == 12 && query.is_using_item"},
+						{"hi3_1": "variable.equipped_hi && query.variant == 13 && query.is_using_item"},
+						{"hi4_1": "variable.equipped_hi && query.variant == 14 && query.mark_variant == 1 && query.is_using_item"},
+						{"hi5_1": "variable.equipped_hi && query.variant == 15 && query.is_using_item"},
+						{"hi6_1": "variable.equipped_hi && query.variant == 16 && query.mark_variant == 2"},
+						{"hi7_1": "variable.equipped_hi && query.variant == 17 && query.is_using_item"},
+						{"hi8_1": "variable.equipped_hi && query.variant == 18 && query.is_using_item"},
+						{"hi9_1": "variable.equipped_hi && query.variant == 19 && query.is_using_item"},
+						{"hi10_1": "variable.equipped_hi && query.variant == 20 && query.is_using_item"},
+						{"hi11_1": "variable.equipped_hi && query.variant == 21 && query.is_using_item"},
+						{"hi12_1": "variable.equipped_hi && query.variant == 22 && query.is_using_item"}
 					]
 				},
 				"hi1_1" : {

@@ -8,7 +8,7 @@
       },
       "textures": {
         "default": "textures/kurokumaft/models/mob/zenitu",
-        "nichirintou_zenitu": "textures/kurokumaft/models/nichirintou/nichirintou_zenitu"
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
         "default": "geometry.zenitu",
@@ -68,8 +68,8 @@
         "use_item_progress":"animation.humanoid.use_item_progress",
 
         "attack": "controller.animation.zenitu.attack",
-        "third": "animation.nichirintou_third",
-        "nichirintou_attack": "animation.nichirintou.attack",
+        "third": "animation.zenitu_third",
+        "nichirintou_attack": "animation.zenitu.attack",
 
         "zenitu.kokyu_con":"controller.animation.zenitu.kokyu",
         "zenitu_attack.kokyu_con":"controller.animation.zenitu_attack.kokyu",

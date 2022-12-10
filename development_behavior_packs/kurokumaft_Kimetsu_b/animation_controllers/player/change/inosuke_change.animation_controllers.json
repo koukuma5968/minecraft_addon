@@ -5,16 +5,16 @@
       "states": {
         "default": {
           "transitions": [
-            { "inosuke1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 10 && query.is_sneaking" },
-            { "inosuke2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 1 && query.is_sneaking" },
-            { "inosuke3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 2 && query.is_sneaking" },
-            { "inosuke4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 3 && query.is_sneaking" },
-            { "inosuke5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 4 && query.is_sneaking" },
-            { "inosuke6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 5 && query.is_sneaking" },
-            { "inosuke7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 6 && query.is_sneaking" },
-            { "inosuke8": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 7 && query.is_sneaking" },
-            { "inosuke9": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 8 && query.is_sneaking" },
-            { "inosuke10": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke') && query.variant == 9 && query.is_sneaking" }
+            { "inosuke1": "query.skin_id == 20 && query.variant == 10 && query.is_sneaking" },
+            { "inosuke2": "query.skin_id == 20 && query.variant == 1 && query.is_sneaking" },
+            { "inosuke3": "query.skin_id == 20 && query.variant == 2 && query.is_sneaking" },
+            { "inosuke4": "query.skin_id == 20 && query.variant == 3 && query.is_sneaking" },
+            { "inosuke5": "query.skin_id == 20 && query.variant == 4 && query.is_sneaking" },
+            { "inosuke6": "query.skin_id == 20 && query.variant == 5 && query.is_sneaking" },
+            { "inosuke7": "query.skin_id == 20 && query.variant == 6 && query.is_sneaking" },
+            { "inosuke8": "query.skin_id == 20 && query.variant == 7 && query.is_sneaking" },
+            { "inosuke9": "query.skin_id == 20 && query.variant == 8 && query.is_sneaking" },
+            { "inosuke10": "query.skin_id == 20 && query.variant == 9 && query.is_sneaking" }
           ]
         },
         "inosuke1":{

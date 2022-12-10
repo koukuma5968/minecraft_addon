@@ -5,12 +5,12 @@
       "states": {
         "default": {
           "transitions": [
-            { "kaminari1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari') && query.variant == 6 && query.is_sneaking" },
-            { "kaminari2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari') && query.variant == 1 && query.is_sneaking" },
-            { "kaminari3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari') && query.variant == 2 && query.is_sneaking" },
-            { "kaminari4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari') && query.variant == 3 && query.is_sneaking" },
-            { "kaminari5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari') && query.variant == 4 && query.is_sneaking" },
-            { "kaminari6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaminari') && query.variant == 5 && query.is_sneaking" }
+            { "kaminari1": "query.skin_id == 13 && query.variant == 6 && query.is_sneaking" },
+            { "kaminari2": "query.skin_id == 13 && query.variant == 1 && query.is_sneaking" },
+            { "kaminari3": "query.skin_id == 13 && query.variant == 2 && query.is_sneaking" },
+            { "kaminari4": "query.skin_id == 13 && query.variant == 3 && query.is_sneaking" },
+            { "kaminari5": "query.skin_id == 13 && query.variant == 4 && query.is_sneaking" },
+            { "kaminari6": "query.skin_id == 13 && query.variant == 5 && query.is_sneaking" }
           ]
         },
         "kaminari1":{

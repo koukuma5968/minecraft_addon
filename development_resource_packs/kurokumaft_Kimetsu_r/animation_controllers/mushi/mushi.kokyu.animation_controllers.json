@@ -1,15 +1,33 @@
 {
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
+		"controller.animation.mushi.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						{"mushi_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		},
 		"controller.animation.mushi.kokyu" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"mushi1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 1 && query.is_using_item"},
-						{"mushi2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 2 && query.is_using_item"},
-						{"mushi3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 3 && query.is_using_item"},
-						{"mushi4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_mushi') && query.variant == 4 && query.is_using_item"}
+						{"mushi1": "variable.equipped_mushi && query.variant == 1 && query.is_using_item"},
+						{"mushi2": "variable.equipped_mushi && query.variant == 2 && query.is_using_item"},
+						{"mushi3": "variable.equipped_mushi && query.variant == 3 && query.is_using_item"},
+						{"mushi4": "variable.equipped_mushi && query.variant == 4 && query.is_using_item"}
 					]
 				},
 				"mushi1" : {

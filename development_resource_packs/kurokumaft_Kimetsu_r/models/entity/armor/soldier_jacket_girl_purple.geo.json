@@ -1,0 +1,43 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.soldier_jacket_girl_purple",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 14, -2.1], "size": [8.2, 10.1, 4.2], "uv": [16, 16]},
+						{"origin": [-3.55, 18.45, -3.1], "size": [3.65, 3.65, 2.1], "uv": [18, 20]},
+						{"origin": [-0.1, 18.45, -3.1], "size": [3.65, 3.65, 2.1], "uv": [22, 20]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-7.1, 14, -2.1], "size": [3.2, 10.1, 4.2], "uv": [40, 16]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0],
+					"mirror": true,
+					"cubes": [
+						{"origin": [3.9, 14, -2.1], "size": [3.2, 10.1, 4.2], "uv": [40, 16]}
+					]
+				}
+			]
+		}
+	]
+}

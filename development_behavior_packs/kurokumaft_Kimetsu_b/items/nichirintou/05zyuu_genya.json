@@ -6,8 +6,6 @@
         "category": "equipment"
     },
     "components": {
-      "tag:kurokumaft:zyuu": {},
-      "tag:kurokumaft:zyuu_genya": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:zyuu_genya.name"
 			},

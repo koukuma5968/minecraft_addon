@@ -5,9 +5,9 @@
       "states": {
         "default": {
           "transitions": [
-            { "oto1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_oto') && query.variant == 5 && query.is_sneaking" },
-            { "oto4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_oto') && query.variant == 1 && query.is_sneaking" },
-            { "oto5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_oto') && query.variant == 4 && query.is_sneaking" }
+            { "oto1": "query.skin_id == 23 && query.variant == 5 && query.is_sneaking" },
+            { "oto4": "query.skin_id == 23 && query.variant == 1 && query.is_sneaking" },
+            { "oto5": "query.skin_id == 23 && query.variant == 4 && query.is_sneaking" }
           ]
         },
         "oto1":{

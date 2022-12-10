@@ -6,7 +6,7 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"hono1_3": "query.variant == 1 && variable.attack_time"}
+						{"hono1_3": "variable.equipped_hono && query.variant == 1 && query.mark_variant == 1  && variable.attack_time"}
 					]
 				},
 				"hono1_3" : {
@@ -15,7 +15,7 @@
 						{"hono.ichi_3": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"default":"query.mark_variant == 0"}
+						{"default":"query.any_animation_finished"}
 					]
 				}
 			}

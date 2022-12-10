@@ -1,0 +1,70 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kata.kaze1": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @s ~~~ particle kurokumaft:kaze1_particle ^^^1.5",
+					"/execute @s ~~~ damage @e[tag=!kokyu_kaze1_self,r=2] 2 entity_attack"
+				]
+			}
+		},
+		"animation.kata.kaze3": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function kaze/kaze3"
+				]
+			}
+		},
+		"animation.kata.kaze4": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function kaze/kaze4"
+				]
+			}
+		},
+		"animation.kata.kaze5": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function kaze/kaze5"
+				]
+			}
+		},
+		"animation.kata.kaze8": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function kaze/kaze8"
+				]
+			}
+		},
+		"animation.kata.kaze9": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @s ~~~ tp @s ~~0.25~"
+				]
+			}
+		},
+		"animation.kata.kaze9_2": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @s ~~~ tp @s ~~~",
+					"/function kaze/kaze9"
+				]
+			}
+		}
+	}
+}

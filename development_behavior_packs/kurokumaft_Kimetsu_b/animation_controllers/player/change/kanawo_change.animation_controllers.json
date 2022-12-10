@@ -5,11 +5,11 @@
       "states": {
         "default": {
           "transitions": [
-            { "kanawo2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 7 && query.is_sneaking" },
-            { "kanawo4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 2 && query.is_sneaking" },
-            { "kanawo5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 4 && query.is_sneaking" },
-            { "kanawo6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 5 && query.is_sneaking" },
-            { "kanawo7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo') && query.variant == 6 && query.is_sneaking" }
+            { "kanawo2": "query.skin_id == 31 && query.variant == 7 && query.is_sneaking" },
+            { "kanawo4": "query.skin_id == 31 && query.variant == 2 && query.is_sneaking" },
+            { "kanawo5": "query.skin_id == 31 && query.variant == 4 && query.is_sneaking" },
+            { "kanawo6": "query.skin_id == 31 && query.variant == 5 && query.is_sneaking" },
+            { "kanawo7": "query.skin_id == 31 && query.variant == 6 && query.is_sneaking" }
           ]
         },
         "kanawo2":{

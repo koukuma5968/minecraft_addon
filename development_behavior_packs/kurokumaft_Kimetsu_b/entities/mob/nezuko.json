@@ -96,7 +96,7 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:loot": {
-        "table": "loot_tables/empty.json"
+        "table": "loot_tables/entities/nezuko.json"
       },
       "minecraft:collision_box": {
         "width": 0.6,
@@ -106,13 +106,9 @@
         "value": 300,
         "max": 300
       },
-      "minecraft:timer": {
-        "time": [5.0, 10.0],
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kokyu",
-          "target": "self"
-        }
+      "minecraft:on_target_acquired": {
+        "event": "kurokumaft:random_kokyu",
+        "target": "self"
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/nezuko_gear.json"
@@ -136,6 +132,28 @@
       "minecraft:despawn": {
         "despawn_from_distance": {}
       },
+      "minecraft:timer": {
+        "time": 5.0,
+        "looping": true,
+        "time_down_event": {
+          "event": "kurokumaft:random_kokyu_of",
+          "target": "self"
+        }
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 3,
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"}
+              ]
+            },
+            "max_dist": 64
+          }
+        ]
+      },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "reselect_targets": true,
@@ -144,14 +162,11 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","value": "monster"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "player"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "inanimate"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "ogre"}
               ]
-            },
-            "max_dist": 32
-          },
-          {
-            "filters": {
-              "test": "is_family","subject": "other","value": "dragon"
             },
             "max_dist": 64
           },
@@ -281,7 +296,11 @@
                 }
               }
             ]
-          },
+          }
+        ]
+      },
+      "kurokumaft:random_kokyu_off": {
+        "sequence": [
           {
             "filters": {
               "test": "has_target", "value": false
@@ -290,7 +309,6 @@
               "component_groups": [ "variant0","mark_variant0" ]
             }
           }
- 
         ]
       },
 

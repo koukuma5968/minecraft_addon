@@ -1,0 +1,88 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:shinobu",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/mob/shinobu",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
+      },
+      "geometry": {
+        "default": "geometry.shinobu",
+        "nichirintou_shinobu": "geometry.nichirintou_shinobu"
+      },
+      "particle_effects": {
+        "mushi_chou_particle": "kurokumaft:mushi_chou_particle"
+      },
+      "scripts": {
+        "scale": "0.9375",
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.equipped_nichirintou = query.skin_id == 1;"
+        ],
+        "animate": [
+          "look_at_target",
+          "move",
+          "riding",
+          "holding",
+          { "charging": "query.is_charging" },
+          { "brandish_spear": "variable.is_brandishing_spear" },
+          "bob",
+          { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
+          { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "attack",
+          "third",
+          "shinobu.kokyu_con"
+        ]
+      },
+      "animations": {
+        "base_pose":"animation.humanoid.base_pose",
+        "bob":"animation.humanoid.bob",
+        "bow_and_arrow":"animation.humanoid.bow_and_arrow",
+        "brandish_spear":"animation.humanoid.brandish_spear",
+        "holding_spyglass":"animation.humanoid.holding_spyglass",
+        "tooting_goat_horn":"animation.humanoid.tooting_goat_horn",
+        "celebrating":"animation.humanoid.celebrating",
+        "charging":"animation.humanoid.charging",
+        "damage_nearby_mobs":"animation.humanoid.damage_nearby_mobs",
+        "holding":"animation.humanoid.holding",
+        "look_at_target":"controller.animation.humanoid.look_at_target",
+        "look_at_target_default":"animation.humanoid.look_at_target.default",
+        "look_at_target_gliding":"animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming":"animation.humanoid.look_at_target.swimming",
+        "move":"animation.humanoid.move",
+        "riding":"controller.animation.humanoid.riding",
+        "riding.arms":"animation.humanoid.riding.arms",
+        "riding.legs":"animation.humanoid.riding.legs",
+        "sneaking":"animation.humanoid.sneaking",
+        "swimming":"animation.humanoid.swimming",
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "attack": "controller.animation.shinobu.attack",
+        "third": "animation.shinobu_third",
+        "nichirintou_attack": "animation.shinobu.attack",
+
+        "shinobu.kokyu_con":"controller.animation.shinobu.kokyu",
+        "shinobu.chou": "animation.nichirintou_kokyu.shinobu.chou",
+        "shinobu.houga": "animation.nichirintou_kokyu.shinobu.houga",
+        "shinobu.seirei": "animation.nichirintou_kokyu.shinobu.seirei",
+        "shinobu.gokou": "animation.nichirintou_kokyu.shinobu.gokou"
+
+      },
+      "render_controllers": [
+        "controller.render.soldier.shinobu",
+        {"controller.render.nichirintou_shinobu": "variable.equipped_nichirintou"}
+      ],
+      "spawn_egg": {
+        "texture": "soldier_spawn_egg",
+        "texture_index": 7
+      },
+      "enable_attachables": true
+    }
+  }
+}

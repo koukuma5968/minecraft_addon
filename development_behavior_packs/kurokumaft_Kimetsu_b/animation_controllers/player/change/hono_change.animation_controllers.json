@@ -5,11 +5,11 @@
       "states": {
         "default": {
           "transitions": [
-            { "hono1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono') && query.variant == 5 && query.is_sneaking" },
-            { "hono2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono') && query.variant == 1 && query.is_sneaking" },
-            { "hono3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono') && query.variant == 2 && query.is_sneaking" },
-            { "hono4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono') && query.variant == 3 && query.is_sneaking" },
-            { "hono5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono') && query.variant == 4 && query.is_sneaking" }
+            { "hono1": "query.skin_id == 14 && query.variant == 5 && query.is_sneaking" },
+            { "hono2": "query.skin_id == 14 && query.variant == 1 && query.is_sneaking" },
+            { "hono3": "query.skin_id == 14 && query.variant == 2 && query.is_sneaking" },
+            { "hono4": "query.skin_id == 14 && query.variant == 3 && query.is_sneaking" },
+            { "hono5": "query.skin_id == 14 && query.variant == 4 && query.is_sneaking" }
           ]
         },
         "hono1":{

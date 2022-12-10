@@ -1,0 +1,59 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.gomugomu.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "pistol": "query.variant == 1 && query.is_sneaking" }
+          ]
+        },
+        "pistol":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのピストル\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
+    "controller.animation.gomugomu": {
+      "states": {
+        "default": {
+          "variables": {
+            "gomugomu_at": {
+              "input": "variable.gomugomu_at = (variable.gomugomu_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "pistol": "query.variant == 1 && query.is_using_item" }
+          ]
+        },
+        "pistol":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"pistol_att":"variable.gomugomu_at = variable.gomugomu_at < 20 ? variable.gomugomu_at + 1:0;return variable.gomugomu_at == 0;"}
+          ]
+        },
+        "pistol_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ピストル\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu_at = variable.gomugomu_at < 20 ? variable.gomugomu_at + 1:0;return variable.gomugomu_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

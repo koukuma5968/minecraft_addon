@@ -15,18 +15,20 @@
           "duration": 0.2,
           "damage_filters": {
             "all_of": [
-              {"test": "is_family","operator": "not","subject": "other","value": "player"}
+              {"test": "is_family","operator": "not","subject": "other","value": "player"},
+              {"test": "is_family","operator": "not","subject": "other","value": "regimental_soldier"}
             ]
           },
           "knockback_filters": {
             "all_of": [
-              {"test": "is_family","operator": "not","subject": "other","value": "player"}
+              {"test": "is_family","operator": "not","subject": "other","value": "player"},
+              {"test": "is_family","operator": "not","subject": "other","value": "regimental_soldier"}
             ]
           },
           "knockback_height_cap": 3,
-          "knockback_range": 3,
-          "knockback_horizontal_strength": 10,
-          "knockback_vertical_strength": 10
+          "knockback_range": 2,
+          "knockback_horizontal_strength": 3,
+          "knockback_vertical_strength": 3
         }
       }
     },

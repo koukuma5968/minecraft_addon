@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "kaminari1_attack": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kaminari') && query.variant == 11 && variable.attack_time" }
+            { "kaminari1_attack": "query.skin_id == 3 && query.variant == 11 && variable.attack_time" }
           ]
         },
         "kaminari1_attack":{

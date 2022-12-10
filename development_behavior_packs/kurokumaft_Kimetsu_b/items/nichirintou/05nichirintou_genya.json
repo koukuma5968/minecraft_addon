@@ -9,8 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_genya.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:nichirintou_genya": {},
       "minecraft:icon": {
           "texture": "nichirintou_genya"
       },

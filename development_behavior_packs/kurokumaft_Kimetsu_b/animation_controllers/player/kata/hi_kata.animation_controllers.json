@@ -10,18 +10,18 @@
             }
           },
           "transitions": [
-            { "hi1": "query.variant == 11 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi2": "query.variant == 12 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi3": "query.variant == 13 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi4": "query.variant == 14 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.mark_variant == 0 && query.is_using_item" },
-            { "hi5": "query.variant == 15 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi6": "query.variant == 16 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.mark_variant == 0 && query.is_using_item" },
-            { "hi7": "query.variant == 17 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi8": "query.variant == 18 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi9": "query.variant == 19 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi10": "query.variant == 20 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi11": "query.variant == 21 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" },
-            { "hi12": "query.variant == 22 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hi') && query.is_using_item" }
+            { "hi1": "query.variant == 11 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi2": "query.variant == 12 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi3": "query.variant == 13 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi4": "query.variant == 14 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi5": "query.variant == 15 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi6": "query.variant == 16 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi7": "query.variant == 17 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi8": "query.variant == 18 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi9": "query.variant == 19 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi10": "query.variant == 20 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi11": "query.variant == 21 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" },
+            { "hi12": "query.variant == 22 && (query.skin_id == 2 || query.skin_id == 12) && query.is_using_item" }
           ]
         },
         "hi1":{

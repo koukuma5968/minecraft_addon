@@ -5,11 +5,11 @@
       "states": {
         "default": {
           "transitions": [
-            { "mituri1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 6 && query.is_sneaking" },
-            { "mituri2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 1 && query.is_sneaking" },
-            { "mituri3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 2 && query.is_sneaking" },
-            { "mituri5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 3 && query.is_sneaking" },
-            { "mituri6": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri') && query.variant == 5 && query.is_sneaking" }
+            { "mituri1": "query.skin_id == 32 && query.variant == 6 && query.is_sneaking" },
+            { "mituri2": "query.skin_id == 32 && query.variant == 1 && query.is_sneaking" },
+            { "mituri3": "query.skin_id == 32 && query.variant == 2 && query.is_sneaking" },
+            { "mituri5": "query.skin_id == 32 && query.variant == 3 && query.is_sneaking" },
+            { "mituri6": "query.skin_id == 32 && query.variant == 5 && query.is_sneaking" }
           ]
         },
         "mituri1":{

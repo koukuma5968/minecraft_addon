@@ -9,10 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_tanjiro.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:kokyu_mizu": {},
-      "tag:kurokumaft:kokyu_hi": {},
-      "tag:kurokumaft:nichirintou_tanjiro": {},
       "minecraft:icon": {
           "texture": "nichirintou_tanjiro"
       },

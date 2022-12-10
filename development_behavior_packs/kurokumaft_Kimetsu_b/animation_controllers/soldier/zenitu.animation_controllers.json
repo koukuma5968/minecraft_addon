@@ -4,6 +4,11 @@
     "controller.animation.zenitu.kokyu": {
       "states": {
         "default": {
+          "variables": {
+            "kokyu_zenitu": {
+              "input": "variable.kokyu_zenitu = (variable.kokyu_zenitu ?? 0);"
+            }
+          },
           "transitions": [
             { "kaminari1": "query.variant == 1 && query.mark_variant == 0" },
             { "kaminari7": "query.variant == 7 && query.mark_variant == 0" }
@@ -25,7 +30,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"query.life_time > 5.0"}
+            {"default":"variable.kokyu_zenitu = variable.kokyu_zenitu < 20 ? variable.kokyu_zenitu + 1:0;return variable.kokyu_zenitu == 0;"}
           ]
         },
         "kaminari7":{
@@ -37,7 +42,7 @@
             "/event entity @s mark_variant1"
           ],
           "transitions": [
-            {"kaminari7_2":"query.life_time > 10.0"}
+            {"kaminari7_2":"variable.kokyu_zenitu = variable.kokyu_zenitu < 40 ? variable.kokyu_zenitu + 1:0;return variable.kokyu_zenitu == 0;"}
           ]
         },
         "kaminari7_2":{
@@ -55,7 +60,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"query.life_time > 20.0"}
+            {"default":"variable.kokyu_zenitu = variable.kokyu_zenitu < 20 ? variable.kokyu_zenitu + 1:0;return variable.kokyu_zenitu == 0;"}
           ]
         }
       }

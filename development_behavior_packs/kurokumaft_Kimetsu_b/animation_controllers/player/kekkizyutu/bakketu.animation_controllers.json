@@ -10,7 +10,7 @@
             }
           },
           "transitions": [
-            { "bakketu": "query.is_item_name_any('slot.weapon.offhand',0,'kurokumaft:bakketu') && variable.attack_time" }
+            { "bakketu": "query.is_item_name_any('slot.weapon.offhand',0,'kurokumaft:bakketu') && variable.attack_time && query.is_sneaking" }
           ]
         },
         "bakketu":{

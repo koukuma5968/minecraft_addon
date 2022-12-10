@@ -10,11 +10,11 @@
             }
           },
           "transitions": [
-            { "hana2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hana') && query.variant == 2 && query.mark_variant == 0 && query.is_using_item" },
-            { "hana4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hana') && query.variant == 4 && query.mark_variant == 0 && query.is_using_item" },
-            { "hana5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hana') && query.variant == 5 && query.mark_variant == 0 && query.is_using_item" },
-            { "hana6": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hana') && query.variant == 6 && query.mark_variant == 0 && query.is_using_item" },
-            { "hana7": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_hana') && query.variant == 7 && query.mark_variant == 0 && query.is_using_item" }
+            { "hana2": "(query.skin_id == 31 || query.skin_id == 34) && query.variant == 2 && query.is_using_item" },
+            { "hana4": "(query.skin_id == 31 || query.skin_id == 34) && query.variant == 4 && query.is_using_item" },
+            { "hana5": "(query.skin_id == 31 || query.skin_id == 34) && query.variant == 5 && query.is_using_item" },
+            { "hana6": "(query.skin_id == 31 || query.skin_id == 34) && query.variant == 6 && query.is_using_item" },
+            { "hana7": "(query.skin_id == 31 || query.skin_id == 34) && query.variant == 7 && query.is_using_item" }
           ]
         },
         "hana2":{

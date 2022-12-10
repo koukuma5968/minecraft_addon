@@ -9,11 +9,8 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_hi.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:kokyu_hi": {},
-      "tag:kurokumaft:nichirintou_hi": {},
       "minecraft:icon": {
-          "texture": "nichirintou_hi"
+        "texture": "nichirintou_hi"
       },
       "minecraft:creative_category": {
         "parent": "itemGroup.name.nichirintou"

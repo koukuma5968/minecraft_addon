@@ -4,6 +4,11 @@
     "controller.animation.kanawo.kokyu": {
       "states": {
         "default": {
+          "variables": {
+            "kokyu_kanawo": {
+              "input": "variable.kokyu_kanawo = (variable.kokyu_kanawo ?? 0);"
+            }
+          },
           "transitions": [
             { "hana2": "query.variant == 2 && query.mark_variant == 0" },
             { "hana4": "query.variant == 4 && query.mark_variant == 0" },
@@ -24,7 +29,7 @@
             "/event entity @s remove_damage_clear"
           ],
           "transitions": [
-            {"default":"query.life_time > 30.0"}
+            {"default":"variable.kokyu_kanawo = variable.kokyu_kanawo < 80 ? variable.kokyu_kanawo + 1:0;return variable.kokyu_kanawo == 0;"}
           ]
         },
         "hana4":{
@@ -37,7 +42,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"query.life_time > 5.0"}
+            {"default":"variable.kokyu_kanawo = variable.kokyu_kanawo < 20 ? variable.kokyu_kanawo + 1:0;return variable.kokyu_kanawo == 0;"}
           ]
         },
         "hana5":{
@@ -50,7 +55,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"query.life_time > 5.0"}
+            {"default":"variable.kokyu_kanawo = variable.kokyu_kanawo < 20 ? variable.kokyu_kanawo + 1:0;return variable.kokyu_kanawo == 0;"}
           ]
         },
         "hana6":{
@@ -63,7 +68,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"query.life_time > 5.0"}
+            {"default":"variable.kokyu_kanawo = variable.kokyu_kanawo < 20 ? variable.kokyu_kanawo + 1:0;return variable.kokyu_kanawo == 0;"}
           ]
         },
         "hana7":{
@@ -77,7 +82,7 @@
             "/event entity @s variant0"
           ],
           "transitions": [
-            {"default":"query.life_time > 300.0"}
+            {"default":"variable.kokyu_kanawo = variable.kokyu_kanawo < 1000 ? variable.kokyu_kanawo + 1:0;return variable.kokyu_kanawo == 0;"}
           ]
         }
       }

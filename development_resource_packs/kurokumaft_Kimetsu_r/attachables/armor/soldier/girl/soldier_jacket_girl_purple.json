@@ -1,0 +1,21 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:soldier_jacket_girl_purple",
+        "materials": {
+          "default": "armor",
+          "enchanted": "armor_enchanted"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/armor/soldier_uniform_girl_purple",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.soldier_jacket_girl_purple"
+        },
+        "render_controllers": ["controller.render.armor"]
+      }
+    }
+  }
+  

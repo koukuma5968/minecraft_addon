@@ -9,9 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_shinobu.name"
 			},
-      "tag:kurokumaft:nichirintou_hori": {},
-      "tag:kurokumaft:kokyu_mushi": {},
-      "tag:kurokumaft:nichirintou_shinobu": {},
       "minecraft:icon": {
           "texture": "nichirintou_shinobu"
       },

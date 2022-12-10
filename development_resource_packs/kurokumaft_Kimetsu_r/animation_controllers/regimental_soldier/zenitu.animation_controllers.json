@@ -33,6 +33,7 @@
 						"zenitu.ichi_1"
 					],
 					"transitions" : [
+						{"default":"query.mark_variant == 0"},
 						{"kaminari1_2":"query.any_animation_finished"}
 					]
 				},
@@ -49,6 +50,7 @@
 						"zenitu.shiti_1"
 					],
 					"transitions" : [
+						{"default":"query.mark_variant == 0"},
 						{"kaminari17_2":"query.any_animation_finished"}
 					]
 				},

@@ -24,7 +24,7 @@
         },
         "kedamono1":{
           "on_entry": [
-            "/execute @s ^^^1 damage @e[family=monster,family=dragon,r=4] 10 entity_attack",
+            "/function kemono/kemono1",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -37,7 +37,7 @@
         },
         "kedamono2":{
           "on_entry": [
-            "/execute @s ^^^1 damage @e[family=monster,family=dragon,r=4] 10 entity_attack",
+            "/function kemono/kemono2",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -50,7 +50,7 @@
         },
         "kedamono3":{
           "on_entry": [
-            "/execute @s ^^^1 damage @e[family=monster,family=dragon,r=4] 10 entity_attack",
+            "/function kemono/kemono3",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -103,15 +103,11 @@
         "kedamono7":{
           "animations" : [ "kedamono7_ani" ],
           "on_entry": [
-            "/tag @s add kokyu_kedamono7",
-            "/effect @s speed 99999 5 true",
-            "/tag @e[tag=!kokyu_kedamono7,family=!player,family=!inanimate,type=!item,r=64] add kokyu_kedamono7_target",
+            "/function kemono/kemono7/kemono7_1",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/tag @s remove kokyu_kedamono7",
-            "/effect @s speed 0",
-            "/tag @e[tag=kokyu_kedamono7_target] remove kokyu_kedamono7_target",
+            "/function kemono/kemono7/kemono7_3",
             "/event entity @s mark_variant0",
             "/event entity @s variant0"
           ],
@@ -135,8 +131,7 @@
         },
         "kedamono9":{
           "on_entry": [
-            "/execute @s ^1^^2 damage @e[family=monster,family=dragon,r=2] 13 entity_attack",
-            "/execute @s ^-1^^2 damage @e[family=monster,family=dragon,r=2] 13 entity_attack",
+            "/function kemono/kemono9",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [

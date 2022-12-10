@@ -5,12 +5,12 @@
       "states": {
         "default": {
           "transitions": [
-            { "kyouzyuro1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 9 && query.is_sneaking" },
-            { "kyouzyuro2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 1 && query.is_sneaking" },
-            { "kyouzyuro3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 2 && query.is_sneaking" },
-            { "kyouzyuro4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 3 && query.is_sneaking" },
-            { "kyouzyuro5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 4 && query.is_sneaking" },
-            { "kyouzyuro9": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kyouzyuro') && query.variant == 5 && query.is_sneaking" }
+            { "kyouzyuro1": "query.skin_id == 6 && query.variant == 9 && query.is_sneaking" },
+            { "kyouzyuro2": "query.skin_id == 6 && query.variant == 1 && query.is_sneaking" },
+            { "kyouzyuro3": "query.skin_id == 6 && query.variant == 2 && query.is_sneaking" },
+            { "kyouzyuro4": "query.skin_id == 6 && query.variant == 3 && query.is_sneaking" },
+            { "kyouzyuro5": "query.skin_id == 6 && query.variant == 4 && query.is_sneaking" },
+            { "kyouzyuro9": "query.skin_id == 6 && query.variant == 5 && query.is_sneaking" }
           ]
         },
         "kyouzyuro1":{

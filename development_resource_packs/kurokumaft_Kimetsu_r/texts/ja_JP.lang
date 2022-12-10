@@ -43,29 +43,69 @@ entity.kurokumaft:tanjiro.name=竈門 炭次郎
 entity.kurokumaft:zenitu.name=我妻 善逸
 entity.kurokumaft:inosuke.name=嘴平 伊之助
 entity.kurokumaft:kanawo.name=栗花落 カナヲ
-entity.kurokumaft:nezuko.name=竈門 ねずこ
+entity.kurokumaft:nezuko.name=竈門 禰豆子
+entity.kurokumaft:giyu.name=富岡 義勇
+entity.kurokumaft:shinobu.name=胡蝶 しのぶ
+entity.kurokumaft:tengen.name=宇髄 天元
 
 item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
 item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
 item.spawn_egg.entity.kurokumaft:inosuke.name=嘴平 伊之助
 item.spawn_egg.entity.kurokumaft:kanawo.name=栗花落 カナヲ
-item.spawn_egg.entity.kurokumaft:nezuko.name=竈門 ねずこ
+item.spawn_egg.entity.kurokumaft:nezuko.name=竈門 禰豆子
+item.spawn_egg.entity.kurokumaft:giyu.name=富岡 義勇
+item.spawn_egg.entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
+item.spawn_egg.entity.kurokumaft:shinobu.name=胡蝶 しのぶ
+item.spawn_egg.entity.kurokumaft:tengen.name=宇髄 天元
 
-item.kurokumaft:soldier_jacket_guy.name=隊士服上着(男)
-item.kurokumaft:soldier_pants_guy.name=隊士服ズボン(男)
-item.kurokumaft:soldier_jacket_girl.name=隊士服上着(女)
-item.kurokumaft:soldier_skirt_girl.name=隊士服キュロット(女)
+item.kurokumaft:soldier_jacket_guy.name=隊士服上着・茶(男)
+item.kurokumaft:soldier_pants_guy.name=隊士服ズボン・茶(男)
+item.kurokumaft:soldier_jacket_guy_blue.name=隊士服上着・紺(男)
+item.kurokumaft:soldier_pants_guy_blue.name=隊士服ズボン・紺(男)
+item.kurokumaft:soldier_jacket_girl_blue.name=隊士服上着・紺(女)
+item.kurokumaft:soldier_skirt_girl_blue.name=隊士服キュロット・紺(女)
+item.kurokumaft:soldier_jacket_girl_purple.name=隊士服上着・紫(女)
+item.kurokumaft:soldier_pants_girl_purple.name=隊士服ズボン・紫(女)
 
 item.kurokumaft:tanjiro_tabi.name=炭次郎の足袋
 item.kurokumaft:tanjiro_haori_soldier_jacket.name=炭次郎の羽織(隊士服)
 
-item.kurokumaft:nezuko_kimono.name=ねずこの着物
+item.kurokumaft:nezuko_kimono.name=禰豆子の着物
+item.kurokumaft:nezuko_mask.name=禰豆子の口枷
+item.kurokumaft:nezuko_haori.name=禰豆子の羽織
+item.kurokumaft:nezuko_boots.name=禰豆子の足袋
 
 item.kurokumaft:zenitu_tabi.name=善逸の足袋
 item.kurokumaft:zenitu_haori_soldier_jacket.name=善逸の羽織(隊士服)
 
 item.kurokumaft:kanawo_hair_band.name=カナヲの髪飾り
 item.kurokumaft:kanawo_boots.name=カナヲのブーツ
+item.kurokumaft:kanawo_mant.name=カナヲのマント
 
 item.kurokumaft:inosuke_headdress.name=イノシシの頭
 item.kurokumaft:inosuke_hakama.name=伊之助の袴
+item.kurokumaft:inosuke_tabi.name=伊之助の足袋
+
+item.kurokumaft:giyu_tabi.name=義勇の足袋
+item.kurokumaft:giyu_haori_soldier_jacket.name=義勇の羽織
+
+item.kurokumaft:kyouzyuro_mant.name=杏寿郎のマント
+item.kurokumaft:kyouzyuro_tabi.name=杏寿郎の足袋
+
+item.kurokumaft:shinobu_hair_band.name=しのぶの髪飾り
+item.kurokumaft:shinobu_haori.name=しのぶの羽織
+item.kurokumaft:shinobu_tabi.name=しのぶの足袋
+
+item.kurokumaft:tengen_soldier_jacket.name=天元の隊士服
+item.kurokumaft:tengen_headgear.name=天元の額当
+item.kurokumaft:tengen_tabi.name=天元の足袋
+
+item.kurokumaft:tanjiro_head.name=炭次郎の頭
+item.kurokumaft:zenitu_head.name=善逸の頭
+item.kurokumaft:inosuke_head.name=伊之助の頭
+item.kurokumaft:nezuko_head.name=禰豆子の頭
+item.kurokumaft:kanawo_head.name=カナヲの頭
+item.kurokumaft:giyu_head.name=義勇の頭
+item.kurokumaft:kyouzyuro_head.name=杏寿郎の頭
+item.kurokumaft:shinobu_head.name=しのぶの頭
+item.kurokumaft:tengen_head.name=天元の頭

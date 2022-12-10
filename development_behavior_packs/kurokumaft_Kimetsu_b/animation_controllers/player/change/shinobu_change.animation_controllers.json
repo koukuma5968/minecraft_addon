@@ -5,10 +5,10 @@
       "states": {
         "default": {
           "transitions": [
-            { "shinobu1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 4 && query.is_sneaking" },
-            { "shinobu2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 1 && query.is_sneaking" },
-            { "shinobu3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 2 && query.is_sneaking" },
-            { "shinobu4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_shinobu') && query.variant == 3 && query.is_sneaking" }
+            { "shinobu1": "query.skin_id == 30 && query.variant == 4 && query.is_sneaking" },
+            { "shinobu2": "query.skin_id == 30 && query.variant == 1 && query.is_sneaking" },
+            { "shinobu3": "query.skin_id == 30 && query.variant == 2 && query.is_sneaking" },
+            { "shinobu4": "query.skin_id == 30 && query.variant == 3 && query.is_sneaking" }
           ]
         },
         "shinobu1":{

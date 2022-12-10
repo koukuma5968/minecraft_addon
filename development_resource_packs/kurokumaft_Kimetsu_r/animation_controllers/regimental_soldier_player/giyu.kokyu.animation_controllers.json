@@ -1,24 +1,42 @@
 {
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
-		"controller.animation.giyu.kokyu" : {
+		"controller.animation.giyu.attack" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"giyu1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu2_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu3_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu6_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 6 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu7_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 7 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu8_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 8 && query.mark_variant == 1 && query.is_using_item"},
-						{"giyu9_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 9 && query.mark_variant == 1 && variable.attack_time && !query.is_jumping"},
-						{"giyu9_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 9 && query.mark_variant == 1 && variable.attack_time && query.is_jumping"},
-						{"giyu10_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 10 && query.mark_variant == 2"},
-						{"giyu10_2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 101 && query.mark_variant == 3"},
-						{"giyu11_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.variant == 11 && query.mark_variant == 1 && variable.attack_time"}
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						{"giyu_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.giyu.kokyu_player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"giyu1_1": "variable.equipped_giyu && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu2_1": "variable.equipped_giyu && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu3_1": "variable.equipped_giyu && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu4_1": "variable.equipped_giyu && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu5_1": "variable.equipped_giyu && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu6_1": "variable.equipped_giyu && query.variant == 6 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu7_1": "variable.equipped_giyu && query.variant == 7 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu8_1": "variable.equipped_giyu && query.variant == 8 && query.mark_variant == 1 && query.is_using_item"},
+						{"giyu9_1": "variable.equipped_giyu && query.variant == 9 && query.mark_variant == 1 && variable.attack_time && !query.is_jumping"},
+						{"giyu9_2": "variable.equipped_giyu && query.variant == 9 && query.mark_variant == 1 && variable.attack_time && query.is_jumping"},
+						{"giyu10_1": "variable.equipped_giyu && query.variant == 10 && query.mark_variant == 2"},
+						{"giyu10_2": "variable.equipped_giyu && query.variant == 101 && query.mark_variant == 3"},
+						{"giyu11_1": "variable.equipped_giyu && query.variant == 11 && query.mark_variant == 1 && variable.attack_time"}
 					]
 				},
 				"giyu1_1" : {

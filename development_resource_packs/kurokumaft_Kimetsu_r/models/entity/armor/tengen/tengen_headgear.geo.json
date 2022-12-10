@@ -1,0 +1,47 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.tengen_headgear",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [0, 24, -4.1], "size": [4, 4, 0], "uv": [0, 4]}
+					]
+				},
+				{
+					"name": "headgear",
+					"parent": "head",
+					"pivot": [0, 32, 0],
+					"cubes": [
+						{"origin": [-4.75, 29, -5], "size": [9.5, 2, 1], "uv": [0, 0]},
+						{"origin": [-4.75, 22.5, -5], "size": [1, 6.55, 1], "uv": [23, 0]},
+						{"origin": [3.8, 22.5, -5], "size": [1, 6.5, 1], "uv": [23, 0]},
+						{"origin": [-3.65, 29.3, -5.5], "size": [1, 1, 1], "pivot": [-3, 30, -5], "rotation": [0, 0, 45], "uv": [27, 0]},
+						{"origin": [-2.15, 30.8, -5.5], "size": [1, 1, 1], "pivot": [-3, 30, -5], "rotation": [0, 0, 45], "uv": [27, 0]},
+						{"origin": [-0.65, 32.3, -5.5], "size": [1, 1, 1], "pivot": [-3, 30, -5], "rotation": [0, 0, 45], "uv": [27, 0]},
+						{"origin": [0.85, 33.8, -5.5], "size": [1, 1, 1], "pivot": [-3, 30, -5], "rotation": [0, 0, 45], "uv": [27, 0]}
+					]
+				},
+				{
+					"name": "hair",
+					"parent": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4, 24, -4], "size": [8, 8, 8], "inflate": 0.5, "uv": [32, 0]},
+						{"origin": [-1, 26.2, 4.5], "size": [2, 6, 2], "uv": [56, 0]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -9,9 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_giyu.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:kokyu_mizu": {},
-      "tag:kurokumaft:nichirintou_giyu": {},
       "minecraft:icon": {
           "texture": "nichirintou_giyu"
       },

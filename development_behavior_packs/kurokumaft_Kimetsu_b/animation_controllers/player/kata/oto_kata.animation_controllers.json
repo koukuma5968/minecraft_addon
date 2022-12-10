@@ -10,9 +10,9 @@
             }
           },
           "transitions": [
-            { "oto1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_oto') && query.variant == 1 && query.mark_variant == 0 && query.is_using_item" },
-            { "oto4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_oto') && query.variant == 4 && query.mark_variant == 0 && query.is_using_item" },
-            { "oto5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_oto') && query.variant == 5 && query.mark_variant == 0 && query.is_using_item" }
+            { "oto1": "(query.skin_id == 21 || query.skin_id == 23) && query.variant == 1 && query.is_using_item" },
+            { "oto4": "(query.skin_id == 21 || query.skin_id == 23) && query.variant == 4 && query.is_using_item" },
+            { "oto5": "(query.skin_id == 21 || query.skin_id == 23) && query.variant == 5 && query.is_using_item" }
           ]
         },
         "oto1":{
@@ -46,7 +46,7 @@
             "/event entity @s mark_variant1"
           ],
           "transitions": [
-            {"oto4_f":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 100 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0 && !query.is_using_item;"}
+            {"oto4_f":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 100 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
           ]
         },
         "oto4_f":{
@@ -57,7 +57,7 @@
             "/effect @s fire_resistance 0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 5 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 5 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
           ]
         },
         "oto5":{
@@ -71,7 +71,7 @@
             "/effect @s fire_resistance 99999 20 true"
           ],
           "transitions": [
-            {"oto5_f":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 100 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0 && !query.is_using_item;"}
+            {"oto5_f":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 100 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
           ]
         },
         "oto5_f":{
@@ -83,7 +83,7 @@
             "/effect @s fire_resistance 0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 5 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0 && !query.is_using_item;"}
+            {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 5 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
           ]
         }
       }

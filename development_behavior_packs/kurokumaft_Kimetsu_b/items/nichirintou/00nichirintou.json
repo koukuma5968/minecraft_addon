@@ -9,8 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:nichirintou_normal": {},
       "minecraft:icon": {
           "texture": "nichirintou"
       },

@@ -9,9 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_zenitu.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:kokyu_kaminari": {},
-      "tag:kurokumaft:nichirintou_zenitu": {},
       "minecraft:icon": {
           "texture": "nichirintou_zenitu"
       },

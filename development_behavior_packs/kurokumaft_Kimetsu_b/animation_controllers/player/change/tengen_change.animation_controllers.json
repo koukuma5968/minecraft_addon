@@ -5,9 +5,9 @@
       "states": {
         "default": {
           "transitions": [
-            { "tengen1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen') && query.variant == 5 && query.is_sneaking" },
-            { "tengen4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen') && query.variant == 1 && query.is_sneaking" },
-            { "tengen5": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tengen') && query.variant == 4 && query.is_sneaking" }
+            { "tengen1": "query.skin_id == 21 && query.variant == 5 && query.is_sneaking" },
+            { "tengen4": "query.skin_id == 21 && query.variant == 1 && query.is_sneaking" },
+            { "tengen5": "query.skin_id == 21 && query.variant == 4 && query.is_sneaking" }
           ]
         },
         "tengen1":{

@@ -1,0 +1,58 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:kyouzyuro_mant",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:kyouzyuro_mant.name"
+			},
+      "minecraft:icon": {
+          "texture": "kyouzyuro_mant"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.chestplate"
+			},
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:kyouzyuro_mant" ],
+            "repair_amount": 250
+          }
+        ]
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "scale": [0.015, 0.015, 0.015]
+          },
+          "third_person": {
+            "scale": [0.05, 0.05, 0.05]
+          }
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_torso"
+      },
+      "minecraft:durability": {
+        "max_durability": 2800,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:armor": {
+        "protection": 250,
+        "texture_type": "elytra"
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.chest"
+      }
+    }
+  }
+}

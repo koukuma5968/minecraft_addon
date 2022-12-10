@@ -5,10 +5,10 @@
       "states": {
         "default": {
           "transitions": [
-            { "mushi1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mushi') && query.variant == 4 && query.is_sneaking" },
-            { "mushi2": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mushi') && query.variant == 1 && query.is_sneaking" },
-            { "mushi3": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mushi') && query.variant == 2 && query.is_sneaking" },
-            { "mushi4": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mushi') && query.variant == 3 && query.is_sneaking" }
+            { "mushi1": "query.skin_id == 33 && query.variant == 4 && query.is_sneaking" },
+            { "mushi2": "query.skin_id == 33 && query.variant == 1 && query.is_sneaking" },
+            { "mushi3": "query.skin_id == 33 && query.variant == 2 && query.is_sneaking" },
+            { "mushi4": "query.skin_id == 33 && query.variant == 3 && query.is_sneaking" }
           ]
         },
         "mushi1":{

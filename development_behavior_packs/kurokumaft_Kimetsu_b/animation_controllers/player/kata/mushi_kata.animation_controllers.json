@@ -10,10 +10,10 @@
             }
           },
           "transitions": [
-            { "mushi1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mushi') && query.variant == 1 && query.mark_variant == 0 && query.is_using_item" },
-            { "mushi2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mushi') && query.variant == 2 && query.mark_variant == 0 && query.is_using_item" },
-            { "mushi3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mushi') && query.variant == 3 && query.mark_variant == 0 && query.is_using_item" },
-            { "mushi4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mushi') && query.variant == 4 && query.mark_variant == 0 && query.is_using_item" }
+            { "mushi1": "(query.skin_id == 30 || query.skin_id == 33) && query.variant == 1 && query.is_using_item" },
+            { "mushi2": "(query.skin_id == 30 || query.skin_id == 33) && query.variant == 2 && query.is_using_item" },
+            { "mushi3": "(query.skin_id == 30 || query.skin_id == 33) && query.variant == 3 && query.is_using_item" },
+            { "mushi4": "(query.skin_id == 30 || query.skin_id == 33) && query.variant == 4 && query.is_using_item" }
           ]
         },
         "mushi1":{

@@ -81,6 +81,7 @@
 						"inosuke.roku_1"
 					],
 					"transitions" : [
+						{"default":"query.mark_variant == 0"},
 						{"inosuke6_2":"query.any_animation_finished"}
 					]
 				},

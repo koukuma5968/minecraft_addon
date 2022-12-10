@@ -9,7 +9,6 @@
         },
         "textures": {
           "default": "textures/kurokumaft/models/nichirintou/nichirintou_mituri",
-          "player": "textures/kurokumaft/models/nichirintou/no_image",
           "enchanted": "textures/misc/enchanted_item_glint"
         },
         "geometry": {
@@ -17,13 +16,24 @@
         },
         "scripts": {
           "animate": [
-            {"hidden": "query.owner_identifier != 'minecraft:armor_stand'"},
-            {"third": "query.owner_identifier == 'minecraft:armor_stand'"}
+            {"first": "c.is_first_person"},
+            {"third": "!c.is_first_person"},
+            "mituri.kokyu_con"
           ]
         },
         "animations": {
-          "hidden": "animation.nichirintou_hidden",
-          "third": "animation.nichirintou_third"
+          "first": "animation.mituri_first",
+          "third": "animation.mituri_third",
+
+          "mituri.kokyu_con":"controller.animation.mituri.kokyu",
+          "mituri.ichi_1": "animation.nichirintou_kokyu.mituri.ichi_1",
+          "mituri.ichi_2": "animation.nichirintou_kokyu.mituri.ichi_2",
+          "mituri.ni_1": "animation.nichirintou_kokyu.mituri.ni_1",
+          "mituri.ni_2": "animation.nichirintou_kokyu.mituri.ni_2",
+          "mituri.san": "animation.nichirintou_kokyu.mituri.san",
+          "mituri.go": "animation.nichirintou_kokyu.mituri.go",
+          "mituri.roku": "animation.nichirintou_kokyu.mituri.roku"
+  
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

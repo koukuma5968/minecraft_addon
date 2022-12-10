@@ -9,9 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_kyouzyuro.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:kokyu_hono": {},
-      "tag:kurokumaft:nichirintou_kyouzyuro": {},
       "minecraft:icon": {
           "texture": "nichirintou_kyouzyuro"
       },

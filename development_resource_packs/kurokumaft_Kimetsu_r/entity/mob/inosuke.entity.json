@@ -8,7 +8,7 @@
       },
       "textures": {
         "default": "textures/kurokumaft/models/mob/inosuke",
-        "nichirintou_inosuke": "textures/kurokumaft/models/nichirintou/nichirintou_inosuke"
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
         "default": "geometry.inosuke",
@@ -65,8 +65,8 @@
         "use_item_progress":"animation.humanoid.use_item_progress",
 
         "attack": "controller.animation.inosuke.attack",
-        "third": "animation.nichirintou_third",
-        "nichirintou_two_attack": "animation.nichirintou.two_attack",
+        "third": "animation.inosuke_third",
+        "nichirintou_two_attack": "animation.inosuke.attack",
 
         "inosuke.kokyu_con":"controller.animation.inosuke.kokyu",
         "inosuke.ichi_1": "animation.nichirintou_kokyu.inosuke.ichi_1",

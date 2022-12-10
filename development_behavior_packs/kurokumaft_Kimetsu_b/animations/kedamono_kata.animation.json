@@ -6,7 +6,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ^^^2 damage @e[family=monster,r=4] 8 entity_attack"
+					"/function kemono/kemono4"
 				]
 			}
 		},
@@ -15,7 +15,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ damage @e[family=monster,r=6] 8 entity_attack"
+					"/function kemono/kemono5"
 				]
 			}
 		},
@@ -24,8 +24,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ^^^1 damage @e[family=monster,r=1.5,c=1] 15 entity_attack",
-					"/execute @s ^^^2 damage @e[family=monster,r=1.5,c=1] 15 entity_attack"
+					"/function kemono/kemono6"
 				]
 			}
 		},
@@ -34,7 +33,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @e[tag=kokyu_kedamono7_target] ~~~ particle kurokumaft:kedamono7_particle ~~~"
+					"/function kemono/kemono7/kemono7_2"
 				]
 			}
 		}

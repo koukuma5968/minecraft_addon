@@ -9,9 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_tengen.name"
 			},
-      "tag:kurokumaft:nichirintou_two": {},
-      "tag:kurokumaft:kokyu_oto": {},
-      "tag:kurokumaft:nichirintou_tengen": {},
       "minecraft:icon": {
           "texture": "nichirintou_tengen"
       },

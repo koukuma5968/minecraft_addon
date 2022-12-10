@@ -9,9 +9,6 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_kanawo.name"
 			},
-      "tag:kurokumaft:nichirintou": {},
-      "tag:kurokumaft:kokyu_hana": {},
-      "tag:kurokumaft:nichirintou_kanawo": {},
       "minecraft:icon": {
           "texture": "nichirintou_kanawo"
       },

@@ -9,21 +9,26 @@
         },
         "textures": {
           "default": "textures/kurokumaft/models/nichirintou/nichirintou_tanjiro",
-          "player": "textures/kurokumaft/models/nichirintou/no_image",
           "enchanted": "textures/misc/enchanted_item_glint"
         },
         "geometry": {
           "default": "geometry.nichirintou_tanjiro"
         },
+        "particle_effects": {
+          "hi_blead_particle": "kurokumaft:hi_blead_particle",
+          "hi_deep_blead_particle": "kurokumaft:hi_deep_blead_particle",
+          "mizu_awa_particle": "kurokumaft:mizu_awa_particle",
+          "mizu_splash_particle": "kurokumaft:mizu_splash_particle"
+        },
         "scripts": {
           "animate": [
-            {"hidden": "query.owner_identifier != 'minecraft:armor_stand'"},
-            {"third": "query.owner_identifier == 'minecraft:armor_stand'"}
+            {"first": "c.is_first_person"},
+            {"third": "!c.is_first_person"}
           ]
         },
         "animations": {
-          "hidden": "animation.nichirintou_hidden",
-          "third": "animation.nichirintou_third"
+          "first": "animation.tanjiro_first",
+          "third": "animation.tanjiro_third"    
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

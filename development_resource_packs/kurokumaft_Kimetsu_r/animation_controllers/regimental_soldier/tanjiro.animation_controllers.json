@@ -119,7 +119,7 @@
 						"tanjiro_mizu.go_1"
 					],
 					"transitions" : [
-						{"mizu5_2":"!query.is_using_item"}
+						{"mizu5_2":"query.any_animation_finished"}
 					]
 				},
 				"mizu5_2" : {
@@ -135,7 +135,7 @@
 						"tanjiro_mizu.roku_1"
 					],
 					"transitions" : [
-						{"mizu6_2":"!query.is_using_item"}
+						{"mizu6_2":"query.any_animation_finished"}
 					]
 				},
 				"mizu6_2" : {
@@ -151,7 +151,7 @@
 						"tanjiro_mizu.shiti_1"
 					],
 					"transitions" : [
-						{"mizu7_2":"!query.is_using_item"}
+						{"mizu7_2":"query.any_animation_finished"}
 					]
 				},
 				"mizu7_2" : {
@@ -167,7 +167,7 @@
 						"tanjiro_mizu.hati_1"
 					],
 					"transitions" : [
-						{"mizu8_2":"!query.is_using_item"}
+						{"mizu8_2":"query.any_animation_finished"}
 					]
 				},
 				"mizu8_2" : {
@@ -271,7 +271,7 @@
 						"hinokami.go_1"
 					],
 					"transitions" : [
-						{"hinokami5_2":"!query.is_using_item"}
+						{"hinokami5_2":"query.any_animation_finished"}
 					]
 				},
 				"hinokami5_2" : {

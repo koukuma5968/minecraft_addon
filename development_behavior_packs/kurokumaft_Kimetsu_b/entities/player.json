@@ -10,11 +10,11 @@
         "animate":[
           "kokyu_change",
           "tanjiro_change","zenitu_change","inosuke_change","kanawo_change","giyu_change","kyouzyuro_change","tengen_change","shinobu_change",
-          "mituri_change",
+          "mituri_change","sanemi_change","gyoumei_change",
 
-          "mizu_change","hi_change","kaminari_change","hono_change","oto_change","mushi_change",
+          "mizu_change","hi_change","kaminari_change","hono_change","oto_change","mushi_change","hana_change",
 
-          "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi","koi",
+          "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi","koi","kaze","iwa",
 
           "mizu10_attack","hi_dragon_attack","kaminari_attack",
 
@@ -33,6 +33,8 @@
         "tengen_change": "controller.animation.kokyu.tengen_change",
         "shinobu_change": "controller.animation.kokyu.shinobu_change",
         "mituri_change": "controller.animation.kokyu.mituri_change",
+        "sanemi_change": "controller.animation.kokyu.sanemi_change",
+        "gyoumei_change": "controller.animation.kokyu.gyoumei_change",
 
         "mizu_change": "controller.animation.kokyu.mizu_change",
         "hi_change": "controller.animation.kokyu.hi_change",
@@ -40,6 +42,7 @@
         "hono_change": "controller.animation.kokyu.hono_change",
         "oto_change": "controller.animation.kokyu.oto_change",
         "mushi_change": "controller.animation.kokyu.mushi_change",
+        "hana_change": "controller.animation.kokyu.hana_change",
 
         "mizu":"controller.animation.kokyu.mizu",
         "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9","mizu10_ani": "animation.kata.mizu10",
@@ -68,10 +71,18 @@
         "mushi": "controller.animation.kokyu.mushi",
 
         "koi": "controller.animation.kokyu.koi",
-        "koi2_ani": "animation.kata.koi2",
+        "koi2_ani": "animation.kata.koi2","koi3_ani": "animation.kata.koi3",
 
         "bakketu": "controller.animation.kekkizyutu.bakketu",
-        "bakketu_target": "animation.kekkizyutu.bakketu.target","bakketu_fire": "animation.kekkizyutu.bakketu.fire"
+        "bakketu_target": "animation.kekkizyutu.bakketu.target","bakketu_fire": "animation.kekkizyutu.bakketu.fire",
+
+        "kaze": "controller.animation.kokyu.kaze",
+        "kaze1_ani": "animation.kata.kaze1","kaze3_ani": "animation.kata.kaze3","kaze4_ani": "animation.kata.kaze4","kaze5_ani": "animation.kata.kaze5",
+        "kaze8_ani": "animation.kata.kaze8","kaze9_ani": "animation.kata.kaze9","kaze9_2_ani": "animation.kata.kaze9_2",
+
+        "iwa": "controller.animation.kokyu.iwa",
+        "iwa3_ani": "animation.kata.iwa3"
+
       }
     },
 
@@ -152,6 +163,28 @@
           ]
         }
       },
+      "kurokumaft:iwa1_throw": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "spawn_entity": "kurokumaft:iwa_iron_ball",
+              "single_use": true,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "spawn_entity": "kurokumaft:iwa_axe",
+              "single_use": true,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
+        }
+      },
 
       "kurokumaft:falling_nullify": {
         "minecraft:hurt_on_condition": {
@@ -215,6 +248,11 @@
           "value": 6
         }
       },
+      "kurokumaft:nichirintou_sanemi": {
+        "minecraft:skin_id": {
+          "value": 7
+        }
+      },
       "kurokumaft:nichirintou_mizu": {
         "minecraft:skin_id": {
           "value": 11
@@ -235,6 +273,11 @@
           "value": 14
         }
       },
+      "kurokumaft:nichirintou_kaze": {
+        "minecraft:skin_id": {
+          "value": 15
+        }
+      },
 
       "kurokumaft:nichirintou_inosuke": {
         "minecraft:skin_id": {
@@ -248,12 +291,22 @@
       },
       "kurokumaft:nichirintou_gyoumei": {
         "minecraft:skin_id": {
-          "value": 21
+          "value": 22
+        }
+      },
+      "kurokumaft:nichirintou_kemono": {
+        "minecraft:skin_id": {
+          "value": 23
         }
       },
       "kurokumaft:nichirintou_oto": {
         "minecraft:skin_id": {
-          "value": 23
+          "value": 24
+        }
+      },
+      "kurokumaft:nichirintou_iwa": {
+        "minecraft:skin_id": {
+          "value": 25
         }
       },
 
@@ -275,6 +328,16 @@
       "kurokumaft:nichirintou_mushi": {
         "minecraft:skin_id": {
           "value": 33
+        }
+      },
+      "kurokumaft:nichirintou_hana": {
+        "minecraft:skin_id": {
+          "value": 34
+        }
+      },
+      "kurokumaft:nichirintou_koi": {
+        "minecraft:skin_id": {
+          "value": 35
         }
       },
 
@@ -611,6 +674,17 @@
         }
       },
 
+      "kurokumaft:iwa1_throw": {
+        "add": {
+          "component_groups": [ "kurokumaft:iwa1_throw" ]
+        }
+      },
+      "kurokumaft:iwa1_throw_remove": {
+        "remove": {
+          "component_groups": [ "kurokumaft:iwa1_throw" ]
+        }
+      },
+
       "kurokumaft:falling_nullify": {
         "add": {
           "component_groups": [ "kurokumaft:falling_nullify" ]
@@ -698,6 +772,17 @@
           "component_groups": [ "kurokumaft:nichirintou_mituri" ]
         }
       },
+      "kurokumaft:nichirintou_sanemi": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_sanemi" ]
+        }
+      },
+      "kurokumaft:nichirintou_gyoumei": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_gyoumei" ]
+        }
+      },
+
       "kurokumaft:nichirintou_mizu": {
         "add": {
           "component_groups": [ "kurokumaft:nichirintou_mizu" ]
@@ -726,6 +811,16 @@
       "kurokumaft:nichirintou_oto": {
         "add": {
           "component_groups": [ "kurokumaft:nichirintou_oto" ]
+        }
+      },
+      "kurokumaft:nichirintou_hana": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_hana" ]
+        }
+      },
+      "kurokumaft:nichirintou_kaze": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_kaze" ]
         }
       },
 

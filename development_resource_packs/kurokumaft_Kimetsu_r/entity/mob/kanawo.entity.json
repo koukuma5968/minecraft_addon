@@ -8,7 +8,7 @@
       },
       "textures": {
         "default": "textures/kurokumaft/models/mob/kanawo",
-        "nichirintou_kanawo": "textures/kurokumaft/models/nichirintou/nichirintou_kanawo"
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
         "default": "geometry.kanawo",
@@ -65,8 +65,8 @@
         "use_item_progress":"animation.humanoid.use_item_progress",
 
         "attack": "controller.animation.kanawo.attack",
-        "third": "animation.nichirintou_third",
-        "nichirintou_attack": "animation.nichirintou.attack",
+        "third": "animation.kanawo_third",
+        "nichirintou_attack": "animation.kanawo.attack",
 
         "kanawo.kokyu_con":"controller.animation.kanawo.kokyu",
         "kanawo.ni_1": "animation.nichirintou_kokyu.kanawo.ni_1",

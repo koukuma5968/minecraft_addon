@@ -15,7 +15,12 @@
       "entries": [
         {
           "type": "item",
-          "name": "kurokumaft:soldier_jacket_girl",
+          "name": "kurokumaft:soldier_jacket_girl_blue",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "kurokumaft:kanawo_mant",
           "weight": 1
         }
       ]
@@ -25,7 +30,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "kurokumaft:soldier_skirt_girl",
+          "name": "kurokumaft:soldier_skirt_girl_blue",
           "weight": 1
         }
       ]

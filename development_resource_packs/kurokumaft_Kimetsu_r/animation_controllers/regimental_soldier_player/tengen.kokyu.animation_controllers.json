@@ -1,14 +1,32 @@
 {
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
-		"controller.animation.tengen.kokyu" : {
+		"controller.animation.tengen.attack" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"tengen1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen') && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
-						{"tengen4_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen') && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
-						{"tengen5_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_tengen') && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"}
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						{"tengen_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.tengen.kokyu_player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"tengen1_1": "variable.equipped_tengen && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
+						{"tengen4_1": "variable.equipped_tengen && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
+						{"tengen5_1": "variable.equipped_tengen && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"}
 					]
 				},
 				"tengen1_1" : {

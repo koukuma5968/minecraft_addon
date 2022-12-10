@@ -1,6 +1,86 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.zenitu_first": {
+			"loop": true,
+			"animation_length": 0.70833,
+			"bones": {
+				"zenitu_nichirinto": {
+					"rotation": [14.93001, 68.69274, -44.97092],
+					"position": [2, -4, 2],
+					"scale": 0.5
+				}
+			}
+		},
+		"animation.zenitu_third": {
+			"loop": true,
+			"bones": {
+				"zenitu_nichirinto": {
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.zenitu.attack": {
+			"animation_length": 0.5,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-127.87778, -14.71935, -14.35508],
+						"0.3333": [-6.80402, -18.72066, -26.72532]
+					},
+					"position": [0, 0, 0]
+				},
+				"zenitu_nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 12.5, 0],
+						"0.3333": [37.5, 12.5, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3333": [-1, -2, -3]
+					}
+				},
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, -22.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 22.5, 0],
+						"0.3333": [0, 17.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-137.18705, 25.70114, -41.5461],
+						"0.3333": [-31.02103, 56.23902, -0.33953]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [15.32723, 21.11183, -5.54121]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-14.3546, 24.56163, 7.86675]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
 		"animation.nichirintou_kokyu.zenitu.ichi_1": {
 			"animation_length": 0.5,
 			"bones": {
@@ -39,7 +119,7 @@
 					},
 					"position": [0, 0, 0]
 				},
-				"nichirinto": {
+				"zenitu_nichirinto": {
 					"rotation": [0, 0, 0],
 					"position": [0, 0, 0]
 				},
@@ -157,7 +237,7 @@
 						"0.25": [140, 0, 0]
 					}
 				},
-				"nichirinto": {
+				"zenitu_nichirinto": {
 					"rotation": [32.5, 0, 2.5]
 				}
 			},
@@ -229,7 +309,7 @@
 					},
 					"position": [0, 0, 0]
 				},
-				"nichirinto": {
+				"zenitu_nichirinto": {
 					"rotation": [0, 0, 0],
 					"position": [0, 0, 0]
 				},
@@ -307,7 +387,7 @@
 				"rightLeg": {
 					"rotation": [-45, 0, 0]
 				},
-				"nichirinto": {
+				"zenitu_nichirinto": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.2083": [40, 0, 0]

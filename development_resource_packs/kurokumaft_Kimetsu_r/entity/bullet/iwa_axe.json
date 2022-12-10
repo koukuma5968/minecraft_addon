@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:iwa_axe",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "iwa_axe": "textures/kurokumaft/models/nichirintou/nichirintou_gyoumei"
+        },
+        "geometry": {
+          "iwa_axe": "geometry.iwa_axe"
+        },
+        "scripts": {
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.iwa_axe.shot"
+        },
+        "render_controllers": ["controller.render.iwa_axe"]
+      }
+    }
+  }
+  

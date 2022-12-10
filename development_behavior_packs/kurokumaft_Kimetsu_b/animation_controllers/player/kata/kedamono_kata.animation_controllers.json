@@ -10,22 +10,22 @@
             }
           },
           "transitions": [
-            { "kedamono1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 1 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 2 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 3 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 4 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono5": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 5 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono6": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 6 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono7": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 7 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono8": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 8 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono9": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 9 && query.mark_variant == 0 && query.is_using_item" },
-            { "kedamono10": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_kedamono') && query.variant == 10 && query.mark_variant == 0 && query.is_using_item" }
+            { "kedamono1": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 1 && query.is_using_item" },
+            { "kedamono2": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 2 && query.is_using_item" },
+            { "kedamono3": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 3 && query.is_using_item" },
+            { "kedamono4": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 4 && query.is_using_item" },
+            { "kedamono5": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 5 && query.is_using_item" },
+            { "kedamono6": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 6 && query.is_using_item" },
+            { "kedamono7": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 7 && query.is_using_item" },
+            { "kedamono8": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 8 && query.is_using_item" },
+            { "kedamono9": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 9 && query.is_using_item" },
+            { "kedamono10": "(query.skin_id == 20 || query.skin_id == 23) && query.variant == 10 && query.is_using_item" }
           ]
         },
         "kedamono1":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7穿ち抜き\"}]}",
-            "/execute @s ^^^1 damage @e[family=monster,r=4] 10 entity_attack",
+            "/function kemono/kemono1",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -38,7 +38,7 @@
         "kedamono2":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7切り裂き\"}]}",
-            "/execute @s ^^^1 damage @e[family=monster,r=4] 10 entity_attack",
+            "/function kemono/kemono2",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -51,7 +51,7 @@
         "kedamono3":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7喰い裂き\"}]}",
-            "/execute @s ^^^1 damage @e[family=monster,r=4] 10 entity_attack",
+            "/function kemono/kemono3",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -104,15 +104,11 @@
           "animations" : [ "kedamono7_ani" ],
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7空間識覚\"}]}",
-            "/tag @s add kokyu_kedamono7",
-            "/effect @s speed 99999 5 true",
-            "/tag @e[tag=!kokyu_kedamono7,family=!player,family=!inanimate,type=!item,r=64] add kokyu_kedamono7_target",
+            "/function kemono/kemono7/kemono7_1",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/tag @s remove kokyu_kedamono7",
-            "/effect @s speed 0",
-            "/tag @e[tag=kokyu_kedamono7_target] remove kokyu_kedamono7_target",
+            "/function kemono/kemono7/kemono7_3",
             "/event entity @s mark_variant0"
           ],
           "transitions": [
@@ -136,8 +132,7 @@
         "kedamono9":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7伸・うねり裂き\"}]}",
-            "/execute @s ^1^^2 damage @e[family=monster,r=2] 13 entity_attack",
-            "/execute @s ^-1^^2 damage @e[family=monster,r=2] 13 entity_attack",
+            "/function kemono/kemono9",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [

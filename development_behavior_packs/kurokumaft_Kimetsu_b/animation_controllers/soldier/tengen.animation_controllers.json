@@ -1,0 +1,92 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.tengen.kokyu": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_tengen": {
+              "input": "variable.kokyu_tengen = (variable.kokyu_tengen ?? 0);"
+            }
+          },
+          "transitions": [
+            { "oto1": "query.variant == 1 && query.mark_variant == 0" },
+            { "oto4": "query.variant == 4 && query.mark_variant == 0" },
+            { "oto5": "query.variant == 5 && query.mark_variant == 0" }
+          ]
+        },
+        "oto1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/tag @s add kokyu_oto1",
+  					"/execute @s ~~~ damage @e[tag=!kokyu_oto1,r=3.5] 10 entity_explosion",
+            "/effect @s resistance 99999 60 true",
+            "/effect @s fire_resistance 99999 60 true",
+            "/summon kurokumaft:oto_bom ^1^^2 minecraft:explode",
+            "/summon kurokumaft:oto_bom ^-1^^2 minecraft:explode"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0",
+            "/tag @s remove kokyu_oto1",
+            "/effect @s resistance 0",
+            "/effect @s fire_resistance 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_tengen = variable.kokyu_tengen < 20 ? variable.kokyu_tengen + 1:0;return variable.kokyu_tengen == 0;"}
+          ]
+        },
+        "oto4":{
+          "animations" : [ "oto4_ani" ],
+          "on_entry": [
+            "/effect @s resistance 99999 60 true",
+            "/effect @s fire_resistance 99999 60 true",
+            "/event entity @s kurokumaft:explosion_nullify",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"oto4_f":"variable.kokyu_tengen = variable.kokyu_tengen < 100 ? variable.kokyu_tengen + 1:0;return variable.kokyu_tengen == 0;"}
+          ]
+        },
+        "oto4_f":{
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0",
+            "/event entity @s kurokumaft:explosion_nullify_remove",
+            "/effect @s resistance 0",
+            "/effect @s fire_resistance 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_tengen = variable.kokyu_tengen < 5 ? variable.kokyu_tengen + 1:0;return variable.kokyu_tengen == 0 ;"}
+          ]
+        },
+        "oto5":{
+          "animations" : [ "oto5_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/event entity @s kurokumaft:explosion_nullify",
+            "/effect @s speed 99999 5 true",
+            "/effect @s resistance 99999 20 true",
+            "/effect @s fire_resistance 99999 20 true"
+          ],
+          "transitions": [
+            {"oto5_f":"variable.kokyu_tengen = variable.kokyu_tengen < 100 ? variable.kokyu_tengen + 1:0;return variable.kokyu_tengen == 0;"}
+          ]
+        },
+        "oto5_f":{
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0",
+            "/event entity @s kurokumaft:explosion_nullify_remove",
+            "/effect @s speed 0",
+            "/effect @s resistance 0",
+            "/effect @s fire_resistance 0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_tengen = variable.kokyu_tengen < 5 ? variable.kokyu_tengen + 1:0;return variable.kokyu_tengen == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

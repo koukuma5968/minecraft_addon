@@ -1,12 +1,30 @@
 {
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
+		"controller.animation.kedamono.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						{"kedamono_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		},
 		"controller.animation.kedamono.kokyu" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"kedamono1_1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_kedamono') && query.variant == 1 && query.is_using_item"}
+						{"kedamono1_1": "variable.equipped_kemono && query.variant == 1 && query.is_using_item"}
 					]
 				},
 				"kedamono1_1" : {

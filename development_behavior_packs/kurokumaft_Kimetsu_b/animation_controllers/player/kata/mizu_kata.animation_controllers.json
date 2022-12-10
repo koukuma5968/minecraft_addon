@@ -10,17 +10,18 @@
             }
           },
           "transitions": [
-            { "mizu1": "query.variant == 1 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu2": "query.variant == 2 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu3": "query.variant == 3 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu4": "query.variant == 4 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu5": "query.variant == 5 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu6": "query.variant == 6 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu7": "query.variant == 7 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu8": "query.variant == 8 && query.mark_variant == 0 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item" },
-            { "mizu9": "query.variant == 9 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.mark_variant == 0 && query.is_using_item" },
-            { "mizu10": "query.variant == 10 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.is_using_item && query.mark_variant == 0" },
-            { "mizu11": "query.variant == 11 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_giyu') && query.is_using_item" }
+            { "mizu1": "query.variant == 1 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu2": "query.variant == 2 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu3": "query.variant == 3 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu4": "query.variant == 4 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu5": "query.variant == 5 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu6": "query.variant == 6 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu7": "query.variant == 7 && (query.skin_id == 2 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu7_giyu": "query.variant == 7 && query.skin_id == 5 && query.is_using_item" },
+            { "mizu8": "query.variant == 8 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu9": "query.variant == 9 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu10": "query.variant == 10 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.is_using_item" },
+            { "mizu11": "query.variant == 11 && query.skin_id == 5 && query.is_using_item" }
           ]
         },
         "mizu1":{
@@ -203,6 +204,26 @@
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9雫波紋突き\"}]}",
             "/function mizu/mizu7"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "mizu7_giyu":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu7_giyu2":"!query.is_using_item"}
+          ]
+        },
+        "mizu7_giyu2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9雫波紋突き\"}]}",
+            "/function mizu/mizu7_giyu"
           ],
           "on_exit": [
             "/event entity @s mark_variant0"

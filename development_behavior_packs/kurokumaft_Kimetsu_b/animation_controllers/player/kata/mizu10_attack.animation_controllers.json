@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "attack": "query.variant == 10 && query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:kokyu_mizu') && query.mark_variant == 1 && variable.attack_time" }
+            { "attack": "query.variant == 10 && (query.skin_id == 2 || query.skin_id == 5 || query.skin_id == 11) && query.mark_variant == 1 && variable.attack_time" }
           ]
         },
         "attack":{

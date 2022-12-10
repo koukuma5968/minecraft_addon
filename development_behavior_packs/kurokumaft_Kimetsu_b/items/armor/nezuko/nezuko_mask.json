@@ -29,7 +29,7 @@
         "slot": "armor_head"
       },
       "minecraft:durability": {
-        "max_durability": 500,
+        "max_durability": 2500,
         "damage_chance": {
           "min": 80,
           "max": 100
@@ -37,7 +37,7 @@
       },
       "minecraft:damage": 0,
       "minecraft:armor": {
-        "protection": 5,
+        "protection": 30,
         "texture_type": "elytra"
       },
       "minecraft:wearable": {

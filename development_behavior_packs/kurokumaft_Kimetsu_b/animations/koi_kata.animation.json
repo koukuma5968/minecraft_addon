@@ -9,6 +9,15 @@
 					"/function koi/koi2"
 				]
 			}
+		},
+		"animation.kata.koi3": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function koi/koi3/koi3_2"
+				]
+			}
 		}
 	}
 }

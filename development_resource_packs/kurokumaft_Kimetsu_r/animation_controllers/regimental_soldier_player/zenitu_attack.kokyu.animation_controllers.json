@@ -6,7 +6,7 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"kaminari1_3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_zenitu') && query.variant == 11 && query.mark_variant == 1 && variable.attack_time"}
+						{"kaminari1_3": "variable.equipped_zenitu && query.variant == 11 && query.mark_variant == 1 && variable.attack_time"}
 					]
 				},
 				"kaminari1_3" : {

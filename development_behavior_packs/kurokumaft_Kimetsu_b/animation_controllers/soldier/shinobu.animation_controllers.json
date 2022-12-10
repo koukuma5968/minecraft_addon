@@ -1,0 +1,75 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.shinobu.kokyu": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_shinobu": {
+              "input": "variable.kokyu_shinobu = (variable.kokyu_shinobu ?? 0);"
+            }
+          },
+          "transitions": [
+            { "mushi1": "query.variant == 1 && query.mark_variant == 0" },
+            { "mushi2": "query.variant == 2 && query.mark_variant == 0" },
+            { "mushi3": "query.variant == 3 && query.mark_variant == 0" },
+            { "mushi4": "query.variant == 4 && query.mark_variant == 0" }
+          ]
+        },
+        "mushi1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mushi/chou"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_shinobu = variable.kokyu_shinobu < 20 ? variable.kokyu_shinobu + 1:0;return variable.kokyu_shinobu == 0;"}
+          ]
+        },
+        "mushi2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mushi/houga"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_shinobu = variable.kokyu_shinobu < 10 ? variable.kokyu_shinobu + 1:0;return variable.kokyu_shinobu == 0;"}
+          ]
+        },
+        "mushi3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mushi/seirei"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_shinobu = variable.kokyu_shinobu < 10 ? variable.kokyu_shinobu + 1:0;return variable.kokyu_shinobu == 0;"}
+          ]
+        },
+        "mushi4":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mushi/gokou1"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0",
+            "/function mushi/gokou2"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_shinobu = variable.kokyu_shinobu < 100 ? variable.kokyu_shinobu + 1:0;return variable.kokyu_shinobu == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

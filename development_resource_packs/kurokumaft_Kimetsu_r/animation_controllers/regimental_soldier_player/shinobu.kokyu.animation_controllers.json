@@ -1,15 +1,33 @@
 {
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
-		"controller.animation.shinobu.kokyu" : {
+		"controller.animation.shinobu.attack" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"shinobu1": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.variant == 1 && query.is_using_item"},
-						{"shinobu2": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.variant == 2 && query.is_using_item"},
-						{"shinobu3": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.variant == 3 && query.is_using_item"},
-						{"shinobu4": "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:nichirintou_shinobu') && query.variant == 4 && query.is_using_item"}
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						{"shinobu_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.shinobu.kokyu_player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"shinobu1": "variable.equipped_shinobu && query.variant == 1 && query.is_using_item"},
+						{"shinobu2": "variable.equipped_shinobu && query.variant == 2 && query.is_using_item"},
+						{"shinobu3": "variable.equipped_shinobu && query.variant == 3 && query.is_using_item"},
+						{"shinobu4": "variable.equipped_shinobu && query.variant == 4 && query.is_using_item"}
 					]
 				},
 				"shinobu1" : {

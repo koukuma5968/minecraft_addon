@@ -5,8 +5,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "zenitu1": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_zenitu') && query.variant == 7 && query.is_sneaking" },
-            { "zenitu7": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_zenitu') && query.variant == 11 && query.is_sneaking" }
+            { "zenitu1": "query.skin_id == 3 && query.variant == 7 && query.is_sneaking" },
+            { "zenitu7": "query.skin_id == 3 && query.variant == 11 && query.is_sneaking" }
           ]
         },
         "zenitu1":{
