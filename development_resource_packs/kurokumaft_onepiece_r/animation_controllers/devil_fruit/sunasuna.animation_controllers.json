@@ -1,0 +1,83 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.sunasuna.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"desert_spada": "query.variant == 1 && query.mark_variant == 1"},
+						{"desert_girasole": "query.variant == 2 && query.mark_variant == 1"},
+						{"baluhan": "query.variant == 3 && query.mark_variant == 1"},
+						{"ground_secco": "query.variant == 5 && query.mark_variant == 1"},
+						{"ground_death": "query.variant == 6 && query.mark_variant == 1"},
+						{"desert_la_spada": "query.variant == 8 && query.mark_variant == 1"}
+					]
+				},
+				"desert_spada" : {
+					"animations" : [
+						{"sunasuna_desert_spada": "variable.is_first_person"},
+						{"sunasuna_desert_spada": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"desert_girasole" : {
+					"animations" : [
+						{"sunasuna_desert_girasole": "variable.is_first_person"},
+						{"sunasuna_desert_girasole": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"baluhan" : {
+					"animations" : [
+						{"sunasuna_baluhan": "variable.is_first_person"},
+						{"sunasuna_baluhan": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"ground_secco" : {
+					"animations" : [
+						{"sunasuna_ground_secco": "variable.is_first_person"},
+						{"sunasuna_ground_secco": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"ground_death" : {
+					"animations" : [
+						{"sunasuna_ground_death": "variable.is_first_person"},
+						{"sunasuna_ground_death": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"desert_la_spada" : {
+					"animations" : [
+						{"sunasuna_desert_la_spada": "variable.is_first_person"},
+						{"sunasuna_desert_la_spada": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"desert_la_spada_att":"query.mark_variant == 2"}
+					]
+				},
+				"desert_la_spada_att" : {
+					"animations" : [
+						{"sunasuna_desert_la_spada_attack": "variable.is_first_person"},
+						{"sunasuna_desert_la_spada_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

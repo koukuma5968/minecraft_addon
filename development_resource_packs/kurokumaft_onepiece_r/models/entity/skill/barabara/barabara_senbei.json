@@ -1,0 +1,76 @@
+{
+	"format_version": "1.8.0",
+	"geometry.barabara_senbei": {
+		"texturewidth": 32,
+		"textureheight": 32,
+		"visible_bounds_width": 31,
+		"visible_bounds_height": 11,
+		"visible_bounds_offset": [0, 4.5, 0],
+		"bones": [
+			{
+				"name": "senbei",
+				"pivot": [0, 3, 0]
+			},
+			{
+				"name": "waist",
+				"parent": "senbei",
+				"pivot": [0, 17, 0],
+				"cubes": [
+					{"origin": [-4, 5, -2], "size": [8, 4, 4], "uv": [16, 0]}
+				]
+			},
+			{
+				"name": "senbeileftLeg",
+				"parent": "senbei",
+				"pivot": [2.9, 5, 0],
+				"rotation": [0, 0, -90],
+				"cubes": [
+					{"origin": [0.9, -7, -2], "size": [4, 12, 4], "uv": [12, 12]}
+				]
+			},
+			{
+				"name": "senbeiknif",
+				"parent": "senbeileftLeg",
+				"pivot": [1, -7, 0],
+				"cubes": [
+					{"origin": [2.9, -12.1, -1.5], "size": [0, 5.1, 3], "uv": [6, 13]}
+				]
+			},
+			{
+				"name": "senbeikniftop",
+				"parent": "senbeiknif",
+				"pivot": [3, -12, 1],
+				"rotation": [-42.5, 0, 0],
+				"cubes": [
+					{"origin": [2.9, -13.75, -0.75], "size": [0, 2, 2.25], "uv": [12, 0]}
+				]
+			},
+			{
+				"name": "senbeirightLeg",
+				"parent": "senbei",
+				"pivot": [-2.9, 5, 0],
+				"rotation": [0, 0, 90],
+				"cubes": [
+					{"origin": [-4.9, -7, -2], "size": [4, 12, 4], "uv": [0, 0]}
+				]
+			},
+			{
+				"name": "senbeiknif2",
+				"parent": "senbeirightLeg",
+				"pivot": [-5, -7, 0],
+				"cubes": [
+					{"origin": [-3.1, -12.1, -1.5], "size": [0, 5.1, 3], "uv": [0, 13]}
+				]
+			},
+			{
+				"name": "senbeikniftop2",
+				"parent": "senbeiknif2",
+				"pivot": [-3, -12, 1],
+				"rotation": [-42.5, 0, 0],
+				"cubes": [
+					{"origin": [-3.1, -13.75, -0.75], "size": [0, 2, 2.25], "uv": [0, 0]}
+				]
+			}
+		]
+	}
+}

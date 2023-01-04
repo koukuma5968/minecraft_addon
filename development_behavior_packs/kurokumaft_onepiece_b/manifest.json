@@ -1,0 +1,29 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "ワンピースアドオン",
+		"name": "kurokumaft_onepiece_b",
+		"uuid": "68fa039e-6d10-4c91-bf18-a5172fe63270",
+		"version": [1,0,0],
+		"min_engine_version": [1, 16, 0],
+		"platform_locked": false,
+		"pack_scope": "world"
+	},
+	"modules": [
+		{
+			"description": "ワンピースアドオン",
+			"type": "data",
+			"uuid": "4e301887-bd57-4d04-81fb-29953506b3a4",
+			"version": [1,0,0]
+		}
+	],
+	"metadata": {
+		"authors": ["koukuma"]
+	},
+	"dependencies": [
+		{
+			"uuid": "f84e3b80-6acd-4245-8437-3c271eb9a3f1",
+			"version": [1,0,0]
+		}
+	]
+}

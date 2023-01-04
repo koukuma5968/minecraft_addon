@@ -1,0 +1,91 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:luffy",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kaizoku/mugiwara/luffy"
+      },
+      "geometry": {
+        "default": "geometry.luffy"
+      },
+      "particle_effects": {
+        "gomugomu_attack": "kurokumaft:gomugomu_attack"
+      },
+      "scripts": {
+        "scale": "0.9375",
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate": [
+          "look_at_target",
+          {"move": "query.mark_variant == 0"},
+          "riding",
+          "holding",
+          { "charging": "query.is_charging" },
+          { "brandish_spear": "variable.is_brandishing_spear" },
+          "bob",
+          { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
+          { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
+
+          "gomugomu_con"
+
+        ]
+      },
+      "animations": {
+        "base_pose":"animation.humanoid.base_pose",
+        "bob":"animation.humanoid.bob",
+        "bow_and_arrow":"animation.humanoid.bow_and_arrow",
+        "brandish_spear":"animation.humanoid.brandish_spear",
+        "holding_spyglass":"animation.humanoid.holding_spyglass",
+        "tooting_goat_horn":"animation.humanoid.tooting_goat_horn",
+        "celebrating":"animation.humanoid.celebrating",
+        "charging":"animation.humanoid.charging",
+        "damage_nearby_mobs":"animation.humanoid.damage_nearby_mobs",
+        "holding":"animation.humanoid.holding",
+        "look_at_target":"controller.animation.humanoid.look_at_target",
+        "look_at_target_default":"animation.humanoid.look_at_target.default",
+        "look_at_target_gliding":"animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming":"animation.humanoid.look_at_target.swimming",
+        "move":"animation.humanoid.move",
+        "riding":"controller.animation.humanoid.riding",
+        "riding.arms":"animation.humanoid.riding.arms",
+        "riding.legs":"animation.humanoid.riding.legs",
+        "sneaking":"animation.humanoid.sneaking",
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "gomugomu_con": "controller.animation.gomugomu",
+        "gomugomu_pistol": "animation.gomugomu.pistol",
+        "gomugomu_pistol_attack": "animation.gomugomu.pistol_attack",
+        "gomugomu_whip": "animation.gomugomu.whip",
+        "gomugomu_whip_attack": "animation.gomugomu.whip_attack",
+        "gomugomu_Gatling": "animation.gomugomu.Gatling",
+        "gomugomu_Gatling_attack": "animation.gomugomu.Gatling_attack",
+        "gomugomu_axe": "animation.gomugomu.axe",
+        "gomugomu_axe_attack": "animation.gomugomu.axe_attack",
+        "gomugomu_spear": "animation.gomugomu.spear",
+        "gomugomu_bazooka": "animation.gomugomu.bazooka",
+        "gomugomu_bazooka_attack": "animation.gomugomu.bazooka_attack",
+        "gomugomu_rifle": "animation.gomugomu.rifle",
+        "gomugomu_rifle_attack": "animation.gomugomu.rifle_attack",
+        "gomugomu_rocket": "animation.gomugomu.rocket",
+        "gomugomu_rocket_attack": "animation.gomugomu.rocket_attack",
+        "gomugomu_storm": "animation.gomugomu.storm",
+        "gomugomu_storm_attack": "animation.gomugomu.storm_attack",
+        "gomugomu_storm_horizontal_attack": "animation.gomugomu.storm_horizontal_attack"
+
+      },
+      "render_controllers": [
+        "controller.render.kaizoku.luffy"
+      ],
+      "spawn_egg": {
+        "texture": "kaizoku_spawn_egg",
+        "texture_index": 0
+      },
+      "enable_attachables": true
+    }
+  }
+}

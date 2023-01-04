@@ -1,0 +1,17 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.player.bullet" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"animations" : [
+						{
+							"bow_and_arrow": "query.is_using_item && !variable.is_first_person"
+						}
+					]
+				}
+			}
+		}
+    }
+}

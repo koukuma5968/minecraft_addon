@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:entei_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/meramera/entei"
+        },
+        "geometry": {
+          "default": "geometry.entei"
+        },
+        "particle_effects": {
+          "entei_shot": "kurokumaft:entei_shot"
+        },
+        "scripts": {
+          "scale": "1",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.entei.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

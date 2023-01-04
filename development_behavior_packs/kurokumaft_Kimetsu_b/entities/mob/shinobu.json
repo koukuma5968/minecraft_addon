@@ -146,7 +146,7 @@
         "time": 5.0,
         "looping": true,
         "time_down_event": {
-          "event": "kurokumaft:random_kokyu_of",
+          "event": "kurokumaft:random_kokyu_off",
           "target": "self"
         }
       },

@@ -1,0 +1,164 @@
+{
+	"format_version": "1.8.0",
+	"geometry.barabara_hou": {
+		"texturewidth": 32,
+		"textureheight": 32,
+		"visible_bounds_width": 31,
+		"visible_bounds_height": 11,
+		"visible_bounds_offset": [0, 4.5, 0],
+		"bones": [
+			{
+				"name": "leftbarabaraArm",
+				"pivot": [5, 0, 0],
+				"rotation": [-90, 0, 0],
+				"cubes": [
+					{"origin": [4, -10, -2], "size": [4, 5, 4], "uv": [0, 9]}
+				]
+			},
+			{
+				"name": "leftbarabaraknife",
+				"parent": "leftbarabaraArm",
+				"pivot": [0, -22, 0],
+				"cubes": [
+					{"origin": [7.5, -13, -1], "size": [0, 5, 2], "uv": [16, 15]}
+				]
+			},
+			{
+				"name": "leftbarabaraknifehead",
+				"parent": "leftbarabaraknife",
+				"pivot": [7.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [7.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [2, 8]}
+				]
+			},
+			{
+				"name": "leftbarabaraknife2",
+				"parent": "leftbarabaraArm",
+				"pivot": [0, -22, 0],
+				"cubes": [
+					{"origin": [6.5, -13, -1], "size": [0, 5, 2], "uv": [12, 16]}
+				]
+			},
+			{
+				"name": "leftbarabaraknifehead2",
+				"parent": "leftbarabaraknife2",
+				"pivot": [6.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [6.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [0, 8]}
+				]
+			},
+			{
+				"name": "leftbarabaraknife3",
+				"parent": "leftbarabaraArm",
+				"pivot": [5, 0, 0],
+				"cubes": [
+					{"origin": [5.5, -13, -1], "size": [0, 5, 2], "uv": [16, 10]}
+				]
+			},
+			{
+				"name": "leftbarabaraknifehead3",
+				"parent": "leftbarabaraknife3",
+				"pivot": [5.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [5.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [2, 2]}
+				]
+			},
+			{
+				"name": "leftbarabaraknife4",
+				"parent": "leftbarabaraArm",
+				"pivot": [5, 0, 0],
+				"cubes": [
+					{"origin": [4.5, -13, -1], "size": [0, 5, 2], "uv": [8, 16]}
+				]
+			},
+			{
+				"name": "leftbarabaraknifehead4",
+				"parent": "leftbarabaraknife4",
+				"pivot": [4.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [4.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [2, 1]}
+				]
+			},
+			{
+				"name": "rightbarabaraArm",
+				"pivot": [-5, 0, 0],
+				"rotation": [-90, 0, 0],
+				"cubes": [
+					{"origin": [-8, -10, -2], "size": [4, 5, 4], "uv": [0, 0]}
+				]
+			},
+			{
+				"name": "rightbarabaraknife",
+				"parent": "rightbarabaraArm",
+				"pivot": [-12, -22, 0],
+				"cubes": [
+					{"origin": [-4.5, -13, -1], "size": [0, 5, 2], "uv": [16, 5]}
+				]
+			},
+			{
+				"name": "rightbarabaraknifehead",
+				"parent": "rightbarabaraknife",
+				"pivot": [-4.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [-4.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [2, 0]}
+				]
+			},
+			{
+				"name": "rightbarabaraknife2",
+				"parent": "rightbarabaraArm",
+				"pivot": [-12, -22, 0],
+				"cubes": [
+					{"origin": [-5.5, -13, -1], "size": [0, 5, 2], "uv": [4, 16]}
+				]
+			},
+			{
+				"name": "rightbarabaraknifehead2",
+				"parent": "rightbarabaraknife2",
+				"pivot": [-5.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [-5.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [0, 2]}
+				]
+			},
+			{
+				"name": "rightbarabaraknife3",
+				"parent": "rightbarabaraArm",
+				"pivot": [-7, 0, 0],
+				"cubes": [
+					{"origin": [-6.5, -13, -1], "size": [0, 5, 2], "uv": [16, 0]}
+				]
+			},
+			{
+				"name": "rightbarabaraknifehead3",
+				"parent": "rightbarabaraknife3",
+				"pivot": [-6.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [-6.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [0, 1]}
+				]
+			},
+			{
+				"name": "rightbarabaraknife4",
+				"parent": "rightbarabaraArm",
+				"pivot": [-7, 0, 0],
+				"cubes": [
+					{"origin": [-7.5, -13, -1], "size": [0, 5, 2], "uv": [0, 16]}
+				]
+			},
+			{
+				"name": "rightbarabaraknifehead4",
+				"parent": "rightbarabaraknife4",
+				"pivot": [-7.5, -11.4, -0.25],
+				"rotation": [-47.5, 0, 0],
+				"cubes": [
+					{"origin": [-7.5, -13, 0.35], "size": [0, 1.45, 1.4], "uv": [0, 0]}
+				]
+			}
+		]
+	}
+}

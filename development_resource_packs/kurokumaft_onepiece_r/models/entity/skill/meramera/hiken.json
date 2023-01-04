@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"geometry.hiken": {
+		"texturewidth": 16,
+		"textureheight": 16,
+		"visible_bounds_width": 31,
+		"visible_bounds_height": 11,
+		"visible_bounds_offset": [0, 4.5, 0],
+		"bones": [
+			{
+				"name": "hiken",
+				"pivot": [0, 0, 0],
+				"rotation": [-90, 0, 0],
+				"cubes": [
+					{"origin": [-2, -4, -2], "size": [4, 4, 4], "uv": [0, 0]}
+				],
+				"locators": {
+					"hiken": [0, -2, 0],
+					"hiken2": [0, -1, -4],
+					"hiken3": [0, -1, 4],
+					"hiken4": [-4, -1, 0],
+					"hiken5": [4, -1, 0],
+					"hiken6": [0, 2, 0]
+				}
+			}
+		]
+	}
+}

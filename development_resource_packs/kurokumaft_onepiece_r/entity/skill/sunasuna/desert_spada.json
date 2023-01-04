@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:desert_spada",
+        "materials": {
+          "default": "fireball"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/sunasuna/desert_spada"
+        },
+        "geometry": {
+          "default": "geometry.desert_spada"
+        },
+        "particle_effects": {
+          "desert_spada": "kurokumaft:desert_spada"
+        },
+        "scripts": {
+          "scale": "2.0",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.sunasuna.desert_spada.shot"
+        },
+        "render_controllers": ["controller.render.fireball"]
+      }
+    }
+  }
+  

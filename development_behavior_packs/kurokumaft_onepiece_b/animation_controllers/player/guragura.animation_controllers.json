@@ -1,0 +1,58 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.guragura": {
+      "states": {
+        "default": {
+          "variables": {
+            "guragura_at": {
+              "input": "variable.guragura_at = (variable.guragura_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "kaishin": "query.variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill') && query.is_using_item" },
+            { "kaishin_left": "query.variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:murakumogiri') && query.is_using_item" },
+            { "punch": "query.variant == 1 && query.mark_variant == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill') && variable.attack_time" }
+          ]
+        },
+        "kaishin":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"海震\"}]}",
+            "/function guragura/kaishin",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.guragura_at = variable.guragura_at < 20 ? variable.guragura_at + 1:0;return variable.guragura_at == 0;"}
+          ]
+        },
+        "kaishin_left":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"海震\"}]}",
+            "/function guragura/kaishin",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.guragura_at = variable.guragura_at < 20 ? variable.guragura_at + 1:0;return variable.guragura_at == 0;"}
+          ]
+        },
+        "punch":{
+          "on_entry": [
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.guragura_at = variable.guragura_at < 20 ? variable.guragura_at + 1:0;return variable.guragura_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

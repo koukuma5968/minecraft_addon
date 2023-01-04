@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.tama.shot": {
+			"loop": true,
+			"bones": {
+				"tama": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			}
+		}
+	}
+}

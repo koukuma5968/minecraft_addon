@@ -1,0 +1,69 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:storm_horizontal_roar",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "kurokumaft:storm_horizontal": {
+        "minecraft:behavior.knockback_roar": {
+          "attack_time": 0.1,
+          "knockback_damage": 0,
+          "duration": 0.2,
+          "damage_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "!=","subject": "other","value": 100},
+              {"test": "is_variant","operator": "!=","subject": "other","value": 9},
+              {"test": "is_mark_variant","operator": "!=","subject": "other","value": 1}
+            ]
+          },
+          "knockback_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "==","subject": "other","value": 100},
+              {"test": "is_variant","operator": "==","subject": "other","value": 9},
+              {"test": "is_mark_variant","operator": "==","subject": "other","value": 1}
+            ]
+          },
+          "knockback_height_cap": 3,
+          "knockback_range": 2.5,
+          "knockback_horizontal_strength": 10,
+          "knockback_vertical_strength": 0
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.11,
+        "height": 0.11
+      },
+      "minecraft:damage_over_time": {
+        "damage_per_hurt": 50,
+        "time_between_hurt": 0.2
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:storm_horizontal": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:storm_horizontal"
+          ]
+        }
+      }
+    }
+  }
+}

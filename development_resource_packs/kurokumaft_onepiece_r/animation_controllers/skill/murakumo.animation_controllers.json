@@ -1,0 +1,34 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.murakumo.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"tategiri": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:murakumogiri') && variable.attack_time && !query.is_sneaking"},
+						{"yokogiri": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:murakumogiri') && variable.attack_time && query.is_sneaking"}
+					]
+				},
+				"tategiri" : {
+					"animations" : [
+						{"murakumo_tategiri": "variable.is_first_person"},
+						{"murakumo_tategiri": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"yokogiri" : {
+					"animations" : [
+						{"murakumo_yokogiri": "variable.is_first_person"},
+						{"murakumo_yokogiri": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

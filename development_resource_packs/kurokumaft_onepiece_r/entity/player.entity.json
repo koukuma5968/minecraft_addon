@@ -17,6 +17,10 @@
         "default": "geometry.humanoid.custom",
         "cape": "geometry.cape"
       },
+      "particle_effects": {
+        "gomugomu_attack": "kurokumaft:gomugomu_attack",
+        "guragura": "kurokumaft:guragura"
+      },
       "scripts": {
         "scale": "0.9375",
         "initialize": [
@@ -38,12 +42,30 @@
           "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
           "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
 
-          "variable.devil_fruit_gomugomu = query.skin_id == 1;"
+          "variable.devil_fruit_gomugomu = query.skin_id == 100;",
+          "variable.devil_fruit_barabara = query.skin_id == 101;",
+          "variable.skill_santouryu = query.skin_id == 102;",
+          "variable.devil_fruit_mokumoku = query.skin_id == 103;",
+          "variable.devil_fruit_meramera = query.skin_id == 104;",
+          "variable.devil_fruit_guragura = query.skin_id == 105;",
+          "variable.devil_fruit_sunasuna = query.skin_id == 106;",
+
+          "variable.long_range_weapon = query.skin_id == 999;"
+
         ],
         "animate": [
-          "root",
+          {"root": "query.mark_variant == 0"},
+          {"player.bullet": "variable.long_range_weapon"},
 
-          {"gomugomu_con": "variable.devil_fruit_gomugomu"}
+          {"gomugomu_con": "variable.devil_fruit_gomugomu"},
+          {"barabara_con": "variable.devil_fruit_barabara"},
+          {"mokumoku_con": "variable.devil_fruit_mokumoku"},
+          {"meramera_con": "variable.devil_fruit_meramera"},
+          {"guragura_con": "variable.devil_fruit_guragura"},
+          {"sunasuna_con": "variable.devil_fruit_sunasuna"},
+
+          {"santouryu_con": "variable.skill_santouryu"},
+          {"murakumo_con": "variable.devil_fruit_guragura"}
         ]
       },
       "animations": {
@@ -100,9 +122,80 @@
         "blink": "controller.animation.persona.blink",
 		    "tooting_goat_horn": "animation.humanoid.tooting_goat_horn",
 
+        "player.bullet": "controller.animation.player.bullet",
+
         "gomugomu_con": "controller.animation.gomugomu.player",
         "gomugomu_pistol": "animation.gomugomu.pistol",
-        "gomugomu_pistol_attack": "animation.gomugomu.pistol_attack"
+        "gomugomu_pistol_attack": "animation.gomugomu.pistol_attack",
+        "gomugomu_whip": "animation.gomugomu.whip",
+        "gomugomu_whip_attack": "animation.gomugomu.whip_attack",
+        "gomugomu_Gatling": "animation.gomugomu.Gatling",
+        "gomugomu_Gatling_attack": "animation.gomugomu.Gatling_attack",
+        "gomugomu_axe": "animation.gomugomu.axe",
+        "gomugomu_axe_attack": "animation.gomugomu.axe_attack",
+        "gomugomu_spear": "animation.gomugomu.spear",
+        "gomugomu_bazooka": "animation.gomugomu.bazooka",
+        "gomugomu_bazooka_attack": "animation.gomugomu.bazooka_attack",
+        "gomugomu_rifle": "animation.gomugomu.rifle",
+        "gomugomu_rifle_attack": "animation.gomugomu.rifle_attack",
+        "gomugomu_rocket": "animation.gomugomu.rocket",
+        "gomugomu_rocket_attack": "animation.gomugomu.rocket_attack",
+        "gomugomu_storm": "animation.gomugomu.storm",
+        "gomugomu_storm_attack": "animation.gomugomu.storm_attack",
+        "gomugomu_storm_horizontal_attack": "animation.gomugomu.storm_horizontal_attack",
+
+        "barabara_con": "controller.animation.barabara.player",
+        "barabara_hou": "animation.barabara.hou",
+        "barabara_senbei": "animation.barabara.senbei",
+
+        "santouryu_con": "controller.animation.santouryu.player",
+        "santouryu_onigiri": "animation.santouryu.onigiri",
+        "santouryu_onigiri_attack": "animation.santouryu.onigiri_attack",
+        "santouryu_toragari": "animation.santouryu.toragari",
+        "santouryu_toragari_attack": "animation.santouryu.toragari_attack",
+        "santouryu_tatumaki": "animation.santouryu.tatumaki",
+        "santouryu_tatumaki_attack": "animation.santouryu.tatumaki_attack",
+        "santouryu_bondohou": "animation.santouryu.bondohou",
+        "santouryu_bondohou_attack": "animation.santouryu.bondohou_attack",
+        "santouryu_sanzensekai": "animation.santouryu.sanzensekai",
+        "santouryu_sanzensekai_2": "animation.santouryu.sanzensekai_2",
+        "santouryu_sanzensekai_attack": "animation.santouryu.sanzensekai_attack",
+
+        "mokumoku_con": "controller.animation.mokumoku.player",
+        "mokumoku_blow": "animation.mokumoku.whiteblow",
+        "mokumoku_out": "animation.mokumoku.whiteout",
+
+        "meramera_con": "controller.animation.meramera.player",
+        "meramera_kagero": "animation.meramera.kagero",
+        "meramera_hiken": "animation.meramera.hiken",
+        "meramera_hiken_attack": "animation.meramera.hiken_attack",
+        "meramera_higan": "animation.meramera.higan",
+        "meramera_enkai": "animation.meramera.enkai",
+        "meramera_hidaruma": "animation.meramera.hidaruma",
+        "meramera_siranui": "animation.meramera.siranui",
+        "meramera_siranui_attack": "animation.meramera.siranui_attack",
+        "meramera_zyujika": "animation.meramera.zyujika",
+        "meramera_entei": "animation.meramera.entei",
+        "meramera_entei_attack": "animation.meramera.entei_attack",
+
+        "guragura_con": "controller.animation.guragura.player",
+        "guragura_kaishin": "animation.guragura.kaishin",
+        "guragura_kaishin_left": "animation.guragura.kaishin_left",
+        "guragura_punch": "animation.guragura.punch",
+
+        "murakumo_con": "controller.animation.murakumo.player",
+        "murakumo_tategiri": "animation.murakumo.tategiri",
+        "murakumo_yokogiri": "animation.murakumo.yokogiri",
+
+        "sunasuna_con": "controller.animation.sunasuna.player",
+        "sunasuna_desert_spada": "animation.sunasuna.desert_spada",
+        "sunasuna_desert_girasole": "animation.sunasuna.desert_girasole",
+        "sunasuna_baluhan": "animation.sunasuna.baluhan",
+        "sunasuna_ground_secco": "animation.sunasuna.ground_secco",
+        "sunasuna_ground_death": "animation.sunasuna.ground_death",
+        "sunasuna_desert_la_spada": "animation.sunasuna.desert_la_spada",
+        "sunasuna_desert_la_spada_attack": "animation.sunasuna.desert_la_spada_attack"
+
       },
       "render_controllers": [
         { "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator" },

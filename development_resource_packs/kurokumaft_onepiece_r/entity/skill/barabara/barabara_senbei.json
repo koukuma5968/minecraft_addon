@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:barabara_senbei",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/barabara/barabara_senbei"
+        },
+        "geometry": {
+          "default": "geometry.barabara_senbei"
+        },
+        "scripts": {
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.barabara_senbei.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

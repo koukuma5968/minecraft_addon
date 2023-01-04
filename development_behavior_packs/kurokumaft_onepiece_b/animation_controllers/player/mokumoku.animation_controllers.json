@@ -1,0 +1,85 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.mokumoku.hover": {
+      "states": {
+        "default": {
+          "animations" : [ 
+            {"mokumoku.takeoff": "query.is_jumping"},
+            {"mokumoku.landing": "!query.is_jumping && !query.is_on_ground"}
+          ]
+        }
+      }
+    },
+    "controller.animation.mokumoku.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "white_blow": "query.variant == 2 && query.is_sneaking" },
+            { "white_out": "query.variant == 1 && query.is_sneaking" }
+          ]
+        },
+        "white_blow":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ホワイト・ブロー\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "white_out":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ホワイト・アウト\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.mokumoku": {
+      "states": {
+        "default": {
+          "variables": {
+            "mokumoku_at": {
+              "input": "variable.mokumoku_at = (variable.mokumoku_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "white_blow": "query.variant == 1 && query.is_using_item" },
+            { "white_out": "query.variant == 2 && query.is_using_item" }
+          ]
+        },
+        "white_blow":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ホワイト・ブロー\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.mokumoku_at = variable.mokumoku_at < 20 ? variable.mokumoku_at + 1:0;return variable.mokumoku_at == 0;"}
+          ]
+        },
+        "white_out":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ホワイト・アウト\"}]}",
+            "/function mokumoku/white_out",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.mokumoku_at = variable.mokumoku_at < 40 ? variable.mokumoku_at + 1:0;return variable.mokumoku_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

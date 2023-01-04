@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:kagero_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/meramera/kagero"
+        },
+        "geometry": {
+          "default": "geometry.kagero"
+        },
+        "particle_effects": {
+          "kagero": "kurokumaft:kagero"
+        },
+        "scripts": {
+          "scale": "2",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.kagero.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

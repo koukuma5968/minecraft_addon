@@ -1,0 +1,145 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hiken.shot": {
+			"loop": true,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hiken",
+						"locator": "hiken_center"
+					},
+					{
+						"effect": "hiken",
+						"locator": "hiken2"
+					},
+					{
+						"effect": "hiken",
+						"locator": "hiken3"
+					},
+					{
+						"effect": "hiken",
+						"locator": "hiken4"
+					},
+					{
+						"effect": "hiken",
+						"locator": "hiken5"
+					},
+					{
+						"effect": "hiken",
+						"locator": "hiken6"
+					}
+				]
+			}
+		},
+		"animation.kagero.shot": {
+			"loop": true,
+			"bones": {
+				"kagero": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kagero",
+						"locator": "kagero"
+					},
+					{
+						"effect": "kagero",
+						"locator": "kagero2"
+					},
+					{
+						"effect": "kagero",
+						"locator": "kagero3"
+					},
+					{
+						"effect": "kagero",
+						"locator": "kagero4"
+					},
+					{
+						"effect": "kagero",
+						"locator": "kagero5"
+					},
+					{
+						"effect": "kagero",
+						"locator": "kagero6"
+					}
+				]
+			}
+		},
+		"animation.higan.shot": {
+			"loop": true,
+			"bones": {
+				"higan": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "higan",
+					"locator": "higan"
+				}
+			}
+		},
+		"animation.siranui.shot": {
+			"loop": true,
+			"bones": {
+				"siranui": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"scale": [1, 3, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "siranui",
+						"locator": "siranui"
+					},
+					{
+						"effect": "siranui",
+						"locator": "siranui2"
+					},
+					{
+						"effect": "siranui",
+						"locator": "siranui3"
+					}
+				]
+			}
+		},
+		"animation.zyujika.shot": {
+			"loop": true,
+			"bones": {
+				"zyujika": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "zyujika_hight",
+						"locator": "zyujika"
+					},
+					{
+						"effect": "zyujika_width",
+						"locator": "zyujika2"
+					}
+				]
+			}
+		},
+		"animation.entei.shot": {
+			"loop": true,
+			"bones": {
+				"entei": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "entei_shot",
+					"locator": "entei"
+				}
+			}
+		}
+	}
+}

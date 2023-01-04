@@ -1,0 +1,256 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.sunasuna.hover": {
+      "states": {
+        "default": {
+          "animations" : [ 
+            {"sunasuna.takeoff": "query.is_jumping"},
+            {"sunasuna.landing": "!query.is_jumping && !query.is_on_ground"}
+          ]
+        }
+      }
+    },
+    "controller.animation.sunasuna.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "desert_spada": "query.variant == 8 && query.is_sneaking" },
+            { "desert_girasole": "query.variant == 1 && query.is_sneaking" },
+            { "baluhan": "query.variant == 2 && query.is_sneaking" },
+            { "sabers": "query.variant == 3 && query.is_sneaking" },
+            { "ground_secco": "query.variant == 4 && query.is_sneaking" },
+            { "ground_death": "query.variant == 5 && query.is_sneaking" },
+            { "sabers_petherd": "query.variant == 6 && query.is_sneaking" },
+            { "desert_la_spada": "query.variant == 7 && query.is_sneaking" }
+          ]
+        },
+        "desert_spada":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂漠の宝刀（デザート・スパーダ）\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "desert_girasole":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂漠の向日葵（デザート・ジラソーレ）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "baluhan":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三日月形砂丘（バルハン）\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "sabers":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂嵐（サーブルス）\"}]}",
+            "/event entity @s variant4",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "ground_secco":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"干割グラウンド・セッコ）\"}]}",
+            "/event entity @s variant5",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "ground_death":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"浸食輪廻（グラウンド・デス）\"}]}",
+            "/event entity @s variant6",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "sabers_petherd":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂嵐（サーブルス）重（ペサード）\"}]}",
+            "/event entity @s variant7",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "desert_la_spada":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂漠の金剛宝刀（デザート・ラ スパーダ）\"}]}",
+            "/event entity @s variant8",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.sunasuna": {
+      "states": {
+        "default": {
+          "variables": {
+            "sunasuna_at": {
+              "input": "variable.sunasuna_at = (variable.sunasuna_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "desert_spada": "query.variant == 1 && query.is_using_item" },
+            { "desert_girasole": "query.variant == 2 && query.is_using_item" },
+            { "baluhan": "query.variant == 3 && query.is_using_item" },
+            { "sabers": "query.variant == 4 && query.is_using_item" },
+            { "ground_secco": "query.variant == 5 && query.is_using_item" },
+            { "ground_death": "query.variant == 6 && query.is_using_item" },
+            { "sabers_petherd": "query.variant == 7 && query.is_using_item" },
+            { "desert_la_spada": "query.variant == 8 && query.is_using_item" }
+          ]
+        },
+        "desert_spada":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂漠の宝刀（デザート・スパーダ）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "desert_girasole":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂漠の向日葵（デザート・ジラソーレ）\"}]}",
+            "/function sunasuna/desert_girasole",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "baluhan":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三日月形砂丘（バルハン）\"}]}",
+            "/function sunasuna/baluhan",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "sabers":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂嵐（サーブルス）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "ground_secco":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"干割グラウンド・セッコ）\"}]}",
+            "/function sunasuna/ground_secco",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "ground_death":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"浸食輪廻（グラウンド・デス）\"}]}",
+            "/function sunasuna/ground_death",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "sabers_petherd":{
+          "animations" : ["sunasuna.sabers_petherd"],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂嵐（サーブルス）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"sabers_petherd_att":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "sabers_petherd_att":{
+          "animations" : ["sunasuna.sabers_petherd_att"],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"重（ペサード）\"}]}",
+            "/function sunasuna/sabers_petherd_att",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 40 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "desert_la_spada":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂漠（デザート）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"desert_la_spada_att":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        },
+        "desert_la_spada_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"金剛宝刀（ラ スパーダ）\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

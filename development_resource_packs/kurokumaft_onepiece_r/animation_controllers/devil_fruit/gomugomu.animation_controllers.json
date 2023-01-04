@@ -1,0 +1,349 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.gomugomu.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"pistol": "query.variant == 1 && query.mark_variant == 1"},
+						{"whip": "query.variant == 2 && query.mark_variant == 1"},
+						{"Gatling": "query.variant == 3 && query.mark_variant == 1"},
+						{"axe": "query.variant == 4 && query.mark_variant == 1"},
+						{"spear": "query.variant == 5 && query.mark_variant == 1"},
+						{"bazooka": "query.variant == 6 && query.mark_variant == 1"},
+						{"rifle": "query.variant == 7 && query.mark_variant == 1"},
+						{"rocket": "query.variant == 8 && query.mark_variant == 1"},
+						{"storm": "query.variant == 9 && query.mark_variant == 1 && !query.is_jumping"},
+						{"storm_horizontal_attack": "query.variant == 9 && query.mark_variant == 1 && query.is_jumping"}
+					]
+				},
+				"pistol" : {
+					"animations" : [
+						{"gomugomu_pistol": "variable.is_first_person"},
+						{"gomugomu_pistol": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"pistol_attack":"query.mark_variant == 2"}
+					]
+				},
+				"pistol_attack" : {
+					"animations" : [
+						{"gomugomu_pistol_attack": "variable.is_first_person"},
+						{"gomugomu_pistol_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"whip" : {
+					"animations" : [
+						{"gomugomu_whip": "variable.is_first_person"},
+						{"gomugomu_whip": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"whip_attack":"query.mark_variant == 2"}
+					]
+				},
+				"whip_attack" : {
+					"animations" : [
+						{"gomugomu_whip_attack": "variable.is_first_person"},
+						{"gomugomu_whip_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"Gatling" : {
+					"animations" : [
+						{"gomugomu_Gatling": "variable.is_first_person"},
+						{"gomugomu_Gatling": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"Gatling_attack":"query.mark_variant == 2"}
+					]
+				},
+				"Gatling_attack" : {
+					"animations" : [
+						{"gomugomu_Gatling_attack": "variable.is_first_person"},
+						{"gomugomu_Gatling_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"axe" : {
+					"animations" : [
+						{"gomugomu_axe": "variable.is_first_person"},
+						{"gomugomu_axe": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"axe_attack":"query.mark_variant == 2"}
+					]
+				},
+				"axe_attack" : {
+					"animations" : [
+						{"gomugomu_axe_attack": "variable.is_first_person"},
+						{"gomugomu_axe_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"spear" : {
+					"animations" : [
+						{"gomugomu_spear": "variable.is_first_person"},
+						{"gomugomu_spear": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"bazooka" : {
+					"animations" : [
+						{"gomugomu_bazooka": "variable.is_first_person"},
+						{"gomugomu_bazooka": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"bazooka_attack":"query.mark_variant == 2"}
+					]
+				},
+				"bazooka_attack" : {
+					"animations" : [
+						{"gomugomu_bazooka_attack": "variable.is_first_person"},
+						{"gomugomu_bazooka_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"rifle" : {
+					"animations" : [
+						{"gomugomu_rifle": "variable.is_first_person"},
+						{"gomugomu_rifle": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"rifle_attack":"query.mark_variant == 2"}
+					]
+				},
+				"rifle_attack" : {
+					"animations" : [
+						{"gomugomu_rifle_attack": "variable.is_first_person"},
+						{"gomugomu_rifle_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"rocket" : {
+					"animations" : [
+						{"gomugomu_rocket": "variable.is_first_person"},
+						{"gomugomu_rocket": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"rocket_attack":"query.mark_variant == 2"}
+					]
+				},
+				"rocket_attack" : {
+					"animations" : [
+						{"gomugomu_rocket_attack": "variable.is_first_person"},
+						{"gomugomu_rocket_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"storm" : {
+					"animations" : [
+						{"gomugomu_storm": "variable.is_first_person"},
+						{"gomugomu_storm": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"storm_attack":"query.mark_variant == 2"}
+					]
+				},
+				"storm_attack" : {
+					"animations" : [
+						{"gomugomu_storm_attack": "variable.is_first_person"},
+						{"gomugomu_storm_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"storm_horizontal_attack" : {
+					"animations" : [
+						{"gomugomu_storm_horizontal_attack": "variable.is_first_person"},
+						{"gomugomu_storm_horizontal_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		},
+		"controller.animation.gomugomu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"pistol": "query.variant == 1 && query.mark_variant == 1"},
+						{"whip": "query.variant == 2 && query.mark_variant == 1"},
+						{"Gatling": "query.variant == 3 && query.mark_variant == 1"},
+						{"axe": "query.variant == 4 && query.mark_variant == 1"},
+						{"spear": "query.variant == 5 && query.mark_variant == 1"},
+						{"bazooka": "query.variant == 6 && query.mark_variant == 1"},
+						{"rifle": "query.variant == 7 && query.mark_variant == 1"},
+						{"rocket": "query.variant == 8 && query.mark_variant == 1"},
+						{"storm": "query.variant == 9 && query.mark_variant == 1 && !query.is_jumping"},
+						{"storm_horizontal_attack": "query.variant == 9 && query.mark_variant == 1 && query.is_jumping"}
+					]
+				},
+				"pistol" : {
+					"animations" : [
+						"gomugomu_pistol"
+					],
+					"transitions" : [
+						{"pistol_attack":"query.mark_variant == 2"}
+					]
+				},
+				"pistol_attack" : {
+					"animations" : [
+						"gomugomu_pistol_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"whip" : {
+					"animations" : [
+						"gomugomu_whip"
+					],
+					"transitions" : [
+						{"whip_attack":"query.mark_variant == 2"}
+					]
+				},
+				"whip_attack" : {
+					"animations" : [
+						"gomugomu_whip_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"Gatling" : {
+					"animations" : [
+						"gomugomu_Gatling"
+					],
+					"transitions" : [
+						{"Gatling_attack":"query.mark_variant == 2"}
+					]
+				},
+				"Gatling_attack" : {
+					"animations" : [
+						"gomugomu_Gatling_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"axe" : {
+					"animations" : [
+						"gomugomu_axe"
+					],
+					"transitions" : [
+						{"axe_attack":"query.mark_variant == 2"}
+					]
+				},
+				"axe_attack" : {
+					"animations" : [
+						"gomugomu_axe_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"spear" : {
+					"animations" : [
+						"gomugomu_spear"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"bazooka" : {
+					"animations" : [
+						"gomugomu_bazooka"
+					],
+					"transitions" : [
+						{"bazooka_attack":"query.mark_variant == 2"}
+					]
+				},
+				"bazooka_attack" : {
+					"animations" : [
+						"gomugomu_bazooka_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"rifle" : {
+					"animations" : [
+						"gomugomu_rifle"
+					],
+					"transitions" : [
+						{"rifle_attack":"query.mark_variant == 2"}
+					]
+				},
+				"rifle_attack" : {
+					"animations" : [
+						"gomugomu_rifle_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"rocket" : {
+					"animations" : [
+						"gomugomu_rocket"
+					],
+					"transitions" : [
+						{"rocket_attack":"query.mark_variant == 2"}
+					]
+				},
+				"rocket_attack" : {
+					"animations" : [
+						"gomugomu_rocket_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"storm" : {
+					"animations" : [
+						"gomugomu_storm"
+					],
+					"transitions" : [
+						{"storm_attack":"query.mark_variant == 2"}
+					]
+				},
+				"storm_attack" : {
+					"animations" : [
+						"gomugomu_storm_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"storm_horizontal_attack" : {
+					"animations" : [
+						"gomugomu_storm_horizontal_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.barabara_hou.shot": {
+			"loop": true,
+			"bones": {
+				"leftbarabaraArm": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"scale": 0.75
+				},
+				"rightbarabaraArm": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"scale": 0.75
+				}
+			}
+		},
+		"animation.barabara_senbei.shot": {
+			"loop": true,
+			"animation_length": 0.16667,
+			"bones": {
+				"senbei": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, -90, 0],
+						"0.0833": [0, -180, 0],
+						"0.125": [0, -270, 0],
+						"0.1667": [0, -360, 0]
+					}
+				}
+			}
+		}
+	}
+}

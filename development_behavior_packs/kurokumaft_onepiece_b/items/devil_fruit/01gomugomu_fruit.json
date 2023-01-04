@@ -1,0 +1,48 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:gomugomu_fruit",
+      "category": "nature"
+    },
+
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:gomugomu_fruit.name"
+			},
+      "minecraft:icon": {
+          "texture": "gomugomu_fruit"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.devil_fruit"
+      },
+      "minecraft:use_animation":"eat",
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_duration": 1.5,
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": "supernatural",
+        "can_always_eat": true,
+        "on_consume": {
+          "event": "kurokumaft:gomugomu"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:gomugomu": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "event entity @s kurokumaft:devil_fruit_gomugomu",
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:gomugomu_skill",
+                "event entity @s variant1"
+              ],
+              "target": "self"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

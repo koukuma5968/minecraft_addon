@@ -1,0 +1,67 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:mokumoku_skill",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:mokumoku_skill.name"
+			},
+      "minecraft:icon": {
+          "texture": "mokumoku_skill"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.skill"
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "scale": [0.0, 0.0, 0.0]
+          },
+          "third_person": {
+            "scale": [0.0, 0.0, 0.0]
+          }
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 0,
+      "minecraft:chargeable": {
+        "on_complete": {
+        }
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.skin_id == 103",
+          "event": "kurokumaft:mokumoku",
+          "target": "self"
+        }
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+      "kurokumaft:mokumoku" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 1",
+            "trigger": "kurokumaft:white_blow"
+          }
+        ]
+      },
+      "kurokumaft:white_blow" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:white_blow",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.desert_la_spada",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 1,
+				"visible_bounds_height": 1,
+				"visible_bounds_offset": [0, 0, 0]
+			},
+			"bones": [
+				{
+					"name": "desert_la_spada",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"desert_la_spada": [0, 0, 0],
+						"desert_la_spada2": [-4, 0, 0],
+						"desert_la_spada3": [-8, 0, 0],
+						"desert_la_spada4": [4, 0, 0],
+						"desert_la_spada5": [8, 0, 0]
+					}
+				}
+			]
+		}
+	]
+}

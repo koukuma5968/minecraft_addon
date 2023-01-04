@@ -1,0 +1,248 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sunasuna.desert_spada.shot": {
+			"loop": true,
+			"bones": {
+				"desert_spada": {
+					"rotation": ["query.camera_rotation(0)", "-query.camera_rotation(1)", 0],
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "desert_spada",
+					"locator": "desert_spada"
+				}
+			}
+		},
+		"animation.sunasuna.desert_spada": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [0, -25, 0]
+				},
+				"head": {
+					"rotation": [0, 22.5, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -17.5]
+				},
+				"rightArm": {
+					"rotation": [-68.49762, 21.07593, 8.0634]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -20]
+				},
+				"rightLeg": {
+					"rotation": [-20, 32.5, 0]
+				}
+			}
+		},
+		"animation.sunasuna.desert_girasole": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"root": {
+					"position": [0, 0, 0]
+				},
+				"waist": {
+					"rotation": [25, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -35]
+				},
+				"rightArm": {
+					"rotation": [-70, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [24.97911, 1.05627, -32.26603]
+				},
+				"rightLeg": {
+					"rotation": [-17.95318, 18.33499, 23.56635]
+				}
+			}
+		},
+		"animation.sunasuna.baluhan": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -67.5, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, 42.5, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": [0, 0, -20]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-84.6654, 27.19327, -0.56001],
+						"0.0833": [-60.51735, -28.57577, 6.46254]
+					}
+				},
+				"leftLeg": {
+					"rotation": [20, 0, -10]
+				},
+				"rightLeg": {
+					"rotation": [-32.40109, 2.68407, 4.22005]
+				}
+			}
+		},
+		"animation.sunasuna.sabers.shot": {
+			"loop": true,
+			"bones": {
+				"sabers": {
+					"rotation": ["query.camera_rotation(0)", "-query.camera_rotation(1)", 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.sunasuna.ground_secco": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"root": {
+					"position": [0, 0, 0]
+				},
+				"waist": {
+					"rotation": [30, 0, 0],
+					"position": [0, -5, 3]
+				},
+				"body": {
+					"rotation": [20, 0, 0],
+					"position": [0, 0, -4]
+				},
+				"head": {
+					"rotation": [-27.5, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -7.5]
+				},
+				"rightArm": {
+					"rotation": [-62.5, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [55, 0, 0],
+					"position": [0, -3, 0]
+				},
+				"rightLeg": {
+					"position": [0, 0, -3]
+				}
+			}
+		},
+		"animation.sunasuna.ground_death": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"root": {
+					"position": [0, 0, 0]
+				},
+				"waist": {
+					"rotation": [30, 0, 0],
+					"position": [0, -5, 3]
+				},
+				"body": {
+					"rotation": [20, 0, 0],
+					"position": [0, 0, -4]
+				},
+				"head": {
+					"rotation": [-27.5, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -7.5]
+				},
+				"rightArm": {
+					"rotation": [-62.5, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [55, 0, 0],
+					"position": [0, -3, 0]
+				},
+				"rightLeg": {
+					"position": [0, 0, -3]
+				}
+			}
+		},
+		"animation.sunasuna.desert_la_spada.shot": {
+			"loop": true,
+			"bones": {
+				"desert_la_spada": {
+					"rotation": ["query.camera_rotation(0)", "-query.camera_rotation(1)", 0],
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "desert_la_spada",
+						"locator": "desert_la_spada"
+					},
+					{
+						"effect": "desert_la_spada",
+						"locator": "desert_la_spada2"
+					},
+					{
+						"effect": "desert_la_spada",
+						"locator": "desert_la_spada3"
+					},
+					{
+						"effect": "desert_la_spada",
+						"locator": "desert_la_spada4"
+					},
+					{
+						"effect": "desert_la_spada",
+						"locator": "desert_la_spada5"
+					}
+				]
+			}
+		},
+		"animation.sunasuna.desert_la_spada": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"waist": {
+					"rotation": [0, 30, 0]
+				},
+				"leftArm": {
+					"rotation": [-62.5, 0, -22.5]
+				},
+				"rightArm": {
+					"rotation": [0, 72.5, 90]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5]
+				},
+				"rightLeg": {
+					"rotation": [-7.5, 0, 12.5]
+				}
+			}
+		},
+		"animation.sunasuna.desert_la_spada_attack": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"waist": {
+					"rotation": [0, -67.5, 0]
+				},
+				"leftArm": {
+					"rotation": [-62.5, 0, -22.5]
+				},
+				"rightArm": {
+					"rotation": [-59.59469, 53.54818, 25.26795]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5]
+				},
+				"rightLeg": {
+					"rotation": [-7.5, 0, 12.5]
+				},
+				"head": {
+					"rotation": [0, 40, 0]
+				}
+			}
+		}
+	}
+}

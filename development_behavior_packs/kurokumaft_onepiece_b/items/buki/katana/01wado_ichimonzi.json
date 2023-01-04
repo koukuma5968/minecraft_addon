@@ -1,0 +1,89 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:wado_ichimonzi",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:wado_ichimonzi.name"
+			},
+      "minecraft:icon": {
+          "texture": "wado_ichimonzi"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.katana"
+			},
+      "minecraft:max_stack_size": 1,
+      "minecraft:allow_off_hand": true,
+      "minecraft:durability": {
+        "max_durability": 2500
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:wado_ichimonzi" ],
+            "repair_amount": 1000
+          }
+        ]
+      },
+      "minecraft:damage": 10,
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:shooter" : {
+        "charge_on_draw": true,
+        "scale_power_by_draw_duration": false
+      },
+      "minecraft:use_duration": 1.5,
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "kurokumaft:santouryu"
+        }
+      },
+      "minecraft:wearable": {
+        "slot": "slot.equippable"
+      }
+    },
+    "events": {
+      "kurokumaft:santouryu" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 4",
+            "trigger": "kurokumaft:barabara_hou_shot"
+          }
+        ]
+      },
+      "kurokumaft:barabara_hou_shot" : {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"煩悩鳳\"}]}",
+                "event entity @s mark_variant2"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:santouryu_bondohou",
+              "launch_power": 1.1
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

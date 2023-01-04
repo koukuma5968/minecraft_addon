@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:sabers",
+        "materials": {
+          "default": "fireball"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/sunasuna/sabers"
+        },
+        "geometry": {
+          "default": "geometry.sabers"
+        },
+        "particle_effects": {
+          "sabers": "kurokumaft:sabers"
+        },
+        "scripts": {
+          "scale": "2.0",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.sunasuna.sabers.shot"
+        },
+        "render_controllers": ["controller.render.fireball"]
+      }
+    }
+  }
+  

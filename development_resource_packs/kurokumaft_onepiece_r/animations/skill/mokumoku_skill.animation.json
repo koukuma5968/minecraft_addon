@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.white_blow": {
+			"loop": true,
+			"bones": {
+				"white_blow": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [0, 0, -9]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "white_blow",
+						"locator": "white_blow"
+					},
+					{
+						"effect": "white_blow",
+						"locator": "white_blow2"
+					},
+					{
+						"effect": "white_blow",
+						"locator": "white_blow3"
+					},
+					{
+						"effect": "white_blow",
+						"locator": "white_blow4"
+					},
+					{
+						"effect": "white_blow",
+						"locator": "white_blow5"
+					},
+					{
+						"effect": "white_blow",
+						"locator": "white_blow6"
+					}
+				]
+			}
+		}
+	}
+}

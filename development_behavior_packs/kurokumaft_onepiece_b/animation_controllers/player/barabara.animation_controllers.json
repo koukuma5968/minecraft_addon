@@ -1,0 +1,74 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.barabara.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "hou": "query.variant == 2 && query.is_sneaking" },
+            { "senbei": "query.variant == 1 && query.is_sneaking" }
+          ]
+        },
+        "hou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"バラバラ砲\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "senbei":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"バラバラせんべい\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.barabara": {
+      "states": {
+        "default": {
+          "variables": {
+            "barabara_at": {
+              "input": "variable.barabara_at = (variable.barabara_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hou": "query.variant == 1 && query.is_using_item" },
+            { "senbei": "query.variant == 2 && query.is_using_item" }
+          ]
+        },
+        "hou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"バラバラ砲\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.barabara_at = variable.barabara_at < 20 ? variable.barabara_at + 1:0;return variable.barabara_at == 0;"}
+          ]
+        },
+        "senbei":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"バラバラせんべい\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.barabara_at = variable.barabara_at < 20 ? variable.barabara_at + 1:0;return variable.barabara_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.meramera.hover": {
+      "states": {
+        "default": {
+          "animations" : [ 
+            {"meramera.takeoff": "query.is_jumping"},
+            {"meramera.landing": "!query.is_jumping && !query.is_on_ground"}
+          ]
+        }
+      }
+    },
+    "controller.animation.meramera.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kagero": "query.variant == 9 && query.is_sneaking" },
+            { "hiken": "query.variant == 1 && query.is_sneaking" },
+            { "higan": "query.variant == 2 && query.is_sneaking" },
+            { "enkai": "query.variant == 3 && query.is_sneaking" },
+            { "hidaruma": "query.variant == 4 && query.is_sneaking" },
+            { "siranui": "query.variant == 5 && query.is_sneaking" },
+            { "zyujika": "query.variant == 6 && query.is_sneaking" },
+            { "kyoukaen": "query.variant == 7 && query.is_sneaking" },
+            { "entei": "query.variant == 8 && query.is_sneaking" }
+          ]
+        },
+        "kagero":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"陽炎\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hiken":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"火拳\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "higan":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"火銃\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "enkai":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"炎戒 火柱\"}]}",
+            "/event entity @s variant4",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hidaruma":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"蛍火 火達磨\"}]}",
+            "/event entity @s variant5",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "siranui":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"神火 不知火\"}]}",
+            "/event entity @s variant6",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "zyujika":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"十字火\"}]}",
+            "/event entity @s variant7",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kyoukaen":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鏡火炎\"}]}",
+            "/event entity @s variant8",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "entei":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"大炎戒 炎帝\"}]}",
+            "/event entity @s variant9",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.meramera": {
+      "states": {
+        "default": {
+          "variables": {
+            "meramera_at": {
+              "input": "variable.meramera_at = (variable.meramera_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "kagero": "query.variant == 1 && query.is_using_item" },
+            { "hiken": "query.variant == 2 && query.is_using_item" },
+            { "higan": "query.variant == 3 && query.is_using_item" },
+            { "enkai": "query.variant == 4 && query.is_using_item" },
+            { "hotarubi": "query.variant == 5 && query.is_using_item" },
+            { "siranui": "query.variant == 6 && query.is_using_item" },
+            { "zyujika": "query.variant == 7 && query.is_using_item" },
+            { "kyoukaen": "query.variant == 8 && query.is_using_item" },
+            { "daienkai": "query.variant == 9 && query.is_using_item" }
+          ]
+        },
+        "kagero":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"陽炎\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "hiken":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hiken_att":"!query.is_using_item"}
+          ]
+        },
+        "hiken_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"火拳\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.meramera_at = variable.meramera_at < 10 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "higan":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"火銃\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "enkai":{
+          "animations" : [ "meramera.enkai" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"炎戒\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hibashira":"variable.meramera_at = variable.meramera_at < 40 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "hibashira":{
+          "animations" : [ "meramera.hibashira" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"火柱\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.meramera_at = variable.meramera_at < 60 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "hotarubi":{
+          "animations" : [ "meramera.hotarubi" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"蛍火\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hidaruma":"variable.meramera_at = variable.meramera_at < 40 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "hidaruma":{
+          "animations" : [ "meramera.hidaruma" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"火達磨\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.meramera_at = variable.meramera_at < 60 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "siranui":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"神火\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"siranui_att":"!query.is_using_item"}
+          ]
+        },
+        "siranui_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"不知火\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.meramera_at = variable.meramera_at < 10 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "zyujika":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"十字火\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.meramera_at = variable.meramera_at < 5 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "kyoukaen":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鏡火炎\"}]}",
+            "/event entity @s mark_variant1",
+            "/function meramera/kyoukaen"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.meramera_at = variable.meramera_at < 10 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "daienkai":{
+          "animations" : [ "meramera.daienkai" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"大炎戒\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"entei":"variable.meramera_at = variable.meramera_at < 20 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        },
+        "entei":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"炎帝\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.meramera_at = variable.meramera_at < 60 ? variable.meramera_at + 1:0;return variable.meramera_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

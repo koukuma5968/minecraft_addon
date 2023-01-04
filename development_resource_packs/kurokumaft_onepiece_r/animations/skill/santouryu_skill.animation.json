@@ -1,0 +1,377 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bondohou.shot": {
+			"loop": true,
+			"bones": {
+				"bondohou": {
+					"rotation": ["query.camera_rotation(0)", "-query.camera_rotation(1)", 0],
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "bondohou",
+					"locator": "bondohou"
+				}
+			}
+		},
+		"animation.santouryu.onigiri": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"root": {
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"rotation": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-80, 57.5, 0]
+				},
+				"rightArm": {
+					"rotation": [-80, -55, 0]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -27.5]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 30]
+				}
+			}
+		},
+		"animation.santouryu.onigiri_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"root": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -2, -20]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, 55, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-80, 57.5, 0],
+						"0.0833": [-23, 26.1672, -90]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-80, -55, 0],
+						"0.0833": [-23, -23.92214, 90]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, -27.5],
+						"0.0833": [32.5, 0, -27.5]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 30],
+						"0.0833": [-40, 0, 30]
+					}
+				}
+			}
+		},
+		"animation.santouryu.toragari": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"root": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"waist": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-180, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [-180, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.santouryu.toragari_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"root": {
+					"rotation": [0, 0, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -3, -15]
+					}
+				},
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [32.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-180, 0, 0],
+						"0.0833": [-50, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-180, 0, 0],
+						"0.0833": [-55, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [45, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-52.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.santouryu.tatumaki": {
+			"loop": true,
+			"bones": {
+				"waist": {
+					"rotation": [0, -35, 0]
+				},
+				"head": {
+					"rotation": [0, 32.5, 0]
+				},
+				"leftArm": {
+					"rotation": [0, -12.5, -70]
+				},
+				"rightArm": {
+					"rotation": [-162.5, 37.5, 270]
+				},
+				"leftLeg": {
+					"rotation": [20, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-20, 0, 0]
+				}
+			}
+		},
+		"animation.santouryu.tatumaki_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"waist": {
+					"rotation": {
+						"0.0": [0, -35, 0],
+						"0.0833": [0, 50, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 32.5, 0],
+						"0.0833": [17.5, 32.5, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, -12.5, -70],
+						"0.0833": [5.7712, 6.34294, -96.30119]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-162.5, 37.5, 270],
+						"0.0833": [-15.03109, -23.09065, 445.1466]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [20, 0, 0],
+						"0.0833": [5.8684, 5.41488, -26.84516]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [-20, 0, 0],
+						"0.0833": [-8.9042, 5.68422, 21.80633]
+					}
+				}
+			}
+		},
+		"animation.santouryu.bondohou": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"waist": {
+					"rotation": [0, 32.5, 0]
+				},
+				"head": {
+					"rotation": [0, -27.5, 0]
+				},
+				"leftArm": {
+					"rotation": [-106.37472, 48.18286, -9.79735]
+				},
+				"rightArm": {
+					"rotation": [-153.17604, 31.99975, 15.00046]
+				},
+				"leftLeg": {
+					"rotation": [22.5, 0, -12.5]
+				},
+				"rightLeg": {
+					"rotation": [-17.25002, 2.99318, 9.54589]
+				}
+			}
+		},
+		"animation.santouryu.bondohou_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.33333,
+			"bones": {
+				"waist": {
+					"rotation": {
+						"0.0": [0, 32.5, 0],
+						"0.125": [17.5, -45, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, -27.5, 0],
+						"0.125": [-13.49735, 22.69271, -4.25893]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-106.37472, 48.18286, -9.79735],
+						"0.125": [86.71118, -57.2318, -148.66685]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-153.17604, 31.99975, 15.00046],
+						"0.125": [-43.47368, 17.62141, -25.92115]
+					}
+				},
+				"leftLeg": {
+					"rotation": [22.5, 0, -12.5]
+				},
+				"rightLeg": {
+					"rotation": [-17.25002, 2.99318, 9.54589]
+				}
+			}
+		},
+		"animation.santouryu.sanzensekai": {
+			"animation_length": 0.16667,
+			"bones": {
+				"leftArm": {
+					"rotation": [-113.1935, -0.57658, -138.28986]
+				},
+				"rightArm": {
+					"rotation": [-86.33134, -22.10854, -43.87661]
+				}
+			}
+		},
+		"animation.santouryu.sanzensekai_2": {
+			"loop": true,
+			"animation_length": 0.16667,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [-113.1935, -0.57658, -138.28986],
+						"0.0417": [-86.17941, -22.90068, -236.68231],
+						"0.0833": [-67.21488, 4.49062, -327.50287],
+						"0.125": [-91.69703, 23.14154, -411.25565],
+						"0.1667": [-113.1921, -0.57939, -498.29305]
+					},
+					"position": {
+						"0.0": [1, 0, 0],
+						"0.0417": [1, 1, 0],
+						"0.0833": [0, 1, 0],
+						"0.125": [0, 0, 0],
+						"0.1667": [1, 0, 0]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-86.33134, -22.10854, -43.87661],
+						"0.0417": [-112.15104, -3.39979, 47.50296],
+						"0.0833": [-92.65247, 22.24685, 138.81269],
+						"0.125": [-67.72851, 2.45256, 229.81403],
+						"0.1667": [-87.35, -22.25, 318.81]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, -1.25, 0],
+						"0.0833": [-1.5, -1.25, 0],
+						"0.125": [-1.5, -0.25, 0],
+						"0.1667": [-0.5, -0.25, 0]
+					}
+				}
+			}
+		},
+		"animation.santouryu.sanzensekai_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.16667,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [-95.90488, 22.4765, -62.08247],
+						"0.0833": [-14.00765, -1.61599, -64.4383]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-86.33134, -22.10854, -43.87661],
+						"0.0833": [67.23947, 16.59336, 102.09893]
+					}
+				},
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [25, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-5, 0, 0]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [37.5, 0, 0]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-40, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

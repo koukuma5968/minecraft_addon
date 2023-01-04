@@ -1,0 +1,76 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.patinko.wield": {
+			"initial_state": "first_person",
+			"states": {
+				"first_person": {
+					"animations": [
+						"wield_first_person"
+					],
+					"transitions": [
+						{
+							"shot_first_person": "variable.charge_amount > 0.0"
+						},
+						{
+							"third_person": "!c.is_first_person"
+						}
+					]
+				},
+				"third_person": {
+					"animations": [
+						"wield_third_person"
+					],
+					"transitions": [
+						{
+							"shot_third_person": "variable.charge_amount > 0.0"
+						},
+						{
+							"first_person": "c.is_first_person"
+						}
+					]
+				},
+				"shot_first_person": {
+					"animations": [
+						"shot_first_person"
+					],
+					"transitions": [
+						{
+							"shot_hold_first_person": "query.any_animation_finished"
+						}
+					]
+				},
+				"shot_hold_first_person": {
+					"animations": [
+						"shot_hold_first_person"
+					],
+					"transitions": [
+						{
+							"first_person": "variable.charge_amount == 0.0"
+						}
+					]
+				},
+				"shot_third_person": {
+					"animations": [
+						"shot_third_person"
+					],
+					"transitions": [
+						{
+							"shot_hold_third_person": "query.any_animation_finished"
+						}
+					]
+				},
+				"shot_hold_third_person": {
+					"animations": [
+						"shot_hold_third_person"
+					],
+					"transitions": [
+						{
+							"third_person": "variable.charge_amount == 0.0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

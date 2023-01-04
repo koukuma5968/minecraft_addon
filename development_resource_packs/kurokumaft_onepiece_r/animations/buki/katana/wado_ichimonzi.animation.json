@@ -1,0 +1,35 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.wado_ichimonzi.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"wado_ichimonzi": {
+					"rotation": [99.14032, -61.98809, 99.91664],
+					"position": [-7, -4, -3],
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.wado_ichimonzi.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"wado_ichimonzi": {
+					"rotation": [93.33854, -0.85483, -96.48848],
+					"position": [0.5, -1.5, -11.5],
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.wado_ichimonzi.head_third_person": {
+			"loop": true,
+			"bones": {
+				"wado_ichimonzi": {
+					"rotation": [196.44574, -85.77112, -107.89137],
+					"position": [12.5, 1.5, -4.5],
+					"scale": 0.3
+				}
+			}
+		}
+	}
+}

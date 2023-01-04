@@ -1,0 +1,223 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.santouryu.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "onigiri": "query.variant == 5 && query.is_sneaking" },
+            { "toragari": "query.variant == 1 && query.is_sneaking" },
+            { "tatumaki": "query.variant == 2 && query.is_sneaking" },
+            { "bondohou": "query.variant == 3 && query.is_sneaking" },
+            { "sanzensekai": "query.variant == 4 && query.is_sneaking" }
+          ]
+        },
+        "onigiri":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鬼斬り\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "toragari":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"虎狩り\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "tatumaki":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"龍巻き\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "bondohou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"煩悩鳳\"}]}",
+            "/event entity @s variant4",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "sanzensekai":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三千世界\"}]}",
+            "/event entity @s variant5",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.santouryu": {
+      "states": {
+        "default": {
+          "variables": {
+            "santouryu_at": {
+              "input": "variable.santouryu_at = (variable.santouryu_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "onigiri": "query.variant == 1 && query.is_using_item" },
+            { "toragari": "query.variant == 2 && query.is_using_item" },
+            { "tatumaki": "query.variant == 3 && query.is_using_item" },
+            { "bondohou": "query.variant == 4 && query.mark_variant == 0 && query.is_using_item" },
+            { "sanzensekai": "query.variant == 5 && query.is_using_item" }
+          ]
+        },
+        "onigiri":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三刀流\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"onigiri_2":"variable.santouryu_at = variable.santouryu_at < 5 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "onigiri_2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鬼\"}]}"
+          ],
+          "transitions": [
+            {"onigiri_f":"variable.santouryu_at = variable.santouryu_at < 10 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "onigiri_f":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"斬り\"}]}",
+            "/event entity @s mark_variant2",
+            "/function santouryu/onigiri"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.santouryu_at = variable.santouryu_at < 20 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "toragari":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三刀流\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"toragari_2":"variable.santouryu_at = variable.santouryu_at < 5 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "toragari_2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"虎\"}]}"
+          ],
+          "transitions": [
+            {"toragari_f":"variable.santouryu_at = variable.santouryu_at < 10 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "toragari_f":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"狩り\"}]}",
+            "/event entity @s mark_variant2",
+            "/function santouryu/toragari"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.santouryu_at = variable.santouryu_at < 20 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "tatumaki":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三刀流\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"tatumaki_2":"variable.santouryu_at = variable.santouryu_at < 5 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "tatumaki_2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"龍\"}]}"
+          ],
+          "transitions": [
+            {"tatumaki_f":"variable.santouryu_at = variable.santouryu_at < 20 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "tatumaki_f":{
+          "animations" : [ "santouryu.tatumaki" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"巻き\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.santouryu_at = variable.santouryu_at < 30 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "bondohou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三刀流\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"bondohou_2":"variable.santouryu_at = variable.santouryu_at < 5 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "bondohou_2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三世 百八\"}]}"
+          ],
+          "transitions": [
+            {"bondohou_f":"variable.santouryu_at = variable.santouryu_at < 40 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "bondohou_f":{
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.santouryu_at = variable.santouryu_at < 5 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "sanzensekai":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三刀流 奥義\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"sanzensekai_f":"variable.santouryu_at = variable.santouryu_at < 20 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        },
+        "sanzensekai_f":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"三千世界\"}]}",
+            "/event entity @s mark_variant2",
+            "/function santouryu/sanzensekai"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.santouryu_at = variable.santouryu_at < 20 ? variable.santouryu_at + 1:0;return variable.santouryu_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

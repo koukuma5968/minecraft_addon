@@ -1,0 +1,274 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.gomugomu": {
+      "states": {
+        "default": {
+          "variables": {
+            "luffy_at": {
+              "input": "variable.luffy_at = (variable.luffy_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "pistol": "query.variant == 1 && query.mark_variant == 0" },
+            { "whip": "query.variant == 2 && query.mark_variant == 0" },
+            { "Gatling": "query.variant == 3 && query.mark_variant == 0" },
+            { "axe": "query.variant == 4 && query.mark_variant == 0" },
+            { "spear": "query.variant == 5 && query.mark_variant == 0" },
+            { "bazooka": "query.variant == 6 && query.mark_variant == 0" },
+            { "rifle": "query.variant == 7 && query.mark_variant == 0" },
+            { "rocket": "query.variant == 8 && query.mark_variant == 0" },
+            { "storm": "query.variant == 9 && query.mark_variant == 0 && !query.is_jumping" },
+            { "storm_horizontal": "query.variant == 9 && query.mark_variant == 0 && query.is_jumping" }
+          ]
+        },
+        "pistol":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"pistol_att":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "pistol_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ピストル\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu/pistol"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "whip":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"whip_att":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "whip_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鞭\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu/whip"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "Gatling":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"Gatling_att":"variable.luffy_at = variable.luffy_at < 30 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "Gatling_att":{
+          "animations" : [ "gomugomu.Gatling" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ガトリング\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 60 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "axe":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"axe_att":"variable.luffy_at = variable.luffy_at < 40 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "axe_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"斧\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu/axe"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "spear":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"spear_att":"variable.luffy_at = variable.luffy_at < 5 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "spear_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"槍\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu/spear"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "bazooka":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"bazooka_att":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "bazooka_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"バズーカ\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu/bazooka"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "rifle":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"rifle_att":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "rifle_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ライフル\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu/rifle"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 20 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "rocket":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"rocket_att":"variable.luffy_at = variable.luffy_at < 30 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "rocket_att":{
+          "animations" : [ "gomugomu.rocket" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ロケット\"}]}",
+            "/event entity @s mark_variant2",
+            "/summon kurokumaft:rocket_roar ^^^-0.5 kurokumaft:rocket"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 40 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "storm":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1",
+            "/effect @e[family=!gomugomu,r=5] levitation 5 2 true",
+            "/summon kurokumaft:storm_kick_roar ~~~ kurokumaft:storm_kick"
+          ],
+          "transitions": [
+            {"storm_2":"variable.luffy_at = variable.luffy_at < 30 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "storm_2":{
+          "on_entry": [
+            "/summon kurokumaft:storm_roar ~~~ kurokumaft:storm"
+          ],
+          "transitions": [
+            {"storm_att":"variable.luffy_at = variable.luffy_at < 3 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "storm_att":{
+          "animations" : [ "gomugomu.storm" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"暴風雨\"}]}",
+            "/event entity @s mark_variant2",
+            "/effect @s levitation 3 1 true"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 60 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "storm_horizontal":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの～\"}]}",
+            "/event entity @s mark_variant1",
+            "/effect @s levitation 1 2 true",
+            "/effect @s slow_falling 3 50 true",
+            "/summon kurokumaft:storm_horizontal_roar ^^^-0.5 kurokumaft:storm_horizontal"
+          ],
+          "transitions": [
+            {"storm_horizontal_att":"variable.luffy_at = variable.luffy_at < 5 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        },
+        "storm_horizontal_att":{
+          "animations" : [ "gomugomu.storm" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"暴風雨\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.luffy_at = variable.luffy_at < 30 ? variable.luffy_at + 1:0;return variable.luffy_at == 0;"}
+          ]
+        }
+
+      }
+    }
+  }
+}

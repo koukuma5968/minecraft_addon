@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"geometry.kagero": {
+		"texturewidth": 16,
+		"textureheight": 16,
+		"visible_bounds_width": 31,
+		"visible_bounds_height": 11,
+		"visible_bounds_offset": [0, 4.5, 0],
+		"bones": [
+			{
+				"name": "kagero",
+				"pivot": [1, 0, 0],
+				"rotation": [-90, 0, 0],
+				"cubes": [
+					{"origin": [-2, -10, -2], "size": [4, 4, 4], "uv": [0, 0]}
+				],
+				"locators": {
+					"kagero": [0, -2, 0],
+					"kagero2": [0, 3, 0],
+					"kagero3": [0, 8, 0],
+					"kagero4": [0, 13, 0],
+					"kagero5": [0, 19, 0],
+					"kagero6": [0, 25, 0]
+				}
+			}
+		]
+	}
+}

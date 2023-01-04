@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:white_blow",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/mokumoku/white_blow"
+        },
+        "geometry": {
+          "default": "geometry.white_blow"
+        },
+        "particle_effects": {
+          "white_blow": "kurokumaft:white_blow"
+        },
+        "scripts": {
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.white_blow"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

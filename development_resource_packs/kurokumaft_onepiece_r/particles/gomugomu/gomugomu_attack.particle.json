@@ -1,0 +1,44 @@
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "kurokumaft:gomugomu_attack",
+			"basic_render_parameters": {
+				"material": "particles_alpha",
+				"texture": "textures/particle/particles"
+			}
+		},
+		"components": {
+			"minecraft:emitter_rate_steady": {
+				"spawn_rate": 5,
+				"max_particles": 10
+			},
+			"minecraft:emitter_lifetime_expression": {
+				"activation_expression": "query.mark_variant >= 1",
+				"expiration_expression": "query.mark_variant == 0"
+			},
+			"minecraft:emitter_shape_box": {
+				"half_dimensions": [0.5, 0.5, 0.5],
+				"direction": [5, 5, 5]
+			},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": 0.3
+			},
+			"minecraft:particle_initial_speed": 0,
+			"minecraft:particle_motion_dynamic": {},
+			"minecraft:particle_appearance_billboard": {
+				"size": [0.1, 0.1],
+				"facing_camera_mode": "lookat_xyz",
+				"uv": {
+					"texture_width": 128,
+					"texture_height": 128,
+					"uv": [8, 30],
+					"uv_size": [8, 8]
+				}
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": [0.82353, 0.95294, 0.94902, 1]
+			}
+		}
+	}
+}

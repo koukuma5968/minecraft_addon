@@ -1,0 +1,121 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.meramera.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kagero": "query.variant == 1 && query.mark_variant == 1"},
+						{"hiken": "query.variant == 2 && query.mark_variant == 1"},
+						{"higan": "query.variant == 3 && query.mark_variant == 1"},
+						{"enkai": "query.variant == 4 && query.mark_variant == 1"},
+						{"hidaruma": "query.variant == 5 && query.mark_variant == 1"},
+						{"siranui": "query.variant == 6 && query.mark_variant == 1"},
+						{"zyujika": "query.variant == 7 && query.mark_variant == 1"},
+						{"entei": "query.variant == 9 && query.mark_variant == 1"}
+					]
+				},
+				"kagero" : {
+					"animations" : [
+						{"meramera_kagero": "variable.is_first_person"},
+						{"meramera_kagero": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hiken" : {
+					"animations" : [
+						{"meramera_hiken": "variable.is_first_person"},
+						{"meramera_hiken": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hiken_att":"query.mark_variant == 2"}
+					]
+				},
+				"hiken_att" : {
+					"animations" : [
+						{"meramera_hiken_attack": "variable.is_first_person"},
+						{"meramera_hiken_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"higan" : {
+					"animations" : [
+						{"meramera_higan": "variable.is_first_person"},
+						{"meramera_higan": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"enkai" : {
+					"animations" : [
+						{"meramera_enkai": "variable.is_first_person"},
+						{"meramera_enkai": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hidaruma" : {
+					"animations" : [
+						{"meramera_hidaruma": "variable.is_first_person"},
+						{"meramera_hidaruma": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"siranui" : {
+					"animations" : [
+						{"meramera_siranui": "variable.is_first_person"},
+						{"meramera_siranui": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"siranui_att":"query.mark_variant == 2"}
+					]
+				},
+				"siranui_att" : {
+					"animations" : [
+						{"meramera_siranui_attack": "variable.is_first_person"},
+						{"meramera_siranui_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"zyujika" : {
+					"animations" : [
+						{"meramera_zyujika": "variable.is_first_person"},
+						{"meramera_zyujika": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"entei" : {
+					"animations" : [
+						{"meramera_entei": "variable.is_first_person"},
+						{"meramera_entei": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"entei_att":"query.mark_variant == 2"}
+					]
+				},
+				"entei_att" : {
+					"animations" : [
+						{"meramera_entei_attack": "variable.is_first_person"},
+						{"meramera_entei_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

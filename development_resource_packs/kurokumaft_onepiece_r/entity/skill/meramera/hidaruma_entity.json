@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:hidaruma_entity",
+        "materials": {
+          "default": "fireball"
+        },
+        "textures": {
+          "default": "textures/items/fireball"
+        },
+        "geometry": {
+          "default": "geometry.fireball"
+        },
+        "scripts": {
+          "scale": "0.1"
+        },
+        "render_controllers": ["controller.render.fireball"]
+      }
+    }
+  }
+  

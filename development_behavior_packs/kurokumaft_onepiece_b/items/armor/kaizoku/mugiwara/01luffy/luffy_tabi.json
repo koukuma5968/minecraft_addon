@@ -1,0 +1,48 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:luffy_tabi",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:luffy_tabi.name"
+			},
+      "minecraft:icon": {
+          "texture": "luffy_tabi"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.boots"
+			},
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:luffy_tabi" ],
+            "repair_amount": 250
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_feet"
+      },
+      "minecraft:durability": {
+        "max_durability": 1500,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:armor": {
+        "protection": 20,
+        "texture_type": "leather"
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.feet"
+      }
+    }
+  }
+}

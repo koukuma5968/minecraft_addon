@@ -1,0 +1,32 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.murakumogiri.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"murakumogiri": {
+					"rotation": [29.56079, 19.96697, 211.20642],
+					"position": [-7, -4, -3],
+					"scale": 0.5
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "guragura",
+					"locator": "murakumogiri1",
+					"pre_effect_script": "variable.attack_time\n;"
+				}
+			}
+		},
+		"animation.murakumogiri.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"murakumogiri": {
+					"rotation": [88.20344, -1.50108, -89.00206],
+					"position": [0.5, -1.5, -11.5],
+					"scale": 0.5
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:zyujika_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/meramera/zyujika"
+        },
+        "geometry": {
+          "default": "geometry.zyujika"
+        },
+        "particle_effects": {
+          "zyujika_hight": "kurokumaft:zyujika_hight",
+          "zyujika_width": "kurokumaft:zyujika_width"
+        },
+        "scripts": {
+          "scale": "1",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.zyujika.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

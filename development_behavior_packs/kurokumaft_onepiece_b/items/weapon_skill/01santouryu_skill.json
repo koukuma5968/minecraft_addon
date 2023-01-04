@@ -1,0 +1,57 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:santouryu_skill",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:santouryu_skill.name"
+			},
+      "minecraft:icon": {
+          "texture": "santouryu_skill"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.weapon_skill"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 0,
+      "minecraft:durability": {
+        "max_durability": 9999999
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "kurokumaft:santouryu",
+          "target": "self"
+        }
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+      "kurokumaft:santouryu" : {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "event entity @s kurokumaft:santouryu",
+                "event entity @s variant1"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":9999999
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

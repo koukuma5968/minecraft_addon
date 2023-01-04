@@ -1,0 +1,217 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.meramera.kagero": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [0, -42.5, 0]
+				},
+				"head": {
+					"rotation": [0, 47.5, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -25]
+				},
+				"rightArm": {
+					"rotation": [-70.5746, 58.52505, 16.73958]
+				},
+				"leftLeg": {
+					"rotation": [20.57639, 9.30727, -23.30696]
+				},
+				"rightLeg": {
+					"rotation": [-20, 32.5, 0]
+				}
+			}
+		},
+		"animation.meramera.hiken": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, 82.5, 0]
+					}
+				},
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [17.5, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [5, 2.5, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-30, 0, -40]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [58.68934, 75.4534, 149.51189]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, 0, -32.5]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [2.26603, -1.05627, 24.97911]
+					}
+				}
+			}
+		},
+		"animation.meramera.hiken_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [0, 82.5, 0],
+						"0.0833": [0, -90, 0]
+					}
+				},
+				"waist": {
+					"rotation": {
+						"0.0": [17.5, 0, 0],
+						"0.0833": [5, 0, 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [5, 2.5, 0],
+						"0.0833": [6.76192, 42.31038, 4.34469]
+					}
+				},
+				"leftArm": {
+					"rotation": [-30, 0, -40]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [58.68934, 75.4534, 149.51189],
+						"0.0833": [24.86128, 83.2854, 112.67248]
+					}
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -32.5]
+				},
+				"rightLeg": {
+					"rotation": [2.26603, -1.05627, 24.97911]
+				}
+			}
+		},
+		"animation.meramera.higan": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": [-87.5, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [-87.5, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -15]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 15]
+				}
+			}
+		},
+		"animation.meramera.enkai": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"position": [0, -6, 0]
+				},
+				"waist": {
+					"rotation": [20, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-35.79355, -12.0174, -16.10644]
+				},
+				"rightArm": {
+					"rotation": [-51.53653, 11.84911, 9.26433]
+				},
+				"leftLeg": {
+					"rotation": [65, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-72.5, 0, 0]
+				}
+			}
+		},
+		"animation.meramera.hidaruma": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": [-87.26228, -12.3071, -2.20462]
+				},
+				"rightArm": {
+					"rotation": [-86.91381, 17.07228, 3.90399]
+				}
+			}
+		},
+		"animation.meramera.siranui": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"leftArm": {
+					"rotation": [81.55764, -27.24513, -176.11286]
+				},
+				"rightArm": {
+					"rotation": [84.48615, 24.89837, 177.6727]
+				}
+			}
+		},
+		"animation.meramera.siranui_attack": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"leftArm": {
+					"rotation": [-79.87564, 42.05244, 6.82047]
+				},
+				"rightArm": {
+					"rotation": [-83.9037, -34.84748, -3.49226]
+				}
+			}
+		},
+		"animation.meramera.zyujika": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"leftArm": {
+					"rotation": [-180, 0, 0],
+					"position": [-5, -5, -4]
+				},
+				"rightArm": {
+					"rotation": [0, -87.5, -90],
+					"position": [0, 0, -4]
+				}
+			}
+		},
+		"animation.meramera.entei": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightArm": {
+					"rotation": [-165, 0, 0]
+				}
+			}
+		},
+		"animation.meramera.entei_attack": {
+			"loop": true,
+			"bones": {
+				"rightArm": {
+					"rotation": [-35, 0, 0]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+    "format_version": "1.17.0",
+    "powder_sand" : {
+        "isotropic" : false,
+        "sound" : "powder_snow",
+        "textures" : "powder_sand"
+    }
+
+}

@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:barabara_hou",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/barabara/barabara_hou"
+        },
+        "geometry": {
+          "default": "geometry.barabara_hou"
+        },
+        "scripts": {
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.barabara_hou.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

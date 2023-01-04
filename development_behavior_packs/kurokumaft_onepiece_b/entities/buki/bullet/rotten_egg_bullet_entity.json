@@ -1,0 +1,67 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:rotten_egg_bullet_entity",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:arrow"
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true
+          },
+          "impact_damage": {
+            "damage": 0,
+            "catch_fire": false,
+            "knockback": false,
+            "semi_random_diff_damage": false
+          },
+          "mob_effect": {
+            "effect": "nausea",
+            "durationeasy": 10,
+            "durationnormal": 10,
+            "durationhard": 10,
+            "amplifier": 10
+          },
+          "remove_on_hit": {}
+        },
+        "power": 1.0,
+        "gravity": 0.02,
+        "inertia": 1.0,
+        "uncertaintyBase": 8,
+        "uncertaintyMultiplier": 2.5,
+        "anchor": 1,
+        "offset": [0, 0, 0],
+        "destroy_on_hurt": true,
+        "reflect_on_hurt": true,
+        "catch_fire": false
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+    }
+  }
+}

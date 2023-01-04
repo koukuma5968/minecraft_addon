@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.mokumoku.whiteblow": {
+			"loop": true,
+			"bones": {
+				"rightArm": {
+					"rotation": [-90, 0, 0],
+					"scale": [1, 0.7, 1]
+				}
+			}
+		},
+		"animation.mokumoku.whiteout": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"leftArm": {
+					"scale": 0
+				},
+				"rightArm": {
+					"scale": 0
+				}
+			}
+		}
+	}
+}

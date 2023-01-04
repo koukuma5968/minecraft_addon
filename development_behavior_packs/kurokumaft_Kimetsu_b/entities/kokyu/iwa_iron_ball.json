@@ -22,7 +22,7 @@
             "affect_projectile": true
           },
           "impact_damage": {
-            "damage": 50,
+            "damage": 25,
             "catch_fire": false,
             "knockback": true,
             "semirandomdiffdamage": false,

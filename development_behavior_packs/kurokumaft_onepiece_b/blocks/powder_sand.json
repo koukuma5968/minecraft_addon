@@ -1,0 +1,71 @@
+{
+	"format_version": "1.17.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:powder_sand",
+			"is_experimental": false,
+            "register_to_creative_menu": true,
+			"category": "nature"
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [-8,15,-8],
+				"size": [16,1,16]
+			},
+			"minecraft:creative_category": { "category": "nature" },
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.5
+			},
+			"minecraft:light_dampening": 10,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.3
+			},
+			"minecraft:friction": 0.9,
+			"minecraft:unwalkable": true
+		},
+		"events": {
+			"fall": {
+				"run_command": {
+					"command": [
+						"titleraw @p actionbar {\"rawtext\":[{\"text\":\"fall\"}]}"
+					]
+				}
+			},
+			"placed": {
+				"run_command": {
+					"command": [
+						"titleraw @p actionbar {\"rawtext\":[{\"text\":\"placed\"}]}"
+					]
+				}
+			},
+			"player_destroyed": {
+				"run_command": {
+					"command": [
+						"titleraw @p actionbar {\"rawtext\":[{\"text\":\"player_destroyed\"}]}"
+					]
+				}
+			},
+			"player_placing": {
+				"run_command": {
+					"command": [
+						"titleraw @p actionbar {\"rawtext\":[{\"text\":\"player_placing\"}]}"
+					]
+				}
+			},
+			"step_off": {
+				"run_command": {
+					"command": [
+						"titleraw @p actionbar {\"rawtext\":[{\"text\":\"step_off\"}]}"
+					]
+				}
+			},
+			"step_on": {
+				"run_command": {
+					"command": [
+						"titleraw @p actionbar {\"rawtext\":[{\"text\":\"step_on\"}]}"
+					]
+				}
+			}
+		}
+	}
+}

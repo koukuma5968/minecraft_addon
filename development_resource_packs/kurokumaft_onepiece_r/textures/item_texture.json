@@ -1,0 +1,84 @@
+{
+   "resource_pack_name" : "kurokumaft_onepiece_r",
+   "texture_data" : {
+      "gomugomu_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/gomugomu_fruit"
+      },
+      "barabara_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/barabara_fruit"
+      },
+      "mokumoku_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/mokumoku_fruit"
+      },
+      "meramera_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/meramera_fruit"
+      },
+      "guragura_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/guragura_fruit"
+      },
+      "sunasuna_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/sunasuna_fruit"
+      },
+
+      "gomugomu_skill": {
+         "textures" : "textures/kurokumaft/items/skill/gomugomu_skill"
+      },
+      "barabara_skill": {
+         "textures" : "textures/kurokumaft/items/skill/barabara_skill"
+      },
+      "mokumoku_skill": {
+         "textures" : "textures/kurokumaft/items/skill/mokumoku_skill"
+      },
+      "meramera_skill": {
+         "textures" : "textures/kurokumaft/items/skill/meramera_skill"
+      },
+      "guragura_skill": {
+         "textures" : "textures/kurokumaft/items/skill/guragura_skill"
+      },
+      "sunasuna_skill": {
+         "textures" : "textures/kurokumaft/items/skill/sunasuna_skill"
+      },
+
+      "santouryu_skill": {
+         "textures" : "textures/kurokumaft/items/skill/santouryu_skill"
+      },
+
+      "wado_ichimonzi": {
+         "textures" : "textures/kurokumaft/items/buki/katana/wado_ichimonzi"
+      },
+      "murakumogiri": {
+         "textures" : "textures/kurokumaft/items/buki/katana/murakumogiri"
+      },
+
+      "patinko": {
+         "textures" : "textures/kurokumaft/items/buki/long_range/patinko"
+      },
+      "namari_dama": {
+         "textures" : "textures/kurokumaft/items/buki/bullet/namari_dama"
+      },
+      "kayaku_dama": {
+         "textures" : "textures/kurokumaft/items/buki/bullet/kayaku_dama"
+      },
+
+      "luffy_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/lufy/luffy_jacket"
+      },
+      "luffy_pants": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/lufy/luffy_pants"
+      },
+      "luffy_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/lufy/luffy_tabi"
+      },
+      "straw_hat": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/lufy/straw_hat"
+      },
+
+      "kaizoku_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/kaizoku/luffy_egg"
+         ]
+      }
+
+   },
+   "texture_name" : "atlas.items"
+}

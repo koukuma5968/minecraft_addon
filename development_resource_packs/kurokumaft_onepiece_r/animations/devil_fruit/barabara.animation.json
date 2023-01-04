@@ -1,0 +1,37 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.barabara.hou": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"leftArm": {
+					"rotation": [-85, 0, 0],
+					"position": [0, 0, 1],
+					"scale": [1, 0.5, 1]
+				},
+				"rightArm": {
+					"rotation": [-87.5, 0, 0],
+					"position": [0, 0, 1],
+					"scale": [1, 0.5, 1]
+				}
+			}
+		},
+		"animation.barabara.senbei": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"leftArm": {
+					"rotation": [0, 0, -42.5]
+				},
+				"rightArm": {
+					"rotation": [-70, 0, 50]
+				},
+				"leftLeg": {
+					"scale": 0
+				},
+				"rightLeg": {
+					"scale": 0
+				}
+			}
+		}
+	}
+}

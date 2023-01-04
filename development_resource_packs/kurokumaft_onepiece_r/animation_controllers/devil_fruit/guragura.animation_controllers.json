@@ -1,0 +1,44 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.guragura.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kaishin": "query.variant == 1 && query.mark_variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill')"},
+						{"kaishin_left": "query.variant == 1 && query.mark_variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:murakumogiri')"},
+						{"punch": "query.variant == 1 && query.mark_variant == 2 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill')"}
+					]
+				},
+				"kaishin" : {
+					"animations" : [
+						{"guragura_kaishin": "variable.is_first_person"},
+						{"guragura_kaishin": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaishin_left" : {
+					"animations" : [
+						{"guragura_kaishin_left": "variable.is_first_person"},
+						{"guragura_kaishin_left": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"punch" : {
+					"animations" : [
+						{"guragura_punch": "variable.is_first_person"},
+						{"guragura_punch": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

@@ -1,0 +1,119 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.santouryu.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"onigiri": "query.variant == 1 && query.mark_variant == 1"},
+						{"toragari": "query.variant == 2 && query.mark_variant == 1"},
+						{"tatumaki": "query.variant == 3 && query.mark_variant == 1"},
+						{"bondohou": "query.variant == 4 && query.mark_variant == 1"},
+						{"sanzensekai": "query.variant == 5 && query.mark_variant == 1"}
+					]
+				},
+				"onigiri" : {
+					"animations" : [
+						{"santouryu_onigiri": "variable.is_first_person"},
+						{"santouryu_onigiri": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"onigiri_att":"query.mark_variant == 2"}
+					]
+				},
+				"onigiri_att" : {
+					"animations" : [
+						{"santouryu_onigiri_attack": "variable.is_first_person"},
+						{"santouryu_onigiri_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"toragari" : {
+					"animations" : [
+						{"santouryu_toragari": "variable.is_first_person"},
+						{"santouryu_toragari": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"toragari_att":"query.mark_variant == 2"}
+					]
+				},
+				"toragari_att" : {
+					"animations" : [
+						{"santouryu_toragari_attack": "variable.is_first_person"},
+						{"santouryu_toragari_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"tatumaki" : {
+					"animations" : [
+						{"santouryu_tatumaki": "variable.is_first_person"},
+						{"santouryu_tatumaki": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"tatumaki_att":"query.mark_variant == 2"}
+					]
+				},
+				"tatumaki_att" : {
+					"animations" : [
+						{"santouryu_tatumaki_attack": "variable.is_first_person"},
+						{"santouryu_tatumaki_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"bondohou" : {
+					"animations" : [
+						{"santouryu_bondohou": "variable.is_first_person"},
+						{"santouryu_bondohou": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"bondohou_att":"query.mark_variant == 2"},
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"bondohou_att" : {
+					"animations" : [
+						{"santouryu_bondohou_attack": "variable.is_first_person"},
+						{"santouryu_bondohou_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"sanzensekai" : {
+					"animations" : [
+						{"santouryu_sanzensekai": "variable.is_first_person"},
+						{"santouryu_sanzensekai": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"sanzensekai_2":"query.any_animation_finished"}
+					]
+				},
+				"sanzensekai_2" : {
+					"animations" : [
+						{"santouryu_sanzensekai_2": "variable.is_first_person"},
+						{"santouryu_sanzensekai_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"sanzensekai_att":"query.mark_variant == 2"}
+					]
+				},
+				"sanzensekai_att" : {
+					"animations" : [
+						{"santouryu_sanzensekai_attack": "variable.is_first_person"},
+						{"santouryu_sanzensekai_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

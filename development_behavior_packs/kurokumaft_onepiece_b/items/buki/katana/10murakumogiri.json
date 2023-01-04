@@ -1,0 +1,48 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:murakumogiri",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:murakumogiri.name"
+			},
+      "minecraft:icon": {
+          "texture": "murakumogiri"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.katana"
+			},
+      "minecraft:max_stack_size": 1,
+      "minecraft:durability": {
+        "max_durability": 2500
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:murakumogiri" ],
+            "repair_amount": 1000
+          }
+        ]
+      },
+      "minecraft:damage": 30,
+      "minecraft:chargeable": {
+        "on_complete": {
+        }
+      },
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:wearable": {
+        "slot": "slot.equippable"
+      }
+    },
+    "events": {
+    }
+  }
+}
+

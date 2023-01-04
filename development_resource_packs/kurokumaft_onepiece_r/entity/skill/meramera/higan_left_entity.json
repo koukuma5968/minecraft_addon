@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:higan_left_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/meramera/higan"
+        },
+        "geometry": {
+          "default": "geometry.higan"
+        },
+        "particle_effects": {
+          "higan": "kurokumaft:higan"
+        },
+        "scripts": {
+          "scale": "0.5",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.higan.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

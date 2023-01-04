@@ -132,9 +132,9 @@
 	"geometry.humanoid.custom:geometry.humanoid": {
 		"texturewidth": 64,
 		"textureheight": 64,
-		"visible_bounds_width": 17,
-		"visible_bounds_height": 3,
-		"visible_bounds_offset": [0, 1.5, 0],
+		"visible_bounds_width": 31,
+		"visible_bounds_height": 11,
+		"visible_bounds_offset": [0, 4.5, 0],
 		"bones": [
 			{
 				"name": "root",

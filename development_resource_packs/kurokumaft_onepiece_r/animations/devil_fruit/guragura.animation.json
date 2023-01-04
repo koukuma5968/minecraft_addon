@@ -1,0 +1,98 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.guragura.kaishin": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"waist": {
+					"rotation": [7.5, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-77.85213, 34.39275, 6.93255],
+						"0.0833": [-72.9117, -53.77546, -13.92809]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-79.45316, -44.5119, -7.43656],
+						"0.0833": [-75.24856, 59.16159, 12.73916]
+					}
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -15]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 17.5]
+				}
+			}
+		},
+		"animation.guragura.punch": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 22.5, 0],
+						"0.0833": [0, -40, 0]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, -2.5],
+						"0.0417": [0, 0, -12.5],
+						"0.0833": [-20, 0, -12.5]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-85, 0, 0],
+						"0.0833": [-83.48457, 39.8173, 4.18273]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-5, 0, -7.5]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [7.5, 0, 7.5]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "guragura",
+					"locator": "lead_hold"
+				}
+			}
+		},
+		"animation.guragura.kaishin_left": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"waist": {
+					"rotation": [7.5, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-77.85213, 34.39275, 6.93255],
+						"0.0833": [-72.9117, -53.77546, -13.92809]
+					}
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -15]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 17.5]
+				}
+			}
+		}
+	}
+}

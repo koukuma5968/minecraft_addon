@@ -1,0 +1,100 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.patinko.wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"patinko": {
+					"rotation": [76.61776, 60.51437, 273.97852],
+					"position": [1, 25, 5],
+					"scale": 0.75
+				}
+			}
+		},
+		"animation.patinko.wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"patinko": {
+					"rotation": [90, 0, 0],
+					"position": [0, 22, 3],
+					"scale": 0.5
+				}
+			}
+		},
+		"animation.patinko.shot_first_person": {
+			"animation_length": 0.5,
+			"bones": {
+				"patinko": {
+					"rotation": [128.16886, 44.11292, 347.33972],
+					"position": [1, 25, 5],
+					"scale": 0.75
+				},
+				"patinko_gomu": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2917": [-275, 0, 0]
+					},
+					"position": [0, 0, 0],
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.2917": [1, 1, 1],
+						"0.5": [1, 2.6, 1]
+					}
+				}
+			}
+		},
+		"animation.patinko.shot_hold_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"patinko_gomu": {
+					"rotation": [-275, 0, 0],
+					"position": [0, 0, 0],
+					"scale": [1, 2.6, 1]
+				},
+				"patinko": {
+					"rotation": [126.47189, 45.95114, 344.94166],
+					"position": [1, 25, 5],
+					"scale": 0.75
+				}
+			}
+		},
+		"animation.patinko.shot_third_person": {
+			"animation_length": 0.5,
+			"bones": {
+				"patinko": {
+					"rotation": ["query.target_x_rotation + 130.0 + math.sin(query.life_time * 76.8) * 2.865 - this", "query.target_y_rotation - 30.73", 0],
+					"position": [0, 22, 3],
+					"scale": 0.5
+				},
+				"patinko_gomu": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": ["query.target_x_rotation - 300.0 + math.sin(query.life_time * 76.8) * 2.865 - this", 0, 0]
+					},
+					"position": [0, 0, 0],
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.2917": [1, 1, 1],
+						"0.5": [1, 2.6, 1]
+					}
+				}
+			}
+		},
+		"animation.patinko.shot_hold_third_person": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"patinko": {
+					"rotation": ["query.target_x_rotation + 130.0 + math.sin(query.life_time * 76.8) * 2.865 - this", "query.target_y_rotation - 30.73", 0],
+					"position": [0, 22, 3],
+					"scale": 0.5
+				},
+				"patinko_gomu": {
+					"rotation": ["query.target_x_rotation + 70.0 + math.sin(query.life_time * 76.8) * 2.865 - this", 0, 0],
+					"position": [0, 0, 0],
+					"scale": [1, 2.6, 1]
+				}
+			}
+		}
+	}
+}
