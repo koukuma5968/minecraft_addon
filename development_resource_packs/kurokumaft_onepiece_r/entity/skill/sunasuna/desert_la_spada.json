@@ -4,7 +4,7 @@
       "description": {
         "identifier": "kurokumaft:desert_la_spada",
         "materials": {
-          "default": "fireball"
+          "default": "arrow"
         },
         "textures": {
           "default": "textures/kurokumaft/models/skill/sunasuna/desert_la_spada"
@@ -24,7 +24,7 @@
         "animations": {
           "shot": "animation.sunasuna.desert_la_spada.shot"
         },
-        "render_controllers": ["controller.render.fireball"]
+        "render_controllers": ["controller.render.arrow"]
       }
     }
   }

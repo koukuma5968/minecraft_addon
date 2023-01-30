@@ -11,11 +11,13 @@
       },
       "textures": {
         "default": "textures/entity/steve",
-        "cape": "textures/entity/cape_invisible"
+        "cape": "textures/entity/cape_invisible",
+        "toritori_fenikus_zyuzinn": "textures/kurokumaft/models/armor/kaizoku/shirohige/maruko/toritori_fenikus_zyuzinn"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
-        "cape": "geometry.cape"
+        "cape": "geometry.cape",
+        "toritori_fenikus_zyuzinn": "geometry.toritori_fenikus_zyuzinn"
       },
       "particle_effects": {
         "gomugomu_attack": "kurokumaft:gomugomu_attack",
@@ -49,12 +51,24 @@
           "variable.devil_fruit_meramera = query.skin_id == 104;",
           "variable.devil_fruit_guragura = query.skin_id == 105;",
           "variable.devil_fruit_sunasuna = query.skin_id == 106;",
+          "variable.devil_fruit_itoito = query.skin_id == 107;",
+          "variable.devil_fruit_nikyunikyu = query.skin_id == 108;",
+          "variable.devil_fruit_gorogoro = query.skin_id == 109;",
+          "variable.devil_fruit_hiehie = query.skin_id == 110;",
+          "variable.devil_fruit_magumagu = query.skin_id == 111;",
+          "variable.devil_fruit_pikapika = query.skin_id == 112;",
+          "variable.devil_fruit_hitohito = query.skin_id == 113;",
+          "variable.devil_fruit_fenikusu = query.skin_id == 114;",
+          "variable.devil_fruit_fenikusu_zyuzin = query.skin_id == 115;",
+          "variable.devil_fruit_seiryu = query.skin_id == 116;",
 
-          "variable.long_range_weapon = query.skin_id == 999;"
+          "variable.long_range_weapon = query.mark_variant == 999;",
+
+          "variable.zyuka = variable.devil_fruit_fenikusu_zyuzin;"
 
         ],
         "animate": [
-          {"root": "query.mark_variant == 0"},
+          {"root": "query.mark_variant == 0 && !variable.zyuka"},
           {"player.bullet": "variable.long_range_weapon"},
 
           {"gomugomu_con": "variable.devil_fruit_gomugomu"},
@@ -65,7 +79,9 @@
           {"sunasuna_con": "variable.devil_fruit_sunasuna"},
 
           {"santouryu_con": "variable.skill_santouryu"},
-          {"murakumo_con": "variable.devil_fruit_guragura"}
+          {"murakumo_con": "variable.devil_fruit_guragura"},
+
+          {"toritori_fenikus.zyuzinn.fry": "variable.devil_fruit_fenikusu_zyuzin"}
         ]
       },
       "animations": {
@@ -194,15 +210,18 @@
         "sunasuna_ground_secco": "animation.sunasuna.ground_secco",
         "sunasuna_ground_death": "animation.sunasuna.ground_death",
         "sunasuna_desert_la_spada": "animation.sunasuna.desert_la_spada",
-        "sunasuna_desert_la_spada_attack": "animation.sunasuna.desert_la_spada_attack"
+        "sunasuna_desert_la_spada_attack": "animation.sunasuna.desert_la_spada_attack",
 
+        "toritori_fenikus.zyuzinn.fry": "animation.toritori_fenikus.zyuzinn.fry"
       },
       "render_controllers": [
         { "controller.render.player.first_person_spectator": "variable.is_first_person && query.is_spectator" },
         { "controller.render.player.third_person_spectator": "!variable.is_first_person && !variable.map_face_icon && query.is_spectator" },
         { "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator" },
         { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator" },
-        { "controller.render.player.map": "variable.map_face_icon" }
+        { "controller.render.player.map": "variable.map_face_icon" },
+
+        { "controller.render.toritori_fenikus.zyuzinn": "variable.devil_fruit_fenikusu_zyuzin" }
       ],
       "enable_attachables": true
     }

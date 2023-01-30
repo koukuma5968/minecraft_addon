@@ -172,7 +172,7 @@
 			"loop": true,
 			"bones": {
 				"desert_la_spada": {
-					"rotation": ["query.camera_rotation(0)", "-query.camera_rotation(1)", 0],
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
 					"position": [0, 0, 0]
 				}
 			},

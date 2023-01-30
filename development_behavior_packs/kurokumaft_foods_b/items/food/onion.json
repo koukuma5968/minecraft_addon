@@ -1,0 +1,47 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:onion",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:onion.name"
+			},
+      "minecraft:icon": {
+        "texture": "onion"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.crop"
+      },
+      "minecraft:use_animation":"eat",
+      "minecraft:use_duration": 2,
+      "minecraft:food": {
+        "nutrition": 1,
+        "saturation_modifier": "normal",
+        "on_consume": {
+          "event": "kurokumaft:hunger_damage"
+        }
+      },
+      "minecraft:seed": {
+        "crop_result": "onions"
+      }
+    },
+    "events": {
+      "kurokumaft:hunger_damage": {
+        "randomize": [
+          {
+            "weight": 60,
+            "run_command": {
+              "command": [
+                "effect @s hunger 10 2"
+              ],
+              "target": "self"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

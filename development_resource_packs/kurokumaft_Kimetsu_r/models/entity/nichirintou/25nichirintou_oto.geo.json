@@ -39,7 +39,6 @@
 					"name": "oto_nichirinto_left",
 					"parent": "leftArm",
 					"pivot": [6, 15.50092, -0.33811],
-					"binding": "q.item_slot_to_bone_name(c.item_slot)",
 					"locators": {
 						"oto5": [6, 15, -12],
 						"oto6": [6, 15, -24],
@@ -881,7 +880,6 @@
 					"name": "oto_nichirinto_right",
 					"parent": "rightArm",
 					"pivot": [-6, 15.50092, -0.33811],
-					"binding": "q.item_slot_to_bone_name(c.item_slot)",
 					"locators": {
 						"oto1": [-7, 15, -12],
 						"oto2": [-7, 15, -24],

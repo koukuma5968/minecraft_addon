@@ -36,7 +36,7 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
-          "attack",
+          {"attack": "variable.attack_time"},
           "third",
           "kanawo.kokyu_con"
         ]
@@ -64,9 +64,8 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "attack": "controller.animation.kanawo.attack",
+        "attack": "animation.kanawo.attack",
         "third": "animation.kanawo_third",
-        "nichirintou_attack": "animation.kanawo.attack",
 
         "kanawo.kokyu_con":"controller.animation.kanawo.kokyu",
         "kanawo.ni_1": "animation.nichirintou_kokyu.kanawo.ni_1",

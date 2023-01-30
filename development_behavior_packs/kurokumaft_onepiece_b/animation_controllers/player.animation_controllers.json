@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.alive": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "dead": "!query.is_alive" }
+          ]
+        },
+        "dead":{
+          "on_entry": [
+            "/event entity @s variant0",
+            "/event entity @s mark_variant0",
+            "/event entity @s minecraft:entity_spawned"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
+    "controller.animation.player.patinko": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "hold": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:patinko')" }
+          ]
+        },
+        "hold":{
+          "on_entry": [
+            "/event entity @s kurokumaft:long_range"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:patinko')"}
+          ]
+        }
+      }
+    }
+  }
+}

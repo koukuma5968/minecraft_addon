@@ -1,0 +1,23 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "食材アドオン",
+		"name": "kurokumaft_fooda_r",
+		"uuid": "1915f8df-ec14-4400-a885-f2ff757b974d",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 18, 0]
+	},
+	"modules": [
+		{
+			"description": "食材アドオン",
+			"type": "resources",
+			"uuid": "ad8999a6-ee41-4c64-920d-00f25cd4d7f1",
+			"version": [1, 0, 0]
+		}
+	],
+	"metadata": {
+		"generated_with": {
+			"blockbench_entity_wizard": ["1.1.1"]
+		}
+	}
+}

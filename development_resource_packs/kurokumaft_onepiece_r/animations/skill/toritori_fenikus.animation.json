@@ -1,0 +1,35 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.toritori_fenikus.zyuzinn.fry": {
+			"loop": true,
+			"animation_length": 0.33333,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, -22.5, 0],
+						"0.3333": [0, 0, 0]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 20, 0],
+						"0.3333": [0, 0, 0]
+					}
+				},
+				"leftLeg": {
+					"rotation": [15, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [15, 0, 0]
+				},
+				"tail": {
+					"rotation": [22.5, 0, 0],
+					"position": [0, -3, -4]
+				}
+			}
+		}
+	}
+}

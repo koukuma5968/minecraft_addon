@@ -21,7 +21,8 @@
 			"loop": true,
 			"bones": {
 				"sanemi_nichirinto": {
-					"scale": 0.3
+					"position": [1, -2, 0],
+					"scale": [0.3, 0.3, 0.3]
 				}
 			}
 		},

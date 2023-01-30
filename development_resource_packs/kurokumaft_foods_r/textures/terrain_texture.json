@@ -1,0 +1,16 @@
+{
+   "num_mip_levels" : 4,
+   "padding" : 8,
+   "resource_pack_name" : "kurokumaft_sample_r",
+   "texture_data" : {
+      "onions" : {
+         "textures" : [
+            "textures/kurokumaft/blocks/onion_stage_0",
+            "textures/kurokumaft/blocks/onion_stage_1",
+            "textures/kurokumaft/blocks/onion_stage_2",
+            "textures/kurokumaft/blocks/onion_stage_3"
+         ]
+      }
+   },
+   "texture_name" : "atlas.terrain"
+}

@@ -1,0 +1,160 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:meramera_skill",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:meramera_skill.name"
+			},
+      "minecraft:icon": {
+          "texture": "meramera_skill"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.logia_skill"
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "scale": [0.0, 0.0, 0.0]
+          },
+          "third_person": {
+            "scale": [0.0, 0.0, 0.0]
+          }
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 0,
+      "minecraft:chargeable": {
+        "on_complete": {
+          "condition": "query.skin_id == 104",
+          "event": "kurokumaft:meramera_charge"
+        }
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.skin_id == 104",
+          "event": "kurokumaft:meramera_shot",
+          "target": "self"
+        }
+      },
+      "minecraft:use_duration": 1,
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+      "kurokumaft:meramera_charge" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 2",
+            "trigger": "kurokumaft:hiken"
+          },
+          {
+            "condition": "query.variant == 3",
+            "trigger": "kurokumaft:higan"
+          },
+          {
+            "condition": "query.variant == 6",
+            "trigger": "kurokumaft:siranui"
+          },
+          {
+            "condition": "query.variant == 9 && query.mark_variant == 1",
+            "trigger": "kurokumaft:entei"
+          }
+        ]
+      },
+      "kurokumaft:meramera_shot" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 1",
+            "trigger": "kurokumaft:kagero"
+          },
+          {
+            "condition": "query.variant == 3",
+            "trigger": "kurokumaft:higan"
+          },
+          {
+            "condition": "query.variant == 7",
+            "trigger": "kurokumaft:zyujika"
+          }
+        ]
+      },
+      "kurokumaft:kagero" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:kagero_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:hiken" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:hiken_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:higan" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:higan_right_entity",
+              "launch_power": 2.0
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:higan_left_entity",
+              "launch_power": 2.0
+            }
+          }
+        ]
+      },
+      "kurokumaft:siranui" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:siranui_right_entity",
+              "launch_power": 2.0
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:siranui_left_entity",
+              "launch_power": 2.0
+            }
+          }
+        ]
+      },
+      "kurokumaft:zyujika" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:zyujika_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:entei" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:entei_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

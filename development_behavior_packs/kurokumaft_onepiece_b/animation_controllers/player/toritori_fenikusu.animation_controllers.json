@@ -1,0 +1,171 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.toritori_fenikusu.zyuzinn": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "fly": "query.is_jumping" }
+          ]
+        },
+        "fly":{
+          "animations" : [ 
+            {"toritori_fenikusu.takeoff": "query.is_jumping"},
+            {"toritori_fenikusu.landing": "!query.is_jumping"}
+          ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"人獣型\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_toritori_fenikusu_zyuzin"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:devil_fruit_toritori_fenikusu"
+          ],
+          "transitions": [
+            {"default":"!query.is_jumping && query.is_on_ground"}
+          ]
+        }
+      }
+    },
+    "controller.animation.toritori_fenikusu.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "hououin": "query.variant == 5 && query.is_sneaking" },
+            { "nashinotubute": "query.variant == 1 && query.is_sneaking" },
+            { "bluebird": "query.variant == 2 && query.is_sneaking" },
+            { "onguru": "query.variant == 3 && query.is_sneaking" },
+            { "fuziazami": "query.variant == 4 && query.is_sneaking" }
+          ]
+        },
+        "hououin":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鳳凰印（ほうおうイン）\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "nashinotubute":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鳳梨礫（なしのつぶて）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "bluebird":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"青炎雁（ブルーバード）\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "onguru":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鶴爪（オングル）\"}]}",
+            "/event entity @s variant4",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "fuziazami":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"不死薊（ふじあざみ）\"}]}",
+            "/event entity @s variant5",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.toritori_fenikusu": {
+      "states": {
+        "default": {
+          "variables": {
+            "toritori_fenikusu_at": {
+              "input": "variable.toritori_fenikusu_at = (variable.toritori_fenikusu_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hououin": "query.variant == 1 && query.is_using_item" },
+            { "nashinotubute": "query.variant == 2 && query.is_using_item" },
+            { "bluebird": "query.variant == 3 && query.is_using_item" },
+            { "onguru": "query.variant == 4 && query.is_using_item" },
+            { "fuziazami": "query.variant == 5 && query.is_using_item" }
+          ]
+        },
+        "hououin":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鳳凰印（ほうおうイン）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.toritori_fenikusu_at = variable.toritori_fenikusu_at < 20 ? variable.toritori_fenikusu_at + 1:0;return variable.toritori_fenikusu_at == 0;"}
+          ]
+        },
+        "nashinotubute":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鳳梨礫（なしのつぶて）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.toritori_fenikusu_at = variable.toritori_fenikusu_at < 40 ? variable.toritori_fenikusu_at + 1:0;return variable.toritori_fenikusu_at == 0;"}
+          ]
+        },
+        "bluebird":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"青炎雁（ブルーバード）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.toritori_fenikusu_at = variable.toritori_fenikusu_at < 40 ? variable.toritori_fenikusu_at + 1:0;return variable.toritori_fenikusu_at == 0;"}
+          ]
+        },
+        "onguru":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鶴爪（オングル）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.toritori_fenikusu_at = variable.toritori_fenikusu_at < 40 ? variable.toritori_fenikusu_at + 1:0;return variable.toritori_fenikusu_at == 0;"}
+          ]
+        },
+        "fuziazami":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"不死薊（ふじあざみ）\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.toritori_fenikusu_at = variable.toritori_fenikusu_at < 40 ? variable.toritori_fenikusu_at + 1:0;return variable.toritori_fenikusu_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

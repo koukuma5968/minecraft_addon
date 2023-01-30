@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.toritori_fenikus.zyuzinn": {
+      "part_visibility": [
+        { "leftArm": false },
+        { "rightArm": false },
+        { "rightLeg": false },
+        { "leftLeg": false }
+      ],
+      "geometry": "Geometry.toritori_fenikus_zyuzinn",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.toritori_fenikus_zyuzinn" ]
+    }
+
+  }
+}

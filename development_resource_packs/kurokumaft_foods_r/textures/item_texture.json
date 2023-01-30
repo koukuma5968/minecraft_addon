@@ -1,0 +1,21 @@
+{
+   "resource_pack_name" : "kurokumaft_sample_r",
+   "texture_data" : {
+      "baked_carrot" : {
+         "textures" : "textures/kurokumaft/items/food/baked_carrot"
+      },
+      "apple_pie" : {
+         "textures" : "textures/kurokumaft/items/food/apple_pie"
+      },
+      "cheese" : {
+         "textures" : "textures/kurokumaft/items/food/cheese"
+      },
+      "carrot_stew" : {
+         "textures" : "textures/kurokumaft/items/food/carrot_stew"
+      },
+      "onion" : {
+         "textures" : "textures/kurokumaft/items/food/onion"
+      }
+   },
+   "texture_name" : "atlas.items"
+}

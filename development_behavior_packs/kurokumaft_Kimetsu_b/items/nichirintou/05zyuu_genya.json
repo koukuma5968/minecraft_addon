@@ -31,11 +31,10 @@
           }
         ]
       },
+      "minecraft:use_duration": 1,
       "minecraft:chargeable": {
-      },
-      "minecraft:on_use": {
-        "on_use": {
-            "event": "kurokumaft:shooting"
+        "on_complete": {
+          "event": "kurokumaft:shooting"
         }
       },
       "minecraft:mining_speed": 1.5,

@@ -35,7 +35,7 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
-          "attack",
+          {"attack": "variable.attack_time"},
           "third",
           "shinobu.kokyu_con"
         ]
@@ -63,9 +63,8 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "attack": "controller.animation.shinobu.attack",
+        "attack": "animation.shinobu.attack",
         "third": "animation.shinobu_third",
-        "nichirintou_attack": "animation.shinobu.attack",
 
         "shinobu.kokyu_con":"controller.animation.shinobu.kokyu",
         "shinobu.chou": "animation.nichirintou_kokyu.shinobu.chou",

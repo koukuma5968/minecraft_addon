@@ -1,0 +1,48 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:gorogoro_fruit",
+      "category": "nature"
+    },
+
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:gorogoro_fruit.name"
+			},
+      "minecraft:icon": {
+          "texture": "gorogoro_fruit"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.devil_fruit"
+      },
+      "minecraft:use_animation":"eat",
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_duration": 1.5,
+      "minecraft:food": {
+        "nutrition": 0,
+        "saturation_modifier": "supernatural",
+        "can_always_eat": true,
+        "on_consume": {
+          "event": "kurokumaft:gorogoro"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:gorogoro": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "event entity @s kurokumaft:devil_fruit_gorogoro",
+                "give @s kurokumaft:gorogoro_skill",
+                "event entity @s variant1"
+              ],
+              "target": "self"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

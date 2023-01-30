@@ -1,0 +1,103 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:sunasuna_skill",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:sunasuna_skill.name"
+			},
+      "minecraft:icon": {
+          "texture": "sunasuna_skill"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.logia_skill"
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "scale": [0.0, 0.0, 0.0]
+          },
+          "third_person": {
+            "scale": [0.0, 0.0, 0.0]
+          }
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 0,
+      "minecraft:use_duration": 1,
+      "minecraft:chargeable": {
+        "on_complete": {
+          "condition": "query.skin_id == 106",
+          "event": "kurokumaft:sunasuna_chage",
+          "target": "self"
+        }
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.skin_id == 106",
+          "event": "kurokumaft:sunasuna_shot",
+          "target": "self"
+        }
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+      "kurokumaft:sunasuna_chage" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 8",
+            "trigger": "kurokumaft:desert_la_spada"
+          }
+        ]
+      },
+      "kurokumaft:sunasuna_shot" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 1",
+            "trigger": "kurokumaft:desert_spada"
+          },
+          {
+            "condition": "query.variant == 4",
+            "trigger": "kurokumaft:sabers"
+          }
+        ]
+      },
+      "kurokumaft:desert_spada" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:desert_spada",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:sabers" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:sabers",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:desert_la_spada" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:desert_la_spada",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

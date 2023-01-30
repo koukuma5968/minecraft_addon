@@ -7,17 +7,46 @@
       "barabara_fruit": {
          "textures" : "textures/kurokumaft/items/devil_fruit/barabara_fruit"
       },
+      "guragura_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/guragura_fruit"
+      },
+      "itoito_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/itoito_fruit"
+      },
+      "nikyunikyu_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/nikyunikyu_fruit"
+      },
+
       "mokumoku_fruit": {
          "textures" : "textures/kurokumaft/items/devil_fruit/mokumoku_fruit"
       },
       "meramera_fruit": {
          "textures" : "textures/kurokumaft/items/devil_fruit/meramera_fruit"
       },
-      "guragura_fruit": {
-         "textures" : "textures/kurokumaft/items/devil_fruit/guragura_fruit"
-      },
       "sunasuna_fruit": {
          "textures" : "textures/kurokumaft/items/devil_fruit/sunasuna_fruit"
+      },
+      "gorogoro_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/gorogoro_fruit"
+      },
+      "hiehie_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/hiehie_fruit"
+      },
+      "magumagu_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/magumagu_fruit"
+      },
+      "pikapika_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/pikapika_fruit"
+      },
+
+      "hitohito_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/hitohito_fruit"
+      },
+      "toritori_fenikusu_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/toritori_fenikusu_fruit"
+      },
+      "uouo_seiryu_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/uouo_seiryu_fruit"
       },
 
       "gomugomu_skill": {
@@ -26,17 +55,46 @@
       "barabara_skill": {
          "textures" : "textures/kurokumaft/items/skill/barabara_skill"
       },
+      "guragura_skill": {
+         "textures" : "textures/kurokumaft/items/skill/guragura_skill"
+      },
+      "itoito_skill": {
+         "textures" : "textures/kurokumaft/items/skill/itoito_skill"
+      },
+      "nikyunikyu_skill": {
+         "textures" : "textures/kurokumaft/items/skill/nikyunikyu_skill"
+      },
+
       "mokumoku_skill": {
          "textures" : "textures/kurokumaft/items/skill/mokumoku_skill"
       },
       "meramera_skill": {
          "textures" : "textures/kurokumaft/items/skill/meramera_skill"
       },
-      "guragura_skill": {
-         "textures" : "textures/kurokumaft/items/skill/guragura_skill"
-      },
       "sunasuna_skill": {
          "textures" : "textures/kurokumaft/items/skill/sunasuna_skill"
+      },
+      "gorogoro_skill": {
+         "textures" : "textures/kurokumaft/items/skill/gorogoro_skill"
+      },
+      "hiehie_skill": {
+         "textures" : "textures/kurokumaft/items/skill/hiehie_skill"
+      },
+      "magumagu_skill": {
+         "textures" : "textures/kurokumaft/items/skill/magumagu_skill"
+      },
+      "pikapika_skill": {
+         "textures" : "textures/kurokumaft/items/skill/pikapika_skill"
+      },
+
+      "hitohito_skill": {
+         "textures" : "textures/kurokumaft/items/skill/hitohito_skill"
+      },
+      "toritori_fenikusu_skill": {
+         "textures" : "textures/kurokumaft/items/skill/toritori_fenikusu_skill"
+      },
+      "uouo_seiryu_skill": {
+         "textures" : "textures/kurokumaft/items/skill/uouo_seiryu_skill"
       },
 
       "santouryu_skill": {

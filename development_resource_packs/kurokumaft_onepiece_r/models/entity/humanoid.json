@@ -1,9 +1,11 @@
 {
 	"format_version": "1.8.0",
 	"geometry.humanoid": {
-		"visible_bounds_width": 1,
-		"visible_bounds_height": 1,
-		"visible_bounds_offset": [0, 0.5, 0],
+		"texturewidth": 166,
+		"textureheight": 169,
+		"visible_bounds_width": 2,
+		"visible_bounds_height": 3,
+		"visible_bounds_offset": [0, 1.5, 0],
 		"bones": [
 			{
 				"name": "body",
@@ -13,8 +15,17 @@
 				]
 			},
 			{
+				"name": "bodyArmor",
+				"parent": "body",
+				"pivot": [0, 24, 0]
+			},
+			{
+				"name": "belt",
+				"parent": "body",
+				"pivot": [0, 24, 0]
+			},
+			{
 				"name": "waist",
-				"neverRender": true,
 				"pivot": [0, 12, 0]
 			},
 			{
@@ -29,8 +40,7 @@
 				"pivot": [0, 24, 0],
 				"cubes": [
 					{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [32, 0], "inflate": 0.5}
-				],
-				"neverRender": true
+				]
 			},
 			{
 				"name": "rightArm",
@@ -41,16 +51,26 @@
 			},
 			{
 				"name": "rightItem",
-				"pivot": [-6, 15, 1],
-				"neverRender": true,
-				"parent": "rightArm"
+				"parent": "rightArm",
+				"pivot": [-6, 15, 1]
+			},
+			{
+				"name": "rightArmArmor",
+				"parent": "rightArm",
+				"pivot": [-5, 22, 0]
 			},
 			{
 				"name": "leftArm",
 				"pivot": [5, 22, 0],
+				"mirror": true,
 				"cubes": [
 					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [40, 16]}
-				],
+				]
+			},
+			{
+				"name": "leftArmArmor",
+				"parent": "leftArm",
+				"pivot": [5, 22, 0],
 				"mirror": true
 			},
 			{
@@ -61,71 +81,49 @@
 				]
 			},
 			{
+				"name": "rightLegging",
+				"parent": "rightLeg",
+				"pivot": [-1.9, 12, 0]
+			},
+			{
+				"name": "rightBoot",
+				"parent": "rightLeg",
+				"pivot": [-1.9, 12, 0]
+			},
+			{
+				"name": "rightSock",
+				"parent": "rightLeg",
+				"pivot": [-1.9, 12, 0]
+			},
+			{
 				"name": "leftLeg",
 				"pivot": [1.9, 12, 0],
+				"mirror": true,
 				"cubes": [
 					{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "uv": [0, 16]}
-				],
+				]
+			},
+			{
+				"name": "leftLegging",
+				"parent": "leftLeg",
+				"pivot": [1.9, 12, 0],
+				"mirror": true
+			},
+			{
+				"name": "leftBoot",
+				"parent": "leftLeg",
+				"pivot": [1.9, 12, 0],
+				"mirror": true
+			},
+			{
+				"name": "leftSock",
+				"parent": "leftLeg",
+				"pivot": [1.9, 12, 0],
 				"mirror": true
 			},
 			{
 				"name": "helmet",
-				"pivot": [0, 24, 0],
-				"neverRender": true
-			},
-			{
-				"name": "rightArmArmor",
-				"pivot": [-5, 22, 0],
-				"parent": "rightArm"
-			},
-			{
-				"name": "leftArmArmor",
-				"pivot": [5, 22, 0],
-				"parent": "leftArm",
-				"mirror": true
-			},
-			{
-				"name": "rightLegging",
-				"pivot": [-1.9, 12, 0],
-				"parent": "rightLeg"
-			},
-			{
-				"name": "leftLegging",
-				"pivot": [1.9, 12, 0],
-				"parent": "leftLeg",
-				"mirror": true
-			},
-			{
-				"name": "rightBoot",
-				"pivot": [-1.9, 12, 0],
-				"parent": "rightLeg"
-			},
-			{
-				"name": "leftBoot",
-				"pivot": [1.9, 12, 0],
-				"parent": "leftLeg",
-				"mirror": true
-			},
-			{
-				"name": "rightSock",
-				"pivot": [-1.9, 12, 0],
-				"parent": "rightLeg"
-			},
-			{
-				"name": "leftSock",
-				"pivot": [1.9, 12, 0],
-				"parent": "leftLeg",
-				"mirror": true
-			},
-			{
-				"name": "bodyArmor",
-				"pivot": [0, 24, 0],
-				"parent": "body"
-			},
-			{
-				"name": "belt",
-				"pivot": [0, 24, 0],
-				"parent": "body"
+				"pivot": [0, 24, 0]
 			}
 		]
 	},

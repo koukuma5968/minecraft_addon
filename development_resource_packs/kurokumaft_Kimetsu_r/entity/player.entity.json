@@ -24,7 +24,6 @@
         "nichirintou_inosuke": "geometry.nichirintou_inosuke",
         "nichirintou_kanawo": "geometry.nichirintou_kanawo",
         "nichirintou_genya": "geometry.nichirintou_genya",
-        "zyuu_genya": "geometry.zyuu_genya",
         "nichirintou_giyu": "geometry.nichirintou_giyu",
         "nichirintou_kyouzyuro": "geometry.nichirintou_kyouzyuro",
         "nichirintou_shinobu": "geometry.nichirintou_shinobu",
@@ -39,6 +38,7 @@
         "nichirintou_hono": "geometry.nichirintou_hono",
         "nichirintou_mushi": "geometry.nichirintou_mushi",
         "nichirintou_oto": "geometry.nichirintou_oto",
+        "nichirintou_hana": "geometry.nichirintou_hana",
 
         "mizu10_dragon": "geometry.mizu10_dragon",
         "hi_dragon": "geometry.hi_dragon",
@@ -271,6 +271,10 @@
           {"mushi_attack": "variable.equipped_mushi && variable.attack_time"},
 
           {"hana.kokyu_con": "variable.equipped_hana"},
+          {"hana_attack_controller": "variable.equipped_hana"},
+          {"hana_first": "variable.equipped_hana && variable.is_first_person"},
+          {"hana_third": "variable.equipped_hana && !variable.is_first_person"},
+          {"hana_attack": "variable.equipped_hana && variable.attack_time"},
 
           {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"}
 
@@ -417,6 +421,11 @@
         "oto_third": "animation.oto_third",
         "oto_attack": "animation.oto.attack",
         "oto_attack_controller": "controller.animation.oto.attack",
+
+        "hana_first": "animation.hana_first",
+        "hana_third": "animation.hana_third",
+        "hana_attack": "animation.hana.attack",
+        "hana_attack_controller": "controller.animation.hana.attack",
 
         "tanjiro.kokyu_con":"controller.animation.tanjiro.kokyu_player",
         "tanjiro_mizu.ichi_1": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1",
@@ -669,7 +678,6 @@
         {"controller.render.nichirintou_inosuke": "variable.equipped_inosuke"},
         {"controller.render.nichirintou_kanawo": "variable.equipped_kanawo"},
         {"controller.render.nichirintou_genya": "variable.equipped_genya"},
-        {"controller.render.zyuu_genya": "variable.equipped_zyuu_genya"},
         {"controller.render.nichirintou_giyu": "variable.equipped_giyu"},
         {"controller.render.nichirintou_kyouzyuro": "variable.equipped_kyouzyuro"},
         {"controller.render.nichirintou_shinobu": "variable.equipped_shinobu"},
@@ -684,6 +692,7 @@
         {"controller.render.nichirintou_hono": "variable.equipped_hono"},
         {"controller.render.nichirintou_mushi": "variable.equipped_mushi"},
         {"controller.render.nichirintou_oto": "variable.equipped_oto"},
+        {"controller.render.nichirintou_hana": "variable.equipped_hana"},
 
         {"controller.render.hi_dragon": "(variable.equipped_tanjiro || variable.equipped_hi) && query.variant == 16 && query.mark_variant == 2"},
         {"controller.render.mizu10_dragon": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"}

@@ -1,0 +1,40 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:nikyunikyu_skill",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:nikyunikyu_skill.name"
+			},
+      "minecraft:icon": {
+          "texture": "nikyunikyu_skill"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.paramysia_skill"
+      },
+      "minecraft:render_offsets": {
+        "main_hand": {
+          "first_person": { 
+            "scale": [0.0, 0.0, 0.0]
+          },
+          "third_person": {
+            "scale": [0.0, 0.0, 0.0]
+          }
+        }
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 0,
+      "minecraft:chargeable": {
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+    }
+  }
+}
+

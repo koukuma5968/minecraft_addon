@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:toritori_fenikus_zyuzinn",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/armor/kaizoku/shirohige/maruko/toritori_fenikus_zyuzinn",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.toritori_fenikus_zyuzinn"
+      },
+      "render_controllers": ["controller.render.armor"]
+    }
+  }
+}

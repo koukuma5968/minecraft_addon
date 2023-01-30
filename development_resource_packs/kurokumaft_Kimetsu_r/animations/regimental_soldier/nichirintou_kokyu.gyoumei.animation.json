@@ -5,17 +5,12 @@
 			"loop": true,
 			"bones": {
 				"gyoumei_nichirinto_left": {
-					"rotation": [-126.53069, 0.66428, 170.68014],
-					"position": [1, -1.7, 1],
-					"scale": 0.5
-				},
-				"leftArm": {
-					"rotation": [129.97836, -10.2588, -21.93613],
-					"position": [-9, -1, 4],
-					"scale": 0.5
+					"rotation": [-235, 0, -180],
+					"position": [-15, 4, 13],
+					"scale": [0.5, 0.5, 0.5]
 				},
 				"gyoumei_nichirinto_right": {
-					"scale": 0.5
+					"scale": [0.5, 0.5, 0.5]
 				}
 			}
 		},
@@ -23,12 +18,13 @@
 			"loop": true,
 			"bones": {
 				"gyoumei_nichirinto_left": {
-					"rotation": [-15.91914, -0.49848, -0.13487],
-					"position": [0.7, 0.6, -1.3],
-					"scale": 0.5
+					"rotation": [-8.41914, -0.49848, -0.13487],
+					"position": [-1.3, -2.4, -1.3],
+					"scale": [0.5, 0.5, 0.5]
 				},
 				"gyoumei_nichirinto_right": {
-					"scale": 0.5
+					"position": [2, -2, 0],
+					"scale": [0.5, 0.5, 0.5]
 				}
 			}
 		},

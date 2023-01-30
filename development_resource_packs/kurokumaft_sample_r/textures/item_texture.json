@@ -1,0 +1,12 @@
+{
+   "resource_pack_name" : "kurokumaft_sample_r",
+   "texture_data" : {
+      "copper_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/copper_sword"
+      },
+      "apple_pie" : {
+         "textures" : "textures/kurokumaft/items/food/apple_pie"
+      }
+   },
+   "texture_name" : "atlas.items"
+}

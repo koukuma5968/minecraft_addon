@@ -36,7 +36,7 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
-          "attack",
+          {"attack": "variable.attack_time"},
           "third",
           "tengen.kokyu_con"
 
@@ -65,9 +65,8 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "attack": "controller.animation.tengen.attack",
+        "attack": "animation.tengen.attack",
         "third": "animation.tengen_third",
-        "nichirintou_two_attack": "animation.tengen.attack",
 
         "tengen.kokyu_con":"controller.animation.tengen.kokyu",
         "tengen.ichi_1": "animation.nichirintou_kokyu.tengen.ichi_1",

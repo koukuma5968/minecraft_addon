@@ -1,36 +1,37 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.tengen_third": {
-			"loop": true,
-			"bones": {
-				"tengen_nichirinto_left": {
-					"rotation": [-15.91914, -0.49848, -0.13487],
-					"position": [0.7, 0.6, -1.3],
-					"scale": 0.35
-				},
-				"tengen_nichirinto_right": {
-					"scale": 0.35
-				}
-			}
-		},
 		"animation.tengen_first": {
 			"loop": true,
 			"bones": {
 				"tengen_nichirinto_right": {
 					"rotation": [14.93001, 68.69274, -44.97092],
 					"position": [2, -4, 2],
-					"scale": 0.35
+					"scale": [0.35, 0.35, 0.35]
 				},
 				"tengen_nichirinto_left": {
 					"rotation": [-126.53069, 0.66428, 170.68014],
 					"position": [1, -1.7, 1],
-					"scale": 0.35
+					"scale": [0.35, 0.35, 0.35]
 				},
 				"leftArm": {
 					"rotation": [129.97836, -10.2588, -21.93613],
 					"position": [-9, -1, 4],
-					"scale": 0.5
+					"scale": [0.5, 0.5, 0.5]
+				}
+			}
+		},
+		"animation.tengen_third": {
+			"loop": true,
+			"bones": {
+				"tengen_nichirinto_left": {
+					"rotation": [-0.91914, -0.49848, -0.13487],
+					"position": [-0.55, -2.25, -1.3],
+					"scale": [0.35, 0.35, 0.35]
+				},
+				"tengen_nichirinto_right": {
+					"position": [1, -2.5, 0],
+					"scale": [0.35, 0.35, 0.35]
 				}
 			}
 		},

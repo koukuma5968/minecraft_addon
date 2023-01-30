@@ -4,19 +4,17 @@
 		"animation.zyuu_third": {
 			"loop": true,
 			"bones": {
-				"rightArm": {
-					"rotation": [0, 0, 0]
+				"zyuu": {
+					"position": [6, 7, 0]
 				}
 			}
 		},
 		"animation.zyuu_first": {
 			"loop": true,
 			"bones": {
-				"rightArm": {
-					"rotation": [0, 0, 0]
-				},
 				"zyuu": {
-					"rotation": [0, 32.5, 0]
+					"rotation": [0, 32.5, 0],
+					"position": [0, -3, 0]
 				}
 			}
 		},
@@ -40,7 +38,8 @@
 			"loop": true,
 			"bones": {
 				"genya_nichirinto": {
-					"scale": 0.3
+					"position": [1, -2, 0],
+					"scale": [0.3, 0.3, 0.3]
 				}
 			}
 		},

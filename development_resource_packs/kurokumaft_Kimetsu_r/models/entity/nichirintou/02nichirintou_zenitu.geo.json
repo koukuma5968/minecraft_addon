@@ -41,13 +41,8 @@
 					"pivot": [-5, 22.50092, -0.23811]
 				},
 				{
-					"name": "zenitu_rightArm",
-					"parent": "rightArm",
-					"pivot": [-5, 22.50092, -0.23811]
-				},
-				{
 					"name": "zenitu_nichirinto",
-					"parent": "zenitu_rightArm",
+					"parent": "rightArm",
 					"pivot": [-6, 15.50092, -2.33811],
 					"locators": {
 						"zenitu1": [-7, 15, -7],

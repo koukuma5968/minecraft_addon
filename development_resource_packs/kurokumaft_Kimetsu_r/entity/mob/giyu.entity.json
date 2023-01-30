@@ -36,7 +36,7 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
-          "attack",
+          {"attack": "variable.attack_time"},
           "third",
           "giyu.kokyu_con"
 
@@ -65,9 +65,8 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "attack": "controller.animation.giyu.attack",
+        "attack": "animation.giyu.attack",
         "third": "animation.giyu_third",
-        "nichirintou_attack": "animation.giyu.attack",
 
         "giyu.kokyu_con":"controller.animation.giyu.kokyu",
         "giyu.ichi_1": "animation.nichirintou_kokyu.giyu.ichi_1",

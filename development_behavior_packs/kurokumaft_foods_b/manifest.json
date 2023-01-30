@@ -1,0 +1,24 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "食料アドオン",
+		"name": "kurokumaft_foods_b",
+		"uuid": "62fbe16a-782d-4c01-9796-d12aacb11bb0",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 18, 0]
+	},
+	"modules": [
+		{
+			"description": "食料アドオン",
+			"type": "data",
+			"uuid": "661313f5-cc7d-40e8-b7e2-80f76274408e",
+			"version": [1, 0, 0]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "1915f8df-ec14-4400-a885-f2ff757b974d",
+			"version": [1, 0, 0]
+		}
+	]
+}

@@ -6,9 +6,9 @@
 				"identifier": "geometry.desert_la_spada",
 				"texture_width": 16,
 				"texture_height": 16,
-				"visible_bounds_width": 1,
-				"visible_bounds_height": 1,
-				"visible_bounds_offset": [0, 0, 0]
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
 			},
 			"bones": [
 				{

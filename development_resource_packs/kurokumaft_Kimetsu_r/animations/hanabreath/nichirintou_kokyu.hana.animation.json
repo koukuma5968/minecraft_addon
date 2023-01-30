@@ -1,6 +1,62 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.hana_first": {
+			"loop": true,
+			"animation_length": 0.70833,
+			"bones": {
+				"nichirinto_hana": {
+					"rotation": [14.93001, 68.69274, -44.97092],
+					"position": [2, -4, 2],
+					"scale": [0.5, 0.5, 0.5]
+				},
+				"hi_nichirinto": {
+					"position": [2, -1, 0]
+				}
+			}
+		},
+		"animation.hana_third": {
+			"loop": true,
+			"bones": {
+				"nichirinto_hana": {
+					"position": [1, -2, 0],
+					"scale": [0.3, 0.3, 0.3]
+				},
+				"genya_nichirinto": {
+					"position": [0, -3, 0]
+				}
+			}
+		},
+		"animation.hana.attack": {
+			"animation_length": 0.75,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [-115.10814, 14.49974, -90.49648],
+						"0.5": [31.44557, 0.53968, -89.83013]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [-91.54445, -16.87952, 77.49797],
+						"0.5": [35.71139, -2.50597, 92.59933]
+					}
+				},
+				"nichirinto_hana": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [32.5, 0, 0],
+						"0.5": [20, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.2083": [0, -3, 0]
+					}
+				}
+			}
+		},
 		"animation.nichirintou_kokyu.hana.ni_1": {
 			"loop": true,
 			"animation_length": 0.5,
