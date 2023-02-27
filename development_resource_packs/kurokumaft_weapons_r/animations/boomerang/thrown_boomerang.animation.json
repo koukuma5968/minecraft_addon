@@ -1,0 +1,46 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.thrown_wooden_boomerang.shot": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"thrown_wooden_boomerang": {
+					"rotation": {
+						"0.0": [0, 0, -90],
+						"0.0833": [90, 0, -90],
+						"0.1667": [180, 0, -90],
+						"0.25": [270, 0, -90]
+					},
+					"position": {
+						"0.0": [1, 0, 6],
+						"0.0833": [-6, 0, 2],
+						"0.1667": [-2, 0, -5],
+						"0.25": [5, 0, -1]
+					}
+				}
+			}
+		},
+		"animation.thrown_iron_boomerang.shot": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"thrown_iron_boomerang": {
+					"rotation": {
+						"0.0": [0, 0, -90],
+						"0.0833": [90, 0, -90],
+						"0.1667": [180, 0, -90],
+						"0.25": [270, 0, -90]
+					},
+					"position": {
+						"0.0": [1, 0, 6],
+						"0.0833": [-6, 0, 2],
+						"0.1667": [-2, 0, -5],
+						"0.25": [5, 0, -1]
+					}
+				}
+			}
+		}
+
+	}
+}

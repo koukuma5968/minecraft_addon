@@ -39,7 +39,7 @@
         "movement_modifier": 0.25
       },
       "minecraft:use_duration": 50,
-      "minecraft:can_destroy_in_creative": true,
+      "minecraft:can_destroy_in_creative": false,
       "minecraft:digger": {
         "use_efficiency": true,
         "destroy_speeds": [

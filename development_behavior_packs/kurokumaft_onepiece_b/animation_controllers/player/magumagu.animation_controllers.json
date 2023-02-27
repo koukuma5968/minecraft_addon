@@ -1,0 +1,108 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.magumagu.hover": {
+      "states": {
+        "default": {
+          "animations" : [ 
+            {"magumagu.takeoff": "query.skin_id == 111 && query.is_jumping"},
+            {"magumagu.landing": "query.skin_id == 111 && !query.is_jumping && !query.is_on_ground"}
+          ]
+        }
+      }
+    },
+    "controller.animation.magumagu.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "funka": "query.skin_id == 111 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:magumagu_skill') && query.variant == 3 && query.is_sneaking" },
+            { "kazan": "query.skin_id == 111 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:magumagu_skill') && query.variant == 1 && query.is_sneaking" },
+            { "meigou": "query.skin_id == 111 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:magumagu_skill') && query.variant == 2 && query.is_sneaking" }
+          ]
+        },
+        "funka":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"大噴火\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kazan":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"流星火山\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "meigou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"冥狗\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.magumagu": {
+      "states": {
+        "default": {
+          "variables": {
+            "magumagu_at": {
+              "input": "variable.magumagu_at = (variable.magumagu_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "funka": "query.skin_id == 111 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:magumagu_skill') && query.variant == 1 && query.is_using_item" },
+            { "kazan": "query.skin_id == 111 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:magumagu_skill') && query.variant == 2 && query.is_using_item" },
+            { "meigou": "query.skin_id == 111 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:magumagu_skill') && query.variant == 3 && query.is_using_item" }
+          ]
+        },
+        "funka":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"大噴火\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.magumagu_at = variable.magumagu_at < 20 ? variable.magumagu_at + 1:0;return variable.magumagu_at == 0;"}
+          ]
+        },
+        "kazan":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"流星火山\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.magumagu_at = variable.magumagu_at < 20 ? variable.magumagu_at + 1:0;return variable.magumagu_at == 0;"}
+          ]
+        },
+        "meigou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"冥狗\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.magumagu_at = variable.magumagu_at < 20 ? variable.magumagu_at + 1:0;return variable.magumagu_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

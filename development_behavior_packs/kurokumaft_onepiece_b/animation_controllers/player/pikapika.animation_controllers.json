@@ -1,0 +1,102 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.pikapika.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kagami": "query.variant == 3 && query.is_sneaking" },
+            { "murakumo": "query.variant == 1 && query.is_sneaking" },
+            { "magatama": "query.variant == 2 && query.is_sneaking" }
+          ]
+        },
+        "kagami":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"八咫鏡（やたのかがみ）\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "murakumo":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"天叢雲剣（あまのむらくも）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "magatama":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"八尺瓊曲玉（やさかにのまがたま）\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.pikapika": {
+      "states": {
+        "default": {
+          "variables": {
+            "pikapika_at": {
+              "input": "variable.pikapika_at = (variable.pikapika_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "kagami": "query.variant == 1 && query.is_using_item" },
+            { "murakumo": "query.variant == 2 && query.is_using_item" },
+            { "magatama": "query.variant == 3 && query.is_using_item" }
+          ]
+        },
+        "kagami":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"八咫鏡（やたのかがみ）\"}]}",
+            "/tag @s add kagami_owner",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.pikapika_at = variable.pikapika_at < 20 ? variable.pikapika_at + 1:0;return variable.pikapika_at == 0;"}
+          ]
+        },
+        "murakumo":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"天叢雲剣（あまのむらくも）\"}]}",
+            "/give @s kurokumaft:amanomurakumo 1",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "magatama":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"八尺瓊曲玉（やさかにのまがたま）\"}]}",
+            "/event entity @s kurokumaft:yasakaninomagatama_shot",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:yasakaninomagatama_remove",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.pikapika_at = variable.pikapika_at < 120 ? variable.pikapika_at + 1:0;return variable.pikapika_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

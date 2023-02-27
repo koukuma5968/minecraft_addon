@@ -2,16 +2,14 @@
 	"format_version": "1.10.0",
 	"animation_controllers": {
 		"controller.animation.wado_ichimonzi.wield": {
-			"initial_state": "first_person",
-			"states": {
+			"initial_state" : "first_person",
+			"states" : {
 				"first_person": {
 					"animations": [
 						"wield_first_person"
 					],
 					"transitions": [
-						{
-							"third_person": "!c.is_first_person"
-						}
+						{"third_person": "!c.is_first_person"}
 					]
 				},
 				"third_person": {
@@ -19,9 +17,39 @@
 						"wield_third_person"
 					],
 					"transitions": [
-						{
-							"first_person": "c.is_first_person"
-						}
+						{"first_person": "c.is_first_person"}
+					]
+				}
+			}
+		},
+		"controller.animation.wado_ichimonzi.head": {
+			"initial_state" : "first_person",
+			"states" : {
+				"first_person": {
+					"animations": [
+						"wield_first_person"
+					],
+					"transitions": [
+						{"third_person": "!c.is_first_person"},
+						{"head_third_person": "query.is_item_name_any('slot.armor.head',0,'kurokumaft:wado_ichimonzi_head')"}
+					]
+				},
+				"third_person": {
+					"animations": [
+						"wield_third_person"
+					],
+					"transitions": [
+						{"first_person": "c.is_first_person"},
+						{"head_third_person": "query.is_item_name_any('slot.armor.head',0,'kurokumaft:wado_ichimonzi_head')"}
+					]
+				},
+				"head_third_person": {
+					"animations": [
+						"head_third_person"
+					],
+					"transitions": [
+						{"first_person": "c.is_first_person && !query.is_item_name_any('slot.armor.head',0,'kurokumaft:wado_ichimonzi_head')"},
+						{"third_person": "!c.is_first_person && !query.is_item_name_any('slot.armor.head',0,'kurokumaft:wado_ichimonzi_head')"}
 					]
 				}
 			}

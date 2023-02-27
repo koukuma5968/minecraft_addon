@@ -1,0 +1,33 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:forty_four_magnum"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "G",
+            "G",
+            "P"
+        ],
+        "key": {
+            "S": {
+                "item": "kurokumaft:steel_ingot"
+            },
+            "G": {
+                "item": "minecraft:gold_ingot"
+            },
+            "P": {
+                "item": "minecraft:gunpowder"
+            }
+
+        },
+        "result": {
+            "item": "kurokumaft:forty_four_magnum",
+            "count": 6
+        },
+        "priority": 2
+    }
+}

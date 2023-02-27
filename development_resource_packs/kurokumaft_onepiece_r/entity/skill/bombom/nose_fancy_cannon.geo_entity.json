@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:nose_fancy_cannon_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/bombom/nose_fancy_cannon"
+        },
+        "geometry": {
+          "default": "geometry.nose_fancy_cannon"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

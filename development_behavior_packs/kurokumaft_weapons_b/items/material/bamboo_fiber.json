@@ -1,0 +1,20 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:bamboo_fiber",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:bamboo_fiber.name"
+			},
+      "minecraft:icon": {
+        "texture": "bamboo_fiber"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.bamboo_fiber"
+      }
+    }
+  }
+}

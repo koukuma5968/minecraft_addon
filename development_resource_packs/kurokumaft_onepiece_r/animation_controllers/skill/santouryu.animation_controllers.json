@@ -114,6 +114,109 @@
 					]
 				}
 			}
+		},
+		"controller.animation.santouryu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"onigiri": "query.variant == 1 && query.mark_variant == 1"},
+						{"toragari": "query.variant == 2 && query.mark_variant == 1"},
+						{"tatumaki": "query.variant == 3 && query.mark_variant == 1"},
+						{"bondohou": "query.variant == 4 && query.mark_variant == 1"},
+						{"sanzensekai": "query.variant == 5 && query.mark_variant == 1"}
+					]
+				},
+				"onigiri" : {
+					"animations" : [
+						"santouryu_onigiri"
+					],
+					"transitions" : [
+						{"onigiri_att":"query.mark_variant == 2"}
+					]
+				},
+				"onigiri_att" : {
+					"animations" : [
+						"santouryu_onigiri_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"toragari" : {
+					"animations" : [
+						"santouryu_toragari"
+					],
+					"transitions" : [
+						{"toragari_att":"query.mark_variant == 2"}
+					]
+				},
+				"toragari_att" : {
+					"animations" : [
+						"santouryu_toragari_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"tatumaki" : {
+					"animations" : [
+						"santouryu_tatumaki"
+					],
+					"transitions" : [
+						{"tatumaki_att":"query.mark_variant == 2"}
+					]
+				},
+				"tatumaki_att" : {
+					"animations" : [
+						"santouryu_tatumaki_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"bondohou" : {
+					"animations" : [
+						"santouryu_bondohou"
+					],
+					"transitions" : [
+						{"bondohou_att":"query.mark_variant == 2"},
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"bondohou_att" : {
+					"animations" : [
+						"santouryu_bondohou_attack"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"sanzensekai" : {
+					"animations" : [
+						"santouryu_sanzensekai"
+					],
+					"transitions" : [
+						{"sanzensekai_2":"query.any_animation_finished"}
+					]
+				},
+				"sanzensekai_2" : {
+					"animations" : [
+						"santouryu_sanzensekai_2"
+					],
+					"transitions" : [
+						{"sanzensekai_att":"query.mark_variant == 2"}
+					]
+				},
+				"sanzensekai_att" : {
+					"animations" : [
+						"santouryu_sanzensekai_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
 		}
-    }
+     }
 }

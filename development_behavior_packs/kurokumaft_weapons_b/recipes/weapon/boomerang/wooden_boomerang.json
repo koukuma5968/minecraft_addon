@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:wooden_boomerang"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AAB",
+            "A  ",
+            "B  "
+        ],
+        "key": {
+            "A": {
+                "item": "planks"
+            },
+            "B": {
+                "item": "stick"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:wooden_boomerang",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

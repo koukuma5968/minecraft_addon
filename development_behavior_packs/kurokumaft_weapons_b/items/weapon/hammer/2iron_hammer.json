@@ -10,10 +10,6 @@
       "minecraft:creative_category": {
         "parent": "itemGroup.name.hammer"
       },
-      "minecraft:cooldown": {
-        "category": "iron_hammer",
-        "duration": 1.5
-      },
       "minecraft:render_offsets": {
         "main_hand": {
           "first_person": { 
@@ -40,13 +36,24 @@
         "value": 15,
         "slot": "sword"
       },
-      "minecraft:use_duration": 25,
       "minecraft:durability": {
         "max_durability": 250
       },
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
         "texture": "iron_hammer"
+      },
+      "minecraft:throwable": {
+        "do_swing_animation": false,
+        "launch_power_scale": 1.0,
+        "max_launch_power": 10.0,
+        "max_draw_duration": 5.0,
+        "min_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:thrown_iron_hammer",
+        "minimum_critical_power": 1.0
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:iron_hammer.name"

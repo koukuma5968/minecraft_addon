@@ -1,0 +1,36 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:millstone",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": {
+				"origin": [-6.0, 0.0, -6.0],
+				"size": [12.0, 12.0, 12.0]
+			},
+			"minecraft:display_name": "tile.kurokumaft:millstone.name",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30
+			},
+			"minecraft:crafting_table": {
+				"crafting_tags": ["millstone"]
+			},
+			"minecraft:geometry": "geometry.millstone",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "millstone",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:map_color": "#65635e"
+		}
+	}
+}

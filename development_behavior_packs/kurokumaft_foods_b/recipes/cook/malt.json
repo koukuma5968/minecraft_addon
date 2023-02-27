@@ -1,0 +1,12 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "kurokumaft:malt"
+    },
+    "tags": ["smoker", "campfire", "soul_campfire"],
+    "input": "minecraft:wheat",
+    "output": "kurokumaft:malt"
+  }
+  
+}

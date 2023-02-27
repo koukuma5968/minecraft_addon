@@ -23,8 +23,8 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:tnt_sword" ],
-            "repair_amount": 5
+            "items": [ "minecraft:gunpowder" ],
+            "repair_amount": 20
           }
         ]
       },

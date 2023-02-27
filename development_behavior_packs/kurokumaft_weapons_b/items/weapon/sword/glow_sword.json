@@ -24,7 +24,7 @@
         "repair_items": [
           {
             "items": [ "minecraft:glowstone_dust" ],
-            "repair_amount": 5
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
           }
         ]
       },

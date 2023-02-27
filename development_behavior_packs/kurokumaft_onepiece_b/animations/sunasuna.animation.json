@@ -16,7 +16,253 @@
 			"timeline": {
 			    "0.0": [
 					"/effect @s slow_falling 1 1 true",
-					"/particle kurokumaft:sunasuna_hover ^^-1^1"
+					"/particle kurokumaft:sunasuna_hover ^^^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.sunasuna.desert_girasole": {
+			"animation_length": 0.3,
+			"loop": false,
+			"timeline": {
+			    "0.01": [
+					"/fill ~-1~-1~-1 ~1~-1~1 sand 0 outline",
+					"/fill ~-1~-2~-1 ~1~-2~1 sandstone 0 outline",
+					"/fill ~-1~-3~-1 ~1~-3~1 sandstone 0 outline",
+					"/fill ~-1~-4~-1 ~1~-4~1 sandstone 0 outline",
+					"/fill ~-1~-5~-1 ~1~-5~1 sandstone 0 outline",
+					"/fill ~-1~-6~-1 ~1~-6~1 sandstone 0 outline"
+				],
+			    "0.03": [
+					"/fill ~-2~-1~-2 ~2~-1~2 sand 0 outline",
+					"/fill ~-2~-2~-2 ~2~-2~2 sandstone 0 outline",
+					"/fill ~-2~-3~-2 ~2~-3~2 sandstone 0 outline",
+					"/fill ~-2~-4~-2 ~2~-4~2 sandstone 0 outline",
+					"/fill ~-2~-5~-2 ~2~-5~2 sandstone 0 outline",
+					"/fill ~-2~-6~-2 ~2~-6~2 sandstone 0 outline"
+				],
+			    "0.06": [
+					"/fill ~-3~-1~-3 ~3~-1~3 sand 0 outline",
+					"/fill ~-3~-2~-3 ~3~-2~3 sandstone 0 outline",
+					"/fill ~-3~-3~-3 ~3~-3~3 sandstone 0 outline",
+					"/fill ~-3~-4~-3 ~3~-4~3 sandstone 0 outline",
+					"/fill ~-3~-5~-3 ~3~-5~3 sandstone 0 outline",
+					"/fill ~-3~-6~-3 ~3~-6~3 sandstone 0 outline"
+				],
+			    "0.09": [
+					"/fill ~-4~-1~-4 ~4~-1~4 sand 0 outline",
+					"/fill ~-4~-2~-4 ~4~-2~4 sandstone 0 outline",
+					"/fill ~-4~-3~-4 ~4~-3~4 sandstone 0 outline",
+					"/fill ~-4~-4~-4 ~4~-4~4 sandstone 0 outline",
+					"/fill ~-4~-5~-4 ~4~-5~4 sandstone 0 outline",
+					"/fill ~-4~-6~-4 ~4~-6~4 sandstone 0 outline"
+				],
+			    "0.12": [
+					"/fill ~-5~-1~-5 ~5~-1~5 sand 0 outline",
+					"/fill ~-5~-2~-5 ~5~-2~5 sandstone 0 outline",
+					"/fill ~-5~-3~-5 ~5~-3~5 sandstone 0 outline",
+					"/fill ~-5~-4~-5 ~5~-4~5 sandstone 0 outline",
+					"/fill ~-5~-5~-5 ~5~-5~5 sandstone 0 outline",
+					"/fill ~-5~-6~-5 ~5~-6~5 sandstone 0 outline"
+				],
+			    "0.15": [
+					"/fill ~-6~-1~-6 ~6~-1~6 sand 0 outline",
+					"/fill ~-6~-2~-6 ~6~-2~6 sandstone 0 outline",
+					"/fill ~-6~-3~-6 ~6~-3~6 sandstone 0 outline",
+					"/fill ~-6~-4~-6 ~6~-4~6 sandstone 0 outline",
+					"/fill ~-6~-5~-6 ~6~-5~6 sandstone 0 outline",
+					"/fill ~-6~-6~-6 ~6~-6~6 sandstone 0 outline"
+				],
+			    "0.18": [
+					"/fill ~-7~-1~-7 ~7~-1~7 sand 0 outline",
+					"/fill ~-7~-2~-7 ~7~-2~7 sandstone 0 outline",
+					"/fill ~-7~-3~-7 ~7~-3~7 sandstone 0 outline",
+					"/fill ~-7~-4~-7 ~7~-4~7 sandstone 0 outline",
+					"/fill ~-7~-5~-7 ~7~-5~7 sandstone 0 outline",
+					"/fill ~-7~-6~-7 ~7~-6~7 sandstone 0 outline"
+				],
+			    "0.21": [
+					"/fill ~-8~-1~-8 ~8~-1~8 sand 0 outline",
+					"/fill ~-8~-2~-8 ~8~-2~8 sandstone 0 outline",
+					"/fill ~-8~-3~-8 ~8~-3~8 sandstone 0 outline",
+					"/fill ~-8~-4~-8 ~8~-4~8 sandstone 0 outline",
+					"/fill ~-8~-5~-8 ~8~-5~8 sandstone 0 outline",
+					"/fill ~-8~-6~-8 ~8~-6~8 sandstone 0 outline"
+				],
+			    "0.24": [
+					"/fill ~-8~-1~-8 ~8~-1~8 air 0 replace",
+					"/fill ~-6~-2~-6 ~6~-2~6 air 0 replace",
+					"/fill ~-4~-4~-4 ~4~-4~4 air 0 replace",
+					"/fill ~-2~-6~-2 ~2~-6~2 air 0 replace"
+				]
+			}
+		},
+		"animation.sunasuna.ground_secco": {
+			"timeline": {
+			    "0.00": [
+					"/function sunasuna/ground_secco/ground_secco0"
+				],
+			    "0.01": [
+					"/function sunasuna/ground_secco/ground_secco1"
+				],
+			    "0.02": [
+					"/function sunasuna/ground_secco/ground_secco2"
+				],
+			    "0.03": [
+					"/function sunasuna/ground_secco/ground_secco3"
+				],
+			    "0.04": [
+					"/function sunasuna/ground_secco/ground_secco4"
+				],
+			    "0.05": [
+					"/function sunasuna/ground_secco/ground_secco5"
+				],
+			    "0.06": [
+					"/function sunasuna/ground_secco/ground_secco6"
+				],
+			    "0.07": [
+					"/function sunasuna/ground_secco/ground_secco7"
+				],
+			    "0.08": [
+					"/function sunasuna/ground_secco/ground_secco8"
+				],
+			    "0.09": [
+					"/function sunasuna/ground_secco/ground_secco9"
+				],
+			    "0.10": [
+					"/function sunasuna/ground_secco/ground_secco10"
+				],
+			    "0.11": [
+					"/function sunasuna/ground_secco/ground_secco11"
+				],
+			    "0.12": [
+					"/function sunasuna/ground_secco/ground_secco12"
+				],
+			    "0.13": [
+					"/function sunasuna/ground_secco/ground_secco13"
+				],
+			    "0.14": [
+					"/function sunasuna/ground_secco/ground_secco14"
+				],
+			    "0.15": [
+					"/function sunasuna/ground_secco/ground_secco15"
+				],
+			    "0.16": [
+					"/function sunasuna/ground_secco/ground_secco16"
+				],
+			    "0.17": [
+					"/function sunasuna/ground_secco/ground_secco17"
+				],
+			    "0.18": [
+					"/function sunasuna/ground_secco/ground_secco18"
+				],
+			    "0.19": [
+					"/function sunasuna/ground_secco/ground_secco19"
+				],
+			    "0.20": [
+					"/function sunasuna/ground_secco/ground_secco20"
+				]
+			},
+			"animation_length": 0.80,
+			"loop": false
+		},
+		"animation.sunasuna.ground_death": {
+			"timeline": {
+			    "0.00": [
+					"/function sunasuna/ground_death/ground_death0",
+					"/execute positioned ~-1~~-1 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.01": [
+					"/function sunasuna/ground_death/ground_death1",
+					"/execute positioned ~-1~~-1 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.02": [
+					"/function sunasuna/ground_death/ground_death2",
+					"/execute positioned ~-2~~-2 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.03": [
+					"/function sunasuna/ground_death/ground_death3",
+					"/execute positioned ~-3~~3 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.04": [
+					"/function sunasuna/ground_death/ground_death4",
+					"/execute positioned ~4~~-4 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.05": [
+					"/function sunasuna/ground_death/ground_death5",
+					"/execute positioned ~5~~5 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.06": [
+					"/function sunasuna/ground_death/ground_death6",
+					"/execute positioned ~-6~~-6 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.07": [
+					"/function sunasuna/ground_death/ground_death7",
+					"/execute positioned ~7~~-7 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.08": [
+					"/function sunasuna/ground_death/ground_death8",
+					"/execute positioned ~8~~8 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.09": [
+					"/function sunasuna/ground_death/ground_death9",
+					"/execute positioned ~-9~~9 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.10": [
+					"/function sunasuna/ground_death/ground_death10",
+					"/execute positioned ~-10~~-10 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.11": [
+					"/function sunasuna/ground_death/ground_death11",
+					"/execute positioned ~11~~-11 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.12": [
+					"/function sunasuna/ground_death/ground_death12",
+					"/execute positioned ~12~~12 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.13": [
+					"/function sunasuna/ground_death/ground_death13",
+					"/execute positioned ~13~~-13 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.14": [
+					"/function sunasuna/ground_death/ground_death14",
+					"/execute positioned ~-14~~-14 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.15": [
+					"/function sunasuna/ground_death/ground_death15",
+					"/execute positioned ~15~~-15 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.16": [
+					"/function sunasuna/ground_death/ground_death16",
+					"/execute positioned ~16~~16 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.17": [
+					"/function sunasuna/ground_death/ground_death17",
+					"/execute positioned ~-17~~17 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.18": [
+					"/function sunasuna/ground_death/ground_death18",
+					"/execute positioned ~-18~~-18 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.19": [
+					"/function sunasuna/ground_death/ground_death19",
+					"/execute positioned ~19~~-19 run particle kurokumaft:sabers ~~~"
+				],
+			    "0.20": [
+					"/function sunasuna/ground_death/ground_death20",
+					"/execute positioned ~20~~20 run particle kurokumaft:sabers ~~~"
+				]
+			},
+			"animation_length": 0.80,
+			"loop": false
+		},
+		"animation.sunasuna.sabers": {
+			"timeline": {
+			    "0.0": [
+					"/execute as @s run tp @s ^^^1 facing @e[family=!player,family=!inanimate,r=50,c=1]",
+					"/execute as @s run damage @e[family=!player,family=!inanimate,r=2.5] 5 magic",
+					"/execute as @s run particle kurokumaft:sabers ~~~"
 				]
 			},
 			"animation_length": 0.1,

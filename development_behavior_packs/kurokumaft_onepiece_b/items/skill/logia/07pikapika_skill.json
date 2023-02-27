@@ -31,12 +31,36 @@
       "minecraft:chargeable": {
       },
       "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.skin_id == 112",
+          "event": "kurokumaft:pikapika_shot",
+          "target": "self"
+        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
+      "kurokumaft:pikapika_shot" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 1",
+            "trigger": "kurokumaft:kagami"
+          }
+        ]
+      },
+
+      "kurokumaft:kagami" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:kagami_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      }
     }
   }
 }

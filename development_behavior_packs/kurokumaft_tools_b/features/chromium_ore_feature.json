@@ -1,0 +1,18 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:ore_feature": {
+      "description": {
+        "identifier": "kurokumaft:chromium_ore_feature"
+      },
+      "count": 10,
+      "replace_rules": [
+        {
+          "places_block": "kurokumaft:chromium_ore",
+          "may_replace": [
+            "minecraft:stone"
+          ]
+        }
+      ]
+    }
+  }
+  

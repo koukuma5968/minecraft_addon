@@ -1,24 +1,14 @@
 {
   "format_version": "1.12",
-  "minecraft:recipe_shapeless": {
+  "minecraft:recipe_smithing_transform": {
     "description": {
       "identifier": "kurokumaft:diamond_hammer_to_netherite"
     },
-
     "tags": [ "smithing_table" ],
     "priority": 2,
-    "ingredients": [
-      {
-        "item": "kurokumaft:diamond_hammer"
-      },
-      {
-        "item": "minecraft:netherite_ingot"
-      }
-    ],
-    "result": {
-      "item": "kurokumaft:netherite_hammer",
-      "count": 1
-    }
+    "base": "kurokumaft:diamond_hammer",
+    "addition": "minecraft:netherite_ingot",
+    "result": "kurokumaft:netherite_hammer"
   }
   
 }

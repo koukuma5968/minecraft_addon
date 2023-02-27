@@ -37,15 +37,18 @@
         "distribution": {
             "iterations": 1,
             "scatter_chance": 70.0,
-            "x": 50,
+            "x": {
+                "distribution": "uniform",
+                "extent": ["0","15"]
+            },
             "y": {
                 "distribution": "uniform",
-                "extent": [
-                    "0",
-                    "20"
-                ]
+                "extent": ["40","90"]
             },
-            "z": 50
+            "z": {
+                "distribution": "uniform",
+                "extent": ["0","15"]
+            }
         }
     }
 }

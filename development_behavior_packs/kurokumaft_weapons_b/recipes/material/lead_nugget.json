@@ -1,0 +1,14 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "kurokumaft:lead_nugget"
+        },
+        "tags": ["furnace", "blast_furnace"],
+        "input": "minecraft:stone:1",
+        "output": {
+            "item": "kurokumaft:lead_nugget",
+            "count": 4
+        }
+    }
+}    

@@ -1,0 +1,19 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "kurokumaft:fish_meal_fish"
+        },
+        "tags": ["millstone"],
+        "priority": 2,
+        "ingredients": [
+            {
+                "item": "minecraft:cooked_fish"
+            }
+        ],
+        "result": {
+          "item": "kurokumaft:fish_meal",
+          "count": 4
+        }
+    }
+}

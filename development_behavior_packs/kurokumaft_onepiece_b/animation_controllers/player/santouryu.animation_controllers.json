@@ -5,11 +5,11 @@
       "states": {
         "default": {
           "transitions": [
-            { "onigiri": "query.variant == 5 && query.is_sneaking" },
-            { "toragari": "query.variant == 1 && query.is_sneaking" },
-            { "tatumaki": "query.variant == 2 && query.is_sneaking" },
-            { "bondohou": "query.variant == 3 && query.is_sneaking" },
-            { "sanzensekai": "query.variant == 4 && query.is_sneaking" }
+            { "onigiri": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 5 && query.is_sneaking" },
+            { "toragari": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 1 && query.is_sneaking" },
+            { "tatumaki": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 2 && query.is_sneaking" },
+            { "bondohou": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 3 && query.is_sneaking" },
+            { "sanzensekai": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 4 && query.is_sneaking" }
           ]
         },
         "onigiri":{
@@ -64,7 +64,7 @@
         }
       }
     },
-    "controller.animation.santouryu": {
+    "controller.animation.santouryu.player": {
       "states": {
         "default": {
           "variables": {
@@ -73,11 +73,11 @@
             }
           },
           "transitions": [
-            { "onigiri": "query.variant == 1 && query.is_using_item" },
-            { "toragari": "query.variant == 2 && query.is_using_item" },
-            { "tatumaki": "query.variant == 3 && query.is_using_item" },
-            { "bondohou": "query.variant == 4 && query.mark_variant == 0 && query.is_using_item" },
-            { "sanzensekai": "query.variant == 5 && query.is_using_item" }
+            { "onigiri": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 1 && query.is_using_item" },
+            { "toragari": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 2 && query.is_using_item" },
+            { "tatumaki": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 3 && query.is_using_item" },
+            { "bondohou": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 4 && query.mark_variant == 0 && query.is_using_item" },
+            { "sanzensekai": "query.skin_id == 102 && query.equipped_item_any_tag('slot.weapon.mainhand','santouryu') && query.variant == 5 && query.is_using_item" }
           ]
         },
         "onigiri":{

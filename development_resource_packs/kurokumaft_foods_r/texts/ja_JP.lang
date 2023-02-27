@@ -2,5 +2,24 @@ item.kurokumaft:apple_pie.name=アップルパイ
 item.kurokumaft:baked_carrot.name=ベイクド キャロット
 item.kurokumaft:cheese.name=チーズ
 item.kurokumaft:carrot_stew.name=ニンジンシチュー
-item.kurokumaft:onion.name=玉ねぎ
+item.kurokumaft:miso_soup_no_ingredient.name=味噌汁(具なし)
 
+item.kurokumaft:onion.name=玉ねぎ
+item.kurokumaft:soybean.name=大豆
+item.kurokumaft:green_soybean.name=枝豆
+item.kurokumaft:malt.name=麹
+item.kurokumaft:salt.name=塩
+
+item.kurokumaft:chromium_nugget.name=クロム塊
+item.kurokumaft:steel_ingot.name=スチールインゴット
+
+tile.kurokumaft:onions.name=玉ねぎ
+tile.kurokumaft:soybean.name=大豆
+
+item.kurokumaft:wooden_bucket_empty.name=木桶
+item.kurokumaft:wooden_bucket_miso.name=味噌入り木桶
+item.kurokumaft:soup_bowl.name=汁椀
+
+tile.kurokumaft:kitchen_table.name=調理台
+
+tile.kurokumaft:chromium_ore.name=クロム鉱石

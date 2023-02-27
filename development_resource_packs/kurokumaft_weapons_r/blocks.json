@@ -1,0 +1,11 @@
+{
+	"millstone": {
+		"sound": "stone"
+	},
+	"chromium_ore": {
+		"sound": "stone"
+	},
+	"medicinal_plants": {
+		"sound": "grass"
+	}
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:seeds_medicinal_plant",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:seeds_medicinal_plant.name"
+			},
+      "minecraft:icon": {
+        "texture": "seeds_medicinal_plant"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.seeds"
+      },
+      "minecraft:block_placer": {
+        "block": "medicinal_plants",
+        "use_on" : [
+          "farmland"
+        ]
+      }
+    },
+    "events": {
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+	"chromium_ore": {
+		"sound": "stone"
+	},
+	"kitchen_table": {
+		"sound": "metal"
+	},
+	"onions": {
+		"sound": "grass",
+		"textures": "onions"
+	},
+	"soybeans": {
+		"sound": "grass",
+		"textures": "soybeans"
+	}
+}

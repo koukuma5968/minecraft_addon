@@ -5,8 +5,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "hou": "query.variant == 2 && query.is_sneaking" },
-            { "senbei": "query.variant == 1 && query.is_sneaking" }
+            { "hou": "query.skin_id == 101 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:barabara_skill') && query.variant == 2 && query.is_sneaking" },
+            { "senbei": "query.skin_id == 101 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:barabara_skill') && query.variant == 1 && query.is_sneaking" }
           ]
         },
         "hou":{
@@ -40,8 +40,8 @@
             }
           },
           "transitions": [
-            { "hou": "query.variant == 1 && query.is_using_item" },
-            { "senbei": "query.variant == 2 && query.is_using_item" }
+            { "hou": "query.skin_id == 101 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:barabara_skill') && query.variant == 1 && query.is_using_item" },
+            { "senbei": "query.skin_id == 101 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:barabara_skill') && query.variant == 2 && query.is_using_item" }
           ]
         },
         "hou":{

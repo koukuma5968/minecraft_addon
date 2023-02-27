@@ -9,15 +9,23 @@
         {
           "places_block": "kurokumaft:scarlet_ore",
           "may_replace": [
-            "minecraft:stone",
-            "minecraft:iron_ore"
+            {
+              "name": "minecraft:stone"
+            },
+            {
+              "name": "minecraft:iron_ore"
+            }
           ]
         },
         {
           "places_block": "kurokumaft:scarlet_gravel",
           "may_replace": [
-            "minecraft:gravel",
-            "minecraft:coal_ore"
+            {
+              "name": "minecraft:gravel"
+            },
+            {
+              "name": "minecraft:coal_ore"
+            }
           ]
         }
       ]

@@ -1,0 +1,17 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:malt",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:malt.name"
+			},
+      "minecraft:icon": {
+        "texture": "malt"
+      }
+    }
+  }
+}

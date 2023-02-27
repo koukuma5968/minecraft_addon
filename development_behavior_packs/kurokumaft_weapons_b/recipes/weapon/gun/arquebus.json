@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:arquebus"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "B  ",
+            " BA",
+            "  A"
+        ],
+        "key": {
+            "A": {
+                "item": "planks"
+            },
+            "B": {
+                "item": "iron_ingot"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:arquebus",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

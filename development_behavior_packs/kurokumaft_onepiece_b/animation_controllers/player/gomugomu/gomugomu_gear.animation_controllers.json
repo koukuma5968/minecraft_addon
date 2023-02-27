@@ -1,0 +1,145 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.gomugomu.stage": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "stage2": "(query.skin_id == 100 || query.skin_id == 1002 || query.skin_id == 1003 || query.skin_id == 1004) && query.max_health >= 40" }
+          ]
+        },
+        "stage2": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア2・3解放\"}]}"
+          ],
+          "transitions": [
+            { "stage3": "query.max_health >= 60" },
+            { "default": "query.max_health <= 20" }
+          ]
+        },
+        "stage3": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア4解放\"}]}"
+          ],
+          "transitions": [
+            { "stage4": "query.max_health >= 80" },
+            { "default": "query.max_health <= 20" }
+          ]
+        },
+        "stage4": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア5解放\"}]}"
+          ],
+          "transitions": [
+            { "default": "query.max_health <= 20" }
+          ]
+        }
+      }
+    },
+    "controller.animation.gomugomu.gear": {
+      "states": {
+        "default": {
+          "variables": {
+            "gomugomu_gear": {
+              "input": "variable.gomugomu_gear = (variable.gomugomu_gear ?? 0);"
+            }
+          },
+          "transitions": [
+            { "gear": "query.max_health >= 40 && query.is_sneaking && query.skin_id == 100" }
+          ]
+        },
+        "gear": {
+          "transitions": [
+            { "gear2": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" },
+            { "default": "!query.is_sneaking" }
+          ]
+        },
+        "gear2": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア\"}]}",
+            "/event entity @s mark_variant11"
+          ],
+          "transitions": [
+            { "gear2_go": "!query.is_sneaking" },
+            { "gear3": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+          ]
+        },
+        "gear2_go": {
+          "animations" : [ "gomugomu2.particle" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"セカンド\"}]}",
+            "/effect @s speed 99999 20 true",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu2",
+            "/event entity @s mark_variant0"
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"セカンド終了\"}]}",
+            "/effect @s speed 0",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu"
+          ],
+          "transitions": [
+            { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 1000 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+          ]
+        },
+        "gear3": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア\"}]}",
+            "/event entity @s mark_variant12"
+          ],
+          "transitions": [
+            { "gear3_go": "!query.is_sneaking" },
+            { "gear4": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0 && query.max_health >= 60;" },
+            { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0 && query.max_health < 60;" }
+          ]
+        },
+        "gear3_go": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"サード\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu3",
+            "/event entity @s mark_variant0"
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"サード終了\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu3_down"
+          ],
+          "transitions": [
+            { "gear3_dwon": "variable.gomugomu_gear = variable.gomugomu_gear < 1000 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+          ]
+        },
+        "gear3_dwon": {
+          "on_exit": [
+            "/event entity @s kurokumaft:devil_fruit_gomugomu"
+          ],
+          "transitions": [
+            { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 1000 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+          ]
+        },
+        "gear4": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア\"}]}",
+            "/event entity @s mark_variant13"
+          ],
+          "transitions": [
+            { "gear4_go": "!query.is_sneaking" },
+            { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+          ]
+        },
+        "gear4_go": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"フォース\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4",
+            "/event entity @s mark_variant0"
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"フォース終了\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu"
+          ],
+          "transitions": [
+            { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 1000 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+          ]
+        }
+      }
+    }
+
+  }
+}

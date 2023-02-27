@@ -61,7 +61,7 @@
 			"timeline": {
 			    "0.0": [
 					"/effect @s slow_falling 1 1 true",
-					"/particle kurokumaft:meramera_hover ^^-1^1"
+					"/particle kurokumaft:meramera_hover ^^^1"
 				]
 			},
 			"animation_length": 0.1,

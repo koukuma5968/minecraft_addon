@@ -1,0 +1,277 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:partisan_entity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "kurokumaft:despawn": {
+				"minecraft:variant": {
+					"value": 1
+				}
+      },
+			"kurokumaft:partisan1": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-2, -1, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:partisan2": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [2, -1, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:partisan3": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [2, 2, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:partisan4": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-2, 2, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:partisan5": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-2, 0, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:partisan6": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [2, 0, -2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["partisan", "hiehie", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 0.1
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval": false,
+        "time": 6.00,
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:despawn": {
+        "filters": {
+          "test": "is_variant","value": 1
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+			"kurokumaft:partisan1": {
+				"add": {
+					"component_groups": ["kurokumaft:partisan1" ]
+				}
+			},
+			"kurokumaft:partisan2": {
+				"add": {
+					"component_groups": ["kurokumaft:partisan2" ]
+				}
+			},
+			"kurokumaft:partisan3": {
+				"add": {
+					"component_groups": ["kurokumaft:partisan3" ]
+				}
+			},
+			"kurokumaft:partisan4": {
+				"add": {
+					"component_groups": ["kurokumaft:partisan4" ]
+				}
+			},
+			"kurokumaft:partisan5": {
+				"add": {
+					"component_groups": ["kurokumaft:partisan5" ]
+				}
+			},
+			"kurokumaft:partisan6": {
+				"add": {
+					"component_groups": ["kurokumaft:partisan6" ]
+				}
+			},
+      "kurokumaft:despawn": {
+				"add": {
+					"component_groups": ["kurokumaft:despawn" ]
+				}
+      }
+
+    }
+  }
+}

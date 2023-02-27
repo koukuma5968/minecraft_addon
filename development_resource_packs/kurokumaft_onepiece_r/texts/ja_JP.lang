@@ -3,6 +3,7 @@ item.kurokumaft:barabara_fruit.name=バラバラの実
 item.kurokumaft:guragura_fruit.name=グラグラの実
 item.kurokumaft:itoito_fruit.name=イトイトの実
 item.kurokumaft:nikyunikyu_fruit.name=ニキュニキュの実
+item.kurokumaft:bombom_fruit.name=ボムボムの実
 
 item.kurokumaft:mokumoku_fruit.name=モクモクの実
 item.kurokumaft:meramera_fruit.name=メラメラの実
@@ -21,6 +22,7 @@ item.kurokumaft:barabara_skill.name=バラバラの技
 item.kurokumaft:guragura_skill.name=グラグラの技
 item.kurokumaft:itoito_skill.name=イトイトの技
 item.kurokumaft:nikyunikyu_skill.name=ニキュニキュの技
+item.kurokumaft:bombom_skill.name=ボムボムの技
 
 item.kurokumaft:mokumoku_skill.name=モクモクの技
 item.kurokumaft:meramera_skill.name=メラメラの技
@@ -37,9 +39,18 @@ item.kurokumaft:uouo_seiryu_skill.name=ウオウオの技（幻獣種 モデル�
 item.kurokumaft:santouryu_skill.name=三刀流の極意
 
 item.kurokumaft:wado_ichimonzi.name=和道一文字
+item.kurokumaft:zoro_mumeitou.name=無名刀（ゾロ）
+item.kurokumaft:sandai_kitetu.name=三代 鬼徹
+item.kurokumaft:yubashiri.name=雪走
+
 item.kurokumaft:murakumogiri.name=むら雲切
+item.kurokumaft:hiehie_ice_saber.name=アイスサーベル
+item.kurokumaft:amanomurakumo.name=天叢雲剣（あまのむらくも）
 
 item.kurokumaft:patinko.name=パチンコ
+item.kurokumaft:flintlock_revolver.name=フリントロック式44口径リボルバー
+
+item.kurokumaft:nami_stick.name=ナミの棒
 
 item.kurokumaft:namari_dama.name=鉛玉
 item.kurokumaft:kayaku_dama.name=火薬玉
@@ -51,7 +62,21 @@ item.kurokumaft:luffy_pants.name=ルフィのズボン
 item.kurokumaft:luffy_tabi.name=ルフィの足袋
 item.kurokumaft:straw_hat.name=麦わら帽子
 
+item.kurokumaft:zoro_jacket.name=ゾロの服
+item.kurokumaft:zoro_pants.name=ゾロのズボン
+item.kurokumaft:zoro_boots.name=ゾロのブーツ
+item.kurokumaft:zoro_hatimaki.name=ゾロの鉢巻き
+
+item.kurokumaft:nami_jacket_1.name=ナミの服1
+item.kurokumaft:nami_skirt_1..name=ナミのスカート1
+item.kurokumaft:nami_boots_1..name=ナミのブーツ
+
+item.kurokumaft:wado_ichimonzi_head.name=和道一文字(頭装備)
+
 item.spawn_egg.entity.kurokumaft:luffy.name=モンキー・D・ルフィ
+item.spawn_egg.entity.kurokumaft:zoro.name=ロロノア・ゾロ
+item.spawn_egg.entity.kurokumaft:nami.name=ナミ
+
 item.spawn_egg.entity.kurokumaft:baggi.name=道化のバギー
 
 tile.kurokumaft:powder_sand.name=砂塵	#

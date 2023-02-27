@@ -1,0 +1,45 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:feature_rules": {
+        "description": {
+            "identifier": "kurokumaft:chromium_ore_feature_rules",
+            "places_feature": "kurokumaft:chromium_ore_feature"
+        },
+        "conditions": {
+            "placement_pass": "final_pass",
+            "minecraft:biome_filter": [
+                {
+                    "any_of": [
+                        {
+                          "test": "has_biome_tag",
+                          "operator": "==",
+                          "value": "overworld"
+                        },
+                        {
+                          "test": "has_biome_tag",
+                          "operator": "==",
+                          "value": "overworld_generation"
+                        }
+                    ]
+                }
+            ]
+        },
+        "distribution": {
+            "iterations": 1,
+            "scatter_chance": 90.0,
+            "coordinate_eval_order": "xzy",
+            "x": {
+              "distribution": "uniform",
+              "extent": [ 0, 15 ]
+            },
+            "y": {
+                "distribution": "uniform",
+                "extent": [ -40, 80 ]
+            },
+            "z": {
+              "distribution": "uniform",
+              "extent": [ 0, 15 ]
+            }
+        }
+    }
+}

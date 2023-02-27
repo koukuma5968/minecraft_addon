@@ -1,0 +1,68 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:white_out",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": { "animate": [ "white_out" ] },
+			"animations": { 
+				"white_out": "animation.mokumoku.white_out"
+			}
+    },
+    "component_groups": {
+      "kurokumaft:despawn": {
+				"minecraft:variant": {
+					"value": 1
+				}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["white_out", "mokumoku", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 0.1
+      },
+      "minecraft:timer": {
+        "randomInterval": true,
+        "time": [15.0,20.0],
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:despawn": {
+        "filters": {
+          "test": "is_variant","value": 1
+        }
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "kurokumaft:despawn": {
+				"add": {
+					"component_groups": ["kurokumaft:despawn" ]
+				}
+      }
+    }
+  }
+}

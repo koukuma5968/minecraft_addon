@@ -10,11 +10,11 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "inanimate"]
+        "family": [ "bullet"]
       },
       "minecraft:collision_box": {
-        "width": 1.0,
-        "height": 1.0
+        "width": 0.25,
+        "height": 0.25
       },
       "minecraft:projectile": {
         "on_hit": {

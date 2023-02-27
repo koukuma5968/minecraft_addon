@@ -1,0 +1,19 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:fish_meal",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:fish_meal.name"
+			},
+      "minecraft:icon": {
+        "texture": "fish_meal"
+      }
+    },
+    "events": {
+    }
+  }
+}

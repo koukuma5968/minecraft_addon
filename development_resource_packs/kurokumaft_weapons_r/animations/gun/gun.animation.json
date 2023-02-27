@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gun.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"rotation": [-319.25083, 65.6967, -437.82139],
+					"position": [-3.5, 3.5, -3]
+				}
+			}
+		},
+		"animation.gun.wield_therd_person": {
+			"loop": true,
+			"bones": {
+				"rightitem": {
+					"rotation": [59.5, 360, 0],
+					"position": [0, -4, -2]
+				}
+			}
+		}
+	}
+}

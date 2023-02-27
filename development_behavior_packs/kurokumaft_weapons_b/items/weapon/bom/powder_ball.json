@@ -1,0 +1,37 @@
+{
+  "format_version": "1.18",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:powder_ball",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+      "value": "item.kurokumaft:powder_ball.name"
+      },
+      "minecraft:icon":{
+        "texture": "powder_ball"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.kurokumaft:name.bom"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:hand_equipped": true,
+      "minecraft:projectile": {
+        "minimum_critical_power": 1.0,
+        "projectile_entity": "kurokumaft:powder_ball"
+      },
+      "minecraft:throwable": {
+        "do_swing_animation": true,
+        "launch_power_scale": 0.5,
+        "max_launch_power": 1.0,
+        "max_draw_duration": 5.0,
+        "min_draw_duration": 0.5,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:can_destroy_in_creative": false
+    },
+    "events": {
+    }
+  }
+}

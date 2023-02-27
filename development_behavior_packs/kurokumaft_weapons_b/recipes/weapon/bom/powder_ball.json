@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:powder_ball"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " A ",
+            "ABA",
+            " A "
+        ],
+        "key": {
+            "A": {
+                "item": "planks"
+            },
+            "B": {
+                "item": "gunpowder"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:powder_ball",
+            "count": 4
+        },
+        "priority": 2
+    }
+}

@@ -13,11 +13,11 @@
 			"bones": [
 				{
 					"name": "rightitem",
-					"pivot": [0, 0, 0],
+					"pivot": [-2, 0, 0],
 					"texture_meshes": [
 						{
 							"texture": "default",
-							"position": [2, 1, -2],
+							"position": [0, 1, -2],
 							"rotation": [0, -135, 90],
 							"local_pivot": [6, 0, 6]
 						}

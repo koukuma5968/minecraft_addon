@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:funka_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/magumagu/funka"
+        },
+        "geometry": {
+          "default": "geometry.funka"
+        },
+        "scripts": {
+          "scale": "10",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.funka.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

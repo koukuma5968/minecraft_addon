@@ -6,6 +6,7 @@
         "category": "equipment"
     },
     "components": {
+      "tag:santouryu": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:wado_ichimonzi.name"
 			},
@@ -28,7 +29,7 @@
           }
         ]
       },
-      "minecraft:damage": 10,
+      "minecraft:damage": 12,
       "minecraft:enchantable": {
         "value": 10,
         "slot": "sword"
@@ -44,20 +45,35 @@
           "event": "kurokumaft:santouryu"
         }
       },
+      "minecraft:weapon": {
+        "on_hurt_entity": {
+            "event": "kurokumaft:hurt_entity"
+        }
+      },
       "minecraft:wearable": {
-        "slot": "slot.equippable"
+        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
+      "kurokumaft:hurt_entity": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
+      },
       "kurokumaft:santouryu" : {
         "sequence":[
           {
             "condition": "query.variant == 4",
-            "trigger": "kurokumaft:barabara_hou_shot"
+            "trigger": "kurokumaft:bondo_hou_shot"
+          },
+          {
+            "trigger": "kurokumaft:hurt_entity"
           }
         ]
       },
-      "kurokumaft:barabara_hou_shot" : {
+      "kurokumaft:bondo_hou_shot" : {
         "sequence":[
           {
             "run_command": {
@@ -72,13 +88,6 @@
             "shoot": {
               "projectile": "kurokumaft:santouryu_bondohou",
               "launch_power": 1.1
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
             }
           }
         ]

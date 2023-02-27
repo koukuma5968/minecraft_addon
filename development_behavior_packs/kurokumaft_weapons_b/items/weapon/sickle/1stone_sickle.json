@@ -1,0 +1,118 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:stone_sickle",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sickle"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 5,
+		  "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event":"kurokumaft:stone_sickle"
+        },
+        "on_not_hurt_entity": {
+          "event":"kurokumaft:stone_sickle"
+        }
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "use_trigger"
+        }
+      },
+      "minecraft:enchantable": {
+        "value": 10,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:durability": {
+        "max_durability": 100
+      },
+      "minecraft:use_animation": "bow",
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "stone_sickle"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:stone_sickle.name"
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+      "kurokumaft:stone_sickle": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "tag @s add s_sickle_t"
+              ],
+              "target": "target"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "tag @s add s_sickle_s",
+                "particle kurokumaft:slash_particle ^ ^1 ^2.4",
+                "execute @e[tag=s_sickle_t] ~ ~ ~ damage @s 3 entity_attack entity @e[tag=s_sickle_s]",
+                "tag @s remove s_sickle_s",
+                "tag @e[tag=s_sickle_t] remove s_sickle_t"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":5
+            }
+          }
+        ]
+      },
+      "use_trigger": {
+        "sequence":[
+          {
+            "condition": "!query.is_sneaking",
+            "trigger": "spirit_sickle"
+          },
+          {
+            "condition": "query.is_sneaking",
+            "trigger": "change_scythe"
+          }
+        ]
+      },
+      "spirit_sickle": {
+        "run_command": {
+          "command": [
+            "titleraw @s actionbar {\"rawtext\":[{\"text\":\"気鎌\"}]}"
+          ],
+          "target": "player"
+        },
+        "shoot": {
+          "projectile": "kurokumaft:spirit_sickle",
+          "launch_power": 1.1
+        },
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":15
+        }
+      },
+      "change_scythe": {
+        "run_command": {
+          "command": [
+            "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:stone_scythe"
+          ],
+          "target": "player"
+        }
+      }
+    }
+  }
+}

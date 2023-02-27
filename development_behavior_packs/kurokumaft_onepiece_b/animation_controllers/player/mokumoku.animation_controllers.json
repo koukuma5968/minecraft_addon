@@ -5,8 +5,8 @@
       "states": {
         "default": {
           "animations" : [ 
-            {"mokumoku.takeoff": "query.is_jumping"},
-            {"mokumoku.landing": "!query.is_jumping && !query.is_on_ground"}
+            {"mokumoku.takeoff": "query.skin_id == 103 && query.is_jumping"},
+            {"mokumoku.landing": "query.skin_id == 103 && !query.is_jumping && !query.is_on_ground"}
           ]
         }
       }
@@ -15,8 +15,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "white_blow": "query.variant == 2 && query.is_sneaking" },
-            { "white_out": "query.variant == 1 && query.is_sneaking" }
+            { "white_blow": "query.skin_id == 103 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:mokumoku_skill') && query.variant == 2 && query.is_sneaking" },
+            { "white_out": "query.skin_id == 103 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:mokumoku_skill') && query.variant == 1 && query.is_sneaking" }
           ]
         },
         "white_blow":{
@@ -50,8 +50,8 @@
             }
           },
           "transitions": [
-            { "white_blow": "query.variant == 1 && query.is_using_item" },
-            { "white_out": "query.variant == 2 && query.is_using_item" }
+            { "white_blow": "query.skin_id == 103 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:mokumoku_skill') && query.variant == 1 && query.is_using_item" },
+            { "white_out": "query.skin_id == 103 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:mokumoku_skill') && query.variant == 2 && query.is_using_item" }
           ]
         },
         "white_blow":{
@@ -76,7 +76,7 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.mokumoku_at = variable.mokumoku_at < 40 ? variable.mokumoku_at + 1:0;return variable.mokumoku_at == 0;"}
+            {"default":"variable.mokumoku_at = variable.mokumoku_at < 10 ? variable.mokumoku_at + 1:0;return variable.mokumoku_at == 0;"}
           ]
         }
       }

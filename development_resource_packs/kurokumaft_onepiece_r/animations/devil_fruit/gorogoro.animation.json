@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gorogoro.amaru": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"root": {
+					"scale": [2.5, 2.5, 2.5]
+				},
+				"hagoromo": {
+					"rotation": [-47.5, 0, 0],
+					"position": [0, -3, -1]
+				}
+			}
+		},
+		"animation.gorogoro.amaru_first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"hat": {
+					"scale": [0, 0, 0]
+				}
+			}
+		}
+	}
+}

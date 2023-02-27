@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ice_ball.shot": {
+			"loop": true,
+			"bones": {
+				"ice_ball": {
+					"rotation": [41.56843, 19.51506, -60.7568],
+					"position": [-2, 4, 1],
+					"scale": [2, 2, 2]
+				}
+			}
+		},
+		"animation.partisan.shot": {
+			"loop": true,
+			"bones": {
+				"partisan": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			}
+		},
+		"animation.pheasant_beck.shot": {
+			"loop": true,
+			"bones": {
+				"pheasant_beck": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			}
+		}
+	}
+}

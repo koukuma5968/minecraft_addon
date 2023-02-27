@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.zoro_mumeitou.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"zoro_mumeitou": {
+					"rotation": [99.14032, -61.98809, 99.91664],
+					"position": [-7, -4, -3],
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.zoro_mumeitou.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"zoro_mumeitou": {
+					"rotation": [93.33854, -0.85483, -96.48848],
+					"position": [0.5, -1.5, -11.5],
+					"scale": [0.3, 0.3, 0.3]
+				}
+			}
+		}
+	}
+}

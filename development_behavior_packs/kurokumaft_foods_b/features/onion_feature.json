@@ -10,12 +10,8 @@
     "growth_direction": "UP",
     "age" : {"range_min": 15, "range_max": 20},
     "body_blocks" : [
-      ["kurokumaft:onion", 4],
-      ["kurokumaft:onion", 1 ]
-    ],
-    "head_blocks" : [
-      ["kurokumaft:onion", 4],
-      ["minecraft:cave_vines_head_with_berries", 1 ]
+      ["kurokumaft:onions", 3],
+      ["kurokumaft:onions", 0 ]
     ],
   "allow_water": true
   }

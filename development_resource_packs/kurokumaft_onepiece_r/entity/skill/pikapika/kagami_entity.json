@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:kagami_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/pikapika/kagami_entity"
+        },
+        "geometry": {
+          "default": "geometry.kagami_entity"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

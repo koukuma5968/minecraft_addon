@@ -1,4 +1,4 @@
 tag @s add gomugomu_bazooka
-execute @s ^^^2 damage @e[tag=!gomugomu_bazooka,r=2.5] 30 entity_attack
-execute @s ^^^2 summon kurokumaft:bazooka_roar ~~~ kurokumaft:bazooka
+execute as @s positioned ^^^2 run damage @e[tag=!gomugomu_bazooka,r=2.5] 5 entity_attack
+execute as @s positioned ^^^2 run summon kurokumaft:bazooka_roar ~~~ kurokumaft:bazooka
 tag @s remove gomugomu_bazooka

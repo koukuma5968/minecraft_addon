@@ -1,0 +1,294 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:kazan_entity",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "scripts": { "animate": [ "kazan" ] },
+			"animations": { 
+				"kazan": "animation.magumagu.kazan"
+			}
+    },
+    "component_groups": {
+      "minecraft:exploding": {
+				"minecraft:explode": {
+					"fuse_length": 0,
+					"fuse_lit": true,
+					"power": 2,
+					"causes_fire": true,
+					"fire_affected_by_griefing": true,
+					"destroy_affected_by_griefing": true
+				}
+			},
+			"kurokumaft:kazan1": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:bom",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": true,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "catch_fire": {
+              "fire_affected_by_griefing": true
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 0.1,
+          "gravity": 0.2,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-6, -1, 0],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 15
+        }
+      },
+      "kurokumaft:kazan2": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:bom",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": true,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "catch_fire": {
+              "fire_affected_by_griefing": true
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 0.1,
+          "gravity": 0.2,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [6, -1, 0],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 15
+        }
+      },
+      "kurokumaft:kazan3": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:bom",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": true,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "catch_fire": {
+              "fire_affected_by_griefing": true
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 0.1,
+          "gravity": 0.2,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [0, -1, -6],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 15
+        }
+      },
+      "kurokumaft:kazan4": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:bom",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": true,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "catch_fire": {
+              "fire_affected_by_griefing": true
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 0.1,
+          "gravity": 0.2,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [0, -1, 6],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 15
+        }
+      },
+      "kurokumaft:kazan5": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:bom",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": true,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "catch_fire": {
+              "fire_affected_by_griefing": true
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 0.1,
+          "gravity": 0.2,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-6, -1, 6],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 15
+        }
+      },
+      "kurokumaft:kazan6": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:bom",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": true,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "catch_fire": {
+              "fire_affected_by_griefing": true
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 0.1,
+          "gravity": 0.2,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [6, -1, -6],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 15
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["magumagu", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 3.0,
+        "height": 3.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+    "events": {
+			"kurokumaft:kazan1": {
+				"add": {
+					"component_groups": ["kurokumaft:kazan1" ]
+				}
+			},
+			"kurokumaft:kazan2": {
+				"add": {
+					"component_groups": ["kurokumaft:kazan2" ]
+				}
+			},
+			"kurokumaft:kazan3": {
+				"add": {
+					"component_groups": ["kurokumaft:kazan3" ]
+				}
+			},
+			"kurokumaft:kazan4": {
+				"add": {
+					"component_groups": ["kurokumaft:kazan4" ]
+				}
+			},
+			"kurokumaft:kazan5": {
+				"add": {
+					"component_groups": ["kurokumaft:kazan5" ]
+				}
+			},
+			"kurokumaft:kazan6": {
+				"add": {
+					"component_groups": ["kurokumaft:kazan6" ]
+				}
+			},
+      "kurokumaft:bom": {
+				"remove": {
+					"component_groups": ["kurokumaft:kazan1","kurokumaft:kazan2","kurokumaft:kazan3","kurokumaft:kazan4","kurokumaft:kazan5","kurokumaft:kazan6" ]
+				},
+				"add": {
+					"component_groups": ["minecraft:exploding"]
+				}
+			}
+    }
+  }
+}

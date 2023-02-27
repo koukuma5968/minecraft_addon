@@ -1,0 +1,410 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.gomugomu2.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "pistol": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 10 && query.is_sneaking" },
+            { "whip": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 1 && query.is_sneaking" },
+            { "gatling": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 2 && query.is_sneaking" },
+            { "axe": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 3 && query.is_sneaking" },
+            { "spear": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 4 && query.is_sneaking" },
+            { "bazooka": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 5 && query.is_sneaking" },
+            { "rifle": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 6 && query.is_sneaking" },
+            { "rocket": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 7 && query.is_sneaking" },
+            { "storm": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 8 && query.is_sneaking" },
+            { "flail": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 9 && query.is_sneaking" }
+          ]
+        },
+        "pistol":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJETピストル\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "whip":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJET鞭（ウィップ）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "gatling":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJET銃乱打\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "axe":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJET斧（アックス）\"}]}",
+            "/event entity @s variant4",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "spear":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJET槍\"}]}",
+            "/event entity @s variant5",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "bazooka":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJETバズーカ\"}]}",
+            "/event entity @s variant6",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "rifle":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJETライフル\"}]}",
+            "/event entity @s variant7",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "rocket":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJETロケット\"}]}",
+            "/event entity @s variant8",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "storm":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJET暴風雨\"}]}",
+            "/event entity @s variant9",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "flail":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのJET連接鎚矛（フレイル）\"}]}",
+            "/event entity @s variant10",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.gomugomu2.player": {
+      "states": {
+        "default": {
+          "variables": {
+            "gomugomu2_at": {
+              "input": "variable.gomugomu2_at = (variable.gomugomu2_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "pistol": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 1 && query.is_using_item" },
+            { "whip": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 2 && query.is_using_item" },
+            { "gatling": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 3 && query.is_using_item" },
+            { "axe": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 4 && query.is_using_item" },
+            { "spear": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 5 && query.is_using_item" },
+            { "bazooka": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 6 && query.is_using_item" },
+            { "rifle": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 7 && query.is_using_item" },
+            { "rocket": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 8 && query.is_using_item" },
+            { "storm": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 9 && query.is_using_item && !query.is_jumping" },
+            { "storm_horizontal": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 9 && query.is_using_item && query.is_jumping" },
+            { "flail": "query.skin_id == 1002 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 10 && query.is_using_item" }
+          ]
+        },
+        "pistol":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"pistol_att":"variable.gomugomu2_at = variable.gomugomu2_at < 5 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "pistol_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JETピストル\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu2/pistol"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 5 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "whip":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"whip_att":"variable.gomugomu2_at = variable.gomugomu2_at < 5 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "whip_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JET鞭（ウィップ）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu2/whip"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 5 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "gatling":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"gatling_att":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "gatling_att":{
+          "animations" : [ "gomugomu2.gatling" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JETガトリング\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 60 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "axe":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"axe_att":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "axe_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JET斧（アックス）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu2/axe"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "spear":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"spear_att":"variable.gomugomu2_at = variable.gomugomu2_at < 5 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "spear_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JET槍（スピア）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu2/spear"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "bazooka":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"bazooka_att":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "bazooka_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JETバズーカ\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu2/bazooka"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "rifle":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"rifle_att":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "rifle_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JETライフル\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu2/rifle"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "rocket":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"rocket_att":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "rocket_att":{
+          "animations" : [ "gomugomu2.rocket" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JETロケット\"}]}",
+            "/event entity @s mark_variant2",
+            "/summon kurokumaft:rocket_roar ^^^-0.5 kurokumaft:rocket2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 20 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "storm":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1",
+            "/effect @e[family=!gomugomu,r=5] levitation 5 2 true",
+            "/summon kurokumaft:storm_kick_roar ~~~ kurokumaft:storm_kick"
+          ],
+          "transitions": [
+            {"storm_2":"variable.gomugomu2_at = variable.gomugomu2_at < 15 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "storm_2":{
+          "on_entry": [
+            "/summon kurokumaft:storm_roar ~~~ kurokumaft:storm"
+          ],
+          "transitions": [
+            {"storm_att":"variable.gomugomu2_at = variable.gomugomu2_at < 3 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "storm_att":{
+          "animations" : [ "gomugomu2.storm" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JET暴風雨\"}]}",
+            "/event entity @s mark_variant2",
+            "/effect @s levitation 3 1 true"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 80 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "storm_horizontal":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1",
+            "/effect @s levitation 1 2 true",
+            "/effect @s slow_falling 3 50 true",
+            "/summon kurokumaft:storm_horizontal_roar ^^^-0.5 kurokumaft:storm_horizontal"
+          ],
+          "transitions": [
+            {"storm_horizontal_att":"variable.gomugomu2_at = variable.gomugomu2_at < 5 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "storm_horizontal_att":{
+          "animations" : [ "gomugomu2.storm" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JET暴風雨\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 40 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "flail":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"flail_2":"variable.gomugomu2_at = variable.gomugomu2_at < 5 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "flail_2":{
+          "transitions": [
+            {"flail_att":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "flail_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"JET連接鎚矛（フレイル）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu2/flail"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 10 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        }
+
+      }
+    }
+  }
+}

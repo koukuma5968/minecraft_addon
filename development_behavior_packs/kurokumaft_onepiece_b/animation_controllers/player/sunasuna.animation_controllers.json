@@ -1,12 +1,12 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.19.50",
   "animation_controllers": {
     "controller.animation.sunasuna.hover": {
       "states": {
         "default": {
           "animations" : [ 
-            {"sunasuna.takeoff": "query.is_jumping"},
-            {"sunasuna.landing": "!query.is_jumping && !query.is_on_ground"}
+            {"sunasuna.takeoff": "query.skin_id == 106 && query.is_jumping"},
+            {"sunasuna.landing": "query.skin_id == 106 && !query.is_jumping && !query.is_on_ground"}
           ]
         }
       }
@@ -15,14 +15,14 @@
       "states": {
         "default": {
           "transitions": [
-            { "desert_spada": "query.variant == 8 && query.is_sneaking" },
-            { "desert_girasole": "query.variant == 1 && query.is_sneaking" },
-            { "baluhan": "query.variant == 2 && query.is_sneaking" },
-            { "sabers": "query.variant == 3 && query.is_sneaking" },
-            { "ground_secco": "query.variant == 4 && query.is_sneaking" },
-            { "ground_death": "query.variant == 5 && query.is_sneaking" },
-            { "sabers_petherd": "query.variant == 6 && query.is_sneaking" },
-            { "desert_la_spada": "query.variant == 7 && query.is_sneaking" }
+            { "desert_spada": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 8 && query.is_sneaking" },
+            { "desert_girasole": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 1 && query.is_sneaking" },
+            { "baluhan": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 2 && query.is_sneaking" },
+            { "sabers": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 3 && query.is_sneaking" },
+            { "ground_secco": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 4 && query.is_sneaking" },
+            { "ground_death": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 5 && query.is_sneaking" },
+            { "sabers_petherd": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 6 && query.is_sneaking" },
+            { "desert_la_spada": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 7 && query.is_sneaking" }
           ]
         },
         "desert_spada":{
@@ -116,14 +116,14 @@
             }
           },
           "transitions": [
-            { "desert_spada": "query.variant == 1 && query.is_using_item" },
-            { "desert_girasole": "query.variant == 2 && query.is_using_item" },
-            { "baluhan": "query.variant == 3 && query.is_using_item" },
-            { "sabers": "query.variant == 4 && query.is_using_item" },
-            { "ground_secco": "query.variant == 5 && query.is_using_item" },
-            { "ground_death": "query.variant == 6 && query.is_using_item" },
-            { "sabers_petherd": "query.variant == 7 && query.is_using_item" },
-            { "desert_la_spada": "query.variant == 8 && query.is_using_item" }
+            { "desert_spada": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 1 && query.is_using_item" },
+            { "desert_girasole": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 2 && query.is_using_item" },
+            { "baluhan": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 3 && query.is_using_item" },
+            { "sabers": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 4 && query.is_using_item" },
+            { "ground_secco": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 5 && query.is_using_item && query.is_on_ground" },
+            { "ground_death": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 6 && query.is_using_item" },
+            { "sabers_petherd": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 7 && query.is_using_item" },
+            { "desert_la_spada": "query.skin_id == 106 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:sunasuna_skill') && query.variant == 8 && query.is_using_item" }
           ]
         },
         "desert_spada":{
@@ -141,7 +141,6 @@
         "desert_girasole":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"砂漠の向日葵（デザート・ジラソーレ）\"}]}",
-            "/function sunasuna/desert_girasole",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -177,22 +176,22 @@
           ]
         },
         "ground_secco":{
+          "animations" : ["sunasuna.ground_secco"],
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"干割グラウンド・セッコ）\"}]}",
-            "/function sunasuna/ground_secco",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.sunasuna_at = variable.sunasuna_at < 20 ? variable.sunasuna_at + 1:0;return variable.sunasuna_at == 0;"}
+            {"default":"query.any_animation_finished"}
           ]
         },
         "ground_death":{
+          "animations" : ["sunasuna.ground_death"],
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"浸食輪廻（グラウンド・デス）\"}]}",
-            "/function sunasuna/ground_death",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [

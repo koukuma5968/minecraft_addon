@@ -1,0 +1,207 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:partisan_owner_entity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:armor_stand"
+    },
+    "component_groups": {
+      "kurokumaft:despawn": {
+				"minecraft:variant": {
+					"value": 1
+				}
+      }
+    },
+		"component_groups": {
+			"kurokumaft:thrown_partisan_owner": {
+				"minecraft:variant": {
+					"value": 0
+				},
+				"minecraft:collision_box": {
+					"width": 0.25,
+					"height": 0.25
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 1.50,
+					"time_down_event": {
+						"event": "kurokumaft:partisan_shot"
+					}
+				},
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 1,
+							"knockback": false,
+							"semirandomdiffdamage": false
+						}
+					},
+					"filter": "minecraft:player",
+					"power": 0.0,
+					"should_bounce": false,
+					"gravity": 0.01,
+					"angle_offset": 0.0,
+					"offset": [0, 1, 0.0],
+					"inertia": 1.0,
+					"liquid_inertia": 0
+				},
+				"minecraft:behavior.float": {
+					"priority": 0
+				},
+				"minecraft:physics": {
+					"has_collision": true,
+					"has_gravity": true
+				}
+			},
+			"kurokumaft:partisan_shot": {
+				"minecraft:variant": {
+					"value": 1
+				},
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:partisan_entity",
+              "spawn_event": "kurokumaft:partisan1",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:partisan_entity",
+              "spawn_event": "kurokumaft:partisan2",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:partisan_entity",
+              "spawn_event": "kurokumaft:partisan3",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:partisan_entity",
+              "spawn_event": "kurokumaft:partisan4",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:partisan_entity",
+              "spawn_event": "kurokumaft:partisan5",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:partisan_entity",
+              "spawn_event": "kurokumaft:partisan6",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
+        },
+        "minecraft:push_through": {
+					"value": 1
+				},
+				"minecraft:collision_box": {
+					"width": 0.4,
+					"height": 0.4
+				},
+				"minecraft:behavior.float": {
+					"priority": 0
+				},
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval": false,
+          "time": 12.00,
+          "time_down_event": { 
+            "event": "kurokumaft:despawn"
+          }
+        },
+        "minecraft:physics": {
+					"has_collision": false,
+					"has_gravity": false
+				}
+			},
+			"kurokumaft:despawn": {
+				"minecraft:variant": {
+					"value": 2
+				}
+      }
+		},
+    "components": {
+      "minecraft:type_family": {
+        "family": ["partisan_owner", "hiehie", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 0.1
+      },
+      "minecraft:despawn": {
+        "filters": {
+          "test": "is_variant","value": 2
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["kurokumaft:thrown_partisan_owner" ]
+				}
+			},
+			"kurokumaft:partisan_shot": {
+				"remove": {
+					"component_groups": ["kurokumaft:thrown_partisan_owner" ]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:partisan_shot" ]
+				}
+			},
+      "kurokumaft:despawn": {
+				"remove": {
+					"component_groups": ["kurokumaft:partisan_shot" ]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:despawn" ]
+				}
+      }
+    }
+  }
+}

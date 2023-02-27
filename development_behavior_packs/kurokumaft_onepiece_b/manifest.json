@@ -5,7 +5,7 @@
 		"name": "kurokumaft_onepiece_b",
 		"uuid": "68fa039e-6d10-4c91-bf18-a5172fe63270",
 		"version": [1,0,0],
-		"min_engine_version": [1, 16, 0],
+		"min_engine_version": [1, 19, 50],
 		"platform_locked": false,
 		"pack_scope": "world"
 	},

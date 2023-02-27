@@ -27,16 +27,82 @@
       },
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
-      "minecraft:use_duration": 1,
       "minecraft:chargeable": {
       },
       "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.skin_id == 109 || query.skin_id == 209",
+          "event": "kurokumaft:gorogoro_shot",
+          "target": "self"
+        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
+      "kurokumaft:gorogoro_shot" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 5",
+            "trigger": "kurokumaft:hino"
+          },
+          {
+            "condition": "query.variant == 6",
+            "trigger": "kurokumaft:kiten"
+          },
+          {
+            "condition": "query.variant == 7",
+            "trigger": "kurokumaft:zyamuburu"
+          },
+          {
+            "condition": "query.variant == 9",
+            "trigger": "kurokumaft:raigou"
+          }
+        ]
+      },
+
+      "kurokumaft:hino" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:hino_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:kiten" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:kiten_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:zyamuburu" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:zyamuburu_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:raigou" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:raigou_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      }
+
     }
   }
 }

@@ -1,0 +1,135 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:ice_ball_entity",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          {"ice_ball": "query.variant == 1"},
+          {"ice_ball_at": "query.variant == 1"}
+        ]
+      },
+			"animations": {
+				"ice_ball": "animation.hiehie.ice_ball",
+        "ice_ball_at":"animation.hiehie.ice_ball_at"
+			}
+    },
+		"component_groups": {
+			"kurokumaft:thrown_ice_ball": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:ice_hold",
+                "target": "self"
+              }
+            },
+            "impact_damage": {
+              "damage": 3,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": false
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.00,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [0, 0, 0],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:ice_hold": {
+				"minecraft:variant": {
+					"value": 1
+				},
+        "minecraft:behavior.float": {
+					"priority": 0
+				},
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval": false,
+          "time": 12.00,
+          "time_down_event": { 
+            "event": "kurokumaft:despawn"
+          }
+        },
+				"minecraft:physics": {
+					"has_collision": true,
+					"has_gravity": false
+				},
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+      "kurokumaft:despawn": {
+				"minecraft:variant": {
+					"value": 2
+				}
+      }
+
+		},
+    "components": {
+      "minecraft:type_family": {
+        "family": ["hiehie", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 3.0,
+        "height": 3.0
+      },
+      "minecraft:despawn": {
+        "filters": {
+          "test": "is_variant","value": 2
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["kurokumaft:thrown_ice_ball" ]
+				}
+			},
+			"kurokumaft:ice_hold": {
+        "remove": {
+					"component_groups": ["kurokumaft:thrown_ice_ball" ]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:ice_hold" ]
+				}
+			},
+      "kurokumaft:despawn": {
+				"remove": {
+					"component_groups": ["kurokumaft:ice_hold" ]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:despawn" ]
+				}
+      }
+
+    }
+  }
+}

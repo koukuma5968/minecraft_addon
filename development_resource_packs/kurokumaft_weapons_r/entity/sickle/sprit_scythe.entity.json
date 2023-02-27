@@ -1,0 +1,28 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:spirit_sickle",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/sickle/spirit_sickle",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.spirit_sickle"
+      },
+      "animations": {
+        "spirit": "animation.sickle.spirit"
+      },
+      "scripts": {
+        "animate": [
+          "spirit"
+        ]
+      },
+      "render_controllers": [ "controller.render.spirit_sickle" ]
+    }
+  }
+}

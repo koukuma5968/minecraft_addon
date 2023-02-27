@@ -5,8 +5,8 @@
       "states": {
         "default": {
           "animations" : [ 
-            {"meramera.takeoff": "query.is_jumping"},
-            {"meramera.landing": "!query.is_jumping && !query.is_on_ground"}
+            {"meramera.takeoff": "query.skin_id == 104 && query.is_jumping"},
+            {"meramera.landing": "query.skin_id == 104 && !query.is_jumping && !query.is_on_ground"}
           ]
         }
       }
@@ -15,15 +15,15 @@
       "states": {
         "default": {
           "transitions": [
-            { "kagero": "query.variant == 9 && query.is_sneaking" },
-            { "hiken": "query.variant == 1 && query.is_sneaking" },
-            { "higan": "query.variant == 2 && query.is_sneaking" },
-            { "enkai": "query.variant == 3 && query.is_sneaking" },
-            { "hidaruma": "query.variant == 4 && query.is_sneaking" },
-            { "siranui": "query.variant == 5 && query.is_sneaking" },
-            { "zyujika": "query.variant == 6 && query.is_sneaking" },
-            { "kyoukaen": "query.variant == 7 && query.is_sneaking" },
-            { "entei": "query.variant == 8 && query.is_sneaking" }
+            { "kagero": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 9 && query.is_sneaking" },
+            { "hiken": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 1 && query.is_sneaking" },
+            { "higan": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 2 && query.is_sneaking" },
+            { "enkai": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 3 && query.is_sneaking" },
+            { "hidaruma": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 4 && query.is_sneaking" },
+            { "siranui": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 5 && query.is_sneaking" },
+            { "zyujika": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 6 && query.is_sneaking" },
+            { "kyoukaen": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 7 && query.is_sneaking" },
+            { "entei": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 8 && query.is_sneaking" }
           ]
         },
         "kagero":{
@@ -127,15 +127,15 @@
             }
           },
           "transitions": [
-            { "kagero": "query.variant == 1 && query.is_using_item" },
-            { "hiken": "query.variant == 2 && query.is_using_item" },
-            { "higan": "query.variant == 3 && query.is_using_item" },
-            { "enkai": "query.variant == 4 && query.is_using_item" },
-            { "hotarubi": "query.variant == 5 && query.is_using_item" },
-            { "siranui": "query.variant == 6 && query.is_using_item" },
-            { "zyujika": "query.variant == 7 && query.is_using_item" },
-            { "kyoukaen": "query.variant == 8 && query.is_using_item" },
-            { "daienkai": "query.variant == 9 && query.is_using_item" }
+            { "kagero": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 1 && query.is_using_item" },
+            { "hiken": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 2 && query.is_using_item" },
+            { "higan": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 3 && query.is_using_item" },
+            { "enkai": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 4 && query.is_using_item" },
+            { "hotarubi": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 5 && query.is_using_item" },
+            { "siranui": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 6 && query.is_using_item" },
+            { "zyujika": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 7 && query.is_using_item" },
+            { "kyoukaen": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 8 && query.is_using_item" },
+            { "daienkai": "query.skin_id == 104 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:meramera_skill') && query.variant == 9 && query.is_using_item" }
           ]
         },
         "kagero":{

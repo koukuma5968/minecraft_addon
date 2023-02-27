@@ -8,6 +8,22 @@
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Texture.default" ]
+    },
+    "controller.render.kaizoku.zoro": {
+      "part_visibility": [
+        { "hat": "!q.is_saddled" }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+    "controller.render.kaizoku.nami": {
+      "part_visibility": [
+        { "hat": "!q.is_saddled" }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
     }
 
   }

@@ -165,6 +165,9 @@
 				},
 				"rightLeg": {
 					"position": [0, 0, -3]
+				},
+				"cape": {
+					"rotation": [-27.5, 0, 0]
 				}
 			}
 		},

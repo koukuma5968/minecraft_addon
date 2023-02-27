@@ -1,0 +1,112 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magumagu.funka": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:funka ~~~",
+					"/execute as @s run damage @e[family=!magumagu,r=5] 2 fire"
+				]
+			}
+		},
+		"animation.magumagu.kazan_owner": {
+			"animation_length": 1.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~1~~1"
+				],
+				"0.1": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~-2~~"
+				],
+				"0.2": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~~~-2"
+				],
+				"0.3": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~2~~"
+				],
+				"0.4": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~-1~~1"
+				],
+				"0.5": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~2~~2"
+				],
+				"0.6": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~-4~~"
+				],
+				"0.7": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~~~-4"
+				],
+				"0.8": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~4~~"
+				],
+				"0.9": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~-2~~2"
+				],
+				"1.0": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~3~~3"
+				],
+				"1.1": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~-6~~"
+				],
+				"1.2": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~~~-6"
+				],
+				"1.3": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~6~~"
+				],
+				"1.4": [
+					"/particle kurokumaft:funka ~~~",
+					"/tp @s ~-3~~3"
+				]
+			}
+		},
+		"animation.magumagu.kazan": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:funka ~~~",
+					"/execute as @s run damage @e[family=!magumagu,r=5] 2 fire"
+				]
+			}
+		},
+		"animation.magumagu.takeoff": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s speed 2 25 true",
+					"/effect @s levitation 1 1 true",
+					"/particle kurokumaft:magumagu_hover ^^1^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.magumagu.landing": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s slow_falling 1 1 true",
+					"/particle kurokumaft:magumagu_hover ^^^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		}
+	}
+}

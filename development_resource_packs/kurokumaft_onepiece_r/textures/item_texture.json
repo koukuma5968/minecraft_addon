@@ -16,6 +16,9 @@
       "nikyunikyu_fruit": {
          "textures" : "textures/kurokumaft/items/devil_fruit/nikyunikyu_fruit"
       },
+      "bombom_fruit": {
+         "textures" : "textures/kurokumaft/items/devil_fruit/bombom_fruit"
+      },
 
       "mokumoku_fruit": {
          "textures" : "textures/kurokumaft/items/devil_fruit/mokumoku_fruit"
@@ -64,6 +67,9 @@
       "nikyunikyu_skill": {
          "textures" : "textures/kurokumaft/items/skill/nikyunikyu_skill"
       },
+      "bombom_skill": {
+         "textures" : "textures/kurokumaft/items/skill/bombom_skill"
+      },
 
       "mokumoku_skill": {
          "textures" : "textures/kurokumaft/items/skill/mokumoku_skill"
@@ -104,13 +110,37 @@
       "wado_ichimonzi": {
          "textures" : "textures/kurokumaft/items/buki/katana/wado_ichimonzi"
       },
+      "zoro_mumeitou": {
+         "textures" : "textures/kurokumaft/items/buki/katana/zoro_mumeitou"
+      },
+      "sandai_kitetu": {
+         "textures" : "textures/kurokumaft/items/buki/katana/sandai_kitetu"
+      },
+      "yubashiri": {
+         "textures" : "textures/kurokumaft/items/buki/katana/yubashiri"
+      },
+
       "murakumogiri": {
          "textures" : "textures/kurokumaft/items/buki/katana/murakumogiri"
+      },
+      "hiehie_ice_saber": {
+         "textures" : "textures/kurokumaft/items/buki/katana/hiehie_ice_saber"
+      },
+      "amanomurakumo": {
+         "textures" : "textures/kurokumaft/items/buki/katana/amanomurakumo"
       },
 
       "patinko": {
          "textures" : "textures/kurokumaft/items/buki/long_range/patinko"
       },
+      "flintlock_revolver": {
+         "textures" : "textures/kurokumaft/items/buki/long_range/flintlock_revolver"
+      },
+
+      "nami_stick": {
+         "textures" : "textures/kurokumaft/items/buki/other/nami_stick"
+      },
+
       "namari_dama": {
          "textures" : "textures/kurokumaft/items/buki/bullet/namari_dama"
       },
@@ -131,9 +161,34 @@
          "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/lufy/straw_hat"
       },
 
+      "zoro_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/zoro/zoro_jacket"
+      },
+      "zoro_pants": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/zoro/zoro_pants"
+      },
+      "zoro_boots": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/zoro/zoro_boots"
+      },
+      "zoro_hatimaki": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/zoro/zoro_hatimaki"
+      },
+
+      "nami_jacket_1": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/nami/nami_jacket_1"
+      },
+      "nami_skirt_1": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/nami/nami_skirt_1"
+      },
+      "nami_boots_1": {
+         "textures" : "textures/kurokumaft/items/armor/kaizoku/mugiwara/nami/nami_boots_1"
+      },
+
       "kaizoku_spawn_egg" : {
          "textures" : [
-            "textures/kurokumaft/items/spawn_egg/kaizoku/luffy_egg"
+            "textures/kurokumaft/items/spawn_egg/kaizoku/luffy_egg",
+            "textures/kurokumaft/items/spawn_egg/kaizoku/zoro_egg",
+            "textures/kurokumaft/items/spawn_egg/kaizoku/nami_egg"
          ]
       }
 

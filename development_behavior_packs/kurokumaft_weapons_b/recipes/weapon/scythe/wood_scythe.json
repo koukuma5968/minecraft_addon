@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wood_scythe"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "|||",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:planks"
+      },
+      "#": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wood_scythe"
+    }
+  }
+}

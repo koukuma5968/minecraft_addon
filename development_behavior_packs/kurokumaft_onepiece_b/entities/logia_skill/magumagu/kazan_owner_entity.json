@@ -1,0 +1,193 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:kazan_owner_entity",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "scripts": { "animate": [ {"kazan": "query.variant == 1"} ] },
+			"animations": { 
+				"kazan": "animation.magumagu.kazan_owner"
+			}
+    },
+		"component_groups": {
+			"kurokumaft:thrown_kazan_owner": {
+				"minecraft:variant": {
+					"value": 0
+				},
+				"minecraft:collision_box": {
+					"width": 0.25,
+					"height": 0.25
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 1.50,
+					"time_down_event": {
+						"event": "kurokumaft:kazan_shot"
+					}
+				},
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 1,
+							"knockback": false,
+							"semirandomdiffdamage": false
+						}
+					},
+					"filter": "minecraft:player",
+					"power": 0.4,
+					"should_bounce": false,
+					"gravity": -0.08,
+					"angle_offset": 0.0,
+					"offset": [0, 0, 1.0],
+					"inertia": 1.0,
+					"liquid_inertia": 0
+				},
+				"minecraft:behavior.float": {
+					"priority": 0
+				},
+				"minecraft:physics": {
+					"has_collision": true,
+					"has_gravity": false
+				}
+			},
+			"kurokumaft:kazan_shot": {
+				"minecraft:variant": {
+					"value": 1
+				},
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:kazan_entity",
+              "spawn_event": "kurokumaft:kazan1",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:kazan_entity",
+              "spawn_event": "kurokumaft:kazan2",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:kazan_entity",
+              "spawn_event": "kurokumaft:kazan3",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:kazan_entity",
+              "spawn_event": "kurokumaft:kazan4",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:kazan_entity",
+              "spawn_event": "kurokumaft:kazan5",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 1,
+              "max_wait_time": 2,
+              "spawn_entity": "kurokumaft:kazan_entity",
+              "spawn_event": "kurokumaft:kazan6",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
+        },
+        "minecraft:push_through": {
+					"value": 1
+				},
+				"minecraft:collision_box": {
+					"width": 0.4,
+					"height": 0.4
+				},
+				"minecraft:behavior.float": {
+					"priority": 0
+				},
+        "minecraft:timer": {
+          "looping": false,
+          "randomInterval": false,
+          "time": 12.00,
+          "time_down_event": { 
+            "event": "kurokumaft:despawn"
+          }
+        },
+        "minecraft:physics": {
+					"has_collision": false,
+					"has_gravity": false
+				}
+			},
+			"kurokumaft:despawn": {
+				"minecraft:variant": {
+					"value": 2
+				}
+      }
+		},
+    "components": {
+      "minecraft:type_family": {
+        "family": ["magumagu", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 3.0,
+        "height": 3.0
+      },
+      "minecraft:despawn": {
+        "filters": {
+          "test": "is_variant","value": 2
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["kurokumaft:thrown_kazan_owner" ]
+				}
+			},
+			"kurokumaft:kazan_shot": {
+				"remove": {
+					"component_groups": ["kurokumaft:thrown_kazan_owner" ]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:kazan_shot" ]
+				}
+			},
+      "kurokumaft:despawn": {
+				"remove": {
+					"component_groups": ["kurokumaft:kazan_shot" ]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:despawn" ]
+				}
+      }
+    }
+  }
+}

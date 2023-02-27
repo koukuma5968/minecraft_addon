@@ -10,9 +10,9 @@
             }
           },
           "transitions": [
-            { "kaishin": "query.variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill') && query.is_using_item" },
-            { "kaishin_left": "query.variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:murakumogiri') && query.is_using_item" },
-            { "punch": "query.variant == 1 && query.mark_variant == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill') && variable.attack_time" }
+            { "kaishin": "query.skin_id == 105 && query.variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill') && query.is_using_item" },
+            { "kaishin_left": "query.skin_id == 105 && query.variant == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:murakumogiri') && query.is_using_item" },
+            { "punch": "query.skin_id == 105 && query.variant == 1 && query.mark_variant == 0 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:guragura_skill') && variable.attack_time" }
           ]
         },
         "kaishin":{

@@ -31,12 +31,50 @@
       "minecraft:chargeable": {
       },
       "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.skin_id == 111",
+          "event": "kurokumaft:magumagu_shot",
+          "target": "self"
+        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
+      "kurokumaft:magumagu_shot" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 1",
+            "trigger": "kurokumaft:funka"
+          },
+          {
+            "condition": "query.variant == 2",
+            "trigger": "kurokumaft:kazan"
+          }
+        ]
+      },
+
+      "kurokumaft:funka" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:funka_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:kazan" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:kazan_owner_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      }
     }
   }
 }

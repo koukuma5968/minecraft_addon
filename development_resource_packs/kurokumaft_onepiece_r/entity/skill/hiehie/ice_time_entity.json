@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:ice_time_entity",
+        "materials": {
+          "default": "armor_stand"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/hiehie/ice_time"
+        },
+        "geometry": {
+          "default": "geometry.ice_time"
+        },
+        "render_controllers": ["controller.render.armor_stand"]
+      }
+    }
+  }
+  

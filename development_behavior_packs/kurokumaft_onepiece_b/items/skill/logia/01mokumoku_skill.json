@@ -2,8 +2,8 @@
   "format_version": "1.17",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:mokumoku_skill",
-        "category": "equipment"
+      "identifier": "kurokumaft:mokumoku_skill",
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
@@ -13,7 +13,7 @@
           "texture": "mokumoku_skill"
       },
       "minecraft:creative_category": {
-        "parent": "itemGroup.name.skill"
+        "parent": "itemGroup.name.logia_skill"
       },
       "minecraft:render_offsets": {
         "main_hand": {

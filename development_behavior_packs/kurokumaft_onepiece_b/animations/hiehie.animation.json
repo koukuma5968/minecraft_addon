@@ -1,0 +1,203 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hiehie.takeoff": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s speed 2 25 true",
+					"/effect @s levitation 1 1 true",
+					"/particle kurokumaft:hiehie_hover ^^1^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.hiehie.landing": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s slow_falling 1 1 true",
+					"/particle kurokumaft:hiehie_hover ^^^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.hiehie.ice_age": {
+			"timeline": {
+			    "0.00": [
+					"/function hiehie/ice_age/ice_age0"
+				],
+			    "0.01": [
+					"/function hiehie/ice_age/ice_age1"
+				],
+			    "0.02": [
+					"/function hiehie/ice_age/ice_age2"
+				],
+			    "0.03": [
+					"/function hiehie/ice_age/ice_age3"
+				],
+			    "0.04": [
+					"/function hiehie/ice_age/ice_age4"
+				],
+			    "0.05": [
+					"/function hiehie/ice_age/ice_age5"
+				],
+			    "0.06": [
+					"/function hiehie/ice_age/ice_age6"
+				],
+			    "0.07": [
+					"/function hiehie/ice_age/ice_age7"
+				],
+			    "0.08": [
+					"/function hiehie/ice_age/ice_age8"
+				],
+			    "0.09": [
+					"/function hiehie/ice_age/ice_age9"
+				],
+			    "0.10": [
+					"/function hiehie/ice_age/ice_age10"
+				],
+			    "0.11": [
+					"/function hiehie/ice_age/ice_age11"
+				],
+			    "0.12": [
+					"/function hiehie/ice_age/ice_age12"
+				],
+			    "0.13": [
+					"/function hiehie/ice_age/ice_age13"
+				],
+			    "0.14": [
+					"/function hiehie/ice_age/ice_age14"
+				],
+			    "0.15": [
+					"/function hiehie/ice_age/ice_age15"
+				],
+			    "0.16": [
+					"/function hiehie/ice_age/ice_age16"
+				],
+			    "0.17": [
+					"/function hiehie/ice_age/ice_age17"
+				],
+			    "0.18": [
+					"/function hiehie/ice_age/ice_age18"
+				],
+			    "0.19": [
+					"/function hiehie/ice_age/ice_age19"
+				],
+			    "0.20": [
+					"/function hiehie/ice_age/ice_age20"
+				],
+			    "0.21": [
+					"/function hiehie/ice_age/ice_age21"
+				],
+			    "0.22": [
+					"/function hiehie/ice_age/ice_age22"
+				],
+			    "0.23": [
+					"/function hiehie/ice_age/ice_age23"
+				],
+			    "0.24": [
+					"/function hiehie/ice_age/ice_age24"
+				],
+			    "0.25": [
+					"/function hiehie/ice_age/ice_age25"
+				],
+			    "0.26": [
+					"/function hiehie/ice_age/ice_age26"
+				],
+			    "0.27": [
+					"/function hiehie/ice_age/ice_age27"
+				],
+			    "0.28": [
+					"/function hiehie/ice_age/ice_age28"
+				],
+			    "0.29": [
+					"/function hiehie/ice_age/ice_age29"
+				],
+			    "0.30": [
+					"/function hiehie/ice_age/ice_age30"
+				],
+			    "0.31": [
+					"/function hiehie/ice_age/ice_age31"
+				],
+			    "0.32": [
+					"/function hiehie/ice_age/ice_age32"
+				],
+			    "0.33": [
+					"/function hiehie/ice_age/ice_age33"
+				],
+			    "0.34": [
+					"/function hiehie/ice_age/ice_age34"
+				],
+			    "0.35": [
+					"/function hiehie/ice_age/ice_age35"
+				],
+			    "0.36": [
+					"/function hiehie/ice_age/ice_age36"
+				],
+			    "0.37": [
+					"/function hiehie/ice_age/ice_age37"
+				],
+			    "0.38": [
+					"/function hiehie/ice_age/ice_age38"
+				],
+			    "0.39": [
+					"/function hiehie/ice_age/ice_age39"
+				],
+			    "0.40": [
+					"/function hiehie/ice_age/ice_age40"
+				]
+			},
+			"animation_length": 0.80,
+			"loop": false
+		},
+		"animation.hiehie.ice_ball": {
+			"timeline": {
+			    "0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute as @s run tp @e[family=!hiehie,r=4.5] @s"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.hiehie.ice_ball_at": {
+			"timeline": {
+			    "0.0": [
+					"/execute as @s run damage @e[family=!hiehie,r=2.5] 1 freezing"
+				]
+			},
+			"animation_length": 0.5,
+			"loop": true
+		},
+		"animation.hiehie.ice_time": {
+			"timeline": {
+			    "0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute as @s run tp @e[family=!hiehie,r=1.5,c=1] @s",
+					"/particle kurokumaft:ice_time ~~~"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.hiehie.partisan_owner": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:ice_time ~~~"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.hiehie.pheasant_beck": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:hiehie ~~~"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		}
+	}
+}

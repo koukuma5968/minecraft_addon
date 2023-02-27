@@ -1,0 +1,184 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gorogoro.takeoff": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s speed 2 25 true",
+					"/effect @s levitation 1 1 true",
+					"/particle kurokumaft:gorogoro_hover ^^1^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.gorogoro.landing": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s slow_falling 1 1 true",
+					"/particle kurokumaft:gorogoro_hover ^^-1^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.gorogoro.vari": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/million_bolt_vari"
+				]
+			}
+		},
+		"animation.gorogoro.two_vari": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/two_million_bolt_vari"
+				]
+			}
+		},
+		"animation.gorogoro.hundred_vari": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/hundred_million_bolt_vari"
+				]
+			}
+		},
+		"animation.gorogoro.two_hundred_vari": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/two_hundred_million_bolt_vari"
+				]
+			}
+		},
+		"animation.gorogoro.ell_toll": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/ell_toll"
+				]
+			}
+		},
+		"animation.gorogoro.kari": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/kari"
+				]
+			}
+		},
+		"animation.gorogoro.hino": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/hino"
+				]
+			}
+		},
+		"animation.gorogoro.kiten": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/kiten"
+				]
+			}
+		},
+		"animation.gorogoro.zyamuburu": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/zyamuburu"
+				]
+			}
+		},
+		"animation.gorogoro.mamalagan": {
+			"animation_length": 1.0,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~~~5 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-20~~15 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~30~~-20 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-5~~10 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~10~~5 run summon lightning_bolt"
+				],
+				"0.2": [
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~~~-25 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-5~~35 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~10~~-40 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-25~~5 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~25~~-5 run summon lightning_bolt"
+				],
+				"0.4": [
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~10~~45 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~25~~-20 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-30~~-40 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-5~~-10 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~40~~-15 run summon lightning_bolt"
+				],
+				"0.6": [
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~40~~15 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~10~~-5 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-5~~-40 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~15~~10 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~45~~25 run summon lightning_bolt"
+				],
+				"0.8": [
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-20~~5 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~5~~-35 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~-25~~30 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~10~~5 run summon lightning_bolt",
+					"/execute as @e[tag=gorogoro_mamalagan] positioned ~15~~45 run summon lightning_bolt"
+				]
+			}
+		},
+		"animation.gorogoro.raigou_shot": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/raigou_shot"
+				]
+			}
+		},
+		"animation.gorogoro.raigou": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/raigou"
+				]
+			}
+		},
+		"animation.gorogoro.raigou_at": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/raigou_at"
+				]
+			}
+		},
+		"animation.gorogoro.amaru": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gorogoro/amaru"
+				]
+			}
+		}
+	}
+}

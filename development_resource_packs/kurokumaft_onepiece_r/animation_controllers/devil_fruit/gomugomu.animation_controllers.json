@@ -1,6 +1,35 @@
 {
 	"format_version" : "1.10.0",
 	"animation_controllers" : {
+		"controller.animation.gomugomu.gear" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"gear2": "query.mark_variant == 11"}
+					]
+				},
+				"gear2" : {
+					"animations" : [
+						{"gomugomu_gear2": "variable.is_first_person"},
+						{"gomugomu_gear2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"gear3":"query.mark_variant == 12"},
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"gear3" : {
+					"animations" : [
+						{"gomugomu_gear3": "variable.is_first_person"},
+						{"gomugomu_gear3": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		},
 		"controller.animation.gomugomu.player" : {
 			"initial_state" : "default",
 			"states" : {
@@ -8,14 +37,15 @@
 					"transitions" : [
 						{"pistol": "query.variant == 1 && query.mark_variant == 1"},
 						{"whip": "query.variant == 2 && query.mark_variant == 1"},
-						{"Gatling": "query.variant == 3 && query.mark_variant == 1"},
+						{"gatling": "query.variant == 3 && query.mark_variant == 1"},
 						{"axe": "query.variant == 4 && query.mark_variant == 1"},
 						{"spear": "query.variant == 5 && query.mark_variant == 1"},
 						{"bazooka": "query.variant == 6 && query.mark_variant == 1"},
 						{"rifle": "query.variant == 7 && query.mark_variant == 1"},
 						{"rocket": "query.variant == 8 && query.mark_variant == 1"},
 						{"storm": "query.variant == 9 && query.mark_variant == 1 && !query.is_jumping"},
-						{"storm_horizontal_attack": "query.variant == 9 && query.mark_variant == 1 && query.is_jumping"}
+						{"storm_horizontal_attack": "query.variant == 9 && query.mark_variant == 1 && query.is_jumping"},
+						{"flail": "query.variant == 10 && query.mark_variant == 1"}
 					]
 				},
 				"pistol" : {
@@ -54,19 +84,19 @@
 						{"default":"query.mark_variant == 0"}
 					]
 				},
-				"Gatling" : {
+				"gatling" : {
 					"animations" : [
-						{"gomugomu_Gatling": "variable.is_first_person"},
-						{"gomugomu_Gatling": "!variable.is_first_person"}
+						{"gomugomu_gatling": "variable.is_first_person"},
+						{"gomugomu_gatling": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"Gatling_attack":"query.mark_variant == 2"}
+						{"gatling_attack":"query.mark_variant == 2"}
 					]
 				},
-				"Gatling_attack" : {
+				"gatling_attack" : {
 					"animations" : [
-						{"gomugomu_Gatling_attack": "variable.is_first_person"},
-						{"gomugomu_Gatling_attack": "!variable.is_first_person"}
+						{"gomugomu_gatling_attack": "variable.is_first_person"},
+						{"gomugomu_gatling_attack": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.mark_variant == 0"}
@@ -179,6 +209,33 @@
 					"transitions" : [
 						{"default":"query.mark_variant == 0"}
 					]
+				},
+				"flail" : {
+					"animations" : [
+						{"gomugomu_flail": "variable.is_first_person"},
+						{"gomugomu_flail": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"flail2":"query.any_animation_finished"}
+					]
+				},
+				"flail2" : {
+					"animations" : [
+						{"gomugomu_flail2": "variable.is_first_person"},
+						{"gomugomu_flail2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"flail_att":"query.mark_variant == 2"}
+					]
+				},
+				"flail_att" : {
+					"animations" : [
+						{"gomugomu_flail_attack": "variable.is_first_person"},
+						{"gomugomu_flail_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
 				}
 			}
 		},
@@ -189,7 +246,7 @@
 					"transitions" : [
 						{"pistol": "query.variant == 1 && query.mark_variant == 1"},
 						{"whip": "query.variant == 2 && query.mark_variant == 1"},
-						{"Gatling": "query.variant == 3 && query.mark_variant == 1"},
+						{"gatling": "query.variant == 3 && query.mark_variant == 1"},
 						{"axe": "query.variant == 4 && query.mark_variant == 1"},
 						{"spear": "query.variant == 5 && query.mark_variant == 1"},
 						{"bazooka": "query.variant == 6 && query.mark_variant == 1"},
@@ -231,17 +288,17 @@
 						{"default":"query.mark_variant == 0"}
 					]
 				},
-				"Gatling" : {
+				"gatling" : {
 					"animations" : [
-						"gomugomu_Gatling"
+						"gomugomu_gatling"
 					],
 					"transitions" : [
-						{"Gatling_attack":"query.mark_variant == 2"}
+						{"gatling_attack":"query.mark_variant == 2"}
 					]
 				},
-				"Gatling_attack" : {
+				"gatling_attack" : {
 					"animations" : [
-						"gomugomu_Gatling_attack"
+						"gomugomu_gatling_attack"
 					],
 					"transitions" : [
 						{"default":"query.mark_variant == 0"}

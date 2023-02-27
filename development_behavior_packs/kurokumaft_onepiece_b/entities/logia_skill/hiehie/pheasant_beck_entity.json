@@ -1,0 +1,300 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:pheasant_beck_entity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "scripts": { "animate": [ "pheasant_beck" ] },
+			"animations": { 
+				"pheasant_beck": "animation.hiehie.pheasant_beck"
+			}
+    },
+    "component_groups": {
+      "kurokumaft:despawn": {
+				"minecraft:variant": {
+					"value": 1
+				}
+      },
+			"kurokumaft:pheasant_beck1": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            },
+            "remove_on_hit": {}
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-2, -1, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:pheasant_beck2": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            },
+            "remove_on_hit": {}
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [2, -1, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:pheasant_beck3": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            },
+            "remove_on_hit": {}
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [2, 2, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:pheasant_beck4": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            },
+            "remove_on_hit": {}
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-2, 2, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:pheasant_beck5": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            },
+            "remove_on_hit": {}
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-2, 0, 2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:pheasant_beck6": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 1,
+              "catch_fire": false,
+              "knockback": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "freeze_on_hit": {
+              "size": 5,
+              "shape": "cube"
+            },
+            "remove_on_hit": {}
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [2, 0, -2],
+          "reflect_on_hurt": false,
+          "catch_fire": false
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["pheasant_beck", "hiehie", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 0.1
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval": false,
+        "time": 6.00,
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:despawn": {
+        "filters": {
+          "test": "is_variant","value": 1
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "any_of": [
+                {"test": "in_lava","subject": "self","value": true},
+                {"test": "on_fire","subject": "self","value": true}
+              ]
+            },
+            "event": "kurokumaft:despawn"
+          }
+        ]
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+			"kurokumaft:pheasant_beck1": {
+				"add": {
+					"component_groups": ["kurokumaft:pheasant_beck1" ]
+				}
+			},
+			"kurokumaft:pheasant_beck2": {
+				"add": {
+					"component_groups": ["kurokumaft:pheasant_beck2" ]
+				}
+			},
+			"kurokumaft:pheasant_beck3": {
+				"add": {
+					"component_groups": ["kurokumaft:pheasant_beck3" ]
+				}
+			},
+			"kurokumaft:pheasant_beck4": {
+				"add": {
+					"component_groups": ["kurokumaft:pheasant_beck4" ]
+				}
+			},
+			"kurokumaft:pheasant_beck5": {
+				"add": {
+					"component_groups": ["kurokumaft:pheasant_beck5" ]
+				}
+			},
+			"kurokumaft:pheasant_beck6": {
+				"add": {
+					"component_groups": ["kurokumaft:pheasant_beck6" ]
+				}
+			},
+      "kurokumaft:despawn": {
+				"add": {
+					"component_groups": ["kurokumaft:despawn" ]
+				}
+      }
+
+    }
+  }
+}

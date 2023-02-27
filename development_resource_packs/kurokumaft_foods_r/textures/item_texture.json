@@ -2,20 +2,56 @@
    "resource_pack_name" : "kurokumaft_sample_r",
    "texture_data" : {
       "baked_carrot" : {
-         "textures" : "textures/kurokumaft/items/food/baked_carrot"
+         "textures" : "textures/kurokumaft/items/cook/baked_carrot"
       },
       "apple_pie" : {
-         "textures" : "textures/kurokumaft/items/food/apple_pie"
+         "textures" : "textures/kurokumaft/items/cook/apple_pie"
       },
       "cheese" : {
-         "textures" : "textures/kurokumaft/items/food/cheese"
+         "textures" : "textures/kurokumaft/items/cook/cheese"
       },
       "carrot_stew" : {
-         "textures" : "textures/kurokumaft/items/food/carrot_stew"
+         "textures" : "textures/kurokumaft/items/cook/carrot_stew"
       },
+      "miso_soup_no_ingredient" : {
+         "textures" : "textures/kurokumaft/items/cook/miso_soup_no_ingredient"
+      },
+
       "onion" : {
          "textures" : "textures/kurokumaft/items/food/onion"
+      },
+      "soybean" : {
+         "textures" : "textures/kurokumaft/items/food/soybean"
+      },
+      "green_soybean" : {
+         "textures" : "textures/kurokumaft/items/food/green_soybean"
+      },
+
+      "malt" : {
+         "textures" : "textures/kurokumaft/items/seasoning/malt"
+      },
+      "salt" : {
+         "textures" : "textures/kurokumaft/items/seasoning/salt"
+      },
+
+      "wooden_bucket_empty" : {
+         "textures" : "textures/kurokumaft/items/tool/wooden_bucket_empty"
+      },
+      "wooden_bucket_miso" : {
+         "textures" : "textures/kurokumaft/items/tool/wooden_bucket_miso"
+      },
+      "soup_bowl" : {
+         "textures" : "textures/kurokumaft/items/tool/soup_bowl"
+      },
+
+      "chromium_nugget" : {
+         "textures" : "textures/kurokumaft/items/material/chromium_nugget"
+      },
+
+      "steel_ingot" : {
+         "textures" : "textures/kurokumaft/items/material/steel_ingot"
       }
+
    },
    "texture_name" : "atlas.items"
 }

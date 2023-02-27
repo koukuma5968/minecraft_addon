@@ -1,3 +1,3 @@
 tag @s add meramera_hotarubi
-execute @s ~~~ particle kurokumaft:hotarubi ~~~
+execute as @s run particle kurokumaft:hotarubi ~~~
 tag @s remove meramera_hotarubi

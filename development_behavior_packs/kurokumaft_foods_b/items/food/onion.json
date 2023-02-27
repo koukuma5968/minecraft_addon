@@ -24,21 +24,27 @@
           "event": "kurokumaft:hunger_damage"
         }
       },
-      "minecraft:seed": {
-        "crop_result": "onions"
+      "minecraft:block_placer": {
+        "block": "onions",
+        "use_on" : [
+          "farmland"
+        ]
       }
     },
     "events": {
       "kurokumaft:hunger_damage": {
         "randomize": [
           {
-            "weight": 60,
+            "weight": 40,
             "run_command": {
               "command": [
                 "effect @s hunger 10 2"
               ],
               "target": "self"
             }
+          },
+          {
+            "weight": 60
           }
         ]
       }

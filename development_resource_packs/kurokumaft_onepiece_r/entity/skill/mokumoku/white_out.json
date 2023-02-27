@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:white_out",
+        "materials": {
+          "default": "armor_stand"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/mokumoku/white_out"
+        },
+        "geometry": {
+          "default": "geometry.white_out"
+        },
+        "render_controllers": ["controller.render.armor_stand"]
+      }
+    }
+  }
+  

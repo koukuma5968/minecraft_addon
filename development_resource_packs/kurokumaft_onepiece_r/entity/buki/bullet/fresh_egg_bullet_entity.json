@@ -7,7 +7,7 @@
           "default": "arrow"
         },
         "textures": {
-          "default": "textures/kurokumaft/models/buki/bullet/egg_bullet"
+          "default": "textures/items/egg"
         },
         "geometry": {
           "default": "geometry.egg_bullet"

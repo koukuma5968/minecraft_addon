@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.sandai_kitetu.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"sandai_kitetu": {
+					"rotation": [99.14032, -61.98809, 99.91664],
+					"position": [-7, -4, -3],
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.sandai_kitetu.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"sandai_kitetu": {
+					"rotation": [93.33854, -0.85483, -96.48848],
+					"position": [1.5, -1.5, -11.5],
+					"scale": [0.3, 0.3, 0.3]
+				}
+			}
+		}
+	}
+}

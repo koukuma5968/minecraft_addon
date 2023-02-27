@@ -1,0 +1,97 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.bombom.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "nose_fancy_cannon": "query.variant == 2 && query.is_sneaking" },
+            { "kick_bom": "query.variant == 1 && query.is_sneaking" }
+          ]
+        },
+        "nose_fancy_cannon":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鼻空想砲（ノーズファンシーキャノン）\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kick_bom":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"足爆（キッキーボム）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.bombom.attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "punch_bom": "variable.attack_time" }
+          ]
+        },
+        "punch_bom":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"腕爆（パンチボム）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function bombom/kick_bom"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
+    "controller.animation.bombom": {
+      "states": {
+        "default": {
+          "variables": {
+            "bombom_at": {
+              "input": "variable.bombom_at = (variable.bombom_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "nose_fancy_cannon": "query.variant == 1 && query.is_using_item" },
+            { "kick_bom": "query.variant == 2 && query.is_using_item" }
+          ]
+        },
+        "nose_fancy_cannon":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"鼻空想砲（ノーズファンシーキャノン）\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.bombom_at = variable.bombom_at < 20 ? variable.bombom_at + 1:0;return variable.bombom_at == 0;"}
+          ]
+        },
+        "kick_bom":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"足爆（キッキーボム）\"}]}",
+            "/function bombom/kick_bom",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.bombom_at = variable.bombom_at < 20 ? variable.bombom_at + 1:0;return variable.bombom_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

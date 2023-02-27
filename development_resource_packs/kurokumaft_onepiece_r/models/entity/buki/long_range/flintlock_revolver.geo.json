@@ -1,0 +1,85 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.flintlock_revolver",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "rightitem",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "flintlock_revolver",
+					"parent": "rightitem",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 0, 4.9], "size": [1, 5, 2], "uv": [26, 25]}
+					]
+				},
+				{
+					"name": "flintlock_revolver_body",
+					"parent": "flintlock_revolver",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 6.35, -1.25], "size": [1, 2, 3], "pivot": [0, 0, 0], "rotation": [-42.5, 0, 0], "uv": [24, 19]},
+						{"origin": [-0.1, 4, 1.7], "size": [1.2, 3, 3], "uv": [18, 25]}
+					]
+				},
+				{
+					"name": "trigger",
+					"parent": "flintlock_revolver_body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 2, 3], "size": [1, 3, 1], "uv": [11, 27]},
+						{"origin": [0, 2, 2], "size": [1, 3, 1], "uv": [6, 27]},
+						{"origin": [0, 3, 1], "size": [1, 2, 1], "uv": [1, 28]},
+						{"origin": [0, 4, 0], "size": [1, 1, 1], "uv": [1, 26]}
+					]
+				},
+				{
+					"name": "gunlock",
+					"parent": "trigger",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 2, 3], "size": [1, 2, 0], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "hammer",
+					"parent": "flintlock_revolver_body",
+					"pivot": [0, 0, 0.75],
+					"cubes": [
+						{"origin": [0, 6, 3.75], "size": [1, 2, 1], "uv": [28, 16]},
+						{"origin": [0, 2, 8.5], "size": [1, 1, 2], "pivot": [0, 0, 0.75], "rotation": [47.5, 0, 0], "uv": [27, 13]},
+						{"origin": [0, 7, 1.75], "size": [1, 1, 2], "uv": [22, 16]}
+					]
+				},
+				{
+					"name": "cylinder",
+					"parent": "flintlock_revolver_body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1.1, 4.9, -1.6], "size": [3.2, 3.2, 4.2], "uv": [9, 17]}
+					]
+				},
+				{
+					"name": "barrel",
+					"parent": "flintlock_revolver",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 6, -6], "size": [1, 1, 5], "uv": [20, 7]},
+						{"origin": [0, 7, -10], "size": [1, 2, 13], "uv": [0, 0]},
+						{"origin": [0, 9, -10], "size": [1, 1, 2], "uv": [0, 9]}
+					]
+				}
+			]
+		}
+	]
+}

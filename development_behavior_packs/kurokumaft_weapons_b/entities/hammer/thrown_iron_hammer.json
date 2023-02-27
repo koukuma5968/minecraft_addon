@@ -1,0 +1,96 @@
+{
+  "format_version": "1.17.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "kurokumaft:thrown_iron_hammer",
+			"is_spawnable": false,
+			"is_summonable": false,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:snowball",
+			"scripts": { "animate": [ "kill" ] },
+			"animations": { "kill": "controller.animation.hammer" }
+		},
+		"component_groups": {
+			"kurokumaft:stop": {
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:despawn": {
+					"filters": {
+						"test": "is_variant","value": 1
+					}
+				},
+				"minecraft:spawn_entity": {
+					"entities": {
+						"filters": {
+							"test": "is_variant","value": 1
+						},
+						"min_wait_time": 0,
+						"max_wait_time": 0,
+						"single_use": true,
+						"num_to_spawn": 1,
+						"spawn_item": "kurokumaft:iron_hammer"
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.25,
+				"height": 0.35
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 8,
+						"knockback": true,
+						"semi_random_diff_damage": false,
+						"destroy_on_hit": false
+					},
+					"definition_event": {
+						"affect_projectile": true,
+						"event_trigger": {
+						  "event": "kurokumaft:stop",
+						  "target": "self"
+						}
+					},
+					"stick_in_ground": {
+						"shake_time" : 0
+					}
+				},
+				"liquid_inertia": 0.99,
+				"hit_sound": "item.trident.hit",
+				"hit_ground_sound": "item.trident.hit_ground",
+				"power": 5,
+				"gravity": 0.50,
+				"uncertainty_base": 1,
+				"uncertainty_multiplier": 0,
+				"stop_on_hurt": true,
+				"anchor": 1,
+				"should_bounce": true,
+				"multiple_targets": false,
+				"offset": [ 0, -0.1, 0 ]
+			},
+			"minecraft:physics": {
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80.0,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				  }
+			}
+		},
+		"events": {
+			"kurokumaft:stop": {
+				"add": {
+					"component_groups": ["kurokumaft:stop" ]
+				}
+			}
+		}
+	}
+}

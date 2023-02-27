@@ -1,0 +1,77 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:hino_entity",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "scripts": { "animate": [ "hino" ] },
+			"animations": { 
+				"hino": "animation.gorogoro.hino"
+			}
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["lightning", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 5.0,
+        "height": 5.0
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true
+          },
+          "impact_damage": {
+            "damage": 30,
+            "knockback": false,
+            "semi_random_diff_damage": false
+          }
+        },
+        "destroy_on_hurt": true,
+        "power": 3.0,
+        "gravity": -0.01,
+        "inertia": 1.0,
+        "uncertaintyBase": 8,
+        "uncertaintyMultiplier": 2.5,
+        "anchor": 1,
+        "offset": [0, 0, 0],
+        "reflect_on_hurt": false,
+        "catch_fire": false,
+        "on_fire_time": 15
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval": false,
+        "time": 2.00,
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "kurokumaft:despawn": {
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

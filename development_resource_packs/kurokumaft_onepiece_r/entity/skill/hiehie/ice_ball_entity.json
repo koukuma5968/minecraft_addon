@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:ice_ball_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/hiehie/ice_ball"
+        },
+        "geometry": {
+          "default": "geometry.ice_ball"
+        },
+        "scripts": {
+          "scale": "10",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.ice_ball.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

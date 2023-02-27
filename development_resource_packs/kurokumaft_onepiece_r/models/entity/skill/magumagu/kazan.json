@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.kazan",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 31,
+				"visible_bounds_height": 11,
+				"visible_bounds_offset": [0, 4.5, 0]
+			},
+			"bones": [
+				{
+					"name": "kazan",
+					"pivot": [0, 0, 0],
+					"rotation": [-90, 0, 0],
+					"cubes": [
+						{"origin": [-2, -4, -2], "size": [4, 4, 4], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

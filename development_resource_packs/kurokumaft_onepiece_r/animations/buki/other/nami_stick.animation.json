@@ -1,0 +1,25 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.nami_stick.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"nami_stick": {
+					"rotation": [99.14032, -61.98809, 99.91664],
+					"position": [-3, 2, -4],
+					"scale": [0.3, 0.6, 0.3]
+				}
+			}
+		},
+		"animation.nami_stick.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"nami_stick": {
+					"rotation": [90, 0, -90],
+					"position": [0, 6, -5],
+					"scale": [0.3, 1, 0.3]
+				}
+			}
+		}
+	}
+}

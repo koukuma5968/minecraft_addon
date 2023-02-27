@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:arquebus",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/items/gun/arquebus",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.arquebus"
+      },
+      "animations": {
+        "wield_first_person": "animation.gun.wield_first_person",
+        "wield_therd_person": "animation.gun.wield_therd_person"
+      },
+      "scripts": {
+        "animate": [
+          {"wield_first_person": "c.is_first_person"},
+          {"wield_therd_person": "!c.is_first_person"}
+        ]
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

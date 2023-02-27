@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:theown_hand_grenade",
+        "materials": {
+          "default": "fireball"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/items/bom/hand_grenade"
+        },
+        "geometry": {
+          "default": "geometry.hand_grenade"
+        },
+        "particle_effects": {
+          "fire": "kurokumaft:bom_flame_particle"
+        },
+        "scripts": {
+          "animate": [
+            "thrown"
+          ]
+        },
+        "animations": {
+          "thrown": "animation.bom.thrown"
+        },
+        "render_controllers": [ "controller.render.thrown_default" ]
+      }
+    }
+  }
+  

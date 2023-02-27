@@ -1,0 +1,90 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:kagami_entity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball",
+      "scripts": { "animate": [ "kagami" ] },
+			"animations": { 
+				"kagami": "animation.pikapika.kagami"
+			}
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["pikapika", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 2.0,
+        "height": 2.0
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "kurokumaft:despawn",
+              "target": "self"
+            }
+          },
+          "impact_damage": {
+            "damage": 0,
+            "catch_fire": false,
+            "knockback": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": false
+          }
+        },
+        "power": 4.0,
+        "gravity": 0.00,
+        "inertia": 1.0,
+        "uncertaintyBase": 8,
+        "uncertaintyMultiplier": 2.5,
+        "anchor": 1,
+        "offset": [-0.5, 0, 1],
+        "reflectOnHurt": true,
+        "catch_fire": false
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval": false,
+        "time": 1.0,
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+        "has_collision": true,
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "kurokumaft:despawn": {
+        "run_command": {
+          "command": [
+            "tp @e[tag=kagami_owner] @s",
+            "tag @e[tag=kagami_owner] remove kagami_owner",
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gomugomu3.particle": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s run particle minecraft:explosion_particle ~~~"
+				]
+			}
+		},
+		"animation.gomugomu3.gatling": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gomugomu3/gatling"
+				]
+			}
+		},
+		"animation.gomugomu3.rocket": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gomugomu3/rocket"
+				]
+			}
+		},
+		"animation.gomugomu3.storm": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gomugomu3/storm"
+				]
+			}
+		}
+	}
+}

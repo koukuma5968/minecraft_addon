@@ -1,0 +1,179 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.hiehie.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "ice_age": "query.variant == 6 && query.is_sneaking" },
+            { "ice_ball": "query.variant == 1 && query.is_sneaking" },
+            { "ice_saber": "query.variant == 2 && query.is_sneaking" },
+            { "ice_time": "query.variant == 3 && query.is_sneaking" },
+            { "partisan": "query.variant == 4 && query.is_sneaking" },
+            { "pheasant_beck": "query.variant == 5 && query.is_sneaking" }
+          ]
+        },
+        "ice_age":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"氷河時代（アイス・エイジ）\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "ice_ball":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイスBALL（ボール）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "ice_saber":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイスサーベル\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "ice_time":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイスタイム\"}]}",
+            "/event entity @s variant4",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "partisan":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイス塊（ブロック）両棘矛（パルチザン）\"}]}",
+            "/event entity @s variant5",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "pheasant_beck":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイス塊（ブロック）暴雉嘴（フェザントベック）\"}]}",
+            "/event entity @s variant6",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.hiehie": {
+      "states": {
+        "default": {
+          "variables": {
+            "hiehie_at": {
+              "input": "variable.hiehie_at = (variable.hiehie_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "ice_age": "query.variant == 1 && query.is_using_item" },
+            { "ice_ball": "query.variant == 2 && query.is_using_item" },
+            { "ice_saber": "query.variant == 3 && query.is_using_item" },
+            { "ice_time": "query.variant == 4 && query.is_using_item" },
+            { "partisan": "query.variant == 5 && query.is_using_item" },
+            { "pheasant_beck": "query.variant == 6 && query.is_using_item" }
+          ]
+        },
+        "ice_age":{
+          "animations" : ["hiehie.ice_age"],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"氷河時代（アイス・エイジ）\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"query.any_animation_finished"}
+          ]
+        },
+        "ice_ball":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイスBALL（ボール）\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hiehie_at = variable.hiehie_at < 20 ? variable.hiehie_at + 1:0;return variable.hiehie_at == 0;"}
+          ]
+        },
+        "ice_saber":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイスサーベル\"}]}",
+            "/give @s kurokumaft:hiehie_ice_saber 1",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hiehie_at = variable.hiehie_at < 5 ? variable.hiehie_at + 1:0;return variable.hiehie_at == 0;"}
+          ]
+        },
+        "ice_time":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイスタイム\"}]}",
+            "/function hiehie/ice_time",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hiehie_at = variable.hiehie_at < 20 ? variable.hiehie_at + 1:0;return variable.hiehie_at == 0;"}
+          ]
+        },
+        "partisan":{
+          "animations" : [ "hiehie.partisan_owner" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイス塊（ブロック）両棘矛（パルチザン）\"}]}",
+            "/event entity @s kurokumaft:partisan_shot",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:partisan_remove",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hiehie_at = variable.hiehie_at < 200 ? variable.hiehie_at + 1:0;return variable.hiehie_at == 0;"}
+          ]
+        },
+        "pheasant_beck":{
+          "animations" : [ "hiehie.partisan_owner" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"アイス塊（ブロック）暴雉嘴（フェザントベック）\"}]}",
+            "/event entity @s kurokumaft:pheasant_beck_shot",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:pheasant_beck_remove",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hiehie_at = variable.hiehie_at < 200 ? variable.hiehie_at + 1:0;return variable.hiehie_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

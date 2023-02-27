@@ -1,0 +1,29 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bombom.kick_bom": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.08333,
+			"bones": {
+				"waist": {
+					"rotation": {
+						"0.0": [17.5, 0, 0],
+						"0.0833": [18.84359, -21.40584, -7.09999]
+					}
+				},
+				"leftArm": {
+					"rotation": [-37.07723, -6.06809, -17.96341]
+				},
+				"rightArm": {
+					"rotation": [0, 0, 15]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [62.5, 0, 0],
+						"0.0833": [-81.35027, -6.27967, 24.24769]
+					}
+				}
+			}
+		}
+	}
+}

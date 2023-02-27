@@ -9,13 +9,6 @@
 					"position": [-7, -4, -3],
 					"scale": 0.5
 				}
-			},
-			"particle_effects": {
-				"0.0": {
-					"effect": "guragura",
-					"locator": "murakumogiri1",
-					"pre_effect_script": "variable.attack_time\n;"
-				}
 			}
 		},
 		"animation.murakumogiri.wield_third_person": {

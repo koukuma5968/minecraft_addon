@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:breath_bom_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/bombom/breath_bom"
+        },
+        "geometry": {
+          "default": "geometry.breath_bom"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

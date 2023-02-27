@@ -31,12 +31,36 @@
       "minecraft:chargeable": {
       },
       "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.skin_id == 110",
+          "event": "kurokumaft:hiehie_shot",
+          "target": "self"
+        }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
+      "kurokumaft:hiehie_shot" : {
+        "sequence":[
+          {
+            "condition": "query.variant == 2",
+            "trigger": "kurokumaft:ice_ball"
+          }
+        ]
+      },
+
+      "kurokumaft:ice_ball" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:ice_ball_entity",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      }
     }
   }
 }

@@ -62,6 +62,10 @@
             "trigger": "kurokumaft:desert_spada"
           },
           {
+            "condition": "query.variant == 2",
+            "trigger": "kurokumaft:desert_girasole"
+          },
+          {
             "condition": "query.variant == 4",
             "trigger": "kurokumaft:sabers"
           }
@@ -72,6 +76,16 @@
           {
             "shoot": {
               "projectile": "kurokumaft:desert_spada",
+              "launch_power": 1.1
+            }
+          }
+        ]
+      },
+      "kurokumaft:desert_girasole" : {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:desert_girasole",
               "launch_power": 1.1
             }
           }

@@ -16,6 +16,9 @@
       "glow_sword" : {
          "textures" : "textures/kurokumaft/items/sword/glow_sword"
       },
+      "steel_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/steel_sword"
+      },
 
       "bamboo_axe" : {
          "textures" : "textures/kurokumaft/items/axe/bamboo_axe"
@@ -58,6 +61,9 @@
       "wooden_boomerang": {
    		"textures": "textures/kurokumaft/items/boomerang/wooden_boomerang"
       },
+      "iron_boomerang": {
+   		"textures": "textures/kurokumaft/items/boomerang/iron_boomerang"
+      },
 
       "wooden_hammer": {
          "textures": "textures/kurokumaft/items/hammer/wood_hammer"
@@ -78,6 +84,41 @@
          "textures": "textures/kurokumaft/items/hammer/netherite_hammer"
       },
 
+      "wood_sickle": {
+         "textures": "textures/kurokumaft/items/sickle/wood_sickle"
+      },
+      "stone_sickle": {
+         "textures": "textures/kurokumaft/items/sickle/stone_sickle"
+      },
+
+      "wood_scythe": {
+         "textures": "textures/kurokumaft/items/scythe/wood_scythe"
+      },
+      "stone_scythe": {
+         "textures": "textures/kurokumaft/items/scythe/stone_scythe"
+      },
+
+      "powder_ball": {
+         "textures": "textures/kurokumaft/items/bom/powder_ball"
+      },
+      "hand_grenade": {
+         "textures": "textures/kurokumaft/items/bom/hand_grenade"
+      },
+
+      "arquebus": {
+         "textures": "textures/kurokumaft/items/gun/arquebus"
+      },
+      "revolver": {
+         "textures": "textures/kurokumaft/items/gun/revolver"
+      },
+
+      "lead_ball": {
+         "textures": "textures/kurokumaft/items/gun/bullet/lead_ball"
+      },
+      "forty_four_magnum": {
+         "textures": "textures/kurokumaft/items/gun/bullet/forty_four_magnum"
+      },
+
       "copper_helmet": {
          "textures" : "textures/kurokumaft/items/armer/copper_helmet"
       },
@@ -96,6 +137,31 @@
       },
       "copper_shield" : {
          "textures" : "textures/kurokumaft/items/shield/copper_shield"
+      },
+
+      "chromium_nugget" : {
+         "textures" : "textures/kurokumaft/items/material/chromium_nugget"
+      },
+      "lead_nugget" : {
+         "textures" : "textures/kurokumaft/items/material/lead_nugget"
+      },
+      "bamboo_fiber" : {
+         "textures" : "textures/kurokumaft/items/material/bamboo_fiber"
+      },
+
+      "steel_ingot" : {
+         "textures" : "textures/kurokumaft/items/material/steel_ingot"
+      },
+
+      "medicinal_plant" : {
+         "textures" : "textures/kurokumaft/items/crops/medicinal_plant"
+      },
+
+      "fish_meal" : {
+         "textures" : "textures/kurokumaft/items/fertilizer/fish_meal"
+      },
+      "seeds_medicinal_plant" : {
+         "textures" : "textures/kurokumaft/items/crops/seeds/seeds_medicinal_plant"
       }
 
    },

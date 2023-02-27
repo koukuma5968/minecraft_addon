@@ -1,0 +1,69 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hino.shot": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": [72.5, "-query.target_y_rotation", 0],
+					"position": [0, -5, 0]
+				},
+				"head": {
+					"rotation": [-77.5, 0, 0],
+					"position": [0, 1, -4]
+				},
+				"rightWing": {
+					"rotation": [0, 17.5, 0]
+				},
+				"leftWing": {
+					"rotation": [0, -25, 0]
+				},
+				"rightleg": {
+					"rotation": [-117.5, 0, 0]
+				},
+				"leftleg": {
+					"rotation": [-110, 0, 0]
+				}
+			}
+		},
+		"animation.kiten.shot": {
+			"loop": true,
+			"bones": {
+				"leg0": {
+					"rotation": [56.51916, -11.43563, 9.77243],
+					"position": [0, 2, -2]
+				},
+				"leg1": {
+					"rotation": [55.86446, 16.76559, -11.06517],
+					"position": [0, 2, -2]
+				},
+				"leg2": {
+					"rotation": [-32.73241, 24.4045, 32.73241]
+				},
+				"leg3": {
+					"rotation": [-36.65996, -17.26588, -21.741]
+				},
+				"root": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"scale": [2, 2, 2]
+				}
+			}
+		},
+		"animation.zyamuburu.shot": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			}
+		},
+		"animation.raigou.shot": {
+			"loop": true,
+			"bones": {
+				"raigou": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			}
+		}
+	}
+}

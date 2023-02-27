@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:girasole_stand",
+        "materials": {
+          "default": "armor_stand"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/sunasuna/girasole_stand"
+        },
+        "geometry": {
+          "default": "geometry.girasole_stand"
+        },
+        "render_controllers": ["controller.render.armor_stand"]
+      }
+    }
+  }
+  
