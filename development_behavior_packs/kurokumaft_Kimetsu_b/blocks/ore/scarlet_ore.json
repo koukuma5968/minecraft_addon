@@ -12,7 +12,7 @@
 			"minecraft:creative_category": { "category": "Construction" },
 			"minecraft:destroy_time": 1.2,
 			"minecraft:block_light_absorption": 1.5,
-			"minecraft:loot": "loot_tables/blocks/scarlet_ore.json"
+			"minecraft:loot": "loot_tables/blocks/ore/scarlet_ore.json"
 		},
 		"events": {
 		}

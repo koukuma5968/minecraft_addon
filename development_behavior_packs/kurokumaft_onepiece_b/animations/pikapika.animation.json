@@ -1,22 +1,30 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.pikapika.takeoff": {
+		"animation.pikapika.rising": {
 			"timeline": {
 			    "0.0": [
-					"/effect @s speed 2 25 true",
-					"/effect @s levitation 1 1 true",
-					"/particle kurokumaft:pikapika_hover ^^1^1"
+					"/effect @s levitation 1 3 true",
+					"/particle kurokumaft:pikapika_hover ^^^0.5"
 				]
 			},
 			"animation_length": 0.1,
 			"loop": true
 		},
-		"animation.pikapika.landing": {
+		"animation.pikapika.hover": {
 			"timeline": {
 			    "0.0": [
-					"/effect @s slow_falling 1 1 true",
-					"/particle kurokumaft:pikapika_hover ^^^1"
+					"/particle kurokumaft:pikapika_hover ^^^0.5"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.pikapika.fall": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s slow_falling 1 2 true",
+					"/particle kurokumaft:pikapika_hover ^^^-0.5"
 				]
 			},
 			"animation_length": 0.1,
@@ -34,7 +42,8 @@
 		"animation.pikapika.magatama": {
 			"timeline": {
 			    "0.0": [
-					"/particle kurokumaft:magatama ~~~"
+					"/particle kurokumaft:magatama ~~~",
+					"/damage @e[r=2.5] 5 magic"
 				]
 			},
 			"animation_length": 0.1,

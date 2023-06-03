@@ -1,0 +1,27 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:chocolate_cake",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:chocolate_cake.name"
+			},
+      "minecraft:icon": {
+        "texture": "chocolate_cake"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.miscFood"
+      },
+      "minecraft:on_use_on": {
+      },
+      "minecraft:block_placer": {
+        "block": "chocolate_cake_block"
+      }
+    },
+    "events": {
+    }
+  }
+}

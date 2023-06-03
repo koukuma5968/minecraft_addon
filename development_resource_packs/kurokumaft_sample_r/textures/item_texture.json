@@ -6,6 +6,9 @@
       },
       "apple_pie" : {
          "textures" : "textures/kurokumaft/items/food/apple_pie"
+      },
+      "chromium_nugget" : {
+         "textures" : "textures/kurokumaft/items/material/chromium_nugget"
       }
    },
    "texture_name" : "atlas.items"

@@ -51,7 +51,7 @@
         }
       },
       "minecraft:wearable": {
-        "slot": "slot.equippable"
+        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {

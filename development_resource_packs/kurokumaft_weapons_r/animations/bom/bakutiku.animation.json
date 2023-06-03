@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bakutiku.fuse_lit": {
+			"loop": true,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fire",
+						"locator": "fuse_lit_wall"
+					},
+					{
+						"effect": "fire",
+						"locator": "fuse_lit"
+					}
+				]
+			}
+		}
+	}
+}

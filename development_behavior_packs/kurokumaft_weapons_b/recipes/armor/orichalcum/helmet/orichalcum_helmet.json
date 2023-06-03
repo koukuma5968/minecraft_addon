@@ -1,0 +1,21 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:orichalcum_helmet"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "kurokumaft:orichalcum"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:orichalcum_helmet"
+    }
+  }
+}

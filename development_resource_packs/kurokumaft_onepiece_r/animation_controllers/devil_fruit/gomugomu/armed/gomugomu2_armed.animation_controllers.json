@@ -1,0 +1,205 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.gomugomu2_armed.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"snake_shot": "query.variant == 1 && query.mark_variant == 1"},
+						{"red_hawk": "query.variant == 2 && query.mark_variant == 1"},
+						{"hawk_whip": "query.variant == 3 && query.mark_variant == 1"},
+						{"hawk_gatling": "query.variant == 4 && query.mark_variant == 1"},
+						{"eagle_bazooka": "query.variant == 5 && query.mark_variant == 1"},
+						{"hawk_rifle": "query.variant == 6 && query.mark_variant == 1"},
+						{"elephant_gun": "query.variant == 7 && query.mark_variant == 1 && !query.is_jumping"},
+						{"tall_elephant_gun": "query.variant == 7 && query.mark_variant == 1 && query.is_jumping"},
+						{"elephant_gatling": "query.variant == 8 && query.mark_variant == 1"},
+						{"grizzly_magnum": "query.variant == 9 && query.mark_variant == 1"},
+						{"UFO": "query.mark_variant == 100"}
+					]
+				},
+				"snake_shot" : {
+					"animations" : [
+						{"gomugomu2_armed_snake_shot": "variable.is_first_person"},
+						{"gomugomu2_armed_snake_shot": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"red_hawk" : {
+					"animations" : [
+						{"gomugomu2_armed_red_hawk": "variable.is_first_person"},
+						{"gomugomu2_armed_red_hawk": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"red_hawk_attack":"query.mark_variant == 2"}
+					]
+				},
+				"red_hawk_attack" : {
+					"animations" : [
+						{"gomugomu2_armed_red_hawk_attack": "variable.is_first_person"},
+						{"gomugomu2_armed_red_hawk_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hawk_whip" : {
+					"animations" : [
+						{"gomugomu2_armed_hawk_whip": "variable.is_first_person"},
+						{"gomugomu2_armed_hawk_whip": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hawk_whip_attack":"query.mark_variant == 2"}
+					]
+				},
+				"hawk_whip_attack" : {
+					"animations" : [
+						{"gomugomu2_armed_hawk_whip_attack": "variable.is_first_person"},
+						{"gomugomu2_armed_hawk_whip_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hawk_gatling" : {
+					"animations" : [
+						{"gomugomu2_armed_hawk_gatling": "variable.is_first_person"},
+						{"gomugomu2_armed_hawk_gatling": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hawk_gatling_attack":"query.mark_variant == 2"}
+					]
+				},
+				"hawk_gatling_attack" : {
+					"animations" : [
+						{"gomugomu2_armed_hawk_gatling_attack": "variable.is_first_person"},
+						{"gomugomu2_armed_hawk_gatling_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"eagle_bazooka" : {
+					"animations" : [
+						{"gomugomu2_armed_eagle_bazooka": "variable.is_first_person"},
+						{"gomugomu2_armed_eagle_bazooka": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"eagle_bazooka_attack":"query.mark_variant == 2"}
+					]
+				},
+				"eagle_bazooka_attack" : {
+					"animations" : [
+						{"gomugomu2_armed_eagle_bazooka_attack": "variable.is_first_person"},
+						{"gomugomu2_armed_eagle_bazooka_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hawk_rifle" : {
+					"animations" : [
+						{"gomugomu2_armed_hawk_rifle": "variable.is_first_person"},
+						{"gomugomu2_armed_hawk_rifle": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"hawk_rifle_attack":"query.mark_variant == 2"}
+					]
+				},
+				"hawk_rifle_attack" : {
+					"animations" : [
+						{"gomugomu2_armed_hawk_rifle_attack": "variable.is_first_person"},
+						{"gomugomu2_armed_hawk_rifle_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"elephant_gun" : {
+					"animations" : [
+						{"gomugomu3_armed_elephant_gun": "variable.is_first_person"},
+						{"gomugomu3_armed_elephant_gun": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"elephant_gun_attack":"query.mark_variant == 2"}
+					]
+				},
+				"elephant_gun_attack" : {
+					"animations" : [
+						{"gomugomu3_armed_elephant_gun_attack": "variable.is_first_person"},
+						{"gomugomu3_armed_elephant_gun_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"tall_elephant_gun" : {
+					"animations" : [
+						{"gomugomu3_armed_tall_elephant_gun": "variable.is_first_person"},
+						{"gomugomu3_armed_tall_elephant_gun": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"tall_elephant_gun_attack":"query.mark_variant == 2"}
+					]
+				},
+				"tall_elephant_gun_attack" : {
+					"animations" : [
+						{"gomugomu3_armed_tall_elephant_gun_attack": "variable.is_first_person"},
+						{"gomugomu3_armed_tall_elephant_gun_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"elephant_gatling" : {
+					"animations" : [
+						{"gomugomu3_armed_elephant_gatling": "variable.is_first_person"},
+						{"gomugomu3_armed_elephant_gatling": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"elephant_gatling_attack":"query.mark_variant == 2"}
+					]
+				},
+				"elephant_gatling_attack" : {
+					"animations" : [
+						{"gomugomu3_armed_elephant_gatling_attack": "variable.is_first_person"},
+						{"gomugomu3_armed_elephant_gatling_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"grizzly_magnum" : {
+					"animations" : [
+						{"gomugomu3_armed_grizzly_magnum": "variable.is_first_person"},
+						{"gomugomu3_armed_grizzly_magnum": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"grizzly_magnum_attack":"query.mark_variant == 2"}
+					]
+				},
+				"grizzly_magnum_attack" : {
+					"animations" : [
+						{"gomugomu3_armed_grizzly_magnum_attack": "variable.is_first_person"},
+						{"gomugomu3_armed_grizzly_magnum_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"UFO" : {
+					"animations" : [
+						{"gomugomu_armed_UFO": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+
+			}
+		}
+	}
+}

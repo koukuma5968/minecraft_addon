@@ -18,9 +18,17 @@
           "gomugomu2",
           "gomugomu3_cange",
           "gomugomu3",
+          "gomugomu4_cange",
+          "gomugomu4",
+          "gomugomu_armed_cange",
+          "gomugomu2_armed_cange",
+          "gomugomu_armed",
+          "gomugomu_armed_hover",
+          "gomugomu4_hover",
 
           "gomugomu.stage",
           "gomugomu.gear",
+          "gomugomu.armed_gear",
 
           "barabara_cange",
           "barabara",
@@ -51,19 +59,26 @@
           "magumagu",
           "magumagu_hover",
 
-          {"hiehie_cange": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill')"},
-          {"hiehie": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill')"},
+          "hiehie_cange",
+          "hiehie",
+          "hiehie_hover",
 
-          {"pikapika_cange": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill')"},
-          {"pikapika": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill')"},
+          "pikapika_cange",
+          "pikapika",
+          "pikapika_hover",
 
-          {"bombom_cange": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill')"},
-          {"bombom_attack": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill')"},
-          {"bombom": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill')"},
+          "nikyunikyu_cange",
+          "nikyunikyu_attack",
+          "nikyunikyu",
+          "nikyunikyu_hover",
 
-          {"toritori_fenikusu_cange": "query.skin_id == 114 || query.skin_id == 115 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill')"},
-          {"toritori_fenikusu": "query.skin_id == 114 || query.skin_id == 115 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill')"},
-          {"toritori_fenikusu.zyuzinn": "query.skin_id == 114 || query.skin_id == 115"}
+          "bombom_cange",
+          "bombom_attack",
+          "bombom",
+
+          "toritori_fenikusu_cange",
+          "toritori_fenikusu",
+          "toritori_fenikusu.zyuzinn"
 
         ]
       },
@@ -72,6 +87,8 @@
         "patinko": "controller.animation.player.patinko",
         "level": "controller.animation.player.level",
         "ambition": "controller.animation.player.ambition",
+
+        "gomugomu.stage": "controller.animation.gomugomu.stage",
 
         "gomugomu_cange": "controller.animation.gomugomu.change",
         "gomugomu": "controller.animation.gomugomu.player",
@@ -88,9 +105,25 @@
         "gomugomu3.gatling": "animation.gomugomu3.gatling","gomugomu3.rocket": "animation.gomugomu3.rocket",
         "gomugomu3.storm": "animation.gomugomu3.storm",
 
-        "gomugomu.stage": "controller.animation.gomugomu.stage",
         "gomugomu.gear": "controller.animation.gomugomu.gear",
         "gomugomu2.particle": "animation.gomugomu2.particle",
+
+        "gomugomu_armed_cange": "controller.animation.gomugomu_armed.change",
+        "gomugomu2_armed_cange": "controller.animation.gomugomu2_armed.change",
+        "gomugomu_armed": "controller.animation.gomugomu_armed.player",
+        "gomugomu_armed.hawk_gatling": "animation.gomugomu_armed.hawk_gatling",
+        "gomugomu_armed.elephant_gatling": "animation.gomugomu_armed.elephant_gatling",
+        "gomugomu.armed_gear": "controller.animation.gomugomu.armed_gear",
+        "gomugomu_armed_hover": "controller.animation.gomugomu_armed.hover",
+        "gomugomu_armed.rising": "animation.gomugomu_armed.rising","gomugomu_armed.fall": "animation.gomugomu_armed.fall",
+
+        "gomugomu4_cange": "controller.animation.gomugomu4.change",
+        "gomugomu4": "controller.animation.gomugomu4.player",
+        "gomugomu4.calvaline": "animation.gomugomu4.calvaline",
+        "gomugomu4.kong_organ": "animation.gomugomu4.kong_organ",
+        "gomugomu4.kong_gatling": "animation.gomugomu4.kong_gatling",
+        "gomugomu4_hover": "controller.animation.gomugomu4.hover",
+        "gomugomu4.rising": "animation.gomugomu4.rising","gomugomu4.fall": "animation.gomugomu4.fall",
 
         "barabara_cange": "controller.animation.barabara.change",
         "barabara": "controller.animation.barabara",
@@ -102,7 +135,7 @@
         "mokumoku_cange": "controller.animation.mokumoku.change",
         "mokumoku": "controller.animation.mokumoku",
         "mokumoku_hover": "controller.animation.mokumoku.hover",
-        "mokumoku.landing": "animation.mokumoku.landing","mokumoku.takeoff": "animation.mokumoku.takeoff",
+        "mokumoku.hover": "animation.mokumoku.hover","mokumoku.rising": "animation.mokumoku.rising","mokumoku.fall": "animation.mokumoku.fall",
 
         "meramera_cange": "controller.animation.meramera.change",
         "meramera": "controller.animation.meramera",
@@ -110,14 +143,14 @@
         "meramera.hotarubi": "animation.meramera.hotarubi","meramera.hidaruma": "animation.meramera.hidaruma",
         "meramera.daienkai": "animation.meramera.daienkai",
         "meramera_hover": "controller.animation.meramera.hover",
-        "meramera.landing": "animation.meramera.landing","meramera.takeoff": "animation.meramera.takeoff",
+        "meramera.hover": "animation.meramera.hover","meramera.rising": "animation.meramera.rising","meramera.fall": "animation.meramera.fall",
 
         "guragura": "controller.animation.guragura",
 
         "sunasuna_cange": "controller.animation.sunasuna.change",
         "sunasuna": "controller.animation.sunasuna",
         "sunasuna_hover": "controller.animation.sunasuna.hover",
-        "sunasuna.landing": "animation.sunasuna.landing","sunasuna.takeoff": "animation.sunasuna.takeoff",
+        "sunasuna.hover": "animation.sunasuna.hover","sunasuna.rising": "animation.sunasuna.rising","sunasuna.fall": "animation.sunasuna.fall",
         "sunasuna.sabers_petherd": "animation.sunasuna.sabers_petherd",
         "sunasuna.sabers_petherd_att": "animation.sunasuna.sabers_petherd_att",
         "sunasuna.ground_secco": "animation.sunasuna.ground_secco",
@@ -126,7 +159,7 @@
         "gorogoro_cange": "controller.animation.gorogoro.change",
         "gorogoro": "controller.animation.gorogoro",
         "gorogoro_hover": "controller.animation.gorogoro.hover",
-        "gorogoro.landing": "animation.gorogoro.landing","gorogoro.takeoff": "animation.gorogoro.takeoff",
+        "gorogoro.hover": "animation.gorogoro.hover","gorogoro.rising": "animation.gorogoro.rising","gorogoro.fall": "animation.gorogoro.fall",
         "gorogoro.vari": "animation.gorogoro.vari","gorogoro.two_vari": "animation.gorogoro.two_vari",
         "gorogoro.hundred_vari": "animation.gorogoro.hundred_vari","gorogoro.two_hundred_vari": "animation.gorogoro.two_hundred_vari",
         "gorogoro.ell_toll": "animation.gorogoro.ell_toll",
@@ -137,15 +170,26 @@
         "magumagu_cange": "controller.animation.magumagu.change",
         "magumagu": "controller.animation.magumagu",
         "magumagu_hover": "controller.animation.magumagu.hover",
-        "magumagu.landing": "animation.magumagu.landing","magumagu.takeoff": "animation.magumagu.takeoff",
+        "magumagu.hover": "animation.magumagu.hover","magumagu.rising": "animation.magumagu.rising","magumagu.fall": "animation.magumagu.fall",
 
         "hiehie_cange": "controller.animation.hiehie.change",
         "hiehie": "controller.animation.hiehie",
         "hiehie.ice_age": "animation.hiehie.ice_age",
         "hiehie.partisan_owner": "animation.hiehie.partisan_owner",
+        "hiehie_hover": "controller.animation.hiehie.hover",
+        "hiehie.hover": "animation.hiehie.hover","hiehie.rising": "animation.hiehie.rising","hiehie.fall": "animation.hiehie.fall",
 
         "pikapika_cange": "controller.animation.pikapika.change",
         "pikapika": "controller.animation.pikapika",
+        "pikapika_hover": "controller.animation.pikapika.hover",
+        "pikapika.hover": "animation.pikapika.hover","pikapika.rising": "animation.pikapika.rising","pikapika.fall": "animation.pikapika.fall",
+
+        "nikyunikyu_cange": "controller.animation.nikyunikyu.change",
+        "nikyunikyu_attack": "controller.animation.nikyunikyu.attack",
+        "nikyunikyu": "controller.animation.nikyunikyu",
+        "nikyunikyu.compression": "animation.nikyunikyu.compression",
+        "nikyunikyu_hover": "controller.animation.nikyunikyu.hover",
+        "nikyunikyu.hover": "animation.nikyunikyu.hover","nikyunikyu.rising": "animation.nikyunikyu.rising","nikyunikyu.fall": "animation.nikyunikyu.fall",
 
         "bombom_cange": "controller.animation.bombom.change",
         "bombom_attack": "controller.animation.bombom.attack",
@@ -160,58 +204,6 @@
     },
 
     "component_groups": {
-      "minecraft:normal_player": {
-        "minecraft:experience_reward": {
-          "on_death": "Math.Min(query.player_level * 7, 100)"
-        },
-        "minecraft:type_family": {
-          "family": [ "player" ]
-        },
-          "minecraft:movement": {
-          "value": 0.1
-        },
-        "minecraft:skin_id": {
-          "value": 0
-        },
-        "minecraft:health": {
-          "value": 20,
-          "max": 20
-        },
-        "minecraft:hurt_on_condition": {
-          "damage_conditions": [
-            {
-              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
-              "cause": "lava",
-              "damage_per_tick": 4
-            }
-          ]
-        },
-        "minecraft:color": {
-          "value": 0
-        },
-        "minecraft:attack": {
-          "damage": 1
-        },
-        "minecraft:breathable": {
-          "total_supply": 15,
-          "suffocate_time": -1,
-          "inhale_time": 3.75,
-          "generates_bubbles": false
-        },
-        "minecraft:damage_sensor": {
-          "triggers": [
-            {
-              "cause": "attack",
-              "deals_damage": true
-            },
-            {
-              "cause": "fall",
-              "deals_damage": true
-            }
-          ]
-        }
-        
-      },
       "minecraft:add_bad_omen": {
         "minecraft:spell_effects": {
           "add_effects": [
@@ -245,6 +237,67 @@
         },
         "minecraft:spell_effects": {
           "remove_effects": "bad_omen"
+        }
+      },
+
+      "minecraft:normal_player": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(query.player_level * 7, 100)"
+        },
+        "minecraft:type_family": {
+          "family": [ "player" ]
+        },
+        "minecraft:skin_id": {
+          "value": 0
+        },
+        "minecraft:health": {
+          "value": 20,
+          "max": 20
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        },
+        "minecraft:color": {
+          "value": 0
+        },
+        "minecraft:attack": {
+          "damage": 1
+        },
+        "minecraft:breathable": {
+          "total_supply": 15,
+          "suffocate_time": -1,
+          "inhale_time": 3.75,
+          "generates_bubbles": false
+        }
+      },
+
+      "minecraft:normal_move": {
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": true
+        },
+        "minecraft:movement.basic": {
+        },
+        "minecraft:movement": {
+          "value": 0.1
+        }
+      },
+
+      "minecraft:player_hover": {
+        "minecraft:physics": {
+          "has_collision": true,
+          "has_gravity": false
+        },
+        "minecraft:movement.hover": {
+        },
+        "minecraft:flying_speed": {
+          "value": 0.2
         }
       },
 
@@ -612,12 +665,12 @@
         }
       },
 
-      "kurokumaft:devil_fruit_gomugomu4": {
+      "kurokumaft:devil_fruit_gomugomu_armed": {
         "minecraft:skin_id": {
           "value": 1004
         },
         "minecraft:type_family": {
-          "family": [ "player", "paramysia", "gomugomu4", "abilityperson" ]
+          "family": [ "player", "paramysia", "gomugomu_armed", "abilityperson" ]
         },
         "minecraft:breathable": {
           "total_supply": 0,
@@ -626,10 +679,100 @@
           "generates_bubbles": false
         },
         "minecraft:attack": {
-          "damage": 15
+          "damage": 5
         },
         "minecraft:jump.static": {
           "jump_power": 0.3
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "attack",
+              "on_damage": {
+                "filters": { 
+                  "any_of": [
+                    {
+                      "all_of": [
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "gorogoro"},
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "logia"}
+                      ]
+                    },
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "armed_ambition"},
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "highking_ambition"},
+                    {
+                      "all_of": [
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "stone_sword"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "iron_sword"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "golden_sword"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "diamond_sword"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "netherite_sword"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "stone_axe"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "iron_axe"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "golden_axe"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "diamond_axe"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "netherite_axe"},
+      
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "kurokumaft:murakumogiri"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "kurokumaft:wado_ichimonzi"}
+                      ]
+                    }
+
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "on_damage": {
+                "filters": { 
+                  "all_of": [
+                    {"test": "is_family","subject": "damager", "operator": "==", "value": "lightning"},
+                    {"test": "is_family","subject": "damager", "operator": "==", "value": "bullet"}
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "lightning",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+
+      "kurokumaft:devil_fruit_gomugomu2_armed": {
+        "minecraft:skin_id": {
+          "value": 10041
+        },
+        "minecraft:type_family": {
+          "family": [ "player", "paramysia", "gomugomu_armed", "abilityperson" ]
+        },
+        "minecraft:breathable": {
+          "total_supply": 0,
+          "suffocate_time": -10,
+          "inhale_time": 3.75,
+          "generates_bubbles": false
+        },
+        "minecraft:attack": {
+          "damage": 5
+        },
+        "minecraft:jump.static": {
+          "jump_power": 1.0
         },
         "minecraft:hurt_on_condition": {
           "damage_conditions": [
@@ -656,14 +799,8 @@
                     {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "armed_ambition"},
                     {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "highking_ambition"},
 
-                    {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "stone_sword"},
-                    {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "iron_sword"},
-                    {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "golden_sword"},
                     {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "diamond_sword"},
                     {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "netherite_sword"},
-                    {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "stone_axe"},
-                    {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "iron_axe"},
-                    {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "golden_axe"},
                     {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "diamond_axe"},
                     {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "netherite_axe"},
   
@@ -699,6 +836,323 @@
         }
       },
 
+      "kurokumaft:devil_fruit_gomugomu3_armed": {
+        "minecraft:skin_id": {
+          "value": 10042
+        },
+        "minecraft:type_family": {
+          "family": [ "player", "paramysia", "gomugomu_armed", "abilityperson" ]
+        },
+        "minecraft:breathable": {
+          "total_supply": 0,
+          "suffocate_time": -10,
+          "inhale_time": 3.75,
+          "generates_bubbles": false
+        },
+        "minecraft:attack": {
+          "damage": 12
+        },
+        "minecraft:jump.static": {
+          "jump_power": 0.3
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "attack",
+              "on_damage": {
+                "filters": { 
+                  "any_of": [
+                    {
+                      "all_of": [
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "gorogoro"},
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "logia"}
+                      ]
+                    },
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "armed_ambition"},
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "highking_ambition"},
+                    {
+                      "all_of": [
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "diamond_sword"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "netherite_sword"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "diamond_axe"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "netherite_axe"},
+      
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "kurokumaft:murakumogiri"},
+                        {"test": "has_equipment", "domain": "hand","subject": "damager", "operator": "!=", "value": "kurokumaft:wado_ichimonzi"}
+                      ]
+                    }
+
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "on_damage": {
+                "filters": { 
+                  "all_of": [
+                    {"test": "is_family","subject": "damager", "operator": "==", "value": "lightning"},
+                    {"test": "is_family","subject": "damager", "operator": "==", "value": "bullet"}
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "lightning",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+
+      "kurokumaft:devil_fruit_gomugomu4_bound": {
+        "minecraft:skin_id": {
+          "value": 1005
+        },
+        "minecraft:type_family": {
+          "family": [ "player", "paramysia", "gomugomu4", "abilityperson" ]
+        },
+        "minecraft:breathable": {
+          "total_supply": 0,
+          "suffocate_time": -10,
+          "inhale_time": 3.75,
+          "generates_bubbles": false
+        },
+        "minecraft:attack": {
+          "damage": 20
+        },
+        "minecraft:jump.static": {
+          "jump_power": 0.3
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "attack",
+              "on_damage": {
+                "filters": { 
+                  "all_of": [
+                    {
+                      "all_of": [
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "gorogoro"},
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "logia"}
+                      ]
+                    },
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "armed_ambition"},
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "highking_ambition"}
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": false
+            },
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "lightning",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+
+      "kurokumaft:devil_fruit_gomugomu4_snake": {
+        "minecraft:skin_id": {
+          "value": 1006
+        },
+        "minecraft:type_family": {
+          "family": [ "player", "paramysia", "gomugomu4", "abilityperson" ]
+        },
+        "minecraft:breathable": {
+          "total_supply": 0,
+          "suffocate_time": -10,
+          "inhale_time": 3.75,
+          "generates_bubbles": false
+        },
+        "minecraft:attack": {
+          "damage": 15
+        },
+        "minecraft:jump.static": {
+          "jump_power": 0.4
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "attack",
+              "on_damage": {
+                "filters": { 
+                  "all_of": [
+                    {
+                      "all_of": [
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "gorogoro"},
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "logia"}
+                      ]
+                    },
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "armed_ambition"},
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "highking_ambition"}
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": false
+            },
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "lightning",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+
+      "kurokumaft:devil_fruit_gomugomu4_tank": {
+        "minecraft:skin_id": {
+          "value": 1007
+        },
+        "minecraft:type_family": {
+          "family": [ "player", "paramysia", "gomugomu4", "abilityperson" ]
+        },
+        "minecraft:breathable": {
+          "total_supply": 0,
+          "suffocate_time": -10,
+          "inhale_time": 3.75,
+          "generates_bubbles": false
+        },
+        "minecraft:attack": {
+          "damage": 15
+        },
+        "minecraft:jump.static": {
+          "jump_power": 0.1
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "attack",
+              "on_damage": {
+                "filters": { 
+                  "all_of": [
+                    {
+                      "all_of": [
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "gorogoro"},
+                        {"test": "is_family", "subject": "damager", "operator": "==", "value": "logia"}
+                      ]
+                    },
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "armed_ambition"},
+                    {"test": "has_tag", "subject": "damager", "operator": "!=", "value": "highking_ambition"}
+                  ]
+                }
+              },
+              "deals_damage": false
+            },
+            {
+              "cause": "projectile",
+              "deals_damage": false
+            },
+            {
+              "cause": "fall",
+              "deals_damage": false
+            },
+            {
+              "cause": "lightning",
+              "deals_damage": false
+            }
+          ]
+        }
+      },
+
+      "kurokumaft:devil_fruit_gomugomu4_down": {
+        "minecraft:skin_id": {
+          "value": 10051
+        },
+        "minecraft:type_family": {
+          "family": [ "player", "paramysia", "gomugomu", "abilityperson" ]
+        },
+        "minecraft:breathable": {
+          "total_supply": 0,
+          "suffocate_time": -10,
+          "inhale_time": 3.75,
+          "generates_bubbles": false
+        },
+        "minecraft:attack": {
+          "damage": 0
+        },
+        "minecraft:jump.static": {
+          "jump_power": 0.1
+        },
+        "minecraft:movement": {
+          "value": 0.03
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        },
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "cause": "attack",
+              "damage_multiplier": 5.0,
+              "deals_damage": true
+            }
+          ]
+        }
+      },
 
       "kurokumaft:devil_fruit_barabara": {
         "minecraft:skin_id": {
@@ -1012,7 +1466,6 @@
             }
           ]
         }
-   
       },
 
       "kurokumaft:devil_fruit_gorogoro": {
@@ -1349,7 +1802,7 @@
           "entities": [
             {
               "min_wait_time": 0,
-              "max_wait_time": 3,
+              "max_wait_time": 2,
               "spawn_entity": "kurokumaft:magatama_entity",
               "spawn_event": "kurokumaft:magatama1",
               "single_use": false,
@@ -1358,16 +1811,16 @@
             },
             {
               "min_wait_time": 0,
-              "max_wait_time": 3,
+              "max_wait_time": 2,
               "spawn_entity": "kurokumaft:magatama_entity",
               "spawn_event": "kurokumaft:magatama2",
               "single_use": false,
-              "num_to_spawn": 1,
+              "num_to_spawn": 3,
               "should_leash": false
             },
             {
               "min_wait_time": 0,
-              "max_wait_time": 3,
+              "max_wait_time": 2,
               "spawn_entity": "kurokumaft:magatama_entity",
               "spawn_event": "kurokumaft:magatama3",
               "single_use": false,
@@ -1376,7 +1829,7 @@
             },
             {
               "min_wait_time": 0,
-              "max_wait_time": 3,
+              "max_wait_time": 2,
               "spawn_entity": "kurokumaft:magatama_entity",
               "spawn_event": "kurokumaft:magatama4",
               "single_use": false,
@@ -1385,7 +1838,7 @@
             },
             {
               "min_wait_time": 0,
-              "max_wait_time": 3,
+              "max_wait_time": 2,
               "spawn_entity": "kurokumaft:magatama_entity",
               "spawn_event": "kurokumaft:magatama5",
               "single_use": false,
@@ -1394,7 +1847,7 @@
             },
             {
               "min_wait_time": 0,
-              "max_wait_time": 3,
+              "max_wait_time": 2,
               "spawn_entity": "kurokumaft:magatama_entity",
               "spawn_event": "kurokumaft:magatama6",
               "single_use": false,
@@ -1862,6 +2315,31 @@
             "value": 20
         }
       },
+      "variant21": {
+        "minecraft:variant": {
+            "value": 21
+        }
+      },
+      "variant22": {
+        "minecraft:variant": {
+            "value": 22
+        }
+      },
+      "variant23": {
+        "minecraft:variant": {
+            "value": 23
+        }
+      },
+      "variant24": {
+        "minecraft:variant": {
+            "value": 24
+        }
+      },
+      "variant25": {
+        "minecraft:variant": {
+            "value": 25
+        }
+      },
 
       "mark_variant0": {
         "minecraft:mark_variant": {
@@ -1896,6 +2374,12 @@
       "mark_variant13": {
         "minecraft:mark_variant": {
             "value": 13
+        }
+      },
+
+      "mark_variant_hover": {
+        "minecraft:mark_variant": {
+            "value": 100
         }
       }
 
@@ -1943,10 +2427,6 @@
       "minecraft:nameable": {
         "always_show": true,
         "allow_name_tag_renaming": false
-      },
-      "minecraft:physics": {
-        "has_collision": true,
-        "has_gravity": true
       },
       "minecraft:pushable": {
         "is_pushable": false,
@@ -2006,9 +2486,40 @@
       "minecraft:entity_spawned": {
         "sequence": [
           {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:devil_fruit_gomugomu",
+                "kurokumaft:devil_fruit_gomugomu2",
+                "kurokumaft:devil_fruit_gomugomu3",
+                "kurokumaft:devil_fruit_gomugomu3_down",
+                "kurokumaft:devil_fruit_gomugomu_armed",
+                "kurokumaft:devil_fruit_gomugomu2_armed",
+                "kurokumaft:devil_fruit_gomugomu3_armed",
+                "kurokumaft:devil_fruit_gomugomu4_bound",
+                "kurokumaft:devil_fruit_gomugomu4_dwon",
+                "kurokumaft:devil_fruit_barabara",
+                "kurokumaft:devil_fruit_mokumoku",
+                "kurokumaft:devil_fruit_meramera",
+                "kurokumaft:devil_fruit_guragura",
+                "kurokumaft:devil_fruit_sunasuna",
+                "kurokumaft:devil_fruit_itotio",
+                "kurokumaft:devil_fruit_nikyunikyu",
+                "kurokumaft:devil_fruit_gorogoro",
+                "kurokumaft:devil_fruit_gorogoro_amaru",
+                "kurokumaft:devil_fruit_hiehie",
+                "kurokumaft:devil_fruit_magumagu",
+                "kurokumaft:devil_fruit_pikapika",
+                "kurokumaft:devil_fruit_hitohito",
+                "kurokumaft:devil_fruit_toritori_fenikusu",
+                "kurokumaft:devil_fruit_toritori_fenikusu_zyuzin",
+                "kurokumaft:devil_fruit_uouo_seiryu",
+                "kurokumaft:devil_fruit_bombom"
+              ]
+            },
             "add": {
               "component_groups": [
-                "minecraft:normal_player"
+                "minecraft:normal_player",
+                "minecraft:normal_move"
               ]
             }
           }
@@ -2044,6 +2555,31 @@
         }
       },
 
+      "minecraft:player_hover": {
+        "remove": {
+          "component_groups": [
+            "minecraft:normal_move"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:player_hover"
+          ]
+        }
+      },
+      "minecraft:player_move": {
+        "remove": {
+          "component_groups": [
+            "minecraft:player_hover"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:normal_move"
+          ]
+        }
+      },
+
       "kurokumaft:devil_fruit_remove": {
         "add": {
           "component_groups": [ "kurokumaft:devil_fruit_remove" ]
@@ -2070,9 +2606,47 @@
           "component_groups": [ "kurokumaft:devil_fruit_gomugomu3_down" ]
         }
       },
-      "kurokumaft:devil_fruit_gomugomu4": {
+      "kurokumaft:devil_fruit_gomugomu_armed": {
         "add": {
-          "component_groups": [ "kurokumaft:devil_fruit_gomugomu4" ]
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu_armed" ]
+        }
+      },
+      "kurokumaft:devil_fruit_gomugomu2_armed": {
+        "add": {
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu2_armed" ]
+        }
+      },
+      "kurokumaft:devil_fruit_gomugomu3_armed": {
+        "add": {
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu3_armed" ]
+        }
+      },
+      "kurokumaft:devil_fruit_gomugomu4_bound": {
+        "add": {
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu4_bound" ]
+        }
+      },
+      "kurokumaft:devil_fruit_gomugomu4_snake": {
+        "add": {
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu4_snake" ]
+        }
+      },
+      "kurokumaft:devil_fruit_gomugomu4_tank": {
+        "add": {
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu4_tank" ]
+        }
+      },
+      "kurokumaft:devil_fruit_gomugomu4_down": {
+        "add": {
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu4_down" ]
+        }
+      },
+      "kurokumaft:devil_fruit_gomugomu4_down_remove": {
+        "remove": {
+          "component_groups": [ "kurokumaft:devil_fruit_gomugomu4_down" ]
+        },
+        "add": {
+          "component_groups": [ "minecraft:normal_move" ]
         }
       },
       "kurokumaft:devil_fruit_barabara": {
@@ -2170,6 +2744,12 @@
       "kurokumaft:long_range": {
         "add": {
           "component_groups": [ "kurokumaft:long_range" ]
+        }
+      },
+
+      "mark_variant_hover": {
+        "add": {
+          "component_groups": [ "mark_variant_hover" ]
         }
       },
 
@@ -2309,6 +2889,37 @@
           "component_groups": [ "variant19" ]
         }
       },
+      "variant20": {
+        "add": {
+          "component_groups": [ "variant20" ]
+        }
+      },
+      "variant21": {
+        "add": {
+          "component_groups": [ "variant21" ]
+        }
+      },
+      "variant22": {
+        "add": {
+          "component_groups": [ "variant22" ]
+        }
+      },
+      "variant23": {
+        "add": {
+          "component_groups": [ "variant23" ]
+        }
+      },
+      "variant24": {
+        "add": {
+          "component_groups": [ "variant24" ]
+        }
+      },
+      "variant25": {
+        "add": {
+          "component_groups": [ "variant25" ]
+        }
+      },
+
       "kurokumaft:health100_up": {
         "add": {
           "component_groups": [ "kurokumaft:health100_up" ]

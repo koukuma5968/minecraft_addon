@@ -1,0 +1,83 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:break_rock_slash",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "minecraft:exploding": {
+        "minecraft:explode": {
+          "breaks_blocks": true,
+          "fuse_length": [-1,-1],
+          "fuse_lit": true,
+          "power": 3,
+          "causes_fire": false
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+       "width": 0.31,
+       "height": 0.31
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 1.5,
+            "knockback": false,
+            "catch_fire": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": false,
+            "max_critical_damage": 10,
+            "min_critical_damage": 9,
+            "power_multiplier": 0.97
+          },
+          "definition_event": {
+            "affectProjectile": false,
+            "eventTrigger": {
+              "event": "kurokumaft:exploding",
+              "target": "self"
+            }
+          }
+        },
+        "reflect_on_hurt": false,
+        "hit_sound": "bullet.hit",
+        "power": 2.5,
+        "gravity": 0.10,
+        "inertia": 1,
+        "liquid_inertia": 0.2,
+        "uncertainty_base": 1,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "should_bounce": true,
+        "offset": [ 0, 0, 0 ]
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+       "is_pushable": true,
+       "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+       "default_values": {
+         "max_optimized_distance": 80.0,
+         "max_dropped_ticks": 7,
+         "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:exploding": {
+        "add": {
+          "component_groups": [
+            "minecraft:exploding"
+          ]
+        }
+      }
+    }
+  }
+}

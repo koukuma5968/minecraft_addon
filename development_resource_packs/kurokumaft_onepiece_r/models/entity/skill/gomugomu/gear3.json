@@ -1,11 +1,11 @@
 {
 	"format_version": "1.8.0",
 	"geometry.gear3": {
-		"texturewidth": 64,
-		"textureheight": 64,
-		"visible_bounds_width": 31,
-		"visible_bounds_height": 36,
-		"visible_bounds_offset": [0, 16, 0],
+		"texturewidth": 128,
+		"textureheight": 128,
+		"visible_bounds_width": 53,
+		"visible_bounds_height": 21,
+		"visible_bounds_offset": [0, 2.5, 0],
 		"bones": [
 			{
 				"name": "root",
@@ -19,66 +19,49 @@
 			{
 				"name": "body",
 				"parent": "waist",
-				"pivot": [0, 24, 0]
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 32]}
+				]
 			},
 			{
-				"name": "body_gear3",
+				"name": "head",
 				"parent": "body",
 				"pivot": [0, 24, 0],
 				"cubes": [
-					{"origin": [-4, 12, -2], "size": [8, 12, 4], "uv": [0, 0], "inflate": 0.25}
+					{"origin": [-4, 24, -4], "size": [8, 8, 8], "uv": [0, 16]}
 				]
 			},
 			{
 				"name": "leftArm",
 				"parent": "body",
-				"pivot": [5, 22, 0]
-			},
-			{
-				"name": "leftArm_gear3",
-				"parent": "leftArm",
 				"pivot": [5, 22, 0],
 				"cubes": [
-					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [0, 16], "inflate": 0.25}
+					{"origin": [4, 12, -2], "size": [4, 12, 4], "uv": [56, 0]}
 				]
 			},
 			{
 				"name": "rightArm",
 				"parent": "body",
-				"pivot": [-5, 22, 0]
-			},
-			{
-				"name": "rightArm_gear3",
-				"parent": "rightArm",
 				"pivot": [-5, 22, 0],
 				"cubes": [
-					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [0, 16], "inflate": 0.25}
+					{"origin": [-8, 12, -2], "size": [4, 12, 4], "uv": [52, 28]}
 				]
 			},
 			{
 				"name": "leftLeg",
 				"parent": "root",
-				"pivot": [1.9, 12, 0]
-			},
-			{
-				"name": "leftLeg_gear3",
-				"parent": "leftLeg",
 				"pivot": [1.9, 12, 0],
 				"cubes": [
-					{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "uv": [0, 16], "inflate": 0.25}
+					{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "uv": [36, 44]}
 				]
 			},
 			{
 				"name": "rightLeg",
 				"parent": "root",
-				"pivot": [-1.9, 12, 0]
-			},
-			{
-				"name": "rightLeg_gear3",
-				"parent": "rightLeg",
 				"pivot": [-1.9, 12, 0],
 				"cubes": [
-					{"origin": [-3.9, 0, -2], "size": [4, 12, 4], "uv": [0, 16], "inflate": 0.25}
+					{"origin": [-3.9, 0, -2], "size": [4, 12, 4], "uv": [44, 12]}
 				]
 			}
 		]

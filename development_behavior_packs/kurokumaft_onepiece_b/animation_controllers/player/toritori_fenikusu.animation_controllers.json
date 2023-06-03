@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "fly": "query.is_jumping" }
+            { "fly": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.is_jumping" }
           ]
         },
         "fly":{
@@ -30,11 +30,11 @@
       "states": {
         "default": {
           "transitions": [
-            { "hououin": "query.variant == 5 && query.is_sneaking" },
-            { "nashinotubute": "query.variant == 1 && query.is_sneaking" },
-            { "bluebird": "query.variant == 2 && query.is_sneaking" },
-            { "onguru": "query.variant == 3 && query.is_sneaking" },
-            { "fuziazami": "query.variant == 4 && query.is_sneaking" }
+            { "hououin": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 5 && query.is_sneaking" },
+            { "nashinotubute": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 1 && query.is_sneaking" },
+            { "bluebird": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 2 && query.is_sneaking" },
+            { "onguru": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 3 && query.is_sneaking" },
+            { "fuziazami": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 4 && query.is_sneaking" }
           ]
         },
         "hououin":{
@@ -98,11 +98,11 @@
             }
           },
           "transitions": [
-            { "hououin": "query.variant == 1 && query.is_using_item" },
-            { "nashinotubute": "query.variant == 2 && query.is_using_item" },
-            { "bluebird": "query.variant == 3 && query.is_using_item" },
-            { "onguru": "query.variant == 4 && query.is_using_item" },
-            { "fuziazami": "query.variant == 5 && query.is_using_item" }
+            { "hououin": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 1 && query.is_using_item" },
+            { "nashinotubute": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 2 && query.is_using_item" },
+            { "bluebird": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 3 && query.is_using_item" },
+            { "onguru": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 4 && query.is_using_item" },
+            { "fuziazami": "(query.skin_id == 114 || query.skin_id == 115) && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:toritori_fenikusu_skill') && query.variant == 5 && query.is_using_item" }
           ]
         },
         "hououin":{

@@ -6,12 +6,12 @@
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      " | ",
-      " | ",
+      " l ",
+      " l ",
       " # "
     ],
     "key": {
-      "|": {
+      "l": {
         "item": "kurokumaft:steel_ingot"
       },
       "#": {

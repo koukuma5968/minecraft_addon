@@ -1,21 +1,29 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.hiehie.takeoff": {
+		"animation.hiehie.hover": {
 			"timeline": {
 			    "0.0": [
-					"/effect @s speed 2 25 true",
-					"/effect @s levitation 1 1 true",
+					"/particle kurokumaft:hiehie_hover ^^^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.hiehie.rising": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s levitation 1 3 true",
 					"/particle kurokumaft:hiehie_hover ^^1^1"
 				]
 			},
 			"animation_length": 0.1,
 			"loop": true
 		},
-		"animation.hiehie.landing": {
+		"animation.hiehie.fall": {
 			"timeline": {
 			    "0.0": [
-					"/effect @s slow_falling 1 1 true",
+					"/effect @s slow_falling 1 2 true",
 					"/particle kurokumaft:hiehie_hover ^^^1"
 				]
 			},

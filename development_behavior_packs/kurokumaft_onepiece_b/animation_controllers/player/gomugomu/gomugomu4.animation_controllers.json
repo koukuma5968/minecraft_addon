@@ -1,0 +1,383 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.gomugomu4.hover": {
+      "states": {
+        "default": {
+          "variables": {
+            "gomugomu4_hover": {
+              "input": "variable.gomugomu4_hover = (variable.gomugomu4_hover ?? 0);"
+            }
+          },
+          "transitions": [
+            {"jumping": "(query.skin_id == 1005 || query.skin_id == 1006 || query.skin_id == 1007) && query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "transitions": [
+            {"takeoff": "variable.gomugomu4_hover = variable.gomugomu4_hover < 3 ? variable.gomugomu4_hover + 1:0;return variable.gomugomu4_hover == 0;"}
+          ]
+        },
+        "takeoff": {
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"default": "variable.gomugomu4_hover = variable.gomugomu4_hover < 5 ? variable.gomugomu4_hover + 1:0;return variable.gomugomu4_hover == 0;"}
+          ]
+        },
+        "rising": {
+          "animations" : [ 
+            "gomugomu4.rising"
+          ],
+          "on_entry": [
+            "/event entity @s mark_variant_hover"
+          ],
+          "on_exit": [
+            "/effect @s levitation 0"
+          ],
+          "transitions": [
+            {"hover":"!query.is_jumping"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "hover": {
+          "on_entry": [
+            "/event entity @s minecraft:player_hover"
+          ],
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"fall": "query.is_sneaking || query.mark_variant == 0"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "fall": {
+          "animations" : [ 
+            "gomugomu4.fall"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "on_exit": [
+            "/effect @s slow_falling 0"
+          ],
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"landing": "query.is_on_ground"},
+            {"hover":"!query.is_sneaking && query.mark_variant != 0"}
+          ]
+        },
+        "landing": {
+          "on_entry": [
+            "/event entity @s mark_variant0",
+            "/event entity @s minecraft:player_move"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
+    "controller.animation.gomugomu4.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kong_gun": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 8 && query.is_sneaking" },
+            { "rhino_schneider": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 1 && query.is_sneaking" },
+            { "calvaline": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 2 && query.is_sneaking" },
+            { "leo_bazooka": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 3 && query.is_sneaking" },
+            { "king_kong_gun": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 4 && query.is_sneaking" },
+            { "kong_organ": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 5 && query.is_sneaking" },
+            { "kong_rifle": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 6 && query.is_sneaking" },
+            { "kong_gatling": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 7 && query.is_sneaking" }
+          ]
+        },
+        "kong_gun":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの猿王銃（コングガン）\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "rhino_schneider":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの犀榴弾砲（リノシュナイダー）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "calvaline":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの大蛇砲（カルヴァリン）\"}]}",
+            "/event entity @s variant3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "leo_bazooka":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの獅子・バズーカ（レオバズーカ）\"}]}",
+            "/event entity @s variant4",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "king_kong_gun":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの大猿王銃（キングコングガン）\"}]}",
+            "/event entity @s variant5",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kong_organ":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの猿王群鴉砲（コングオルガン）\"}]}",
+            "/event entity @s variant6",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kong_rifle":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの猿王回転弾（コングライフル）\"}]}",
+            "/event entity @s variant7",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kong_gatling":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのの猿王銃乱打（コングガドリング）\"}]}",
+            "/event entity @s variant8",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.gomugomu4.player": {
+      "states": {
+        "default": {
+          "variables": {
+            "gomugomu4_at": {
+              "input": "variable.gomugomu4_at = (variable.gomugomu4_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "kong_gun": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 1 && query.is_using_item" },
+            { "rhino_schneider": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 2 && query.is_using_item" },
+            { "calvaline": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 3 && query.is_using_item" },
+            { "leo_bazooka": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 4 && query.is_using_item" },
+            { "king_kong_gun": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 5 && query.is_using_item" },
+            { "kong_organ": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 6 && query.is_using_item" },
+            { "kong_rifle": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 7 && query.is_using_item" },
+            { "kong_gatling": "query.skin_id == 1005 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 8 && query.is_using_item" }
+          ]
+        },
+        "kong_gun":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kong_gun_att":"variable.gomugomu4_at = variable.gomugomu4_at < 20 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "kong_gun_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"猿王銃（コングガン）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu4/kong_gun"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "rhino_schneider":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"rhino_schneider_att":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "rhino_schneider_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"犀榴弾砲（リノシュナイダー）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu4/rhino_schneider"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "calvaline":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"calvaline_att":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "calvaline_att":{
+          "animations" : [ "gomugomu4.calvaline" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"大蛇砲（カルヴァリン）\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 60 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "leo_bazooka":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"leo_bazooka_att":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "leo_bazooka_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"獅子・バズーカ（レオバズーカ）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu4/leo_bazooka"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "king_kong_gun":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"king_kong_gun_chage":"variable.gomugomu4_at = variable.gomugomu4_at < 20 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "king_kong_gun_chage":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"大猿王（キングコング）\"}]}"
+          ],
+          "transitions": [
+            {"king_kong_gun_att":"variable.gomugomu4_at = variable.gomugomu4_at < 20 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "king_kong_gun_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"銃（ガン）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu4/king_kong_gun"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 15 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "kong_organ":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kong_organ_att":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "kong_organ_att":{
+          "animations" : [ "gomugomu4.kong_organ" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"猿王群鴉砲（コングオルガン）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu4/kong_organ"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 80 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "kong_rifle":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kong_rifle_att":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "kong_rifle_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"猿王回転弾（コングライフル）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu4/kong_rifle"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "kong_gatling":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kong_gatling_att":"variable.gomugomu4_at = variable.gomugomu4_at < 10 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        },
+        "kong_gatling_att":{
+          "animations" : [ "gomugomu4.kong_gatling" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"猿王銃乱打（コングガドリング）\"}]}",
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu4_at = variable.gomugomu4_at < 60 ? variable.gomugomu4_at + 1:0;return variable.gomugomu4_at == 0;"}
+          ]
+        }
+
+      }
+    }
+  }
+}

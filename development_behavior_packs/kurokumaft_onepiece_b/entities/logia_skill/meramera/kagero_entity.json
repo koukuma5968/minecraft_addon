@@ -6,7 +6,7 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball"
+      "runtime_identifier": "minecraft:arrow"
     },
     "components": {
       "minecraft:type_family": {
@@ -15,6 +15,9 @@
       "minecraft:collision_box": {
         "width": 1.0,
         "height": 1.0
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
       },
       "minecraft:projectile": {
         "on_hit": {

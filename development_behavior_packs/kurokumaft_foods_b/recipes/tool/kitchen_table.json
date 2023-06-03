@@ -6,13 +6,17 @@
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      "   ",
-      "III",
+      "ddd",
+      "I I",
       "I I"
     ],
     "key": {
       "I": {
-        "item": "kurokumaft:steel_ingot"
+        "item": "minecraft:iron_ingot"
+      },
+      "d": {
+        "item": "minecraft:stone_block_slab3",
+        "data": 5
       }
     },
     "result": {

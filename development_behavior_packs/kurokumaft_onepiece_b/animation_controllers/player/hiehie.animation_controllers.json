@@ -1,16 +1,89 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
+    "controller.animation.hiehie.hover": {
+      "states": {
+        "default": {
+          "variables": {
+            "hiehie_hover": {
+              "input": "variable.hiehie_hover = (variable.hiehie_hover ?? 0);"
+            }
+          },
+          "transitions": [
+            {"jumping": "query.skin_id == 110 && query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "transitions": [
+            {"takeoff": "variable.hiehie_hover = variable.hiehie_hover < 3 ? variable.hiehie_hover + 1:0;return variable.hiehie_hover == 0;"}
+          ]
+        },
+        "takeoff": {
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"default": "variable.hiehie_hover = variable.hiehie_hover < 5 ? variable.hiehie_hover + 1:0;return variable.hiehie_hover == 0;"}
+          ]
+        },
+        "rising": {
+          "animations" : [ 
+            "hiehie.rising"
+          ],
+          "on_exit": [
+            "/effect @s levitation 0"
+          ],
+          "transitions": [
+            {"hover":"!query.is_jumping"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "hover": {
+          "animations" : [ 
+            "hiehie.hover"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_hover"
+          ],
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"fall": "query.is_sneaking"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "fall": {
+          "animations" : [ 
+            "hiehie.fall"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "on_exit": [
+            "/effect @s slow_falling 0"
+          ],
+          "transitions": [
+            {"landing": "query.is_on_ground"},
+            {"hover":"!query.is_sneaking"}
+          ]
+        },
+        "landing": {
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
     "controller.animation.hiehie.change": {
       "states": {
         "default": {
           "transitions": [
-            { "ice_age": "query.variant == 6 && query.is_sneaking" },
-            { "ice_ball": "query.variant == 1 && query.is_sneaking" },
-            { "ice_saber": "query.variant == 2 && query.is_sneaking" },
-            { "ice_time": "query.variant == 3 && query.is_sneaking" },
-            { "partisan": "query.variant == 4 && query.is_sneaking" },
-            { "pheasant_beck": "query.variant == 5 && query.is_sneaking" }
+            { "ice_age": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 6 && query.is_sneaking" },
+            { "ice_ball": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 1 && query.is_sneaking" },
+            { "ice_saber": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 2 && query.is_sneaking" },
+            { "ice_time": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 3 && query.is_sneaking" },
+            { "partisan": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 4 && query.is_sneaking" },
+            { "pheasant_beck": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 5 && query.is_sneaking" }
           ]
         },
         "ice_age":{
@@ -84,12 +157,12 @@
             }
           },
           "transitions": [
-            { "ice_age": "query.variant == 1 && query.is_using_item" },
-            { "ice_ball": "query.variant == 2 && query.is_using_item" },
-            { "ice_saber": "query.variant == 3 && query.is_using_item" },
-            { "ice_time": "query.variant == 4 && query.is_using_item" },
-            { "partisan": "query.variant == 5 && query.is_using_item" },
-            { "pheasant_beck": "query.variant == 6 && query.is_using_item" }
+            { "ice_age": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 1 && query.is_using_item" },
+            { "ice_ball": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 2 && query.is_using_item" },
+            { "ice_saber": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 3 && query.is_using_item" },
+            { "ice_time": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 4 && query.is_using_item" },
+            { "partisan": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 5 && query.is_using_item" },
+            { "pheasant_beck": "query.skin_id == 110 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hiehie_skill') && query.variant == 6 && query.is_using_item" }
           ]
         },
         "ice_age":{

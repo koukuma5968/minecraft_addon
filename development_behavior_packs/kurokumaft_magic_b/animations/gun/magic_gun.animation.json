@@ -121,28 +121,43 @@
 				]
 			}
 		},
-		"animation.magic_gun.wind_magic_gun_shot": {
-			"animation_length": 0.3,
-			"loop": true,
-			"timeline": {
-				"0.0": [
-					"/event entity @s kurokumaft:wind_magic_gun_burst"
-				]
-			}
-		},
 		"animation.magic_gun.stone_magic_gun_frame": {
 			"timeline": {
 				"0.0": [
 					"/event entity @s variant0"
 				],
-				"0.75": [
+				"0.5": [
 					"/event entity @s variant1"
 				],
-				"1.50": [
+				"1.0": [
 					"/event entity @s variant2"
 				],
-				"2.25": [
+				"1.5": [
 					"/event entity @s variant3"
+				],
+				"2.0": [
+					"/event entity @s variant4"
+				],
+				"2.5": [
+					"/event entity @s variant5"
+				],
+				"3.0": [
+					"/event entity @s variant6"
+				],
+				"3.5": [
+					"/event entity @s variant7"
+				],
+				"4.0": [
+					"/event entity @s variant8"
+				],
+				"4.5": [
+					"/event entity @s variant9"
+				],
+				"5.0": [
+					"/event entity @s variant10"
+				],
+				"5.1": [
+					"/event entity @s variant11"
 				]
 			}
 		},

@@ -13,7 +13,7 @@
         "texture": "bamboo_fiber"
       },
       "minecraft:creative_category": {
-        "parent": "itemGroup.name.bamboo_fiber"
+        "parent": "itemGroup.name.string"
       }
     }
   }

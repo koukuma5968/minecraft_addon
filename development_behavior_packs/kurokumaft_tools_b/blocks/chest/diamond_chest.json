@@ -19,6 +19,7 @@
                       "render_method": "opaque"
                 }
             },
+            "minecraft:destructible_by_explosion": false,
             "minecraft:on_player_placing": {
                 "event": "rotate"
             },

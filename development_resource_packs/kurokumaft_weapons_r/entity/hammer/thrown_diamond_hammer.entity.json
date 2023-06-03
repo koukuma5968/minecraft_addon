@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:thrown_diamond_hammer",
+        "materials": {
+          "default": "arrow",
+          "enchanted": "entity_alphatest_glint",
+          "animated": "player_animated"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/hammer/diamond_hammer",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.hammer"
+        },
+        "scripts": {
+          "animate": [
+            { "thrown": "query.variant != 1" }
+          ]
+        },
+        "animations": {
+          "thrown": "animation.hammer.thrown"
+        },
+        "render_controllers": [ "controller.render.hammer" ]
+      }
+    }
+  }
+  

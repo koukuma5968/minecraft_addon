@@ -1,0 +1,17 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cooldown.five_mine": {
+			"animation_length": 5.00,
+			"loop": false
+		},
+		"animation.cooldown.ten_mine": {
+			"animation_length": 10.00,
+			"loop": false
+		},
+		"animation.cooldown.twenty_mine": {
+			"animation_length": 20.00,
+			"loop": false
+		}
+	}
+}

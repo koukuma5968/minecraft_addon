@@ -47,6 +47,9 @@
       "nichirintou_gyoumei": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_gyoumei"
       },
+      "nichirintou_muitiro": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_muitiro"
+      },
 
       "nichirintou_hi": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hi"

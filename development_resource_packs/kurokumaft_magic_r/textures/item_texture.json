@@ -57,6 +57,24 @@
       "watercurrent_stick": { 
          "textures": "textures/kurokumaft/items/stick/watercurrent_stick"
       },
+      "blockice_stick": { 
+         "textures": "textures/kurokumaft/items/stick/blockice_stick"
+      },
+      "earth_stick": { 
+         "textures": "textures/kurokumaft/items/stick/earth_stick"
+      },
+      "atmosphere_stick": { 
+         "textures": "textures/kurokumaft/items/stick/atmosphere_stick"
+      },
+      "lightningstrike_stick": { 
+         "textures": "textures/kurokumaft/items/stick/lightningstrike_stick"
+      },
+      "sparkle_stick": { 
+         "textures": "textures/kurokumaft/items/stick/sparkle_stick"
+      },
+      "jetblack_stick": { 
+         "textures": "textures/kurokumaft/items/stick/jetblack_stick"
+      },
 
       "firestorm_staff": { 
          "textures": "textures/kurokumaft/items/staff/firestorm_staff"
@@ -408,9 +426,41 @@
             "textures/kurokumaft/items/gun/lightning/lightning_magic_gun_charge_full"
          ]
       },
+      "stone_magic_gun": {
+         "textures" : "textures/kurokumaft/items/gun/stone/stone_magic_gun_empty"
+      },
+      "stone_magic_gun_charge" : {
+         "textures" : [
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_1",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_2",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_3",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_4",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_5",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_6",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_7",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_8",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_9",
+            "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_full"
+         ]
+      },
 
       "fire_magic_bread": {
          "textures" : "textures/kurokumaft/items/bread/fire_magic_bread"
+      },
+      "water_magic_bread": {
+         "textures" : "textures/kurokumaft/items/bread/water_magic_bread"
+      },
+      "wind_magic_bread": {
+         "textures" : "textures/kurokumaft/items/bread/wind_magic_bread"
+      },
+      "thunder_magic_bread": {
+         "textures" : "textures/kurokumaft/items/bread/thunder_magic_bread"
+      },
+      "stone_magic_bread": {
+         "textures" : "textures/kurokumaft/items/bread/stone_magic_bread"
+      },
+      "ice_magic_bread": {
+         "textures" : "textures/kurokumaft/items/bread/ice_magic_bread"
       },
 
       "magma_blow": {

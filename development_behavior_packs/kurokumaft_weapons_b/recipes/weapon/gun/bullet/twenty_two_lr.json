@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:twenty_two_lr"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "G",
+            "P"
+        ],
+        "key": {
+            "G": {
+                "item": "minecraft:gold_ingot"
+            },
+            "P": {
+                "item": "minecraft:gunpowder"
+            }
+
+        },
+        "result": {
+            "item": "kurokumaft:twenty_two_lr",
+            "count": 9
+        },
+        "priority": 2
+    }
+}

@@ -1,0 +1,44 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nikyunikyu.rising": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s levitation 1 3 true",
+					"/particle kurokumaft:nikyunikyu_hover ^^^0.5"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.nikyunikyu.hover": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:nikyunikyu_hover ^^^0.5"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.nikyunikyu.fall": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s slow_falling 1 2 true",
+					"/particle kurokumaft:nikyunikyu_hover ^^^-0.5"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.nikyunikyu.compression": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute as @s run tp @e[family=compression,r=6,c=1] @s"
+				]
+			}
+		}
+	}
+}

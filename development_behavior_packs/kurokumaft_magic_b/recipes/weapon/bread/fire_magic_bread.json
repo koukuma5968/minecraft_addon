@@ -1,0 +1,30 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_bread"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "m  ",
+      " l ",
+      "  #"
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:magma"
+      },
+      "m": {
+        "item": "kurokumaft:fire_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:diamond_sword"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:fire_magic_bread",
+      "count": 1
+    }
+  }
+  
+}

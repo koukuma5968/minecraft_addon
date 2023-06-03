@@ -15,6 +15,9 @@
       "minecraft:creative_category": {
 				"parent": "itemGroup.name.skull"
 			},
+      "minecraft:entity_placer": {
+        "entity": "kurokumaft:tanjiro_skull"
+      },
       "minecraft:repairable": {
         "repair_items": [
           {

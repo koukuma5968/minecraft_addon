@@ -5,8 +5,7 @@
       "identifier": "kurokumaft:entei_entity",
       "is_spawnable": false,
       "is_summonable": false,
-      "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball"
+      "is_experimental": false
     },
     "components": {
       "minecraft:type_family": {
@@ -15,6 +14,9 @@
       "minecraft:collision_box": {
         "width": 10.0,
         "height": 10.0
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
       },
       "minecraft:projectile": {
         "on_hit": {

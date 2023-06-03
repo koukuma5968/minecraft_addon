@@ -102,13 +102,54 @@
         "minecraft:variant": {
             "value": 9
         }
+      },
+      "variant10": {
+        "minecraft:variant": {
+            "value": 10
+        }
+      },
+      "variant11": {
+        "minecraft:variant": {
+            "value": 11
+        }
+      },
+
+      "kurokumaft:gear1": {
+        "minecraft:skin_id": {
+          "value": 100
+        },
+        "minecraft:attack": {
+          "damage": 3
+        }
+      },
+      "kurokumaft:gear2": {
+        "minecraft:skin_id": {
+          "value": 1002
+        },
+        "minecraft:attack": {
+          "damage": 5
+        }
+      },
+      "kurokumaft:gear3": {
+        "minecraft:skin_id": {
+          "value": 1003
+        },
+        "minecraft:attack": {
+          "damage": 8
+        }
+      },
+      "kurokumaft:gear3_down": {
+        "minecraft:skin_id": {
+          "value": 10031
+        },
+        "minecraft:attack": {
+          "damage": 1
+        }
       }
+
     },
 
     "components": {
-      "minecraft:skin_id": {
-        "value": 100
-      },
       "minecraft:experience_reward": {
         "on_death": "Math.Min(7, 100)"
       },
@@ -273,9 +314,6 @@
           }
         ]
       },
-      "minecraft:attack": {
-        "damage": 2
-      },
       "minecraft:breathable": {
         "total_supply": 15,
         "suffocate_time": -1,
@@ -348,6 +386,13 @@
     },
 
     "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:gear1"
+          ]
+        }
+      },
       "minecraft:trigger_raid": {
         "add": {
           "component_groups": [ "minecraft:raid_trigger" ]
@@ -373,7 +418,10 @@
         "sequence": [
           {
             "filters": {
-              "test": "has_target"
+              "all_of": [
+                {"test": "has_target"},
+                {"test": "is_skin_id","operator": "==","subject": "self","value": 100}
+              ]
             },
             "randomize": [
               {
@@ -428,6 +476,103 @@
                 "weight": 10,
                 "add": {
                   "component_groups": [ "variant9" ]
+                }
+              },
+              {
+                "weight": 30,
+                "add": {
+                  "component_groups": [ "variant10" ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [ "variant11" ]
+                }
+              },
+              {
+                "weight": 10,
+                "remove": {
+                  "component_groups": [ "kurokumaft:gear1" ]
+                },
+                "add": {
+                  "component_groups": [ "kurokumaft:gear2" ]
+                }
+              }
+            ]
+          },
+          {
+            "filters": {
+              "all_of": [
+                {"test": "has_target"},
+                {"test": "is_skin_id","operator": "==","subject": "self","value": 1002}
+              ]
+            },
+            "randomize": [
+              {
+                "weight": 90,
+                "add": {
+                  "component_groups": [ "variant1" ]
+                }
+              },
+              {
+                "weight": 90,
+                "add": {
+                  "component_groups": [ "variant2" ]
+                }
+              },
+              {
+                "weight": 50,
+                "add": {
+                  "component_groups": [ "variant3" ]
+                }
+              },
+              {
+                "weight": 50,
+                "add": {
+                  "component_groups": [ "variant4" ]
+                }
+              },
+              {
+                "weight": 30,
+                "add": {
+                  "component_groups": [ "variant5" ]
+                }
+              },
+              {
+                "weight": 30,
+                "add": {
+                  "component_groups": [ "variant6" ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [ "variant7" ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [ "variant8" ]
+                }
+              },
+              {
+                "weight": 10,
+                "add": {
+                  "component_groups": [ "variant9" ]
+                }
+              },
+              {
+                "weight": 30,
+                "add": {
+                  "component_groups": [ "variant10" ]
+                }
+              },
+              {
+                "weight": 20,
+                "add": {
+                  "component_groups": [ "variant11" ]
                 }
               }
             ]

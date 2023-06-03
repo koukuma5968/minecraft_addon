@@ -49,6 +49,111 @@
           "knockback_horizontal_strength": 15,
           "knockback_vertical_strength": 2
         }
+      },
+      "kurokumaft:eagle_bazooka": {
+        "minecraft:behavior.knockback_roar": {
+          "attack_time": 0.1,
+          "knockback_damage": 15,
+          "duration": 0.2,
+          "damage_filters": {
+            "all_of": [
+              {"test": "is_mark_variant","operator": "!=","subject": "other","value": 2}
+            ]
+          },
+          "knockback_filters": {
+            "all_of": [
+              {"test": "is_mark_variant","operator": "!=","subject": "other","value": 2}
+            ]
+          },
+          "knockback_height_cap": 3,
+          "knockback_range": 2.5,
+          "knockback_horizontal_strength": 25,
+          "knockback_vertical_strength": 5
+        }
+      },
+      "kurokumaft:grizzly_magnum": {
+        "minecraft:behavior.knockback_roar": {
+          "attack_time": 0.1,
+          "knockback_damage": 20,
+          "duration": 0.2,
+          "damage_filters": {
+            "all_of": [
+              {"test": "is_mark_variant","operator": "!=","subject": "other","value": 2}
+            ]
+          },
+          "knockback_filters": {
+            "all_of": [
+              {"test": "is_mark_variant","operator": "!=","subject": "other","value": 2}
+            ]
+          },
+          "knockback_height_cap": 3,
+          "knockback_range": 5,
+          "knockback_horizontal_strength": 40,
+          "knockback_vertical_strength": 3
+        }
+      },
+      "kurokumaft:tank": {
+        "minecraft:behavior.knockback_roar": {
+          "attack_time": 0.1,
+          "knockback_damage": 10,
+          "duration": 0.2,
+          "damage_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "!=","subject": "other","value": 1005}
+            ]
+          },
+          "knockback_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "!=","subject": "other","value": 1005}
+            ]
+          },
+          "knockback_height_cap": 3,
+          "knockback_range": 10,
+          "knockback_horizontal_strength": 60,
+          "knockback_vertical_strength": 5
+        }
+      },
+      "kurokumaft:leo_bazooka": {
+        "minecraft:behavior.knockback_roar": {
+          "attack_time": 0.1,
+          "knockback_damage": 15,
+          "duration": 0.2,
+          "damage_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "!=","subject": "other","value": 1005}
+            ]
+          },
+          "knockback_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "!=","subject": "other","value": 1005}
+            ]
+          },
+          "knockback_height_cap": 3,
+          "knockback_range": 10,
+          "knockback_horizontal_strength": 80,
+          "knockback_vertical_strength": 15
+        }
+      },
+      "kurokumaft:king_kong_gun": {
+        "minecraft:behavior.knockback_roar": {
+          "attack_time": 0.1,
+          "knockback_damage": 25,
+          "duration": 0.2,
+          "damage_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "!=","subject": "other","value": 1005}
+            ]
+          },
+          "knockback_filters": {
+            "all_of": [
+              {"test": "is_skin_id","operator": "!=","subject": "other","value": 1005}
+            ]
+          },
+          "knockback_height_cap": 3,
+          "knockback_range": 10,
+          "knockback_horizontal_strength": 100,
+          "knockback_vertical_strength": 30
+        }
       }
     },
     "components": {
@@ -56,9 +161,20 @@
         "width": 0.11,
         "height": 0.11
       },
-      "minecraft:damage_over_time": {
-        "damage_per_hurt": 50,
-        "time_between_hurt": 0.2
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval": false,
+        "time": 0.2,
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
       },
       "minecraft:physics": {},
       "minecraft:pushable": {
@@ -74,6 +190,14 @@
       }
     },
     "events": {
+      "kurokumaft:despawn": {
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      },
       "kurokumaft:bazooka": {
         "add": {
           "component_groups": [
@@ -85,6 +209,41 @@
         "add": {
           "component_groups": [
             "kurokumaft:bazooka2"
+          ]
+        }
+      },
+      "kurokumaft:eagle_bazooka": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:eagle_bazooka"
+          ]
+        }
+      },
+      "kurokumaft:grizzly_magnum": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:grizzly_magnum"
+          ]
+        }
+      },
+      "kurokumaft:tank": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:tank"
+          ]
+        }
+      },
+      "kurokumaft:leo_bazooka": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:leo_bazooka"
+          ]
+        }
+      },
+      "kurokumaft:king_kong_gun": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:king_kong_gun"
           ]
         }
       }

@@ -1,0 +1,72 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.lightning_magic.lightningstrike_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'lightningstrike_stick'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add lightningstrike_stick"
+          ],
+          "on_exit": [
+            "/tag @s remove lightningstrike_stick"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'lightningstrike_stick'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.lightning_magic.lightningstrike": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "lightningstrike_shock": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && variable.attack_time" },
+            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && variable.attack_time" },
+            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" },
+            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" }
+          ]
+        },
+        "lightningstrike_shock": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングストライク\"}]}",
+            "/function magic/lightning/lightningstrike_shock"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "jewel_bit": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ジュエルビット\"}]}",
+            "/function magic/lightning/jewel_bit"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "stone_edge": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ストーンエッジ\"}]}"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "gaia_crash": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ガイアクラッシュ\"}]}",
+            "/function magic/lightning/blastbomb"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "kurokumaft:brew_thick_breathing_bone"
+    },
+
+    "tags": [ "brewing_stand" ],
+
+    "input": "minecraft:potion_type:thick",
+    "reagent": "minecraft:bone",
+    "output": "kurokumaft:histurdiness_potion"
+  }
+
+}

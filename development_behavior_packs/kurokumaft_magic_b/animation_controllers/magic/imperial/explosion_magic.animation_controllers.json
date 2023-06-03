@@ -31,10 +31,11 @@
         },
         "mega_brand": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7メガ・ブランド\"}]}"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7メガ・ブランド\"}]}",
+            "/function magic/fire/mega_brand"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"default":"variable.mega_brand = (variable.mega_brand ?? 0);variable.mega_brand = variable.mega_brand < 40 ? variable.mega_brand + 1:0;return variable.mega_brand == 0;"}
           ]
         },
         "explosion": {

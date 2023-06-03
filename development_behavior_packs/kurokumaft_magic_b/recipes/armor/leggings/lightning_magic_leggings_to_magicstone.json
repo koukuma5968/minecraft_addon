@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:lightning_magic_leggings_to_magicstone"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "ili",
+      "m m",
+      "i i"
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:diamond_leggings"
+      },
+      "m": {
+        "item": "kurokumaft:lightning_magic_stone"
+      },
+      "i": {
+        "item": "minecraft:gold_block"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:lightning_magic_leggings",
+      "count": 1
+    }
+  }
+  
+}

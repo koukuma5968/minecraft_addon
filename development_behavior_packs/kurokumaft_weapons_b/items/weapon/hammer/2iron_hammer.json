@@ -32,6 +32,7 @@
           "event":"kurokumaft:hammer"
         }
       },
+      "minecraft:use_animation": "spear",
       "minecraft:enchantable": {
         "value": 15,
         "slot": "sword"

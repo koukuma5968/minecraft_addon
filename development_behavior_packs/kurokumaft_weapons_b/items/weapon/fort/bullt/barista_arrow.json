@@ -1,0 +1,22 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:barista_arrow",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:barista_arrow.name"
+			},
+      "minecraft:icon": {
+        "texture": "barista_arrow"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.fort_bullt"
+      }
+    },
+    "events": {
+    }
+  }
+}

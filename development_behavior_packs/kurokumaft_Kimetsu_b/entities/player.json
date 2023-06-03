@@ -10,11 +10,11 @@
         "animate":[
           "kokyu_change",
           "tanjiro_change","zenitu_change","inosuke_change","kanawo_change","giyu_change","kyouzyuro_change","tengen_change","shinobu_change",
-          "mituri_change","sanemi_change","gyoumei_change",
+          "mituri_change","sanemi_change","gyoumei_change","muitiro_change",
 
           "mizu_change","hi_change","kaminari_change","hono_change","oto_change","mushi_change","hana_change",
 
-          "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi","koi","kaze","iwa",
+          "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi","koi","kaze","iwa","kasumi",
 
           "mizu10_attack","hi_dragon_attack","kaminari_attack",
 
@@ -35,6 +35,7 @@
         "mituri_change": "controller.animation.kokyu.mituri_change",
         "sanemi_change": "controller.animation.kokyu.sanemi_change",
         "gyoumei_change": "controller.animation.kokyu.gyoumei_change",
+        "muitiro_change": "controller.animation.kokyu.muitiro_change",
 
         "mizu_change": "controller.animation.kokyu.mizu_change",
         "hi_change": "controller.animation.kokyu.hi_change",
@@ -79,6 +80,8 @@
         "kaze": "controller.animation.kokyu.kaze",
         "kaze1_ani": "animation.kata.kaze1","kaze3_ani": "animation.kata.kaze3","kaze4_ani": "animation.kata.kaze4","kaze5_ani": "animation.kata.kaze5",
         "kaze8_ani": "animation.kata.kaze8","kaze9_ani": "animation.kata.kaze9","kaze9_2_ani": "animation.kata.kaze9_2",
+
+        "kasumi": "controller.animation.kokyu.kasumi",
 
         "iwa": "controller.animation.kokyu.iwa",
         "iwa3_ani": "animation.kata.iwa3"
@@ -251,6 +254,11 @@
       "kurokumaft:nichirintou_sanemi": {
         "minecraft:skin_id": {
           "value": 7
+        }
+      },
+      "kurokumaft:nichirintou_muitiro": {
+        "minecraft:skin_id": {
+          "value": 8
         }
       },
       "kurokumaft:nichirintou_mizu": {
@@ -780,6 +788,11 @@
       "kurokumaft:nichirintou_gyoumei": {
         "add": {
           "component_groups": [ "kurokumaft:nichirintou_gyoumei" ]
+        }
+      },
+      "kurokumaft:nichirintou_muitiro": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_muitiro" ]
         }
       },
 

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:ice_magic_bread"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "m  ",
+      " l ",
+      "  #"
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:blue_ice"
+      },
+      "m": {
+        "item": "kurokumaft:ice_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:diamond_sword"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:ice_magic_bread",
+      "count": 1
+    }
+  }
+  
+}

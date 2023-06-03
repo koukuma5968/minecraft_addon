@@ -5,7 +5,7 @@
       "identifier": "kurokumaft:diamond_hammer_to_netherite"
     },
     "tags": [ "smithing_table" ],
-    "priority": 2,
+    "template": "minecraft:netherite_upgrade_smithing_template",
     "base": "kurokumaft:diamond_hammer",
     "addition": "minecraft:netherite_ingot",
     "result": "kurokumaft:netherite_hammer"

@@ -18,6 +18,8 @@
       "minecraft:block_placer": {
         "block": "medicinal_plants",
         "use_on" : [
+          "grass",
+          "dirt",
           "farmland"
         ]
       }

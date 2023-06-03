@@ -21,11 +21,13 @@
         "duration": 0.2,
         "damage_filters": {
           "all_of": [
+            {"test": "is_family","operator": "not","subject": "other","value": "chest"},
             {"test": "is_family","operator": "not","subject": "other","value": "player"}
           ]
         },
         "knockback_filters": {
           "all_of": [
+            {"test": "is_family","operator": "not","subject": "other","value": "chest"},
             {"test": "is_family","operator": "not","subject": "other","value": "player"}
           ]
         },

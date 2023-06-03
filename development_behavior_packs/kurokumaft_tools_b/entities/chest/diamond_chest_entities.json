@@ -5,7 +5,8 @@
       "identifier": "kurokumaft:diamond_chest_entities",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:chest"
     },
     "component_groups": {
       "set_on_collision_box": {
@@ -45,6 +46,10 @@
       },
       "minecraft:damage_sensor": {
         "triggers": [
+          {
+            "cause": "magic",
+            "deals_damage": false
+          },
           {
             "on_damage": {
               "filters": {

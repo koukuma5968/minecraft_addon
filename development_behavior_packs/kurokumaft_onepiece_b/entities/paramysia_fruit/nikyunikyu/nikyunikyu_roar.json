@@ -1,0 +1,54 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:nikyunikyu_roar",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "minecraft:behavior.knockback_roar": {
+        "attack_time": 0.1,
+        "knockback_damage": 10,
+        "duration": 0.2,
+        "damage_filters": {
+          "all_of": [
+            {"test": "is_family","operator": "!=","subject": "other","value": "nikyunikyu"}
+          ]
+        },
+        "knockback_filters": {
+          "all_of": [
+            {"test": "is_family","operator": "!=","subject": "other","value": "nikyunikyu"}
+          ]
+        },
+        "knockback_height_cap": 3,
+        "knockback_range": 2.5,
+        "knockback_horizontal_strength": 15,
+        "knockback_vertical_strength": 15
+      },
+      "minecraft:damage_over_time": {
+        "damage_per_hurt": 50,
+        "time_between_hurt": 0.2
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+    }
+  }
+}

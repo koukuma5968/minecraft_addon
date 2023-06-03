@@ -1,0 +1,101 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "kurokumaft:bakutiku_entity",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:tnt"
+		},
+		"component_groups": {
+			"from_explosion": {
+				"minecraft:explode": {
+					"fuse_length": {
+					"range_min": 0.5,
+					"range_max": 1.0
+					},
+					"fuse_lit": true,
+					"power": 1,
+					"causes_fire": false
+				}
+			},
+			"throwable_bakutiku": {
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 1,
+							"knockback": false,
+							"semi_random_diff_damage": false,
+							"destroy_on_hit": false
+						}
+					},
+					"liquid_inertia": 0.99,
+					"power": 2,
+					"gravity": 0.01,
+					"uncertainty_base": 1,
+					"uncertainty_multiplier": 0,
+					"stop_on_hurt": true,
+					"anchor": 1,
+					"should_bounce": true,
+					"multiple_targets": false,
+					"offset": [ 0, 0.2, 1.5 ]
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"randomInterval": false,
+					"time": 0.1,
+					"time_down_event": {
+						"event": "from_explosion"
+					}
+				}
+			}
+		},
+	  
+		"components": {
+			"minecraft:type_family": {
+				"family": [ "tnt", "inanimate" ]
+			},
+			"minecraft:collision_box": {
+				"width": 0.98,
+				"height": 0.98
+			},
+			"minecraft:physics": {
+			},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80.0,
+					"max_dropped_ticks": 5,
+					"use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+			"from_explosion": {
+				"add": {
+					"component_groups": [
+						"from_explosion"
+					]
+				}
+			},
+			"throwable_bakutiku": {
+				"run_command": {
+					"command": [
+					  "execute @p[c=1] ~~~ clear @s kurokumaft:bakutiku 0 1"
+					],
+					"target": "self"
+				},
+				"add": {
+					"component_groups": [
+						"throwable_bakutiku"
+					]
+				}
+			}
+		}
+	}
+}
+  

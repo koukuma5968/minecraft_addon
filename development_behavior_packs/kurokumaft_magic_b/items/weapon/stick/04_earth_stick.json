@@ -1,0 +1,70 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:earth_stick",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.stick"
+      },
+      "minecraft:cooldown": {
+        "category": "earth_magic_stick",
+        "duration": 3.0
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 2,
+		  "minecraft:weapon": {
+      },
+      "minecraft:durability": {
+        "max_durability": 1000
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 30,
+        "slot": "sword"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:stone_magic_stone" ],
+            "repair_amount": 100
+          },
+          {
+            "items": [ "kurokumaft:earth_stick" ],
+            "repair_amount": 500
+          }
+        ]
+      },
+      "minecraft:icon": {
+        "texture": "earth_stick"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:earth_stick.name"
+      },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
+      },
+      "minecraft:on_use":{
+        "on_use":{
+          "event": "kurokumaft:earth_stick",
+          "target": "self"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:earth_stick": {
+        "sequence":[
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

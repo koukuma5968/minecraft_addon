@@ -1,0 +1,72 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.wind_magic.atmosphere_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'atmosphere_stick'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add atmosphere_stick"
+          ],
+          "on_exit": [
+            "/tag @s remove atmosphere_stick"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'atmosphere_stick'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.wind_magic.atmosphere": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "atmosphere_shock": "!query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && variable.attack_time" },
+            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && variable.attack_time" },
+            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && query.is_using_item" },
+            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && query.is_using_item" }
+          ]
+        },
+        "atmosphere_shock": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aアトモスフィア\"}]}",
+            "/function magic/wind/atmosphere_shock"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "jewel_bit": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aジュエルビット\"}]}",
+            "/function magic/wind/jewel_bit"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "stone_edge": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aストーンエッジ\"}]}"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "gaia_crash": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aガイアクラッシュ\"}]}",
+            "/function magic/wind/blastbomb"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        }
+      }
+    }
+  }
+}

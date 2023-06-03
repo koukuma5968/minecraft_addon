@@ -6,7 +6,7 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball",
+      "runtime_identifier": "minecraft:arrow",
       "scripts": { 
         "animate": [ 
           {"raigou_shot":"query.variant == 0"},
@@ -127,8 +127,15 @@
         "family": ["lightning", "inanimate", "raigou"]
       },
       "minecraft:collision_box": {
-        "width": 40.0,
-        "height": 40.0
+        "width": 10.0,
+        "height": 10.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
       },
       "minecraft:pushable": {
         "is_pushable": false,

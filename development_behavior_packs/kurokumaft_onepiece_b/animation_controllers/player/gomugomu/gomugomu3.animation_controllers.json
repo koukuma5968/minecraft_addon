@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "pistol": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 10 && query.is_sneaking" },
+            { "pistol": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 11 && query.is_sneaking" },
             { "whip": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 1 && query.is_sneaking" },
             { "gatling": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 2 && query.is_sneaking" },
             { "axe": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 3 && query.is_sneaking" },
@@ -14,7 +14,8 @@
             { "rifle": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 6 && query.is_sneaking" },
             { "rocket": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 7 && query.is_sneaking" },
             { "storm": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 8 && query.is_sneaking" },
-            { "flail": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 9 && query.is_sneaking" }
+            { "flail": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 9 && query.is_sneaking" },
+            { "cannon": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 10 && query.is_sneaking" }
           ]
         },
         "pistol":{
@@ -116,6 +117,16 @@
           "transitions": [
             {"default":"!query.is_sneaking"}
           ]
+        },
+        "cannon":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムのギガント攻城砲（キャノン）\"}]}",
+            "/event entity @s variant11",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
         }
       }
     },
@@ -138,7 +149,8 @@
             { "rocket": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 8 && query.is_using_item" },
             { "storm": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 9 && query.is_using_item && !query.is_jumping" },
             { "storm_horizontal": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 9 && query.is_using_item && query.is_jumping" },
-            { "flail": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 10 && query.is_using_item" }
+            { "flail": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 10 && query.is_using_item" },
+            { "cannon": "query.skin_id == 1003 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gomugomu_skill') && query.variant == 11 && query.is_using_item" }
           ]
         },
         "pistol":{
@@ -401,6 +413,28 @@
           ],
           "transitions": [
             {"default":"variable.gomugomu3_at = variable.gomugomu3_at < 40 ? variable.gomugomu3_at + 1:0;return variable.gomugomu3_at == 0;"}
+          ]
+        },
+        "cannon":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ゴムゴムの\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"bazooka_att":"variable.gomugomu2_at = variable.gomugomu2_at < 20 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
+          ]
+        },
+        "cannon_att":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギガント攻城砲（キャノン）\"}]}",
+            "/event entity @s mark_variant2",
+            "/function gomugomu3/cannon"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.gomugomu2_at = variable.gomugomu2_at < 20 ? variable.gomugomu2_at + 1:0;return variable.gomugomu2_at == 0;"}
           ]
         }
 

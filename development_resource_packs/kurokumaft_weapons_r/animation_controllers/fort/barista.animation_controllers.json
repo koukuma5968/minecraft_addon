@@ -1,0 +1,26 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.barista.position": {
+			"initial_state" : "empty",
+			"states": {
+				"empty": {
+					"animations": ["empty"],
+					"transitions": [
+						{
+							"charge": "query.is_chested"
+						}
+					]
+				},
+				"charge": {
+					"animations": ["charge"],
+					"transitions": [
+						{
+							"empty": "!query.is_chested"
+						}
+					]
+				}
+			}
+		}
+	}
+}

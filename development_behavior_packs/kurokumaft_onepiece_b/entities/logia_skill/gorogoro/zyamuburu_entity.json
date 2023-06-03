@@ -6,7 +6,7 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball",
+      "runtime_identifier": "minecraft:arrow",
       "scripts": { "animate": [ "zyamuburu" ] },
 			"animations": { 
 				"zyamuburu": "animation.gorogoro.zyamuburu"
@@ -19,6 +19,16 @@
       "minecraft:collision_box": {
         "width": 5.0,
         "height": 5.0
+      },
+      "minecraft:behavior.swoop_attack": {
+        "damage_reach": 5.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
       },
       "minecraft:projectile": {
         "on_hit": {
@@ -65,9 +75,12 @@
 
     "events": {
       "kurokumaft:despawn": {
-				"add": {
-					"component_groups": ["kurokumaft:despawn" ]
-				}
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
       }
     }
   }

@@ -56,18 +56,18 @@
             "/event entity @s kurokumaft:health40_up"
           ],
           "transitions": [
-            {"lv_3":"query.player_level > 40"},
+            {"lv_3":"query.player_level >= 40"},
             {"default":"!query.is_alive"}
           ]
         },
         "lv_3":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"覇気解放\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"覇気解放（武装）\"}]}",
             "/tag @s add armed_ambition",
             "/event entity @s kurokumaft:health60_up"
           ],
           "transitions": [
-            {"lv_4":"query.player_level > 60"},
+            {"lv_4":"query.player_level >= 60"},
             {"default":"!query.is_alive"}
           ]
         },
@@ -82,6 +82,7 @@
         },
         "lv_5":{
           "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"覇気解放（覇王）\"}]}",
             "/tag @s add highking_ambition",
             "/event entity @s kurokumaft:health100_up"
           ],

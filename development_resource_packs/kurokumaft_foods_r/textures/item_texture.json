@@ -2,19 +2,57 @@
    "resource_pack_name" : "kurokumaft_sample_r",
    "texture_data" : {
       "baked_carrot" : {
-         "textures" : "textures/kurokumaft/items/cook/baked_carrot"
+         "textures" : "textures/kurokumaft/items/cook/baked/baked_carrot"
       },
+
       "apple_pie" : {
-         "textures" : "textures/kurokumaft/items/cook/apple_pie"
+         "textures" : "textures/kurokumaft/items/cook/pie/apple_pie"
       },
-      "cheese" : {
-         "textures" : "textures/kurokumaft/items/cook/cheese"
-      },
+
       "carrot_stew" : {
-         "textures" : "textures/kurokumaft/items/cook/carrot_stew"
+         "textures" : "textures/kurokumaft/items/cook/stew/carrot_stew"
       },
+
+      "toast_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/toast_bread"
+      },
+      "apple_jam_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/apple_jam_bread"
+      },
+      "sweet_berries_jam_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/sweet_berries_jam_bread"
+      },
+      "glow_berries_jam_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/glow_berries_jam_bread"
+      },
+
+      "apple_jam" : {
+         "textures" : "textures/kurokumaft/items/cook/jam/apple_jam"
+      },
+      "sweet_berries_jam" : {
+         "textures" : "textures/kurokumaft/items/cook/jam/sweet_berries_jam"
+      },
+      "glow_berries_jam" : {
+         "textures" : "textures/kurokumaft/items/cook/jam/glow_berries_jam"
+      },
+
       "miso_soup_no_ingredient" : {
          "textures" : "textures/kurokumaft/items/cook/miso_soup_no_ingredient"
+      },
+
+      "chocolate_cake" : {
+         "textures" : "textures/kurokumaft/items/cook/cake/chocolate_cake"
+      },
+
+      "chocolate" : {
+         "textures" : "textures/kurokumaft/items/cook/chocolate/chocolate"
+      },
+      "milk_chocolate" : {
+         "textures" : "textures/kurokumaft/items/cook/chocolate/milk_chocolate"
+      },
+
+      "cheese" : {
+         "textures" : "textures/kurokumaft/items/cook/cheese"
       },
 
       "onion" : {
@@ -42,14 +80,6 @@
       },
       "soup_bowl" : {
          "textures" : "textures/kurokumaft/items/tool/soup_bowl"
-      },
-
-      "chromium_nugget" : {
-         "textures" : "textures/kurokumaft/items/material/chromium_nugget"
-      },
-
-      "steel_ingot" : {
-         "textures" : "textures/kurokumaft/items/material/steel_ingot"
       }
 
    },

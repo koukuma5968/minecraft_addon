@@ -6,6 +6,7 @@
       "category": "equipment"
     },
     "components": {
+      "tag:shield": {},
       "minecraft:display_name": {
         "value": "item.kurokumaft:kettle_lid.name"
       },

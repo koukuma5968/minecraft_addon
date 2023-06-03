@@ -1,0 +1,179 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.nikyunikyu.hover": {
+      "states": {
+        "default": {
+          "variables": {
+            "sunasuna_hover": {
+              "input": "variable.nikyunikyu_hover = (variable.nikyunikyu_hover ?? 0);"
+            }
+          },
+          "transitions": [
+            {"takeoff": "query.skin_id == 108 && query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "transitions": [
+            {"takeoff": "variable.nikyunikyu_hover = variable.nikyunikyu_hover < 3 ? variable.nikyunikyu_hover + 1:0;return variable.nikyunikyu_hover == 0;"}
+          ]
+        },
+        "takeoff": {
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"default": "variable.nikyunikyu_hover = variable.nikyunikyu_hover < 5 ? variable.nikyunikyu_hover + 1:0;return variable.nikyunikyu_hover == 0;"}
+          ]
+        },
+        "rising": {
+          "animations" : [ 
+            "nikyunikyu.rising"
+          ],
+          "on_exit": [
+            "/effect @s levitation 0"
+          ],
+          "transitions": [
+            {"hover":"!query.is_jumping"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "hover": {
+          "animations" : [ 
+            "nikyunikyu.hover"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_hover"
+          ],
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"fall": "query.is_sneaking"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "fall": {
+          "animations" : [ 
+            "nikyunikyu.fall"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "on_exit": [
+            "/effect @s slow_falling 0"
+          ],
+          "transitions": [
+            {"landing": "query.is_on_ground"},
+            {"rising":"query.is_jumping"}
+          ]
+        },
+        "landing": {
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
+    "controller.animation.nikyunikyu.change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "paddo_hou": "query.skin_id == 108 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nikyunikyu_skill') && query.variant == 2 && query.is_sneaking" },
+            { "shock": "query.skin_id == 108 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nikyunikyu_skill') && query.variant == 1 && query.is_sneaking" }
+          ]
+        },
+        "paddo_hou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"圧力（パッド）砲\"}]}",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "shock":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"熊の衝撃（ウルスルショック）\"}]}",
+            "/event entity @s variant2",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    },
+    "controller.animation.nikyunikyu.attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "punch_bom": "query.skin_id == 108 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nikyunikyu_skill') && variable.attack_time" }
+          ]
+        },
+        "punch_bom":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"旅行に行くならどこに行きたい\"}]}",
+            "/event entity @s mark_variant3",
+            "/execute as @s positioned ^^^1.5 run summon kurokumaft:nikyunikyu_roar ~~~"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
+    "controller.animation.nikyunikyu": {
+      "states": {
+        "default": {
+          "variables": {
+            "nikyunikyu_at": {
+              "input": "variable.nikyunikyu_at = (variable.nikyunikyu_at ?? 0);"
+            }
+          },
+          "transitions": [
+            { "paddo_hou": "query.skin_id == 108 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nikyunikyu_skill') && query.variant == 1 && query.is_using_item" },
+            { "shock": "query.skin_id == 108 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nikyunikyu_skill') && query.variant == 2 && query.is_using_item" }
+          ]
+        },
+        "paddo_hou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"圧力（パッド）砲\"}]}",
+            "/event entity @s mark_variant3"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.nikyunikyu_at = variable.nikyunikyu_at < 20 ? variable.nikyunikyu_at + 1:0;return variable.nikyunikyu_at == 0;"}
+          ]
+        },
+        "shock":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/execute as @s positioned ^^^2 run summon kurokumaft:nikyunikyu_entity ~~~ kurokumaft:urususu_shock_compression"
+          ],
+          "transitions": [
+            {"shock_shot":"(1.0)"}
+          ]
+        },
+        "shock_shot":{
+          "animations" : ["nikyunikyu.compression"],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"熊の衝撃（ウルスルショック）\"}]}",
+            "/event entity @s mark_variant3"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.nikyunikyu_at = variable.nikyunikyu_at < 100 ? variable.nikyunikyu_at + 1:0;return variable.nikyunikyu_at == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

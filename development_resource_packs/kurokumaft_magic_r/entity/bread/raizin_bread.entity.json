@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:raizin_bread",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/bread/thunder_magic_bread"
+          },
+          "geometry": {
+            "default": "geometry.raizin_bread"
+          },
+          "animations": {
+            "shooter": "animation.raizin_bread.shooter"
+          },
+          "particle_effects": {
+            "lightning_particle": "kurokumaft:lightning_particle"
+          },
+          "scripts": {
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

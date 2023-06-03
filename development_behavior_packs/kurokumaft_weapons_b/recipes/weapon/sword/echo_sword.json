@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:echo_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " # ",
+      "###",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:echo_shard"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:echo_sword"
+    }
+  }
+}

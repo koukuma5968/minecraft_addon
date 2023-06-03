@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:wind_bark_slash",
+        "materials": {
+            "default": "fireball"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/items/magic/windcuttermagic"
+          },
+          "geometry": {
+            "default": "geometry.windcuttermagic"
+          },
+          "animations": {
+            "shooter": "animation.windcuttermagic.shooter"
+          },
+          "scripts": {
+            "scale": "1.0",
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.windcuttermagic" ]
+        }
+    }
+  }
+  

@@ -1,0 +1,72 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.dark_magic.jetblack_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "change": "query.get_equipped_item_name == 'jetblack_stick'" }
+          ]
+        },
+        "change": {
+          "on_entry": [
+            "/tag @s add jetblack_stick"
+          ],
+          "on_exit": [
+            "/tag @s remove jetblack_stick"
+          ],
+          "transitions": [
+            {"default":"query.get_equipped_item_name != 'jetblack_stick'"}
+          ]
+        }
+      }
+    },
+    "controller.animation.dark_magic.jetblack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "jetblack_shock": "!query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && variable.attack_time" },
+            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && variable.attack_time" },
+            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" },
+            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" }
+          ]
+        },
+        "jetblack_shock": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ライトニングストライク\"}]}",
+            "/function magic/dark/jetblack_shock"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "jewel_bit": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ジュエルビット\"}]}",
+            "/function magic/dark/jewel_bit"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "stone_edge": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ストーンエッジ\"}]}"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "gaia_crash": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ガイアクラッシュ\"}]}",
+            "/function magic/dark/blastbomb"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        }
+      }
+    }
+  }
+}

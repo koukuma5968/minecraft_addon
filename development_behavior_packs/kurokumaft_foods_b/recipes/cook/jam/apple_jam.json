@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:apple_jam"
+    },
+    "tags": [ "kitchen_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:apple"
+      },
+      {
+        "item": "minecraft:sugar"
+      },
+      {
+        "item": "minecraft:honey_bottle"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:apple_jam"
+    }
+  }
+}

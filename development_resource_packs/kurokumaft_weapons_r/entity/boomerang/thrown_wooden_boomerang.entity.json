@@ -11,7 +11,7 @@
         "loyalty_rope": "textures/entity/loyalty_rope"
       },
       "geometry": {
-        "default": "geometry.thrown_wooden_boomerang"
+        "default": "geometry.boomerang"
       },
       "scripts": {
         "animate": [
@@ -19,7 +19,7 @@
         ]
       },
       "animations": {
-        "shot": "animation.thrown_wooden_boomerang.shot"
+        "shot": "animation.boomerang.shot"
       },
       "render_controllers": [ "controller.render.thrown_default" ]
     }

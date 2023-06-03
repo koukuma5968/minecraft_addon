@@ -1,0 +1,20 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:orichalcum",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:orichalcum.name"
+			},
+      "minecraft:icon": {
+        "texture": "orichalcum"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.ingot"
+      }
+    }
+  }
+}

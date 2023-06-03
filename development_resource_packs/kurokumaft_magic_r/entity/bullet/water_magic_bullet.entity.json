@@ -13,10 +13,10 @@
         "default": "geometry.magic_bullet"
       },
       "animations": {
-        "move": "animation.magic_bullet.water_move"
+        "move": "animation.magic_bullet.move"
       },
       "particle_effects": {
-        "water_bullet_particle": "kurokumaft:water_bullet_particle"
+        "bullet_particle": "kurokumaft:water_bullet_particle"
       },
       "scripts": {
         "animate": [

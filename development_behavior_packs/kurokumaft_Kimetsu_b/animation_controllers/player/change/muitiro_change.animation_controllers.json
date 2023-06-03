@@ -1,0 +1,83 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.kokyu.muitiro_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "muitiro1": "query.skin_id == 8 && query.variant == 7 && query.is_sneaking" },
+            { "muitiro2": "query.skin_id == 8 && query.variant == 1 && query.is_sneaking" },
+            { "muitiro3": "query.skin_id == 8 && query.variant == 2 && query.is_sneaking" },
+            { "muitiro4": "query.skin_id == 8 && query.variant == 3 && query.is_sneaking" },
+            { "muitiro5": "query.skin_id == 8 && query.variant == 4 && query.is_sneaking" },
+            { "muitiro6": "query.skin_id == 8 && query.variant == 5 && query.is_sneaking" },
+            { "muitiro7": "query.skin_id == 8 && query.variant == 6 && query.is_sneaking" }
+          ]
+        },
+        "muitiro1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "muitiro2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 弐ノ型\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "muitiro3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 参ノ型\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "muitiro4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 肆ノ型\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "muitiro5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "muitiro6":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 陸ノ型\"}]}",
+            "/event entity @s variant6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "muitiro7":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 漆ノ型\"}]}",
+            "/event entity @s variant7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

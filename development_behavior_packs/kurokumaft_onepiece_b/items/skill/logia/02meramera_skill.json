@@ -106,13 +106,13 @@
         "sequence":[
           {
             "shoot": {
-              "projectile": "kurokumaft:higan_right_entity",
+              "projectile": "kurokumaft:higan_entity<kurokumaft:right>",
               "launch_power": 2.0
             }
           },
           {
             "shoot": {
-              "projectile": "kurokumaft:higan_left_entity",
+              "projectile": "kurokumaft:higan_entity<kurokumaft:left>",
               "launch_power": 2.0
             }
           }
@@ -122,13 +122,13 @@
         "sequence":[
           {
             "shoot": {
-              "projectile": "kurokumaft:siranui_right_entity",
+              "projectile": "kurokumaft:siranui_entity<kurokumaft:right>",
               "launch_power": 2.0
             }
           },
           {
             "shoot": {
-              "projectile": "kurokumaft:siranui_left_entity",
+              "projectile": "kurokumaft:siranui_entity<kurokumaft:left>",
               "launch_power": 2.0
             }
           }

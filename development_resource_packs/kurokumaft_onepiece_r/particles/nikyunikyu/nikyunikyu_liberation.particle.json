@@ -1,0 +1,42 @@
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "kurokumaft:nikyunikyu_liberation",
+			"basic_render_parameters": {
+				"material": "particles_alpha",
+				"texture": "textures/particle/particles"
+			}
+		},
+		"components": {
+			"minecraft:emitter_rate_instant": {
+				"num_particles": 1
+			},
+			"minecraft:emitter_lifetime_once": {
+				"active_time": 3
+			},
+			"minecraft:emitter_shape_point": {},
+			"minecraft:particle_initialization": {
+				"per_render_expression": "variable.size = 0.75 * math.pow(1.0-(variable.particle_age / variable.particle_lifetime), 0.08);"
+			},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": 3
+			},
+			"minecraft:particle_initial_speed": 1,
+			"minecraft:particle_appearance_billboard": {
+				"size": ["(variable.particle_age*3)*4", "(variable.particle_age*3)*4"],
+				"facing_camera_mode": "lookat_xyz",
+				"uv": {
+					"texture_width": 128,
+					"texture_height": 128,
+					"uv": [17, 17],
+					"uv_size": [7, 7]
+				}
+			},
+			"minecraft:particle_appearance_lighting": {},
+			"minecraft:particle_appearance_tinting": {
+				"color": [1, 1, 1, 1]
+			}
+		}
+	}
+}

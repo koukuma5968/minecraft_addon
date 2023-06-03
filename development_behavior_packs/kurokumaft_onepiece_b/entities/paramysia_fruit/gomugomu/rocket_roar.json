@@ -38,13 +38,23 @@
           "duration": 0.2,
           "damage_filters": {
             "all_of": [
-              {"test": "is_skin_id","operator": "!=","subject": "other","value": 1002},
+              {
+                "any_of": [
+                  {"test": "is_skin_id","operator": "!=","subject": "other","value": 1002},
+                  {"test": "is_skin_id","operator": "!=","subject": "other","value": 1004}
+                ]
+              },
               {"test": "is_mark_variant","operator": "!=","subject": "other","value": 2}
             ]
           },
           "knockback_filters": {
             "all_of": [
-              {"test": "is_skin_id","operator": "==","subject": "other","value": 1002},
+              {
+                "any_of": [
+                  {"test": "is_skin_id","operator": "==","subject": "other","value": 1002},
+                  {"test": "is_skin_id","operator": "==","subject": "other","value": 1004}
+                ]
+              },
               {"test": "is_mark_variant","operator": "==","subject": "other","value": 2}
             ]
           },
@@ -83,9 +93,20 @@
         "width": 0.11,
         "height": 0.11
       },
-      "minecraft:damage_over_time": {
-        "damage_per_hurt": 50,
-        "time_between_hurt": 0.2
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval": false,
+        "time": 0.2,
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
       },
       "minecraft:physics": {},
       "minecraft:pushable": {
@@ -101,6 +122,14 @@
       }
     },
     "events": {
+      "kurokumaft:despawn": {
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      },
       "kurokumaft:rocket": {
         "add": {
           "component_groups": [

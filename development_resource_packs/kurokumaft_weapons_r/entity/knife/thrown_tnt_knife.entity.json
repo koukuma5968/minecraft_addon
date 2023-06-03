@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:thrown_tnt_knife",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/knife/tnt_knife",
+        "loyalty_rope": "textures/entity/loyalty_rope"
+      },
+      "geometry": {
+        "default": "geometry.knife"
+      },
+      "animations": {
+        "move": "animation.knife.move"
+      },
+      "scripts": {
+        "scale": "1.0",
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.thrown_default" ]
+    }
+  }
+}

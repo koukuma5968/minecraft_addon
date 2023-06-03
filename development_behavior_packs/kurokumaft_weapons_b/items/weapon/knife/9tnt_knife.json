@@ -1,0 +1,68 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:tnt_knife",
+			"category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:tnt_knife.name"
+      },
+      "minecraft:icon":{
+        "texture": "tnt_knife"
+      },
+      "minecraft:creative_category": {
+        "parent": "item.kurokumaft:itemGroup.name.knife"
+      },
+      "minecraft:max_stack_size": 16,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 1
+      },
+      "minecraft:use_animation": "trident",
+      "minecraft:mining_speed": 5.5,
+      "minecraft:damage": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:throwable": {
+        "do_swing_animation": true,
+        "min_draw_duration": 0.5,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:thrown_tnt_knife",
+        "minimum_critical_power": 1.0
+      },
+      "minecraft:weapon": {
+        "on_hit_block": {
+          "event": "kurokumaft:break"
+        },
+        "on_hurt_entity": {
+          "event": "kurokumaft:break"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:break": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "summon kurokumaft:tnt_sword_break ^ ^ ^2"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "decrement_stack": {}
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "format_version": "1.17.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:gatling",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.gun"
+      },
+      "minecraft:durability": {
+        "max_durability": 1500
+      },
+      "minecraft:enchantable": {
+        "value": 20,
+        "slot": "bow"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "gatling"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:gatling" ],
+            "repair_amount": 500
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:gatling.name"
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:twenty_two_lr')",
+          "event": "kurokumaft:gatling_shot"
+        }
+      },
+      "minecraft:use_animation": "bow",
+      "minecraft:hand_equipped": true,
+      "minecraft:use_duration": 0.2,
+      "minecraft:chargeable": {
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.mainhand"
+      }
+    },
+    "events": {
+      "kurokumaft:gatling_shot": {
+        "shoot": {
+          "projectile": "kurokumaft:twenty_two_lr_entity",
+          "launch_power": 1.0
+        },
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        },
+        "run_command": {
+          "command": [
+            "clear @s kurokumaft:twenty_two_lr -1 1"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

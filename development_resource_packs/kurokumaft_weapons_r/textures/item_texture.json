@@ -19,6 +19,21 @@
       "steel_sword" : {
          "textures" : "textures/kurokumaft/items/sword/steel_sword"
       },
+      "amethyst_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/amethyst_sword"
+      },
+      "magma_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/magma_sword"
+      },
+      "blue_ice_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/blue_ice_sword"
+      },
+      "mithril_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/mithril_sword"
+      },
+      "echo_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/echo_sword"
+      },
 
       "bamboo_axe" : {
          "textures" : "textures/kurokumaft/items/axe/bamboo_axe"
@@ -36,6 +51,9 @@
       "iron_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/iron_battleaxe"
       },
+      "steel_battleaxe" : {
+         "textures" : "textures/kurokumaft/items/battleaxe/steel_battleaxe"
+      },
 
       "bamboo_spear": {
          "textures" : "textures/kurokumaft/items/spear/bamboo_spear"
@@ -52,6 +70,15 @@
 
       "bamboo_knife": {
          "textures" : "textures/kurokumaft/items/knife/bamboo_knife"
+      },
+      "wooden_knife": {
+         "textures" : "textures/kurokumaft/items/knife/wooden_knife"
+      },
+      "stone_knife": {
+         "textures" : "textures/kurokumaft/items/knife/stone_knife"
+      },
+      "tnt_knife": {
+         "textures" : "textures/kurokumaft/items/knife/tnt_knife"
       },
 
       "wooden_bread": {
@@ -104,12 +131,18 @@
       "hand_grenade": {
          "textures": "textures/kurokumaft/items/bom/hand_grenade"
       },
+      "bakutiku": {
+         "textures": "textures/kurokumaft/items/bom/bakutiku"
+      },
 
       "arquebus": {
          "textures": "textures/kurokumaft/items/gun/arquebus"
       },
       "revolver": {
          "textures": "textures/kurokumaft/items/gun/revolver"
+      },
+      "gatling": {
+         "textures": "textures/kurokumaft/items/gun/gatling"
       },
 
       "lead_ball": {
@@ -118,18 +151,42 @@
       "forty_four_magnum": {
          "textures": "textures/kurokumaft/items/gun/bullet/forty_four_magnum"
       },
+      "twenty_two_lr": {
+         "textures": "textures/kurokumaft/items/gun/bullet/twenty_two_lr"
+      },
 
-      "copper_helmet": {
-         "textures" : "textures/kurokumaft/items/armer/copper_helmet"
+      "barista": {
+         "textures": "textures/kurokumaft/items/fort/barista"
       },
-      "copper_chestplate": {
-         "textures" : "textures/kurokumaft/items/armer/copper_chestplate"
+
+      "barista_arrow": {
+         "textures": "textures/kurokumaft/items/fort/bullt/barista_arrow"
       },
-      "copper_leggings": {
-         "textures" : "textures/kurokumaft/items/armer/copper_leggings"
+
+      "bamboo_bow" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/bamboo/bamboo_bow_standby",
+            "textures/kurokumaft/items/bow/bamboo/bamboo_bow_pulling_0",
+            "textures/kurokumaft/items/bow/bamboo/bamboo_bow_pulling_1",
+            "textures/kurokumaft/items/bow/bamboo/bamboo_bow_pulling_2"
+         ]
       },
-      "copper_boots": {
-         "textures" : "textures/kurokumaft/items/armer/copper_boots"
+
+      "bamboo_arrow" : {
+         "textures" : "textures/kurokumaft/items/arrow/bamboo_arrow"
+      },
+
+      "iron_bow" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/iron/iron_bow_standby",
+            "textures/kurokumaft/items/bow/iron/iron_bow_pulling_0",
+            "textures/kurokumaft/items/bow/iron/iron_bow_pulling_1",
+            "textures/kurokumaft/items/bow/iron/iron_bow_pulling_2"
+         ]
+      },
+
+      "iron_arrow" : {
+         "textures" : "textures/kurokumaft/items/arrow/iron_arrow"
       },
 
       "kettle_lid" : {
@@ -148,13 +205,78 @@
       "bamboo_fiber" : {
          "textures" : "textures/kurokumaft/items/material/bamboo_fiber"
       },
+      "nitre_nugget" : {
+         "textures" : "textures/kurokumaft/items/material/nitre_nugget"
+      },
 
       "steel_ingot" : {
          "textures" : "textures/kurokumaft/items/material/steel_ingot"
       },
+      "mithril_ingot" : {
+         "textures" : "textures/kurokumaft/items/material/mithril_ingot"
+      },
+      "orichalcum" : {
+         "textures" : "textures/kurokumaft/items/material/orichalcum"
+      },
+
+      "black_powder" : {
+         "textures" : "textures/kurokumaft/items/material/black_powder"
+      },
 
       "medicinal_plant" : {
          "textures" : "textures/kurokumaft/items/crops/medicinal_plant"
+      },
+
+      "copper_helmet": {
+         "textures" : "textures/kurokumaft/items/armor/copper/copper_helmet"
+      },
+      "copper_chestplate": {
+         "textures" : "textures/kurokumaft/items/armor/copper/copper_chestplate"
+      },
+      "copper_leggings": {
+         "textures" : "textures/kurokumaft/items/armor/copper/copper_leggings"
+      },
+      "copper_boots": {
+         "textures" : "textures/kurokumaft/items/armor/copper/copper_boots"
+      },
+
+      "steel_helmet": {
+         "textures" : "textures/kurokumaft/items/armor/steel/steel_helmet"
+      },
+      "steel_chestplate": {
+         "textures" : "textures/kurokumaft/items/armor/steel/steel_chestplate"
+      },
+      "steel_leggings": {
+         "textures" : "textures/kurokumaft/items/armor/steel/steel_leggings"
+      },
+      "steel_boots": {
+         "textures" : "textures/kurokumaft/items/armor/steel/steel_boots"
+      },
+
+      "orichalcum_helmet": {
+         "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_helmet"
+      },
+      "orichalcum_chestplate": {
+         "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_chestplate"
+      },
+      "orichalcum_leggings": {
+         "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_leggings"
+      },
+      "orichalcum_boots": {
+         "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_boots"
+      },
+
+      "blackstone_helmet": {
+         "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_helmet"
+      },
+      "blackstone_chestplate": {
+         "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_chestplate"
+      },
+      "blackstone_leggings": {
+         "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_leggings"
+      },
+      "blackstone_boots": {
+         "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_boots"
       },
 
       "fish_meal" : {
@@ -162,8 +284,24 @@
       },
       "seeds_medicinal_plant" : {
          "textures" : "textures/kurokumaft/items/crops/seeds/seeds_medicinal_plant"
-      }
+      },
 
+      "potion_bottle_hiheal" : {
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_hiheal"
+      },
+      "potion_bottle_hidamageBoost" : {
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_hiheal"
+      },
+      "potion_bottle_histurdiness" : {
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_histurdiness"
+      },
+      "potion_bottle_himoveSpeed" : {
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_himoveSpeed"
+      },
+
+      "bamboo_bag": {
+         "textures" : "textures/kurokumaft/items/bag/bamboo_bag"
+      }
    },
    "texture_name" : "atlas.items"
 }

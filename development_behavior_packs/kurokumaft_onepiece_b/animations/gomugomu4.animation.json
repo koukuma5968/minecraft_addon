@@ -1,0 +1,71 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gomugomu4.rising": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s levitation 1 3 true"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.gomugomu4.fall": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s slow_falling 1 2 true"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.gomugomu4.calvaline": {
+			"animation_length": 1.0,
+			"loop": true,
+			"timeline": {
+				"0.1": [
+					"/function gomugomu4/calvaline/calvaline1"
+				],
+				"0.2": [
+					"/function gomugomu4/calvaline/calvaline2"
+				],
+				"0.4": [
+					"/function gomugomu4/calvaline/calvaline3"
+				],
+				"0.6": [
+					"/function gomugomu4/calvaline/calvaline4"
+				],
+				"0.8": [
+					"/function gomugomu4/calvaline/calvaline5"
+				],
+				"1.0": [
+					"/function gomugomu4/calvaline/calvaline6"
+				]
+			}
+		},
+		"animation.gomugomu4.kong_organ": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gomugomu4/kong_organ/kong_organ1"
+				],
+				"0.15": [
+					"/function gomugomu4/kong_organ/kong_organ2"
+				],
+				"0.3": [
+					"/function gomugomu4/kong_organ/kong_organ3"
+				]
+			}
+		},
+		"animation.gomugomu4.kong_gatling": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function gomugomu4/kong_gatling"
+				]
+			}
+		}
+	}
+}

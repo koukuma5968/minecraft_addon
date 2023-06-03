@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:siranui_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/meramera/siranui"
+        },
+        "geometry": {
+          "default": "geometry.siranui"
+        },
+        "particle_effects": {
+          "siranui": "kurokumaft:siranui"
+        },
+        "scripts": {
+          "scale": "1",
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.siranui.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

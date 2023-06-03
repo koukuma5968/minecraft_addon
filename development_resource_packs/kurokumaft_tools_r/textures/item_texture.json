@@ -17,6 +17,9 @@
       "glow_diamond_pickaxe": { 
          "textures": "textures/kurokumaft/items/pickaxe/glow_diamond_pickaxe"
       },
+      "blue_seaLantern_pickaxe": { 
+         "textures": "textures/kurokumaft/items/pickaxe/blue_seaLantern_pickaxe"
+      },
 
       "red_iron_shovel": { 
          "textures": "textures/kurokumaft/items/shovel/red_iron_shovel"

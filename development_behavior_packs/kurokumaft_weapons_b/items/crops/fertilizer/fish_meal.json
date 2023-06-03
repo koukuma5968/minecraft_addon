@@ -6,6 +6,7 @@
       "category": "nature"
     },
     "components": {
+      "tag:meal": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fish_meal.name"
 			},

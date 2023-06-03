@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:amethyst_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " # ",
+      "###",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:amethyst_shard"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:amethyst_sword"
+    }
+  }
+}

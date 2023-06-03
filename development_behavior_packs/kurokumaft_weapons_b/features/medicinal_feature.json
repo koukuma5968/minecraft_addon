@@ -10,12 +10,6 @@
     "may_attach_to": {
       "bottom": [
         {
-          "name": "minecraft:grass"
-        },
-        {
-          "name": "minecraft:dirt"
-        },
-        {
           "name": "minecraft:farmland"
         }
       ]

@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:gatling"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "B  ",
+            " B ",
+            "  A"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:shield"
+            },
+            "B": {
+                "item": "kurokumaft:steel_ingot"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:gatling",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

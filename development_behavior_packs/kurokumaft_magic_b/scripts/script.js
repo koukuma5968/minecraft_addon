@@ -1,4 +1,5 @@
 import { world } from "@minecraft/server";
+import { ItemStack } from "@minecraft/server";
 
 // world.events.itemUseOn.subscribe(event => {
 //     var p = event.source;
@@ -15,7 +16,7 @@ import { world } from "@minecraft/server";
 //     }
 // });
 
-world.events.entityCreate.subscribe(event => {
+world.events.entitySpawn.subscribe(event => {
     var en = event.entity;
     // home_gateのイベント
     if (en.typeId === "kurokumaft:home_gate") {
@@ -46,25 +47,25 @@ function setHomeScoreObj(entity) {
     var command = "";
     if (!x) {
         command = "scoreboard objectives add home_x dummy home_base_x";
-        entity.runCommand(command);
+        entity.runCommandAsync(command);
     }
     if (!y) {
         command = "scoreboard objectives add home_y dummy home_base_y";
-        entity.runCommand(command);
+        entity.runCommandAsync(command);
     }
     if (!z) {
         command = "scoreboard objectives add home_z dummy home_base_z";
-        entity.runCommand(command);
+        entity.runCommandAsync(command);
     }
 };
 function setHomeScorePlayer(entity,x,y,z) {
     var command = "";
     command = "scoreboard players set @s home_x "+ Math.floor(x);
-    entity.runCommand(command);
+    entity.runCommandAsync(command);
     command = "scoreboard players set @s home_y "+ Math.floor(y);
-    entity.runCommand(command);
+    entity.runCommandAsync(command);
     command = "scoreboard players set @s home_z "+ Math.floor(z);
-    entity.runCommand(command);
+    entity.runCommandAsync(command);
 };
 
 world.events.itemStopCharge.subscribe(event => {
@@ -129,7 +130,8 @@ world.events.projectileHit.subscribe(event => {
 
 const overworld = world.getDimension("overworld");
 function shield_guard(entity) {
-    if (entity != undefined && entity.typeId === "minecraft:player") {
+    if (entity != undefined) {
+
         var players = world.getPlayers();
 
         for (var player of players) {
@@ -140,15 +142,23 @@ function shield_guard(entity) {
             if (entity.hasTag("main_shield_guard")) {
                 if (tags[i].indexOf("shield_main") != -1) {
                     var shield = tags[i].slice(0, tags[i].length -5);
-                    // let text = "replaceitem entity @s slot.weapon.mainhand 0 destroy kurokumaft:" + shield + " 1 50"
-                    // entity.runCommand(text);
+                    var itemStack = new ItemStack("kurokumaft:" + shield);
+                    var durability = itemStack.getComponent("minecraft:durability");
+                    var damage = durability.damage;
+                    var maxDurability = durability.maxDurability;
+                    let text = "replaceitem entity @s slot.weapon.mainhand 0 destroy kurokumaft:" + shield + " 1 " + maxDurability - damage + 5;
+                    entity.runCommandAsync(text);
                 }
             }
             if (entity.hasTag("off_shield_guard")) {
                 if (tags[i].indexOf("shield_off") != -1) {
                     var shield = tags[i].slice(0, tags[i].length -4);
-                    // let text = "replaceitem entity @s slot.weapon.offhand 0 destroy kurokumaft:" + shield + " 1 50"
-                    // entity.runCommand(text);
+                    var itemStack = new ItemStack("kurokumaft:" + shield);
+                    var durability = itemStack.getComponent("minecraft:durability");
+                    var damage = durability.damage;
+                    var maxDurability = durability.maxDurability;
+                    let text = "replaceitem entity @s slot.weapon.offhand 0 destroy kurokumaft:" + shield + " 1 " + maxDurability - damage + 5;
+                    entity.runCommandAsync(text);
                 }
             }
         }
@@ -180,10 +190,10 @@ function shield_guard(entity) {
 
 function print(entity, value) {
     let text = "say \"" + value + "\""
-    entity.runCommand(text);
+    entity.runCommandAsync(text);
 };
 
 function home_tp(entity, point) {
     let text = "tp @p[r=5,family=!monster] " + point
-    entity.runCommand(text);
+    entity.runCommandAsync(text);
 };

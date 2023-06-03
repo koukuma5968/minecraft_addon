@@ -1,13 +1,86 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
+    "controller.animation.pikapika.hover": {
+      "states": {
+        "default": {
+          "variables": {
+            "pikapika_hover": {
+              "input": "variable.pikapika_hover = (variable.pikapika_hover ?? 0);"
+            }
+          },
+          "transitions": [
+            {"jumping": "query.skin_id == 112 && query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "transitions": [
+            {"takeoff": "variable.pikapika_hover = variable.pikapika_hover < 3 ? variable.pikapika_hover + 1:0;return variable.pikapika_hover == 0;"}
+          ]
+        },
+        "takeoff": {
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"default": "variable.pikapika_hover = variable.pikapika_hover < 5 ? variable.pikapika_hover + 1:0;return variable.pikapika_hover == 0;"}
+          ]
+        },
+        "rising": {
+          "animations" : [ 
+            "pikapika.rising"
+          ],
+          "on_exit": [
+            "/effect @s levitation 0"
+          ],
+          "transitions": [
+            {"hover":"!query.is_jumping"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "hover": {
+          "animations" : [ 
+            "pikapika.hover"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_hover"
+          ],
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"fall": "query.is_sneaking"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "fall": {
+          "animations" : [ 
+            "pikapika.fall"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "on_exit": [
+            "/effect @s slow_falling 0"
+          ],
+          "transitions": [
+            {"landing": "query.is_on_ground"},
+            {"rising":"query.is_jumping"}
+          ]
+        },
+        "landing": {
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    },
     "controller.animation.pikapika.change": {
       "states": {
         "default": {
           "transitions": [
-            { "kagami": "query.variant == 3 && query.is_sneaking" },
-            { "murakumo": "query.variant == 1 && query.is_sneaking" },
-            { "magatama": "query.variant == 2 && query.is_sneaking" }
+            { "kagami": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill') && query.variant == 3 && query.is_sneaking" },
+            { "murakumo": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill') && query.variant == 1 && query.is_sneaking" },
+            { "magatama": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill') && query.variant == 2 && query.is_sneaking" }
           ]
         },
         "kagami":{
@@ -51,9 +124,9 @@
             }
           },
           "transitions": [
-            { "kagami": "query.variant == 1 && query.is_using_item" },
-            { "murakumo": "query.variant == 2 && query.is_using_item" },
-            { "magatama": "query.variant == 3 && query.is_using_item" }
+            { "kagami": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill') && query.variant == 1 && query.is_using_item" },
+            { "murakumo": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill') && query.variant == 2 && query.is_using_item" },
+            { "magatama": "query.skin_id == 112 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:pikapika_skill') && query.variant == 3 && query.is_using_item" }
           ]
         },
         "kagami":{

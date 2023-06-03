@@ -1,0 +1,110 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:higan_entity",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
+    },
+    "component_groups": {
+      "kurokumaft:left": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 5,
+              "knockback": false,
+              "semi_random_diff_damage": false
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.02,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [0.5, 0, 0],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 2
+        }
+      },
+      "kurokumaft:right": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 5,
+              "knockback": false,
+              "semi_random_diff_damage": false
+            }
+          },
+          "destroy_on_hurt": true,
+          "power": 3.0,
+          "gravity": 0.02,
+          "inertia": 1.0,
+          "uncertaintyBase": 8,
+          "uncertaintyMultiplier": 2.5,
+          "anchor": 1,
+          "offset": [-0.5, 0, 0],
+          "reflect_on_hurt": false,
+          "catch_fire": true,
+          "on_fire_time": 2
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "inanimate"]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 0.5
+      },
+      "minecraft:timer": {
+        "time": [8.0,10.0],
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "kurokumaft:despawn": {
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      },
+
+      "kurokumaft:left": {
+        "add": {
+					"component_groups": ["kurokumaft:left" ]
+				}
+      },
+      "kurokumaft:right": {
+        "add": {
+					"component_groups": ["kurokumaft:right" ]
+				}
+      }
+    }
+  }
+}

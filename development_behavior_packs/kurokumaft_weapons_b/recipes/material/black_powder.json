@@ -1,0 +1,14 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "kurokumaft:black_powder"
+        },
+        "tags": ["furnace", "blast_furnace"],
+        "input": "kurokumaft:nitre_nugget",
+        "output": {
+            "item": "kurokumaft:black_powder",
+            "count": 1
+        }
+    }
+}    

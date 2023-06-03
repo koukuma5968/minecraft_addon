@@ -71,6 +71,7 @@
       },
       "minecraft:nameable": {
       },
+      "minecraft:burns_in_daylight":{},
 
       "minecraft:type_family": {
         "family": [ "zombie", "undead", "monster", "mob" ]

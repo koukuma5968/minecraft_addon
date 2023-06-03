@@ -1,0 +1,40 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:bakutiku",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:bakutiku.name"
+			},
+      "minecraft:icon": {
+        "texture": "bakutiku"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.kurokumaft:name.bom"
+      },
+      "minecraft:block_placer": {
+        "block": "bakutiku_block",
+        "use_on" : []
+      },
+      "minecraft:use_duration": 1.0,
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "bakutiku_throwable"
+        }
+      }
+    },
+    "events": {
+      "bakutiku_throwable": {
+        "shoot":{
+          "projectile":"kurokumaft:bakutiku_entity<throwable_bakutiku>",
+          "angle_offset": 0,
+          "launch_power":1
+        },
+        "decrement_stack": {}
+      }
+    }
+  }
+}

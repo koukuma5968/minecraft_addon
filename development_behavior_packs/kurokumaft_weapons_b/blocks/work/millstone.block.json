@@ -5,7 +5,10 @@
 			"identifier": "kurokumaft:millstone",
 			"menu_category": {
 				"category": "items"
-			}
+			},
+            "properties": {
+                "kurokumaft:rotation": [ 1, 2, 3, 4, 5 ]
+            }
 		},
 		"components": {
 			"minecraft:collision_box": true,
@@ -23,6 +26,9 @@
 			"minecraft:crafting_table": {
 				"crafting_tags": ["millstone"]
 			},
+            "minecraft:on_player_placing": {
+                "event": "rotate"
+            },
 			"minecraft:geometry": "geometry.millstone",
 			"minecraft:material_instances": {
 				"*": {
@@ -31,6 +37,43 @@
 				}
 			},
 			"minecraft:map_color": "#65635e"
-		}
+		},
+        "events": {
+            "rotate": {
+                "sequence": [
+                    {
+                        "set_block_property": {
+                            "kurokumaft:rotation": "(query.cardinal_facing_2d)"
+                        }
+                    }
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 2",
+                "components": {
+                    "minecraft:rotation": [ 0, 0, 0 ]
+                }
+            },
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 3",
+                "components": { 
+                    "minecraft:rotation": [ 0, 180, 0 ]
+                }
+            },
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 4",
+                "components": {
+                    "minecraft:rotation": [ 0, 90, 0 ]
+                }
+            },
+            {
+                "condition": "query.block_property('kurokumaft:rotation') == 5",
+                "components": {
+                    "minecraft:rotation": [ 0, 270, 0 ]
+                }
+            }
+        ]
 	}
 }

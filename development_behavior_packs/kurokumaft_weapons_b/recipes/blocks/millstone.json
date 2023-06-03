@@ -1,0 +1,28 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:millstone"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "BA",
+            "B"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:stick"
+            },
+            "B": {
+                "item": "minecraft:cobblestone"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:millstone",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

@@ -1,0 +1,142 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+        "identifier": "kurokumaft:echo_sword",
+        "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:echo_sword.name"
+			},
+      "minecraft:icon": {
+          "texture": "echo_sword"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.sword"
+			},
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 4000
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:echo_shard" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8"
+          },
+          {
+            "items": [ "kurokumaft:echo_sword" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+          }
+        ]
+      },
+      "minecraft:mining_speed": 1.5,
+      "minecraft:damage": 15,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:sculk",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_sensor",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_vein",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_catalyst",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_shrieker",
+            "speed": 5
+          }
+        ]
+      },
+      "minecraft:use_duration": 1.5,
+      "minecraft:chargeable": {
+        "movement_modifier": 1.0,
+        "on_complete": {
+          "event":"kurokumaft:sonic_bullet"
+        }
+      },
+      "minecraft:weapon": {
+          "on_hurt_entity": {
+              "event": "kurokumaft:hurt_sweep"
+          },
+          "on_not_hurt_entity": {
+              "event": "kurokumaft:hurt_sweep"
+          }
+      }
+    },
+    "events": {
+      "kurokumaft:hurt_sweep": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "particle kurokumaft:sweep_particle ^ ^1.6 ^2.4",
+                "execute @e[r=4.5] ^ ^1.6 ^2.4 damage @s 2 magic"
+              ],
+              "target": "self"
+            },
+            "trigger": "kurokumaft:hurt_entity"
+          },
+          {
+            "run_command": {
+              "command": [
+                "particle kurokumaft:sweep_particle ^ ^1.2 ^2.4",
+                "execute @e[r=4.5] ^ ^1.2 ^2.4 damage @s 2 magic"
+              ],
+              "target": "self"
+            },
+            "trigger": "kurokumaft:hurt_entity"
+          },
+          {
+            "run_command": {
+              "command": [
+                "particle kurokumaft:sweep_particle ^ ^2.0 ^2.4",
+                "execute @e[r=4.5] ^ ^2.0 ^2.4 damage @s 2 magic"
+              ],
+              "target": "self"
+            },
+            "trigger": "kurokumaft:hurt_entity"
+          }
+        ]
+      },
+      "kurokumaft:sonic_bullet": {
+        "run_command": {
+          "command": [
+            "titleraw @s actionbar {\"rawtext\":[{\"text\":\"ソニックブレード\"}]}"
+          ],
+          "target": "self"
+        },
+        "shoot":{
+          "projectile":"kurokumaft:sonic_bullet",
+          "angle_offset": 0,
+          "launch_power":1
+        },
+        "trigger": "kurokumaft:hurt_entity"
+      },
+      "kurokumaft:hurt_entity": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
+      }
+    }
+  }
+}
+

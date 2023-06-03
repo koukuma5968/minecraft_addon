@@ -11,7 +11,7 @@
         "loyalty_rope": "textures/entity/loyalty_rope"
       },
       "geometry": {
-        "default": "geometry.bamboo_knife"
+        "default": "geometry.knife"
       },
       "animations": {
         "move": "animation.knife.move"

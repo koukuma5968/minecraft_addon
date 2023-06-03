@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "stage2": "(query.skin_id == 100 || query.skin_id == 1002 || query.skin_id == 1003 || query.skin_id == 1004) && query.max_health >= 40" }
+            { "stage2": "(query.skin_id == 100 || query.skin_id == 1002 || query.skin_id == 1003 || query.skin_id == 1004 || query.skin_id == 10041) && query.max_health >= 40" }
           ]
         },
         "stage2": {
@@ -14,24 +14,38 @@
           ],
           "transitions": [
             { "stage3": "query.max_health >= 60" },
-            { "default": "query.max_health <= 20" }
+            { "default": "query.max_health <= 20" },
+            { "default": "(query.skin_id != 100 && query.skin_id != 1002 && query.skin_id != 1003 && query.skin_id != 1004 && query.skin_id != 10041 && query.skin_id != 10042)" }
           ]
         },
         "stage3": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア4解放\"}]}"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"武装\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu_armed"
           ],
           "transitions": [
             { "stage4": "query.max_health >= 80" },
-            { "default": "query.max_health <= 20" }
+            { "default": "query.max_health <= 20" },
+            { "default": "(query.skin_id != 100 && query.skin_id != 1002 && query.skin_id != 1003 && query.skin_id != 1004 && query.skin_id != 10041)" }
           ]
         },
         "stage4": {
           "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア4解放\"}]}"
+          ],
+          "transitions": [
+            { "stage5": "query.max_health >= 100" },
+            { "default": "query.max_health <= 20" },
+            { "default": "(query.skin_id != 100 && query.skin_id != 1002 && query.skin_id != 1003 && query.skin_id != 1004 && query.skin_id != 10041)" }
+          ]
+        },
+        "stage5": {
+          "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア5解放\"}]}"
           ],
           "transitions": [
-            { "default": "query.max_health <= 20" }
+            { "default": "!query.is_alive" },
+            { "default": "(query.skin_id != 100 && query.skin_id != 1002 && query.skin_id != 1003 && query.skin_id != 1004 && query.skin_id != 10041)" }
           ]
         }
       }
@@ -88,7 +102,6 @@
           ],
           "transitions": [
             { "gear3_go": "!query.is_sneaking" },
-            { "gear4": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0 && query.max_health >= 60;" },
             { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0 && query.max_health < 60;" }
           ]
         },
@@ -113,29 +126,147 @@
           "transitions": [
             { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 1000 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
           ]
+        }
+      }
+    },
+    "controller.animation.gomugomu.armed_gear": {
+      "states": {
+        "default": {
+          "variables": {
+            "gomugomu_armed_gear": {
+              "input": "variable.gomugomu_armed_gear = (variable.gomugomu_armed_gear ?? 0);"
+            }
+          },
+          "transitions": [
+            { "gear": "query.max_health >= 40 && query.is_sneaking && query.skin_id == 1004" },
+            { "gear2_end": "query.is_sneaking && query.skin_id == 10041" }
+          ]
         },
-        "gear4": {
+        "gear": {
+          "transitions": [
+            { "gear2": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 40 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" },
+            { "default": "!query.is_sneaking" }
+          ]
+        },
+        "gear2_end": {
+          "transitions": [
+            { "gear2": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 40 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" },
+            { "default": "!query.is_sneaking" }
+          ]
+        },
+        "gear2": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"武装\"}]}",
+            "/event entity @s mark_variant11"
+          ],
+          "transitions": [
+            { "gear2_go": "!query.is_sneaking" },
+            { "gear4_bound": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 40 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0 && query.max_health >= 80;" },
+            { "default": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 40 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0 && query.max_health < 80;" }
+          ]
+        },
+        "gear2_go": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"硬化\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu2_armed",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            { "gear2_f": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 1000 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
+          ]
+        },
+        "gear2_f": {
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"武装解除\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu_armed"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        },
+        "gear4_bound": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"弾む男（バウンドマン）\"}]}",
             "/event entity @s mark_variant13"
           ],
           "transitions": [
-            { "gear4_go": "!query.is_sneaking" },
-            { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 40 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+            { "bound_man": "!query.is_sneaking" },
+            { "gear4_snake": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 20 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
           ]
         },
-        "gear4_go": {
+        "bound_man": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"フォース\"}]}",
-            "/event entity @s kurokumaft:devil_fruit_gomugomu4",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア４（ギアフォース） 弾む男（バウンドマン）\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4_bound",
+            "/event entity @s variant1",
             "/event entity @s mark_variant0"
           ],
           "on_exit": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"フォース終了\"}]}",
-            "/event entity @s kurokumaft:devil_fruit_gomugomu"
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4_down"
           ],
           "transitions": [
-            { "default": "variable.gomugomu_gear = variable.gomugomu_gear < 1000 ? variable.gomugomu_gear + 1:0;return variable.gomugomu_gear == 0;" }
+            { "gear4_dwon": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 1000 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
+          ]
+        },
+        "gear4_snake": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"スネイクマン\"}]}",
+            "/event entity @s mark_variant13"
+          ],
+          "transitions": [
+            { "snake_man": "!query.is_sneaking" },
+            { "gear4_tank": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 40 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
+          ]
+        },
+        "snake_man": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア４（ギアフォース） スネイクマン\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4_snake",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"フォース終了\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4_down"
+          ],
+          "transitions": [
+            { "gear4_dwon": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 1000 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
+          ]
+        },
+        "gear4_tank": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"タンクマン 満腹バージョン\"}]}",
+            "/event entity @s mark_variant13"
+          ],
+          "transitions": [
+            { "tank_man": "!query.is_sneaking" },
+            { "default": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 40 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
+          ]
+        },
+        "tank_man": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"ギア４（ギアフォース） タンクマン 満腹バージョン\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4_tank",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "on_exit": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"フォース終了\"}]}",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4_down"
+          ],
+          "transitions": [
+            { "gear4_dwon": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 1000 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
+          ]
+        },
+        "gear4_dwon": {
+          "on_exit": [
+            "/event entity @s kurokumaft:devil_fruit_gomugomu4_down_remove",
+            "/event entity @s kurokumaft:devil_fruit_gomugomu_armed"
+          ],
+          "transitions": [
+            { "default": "variable.gomugomu_armed_gear = variable.gomugomu_armed_gear < 1000 ? variable.gomugomu_armed_gear + 1:0;return variable.gomugomu_armed_gear == 0;" }
           ]
         }
       }

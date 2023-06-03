@@ -39,9 +39,20 @@
         "width": 0.11,
         "height": 0.11
       },
-      "minecraft:damage_over_time": {
-        "damage_per_hurt": 50,
-        "time_between_hurt": 0.2
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "randomInterval": false,
+        "time": 0.2,
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
       },
       "minecraft:physics": {},
       "minecraft:pushable": {
@@ -57,6 +68,14 @@
       }
     },
     "events": {
+      "kurokumaft:despawn": {
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      },
       "kurokumaft:storm_kick": {
         "add": {
           "component_groups": [

@@ -6,7 +6,7 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball"
+      "runtime_identifier": "minecraft:arrow"
     },
     "components": {
       "minecraft:type_family": {
@@ -24,7 +24,8 @@
           "impact_damage": {
             "damage": 3,
             "catch_fire": false,
-            "semi_random_diff_damage": true
+            "semi_random_diff_damage": true,
+            "destroy_on_hit": true
           },
           "remove_on_hit": {}
         },

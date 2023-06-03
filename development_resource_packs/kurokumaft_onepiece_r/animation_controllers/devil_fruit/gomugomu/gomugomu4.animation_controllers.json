@@ -1,0 +1,395 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.gomugomu4.parson" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"bound_therd_parson": "!variable.is_first_person && query.skin_id == 1005"}
+					]
+				},
+				"bound_therd_parson" : {
+					"animations" : ["gomugomu_gear4_bound_therd_parson"],
+					"transitions" : [
+						{"default":"variable.is_first_person || query.skin_id != 1005"}
+					]
+				}
+			}
+		},
+		"controller.animation.gomugomu4.hover" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"hover": "!variable.is_first_person && query.skin_id == 1005 && query.mark_variant == 100"}
+					]
+				},
+				"hover" : {
+					"animations" : ["gomugomu_gear4_bound_therd_hover"],
+					"transitions" : [
+						{"default":"variable.is_first_person || query.skin_id != 1005 || query.mark_variant != 100"}
+					]
+				}
+			}
+		},
+		"controller.animation.gomugomu4_bound.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kong_gun": "query.variant == 1 && query.mark_variant == 1"},
+						{"rhino_schneider": "query.variant == 2 && query.mark_variant == 1"},
+						{"calvaline": "query.variant == 3 && query.mark_variant == 1"},
+						{"leo_bazooka": "query.variant == 4 && query.mark_variant == 1"},
+						{"king_kong_gun": "query.variant == 5 && query.mark_variant == 1"},
+						{"kong_organ": "query.variant == 6 && query.mark_variant == 1"},
+						{"kong_rifle": "query.variant == 7 && query.mark_variant == 1"},
+						{"kong_gatling": "query.variant == 8 && query.mark_variant == 1"}
+					]
+				},
+				"kong_gun" : {
+					"animations" : [
+						{"gear4_bound_kong_gun": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kong_gun_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_gun_attack" : {
+					"animations" : [
+						{"gear4_bound_kong_gun_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"rhino_schneider" : {
+					"animations" : [
+						{"gear4_bound_rhino_schneider": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"rhino_schneider_attack":"query.mark_variant == 2"}
+					]
+				},
+				"rhino_schneider_attack" : {
+					"animations" : [
+						{"gear4_bound_rhino_schneider_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"calvaline" : {
+					"animations" : [
+						{"gear4_bound_calvaline": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"calvaline_attack":"query.mark_variant == 2"}
+					]
+				},
+				"calvaline_attack" : {
+					"animations" : [
+						{"gear4_bound_calvaline_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"leo_bazooka" : {
+					"animations" : [
+						{"gear4_bound_leo_bazooka": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"leo_bazooka_attack":"query.mark_variant == 2"}
+					]
+				},
+				"leo_bazooka_attack" : {
+					"animations" : [
+						{"gear4_bound_leo_bazooka_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"king_kong_gun" : {
+					"animations" : [
+						{"gear4_bound_king_kong_gun": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"king_kong_gun_chage":"query.any_animation_finished"}
+					]
+				},
+				"king_kong_gun_chage" : {
+					"animations" : [
+						{"gear4_bound_king_kong_gun_chage": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"king_kong_gun_attack":"query.mark_variant == 2"}
+					]
+				},
+				"king_kong_gun_attack" : {
+					"animations" : [
+						{"gear4_bound_king_kong_gun_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kong_organ" : {
+					"animations" : [
+						{"gear4_bound_kong_organ": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kong_organ_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_organ_attack" : {
+					"animations" : [
+						{"gear4_bound_kong_organ_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kong_rifle" : {
+					"animations" : [
+						{"gear4_bound_kong_rifle": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kong_rifle_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_rifle_attack" : {
+					"animations" : [
+						{"gear4_bound_kong_rifle_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kong_gatling" : {
+					"animations" : [
+						{"gear4_bound_kong_gatling": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kong_gatling_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_gatling_attack" : {
+					"animations" : [
+						{"gear4_bound_kong_gatling_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		},
+		"controller.animation.gomugomu4_snake.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"calvaline": "query.variant == 3 && query.mark_variant == 1"}
+					]
+				},
+				"calvaline" : {
+					"animations" : [
+						{"gear4_bound_calvaline": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"calvaline_attack":"query.mark_variant == 2"}
+					]
+				},
+				"calvaline_attack" : {
+					"animations" : [
+						{"gear4_bound_calvaline_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		},
+		"controller.animation.gomugomu4_tank.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"canon_ball": "query.variant == 3 && query.mark_variant == 1"}
+					]
+				},
+				"canon_ball" : {
+					"animations" : [
+						{"gear4_bound_calvaline": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"calvaline_attack":"query.mark_variant == 2"}
+					]
+				},
+				"canon_ball_attack" : {
+					"animations" : [
+						{"gear4_bound_calvaline_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		},
+		"controller.animation.gomugomu4_bound" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kong_gun": "query.variant == 1 && query.mark_variant == 1"},
+						{"rhino_schneider": "query.variant == 2 && query.mark_variant == 1"},
+						{"calvaline": "query.variant == 3 && query.mark_variant == 1"},
+						{"leo_bazooka": "query.variant == 4 && query.mark_variant == 1"},
+						{"king_kong_gun": "query.variant == 5 && query.mark_variant == 1"},
+						{"kong_organ": "query.variant == 6 && query.mark_variant == 1"},
+						{"kong_rifle": "query.variant == 7 && query.mark_variant == 1"},
+						{"kong_gatling": "query.variant == 8 && query.mark_variant == 1"}
+					]
+				},
+				"kong_gun" : {
+					"animations" : [
+						"gear4_bound_kong_gun"
+					],
+					"transitions" : [
+						{"kong_gun_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_gun_attack" : {
+					"animations" : [
+						"gear4_bound_kong_gun_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"rhino_schneider" : {
+					"animations" : [
+						"gear4_bound_rhino_schneider"
+					],
+					"transitions" : [
+						{"rhino_schneider_attack":"query.mark_variant == 2"}
+					]
+				},
+				"rhino_schneider_attack" : {
+					"animations" : [
+						"gear4_bound_rhino_schneider_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"calvaline" : {
+					"animations" : [
+						"gear4_bound_calvaline"
+					],
+					"transitions" : [
+						{"calvaline_attack":"query.mark_variant == 2"}
+					]
+				},
+				"calvaline_attack" : {
+					"animations" : [
+						"gear4_bound_calvaline_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"leo_bazooka" : {
+					"animations" : [
+						"gear4_bound_leo_bazooka"
+					],
+					"transitions" : [
+						{"leo_bazooka_attack":"query.mark_variant == 2"}
+					]
+				},
+				"leo_bazooka_attack" : {
+					"animations" : [
+						"gear4_bound_leo_bazooka_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"king_kong_gun" : {
+					"animations" : [
+						"gear4_bound_king_kong_gun"
+					],
+					"transitions" : [
+						{"king_kong_gun_chage":"query.any_animation_finished"}
+					]
+				},
+				"king_kong_gun_chage" : {
+					"animations" : [
+						"gear4_bound_king_kong_gun_chage"
+					],
+					"transitions" : [
+						{"king_kong_gun_attack":"query.mark_variant == 2"}
+					]
+				},
+				"king_kong_gun_attack" : {
+					"animations" : [
+						"gear4_bound_king_kong_gun_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kong_organ" : {
+					"animations" : [
+						"gear4_bound_kong_organ"
+					],
+					"transitions" : [
+						{"kong_organ_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_organ_attack" : {
+					"animations" : [
+						"gear4_bound_kong_organ_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kong_rifle" : {
+					"animations" : [
+						"gear4_bound_kong_rifle"
+					],
+					"transitions" : [
+						{"kong_rifle_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_rifle_attack" : {
+					"animations" : [
+						"gear4_bound_kong_rifle_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kong_gatling" : {
+					"animations" : [
+						"gear4_bound_kong_gatling"
+					],
+					"transitions" : [
+						{"kong_gatling_attack":"query.mark_variant == 2"}
+					]
+				},
+				"kong_gatling_attack" : {
+					"animations" : [
+						"gear4_bound_kong_gatling_attack"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+	}
+}

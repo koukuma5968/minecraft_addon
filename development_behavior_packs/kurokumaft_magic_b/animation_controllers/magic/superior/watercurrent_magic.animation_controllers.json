@@ -52,14 +52,15 @@
         "aqua_shot": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bアクアショット\"}]}",
-            "/tag @e[family=monster,tag=,c=1,r=10] add aqua_shot1",
-            "/tag @e[family=hoglin,tag=,c=1,r=10] add aqua_shot1",
-            "/tag @e[family=monster,tag=,c=1,r=10] add aqua_shot2",
-            "/tag @e[family=hoglin,tag=,c=1,r=10] add aqua_shot2",
-            "/tag @e[family=monster,tag=,c=1,r=10] add aqua_shot3",
-            "/tag @e[family=hoglin,tag=,c=1,r=10] add aqua_shot3",
-            "/tag @e[family=monster,tag=,c=1,r=10] add aqua_shot4",
-            "/tag @e[family=hoglin,tag=,c=1,r=10] add aqua_shot4"
+            "/tag @s add aqua_shot_self",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot1",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot1",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot2",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot2",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot3",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot3",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot4",
+            "/tag @e[tag=,c=1,r=10] add aqua_shot4"
           ],
           "transitions": [
             {"aqua_shot_at":"(1.0)"}
@@ -68,6 +69,7 @@
         "aqua_shot_at": {
           "animations" : [ "aqua_shot_ani" ],
           "on_exit": [
+            "/tag @s remove aqua_shot_self",
             "/tag @e[tag=aqua_shot1] remove aqua_shot1",
             "/tag @e[tag=aqua_shot2] remove aqua_shot2",
             "/tag @e[tag=aqua_shot3] remove aqua_shot3",

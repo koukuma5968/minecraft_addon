@@ -1,0 +1,25 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:bow_bamboo_fiber"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " #X",
+      "# X",
+      " #X"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "kurokumaft:bamboo_fiber"
+      }
+    },
+    "result": {
+      "item": "minecraft:bow"
+    }
+  }
+}

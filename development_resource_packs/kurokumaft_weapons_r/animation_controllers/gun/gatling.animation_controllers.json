@@ -1,0 +1,57 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.gatling.hold": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"hold_first_person": "c.is_first_person"
+						},
+						{
+							"hold_therd_person": "!c.is_first_person"
+						}
+					]
+				},
+				"hold_first_person": {
+					"animations": ["hold_first_person"],
+					"transitions": [
+						{
+							"default": "!c.is_first_person"
+						}
+					]
+				},
+				"hold_therd_person": {
+					"animations": ["hold_therd_person"],
+					"transitions": [
+						{
+							"default": "c.is_first_person"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.gatling.shot": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"shot": "query.main_hand_item_use_duration > 0.0f"
+						}
+					]
+				},
+				"shot": {
+					"animations": [
+						{"shot_first_person": "c.is_first_person"},
+						{"shot_therd_person": "!c.is_first_person"}
+					],
+					"transitions": [
+						{
+							"default": "query.any_animation_finished && query.main_hand_item_use_duration == 0.0f"
+						}
+					]
+				}
+			}
+		}
+	}
+}

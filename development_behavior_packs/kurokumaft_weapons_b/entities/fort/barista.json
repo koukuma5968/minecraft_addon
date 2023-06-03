@@ -1,0 +1,188 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:barista",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "minecraft:arrow_empty": {
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "play_sounds": "armor.equip_generic",
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    },
+                    {
+                      "test": "has_equipment",
+                      "domain": "hand",
+                      "subject": "other",
+                      "value": "kurokumaft:barista_arrow"
+                    }
+                  ]
+                },
+                "event": "minecraft:arrow_charge",
+                "target": "self"
+              },
+              "use_item": true,
+              "interact_text": "action.interact.attachchest",
+              "vibration": "shear"
+            }
+          ]
+        }
+      },
+
+      "minecraft:arrow_charge": {
+        "minecraft:is_chested": {},
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "play_sounds": "armor.equip_generic",
+              "equip_item_slot": 0,
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {
+                      "test": "is_family",
+                      "subject": "other",
+                      "value": "player"
+                    }
+                  ]
+                },
+                "event": "minecraft:arrow_shot",
+                "target": "self"
+              },
+              "use_item": true
+            }
+          ]
+        }
+      },
+ 
+      "minecraft:arrow_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0,
+              "max_wait_time": 0,
+              "spawn_entity": "kurokumaft:barista_arrow",
+              "spawn_event": "minecraft:center_arrow",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "randomInterval": true,
+          "time": 0.1,
+          "time_down_event": { 
+            "event": "minecraft:arrow_empty"
+          }
+        }  
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "armor_stand", "inanimate", "mob" ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 0.8
+      },
+      "minecraft:health": {
+        "value": 6,
+        "max": 6
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+
+      "minecraft:behavior.controlled_by_player": {
+        "fractional_rotation": 0.5,
+        "fractional_rotation_limit": 10.0
+      },
+      "minecraft:is_saddled": {
+      },
+      "minecraft:behavior.player_ride_tamed": {
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/barista.json"
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "minecraft:arrow_empty": {
+        "remove": {
+          "component_groups": [
+            "minecraft:arrow_shot"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:arrow_empty"
+          ]
+        }
+      },
+      "minecraft:arrow_charge": {
+        "remove": {
+          "component_groups": [
+            "minecraft:arrow_empty"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:arrow_charge"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "execute @p[c=1] ~~~ clear @s kurokumaft:barista_arrow 0 6"
+          ],
+          "target": "self"
+        }
+      },
+      "minecraft:arrow_shot": {
+        "remove": {
+          "component_groups": [
+            "minecraft:arrow_charge"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:arrow_shot"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -4,9 +4,72 @@
     "controller.animation.gorogoro.hover": {
       "states": {
         "default": {
+          "variables": {
+            "gorogoro_hover": {
+              "input": "variable.gorogoro_hover = (variable.gorogoro_hover ?? 0);"
+            }
+          },
+          "transitions": [
+            {"jumping": "(query.skin_id == 109 || query.skin_id == 209) && query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "transitions": [
+            {"takeoff": "variable.gorogoro_hover = variable.gorogoro_hover < 3 ? variable.gorogoro_hover + 1:0;return variable.gorogoro_hover == 0;"}
+          ]
+        },
+        "takeoff": {
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"default": "variable.gorogoro_hover = variable.gorogoro_hover < 5 ? variable.gorogoro_hover + 1:0;return variable.gorogoro_hover == 0;"}
+          ]
+        },
+        "rising": {
           "animations" : [ 
-            {"gorogoro.takeoff": "(query.skin_id == 109 || query.skin_id == 209) && query.is_jumping"},
-            {"gorogoro.landing": "(query.skin_id == 109 || query.skin_id == 209) && !query.is_jumping && !query.is_on_ground"}
+            "gorogoro.rising"
+          ],
+          "on_exit": [
+            "/effect @s levitation 0"
+          ],
+          "transitions": [
+            {"hover":"!query.is_jumping"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "hover": {
+          "animations" : [ 
+            "gorogoro.hover"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_hover"
+          ],
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"fall": "query.is_sneaking"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "fall": {
+          "animations" : [ 
+            "gorogoro.fall"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "on_exit": [
+            "/effect @s slow_falling 0"
+          ],
+          "transitions": [
+            {"landing": "query.is_on_ground"},
+            {"hover":"!query.is_sneaking"}
+          ]
+        },
+        "landing": {
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
           ]
         }
       }

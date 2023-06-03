@@ -4,9 +4,72 @@
     "controller.animation.mokumoku.hover": {
       "states": {
         "default": {
+          "variables": {
+            "mokumoku_hover": {
+              "input": "variable.mokumoku_hover = (variable.mokumoku_hover ?? 0);"
+            }
+          },
+          "transitions": [
+            {"jumping": "query.skin_id == 103 && query.is_jumping"}
+          ]
+        },
+        "jumping": {
+          "transitions": [
+            {"takeoff": "variable.mokumoku_hover = variable.mokumoku_hover < 3 ? variable.mokumoku_hover + 1:0;return variable.mokumoku_hover == 0;"}
+          ]
+        },
+        "takeoff": {
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"default": "variable.mokumoku_hover = variable.mokumoku_hover < 5 ? variable.mokumoku_hover + 1:0;return variable.mokumoku_hover == 0;"}
+          ]
+        },
+        "rising": {
           "animations" : [ 
-            {"mokumoku.takeoff": "query.skin_id == 103 && query.is_jumping"},
-            {"mokumoku.landing": "query.skin_id == 103 && !query.is_jumping && !query.is_on_ground"}
+            "mokumoku.rising"
+          ],
+          "on_exit": [
+            "/effect @s levitation 0"
+          ],
+          "transitions": [
+            {"hover":"!query.is_jumping"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "hover": {
+          "animations" : [ 
+            "mokumoku.hover"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_hover"
+          ],
+          "transitions": [
+            {"rising":"query.is_jumping"},
+            {"fall": "query.is_sneaking"},
+            {"landing": "query.is_on_ground"}
+          ]
+        },
+        "fall": {
+          "animations" : [ 
+            "mokumoku.fall"
+          ],
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "on_exit": [
+            "/effect @s slow_falling 0"
+          ],
+          "transitions": [
+            {"landing": "query.is_on_ground"},
+            {"hover":"!query.is_sneaking"}
+          ]
+        },
+        "landing": {
+          "on_entry": [
+            "/event entity @s minecraft:player_move"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
           ]
         }
       }

@@ -93,10 +93,10 @@
 							"operator": "==",
 							"subject": "other",
 							"value": "kurokumaft:wood_sickle"
-						  },
-						  "add": {
-						"component_groups": [ "kurokumaft:wooden_spirit_sickle" ]
-					  }
+						},
+						"add": {
+							"component_groups": [ "kurokumaft:wooden_spirit_sickle" ]
+						}
 					},
 					{
 					  "filters": {

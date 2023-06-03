@@ -1,0 +1,52 @@
+{
+	"format_version": "1.8.0",
+	"geometry.armed": {
+		"texturewidth": 128,
+		"textureheight": 128,
+		"visible_bounds_width": 31,
+		"visible_bounds_height": 22,
+		"visible_bounds_offset": [0, 0, 0],
+		"bones": [
+			{
+				"name": "root",
+				"pivot": [0, 0, 0]
+			},
+			{
+				"name": "waist",
+				"parent": "root",
+				"pivot": [0, 12, 0]
+			},
+			{
+				"name": "body",
+				"parent": "waist",
+				"pivot": [0, 24, 0]
+			},
+			{
+				"name": "leftArm",
+				"parent": "body",
+				"pivot": [5, 22, 0]
+			},
+			{
+				"name": "left_armed",
+				"parent": "leftArm",
+				"pivot": [5, 22, 0],
+				"cubes": [
+					{"origin": [3.9, 11.7, -2.1], "size": [4.2, 12.3, 4.2], "uv": [52, 44], "inflate": 0.25}
+				]
+			},
+			{
+				"name": "rightArm",
+				"parent": "body",
+				"pivot": [-5, 22, 0]
+			},
+			{
+				"name": "right_armed",
+				"parent": "rightArm",
+				"pivot": [-5, 22, 0],
+				"cubes": [
+					{"origin": [-8.1, 11.7, -2.1], "size": [4.2, 12.3, 4.2], "uv": [0, 48], "inflate": 0.25}
+				]
+			}
+		]
+	}
+}

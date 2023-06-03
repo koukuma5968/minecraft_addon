@@ -36,6 +36,19 @@
           "event":"kurokumaft:hammer"
         }
       },
+      "minecraft:use_animation": "spear",
+      "minecraft:throwable": {
+        "do_swing_animation": false,
+        "launch_power_scale": 1.0,
+        "max_launch_power": 10.0,
+        "max_draw_duration": 5.0,
+        "min_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:thrown_netherite_hammer",
+        "minimum_critical_power": 1.0
+      },
       "minecraft:enchantable": {
         "value": 30,
         "slot": "sword"

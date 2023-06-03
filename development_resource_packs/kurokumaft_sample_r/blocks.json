@@ -1,5 +1,6 @@
 {
-	"aaa": {
-		"sound": "grass"
+	"chromium_ore": {
+		"textures" : "chromium_ore",
+		"sound": "stone"
 	}
 }

@@ -31,6 +31,7 @@
         "nichirintou_tengen": "geometry.nichirintou_tengen",
         "nichirintou_sanemi": "geometry.nichirintou_sanemi",
         "nichirintou_gyoumei": "geometry.nichirintou_gyoumei",
+        "nichirintou_muitiro": "geometry.nichirintou_muitiro",
 
         "nichirintou_mizu": "geometry.nichirintou_mizu",
         "nichirintou_hi": "geometry.nichirintou_hi",
@@ -234,6 +235,12 @@
           {"gyoumei_third": "variable.equipped_gyoumei && !variable.is_first_person"},
           {"gyoumei_attack": "variable.equipped_gyoumei && variable.attack_time"},
 
+          {"muitiro.kokyu_con": "variable.equipped_muitiro"},
+          {"muitiro_attack_controller": "variable.equipped_muitiro"},
+          {"muitiro_first": "variable.equipped_muitiro && variable.is_first_person"},
+          {"muitiro_third": "variable.equipped_muitiro && !variable.is_first_person"},
+          {"muitiro_attack": "variable.equipped_muitiro && variable.attack_time"},
+
           {"mizu.kokyu_con": "variable.equipped_mizu"},
           {"mizu_attack_controller": "variable.equipped_mizu"},
           {"mizu_first": "variable.equipped_mizu && variable.is_first_person"},
@@ -391,6 +398,11 @@
         "gyoumei_third": "animation.gyoumei_third",
         "gyoumei_attack": "animation.gyoumei.attack",
         "gyoumei_attack_controller": "controller.animation.gyoumei.attack",
+
+        "muitiro_first": "animation.muitiro_first",
+        "muitiro_third": "animation.muitiro_third",
+        "muitiro_attack": "animation.muitiro.attack",
+        "muitiro_attack_controller": "controller.animation.muitiro.attack",
 
         "mizu_first": "animation.mizu_first",
         "mizu_third": "animation.mizu_third",
@@ -665,7 +677,20 @@
         "gyoumei.ni_2": "animation.nichirintou_kokyu.gyoumei_body.ni_2",
         "gyoumei.san_1": "animation.nichirintou_kokyu.gyoumei_body.san_1",
         "gyoumei.shi_1": "animation.nichirintou_kokyu.gyoumei_body.shi_1",
-        "gyoumei.shi_2": "animation.nichirintou_kokyu.gyoumei_body.shi_2"
+        "gyoumei.shi_2": "animation.nichirintou_kokyu.gyoumei_body.shi_2",
+
+        "muitiro.kokyu_con":"controller.animation.muitiro.kokyu_player",
+        "muitiro.ichi_1": "animation.nichirintou_kokyu.muitiro.ichi_1",
+        "muitiro.ichi_2": "animation.nichirintou_kokyu.muitiro.ichi_2",
+        "muitiro.ni_1": "animation.nichirintou_kokyu.muitiro.ni_1",
+        "muitiro.san_1": "animation.nichirintou_kokyu.muitiro.san_1",
+        "muitiro.san_2": "animation.nichirintou_kokyu.muitiro.san_2",
+        "muitiro.shi_1": "animation.nichirintou_kokyu.muitiro.shi_1",
+        "muitiro.shi_2": "animation.nichirintou_kokyu.muitiro.shi_2",
+        "muitiro.go_1": "animation.nichirintou_kokyu.muitiro.go_1",
+        "muitiro.roku_1": "animation.nichirintou_kokyu.muitiro.roku_1",
+        "muitiro.shiti_1": "animation.nichirintou_kokyu.muitiro.shiti_1",
+        "muitiro.shiti_attack": "animation.nichirintou_kokyu.muitiro.shiti_attack"
 
       },
       "render_controllers": [
@@ -685,6 +710,7 @@
         {"controller.render.nichirintou_mituri": "variable.equipped_mituri"},
         {"controller.render.nichirintou_sanemi": "variable.equipped_sanemi"},
         {"controller.render.nichirintou_gyoumei": "variable.equipped_gyoumei"},
+        {"controller.render.nichirintou_muitiro": "variable.equipped_muitiro"},
 
         {"controller.render.nichirintou_mizu": "variable.equipped_mizu"},
         {"controller.render.nichirintou_hi": "variable.equipped_hi"},

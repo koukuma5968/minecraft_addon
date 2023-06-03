@@ -1,0 +1,34 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:nikyunikyu_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/nikyunikyu/nikyunikyu"
+        },
+        "geometry": {
+          "default": "geometry.nikyunikyu"
+        },
+        "particle_effects": {
+          "nikyunikyu_center": "kurokumaft:nikyunikyu_center",
+          "nikyunikyu": "kurokumaft:nikyunikyu"
+        },
+        "scripts": {
+          "scale": "2.0",
+          "animate": [
+            {"shot": "query.variant != 1"},
+            {"compression": "query.variant ==1"}
+          ]
+        },
+        "animations": {
+          "shot": "animation.nikyunikyu.shot",
+          "compression": "animation.nikyunikyu.compression"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

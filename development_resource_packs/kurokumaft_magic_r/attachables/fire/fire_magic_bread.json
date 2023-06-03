@@ -15,18 +15,13 @@
         "default": "geometry.magic_bread"
       },
       "animations": {
-        "magic_bread_con": "controller.animation.magic_bread.wield",
         "first_person": "animation.bread.wield_first_person",
-        "third_person": "animation.bread.wield_third_person",
-        "attack_first_person": "animation.bread.attack_first_person",
-        "attack_third_person": "animation.bread.attack_third_person"
-      },
-      "particle_effects": {
-        "fire_bread_particle": "kurokumaft:fire_bread_particle"
+        "third_person": "animation.bread.wield_third_person"
       },
       "scripts": {
         "animate": [
-          "magic_bread_con"
+          {"first_person": "c.is_first_person"},
+          {"third_person": "!c.is_first_person"}
         ]
       },
       "render_controllers": [ "controller.render.magic_sword" ]

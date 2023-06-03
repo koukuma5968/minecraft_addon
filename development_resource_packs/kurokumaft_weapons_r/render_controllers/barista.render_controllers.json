@@ -1,0 +1,14 @@
+{
+  "format_version": "1.10",
+  "render_controllers": {
+    "controller.render.barista": {
+      "part_visibility": [
+        { "arrow": "query.is_chested" },
+        { "arrowhead": "query.is_chested" }
+      ],
+      "geometry": "geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "texture.default" ]
+    }
+  }
+}

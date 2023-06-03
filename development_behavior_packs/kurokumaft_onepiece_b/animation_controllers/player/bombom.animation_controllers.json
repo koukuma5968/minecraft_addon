@@ -5,8 +5,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "nose_fancy_cannon": "query.variant == 2 && query.is_sneaking" },
-            { "kick_bom": "query.variant == 1 && query.is_sneaking" }
+            { "nose_fancy_cannon": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill') && query.variant == 2 && query.is_sneaking" },
+            { "kick_bom": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill') && query.variant == 1 && query.is_sneaking" }
           ]
         },
         "nose_fancy_cannon":{
@@ -35,7 +35,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "punch_bom": "variable.attack_time" }
+            { "punch_bom": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill') && variable.attack_time" }
           ]
         },
         "punch_bom":{
@@ -62,8 +62,8 @@
             }
           },
           "transitions": [
-            { "nose_fancy_cannon": "query.variant == 1 && query.is_using_item" },
-            { "kick_bom": "query.variant == 2 && query.is_using_item" }
+            { "nose_fancy_cannon": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill') && query.variant == 1 && query.is_using_item" },
+            { "kick_bom": "query.skin_id == 117 && query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bombom_skill') && query.variant == 2 && query.is_using_item" }
           ]
         },
         "nose_fancy_cannon":{

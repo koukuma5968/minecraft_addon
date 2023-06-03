@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:mithril_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " l ",
+      "mlm",
+      " # "
+    ],
+    "key": {
+      "m": {
+        "item": "kurokumaft:mithril_ingot"
+      },
+      "l": {
+        "item": "kurokumaft:steel_ingot"
+      },
+      "#": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:mithril_sword"
+    }
+  }
+}

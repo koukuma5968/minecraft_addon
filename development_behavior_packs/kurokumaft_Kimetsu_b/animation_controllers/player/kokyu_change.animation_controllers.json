@@ -19,6 +19,7 @@
             { "mituri_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mituri')" },
             { "sanemi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_sanemi')" },
             { "gyoumei_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_gyoumei')" },
+            { "muitiro_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_muitiro')" },
 
             { "mizu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mizu')" },
             { "hi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hi')" },
@@ -180,6 +181,17 @@
           ],
           "transitions": [
             {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_gyoumei')"}
+          ]
+        },
+        "muitiro_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_muitiro",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_muitiro')"}
           ]
         },
 

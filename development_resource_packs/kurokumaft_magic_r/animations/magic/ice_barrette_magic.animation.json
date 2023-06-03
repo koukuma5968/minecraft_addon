@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ice_barrette_magic.shooter": {
+			"loop": true,
+			"animation_length": 0.02,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [-360, 87.5, -360],
+						"0.01": [-360, 12.5, -360],
+						"0.02": [-360, -87.5, -360]
+					}
+				}
+			}
+		}
+	}
+}

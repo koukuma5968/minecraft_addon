@@ -1,0 +1,20 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:nitre_nugget",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:nitre_nugget.name"
+			},
+      "minecraft:icon": {
+        "texture": "nitre_nugget"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.nugget"
+      }
+    }
+  }
+}

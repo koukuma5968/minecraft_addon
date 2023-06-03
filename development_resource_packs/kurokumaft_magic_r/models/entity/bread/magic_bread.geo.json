@@ -6,24 +6,15 @@
 				"identifier": "geometry.magic_bread",
 				"texture_width": 74,
 				"texture_height": 74,
-				"visible_bounds_width": 8,
+				"visible_bounds_width": 9,
 				"visible_bounds_height": 5,
 				"visible_bounds_offset": [0, 0.5, 0]
 			},
 			"bones": [
 				{
-					"name": "rightArm",
-					"pivot": [0, 0, 0]
-				},
-				{
-					"name": "rightitem",
-					"parent": "rightArm",
-					"pivot": [0, 0, 0]
-				},
-				{
 					"name": "bread",
-					"parent": "rightitem",
-					"pivot": [0, 0, -37],
+					"pivot": [0, 0, 0],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
 					"locators": {
 						"bread1": [0, 0, -54],
 						"bread2": [0, 0, -28],

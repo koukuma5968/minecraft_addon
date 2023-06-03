@@ -1,0 +1,14 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "kurokumaft:nitre_nugget"
+        },
+        "tags": ["furnace", "blast_furnace"],
+        "input": "minecraft:dirt:1",
+        "output": {
+            "item": "kurokumaft:nitre_nugget",
+            "count": 4
+        }
+    }
+}    

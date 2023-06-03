@@ -6,7 +6,7 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball",
+      "runtime_identifier": "minecraft:arrow",
       "scripts": { "animate": [ "kiten" ] },
 			"animations": { 
 				"kiten": "animation.gorogoro.kiten"
@@ -17,8 +17,15 @@
         "family": ["lightning", "inanimate"]
       },
       "minecraft:collision_box": {
-        "width": 5.0,
-        "height": 5.0
+        "width": 2.5,
+        "height": 2.5
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "deals_damage": false
+          }
+        ]
       },
       "minecraft:projectile": {
         "on_hit": {

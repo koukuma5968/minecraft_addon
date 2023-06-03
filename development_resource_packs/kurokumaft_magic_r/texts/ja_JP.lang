@@ -45,7 +45,7 @@ item.kurokumaft:wind_magic_stone.name=§3風の魔法石
 item.kurokumaft:lightning_magic_stone.name=§6雷の魔法石
 item.kurokumaft:ice_magic_stone.name=§f氷の魔法石
 item.kurokumaft:light_magic_stone.name=§e光の魔法石
-item.kurokumaft:dark_magic_stone.name=§8闇の魔法石
+item.kurokumaft:dark_magic_stone.name=§5闇の魔法石
 
 item.kurokumaft:fire_wand.name=§4火の杖 初級火魔法
 item.kurokumaft:water_wand.name=§1水の杖 初級水魔法
@@ -54,7 +54,7 @@ item.kurokumaft:wind_wand.name=§3風の杖 初級風魔法
 item.kurokumaft:lightning_wand.name=§6雷の杖 初級雷魔法
 item.kurokumaft:snow_wand.name=§f雪の杖 初級氷魔法
 item.kurokumaft:light_wand.name=§e光の杖 初級光魔法
-item.kurokumaft:dark_wand.name=§8闇の杖 初級闇魔法
+item.kurokumaft:dark_wand.name=§5闇の杖 初級闇魔法
 
 item.kurokumaft:flame_rod.name=§4炎の杖 中級火魔法
 item.kurokumaft:waterwave_rod.name=§1波の杖 中級水魔法
@@ -63,7 +63,7 @@ item.kurokumaft:storm_rod.name=§3嵐の杖 中級風魔法
 item.kurokumaft:thunderclap_rod.name=§6霹靂の杖 中級雷魔法
 item.kurokumaft:freeze_rod.name=§f凍結の杖 中級氷魔法
 item.kurokumaft:brightness_rod.name=§e輝きの杖 中級光魔法
-item.kurokumaft:darkness_rod.name=§8暗闇の杖 中級闇魔法
+item.kurokumaft:darkness_rod.name=§5暗闇の杖 中級闇魔法
 
 item.kurokumaft:blaze_stick.name=§4火炎の杖 上級炎魔法
 item.kurokumaft:watercurrent_stick.name=§1水流の杖 上級水魔法
@@ -72,7 +72,7 @@ item.kurokumaft:atmosphere_stick.name=§3大気の杖 上級風魔法
 item.kurokumaft:lightningstrike_stick.name=§6落雷の杖 上級雷魔法
 item.kurokumaft:blockice_stick.name=§f氷塊の杖 上級氷魔法
 item.kurokumaft:sparkle_stick.name=§e煌めきの杖 上級光魔法
-item.kurokumaft:jetblack_stick.name=§e漆黒の杖 上級闇魔法
+item.kurokumaft:jetblack_stick.name=§5漆黒の杖 上級闇魔法
 
 item.kurokumaft:firestorm_staff.name=§4§l火炎旋風の錫杖 帝級合体魔法 炎風
 item.kurokumaft:explosion_staff.name=§8§l爆炎の錫杖 帝級合体魔法 地炎
@@ -88,7 +88,7 @@ item.kurokumaft:stone_magic_sword.name=§7礫岩の魔法剣
 item.kurokumaft:thunder_magic_sword.name=§6雷撃の魔法剣
 item.kurokumaft:wind_magic_sword.name=§3刃風の魔法剣
 item.kurokumaft:holly_magic_sword.name=§e光華の魔法剣
-item.kurokumaft:dark_magic_sword.name=§e常闇の魔法剣
+item.kurokumaft:dark_magic_sword.name=§5常闇の魔法剣
 item.kurokumaft:rainbow_magic_sword.name=虹の魔法剣
 
 item.kurokumaft:fire_magic_shield.name=§4耐火の魔法盾
@@ -98,7 +98,7 @@ item.kurokumaft:stone_magic_shield.name=§7岩壁の魔法盾
 item.kurokumaft:thunder_magic_shield.name=§6雷動の魔法盾
 item.kurokumaft:wind_magic_shield.name=§3凱風の魔法盾
 item.kurokumaft:holly_magic_shield.name=§e光輝の魔法盾
-item.kurokumaft:dark_magic_shield.name=§e暗影の魔法盾
+item.kurokumaft:dark_magic_shield.name=§5暗影の魔法盾
 
 item.kurokumaft:ice_magic_helmet.name=§fアイスマジックヘルム
 item.kurokumaft:ice_magic_chestplate.name=§fアイスマジックプレート
@@ -120,6 +120,16 @@ item.kurokumaft:wind_magic_chestplate.name=§3ウィンドマジックプレー�
 item.kurokumaft:wind_magic_leggings.name=§3ウィンドマジックレギンス
 item.kurokumaft:wind_magic_boots.name=§3ウィンドマジックブーツ
 
+item.kurokumaft:lightning_magic_helmet.name=§6ライトニングマジックヘルム
+item.kurokumaft:lightning_magic_chestplate.name=§6ライトニングマジックプレート
+item.kurokumaft:lightning_magic_leggings.name=§6ライトニングマジックレギンス
+item.kurokumaft:lightning_magic_boots.name=§6ライトニングマジックブーツ
+
+item.kurokumaft:stone_magic_helmet.name=§7ガイアマジックヘルム
+item.kurokumaft:stone_magic_chestplate.name=§7ガイアマジックプレート
+item.kurokumaft:stone_magic_leggings.name=§7ガイアマジックレギンス
+item.kurokumaft:stone_magic_boots.name=§7ガイアマジックブーツ
+
 item.kurokumaft:fire_magic_bow.name=§4業火の魔弓
 item.kurokumaft:ice_magic_bow.name=§f六華の魔弓
 item.kurokumaft:water_magic_bow.name=§1流麗の魔弓
@@ -127,14 +137,20 @@ item.kurokumaft:stone_magic_bow.name=§7玄武の魔弓
 item.kurokumaft:lightning_magic_bow.name=§6紫電の魔弓
 item.kurokumaft:wind_magic_bow.name=§3疾風の魔弓
 item.kurokumaft:holly_magic_bow.name=§e月華の魔弓
-item.kurokumaft:dark_magic_bow.name=§e晦冥の魔弓
+item.kurokumaft:dark_magic_bow.name=§5晦冥の魔弓
 
 item.kurokumaft:fire_magic_gun.name=§4災火の魔法銃
 item.kurokumaft:water_magic_gun.name=§1烈水の魔法銃
 item.kurokumaft:wind_magic_gun.name=§3嵐牙の魔法銃
 item.kurokumaft:lightning_magic_gun.name=§6万雷の魔法銃
+item.kurokumaft:stone_magic_gun.name=§7破岩の魔法銃
 
 item.kurokumaft:fire_magic_bread.name=§4紅蓮の妖魔刀
+item.kurokumaft:water_magic_bread.name=§1水星の妖魔刀
+item.kurokumaft:ice_magic_bread.name=§f氷結の妖魔刀
+item.kurokumaft:stone_magic_bread.name=§7岩窟の妖魔刀
+item.kurokumaft:thunder_magic_bread.name=§6雷斬の妖魔刀
+item.kurokumaft:wind_magic_bread.name=§3風刃の妖魔刀
 
 item.kurokumaft:magma_blow.name=§4マグマブロー
 

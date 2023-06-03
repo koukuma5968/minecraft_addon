@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:hand_grenade_black_powder"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " A ",
+            "ABA",
+            " A "
+        ],
+        "key": {
+            "A": {
+                "item": "iron_ingot"
+            },
+            "B": {
+                "item": "kurokumaft:black_powder"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:hand_grenade",
+            "count": 4
+        },
+        "priority": 2
+    }
+}

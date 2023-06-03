@@ -1,0 +1,24 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:firework_rocket_black_powder"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "#X"
+    ],
+    "key": {
+      "#": {
+          "item": "minecraft:paper"
+      },
+      "X": {
+        "item": "kurokumaft:black_powder"
+      }
+    },
+    "result": {
+      "item": "minecraft:firework_rocket",
+      "data": 1
+    }
+  }
+}

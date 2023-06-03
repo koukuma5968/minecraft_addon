@@ -7,13 +7,13 @@
     },
     "components": {
       "minecraft:display_name": {
-				"value": "item.kurokumaft:chromium_nugget.name"
-			},
+         "value": "item.kurokumaft:chromium_nugget.name"
+      },
       "minecraft:icon": {
         "texture": "chromium_nugget"
       },
       "minecraft:creative_category": {
-        "parent": "itemGroup.name.chromium_nugget"
+        "parent": "itemGroup.name.nugget"
       }
     }
   }

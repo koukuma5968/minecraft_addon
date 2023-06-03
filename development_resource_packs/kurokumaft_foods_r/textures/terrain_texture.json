@@ -23,7 +23,7 @@
 		"onion_stage_3": {
 			"textures": "textures/kurokumaft/blocks/onion/onion_stage_3"
 		},
-
+   
 		"soybean_stage_0": {
 			"textures": "textures/kurokumaft/blocks/soy/soybean_stage_0"
 		},
@@ -35,6 +35,20 @@
 		},
 		"soybean_stage_3": {
 			"textures": "textures/kurokumaft/blocks/soy/soybean_stage_3"
-		}
+		},
+
+		"chocolate_cake_bottom" : {
+			"textures" : [ "textures/kurokumaft/blocks/cake/chocolate_cake_bottom", "textures/kurokumaft/blocks/cake/chocolate_cake_bottom" ]
+		 },
+		 "chocolate_cake_side" : {
+			"textures" : [ "textures/kurokumaft/blocks/cake/chocolate_cake_side", "textures/kurokumaft/blocks/cake/chocolate_cake_side" ]
+		 },
+		 "chocolate_cake_top" : {
+			"textures" : [ "textures/kurokumaft/blocks/cake/chocolate_cake_top", "textures/kurokumaft/blocks/cake/chocolate_cake_top" ]
+		 },
+		 "chocolate_cake_east" : {
+			"textures" : [ "textures/kurokumaft/blocks/cake/chocolate_cake_side", "textures/kurokumaft/blocks/cake/chocolate_cake_inner" ]
+		 }
+   
 	}
 }

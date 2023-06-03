@@ -1,6 +1,35 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.meramera.hover": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:meramera_hover ^^^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.meramera.rising": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s levitation 1 3 true",
+					"/particle kurokumaft:meramera_hover ^^1^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.meramera.fall": {
+			"timeline": {
+			    "0.0": [
+					"/effect @s slow_falling 1 2 true",
+					"/particle kurokumaft:meramera_hover ^^^1"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
 		"animation.meramera.enkai": {
 			"animation_length": 0.1,
 			"loop": true,
@@ -45,27 +74,6 @@
 					"/function meramera/daienkai"
 				]
 			}
-		},
-		"animation.meramera.takeoff": {
-			"timeline": {
-			    "0.0": [
-					"/effect @s speed 2 25 true",
-					"/effect @s levitation 1 1 true",
-					"/particle kurokumaft:meramera_hover ^^1^1"
-				]
-			},
-			"animation_length": 0.1,
-			"loop": true
-		},
-		"animation.meramera.landing": {
-			"timeline": {
-			    "0.0": [
-					"/effect @s slow_falling 1 1 true",
-					"/particle kurokumaft:meramera_hover ^^^1"
-				]
-			},
-			"animation_length": 0.1,
-			"loop": true
 		}
 	}
 }

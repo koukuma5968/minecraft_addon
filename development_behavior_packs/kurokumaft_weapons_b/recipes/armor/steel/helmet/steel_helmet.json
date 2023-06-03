@@ -1,0 +1,21 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:steel_helmet"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "kurokumaft:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:steel_helmet"
+    }
+  }
+}

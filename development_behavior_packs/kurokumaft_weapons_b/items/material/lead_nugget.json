@@ -13,7 +13,7 @@
         "texture": "lead_nugget"
       },
       "minecraft:creative_category": {
-        "parent": "itemGroup.name.lead_nugget"
+        "parent": "itemGroup.name.nugget"
       }
     }
   }

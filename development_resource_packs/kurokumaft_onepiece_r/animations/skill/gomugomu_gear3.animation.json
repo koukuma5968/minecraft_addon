@@ -5,11 +5,9 @@
 			"loop": true,
 			"bones": {
 				"rightArm": {
-					"rotation": [47.5, 0, 55]
-				},
-				"rightArm_gear3": {
-					"position": [0, -11, 0],
-					"scale": [3.5, 4.2, 4.4]
+					"rotation": [47.5, 0, 55],
+					"position": [-1, -4, 2],
+					"scale": [2.5, 2.5, 2.5]
 				}
 			}
 		},

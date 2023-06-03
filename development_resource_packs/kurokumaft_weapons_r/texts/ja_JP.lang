@@ -32,8 +32,12 @@ item.kurokumaft:copper_axe.name=銅の斧
 item.kurokumaft:bamboo_battleaxe.name=バンブーバトルアックス
 item.kurokumaft:wooden_battleaxe.name=木のバトルアックス
 item.kurokumaft:iron_battleaxe.name=鉄のバトルアックス
+item.kurokumaft:steel_battleaxe.name=鋼のバトルアックス
 
 item.kurokumaft:bamboo_knife.name=竹のナイフ
+item.kurokumaft:wooden_knife.name=木のナイフ
+item.kurokumaft:stone_knife.name=石のナイフ
+item.kurokumaft:tnt_knife.name=TNTダガー
 
 item.kurokumaft:wooden_bread.name=木刀
 
@@ -58,20 +62,22 @@ item.kurokumaft:coal_sword.name=石炭剣
 item.kurokumaft:sealantern_sword.name=シーランタンソード
 item.kurokumaft:glow_sword.name=グロウソード
 item.kurokumaft:bone_sword.name=骨剣
+item.kurokumaft:amethyst_sword.name=アメジストソード
+item.kurokumaft:magma_sword.name=溶岩剣
+item.kurokumaft:mithril_sword.name=ミスリルの剣
+item.kurokumaft:echo_sword.name=こだまの剣
 
 item.kurokumaft:powder_ball.name=火薬玉
 item.kurokumaft:hand_grenade.name=手榴弾
+item.kurokumaft:bakutiku.name=爆竹
 
 item.kurokumaft:arquebus.name=火縄銃
 item.kurokumaft:revolver.name=リボルバー
+item.kurokumaft:gatling.name=ガトリング砲
 
 item.kurokumaft:lead_ball.name=鉛玉
 item.kurokumaft:forty_four_magnum.name=44マグナム弾
-
-item.kurokumaft:copper_helmet.name=銅のヘルメット
-item.kurokumaft:copper_chestplate.name=銅の胸当て
-item.kurokumaft:copper_leggings.name=銅のレギンス
-item.kurokumaft:copper_boots.name=銅のブーツ
+item.kurokumaft:twenty_two_lr.name=22LR弾
 
 item.kurokumaft:wooden_hammer.name=木槌
 item.kurokumaft:stone_hammer.name=石槌
@@ -86,15 +92,26 @@ item.kurokumaft:stone_sickle.name=石の小鎌
 item.kurokumaft:wood_scythe.name=木の大鎌
 item.kurokumaft:stone_scythe.name=石の大鎌
 
+item.kurokumaft:bamboo_bow.name=竹の弓
+item.kurokumaft:bamboo_arrow.name=竹の矢
+
+item.kurokumaft:iron_bow.name=鉄の弓
+item.kurokumaft:iron_arrow.name=鉄の矢
+
 item.kurokumaft:kettle_lid.name=なべぶた	#
 item.kurokumaft:copper_shield.name=銅の盾	#
 
 item.kurokumaft:chromium_nugget.name=クロム塊
 item.kurokumaft:lead_nugget.name=鉛塊
+item.kurokumaft:nitre_nugget.name=硝石
 
 item.kurokumaft:steel_ingot.name=スチールインゴット
+item.kurokumaft:mithril_ingot.name=ミスリルインゴット
+item.kurokumaft:orichalcum.name=オリハルコン
 
 item.kurokumaft:bamboo_fiber.name=バンブーファイバー
+
+item.kurokumaft:black_powder.name=黒色火薬
 
 item.kurokumaft:medicinal_plant.name=薬草
 item.kurokumaft:seeds_medicinal_plant.name=薬草の種
@@ -106,3 +123,36 @@ tile.kurokumaft:chromium_ore.name=クロム鉱石
 tile.kurokumaft:medicinal_plants.name=薬草
 
 tile.kurokumaft:millstone.name=石臼
+
+item.kurokumaft:barista.name=バリスタ
+item.kurokumaft:barista_arrow.name=バリスタの矢
+entity.kurokumaft:barista.name=バリスタ
+entity.kurokumaft:barista_arrow.name=バリスタの矢
+
+item.kurokumaft:copper_helmet.name=銅のヘルメット
+item.kurokumaft:copper_chestplate.name=銅の胸当て
+item.kurokumaft:copper_leggings.name=銅のレギンス
+item.kurokumaft:copper_boots.name=銅のブーツ
+
+item.kurokumaft:steel_helmet.name=鋼のヘルメット
+item.kurokumaft:steel_chestplate.name=鋼の胸当て
+item.kurokumaft:steel_leggings.name=鋼のレギンス
+item.kurokumaft:steel_boots.name=鋼のブーツ
+
+item.kurokumaft:orichalcum_helmet.name=オリハルコンヘルム
+item.kurokumaft:orichalcum_chestplate.name=オリハルコンチェストプレート
+item.kurokumaft:orichalcum_leggings.name=オリハルコンレギンス
+item.kurokumaft:orichalcum_boots.name=オリハルコンブーツ
+
+item.kurokumaft:blackstone_helmet.name=ブラックストーンヘルム
+item.kurokumaft:blackstone_chestplate.name=ブラックストーンチェストプレート
+item.kurokumaft:blackstone_leggings.name=ブラックストーンレギンス
+item.kurokumaft:blackstone_boots.name=ブラックストーンブーツ
+
+potion.kurokumaft:hiheal.name=超回復のポーション
+potion.kurokumaft:hidamageBoost.name=剛力のポーション
+potion.kurokumaft:histurdiness.name=剛健のポーション
+potion.kurokumaft:himoveSpeed.name=剛脚のポーション
+potion.kurokumaft:hipoison.name=猛毒のポーション
+
+item.kurokumaft:bamboo_bag.name=竹籠

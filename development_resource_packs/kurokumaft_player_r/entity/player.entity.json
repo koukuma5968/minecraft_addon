@@ -10,17 +10,21 @@
       },
       "textures": {
         "default": "textures/entity/steve",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
+        "cape": "textures/entity/cape_invisible",
 
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
         "mizu10_dragon": "textures/kurokumaft/models/mizu10_dragon",
         "hi_dragon": "textures/kurokumaft/models/hi_dragon",
 
-        "toritori_fenikus_zyuzinn": "textures/kurokumaft/models/armor/kaizoku/shirohige/maruko/toritori_fenikus_zyuzinn",
+        "amaru": "textures/kurokumaft/models/skill/gorogoro/amaru",
+        "gear2": "textures/kurokumaft/models/skill/gomugomu/gear2",
+        "toritori_fenikus_zyuzinn": "textures/kurokumaft/models/armor/kaizoku/shirohige/maruko/toritori_fenikus_zyuzinn"
 
-        "cape": "textures/entity/cape_invisible"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
+        "cape": "geometry.cape",
+
         "nichirintou_tanjiro": "geometry.nichirintou_tanjiro",
         "nichirintou_zenitu": "geometry.nichirintou_zenitu",
         "nichirintou_inosuke": "geometry.nichirintou_inosuke",
@@ -45,9 +49,10 @@
         "mizu10_dragon": "geometry.mizu10_dragon",
         "hi_dragon": "geometry.hi_dragon",
 
-        "toritori_fenikus_zyuzinn": "geometry.toritori_fenikus_zyuzinn",
+        "amaru": "geometry.amaru",
+        "gear3": "geometry.gear3",
+        "toritori_fenikus_zyuzinn": "geometry.toritori_fenikus_zyuzinn"
 
-        "cape": "geometry.cape"
       },
       "particle_effects": {
         "hi_blead_particle": "kurokumaft:hi_blead_particle",
@@ -64,7 +69,11 @@
         "mushi_chou_particle": "kurokumaft:mushi_chou_particle",
         "hana_bread_particle": "kurokumaft:hana_bread_particle",
         "hana_shi_particle": "kurokumaft:hana_shi_particle",
-        "koi_blead2_particle": "kurokumaft:koi_blead2_particle"
+        "koi_blead2_particle": "kurokumaft:koi_blead2_particle",
+
+        "gomugomu_attack": "kurokumaft:gomugomu_attack",
+        "guragura": "kurokumaft:guragura"
+
       },
       "scripts": {
         "scale": "0.9375",
@@ -162,6 +171,9 @@
           "variable.equipped_zyuu_genya = query.skin_id == 40;",
 
           "variable.devil_fruit_gomugomu = query.skin_id == 100;",
+          "variable.devil_fruit_gomugomu2 = query.skin_id == 1002;",
+          "variable.devil_fruit_gomugomu3 = (query.skin_id == 1003 || query.skin_id == 10031);",
+          "variable.devil_fruit_gomugomu_armed = (query.skin_id == 1004 || query.skin_id == 10041);",
           "variable.devil_fruit_barabara = query.skin_id == 101;",
           "variable.skill_santouryu = query.skin_id == 102;",
           "variable.devil_fruit_mokumoku = query.skin_id == 103;",
@@ -171,6 +183,7 @@
           "variable.devil_fruit_itoito = query.skin_id == 107;",
           "variable.devil_fruit_nikyunikyu = query.skin_id == 108;",
           "variable.devil_fruit_gorogoro = query.skin_id == 109;",
+          "variable.devil_fruit_gorogoro_amaru = query.skin_id == 209;",
           "variable.devil_fruit_hiehie = query.skin_id == 110;",
           "variable.devil_fruit_magumagu = query.skin_id == 111;",
           "variable.devil_fruit_pikapika = query.skin_id == 112;",
@@ -178,6 +191,7 @@
           "variable.devil_fruit_fenikusu = query.skin_id == 114;",
           "variable.devil_fruit_fenikusu_zyuzin = query.skin_id == 115;",
           "variable.devil_fruit_seiryu = query.skin_id == 116;",
+          "variable.devil_fruit_bombom = query.skin_id == 117;",
 
           "variable.long_range_weapon = query.mark_variant == 999;",
 
@@ -187,18 +201,6 @@
         "animate": [
           {"root": "query.mark_variant == 0 && !variable.zyuka"},
           {"player.bullet": "variable.long_range_weapon"},
-
-          {"gomugomu_con": "variable.devil_fruit_gomugomu"},
-          {"barabara_con": "variable.devil_fruit_barabara"},
-          {"mokumoku_con": "variable.devil_fruit_mokumoku"},
-          {"meramera_con": "variable.devil_fruit_meramera"},
-          {"guragura_con": "variable.devil_fruit_guragura"},
-          {"sunasuna_con": "variable.devil_fruit_sunasuna"},
-
-          {"santouryu_con": "variable.skill_santouryu"},
-          {"murakumo_con": "variable.devil_fruit_guragura"},
-
-          {"toritori_fenikus.zyuzinn.fry": "variable.devil_fruit_fenikusu_zyuzin"},
 
           {"tanjiro.kokyu_con": "variable.equipped_tanjiro"},
           {"tanjiro_attack_controller": "variable.equipped_tanjiro"},
@@ -311,7 +313,28 @@
 
           {"hana.kokyu_con": "variable.equipped_hana"},
 
-          {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"}
+          {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
+
+          {"gomugomu_con": "variable.devil_fruit_gomugomu"},
+          {"gomugomu2_con": "variable.devil_fruit_gomugomu2"},
+          {"gomugomu3_con": "variable.devil_fruit_gomugomu3"},
+          {"gomugomu3_parson": "variable.devil_fruit_gomugomu3"},
+          {"gomugomu_armed_con": "variable.devil_fruit_gomugomu_armed"},
+          {"gomugomu_gear": "variable.devil_fruit_gomugomu || variable.devil_fruit_gomugomu2 || variable.devil_fruit_gomugomu3"},
+          {"barabara_con": "variable.devil_fruit_barabara"},
+          {"mokumoku_con": "variable.devil_fruit_mokumoku"},
+          {"meramera_con": "variable.devil_fruit_meramera"},
+          {"guragura_con": "variable.devil_fruit_guragura"},
+          {"sunasuna_con": "variable.devil_fruit_sunasuna"},
+
+          {"santouryu_con": "variable.skill_santouryu"},
+          {"murakumo_con": "variable.devil_fruit_guragura"},
+          {"gorogoro_amaru_first": "variable.devil_fruit_gorogoro_amaru && variable.is_first_person"},
+          {"gorogoro_amaru": "variable.devil_fruit_gorogoro_amaru && !variable.is_first_person"},
+
+          {"bombom_con": "variable.devil_fruit_bombom"},
+  
+          {"toritori_fenikus.zyuzinn.fry": "variable.devil_fruit_fenikusu_zyuzin"}
 
         ]
       },
@@ -704,8 +727,8 @@
         "gomugomu_pistol_attack": "animation.gomugomu.pistol_attack",
         "gomugomu_whip": "animation.gomugomu.whip",
         "gomugomu_whip_attack": "animation.gomugomu.whip_attack",
-        "gomugomu_Gatling": "animation.gomugomu.Gatling",
-        "gomugomu_Gatling_attack": "animation.gomugomu.Gatling_attack",
+        "gomugomu_gatling": "animation.gomugomu.gatling",
+        "gomugomu_gatling_attack": "animation.gomugomu.gatling_attack",
         "gomugomu_axe": "animation.gomugomu.axe",
         "gomugomu_axe_attack": "animation.gomugomu.axe_attack",
         "gomugomu_spear": "animation.gomugomu.spear",
@@ -718,6 +741,92 @@
         "gomugomu_storm": "animation.gomugomu.storm",
         "gomugomu_storm_attack": "animation.gomugomu.storm_attack",
         "gomugomu_storm_horizontal_attack": "animation.gomugomu.storm_horizontal_attack",
+        "gomugomu_flail": "animation.gomugomu.flail",
+        "gomugomu_flail2": "animation.gomugomu.flail2",
+        "gomugomu_flail_attack": "animation.gomugomu.flail_attack",
+        "gomugomu_cannon": "animation.gomugomu.cannon",
+        "gomugomu_cannon_attack": "animation.gomugomu.cannon_attack",
+
+        "gomugomu2_con": "controller.animation.gomugomu2.player",
+        "gomugomu2_pistol": "animation.gomugomu2.pistol",
+        "gomugomu2_pistol_attack": "animation.gomugomu2.pistol_attack",
+        "gomugomu2_whip": "animation.gomugomu2.whip",
+        "gomugomu2_whip_attack": "animation.gomugomu2.whip_attack",
+        "gomugomu2_gatling": "animation.gomugomu2.gatling",
+        "gomugomu2_gatling_attack": "animation.gomugomu2.gatling_attack",
+        "gomugomu2_axe": "animation.gomugomu2.axe",
+        "gomugomu2_axe_attack": "animation.gomugomu2.axe_attack",
+        "gomugomu2_spear": "animation.gomugomu2.spear",
+        "gomugomu2_bazooka": "animation.gomugomu2.bazooka",
+        "gomugomu2_bazooka_attack": "animation.gomugomu2.bazooka_attack",
+        "gomugomu2_rifle": "animation.gomugomu2.rifle",
+        "gomugomu2_rifle_attack": "animation.gomugomu2.rifle_attack",
+        "gomugomu2_rocket": "animation.gomugomu2.rocket",
+        "gomugomu2_rocket_attack": "animation.gomugomu2.rocket_attack",
+        "gomugomu2_storm": "animation.gomugomu2.storm",
+        "gomugomu2_storm_attack": "animation.gomugomu2.storm_attack",
+        "gomugomu2_storm_horizontal_attack": "animation.gomugomu2.storm_horizontal_attack",
+        "gomugomu2_flail": "animation.gomugomu2.flail",
+        "gomugomu2_flail2": "animation.gomugomu2.flail2",
+        "gomugomu2_flail_attack": "animation.gomugomu2.flail_attack",
+        "gomugomu2_cannon": "animation.gomugomu2.cannon",
+        "gomugomu2_cannon_attack": "animation.gomugomu2.cannon_attack",
+
+        "gomugomu3_parson": "controller.animation.gomugomu3.parson",
+        "gomugomu_gear3_therd_parson": "animation.gomugomu.gear3.therd_parson",
+        "gomugomu_gear3_down": "animation.gomugomu.gear3.down",
+
+        "gomugomu3_con": "controller.animation.gomugomu3.player",
+        "gomugomu3_pistol": "animation.gomugomu3.pistol",
+        "gomugomu3_pistol_attack": "animation.gomugomu3.pistol_attack",
+        "gomugomu3_whip": "animation.gomugomu3.whip",
+        "gomugomu3_whip_attack": "animation.gomugomu3.whip_attack",
+        "gomugomu3_gatling": "animation.gomugomu3.gatling",
+        "gomugomu3_gatling_attack": "animation.gomugomu3.gatling_attack",
+        "gomugomu3_axe": "animation.gomugomu3.axe",
+        "gomugomu3_axe_attack": "animation.gomugomu3.axe_attack",
+        "gomugomu3_spear": "animation.gomugomu3.spear",
+        "gomugomu3_bazooka": "animation.gomugomu3.bazooka",
+        "gomugomu3_bazooka_attack": "animation.gomugomu3.bazooka_attack",
+        "gomugomu3_rifle": "animation.gomugomu3.rifle",
+        "gomugomu3_rifle_attack": "animation.gomugomu3.rifle_attack",
+        "gomugomu3_rocket": "animation.gomugomu3.rocket",
+        "gomugomu3_rocket_attack": "animation.gomugomu3.rocket_attack",
+        "gomugomu3_storm": "animation.gomugomu3.storm",
+        "gomugomu3_storm_attack": "animation.gomugomu3.storm_attack",
+        "gomugomu3_storm_horizontal_attack": "animation.gomugomu3.storm_horizontal_attack",
+        "gomugomu3_flail": "animation.gomugomu3.flail",
+        "gomugomu3_flail2": "animation.gomugomu3.flail2",
+        "gomugomu3_flail_attack": "animation.gomugomu3.flail_attack",
+        "gomugomu3_cannon": "animation.gomugomu3.cannon",
+        "gomugomu3_cannon_attack": "animation.gomugomu3.cannon_attack",
+
+        "gomugomu_armed_con": "controller.animation.gomugomu_armed.player",
+        "gomugomu_armed_pistol": "animation.gomugomu_armed.pistol",
+        "gomugomu_armed_pistol_attack": "animation.gomugomu_armed.pistol_attack",
+        "gomugomu_armed_snake_shot": "animation.gomugomu_armed.snake_shot",
+        "gomugomu_armed_red_hawk": "animation.gomugomu_armed.red_hawk",
+        "gomugomu_armed_red_hawk_attack": "animation.gomugomu_armed.red_hawk_attack",
+        "gomugomu_armed_hawk_whip": "animation.gomugomu_armed.hawk_whip",
+        "gomugomu_armed_hawk_whip_attack": "animation.gomugomu_armed.hawk_whip_attack",
+        "gomugomu_armed_hawk_gatling": "animation.gomugomu_armed.hawk_gatling",
+        "gomugomu_armed_hawk_gatling_attack": "animation.gomugomu_armed.hawk_gatling_attack",
+        "gomugomu_armed_eagle_bazooka": "animation.gomugomu_armed.eagle_bazooka",
+        "gomugomu_armed_eagle_bazooka_attack": "animation.gomugomu_armed.eagle_bazooka_attack",
+        "gomugomu_armed_hawk_rifle": "animation.gomugomu_armed.hawk_rifle",
+        "gomugomu_armed_hawk_rifle_attack": "animation.gomugomu_armed.hawk_rifle_attack",
+        "gomugomu_armed_elephant_gun": "animation.gomugomu_armed.elephant_gun",
+        "gomugomu_armed_elephant_gun_attack": "animation.gomugomu_armed.elephant_gun_attack",
+        "gomugomu_armed_tall_elephant_gun": "animation.gomugomu_armed.tall_elephant_gun",
+        "gomugomu_armed_tall_elephant_gun_attack": "animation.gomugomu_armed.tall_elephant_gun_attack",
+        "gomugomu_armed_elephant_gatling": "animation.gomugomu_armed.elephant_gatling",
+        "gomugomu_armed_elephant_gatling_attack": "animation.gomugomu_armed.elephant_gatling_attack",
+        "gomugomu_armed_grizzly_magnum": "animation.gomugomu_armed.grizzly_magnum",
+        "gomugomu_armed_grizzly_magnum_attack": "animation.gomugomu_armed.grizzly_magnum_attack",
+
+        "gomugomu_gear": "controller.animation.gomugomu.gear",
+        "gomugomu_gear2": "animation.gomugomu.gear2",
+        "gomugomu_gear3": "animation.gomugomu.gear3",
 
         "barabara_con": "controller.animation.barabara.player",
         "barabara_hou": "animation.barabara.hou",
@@ -771,6 +880,12 @@
         "sunasuna_desert_la_spada": "animation.sunasuna.desert_la_spada",
         "sunasuna_desert_la_spada_attack": "animation.sunasuna.desert_la_spada_attack",
 
+        "gorogoro_amaru_first": "animation.gorogoro.amaru_first",
+        "gorogoro_amaru": "animation.gorogoro.amaru",
+
+        "bombom_con": "controller.animation.bombom.player",
+        "bombom_kick_bom": "animation.bombom.kick_bom",
+
         "toritori_fenikus.zyuzinn.fry": "animation.toritori_fenikus.zyuzinn.fry"
 
       },
@@ -803,6 +918,9 @@
         {"controller.render.hi_dragon": "(variable.equipped_tanjiro || variable.equipped_hi) && query.variant == 16 && query.mark_variant == 2"},
         {"controller.render.mizu10_dragon": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
 
+        { "controller.render.gomugomu.gear2": "variable.devil_fruit_gomugomu2" },
+        { "controller.render.gomugomu.gear3": "variable.devil_fruit_gomugomu3" },
+        { "controller.render.gorogoro.amaru": "variable.devil_fruit_gorogoro_amaru" },
         { "controller.render.toritori_fenikus.zyuzinn": "variable.devil_fruit_fenikusu_zyuzin" }
 
       ],

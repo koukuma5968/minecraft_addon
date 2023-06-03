@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:bamboo_arrow"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+          "f",
+          "b",
+          "b"
+        ],
+        "key": {
+            "f": {
+                "item": "minecraft:flint"
+            },
+            "b": {
+                "item": "minecraft:bamboo"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:bamboo_arrow",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

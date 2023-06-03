@@ -20,10 +20,5 @@
 			"uuid": "73c6da0a-0ae1-4d2e-8b75-000428e43aae",
 			"version": [1, 0, 2]
 		}
-	],
-	"metadata": {
-		"generated_with": {
-			"blockbench_block_wizard": ["1.1.2"]
-		}
-	}
+	]
 }

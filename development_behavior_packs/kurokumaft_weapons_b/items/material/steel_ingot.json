@@ -13,7 +13,7 @@
         "texture": "steel_ingot"
       },
       "minecraft:creative_category": {
-        "parent": "itemGroup.name.steel_ingot"
+        "parent": "itemGroup.name.ingot"
       }
     }
   }

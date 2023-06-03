@@ -5,9 +5,9 @@
 			"loop": "hold_on_last_frame",
 			"bones": {
 				"bread": {
-					"rotation": [-70.14138, -21.77363, -168.11978],
-					"position": [-8, -14, 28],
-					"scale": 0.5
+					"rotation": [-70.57501, 18.45723, -154.11849],
+					"position": [-1, 18, 0],
+					"scale": [0.5, 0.5, 0.5]
 				}
 			}
 		},
@@ -15,52 +15,9 @@
 			"loop": "hold_on_last_frame",
 			"bones": {
 				"bread": {
-					"rotation": [0, -10, -90],
-					"position": [0, 5, 14],
-					"scale": 0.5
-				}
-			}
-		},
-		"animation.bread.attack_first_person": {
-			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
-			"bones": {
-				"bread": {
-					"rotation": {
-						"0.0": [-74.25451, -24.83995, -157.75164],
-						"0.25": [-85.62952, -28.83882, -132.88734],
-						"0.5": [-60.96633, 2.61602, -218.58836]
-					},
-					"position": {
-						"0.0": [-8, -14, 32],
-						"0.25": [-18, -9, 32],
-						"0.5": [25, -14, 25]
-					},
-					"scale": 0.5
-				}
-			}
-		},
-		"animation.bread.attack_third_person": {
-			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
-			"bones": {
-				"bread": {
-					"rotation": [0, -10, -90],
-					"position": [0, 5, 14],
-					"scale": 0.5
-				},
-				"rightArm": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [-96.66067, -3.45533, -27.29887],
-						"0.3333": [-19.16067, -3.45533, -27.29887],
-						"0.5": [38.34, -3.46, -27.3]
-					},
-					"position": {
-						"0.0": [0, 0, 0],
-						"0.1667": [-7, 8, -6],
-						"0.3333": [8, -7, -19]
-					}
+					"rotation": [0, 0, -90],
+					"position": [1, 22, -5],
+					"scale": [0.5, 0.5, 0.5]
 				}
 			}
 		}

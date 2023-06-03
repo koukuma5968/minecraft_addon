@@ -13,10 +13,10 @@
         "default": "geometry.magic_bullet"
       },
       "animations": {
-        "move": "animation.magic_bullet.lightning_move"
+        "move": "animation.magic_bullet.move"
       },
       "particle_effects": {
-        "lightning_bullet_particle": "kurokumaft:lightning_bullet_particle"
+        "bullet_particle": "kurokumaft:lightning_bullet_particle"
       },
       "scripts": {
         "animate": [

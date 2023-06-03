@@ -31,6 +31,7 @@
           }
         }
       },
+      "minecraft:use_animation": "spear",
       "minecraft:enchantable": {
         "value": 10,
         "slot": "sword"

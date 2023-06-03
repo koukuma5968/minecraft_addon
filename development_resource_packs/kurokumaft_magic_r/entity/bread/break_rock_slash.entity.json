@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:break_rock_slash",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/bread/break_rock_slash"
+          },
+          "geometry": {
+            "default": "geometry.break_rock_slash"
+          },
+          "animations": {
+            "shooter": "animation.break_rock_slash.shooter"
+          },
+          "particle_effects": {
+            "break_rock_slash": "kurokumaft:break_rock_slash_particle"
+          },
+          "scripts": {
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

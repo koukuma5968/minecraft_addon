@@ -1,0 +1,31 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:stone_magic_helmet_to_magicstone"
+    },
+
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "ihi",
+      "imi",
+      "   "
+    ],
+    "key": {
+      "h": {
+        "item": "minecraft:diamond_helmet"
+      },
+      "m": {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      "i": {
+        "item": "minecraft:smooth_stone"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:stone_magic_helmet",
+      "count": 1
+    }
+  }
+  
+}

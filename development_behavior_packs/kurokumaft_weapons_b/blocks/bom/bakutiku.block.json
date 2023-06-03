@@ -1,0 +1,75 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:bakutiku_block",
+			"menu_category": {
+				"category": "none"
+			},
+			"properties": {
+				"kurokumaft:flint": [0, 1]
+			}
+		},
+		"components": {
+			"tag:minecraft:is_bakutiku": {},
+			"minecraft:collision_box": {
+				"origin": [-1.0, 0.0, -1.0],
+				"size": [2.0, 8.0, 2.0]
+			},
+			"minecraft:selection_box": {
+				"origin": [-1.0, 0.0, -1.0],
+				"size": [2.0, 8.0, 2.0]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:loot": "loot_tables/blocks/bom/bakutiku_block.json",
+			"minecraft:geometry": "geometry.bakutiku",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "bakutiku",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:on_interact": {
+				"condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:flint_and_steel')",
+				"event": "flint"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('kurokumaft:flint') > 0",
+				"components": {
+					"minecraft:loot": "loot_tables/empty.json",
+					"minecraft:queued_ticking": {
+						"interval_range": [1,1],
+						"looping": false,
+						"on_tick": {
+							"event": "break"
+						}
+					}
+				}
+			}
+		],
+		"events": {
+			"flint": {
+				"set_block_property": {
+					"kurokumaft:flint": "1"
+				}
+			},
+			"break": {
+				"die": {
+					"target": "self"
+				},
+				"run_command": {
+					"command":[
+						"summon kurokumaft:bakutiku_entity ~~~ from_explosion"
+					]
+				}
+		 	}
+		}
+	}
+}
