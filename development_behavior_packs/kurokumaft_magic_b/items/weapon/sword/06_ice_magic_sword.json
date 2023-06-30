@@ -60,39 +60,39 @@
         ]
       },
       "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "kurokumaft:ice_magic_sword"
-          }
+        "on_hurt_entity": {
+          "event": "kurokumaft:ice_magic_sword"
+        }
       }
     },
     "events": {
-        "kurokumaft:ice_magic_sword": {
-          "sequence":[
-            {
-              "run_command": {
-                "command": [
-                  "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスソード\"}]}"
-                ],
-                "target": "self"
-              }
-            },
-            {
-              "run_command": {
-                "command": [
-                  "function magic/ice/ice_sword"
-                ],
-                "target": "other"
-              }
-            },
-            {
-              "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":5
-              }
+      "kurokumaft:ice_magic_sword": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスソード\"}]}"
+              ],
+              "target": "self"
             }
-          ]
-        }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/ice/ice_sword"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":5
+            }
+          }
+        ]
+      }
     }
   }
 }

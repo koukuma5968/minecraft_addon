@@ -15,8 +15,6 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 100
       },
@@ -48,6 +46,11 @@
         "scale_power_by_draw_duration": false
       },
       "minecraft:use_duration": 0.1,
+		  "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "kurokumaft:durability"
+        }
+      },
       "minecraft:chargeable": {
       },
       "minecraft:on_use":{
@@ -57,6 +60,13 @@
       }
     },
     "events": {
+      "kurokumaft:durability": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
+      },
       "kurokumaft:fireball": {
         "sequence":[
           {
@@ -64,15 +74,9 @@
               "projectile":"kurokumaft:fireballmagic",
               "launch_power":1
             }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
           }
-        ]
+        ],
+        "trigger": "kurokumaft:durability"
       }
     }
   }

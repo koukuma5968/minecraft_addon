@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:steel_axe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AA",
+            "A#",
+            " #"
+        ],
+        "key": {
+            "A": {
+                "item": "kurokumaft:steel_ingot"
+            },
+            "#": {
+                "item": "minecraft:stick"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:steel_axe",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

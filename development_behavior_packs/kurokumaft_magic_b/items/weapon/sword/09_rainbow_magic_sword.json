@@ -48,39 +48,39 @@
         ]
       },
       "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "kurokumaft:rainbow_magic_sword"
-          }
+        "on_hurt_entity": {
+          "event": "kurokumaft:rainbow_magic_sword"
+        }
       }
     },
     "events": {
-        "kurokumaft:rainbow_magic_sword": {
-          "sequence":[
-            {
-              "run_command": {
-                "command": [
-                  "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5レ§1イ§9ン§aボー§eソ§6ー§4ド\"}]}"
-                ],
-                "target": "self"
-              }
-            },
-            {
-              "run_command": {
-                "command": [
-                  "function magic/rainbow/rainbow_sword"
-                ],
-                "target": "other"
-              }
-            },
-            {
-              "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":100
-              }
+      "kurokumaft:rainbow_magic_sword": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5レ§1イ§9ン§aボー§eソ§6ー§4ド\"}]}"
+              ],
+              "target": "self"
             }
-          ]
-        }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/rainbow/rainbow_sword"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":100
+            }
+          }
+        ]
+      }
     }
   }
 }

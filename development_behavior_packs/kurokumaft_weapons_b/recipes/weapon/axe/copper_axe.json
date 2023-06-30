@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:copper_axe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AA",
+            "A#",
+            " #"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:copper_ingot"
+            },
+            "#": {
+                "item": "minecraft:stick"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:copper_axe",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

@@ -6,6 +6,16 @@ execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 copper_block 0 setblock 
 execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 copper_block 0 setblock ^0 ^1 ^2 copper_block 0 destroy
 execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 raw_copper_block 0 setblock ^0 ^1 ^1 raw_copper_block 0 destroy
 execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 raw_copper_block 0 setblock ^0 ^1 ^2 raw_copper_block 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 weathered_copper 0 setblock ^0 ^1 ^1 weathered_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 weathered_copper 0 setblock ^0 ^1 ^2 weathered_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 oxidized_copper 0 setblock ^0 ^1 ^1 oxidized_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 oxidized_copper 0 setblock ^0 ^1 ^2 oxidized_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 waxed_copper 0 setblock ^0 ^1 ^1 waxed_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 waxed_copper 0 setblock ^0 ^1 ^2 waxed_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 waxed_weathered_copper 0 setblock ^0 ^1 ^1 waxed_weathered_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 waxed_weathered_copper 0 setblock ^0 ^1 ^2 waxed_weathered_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 waxed_oxidized_copper 0 setblock ^0 ^1 ^1 waxed_oxidized_copper 0 destroy
+execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 waxed_oxidized_copper 0 setblock ^0 ^1 ^2 waxed_oxidized_copper 0 destroy
 execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^1 bone_block 0 setblock ^0 ^1 ^1 bone_block 0 destroy
 execute @s[tag=destroy_copper_pick] ~~~ detect ^0 ^1 ^2 bone_block 0 setblock ^0 ^1 ^2 bone_block 0 destroy
 tag @s remove destroy_copper_pick

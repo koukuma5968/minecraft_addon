@@ -28,7 +28,7 @@
             { "earth_shock": "!query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && variable.attack_time" },
             { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && variable.attack_time" },
             { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && query.is_using_item" },
-            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && query.is_using_item" }
+            { "gravity_field": "query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && query.is_using_item" }
           ]
         },
         "earth_shock": {
@@ -57,13 +57,22 @@
             {"default":"!query.is_using_item"}
           ]
         },
-        "gaia_crash": {
+        "gravity_field": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ガイアクラッシュ\"}]}",
-            "/function magic/stone/blastbomb"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7グラビティフィールド\"}]}",
+            "/tag @s add gravity_field_self"
           ],
           "transitions": [
-            {"default":"!query.is_using_item"}
+            {"gravity_field_at":"(1.0)"}
+          ]
+        },
+        "gravity_field_at": {
+          "animations" : [ "gravity_field_ani" ],
+          "on_exit": [
+            "/tag @s remove gravity_field_self"
+          ],
+          "transitions": [
+            {"default":"variable.gravity_field = (variable.gravity_field ?? 0);variable.gravity_field = variable.gravity_field < 100 ? variable.gravity_field + 1:0;return variable.gravity_field == 0;"}
           ]
         }
       }

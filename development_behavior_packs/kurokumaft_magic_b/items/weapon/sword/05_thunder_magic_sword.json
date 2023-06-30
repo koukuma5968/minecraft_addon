@@ -51,39 +51,39 @@
         ]
       },
       "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "kurokumaft:thunder_magic_sword"
-          }
+        "on_hurt_entity": {
+          "event": "kurokumaft:thunder_magic_sword"
+        }
       }
     },
     "events": {
-        "kurokumaft:thunder_magic_sword": {
-          "sequence":[
-            {
-              "run_command": {
-                "command": [
-                  "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダーソード\"}]}"
-                ],
-                "target": "self"
-              }
-            },
-            {
-              "run_command": {
-                "command": [
-                  "function magic/lightning/thunder_sword"
-                ],
-                "target": "other"
-              }
-            },
-            {
-              "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":20
-              }
+      "kurokumaft:thunder_magic_sword": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダーソード\"}]}"
+              ],
+              "target": "self"
             }
-          ]
-        }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/lightning/thunder_sword"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":20
+            }
+          }
+        ]
+      }
     }
   }
 }

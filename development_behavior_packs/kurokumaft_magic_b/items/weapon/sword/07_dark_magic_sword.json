@@ -52,39 +52,39 @@
         ]
       },
       "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "kurokumaft:dark_magic_sword"
-          }
+        "on_hurt_entity": {
+          "event": "kurokumaft:dark_magic_sword"
+        }
       }
     },
     "events": {
-        "kurokumaft:dark_magic_sword": {
-          "sequence":[
-            {
-              "run_command": {
-                "command": [
-                  "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ダークソード\"}]}"
-                ],
-                "target": "self"
-              }
-            },
-            {
-              "run_command": {
-                "command": [
-                  "function magic/dark/dark_sword"
-                ],
-                "target": "other"
-              }
-            },
-            {
-              "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":1
-              }
+      "kurokumaft:dark_magic_sword": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ダークソード\"}]}"
+              ],
+              "target": "self"
             }
-          ]
-        }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/dark/dark_sword"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
     }
   }
 }

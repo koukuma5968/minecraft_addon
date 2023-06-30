@@ -25,45 +25,54 @@
       "states": {
         "default": {
           "transitions": [
-            { "atmosphere_shock": "!query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && variable.attack_time" },
-            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && variable.attack_time" },
-            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && query.is_using_item" },
-            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && query.is_using_item" }
+            { "storm_shock": "!query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && variable.attack_time" },
+            { "aero_bit": "query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && variable.attack_time" },
+            { "storm_cutter": "!query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && query.is_using_item" },
+            { "atmosphere": "query.is_sneaking && query.get_equipped_item_name == 'atmosphere_stick' && query.is_using_item" }
           ]
         },
-        "atmosphere_shock": {
+        "storm_shock": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aストームショック\"}]}",
+            "/function magic/wind/storm_shock"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "aero_bit": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aエアロビット\"}]}",
+            "/function magic/wind/aero_bit"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "storm_cutter": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aストームカッター\"}]}"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "atmosphere": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aアトモスフィア\"}]}",
-            "/function magic/wind/atmosphere_shock"
+            "/tag @s add atmosphere_self"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"atmosphere_at":"(1.0)"}
           ]
         },
-        "jewel_bit": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aジュエルビット\"}]}",
-            "/function magic/wind/jewel_bit"
+        "atmosphere_at": {
+          "animations" : [ "atmosphere_ani" ],
+          "on_exit": [
+            "/tag @s remove atmosphere_self"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
-          ]
-        },
-        "stone_edge": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aストーンエッジ\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "gaia_crash": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aガイアクラッシュ\"}]}",
-            "/function magic/wind/blastbomb"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
+            {"default":"variable.atmosphere = (variable.atmosphere ?? 0);variable.atmosphere = variable.atmosphere < 100 ? variable.atmosphere + 1:0;return variable.atmosphere == 0;"}
           ]
         }
       }

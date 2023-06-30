@@ -53,39 +53,39 @@
         ]
       },
       "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "kurokumaft:holly_magic_sword"
-          }
+        "on_hurt_entity": {
+          "event": "kurokumaft:holly_magic_sword"
+        }
       }
     },
     "events": {
-        "kurokumaft:holly_magic_sword": {
-          "sequence":[
-            {
-              "run_command": {
-                "command": [
-                  "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーソード\"}]}"
-                ],
-                "target": "self"
-              }
-            },
-            {
-              "run_command": {
-                "command": [
-                  "function magic/light/holly_sword"
-                ],
-                "target": "other"
-              }
-            },
-            {
-              "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":1
-              }
+      "kurokumaft:holly_magic_sword": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーソード\"}]}"
+              ],
+              "target": "self"
             }
-          ]
-        }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/light/holly_sword"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
     }
   }
 }

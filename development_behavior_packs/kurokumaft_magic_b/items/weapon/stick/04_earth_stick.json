@@ -15,8 +15,6 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 1000
       },
@@ -43,18 +41,23 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:earth_stick.name"
       },
+		  "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "kurokumaft:durability"
+        }
+      },
       "minecraft:use_duration": 0.1,
       "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{
-          "event": "kurokumaft:earth_stick",
+          "event": "kurokumaft:shoot_magic",
           "target": "self"
         }
       }
     },
     "events": {
-      "kurokumaft:earth_stick": {
+      "kurokumaft:durability": {
         "sequence":[
           {
             "damage":{
@@ -64,6 +67,23 @@
             }
           }
         ]
+      },
+      "kurokumaft:shoot_magic": {
+        "sequence":[
+          {
+            "condition": "!query.is_sneaking",
+            "trigger": "kurokumaft:stone_edge"
+          },
+          {
+            "trigger": "kurokumaft:durability"
+          }
+        ]
+      },
+      "kurokumaft:stone_edge": {
+        "shoot": {
+          "projectile": "kurokumaft:stone_edge_magic",
+          "launch_power": 1.1
+        }
       }
     }
   }

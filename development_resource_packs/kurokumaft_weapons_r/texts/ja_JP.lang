@@ -66,6 +66,7 @@ item.kurokumaft:amethyst_sword.name=アメジストソード
 item.kurokumaft:magma_sword.name=溶岩剣
 item.kurokumaft:mithril_sword.name=ミスリルの剣
 item.kurokumaft:echo_sword.name=こだまの剣
+item.kurokumaft:cherry_sword.name=桜の剣
 
 item.kurokumaft:powder_ball.name=火薬玉
 item.kurokumaft:hand_grenade.name=手榴弾
@@ -154,5 +155,13 @@ potion.kurokumaft:hidamageBoost.name=剛力のポーション
 potion.kurokumaft:histurdiness.name=剛健のポーション
 potion.kurokumaft:himoveSpeed.name=剛脚のポーション
 potion.kurokumaft:hipoison.name=猛毒のポーション
+
+item.kurokumaft:steel_pickaxe.name=鋼のツルハシ
+
+item.kurokumaft:steel_axe.name=鋼の斧
+
+item.kurokumaft:steel_hoe.name=鋼のくわ
+
+item.kurokumaft:steel_shovel.name=鋼のシャベル
 
 item.kurokumaft:bamboo_bag.name=竹籠

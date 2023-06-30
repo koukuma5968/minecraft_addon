@@ -18,7 +18,7 @@
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
-        "max_damage": 50
+        "max_durability": 150
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -34,23 +34,18 @@
       "minecraft:damage": 5,
       "minecraft:enchantable": {
         "value": 15,
-        "slot": "sword"
+        "slot": "trident"
       },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
         "on_dig": {
-          "event": "kurokumaft:hurt_entity"
+          "event": "kurokumaft:durability_damage"
         },
         "destroy_speeds": [
-          {
-            "block": "minecraft:web",
-            "speed": 15
-          },
-          {
-            "block": "minecraft:bamboo",
-            "speed": 10
-          }
+          {"block": "minecraft:web","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 15},
+          {"block": "minecraft:bamboo","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 10}
+
         ]
       },
       "minecraft:weapon": {
@@ -60,7 +55,7 @@
       }
     },
     "events": {
-      "kurokumaft:hurt_entity": {
+      "kurokumaft:durability_damage": {
         "damage": {
           "type": "durability",
           "target": "self",
@@ -80,17 +75,13 @@
           {
             "run_command": {
               "command": [
-                "damage @e[type=!player,r=2.5] 4 entity_attack"
+                "damage @e[type=!player,r=2.5] 2 entity_attack"
               ],
               "target": "other"
             }
           },
           {
-            "damage": {
-              "type": "durability",
-              "target": "self",
-              "amount": 1
-            }
+            "trigger": "kurokumaft:durability_damage"
           }
         ]
       }

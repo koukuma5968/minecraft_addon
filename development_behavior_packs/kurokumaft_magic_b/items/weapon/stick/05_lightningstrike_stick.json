@@ -15,8 +15,6 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 1000
       },
@@ -43,24 +41,44 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:lightningstrike_stick.name"
       },
-      "minecraft:use_duration": 0.1,
+      "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "kurokumaft:durability"
+        }
+      },
+      "minecraft:use_duration": 0.5,
       "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{
-          "event": "kurokumaft:lightningstrike_stick",
+          "event": "kurokumaft:shoot_magic",
           "target": "self"
         }
       }
     },
     "events": {
-      "kurokumaft:lightningstrike_stick": {
+      "kurokumaft:durability": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
+      },
+      "kurokumaft:shoot_magic": {
         "sequence":[
           {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
+            "condition": "!query.is_sneaking",
+            "trigger": "kurokumaft:thunder_lance"
+          }
+        ],
+        "trigger": "kurokumaft:durability"
+      },
+      "kurokumaft:thunder_lance": {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:thunder_lance_magic",
+              "launch_power": 1.6
             }
           }
         ]

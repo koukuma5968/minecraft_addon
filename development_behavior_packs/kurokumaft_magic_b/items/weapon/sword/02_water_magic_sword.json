@@ -59,40 +59,40 @@
 
         ]
       },
-      "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "kurokumaft:water_magic_sword"
-          }
+    "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "kurokumaft:water_magic_sword"
+        }
       }
     },
     "events": {
-        "kurokumaft:water_magic_sword": {
-          "sequence":[
-            {
-              "run_command": {
-                "command": [
-                  "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターソード\"}]}"
-                ],
-                "target": "self"
-              }
-            },
-            {
-              "run_command": {
-                "command": [
-                  "function magic/water/water_sword"
-                ],
-                "target": "other"
-              }
-            },
-            {
-              "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":5
-              }
+      "kurokumaft:water_magic_sword": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9ウォーターソード\"}]}"
+              ],
+              "target": "self"
             }
-          ]
-        }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/water/water_sword"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":5
+            }
+          }
+        ]
+      }
     }
   }
 }

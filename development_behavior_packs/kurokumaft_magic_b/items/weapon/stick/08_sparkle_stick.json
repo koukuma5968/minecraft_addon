@@ -15,8 +15,6 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 1000
       },
@@ -43,27 +41,28 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:sparkle_stick.name"
       },
+		  "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "kurokumaft:durability"
+        }
+      },
       "minecraft:use_duration": 0.1,
       "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{
-          "event": "kurokumaft:sparkle_stick",
+          "event": "kurokumaft:durability",
           "target": "self"
         }
       }
     },
     "events": {
-      "kurokumaft:sparkle_stick": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          }
-        ]
+      "kurokumaft:durability": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
       }
     }
   }

@@ -34,6 +34,9 @@
       "echo_sword" : {
          "textures" : "textures/kurokumaft/items/sword/echo_sword"
       },
+      "cherry_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/cherry_sword"
+      },
 
       "bamboo_axe" : {
          "textures" : "textures/kurokumaft/items/axe/bamboo_axe"
@@ -297,6 +300,22 @@
       },
       "potion_bottle_himoveSpeed" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_himoveSpeed"
+      },
+
+      "steel_pickaxe" : {
+         "textures" : "textures/kurokumaft/items/pickaxe/steel_pickaxe"
+      },
+
+      "steel_shovel" : {
+         "textures" : "textures/kurokumaft/items/shovel/steel_shovel"
+      },
+
+      "steel_hoe" : {
+         "textures" : "textures/kurokumaft/items/hoe/steel_hoe"
+      },
+
+      "steel_axe" : {
+         "textures" : "textures/kurokumaft/items/axe/steel_axe"
       },
 
       "bamboo_bag": {

@@ -19,8 +19,6 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 100
       },
@@ -44,25 +42,26 @@
         "value": "item.kurokumaft:snow_wand.name"
       },
       "minecraft:use_duration": 0.1,
+		  "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "kurokumaft:durability"
+        }
+      },
       "minecraft:chargeable": {
       },
       "minecraft:on_use":{
         "on_use":{
-          "event":"kurokumaft:deep_snow"
+          "event":"kurokumaft:durability"
         }
       }
     },
     "events": {
-      "kurokumaft:deep_snow": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          }
-        ]
+      "kurokumaft:durability": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
       }
     }
   }

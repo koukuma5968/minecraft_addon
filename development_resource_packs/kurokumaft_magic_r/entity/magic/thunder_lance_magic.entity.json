@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:thunder_lance_magic",
+        "materials": {
+            "default": "fireball"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/magic/thunder_lance_magic"
+          },
+          "geometry": {
+            "default": "geometry.thunder_lance_magic"
+          },
+          "animations": {
+            "shooter": "animation.thunder_lance_magic.shooter"
+          },
+          "particle_effects": {
+            "thunder": "kurokumaft:lightning_arrow_particle"
+          },
+          "scripts": {
+            "scale": "1.5",
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.thunder_lance_magic" ]
+        }
+    }
+  }
+  

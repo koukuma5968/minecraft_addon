@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:steel_pickaxe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AAA",
+            " # ",
+            " # "
+        ],
+        "key": {
+            "A": {
+                "item": "kurokumaft:steel_ingot"
+            },
+            "#": {
+                "item": "minecraft:stick"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:steel_pickaxe",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

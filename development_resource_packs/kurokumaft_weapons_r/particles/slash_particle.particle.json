@@ -5,7 +5,7 @@
 			"identifier": "kurokumaft:slash_particle",
 			"basic_render_parameters": {
 				"material": "particles_alpha",
-				"texture": "textures/particle/slash"
+				"texture": "textures/kurokumaft/particle/slash"
 			}
 		},
 		"components": {

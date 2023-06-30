@@ -1,0 +1,35 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:earth_stick"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "rsr",
+      "mim",
+      "did"
+    ],
+    "key": {
+      "s": {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      "r": {
+        "item": "minecraft:redstone_block"
+      },
+      "i": {
+        "item": "minecraft:stick"
+      },
+      "m": {
+        "item": "minecraft:stone",
+        "data": 1
+      },
+      "d": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "result": [
+      {"item": "kurokumaft:earth_stick"}
+    ]
+  }
+}

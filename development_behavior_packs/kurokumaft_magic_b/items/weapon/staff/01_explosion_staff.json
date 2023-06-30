@@ -68,18 +68,32 @@
       },
 		  "minecraft:weapon": {
         "on_hurt_entity": {
-          "condition": "!query.is_sneaking",
-          "event":"kurokumaft:mega_brand"
+          "event":"kurokumaft:magic_weapon"
         }
       },
       "minecraft:on_use":{
         "on_use":{
-          "condition": "!query.is_sneaking",
           "event":"kurokumaft:explosion"
         }
       }
     },
     "events": {
+      "kurokumaft:durability": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
+      },
+      "kurokumaft:magic_weapon": {
+        "sequence":[
+          {
+            "condition": "!query.is_sneaking",
+            "trigger": "kurokumaft:mega_brand"
+          }
+        ],
+        "trigger": "kurokumaft:durability"
+      },
       "kurokumaft:mega_brand": {
         "sequence":[
           {
@@ -89,26 +103,11 @@
               ],
               "target": "other"
             }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
           }
         ]
       },
       "kurokumaft:explosion": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          }
-        ]
+        "trigger": "kurokumaft:durability"
       }
     }
   }

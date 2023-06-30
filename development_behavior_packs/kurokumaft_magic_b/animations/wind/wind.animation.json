@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.wind.atmosphere": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute @e[tag=atmosphere_self] ~~~ particle kurokumaft:atmosphere_particle ~~~",
+					"/function magic/wind/atmosphere"
+				]
+			}
+		},
+		"animation.wind.storm_cutter": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/execute @s ~~~ tp @s ^^^1.5 facing @e[family=monster,c=1]"
+				]
+			}
+		}
+
+	}
+}

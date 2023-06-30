@@ -25,45 +25,54 @@
       "states": {
         "default": {
           "transitions": [
-            { "lightningstrike_shock": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && variable.attack_time" },
-            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && variable.attack_time" },
-            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" },
-            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" }
+            { "spark_shock": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && variable.attack_time" },
+            { "thunder_bit": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && variable.attack_time" },
+            { "thunder_lance": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" },
+            { "lightningstrike": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" }
           ]
         },
-        "lightningstrike_shock": {
+        "spark_shock": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6スパークショック\"}]}",
+            "/function magic/lightning/spark_shock"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "thunder_bit": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダービット\"}]}",
+            "/function magic/lightning/thunder_bit"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        },
+        "thunder_lance": {
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダーランス\"}]}"
+          ],
+          "transitions": [
+            {"default":"!query.is_using_item"}
+          ]
+        },
+        "lightningstrike": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングストライク\"}]}",
-            "/function magic/lightning/lightningstrike_shock"
+            "/tag @s add lightningstrike_self"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"lightningstrike_at":"(1.0)"}
           ]
         },
-        "jewel_bit": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ジュエルビット\"}]}",
-            "/function magic/lightning/jewel_bit"
+        "lightningstrike_at": {
+          "animations" : [ "lightningstrike_ani" ],
+          "on_exit": [
+            "/tag @s remove lightningstrike_self"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
-          ]
-        },
-        "stone_edge": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ストーンエッジ\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "gaia_crash": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ガイアクラッシュ\"}]}",
-            "/function magic/lightning/blastbomb"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
+            {"default":"variable.lightningstrike = (variable.lightningstrike ?? 0);variable.lightningstrike = variable.lightningstrike < 100 ? variable.lightningstrike + 1:0;return variable.lightningstrike == 0;"}
           ]
         }
       }

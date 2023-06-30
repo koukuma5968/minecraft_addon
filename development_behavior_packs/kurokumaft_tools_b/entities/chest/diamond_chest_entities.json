@@ -5,8 +5,7 @@
       "identifier": "kurokumaft:diamond_chest_entities",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false,
-      "runtime_identifier": "minecraft:chest"
+      "is_experimental": false
     },
     "component_groups": {
       "set_on_collision_box": {

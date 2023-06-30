@@ -1,0 +1,117 @@
+{
+  "format_version": "1.17",
+  "minecraft:item" : {
+    "description": {
+        "identifier": "kurokumaft:steel_hoe",
+        "category": "equipment"
+    },
+    "components": {
+        "minecraft:display_name": {
+          "value": "item.kurokumaft:steel_hoe.name"
+        },
+        "minecraft:icon":{
+          "texture": "steel_hoe"
+        },
+        "minecraft:creative_category": {
+          "parent": "itemGroup.name.hoe"
+        },
+        "minecraft:max_stack_size": 1,
+        "minecraft:hand_equipped": true,
+        "minecraft:durability": {
+          "max_durability": 300
+        },
+        "minecraft:repairable": {
+          "repair_items": [
+            {
+              "items": [ "kurokumaft:steel_ingot" ],
+              "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            },
+            {
+              "items": [ "kurokumaft:steel_hoe" ],
+              "repair_amount": "(query.max_durability - query.remaining_durability)"
+            }
+          ]
+        },
+        "minecraft:mining_speed": 2.5,
+        "minecraft:damage": 5,
+        "minecraft:enchantable": {
+          "value": 25,
+          "slot": "hoe"
+        },
+        "minecraft:on_use_on": {
+          "on_use_on": {
+            "event": "kurokumaft:farming"
+          }
+        },
+        "minecraft:can_destroy_in_creative": true,
+        "minecraft:digger": {
+          "use_efficiency": true,
+          "on_dig": {
+            "event": "kurokumaft:durability_damage"
+          },
+          "destroy_speeds": [
+            {"block": "minecraft:azalea","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:azalea_leaves","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:beetroot","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:big_dripleaf","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:brown_mushroom_block","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:calibrated_sculk_sensor","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:cave_vines","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:cave_vines_body_with_berries","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:cave_vines_head_with_berries","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:colored_torch_bp","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:colored_torch_rg","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:glow_frame","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:glow_lichen","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:hanging_roots","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:hay_block","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:mycelium","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:nether_sprouts","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:nether_wart","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:nether_wart_block","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:pitcher_crop","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:pitcher_plant","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:red_mushroom_block","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:reeds","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:sapling","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:sculk","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:sculk_catalyst","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:sculk_sensor","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:sculk_shrieker","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:sculk_vein","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:shroomlight","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:spore_blossom","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:twisting_vines","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:vine","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6},
+            {"block": "minecraft:weeping_vines","on_dig": {"event": "kurokumaft:durability_damage"},"speed": 6}
+          ]
+        },
+        "minecraft:weapon": {
+          "on_hurt_entity": {
+            "event": "kurokumaft:durability_damage"
+          },
+          "on_hit_block": {
+            "event": "kurokumaft:durability_damage"
+          }
+        }
+      },
+      "events": {
+        "kurokumaft:durability_damage": {
+          "damage":{
+            "type":"durability",
+            "target":"self",
+            "amount":3
+          }
+        },
+        "kurokumaft:farming": {
+          "run_command": {
+            "command": [
+              "function hoe/farming"
+            ],
+            "target": "player"
+          }
+        }
+      }
+  }
+}
+

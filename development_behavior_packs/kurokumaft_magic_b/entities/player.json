@@ -95,6 +95,9 @@
         "framepillar_ani": "animation.fire.framepillar","flarecircle_ani": "animation.fire.flarecircle",
         "waterpillar_ani": "animation.water.waterpillar","aqua_shot_ani": "animation.water.aqua_shot","tidal_wave_ani": "animation.water.tidal_wave",
         "flame_spark_ani": "animation.lightning.flame_spark",
+        "gravity_field_ani": "animation.stone.gravity_field",
+        "atmosphere_ani": "animation.wind.atmosphere",
+        "lightningstrike_ani": "animation.lightning.lightningstrike",
 
         "fire_grimoire_change": "controller.animation.grimoire.fire_change",
 
