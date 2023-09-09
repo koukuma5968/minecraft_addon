@@ -71,7 +71,35 @@
         "minecraft:variant": {
             "value": 7
         }
+      },
+
+      "kurokumaft:knockback_max": {
+        "minecraft:knockback_resistance": {
+          "value": 100
+        }
+      },
+      "kurokumaft:knockback_zero": {
+        "minecraft:knockback_resistance": {
+          "value": 0
+        }
+      },
+
+      "kurokumaft:explosion_nullify": {
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { 
+                "any_of": [
+                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" },
+                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
+                ]
+              },
+              "damage_per_tick": 0
+            }
+          ]
+        }
       }
+
     },
 
     "components": {
@@ -293,6 +321,33 @@
           "component_groups": [ "minecraft:raid_trigger" ]
         }
       },
+      "kurokumaft:explosion_nullify": {
+        "add": {
+          "component_groups": [ "kurokumaft:explosion_nullify" ]
+        }
+      },
+      "kurokumaft:explosion_nullify_remove": {
+        "remove": {
+          "component_groups": [ "kurokumaft:explosion_nullify" ]
+        }
+      },
+      "kurokumaft:knockback_add": {
+        "remove": {
+          "component_groups": [ "kurokumaft:knockback_zero" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:knockback_max" ]
+        }
+      },
+      "kurokumaft:knockback_remove": {
+        "remove": {
+          "component_groups": [ "kurokumaft:knockback_max" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:knockback_zero" ]
+        }
+      },
+
       "kurokumaft:random_kokyu": {
         "sequence": [
           {

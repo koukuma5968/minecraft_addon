@@ -1,0 +1,22 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:assault_whistle",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:assault_whistle.name"
+			},
+      "minecraft:icon": {
+        "texture": "assault_whistle"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.whistle"
+      }
+    },
+    "events": {
+    }
+  }
+}

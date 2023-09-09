@@ -11,6 +11,16 @@
 				]
 			}
 		},
+		"animation.boomerang_stone_owner": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/tp ^^^0.8 facing @p[tag=stoneBoomP]",
+					"/execute @p[tag=stoneBoomP,r=0.5] ~~~ event entity @e[tag=stonereturn,c=1] kurokumaft:owner_retrun"
+				]
+			}
+		},
 		"animation.boomerang_iron_owner": {
 			"animation_length": 0.01,
 			"loop": true,
@@ -18,6 +28,16 @@
 				"0.0": [
 					"/tp ^^^0.8 facing @p[tag=ironBoomP]",
 					"/execute @p[tag=ironBoomP,r=0.5] ~~~ event entity @e[tag=ironreturn,c=1] kurokumaft:owner_retrun"
+				]
+			}
+		},
+		"animation.boomerang_diamond_owner": {
+			"animation_length": 0.01,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/tp ^^^0.8 facing @p[tag=diamondBoomP]",
+					"/execute @p[tag=diamondBoomP,r=0.5] ~~~ event entity @e[tag=diamondreturn,c=1] kurokumaft:owner_retrun"
 				]
 			}
 		}

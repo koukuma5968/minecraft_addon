@@ -1,5 +1,5 @@
 {
-  "format_version": "1.18.10",
+  "format_version": "1.19.50",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:bamboo_bag",
@@ -14,8 +14,15 @@
       "minecraft:icon": {
         "texture": "bamboo_bag"
       },
+      "minecraft:entity_placer": {
+        "entity": "kurokumaft:bamboo_bag"
+      },
+      "minecraft:hand_equipped": true,
       "minecraft:item_storage": {
         "capacity": 16
+      },
+      "minecraft:wearable": {
+        "slot": "slot.chest"
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:bamboo_bag.name"

@@ -13,6 +13,24 @@
         "geometry": "geometry.humanoid.customSlim",
         "texture": "kanawo.png",
         "type": "free"
+      },
+      {
+        "localization_name": "kyouzyuroSkin",
+        "geometry": "geometry.humanoid.custom",
+        "texture": "kyouzyuro.png",
+        "type": "free"
+      },
+      {
+        "localization_name": "zenituSkin",
+        "geometry": "geometry.humanoid.custom",
+        "texture": "zenitu.png",
+        "type": "free"
+      },
+      {
+        "localization_name": "inosukeSkin",
+        "geometry": "geometry.humanoid.custom",
+        "texture": "inosuke.png",
+        "type": "free"
       }
     ]
   }

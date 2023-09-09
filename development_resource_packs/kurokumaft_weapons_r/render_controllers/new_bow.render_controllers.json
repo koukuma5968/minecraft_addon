@@ -20,9 +20,9 @@
           ]
         }
       },
-      "geometry": "array.bow_geo_frames[query.main_hand_item_use_duration <= 1.0 ? 0 : 3 ]",
+      "geometry": "array.bow_geo_frames[query.main_hand_item_use_duration > 0 ? variable.charge_amount : 0]",
       "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "array.bow_texture_frames[query.main_hand_item_use_duration <= 1.0 ? 0 : 3]", "texture.enchanted" ]
+      "textures": [ "array.bow_texture_frames[query.main_hand_item_use_duration > 0 ? variable.charge_amount : 0]", "texture.enchanted" ]
     }
   }
 }

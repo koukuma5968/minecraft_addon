@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "kurokumaft:bamboo_bag",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/kurokumaft/models/bag/bamboo_bag"
+			},
+			"geometry": {
+				"default": "geometry.bamboo_bag"
+			},
+			"scripts": {
+				"animate": [
+					"bag"
+				]
+			},
+			"animations": {
+				"bag": "controller.animation.bamboo_bag",
+				"stay": "animation.bamboo_bag.stay",
+				"burdened": "animation.bamboo_bag.burdened"
+			},
+			"render_controllers": ["controller.render.default"]
+		}
+	}
+}

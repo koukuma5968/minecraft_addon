@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.oniyon_base.stand": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"position": [0, -3, 0]
+				},
+				"leg3": {
+					"rotation": [-14.13272, 5.07855, 19.37006],
+					"position": [-7, 0, -4]
+				},
+				"leg1": {
+					"rotation": [30, 0, 0],
+					"position": [0, 1, 11]
+				},
+				"leg2": {
+					"rotation": [-19.94842, 1.87826, -18.01282],
+					"position": [6, 0, -5]
+				}
+			}
+		}
+	}
+}

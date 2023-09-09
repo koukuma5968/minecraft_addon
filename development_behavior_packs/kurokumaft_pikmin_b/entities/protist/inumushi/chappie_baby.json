@@ -1,0 +1,166 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:chappie_baby",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+      "kurokumaft:grow_up_transformation": {
+        "minecraft:transformation": {
+          "into": "kurokumaft:chappie_kids",
+          "transformation_sound": "converted_to_zombified",
+          "keep_level": true
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:experience_reward": {
+        "on_bred": "Math.Random(2,4)",
+        "on_death": "query.last_hit_by_player ? 1 : 0"
+      },
+      "minecraft:ageable": {
+        "duration": 3600,
+        "grow_up": {
+          "event": "minecraft:ageable_grow_up",
+          "target": "self"
+        }
+      },
+      "minecraft:attack": {
+        "damage": 1
+      },
+      "minecraft:scale": {
+        "value": 1.0
+      },
+      "minecraft:health": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.4
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0,
+        "on_leash": {
+          "event": "minecraft:on_leash",
+          "target": "self"
+        },
+        "on_unleash": {
+          "event": "minecraft:on_unleash",
+          "target": "self"
+        }
+      }, 
+      "minecraft:balloonable": {
+        "mass": 0.8
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:type_family": {
+        "family": [ "protist", "monster", "inumushi", "larvae" ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.15
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 4,
+        "reselect_targets": true,
+        "must_see": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test" :  "is_family", "subject" : "other", "value" :  "pikmin"},
+                { "test" :  "is_family", "subject" : "other", "value" :  "player"}
+              ] 
+            },
+            "max_dist": 8
+          }
+        ]
+      },
+
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 1,
+        "speed_multiplier": 1.25,
+        "target_dist": 0,
+        "track_target": true
+      },
+      "minecraft:behavior.stay_while_sitting": {
+      },
+      "minecraft:behavior.leap_at_target": {
+        "target_dist": 0.4
+      },
+      "minecraft:behavior.look_at_target": {
+        "probability": 1.0
+      },
+      "minecraft:behavior.melee_attack": {
+      },
+      "minecraft:behavior.random_stroll": {
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.beg": {
+        "look_distance": 8,
+        "look_time": [ 2, 4 ],
+        "items": [ "bone", "porkchop", "cooked_porkchop", "chicken", "cooked_chicken", 
+                   "beef", "cooked_beef", "rotten_flesh", "muttonraw", "muttoncooked", "rabbit", "cooked_rabbit" ]
+      },
+
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 3
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+
+    "events": {
+      "minecraft:ageable_grow_up": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:grow_up_transformation"
+          ]
+        }
+      }
+    }
+  }
+}

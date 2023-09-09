@@ -1,0 +1,28 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:rock_oniyon",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:rock_oniyon.name"
+			},
+      "minecraft:icon": {
+        "texture": "rock_oniyon"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.oniyon"
+      },
+      "minecraft:block_placer": {
+        "block": "rock_oniyons",
+        "use_on" : [
+          "farmland","grass","dirt"
+        ]
+      }
+    },
+    "events": {
+    }
+  }
+}

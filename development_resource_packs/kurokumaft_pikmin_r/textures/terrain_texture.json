@@ -1,0 +1,72 @@
+{
+	"resource_pack_name": "kurokumaft_pikumin_r",
+	"texture_name": "atlas.terrain",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"red_oniyon_stage_0": {
+			"textures": "textures/kurokumaft/blocks/oniyon/red/red_oniyon_stage_0"
+		},
+		"red_oniyon_stage_1": {
+			"textures": "textures/kurokumaft/blocks/oniyon/red/red_oniyon_stage_1"
+		},
+		"red_oniyon_stage_2": {
+			"textures": "textures/kurokumaft/blocks/oniyon/red/red_oniyon_stage_2"
+		},
+		"red_oniyon_stage_3": {
+			"textures": "textures/kurokumaft/blocks/oniyon/red/red_oniyon_stage_3"
+		},
+
+		"blue_oniyon_stage_0": {
+			"textures": "textures/kurokumaft/blocks/oniyon/blue/blue_oniyon_stage_0"
+		},
+		"blue_oniyon_stage_1": {
+			"textures": "textures/kurokumaft/blocks/oniyon/blue/blue_oniyon_stage_1"
+		},
+		"blue_oniyon_stage_2": {
+			"textures": "textures/kurokumaft/blocks/oniyon/blue/blue_oniyon_stage_2"
+		},
+		"blue_oniyon_stage_3": {
+			"textures": "textures/kurokumaft/blocks/oniyon/blue/blue_oniyon_stage_3"
+		},
+
+		"yellow_oniyon_stage_0": {
+			"textures": "textures/kurokumaft/blocks/oniyon/yellow/yellow_oniyon_stage_0"
+		},
+		"yellow_oniyon_stage_1": {
+			"textures": "textures/kurokumaft/blocks/oniyon/yellow/yellow_oniyon_stage_1"
+		},
+		"yellow_oniyon_stage_2": {
+			"textures": "textures/kurokumaft/blocks/oniyon/yellow/yellow_oniyon_stage_2"
+		},
+		"yellow_oniyon_stage_3": {
+			"textures": "textures/kurokumaft/blocks/oniyon/yellow/yellow_oniyon_stage_3"
+		},
+
+		"feather_oniyon_stage_0": {
+			"textures": "textures/kurokumaft/blocks/oniyon/feather/feather_oniyon_stage_0"
+		},
+		"feather_oniyon_stage_1": {
+			"textures": "textures/kurokumaft/blocks/oniyon/feather/feather_oniyon_stage_1"
+		},
+		"feather_oniyon_stage_2": {
+			"textures": "textures/kurokumaft/blocks/oniyon/feather/feather_oniyon_stage_2"
+		},
+		"feather_oniyon_stage_3": {
+			"textures": "textures/kurokumaft/blocks/oniyon/feather/feather_oniyon_stage_3"
+		},
+
+		"rock_oniyon_stage_0": {
+			"textures": "textures/kurokumaft/blocks/oniyon/rock/rock_oniyon_stage_0"
+		},
+		"rock_oniyon_stage_1": {
+			"textures": "textures/kurokumaft/blocks/oniyon/rock/rock_oniyon_stage_1"
+		},
+		"rock_oniyon_stage_2": {
+			"textures": "textures/kurokumaft/blocks/oniyon/rock/rock_oniyon_stage_2"
+		},
+		"rock_oniyon_stage_3": {
+			"textures": "textures/kurokumaft/blocks/oniyon/rock/rock_oniyon_stage_3"
+		}
+	}
+}

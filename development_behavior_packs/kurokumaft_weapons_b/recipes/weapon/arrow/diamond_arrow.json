@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:diamond_arrow"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+          "b",
+          "b",
+          "f"
+        ],
+        "key": {
+            "f": {
+                "item": "minecraft:feather"
+            },
+            "b": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:diamond_arrow",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

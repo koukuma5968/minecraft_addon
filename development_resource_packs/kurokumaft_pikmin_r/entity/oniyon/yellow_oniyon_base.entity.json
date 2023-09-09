@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:yellow_oniyon_base",
+      "materials": {
+        "default": "armor_stand"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/oniyon/yellow_oniyon_base"
+      },
+      "geometry": {
+        "default": "geometry.oniyon_base"
+      },
+      "scripts": {
+        "animate": [
+          "stand"
+        ]
+      },
+      "animations": {
+        "stand": "animation.oniyon_base.stand"
+      },
+      "render_controllers": [ "controller.render.armor_stand" ],
+      "enable_attachables": true
+    }
+  }
+}

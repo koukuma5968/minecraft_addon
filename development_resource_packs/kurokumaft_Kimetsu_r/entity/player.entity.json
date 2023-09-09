@@ -646,7 +646,7 @@
         "mushi.seirei": "animation.nichirintou_kokyu.mushi.seirei",
         "mushi.gokou": "animation.nichirintou_kokyu.mushi.gokou",
 
-        "mituri.kokyu_body":"controller.animation.mituri.body",
+        "mituri.kokyu_body":"controller.animation.mituri.body_player",
         "mituri_body.ichi_1": "animation.nichirintou_kokyu.mituri_body.ichi_1",
         "mituri_body.ichi_2": "animation.nichirintou_kokyu.mituri_body.ichi_2",
         "mituri_body.ni_1": "animation.nichirintou_kokyu.mituri_body.ni_1",

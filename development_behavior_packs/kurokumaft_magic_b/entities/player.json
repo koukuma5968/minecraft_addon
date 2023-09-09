@@ -213,7 +213,7 @@
       "kurokumaft:armor_knockback_add": {
         "minecraft:knockback_resistance": {
           "value": 10.0
-        }  
+        }
       },
       "kurokumaft:armor_knockback_remove": {
         "minecraft:knockback_resistance": {
@@ -418,78 +418,26 @@
           {
             "on_damage": {
               "filters": {
-                "any_of" :[
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "fire_magic_shield_main"},
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "fire_magic_shield_off"}
+                "all_of" : [
+                  {
+                    "any_of" :[
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "main_shield_guard"},
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
+                    ]
+                  },
+                  {
+                    "any_of" :[
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "attack"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "magic"}
+                    ]
+                  }
                 ]
-              },
-              "event": "kurokumaft:fire_reflection"
+              }
             },
-            "deals_damage": false,
-            "on_damage_sound_event": "item.shield.block"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "any_of" :[
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "water_magic_shield_main"},
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "water_magic_shield_off"}
-                ]
-              },
-              "event": "kurokumaft:water_reflection"
-            },
-            "deals_damage": false,
-            "on_damage_sound_event": "item.shield.block"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "any_of" :[
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "wind_magic_shield_main"},
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "wind_magic_shield_off"}
-                ]
-              },
-              "event": "kurokumaft:wind_reflection"
-            },
-            "deals_damage": false,
-            "on_damage_sound_event": "item.shield.block"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "any_of" :[
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "thunder_magic_shield_main"},
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "thunder_magic_shield_off"}
-                ]
-              },
-              "event": "kurokumaft:thunder_reflection"
-            },
-            "deals_damage": false,
-            "on_damage_sound_event": "item.shield.block"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "any_of" :[
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "ice_magic_shield_main"},
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "ice_magic_shield_off"}
-                ]
-              },
-              "event": "kurokumaft:ice_reflection"
-            },
-            "deals_damage": false,
-            "on_damage_sound_event": "item.shield.block"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "any_of" :[
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "stone_magic_shield_main"},
-                  {"test": "has_tag","operator": "equals","subject": "self","value": "stone_magic_shield_off"}
-                ]
-              },
-              "event": "kurokumaft:stone_reflection"
-            },
+            "cause": "all",
             "deals_damage": false,
             "on_damage_sound_event": "item.shield.block"
           },
@@ -1170,7 +1118,7 @@
       "kurokumaft:night_vision_effect": {
 				"run_command": {
 					"command": [
-					  "effect @s night_vision 1 10 true"
+					  "effect @s night_vision 15 10 true"
 					]
 				}
 			},

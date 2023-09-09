@@ -19,7 +19,9 @@
         "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle"
       },
       "scripts": {
-        "scale": "0.9375",
+        "scaleX": "1.02",
+        "scaleY": "1.25",
+        "scaleZ": "1.02",
         "pre_animation": [
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "variable.equipped_nichirintou = query.skin_id == 1;"

@@ -47,6 +47,7 @@ entity.kurokumaft:nezuko.name=竈門 禰豆子
 entity.kurokumaft:giyu.name=富岡 義勇
 entity.kurokumaft:shinobu.name=胡蝶 しのぶ
 entity.kurokumaft:tengen.name=宇髄 天元
+entity.kurokumaft:mituri.name=甘露寺 蜜璃
 
 item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
 item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
@@ -57,13 +58,16 @@ item.spawn_egg.entity.kurokumaft:giyu.name=富岡 義勇
 item.spawn_egg.entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
 item.spawn_egg.entity.kurokumaft:shinobu.name=胡蝶 しのぶ
 item.spawn_egg.entity.kurokumaft:tengen.name=宇髄 天元
+item.spawn_egg.entity.kurokumaft:mituri.name=甘露寺 蜜璃
 
 item.kurokumaft:soldier_jacket_guy.name=隊士服上着・茶(男)
 item.kurokumaft:soldier_pants_guy.name=隊士服ズボン・茶(男)
 item.kurokumaft:soldier_jacket_guy_blue.name=隊士服上着・紺(男)
 item.kurokumaft:soldier_pants_guy_blue.name=隊士服ズボン・紺(男)
 item.kurokumaft:soldier_jacket_girl_blue.name=隊士服上着・紺(女)
+item.kurokumaft:soldier_jacket_girl_brown.name=隊士服上着・茶(女)
 item.kurokumaft:soldier_skirt_girl_blue.name=隊士服キュロット・紺(女)
+item.kurokumaft:soldier_skirt_girl_brown.name=隊士服スカート・茶(女)
 item.kurokumaft:soldier_jacket_girl_purple.name=隊士服上着・紫(女)
 item.kurokumaft:soldier_pants_girl_purple.name=隊士服ズボン・紫(女)
 
@@ -100,6 +104,11 @@ item.kurokumaft:tengen_soldier_jacket.name=天元の隊士服
 item.kurokumaft:tengen_headgear.name=天元の額当
 item.kurokumaft:tengen_tabi.name=天元の足袋
 
+item.kurokumaft:mituri_haori.name=蜜璃の羽織
+item.kurokumaft:mituri_tabi.name=蜜璃の足袋
+item.kurokumaft:mituri_jacket.name=蜜璃の隊士服
+item.kurokumaft:mituri_jacket.name=蜜璃の隊士服スカート
+
 item.kurokumaft:tanjiro_head.name=炭次郎の頭
 item.kurokumaft:zenitu_head.name=善逸の頭
 item.kurokumaft:inosuke_head.name=伊之助の頭
@@ -109,4 +118,5 @@ item.kurokumaft:giyu_head.name=義勇の頭
 item.kurokumaft:kyouzyuro_head.name=杏寿郎の頭
 item.kurokumaft:shinobu_head.name=しのぶの頭
 item.kurokumaft:tengen_head.name=天元の頭
+item.kurokumaft:mituri_head.name=蜜璃の頭
 

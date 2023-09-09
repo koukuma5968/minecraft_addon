@@ -24,17 +24,28 @@
       "minecraft:creative_category": {
         "parent": "itemGroup.name.shield"
       },
+      "minecraft:damage": 0,
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,
       "minecraft:durability": {
-        "max_durability": 330,
-        "damage_chance": {
-          "min": 80,
-          "max": 100
+        "max_durability": 330
+      },
+      "minecraft:weapon": {
+        "on_not_hurt_entity": {
+          "event": "kurokumaft:hurt_entity"
         }
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.offhand"
+      }
+    },
+    "events": {
+      "kurokumaft:hurt_entity": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
       }
     }
   }

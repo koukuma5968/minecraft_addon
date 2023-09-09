@@ -33,6 +33,38 @@
 				}
 			}
 		},
+		"controller.animation.thrown.boomerang_stone": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @p add stoneBoomP"
+					],
+					"transitions": [
+						{ "return": "query.variant == 1" }
+					]
+				},
+				"return": {
+					"animations": ["return_owner"],
+					"on_entry": [
+						"/tag @s add stonereturn"
+					],
+					"transitions": [
+						{ "back": "query.variant == 2" }
+					]
+				},
+				"back": {
+					"on_entry": [
+						"/tag @p[tag=stoneBoomP,c=1] remove stoneBoomP"
+					],
+					"on_exit": [
+						"/kill @s"
+					],
+					"transitions": [
+						{ "default": "(1.0)" }
+					]
+				}
+			}
+		},
 		"controller.animation.thrown.boomerang_iron": {
 			"states": {
 				"default": {
@@ -55,6 +87,38 @@
 				"back": {
 					"on_entry": [
 						"/tag @p[tag=ironBoomP,c=1] remove ironBoomP"
+					],
+					"on_exit": [
+						"/kill @s"
+					],
+					"transitions": [
+						{ "default": "(1.0)" }
+					]
+				}
+			}
+		},
+		"controller.animation.thrown.boomerang_diamond": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/tag @p add diamondBoomP"
+					],
+					"transitions": [
+						{ "return": "query.variant == 1" }
+					]
+				},
+				"return": {
+					"animations": ["return_owner"],
+					"on_entry": [
+						"/tag @s add diamondreturn"
+					],
+					"transitions": [
+						{ "back": "query.variant == 2" }
+					]
+				},
+				"back": {
+					"on_entry": [
+						"/tag @p[tag=diamondBoomP,c=1] remove diamondBoomP"
 					],
 					"on_exit": [
 						"/kill @s"

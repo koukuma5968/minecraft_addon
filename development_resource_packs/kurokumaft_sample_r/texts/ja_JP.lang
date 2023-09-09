@@ -7,3 +7,4 @@ item.kurokumaft:chromium_nugget.name=クロム塊
 tile.kurokumaft:chromium_ore.name=クロム鉱石
 
 entity.kurokumaft:ghoul.name=グール	#
+item.spawn_egg.entity.kurokumaft:ghoul.name=グールをスポーンさせる

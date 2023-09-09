@@ -99,7 +99,6 @@
       "minecraft:nameable": {
       },
 
-      // Zombie Components
       "minecraft:type_family": {
         "family": [ "zombie", "undead", "monster", "mob" ]
       },
@@ -372,7 +371,6 @@
       "despawn_from_distance": {}
      },
 
-      // Zombie Behaviors
       "minecraft:behavior.equip_item": {
         "priority": 2
       },

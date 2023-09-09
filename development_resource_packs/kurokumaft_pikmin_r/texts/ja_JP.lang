@@ -1,13 +1,63 @@
-entity.kurokumaft:redpikmin.name=赤ピクミン
-entity.kurokumaft:yellowpikmin.name=黄ピクミン
-entity.kurokumaft:bluepikmin.name=青ピクミン
-entity.kurokumaft:featherpikmin.name=羽ピクミン
-entity.kurokumaft:rockpikmin.name=岩ピクミン
+entity.kurokumaft:red_pikmin.name=赤ピクミン
+entity.kurokumaft:yellow_pikmin.name=黄ピクミン
+entity.kurokumaft:blue_pikmin.name=青ピクミン
+entity.kurokumaft:feather_pikmin.name=羽ピクミン
+entity.kurokumaft:rock_pikmin.name=岩ピクミン
 
-item.spawn_egg.entity.kurokumaft:redpikmin.name=赤ピクミンをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:yellowpikmin.name=黄ピクミンをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:bluepikmin.name=青ピクミンをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:featherpikmin.name=羽ピクミンをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:rockpikmin.name=岩ピクミンをスポーンさせる	#
+entity.kurokumaft:chappie.name=チャッピー
+entity.kurokumaft:chappie_kids.name=コチャッピーモドキ
+entity.kurokumaft:chappie_baby.name=ベビーチャッピー
+entity.kurokumaft:chappie_jumbo.name=ジャンボチャッピー
 
-item.kurokumaft:redpikmin_seed.name=赤ピクミンの種
+entity.kurokumaft:aka_kochappie.name=アカコチャッピー
+entity.kurokumaft:yuki_chappie.name=ユキチャッピー
+
+entity.kurokumaft:imogaeru.name=イモガエル
+entity.kurokumaft:nushigaeru.name=ヌシガエル
+
+entity.kurokumaft:butadokkuri.name=ブタドックリ
+entity.kurokumaft:mizubutadokkuri.name=ミズブタ
+entity.kurokumaft:zoubutadokkuri.name=ゾウブタドックリ
+entity.kurokumaft:kobutadokkuri.name=コブタドックリ
+
+item.spawn_egg.entity.kurokumaft:red_pikmin.name=赤ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:yellow_pikmin.name=黄ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:blue_pikmin.name=青ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:feather_pikmin.name=羽ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:rock_pikmin.name=岩ピクミンをスポーンさせる	#
+
+item.spawn_egg.entity.kurokumaft:chappie.name=チャッピーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:chappie_kids.name=コチャッピーモドキをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:chappie_baby.name=ベビーチャッピーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:chappie_jumbo.name=ジャンボチャッピーをスポーンさせる	#
+
+item.spawn_egg.entity.kurokumaft:aka_kochappie.name=アカコチャッピーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:yuki_chappie.name=ユキチャッピーをスポーンさせる	#
+
+item.spawn_egg.entity.kurokumaft:imogaeru.name=イモガエルをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:nushigaeru.name=ヌシガエルをスポーンさせる	#
+
+item.spawn_egg.entity.kurokumaft:butadokkuri.name=ブタドックリをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:mizubutadokkuri.name=ミズブタをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:zoubutadokkuri.name=ゾウブタドックリをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:kobutadokkuri.name=コブタドックリをスポーンさせる	#
+
+item.kurokumaft:red_oniyon.name=赤ピクミンのオニヨン
+item.kurokumaft:yellow_oniyon.name=黄ピクミンのオニヨン
+item.kurokumaft:blue_oniyon.name=青ピクミンのオニヨン
+item.kurokumaft:feather_oniyon.name=羽ピクミンのオニヨン
+item.kurokumaft:rock_oniyon.name=岩ピクミンのオニヨン
+
+item.kurokumaft:red_pellet.name=赤のペレット
+item.kurokumaft:yellow_pellet.name=黄のペレット
+item.kurokumaft:blue_pellet.name=青のペレット
+item.kurokumaft:feather_pellet.name=ピンクのペレット
+item.kurokumaft:rock_pellet.name=黒のペレット
+
+item.kurokumaft:assault_whistle.name=激辛笛
+
+tile.kurokumaft:red_oniyon.name=赤ピクミンのオニヨン
+tile.kurokumaft:yellow_oniyon.name=黄ピクミンのオニヨン
+tile.kurokumaft:blue_oniyon.name=青ピクミンのオニヨン
+tile.kurokumaft:feather_oniyon.name=羽ピクミンのオニヨン
+tile.kurokumaft:rock_oniyon.name=岩ピクミンのオニヨン

@@ -1,0 +1,26 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.chappie.move" : {
+			"initial_state" : "move",
+			"states" : {
+				"move" : {
+					"animations" : [ { "move": "math.min(1.0, query.modified_move_speed * 10)" } ],
+					"transitions" : [
+						{
+							"sleep" : "query.variant == 1"
+						}
+					]
+				},
+				"sleep" : {
+					"animations" : [ "sleep" ],
+					"transitions" : [
+						{
+							"move" : "query.variant == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

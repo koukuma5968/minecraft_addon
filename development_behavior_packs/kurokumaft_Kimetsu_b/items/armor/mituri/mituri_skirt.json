@@ -1,0 +1,48 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:mituri_skirt",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:mituri_skirt.name"
+			},
+      "minecraft:icon": {
+          "texture": "mituri_skirt"
+      },
+      "minecraft:creative_category": {
+				"parent": "itemGroup.name.leggings"
+			},
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:mituri_skirt" ],
+            "repair_amount": 250
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_legs"
+      },
+      "minecraft:durability": {
+        "max_durability": 1500,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:armor": {
+        "protection": 30,
+        "texture_type": "elytra"
+      },
+      "minecraft:wearable": {
+        "slot": "slot.armor.legs"
+      }
+    }
+  }
+}

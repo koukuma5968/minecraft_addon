@@ -1,0 +1,85 @@
+{
+  "format_version": "1.19.50",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:blue_fire_charge_entity",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:arrow"
+    },
+    "component_groups": {
+      "minecraft:exploding": {
+        "minecraft:explode": {
+          "fuse_length": 0,
+          "fuse_lit": true,
+          "power": 1,
+          "max_resistance": 5,
+          "causes_fire": true,
+          "fire_affected_by_griefing": true,
+          "destroy_affected_by_griefing": true
+        }
+      }
+    },
+  
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true,
+            "event_trigger": {
+              "event": "minecraft:explode",
+              "target": "self"
+            }
+          },
+          "impact_damage": {
+            "damage": 5,
+            "catch_fire": false,
+            "semi_random_diff_damage": true
+          }
+        },
+        "knockback": false,
+        "destroy_on_hurt": true,
+        "power": 1.5,
+        "gravity": 0.00,
+        "inertia": 1.0,
+        "uncertaintyBase": 8,
+        "uncertaintyMultiplier": 2.5,
+        "anchor": 1,
+        "offset": [0, 0, 0],
+        "reflect_on_hurt": true,
+        "shoot_target": true,
+        "catch_fire": false
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "minecraft:explode": {
+        "add": {
+          "component_groups": [
+            "minecraft:exploding"
+          ]
+        }
+      }
+    }
+  }
+}

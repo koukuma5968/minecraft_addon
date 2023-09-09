@@ -1,0 +1,27 @@
+{
+  "format_version": "1.18.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:diamond_arrow",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.arrow"
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:icon": {
+        "texture": "diamond_arrow"
+      },
+      "minecraft:allow_off_hand": true,
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:diamond_arrow.name"
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:diamond_arrow"
+      }
+    },
+    "events": {
+    }
+  }
+}

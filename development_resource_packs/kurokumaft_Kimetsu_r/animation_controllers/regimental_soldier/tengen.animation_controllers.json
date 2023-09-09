@@ -11,7 +11,7 @@
 				},
 				"attack" : {
 					"animations" : [
-						"nichirintou_two_attack"
+						"attack"
 					],
 					"transitions" : [
 						{"default":"query.any_animation_finished"}

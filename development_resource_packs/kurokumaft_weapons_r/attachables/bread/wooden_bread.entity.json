@@ -8,18 +8,20 @@
         "enchanted": "entity_alphatest_glint"
       },
       "textures": {
-        "default": "textures/kurokumaft/items/bread/wooden_bread",
+        "default": "textures/kurokumaft/models/bread/wooden_bread",
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "default": "geometry.wooden_bread"
+        "default": "geometry.bread"
       },
       "animations": {
-        "wield": "animation.bread.wield"
+        "first_person": "animation.bread.wield_first_person",
+        "third_person": "animation.bread.wield_third_person"
       },
       "scripts": {
         "animate": [
-          "wield"
+          {"first_person": "c.is_first_person"},
+          {"third_person": "!c.is_first_person"}
         ]
       },
       "render_controllers": [ "controller.render.item_default" ]

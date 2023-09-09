@@ -7,11 +7,16 @@ itemGroup.name.hammer=槌 #
 item.kurokumaft:bamboo_spear.name=竹やり
 item.kurokumaft:wooden_spear.name=木のやり
 item.kurokumaft:stone_spear.name=石やり
+item.kurokumaft:iron_spear.name=アイアンスピアー
+item.kurokumaft:cherry_spear.name=桜のやり
+item.kurokumaft:steel_spear.name=スチールスピアー
+item.kurokumaft:blaze_spear.name=ブレイズスピアー
+
 item.kurokumaft:granite_spear.name=御影石のやり
 item.kurokumaft:diorite_spear.name=閃緑岩のやり
 item.kurokumaft:andesite_spear.name=安山岩のやり
 item.kurokumaft:basalt_spear.name=玄武岩のやり
-item.kurokumaft:deep_crimson_spear.name=真紅のやり
+item.kurokumaft:deep_crimson_spear.name=クリムゾンスピアー
 item.kurokumaft:crooked_spear.name=歪んだやり
 item.kurokumaft:glass_spear.name=ガラスのやり
 item.kurokumaft:lapis_spear.name=ラピスラズリスピアー
@@ -21,7 +26,6 @@ item.kurokumaft:blue_ice_spear.name=青氷のやり
 item.kurokumaft:coal_spear.name=石炭のやり
 item.kurokumaft:sealantern_spear.name=シーランタンスピアー
 item.kurokumaft:bone_spear.name=ボーンスピアー
-item.kurokumaft:iron_spear.name=アイアンスピアー
 item.kurokumaft:golden_spear.name=ゴールデンスピアー
 item.kurokumaft:diamond_spear.name=ダイヤモンドスピアー
 item.kurokumaft:netherite_spear.name=ネザイライトスピアー
@@ -40,9 +44,16 @@ item.kurokumaft:stone_knife.name=石のナイフ
 item.kurokumaft:tnt_knife.name=TNTダガー
 
 item.kurokumaft:wooden_bread.name=木刀
+item.kurokumaft:stone_bread.name=石刀
+item.kurokumaft:iron_bread.name=鉄刀
+item.kurokumaft:diamond_bread.name=金剛刀
+item.kurokumaft:netherite_bread.name=太古の刀
+item.kurokumaft:steel_bread.name=鋼鉄の刀
 
 item.kurokumaft:wooden_boomerang.name=木のブーメラン
+item.kurokumaft:stone_boomerang.name=石のブーメラン
 item.kurokumaft:iron_boomerang.name=鉄のブーメラン
+item.kurokumaft:diamond_boomerang.name=ダイヤのブーメラン
 
 item.kurokumaft:bamboo_sword.name=竹の剣
 item.kurokumaft:copper_sword.name=銅の剣
@@ -67,6 +78,9 @@ item.kurokumaft:magma_sword.name=溶岩剣
 item.kurokumaft:mithril_sword.name=ミスリルの剣
 item.kurokumaft:echo_sword.name=こだまの剣
 item.kurokumaft:cherry_sword.name=桜の剣
+item.kurokumaft:ender_dragon_sword.name=エンダードラゴンソード
+item.kurokumaft:wither_sword.name=呪いの剣
+item.kurokumaft:ender_eye_sword.name=邪眼の剣
 
 item.kurokumaft:powder_ball.name=火薬玉
 item.kurokumaft:hand_grenade.name=手榴弾
@@ -75,10 +89,13 @@ item.kurokumaft:bakutiku.name=爆竹
 item.kurokumaft:arquebus.name=火縄銃
 item.kurokumaft:revolver.name=リボルバー
 item.kurokumaft:gatling.name=ガトリング砲
+item.kurokumaft:machine_gun.name=マシンガン
+item.kurokumaft:ghast_bazooka.name=ガストバスター
 
 item.kurokumaft:lead_ball.name=鉛玉
 item.kurokumaft:forty_four_magnum.name=44マグナム弾
 item.kurokumaft:twenty_two_lr.name=22LR弾
+item.kurokumaft:blue_fire_charge.name=魂の弾丸
 
 item.kurokumaft:wooden_hammer.name=木槌
 item.kurokumaft:stone_hammer.name=石槌
@@ -94,13 +111,18 @@ item.kurokumaft:wood_scythe.name=木の大鎌
 item.kurokumaft:stone_scythe.name=石の大鎌
 
 item.kurokumaft:bamboo_bow.name=竹の弓
-item.kurokumaft:bamboo_arrow.name=竹の矢
-
 item.kurokumaft:iron_bow.name=鉄の弓
+item.kurokumaft:diamond_bow.name=ダイヤモンドの弓
+item.kurokumaft:cherry_bow.name=桜の弓
+
+item.kurokumaft:bamboo_arrow.name=竹の矢
 item.kurokumaft:iron_arrow.name=鉄の矢
+item.kurokumaft:diamond_arrow.name=ダイヤモンドの矢
+item.kurokumaft:cherry_arrow.name=桜の矢
 
 item.kurokumaft:kettle_lid.name=なべぶた	#
 item.kurokumaft:copper_shield.name=銅の盾	#
+item.kurokumaft:cherry_shield.name=桜の盾	#
 
 item.kurokumaft:chromium_nugget.name=クロム塊
 item.kurokumaft:lead_nugget.name=鉛塊
@@ -150,6 +172,11 @@ item.kurokumaft:blackstone_chestplate.name=ブラックストーンチェスト�
 item.kurokumaft:blackstone_leggings.name=ブラックストーンレギンス
 item.kurokumaft:blackstone_boots.name=ブラックストーンブーツ
 
+item.kurokumaft:cherry_helmet.name=桜のヘルメット
+item.kurokumaft:cherry_chestplate.name=桜の胸当て
+item.kurokumaft:cherry_leggings.name=桜のレギンス
+item.kurokumaft:cherry_boots.name=桜のブーツ
+
 potion.kurokumaft:hiheal.name=超回復のポーション
 potion.kurokumaft:hidamageBoost.name=剛力のポーション
 potion.kurokumaft:histurdiness.name=剛健のポーション
@@ -165,3 +192,4 @@ item.kurokumaft:steel_hoe.name=鋼のくわ
 item.kurokumaft:steel_shovel.name=鋼のシャベル
 
 item.kurokumaft:bamboo_bag.name=竹籠
+entity.kurokumaft:bamboo_bag.name=竹籠

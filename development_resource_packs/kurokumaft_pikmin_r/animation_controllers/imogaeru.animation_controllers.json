@@ -1,0 +1,27 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.imogaeru.general": {
+			"initial_state": "on_land",
+			"states": {
+				"on_land": {
+					"animations": [
+						{ "walk": "math.min(1.0, query.modified_move_speed * 10)" }
+					],
+					"transitions": [
+						{ "jumping": "query.is_jump_goal_jumping"}
+					]
+				},
+				"jumping": {
+					"animations": [
+						{ "jump": "query.is_jump_goal_jumping" }
+					],
+					"transitions": [
+						{ "on_land": "!query.is_in_water && !query.is_jump_goal_jumping" }
+					]
+
+				}
+			}
+		}
+	}
+}

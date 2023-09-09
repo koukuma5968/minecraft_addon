@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:cherry_shield"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "#I#",
+      "###",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:cherry_planks"
+      },
+      "I": {
+        "item": "kurokumaft:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:cherry_shield"
+    },
+    "priority": -1
+  } 
+}

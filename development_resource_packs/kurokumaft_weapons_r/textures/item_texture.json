@@ -37,6 +37,15 @@
       "cherry_sword" : {
          "textures" : "textures/kurokumaft/items/sword/cherry_sword"
       },
+      "ender_dragon_sword": {
+         "textures" : "textures/kurokumaft/items/sword/ender_dragon_sword"
+      },
+      "wither_sword": {
+         "textures" : "textures/kurokumaft/items/sword/wither_sword"
+      },
+      "ender_eye_sword": {
+         "textures" : "textures/kurokumaft/items/sword/ender_eye_sword"
+      },
 
       "bamboo_axe" : {
          "textures" : "textures/kurokumaft/items/axe/bamboo_axe"
@@ -70,6 +79,15 @@
       "iron_spear": {
          "textures": "textures/kurokumaft/items/spear/iron_spear"
       },
+      "steel_spear": {
+         "textures": "textures/kurokumaft/items/spear/steel_spear"
+      },
+      "cherry_spear": {
+         "textures": "textures/kurokumaft/items/spear/cherry_spear"
+      },
+      "blaze_spear": {
+         "textures": "textures/kurokumaft/items/spear/blaze_spear"
+      },
 
       "bamboo_knife": {
          "textures" : "textures/kurokumaft/items/knife/bamboo_knife"
@@ -87,12 +105,27 @@
       "wooden_bread": {
    		"textures": "textures/kurokumaft/items/bread/wooden_bread"
       },
+      "stone_bread": {
+   		"textures": "textures/kurokumaft/items/bread/stone_bread"
+      },
+      "iron_bread": {
+   		"textures": "textures/kurokumaft/items/bread/iron_bread"
+      },
+      "diamond_bread": {
+   		"textures": "textures/kurokumaft/items/bread/diamond_bread"
+      },
 
       "wooden_boomerang": {
    		"textures": "textures/kurokumaft/items/boomerang/wooden_boomerang"
       },
+      "stone_boomerang": {
+   		"textures": "textures/kurokumaft/items/boomerang/stone_boomerang"
+      },
       "iron_boomerang": {
    		"textures": "textures/kurokumaft/items/boomerang/iron_boomerang"
+      },
+      "diamond_boomerang": {
+   		"textures": "textures/kurokumaft/items/boomerang/diamond_boomerang"
       },
 
       "wooden_hammer": {
@@ -147,6 +180,15 @@
       "gatling": {
          "textures": "textures/kurokumaft/items/gun/gatling"
       },
+      "machine_gun": {
+         "textures": [
+            "textures/kurokumaft/items/gun/machine_gun",
+            "textures/kurokumaft/items/gun/machine_gun_chage"
+         ]
+      },
+      "ghast_bazooka": {
+         "textures": "textures/kurokumaft/items/gun/ghast_bazooka"
+      },
 
       "lead_ball": {
          "textures": "textures/kurokumaft/items/gun/bullet/lead_ball"
@@ -156,6 +198,9 @@
       },
       "twenty_two_lr": {
          "textures": "textures/kurokumaft/items/gun/bullet/twenty_two_lr"
+      },
+      "blue_fire_charge": {
+         "textures": "textures/kurokumaft/items/gun/bullet/blue_fire_charge"
       },
 
       "barista": {
@@ -192,11 +237,40 @@
          "textures" : "textures/kurokumaft/items/arrow/iron_arrow"
       },
 
+      "diamond_bow" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/diamond/diamond_bow_standby",
+            "textures/kurokumaft/items/bow/diamond/diamond_bow_pulling_0",
+            "textures/kurokumaft/items/bow/diamond/diamond_bow_pulling_1",
+            "textures/kurokumaft/items/bow/diamond/diamond_bow_pulling_2"
+         ]
+      },
+
+      "diamond_arrow" : {
+         "textures" : "textures/kurokumaft/items/arrow/diamond_arrow"
+      },
+
+      "cherry_bow" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_standby",
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_pulling_0",
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_pulling_1",
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_pulling_2"
+         ]
+      },
+
+      "cherry_arrow" : {
+         "textures" : "textures/kurokumaft/items/arrow/cherry_arrow"
+      },
+
       "kettle_lid" : {
          "textures" : "textures/kurokumaft/items/shield/kettle_lid"
       },
       "copper_shield" : {
          "textures" : "textures/kurokumaft/items/shield/copper_shield"
+      },
+      "cherry_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/cherry_shield"
       },
 
       "chromium_nugget" : {
@@ -280,6 +354,27 @@
       },
       "blackstone_boots": {
          "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_boots"
+      },
+
+      "cherry_chestplate" : {
+         "textures" : [
+            "textures/kurokumaft/items/armor/cherry/cherry_chestplate",
+            "textures/items/chainmail_chestplate",
+            "textures/items/iron_chestplate",
+            "textures/items/gold_chestplate",
+            "textures/items/diamond_chestplate",
+            "textures/items/netherite_chestplate"
+         ]
+      },
+
+      "cherry_helmet": {
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_helmet"
+      },
+      "cherry_leggings": {
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_leggings"
+      },
+      "cherry_boots": {
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_boots"
       },
 
       "fish_meal" : {

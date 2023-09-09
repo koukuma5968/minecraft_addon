@@ -25,13 +25,33 @@
 				"leftarm": {
 					"rotation": {
 						"0.7": {
-							"post": ["math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)", "math.lerp(this, 180.0, variable.leftarmswim_amount)", "math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)"],
-							"pre": ["math.lerp(this, 0.0, variable.leftarmswim_amount)", "math.lerp(this, 180.0, variable.leftarmswim_amount)", "math.lerp(this, 180.0 - 0.01877 * (-65.0 * math.mod(query.modified_distance_moved, 26.0) + math.mod(query.modified_distance_moved, 26.0) * math.mod(query.modified_distance_moved, 26.0)), variable.leftarmswim_amount)"]
+							"post": [
+								"math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)",
+								"math.lerp(this, 180.0, variable.leftarmswim_amount)",
+								"math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)"
+							],
+							"pre": [
+								"math.lerp(this, 0.0, variable.leftarmswim_amount)",
+								"math.lerp(this, 180.0, variable.leftarmswim_amount)",
+								"math.lerp(this, 180.0 - 0.01877 * (-65.0 * math.mod(query.modified_distance_moved, 26.0) + math.mod(query.modified_distance_moved, 26.0) * math.mod(query.modified_distance_moved, 26.0)), variable.leftarmswim_amount)"
+							]
 						},
-						"1.1": ["math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)", "math.lerp(this, 180.0, variable.leftarmswim_amount)", "math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)"],
+						"1.1": [
+							"math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)",
+							"math.lerp(this, 180.0, variable.leftarmswim_amount)",
+							"math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)"
+						],
 						"1.3": {
-							"post": ["math.lerp(this, 90.0 - (22.5 * math.mod(query.modified_distance_moved, 26.0)), variable.leftarmswim_amount)", "math.lerp(this, 180.0, variable.leftarmswim_amount)", "math.lerp(this, 180.0, variable.leftarmswim_amount)"],
-							"pre": ["math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)", "math.lerp(this, 180.0, variable.leftarmswim_amount)", "math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)"]
+							"post": [
+								"math.lerp(this, 90.0 - (22.5 * math.mod(query.modified_distance_moved, 26.0)), variable.leftarmswim_amount)",
+								"math.lerp(this, 180.0, variable.leftarmswim_amount)",
+								"math.lerp(this, 180.0, variable.leftarmswim_amount)"
+							],
+							"pre": [
+								"math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)",
+								"math.lerp(this, 180.0, variable.leftarmswim_amount)",
+								"math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.leftarmswim_amount)"
+							]
 						}
 					}
 				},
@@ -41,13 +61,33 @@
 				"rightarm": {
 					"rotation": {
 						"0.7": {
-							"post": ["math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)", "math.lerp(this, 180.0, variable.rightarmswim_amount)", "math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)"],
-							"pre": ["math.lerp(this, 0.0, variable.rightarmswim_amount)", "math.lerp(this, 180.0, variable.rightarmswim_amount)", "math.lerp(this, -0.1019 * (-65.0 * math.mod(query.modified_distance_moved, 26.0) + math.mod(query.modified_distance_moved, 26.0) * math.mod(query.modified_distance_moved, 26.0)), variable.rightarmswim_amount)"]
+							"post": [
+								"math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)",
+								"math.lerp(this, 180.0, variable.rightarmswim_amount)",
+								"math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)"
+							],
+							"pre": [
+								"math.lerp(this, 0.0, variable.rightarmswim_amount)",
+								"math.lerp(this, 180.0, variable.rightarmswim_amount)",
+								"math.lerp(this, -0.1019 * (-65.0 * math.mod(query.modified_distance_moved, 26.0) + math.mod(query.modified_distance_moved, 26.0) * math.mod(query.modified_distance_moved, 26.0)), variable.rightarmswim_amount)"
+							]
 						},
-						"1.1": ["math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)", "math.lerp(this, 180.0, variable.rightarmswim_amount)", "math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)"],
+						"1.1": [
+							"math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)",
+							"math.lerp(this, 180.0, variable.rightarmswim_amount)",
+							"math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)"
+						],
 						"1.3": {
-							"post": ["math.lerp(this, 90.0 - (22.5 * math.mod(query.modified_distance_moved, 26.0)), variable.rightarmswim_amount)", "math.lerp(this, 180.0, variable.rightarmswim_amount)", "math.lerp(this, 180.0, variable.rightarmswim_amount)"],
-							"pre": ["math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)", "math.lerp(this, 180.0, variable.rightarmswim_amount)", "math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)"]
+							"post": [
+								"math.lerp(this, 90.0 - (22.5 * math.mod(query.modified_distance_moved, 26.0)), variable.rightarmswim_amount)",
+								"math.lerp(this, 180.0, variable.rightarmswim_amount)",
+								"math.lerp(this, 180.0, variable.rightarmswim_amount)"
+							],
+							"pre": [
+								"math.lerp(this, 11.25 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)",
+								"math.lerp(this, 180.0, variable.rightarmswim_amount)",
+								"math.lerp(this, 72.77 + 13.4 * math.mod(query.modified_distance_moved, 26.0), variable.rightarmswim_amount)"
+							]
 						}
 					}
 				},
@@ -58,10 +98,8 @@
 		},
 		"animation.pikmin.fly": {
 			"loop": true,
+			"animation_length": 0.08333,
 			"bones": {
-				"waist": {
-					"position": [ 0.0, 50.0, 0.0 ]
-				},
 				"body": {
 					"rotation": [62.5, 0, 0],
 					"position": [0, -10.6, -15.2]
@@ -83,12 +121,33 @@
 					"position": [0, -8, -6]
 				},
 				"rightfeather": {
-					"rotation": [66.59588, -41.07962, -44.63895],
-					"position": [-0.4, 1.1, 1.3]
+					"rotation": {
+						"0.0": [66.59588, -41.07962, -44.63895],
+						"0.0417": [42.62077, -23.5569, -17.84935]
+					},
+					"position": {
+						"0.0": [-0.4, 0.7, 1.6],
+						"0.0417": [0.2, 0.6, 1.6]
+					}
 				},
 				"leftfeather": {
-					"rotation": [57.5045, 43.29065, 45.65229],
-					"position": [-0.4, 0.3, 0.1]
+					"rotation": {
+						"0.0": [58.58519, 38.44853, 47.30232],
+						"0.0417": [35.38491, 21.86643, 5.56581]
+					},
+					"position": {
+						"0.0": [-0.4, -0.1, 0.1],
+						"0.0417": [-0.2, 0.1, 0.8]
+					}
+				}
+			}
+		},
+		"animation.pikmin.plant": {
+			"loop": true,
+			"bones": {
+				"waist": {
+					"rotation": [0, 0, 0],
+					"position": [0, -12, 0]
 				}
 			}
 		}

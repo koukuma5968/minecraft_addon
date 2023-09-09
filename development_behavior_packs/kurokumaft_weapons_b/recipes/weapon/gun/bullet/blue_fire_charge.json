@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:blue_fire_charge"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "f",
+            "b"
+        ],
+        "key": {
+            "f": {
+                "item": "minecraft:fireball"
+            },
+            "b": {
+                "tag": "minecraft:soul_fire_base_blocks"
+            }
+
+        },
+        "result": {
+            "item": "kurokumaft:blue_fire_charge",
+            "count": 9
+        },
+        "priority": 2
+    }
+}

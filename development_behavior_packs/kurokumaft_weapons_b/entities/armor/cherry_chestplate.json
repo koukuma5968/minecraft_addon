@@ -1,0 +1,44 @@
+{
+	"format_version": "1.20.1",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "kurokumaft:cherry_chestplate",
+			"is_spawnable": false,
+			"is_summonable": false,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:item",
+			"scripts":{
+				"variables": {
+					"variable.has_trim": "public",
+					"variable.trim_path": "public"
+				},
+				"initialize": [
+					"variable.has_trim = 0;"
+				]
+			}
+		},
+
+		"components": {
+			"minecraft:type_family": {
+				"family": [ "item" ]
+			},
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 1.5
+			},
+			"minecraft:physics": {
+				"has_collision": true,
+				"has_gravity": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+				  "max_optimized_distance": 80.0,
+				  "max_dropped_ticks": 7,
+				  "use_motion_prediction_hints": true
+				}
+			}
+		},
+		"events": {
+		}
+	}
+}

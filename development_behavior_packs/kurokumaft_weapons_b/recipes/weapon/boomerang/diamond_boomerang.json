@@ -1,0 +1,26 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:diamond_boomerang"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AAA",
+            "A  ",
+            "A  "
+        ],
+        "key": {
+            "A": {
+                "item": "diamond"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:diamond_boomerang",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

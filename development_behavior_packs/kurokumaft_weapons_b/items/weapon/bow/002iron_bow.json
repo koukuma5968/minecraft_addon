@@ -6,14 +6,15 @@
       "category": "equipment"
     },
     "components": {
+      "tag:bow": {},
       "minecraft:creative_category": {
         "parent": "itemGroup.name.bow"
       },
       "minecraft:durability": {
-        "max_durability": 1000
+        "max_durability": 400
       },
       "minecraft:enchantable": {
-        "value": 20,
+        "value": 15,
         "slot": "bow"
       },
       "minecraft:max_stack_size": 1,
@@ -24,7 +25,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:iron_bow" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability)"
           }
         ]
       },

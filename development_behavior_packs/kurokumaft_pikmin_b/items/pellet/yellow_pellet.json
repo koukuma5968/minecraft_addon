@@ -1,0 +1,22 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:yellow_pellet",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:yellow_pellet.name"
+			},
+      "minecraft:icon": {
+        "texture": "yellow_pellet"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.pellet"
+      }
+    },
+    "events": {
+    }
+  }
+}

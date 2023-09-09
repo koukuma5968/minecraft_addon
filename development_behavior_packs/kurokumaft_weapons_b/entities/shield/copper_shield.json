@@ -1,0 +1,165 @@
+{
+	"format_version": "1.19.50",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "kurokumaft:copper_shield",
+			"is_spawnable": false,
+			"is_summonable": false,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"kurokumaft:guard_on": {
+				"minecraft:variant": {
+					"value": 0
+				},
+				"minecraft:collision_box": {
+					"width": 0.0,
+					"height": 0.0
+				},
+				"minecraft:physics": {
+					"has_gravity": false,
+					"has_collision": false
+				}
+			},
+			"kurokumaft:guard_off": {
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:collision_box": {
+					"width": 1.5,
+					"height": 0.75
+				},
+				"minecraft:physics": {
+					"has_gravity": false,
+					"has_collision": false
+				}
+			},
+			"kurokumaft:sneaking": {
+				"minecraft:entity_sensor": {
+					"event": "kurokumaft:shield_guard",
+					"event_filters": {
+						"all_of" : [
+							{"test": "is_family","subject": "other","value": "player"},
+							{"test": "is_riding", "operator": "==", "subject": "self","value": true},
+							{"test": "is_sneaking", "operator": "==", "subject": "other","value": true}
+						]
+					},
+					"maximum_count": 1,
+					"sensor_range": 1.5
+				},
+				"minecraft:timer": {
+					"looping": false,
+					"time": [3.0,3.0],
+					"time_down_event": { 
+						"event": "kurokumaft:stay"
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 1.0
+			},
+			"minecraft:type_family": {
+				"family": ["parrot_tame", "shield"]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "all",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:pushable": {
+				"is_pushable": false
+			},
+			"minecraft:push_through": {
+				"value": 1
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["kurokumaft:stay", "kurokumaft:variant_0"]
+				}
+			},
+			"kurokumaft:on_hit_1": {
+				"add": {
+					"component_groups": ["kurokumaft:variant_1"]
+				}
+			},
+			"kurokumaft:on_hit_2": {
+				"add": {
+					"component_groups": ["kurokumaft:variant_2"]
+				}
+			},
+			"kurokumaft:hit_out": {
+				"remove": {
+					"component_groups": ["kurokumaft:variant_1","kurokumaft:variant_1"]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:variant_0"]
+				}
+			},
+			"kurokumaft:on_breaking": {
+				"run_command": {
+					"command": [
+						"kill @s"
+					]
+				}
+			},
+			"kurokumaft:bag_burdened": {
+				"add": {
+					"component_groups": [ "kurokumaft:burdened", "kurokumaft:variant_3"]
+				},
+				"run_command": {
+					"command": [
+						"execute @p ~~~ say bag_burdened",
+						"ride @s start_riding @e[family=player,c=1] teleport_rider"
+					]
+				}
+			},
+			"kurokumaft:stay": {
+				"remove": {
+					"component_groups": [ "kurokumaft:burdened","kurokumaft:sneaking", "kurokumaft:variant_3"]
+				},
+				"add": {
+					"component_groups": [ "kurokumaft:stay", "kurokumaft:variant_0" ]
+				},
+				"run_command": {
+					"command": [
+						"execute @p ~~~ say stay",
+						"ride @s stop_riding"
+					]
+				}
+			},
+			"kurokumaft:sneaking_on": {
+				"run_command": {
+					"command": [
+						"execute @p ~~~ say sneaking_on"
+					]
+				},
+				"remove": {
+					"component_groups": [ "kurokumaft:burdened" ]
+				},
+				"add": {
+					"component_groups": [ "kurokumaft:sneaking" ]
+				}
+			},
+			"kurokumaft:sneaking_off": {
+				"run_command": {
+					"command": [
+						"execute @p ~~~ say sneaking_off"
+					]
+				},
+				"remove": {
+					"component_groups": [ "kurokumaft:sneaking" ]
+				},
+				"add": {
+					"component_groups": [ "kurokumaft:burdened" ]
+				}
+			}
+		}
+	}
+}

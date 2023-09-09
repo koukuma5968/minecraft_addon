@@ -1,0 +1,43 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mituri_jacket",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 14, -2.1], "size": [8.2, 10.1, 4.2], "uv": [27, 1]},
+						{"origin": [0, 17.4, -4.1], "size": [3.6, 4.7, 3.1], "uv": [52, 0]},
+						{"origin": [-3.6, 17.4, -4.1], "size": [3.6, 4.7, 3.1], "uv": [52, 7]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-7.1, 15, -2.1], "size": [3.2, 9.1, 4.2], "uv": [35, 16]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0],
+					"mirror": true,
+					"cubes": [
+						{"origin": [3.9, 15, -2.1], "size": [3.2, 9.1, 4.2], "uv": [35, 16]}
+					]
+				}
+			]
+		}
+	]
+}

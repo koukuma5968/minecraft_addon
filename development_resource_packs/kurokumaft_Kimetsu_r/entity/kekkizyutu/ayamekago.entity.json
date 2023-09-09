@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:ayamekago",
+        "materials": {
+            "default": "armor_stand"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/ayamekago"
+          },
+          "geometry": {
+            "default": "geometry.ayamekago"
+          },
+          "scripts": {
+            "scale": "1.0"
+          },
+          "render_controllers": [ "controller.render.armor_stand" ]
+        }
+    }
+  }
+  

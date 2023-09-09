@@ -22,17 +22,33 @@
 			}
 		},
 		"controller.animation.pikmin.move" : {
-			"initial_state" : "default",
+			"initial_state" : "plant",
 			"states" : {
-				"default" : {
+				"plant" : {
+					"animations" : [ "plant" ],
+					"transitions" : [
+						{
+							"move" : "query.variant == 1"
+						}
+					]
+				},
+				"move" : {
 					"animations" : [ "move" ]
 				}
 			}
 		},
 		"controller.animation.pikmin.fly" : {
-			"initial_state" : "default",
+			"initial_state" : "plant",
 			"states" : {
-				"default" : {
+				"plant" : {
+					"animations" : [ "plant" ],
+					"transitions" : [
+						{
+							"fly" : "query.variant == 1"
+						}
+					]
+				},
+				"fly" : {
 					"animations" : [ "fly" ]
 				}
 			}

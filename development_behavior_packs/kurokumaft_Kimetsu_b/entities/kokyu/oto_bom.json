@@ -9,27 +9,15 @@
     },
     "component_groups": {
       "minecraft:exploding": {
-        "minecraft:behavior.knockback_roar": {
-          "attack_time": 0.1,
-          "knockback_damage": 10,
-          "duration": 0.2,
-          "damage_filters": {
-            "all_of": [
-              {"test": "is_family","operator": "not","subject": "other","value": "player"},
-              {"test": "is_family","operator": "not","subject": "other","value": "regimental_soldier"}
-            ]
-          },
-          "knockback_filters": {
-            "all_of": [
-              {"test": "is_family","operator": "not","subject": "other","value": "player"},
-              {"test": "is_family","operator": "not","subject": "other","value": "regimental_soldier"}
-            ]
-          },
-          "knockback_height_cap": 3,
-          "knockback_range": 2,
-          "knockback_horizontal_strength": 3,
-          "knockback_vertical_strength": 3
-        }
+				"minecraft:explode": {
+          "breaks_blocks": false,
+					"fuse_length": 0,
+					"fuse_lit": true,
+					"power": 3,
+					"causes_fire": false,
+					"fire_affected_by_griefing": true,
+					"destroy_affected_by_griefing": true
+				}
       }
     },
     "components": {

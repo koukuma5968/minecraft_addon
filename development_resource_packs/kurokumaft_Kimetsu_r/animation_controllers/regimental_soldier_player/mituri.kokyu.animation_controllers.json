@@ -19,7 +19,7 @@
 				}
 			}
 		},
-		"controller.animation.mituri.body" : {
+		"controller.animation.mituri.body_player" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{
@@ -96,7 +96,7 @@
 				}
 			}
 		},
- 		"controller.animation.mituri.kokyu" : {
+ 		"controller.animation.mituri.kokyu_player" : {
 			"initial_state" : "default",
 			"states" : {
 				"default":{

@@ -1,8 +1,72 @@
 {
-   "resource_pack_name" : "kurokuma_magic_r",
+   "resource_pack_name" : "kurokuma_pikmin_r",
    "texture_data" : {
-      "redpikmin_seed": { 
-         "textures": "textures/kurokumaft/items/seed/redpikmin_seed"
+      "red_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/red_oniyon"
+      },
+      "blue_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/blue_oniyon"
+      },
+      "feather_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/feather_oniyon"
+      },
+      "rock_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/rock_oniyon"
+      },
+      "yellow_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/yellow_oniyon"
+      },
+
+      "red_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/red_pellet"
+      },
+      "blue_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/blue_pellet"
+      },
+      "feather_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/feather_pellet"
+      },
+      "rock_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/rock_pellet"
+      },
+      "yellow_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/yellow_pellet"
+      },
+
+      "pikmin_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/pikmin/red_pikmin_egg",
+            "textures/kurokumaft/items/spawn_egg/pikmin/yellow_pikmin_egg",
+            "textures/kurokumaft/items/spawn_egg/pikmin/blue_pikmin_egg",
+            "textures/kurokumaft/items/spawn_egg/pikmin/rock_pikmin_egg",
+            "textures/kurokumaft/items/spawn_egg/pikmin/feather_pikmin_egg"
+         ]
+      },
+
+      "inumushi_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/protist/inumushi/chappie_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/inumushi/chappie_kids_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/inumushi/chappie_baby_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/inumushi/chappie_jumbo_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/inumushi/kechappie_egg"
+         ]
+      },
+
+      "imogaeru_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/protist/imogaeru/imogaeru_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/imogaeru/nushigaeru_egg"
+         ]
+      },
+
+      "butadokkuri_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/protist/butadokkuri/butadokkuri_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/butadokkuri/zoubutadokkuri_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/butadokkuri/mizubutadokkuri_egg",
+            "textures/kurokumaft/items/spawn_egg/protist/butadokkuri/kobutadokkuri_egg"
+         ]
       }
 
    },

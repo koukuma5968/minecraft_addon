@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:ghast_bazooka"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "BBB",
+            "BAB",
+            "BBB"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:ghast_tear"
+            },
+            "B": {
+                "tag": "minecraft:soul_fire_base_blocks"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:ghast_bazooka",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

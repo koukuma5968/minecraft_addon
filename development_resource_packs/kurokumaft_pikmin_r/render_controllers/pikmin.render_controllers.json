@@ -2,9 +2,25 @@
   "format_version": "1.8.0",
   "render_controllers": {
     "controller.render.pikmin": {
-      "geometry": "Geometry.default",
+      "arrays": {
+        "textures": {
+          "array.grow_frames": [
+            "texture.leaf",
+            "texture.bud",
+            "texture.flower"
+          ]
+        },
+        "geometries": {
+          "array.grow_geo_frames": [
+            "geometry.leaf",
+            "geometry.bud",
+            "geometry.flower"
+          ]
+        }
+      },
+      "geometry": "array.grow_geo_frames[query.skin_id]",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Texture.default" ]
+      "textures": [ "array.grow_frames[query.skin_id]" ]
     }
   }
 }

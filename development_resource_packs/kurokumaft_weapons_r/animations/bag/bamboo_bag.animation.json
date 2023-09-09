@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bamboo_bag.stay": {
+			"loop": true
+		},
+		"animation.bamboo_bag.burdened": {
+			"loop": true,
+			"bones": {
+				"root": {
+					"position": [-6, -9, 6]
+				}
+			}
+		}
+	}
+}

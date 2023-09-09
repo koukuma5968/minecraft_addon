@@ -16,6 +16,7 @@
 			"loop": true,
 			"bones": {
 				"kanawo_nichirinto": {
+					"position": [1, -2, 0],
 					"scale": 0.3
 				}
 			}

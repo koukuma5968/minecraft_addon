@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.butadokkuri.breath": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "breath": "query.mark_variant == 1" }
+          ]
+        },
+        "breath": {
+          "animations" : [ "breath"],
+          "transitions": [
+            {"cooldown":"query.any_animation_finished"},
+            {"default":"query.mark_variant == 0"}
+          ]
+        },
+        "cooldown": {
+          "animations" : [ "cooldown_two" ],
+          "transitions": [
+            {"default":"query.any_animation_finished"}
+          ]
+        }
+      }
+    }
+  }
+}

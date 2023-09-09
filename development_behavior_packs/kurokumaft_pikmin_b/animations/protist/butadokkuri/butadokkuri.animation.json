@@ -1,0 +1,153 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.butadokkuri.fire": {
+      "animation_length": 1.0,
+      "timeline": {
+        "0.0": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ],
+        "0.2": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ],
+        "0.4": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ],
+        "0.6": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ]
+      }
+    },
+    "animation.zoubutadokkuri.fire": {
+      "animation_length": 1.0,
+      "timeline": {
+        "0.0": [
+          "/particle kurokumaft:dokkuri_fire ^^7^5",
+          "/particle kurokumaft:dokkuri_fire ^^8^8",
+          "/particle kurokumaft:dokkuri_fire ^^9^11",
+          "/particle kurokumaft:dokkuri_fire ^^10^14",
+          "/particle kurokumaft:dokkuri_fire ^^11^17",
+          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+        ],
+        "0.2": [
+          "/particle kurokumaft:dokkuri_fire ^^7^5",
+          "/particle kurokumaft:dokkuri_fire ^^8^8",
+          "/particle kurokumaft:dokkuri_fire ^^9^11",
+          "/particle kurokumaft:dokkuri_fire ^^10^14",
+          "/particle kurokumaft:dokkuri_fire ^^11^17",
+          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+        ],
+        "0.4": [
+          "/particle kurokumaft:dokkuri_fire ^^7^5",
+          "/particle kurokumaft:dokkuri_fire ^^8^8",
+          "/particle kurokumaft:dokkuri_fire ^^9^11",
+          "/particle kurokumaft:dokkuri_fire ^^10^14",
+          "/particle kurokumaft:dokkuri_fire ^^11^17",
+          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+        ],
+        "0.6": [
+          "/particle kurokumaft:dokkuri_fire ^^7^5",
+          "/particle kurokumaft:dokkuri_fire ^^8^8",
+          "/particle kurokumaft:dokkuri_fire ^^9^11",
+          "/particle kurokumaft:dokkuri_fire ^^10^14",
+          "/particle kurokumaft:dokkuri_fire ^^11^17",
+          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+        ]
+      }
+    },
+    "animation.butadokkuri.mizu": {
+      "animation_length": 1.0,
+      "timeline": {
+        "0.0": [
+          "/particle kurokumaft:dokkuri_mizu ^^^",
+          "/particle kurokumaft:dokkuri_mizu ^^^1",
+          "/particle kurokumaft:dokkuri_mizu ^^^2",
+          "/particle kurokumaft:dokkuri_mizu ^^^3",
+          "/particle kurokumaft:dokkuri_mizu ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+        ],
+        "0.2": [
+          "/particle kurokumaft:dokkuri_mizu ^^^",
+          "/particle kurokumaft:dokkuri_mizu ^^^1",
+          "/particle kurokumaft:dokkuri_mizu ^^^2",
+          "/particle kurokumaft:dokkuri_mizu ^^^3",
+          "/particle kurokumaft:dokkuri_mizu ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+        ],
+        "0.4": [
+          "/particle kurokumaft:dokkuri_mizu ^^^",
+          "/particle kurokumaft:dokkuri_mizu ^^^1",
+          "/particle kurokumaft:dokkuri_mizu ^^^2",
+          "/particle kurokumaft:dokkuri_mizu ^^^3",
+          "/particle kurokumaft:dokkuri_mizu ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+        ],
+        "0.6": [
+          "/particle kurokumaft:dokkuri_mizu ^^^",
+          "/particle kurokumaft:dokkuri_mizu ^^^1",
+          "/particle kurokumaft:dokkuri_mizu ^^^2",
+          "/particle kurokumaft:dokkuri_mizu ^^^3",
+          "/particle kurokumaft:dokkuri_mizu ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+        ]
+      }
+    },
+    "animation.kobutadokkuri.fire": {
+      "animation_length": 1.0,
+      "timeline": {
+        "0.0": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ],
+        "0.2": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ],
+        "0.4": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ],
+        "0.6": [
+          "/particle kurokumaft:dokkuri_fire ^^^",
+          "/particle kurokumaft:dokkuri_fire ^^^1",
+          "/particle kurokumaft:dokkuri_fire ^^^2",
+          "/particle kurokumaft:dokkuri_fire ^^^3",
+          "/particle kurokumaft:dokkuri_fire ^^^4",
+          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.armor.copper_shield": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"spawn":"(1.0)"}
+          ]
+        },
+        "spawn":{
+          "on_entry": [
+            "/tag @s add copper_shield",
+            "/execute @s ~~~ say copper_shield"
+          ],
+          "transitions": [
+            {"default":"!query.is_alive"}
+          ]
+        }
+      }
+    }
+  }
+}

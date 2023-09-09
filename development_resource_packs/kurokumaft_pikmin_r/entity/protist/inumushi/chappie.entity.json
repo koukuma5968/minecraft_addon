@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:chappie",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/protist/inumushi/chappie"
+      },
+      "geometry": {
+        "default": "geometry.chappie"
+      },
+      "spawn_egg": {
+        "texture": "inumushi_spawn_egg",
+        "texture_index": 0
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 20.3;"
+        ],
+        "animate": [
+          "con"
+        ]
+      },
+      "animations": {
+        "con": "controller.animation.chappie.move",
+        "move": "animation.chappie.move",
+        "sleep": "animation.chappie.sleep"
+      },
+      "render_controllers": [ "controller.render.chappie" ],
+      "enable_attachables": true
+    }
+  }
+}

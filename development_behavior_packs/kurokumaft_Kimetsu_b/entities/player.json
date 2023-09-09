@@ -1,5 +1,5 @@
 {
-  "format_version": "1.17.10",
+  "format_version": "1.19.50",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:player",
@@ -186,6 +186,16 @@
               "should_leash": false
             }
           ]
+        }
+      },
+      "kurokumaft:knockback_max": {
+        "minecraft:knockback_resistance": {
+          "value": 100
+        }
+      },
+      "kurokumaft:knockback_zero": {
+        "minecraft:knockback_resistance": {
+          "value": 0
         }
       },
 
@@ -690,6 +700,23 @@
       "kurokumaft:iwa1_throw_remove": {
         "remove": {
           "component_groups": [ "kurokumaft:iwa1_throw" ]
+        }
+      },
+
+      "kurokumaft:knockback_add": {
+        "remove": {
+          "component_groups": [ "kurokumaft:knockback_zero" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:knockback_max" ]
+        }
+      },
+      "kurokumaft:knockback_remove": {
+        "remove": {
+          "component_groups": [ "kurokumaft:knockback_max" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:knockback_zero" ]
         }
       },
 

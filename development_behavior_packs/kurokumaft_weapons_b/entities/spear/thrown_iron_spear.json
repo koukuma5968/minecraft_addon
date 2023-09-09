@@ -1,0 +1,136 @@
+{
+  "format_version": "1.17.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "kurokumaft:thrown_iron_spear",
+			"is_spawnable": false,
+			"is_summonable": false,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:arrow"
+		},
+		"component_groups": {
+			"kurokumaft:thrown_spear": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"kurokumaft:stop": {
+				"minecraft:variant": {
+					"value": 1
+				},
+				"minecraft:entity_sensor": {
+					"event": "kurokumaft:entity_kill",
+					"event_filters": {
+					  "all_of" : [
+						{"test": "is_family", "subject": "other", "value": "player"},
+						{"test": "is_moving", "subject": "self", "operator": "not", "value": true}
+					  ]
+					},
+					"sensor_range": 1.1
+				}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [ "inanimate" ]
+			},
+			"minecraft:collision_box": {
+				"width": 0.35,
+				"height": 0.25
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 5,
+						"knockback": true,
+						"semi_random_diff_damage": false,
+						"destroy_on_hit": false
+					},
+					"definition_event": {
+						"affect_projectile": false,
+						"event_trigger": {
+						  "event": "kurokumaft:stop",
+						  "target": "self"
+						}
+					},
+					"stick_in_ground": {
+						"shake_time" : 0
+					}
+				},
+				"liquid_inertia": 0.99,
+				"hit_sound": "item.trident.hit",
+				"hit_ground_sound": "item.trident.hit_ground",
+				"power": 4,
+				"gravity": 0.10,
+				"uncertainty_base": 1,
+				"uncertainty_multiplier": 0,
+				"stop_on_hurt": true,
+				"anchor": 1,
+				"should_bounce": true,
+				"multiple_targets": false,
+				"offset": [ 0, -0.1, 0 ]
+			},
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+				  {
+					"filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+					"cause": "lava",
+					"damage_per_tick": 4
+				  }
+				]
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/spear/iron_spear.json"
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+				  {
+					"cause": "attack",
+					"deals_damage": false
+				  },
+				  {
+					"cause": "fall",
+					"deals_damage": false
+				  }
+				]
+			},
+			"minecraft:physics": {
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {
+				"default_values": {
+					"max_optimized_distance": 80.0,
+					"max_dropped_ticks": 10,
+					"use_motion_prediction_hints": true
+				  }
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"add": {
+					"component_groups": ["kurokumaft:thrown_spear" ]
+				}
+			},
+			"kurokumaft:stop": {
+				"remove": {
+					"component_groups": ["kurokumaft:thrown_spear" ]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:stop" ]
+				}
+			},
+			"kurokumaft:entity_kill": {
+				"run_command": {
+				  "command": [
+					"kill @s"
+				  ],
+				  "target": "self"
+				}
+			}
+		}
+	}
+}

@@ -65,7 +65,10 @@
         "minecraft:entity_sensor": {
           "event": "kurokumaft:entity_kill",
           "event_filters": {
-            "test": "is_family", "subject": "other", "value": "player"
+            "all_of" : [
+              {"test": "is_family", "subject": "other", "value": "player"},
+              {"test": "is_moving", "subject": "self", "operator": "not", "value": true}
+            ]
           },
           "sensor_range": 1.5
         }
@@ -137,7 +140,7 @@
         "offset": [ 0, -0.1, 0 ]
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/iron_arrow.json"
+        "table": "loot_tables/entities/arrow/iron_arrow.json"
       },
       "minecraft:physics": {
       },

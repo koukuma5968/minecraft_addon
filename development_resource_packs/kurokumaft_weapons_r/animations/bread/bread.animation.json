@@ -1,25 +1,23 @@
 {
 	"format_version": "1.10.0",
 	"animations": {
-		"animation.bread.wield": {
-			"loop": true,
+		"animation.bread.wield_first_person": {
+			"loop": "hold_on_last_frame",
 			"bones": {
-				"rightitem": {
-					"rotation": ["c.is_first_person ? 10.0 : 0.5", "c.is_first_person ? -120.0 : 180.0", "c.is_first_person ? -63.0 : 0.0"],
-					"position": ["c.is_first_person ? -3.5 : 0.5", "c.is_first_person ? -6.5 : -2.5", "c.is_first_person ? -2.0 : -10.0"]
+				"bread": {
+					"rotation": [-64.24939, 6.68717, -125.77419],
+					"position": [-1, 20, 1],
+					"scale": 0.5
 				}
 			}
 		},
-		"animation.bread.wield_first_person_pull": {
-			"loop": true,
+		"animation.bread.wield_third_person": {
+			"loop": "hold_on_last_frame",
 			"bones": {
-				"rightitem": {
-					"position": [
-						-1.5,
-						" 2.5 + ( variable.charge_amount  >= 1.0 ? math.sin( (q.life_time) * 1000.0 * 1.3) * 0.1 - math.sin(q.life_time * 45.0) * 0.5 : 0.0)",
-						-4.8
-					],
-					"rotation": [-53, 8, 35]
+				"bread": {
+					"rotation": [0, 0, -90],
+					"position": [1, 22, -5],
+					"scale": [0.5, 0.5, 0.5]
 				}
 			}
 		}

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:cherry_spear"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " pF",
+      " #p",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:cherry_planks"
+      },
+      "p": {
+        "item": "minecraft:pink_petals"
+      },
+      "F": {
+        "item": "minecraft:flint"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:cherry_spear",
+      "count": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:kobutadokkuri",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/protist/butadokkuri/butadokkuri"
+      },
+      "geometry": {
+        "default": "geometry.butadokkuri"
+      },
+      "spawn_egg": {
+        "texture": "butadokkuri_spawn_egg",
+        "texture_index": 3
+      },
+      "scripts": {
+        "pre_animation": [
+					"variable.moving = query.ground_speed > 0 || query.vertical_speed > 0;"
+        ],
+        "animate": [
+          {"walk": "variable.moving"}
+        ]
+      },
+      "animations": {
+				"walk": "animation.butadokkuri.work",
+				"look_at_target": "animation.butadokkuri.look_at_target"
+
+      },
+      "render_controllers": [ "controller.render.imogaeru" ],
+      "enable_attachables": true
+    }
+  }
+}

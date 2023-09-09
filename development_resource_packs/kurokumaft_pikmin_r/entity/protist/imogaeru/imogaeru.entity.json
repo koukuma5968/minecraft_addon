@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:imogaeru",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/protist/imogaeru/imogaeru"
+      },
+      "geometry": {
+        "default": "geometry.imogaeru"
+      },
+      "spawn_egg": {
+        "texture": "imogaeru_spawn_egg",
+        "texture_index": 0
+      },
+      "scripts": {
+        "pre_animation": [
+					"variable.moving = query.ground_speed > 0 || query.vertical_speed > 0;"
+        ],
+        "animate": [
+          "general"
+        ]
+      },
+      "animations": {
+				"jump": "animation.imogaeru.jump",
+				"walk": "animation.imogaeru.walk",
+
+        "general": "controller.animation.imogaeru.general"
+
+      },
+      "render_controllers": [ "controller.render.imogaeru" ],
+      "enable_attachables": true
+    }
+  }
+}

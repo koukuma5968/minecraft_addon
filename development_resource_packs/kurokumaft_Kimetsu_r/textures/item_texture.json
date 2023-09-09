@@ -160,6 +160,19 @@
          "textures" : "textures/kurokumaft/items/armor/tengen/tengen_tabi"
       },
 
+      "mituri_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/mituri/mituri_jacket"
+      },
+      "mituri_haori": {
+         "textures" : "textures/kurokumaft/items/armor/mituri/mituri_haori"
+      },
+      "mituri_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/mituri/mituri_tabi"
+      },
+      "mituri_skirt": {
+         "textures" : "textures/kurokumaft/items/armor/mituri/mituri_skirt"
+      },
+
       "soldier_jacket_guy": {
          "textures" : "textures/kurokumaft/items/armor/soldier_jacket_guy"
       },
@@ -177,6 +190,9 @@
       },
       "soldier_skirt_girl_blue": {
          "textures" : "textures/kurokumaft/items/armor/soldier_skirt_girl_blue"
+      },
+      "soldier_skirt_girl_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier_skirt_girl_brown"
       },
       "soldier_jacket_girl_purple": {
          "textures" : "textures/kurokumaft/items/armor/soldier_jacket_girl_purple"
@@ -216,6 +232,9 @@
       "tengen_head": {
          "textures" : "textures/kurokumaft/items/head/tengen_head"
       },
+      "mituri_head": {
+         "textures" : "textures/kurokumaft/items/head/mituri_head"
+      },
 
       "soldier_spawn_egg" : {
          "textures" : [
@@ -227,7 +246,8 @@
             "textures/kurokumaft/items/spawn_egg/soldier/giyu_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/kyouzyuro_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/shinobu_egg",
-            "textures/kurokumaft/items/spawn_egg/soldier/tengen_egg"
+            "textures/kurokumaft/items/spawn_egg/soldier/tengen_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/mituri_egg"
          ]
       }
 

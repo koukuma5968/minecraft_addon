@@ -1,0 +1,60 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mituri_haori",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.6, 11, -2.6], "size": [9.1, 13.6, 4.95], "uv": [0, 15]},
+						{"origin": [0, 17.3, -4.2], "size": [3.7, 4.9, 3.2], "uv": [13, 34]},
+						{"origin": [-3.7, 17.3, -4.2], "size": [3.7, 4.9, 3.2], "uv": [1, 34]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-4.75, 22, 0],
+					"cubes": [
+						{"origin": [-7.35, 14.25, -2.35], "size": [3.2, 10.1, 4.6], "uv": [15, 44]}
+					]
+				},
+				{
+					"name": "rightSleve",
+					"parent": "rightArm",
+					"pivot": [-4.75, 22, 0],
+					"cubes": [
+						{"origin": [-7.35, 18.25, -1.35], "size": [3.2, 4.1, 4.6], "uv": [30, 35]},
+						{"origin": [-7.35, 14.25, -1.35], "size": [3.2, 4.1, 5.6], "uv": [31, 44]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [4.75, 22, 0],
+					"cubes": [
+						{"origin": [4.05, 14.25, -2.2], "size": [3.2, 10.1, 4.4], "uv": [15, 44]}
+					]
+				},
+				{
+					"name": "leftSleve",
+					"parent": "leftArm",
+					"pivot": [6.75, 22, 0],
+					"cubes": [
+						{"origin": [4.15, 18.25, -1.35], "size": [3.2, 4.1, 4.6], "uv": [30, 35]},
+						{"origin": [4.15, 14.25, -1.35], "size": [3.2, 4.1, 5.6], "uv": [31, 44]}
+					]
+				}
+			]
+		}
+	]
+}

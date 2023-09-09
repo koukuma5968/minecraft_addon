@@ -1,0 +1,32 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:ender_dragon_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "blb",
+      "bhb",
+      " # "
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:netherite_ingot"
+      },
+      "h": {
+        "item": "minecraft:skull",
+        "data": 5
+      },
+      "#": {
+        "item": "minecraft:crying_obsidian"
+      },
+      "b": {
+        "item": "minecraft:dragon_breath"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:ender_dragon_sword"
+    }
+  }
+}

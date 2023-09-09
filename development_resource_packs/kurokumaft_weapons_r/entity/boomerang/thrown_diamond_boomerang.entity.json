@@ -1,0 +1,27 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:thrown_diamond_boomerang",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/boomerang/thrown_diamond_boomerang",
+        "loyalty_rope": "textures/entity/loyalty_rope"
+      },
+      "geometry": {
+        "default": "geometry.boomerang"
+      },
+      "scripts": {
+        "animate": [
+          "shot"
+        ]
+      },
+      "animations": {
+        "shot": "animation.boomerang.shot"
+      },
+      "render_controllers": [ "controller.render.thrown_default" ]
+    }
+  }
+}

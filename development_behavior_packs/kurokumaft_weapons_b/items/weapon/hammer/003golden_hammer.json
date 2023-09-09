@@ -7,12 +7,9 @@
     },
     "components": {
       "tag:minecraft:is_hammer": {},
+      "tag:minecraft:transformable_items": {},
       "minecraft:creative_category": {
         "parent": "itemGroup.name.hammer"
-      },
-      "minecraft:cooldown": {
-        "category": "golden_hammer",
-        "duration": 1.5
       },
       "minecraft:render_offsets": {
         "main_hand": {
@@ -51,10 +48,8 @@
       },
       "minecraft:throwable": {
         "do_swing_animation": false,
-        "launch_power_scale": 1.0,
-        "max_launch_power": 10.0,
-        "max_draw_duration": 5.0,
-        "min_draw_duration": 1.0,
+        "min_draw_duration": 0.5,
+        "max_draw_duration": 1.0,
         "scale_power_by_draw_duration": true
       },
       "minecraft:projectile": {

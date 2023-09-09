@@ -18,7 +18,9 @@
         "mushi_chou_particle": "kurokumaft:mushi_chou_particle"
       },
       "scripts": {
-        "scale": "0.9375",
+        "scaleX": "0.90",
+        "scaleY": "0.902",
+        "scaleZ": "0.90",
         "pre_animation": [
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "variable.equipped_nichirintou = query.skin_id == 1;"

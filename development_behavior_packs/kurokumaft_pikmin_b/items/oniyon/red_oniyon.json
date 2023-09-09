@@ -1,0 +1,28 @@
+{
+  "format_version": "1.17",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:red_oniyon",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:red_oniyon.name"
+			},
+      "minecraft:icon": {
+        "texture": "red_oniyon"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.oniyon"
+      },
+      "minecraft:block_placer": {
+        "block": "red_oniyons",
+        "use_on" : [
+          "farmland","grass","dirt"
+        ]
+      }
+    },
+    "events": {
+    }
+  }
+}

@@ -38,7 +38,7 @@
 					"hit_sound": "random.bowhit",
 					"hit_ground_sound": "random.bowhit",
 					"power": 4,
-					"gravity": 0.10,
+					"gravity": 0.01,
 					"uncertainty_base": 1,
 					"uncertainty_multiplier": 0,
 					"stop_on_hurt": false,

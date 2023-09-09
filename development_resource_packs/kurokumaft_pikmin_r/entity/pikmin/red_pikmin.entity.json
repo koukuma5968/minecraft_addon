@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:red_pikmin",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "leaf": "textures/kurokumaft/mob/pikmin/red/red_pikmin_leaf",
+        "bud": "textures/kurokumaft/mob/pikmin/red/red_pikmin_bud",
+        "flower": "textures/kurokumaft/mob/pikmin/red/red_pikmin_flower"
+      },
+      "geometry": {
+        "leaf": "geometry.red_pikmin_leaf",
+        "bud": "geometry.red_pikmin_bud",
+        "flower": "geometry.red_pikmin_flower"
+      },
+      "spawn_egg": {
+        "texture": "pikmin_spawn_egg",
+        "texture_index": 0
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 20.3;"
+        ],
+        "animate": [
+          "con"
+        ]
+      },
+      "animations": {
+        "con": "controller.animation.pikmin.move",
+        "move": "animation.pikmin.move",
+        "plant": "animation.pikmin.plant"
+      },
+      "render_controllers": [ "controller.render.pikmin" ],
+      "enable_attachables": true
+    }
+  }
+}

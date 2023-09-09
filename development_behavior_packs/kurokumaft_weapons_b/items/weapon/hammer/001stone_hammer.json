@@ -7,12 +7,9 @@
     },
     "components": {
       "tag:minecraft:is_hammer": {},
+      "tag:minecraft:transformable_items": {},
       "minecraft:creative_category": {
         "parent": "itemGroup.name.hammer"
-      },
-      "minecraft:cooldown": {
-        "category": "stone_hammer",
-        "duration": 1.5
       },
       "minecraft:render_offsets": {
         "main_hand": {

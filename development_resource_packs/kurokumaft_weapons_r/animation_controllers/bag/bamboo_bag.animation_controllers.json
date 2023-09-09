@@ -1,0 +1,26 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.bamboo_bag": {
+			"initial_state" : "stay",
+			"states": {
+				"stay": {
+					"animations": ["stay"],
+					"transitions": [
+						{
+							"burdened": "query.get_ride"
+						}
+					]
+				},
+				"burdened": {
+					"animations": ["burdened"],
+					"transitions": [
+						{
+							"stay": "query.get_ride == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}
