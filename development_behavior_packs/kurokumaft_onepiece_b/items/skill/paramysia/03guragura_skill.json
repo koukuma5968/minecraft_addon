@@ -1,38 +1,25 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:guragura_skill",
-        "category": "equipment"
+      "identifier": "kurokumaft:guragura_skill",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.paramysia_skill"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:guragura_skill.name"
 			},
       "minecraft:icon": {
-          "texture": "guragura_skill"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.paramysia_skill"
-      },
-      "minecraft:render_offsets": {
-        "main_hand": {
-          "first_person": { 
-            "scale": [0.0, 0.0, 0.0]
-          },
-          "third_person": {
-            "scale": [0.0, 0.0, 0.0]
-          }
-        }
+        "texture": "guragura_skill"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
       "minecraft:chargeable": {
         "on_complete": {
         }
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {

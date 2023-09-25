@@ -1,0 +1,38 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "kurokumaft:yuki_chappie",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underground": {},
+        "minecraft:brightness_filter": {
+          "min": 5,
+          "max": 8,
+          "adjust_for_weather": true
+        },
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard"
+        },
+        "minecraft:weight": {
+          "default": 70
+        },
+        "minecraft:herd": {
+          "min_size": 3,
+          "max_size": 6
+        },
+        "minecraft:biome_filter": {
+          "any_of": [
+            {"test": "has_biome_tag", "operator": "==", "value": "frozen"},
+            {"test": "has_biome_tag", "operator": "==", "value": "ice"},
+            {"test": "has_biome_tag", "operator": "==", "value": "ice_plains"}
+          ]
+        }
+      }
+    ]
+  }
+}

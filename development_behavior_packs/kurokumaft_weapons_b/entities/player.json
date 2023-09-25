@@ -1,5 +1,5 @@
 {
-  "format_version": "1.18.20",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:player",
@@ -9,12 +9,15 @@
       "scripts":{
         "animate":[
           "main_shield",
-          "off_shield"
+          "off_shield",
+          "machine_gun_shot"
         ]
       },
       "animations":{
         "main_shield":"controller.animation.armor.main_shield",
-        "off_shield":"controller.animation.armor.off_shield"
+        "off_shield":"controller.animation.armor.off_shield",
+        "gatling_shot":"controller.animation.machine_gun.shot",
+        "machine_gun_shot":"controller.animation.machine_gun.shot"
       }
 
     },
@@ -53,6 +56,48 @@
         },
         "minecraft:spell_effects": {
           "remove_effects": "bad_omen"
+        }
+      },
+      "kurokumaft:gatling_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0.3,
+              "max_wait_time": 0.3,
+              "spawn_entity": "kurokumaft:twenty_two_lr_entity",
+              "spawn_event": "minecraft:entity_spawned",
+              "single_use": false,
+              "num_to_spawn": 3,
+              "should_leash": false
+            }
+          ]
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:twenty_two_lr"}
+                ]
+              },
+              "event": "kurokumaft:gatling_off"
+            }
+          ]
+        }
+      },
+      "kurokumaft:machine_gun_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0.8,
+              "max_wait_time": 0.8,
+              "spawn_entity": "kurokumaft:thirty_eight_special_entity",
+              "spawn_event": "minecraft:entity_spawned",
+              "single_use": false,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
         }
       }
     },
@@ -162,23 +207,17 @@
       },
       "minecraft:block_climber": {},
       "minecraft:environment_sensor": {
-        "triggers": {
-          "filters": {
-            "all_of": [
-              {
-                "test": "has_mob_effect",
-                "subject": "self",
-                "value": "bad_omen"
-              },
-              {
-                "test": "is_in_village",
-                "subject": "self",
-                "value": true
-              }
-            ]
-          },
-          "event": "minecraft:trigger_raid"
-        }
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                {"test": "is_in_village","subject": "self","value": true}
+              ]
+            },
+            "event": "minecraft:trigger_raid"
+          }
+        ]
       },
       "minecraft:damage_sensor": {
         "triggers": [
@@ -321,6 +360,42 @@
             }
 					}
 				]
+      },
+      "kurokumaft:gatling_shot": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:gatling_shot"
+          ]
+        }
+      },
+      "kurokumaft:gatling_off": {
+        "run_command": {
+          "command": [
+            "execute as @e[family=gatling,c=1] at @s run event entity @s kurokumaft:despawn",
+            "tag @s remove gatling_shot",
+            "tag @s remove gun_shot"
+          ],
+          "target": "self"
+        },
+        "remove": {
+          "component_groups": [
+            "kurokumaft:gatling_shot"
+          ]
+        }
+      },
+      "kurokumaft:machine_gun_shot": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:machine_gun_shot"
+          ]
+        }
+      },
+      "kurokumaft:machine_gun_off": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:machine_gun_shot"
+          ]
+        }
       }
     }
   }

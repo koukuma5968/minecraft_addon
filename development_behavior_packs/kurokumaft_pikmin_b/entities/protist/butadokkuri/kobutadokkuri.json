@@ -1,5 +1,5 @@
 {
-  "format_version": "1.18.10",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:kobutadokkuri",
@@ -79,8 +79,8 @@
         "value": 0.8
       },
       "minecraft:collision_box": {
-        "width": 0.8,
-        "height": 0.8
+        "width": 0.6,
+        "height": 0.6
       },
       "minecraft:health": {
         "value": 10,

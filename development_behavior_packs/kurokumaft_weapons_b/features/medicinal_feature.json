@@ -1,5 +1,5 @@
 {
-  "format_version": "1.13.0",
+  "format_version": "1.20.30",
   "minecraft:single_block_feature": {
     "description": {
       "identifier": "kurokumaft:medicinal_feature"
@@ -8,16 +8,16 @@
     "enforce_placement_rules": true,
     "enforce_survivability_rules": true,
     "may_attach_to": {
-      "bottom": [
-        {
-          "name": "minecraft:farmland"
-        }
+      "min_sides_must_attach": 2,
+      "auto_rotate": false,
+      "bottom": "minecraft:grass",
+      "top": [
+        "minecraft:air",
+        "minecraft:leaves"
       ]
     },
     "may_replace": [
-      {
-        "name": "minecraft:air"
-      }
+      "minecraft:air"
     ]
 }
 }

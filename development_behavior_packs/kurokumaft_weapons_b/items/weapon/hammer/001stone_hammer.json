@@ -1,28 +1,16 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_hammer",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.hammer"
+      }
     },
     "components": {
       "tag:minecraft:is_hammer": {},
       "tag:minecraft:transformable_items": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.hammer"
-      },
-      "minecraft:render_offsets": {
-        "main_hand": {
-          "first_person": { 
-            "position": [1.0,1.5,-2.5],
-            "scale": [0.2, 0.2, 0.2]
-          },
-          "third_person": {
-            "position": [1.0,2.2,-1.5],
-            "scale": [0.2, 0.2, 0.2]
-          }
-        }
-      },
       "minecraft:use_animation": "spear",
       "minecraft:hand_equipped": true,
       "minecraft:damage": 6,
@@ -69,8 +57,8 @@
                 "tag @e[type=!player,r=3] add hammer",
                 "particle kurokumaft:shock_particle ^ ^1 ^2.4",
                 "effect @e[tag=hammer] levitation 1 5 true",
-                "execute @e[tag=hammer,family=!undead] ~ ~ ~ effect @e[tag=hammer,family=!undead] instant_damage 1 1 true",
-                "execute @e[tag=hammer,family=undead] ~ ~ ~ effect @e[tag=hammer,family=undead] wither 1 1 true",
+                "execute at @e[tag=hammer,family=!undead] run effect @e[tag=hammer,family=!undead] instant_damage 1 1 true",
+                "execute at @e[tag=hammer,family=undead] run effect @e[tag=hammer,family=undead] wither 1 1 true",
                 "tag @e[tag=hammer] remove hammer"
               ],
               "target": "self"

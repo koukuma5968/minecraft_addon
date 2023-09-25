@@ -1,19 +1,23 @@
 {
-	"format_version": "1.16.100",
+	"format_version": "1.20.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:ice_machine",
-            "properties": {
+            "menu_category": {
+				"category": "items"
+			},
+            "states": {
                 "kurokumaft:rotation": [ 1, 2, 3, 4, 5 ]
             }
 		},
 		"components": {
-			"minecraft:explosion_resistance": 0.5,
-            "minecraft:creative_category": { 
-                "category": "items"
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 0.5
             },
-			"minecraft:destroy_time": 2.2,
-			"minecraft:block_light_absorption": 0,
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
+			"minecraft:light_dampening": 0,
 			"minecraft:loot": "loot_tables/blocks/ice_machine.json",
             "minecraft:on_player_placing": {
                 "event": "rotate"
@@ -30,7 +34,7 @@
             "rotate": {
                 "sequence": [
                     {
-                        "set_block_property": {
+                        "set_block_state": {
                             "kurokumaft:rotation": "(query.cardinal_facing_2d)"
                         }
                     }
@@ -39,27 +43,35 @@
         },
         "permutations": [
             {
-                "condition": "query.block_property('kurokumaft:rotation') == 2",
+                "condition": "query.block_state('kurokumaft:rotation') == 2",
                 "components": {
-                    "minecraft:rotation": [ 0, 180, 0 ]
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 180, 0 ]
+                    }
                 }
             },
             {
-                "condition": "query.block_property('kurokumaft:rotation') == 3",
+                "condition": "query.block_state('kurokumaft:rotation') == 3",
                 "components": { 
-                    "minecraft:rotation": [ 0, 0, 0 ]
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 0 ]
+                    }
                 }
             },
             {
-                "condition": "query.block_property('kurokumaft:rotation') == 4",
+                "condition": "query.block_state('kurokumaft:rotation') == 4",
                 "components": {
-                    "minecraft:rotation": [ 0, 270, 0 ]
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 270, 0 ]
+                    }
                 }
             },
             {
-                "condition": "query.block_property('kurokumaft:rotation') == 5",
+                "condition": "query.block_state('kurokumaft:rotation') == 5",
                 "components": {
-                    "minecraft:rotation": [ 0, 90, 0 ]
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 90, 0 ]
+                    }
                 }
             }
         ]

@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_wand",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_wand"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.stone_wand"
-      },
       "minecraft:cooldown": {
         "category": "stone_magic",
         "duration": 1.5

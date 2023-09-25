@@ -21,7 +21,6 @@
         "shot_therd_person": "animation.gatling.shot_therd_person",
         "hold_first_person": "animation.gatling.hold_first_person",
         "hold_therd_person": "animation.gatling.hold_therd_person"
-
       },
       "scripts": {
         "animate": [

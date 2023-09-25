@@ -1,5 +1,5 @@
 tag @s add kokyu_mizu10
-execute @s ~~~ damage @e[tag=!kokyu_mizu10,r=3] 15 entity_attack
+execute as @s run damage @e[tag=!kokyu_mizu10,r=3] 15 entity_attack
 particle kurokumaft:mizu2_particle ^^0.5^3
 particle kurokumaft:mizu2_particle ^-0.5^0.5^2.5
 particle kurokumaft:mizu2_particle ^-1^0.5^2

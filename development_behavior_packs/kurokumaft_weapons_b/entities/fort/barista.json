@@ -1,5 +1,5 @@
 {
-  "format_version": "1.19.50",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:barista",
@@ -8,99 +8,59 @@
       "is_experimental": false
     },
     "component_groups": {
-      "minecraft:arrow_empty": {
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "play_sounds": "armor.equip_generic",
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    {
-                      "test": "is_family",
-                      "subject": "other",
-                      "value": "player"
-                    },
-                    {
-                      "test": "has_equipment",
-                      "domain": "hand",
-                      "subject": "other",
-                      "value": "kurokumaft:barista_arrow"
-                    }
-                  ]
-                },
-                "event": "minecraft:arrow_charge",
-                "target": "self"
-              },
-              "use_item": true,
-              "interact_text": "action.interact.attachchest",
-              "vibration": "shear"
-            }
-          ]
-        }
-      },
-
-      "minecraft:arrow_charge": {
-        "minecraft:is_chested": {},
-        "minecraft:interact": {
-          "interactions": [
-            {
-              "play_sounds": "armor.equip_generic",
-              "equip_item_slot": 0,
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    {
-                      "test": "is_family",
-                      "subject": "other",
-                      "value": "player"
-                    }
-                  ]
-                },
-                "event": "minecraft:arrow_shot",
-                "target": "self"
-              },
-              "use_item": true
-            }
-          ]
-        }
-      },
- 
-      "minecraft:arrow_shot": {
+      "kurokumaft:barista_shot": {
         "minecraft:spawn_entity": {
           "entities": [
             {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
+              "min_wait_time": 0.1,
+              "max_wait_time": 0.1,
               "spawn_entity": "kurokumaft:barista_arrow",
-              "spawn_event": "minecraft:center_arrow",
-              "single_use": false,
+              "spawn_event": "kurokumaft:center_arrow",
+              "single_use": true,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 0.1,
+              "max_wait_time": 0.1,
+              "spawn_entity": "kurokumaft:barista_arrow",
+              "spawn_event": "kurokumaft:left_arrow",
+              "single_use": true,
+              "num_to_spawn": 1,
+              "should_leash": false
+            },
+            {
+              "min_wait_time": 0.1,
+              "max_wait_time": 0.1,
+              "spawn_entity": "kurokumaft:barista_arrow",
+              "spawn_event": "kurokumaft:right_arrow",
+              "single_use": true,
               "num_to_spawn": 1,
               "should_leash": false
             }
           ]
         },
         "minecraft:timer": {
-          "randomInterval": true,
-          "time": 0.1,
-          "time_down_event": { 
-            "event": "minecraft:arrow_empty"
+          "looping": false,
+          "time": [1.0,1.0],
+          "time_down_event": {
+            "event": "kurokumaft:barista_stop"
           }
-        }  
+        }
       }
     },
 
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "inanimate", "mob" ]
+        "family": [ "barista", "inanimate" ]
       },
       "minecraft:collision_box": {
         "width": 1.0,
         "height": 0.8
       },
       "minecraft:health": {
-        "value": 6,
-        "max": 6
+        "value": 12,
+        "max": 12
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
@@ -116,15 +76,28 @@
         "fractional_rotation": 0.5,
         "fractional_rotation_limit": 10.0
       },
+      "minecraft:movement": {
+        "value": 0.15
+      },
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "family_types": [
+          "player",
+          "monster"
+        ],
+        "interact_text": "action.interact.mount",
+        "seats": {
+          "position": [ 0.0, 0.3, -1.2 ]
+        }
+      },
       "minecraft:is_saddled": {
+      },
+      "minecraft:input_ground_controlled": {
       },
       "minecraft:behavior.player_ride_tamed": {
       },
       "minecraft:knockback_resistance": {
         "value": 1.0
-      },
-      "minecraft:loot": {
-        "table": "loot_tables/entities/barista.json"
       },
       "minecraft:nameable": {
       },
@@ -141,48 +114,27 @@
     },
 
     "events": {
-      "minecraft:arrow_empty": {
-        "remove": {
-          "component_groups": [
-            "minecraft:arrow_shot"
-          ]
-        },
+      "kurokumaft:barista_shot": {
         "add": {
           "component_groups": [
-            "minecraft:arrow_empty"
-          ]
-        }
-      },
-      "minecraft:arrow_charge": {
-        "remove": {
-          "component_groups": [
-            "minecraft:arrow_empty"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "minecraft:arrow_charge"
+            "kurokumaft:barista_shot"
           ]
         },
         "run_command": {
           "command": [
-            "execute @p[c=1] ~~~ clear @s kurokumaft:barista_arrow 0 6"
+            "execute as @p[c=1] run clear @s kurokumaft:barista_arrow 0 3"
           ],
           "target": "self"
         }
       },
-      "minecraft:arrow_shot": {
+      "kurokumaft:barista_stop": {
         "remove": {
           "component_groups": [
-            "minecraft:arrow_charge"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "minecraft:arrow_shot"
+            "kurokumaft:barista_shot"
           ]
         }
       }
+
     }
   }
 }

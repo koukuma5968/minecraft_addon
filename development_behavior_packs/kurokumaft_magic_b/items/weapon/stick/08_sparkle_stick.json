@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:sparkle_stick",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_stick"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.stick"
-      },
       "minecraft:cooldown": {
         "category": "sparkle_magic_stick",
         "duration": 3.0

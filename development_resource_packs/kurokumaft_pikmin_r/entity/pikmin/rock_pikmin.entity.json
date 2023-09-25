@@ -1,5 +1,5 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kurokumaft:rock_pikmin",
@@ -7,14 +7,11 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "leaf": "textures/kurokumaft/mob/pikmin/rock/rock_pikmin_leaf",
-        "bud": "textures/kurokumaft/mob/pikmin/rock/rock_pikmin_bud",
-        "flower": "textures/kurokumaft/mob/pikmin/rock/rock_pikmin_flower"
+        "default": "textures/kurokumaft/mob/pikmin/rock_pikmin",
+        "spray": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
-        "leaf": "geometry.rock_pikmin_leaf",
-        "bud": "geometry.rock_pikmin_bud",
-        "flower": "geometry.rock_pikmin_flower"
+        "default": "geometry.rock_pikmin"
       },
       "spawn_egg": {
         "texture": "pikmin_spawn_egg",

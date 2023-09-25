@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:tank",
+        "materials": {
+          "default": "pig"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/fort/tank"
+        },
+        "geometry": {
+          "default": "geometry.tank"
+        },
+        "scripts": {
+          "animate": ["position"]
+        },
+        "animations": {
+          "position": "controller.animation.barista.position",
+          "empty": "animation.barista.empty",
+          "charge": "animation.barista.charge"
+        },
+        "render_controllers": [ "controller.render.barista" ]
+      }
+    }
+  }
+  

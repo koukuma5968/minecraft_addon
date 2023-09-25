@@ -1,31 +1,19 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item" : {
     "description": {
         "identifier": "kurokumaft:wooden_battleaxe",
-        "category": "equipment"
+        "menu_category": {
+          "category": "equipment",
+          "group": "itemGroup.name.battleaxe"
+        }
     },
     "components": {
       "minecraft:display_name": {
         "value": "item.kurokumaft:wooden_battleaxe.name"
       },
-      "minecraft:render_offsets": {
-        "main_hand": {
-          "first_person": { 
-            "position": [1.0,1.0,-3.5],
-            "scale": [0.2, 0.2, 0.2]
-          },
-          "third_person": {
-            "position": [0.75,2.5,-1.0],
-            "scale": [0.2, 0.2, 0.2]
-          }
-        }
-      },
       "minecraft:icon":{
         "texture": "wooden_battleaxe"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.battleaxe"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -40,7 +28,7 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
+      
       "minecraft:damage": 6,
       "minecraft:enchantable": {
         "value": 15,

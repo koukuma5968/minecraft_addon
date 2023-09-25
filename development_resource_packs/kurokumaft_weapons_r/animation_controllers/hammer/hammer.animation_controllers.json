@@ -2,15 +2,21 @@
 	"format_version": "1.10.0",
 	"animation_controllers": {
 		"controller.animation.hammer.wield": {
-			"initial_state": "wield",
+			"initial_state": "first",
 			"states": {
-				"wield": {
-					"animations": [
+				"first": {
+					"animations": ["wield_first_person"],
+					"transitions": [
 						{
-							"shake": "query.main_hand_item_use_duration > 0.0f"
-						},
+							"third": "!c.is_first_person"
+						}
+					]
+				},
+				"third": {
+					"animations": ["wield_third_person"],
+					"transitions": [
 						{
-							"thrown": "query.can_damage_nearby_mobs > 0.0"
+							"first": "c.is_first_person"
 						}
 					]
 				}

@@ -1,17 +1,23 @@
 {
-	"format_version": "1.16.100",
+	"format_version": "1.20.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:windwall_block",
 			"is_experimental": false,
-            "register_to_creative_menu": false
+            "register_to_creative_menu": false,
+			"menu_category": {
+				"category": "Construction"
+			}
 		},
 		"components": {
-			"minecraft:block_light_emission": 0.2,
-			"minecraft:explosion_resistance": 0.5,
-			"minecraft:creative_category": { "category": "Construction" },
-			"minecraft:destroy_time": 1.2,
-			"minecraft:block_light_absorption": 3,
+			"minecraft:light_emission": 0.2,
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.2
+			},
+			"minecraft:light_dampening": 3,
 			"minecraft:friction": 0.3,
 			"minecraft:on_step_on": {
 				"event": "kurokumaft:wind_levitation"

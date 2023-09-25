@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:nezuko_kimono",
-      "category": "equipment"
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.leggings"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nezuko_kimono.name"
 			},
       "minecraft:icon": {
-          "texture": "nezuko_kimono"
+        "texture": "nezuko_kimono"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.leggings"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 150,
-        "texture_type": "elytra"
-      },
       "minecraft:wearable": {
+        "protection": 150,
         "slot": "slot.armor.legs"
       }
     }

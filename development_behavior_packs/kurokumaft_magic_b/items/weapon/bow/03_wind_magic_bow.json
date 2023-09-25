@@ -1,19 +1,17 @@
 {
-  "format_version": "1.17.0",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wind_magic_bow",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_bow"
+      }
     },
     "components": {
       "tag:bow": {},
       "tag:wind_magic_bow": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.wind_magic_bow"
-      },
       "minecraft:damage": 2,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 1000
       },

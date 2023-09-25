@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:purple_pikmin_thrown",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/pikmin/purple_pikmin"
+      },
+      "geometry": {
+        "default": "geometry.purple_pikmin"
+      },
+      "scripts": {
+        "animate": [
+          "throw"
+        ]
+      },
+      "animations": {
+        "throw": "animation.pikmin.throw"
+      },
+      "render_controllers": [ "controller.render.pikmin" ],
+      "enable_attachables": true
+    }
+  }
+}

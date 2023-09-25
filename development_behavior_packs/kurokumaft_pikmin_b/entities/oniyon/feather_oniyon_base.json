@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16.210",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:feather_oniyon_base",
@@ -29,6 +29,32 @@
               "filters": {
                 "all_of": [
                   {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:feather_pellet"},
+                  {"test": "is_family","subject": "other","value": "player"}
+                ]
+              }
+            },
+            "spawn_entities": [
+              "kurokumaft:feather_pikmin","kurokumaft:feather_pikmin","kurokumaft:feather_pikmin"
+            ],
+            "barter": true,
+            "admire": true,
+            "use_item": true,
+            "interact_text": "action.interact.barter"
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "any_of": [
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:white_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:red_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:blue_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:yellow_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:rock_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:purple_pellet"}
+                    ]
+                  },
                   {"test": "is_family","subject": "other","value": "player"}
                 ]
               }

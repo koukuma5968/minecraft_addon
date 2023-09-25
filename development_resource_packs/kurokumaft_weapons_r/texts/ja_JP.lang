@@ -91,10 +91,12 @@ item.kurokumaft:revolver.name=リボルバー
 item.kurokumaft:gatling.name=ガトリング砲
 item.kurokumaft:machine_gun.name=マシンガン
 item.kurokumaft:ghast_bazooka.name=ガストバスター
+item.kurokumaft:flamethrower.name=火炎放射器
 
 item.kurokumaft:lead_ball.name=鉛玉
 item.kurokumaft:forty_four_magnum.name=44マグナム弾
 item.kurokumaft:twenty_two_lr.name=22LR弾
+item.kurokumaft:thirty_eight_special.name=38スペシャル弾
 item.kurokumaft:blue_fire_charge.name=魂の弾丸
 
 item.kurokumaft:wooden_hammer.name=木槌
@@ -152,6 +154,12 @@ item.kurokumaft:barista_arrow.name=バリスタの矢
 entity.kurokumaft:barista.name=バリスタ
 entity.kurokumaft:barista_arrow.name=バリスタの矢
 
+item.kurokumaft:tank.name=戦車
+entity.kurokumaft:tank.name=戦車
+item.kurokumaft:shell.name=砲弾
+action.hint.exit.kurokumaft:tank=Shiftキーを押して降りる
+action.interact.tank=砲弾を右クリックで砲撃
+
 item.kurokumaft:copper_helmet.name=銅のヘルメット
 item.kurokumaft:copper_chestplate.name=銅の胸当て
 item.kurokumaft:copper_leggings.name=銅のレギンス
@@ -193,3 +201,16 @@ item.kurokumaft:steel_shovel.name=鋼のシャベル
 
 item.kurokumaft:bamboo_bag.name=竹籠
 entity.kurokumaft:bamboo_bag.name=竹籠
+
+item.kurokumaft:copper_bucket_axolotl.name=ウーパールーパー入り銅バケツ
+item.kurokumaft:copper_bucket_cod.name=タラ入り銅バケツ
+item.kurokumaft:copper_bucket.name=銅のバケツ
+item.kurokumaft:copper_bucket_lava.name=溶岩入り銅バケツ
+item.kurokumaft:copper_bucket_milk.name=ミルク入り銅バケツ
+item.kurokumaft:copper_bucket_powder_snow.name=粉雪入り銅バケツ
+item.kurokumaft:copper_bucket_pufferfish.name=フグ入り銅バケツ
+item.kurokumaft:copper_bucket_salmon.name=サケ入り銅バケツ
+item.kurokumaft:copper_bucket_tadpole.name=オタマジャクシ入り銅バケツ
+item.kurokumaft:copper_bucket_tropical.name=熱帯魚入り銅バケツ
+item.kurokumaft:copper_bucket_water.name=水入り銅バケツ
+

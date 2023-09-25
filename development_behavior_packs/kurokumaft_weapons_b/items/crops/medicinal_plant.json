@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:medicinal_plant",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.medicinal"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -12,15 +15,11 @@
       "minecraft:icon": {
         "texture": "medicinal_plant"
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.medicinal"
-      },
       "minecraft:use_animation":"eat",
       "minecraft:use_duration": 2,
       "minecraft:food": {
         "can_always_eat": true,
         "nutrition": 1,
-        "saturation_modifier": "low",
         "on_consume": {
           "event": "kurokumaft:heel"
         }

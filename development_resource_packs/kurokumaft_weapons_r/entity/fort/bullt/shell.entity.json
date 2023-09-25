@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:shell_entity",
+        "materials": {
+          "default": "fireball"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/items/fort/bullt/shell"
+        },
+        "geometry": {
+          "default": "geometry.fireball"
+        },
+        "animations": {
+          "face_player": "animation.bullet.shell"
+        },
+        "scripts": {
+          "scale": "1.0",
+          "animate": [
+            "face_player"
+          ]
+        },
+        "render_controllers": ["controller.render.fireball"]
+      }
+    }
+  }
+  

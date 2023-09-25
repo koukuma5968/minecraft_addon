@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fire_magic_shield",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_shield"
+      }
     },
     "components": {
       "tag:shield": {},
@@ -26,9 +29,6 @@
             "repair_amount": 300
           }
         ]
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_shield"
       },
       "minecraft:enchantable": {
         "value": 15,

@@ -1,0 +1,70 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:flamethrower_entity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+          "shot"
+        ]
+      },
+      "animations":{
+        "shot": "animation.flamethrower.shot"
+      }
+    },
+    "component_groups": {
+      "kurokumaft:despawn" :{
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["parrot_tame", "inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:timer": {
+        "looping": false,
+        "time": [5.0,5.0],
+        "time_down_event": {
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "kurokumaft:despawn": {
+        "run_command": {
+          "command": [
+            "tag @e[tag=flamethrower_shot,r=1] remove flamethrower_shot",
+            "tag @e[tag=gun_shot,r=1] remove gun_shot"
+          ],
+          "target": "self"
+        },
+        "add": {
+          "component_groups": [
+            "kurokumaft:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

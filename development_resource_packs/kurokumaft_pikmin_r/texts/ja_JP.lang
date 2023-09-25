@@ -3,6 +3,8 @@ entity.kurokumaft:yellow_pikmin.name=黄ピクミン
 entity.kurokumaft:blue_pikmin.name=青ピクミン
 entity.kurokumaft:feather_pikmin.name=羽ピクミン
 entity.kurokumaft:rock_pikmin.name=岩ピクミン
+entity.kurokumaft:white_pikmin.name=白ピクミン
+entity.kurokumaft:purple_pikmin.name=紫ピクミン
 
 entity.kurokumaft:chappie.name=チャッピー
 entity.kurokumaft:chappie_kids.name=コチャッピーモドキ
@@ -25,6 +27,8 @@ item.spawn_egg.entity.kurokumaft:yellow_pikmin.name=黄ピクミンをスポー�
 item.spawn_egg.entity.kurokumaft:blue_pikmin.name=青ピクミンをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:feather_pikmin.name=羽ピクミンをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:rock_pikmin.name=岩ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:white_pikmin.name=白ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:purple_pikmin.name=紫ピクミンをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:chappie.name=チャッピーをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:chappie_kids.name=コチャッピーモドキをスポーンさせる	#
@@ -47,17 +51,25 @@ item.kurokumaft:yellow_oniyon.name=黄ピクミンのオニヨン
 item.kurokumaft:blue_oniyon.name=青ピクミンのオニヨン
 item.kurokumaft:feather_oniyon.name=羽ピクミンのオニヨン
 item.kurokumaft:rock_oniyon.name=岩ピクミンのオニヨン
+item.kurokumaft:white_oniyon.name=白ピクミンのオニヨン
+item.kurokumaft:purple_oniyon.name=紫ピクミンのオニヨン
 
 item.kurokumaft:red_pellet.name=赤のペレット
 item.kurokumaft:yellow_pellet.name=黄のペレット
 item.kurokumaft:blue_pellet.name=青のペレット
 item.kurokumaft:feather_pellet.name=ピンクのペレット
 item.kurokumaft:rock_pellet.name=黒のペレット
+item.kurokumaft:white_pellet.name=白のペレット
+item.kurokumaft:purple_pellet.name=紫のペレット
 
-item.kurokumaft:assault_whistle.name=激辛笛
+item.kurokumaft:extremely_hot_spray.name=激辛スプレー
+
+item.kurokumaft:assault_whistle.name=突撃笛
 
 tile.kurokumaft:red_oniyon.name=赤ピクミンのオニヨン
 tile.kurokumaft:yellow_oniyon.name=黄ピクミンのオニヨン
 tile.kurokumaft:blue_oniyon.name=青ピクミンのオニヨン
 tile.kurokumaft:feather_oniyon.name=羽ピクミンのオニヨン
 tile.kurokumaft:rock_oniyon.name=岩ピクミンのオニヨン
+tile.kurokumaft:white_oniyon.name=白ピクミンのオニヨン
+tile.kurokumaft:purple_oniyon.name=紫ピクミンのオニヨン

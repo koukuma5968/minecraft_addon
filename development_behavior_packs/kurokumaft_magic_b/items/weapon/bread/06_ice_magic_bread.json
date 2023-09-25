@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
         "identifier": "kurokumaft:ice_magic_bread",
-        "category": "equipment"
+        "menu_category": {
+          "category": "equipment",
+          "group": "itemGroup.name.magic_bread"
+        }
     },
     "components": {
       "tag:magic_bread": {},
@@ -14,9 +17,6 @@
       "minecraft:icon": {
           "texture": "ice_magic_bread"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.bread"
-			},
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
@@ -34,7 +34,7 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
+      
       "minecraft:damage": 40,
       "minecraft:enchantable": {
         "value": 25,

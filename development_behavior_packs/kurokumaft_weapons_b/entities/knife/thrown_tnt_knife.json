@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12.0",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:thrown_tnt_knife",
@@ -72,7 +72,7 @@
       "minecraft:entity_spawned": {
         "run_command": {
           "command": [
-            "execute @p[c=1] ~~~ clear @s kurokumaft:tnt_knife 0 1"
+            "execute as @p[c=1] run clear @s kurokumaft:tnt_knife 0 1"
           ],
           "target": "self"
         }

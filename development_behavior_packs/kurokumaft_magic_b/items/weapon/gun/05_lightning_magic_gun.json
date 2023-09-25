@@ -1,19 +1,17 @@
 {
-  "format_version": "1.17.0",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:lightning_magic_gun",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_gun"
+      }
     },
     "components": {
       "tag:bow": {},
       "tag:lightning_magic_gun": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_gun"
-      },
       "minecraft:damage": 2,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 1500
       },

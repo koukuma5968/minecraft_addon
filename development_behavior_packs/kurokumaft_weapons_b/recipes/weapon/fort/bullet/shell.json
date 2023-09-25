@@ -1,0 +1,33 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:shell"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "b#b",
+            "#f#",
+            "b#b"
+        ],
+        "key": {
+            "f": {
+                "item": "minecraft:gunpowder"
+            },
+            "#": {
+                "item": "minecraft:sand"
+            },
+            "b": {
+                "item": "minecraft:iron_ingot"
+            }
+
+        },
+        "result": {
+            "item": "kurokumaft:shell",
+            "count": 4
+        },
+        "priority": 2
+    }
+}

@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:inosuke_hakama",
-      "category": "equipment"
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.leggings"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:inosuke_hakama.name"
 			},
       "minecraft:icon": {
-          "texture": "inosuke_hakama"
+        "texture": "inosuke_hakama"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.leggings"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 80,
-        "texture_type": "elytra"
-      },
       "minecraft:wearable": {
+        "protection": 80,
         "slot": "slot.armor.legs"
       }
     }

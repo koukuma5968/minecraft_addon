@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:kyouzyuro_tabi",
-      "category": "equipment"
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.boots"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:kyouzyuro_tabi.name"
 			},
       "minecraft:icon": {
-          "texture": "kyouzyuro_tabi"
+        "texture": "kyouzyuro_tabi"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.boots"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 50,
-        "texture_type": "elytra"
-      },
       "minecraft:wearable": {
+        "protection": 50,
         "slot": "slot.armor.feet"
       }
     }

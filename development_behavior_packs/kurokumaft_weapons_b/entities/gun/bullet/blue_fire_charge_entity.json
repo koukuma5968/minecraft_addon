@@ -1,5 +1,5 @@
 {
-  "format_version": "1.19.50",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:blue_fire_charge_entity",
@@ -48,7 +48,7 @@
         "knockback": false,
         "destroy_on_hurt": true,
         "power": 1.5,
-        "gravity": 0.00,
+        "gravity": 0.01,
         "inertia": 1.0,
         "uncertaintyBase": 8,
         "uncertaintyMultiplier": 2.5,

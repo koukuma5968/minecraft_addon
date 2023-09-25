@@ -1,5 +1,5 @@
 {
-  "format_version": "1.19.50",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:barista_arrow",
@@ -9,7 +9,7 @@
       "runtime_identifier": "minecraft:snowball"
     },
     "component_groups": {
-      "minecraft:center_arrow": {
+      "kurokumaft:center_arrow": {
         "minecraft:projectile": {
           "on_hit": {
             "impact_damage": {
@@ -34,11 +34,11 @@
           "uncertainty_multiplier": 0,
           "anchor": 1,
           "should_bounce": true,
-          "offset": [ 0, 0.5, 0 ]
+          "offset": [ 0, 1.5, 1.0 ]
         }
       },
 
-      "minecraft:left_arrow": {
+      "kurokumaft:left_arrow": {
         "minecraft:projectile": {
           "on_hit": {
             "impact_damage": {
@@ -63,11 +63,11 @@
           "uncertainty_multiplier": 0,
           "anchor": 1,
           "should_bounce": true,
-          "offset": [ -0.5, 0.5, 0 ]
+          "offset": [ -0.5, 1.5, 1.0 ]
         }
       },
 
-      "minecraft:right_arrow": {
+      "kurokumaft:right_arrow": {
         "minecraft:projectile": {
           "on_hit": {
             "impact_damage": {
@@ -92,7 +92,7 @@
           "uncertainty_multiplier": 0,
           "anchor": 1,
           "should_bounce": true,
-          "offset": [ 0.5, 0.5, 0 ]
+          "offset": [ 0.5, 1.5, 1.0 ]
         }
       }
     },
@@ -130,19 +130,19 @@
     },
 
     "events": {
-      "minecraft:center_arrow": {
+      "kurokumaft:center_arrow": {
         "add": {
-          "component_groups": [ "minecraft:center_arrow" ]
+          "component_groups": [ "kurokumaft:center_arrow" ]
         }
       },
-      "minecraft:left_arrow": {
+      "kurokumaft:left_arrow": {
         "add": {
-          "component_groups": [ "minecraft:left_arrow" ]
+          "component_groups": [ "kurokumaft:left_arrow" ]
         }
       },
-      "minecraft:right_arrow": {
+      "kurokumaft:right_arrow": {
         "add": {
-          "component_groups": [ "minecraft:right_arrow" ]
+          "component_groups": [ "kurokumaft:right_arrow" ]
         }
       }
     }

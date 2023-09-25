@@ -1,12 +1,12 @@
 {
-	"format_version": "1.19.50",
+	"format_version": "1.20.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:blue_oniyons",
 			"menu_category": {
 				"category": "none"
 			},
-			"properties": {
+			"states": {
 				"kurokumaft:growth": [0, 1, 2, 3]
 			}
 		},
@@ -34,7 +34,7 @@
 			},
 			"minecraft:random_ticking": {
 				"on_tick": {
-					"condition": "query.block_property('kurokumaft:growth') < 3",
+					"condition": "query.block_state('kurokumaft:growth') < 3",
 					"event": "growth"
 				}
 			},
@@ -45,7 +45,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "query.block_property('kurokumaft:growth') == 0",
+				"condition": "query.block_state('kurokumaft:growth') == 0",
 				"components": {
 					"minecraft:selection_box": {
 						"origin": [-8.0, 0.0, -8.0]	,
@@ -60,7 +60,7 @@
 				}
 			},
 			{
-				"condition": "query.block_property('kurokumaft:growth') == 1",
+				"condition": "query.block_state('kurokumaft:growth') == 1",
 				"components": {
 					"minecraft:selection_box": {
 						"origin": [-8.0, 0.0, -8.0]	,
@@ -75,7 +75,7 @@
 				}
 			},
 			{
-				"condition": "query.block_property('kurokumaft:growth') == 2",
+				"condition": "query.block_state('kurokumaft:growth') == 2",
 				"components": {
 					"minecraft:selection_box": {
 						"origin": [-8.0, 0.0, -8.0]	,
@@ -90,7 +90,7 @@
 				}
 			},
 			{
-				"condition": "query.block_property('kurokumaft:growth') == 3",
+				"condition": "query.block_state('kurokumaft:growth') == 3",
 				"components": {
 					"minecraft:selection_box": {
 						"origin": [-8.0, 0.0, -8.0]	,
@@ -110,16 +110,16 @@
 		],
 		"events": {
 			"growth": {
-			  "set_block_property": {
-				"kurokumaft:growth": "query.block_property('kurokumaft:growth') < 3 ? query.block_property('kurokumaft:growth') + 1 : 3"
+			  "set_block_state": {
+				"kurokumaft:growth": "query.block_state('kurokumaft:growth') < 3 ? query.block_state('kurokumaft:growth') + 1 : 3"
 			  }
 			},
 			"meal_growth": {
 				"run_command": {
 					"command":  "particle minecraft:crop_growth_emitter ~~~"
 				},
-				"set_block_property": {
-				  "kurokumaft:growth": "query.block_property('kurokumaft:growth') < 3 ? query.block_property('kurokumaft:growth') + 1 : 3"
+				"set_block_state": {
+				  "kurokumaft:growth": "query.block_state('kurokumaft:growth') < 3 ? query.block_state('kurokumaft:growth') + 1 : 3"
 				}
 			},
 			"tame_oniyon": {

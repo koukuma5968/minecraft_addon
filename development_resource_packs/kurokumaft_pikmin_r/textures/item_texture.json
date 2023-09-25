@@ -1,6 +1,28 @@
 {
    "resource_pack_name" : "kurokuma_pikmin_r",
    "texture_data" : {
+      "red_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/red_pikmin"
+      },
+      "blue_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/blue_pikmin"
+      },
+      "feather_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/feather_pikmin"
+      },
+      "rock_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/rock_pikmin"
+      },
+      "yellow_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/yellow_pikmin"
+      },
+      "white_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/white_pikmin"
+      },
+      "purple_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/purple_pikmin"
+      },
+
       "red_oniyon": {
          "textures": "textures/kurokumaft/items/oniyon/red_oniyon"
       },
@@ -15,6 +37,12 @@
       },
       "yellow_oniyon": {
          "textures": "textures/kurokumaft/items/oniyon/yellow_oniyon"
+      },
+      "white_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/white_oniyon"
+      },
+      "purple_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/purple_oniyon"
       },
 
       "red_pellet": {
@@ -32,6 +60,16 @@
       "yellow_pellet": {
          "textures": "textures/kurokumaft/items/pellet/yellow_pellet"
       },
+      "white_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/white_pellet"
+      },
+      "purple_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/purple_pellet"
+      },
+
+      "extremely_hot_spray": {
+         "textures": "textures/kurokumaft/items/spray/extremely_hot_spray"
+      },
 
       "pikmin_spawn_egg" : {
          "textures" : [
@@ -39,7 +77,9 @@
             "textures/kurokumaft/items/spawn_egg/pikmin/yellow_pikmin_egg",
             "textures/kurokumaft/items/spawn_egg/pikmin/blue_pikmin_egg",
             "textures/kurokumaft/items/spawn_egg/pikmin/rock_pikmin_egg",
-            "textures/kurokumaft/items/spawn_egg/pikmin/feather_pikmin_egg"
+            "textures/kurokumaft/items/spawn_egg/pikmin/feather_pikmin_egg",
+            "textures/kurokumaft/items/spawn_egg/pikmin/white_pikmin_egg",
+            "textures/kurokumaft/items/spawn_egg/pikmin/purple_pikmin_egg"
          ]
       },
 

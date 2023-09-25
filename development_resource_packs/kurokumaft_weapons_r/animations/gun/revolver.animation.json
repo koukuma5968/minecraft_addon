@@ -32,7 +32,7 @@
 			"bones": {
 				"revolver": {
 					"rotation": [52.43658, 59.18565, -71.90804],
-					"position": [0, 0, -4]
+					"position": [10, 18, 0]
 				}
 			}
 		},
@@ -41,7 +41,7 @@
 			"bones": {
 				"revolver": {
 					"rotation": [90, 0, 0],
-					"position": [0, -7, 0]
+					"position": [0, 19, 0]
 				}
 			}
 		},

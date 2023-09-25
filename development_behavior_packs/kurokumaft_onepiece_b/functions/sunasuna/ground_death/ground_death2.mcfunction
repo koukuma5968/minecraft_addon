@@ -1,208 +1,208 @@
-execute positioned as @s unless block ~-2~7~-2 air at @s run setblock ~-2~7~-2 sand 0 replace
-execute positioned as @s unless block ~-2~6~-2 air at @s run setblock ~-2~6~-2 sand 0 replace
-execute positioned as @s unless block ~-2~5~-2 air at @s run setblock ~-2~5~-2 sand 0 replace
-execute positioned as @s unless block ~-2~4~-2 air at @s run setblock ~-2~4~-2 sand 0 replace
-execute positioned as @s unless block ~-2~3~-2 air at @s run setblock ~-2~3~-2 sand 0 replace
-execute positioned as @s unless block ~-2~2~-2 air at @s run setblock ~-2~2~-2 sand 0 replace
-execute positioned as @s unless block ~-2~1~-2 air at @s run setblock ~-2~1~-2 sand 0 replace
-execute positioned as @s unless block ~-2~0~-2 air at @s run setblock ~-2~0~-2 sand 0 replace
-execute positioned as @s unless block ~-2~-1~-2 air at @s run setblock ~-2~-1~-2 sand 0 replace
-execute positioned as @s unless block ~-2~-2~-2 air at @s run setblock ~-2~-2~-2 sand 0 replace
-execute positioned as @s unless block ~-2~-3~-2 air at @s run setblock ~-2~-3~-2 sand 0 replace
-execute positioned as @s unless block ~-2~-4~-2 air at @s run setblock ~-2~-4~-2 sand 0 replace
-execute positioned as @s unless block ~-2~-5~-2 air at @s run setblock ~-2~-5~-2 sand 0 replace
-execute positioned as @s unless block ~-2~7~-1 air at @s run setblock ~-2~7~-1 sand 0 replace
-execute positioned as @s unless block ~-2~6~-1 air at @s run setblock ~-2~6~-1 sand 0 replace
-execute positioned as @s unless block ~-2~5~-1 air at @s run setblock ~-2~5~-1 sand 0 replace
-execute positioned as @s unless block ~-2~4~-1 air at @s run setblock ~-2~4~-1 sand 0 replace
-execute positioned as @s unless block ~-2~3~-1 air at @s run setblock ~-2~3~-1 sand 0 replace
-execute positioned as @s unless block ~-2~2~-1 air at @s run setblock ~-2~2~-1 sand 0 replace
-execute positioned as @s unless block ~-2~1~-1 air at @s run setblock ~-2~1~-1 sand 0 replace
-execute positioned as @s unless block ~-2~0~-1 air at @s run setblock ~-2~0~-1 sand 0 replace
-execute positioned as @s unless block ~-2~-1~-1 air at @s run setblock ~-2~-1~-1 sand 0 replace
-execute positioned as @s unless block ~-2~-2~-1 air at @s run setblock ~-2~-2~-1 sand 0 replace
-execute positioned as @s unless block ~-2~-3~-1 air at @s run setblock ~-2~-3~-1 sand 0 replace
-execute positioned as @s unless block ~-2~-4~-1 air at @s run setblock ~-2~-4~-1 sand 0 replace
-execute positioned as @s unless block ~-2~-5~-1 air at @s run setblock ~-2~-5~-1 sand 0 replace
-execute positioned as @s unless block ~-2~7~0 air at @s run setblock ~-2~7~0 sand 0 replace
-execute positioned as @s unless block ~-2~6~0 air at @s run setblock ~-2~6~0 sand 0 replace
-execute positioned as @s unless block ~-2~5~0 air at @s run setblock ~-2~5~0 sand 0 replace
-execute positioned as @s unless block ~-2~4~0 air at @s run setblock ~-2~4~0 sand 0 replace
-execute positioned as @s unless block ~-2~3~0 air at @s run setblock ~-2~3~0 sand 0 replace
-execute positioned as @s unless block ~-2~2~0 air at @s run setblock ~-2~2~0 sand 0 replace
-execute positioned as @s unless block ~-2~1~0 air at @s run setblock ~-2~1~0 sand 0 replace
-execute positioned as @s unless block ~-2~0~0 air at @s run setblock ~-2~0~0 sand 0 replace
-execute positioned as @s unless block ~-2~-1~0 air at @s run setblock ~-2~-1~0 sand 0 replace
-execute positioned as @s unless block ~-2~-2~0 air at @s run setblock ~-2~-2~0 sand 0 replace
-execute positioned as @s unless block ~-2~-3~0 air at @s run setblock ~-2~-3~0 sand 0 replace
-execute positioned as @s unless block ~-2~-4~0 air at @s run setblock ~-2~-4~0 sand 0 replace
-execute positioned as @s unless block ~-2~-5~0 air at @s run setblock ~-2~-5~0 sand 0 replace
-execute positioned as @s unless block ~-2~7~1 air at @s run setblock ~-2~7~1 sand 0 replace
-execute positioned as @s unless block ~-2~6~1 air at @s run setblock ~-2~6~1 sand 0 replace
-execute positioned as @s unless block ~-2~5~1 air at @s run setblock ~-2~5~1 sand 0 replace
-execute positioned as @s unless block ~-2~4~1 air at @s run setblock ~-2~4~1 sand 0 replace
-execute positioned as @s unless block ~-2~3~1 air at @s run setblock ~-2~3~1 sand 0 replace
-execute positioned as @s unless block ~-2~2~1 air at @s run setblock ~-2~2~1 sand 0 replace
-execute positioned as @s unless block ~-2~1~1 air at @s run setblock ~-2~1~1 sand 0 replace
-execute positioned as @s unless block ~-2~0~1 air at @s run setblock ~-2~0~1 sand 0 replace
-execute positioned as @s unless block ~-2~-1~1 air at @s run setblock ~-2~-1~1 sand 0 replace
-execute positioned as @s unless block ~-2~-2~1 air at @s run setblock ~-2~-2~1 sand 0 replace
-execute positioned as @s unless block ~-2~-3~1 air at @s run setblock ~-2~-3~1 sand 0 replace
-execute positioned as @s unless block ~-2~-4~1 air at @s run setblock ~-2~-4~1 sand 0 replace
-execute positioned as @s unless block ~-2~-5~1 air at @s run setblock ~-2~-5~1 sand 0 replace
-execute positioned as @s unless block ~-2~7~2 air at @s run setblock ~-2~7~2 sand 0 replace
-execute positioned as @s unless block ~-2~6~2 air at @s run setblock ~-2~6~2 sand 0 replace
-execute positioned as @s unless block ~-2~5~2 air at @s run setblock ~-2~5~2 sand 0 replace
-execute positioned as @s unless block ~-2~4~2 air at @s run setblock ~-2~4~2 sand 0 replace
-execute positioned as @s unless block ~-2~3~2 air at @s run setblock ~-2~3~2 sand 0 replace
-execute positioned as @s unless block ~-2~2~2 air at @s run setblock ~-2~2~2 sand 0 replace
-execute positioned as @s unless block ~-2~1~2 air at @s run setblock ~-2~1~2 sand 0 replace
-execute positioned as @s unless block ~-2~0~2 air at @s run setblock ~-2~0~2 sand 0 replace
-execute positioned as @s unless block ~-2~-1~2 air at @s run setblock ~-2~-1~2 sand 0 replace
-execute positioned as @s unless block ~-2~-2~2 air at @s run setblock ~-2~-2~2 sand 0 replace
-execute positioned as @s unless block ~-2~-3~2 air at @s run setblock ~-2~-3~2 sand 0 replace
-execute positioned as @s unless block ~-2~-4~2 air at @s run setblock ~-2~-4~2 sand 0 replace
-execute positioned as @s unless block ~-2~-5~2 air at @s run setblock ~-2~-5~2 sand 0 replace
-execute positioned as @s unless block ~-1~7~-2 air at @s run setblock ~-1~7~-2 sand 0 replace
-execute positioned as @s unless block ~-1~6~-2 air at @s run setblock ~-1~6~-2 sand 0 replace
-execute positioned as @s unless block ~-1~5~-2 air at @s run setblock ~-1~5~-2 sand 0 replace
-execute positioned as @s unless block ~-1~4~-2 air at @s run setblock ~-1~4~-2 sand 0 replace
-execute positioned as @s unless block ~-1~3~-2 air at @s run setblock ~-1~3~-2 sand 0 replace
-execute positioned as @s unless block ~-1~2~-2 air at @s run setblock ~-1~2~-2 sand 0 replace
-execute positioned as @s unless block ~-1~1~-2 air at @s run setblock ~-1~1~-2 sand 0 replace
-execute positioned as @s unless block ~-1~0~-2 air at @s run setblock ~-1~0~-2 sand 0 replace
-execute positioned as @s unless block ~-1~-1~-2 air at @s run setblock ~-1~-1~-2 sand 0 replace
-execute positioned as @s unless block ~-1~-2~-2 air at @s run setblock ~-1~-2~-2 sand 0 replace
-execute positioned as @s unless block ~-1~-3~-2 air at @s run setblock ~-1~-3~-2 sand 0 replace
-execute positioned as @s unless block ~-1~-4~-2 air at @s run setblock ~-1~-4~-2 sand 0 replace
-execute positioned as @s unless block ~-1~-5~-2 air at @s run setblock ~-1~-5~-2 sand 0 replace
-execute positioned as @s unless block ~-1~7~2 air at @s run setblock ~-1~7~2 sand 0 replace
-execute positioned as @s unless block ~-1~6~2 air at @s run setblock ~-1~6~2 sand 0 replace
-execute positioned as @s unless block ~-1~5~2 air at @s run setblock ~-1~5~2 sand 0 replace
-execute positioned as @s unless block ~-1~4~2 air at @s run setblock ~-1~4~2 sand 0 replace
-execute positioned as @s unless block ~-1~3~2 air at @s run setblock ~-1~3~2 sand 0 replace
-execute positioned as @s unless block ~-1~2~2 air at @s run setblock ~-1~2~2 sand 0 replace
-execute positioned as @s unless block ~-1~1~2 air at @s run setblock ~-1~1~2 sand 0 replace
-execute positioned as @s unless block ~-1~0~2 air at @s run setblock ~-1~0~2 sand 0 replace
-execute positioned as @s unless block ~-1~-1~2 air at @s run setblock ~-1~-1~2 sand 0 replace
-execute positioned as @s unless block ~-1~-2~2 air at @s run setblock ~-1~-2~2 sand 0 replace
-execute positioned as @s unless block ~-1~-3~2 air at @s run setblock ~-1~-3~2 sand 0 replace
-execute positioned as @s unless block ~-1~-4~2 air at @s run setblock ~-1~-4~2 sand 0 replace
-execute positioned as @s unless block ~-1~-5~2 air at @s run setblock ~-1~-5~2 sand 0 replace
-execute positioned as @s unless block ~0~7~-2 air at @s run setblock ~0~7~-2 sand 0 replace
-execute positioned as @s unless block ~0~6~-2 air at @s run setblock ~0~6~-2 sand 0 replace
-execute positioned as @s unless block ~0~5~-2 air at @s run setblock ~0~5~-2 sand 0 replace
-execute positioned as @s unless block ~0~4~-2 air at @s run setblock ~0~4~-2 sand 0 replace
-execute positioned as @s unless block ~0~3~-2 air at @s run setblock ~0~3~-2 sand 0 replace
-execute positioned as @s unless block ~0~2~-2 air at @s run setblock ~0~2~-2 sand 0 replace
-execute positioned as @s unless block ~0~1~-2 air at @s run setblock ~0~1~-2 sand 0 replace
-execute positioned as @s unless block ~0~0~-2 air at @s run setblock ~0~0~-2 sand 0 replace
-execute positioned as @s unless block ~0~-1~-2 air at @s run setblock ~0~-1~-2 sand 0 replace
-execute positioned as @s unless block ~0~-2~-2 air at @s run setblock ~0~-2~-2 sand 0 replace
-execute positioned as @s unless block ~0~-3~-2 air at @s run setblock ~0~-3~-2 sand 0 replace
-execute positioned as @s unless block ~0~-4~-2 air at @s run setblock ~0~-4~-2 sand 0 replace
-execute positioned as @s unless block ~0~-5~-2 air at @s run setblock ~0~-5~-2 sand 0 replace
-execute positioned as @s unless block ~0~7~2 air at @s run setblock ~0~7~2 sand 0 replace
-execute positioned as @s unless block ~0~6~2 air at @s run setblock ~0~6~2 sand 0 replace
-execute positioned as @s unless block ~0~5~2 air at @s run setblock ~0~5~2 sand 0 replace
-execute positioned as @s unless block ~0~4~2 air at @s run setblock ~0~4~2 sand 0 replace
-execute positioned as @s unless block ~0~3~2 air at @s run setblock ~0~3~2 sand 0 replace
-execute positioned as @s unless block ~0~2~2 air at @s run setblock ~0~2~2 sand 0 replace
-execute positioned as @s unless block ~0~1~2 air at @s run setblock ~0~1~2 sand 0 replace
-execute positioned as @s unless block ~0~0~2 air at @s run setblock ~0~0~2 sand 0 replace
-execute positioned as @s unless block ~0~-1~2 air at @s run setblock ~0~-1~2 sand 0 replace
-execute positioned as @s unless block ~0~-2~2 air at @s run setblock ~0~-2~2 sand 0 replace
-execute positioned as @s unless block ~0~-3~2 air at @s run setblock ~0~-3~2 sand 0 replace
-execute positioned as @s unless block ~0~-4~2 air at @s run setblock ~0~-4~2 sand 0 replace
-execute positioned as @s unless block ~0~-5~2 air at @s run setblock ~0~-5~2 sand 0 replace
-execute positioned as @s unless block ~1~7~-2 air at @s run setblock ~1~7~-2 sand 0 replace
-execute positioned as @s unless block ~1~6~-2 air at @s run setblock ~1~6~-2 sand 0 replace
-execute positioned as @s unless block ~1~5~-2 air at @s run setblock ~1~5~-2 sand 0 replace
-execute positioned as @s unless block ~1~4~-2 air at @s run setblock ~1~4~-2 sand 0 replace
-execute positioned as @s unless block ~1~3~-2 air at @s run setblock ~1~3~-2 sand 0 replace
-execute positioned as @s unless block ~1~2~-2 air at @s run setblock ~1~2~-2 sand 0 replace
-execute positioned as @s unless block ~1~1~-2 air at @s run setblock ~1~1~-2 sand 0 replace
-execute positioned as @s unless block ~1~0~-2 air at @s run setblock ~1~0~-2 sand 0 replace
-execute positioned as @s unless block ~1~-1~-2 air at @s run setblock ~1~-1~-2 sand 0 replace
-execute positioned as @s unless block ~1~-2~-2 air at @s run setblock ~1~-2~-2 sand 0 replace
-execute positioned as @s unless block ~1~-3~-2 air at @s run setblock ~1~-3~-2 sand 0 replace
-execute positioned as @s unless block ~1~-4~-2 air at @s run setblock ~1~-4~-2 sand 0 replace
-execute positioned as @s unless block ~1~-5~-2 air at @s run setblock ~1~-5~-2 sand 0 replace
-execute positioned as @s unless block ~1~7~2 air at @s run setblock ~1~7~2 sand 0 replace
-execute positioned as @s unless block ~1~6~2 air at @s run setblock ~1~6~2 sand 0 replace
-execute positioned as @s unless block ~1~5~2 air at @s run setblock ~1~5~2 sand 0 replace
-execute positioned as @s unless block ~1~4~2 air at @s run setblock ~1~4~2 sand 0 replace
-execute positioned as @s unless block ~1~3~2 air at @s run setblock ~1~3~2 sand 0 replace
-execute positioned as @s unless block ~1~2~2 air at @s run setblock ~1~2~2 sand 0 replace
-execute positioned as @s unless block ~1~1~2 air at @s run setblock ~1~1~2 sand 0 replace
-execute positioned as @s unless block ~1~0~2 air at @s run setblock ~1~0~2 sand 0 replace
-execute positioned as @s unless block ~1~-1~2 air at @s run setblock ~1~-1~2 sand 0 replace
-execute positioned as @s unless block ~1~-2~2 air at @s run setblock ~1~-2~2 sand 0 replace
-execute positioned as @s unless block ~1~-3~2 air at @s run setblock ~1~-3~2 sand 0 replace
-execute positioned as @s unless block ~1~-4~2 air at @s run setblock ~1~-4~2 sand 0 replace
-execute positioned as @s unless block ~1~-5~2 air at @s run setblock ~1~-5~2 sand 0 replace
-execute positioned as @s unless block ~2~7~-2 air at @s run setblock ~2~7~-2 sand 0 replace
-execute positioned as @s unless block ~2~6~-2 air at @s run setblock ~2~6~-2 sand 0 replace
-execute positioned as @s unless block ~2~5~-2 air at @s run setblock ~2~5~-2 sand 0 replace
-execute positioned as @s unless block ~2~4~-2 air at @s run setblock ~2~4~-2 sand 0 replace
-execute positioned as @s unless block ~2~3~-2 air at @s run setblock ~2~3~-2 sand 0 replace
-execute positioned as @s unless block ~2~2~-2 air at @s run setblock ~2~2~-2 sand 0 replace
-execute positioned as @s unless block ~2~1~-2 air at @s run setblock ~2~1~-2 sand 0 replace
-execute positioned as @s unless block ~2~0~-2 air at @s run setblock ~2~0~-2 sand 0 replace
-execute positioned as @s unless block ~2~-1~-2 air at @s run setblock ~2~-1~-2 sand 0 replace
-execute positioned as @s unless block ~2~-2~-2 air at @s run setblock ~2~-2~-2 sand 0 replace
-execute positioned as @s unless block ~2~-3~-2 air at @s run setblock ~2~-3~-2 sand 0 replace
-execute positioned as @s unless block ~2~-4~-2 air at @s run setblock ~2~-4~-2 sand 0 replace
-execute positioned as @s unless block ~2~-5~-2 air at @s run setblock ~2~-5~-2 sand 0 replace
-execute positioned as @s unless block ~2~7~-1 air at @s run setblock ~2~7~-1 sand 0 replace
-execute positioned as @s unless block ~2~6~-1 air at @s run setblock ~2~6~-1 sand 0 replace
-execute positioned as @s unless block ~2~5~-1 air at @s run setblock ~2~5~-1 sand 0 replace
-execute positioned as @s unless block ~2~4~-1 air at @s run setblock ~2~4~-1 sand 0 replace
-execute positioned as @s unless block ~2~3~-1 air at @s run setblock ~2~3~-1 sand 0 replace
-execute positioned as @s unless block ~2~2~-1 air at @s run setblock ~2~2~-1 sand 0 replace
-execute positioned as @s unless block ~2~1~-1 air at @s run setblock ~2~1~-1 sand 0 replace
-execute positioned as @s unless block ~2~0~-1 air at @s run setblock ~2~0~-1 sand 0 replace
-execute positioned as @s unless block ~2~-1~-1 air at @s run setblock ~2~-1~-1 sand 0 replace
-execute positioned as @s unless block ~2~-2~-1 air at @s run setblock ~2~-2~-1 sand 0 replace
-execute positioned as @s unless block ~2~-3~-1 air at @s run setblock ~2~-3~-1 sand 0 replace
-execute positioned as @s unless block ~2~-4~-1 air at @s run setblock ~2~-4~-1 sand 0 replace
-execute positioned as @s unless block ~2~-5~-1 air at @s run setblock ~2~-5~-1 sand 0 replace
-execute positioned as @s unless block ~2~7~0 air at @s run setblock ~2~7~0 sand 0 replace
-execute positioned as @s unless block ~2~6~0 air at @s run setblock ~2~6~0 sand 0 replace
-execute positioned as @s unless block ~2~5~0 air at @s run setblock ~2~5~0 sand 0 replace
-execute positioned as @s unless block ~2~4~0 air at @s run setblock ~2~4~0 sand 0 replace
-execute positioned as @s unless block ~2~3~0 air at @s run setblock ~2~3~0 sand 0 replace
-execute positioned as @s unless block ~2~2~0 air at @s run setblock ~2~2~0 sand 0 replace
-execute positioned as @s unless block ~2~1~0 air at @s run setblock ~2~1~0 sand 0 replace
-execute positioned as @s unless block ~2~0~0 air at @s run setblock ~2~0~0 sand 0 replace
-execute positioned as @s unless block ~2~-1~0 air at @s run setblock ~2~-1~0 sand 0 replace
-execute positioned as @s unless block ~2~-2~0 air at @s run setblock ~2~-2~0 sand 0 replace
-execute positioned as @s unless block ~2~-3~0 air at @s run setblock ~2~-3~0 sand 0 replace
-execute positioned as @s unless block ~2~-4~0 air at @s run setblock ~2~-4~0 sand 0 replace
-execute positioned as @s unless block ~2~-5~0 air at @s run setblock ~2~-5~0 sand 0 replace
-execute positioned as @s unless block ~2~7~1 air at @s run setblock ~2~7~1 sand 0 replace
-execute positioned as @s unless block ~2~6~1 air at @s run setblock ~2~6~1 sand 0 replace
-execute positioned as @s unless block ~2~5~1 air at @s run setblock ~2~5~1 sand 0 replace
-execute positioned as @s unless block ~2~4~1 air at @s run setblock ~2~4~1 sand 0 replace
-execute positioned as @s unless block ~2~3~1 air at @s run setblock ~2~3~1 sand 0 replace
-execute positioned as @s unless block ~2~2~1 air at @s run setblock ~2~2~1 sand 0 replace
-execute positioned as @s unless block ~2~1~1 air at @s run setblock ~2~1~1 sand 0 replace
-execute positioned as @s unless block ~2~0~1 air at @s run setblock ~2~0~1 sand 0 replace
-execute positioned as @s unless block ~2~-1~1 air at @s run setblock ~2~-1~1 sand 0 replace
-execute positioned as @s unless block ~2~-2~1 air at @s run setblock ~2~-2~1 sand 0 replace
-execute positioned as @s unless block ~2~-3~1 air at @s run setblock ~2~-3~1 sand 0 replace
-execute positioned as @s unless block ~2~-4~1 air at @s run setblock ~2~-4~1 sand 0 replace
-execute positioned as @s unless block ~2~-5~1 air at @s run setblock ~2~-5~1 sand 0 replace
-execute positioned as @s unless block ~2~7~2 air at @s run setblock ~2~7~2 sand 0 replace
-execute positioned as @s unless block ~2~6~2 air at @s run setblock ~2~6~2 sand 0 replace
-execute positioned as @s unless block ~2~5~2 air at @s run setblock ~2~5~2 sand 0 replace
-execute positioned as @s unless block ~2~4~2 air at @s run setblock ~2~4~2 sand 0 replace
-execute positioned as @s unless block ~2~3~2 air at @s run setblock ~2~3~2 sand 0 replace
-execute positioned as @s unless block ~2~2~2 air at @s run setblock ~2~2~2 sand 0 replace
-execute positioned as @s unless block ~2~1~2 air at @s run setblock ~2~1~2 sand 0 replace
-execute positioned as @s unless block ~2~0~2 air at @s run setblock ~2~0~2 sand 0 replace
-execute positioned as @s unless block ~2~-1~2 air at @s run setblock ~2~-1~2 sand 0 replace
-execute positioned as @s unless block ~2~-2~2 air at @s run setblock ~2~-2~2 sand 0 replace
-execute positioned as @s unless block ~2~-3~2 air at @s run setblock ~2~-3~2 sand 0 replace
-execute positioned as @s unless block ~2~-4~2 air at @s run setblock ~2~-4~2 sand 0 replace
-execute positioned as @s unless block ~2~-5~2 air at @s run setblock ~2~-5~2 sand 0 replace
+execute at positioned as @s unless block ~-2~7~-2 air at @s run setblock ~-2~7~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~6~-2 air at @s run setblock ~-2~6~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~5~-2 air at @s run setblock ~-2~5~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~4~-2 air at @s run setblock ~-2~4~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~3~-2 air at @s run setblock ~-2~3~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~2~-2 air at @s run setblock ~-2~2~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~1~-2 air at @s run setblock ~-2~1~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~0~-2 air at @s run setblock ~-2~0~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~-1~-2 air at @s run setblock ~-2~-1~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~-2~-2 air at @s run setblock ~-2~-2~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~-3~-2 air at @s run setblock ~-2~-3~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~-4~-2 air at @s run setblock ~-2~-4~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~-5~-2 air at @s run setblock ~-2~-5~-2 sand 0 replace
+execute at positioned as @s unless block ~-2~7~-1 air at @s run setblock ~-2~7~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~6~-1 air at @s run setblock ~-2~6~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~5~-1 air at @s run setblock ~-2~5~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~4~-1 air at @s run setblock ~-2~4~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~3~-1 air at @s run setblock ~-2~3~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~2~-1 air at @s run setblock ~-2~2~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~1~-1 air at @s run setblock ~-2~1~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~0~-1 air at @s run setblock ~-2~0~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~-1~-1 air at @s run setblock ~-2~-1~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~-2~-1 air at @s run setblock ~-2~-2~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~-3~-1 air at @s run setblock ~-2~-3~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~-4~-1 air at @s run setblock ~-2~-4~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~-5~-1 air at @s run setblock ~-2~-5~-1 sand 0 replace
+execute at positioned as @s unless block ~-2~7~0 air at @s run setblock ~-2~7~0 sand 0 replace
+execute at positioned as @s unless block ~-2~6~0 air at @s run setblock ~-2~6~0 sand 0 replace
+execute at positioned as @s unless block ~-2~5~0 air at @s run setblock ~-2~5~0 sand 0 replace
+execute at positioned as @s unless block ~-2~4~0 air at @s run setblock ~-2~4~0 sand 0 replace
+execute at positioned as @s unless block ~-2~3~0 air at @s run setblock ~-2~3~0 sand 0 replace
+execute at positioned as @s unless block ~-2~2~0 air at @s run setblock ~-2~2~0 sand 0 replace
+execute at positioned as @s unless block ~-2~1~0 air at @s run setblock ~-2~1~0 sand 0 replace
+execute at positioned as @s unless block ~-2~0~0 air at @s run setblock ~-2~0~0 sand 0 replace
+execute at positioned as @s unless block ~-2~-1~0 air at @s run setblock ~-2~-1~0 sand 0 replace
+execute at positioned as @s unless block ~-2~-2~0 air at @s run setblock ~-2~-2~0 sand 0 replace
+execute at positioned as @s unless block ~-2~-3~0 air at @s run setblock ~-2~-3~0 sand 0 replace
+execute at positioned as @s unless block ~-2~-4~0 air at @s run setblock ~-2~-4~0 sand 0 replace
+execute at positioned as @s unless block ~-2~-5~0 air at @s run setblock ~-2~-5~0 sand 0 replace
+execute at positioned as @s unless block ~-2~7~1 air at @s run setblock ~-2~7~1 sand 0 replace
+execute at positioned as @s unless block ~-2~6~1 air at @s run setblock ~-2~6~1 sand 0 replace
+execute at positioned as @s unless block ~-2~5~1 air at @s run setblock ~-2~5~1 sand 0 replace
+execute at positioned as @s unless block ~-2~4~1 air at @s run setblock ~-2~4~1 sand 0 replace
+execute at positioned as @s unless block ~-2~3~1 air at @s run setblock ~-2~3~1 sand 0 replace
+execute at positioned as @s unless block ~-2~2~1 air at @s run setblock ~-2~2~1 sand 0 replace
+execute at positioned as @s unless block ~-2~1~1 air at @s run setblock ~-2~1~1 sand 0 replace
+execute at positioned as @s unless block ~-2~0~1 air at @s run setblock ~-2~0~1 sand 0 replace
+execute at positioned as @s unless block ~-2~-1~1 air at @s run setblock ~-2~-1~1 sand 0 replace
+execute at positioned as @s unless block ~-2~-2~1 air at @s run setblock ~-2~-2~1 sand 0 replace
+execute at positioned as @s unless block ~-2~-3~1 air at @s run setblock ~-2~-3~1 sand 0 replace
+execute at positioned as @s unless block ~-2~-4~1 air at @s run setblock ~-2~-4~1 sand 0 replace
+execute at positioned as @s unless block ~-2~-5~1 air at @s run setblock ~-2~-5~1 sand 0 replace
+execute at positioned as @s unless block ~-2~7~2 air at @s run setblock ~-2~7~2 sand 0 replace
+execute at positioned as @s unless block ~-2~6~2 air at @s run setblock ~-2~6~2 sand 0 replace
+execute at positioned as @s unless block ~-2~5~2 air at @s run setblock ~-2~5~2 sand 0 replace
+execute at positioned as @s unless block ~-2~4~2 air at @s run setblock ~-2~4~2 sand 0 replace
+execute at positioned as @s unless block ~-2~3~2 air at @s run setblock ~-2~3~2 sand 0 replace
+execute at positioned as @s unless block ~-2~2~2 air at @s run setblock ~-2~2~2 sand 0 replace
+execute at positioned as @s unless block ~-2~1~2 air at @s run setblock ~-2~1~2 sand 0 replace
+execute at positioned as @s unless block ~-2~0~2 air at @s run setblock ~-2~0~2 sand 0 replace
+execute at positioned as @s unless block ~-2~-1~2 air at @s run setblock ~-2~-1~2 sand 0 replace
+execute at positioned as @s unless block ~-2~-2~2 air at @s run setblock ~-2~-2~2 sand 0 replace
+execute at positioned as @s unless block ~-2~-3~2 air at @s run setblock ~-2~-3~2 sand 0 replace
+execute at positioned as @s unless block ~-2~-4~2 air at @s run setblock ~-2~-4~2 sand 0 replace
+execute at positioned as @s unless block ~-2~-5~2 air at @s run setblock ~-2~-5~2 sand 0 replace
+execute at positioned as @s unless block ~-1~7~-2 air at @s run setblock ~-1~7~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~6~-2 air at @s run setblock ~-1~6~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~5~-2 air at @s run setblock ~-1~5~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~4~-2 air at @s run setblock ~-1~4~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~3~-2 air at @s run setblock ~-1~3~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~2~-2 air at @s run setblock ~-1~2~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~1~-2 air at @s run setblock ~-1~1~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~0~-2 air at @s run setblock ~-1~0~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~-1~-2 air at @s run setblock ~-1~-1~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~-2~-2 air at @s run setblock ~-1~-2~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~-3~-2 air at @s run setblock ~-1~-3~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~-4~-2 air at @s run setblock ~-1~-4~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~-5~-2 air at @s run setblock ~-1~-5~-2 sand 0 replace
+execute at positioned as @s unless block ~-1~7~2 air at @s run setblock ~-1~7~2 sand 0 replace
+execute at positioned as @s unless block ~-1~6~2 air at @s run setblock ~-1~6~2 sand 0 replace
+execute at positioned as @s unless block ~-1~5~2 air at @s run setblock ~-1~5~2 sand 0 replace
+execute at positioned as @s unless block ~-1~4~2 air at @s run setblock ~-1~4~2 sand 0 replace
+execute at positioned as @s unless block ~-1~3~2 air at @s run setblock ~-1~3~2 sand 0 replace
+execute at positioned as @s unless block ~-1~2~2 air at @s run setblock ~-1~2~2 sand 0 replace
+execute at positioned as @s unless block ~-1~1~2 air at @s run setblock ~-1~1~2 sand 0 replace
+execute at positioned as @s unless block ~-1~0~2 air at @s run setblock ~-1~0~2 sand 0 replace
+execute at positioned as @s unless block ~-1~-1~2 air at @s run setblock ~-1~-1~2 sand 0 replace
+execute at positioned as @s unless block ~-1~-2~2 air at @s run setblock ~-1~-2~2 sand 0 replace
+execute at positioned as @s unless block ~-1~-3~2 air at @s run setblock ~-1~-3~2 sand 0 replace
+execute at positioned as @s unless block ~-1~-4~2 air at @s run setblock ~-1~-4~2 sand 0 replace
+execute at positioned as @s unless block ~-1~-5~2 air at @s run setblock ~-1~-5~2 sand 0 replace
+execute at positioned as @s unless block ~0~7~-2 air at @s run setblock ~0~7~-2 sand 0 replace
+execute at positioned as @s unless block ~0~6~-2 air at @s run setblock ~0~6~-2 sand 0 replace
+execute at positioned as @s unless block ~0~5~-2 air at @s run setblock ~0~5~-2 sand 0 replace
+execute at positioned as @s unless block ~0~4~-2 air at @s run setblock ~0~4~-2 sand 0 replace
+execute at positioned as @s unless block ~0~3~-2 air at @s run setblock ~0~3~-2 sand 0 replace
+execute at positioned as @s unless block ~0~2~-2 air at @s run setblock ~0~2~-2 sand 0 replace
+execute at positioned as @s unless block ~0~1~-2 air at @s run setblock ~0~1~-2 sand 0 replace
+execute at positioned as @s unless block ~0~0~-2 air at @s run setblock ~0~0~-2 sand 0 replace
+execute at positioned as @s unless block ~0~-1~-2 air at @s run setblock ~0~-1~-2 sand 0 replace
+execute at positioned as @s unless block ~0~-2~-2 air at @s run setblock ~0~-2~-2 sand 0 replace
+execute at positioned as @s unless block ~0~-3~-2 air at @s run setblock ~0~-3~-2 sand 0 replace
+execute at positioned as @s unless block ~0~-4~-2 air at @s run setblock ~0~-4~-2 sand 0 replace
+execute at positioned as @s unless block ~0~-5~-2 air at @s run setblock ~0~-5~-2 sand 0 replace
+execute at positioned as @s unless block ~0~7~2 air at @s run setblock ~0~7~2 sand 0 replace
+execute at positioned as @s unless block ~0~6~2 air at @s run setblock ~0~6~2 sand 0 replace
+execute at positioned as @s unless block ~0~5~2 air at @s run setblock ~0~5~2 sand 0 replace
+execute at positioned as @s unless block ~0~4~2 air at @s run setblock ~0~4~2 sand 0 replace
+execute at positioned as @s unless block ~0~3~2 air at @s run setblock ~0~3~2 sand 0 replace
+execute at positioned as @s unless block ~0~2~2 air at @s run setblock ~0~2~2 sand 0 replace
+execute at positioned as @s unless block ~0~1~2 air at @s run setblock ~0~1~2 sand 0 replace
+execute at positioned as @s unless block ~0~0~2 air at @s run setblock ~0~0~2 sand 0 replace
+execute at positioned as @s unless block ~0~-1~2 air at @s run setblock ~0~-1~2 sand 0 replace
+execute at positioned as @s unless block ~0~-2~2 air at @s run setblock ~0~-2~2 sand 0 replace
+execute at positioned as @s unless block ~0~-3~2 air at @s run setblock ~0~-3~2 sand 0 replace
+execute at positioned as @s unless block ~0~-4~2 air at @s run setblock ~0~-4~2 sand 0 replace
+execute at positioned as @s unless block ~0~-5~2 air at @s run setblock ~0~-5~2 sand 0 replace
+execute at positioned as @s unless block ~1~7~-2 air at @s run setblock ~1~7~-2 sand 0 replace
+execute at positioned as @s unless block ~1~6~-2 air at @s run setblock ~1~6~-2 sand 0 replace
+execute at positioned as @s unless block ~1~5~-2 air at @s run setblock ~1~5~-2 sand 0 replace
+execute at positioned as @s unless block ~1~4~-2 air at @s run setblock ~1~4~-2 sand 0 replace
+execute at positioned as @s unless block ~1~3~-2 air at @s run setblock ~1~3~-2 sand 0 replace
+execute at positioned as @s unless block ~1~2~-2 air at @s run setblock ~1~2~-2 sand 0 replace
+execute at positioned as @s unless block ~1~1~-2 air at @s run setblock ~1~1~-2 sand 0 replace
+execute at positioned as @s unless block ~1~0~-2 air at @s run setblock ~1~0~-2 sand 0 replace
+execute at positioned as @s unless block ~1~-1~-2 air at @s run setblock ~1~-1~-2 sand 0 replace
+execute at positioned as @s unless block ~1~-2~-2 air at @s run setblock ~1~-2~-2 sand 0 replace
+execute at positioned as @s unless block ~1~-3~-2 air at @s run setblock ~1~-3~-2 sand 0 replace
+execute at positioned as @s unless block ~1~-4~-2 air at @s run setblock ~1~-4~-2 sand 0 replace
+execute at positioned as @s unless block ~1~-5~-2 air at @s run setblock ~1~-5~-2 sand 0 replace
+execute at positioned as @s unless block ~1~7~2 air at @s run setblock ~1~7~2 sand 0 replace
+execute at positioned as @s unless block ~1~6~2 air at @s run setblock ~1~6~2 sand 0 replace
+execute at positioned as @s unless block ~1~5~2 air at @s run setblock ~1~5~2 sand 0 replace
+execute at positioned as @s unless block ~1~4~2 air at @s run setblock ~1~4~2 sand 0 replace
+execute at positioned as @s unless block ~1~3~2 air at @s run setblock ~1~3~2 sand 0 replace
+execute at positioned as @s unless block ~1~2~2 air at @s run setblock ~1~2~2 sand 0 replace
+execute at positioned as @s unless block ~1~1~2 air at @s run setblock ~1~1~2 sand 0 replace
+execute at positioned as @s unless block ~1~0~2 air at @s run setblock ~1~0~2 sand 0 replace
+execute at positioned as @s unless block ~1~-1~2 air at @s run setblock ~1~-1~2 sand 0 replace
+execute at positioned as @s unless block ~1~-2~2 air at @s run setblock ~1~-2~2 sand 0 replace
+execute at positioned as @s unless block ~1~-3~2 air at @s run setblock ~1~-3~2 sand 0 replace
+execute at positioned as @s unless block ~1~-4~2 air at @s run setblock ~1~-4~2 sand 0 replace
+execute at positioned as @s unless block ~1~-5~2 air at @s run setblock ~1~-5~2 sand 0 replace
+execute at positioned as @s unless block ~2~7~-2 air at @s run setblock ~2~7~-2 sand 0 replace
+execute at positioned as @s unless block ~2~6~-2 air at @s run setblock ~2~6~-2 sand 0 replace
+execute at positioned as @s unless block ~2~5~-2 air at @s run setblock ~2~5~-2 sand 0 replace
+execute at positioned as @s unless block ~2~4~-2 air at @s run setblock ~2~4~-2 sand 0 replace
+execute at positioned as @s unless block ~2~3~-2 air at @s run setblock ~2~3~-2 sand 0 replace
+execute at positioned as @s unless block ~2~2~-2 air at @s run setblock ~2~2~-2 sand 0 replace
+execute at positioned as @s unless block ~2~1~-2 air at @s run setblock ~2~1~-2 sand 0 replace
+execute at positioned as @s unless block ~2~0~-2 air at @s run setblock ~2~0~-2 sand 0 replace
+execute at positioned as @s unless block ~2~-1~-2 air at @s run setblock ~2~-1~-2 sand 0 replace
+execute at positioned as @s unless block ~2~-2~-2 air at @s run setblock ~2~-2~-2 sand 0 replace
+execute at positioned as @s unless block ~2~-3~-2 air at @s run setblock ~2~-3~-2 sand 0 replace
+execute at positioned as @s unless block ~2~-4~-2 air at @s run setblock ~2~-4~-2 sand 0 replace
+execute at positioned as @s unless block ~2~-5~-2 air at @s run setblock ~2~-5~-2 sand 0 replace
+execute at positioned as @s unless block ~2~7~-1 air at @s run setblock ~2~7~-1 sand 0 replace
+execute at positioned as @s unless block ~2~6~-1 air at @s run setblock ~2~6~-1 sand 0 replace
+execute at positioned as @s unless block ~2~5~-1 air at @s run setblock ~2~5~-1 sand 0 replace
+execute at positioned as @s unless block ~2~4~-1 air at @s run setblock ~2~4~-1 sand 0 replace
+execute at positioned as @s unless block ~2~3~-1 air at @s run setblock ~2~3~-1 sand 0 replace
+execute at positioned as @s unless block ~2~2~-1 air at @s run setblock ~2~2~-1 sand 0 replace
+execute at positioned as @s unless block ~2~1~-1 air at @s run setblock ~2~1~-1 sand 0 replace
+execute at positioned as @s unless block ~2~0~-1 air at @s run setblock ~2~0~-1 sand 0 replace
+execute at positioned as @s unless block ~2~-1~-1 air at @s run setblock ~2~-1~-1 sand 0 replace
+execute at positioned as @s unless block ~2~-2~-1 air at @s run setblock ~2~-2~-1 sand 0 replace
+execute at positioned as @s unless block ~2~-3~-1 air at @s run setblock ~2~-3~-1 sand 0 replace
+execute at positioned as @s unless block ~2~-4~-1 air at @s run setblock ~2~-4~-1 sand 0 replace
+execute at positioned as @s unless block ~2~-5~-1 air at @s run setblock ~2~-5~-1 sand 0 replace
+execute at positioned as @s unless block ~2~7~0 air at @s run setblock ~2~7~0 sand 0 replace
+execute at positioned as @s unless block ~2~6~0 air at @s run setblock ~2~6~0 sand 0 replace
+execute at positioned as @s unless block ~2~5~0 air at @s run setblock ~2~5~0 sand 0 replace
+execute at positioned as @s unless block ~2~4~0 air at @s run setblock ~2~4~0 sand 0 replace
+execute at positioned as @s unless block ~2~3~0 air at @s run setblock ~2~3~0 sand 0 replace
+execute at positioned as @s unless block ~2~2~0 air at @s run setblock ~2~2~0 sand 0 replace
+execute at positioned as @s unless block ~2~1~0 air at @s run setblock ~2~1~0 sand 0 replace
+execute at positioned as @s unless block ~2~0~0 air at @s run setblock ~2~0~0 sand 0 replace
+execute at positioned as @s unless block ~2~-1~0 air at @s run setblock ~2~-1~0 sand 0 replace
+execute at positioned as @s unless block ~2~-2~0 air at @s run setblock ~2~-2~0 sand 0 replace
+execute at positioned as @s unless block ~2~-3~0 air at @s run setblock ~2~-3~0 sand 0 replace
+execute at positioned as @s unless block ~2~-4~0 air at @s run setblock ~2~-4~0 sand 0 replace
+execute at positioned as @s unless block ~2~-5~0 air at @s run setblock ~2~-5~0 sand 0 replace
+execute at positioned as @s unless block ~2~7~1 air at @s run setblock ~2~7~1 sand 0 replace
+execute at positioned as @s unless block ~2~6~1 air at @s run setblock ~2~6~1 sand 0 replace
+execute at positioned as @s unless block ~2~5~1 air at @s run setblock ~2~5~1 sand 0 replace
+execute at positioned as @s unless block ~2~4~1 air at @s run setblock ~2~4~1 sand 0 replace
+execute at positioned as @s unless block ~2~3~1 air at @s run setblock ~2~3~1 sand 0 replace
+execute at positioned as @s unless block ~2~2~1 air at @s run setblock ~2~2~1 sand 0 replace
+execute at positioned as @s unless block ~2~1~1 air at @s run setblock ~2~1~1 sand 0 replace
+execute at positioned as @s unless block ~2~0~1 air at @s run setblock ~2~0~1 sand 0 replace
+execute at positioned as @s unless block ~2~-1~1 air at @s run setblock ~2~-1~1 sand 0 replace
+execute at positioned as @s unless block ~2~-2~1 air at @s run setblock ~2~-2~1 sand 0 replace
+execute at positioned as @s unless block ~2~-3~1 air at @s run setblock ~2~-3~1 sand 0 replace
+execute at positioned as @s unless block ~2~-4~1 air at @s run setblock ~2~-4~1 sand 0 replace
+execute at positioned as @s unless block ~2~-5~1 air at @s run setblock ~2~-5~1 sand 0 replace
+execute at positioned as @s unless block ~2~7~2 air at @s run setblock ~2~7~2 sand 0 replace
+execute at positioned as @s unless block ~2~6~2 air at @s run setblock ~2~6~2 sand 0 replace
+execute at positioned as @s unless block ~2~5~2 air at @s run setblock ~2~5~2 sand 0 replace
+execute at positioned as @s unless block ~2~4~2 air at @s run setblock ~2~4~2 sand 0 replace
+execute at positioned as @s unless block ~2~3~2 air at @s run setblock ~2~3~2 sand 0 replace
+execute at positioned as @s unless block ~2~2~2 air at @s run setblock ~2~2~2 sand 0 replace
+execute at positioned as @s unless block ~2~1~2 air at @s run setblock ~2~1~2 sand 0 replace
+execute at positioned as @s unless block ~2~0~2 air at @s run setblock ~2~0~2 sand 0 replace
+execute at positioned as @s unless block ~2~-1~2 air at @s run setblock ~2~-1~2 sand 0 replace
+execute at positioned as @s unless block ~2~-2~2 air at @s run setblock ~2~-2~2 sand 0 replace
+execute at positioned as @s unless block ~2~-3~2 air at @s run setblock ~2~-3~2 sand 0 replace
+execute at positioned as @s unless block ~2~-4~2 air at @s run setblock ~2~-4~2 sand 0 replace
+execute at positioned as @s unless block ~2~-5~2 air at @s run setblock ~2~-5~2 sand 0 replace

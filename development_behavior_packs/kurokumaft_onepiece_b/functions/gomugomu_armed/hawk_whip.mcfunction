@@ -1,3 +1,3 @@
 tag @s add gomugomu_hawk_whip
-execute as @s positioned ^5^^ run damage @e[tag=!gomugomu_hawk_whip,r=10] 5 entity_attack
+execute at as @s positioned ^5^^ run damage @e[tag=!gomugomu_hawk_whip,r=10] 5 entity_attack
 tag @s remove gomugomu_hawk_whip

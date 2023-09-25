@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:red_iron_shovel",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shovel"
+      }
     },
     "components": {
       "minecraft:max_stack_size": 1,
@@ -11,9 +14,6 @@
       "minecraft:use_duration":32,
       "minecraft:display_name":{
         "value":"item.kurokumaft:red_iron_shovel.name"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shovel"
       },
       "minecraft:durability": {
         "max_durability": 800
@@ -36,8 +36,6 @@
           }
         ]
       },
-      "minecraft:render_offsets": "tools",
-      "minecraft:mining_speed": 3.5,
       "minecraft:damage": 0,
       "minecraft:enchantable": {
         "value": 100,
@@ -47,7 +45,7 @@
 			"minecraft:icon": {
 	      "texture": "red_iron_shovel"
       },
-      "tag:minecraft:is_shovel": {}
+      "tag:is_shovel": {}
     },
     "events": {
         "destroy_event": {

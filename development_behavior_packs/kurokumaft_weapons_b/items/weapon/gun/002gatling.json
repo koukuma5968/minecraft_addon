@@ -1,14 +1,15 @@
 {
-  "format_version": "1.17.0",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:gatling",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.gun"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.gun"
-      },
+      "tag:gun": {},
       "minecraft:durability": {
         "max_durability": 1500
       },
@@ -24,7 +25,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:gatling" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
           }
         ]
       },
@@ -39,27 +40,44 @@
       },
       "minecraft:use_animation": "bow",
       "minecraft:hand_equipped": true,
-      "minecraft:use_duration": 0.2,
       "minecraft:chargeable": {
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
       "kurokumaft:gatling_shot": {
-        "shoot": {
-          "projectile": "kurokumaft:twenty_two_lr_entity",
-          "launch_power": 1.0
-        },
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        },
+        "sequence":[
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          },
+          {
+            "condition": "!query.has_rider",
+            "trigger": "kurokumaft:gatling_fire"
+          },
+          {
+            "condition": "query.has_rider",
+            "trigger": "kurokumaft:gatling_sotp"
+          }
+        ]
+      },
+      "kurokumaft:gatling_fire": {
         "run_command": {
           "command": [
-            "clear @s kurokumaft:twenty_two_lr -1 1"
+            "tag @s add gatling_shot",
+            "tag @s add gun_shot",
+            "ride @s summon_rider kurokumaft:gatling_entity",
+            "event entity @s kurokumaft:gatling_shot"
+          ],
+          "target": "self"
+        }
+      },
+      "kurokumaft:gatling_sotp": {
+        "run_command": {
+          "command": [
+            "event entity @s kurokumaft:gatling_off"
           ],
           "target": "self"
         }

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.18.10",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:chappie",
@@ -36,7 +36,8 @@
         "on_death": "query.last_hit_by_player ? Math.Random(3,6) : 0"
       },
       "minecraft:knockback_resistance": {
-        "value": 10
+        "value": 2,
+        "max": 2
       },
       "minecraft:attack": {
         "damage": 8
@@ -48,8 +49,8 @@
         "value": 4.0
       },
       "minecraft:collision_box": {
-        "width": 0.9,
-        "height": 1.5
+        "width": 1.0,
+        "height": 1.0
       },
       "minecraft:health": {
         "value": 30,
@@ -152,9 +153,9 @@
       "minecraft:behavior.leap_at_target": {
       },
       "minecraft:behavior.look_at_target": {
-        "probability": 1.0
       },
       "minecraft:behavior.melee_attack": {
+        "cooldown_time": 3.0
       },
       "minecraft:behavior.random_stroll": {
         "speed_multiplier": 1.0

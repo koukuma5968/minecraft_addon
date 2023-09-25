@@ -1,5 +1,5 @@
 {
-	"format_version": "1.8.0",
+	"format_version": "1.20.30",
 	"animations": {
 		"animation.boomerang_wooden_owner": {
 			"animation_length": 0.01,
@@ -7,7 +7,7 @@
 			"timeline": {
 				"0.0": [
 					"/tp ^^^0.8 facing @p[tag=woodBoomP]",
-					"/execute @p[tag=woodBoomP,r=0.5] ~~~ event entity @e[tag=woodreturn,c=1] kurokumaft:owner_retrun"
+					"/execute as @p[tag=woodBoomP,r=0.5] run event entity @e[tag=woodreturn,c=1] kurokumaft:owner_retrun"
 				]
 			}
 		},
@@ -17,7 +17,7 @@
 			"timeline": {
 				"0.0": [
 					"/tp ^^^0.8 facing @p[tag=stoneBoomP]",
-					"/execute @p[tag=stoneBoomP,r=0.5] ~~~ event entity @e[tag=stonereturn,c=1] kurokumaft:owner_retrun"
+					"/execute as @p[tag=stoneBoomP,r=0.5] run event entity @e[tag=stonereturn,c=1] kurokumaft:owner_retrun"
 				]
 			}
 		},
@@ -27,7 +27,7 @@
 			"timeline": {
 				"0.0": [
 					"/tp ^^^0.8 facing @p[tag=ironBoomP]",
-					"/execute @p[tag=ironBoomP,r=0.5] ~~~ event entity @e[tag=ironreturn,c=1] kurokumaft:owner_retrun"
+					"/execute as @p[tag=ironBoomP,r=0.5] run event entity @e[tag=ironreturn,c=1] kurokumaft:owner_retrun"
 				]
 			}
 		},
@@ -37,7 +37,7 @@
 			"timeline": {
 				"0.0": [
 					"/tp ^^^0.8 facing @p[tag=diamondBoomP]",
-					"/execute @p[tag=diamondBoomP,r=0.5] ~~~ event entity @e[tag=diamondreturn,c=1] kurokumaft:owner_retrun"
+					"/execute as @p[tag=diamondBoomP,r=0.5] run event entity @e[tag=diamondreturn,c=1] kurokumaft:owner_retrun"
 				]
 			}
 		}

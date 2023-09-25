@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:yellow_oniyon",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature",
+        "group": "oniyon"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -11,9 +14,6 @@
 			},
       "minecraft:icon": {
         "texture": "yellow_oniyon"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.oniyon"
       },
       "minecraft:block_placer": {
         "block": "yellow_oniyons",

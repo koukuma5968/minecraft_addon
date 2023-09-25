@@ -1,10 +1,13 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
         "identifier": "kurokumaft:echo_sword",
-        "category": "equipment"
-    },
+        "menu_category": {
+          "category": "equipment",
+          "group": "itemGroup.name.sword"
+        }
+      },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:echo_sword.name"
@@ -12,9 +15,6 @@
       "minecraft:icon": {
           "texture": "echo_sword"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.sword"
-			},
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
@@ -32,7 +32,6 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
       "minecraft:damage": 15,
       "minecraft:enchantable": {
         "value": 15,
@@ -87,7 +86,7 @@
             "run_command": {
               "command": [
                 "particle kurokumaft:sweep_particle ^ ^1.6 ^2.4",
-                "execute @e[r=4.5] ^ ^1.6 ^2.4 damage @s 2 magic"
+                "execute as @e[r=4.5] positioned ^ ^1.6 ^2.4 run damage @s 2 magic"
               ],
               "target": "self"
             },
@@ -97,7 +96,7 @@
             "run_command": {
               "command": [
                 "particle kurokumaft:sweep_particle ^ ^1.2 ^2.4",
-                "execute @e[r=4.5] ^ ^1.2 ^2.4 damage @s 2 magic"
+                "execute at @e[r=4.5] positioned ^ ^1.2 ^2.4 run damage @s 2 magic"
               ],
               "target": "self"
             },
@@ -107,7 +106,7 @@
             "run_command": {
               "command": [
                 "particle kurokumaft:sweep_particle ^ ^2.0 ^2.4",
-                "execute @e[r=4.5] ^ ^2.0 ^2.4 damage @s 2 magic"
+                "execute at @e[r=4.5] positioned ^ ^2.0 ^2.4 run damage @s 2 magic"
               ],
               "target": "self"
             },

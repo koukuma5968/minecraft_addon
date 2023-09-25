@@ -1,19 +1,19 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:nichirintou_giyu",
-        "category": "equipment"
+      "identifier": "kurokumaft:nichirintou_giyu",
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.nichirintou"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_giyu.name"
 			},
       "minecraft:icon": {
-          "texture": "nichirintou_giyu"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.nichirintou"
+        "texture": "nichirintou_giyu"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {
@@ -31,7 +31,7 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
+      
       "minecraft:damage": 25,
       "minecraft:enchantable": {
         "value": 250,
@@ -55,9 +55,6 @@
         "on_complete": {
           "event": "hurt_entity"
         }
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       },
       "minecraft:weapon": {
           "on_hurt_entity": {

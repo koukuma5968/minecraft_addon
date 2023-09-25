@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:thirty_eight_special_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/gun/bullet/thirty_eight_special"
+        },
+        "geometry": {
+          "default": "geometry.thirty_eight_special_entity"
+        },
+        "scripts": {
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.bullet.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

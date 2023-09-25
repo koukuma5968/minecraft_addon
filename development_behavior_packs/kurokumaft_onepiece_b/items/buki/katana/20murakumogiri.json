@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:murakumogiri",
-        "category": "equipment"
+      "identifier": "kurokumaft:murakumogiri",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.katana"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:murakumogiri.name"
 			},
       "minecraft:icon": {
-          "texture": "murakumogiri"
+        "texture": "murakumogiri"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.katana"
-			},
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {
         "max_durability": 2500
@@ -29,8 +29,6 @@
       },
       "minecraft:damage": 30,
       "minecraft:chargeable": {
-        "on_complete": {
-        }
       },
       "minecraft:enchantable": {
         "value": 10,

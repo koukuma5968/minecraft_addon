@@ -1,0 +1,30 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:barista_arrow"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "f",
+            "b",
+            "b"
+        ],
+        "key": {
+            "f": {
+                "item": "minecraft:arrow"
+            },
+            "b": {
+                "item": "minecraft:stick"
+            }
+
+        },
+        "result": {
+            "item": "kurokumaft:barista_arrow",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

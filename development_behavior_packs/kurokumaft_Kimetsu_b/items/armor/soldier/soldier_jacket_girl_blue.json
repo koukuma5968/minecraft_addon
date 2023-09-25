@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:soldier_jacket_girl_blue",
-      "category": "equipment"
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.chestplate"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:soldier_jacket_girl_blue.name"
 			},
       "minecraft:icon": {
-          "texture": "soldier_jacket_girl_blue"
+        "texture": "soldier_jacket_girl_blue"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.chestplate"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 50,
-        "texture_type": "elytra"
-      },
       "minecraft:wearable": {
+        "protection": 50,
         "slot": "slot.armor.chest"
       }
     }

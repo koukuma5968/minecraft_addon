@@ -4,15 +4,15 @@
 		"description": "魔法アドオン",
 		"name": "kurokuma_magic_b",
 		"uuid": "cb00a6d3-381e-470a-87ea-5876cbf7ab09",
-		"version": [1,0,7],
-		"min_engine_version": [1,16,0]
+		"version": [1,1,1],
+		"min_engine_version": [1,20,30]
 	},
 	"modules": [
 		{
 			"description": "魔法アドオン",
 			"type": "data",
 			"uuid": "b69567a1-4526-458f-a255-e7dda1a488fd",
-			"version": [1,0,7]
+			"version": [1,1,1]
 		},
 		{
 			"description": "魔法アドオンscripting",
@@ -26,23 +26,15 @@
 	"dependencies": [
 		{
 			"uuid": "f93bea78-77fd-4ce9-8a18-6eb10a2bd5bd",
-			"version": [1,0,7]
+			"version": [1,1,1]
 		},
 		{
 			"module_name": "@minecraft/server-ui",
-			"version": "1.2.0-beta"
-		},
-		{
-			"module_name": "@minecraft/server-admin",
-			"version": "1.0.0-beta"
+			"version": "1.1.0"
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.4.0-beta"
-		},
-		{
-			"module_name": "@minecraft/server-gametest",
-			"version": "1.0.0-beta"
+			"version": "1.2.0"
 		}
 	]
 }

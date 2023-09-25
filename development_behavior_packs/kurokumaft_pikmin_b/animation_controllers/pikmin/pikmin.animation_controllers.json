@@ -1,0 +1,20 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.pikmin.spray": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "extremely": "query.mark_variant == 1" }
+          ]
+        },
+        "extremely": {
+          "animations" : [ "extremely_hot"],
+          "transitions": [
+            {"default":"query.mark_variant == 0"}
+          ]
+        }
+      }
+    }
+  }
+}

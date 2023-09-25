@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:atmosphere_stick",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_stick"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.stick"
-      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
       "minecraft:cooldown": {

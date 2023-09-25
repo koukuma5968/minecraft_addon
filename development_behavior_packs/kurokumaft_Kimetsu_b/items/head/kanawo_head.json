@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:kanawo_head",
-      "category": "items"
+      "menu_category": {
+				"category": "items",
+        "group": "itemGroup.name.skull"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:kanawo_head.name"
 			},
       "minecraft:icon": {
-          "texture": "kanawo_head"
+        "texture": "kanawo_head"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.skull"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 30,
-        "texture_type": "gold"
-      },
       "minecraft:wearable": {
+        "protection": 30,
         "slot": "slot.armor.head"
       }
     }

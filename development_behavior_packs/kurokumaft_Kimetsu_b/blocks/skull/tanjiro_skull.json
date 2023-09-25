@@ -1,15 +1,17 @@
 {
-	"format_version": "1.16.100",
+	"format_version": "1.20.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:tanjiro_head",
 			"is_experimental": false,
-            "register_to_creative_menu": false
+            "register_to_creative_menu": false,
+			"menu_category": {
+				"category": "items"
+			}
 		},
 		"components": {
 			"minecraft:display_name": "item.kurokumaft:tanjiro_head.name",
 			"minecraft:explosion_resistance": 0,
-			"minecraft:creative_category": { "category": "items" },
 			"minecraft:destroy_time": 0.5
 		},
 		"events": {

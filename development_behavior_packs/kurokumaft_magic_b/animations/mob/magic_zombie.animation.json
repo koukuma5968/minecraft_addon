@@ -1,5 +1,5 @@
 {
-	"format_version": "1.8.0",
+	"format_version": "1.20.30",
 	"animations": {
 		"animation.fire_zombie.shot": {
 			"animation_length": 10.00,

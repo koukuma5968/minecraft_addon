@@ -1,680 +1,680 @@
-execute positioned as @s unless block ~-17~-1~-17 air at @s run setblock~-17~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-17 air at @s run setblock~-17~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-17 air at @s run setblock~-17~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-17 air at @s run setblock~-17~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-17 air at @s run setblock~-17~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-16 air at @s run setblock~-17~-1~-16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-16 air at @s run setblock~-17~-2~-16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-16 air at @s run setblock~-17~-3~-16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-16 air at @s run setblock~-17~-4~-16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-16 air at @s run setblock~-17~-5~-16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-15 air at @s run setblock~-17~-1~-15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-15 air at @s run setblock~-17~-2~-15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-15 air at @s run setblock~-17~-3~-15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-15 air at @s run setblock~-17~-4~-15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-15 air at @s run setblock~-17~-5~-15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-14 air at @s run setblock~-17~-1~-14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-14 air at @s run setblock~-17~-2~-14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-14 air at @s run setblock~-17~-3~-14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-14 air at @s run setblock~-17~-4~-14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-14 air at @s run setblock~-17~-5~-14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-13 air at @s run setblock~-17~-1~-13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-13 air at @s run setblock~-17~-2~-13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-13 air at @s run setblock~-17~-3~-13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-13 air at @s run setblock~-17~-4~-13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-13 air at @s run setblock~-17~-5~-13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-12 air at @s run setblock~-17~-1~-12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-12 air at @s run setblock~-17~-2~-12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-12 air at @s run setblock~-17~-3~-12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-12 air at @s run setblock~-17~-4~-12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-12 air at @s run setblock~-17~-5~-12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-11 air at @s run setblock~-17~-1~-11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-11 air at @s run setblock~-17~-2~-11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-11 air at @s run setblock~-17~-3~-11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-11 air at @s run setblock~-17~-4~-11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-11 air at @s run setblock~-17~-5~-11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-10 air at @s run setblock~-17~-1~-10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-10 air at @s run setblock~-17~-2~-10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-10 air at @s run setblock~-17~-3~-10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-10 air at @s run setblock~-17~-4~-10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-10 air at @s run setblock~-17~-5~-10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-9 air at @s run setblock~-17~-1~-9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-9 air at @s run setblock~-17~-2~-9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-9 air at @s run setblock~-17~-3~-9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-9 air at @s run setblock~-17~-4~-9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-9 air at @s run setblock~-17~-5~-9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-8 air at @s run setblock~-17~-1~-8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-8 air at @s run setblock~-17~-2~-8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-8 air at @s run setblock~-17~-3~-8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-8 air at @s run setblock~-17~-4~-8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-8 air at @s run setblock~-17~-5~-8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-7 air at @s run setblock~-17~-1~-7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-7 air at @s run setblock~-17~-2~-7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-7 air at @s run setblock~-17~-3~-7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-7 air at @s run setblock~-17~-4~-7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-7 air at @s run setblock~-17~-5~-7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-6 air at @s run setblock~-17~-1~-6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-6 air at @s run setblock~-17~-2~-6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-6 air at @s run setblock~-17~-3~-6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-6 air at @s run setblock~-17~-4~-6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-6 air at @s run setblock~-17~-5~-6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-5 air at @s run setblock~-17~-1~-5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-5 air at @s run setblock~-17~-2~-5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-5 air at @s run setblock~-17~-3~-5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-5 air at @s run setblock~-17~-4~-5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-5 air at @s run setblock~-17~-5~-5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-4 air at @s run setblock~-17~-1~-4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-4 air at @s run setblock~-17~-2~-4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-4 air at @s run setblock~-17~-3~-4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-4 air at @s run setblock~-17~-4~-4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-4 air at @s run setblock~-17~-5~-4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-3 air at @s run setblock~-17~-1~-3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-3 air at @s run setblock~-17~-2~-3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-3 air at @s run setblock~-17~-3~-3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-3 air at @s run setblock~-17~-4~-3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-3 air at @s run setblock~-17~-5~-3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-2 air at @s run setblock~-17~-1~-2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-2 air at @s run setblock~-17~-2~-2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-2 air at @s run setblock~-17~-3~-2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-2 air at @s run setblock~-17~-4~-2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-2 air at @s run setblock~-17~-5~-2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~-1 air at @s run setblock~-17~-1~-1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~-1 air at @s run setblock~-17~-2~-1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~-1 air at @s run setblock~-17~-3~-1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~-1 air at @s run setblock~-17~-4~-1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~-1 air at @s run setblock~-17~-5~-1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~0 air at @s run setblock~-17~-1~0 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~0 air at @s run setblock~-17~-2~0 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~0 air at @s run setblock~-17~-3~0 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~0 air at @s run setblock~-17~-4~0 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~0 air at @s run setblock~-17~-5~0 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~1 air at @s run setblock~-17~-1~1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~1 air at @s run setblock~-17~-2~1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~1 air at @s run setblock~-17~-3~1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~1 air at @s run setblock~-17~-4~1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~1 air at @s run setblock~-17~-5~1 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~2 air at @s run setblock~-17~-1~2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~2 air at @s run setblock~-17~-2~2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~2 air at @s run setblock~-17~-3~2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~2 air at @s run setblock~-17~-4~2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~2 air at @s run setblock~-17~-5~2 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~3 air at @s run setblock~-17~-1~3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~3 air at @s run setblock~-17~-2~3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~3 air at @s run setblock~-17~-3~3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~3 air at @s run setblock~-17~-4~3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~3 air at @s run setblock~-17~-5~3 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~4 air at @s run setblock~-17~-1~4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~4 air at @s run setblock~-17~-2~4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~4 air at @s run setblock~-17~-3~4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~4 air at @s run setblock~-17~-4~4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~4 air at @s run setblock~-17~-5~4 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~5 air at @s run setblock~-17~-1~5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~5 air at @s run setblock~-17~-2~5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~5 air at @s run setblock~-17~-3~5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~5 air at @s run setblock~-17~-4~5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~5 air at @s run setblock~-17~-5~5 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~6 air at @s run setblock~-17~-1~6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~6 air at @s run setblock~-17~-2~6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~6 air at @s run setblock~-17~-3~6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~6 air at @s run setblock~-17~-4~6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~6 air at @s run setblock~-17~-5~6 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~7 air at @s run setblock~-17~-1~7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~7 air at @s run setblock~-17~-2~7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~7 air at @s run setblock~-17~-3~7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~7 air at @s run setblock~-17~-4~7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~7 air at @s run setblock~-17~-5~7 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~8 air at @s run setblock~-17~-1~8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~8 air at @s run setblock~-17~-2~8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~8 air at @s run setblock~-17~-3~8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~8 air at @s run setblock~-17~-4~8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~8 air at @s run setblock~-17~-5~8 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~9 air at @s run setblock~-17~-1~9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~9 air at @s run setblock~-17~-2~9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~9 air at @s run setblock~-17~-3~9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~9 air at @s run setblock~-17~-4~9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~9 air at @s run setblock~-17~-5~9 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~10 air at @s run setblock~-17~-1~10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~10 air at @s run setblock~-17~-2~10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~10 air at @s run setblock~-17~-3~10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~10 air at @s run setblock~-17~-4~10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~10 air at @s run setblock~-17~-5~10 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~11 air at @s run setblock~-17~-1~11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~11 air at @s run setblock~-17~-2~11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~11 air at @s run setblock~-17~-3~11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~11 air at @s run setblock~-17~-4~11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~11 air at @s run setblock~-17~-5~11 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~12 air at @s run setblock~-17~-1~12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~12 air at @s run setblock~-17~-2~12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~12 air at @s run setblock~-17~-3~12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~12 air at @s run setblock~-17~-4~12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~12 air at @s run setblock~-17~-5~12 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~13 air at @s run setblock~-17~-1~13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~13 air at @s run setblock~-17~-2~13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~13 air at @s run setblock~-17~-3~13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~13 air at @s run setblock~-17~-4~13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~13 air at @s run setblock~-17~-5~13 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~14 air at @s run setblock~-17~-1~14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~14 air at @s run setblock~-17~-2~14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~14 air at @s run setblock~-17~-3~14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~14 air at @s run setblock~-17~-4~14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~14 air at @s run setblock~-17~-5~14 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~15 air at @s run setblock~-17~-1~15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~15 air at @s run setblock~-17~-2~15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~15 air at @s run setblock~-17~-3~15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~15 air at @s run setblock~-17~-4~15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~15 air at @s run setblock~-17~-5~15 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~16 air at @s run setblock~-17~-1~16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~16 air at @s run setblock~-17~-2~16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~16 air at @s run setblock~-17~-3~16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~16 air at @s run setblock~-17~-4~16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~16 air at @s run setblock~-17~-5~16 sandstone 0 replace
-execute positioned as @s unless block ~-17~-1~17 air at @s run setblock~-17~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-2~17 air at @s run setblock~-17~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-3~17 air at @s run setblock~-17~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-4~17 air at @s run setblock~-17~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-17~-5~17 air at @s run setblock~-17~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-1~-17 air at @s run setblock~-16~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-2~-17 air at @s run setblock~-16~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-3~-17 air at @s run setblock~-16~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-4~-17 air at @s run setblock~-16~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-5~-17 air at @s run setblock~-16~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-1~17 air at @s run setblock~-16~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-2~17 air at @s run setblock~-16~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-3~17 air at @s run setblock~-16~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-4~17 air at @s run setblock~-16~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-16~-5~17 air at @s run setblock~-16~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-1~-17 air at @s run setblock~-15~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-2~-17 air at @s run setblock~-15~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-3~-17 air at @s run setblock~-15~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-4~-17 air at @s run setblock~-15~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-5~-17 air at @s run setblock~-15~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-1~17 air at @s run setblock~-15~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-2~17 air at @s run setblock~-15~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-3~17 air at @s run setblock~-15~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-4~17 air at @s run setblock~-15~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-15~-5~17 air at @s run setblock~-15~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-1~-17 air at @s run setblock~-14~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-2~-17 air at @s run setblock~-14~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-3~-17 air at @s run setblock~-14~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-4~-17 air at @s run setblock~-14~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-5~-17 air at @s run setblock~-14~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-1~17 air at @s run setblock~-14~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-2~17 air at @s run setblock~-14~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-3~17 air at @s run setblock~-14~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-4~17 air at @s run setblock~-14~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-14~-5~17 air at @s run setblock~-14~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-1~-17 air at @s run setblock~-13~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-2~-17 air at @s run setblock~-13~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-3~-17 air at @s run setblock~-13~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-4~-17 air at @s run setblock~-13~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-5~-17 air at @s run setblock~-13~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-1~17 air at @s run setblock~-13~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-2~17 air at @s run setblock~-13~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-3~17 air at @s run setblock~-13~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-4~17 air at @s run setblock~-13~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-13~-5~17 air at @s run setblock~-13~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-1~-17 air at @s run setblock~-12~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-2~-17 air at @s run setblock~-12~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-3~-17 air at @s run setblock~-12~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-4~-17 air at @s run setblock~-12~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-5~-17 air at @s run setblock~-12~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-1~17 air at @s run setblock~-12~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-2~17 air at @s run setblock~-12~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-3~17 air at @s run setblock~-12~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-4~17 air at @s run setblock~-12~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-12~-5~17 air at @s run setblock~-12~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-1~-17 air at @s run setblock~-11~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-2~-17 air at @s run setblock~-11~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-3~-17 air at @s run setblock~-11~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-4~-17 air at @s run setblock~-11~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-5~-17 air at @s run setblock~-11~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-1~17 air at @s run setblock~-11~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-2~17 air at @s run setblock~-11~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-3~17 air at @s run setblock~-11~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-4~17 air at @s run setblock~-11~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-11~-5~17 air at @s run setblock~-11~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-1~-17 air at @s run setblock~-10~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-2~-17 air at @s run setblock~-10~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-3~-17 air at @s run setblock~-10~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-4~-17 air at @s run setblock~-10~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-5~-17 air at @s run setblock~-10~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-1~17 air at @s run setblock~-10~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-2~17 air at @s run setblock~-10~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-3~17 air at @s run setblock~-10~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-4~17 air at @s run setblock~-10~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-10~-5~17 air at @s run setblock~-10~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-1~-17 air at @s run setblock~-9~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-2~-17 air at @s run setblock~-9~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-3~-17 air at @s run setblock~-9~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-4~-17 air at @s run setblock~-9~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-5~-17 air at @s run setblock~-9~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-1~17 air at @s run setblock~-9~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-2~17 air at @s run setblock~-9~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-3~17 air at @s run setblock~-9~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-4~17 air at @s run setblock~-9~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-9~-5~17 air at @s run setblock~-9~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-1~-17 air at @s run setblock~-8~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-2~-17 air at @s run setblock~-8~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-3~-17 air at @s run setblock~-8~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-4~-17 air at @s run setblock~-8~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-5~-17 air at @s run setblock~-8~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-1~17 air at @s run setblock~-8~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-2~17 air at @s run setblock~-8~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-3~17 air at @s run setblock~-8~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-4~17 air at @s run setblock~-8~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-8~-5~17 air at @s run setblock~-8~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-1~-17 air at @s run setblock~-7~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-2~-17 air at @s run setblock~-7~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-3~-17 air at @s run setblock~-7~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-4~-17 air at @s run setblock~-7~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-5~-17 air at @s run setblock~-7~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-1~17 air at @s run setblock~-7~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-2~17 air at @s run setblock~-7~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-3~17 air at @s run setblock~-7~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-4~17 air at @s run setblock~-7~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-7~-5~17 air at @s run setblock~-7~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-1~-17 air at @s run setblock~-6~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-2~-17 air at @s run setblock~-6~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-3~-17 air at @s run setblock~-6~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-4~-17 air at @s run setblock~-6~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-5~-17 air at @s run setblock~-6~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-1~17 air at @s run setblock~-6~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-2~17 air at @s run setblock~-6~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-3~17 air at @s run setblock~-6~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-4~17 air at @s run setblock~-6~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-6~-5~17 air at @s run setblock~-6~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-1~-17 air at @s run setblock~-5~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-2~-17 air at @s run setblock~-5~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-3~-17 air at @s run setblock~-5~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-4~-17 air at @s run setblock~-5~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-5~-17 air at @s run setblock~-5~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-1~17 air at @s run setblock~-5~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-2~17 air at @s run setblock~-5~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-3~17 air at @s run setblock~-5~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-4~17 air at @s run setblock~-5~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-5~-5~17 air at @s run setblock~-5~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-1~-17 air at @s run setblock~-4~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-2~-17 air at @s run setblock~-4~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-3~-17 air at @s run setblock~-4~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-4~-17 air at @s run setblock~-4~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-5~-17 air at @s run setblock~-4~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-1~17 air at @s run setblock~-4~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-2~17 air at @s run setblock~-4~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-3~17 air at @s run setblock~-4~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-4~17 air at @s run setblock~-4~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-4~-5~17 air at @s run setblock~-4~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-1~-17 air at @s run setblock~-3~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-2~-17 air at @s run setblock~-3~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-3~-17 air at @s run setblock~-3~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-4~-17 air at @s run setblock~-3~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-5~-17 air at @s run setblock~-3~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-1~17 air at @s run setblock~-3~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-2~17 air at @s run setblock~-3~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-3~17 air at @s run setblock~-3~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-4~17 air at @s run setblock~-3~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-3~-5~17 air at @s run setblock~-3~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-1~-17 air at @s run setblock~-2~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-2~-17 air at @s run setblock~-2~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-3~-17 air at @s run setblock~-2~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-4~-17 air at @s run setblock~-2~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-5~-17 air at @s run setblock~-2~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-1~17 air at @s run setblock~-2~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-2~17 air at @s run setblock~-2~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-3~17 air at @s run setblock~-2~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-4~17 air at @s run setblock~-2~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-2~-5~17 air at @s run setblock~-2~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-1~-17 air at @s run setblock~-1~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-2~-17 air at @s run setblock~-1~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-3~-17 air at @s run setblock~-1~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-4~-17 air at @s run setblock~-1~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-5~-17 air at @s run setblock~-1~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-1~17 air at @s run setblock~-1~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-2~17 air at @s run setblock~-1~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-3~17 air at @s run setblock~-1~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-4~17 air at @s run setblock~-1~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~-1~-5~17 air at @s run setblock~-1~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~0~-1~-17 air at @s run setblock~0~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~0~-2~-17 air at @s run setblock~0~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~0~-3~-17 air at @s run setblock~0~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~0~-4~-17 air at @s run setblock~0~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~0~-5~-17 air at @s run setblock~0~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~0~-1~17 air at @s run setblock~0~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~0~-2~17 air at @s run setblock~0~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~0~-3~17 air at @s run setblock~0~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~0~-4~17 air at @s run setblock~0~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~0~-5~17 air at @s run setblock~0~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~1~-1~-17 air at @s run setblock~1~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~1~-2~-17 air at @s run setblock~1~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~1~-3~-17 air at @s run setblock~1~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~1~-4~-17 air at @s run setblock~1~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~1~-5~-17 air at @s run setblock~1~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~1~-1~17 air at @s run setblock~1~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~1~-2~17 air at @s run setblock~1~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~1~-3~17 air at @s run setblock~1~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~1~-4~17 air at @s run setblock~1~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~1~-5~17 air at @s run setblock~1~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~2~-1~-17 air at @s run setblock~2~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~2~-2~-17 air at @s run setblock~2~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~2~-3~-17 air at @s run setblock~2~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~2~-4~-17 air at @s run setblock~2~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~2~-5~-17 air at @s run setblock~2~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~2~-1~17 air at @s run setblock~2~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~2~-2~17 air at @s run setblock~2~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~2~-3~17 air at @s run setblock~2~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~2~-4~17 air at @s run setblock~2~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~2~-5~17 air at @s run setblock~2~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~3~-1~-17 air at @s run setblock~3~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~3~-2~-17 air at @s run setblock~3~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~3~-3~-17 air at @s run setblock~3~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~3~-4~-17 air at @s run setblock~3~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~3~-5~-17 air at @s run setblock~3~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~3~-1~17 air at @s run setblock~3~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~3~-2~17 air at @s run setblock~3~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~3~-3~17 air at @s run setblock~3~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~3~-4~17 air at @s run setblock~3~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~3~-5~17 air at @s run setblock~3~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~4~-1~-17 air at @s run setblock~4~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~4~-2~-17 air at @s run setblock~4~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~4~-3~-17 air at @s run setblock~4~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~4~-4~-17 air at @s run setblock~4~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~4~-5~-17 air at @s run setblock~4~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~4~-1~17 air at @s run setblock~4~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~4~-2~17 air at @s run setblock~4~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~4~-3~17 air at @s run setblock~4~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~4~-4~17 air at @s run setblock~4~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~4~-5~17 air at @s run setblock~4~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~5~-1~-17 air at @s run setblock~5~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~5~-2~-17 air at @s run setblock~5~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~5~-3~-17 air at @s run setblock~5~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~5~-4~-17 air at @s run setblock~5~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~5~-5~-17 air at @s run setblock~5~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~5~-1~17 air at @s run setblock~5~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~5~-2~17 air at @s run setblock~5~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~5~-3~17 air at @s run setblock~5~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~5~-4~17 air at @s run setblock~5~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~5~-5~17 air at @s run setblock~5~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~6~-1~-17 air at @s run setblock~6~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~6~-2~-17 air at @s run setblock~6~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~6~-3~-17 air at @s run setblock~6~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~6~-4~-17 air at @s run setblock~6~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~6~-5~-17 air at @s run setblock~6~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~6~-1~17 air at @s run setblock~6~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~6~-2~17 air at @s run setblock~6~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~6~-3~17 air at @s run setblock~6~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~6~-4~17 air at @s run setblock~6~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~6~-5~17 air at @s run setblock~6~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~7~-1~-17 air at @s run setblock~7~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~7~-2~-17 air at @s run setblock~7~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~7~-3~-17 air at @s run setblock~7~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~7~-4~-17 air at @s run setblock~7~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~7~-5~-17 air at @s run setblock~7~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~7~-1~17 air at @s run setblock~7~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~7~-2~17 air at @s run setblock~7~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~7~-3~17 air at @s run setblock~7~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~7~-4~17 air at @s run setblock~7~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~7~-5~17 air at @s run setblock~7~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~8~-1~-17 air at @s run setblock~8~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~8~-2~-17 air at @s run setblock~8~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~8~-3~-17 air at @s run setblock~8~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~8~-4~-17 air at @s run setblock~8~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~8~-5~-17 air at @s run setblock~8~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~8~-1~17 air at @s run setblock~8~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~8~-2~17 air at @s run setblock~8~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~8~-3~17 air at @s run setblock~8~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~8~-4~17 air at @s run setblock~8~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~8~-5~17 air at @s run setblock~8~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~9~-1~-17 air at @s run setblock~9~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~9~-2~-17 air at @s run setblock~9~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~9~-3~-17 air at @s run setblock~9~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~9~-4~-17 air at @s run setblock~9~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~9~-5~-17 air at @s run setblock~9~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~9~-1~17 air at @s run setblock~9~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~9~-2~17 air at @s run setblock~9~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~9~-3~17 air at @s run setblock~9~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~9~-4~17 air at @s run setblock~9~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~9~-5~17 air at @s run setblock~9~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~10~-1~-17 air at @s run setblock~10~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~10~-2~-17 air at @s run setblock~10~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~10~-3~-17 air at @s run setblock~10~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~10~-4~-17 air at @s run setblock~10~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~10~-5~-17 air at @s run setblock~10~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~10~-1~17 air at @s run setblock~10~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~10~-2~17 air at @s run setblock~10~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~10~-3~17 air at @s run setblock~10~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~10~-4~17 air at @s run setblock~10~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~10~-5~17 air at @s run setblock~10~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~11~-1~-17 air at @s run setblock~11~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~11~-2~-17 air at @s run setblock~11~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~11~-3~-17 air at @s run setblock~11~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~11~-4~-17 air at @s run setblock~11~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~11~-5~-17 air at @s run setblock~11~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~11~-1~17 air at @s run setblock~11~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~11~-2~17 air at @s run setblock~11~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~11~-3~17 air at @s run setblock~11~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~11~-4~17 air at @s run setblock~11~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~11~-5~17 air at @s run setblock~11~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~12~-1~-17 air at @s run setblock~12~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~12~-2~-17 air at @s run setblock~12~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~12~-3~-17 air at @s run setblock~12~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~12~-4~-17 air at @s run setblock~12~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~12~-5~-17 air at @s run setblock~12~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~12~-1~17 air at @s run setblock~12~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~12~-2~17 air at @s run setblock~12~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~12~-3~17 air at @s run setblock~12~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~12~-4~17 air at @s run setblock~12~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~12~-5~17 air at @s run setblock~12~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~13~-1~-17 air at @s run setblock~13~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~13~-2~-17 air at @s run setblock~13~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~13~-3~-17 air at @s run setblock~13~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~13~-4~-17 air at @s run setblock~13~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~13~-5~-17 air at @s run setblock~13~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~13~-1~17 air at @s run setblock~13~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~13~-2~17 air at @s run setblock~13~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~13~-3~17 air at @s run setblock~13~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~13~-4~17 air at @s run setblock~13~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~13~-5~17 air at @s run setblock~13~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~14~-1~-17 air at @s run setblock~14~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~14~-2~-17 air at @s run setblock~14~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~14~-3~-17 air at @s run setblock~14~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~14~-4~-17 air at @s run setblock~14~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~14~-5~-17 air at @s run setblock~14~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~14~-1~17 air at @s run setblock~14~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~14~-2~17 air at @s run setblock~14~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~14~-3~17 air at @s run setblock~14~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~14~-4~17 air at @s run setblock~14~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~14~-5~17 air at @s run setblock~14~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~15~-1~-17 air at @s run setblock~15~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~15~-2~-17 air at @s run setblock~15~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~15~-3~-17 air at @s run setblock~15~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~15~-4~-17 air at @s run setblock~15~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~15~-5~-17 air at @s run setblock~15~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~15~-1~17 air at @s run setblock~15~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~15~-2~17 air at @s run setblock~15~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~15~-3~17 air at @s run setblock~15~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~15~-4~17 air at @s run setblock~15~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~15~-5~17 air at @s run setblock~15~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~16~-1~-17 air at @s run setblock~16~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~16~-2~-17 air at @s run setblock~16~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~16~-3~-17 air at @s run setblock~16~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~16~-4~-17 air at @s run setblock~16~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~16~-5~-17 air at @s run setblock~16~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~16~-1~17 air at @s run setblock~16~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~16~-2~17 air at @s run setblock~16~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~16~-3~17 air at @s run setblock~16~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~16~-4~17 air at @s run setblock~16~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~16~-5~17 air at @s run setblock~16~-5~17 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-17 air at @s run setblock~17~-1~-17 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-17 air at @s run setblock~17~-2~-17 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-17 air at @s run setblock~17~-3~-17 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-17 air at @s run setblock~17~-4~-17 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-17 air at @s run setblock~17~-5~-17 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-16 air at @s run setblock~17~-1~-16 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-16 air at @s run setblock~17~-2~-16 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-16 air at @s run setblock~17~-3~-16 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-16 air at @s run setblock~17~-4~-16 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-16 air at @s run setblock~17~-5~-16 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-15 air at @s run setblock~17~-1~-15 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-15 air at @s run setblock~17~-2~-15 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-15 air at @s run setblock~17~-3~-15 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-15 air at @s run setblock~17~-4~-15 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-15 air at @s run setblock~17~-5~-15 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-14 air at @s run setblock~17~-1~-14 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-14 air at @s run setblock~17~-2~-14 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-14 air at @s run setblock~17~-3~-14 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-14 air at @s run setblock~17~-4~-14 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-14 air at @s run setblock~17~-5~-14 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-13 air at @s run setblock~17~-1~-13 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-13 air at @s run setblock~17~-2~-13 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-13 air at @s run setblock~17~-3~-13 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-13 air at @s run setblock~17~-4~-13 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-13 air at @s run setblock~17~-5~-13 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-12 air at @s run setblock~17~-1~-12 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-12 air at @s run setblock~17~-2~-12 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-12 air at @s run setblock~17~-3~-12 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-12 air at @s run setblock~17~-4~-12 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-12 air at @s run setblock~17~-5~-12 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-11 air at @s run setblock~17~-1~-11 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-11 air at @s run setblock~17~-2~-11 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-11 air at @s run setblock~17~-3~-11 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-11 air at @s run setblock~17~-4~-11 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-11 air at @s run setblock~17~-5~-11 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-10 air at @s run setblock~17~-1~-10 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-10 air at @s run setblock~17~-2~-10 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-10 air at @s run setblock~17~-3~-10 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-10 air at @s run setblock~17~-4~-10 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-10 air at @s run setblock~17~-5~-10 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-9 air at @s run setblock~17~-1~-9 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-9 air at @s run setblock~17~-2~-9 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-9 air at @s run setblock~17~-3~-9 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-9 air at @s run setblock~17~-4~-9 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-9 air at @s run setblock~17~-5~-9 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-8 air at @s run setblock~17~-1~-8 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-8 air at @s run setblock~17~-2~-8 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-8 air at @s run setblock~17~-3~-8 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-8 air at @s run setblock~17~-4~-8 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-8 air at @s run setblock~17~-5~-8 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-7 air at @s run setblock~17~-1~-7 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-7 air at @s run setblock~17~-2~-7 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-7 air at @s run setblock~17~-3~-7 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-7 air at @s run setblock~17~-4~-7 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-7 air at @s run setblock~17~-5~-7 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-6 air at @s run setblock~17~-1~-6 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-6 air at @s run setblock~17~-2~-6 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-6 air at @s run setblock~17~-3~-6 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-6 air at @s run setblock~17~-4~-6 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-6 air at @s run setblock~17~-5~-6 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-5 air at @s run setblock~17~-1~-5 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-5 air at @s run setblock~17~-2~-5 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-5 air at @s run setblock~17~-3~-5 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-5 air at @s run setblock~17~-4~-5 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-5 air at @s run setblock~17~-5~-5 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-4 air at @s run setblock~17~-1~-4 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-4 air at @s run setblock~17~-2~-4 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-4 air at @s run setblock~17~-3~-4 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-4 air at @s run setblock~17~-4~-4 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-4 air at @s run setblock~17~-5~-4 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-3 air at @s run setblock~17~-1~-3 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-3 air at @s run setblock~17~-2~-3 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-3 air at @s run setblock~17~-3~-3 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-3 air at @s run setblock~17~-4~-3 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-3 air at @s run setblock~17~-5~-3 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-2 air at @s run setblock~17~-1~-2 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-2 air at @s run setblock~17~-2~-2 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-2 air at @s run setblock~17~-3~-2 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-2 air at @s run setblock~17~-4~-2 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-2 air at @s run setblock~17~-5~-2 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~-1 air at @s run setblock~17~-1~-1 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~-1 air at @s run setblock~17~-2~-1 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~-1 air at @s run setblock~17~-3~-1 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~-1 air at @s run setblock~17~-4~-1 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~-1 air at @s run setblock~17~-5~-1 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~0 air at @s run setblock~17~-1~0 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~0 air at @s run setblock~17~-2~0 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~0 air at @s run setblock~17~-3~0 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~0 air at @s run setblock~17~-4~0 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~0 air at @s run setblock~17~-5~0 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~1 air at @s run setblock~17~-1~1 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~1 air at @s run setblock~17~-2~1 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~1 air at @s run setblock~17~-3~1 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~1 air at @s run setblock~17~-4~1 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~1 air at @s run setblock~17~-5~1 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~2 air at @s run setblock~17~-1~2 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~2 air at @s run setblock~17~-2~2 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~2 air at @s run setblock~17~-3~2 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~2 air at @s run setblock~17~-4~2 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~2 air at @s run setblock~17~-5~2 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~3 air at @s run setblock~17~-1~3 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~3 air at @s run setblock~17~-2~3 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~3 air at @s run setblock~17~-3~3 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~3 air at @s run setblock~17~-4~3 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~3 air at @s run setblock~17~-5~3 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~4 air at @s run setblock~17~-1~4 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~4 air at @s run setblock~17~-2~4 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~4 air at @s run setblock~17~-3~4 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~4 air at @s run setblock~17~-4~4 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~4 air at @s run setblock~17~-5~4 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~5 air at @s run setblock~17~-1~5 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~5 air at @s run setblock~17~-2~5 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~5 air at @s run setblock~17~-3~5 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~5 air at @s run setblock~17~-4~5 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~5 air at @s run setblock~17~-5~5 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~6 air at @s run setblock~17~-1~6 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~6 air at @s run setblock~17~-2~6 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~6 air at @s run setblock~17~-3~6 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~6 air at @s run setblock~17~-4~6 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~6 air at @s run setblock~17~-5~6 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~7 air at @s run setblock~17~-1~7 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~7 air at @s run setblock~17~-2~7 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~7 air at @s run setblock~17~-3~7 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~7 air at @s run setblock~17~-4~7 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~7 air at @s run setblock~17~-5~7 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~8 air at @s run setblock~17~-1~8 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~8 air at @s run setblock~17~-2~8 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~8 air at @s run setblock~17~-3~8 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~8 air at @s run setblock~17~-4~8 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~8 air at @s run setblock~17~-5~8 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~9 air at @s run setblock~17~-1~9 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~9 air at @s run setblock~17~-2~9 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~9 air at @s run setblock~17~-3~9 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~9 air at @s run setblock~17~-4~9 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~9 air at @s run setblock~17~-5~9 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~10 air at @s run setblock~17~-1~10 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~10 air at @s run setblock~17~-2~10 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~10 air at @s run setblock~17~-3~10 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~10 air at @s run setblock~17~-4~10 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~10 air at @s run setblock~17~-5~10 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~11 air at @s run setblock~17~-1~11 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~11 air at @s run setblock~17~-2~11 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~11 air at @s run setblock~17~-3~11 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~11 air at @s run setblock~17~-4~11 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~11 air at @s run setblock~17~-5~11 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~12 air at @s run setblock~17~-1~12 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~12 air at @s run setblock~17~-2~12 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~12 air at @s run setblock~17~-3~12 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~12 air at @s run setblock~17~-4~12 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~12 air at @s run setblock~17~-5~12 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~13 air at @s run setblock~17~-1~13 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~13 air at @s run setblock~17~-2~13 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~13 air at @s run setblock~17~-3~13 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~13 air at @s run setblock~17~-4~13 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~13 air at @s run setblock~17~-5~13 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~14 air at @s run setblock~17~-1~14 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~14 air at @s run setblock~17~-2~14 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~14 air at @s run setblock~17~-3~14 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~14 air at @s run setblock~17~-4~14 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~14 air at @s run setblock~17~-5~14 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~15 air at @s run setblock~17~-1~15 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~15 air at @s run setblock~17~-2~15 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~15 air at @s run setblock~17~-3~15 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~15 air at @s run setblock~17~-4~15 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~15 air at @s run setblock~17~-5~15 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~16 air at @s run setblock~17~-1~16 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~16 air at @s run setblock~17~-2~16 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~16 air at @s run setblock~17~-3~16 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~16 air at @s run setblock~17~-4~16 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~16 air at @s run setblock~17~-5~16 sandstone 0 replace
-execute positioned as @s unless block ~17~-1~17 air at @s run setblock~17~-1~17 sandstone 0 replace
-execute positioned as @s unless block ~17~-2~17 air at @s run setblock~17~-2~17 sandstone 0 replace
-execute positioned as @s unless block ~17~-3~17 air at @s run setblock~17~-3~17 sandstone 0 replace
-execute positioned as @s unless block ~17~-4~17 air at @s run setblock~17~-4~17 sandstone 0 replace
-execute positioned as @s unless block ~17~-5~17 air at @s run setblock~17~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-17 air at @s run setblock~-17~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-17 air at @s run setblock~-17~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-17 air at @s run setblock~-17~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-17 air at @s run setblock~-17~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-17 air at @s run setblock~-17~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-16 air at @s run setblock~-17~-1~-16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-16 air at @s run setblock~-17~-2~-16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-16 air at @s run setblock~-17~-3~-16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-16 air at @s run setblock~-17~-4~-16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-16 air at @s run setblock~-17~-5~-16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-15 air at @s run setblock~-17~-1~-15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-15 air at @s run setblock~-17~-2~-15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-15 air at @s run setblock~-17~-3~-15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-15 air at @s run setblock~-17~-4~-15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-15 air at @s run setblock~-17~-5~-15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-14 air at @s run setblock~-17~-1~-14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-14 air at @s run setblock~-17~-2~-14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-14 air at @s run setblock~-17~-3~-14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-14 air at @s run setblock~-17~-4~-14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-14 air at @s run setblock~-17~-5~-14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-13 air at @s run setblock~-17~-1~-13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-13 air at @s run setblock~-17~-2~-13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-13 air at @s run setblock~-17~-3~-13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-13 air at @s run setblock~-17~-4~-13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-13 air at @s run setblock~-17~-5~-13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-12 air at @s run setblock~-17~-1~-12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-12 air at @s run setblock~-17~-2~-12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-12 air at @s run setblock~-17~-3~-12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-12 air at @s run setblock~-17~-4~-12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-12 air at @s run setblock~-17~-5~-12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-11 air at @s run setblock~-17~-1~-11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-11 air at @s run setblock~-17~-2~-11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-11 air at @s run setblock~-17~-3~-11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-11 air at @s run setblock~-17~-4~-11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-11 air at @s run setblock~-17~-5~-11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-10 air at @s run setblock~-17~-1~-10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-10 air at @s run setblock~-17~-2~-10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-10 air at @s run setblock~-17~-3~-10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-10 air at @s run setblock~-17~-4~-10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-10 air at @s run setblock~-17~-5~-10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-9 air at @s run setblock~-17~-1~-9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-9 air at @s run setblock~-17~-2~-9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-9 air at @s run setblock~-17~-3~-9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-9 air at @s run setblock~-17~-4~-9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-9 air at @s run setblock~-17~-5~-9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-8 air at @s run setblock~-17~-1~-8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-8 air at @s run setblock~-17~-2~-8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-8 air at @s run setblock~-17~-3~-8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-8 air at @s run setblock~-17~-4~-8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-8 air at @s run setblock~-17~-5~-8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-7 air at @s run setblock~-17~-1~-7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-7 air at @s run setblock~-17~-2~-7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-7 air at @s run setblock~-17~-3~-7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-7 air at @s run setblock~-17~-4~-7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-7 air at @s run setblock~-17~-5~-7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-6 air at @s run setblock~-17~-1~-6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-6 air at @s run setblock~-17~-2~-6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-6 air at @s run setblock~-17~-3~-6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-6 air at @s run setblock~-17~-4~-6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-6 air at @s run setblock~-17~-5~-6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-5 air at @s run setblock~-17~-1~-5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-5 air at @s run setblock~-17~-2~-5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-5 air at @s run setblock~-17~-3~-5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-5 air at @s run setblock~-17~-4~-5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-5 air at @s run setblock~-17~-5~-5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-4 air at @s run setblock~-17~-1~-4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-4 air at @s run setblock~-17~-2~-4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-4 air at @s run setblock~-17~-3~-4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-4 air at @s run setblock~-17~-4~-4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-4 air at @s run setblock~-17~-5~-4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-3 air at @s run setblock~-17~-1~-3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-3 air at @s run setblock~-17~-2~-3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-3 air at @s run setblock~-17~-3~-3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-3 air at @s run setblock~-17~-4~-3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-3 air at @s run setblock~-17~-5~-3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-2 air at @s run setblock~-17~-1~-2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-2 air at @s run setblock~-17~-2~-2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-2 air at @s run setblock~-17~-3~-2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-2 air at @s run setblock~-17~-4~-2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-2 air at @s run setblock~-17~-5~-2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~-1 air at @s run setblock~-17~-1~-1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~-1 air at @s run setblock~-17~-2~-1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~-1 air at @s run setblock~-17~-3~-1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~-1 air at @s run setblock~-17~-4~-1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~-1 air at @s run setblock~-17~-5~-1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~0 air at @s run setblock~-17~-1~0 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~0 air at @s run setblock~-17~-2~0 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~0 air at @s run setblock~-17~-3~0 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~0 air at @s run setblock~-17~-4~0 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~0 air at @s run setblock~-17~-5~0 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~1 air at @s run setblock~-17~-1~1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~1 air at @s run setblock~-17~-2~1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~1 air at @s run setblock~-17~-3~1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~1 air at @s run setblock~-17~-4~1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~1 air at @s run setblock~-17~-5~1 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~2 air at @s run setblock~-17~-1~2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~2 air at @s run setblock~-17~-2~2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~2 air at @s run setblock~-17~-3~2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~2 air at @s run setblock~-17~-4~2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~2 air at @s run setblock~-17~-5~2 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~3 air at @s run setblock~-17~-1~3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~3 air at @s run setblock~-17~-2~3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~3 air at @s run setblock~-17~-3~3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~3 air at @s run setblock~-17~-4~3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~3 air at @s run setblock~-17~-5~3 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~4 air at @s run setblock~-17~-1~4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~4 air at @s run setblock~-17~-2~4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~4 air at @s run setblock~-17~-3~4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~4 air at @s run setblock~-17~-4~4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~4 air at @s run setblock~-17~-5~4 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~5 air at @s run setblock~-17~-1~5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~5 air at @s run setblock~-17~-2~5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~5 air at @s run setblock~-17~-3~5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~5 air at @s run setblock~-17~-4~5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~5 air at @s run setblock~-17~-5~5 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~6 air at @s run setblock~-17~-1~6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~6 air at @s run setblock~-17~-2~6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~6 air at @s run setblock~-17~-3~6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~6 air at @s run setblock~-17~-4~6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~6 air at @s run setblock~-17~-5~6 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~7 air at @s run setblock~-17~-1~7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~7 air at @s run setblock~-17~-2~7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~7 air at @s run setblock~-17~-3~7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~7 air at @s run setblock~-17~-4~7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~7 air at @s run setblock~-17~-5~7 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~8 air at @s run setblock~-17~-1~8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~8 air at @s run setblock~-17~-2~8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~8 air at @s run setblock~-17~-3~8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~8 air at @s run setblock~-17~-4~8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~8 air at @s run setblock~-17~-5~8 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~9 air at @s run setblock~-17~-1~9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~9 air at @s run setblock~-17~-2~9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~9 air at @s run setblock~-17~-3~9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~9 air at @s run setblock~-17~-4~9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~9 air at @s run setblock~-17~-5~9 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~10 air at @s run setblock~-17~-1~10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~10 air at @s run setblock~-17~-2~10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~10 air at @s run setblock~-17~-3~10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~10 air at @s run setblock~-17~-4~10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~10 air at @s run setblock~-17~-5~10 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~11 air at @s run setblock~-17~-1~11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~11 air at @s run setblock~-17~-2~11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~11 air at @s run setblock~-17~-3~11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~11 air at @s run setblock~-17~-4~11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~11 air at @s run setblock~-17~-5~11 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~12 air at @s run setblock~-17~-1~12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~12 air at @s run setblock~-17~-2~12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~12 air at @s run setblock~-17~-3~12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~12 air at @s run setblock~-17~-4~12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~12 air at @s run setblock~-17~-5~12 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~13 air at @s run setblock~-17~-1~13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~13 air at @s run setblock~-17~-2~13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~13 air at @s run setblock~-17~-3~13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~13 air at @s run setblock~-17~-4~13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~13 air at @s run setblock~-17~-5~13 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~14 air at @s run setblock~-17~-1~14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~14 air at @s run setblock~-17~-2~14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~14 air at @s run setblock~-17~-3~14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~14 air at @s run setblock~-17~-4~14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~14 air at @s run setblock~-17~-5~14 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~15 air at @s run setblock~-17~-1~15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~15 air at @s run setblock~-17~-2~15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~15 air at @s run setblock~-17~-3~15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~15 air at @s run setblock~-17~-4~15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~15 air at @s run setblock~-17~-5~15 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~16 air at @s run setblock~-17~-1~16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~16 air at @s run setblock~-17~-2~16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~16 air at @s run setblock~-17~-3~16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~16 air at @s run setblock~-17~-4~16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~16 air at @s run setblock~-17~-5~16 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-1~17 air at @s run setblock~-17~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-2~17 air at @s run setblock~-17~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-3~17 air at @s run setblock~-17~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-4~17 air at @s run setblock~-17~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-17~-5~17 air at @s run setblock~-17~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-1~-17 air at @s run setblock~-16~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-2~-17 air at @s run setblock~-16~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-3~-17 air at @s run setblock~-16~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-4~-17 air at @s run setblock~-16~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-5~-17 air at @s run setblock~-16~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-1~17 air at @s run setblock~-16~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-2~17 air at @s run setblock~-16~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-3~17 air at @s run setblock~-16~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-4~17 air at @s run setblock~-16~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-16~-5~17 air at @s run setblock~-16~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-1~-17 air at @s run setblock~-15~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-2~-17 air at @s run setblock~-15~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-3~-17 air at @s run setblock~-15~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-4~-17 air at @s run setblock~-15~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-5~-17 air at @s run setblock~-15~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-1~17 air at @s run setblock~-15~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-2~17 air at @s run setblock~-15~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-3~17 air at @s run setblock~-15~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-4~17 air at @s run setblock~-15~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-15~-5~17 air at @s run setblock~-15~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-1~-17 air at @s run setblock~-14~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-2~-17 air at @s run setblock~-14~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-3~-17 air at @s run setblock~-14~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-4~-17 air at @s run setblock~-14~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-5~-17 air at @s run setblock~-14~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-1~17 air at @s run setblock~-14~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-2~17 air at @s run setblock~-14~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-3~17 air at @s run setblock~-14~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-4~17 air at @s run setblock~-14~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-14~-5~17 air at @s run setblock~-14~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-1~-17 air at @s run setblock~-13~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-2~-17 air at @s run setblock~-13~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-3~-17 air at @s run setblock~-13~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-4~-17 air at @s run setblock~-13~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-5~-17 air at @s run setblock~-13~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-1~17 air at @s run setblock~-13~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-2~17 air at @s run setblock~-13~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-3~17 air at @s run setblock~-13~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-4~17 air at @s run setblock~-13~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-13~-5~17 air at @s run setblock~-13~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-1~-17 air at @s run setblock~-12~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-2~-17 air at @s run setblock~-12~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-3~-17 air at @s run setblock~-12~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-4~-17 air at @s run setblock~-12~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-5~-17 air at @s run setblock~-12~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-1~17 air at @s run setblock~-12~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-2~17 air at @s run setblock~-12~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-3~17 air at @s run setblock~-12~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-4~17 air at @s run setblock~-12~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-12~-5~17 air at @s run setblock~-12~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-1~-17 air at @s run setblock~-11~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-2~-17 air at @s run setblock~-11~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-3~-17 air at @s run setblock~-11~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-4~-17 air at @s run setblock~-11~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-5~-17 air at @s run setblock~-11~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-1~17 air at @s run setblock~-11~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-2~17 air at @s run setblock~-11~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-3~17 air at @s run setblock~-11~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-4~17 air at @s run setblock~-11~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-11~-5~17 air at @s run setblock~-11~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-1~-17 air at @s run setblock~-10~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-2~-17 air at @s run setblock~-10~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-3~-17 air at @s run setblock~-10~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-4~-17 air at @s run setblock~-10~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-5~-17 air at @s run setblock~-10~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-1~17 air at @s run setblock~-10~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-2~17 air at @s run setblock~-10~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-3~17 air at @s run setblock~-10~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-4~17 air at @s run setblock~-10~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-10~-5~17 air at @s run setblock~-10~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-1~-17 air at @s run setblock~-9~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-2~-17 air at @s run setblock~-9~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-3~-17 air at @s run setblock~-9~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-4~-17 air at @s run setblock~-9~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-5~-17 air at @s run setblock~-9~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-1~17 air at @s run setblock~-9~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-2~17 air at @s run setblock~-9~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-3~17 air at @s run setblock~-9~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-4~17 air at @s run setblock~-9~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-9~-5~17 air at @s run setblock~-9~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-1~-17 air at @s run setblock~-8~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-2~-17 air at @s run setblock~-8~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-3~-17 air at @s run setblock~-8~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-4~-17 air at @s run setblock~-8~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-5~-17 air at @s run setblock~-8~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-1~17 air at @s run setblock~-8~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-2~17 air at @s run setblock~-8~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-3~17 air at @s run setblock~-8~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-4~17 air at @s run setblock~-8~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-8~-5~17 air at @s run setblock~-8~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-1~-17 air at @s run setblock~-7~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-2~-17 air at @s run setblock~-7~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-3~-17 air at @s run setblock~-7~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-4~-17 air at @s run setblock~-7~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-5~-17 air at @s run setblock~-7~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-1~17 air at @s run setblock~-7~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-2~17 air at @s run setblock~-7~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-3~17 air at @s run setblock~-7~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-4~17 air at @s run setblock~-7~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-7~-5~17 air at @s run setblock~-7~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-1~-17 air at @s run setblock~-6~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-2~-17 air at @s run setblock~-6~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-3~-17 air at @s run setblock~-6~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-4~-17 air at @s run setblock~-6~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-5~-17 air at @s run setblock~-6~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-1~17 air at @s run setblock~-6~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-2~17 air at @s run setblock~-6~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-3~17 air at @s run setblock~-6~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-4~17 air at @s run setblock~-6~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-6~-5~17 air at @s run setblock~-6~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-1~-17 air at @s run setblock~-5~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-2~-17 air at @s run setblock~-5~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-3~-17 air at @s run setblock~-5~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-4~-17 air at @s run setblock~-5~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-5~-17 air at @s run setblock~-5~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-1~17 air at @s run setblock~-5~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-2~17 air at @s run setblock~-5~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-3~17 air at @s run setblock~-5~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-4~17 air at @s run setblock~-5~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-5~-5~17 air at @s run setblock~-5~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-1~-17 air at @s run setblock~-4~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-2~-17 air at @s run setblock~-4~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-3~-17 air at @s run setblock~-4~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-4~-17 air at @s run setblock~-4~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-5~-17 air at @s run setblock~-4~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-1~17 air at @s run setblock~-4~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-2~17 air at @s run setblock~-4~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-3~17 air at @s run setblock~-4~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-4~17 air at @s run setblock~-4~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-4~-5~17 air at @s run setblock~-4~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-1~-17 air at @s run setblock~-3~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-2~-17 air at @s run setblock~-3~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-3~-17 air at @s run setblock~-3~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-4~-17 air at @s run setblock~-3~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-5~-17 air at @s run setblock~-3~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-1~17 air at @s run setblock~-3~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-2~17 air at @s run setblock~-3~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-3~17 air at @s run setblock~-3~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-4~17 air at @s run setblock~-3~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-3~-5~17 air at @s run setblock~-3~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-1~-17 air at @s run setblock~-2~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-2~-17 air at @s run setblock~-2~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-3~-17 air at @s run setblock~-2~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-4~-17 air at @s run setblock~-2~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-5~-17 air at @s run setblock~-2~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-1~17 air at @s run setblock~-2~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-2~17 air at @s run setblock~-2~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-3~17 air at @s run setblock~-2~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-4~17 air at @s run setblock~-2~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-2~-5~17 air at @s run setblock~-2~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-1~-17 air at @s run setblock~-1~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-2~-17 air at @s run setblock~-1~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-3~-17 air at @s run setblock~-1~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-4~-17 air at @s run setblock~-1~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-5~-17 air at @s run setblock~-1~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-1~17 air at @s run setblock~-1~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-2~17 air at @s run setblock~-1~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-3~17 air at @s run setblock~-1~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-4~17 air at @s run setblock~-1~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~-1~-5~17 air at @s run setblock~-1~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-1~-17 air at @s run setblock~0~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-2~-17 air at @s run setblock~0~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-3~-17 air at @s run setblock~0~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-4~-17 air at @s run setblock~0~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-5~-17 air at @s run setblock~0~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-1~17 air at @s run setblock~0~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-2~17 air at @s run setblock~0~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-3~17 air at @s run setblock~0~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-4~17 air at @s run setblock~0~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~0~-5~17 air at @s run setblock~0~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-1~-17 air at @s run setblock~1~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-2~-17 air at @s run setblock~1~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-3~-17 air at @s run setblock~1~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-4~-17 air at @s run setblock~1~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-5~-17 air at @s run setblock~1~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-1~17 air at @s run setblock~1~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-2~17 air at @s run setblock~1~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-3~17 air at @s run setblock~1~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-4~17 air at @s run setblock~1~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~1~-5~17 air at @s run setblock~1~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-1~-17 air at @s run setblock~2~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-2~-17 air at @s run setblock~2~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-3~-17 air at @s run setblock~2~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-4~-17 air at @s run setblock~2~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-5~-17 air at @s run setblock~2~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-1~17 air at @s run setblock~2~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-2~17 air at @s run setblock~2~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-3~17 air at @s run setblock~2~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-4~17 air at @s run setblock~2~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~2~-5~17 air at @s run setblock~2~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-1~-17 air at @s run setblock~3~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-2~-17 air at @s run setblock~3~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-3~-17 air at @s run setblock~3~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-4~-17 air at @s run setblock~3~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-5~-17 air at @s run setblock~3~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-1~17 air at @s run setblock~3~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-2~17 air at @s run setblock~3~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-3~17 air at @s run setblock~3~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-4~17 air at @s run setblock~3~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~3~-5~17 air at @s run setblock~3~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-1~-17 air at @s run setblock~4~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-2~-17 air at @s run setblock~4~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-3~-17 air at @s run setblock~4~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-4~-17 air at @s run setblock~4~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-5~-17 air at @s run setblock~4~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-1~17 air at @s run setblock~4~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-2~17 air at @s run setblock~4~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-3~17 air at @s run setblock~4~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-4~17 air at @s run setblock~4~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~4~-5~17 air at @s run setblock~4~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-1~-17 air at @s run setblock~5~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-2~-17 air at @s run setblock~5~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-3~-17 air at @s run setblock~5~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-4~-17 air at @s run setblock~5~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-5~-17 air at @s run setblock~5~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-1~17 air at @s run setblock~5~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-2~17 air at @s run setblock~5~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-3~17 air at @s run setblock~5~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-4~17 air at @s run setblock~5~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~5~-5~17 air at @s run setblock~5~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-1~-17 air at @s run setblock~6~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-2~-17 air at @s run setblock~6~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-3~-17 air at @s run setblock~6~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-4~-17 air at @s run setblock~6~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-5~-17 air at @s run setblock~6~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-1~17 air at @s run setblock~6~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-2~17 air at @s run setblock~6~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-3~17 air at @s run setblock~6~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-4~17 air at @s run setblock~6~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~6~-5~17 air at @s run setblock~6~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-1~-17 air at @s run setblock~7~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-2~-17 air at @s run setblock~7~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-3~-17 air at @s run setblock~7~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-4~-17 air at @s run setblock~7~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-5~-17 air at @s run setblock~7~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-1~17 air at @s run setblock~7~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-2~17 air at @s run setblock~7~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-3~17 air at @s run setblock~7~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-4~17 air at @s run setblock~7~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~7~-5~17 air at @s run setblock~7~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-1~-17 air at @s run setblock~8~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-2~-17 air at @s run setblock~8~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-3~-17 air at @s run setblock~8~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-4~-17 air at @s run setblock~8~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-5~-17 air at @s run setblock~8~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-1~17 air at @s run setblock~8~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-2~17 air at @s run setblock~8~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-3~17 air at @s run setblock~8~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-4~17 air at @s run setblock~8~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~8~-5~17 air at @s run setblock~8~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-1~-17 air at @s run setblock~9~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-2~-17 air at @s run setblock~9~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-3~-17 air at @s run setblock~9~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-4~-17 air at @s run setblock~9~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-5~-17 air at @s run setblock~9~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-1~17 air at @s run setblock~9~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-2~17 air at @s run setblock~9~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-3~17 air at @s run setblock~9~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-4~17 air at @s run setblock~9~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~9~-5~17 air at @s run setblock~9~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-1~-17 air at @s run setblock~10~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-2~-17 air at @s run setblock~10~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-3~-17 air at @s run setblock~10~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-4~-17 air at @s run setblock~10~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-5~-17 air at @s run setblock~10~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-1~17 air at @s run setblock~10~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-2~17 air at @s run setblock~10~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-3~17 air at @s run setblock~10~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-4~17 air at @s run setblock~10~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~10~-5~17 air at @s run setblock~10~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-1~-17 air at @s run setblock~11~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-2~-17 air at @s run setblock~11~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-3~-17 air at @s run setblock~11~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-4~-17 air at @s run setblock~11~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-5~-17 air at @s run setblock~11~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-1~17 air at @s run setblock~11~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-2~17 air at @s run setblock~11~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-3~17 air at @s run setblock~11~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-4~17 air at @s run setblock~11~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~11~-5~17 air at @s run setblock~11~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-1~-17 air at @s run setblock~12~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-2~-17 air at @s run setblock~12~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-3~-17 air at @s run setblock~12~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-4~-17 air at @s run setblock~12~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-5~-17 air at @s run setblock~12~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-1~17 air at @s run setblock~12~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-2~17 air at @s run setblock~12~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-3~17 air at @s run setblock~12~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-4~17 air at @s run setblock~12~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~12~-5~17 air at @s run setblock~12~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-1~-17 air at @s run setblock~13~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-2~-17 air at @s run setblock~13~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-3~-17 air at @s run setblock~13~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-4~-17 air at @s run setblock~13~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-5~-17 air at @s run setblock~13~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-1~17 air at @s run setblock~13~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-2~17 air at @s run setblock~13~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-3~17 air at @s run setblock~13~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-4~17 air at @s run setblock~13~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~13~-5~17 air at @s run setblock~13~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-1~-17 air at @s run setblock~14~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-2~-17 air at @s run setblock~14~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-3~-17 air at @s run setblock~14~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-4~-17 air at @s run setblock~14~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-5~-17 air at @s run setblock~14~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-1~17 air at @s run setblock~14~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-2~17 air at @s run setblock~14~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-3~17 air at @s run setblock~14~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-4~17 air at @s run setblock~14~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~14~-5~17 air at @s run setblock~14~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-1~-17 air at @s run setblock~15~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-2~-17 air at @s run setblock~15~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-3~-17 air at @s run setblock~15~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-4~-17 air at @s run setblock~15~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-5~-17 air at @s run setblock~15~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-1~17 air at @s run setblock~15~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-2~17 air at @s run setblock~15~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-3~17 air at @s run setblock~15~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-4~17 air at @s run setblock~15~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~15~-5~17 air at @s run setblock~15~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-1~-17 air at @s run setblock~16~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-2~-17 air at @s run setblock~16~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-3~-17 air at @s run setblock~16~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-4~-17 air at @s run setblock~16~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-5~-17 air at @s run setblock~16~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-1~17 air at @s run setblock~16~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-2~17 air at @s run setblock~16~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-3~17 air at @s run setblock~16~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-4~17 air at @s run setblock~16~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~16~-5~17 air at @s run setblock~16~-5~17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-17 air at @s run setblock~17~-1~-17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-17 air at @s run setblock~17~-2~-17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-17 air at @s run setblock~17~-3~-17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-17 air at @s run setblock~17~-4~-17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-17 air at @s run setblock~17~-5~-17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-16 air at @s run setblock~17~-1~-16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-16 air at @s run setblock~17~-2~-16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-16 air at @s run setblock~17~-3~-16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-16 air at @s run setblock~17~-4~-16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-16 air at @s run setblock~17~-5~-16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-15 air at @s run setblock~17~-1~-15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-15 air at @s run setblock~17~-2~-15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-15 air at @s run setblock~17~-3~-15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-15 air at @s run setblock~17~-4~-15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-15 air at @s run setblock~17~-5~-15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-14 air at @s run setblock~17~-1~-14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-14 air at @s run setblock~17~-2~-14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-14 air at @s run setblock~17~-3~-14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-14 air at @s run setblock~17~-4~-14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-14 air at @s run setblock~17~-5~-14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-13 air at @s run setblock~17~-1~-13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-13 air at @s run setblock~17~-2~-13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-13 air at @s run setblock~17~-3~-13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-13 air at @s run setblock~17~-4~-13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-13 air at @s run setblock~17~-5~-13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-12 air at @s run setblock~17~-1~-12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-12 air at @s run setblock~17~-2~-12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-12 air at @s run setblock~17~-3~-12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-12 air at @s run setblock~17~-4~-12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-12 air at @s run setblock~17~-5~-12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-11 air at @s run setblock~17~-1~-11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-11 air at @s run setblock~17~-2~-11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-11 air at @s run setblock~17~-3~-11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-11 air at @s run setblock~17~-4~-11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-11 air at @s run setblock~17~-5~-11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-10 air at @s run setblock~17~-1~-10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-10 air at @s run setblock~17~-2~-10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-10 air at @s run setblock~17~-3~-10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-10 air at @s run setblock~17~-4~-10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-10 air at @s run setblock~17~-5~-10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-9 air at @s run setblock~17~-1~-9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-9 air at @s run setblock~17~-2~-9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-9 air at @s run setblock~17~-3~-9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-9 air at @s run setblock~17~-4~-9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-9 air at @s run setblock~17~-5~-9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-8 air at @s run setblock~17~-1~-8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-8 air at @s run setblock~17~-2~-8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-8 air at @s run setblock~17~-3~-8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-8 air at @s run setblock~17~-4~-8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-8 air at @s run setblock~17~-5~-8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-7 air at @s run setblock~17~-1~-7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-7 air at @s run setblock~17~-2~-7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-7 air at @s run setblock~17~-3~-7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-7 air at @s run setblock~17~-4~-7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-7 air at @s run setblock~17~-5~-7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-6 air at @s run setblock~17~-1~-6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-6 air at @s run setblock~17~-2~-6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-6 air at @s run setblock~17~-3~-6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-6 air at @s run setblock~17~-4~-6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-6 air at @s run setblock~17~-5~-6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-5 air at @s run setblock~17~-1~-5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-5 air at @s run setblock~17~-2~-5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-5 air at @s run setblock~17~-3~-5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-5 air at @s run setblock~17~-4~-5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-5 air at @s run setblock~17~-5~-5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-4 air at @s run setblock~17~-1~-4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-4 air at @s run setblock~17~-2~-4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-4 air at @s run setblock~17~-3~-4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-4 air at @s run setblock~17~-4~-4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-4 air at @s run setblock~17~-5~-4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-3 air at @s run setblock~17~-1~-3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-3 air at @s run setblock~17~-2~-3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-3 air at @s run setblock~17~-3~-3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-3 air at @s run setblock~17~-4~-3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-3 air at @s run setblock~17~-5~-3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-2 air at @s run setblock~17~-1~-2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-2 air at @s run setblock~17~-2~-2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-2 air at @s run setblock~17~-3~-2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-2 air at @s run setblock~17~-4~-2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-2 air at @s run setblock~17~-5~-2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~-1 air at @s run setblock~17~-1~-1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~-1 air at @s run setblock~17~-2~-1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~-1 air at @s run setblock~17~-3~-1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~-1 air at @s run setblock~17~-4~-1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~-1 air at @s run setblock~17~-5~-1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~0 air at @s run setblock~17~-1~0 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~0 air at @s run setblock~17~-2~0 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~0 air at @s run setblock~17~-3~0 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~0 air at @s run setblock~17~-4~0 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~0 air at @s run setblock~17~-5~0 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~1 air at @s run setblock~17~-1~1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~1 air at @s run setblock~17~-2~1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~1 air at @s run setblock~17~-3~1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~1 air at @s run setblock~17~-4~1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~1 air at @s run setblock~17~-5~1 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~2 air at @s run setblock~17~-1~2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~2 air at @s run setblock~17~-2~2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~2 air at @s run setblock~17~-3~2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~2 air at @s run setblock~17~-4~2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~2 air at @s run setblock~17~-5~2 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~3 air at @s run setblock~17~-1~3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~3 air at @s run setblock~17~-2~3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~3 air at @s run setblock~17~-3~3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~3 air at @s run setblock~17~-4~3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~3 air at @s run setblock~17~-5~3 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~4 air at @s run setblock~17~-1~4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~4 air at @s run setblock~17~-2~4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~4 air at @s run setblock~17~-3~4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~4 air at @s run setblock~17~-4~4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~4 air at @s run setblock~17~-5~4 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~5 air at @s run setblock~17~-1~5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~5 air at @s run setblock~17~-2~5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~5 air at @s run setblock~17~-3~5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~5 air at @s run setblock~17~-4~5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~5 air at @s run setblock~17~-5~5 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~6 air at @s run setblock~17~-1~6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~6 air at @s run setblock~17~-2~6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~6 air at @s run setblock~17~-3~6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~6 air at @s run setblock~17~-4~6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~6 air at @s run setblock~17~-5~6 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~7 air at @s run setblock~17~-1~7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~7 air at @s run setblock~17~-2~7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~7 air at @s run setblock~17~-3~7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~7 air at @s run setblock~17~-4~7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~7 air at @s run setblock~17~-5~7 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~8 air at @s run setblock~17~-1~8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~8 air at @s run setblock~17~-2~8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~8 air at @s run setblock~17~-3~8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~8 air at @s run setblock~17~-4~8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~8 air at @s run setblock~17~-5~8 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~9 air at @s run setblock~17~-1~9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~9 air at @s run setblock~17~-2~9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~9 air at @s run setblock~17~-3~9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~9 air at @s run setblock~17~-4~9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~9 air at @s run setblock~17~-5~9 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~10 air at @s run setblock~17~-1~10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~10 air at @s run setblock~17~-2~10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~10 air at @s run setblock~17~-3~10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~10 air at @s run setblock~17~-4~10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~10 air at @s run setblock~17~-5~10 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~11 air at @s run setblock~17~-1~11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~11 air at @s run setblock~17~-2~11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~11 air at @s run setblock~17~-3~11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~11 air at @s run setblock~17~-4~11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~11 air at @s run setblock~17~-5~11 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~12 air at @s run setblock~17~-1~12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~12 air at @s run setblock~17~-2~12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~12 air at @s run setblock~17~-3~12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~12 air at @s run setblock~17~-4~12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~12 air at @s run setblock~17~-5~12 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~13 air at @s run setblock~17~-1~13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~13 air at @s run setblock~17~-2~13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~13 air at @s run setblock~17~-3~13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~13 air at @s run setblock~17~-4~13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~13 air at @s run setblock~17~-5~13 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~14 air at @s run setblock~17~-1~14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~14 air at @s run setblock~17~-2~14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~14 air at @s run setblock~17~-3~14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~14 air at @s run setblock~17~-4~14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~14 air at @s run setblock~17~-5~14 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~15 air at @s run setblock~17~-1~15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~15 air at @s run setblock~17~-2~15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~15 air at @s run setblock~17~-3~15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~15 air at @s run setblock~17~-4~15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~15 air at @s run setblock~17~-5~15 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~16 air at @s run setblock~17~-1~16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~16 air at @s run setblock~17~-2~16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~16 air at @s run setblock~17~-3~16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~16 air at @s run setblock~17~-4~16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~16 air at @s run setblock~17~-5~16 sandstone 0 replace
+execute at positioned as @s unless block ~17~-1~17 air at @s run setblock~17~-1~17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-2~17 air at @s run setblock~17~-2~17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-3~17 air at @s run setblock~17~-3~17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-4~17 air at @s run setblock~17~-4~17 sandstone 0 replace
+execute at positioned as @s unless block ~17~-5~17 air at @s run setblock~17~-5~17 sandstone 0 replace

@@ -1,8 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:repatriation_fruit"
+      "identifier": "kurokumaft:repatriation_fruit",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.food"
+      }
     },
 
     "components": {
@@ -10,7 +14,7 @@
 				"value": "item.kurokumaft:repatriation_fruit.name"
 			},
       "minecraft:icon": {
-          "texture": "repatriation_fruit"
+        "texture": "repatriation_fruit"
       },
       "minecraft:use_animation":"eat",
       "minecraft:use_duration": 2,
@@ -23,7 +27,6 @@
       "minecraft:damage": 0,
       "minecraft:food": {
         "nutrition": 4,
-        "saturation_modifier": "low",
         "on_consume": {
           "event": "kurokumaft:repatriation"
         },

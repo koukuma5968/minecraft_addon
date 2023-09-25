@@ -1,9 +1,12 @@
 {
-  "format_version": "1.19.50",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:bamboo_knife",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.knife"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -12,16 +15,12 @@
       "minecraft:icon":{
         "texture": "bamboo_knife"
       },
-      "minecraft:creative_category": {
-        "parent": "item.kurokumaft:itemGroup.name.knife"
-      },
       "minecraft:max_stack_size": 64,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
         "max_durability": 40
       },
-      "minecraft:use_animation": "trident",
-      "minecraft:mining_speed": 5.5,
+      "minecraft:use_animation": "spear",
       "minecraft:damage": 1,
       "minecraft:enchantable": {
         "value": 15,

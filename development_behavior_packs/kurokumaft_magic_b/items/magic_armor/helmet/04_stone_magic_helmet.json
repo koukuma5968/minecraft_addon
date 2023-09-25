@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_magic_helmet",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -12,9 +15,6 @@
       "minecraft:icon": {
           "texture": "stone_magic_helmet"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.helmet"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -44,10 +44,8 @@
         }
       },
       "minecraft:damage": 2,
-      "minecraft:armor": {
-        "protection": 10
-      },
       "minecraft:wearable": {
+        "protection": 10,
         "slot": "slot.armor.head"
       }
     }

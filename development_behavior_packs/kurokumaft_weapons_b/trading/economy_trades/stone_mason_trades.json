@@ -314,7 +314,7 @@
           "wants": [
             {
               "item": "minecraft:emerald",
-              "quantity": 15,
+              "quantity": 4,
               "price_multiplier": 0.05
             }
           ],
@@ -322,15 +322,12 @@
             {
               "choice": [
                 {
-                  "item": "kurokumaft:nitre_nugget"
-                },
-                {
                   "item": "kurokumaft:chromium_nugget"
                 }
               ]
             }
           ],
-          "trader_exp": 30,
+          "trader_exp": 15,
           "max_uses": 12,
           "reward_exp": true
         }

@@ -1,7 +1,7 @@
 {
   "tiers": [
     {
-      "trades": [ // tier 1
+      "trades": [
         {
           "wants": [
             {
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "trades":[ // tier 2
+      "trades":[
       {
         "wants": [
           {
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "trades": [ // tier 3
+      "trades": [
         {
           "wants": [
             {
@@ -164,8 +164,8 @@
             {
               "item": "kurokumaft:chromium_nugget",
               "quantity": {
-                "min": 1,
-                "max": 2
+                "min": 4,
+                "max": 6
               }
             }
           ]
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "trades": [ // tier 4
+      "trades": [
         {
           "wants": [
             {
@@ -235,34 +235,14 @@
             {
               "item": "minecraft:emerald",
               "quantity": {
-                "min": 10,
-                "max": 15
+                "min": 2,
+                "max": 4
               }
             }
           ],
           "gives": [
             {
-              "item": "kurokumaft:nitre_nugget",
-              "quantity": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "wants": [
-            {
-              "item": "minecraft:emerald",
-              "quantity": {
-                "min": 6,
-                "max": 8
-              }
-            }
-          ],
-          "gives": [
-            {
-              "item": "kurokumaft:nitre_nugget",
+              "item": "kurokumaft:chromium_nugget",
               "quantity": {
                 "min": 1,
                 "max": 2
@@ -273,7 +253,7 @@
       ]
     },
     {
-      "trades": [ // tier 5
+      "trades": [
         {
           "wants": [
             {

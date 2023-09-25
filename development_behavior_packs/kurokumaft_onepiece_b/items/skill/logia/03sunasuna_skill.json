@@ -1,29 +1,19 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:sunasuna_skill",
-        "category": "equipment"
+      "identifier": "kurokumaft:sunasuna_skill",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.logia_skill"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:sunasuna_skill.name"
 			},
       "minecraft:icon": {
-          "texture": "sunasuna_skill"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.logia_skill"
-      },
-      "minecraft:render_offsets": {
-        "main_hand": {
-          "first_person": { 
-            "scale": [0.0, 0.0, 0.0]
-          },
-          "third_person": {
-            "scale": [0.0, 0.0, 0.0]
-          }
-        }
+        "texture": "sunasuna_skill"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
@@ -41,9 +31,6 @@
           "event": "kurokumaft:sunasuna_shot",
           "target": "self"
         }
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {

@@ -1,5 +1,5 @@
 {
-	"format_version": "1.19.50",
+	"format_version": "1.20.30",
 	"minecraft:entity": {
 		"description": {
 			"identifier": "kurokumaft:copper_shield",
@@ -115,7 +115,7 @@
 				},
 				"run_command": {
 					"command": [
-						"execute @p ~~~ say bag_burdened",
+						"execute as @p run say bag_burdened",
 						"ride @s start_riding @e[family=player,c=1] teleport_rider"
 					]
 				}
@@ -129,7 +129,7 @@
 				},
 				"run_command": {
 					"command": [
-						"execute @p ~~~ say stay",
+						"execute as @p run say stay",
 						"ride @s stop_riding"
 					]
 				}
@@ -137,7 +137,7 @@
 			"kurokumaft:sneaking_on": {
 				"run_command": {
 					"command": [
-						"execute @p ~~~ say sneaking_on"
+						"execute as @p run say sneaking_on"
 					]
 				},
 				"remove": {
@@ -150,7 +150,7 @@
 			"kurokumaft:sneaking_off": {
 				"run_command": {
 					"command": [
-						"execute @p ~~~ say sneaking_off"
+						"execute as @p run say sneaking_off"
 					]
 				},
 				"remove": {

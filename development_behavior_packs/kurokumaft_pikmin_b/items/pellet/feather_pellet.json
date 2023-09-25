@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:feather_pellet",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature",
+        "group": "pellet"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -11,9 +14,6 @@
 			},
       "minecraft:icon": {
         "texture": "feather_pellet"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.pellet"
       }
     },
     "events": {

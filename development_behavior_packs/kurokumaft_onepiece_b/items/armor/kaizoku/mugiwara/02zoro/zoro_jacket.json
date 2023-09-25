@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:zoro_jacket",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:zoro_jacket.name"
 			},
       "minecraft:icon": {
-          "texture": "zoro_jacket"
+        "texture": "zoro_jacket"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.chestplate"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 40,
-        "texture_type": "leather"
-      },
       "minecraft:wearable": {
+        "protection": 40,
         "slot": "slot.armor.chest"
       }
     }

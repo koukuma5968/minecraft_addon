@@ -1,10 +1,13 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
         "identifier": "kurokumaft:ender_eye_sword",
-        "category": "equipment"
-    },
+        "menu_category": {
+          "category": "equipment",
+          "group": "itemGroup.name.sword"
+        }
+      },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:ender_eye_sword.name"
@@ -12,9 +15,6 @@
       "minecraft:icon": {
           "texture": "ender_eye_sword"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.sword"
-			},
       "minecraft:cooldown": {
         "category": "evil_eye",
         "duration": 60.0
@@ -32,7 +32,6 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
       "minecraft:damage": 7,
       "minecraft:enchantable": {
         "value": 20,

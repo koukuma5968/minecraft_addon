@@ -1,23 +1,21 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fire_grimoire",
-      "category": "equipment"
-    },
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.grimoire"
+      }
+  },
     "components": {
       "tag:fire_grimoire": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.grimoire"
-      },
       "minecraft:cooldown": {
         "category": "fire_grimoire",
         "duration": 5.0
       },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 0,
-		  "minecraft:weapon": {
-      },
       "minecraft:durability": {
         "max_durability": 100
       },

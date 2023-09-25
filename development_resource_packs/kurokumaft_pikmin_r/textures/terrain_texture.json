@@ -67,6 +67,33 @@
 		},
 		"rock_oniyon_stage_3": {
 			"textures": "textures/kurokumaft/blocks/oniyon/rock/rock_oniyon_stage_3"
+		},
+
+		"white_oniyon_stage_0": {
+			"textures": "textures/kurokumaft/blocks/oniyon/white/white_oniyon_stage_0"
+		},
+		"white_oniyon_stage_1": {
+			"textures": "textures/kurokumaft/blocks/oniyon/white/white_oniyon_stage_1"
+		},
+		"white_oniyon_stage_2": {
+			"textures": "textures/kurokumaft/blocks/oniyon/white/white_oniyon_stage_2"
+		},
+		"white_oniyon_stage_3": {
+			"textures": "textures/kurokumaft/blocks/oniyon/white/white_oniyon_stage_3"
+		},
+
+		"purple_oniyon_stage_0": {
+			"textures": "textures/kurokumaft/blocks/oniyon/purple/purple_oniyon_stage_0"
+		},
+		"purple_oniyon_stage_1": {
+			"textures": "textures/kurokumaft/blocks/oniyon/purple/purple_oniyon_stage_1"
+		},
+		"purple_oniyon_stage_2": {
+			"textures": "textures/kurokumaft/blocks/oniyon/purple/purple_oniyon_stage_2"
+		},
+		"purple_oniyon_stage_3": {
+			"textures": "textures/kurokumaft/blocks/oniyon/purple/purple_oniyon_stage_3"
 		}
+
 	}
 }

@@ -1,0 +1,14 @@
+{
+  "format_version": "1.20.30",
+  "animations": {
+    "animation.pikmin.extremely_hot": {
+      "animation_length": 1.0,
+      "loop": true,
+      "timeline": {
+        "0.0": [
+          "/particle kurokumaft:extremely_hot_emitter ~~~"
+        ]
+      }
+    }
+  }
+}

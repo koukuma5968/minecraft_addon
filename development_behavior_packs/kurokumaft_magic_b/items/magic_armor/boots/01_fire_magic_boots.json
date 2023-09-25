@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fire_magic_boots",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.boots"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -12,9 +15,6 @@
       "minecraft:icon": {
           "texture": "fire_magic_boots"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.boots"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -40,10 +40,8 @@
         }
       },
       "minecraft:damage": 2,
-      "minecraft:armor": {
-        "protection": 5
-      },
       "minecraft:wearable": {
+        "protection": 5,
         "slot": "slot.armor.feet"
       }
     }

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "animations": {
     "animation.butadokkuri.fire": {
       "animation_length": 1.0,
@@ -10,7 +10,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ],
         "0.2": [
           "/particle kurokumaft:dokkuri_fire ^^^",
@@ -18,7 +18,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ],
         "0.4": [
           "/particle kurokumaft:dokkuri_fire ^^^",
@@ -26,7 +26,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ],
         "0.6": [
           "/particle kurokumaft:dokkuri_fire ^^^",
@@ -34,7 +34,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ]
       }
     },
@@ -47,7 +47,7 @@
           "/particle kurokumaft:dokkuri_fire ^^9^11",
           "/particle kurokumaft:dokkuri_fire ^^10^14",
           "/particle kurokumaft:dokkuri_fire ^^11^17",
-          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+          "/execute as @s positioned ^^5^5 run damage @e[r=5] 4 fire"
         ],
         "0.2": [
           "/particle kurokumaft:dokkuri_fire ^^7^5",
@@ -55,7 +55,7 @@
           "/particle kurokumaft:dokkuri_fire ^^9^11",
           "/particle kurokumaft:dokkuri_fire ^^10^14",
           "/particle kurokumaft:dokkuri_fire ^^11^17",
-          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+          "/execute as @s positioned ^^5^5 run damage @e[r=5] 4 fire"
         ],
         "0.4": [
           "/particle kurokumaft:dokkuri_fire ^^7^5",
@@ -63,7 +63,7 @@
           "/particle kurokumaft:dokkuri_fire ^^9^11",
           "/particle kurokumaft:dokkuri_fire ^^10^14",
           "/particle kurokumaft:dokkuri_fire ^^11^17",
-          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+          "/execute as @s positioned ^^5^5 run damage @e[r=5] 4 fire"
         ],
         "0.6": [
           "/particle kurokumaft:dokkuri_fire ^^7^5",
@@ -71,7 +71,7 @@
           "/particle kurokumaft:dokkuri_fire ^^9^11",
           "/particle kurokumaft:dokkuri_fire ^^10^14",
           "/particle kurokumaft:dokkuri_fire ^^11^17",
-          "/execute @s ^^5^5 damage @e[r=5] 4 fire"
+          "/execute as @s positioned ^^5^5 run damage @e[r=5] 4 fire"
         ]
       }
     },
@@ -84,7 +84,7 @@
           "/particle kurokumaft:dokkuri_mizu ^^^2",
           "/particle kurokumaft:dokkuri_mizu ^^^3",
           "/particle kurokumaft:dokkuri_mizu ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 drowning"
         ],
         "0.2": [
           "/particle kurokumaft:dokkuri_mizu ^^^",
@@ -92,7 +92,7 @@
           "/particle kurokumaft:dokkuri_mizu ^^^2",
           "/particle kurokumaft:dokkuri_mizu ^^^3",
           "/particle kurokumaft:dokkuri_mizu ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 drowning"
         ],
         "0.4": [
           "/particle kurokumaft:dokkuri_mizu ^^^",
@@ -100,7 +100,7 @@
           "/particle kurokumaft:dokkuri_mizu ^^^2",
           "/particle kurokumaft:dokkuri_mizu ^^^3",
           "/particle kurokumaft:dokkuri_mizu ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 drowning"
         ],
         "0.6": [
           "/particle kurokumaft:dokkuri_mizu ^^^",
@@ -108,7 +108,7 @@
           "/particle kurokumaft:dokkuri_mizu ^^^2",
           "/particle kurokumaft:dokkuri_mizu ^^^3",
           "/particle kurokumaft:dokkuri_mizu ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 drowning"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 drowning"
         ]
       }
     },
@@ -121,7 +121,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ],
         "0.2": [
           "/particle kurokumaft:dokkuri_fire ^^^",
@@ -129,7 +129,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ],
         "0.4": [
           "/particle kurokumaft:dokkuri_fire ^^^",
@@ -137,7 +137,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ],
         "0.6": [
           "/particle kurokumaft:dokkuri_fire ^^^",
@@ -145,7 +145,7 @@
           "/particle kurokumaft:dokkuri_fire ^^^2",
           "/particle kurokumaft:dokkuri_fire ^^^3",
           "/particle kurokumaft:dokkuri_fire ^^^4",
-          "/execute @s ^^^2 damage @e[r=3] 2 fire"
+          "/execute as @s positioned ^^^2 run damage @e[r=3] 2 fire"
         ]
       }
     }

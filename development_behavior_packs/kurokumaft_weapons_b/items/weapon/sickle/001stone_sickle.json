@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_sickle",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sickle"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.sickle"
-      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 5,
 		  "minecraft:weapon": {
@@ -39,9 +39,6 @@
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_sickle.name"
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
@@ -60,7 +57,7 @@
               "command": [
                 "tag @s add s_sickle_s",
                 "particle kurokumaft:slash_particle ^ ^1 ^2.4",
-                "execute @e[tag=s_sickle_t] ~ ~ ~ damage @s 3 entity_attack entity @e[tag=s_sickle_s]",
+                "execute at @e[tag=s_sickle_t] run damage @s 3 entity_attack entity @e[tag=s_sickle_s]",
                 "tag @s remove s_sickle_s",
                 "tag @e[tag=s_sickle_t] remove s_sickle_t"
               ],

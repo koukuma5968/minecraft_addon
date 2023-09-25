@@ -4,8 +4,8 @@
 		"description": "ワンピースアドオン",
 		"name": "kurokumaft_onepiece_r",
 		"uuid": "f84e3b80-6acd-4245-8437-3c271eb9a3f1",
-		"version": [1, 0, 0],
-		"min_engine_version": [1, 19, 50],
+		"version": [1, 0, 1],
+		"min_engine_version": [1, 20, 30],
 		"platform_locked": false,
 		"pack_scope": "world"
 	},
@@ -14,7 +14,7 @@
 			"description": "ワンピースアドオン",
 			"type": "resources",
 			"uuid": "cfdc4430-939b-49e5-a265-a51683a6ea1a",
-			"version": [1, 0, 0]
+			"version": [1, 0, 1]
 		}
 	],
 	"metadata": {

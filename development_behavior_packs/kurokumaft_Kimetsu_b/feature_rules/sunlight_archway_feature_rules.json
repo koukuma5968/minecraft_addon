@@ -1,5 +1,5 @@
 {
-    "format_version": "1.17.0",
+    "format_version": "1.20.30",
     "minecraft:feature_rules": {
         "description": {
             "identifier": "kurokumaft:sunlight_archway_feature_rules",

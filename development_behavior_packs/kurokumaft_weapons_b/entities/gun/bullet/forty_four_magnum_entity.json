@@ -1,5 +1,5 @@
 {
-  "format_version": "1.19.50",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:forty_four_magnum_entity",
@@ -22,7 +22,7 @@
             "affect_projectile": true
           },
           "impact_damage": {
-            "damage": 8,
+            "damage": 10,
             "catch_fire": false,
             "semi_random_diff_damage": false,
             "destroy_on_hit": true
@@ -31,8 +31,8 @@
         },
         "knockback": false,
         "destroy_on_hurt": true,
-        "power": 7.0,
-        "gravity": 0.00,
+        "power": 4.0,
+        "gravity": 0.01,
         "inertia": 1.0,
         "uncertaintyBase": 8,
         "uncertaintyMultiplier": 2.5,

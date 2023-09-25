@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:scarlet_nugget",
-      "category": "items"
+      "menu_category": {
+				"category": "items",
+        "group": "itemGroup.name.scarlet"
+			}
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.scarlet"
-      },
       "minecraft:hand_equipped": false,
       "minecraft:max_stack_size": 64,
       "minecraft:icon": {

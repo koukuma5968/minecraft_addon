@@ -1,35 +1,23 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:barabara_skill",
-        "category": "equipment"
+      "identifier": "kurokumaft:barabara_skill",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.paramysia_skill"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:barabara_skill.name"
 			},
       "minecraft:icon": {
-          "texture": "barabara_skill"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.paramysia_skill"
-      },
-      "minecraft:render_offsets": {
-        "main_hand": {
-          "first_person": { 
-            "scale": [0.0, 0.0, 0.0]
-          },
-          "third_person": {
-            "scale": [0.0, 0.0, 0.0]
-          }
-        }
+        "texture": "barabara_skill"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
       "minecraft:chargeable": {
-        "on_complete": {
-        }
       },
       "minecraft:on_use": {
         "on_use": {
@@ -37,9 +25,6 @@
           "event": "kurokumaft:barabara",
           "target": "self"
         }
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {

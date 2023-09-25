@@ -1,15 +1,15 @@
 {
-  "format_version": "1.19.50",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:cherry_bow",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bow"
+      }
     },
     "components": {
       "tag:bow": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bow"
-      },
       "minecraft:durability": {
         "max_durability": 200
       },
@@ -51,9 +51,6 @@
         "max_draw_duration": 1.0,
         "max_launch_power": 1.0,
         "scale_power_by_draw_duration": true
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {

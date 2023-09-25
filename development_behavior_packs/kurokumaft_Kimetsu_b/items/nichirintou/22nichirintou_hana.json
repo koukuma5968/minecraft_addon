@@ -1,19 +1,19 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:nichirintou_hana",
-        "category": "equipment"
+      "identifier": "kurokumaft:nichirintou_hana",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.nichirintou"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_hana.name"
 			},
       "minecraft:icon": {
-          "texture": "nichirintou_hana"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.nichirintou"
+        "texture": "nichirintou_hana"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {
@@ -31,7 +31,7 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
+      
       "minecraft:damage": 11,
       "minecraft:enchantable": {
         "value": 50,
@@ -55,9 +55,6 @@
         "on_complete": {
           "event": "hurt_entity"
         }
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       },
       "minecraft:weapon": {
           "on_hurt_entity": {

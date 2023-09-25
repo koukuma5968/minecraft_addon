@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wood_sickle",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sickle"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.sickle"
-      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 4,
 		  "minecraft:weapon": {
@@ -39,9 +39,6 @@
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:wood_sickle.name"
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
@@ -60,7 +57,7 @@
               "command": [
                 "tag @s add w_sickle_s",
                 "particle kurokumaft:slash_particle ^ ^1 ^2.4",
-                "execute @e[tag=w_sickle_t] ~ ~ ~ damage @s 3 entity_attack entity @e[tag=w_sickle_s]",
+                "execute at @e[tag=w_sickle_t] run damage @s 3 entity_attack entity @e[tag=w_sickle_s]",
                 "tag @s remove w_sickle_s",
                 "tag @e[tag=w_sickle_t] remove w_sickle_t"
               ],

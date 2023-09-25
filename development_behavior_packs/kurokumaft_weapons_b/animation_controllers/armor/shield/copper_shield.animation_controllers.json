@@ -1,5 +1,5 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "animation_controllers": {
     "controller.animation.armor.copper_shield": {
       "states": {
@@ -11,7 +11,7 @@
         "spawn":{
           "on_entry": [
             "/tag @s add copper_shield",
-            "/execute @s ~~~ say copper_shield"
+            "/execute as @s run say copper_shield"
           ],
           "transitions": [
             {"default":"!query.is_alive"}

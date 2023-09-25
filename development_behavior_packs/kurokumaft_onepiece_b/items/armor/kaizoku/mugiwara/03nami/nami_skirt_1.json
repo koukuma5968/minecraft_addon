@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:nami_skirt_1",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.leggings"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -12,9 +15,6 @@
       "minecraft:icon": {
           "texture": "nami_skirt_1"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.leggings"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 3,
-        "texture_type": "leather"
-      },
       "minecraft:wearable": {
+        "protection": 3,
         "slot": "slot.armor.legs"
       }
     }

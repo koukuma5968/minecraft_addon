@@ -1,15 +1,17 @@
 {
-	"format_version": "1.16.100",
+	"format_version": "1.20.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:scarlet_gravel",
 			"is_experimental": false,
-            "register_to_creative_menu": false
+            "register_to_creative_menu": false,
+			"menu_category": {
+				"category": "Construction"
+			}
 		},
 		"components": {
 			"minecraft:display_name": "kurokumaft:scarlet_gravel",
 			"minecraft:explosion_resistance": 0,
-			"minecraft:creative_category": { "category": "Construction" },
 			"minecraft:destroy_time": 0.8,
 			"minecraft:block_light_absorption": 1.0,
 			"minecraft:loot": "loot_tables/blocks/ore/scarlet_gravel.json"

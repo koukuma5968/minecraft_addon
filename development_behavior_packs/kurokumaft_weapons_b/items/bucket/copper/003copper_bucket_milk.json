@@ -1,0 +1,44 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item" : {
+    "description": {
+      "identifier": "kurokumaft:copper_bucket_milk",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.copper_bucket"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:copper_bucket_milk.name"
+      },
+      "minecraft:icon":{
+        "texture": "copper_bucket_milk"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_animation":"eat",
+      "minecraft:use_duration": 2,
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "kurokumaft:effect_clear"
+        }
+      },
+      "minecraft:hand_equipped": true
+    },
+    "events": {
+      "kurokumaft:effect_clear": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "effect @s clear"
+              ],
+              "target": "player"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

@@ -13,6 +13,7 @@
           "default": "geometry.barista"
         },
         "scripts": {
+          "scale": "1.5",
           "animate": ["position"]
         },
         "animations": {

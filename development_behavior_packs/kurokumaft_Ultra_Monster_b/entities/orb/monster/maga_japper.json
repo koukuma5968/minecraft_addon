@@ -1,5 +1,5 @@
 {
-  "format_version": "1.17.20",
+ "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:maga_japper",

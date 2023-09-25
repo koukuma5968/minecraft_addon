@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_magic_boots",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.boots"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:stone_magic_boots.name"
 			},
       "minecraft:icon": {
-          "texture": "stone_magic_boots"
+        "texture": "stone_magic_boots"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.boots"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -44,10 +44,8 @@
         }
       },
       "minecraft:damage": 2,
-      "minecraft:armor": {
-        "protection": 5
-      },
       "minecraft:wearable": {
+        "protection": 5,
         "slot": "slot.armor.feet"
       }
     }

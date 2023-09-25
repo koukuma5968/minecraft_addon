@@ -1,2 +1,2 @@
 damage @e[tag=framepillar] 2 fire
-execute @e[tag=framepillar] ~~~ particle kurokumaft:framepillar_particle ~~~
+execute as @e[tag=framepillar] at @s run particle kurokumaft:framepillar_particle ~~~

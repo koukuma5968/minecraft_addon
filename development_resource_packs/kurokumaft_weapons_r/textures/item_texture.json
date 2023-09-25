@@ -189,6 +189,9 @@
       "ghast_bazooka": {
          "textures": "textures/kurokumaft/items/gun/ghast_bazooka"
       },
+      "flamethrower": {
+         "textures": "textures/kurokumaft/items/gun/flamethrower"
+      },
 
       "lead_ball": {
          "textures": "textures/kurokumaft/items/gun/bullet/lead_ball"
@@ -202,13 +205,22 @@
       "blue_fire_charge": {
          "textures": "textures/kurokumaft/items/gun/bullet/blue_fire_charge"
       },
+      "thirty_eight_special": {
+         "textures": "textures/kurokumaft/items/gun/bullet/thirty_eight_special"
+      },
 
       "barista": {
          "textures": "textures/kurokumaft/items/fort/barista"
       },
+      "tank": {
+         "textures": "textures/kurokumaft/items/fort/tank"
+      },
 
       "barista_arrow": {
          "textures": "textures/kurokumaft/items/fort/bullt/barista_arrow"
+      },
+      "shell": {
+         "textures": "textures/kurokumaft/items/fort/bullt/shell"
       },
 
       "bamboo_bow" : {
@@ -388,13 +400,16 @@
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_hiheal"
       },
       "potion_bottle_hidamageBoost" : {
-         "textures" : "textures/kurokumaft/items/potion/potion_bottle_hiheal"
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_hidamageBoost"
       },
       "potion_bottle_histurdiness" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_histurdiness"
       },
       "potion_bottle_himoveSpeed" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_himoveSpeed"
+      },
+      "potion_bottle_hipoison" : {
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_hipoison"
       },
 
       "steel_pickaxe" : {
@@ -411,6 +426,40 @@
 
       "steel_axe" : {
          "textures" : "textures/kurokumaft/items/axe/steel_axe"
+      },
+
+      "copper_bucket_axolotl" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_axolotl"
+      },
+      "copper_bucket_cod" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_cod"
+      },
+      "copper_bucket" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_empty"
+      },
+      "copper_bucket_lava" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_lava"
+      },
+      "copper_bucket_milk" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_milk"
+      },
+      "copper_bucket_powder_snow" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_powder_snow"
+      },
+      "copper_bucket_pufferfish" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_pufferfish"
+      },
+      "copper_bucket_salmon" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_salmon"
+      },
+      "copper_bucket_tadpole" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_tadpole"
+      },
+      "copper_bucket_tropical" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_tropical"
+      },
+      "copper_bucket_water" : {
+         "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_water"
       },
 
       "bamboo_bag": {

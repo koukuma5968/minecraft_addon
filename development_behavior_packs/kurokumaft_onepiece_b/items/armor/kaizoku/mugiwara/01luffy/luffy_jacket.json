@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:luffy_jacket",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:luffy_jacket.name"
 			},
       "minecraft:icon": {
-          "texture": "luffy_jacket"
+        "texture": "luffy_jacket"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.chestplate"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 40,
-        "texture_type": "leather"
-      },
       "minecraft:wearable": {
+        "protection": 40,
         "slot": "slot.armor.chest"
       }
     }

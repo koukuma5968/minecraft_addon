@@ -1,18 +1,19 @@
 {
-	"format_version": "1.17.10",
+	"format_version": "1.20.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:powder_sand",
 			"is_experimental": false,
             "register_to_creative_menu": true,
-			"category": "nature"
+			"menu_category": {
+				"category": "nature"
+			  }
 		},
 		"components": {
 			"minecraft:collision_box": {
 				"origin": [-8,15,-8],
 				"size": [16,1,16]
 			},
-			"minecraft:creative_category": { "category": "nature" },
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0.5
 			},

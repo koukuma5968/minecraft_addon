@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17.0",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:flintlock_revolver",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.long_range"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.gun"
-      },
       "minecraft:durability": {
         "max_durability": 500
       },
@@ -40,9 +40,6 @@
           "event": "kurokumaft:bombom_shot",
           "target": "self"
         }
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {

@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17.0",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:arquebus",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.gun"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.gun"
-      },
       "minecraft:durability": {
         "max_durability": 300
       },
@@ -24,7 +24,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:arquebus" ],
-            "repair_amount": 200
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
           }
         ]
       },
@@ -46,9 +46,6 @@
         "max_draw_duration": 1.0,
         "max_launch_power": 3.0,
         "scale_power_by_draw_duration": true
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {

@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:storm_eagle_summon_stone",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.summon_stone"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.summon_stone"
-      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 0,
       "minecraft:max_stack_size": 1,

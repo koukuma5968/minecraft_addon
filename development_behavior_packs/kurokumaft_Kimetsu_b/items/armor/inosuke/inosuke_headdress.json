@@ -1,20 +1,20 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:inosuke_headdress",
-      "category": "equipment"
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.helmet"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:inosuke_headdress.name"
 			},
       "minecraft:icon": {
-          "texture": "inosuke_headdress"
+        "texture": "inosuke_headdress"
       },
-      "minecraft:creative_category": {
-				"parent": "itemGroup.name.helmet"
-			},
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -36,11 +36,8 @@
         }
       },
       "minecraft:damage": 0,
-      "minecraft:armor": {
-        "protection": 100,
-        "texture_type": "elytra"
-      },
       "minecraft:wearable": {
+        "protection": 100,
         "slot": "slot.armor.head"
       }
     }

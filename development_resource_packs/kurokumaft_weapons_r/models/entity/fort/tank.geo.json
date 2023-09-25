@@ -1,0 +1,80 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.tank",
+				"texture_width": 256,
+				"texture_height": 256,
+				"visible_bounds_width": 10,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "tank",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "tank",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-15, 4, -24], "size": [30, 16, 47], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "body",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-13, 20, -9], "size": [26, 9, 30], "uv": [107, 0]},
+						{"origin": [-2, 24, -55], "size": [3, 3, 46], "uv": [128, 39]}
+					]
+				},
+				{
+					"name": "caterpillarRight",
+					"parent": "tank",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "upRight",
+					"parent": "caterpillarRight",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-24, 8, -24], "size": [9, 12, 46], "uv": [64, 83]}
+					]
+				},
+				{
+					"name": "downRight",
+					"parent": "caterpillarRight",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-24, 0, -24], "size": [9, 8, 46], "uv": [64, 170]}
+					]
+				},
+				{
+					"name": "caterpillarLeft",
+					"parent": "tank",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "upLeft",
+					"parent": "caterpillarLeft",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [15, 7, -24], "size": [9, 13, 46], "uv": [0, 63]}
+					]
+				},
+				{
+					"name": "downLeft",
+					"parent": "caterpillarLeft",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [15, -1, -24], "size": [9, 8, 46], "uv": [0, 162]}
+					]
+				}
+			]
+		}
+	]
+}

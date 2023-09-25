@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:purple_pikmin_item",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/pikmin/purple_pikmin"
+      },
+      "geometry": {
+        "default": "geometry.purple_pikmin_throw"
+      },
+      "scripts": {
+        "scale": "2.5",
+        "pre_animation": [
+          "variable.charge_amount = math.clamp((query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);"
+        ],
+        "animate": [
+          "wield"
+        ]
+      },
+      "animations": {
+        "wield": "controller.animation.pikmin.wield",
+        "wield_first_person": "animation.pikmin.wield_first_person",
+        "wield_first_person_raise": "animation.pikmin.wield_first_person_raise",
+        "wield_first_person_raise_shake": "animation.pikmin.wield_first_person_raise_shake",
+        "wield_first_person_riptide": "animation.pikmin.wield_first_person_riptide",
+        "wield_third_person": "animation.pikmin.wield_third_person",
+        "wield_third_person_raise": "animation.pikmin.wield_third_person_raise"
+      },
+      "render_controllers": [ "controller.render.pikmin" ]
+    }
+  }
+}

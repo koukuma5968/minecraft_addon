@@ -1,0 +1,121 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:tank",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "kurokumaft:tank_shot": {
+        "minecraft:spawn_entity": {
+          "entities": [
+            {
+              "min_wait_time": 0.1,
+              "max_wait_time": 0.1,
+              "spawn_entity": "kurokumaft:shell_entity",
+              "single_use": true,
+              "num_to_spawn": 1,
+              "should_leash": false
+            }
+          ]
+        },
+        "minecraft:timer": {
+          "looping": false,
+          "time": [1.0,1.0],
+          "time_down_event": {
+            "event": "kurokumaft:tank_stop"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tank", "inanimate" ]
+      },
+      "minecraft:collision_box": {
+        "width": 2.0,
+        "height": 1.5
+      },
+      "minecraft:health": {
+        "value": 50,
+        "max": 50
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:is_saddled": {
+      },
+      "minecraft:input_ground_controlled": {
+      },
+
+      "minecraft:behavior.controlled_by_player": {
+        "fractional_rotation": 0.5,
+        "fractional_rotation_limit": 10.0
+      },
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "family_types": [
+          "player",
+          "monster"
+        ],
+        "interact_text": "action.interact.tank",
+        "seats": {
+          "position": [ 0.0, 1.1, -0.2 ]
+        }
+      },
+
+      "minecraft:behavior.player_ride_tamed": {
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "kurokumaft:tank_shot": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:tank_shot"
+          ]
+        },
+        "run_command": {
+          "command": [
+            "execute as @p[c=1] run clear @s kurokumaft:shell 0 1"
+          ],
+          "target": "self"
+        }
+      },
+      "kurokumaft:tank_stop": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:tank_shot"
+          ]
+        }
+      }
+    }
+  }
+}

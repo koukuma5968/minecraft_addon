@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:ender_eye_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  l",
+      " h ",
+      "#  "
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:netherite_ingot"
+      },
+      "h": {
+        "item": "minecraft:ender_eye"
+      },
+      "#": {
+        "item": "minecraft:crying_obsidian"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:ender_eye_sword"
+    }
+  }
+}

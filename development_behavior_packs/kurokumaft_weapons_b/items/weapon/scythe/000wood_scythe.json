@@ -1,14 +1,14 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wood_scythe",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.scythe"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.scythe"
-      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
 		  "minecraft:weapon": {
@@ -39,9 +39,6 @@
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:wood_scythe.name"
-      },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
       }
     },
     "events": {
@@ -53,7 +50,7 @@
                 "tag @s add w_scythe_s",
                 "tag @e[tag=!w_scythe_s,r=5.5] add w_scythe_t",
                 "particle kurokumaft:sweep_particle ^ ^1 ^2.4",
-                "execute @e[tag=w_scythe_t] ~ ~ ~ damage @s 1 entity_attack entity @e[tag=w_scythe_s]",
+                "execute at @e[tag=w_scythe_t] run damage @s 1 entity_attack entity @e[tag=w_scythe_s]",
                 "tag @s remove w_scythe_s",
                 "tag @e[tag=w_scythe_t] remove w_scythe_t"
               ],

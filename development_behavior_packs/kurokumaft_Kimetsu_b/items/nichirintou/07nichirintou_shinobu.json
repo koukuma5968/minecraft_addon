@@ -1,19 +1,19 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:nichirintou_shinobu",
-        "category": "equipment"
+      "identifier": "kurokumaft:nichirintou_shinobu",
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.nichirintou"
+			}
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_shinobu.name"
 			},
       "minecraft:icon": {
-          "texture": "nichirintou_shinobu"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.nichirintou"
+        "texture": "nichirintou_shinobu"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {
@@ -31,7 +31,7 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
+      
       "minecraft:damage": 1,
       "minecraft:enchantable": {
         "value": 500,
@@ -56,9 +56,6 @@
           }
         ]
       },
-      "minecraft:wearable": {
-        "slot": "slot.weapon.mainhand"
-      },
       "minecraft:weapon": {
           "on_hurt_entity": {
               "event": "hurt_entity"
@@ -71,7 +68,7 @@
           {
             "run_command": {
               "command": [
-                "execute @s ~~~ effect @s poison 10 5 false"
+                "execute as @s run effect @s poison 10 5 false"
               ],
               "target": "other"
             }

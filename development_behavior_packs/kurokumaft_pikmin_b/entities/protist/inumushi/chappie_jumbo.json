@@ -1,5 +1,5 @@
 {
-  "format_version": "1.18.10",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:chappie_jumbo",
@@ -35,9 +35,13 @@
       "minecraft:scale": {
         "value": 8.0
       },
+      "minecraft:knockback_resistance": {
+        "value": 10,
+        "max": 10
+      },
       "minecraft:collision_box": {
         "width": 1.0,
-        "height": 1.5
+        "height": 1.0
       },
       "minecraft:health": {
         "value": 60,
@@ -140,9 +144,9 @@
       "minecraft:behavior.leap_at_target": {
       },
       "minecraft:behavior.look_at_target": {
-        "probability": 1.0
       },
       "minecraft:behavior.melee_attack": {
+        "cooldown_time": 5.0
       },
       "minecraft:behavior.random_stroll": {
       },

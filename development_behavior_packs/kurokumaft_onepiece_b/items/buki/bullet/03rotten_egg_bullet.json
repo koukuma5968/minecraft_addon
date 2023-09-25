@@ -1,14 +1,14 @@
 {
-  "format_version": "1.18.0",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:rotten_egg_bullet",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.tama"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.tama"
-      },
       "minecraft:allow_off_hand": true,
       "minecraft:max_stack_size": 64,
       "minecraft:icon": {

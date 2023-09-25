@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item" : {
     "description": {
         "identifier": "kurokumaft:copper_axe",
-        "category": "equipment"
+        "menu_category": {
+          "category": "equipment",
+          "group": "itemGroup.name.axe"
+        }
     },
     "components": {
       "minecraft:display_name": {
@@ -11,9 +14,6 @@
       },
       "minecraft:icon":{
         "texture": "copper_axe"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.axe"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -32,7 +32,7 @@
           }
         ]
       },
-      "minecraft:mining_speed": 1.5,
+      
       "minecraft:damage": 4,
       "minecraft:enchantable": {
         "value": 10,
@@ -287,8 +287,7 @@
             "function axe/stripped"
           ],
           "target": "player"
-        },
-        "trigger": "kurokumaft:durability_damage"
+        }
       }
     }
   }

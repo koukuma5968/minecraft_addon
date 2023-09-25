@@ -1,5 +1,5 @@
 {
-  "format_version": "1.10.0",
+  "format_version": "1.20.30",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kurokumaft:red_pikmin",
@@ -7,14 +7,10 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "leaf": "textures/kurokumaft/mob/pikmin/red/red_pikmin_leaf",
-        "bud": "textures/kurokumaft/mob/pikmin/red/red_pikmin_bud",
-        "flower": "textures/kurokumaft/mob/pikmin/red/red_pikmin_flower"
+        "default": "textures/kurokumaft/mob/pikmin/red_pikmin"
       },
       "geometry": {
-        "leaf": "geometry.red_pikmin_leaf",
-        "bud": "geometry.red_pikmin_bud",
-        "flower": "geometry.red_pikmin_flower"
+        "default": "geometry.red_pikmin"
       },
       "spawn_egg": {
         "texture": "pikmin_spawn_egg",

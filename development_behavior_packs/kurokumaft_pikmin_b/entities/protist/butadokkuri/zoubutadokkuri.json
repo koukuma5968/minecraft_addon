@@ -1,5 +1,5 @@
 {
-  "format_version": "1.18.10",
+  "format_version": "1.20.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:zoubutadokkuri",
@@ -46,15 +46,16 @@
         "value": 10.0
       },
       "minecraft:collision_box": {
-        "width": 1.2,
-        "height": 0.8
+        "width": 1.1,
+        "height": 1.1
       },
       "minecraft:health": {
         "value": 50,
         "max": 50
       },
       "minecraft:knockback_resistance": {
-        "value": 10
+        "value": 10,
+        "max": 10
       },
       "minecraft:is_hidden_when_invisible": {
       },
@@ -132,6 +133,7 @@
       "minecraft:behavior.stay_while_sitting": {
       },
       "minecraft:behavior.melee_attack": {
+        "cooldown_time": 10.0
       },
       "minecraft:behavior.leap_at_target": {
       },

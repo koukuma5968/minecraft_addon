@@ -1,1 +1,1 @@
-execute @s ~~~ tag @s add kokyu_koi3
+execute as @s run tag @s add kokyu_koi3

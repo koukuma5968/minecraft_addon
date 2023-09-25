@@ -1,5 +1,5 @@
 {
-	"format_version": "1.12.0",
+	"format_version": "1.16.0",
 	"minecraft:geometry": [
 		{
 			"description": {
@@ -7,18 +7,14 @@
 				"texture_width": 32,
 				"texture_height": 32,
 				"visible_bounds_width": 3,
-				"visible_bounds_height": 3,
-				"visible_bounds_offset": [0, 0.5, 0]
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
 			},
 			"bones": [
 				{
-					"name": "rightitem",
-					"pivot": [0, 0, 0]
-				},
-				{
 					"name": "revolver",
-					"parent": "rightitem",
 					"pivot": [0, 0, 0],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
 					"cubes": [
 						{"origin": [0, 0, 4.9], "size": [1, 5, 2], "uv": [26, 25]}
 					]

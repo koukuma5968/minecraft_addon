@@ -1,2 +1,2 @@
 damage @e[tag=waterpillar] 2 drowning
-execute @e[tag=waterpillar] ~~~ particle kurokumaft:waterpillar_particle ~~~
+execute as @e[tag=waterpillar] at @s run particle kurokumaft:waterpillar_particle ~~~

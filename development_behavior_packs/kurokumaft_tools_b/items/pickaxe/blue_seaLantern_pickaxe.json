@@ -1,9 +1,12 @@
 {
-  "format_version": "1.17",
+  "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:blue_seaLantern_pickaxe",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.pickaxe"
+      }
     },
     "components": {      
       "minecraft:max_stack_size": 1,
@@ -12,13 +15,8 @@
       "minecraft:display_name":{
         "value":"item.kurokumaft:blue_seaLantern_pickaxe.name"
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.pickaxe"
-      },
       "minecraft:durability": {
         "max_durability": 100
-      },
-      "minecraft:weapon": {
       },
       "minecraft:on_use_on": {
         "on_use_on": {
@@ -33,8 +31,6 @@
       "minecraft:digger": {
         "use_efficiency": true
       },
-      "minecraft:render_offsets": "tools",
-      "minecraft:mining_speed": 3.5,
       "minecraft:damage": 0,
       "minecraft:enchantable": {
         "value": 100,
