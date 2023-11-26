@@ -6,7 +6,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @e[family=!player,r=1.5] ~~~ summon kurokumaft:fire_sword_magic ~~~"
+					"/execute at @e[family=!player,r=1.5] run summon kurokumaft:fire_sword_magic ~~~"
 				]
 			}
 		},
@@ -24,7 +24,7 @@
 			"loop": true,
 			"timeline": {
 				"0.2": [
-					"/execute @e[family=!player,r=4.5] ~~~ summon kurokumaft:burstflaremagic ~~~ minecraft:explode"
+					"/execute at @e[family=!player,r=4.5] run summon kurokumaft:burstflaremagic ~~~ ~ ~ minecraft:explode"
 				]
 			}
 		}

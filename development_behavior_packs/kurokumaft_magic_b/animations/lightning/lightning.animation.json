@@ -24,7 +24,6 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @e[tag=lightningstrike_self] ~~~ particle kurokumaft:thunder_sword_particle ~~~",
 					"/function magic/lightning/lightningstrike"
 				]
 			}

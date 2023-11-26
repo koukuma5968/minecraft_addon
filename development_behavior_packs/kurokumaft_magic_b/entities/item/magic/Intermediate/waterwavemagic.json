@@ -36,7 +36,7 @@
           }
         },
         "power": 1.5,
-        "gravity": -0.06,
+        "gravity": 10.0,
         "inertia": 1,
         "liquid_inertia": 1,
         "reflect_on_hurt": false

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:steel_spear"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  F",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "F": {
+        "item": "kurokumaft:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:steel_spear",
+      "count": 1
+    }
+  }
+}

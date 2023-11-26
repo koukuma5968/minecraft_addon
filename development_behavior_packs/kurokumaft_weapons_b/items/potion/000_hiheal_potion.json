@@ -31,10 +31,12 @@
           {
             "run_command": {
               "command": [
+                "gamerule sendcommandfeedback false",
                 "effect @s instant_health 1 5 true"
               ],
               "target": "player"
-            }
+            },
+            "decrement_stack": {}
           },
           {
             "randomize": [

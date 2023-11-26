@@ -25,8 +25,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "bumrod": "!query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && variable.attack_time" },
-            { "framepillar": "query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && variable.attack_time" },
+            { "bumrod": "!query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && !query.is_using_item && variable.attack_time" },
+            { "framepillar": "query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && !query.is_using_item && variable.attack_time" },
             { "flarecircle": "!query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && query.is_using_item" },
             { "burstflare": "query.is_sneaking && query.get_equipped_item_name == 'flame_rod' && query.is_using_item" }
           ]
@@ -43,6 +43,7 @@
         "framepillar": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムピラー\"}]}",
+            "/tag @s add framepillar_self",
             "/function magic/fire/framepillar/framepillar1"
           ],
           "transitions": [
@@ -52,6 +53,7 @@
         "framepillar_at": {
           "animations" : [ "framepillar_ani" ],
           "on_exit": [
+            "/tag @s remove framepillar_self",
             "/tag @e[tag=framepillar] remove framepillar"
           ],
           "transitions": [
@@ -61,6 +63,7 @@
         "flarecircle": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムサークル\"}]}",
+            "/tag @s add flamecircle_self",
             "/function magic/fire/flarecircle/flarecircle1"
           ],
           "transitions": [
@@ -70,6 +73,7 @@
         "flarecircle_at": {
           "animations" : [ "flarecircle_ani" ],
           "on_exit": [
+            "/tag @s remove flamecircle_self",
             "/tag @e[tag=flamecircle] remove flamecircle"
           ],
           "transitions": [
@@ -79,7 +83,11 @@
         "burstflare": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cバーストフレア\"}]}",
+            "/tag @s add burstflare_self",
             "/function magic/fire/burstflare"
+          ],
+          "on_exit": [
+            "/tag @s remove burstflare_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

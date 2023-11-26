@@ -202,11 +202,9 @@
         "entity_types": [
           {
             "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "player"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "inanimate"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "ogre"}
+              "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "monster"},
+                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
               ]
             },
             "max_dist": 64

@@ -396,7 +396,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "all_of": [
@@ -483,7 +483,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "all_of": [
@@ -570,7 +570,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "all_of": [
@@ -657,7 +657,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "damage_multiplier": 4.0,
               "deals_damage": true
             }
@@ -696,7 +696,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "any_of": [
@@ -786,7 +786,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "all_of": [
@@ -867,7 +867,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "any_of": [
@@ -951,7 +951,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "all_of": [
@@ -1015,7 +1015,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "all_of": [
@@ -1079,7 +1079,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "on_damage": {
                 "filters": { 
                   "all_of": [
@@ -1146,7 +1146,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "damage_multiplier": 5.0,
               "deals_damage": true
             }
@@ -1209,7 +1209,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -1265,7 +1265,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -1368,7 +1368,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -1490,7 +1490,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -1562,7 +1562,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -1634,7 +1634,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -1889,7 +1889,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -1958,7 +1958,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -2049,7 +2049,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 
@@ -2106,7 +2106,7 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "cause": "attack",
+              "cause": "entity_attack",
               "deals_damage": false,
               "on_damage": {
                 "filters": { 

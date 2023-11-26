@@ -1,0 +1,24 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wooden_knife"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " | ",
+      " # "
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:planks"
+      },
+      "#": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wooden_knife"
+    }
+  }
+}

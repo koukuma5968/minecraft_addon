@@ -263,7 +263,7 @@
         "value": 1.7
       },
       "minecraft:collision_box": {
-        "width": 0.8,
+        "width": 0.5,
         "height": 0.8
       },
       "minecraft:breathable": {

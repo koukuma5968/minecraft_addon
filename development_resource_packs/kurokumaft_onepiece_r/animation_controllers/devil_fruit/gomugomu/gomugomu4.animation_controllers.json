@@ -225,7 +225,7 @@
 						{"gear4_bound_calvaline": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"calvaline_attack":"query.mark_variant == 2"}
+						{"canon_ball_attack":"query.mark_variant == 2"}
 					]
 				},
 				"canon_ball_attack" : {

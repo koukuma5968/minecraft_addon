@@ -25,8 +25,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "light_bread": "!query.is_sneaking && query.get_equipped_item_name == 'light_wand' && variable.attack_time" },
-            { "flash": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && variable.attack_time" },
+            { "light_bread": "!query.is_sneaking && query.get_equipped_item_name == 'light_wand' && !query.is_using_item && variable.attack_time" },
+            { "flash": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && !query.is_using_item && variable.attack_time" },
             { "healing": "!query.is_sneaking && query.get_equipped_item_name == 'light_wand' && query.is_using_item" },
             { "recovery": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && query.is_using_item" }
           ]

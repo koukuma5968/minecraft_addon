@@ -28,8 +28,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "dark_fang": "!query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && variable.attack_time" },
-            { "hellblast": "query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && variable.attack_time" },
+            { "dark_fang": "!query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && !query.is_using_item && variable.attack_time" },
+            { "hellblast": "query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && !query.is_using_item && variable.attack_time" },
             { "brushash": "!query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && query.is_using_item" },
             { "summons_skeleton": "query.is_sneaking && query.get_equipped_item_name == 'darkness_rod' && query.is_using_item && query.scoreboard('summon_alive') < 10" }
           ]
@@ -46,7 +46,11 @@
         "hellblast": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ヘルブラスト\"}]}",
+            "/tag @s add hellblast_self",
             "/function magic/dark/hellblast"
+          ],
+          "on_exit": [
+            "/tag @s remove hellblast_self"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
@@ -55,7 +59,11 @@
         "brushash": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ブラストアッシュ\"}]}",
+            "/tag @s add brushash_self",
             "/function magic/dark/brushash"
+          ],
+          "on_exit": [
+            "/tag @s remove brushash_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

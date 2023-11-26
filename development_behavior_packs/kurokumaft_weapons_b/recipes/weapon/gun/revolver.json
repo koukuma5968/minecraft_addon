@@ -13,7 +13,8 @@
         ],
         "key": {
             "A": {
-                "item": "planks"
+                "item": "stone",
+                "data": "1"
             },
             "B": {
                 "item": "kurokumaft:steel_ingot"

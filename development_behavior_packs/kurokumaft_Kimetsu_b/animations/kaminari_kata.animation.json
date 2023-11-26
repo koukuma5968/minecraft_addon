@@ -7,27 +7,27 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_kaminari5",
-					"/execute @s ~~~ tp @s ^1^^1 true",
-					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
-					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
+					"/execute as @s run tp @s ^1^^1 true",
+					"/execute as @s run particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
 				],
 				"0.2": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ^2^^2 true",
-					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
-					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
+					"/execute as @s run tp @s ^2^^2 true",
+					"/execute as @s run particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
 				],
 				"0.4": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ^-1^^1 true",
-					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
-					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
+					"/execute as @s run tp @s ^-1^^1 true",
+					"/execute as @s run particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning"
 				],
 				"0.6": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ^-2^^-2 true",
-					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
-					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning",
+					"/execute as @s run tp @s ^-2^^-2 true",
+					"/execute as @s run particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_kaminari5,r=5] 10 lightning",
 					"/tag @s remove kokyu_kaminari5"
 				]
 			}
@@ -39,9 +39,9 @@
 				"0.0": [
 					"/tag @s add kokyu_kaminari4",
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
-					"/execute @s ~~~ tp @s ^^^1 true",
-					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari4,r=1.5] 15 lightning",
+					"/execute as @s run particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute as @s run tp @s ^^^1 true",
+					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_kaminari4,r=1.5] 15 lightning",
 					"/tag @s remove kokyu_kaminari4"
 				]
 			}
@@ -52,17 +52,17 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_kaminari5",
-					"/execute @s ~~~ particle kurokumaft:kaminari5_particle ^^^1.5",
-					"/execute @s ^^^1 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^2 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^3 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^4 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^5 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^6 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^7 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^8 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^9 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
-					"/execute @s ^^^10 damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s run particle kurokumaft:kaminari5_particle ^^^1.5",
+					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^2 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^3 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^4 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^5 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^6 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^7 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^8 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^9 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
+					"/execute as @s positioned ^^^10 run damage @e[tag=!kokyu_kaminari5,r=1.5] 10 lightning",
 					"/tag @s remove kokyu_kaminari5"
 				]
 			}
@@ -73,7 +73,7 @@
 			"timeline": {
 				"0.0": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~1~ true"
+					"/execute as @s run tp @s ~~1~ true"
 				]
 			}
 		},
@@ -83,80 +83,80 @@
 			"timeline": {
 				"0.0": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^-5 ^-8 ^8 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^-5 ^-8 ^8 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-5 ^-8 ^8"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^-5 ^-8 ^8 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^-5 ^-8 ^8 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^-5 ^-8 ^8"
 				],
 				"0.1": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^1 ^-8 ^4 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^1 ^-8 ^4 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^1 ^-8 ^4"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^1 ^-8 ^4 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^1 ^-8 ^4 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^1 ^-8 ^4"
 				],
 				"0.2": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^6 ^-8 ^3 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^6 ^-8 ^3 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^6 ^-8 ^3"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^6 ^-8 ^3 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^6 ^-8 ^3 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^6 ^-8 ^3"
 				],
 				"0.3": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^-5 ^-8 ^10 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^-5 ^-8 ^10 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-5 ^-8 ^10"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^-5 ^-8 ^10 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^-5 ^-8 ^10 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^-5 ^-8 ^10"
 				],
 				"0.4": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^7 ^-8 ^1 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^7 ^-8 ^1 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^7 ^-8 ^1"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^7 ^-8 ^1 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^7 ^-8 ^1 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^7 ^-8 ^1"
 				],
 				"0.5": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^2 ^-8 ^2 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^2 ^-8 ^2 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^2 ^-8 ^2"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^2 ^-8 ^2 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^2 ^-8 ^2 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^2 ^-8 ^2"
 				],
 				"0.6": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^5 ^-8 ^5 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^5 ^-8 ^5 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^5 ^-8 ^5"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^5 ^-8 ^5 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^5 ^-8 ^5 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s ~~~ particle kurokumaft:kaminari6_particle ^5 ^-8 ^5"
 				],
 				"0.7": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^-7 ^-8 ^0 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^-7 ^-8 ^0 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-7 ^-8 ^0"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^-7 ^-8 ^0 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^-7 ^-8 ^0 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^-7 ^-8 ^0"
 				],
 				"0.8": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^4 ^-8 ^9 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^4 ^-8 ^9 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^4 ^-8 ^9"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^4 ^-8 ^9 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^4 ^-8 ^9 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^4 ^-8 ^9"
 				],
 				"0.9": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^8 ^-8 ^3 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^8 ^-8 ^3 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^8 ^-8 ^3"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^8 ^-8 ^3 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^8 ^-8 ^3 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^8 ^-8 ^3"
 				],
 				"1.0": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ ~ 20 true",
-					"/execute @s ^-4 ^-8 ^6 damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
-					"/execute @s ^-4 ^-8 ^6 effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
-					"/execute @s ~~~ particle kurokumaft:kaminari6_particle ^-4 ^-8 ^6"
+					"/execute as @s run tp @s ~~~ ~ 20 true",
+					"/execute as @s positioned ^-4 ^-8 ^6 run damage @e[tag=!kokyu_kaminari6,r=6] 4 lightning",
+					"/execute as @s positioned ^-4 ^-8 ^6 run effect @e[tag=!kokyu_kaminari6,r=6] wither 5 2",
+					"/execute as @s run particle kurokumaft:kaminari6_particle ^-4 ^-8 ^6"
 				]
 			}
 		},
@@ -165,9 +165,9 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ particle kurokumaft:kaminari_spark_particle ~~~",
+					"/execute as @s run particle kurokumaft:kaminari_spark_particle ~~~",
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~ facing @e[tag=kokyu_kaminari7_target]"
+					"/execute as @s run tp @s ~~~ facing @e[tag=kokyu_kaminari7_target]"
 				]
 			}
 		}

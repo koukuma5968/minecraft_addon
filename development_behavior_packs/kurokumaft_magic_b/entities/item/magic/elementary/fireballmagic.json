@@ -70,7 +70,7 @@
         "run_command": {
           "command": [
             "particle kurokumaft:fire_particle ~~~",
-            "setblock ~~~ fire 0 keep"
+            "setblock ~~~ fire keep"
           ],
           "target": "self"
         }

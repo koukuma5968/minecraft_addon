@@ -30,11 +30,11 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:ice_magic_stone" ],
-            "repair_amount": 10
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:snow_wand" ],
-            "repair_amount": 50
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },

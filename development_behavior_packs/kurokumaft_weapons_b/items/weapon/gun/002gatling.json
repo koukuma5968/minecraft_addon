@@ -9,7 +9,6 @@
       }
     },
     "components": {
-      "tag:gun": {},
       "minecraft:durability": {
         "max_durability": 1500
       },
@@ -25,62 +24,123 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:gatling" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:gatling.name"
       },
+      "minecraft:use_animation": "bow",
+      "minecraft:hand_equipped": true,
       "minecraft:on_use": {
         "on_use": {
           "condition": "query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:twenty_two_lr')",
           "event": "kurokumaft:gatling_shot"
         }
       },
-      "minecraft:use_animation": "bow",
-      "minecraft:hand_equipped": true,
+      "minecraft:use_duration": 0.1,
       "minecraft:chargeable": {
+        "on_complete": {
+          "condition": "query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:twenty_two_lr')",
+          "event": "kurokumaft:gatling_shot"
+        }
       }
     },
     "events": {
       "kurokumaft:gatling_shot": {
-        "sequence":[
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        },
+        "randomize": [
           {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
+            "weight": 5,
+            "sequence":[
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot1>",
+                  "launch_power":1
+                }
+              },
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot3>",
+                  "launch_power":1
+                }
+              }
+            ]
           },
           {
-            "condition": "!query.has_rider",
-            "trigger": "kurokumaft:gatling_fire"
+            "weight": 5,
+            "sequence":[
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot2>",
+                  "launch_power":1
+                }
+              },
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot4>",
+                  "launch_power":1
+                }
+              }
+            ]
           },
           {
-            "condition": "query.has_rider",
-            "trigger": "kurokumaft:gatling_sotp"
+            "weight": 5,
+            "sequence":[
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot3>",
+                  "launch_power":1
+                }
+              },
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot5>",
+                  "launch_power":1
+                }
+              }
+            ]
+          },
+          {
+            "weight": 5,
+            "sequence":[
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot4>",
+                  "launch_power":1
+                }
+              },
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot5>",
+                  "launch_power":1
+                }
+              }
+            ]
+          },
+          {
+            "weight": 5,
+            "sequence":[
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot1>",
+                  "launch_power":1
+                }
+              },
+              {
+                "shoot":{
+                  "projectile":"kurokumaft:twenty_two_lr_entity<kurokumaft:shot4>",
+                  "launch_power":1
+                }
+              }
+            ]
           }
         ]
-      },
-      "kurokumaft:gatling_fire": {
-        "run_command": {
-          "command": [
-            "tag @s add gatling_shot",
-            "tag @s add gun_shot",
-            "ride @s summon_rider kurokumaft:gatling_entity",
-            "event entity @s kurokumaft:gatling_shot"
-          ],
-          "target": "self"
-        }
-      },
-      "kurokumaft:gatling_sotp": {
-        "run_command": {
-          "command": [
-            "event entity @s kurokumaft:gatling_off"
-          ],
-          "target": "self"
-        }
       }
     }
   }

@@ -54,14 +54,20 @@
           {
             "run_command": {
               "command": [
-                "tag @e[type=!player,r=5] add hammer",
+                "tag @s add hammer_self",
+                "tag @e[tag=!hammer_self,r=5] add hammer_target",
                 "particle kurokumaft:shock_particle ^ ^1 ^2.4",
-                "effect @e[tag=hammer] levitation 1 10 true",
-                "execute at @e[tag=hammer,family=!undead] run effect @s instant_damage 1 4 true",
-                "execute at @e[tag=hammer,family=undead] run effect @s wither 1 4 true",
-                "tag @e[tag=hammer] remove hammer"
+                "damage @e[tag=hammer_target] 10 entity_attack",
+                "tag @e[tag=hammer_self] remove hammer_self",
+                "tag @e[tag=hammer_target] remove hammer_target"
               ],
               "target": "self"
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:roar_hammer<kurokumaft:netherite_hammer_roar>",
+              "launch_power": 0.1
             }
           },
           {

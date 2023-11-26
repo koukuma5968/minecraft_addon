@@ -11,8 +11,8 @@
         "end_tp": {
           "on_entry": [
             "/effect @s blindness 3 10 true",
-            "/execute @s ~~200~ fill ~-1 ~0 ~-1 ~1 ~0 ~1 end_portal",
-            "/tp @s ~~201~"
+            "/execute positioned ~~250~ run fill ~-1 ~0 ~-1 ~1 ~0 ~1 end_portal",
+            "/tp @s ~~251~"
           ],
           "transitions": [
             { "burning_hell_structures": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
@@ -31,7 +31,7 @@
         },
         "burning_hell_tp": {
           "on_entry": [
-            "/execute @s ~~~ detect ~~-1~ obsidian -1 tp @s -544 130 -464"
+            "/execute as @s if block ~~-1~ obsidian run tp @s -544 130 -464"
           ],
           "transitions": [
             { "stand_kill": "(1.0)" }

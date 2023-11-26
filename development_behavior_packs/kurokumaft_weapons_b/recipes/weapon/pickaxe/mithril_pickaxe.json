@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:mithril_pickaxe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AAA",
+            " # ",
+            " # "
+        ],
+        "key": {
+            "A": {
+                "item": "kurokumaft:mithril_ingot"
+            },
+            "#": {
+                "item": "minecraft:netherite_ingot"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:mithril_pickaxe",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

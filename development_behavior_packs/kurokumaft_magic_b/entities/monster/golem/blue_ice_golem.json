@@ -75,7 +75,7 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:type_family": {
-        "family": [ "irongolem", "mob" ]
+        "family": [ "blueicegolem", "monster", "mob" ]
       },
       "minecraft:nameable": {
       },
@@ -113,7 +113,6 @@
         "avoid_damage_blocks": true
       },
       "minecraft:movement.basic": {
-        
       },
       "minecraft:jump.static": {
       },
@@ -168,7 +167,7 @@
             "deals_damage": false
           },
           {
-            "cause": "frozen",
+            "cause": "freezing",
             "deals_damage": false
           }
         ]
@@ -274,8 +273,7 @@
           {
             "filters": {
               "all_of": [
-                { "test" :  "is_family", "subject" : "other", "value" :  "monster" },
-                { "test" :  "is_family", "subject" : "other", "value" :  "creeper" }
+                { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "blueicegolem" }
               ] 
             }
           }
@@ -327,13 +325,8 @@
                 {
                   "test": "is_family",
                   "subject": "other",
-                  "value": "monster"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
                   "operator": "!=",
-                  "value": "creeper"
+                  "value": "blueicegolem"
                 }
               ]
             },

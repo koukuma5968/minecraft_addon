@@ -1,0 +1,24 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:phantom_knife"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " | ",
+      " # "
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:phantom_membrane"
+      },
+      "#": {
+        "item": "minecraft:end_rod"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:phantom_knife"
+    }
+  }
+}

@@ -1,28 +1,27 @@
 {
-    "format_version": "1.10.0",
-    "minecraft:client_entity": {
-      "description": {
-        "identifier": "kurokumaft:thrown_wooden_spear",
-        "materials": {
-          "default": "entity_alphatest"
-        },
-        "textures": {
-          "default": "textures/kurokumaft/models/spear/wooden_spear",
-          "loyalty_rope": "textures/entity/loyalty_rope"
-        },
-        "geometry": {
-          "default": "geometry.wooden_spear"
-        },
-        "scripts": {
-          "animate": [
-            "thrown"
-          ]
-        },
-        "animations": {
-          "thrown": "animation.spear.throw"
-        },
-        "render_controllers": [ "controller.render.thrown_default" ]
-      }
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:thrown_wooden_spear",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/spear/wooden_spear",
+        "loyalty_rope": "textures/entity/loyalty_rope"
+      },
+      "geometry": {
+        "default": "geometry.wooden_spear"
+      },
+      "scripts": {
+        "animate": [
+          "thrown"
+        ]
+      },
+      "animations": {
+        "thrown": "animation.spear.throw"
+      },
+      "render_controllers": [ "controller.render.thrown_default" ]
     }
   }
-  
+}

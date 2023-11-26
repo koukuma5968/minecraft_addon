@@ -1,0 +1,70 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.warden_hammer",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 1, 0]
+			},
+			"bones": [
+				{
+					"name": "hammer",
+					"pivot": [0, 0, 0],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)"
+				},
+				{
+					"name": "stick",
+					"parent": "hammer",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1, -10, 2.5], "size": [2, 22, 2], "pivot": [0, 0, 0], "rotation": [90, 0, 0], "uv": [15, 26]},
+						{"origin": [-0.5, 3, -14], "size": [1, 1, 2], "uv": [7, 26]}
+					]
+				},
+				{
+					"name": "hammer_head",
+					"parent": "stick",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "side",
+					"parent": "hammer_head",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "center",
+					"parent": "hammer_head",
+					"pivot": [0, 6, 0],
+					"cubes": [
+						{"origin": [-2.25, -1, -10], "size": [4.5, 9, 8.25], "uv": [0, 9]},
+						{"origin": [-2.25, 8, -10], "size": [4.5, 1, 8.25], "uv": [0, 0]},
+						{"origin": [-2.25, -2, -10], "size": [4.5, 1, 8.25], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "tendril_top",
+					"parent": "hammer_head",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 3, -4], "size": [0, 11, 8], "pivot": [0, 0, -3], "rotation": [90, 0, -180], "uv": [31, 9]},
+						{"origin": [0, 3, 3], "size": [0, 11, 8], "pivot": [0, 0, -3], "rotation": [90, 0, 0], "uv": [37, -4]}
+					]
+				},
+				{
+					"name": "tendril_down",
+					"parent": "hammer_head",
+					"pivot": [0, 0, -11],
+					"rotation": [0, 180, 0],
+					"cubes": [
+						{"origin": [0, 4, -17], "size": [0, 7, 8], "pivot": [0, 0, -14], "rotation": [90, 0, -180], "uv": [31, 9]},
+						{"origin": [0, 4, -10], "size": [0, 7, 8], "pivot": [0, 0, -14], "rotation": [90, 0, 0], "uv": [37, -4]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:blaze_spear"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  F",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:blaze_rod"
+      },
+      "F": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:blaze_spear",
+      "count": 1
+    }
+  }
+}

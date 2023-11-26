@@ -12,6 +12,17 @@ entity.kurokumaft:storm_eagle.name=§3ストームイーグル
 
 entity.kurokumaft:fire_zombie.name=§4ファイアゾンビ
 entity.kurokumaft:thunder_zombie.name=§6サンダーゾンビ
+entity.kurokumaft:water_zombie.name=§1ウォーターゾンビ
+entity.kurokumaft:stone_zombie.name=§7ストーンゾンビ
+entity.kurokumaft:wind_zombie.name=§3ウィンドゾンビ
+entity.kurokumaft:ice_zombie.name=§fアイスゾンビ
+
+entity.kurokumaft:fire_skeleton_warrior.name=§4ファイアスケルトンウォリアー
+entity.kurokumaft:thunder_skeleton_warrior.name=§6サンダースケルトンウォリアー
+entity.kurokumaft:water_skeleton_warrior.name=§1ウォータースケルトンウォリアー
+entity.kurokumaft:stone_skeleton_warrior.name=§7ストーンスケルトンウォリアー
+entity.kurokumaft:wind_skeleton_warrior.name=§3ウィンドスケルトンウォリアー
+entity.kurokumaft:ice_skeleton_warrior.name=§fアイススケルトンウォリアー
 
 entity.kurokumaft:home_gate.name=拠点の石碑
 

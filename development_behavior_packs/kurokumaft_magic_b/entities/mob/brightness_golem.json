@@ -22,9 +22,9 @@
           "priority": 2,
           "entity_types": {
             "filters": { 
-                "all_of": [
-                  { "test" :"is_family", "subject" : "other", "operator": "!=", "value" :  "player"}
-                ] 
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "monster" }
+              ]
             }
           }
         }
@@ -281,10 +281,10 @@
         "entity_types": [
           {
             "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "player"}
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "monster" }
               ]
-            },
+              },
             "within_default": 16
           }
         ]
@@ -292,7 +292,9 @@
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
         "entity_types": {
-          "filters": { "test": "is_family", "subject": "other", "operator": "!=", "value": "player" }
+          "any_of": [
+            { "test": "is_family", "subject": "other", "value": "monster" }
+          ]
         }
       },
       "minecraft:persistent": {

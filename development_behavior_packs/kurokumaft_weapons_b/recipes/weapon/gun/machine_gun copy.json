@@ -1,0 +1,32 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:sniper_rifle"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "A  ",
+            " BS",
+            "  B"
+        ],
+        "key": {
+            "S": {
+                "item": "minecraft:spyglass"
+            },
+            "A": {
+                "item": "kurokumaft:mithril_ingot"
+            },
+            "B": {
+                "item": "kurokumaft:black_quartz"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:sniper_rifle",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

@@ -84,6 +84,7 @@
           {
             "run_command": {
               "command": [
+                "gamerule sendcommandfeedback false",
                 "give @s kurokumaft:copper_bucket 1 0"
               ],
               "target": "player"

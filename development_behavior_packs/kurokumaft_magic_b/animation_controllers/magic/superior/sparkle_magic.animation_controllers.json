@@ -25,8 +25,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "sparkle_shock": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && variable.attack_time" },
-            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && variable.attack_time" },
+            { "sparkle_shock": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
+            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
             { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" },
             { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" }
           ]

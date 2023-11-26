@@ -30,7 +30,7 @@
         "run_command": {
           "command": [
             "particle kurokumaft:extremely_hot_spray ~~~",
-            "execute at @e[family=pikmin,r=16] as @s run event entity @s kurokumaft:extremely_hot_up"
+            "execute as @e[family=pikmin,r=16] run event entity @s kurokumaft:extremely_hot_up"
           ],
           "target": "self"
         },

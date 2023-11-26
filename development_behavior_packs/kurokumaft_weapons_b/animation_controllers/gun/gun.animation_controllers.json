@@ -1,7 +1,7 @@
 {
   "format_version": "1.20.30",
 	"animation_controllers": {
-		"controller.animation.machine_gun.shot": {
+		"controller.animation.machine_gun": {
 			"states": {
 				"default": {
 					"transitions": [
@@ -16,13 +16,30 @@
 						"/event entity @s kurokumaft:machine_gun_off"
 					],
 					"transitions": [
-						{ "default": "!query.is_item_name_any('slot.weapon.mainhand', 'kurokumaft:machine_gun')" },
-						{ "default": "!query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:thirty_eight_special')" },
-						{ "default": "!query.main_hand_item_use_duration" }
+						{ "default": "!query.is_item_name_any('slot.weapon.mainhand', 'kurokumaft:machine_gun') || !query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:thirty_eight_special') || !query.main_hand_item_use_duration" }
+					]
+				}
+			}
+		},
+		"controller.animation.flamethrower": {
+			"states": {
+				"default": {
+					"transitions": [
+						{ "shot": "query.is_item_name_any('slot.weapon.mainhand', 'kurokumaft:machine_gun') && query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:thirty_eight_special') && query.main_hand_item_use_duration" }
+					]
+				},
+				"shot": {
+					"on_exit": [
+						"/execute as @e[family=machine_gun,c=1] run event entity @s kurokumaft:despawn",
+						"/tag @s remove machine_gun_shot",
+						"/tag @s remove gun_shot",
+						"/event entity @s kurokumaft:machine_gun_off"
+					],
+					"transitions": [
+						{ "default": "!query.is_item_name_any('slot.weapon.mainhand', 'kurokumaft:machine_gun') || !query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:thirty_eight_special') || !query.main_hand_item_use_duration" }
 					]
 				}
 			}
 		}
-
 	}
 }

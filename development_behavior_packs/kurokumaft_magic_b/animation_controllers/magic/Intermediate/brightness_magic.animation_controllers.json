@@ -28,8 +28,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "areaheel": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && variable.attack_time" },
-            { "protect": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && variable.attack_time" },
+            { "areaheel": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && !query.is_using_item && variable.attack_time" },
+            { "protect": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && !query.is_using_item && variable.attack_time" },
             { "ability": "!query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item" },
             { "summons_golem": "query.is_sneaking && query.get_equipped_item_name == 'brightness_rod' && query.is_using_item && query.scoreboard('summon_alive') < 2" }
           ]
@@ -54,7 +54,7 @@
         },
         "ability": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eアビリティ\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eアビリティアップ\"}]}",
             "/function magic/light/ability"
           ],
           "transitions": [

@@ -10,16 +10,15 @@
         "animate":[
           "main_shield",
           "off_shield",
-          "machine_gun_shot"
+          "scope"
         ]
       },
       "animations":{
         "main_shield":"controller.animation.armor.main_shield",
         "off_shield":"controller.animation.armor.off_shield",
-        "gatling_shot":"controller.animation.machine_gun.shot",
-        "machine_gun_shot":"controller.animation.machine_gun.shot"
-      }
 
+        "scope": "controller.animation.scope"
+      }
     },
 
     "component_groups": {
@@ -58,46 +57,19 @@
           "remove_effects": "bad_omen"
         }
       },
-      "kurokumaft:gatling_shot": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "min_wait_time": 0.3,
-              "max_wait_time": 0.3,
-              "spawn_entity": "kurokumaft:twenty_two_lr_entity",
-              "spawn_event": "minecraft:entity_spawned",
-              "single_use": false,
-              "num_to_spawn": 3,
-              "should_leash": false
-            }
-          ]
-        },
-        "minecraft:environment_sensor": {
-          "triggers": [
-            {
-              "filters": {
-                "all_of": [
-                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:twenty_two_lr"}
-                ]
-              },
-              "event": "kurokumaft:gatling_off"
-            }
-          ]
+      "variant0": {
+        "minecraft:variant": {
+            "value": 0
         }
       },
-      "kurokumaft:machine_gun_shot": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "min_wait_time": 0.8,
-              "max_wait_time": 0.8,
-              "spawn_entity": "kurokumaft:thirty_eight_special_entity",
-              "spawn_event": "minecraft:entity_spawned",
-              "single_use": false,
-              "num_to_spawn": 1,
-              "should_leash": false
-            }
-          ]
+      "variant1": {
+        "minecraft:variant": {
+            "value": 1
+        }
+      },
+      "variant2": {
+        "minecraft:variant": {
+            "value": 2
         }
       }
     },
@@ -309,92 +281,20 @@
 					}
 				]
       },
-      "kurokumaft:shield_damage_main": {
-        "sequence": [
-					{
-						"filters": {
-							"test": "has_equipment", "domain": "hand", "operator": "==", "subject": "self", "value": "kurokumaft:copper_shield"
-						},
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"銅の盾\"}]}"
-              ],
-              "target": "self"
-            }
-					},
-					{
-					  "filters": {
-							"test": "has_equipment", "domain": "hand", "operator": "==", "subject": "self", "value": "kurokumaft:kettle_lid"
-					  },
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"なべぶた\"}]}"
-              ],
-              "target": "self"
-            }
-					}
-				]
-      },
-      "kurokumaft:shield_damage_off": {
-        "sequence": [
-					{
-						"filters": {
-							"test": "has_equipment", "domain": "hand", "operator": "==", "subject": "self", "value": "kurokumaft:copper_shield"
-						},
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"銅の盾1\"}]}"
-              ],
-              "target": "self"
-            }
-					},
-					{
-					  "filters": {
-							"test": "has_equipment", "domain": "hand", "operator": "==", "subject": "self", "value": "kurokumaft:kettle_lid"
-					  },
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"なべぶた\"}]}"
-              ],
-              "target": "self"
-            }
-					}
-				]
-      },
-      "kurokumaft:gatling_shot": {
+
+      "variant0": {
         "add": {
-          "component_groups": [
-            "kurokumaft:gatling_shot"
-          ]
+          "component_groups": [ "variant0" ]
         }
       },
-      "kurokumaft:gatling_off": {
-        "run_command": {
-          "command": [
-            "execute as @e[family=gatling,c=1] at @s run event entity @s kurokumaft:despawn",
-            "tag @s remove gatling_shot",
-            "tag @s remove gun_shot"
-          ],
-          "target": "self"
-        },
-        "remove": {
-          "component_groups": [
-            "kurokumaft:gatling_shot"
-          ]
-        }
-      },
-      "kurokumaft:machine_gun_shot": {
+      "variant1": {
         "add": {
-          "component_groups": [
-            "kurokumaft:machine_gun_shot"
-          ]
+          "component_groups": [ "variant1" ]
         }
       },
-      "kurokumaft:machine_gun_off": {
-        "remove": {
-          "component_groups": [
-            "kurokumaft:machine_gun_shot"
-          ]
+      "variant2": {
+        "add": {
+          "component_groups": [ "variant2" ]
         }
       }
     }

@@ -5,7 +5,8 @@
       "identifier": "kurokumaft:firestormmagic",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
     },
     "components": {
       "minecraft:collision_box": {
@@ -13,24 +14,23 @@
        "height": 0.31
       },
       "minecraft:projectile": {
-   
        "on_hit": {
           "affect_projectile": true,
-         "impact_damage": {
-           "damage": 50,
-           "knockback": false,
-           "catch_fire": true,
-           "destroy_on_hit": true,
-           "semi_random_diff_damage": false
-         },
-         "catch_fire": {
-           "fire_affected_by_griefing": true
-         },
-         "particle_on_hit": {
-          "particle_type": "kurokumaft:flames_particle",
-          "num_particle": 6,
-          "on_entity_hit": true,
-          "on_other_hit": true
+          "impact_damage": {
+            "damage": 50,
+            "knockback": false,
+            "catch_fire": true,
+            "destroy_on_hit": true,
+            "semi_random_diff_damage": false
+          },
+          "catch_fire": {
+            "fire_affected_by_griefing": true
+          },
+          "particle_on_hit": {
+            "particle_type": "kurokumaft:flames_particle",
+            "num_particle": 6,
+            "on_entity_hit": true,
+            "on_other_hit": true
           },
           "definition_event": {
             "affectProjectile": false,
@@ -38,12 +38,11 @@
               "event": "flames_particle",
               "target": "self"
             }
-          },
-         "remove_on_hit": { }
+          }
        },
        "hit_sound": "fire",
        "power": 1.5,
-       "gravity": -0.06,
+       "gravity": 0.06,
        "inertia": 1,
        "liquid_inertia": 1,
        "reflect_on_hurt": true
@@ -66,20 +65,21 @@
       "flames_particle": {
         "run_command": {
           "command": [
-            "particle kurokumaft:firestome1_particle ~~~",
-            "particle kurokumaft:firestome1_particle ~~1~",
-            "particle kurokumaft:firestome2_particle ~~2~",
-            "particle kurokumaft:firestome2_particle ~~3~",
-            "particle kurokumaft:firestome3_particle ~~4~",
-            "particle kurokumaft:firestome3_particle ~~5~",
-            "particle kurokumaft:firestome4_particle ~~6~",
-            "particle kurokumaft:firestome4_particle ~~7~",
-            "particle kurokumaft:firestome5_particle ~~8~",
-            "particle kurokumaft:firestome5_particle ~~9~",
-            "particle kurokumaft:firestome5_particle ~~10~",
-            "effect @e[r=5] wither 2 50 true",
-            "effect @e[r=5] levitation 1 20 true",
-            "fill ~-1 ~ ~-1 ~1 ~ ~1 fire 0 replace"
+            "execute as @s run particle kurokumaft:firestome1_particle ~~~",
+            "execute as @s run particle kurokumaft:firestome1_particle ~~1~",
+            "execute as @s run particle kurokumaft:firestome2_particle ~~2~",
+            "execute as @s run particle kurokumaft:firestome2_particle ~~3~",
+            "execute as @s run particle kurokumaft:firestome3_particle ~~4~",
+            "execute as @s run particle kurokumaft:firestome3_particle ~~5~",
+            "execute as @s run particle kurokumaft:firestome4_particle ~~6~",
+            "execute as @s run particle kurokumaft:firestome4_particle ~~7~",
+            "execute as @s run particle kurokumaft:firestome5_particle ~~8~",
+            "execute as @s run particle kurokumaft:firestome5_particle ~~9~",
+            "execute as @s run particle kurokumaft:firestome5_particle ~~10~",
+            "execute as @s run effect @e[r=5] wither 2 50 true",
+            "execute as @s run effect @e[r=5] levitation 1 20 true",
+            "execute as @s run fill ~-1 ~1 ~-1 ~1 ~1 ~1 fire replace",
+            "execute as @s run kill @s"
           ],
           "target": "self"
         }

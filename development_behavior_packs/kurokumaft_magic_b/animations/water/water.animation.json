@@ -11,20 +11,11 @@
 			}
 		},
 		"animation.water.aqua_shot": {
-			"animation_length": 0.5,
+			"animation_length": 0.2,
 			"loop": true,
 			"timeline": {
 				"0.0": [
 					"/function magic/water/aqua_shot/aqua_shot1"
-				],
-				"0.12": [
-					"/function magic/water/aqua_shot/aqua_shot2"
-				],
-				"0.25": [
-					"/function magic/water/aqua_shot/aqua_shot3"
-				],
-				"0.40": [
-					"/function magic/water/aqua_shot/aqua_shot4"
 				]
 			}
 		},

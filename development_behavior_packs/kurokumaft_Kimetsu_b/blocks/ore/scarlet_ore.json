@@ -11,9 +11,14 @@
 		},
 		"components": {
 			"minecraft:display_name": "kurokumaft:scarlet_ore",
-			"minecraft:explosion_resistance": 0,
-			"minecraft:destroy_time": 1.2,
-			"minecraft:block_light_absorption": 1.5,
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5
+			},
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 5,
 			"minecraft:loot": "loot_tables/blocks/ore/scarlet_ore.json"
 		},
 		"events": {

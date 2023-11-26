@@ -83,7 +83,7 @@
             "run_command": {
               "command": [
                 "damage @s 6 freezing",
-                "setblock ~~~ minecraft:ice 0 replace"
+                "setblock ~~~ minecraft:ice replace"
               ],
               "target": "other"
             },
@@ -96,7 +96,7 @@
           {
             "run_command": {
               "command": [
-                "setblock ~~~ minecraft:blue_ice 0 replace"
+                "setblock ~~~ minecraft:blue_ice replace"
               ],
               "target": "block"
             },

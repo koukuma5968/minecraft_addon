@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:thirty_eight_special"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "GGG",
+            "GPG",
+            "GGG"
+        ],
+        "key": {
+            "G": {
+                "item": "minecraft:gold_nugget"
+            },
+            "P": {
+                "item": "minecraft:gunpowder"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:thirty_eight_special",
+            "count": 16
+        },
+        "priority": 2
+    }
+}

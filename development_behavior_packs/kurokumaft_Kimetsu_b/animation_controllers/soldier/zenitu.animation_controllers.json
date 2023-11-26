@@ -48,9 +48,9 @@
         "kaminari7_2":{
           "on_entry": [
             "/gamerule sendcommandfeedback false",
-            "/execute @e[tag=kokyu_kaminari7_target] ^^^2 tp @e[tag=kokyu_kaminari7] ~~~",
-            "/execute @s ~~~ particle kurokumaft:kaminari2_particle ~~~",
-            "/execute @s ~~~ damage @e[tag=!kokyu_kaminari7,r=10] 50 lightning"
+            "/execute at @e[tag=kokyu_kaminari7_target] positioned ^^^2 run tp @e[tag=kokyu_kaminari7] ~~~",
+            "/execute as @s run particle kurokumaft:kaminari2_particle ~~~",
+            "/execute as @s run damage @e[tag=!kokyu_kaminari7,r=10] 50 lightning"
           ],
           "on_exit": [
             "/effect @s speed 0",

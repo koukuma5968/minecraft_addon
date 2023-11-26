@@ -1,0 +1,32 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:sniper_rifle",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/gun/sniper_rifle",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.sniper_rifle"
+      },
+      "animations": {
+        "wield": "controller.animation.sniper_rifle",
+        "hold_first_person": "animation.sniper_rifle.hold_first_person",
+        "hold_therd_person": "animation.sniper_rifle.hold_therd_person",
+        "shot_first_person": "animation.sniper_rifle.shot_first_person",
+        "shot_therd_person": "animation.sniper_rifle.shot_therd_person"
+      },
+      "scripts": {
+        "animate": [
+          "wield"
+        ]
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

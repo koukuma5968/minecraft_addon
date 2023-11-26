@@ -45,6 +45,12 @@
             "use_offhand": true,
             "search_inventory": true,
             "use_in_creative": true
+          },
+          {
+            "item": "minecraft:arrow",
+            "use_offhand": true,
+            "search_inventory": true,
+            "use_in_creative": true
           }
         ],
         "launch_power_scale": 0.2,

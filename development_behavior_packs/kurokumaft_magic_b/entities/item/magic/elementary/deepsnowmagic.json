@@ -64,7 +64,7 @@
         "run_command": {
           "command": [
             "particle kurokumaft:snow_particle ~~~",
-            "setblock ~~~ snow 0 keep"
+            "setblock ~~~ snow keep"
           ],
           "target": "self"
         }

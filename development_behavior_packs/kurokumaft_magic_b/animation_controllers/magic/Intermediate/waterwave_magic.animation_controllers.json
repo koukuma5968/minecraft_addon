@@ -25,8 +25,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "watercutter": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && variable.attack_time" },
-            { "waterpillar": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && variable.attack_time" },
+            { "watercutter": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && !query.is_using_item && variable.attack_time" },
+            { "waterpillar": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && !query.is_using_item && variable.attack_time" },
             { "waterwave": "!query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" },
             { "waterjail": "query.is_sneaking && query.get_equipped_item_name == 'waterwave_rod' && query.is_using_item" }
           ]
@@ -43,7 +43,8 @@
         "waterpillar": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターピラー\"}]}",
-            "/tag @e[family=monster,c=1,ry=-10,rym=10,r=10] add waterpillar"
+            "/tag @s add waterpillar_self",
+            "/tag @e[tag=!waterpillar_self,family=!inanimate,type=!item,c=1,ry=-10,rym=10,r=10] add waterpillar"
           ],
           "transitions": [
             {"waterpillar_at":"(1.0)"}
@@ -52,6 +53,7 @@
         "waterpillar_at": {
           "animations" : [ "waterpillar_ani" ],
           "on_exit": [
+            "/tag @s remove waterpillar_self",
             "/tag @e[tag=waterpillar] remove waterpillar"
           ],
           "transitions": [
@@ -61,7 +63,11 @@
         "waterwave": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターウェーブ\"}]}",
+            "/tag @s add waterwave_self",
             "/function magic/water/waterwave"
+          ],
+          "on_exit": [
+            "/tag @s remove waterwave_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}
@@ -70,7 +76,11 @@
         "waterjail": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォータジェイル\"}]}",
+            "/tag @s add waterjail_self",
             "/function magic/water/waterjail"
+          ],
+          "on_exit": [
+            "/tag @s remove waterjail_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

@@ -62,7 +62,7 @@
       "lightning": {
         "run_command": {
           "command": [
-            "execute @s ~~~ summon lightning_bolt ~~~"
+            "execute as @s run summon lightning_bolt ~~~"
           ],
           "target": "self"
         }

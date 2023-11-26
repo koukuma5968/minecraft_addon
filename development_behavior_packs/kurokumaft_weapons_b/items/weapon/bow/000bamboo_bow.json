@@ -33,6 +33,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:bamboo_bow.name"
       },
+      "minecraft:interact_button": true,
       "minecraft:frame_count": 4,
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
@@ -43,6 +44,12 @@
         "ammunition": [
           {
             "item": "kurokumaft:bamboo_arrow",
+            "use_offhand": true,
+            "search_inventory": true,
+            "use_in_creative": true
+          },
+          {
+            "item": "minecraft:arrow",
             "use_offhand": true,
             "search_inventory": true,
             "use_in_creative": true

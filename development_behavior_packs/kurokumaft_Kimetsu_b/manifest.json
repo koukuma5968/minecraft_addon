@@ -4,7 +4,7 @@
 		"description": "鬼滅の刃アドオン",
 		"name": "kurokumaft_kimetsu_b",
 		"uuid": "d174c416-a595-4bfc-86d3-0d993dd8b45c",
-		"version": [1, 2, 1],
+		"version": [1, 2, 2],
 		"min_engine_version": [1, 20, 30]
 	},
 	"modules": [
@@ -12,13 +12,13 @@
 			"description": "鬼滅の刃アドオン",
 			"type": "data",
 			"uuid": "445c582c-656e-42e5-ab25-72acfa3f761e",
-			"version": [1, 2, 1]
+			"version": [1, 2, 2]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "7d00f465-dd97-4d70-a72b-df79443c2a6c",
-			"version": [1, 2, 1]
+			"version": [1, 2, 2]
 		}
 	]
 }

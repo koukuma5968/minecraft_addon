@@ -5,7 +5,7 @@
       "identifier": "kurokumaft:water_magic_helmet",
       "menu_category": {
         "category": "equipment",
-        "group": "itemGroup.name.chestplate"
+        "group": "itemGroup.name.helmet"
       }
     },
     "components": {

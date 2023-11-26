@@ -1,3 +1,6 @@
-execute as @e[tag=lightningstrike_self,r=10] at @e[tag=!lightningstrike_self,family=!inanimate,r=10] run particle kurokumaft:spark_particle ~~~
-execute as @e[tag=lightningstrike_self,r=10] at @e[tag=!lightningstrike_self,family=!inanimate,r=10] run effect @s slowness 1 3 true
-execute as @e[tag=lightningstrike_self,r=10] at @s run damage @e[tag=!lightningstrike_self,family=!inanimate,r=10] 3 lightning
+tag @e[tag=!lightningstrike_self,family=!inanimate,type=!item,r=15] add lightningstrike
+execute at @e[tag=lightningstrike_self] run particle kurokumaft:thunder_sword_particle ~~~
+execute at @e[tag=lightningstrike] run particle kurokumaft:spark_particle ~~~
+effect @e[tag=lightningstrike] slowness 1 1 true
+damage @e[tag=lightningstrike] 6 lightning
+tag @e[tag=lightningstrike] remove lightningstrike

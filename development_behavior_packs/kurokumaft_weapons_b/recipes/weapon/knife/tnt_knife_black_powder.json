@@ -1,0 +1,24 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:tnt_knife_black_powder"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " | ",
+      " # "
+    ],
+    "key": {
+      "|": {
+        "item": "kurokumaft:black_powder"
+      },
+      "#": {
+        "item": "minecraft:stick"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:tnt_knife"
+    }
+  }
+}

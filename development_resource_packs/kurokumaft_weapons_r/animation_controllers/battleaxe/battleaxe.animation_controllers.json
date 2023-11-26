@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.battleaxe.wield": {
+			"initial_state": "first",
+			"states": {
+				"first": {
+					"animations": ["wield_first_person"],
+					"transitions": [
+						{
+							"third": "!c.is_first_person"
+						}
+					]
+				},
+				"third": {
+					"animations": ["wield_third_person"],
+					"transitions": [
+						{
+							"first": "c.is_first_person"
+						}
+					]
+				}
+			}
+		}
+	}
+}

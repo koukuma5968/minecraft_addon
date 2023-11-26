@@ -37,6 +37,7 @@
           {
             "run_command": {
               "command": [
+                "gamerule sendcommandfeedback false",
                 "tag @s add catching"
               ],
               "target": "player"
@@ -45,8 +46,8 @@
           {
             "run_command": {
               "command": [
-                "execute if block ~~~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
-                "execute if block ~~~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
                 "execute if block ~~~ lava [\"liquid_depth\" = 0] run setblock ~~~ air"
               ],
               "target": "block"
@@ -56,8 +57,8 @@
             "condition": "query.block_face == 0.0",
             "run_command": {
               "command": [
-                "execute if block ~~-1~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
-                "execute if block ~~-1~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~-1~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~-1~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
                 "execute if block ~~-1~ lava [\"liquid_depth\" = 0] run setblock ~~-1~ air"
               ],
               "target": "block"
@@ -67,8 +68,8 @@
             "condition": "query.block_face == 1.0",
             "run_command": {
               "command": [
-                "execute if block ~~1~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
-                "execute if block ~~1~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~1~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~1~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
                 "execute if block ~~1~ lava [\"liquid_depth\" = 0] run setblock ~~1~ air"
               ],
               "target": "block"
@@ -78,8 +79,8 @@
             "condition": "query.block_face == 2.0",
             "run_command": {
               "command": [
-                "execute if block ~~~-1 lava [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
-                "execute if block ~~~-1 lava [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~-1 lava [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~-1 lava [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
                 "execute if block ~~~-1 lava [\"liquid_depth\" = 0] run setblock ~~~-1 air"
               ],
               "target": "block"
@@ -89,8 +90,8 @@
             "condition": "query.block_face == 3.0",
             "run_command": {
               "command": [
-                "execute if block ~~~1 lava [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
-                "execute if block ~~~1 lava [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~1 lava [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~1 lava [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
                 "execute if block ~~~1 lava [\"liquid_depth\" = 0] run setblock ~~~1 air"
               ],
               "target": "block"
@@ -100,8 +101,8 @@
             "condition": "query.block_face == 4.0",
             "run_command": {
               "command": [
-                "execute if block ~-1~~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
-                "execute if block ~-1~~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~-1~~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~-1~~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
                 "execute if block ~-1~~ lava [\"liquid_depth\" = 0] run setblock ~-1~~ air"
               ],
               "target": "block"
@@ -111,19 +112,9 @@
             "condition": "query.block_face == 5.0",
             "run_command": {
               "command": [
-                "execute if block ~1~~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
-                "execute if block ~1~~ lava [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~1~~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~1~~ lava [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
                 "execute if block ~1~~ lava [\"liquid_depth\" = 0] run setblock ~1~~ air"
-              ],
-              "target": "block"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "execute if block ~~~ water [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if block ~~~ water [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
-                "execute if block ~~~ water [\"liquid_depth\" = 0] at @e[tag=catching] run setblock ~~~ air"
               ],
               "target": "block"
             }
@@ -132,8 +123,9 @@
             "condition": "query.block_face == 0.0",
             "run_command": {
               "command": [
-                "execute if block ~~-1~ water [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if block ~~-1~ water [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "say 水1",
+                "execute if block ~~-1~ water [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~-1~ water [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
                 "execute if block ~~-1~ water [\"liquid_depth\" = 0] run setblock ~~-1~ air"
               ],
               "target": "block"
@@ -143,8 +135,8 @@
             "condition": "query.block_face == 1.0",
             "run_command": {
               "command": [
-                "execute if block ~~1~ water [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if block ~~1~ water [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~1~ water [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~1~ water [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
                 "execute if block ~~1~ water [\"liquid_depth\" = 0] run setblock ~~1~ air"
               ],
               "target": "block"
@@ -154,8 +146,8 @@
             "condition": "query.block_face == 2.0",
             "run_command": {
               "command": [
-                "execute if block ~~~-1 water [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if block ~~~-1 water [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~-1 water [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~-1 water [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
                 "execute if block ~~~-1 water [\"liquid_depth\" = 0] run setblock ~~~-1 air"
               ],
               "target": "block"
@@ -165,8 +157,8 @@
             "condition": "query.block_face == 3.0",
             "run_command": {
               "command": [
-                "execute if block ~~~1 water [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if block ~~~1 water [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~1 water [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~1 water [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
                 "execute if block ~~~1 water [\"liquid_depth\" = 0] run setblock ~~~1 air"
               ],
               "target": "block"
@@ -176,8 +168,8 @@
             "condition": "query.block_face == 4.0",
             "run_command": {
               "command": [
-                "execute if block ~-1~~ water [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if block ~-1~~ water [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~-1~~ water [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~-1~~ water [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
                 "execute if block ~-1~~ water [\"liquid_depth\" = 0] run setblock ~-1~~ air"
               ],
               "target": "block"
@@ -187,8 +179,8 @@
             "condition": "query.block_face == 5.0",
             "run_command": {
               "command": [
-                "execute if block ~1~~ water [\"liquid_depth\" = 0] at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if block ~1~~ water [\"liquid_depth\" = 0] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~1~~ water [\"liquid_depth\" = 0] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~1~~ water [\"liquid_depth\" = 0] as @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
                 "execute if block ~1~~ water [\"liquid_depth\" = 0] run setblock ~1~~ air"
               ],
               "target": "block"
@@ -197,11 +189,21 @@
           {
             "run_command": {
               "command": [
-                "execute if entity @s at @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
-                "execute if entity @s at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
-                "execute if entity @s run setblock ~1~~ air"
+                "execute if block ~~~ cauldron [\"cauldron_liquid\" = \"water\",\"fill_level\" = 6] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~ cauldron [\"cauldron_liquid\" = \"water\",\"fill_level\" = 6] as @e[tag=catching] run give @s kurokumaft:copper_bucket_water 1 0",
+                "execute if block ~~~ cauldron [\"cauldron_liquid\" = \"water\",\"fill_level\" = 6] run setblock ~~~ cauldron"
               ],
-              "target": "target"
+              "target": "block"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "execute if block ~~~ cauldron [\"cauldron_liquid\" = \"lava\",\"fill_level\" = 6] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute if block ~~~ cauldron [\"cauldron_liquid\" = \"lava\",\"fill_level\" = 6] as @e[tag=catching] run give @s kurokumaft:copper_bucket_lava 1 0",
+                "execute if block ~~~ cauldron [\"cauldron_liquid\" = \"lava\",\"fill_level\" = 6] run setblock ~~~ cauldron"
+              ],
+              "target": "block"
             }
           },
           {
@@ -227,8 +229,9 @@
           {
             "run_command": {
               "command": [
-                "execute positioned ^^^1 if entity @e[family=cow,r=1] at @e[tag=catching] run give @s kurokumaft:copper_bucket_milk 1 0",
-                "execute positioned ^^^1 if entity @e[family=cow,r=1] at @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1"
+                "gamerule sendcommandfeedback false",
+                "execute positioned ^^^1 if entity @e[family=cow,r=1] as @e[tag=catching] run clear @s kurokumaft:copper_bucket 0 1",
+                "execute positioned ^^^1 if entity @e[family=cow,r=1] as @e[tag=catching] run give @s kurokumaft:copper_bucket_milk 1 0"
               ],
               "target": "player"
             }

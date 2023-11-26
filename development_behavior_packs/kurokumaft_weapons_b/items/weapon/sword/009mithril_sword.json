@@ -86,7 +86,7 @@
           {
             "run_command": {
               "command": [
-                "setblock ~~~ minecraft:air 0 destroy"
+                "setblock ~~~ minecraft:air destroy"
               ],
               "target": "block"
             },

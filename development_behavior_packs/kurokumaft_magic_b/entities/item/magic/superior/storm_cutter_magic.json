@@ -6,7 +6,7 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball"
+      "runtime_identifier": "minecraft:arrow"
     },
     "component_groups": {
       "kurokumaft:storm_cutter_owner": {
@@ -38,27 +38,15 @@
              },
              "remove_on_hit": { }
           },
-          "power": 1,
-          "gravity": 0.05,
+          "power": 5,
+          "gravity": 0.01,
           "inertia": 1,
+          "offset": [0, 0, 1],
           "liquid_inertia": 1,
           "reflect_on_hurt": true
-        },
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:storm_cutter_magic",
-              "spawn_event": "kurokumaft:storm_cutter_child",
-              "single_use": false,
-              "num_to_spawn": 1,
-              "should_leash": false
-            }
-          ]
         }
       },
-      "kurokumaft:storm_cutter_child": {
+      "kurokumaft:storm_cutter_child1": {
         "minecraft:projectile": {
           "on_hit": {
              "affect_projectile": true,
@@ -84,11 +72,112 @@
              },
              "remove_on_hit": { }
           },
-          "homing":true,
           "power": 5,
-          "gravity": 0.05,
+          "gravity": 0.01,
           "inertia": 1,
-          "offset": [0, 0, 0],
+          "offset": [-2, 0, 1],
+          "liquid_inertia": 1,
+          "reflect_on_hurt": true
+        }
+      },
+      "kurokumaft:storm_cutter_child2": {
+        "minecraft:projectile": {
+          "on_hit": {
+             "affect_projectile": true,
+             "impact_damage": {
+               "damage": 5,
+               "knockback": false,
+               "catch_fire": false,
+               "destroy_on_hit": false,
+               "semi_random_diff_damage": false
+             },
+             "particle_on_hit": {
+               "particle_type": "kurokumaft:wind_particle",
+               "num_particle": 6,
+               "on_entity_hit": true,
+               "on_other_hit": true
+             },
+             "definition_event": {
+               "affectProjectile": false,
+               "eventTrigger": {
+                 "event": "wind_particle",
+                 "target": "self"
+               }
+             },
+             "remove_on_hit": { }
+          },
+          "power": 5,
+          "gravity": 0.01,
+          "inertia": 1,
+          "offset": [2, 0, 1],
+          "liquid_inertia": 1,
+          "reflect_on_hurt": true
+        }
+      },
+      "kurokumaft:storm_cutter_child3": {
+        "minecraft:projectile": {
+          "on_hit": {
+             "affect_projectile": true,
+             "impact_damage": {
+               "damage": 5,
+               "knockback": false,
+               "catch_fire": false,
+               "destroy_on_hit": false,
+               "semi_random_diff_damage": false
+             },
+             "particle_on_hit": {
+               "particle_type": "kurokumaft:wind_particle",
+               "num_particle": 6,
+               "on_entity_hit": true,
+               "on_other_hit": true
+             },
+             "definition_event": {
+               "affectProjectile": false,
+               "eventTrigger": {
+                 "event": "wind_particle",
+                 "target": "self"
+               }
+             },
+             "remove_on_hit": { }
+          },
+          "power": 5,
+          "gravity": 0.01,
+          "inertia": 1,
+          "offset": [0, 2, 1],
+          "liquid_inertia": 1,
+          "reflect_on_hurt": true
+        }
+      },
+      "kurokumaft:storm_cutter_child4": {
+        "minecraft:projectile": {
+          "on_hit": {
+             "affect_projectile": true,
+             "impact_damage": {
+               "damage": 5,
+               "knockback": false,
+               "catch_fire": false,
+               "destroy_on_hit": false,
+               "semi_random_diff_damage": false
+             },
+             "particle_on_hit": {
+               "particle_type": "kurokumaft:wind_particle",
+               "num_particle": 6,
+               "on_entity_hit": true,
+               "on_other_hit": true
+             },
+             "definition_event": {
+               "affectProjectile": false,
+               "eventTrigger": {
+                 "event": "wind_particle",
+                 "target": "self"
+               }
+             },
+             "remove_on_hit": { }
+          },
+          "power": 5,
+          "gravity": 0.01,
+          "inertia": 1,
+          "offset": [0, -2, 1],
           "liquid_inertia": 1,
           "reflect_on_hurt": true
         }
@@ -122,6 +211,14 @@
           "target": "self"
         }
       },
+      "despawn": {
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      },
       "kurokumaft:storm_cutter_owner": {
         "add": {
           "component_groups": [
@@ -129,10 +226,31 @@
           ]
         }
       },
-      "kurokumaft:storm_cutter_child": {
+      "kurokumaft:storm_cutter_child1": {
         "add": {
           "component_groups": [
-            "kurokumaft:storm_cutter_child"
+            "kurokumaft:storm_cutter_child1"
+          ]
+        }
+      },
+      "kurokumaft:storm_cutter_child2": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:storm_cutter_child2"
+          ]
+        }
+      },
+      "kurokumaft:storm_cutter_child3": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:storm_cutter_child3"
+          ]
+        }
+      },
+      "kurokumaft:storm_cutter_child4": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:storm_cutter_child4"
           ]
         }
       }

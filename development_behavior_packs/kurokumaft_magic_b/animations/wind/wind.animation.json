@@ -6,7 +6,6 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @e[tag=atmosphere_self] ~~~ particle kurokumaft:atmosphere_particle ~~~",
 					"/function magic/wind/atmosphere"
 				]
 			}
@@ -17,7 +16,7 @@
 			"timeline": {
 				"0.0": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ^^^1.5 facing @e[family=monster,c=1]"
+					"/execute as @s run tp @s ^^^1.5 facing @e[family=monster,c=1]"
 				]
 			}
 		}

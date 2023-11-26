@@ -53,8 +53,8 @@
         "run_command": {
           "command": [
             "tag @e[family=!magic,type=!item,type=!player,c=3,r=20] add flarecircle",
-            "execute @e[tag=flarecircle] ~~~ particle kurokumaft:firestome1_particle ~~~",
-            "execute @e[tag=flarecircle] ~~~ setblock ~~~ fire 0 keep",
+            "execute at @e[tag=flarecircle] run particle kurokumaft:firestome1_particle ~~~",
+            "execute at @e[tag=flarecircle] run setblock ~~~ fire keep",
             "effect @e[tag=flarecircle] wither 2 10 true",
             "tag @e[tag=flarecircle] remove flarecircle"
           ],

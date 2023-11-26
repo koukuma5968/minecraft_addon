@@ -34,74 +34,74 @@
 			"loop": false,
 			"timeline": {
 			    "0.01": [
-					"/fill ~-1~-1~-1 ~1~-1~1 sand 0 outline",
-					"/fill ~-1~-2~-1 ~1~-2~1 sandstone 0 outline",
-					"/fill ~-1~-3~-1 ~1~-3~1 sandstone 0 outline",
-					"/fill ~-1~-4~-1 ~1~-4~1 sandstone 0 outline",
-					"/fill ~-1~-5~-1 ~1~-5~1 sandstone 0 outline",
-					"/fill ~-1~-6~-1 ~1~-6~1 sandstone 0 outline"
+					"/fill ~-1~-1~-1 ~1~-1~1 sand outline",
+					"/fill ~-1~-2~-1 ~1~-2~1 sandstone outline",
+					"/fill ~-1~-3~-1 ~1~-3~1 sandstone outline",
+					"/fill ~-1~-4~-1 ~1~-4~1 sandstone outline",
+					"/fill ~-1~-5~-1 ~1~-5~1 sandstone outline",
+					"/fill ~-1~-6~-1 ~1~-6~1 sandstone outline"
 				],
 			    "0.03": [
-					"/fill ~-2~-1~-2 ~2~-1~2 sand 0 outline",
-					"/fill ~-2~-2~-2 ~2~-2~2 sandstone 0 outline",
-					"/fill ~-2~-3~-2 ~2~-3~2 sandstone 0 outline",
-					"/fill ~-2~-4~-2 ~2~-4~2 sandstone 0 outline",
-					"/fill ~-2~-5~-2 ~2~-5~2 sandstone 0 outline",
-					"/fill ~-2~-6~-2 ~2~-6~2 sandstone 0 outline"
+					"/fill ~-2~-1~-2 ~2~-1~2 sand outline",
+					"/fill ~-2~-2~-2 ~2~-2~2 sandstone outline",
+					"/fill ~-2~-3~-2 ~2~-3~2 sandstone outline",
+					"/fill ~-2~-4~-2 ~2~-4~2 sandstone outline",
+					"/fill ~-2~-5~-2 ~2~-5~2 sandstone outline",
+					"/fill ~-2~-6~-2 ~2~-6~2 sandstone outline"
 				],
 			    "0.06": [
-					"/fill ~-3~-1~-3 ~3~-1~3 sand 0 outline",
-					"/fill ~-3~-2~-3 ~3~-2~3 sandstone 0 outline",
-					"/fill ~-3~-3~-3 ~3~-3~3 sandstone 0 outline",
-					"/fill ~-3~-4~-3 ~3~-4~3 sandstone 0 outline",
-					"/fill ~-3~-5~-3 ~3~-5~3 sandstone 0 outline",
-					"/fill ~-3~-6~-3 ~3~-6~3 sandstone 0 outline"
+					"/fill ~-3~-1~-3 ~3~-1~3 sand outline",
+					"/fill ~-3~-2~-3 ~3~-2~3 sandstone outline",
+					"/fill ~-3~-3~-3 ~3~-3~3 sandstone outline",
+					"/fill ~-3~-4~-3 ~3~-4~3 sandstone outline",
+					"/fill ~-3~-5~-3 ~3~-5~3 sandstone outline",
+					"/fill ~-3~-6~-3 ~3~-6~3 sandstone outline"
 				],
 			    "0.09": [
-					"/fill ~-4~-1~-4 ~4~-1~4 sand 0 outline",
-					"/fill ~-4~-2~-4 ~4~-2~4 sandstone 0 outline",
-					"/fill ~-4~-3~-4 ~4~-3~4 sandstone 0 outline",
-					"/fill ~-4~-4~-4 ~4~-4~4 sandstone 0 outline",
-					"/fill ~-4~-5~-4 ~4~-5~4 sandstone 0 outline",
-					"/fill ~-4~-6~-4 ~4~-6~4 sandstone 0 outline"
+					"/fill ~-4~-1~-4 ~4~-1~4 sand outline",
+					"/fill ~-4~-2~-4 ~4~-2~4 sandstone outline",
+					"/fill ~-4~-3~-4 ~4~-3~4 sandstone outline",
+					"/fill ~-4~-4~-4 ~4~-4~4 sandstone outline",
+					"/fill ~-4~-5~-4 ~4~-5~4 sandstone outline",
+					"/fill ~-4~-6~-4 ~4~-6~4 sandstone outline"
 				],
 			    "0.12": [
-					"/fill ~-5~-1~-5 ~5~-1~5 sand 0 outline",
-					"/fill ~-5~-2~-5 ~5~-2~5 sandstone 0 outline",
-					"/fill ~-5~-3~-5 ~5~-3~5 sandstone 0 outline",
-					"/fill ~-5~-4~-5 ~5~-4~5 sandstone 0 outline",
-					"/fill ~-5~-5~-5 ~5~-5~5 sandstone 0 outline",
-					"/fill ~-5~-6~-5 ~5~-6~5 sandstone 0 outline"
+					"/fill ~-5~-1~-5 ~5~-1~5 sand outline",
+					"/fill ~-5~-2~-5 ~5~-2~5 sandstone outline",
+					"/fill ~-5~-3~-5 ~5~-3~5 sandstone outline",
+					"/fill ~-5~-4~-5 ~5~-4~5 sandstone outline",
+					"/fill ~-5~-5~-5 ~5~-5~5 sandstone outline",
+					"/fill ~-5~-6~-5 ~5~-6~5 sandstone outline"
 				],
 			    "0.15": [
-					"/fill ~-6~-1~-6 ~6~-1~6 sand 0 outline",
-					"/fill ~-6~-2~-6 ~6~-2~6 sandstone 0 outline",
-					"/fill ~-6~-3~-6 ~6~-3~6 sandstone 0 outline",
-					"/fill ~-6~-4~-6 ~6~-4~6 sandstone 0 outline",
-					"/fill ~-6~-5~-6 ~6~-5~6 sandstone 0 outline",
-					"/fill ~-6~-6~-6 ~6~-6~6 sandstone 0 outline"
+					"/fill ~-6~-1~-6 ~6~-1~6 sand outline",
+					"/fill ~-6~-2~-6 ~6~-2~6 sandstone outline",
+					"/fill ~-6~-3~-6 ~6~-3~6 sandstone outline",
+					"/fill ~-6~-4~-6 ~6~-4~6 sandstone outline",
+					"/fill ~-6~-5~-6 ~6~-5~6 sandstone outline",
+					"/fill ~-6~-6~-6 ~6~-6~6 sandstone outline"
 				],
 			    "0.18": [
-					"/fill ~-7~-1~-7 ~7~-1~7 sand 0 outline",
-					"/fill ~-7~-2~-7 ~7~-2~7 sandstone 0 outline",
-					"/fill ~-7~-3~-7 ~7~-3~7 sandstone 0 outline",
-					"/fill ~-7~-4~-7 ~7~-4~7 sandstone 0 outline",
-					"/fill ~-7~-5~-7 ~7~-5~7 sandstone 0 outline",
-					"/fill ~-7~-6~-7 ~7~-6~7 sandstone 0 outline"
+					"/fill ~-7~-1~-7 ~7~-1~7 sand outline",
+					"/fill ~-7~-2~-7 ~7~-2~7 sandstone outline",
+					"/fill ~-7~-3~-7 ~7~-3~7 sandstone outline",
+					"/fill ~-7~-4~-7 ~7~-4~7 sandstone outline",
+					"/fill ~-7~-5~-7 ~7~-5~7 sandstone outline",
+					"/fill ~-7~-6~-7 ~7~-6~7 sandstone outline"
 				],
 			    "0.21": [
-					"/fill ~-8~-1~-8 ~8~-1~8 sand 0 outline",
-					"/fill ~-8~-2~-8 ~8~-2~8 sandstone 0 outline",
-					"/fill ~-8~-3~-8 ~8~-3~8 sandstone 0 outline",
-					"/fill ~-8~-4~-8 ~8~-4~8 sandstone 0 outline",
-					"/fill ~-8~-5~-8 ~8~-5~8 sandstone 0 outline",
-					"/fill ~-8~-6~-8 ~8~-6~8 sandstone 0 outline"
+					"/fill ~-8~-1~-8 ~8~-1~8 sand outline",
+					"/fill ~-8~-2~-8 ~8~-2~8 sandstone outline",
+					"/fill ~-8~-3~-8 ~8~-3~8 sandstone outline",
+					"/fill ~-8~-4~-8 ~8~-4~8 sandstone outline",
+					"/fill ~-8~-5~-8 ~8~-5~8 sandstone outline",
+					"/fill ~-8~-6~-8 ~8~-6~8 sandstone outline"
 				],
 			    "0.24": [
-					"/fill ~-8~-1~-8 ~8~-1~8 air 0 replace",
-					"/fill ~-6~-2~-6 ~6~-2~6 air 0 replace",
-					"/fill ~-4~-4~-4 ~4~-4~4 air 0 replace",
-					"/fill ~-2~-6~-2 ~2~-6~2 air 0 replace"
+					"/fill ~-8~-1~-8 ~8~-1~8 air replace",
+					"/fill ~-6~-2~-6 ~6~-2~6 air replace",
+					"/fill ~-4~-4~-4 ~4~-4~4 air replace",
+					"/fill ~-2~-6~-2 ~2~-6~2 air replace"
 				]
 			}
 		},

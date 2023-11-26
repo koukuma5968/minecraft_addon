@@ -1,0 +1,63 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.sniper_rifle": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"hold_first_person": "c.is_first_person"
+						},
+						{
+							"hold_therd_person": "!c.is_first_person"
+						}
+					]
+				},
+				"hold_first_person": {
+					"animations": ["hold_first_person"],
+					"transitions": [
+						{
+							"default": "!c.is_first_person"
+						},
+						{
+							"shot_first_person": "query.variant == 1"
+						}
+					]
+				},
+				"shot_first_person": {
+					"animations": ["shot_first_person"],
+					"transitions": [
+						{
+							"default": "!c.is_first_person"
+						},
+						{
+							"hold_first_person": "query.variant == 0"
+						}
+					]
+				},
+				"hold_therd_person": {
+					"animations": ["hold_therd_person"],
+					"transitions": [
+						{
+							"default": "c.is_first_person"
+						},
+						{
+							"shot_therd_person": "query.variant == 1"
+						}
+					]
+				},
+				"shot_therd_person": {
+					"animations": ["shot_therd_person"],
+					"transitions": [
+						{
+							"default": "c.is_first_person"
+						},
+						{
+							"hold_therd_person": "query.variant == 0"
+						}
+					]
+				}
+			}
+		}
+	}
+}

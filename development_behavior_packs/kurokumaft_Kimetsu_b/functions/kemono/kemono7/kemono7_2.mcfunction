@@ -1,1 +1,1 @@
-execute @e[tag=kokyu_kedamono7_target] ~~~ particle kurokumaft:kedamono7_particle ~~~
+execute as @e[tag=kokyu_kedamono7_target] run particle kurokumaft:kedamono7_particle ~~~

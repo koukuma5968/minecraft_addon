@@ -38,8 +38,7 @@
             "shake_time" : 0.35
           },
           "arrow_effect": {
-          },
-          "remove_on_hit": {}
+          }
         },
         "hit_sound": "bow.hit",
         "power": 2.0,

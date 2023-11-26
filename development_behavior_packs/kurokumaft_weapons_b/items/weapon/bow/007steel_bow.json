@@ -1,0 +1,69 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:steel_bow",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bow"
+      }
+    },
+    "components": {
+      "tag:bow": {},
+      "minecraft:durability": {
+        "max_durability": 400
+      },
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "bow"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "steel_bow"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:steel_bow" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability)"
+          },
+          {
+            "items": [ "kurokumaft:steel_ingot" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) > 500 ? 500 : (query.max_durability - query.remaining_durability)"
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:steel_bow.name"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:use_animation": "bow",
+      "minecraft:use_duration": 50.0,
+      "minecraft:chargeable": {
+      },
+      "minecraft:shooter": {
+        "ammunition": [
+          {
+            "item": "kurokumaft:steel_arrow",
+            "use_offhand": true,
+            "search_inventory": true,
+            "use_in_creative": true
+          },
+          {
+            "item": "minecraft:arrow",
+            "use_offhand": true,
+            "search_inventory": true,
+            "use_in_creative": true
+          }
+        ],
+        "launch_power_scale": 0.1,
+        "max_draw_duration": 1.0,
+        "max_launch_power": 0.5,
+        "scale_power_by_draw_duration": true
+      }
+    },
+    "events": {
+      "swing": {}
+    }
+  }
+}

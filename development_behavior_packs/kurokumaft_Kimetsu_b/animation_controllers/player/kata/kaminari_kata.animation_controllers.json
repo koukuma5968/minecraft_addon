@@ -90,7 +90,7 @@
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6聚蚊成雷\"}]}",
             "/gamerule sendcommandfeedback false",
-            "/execute @s ~~~ tp @s ~~~ 0 0 true"
+            "/execute as @s run tp @s ~~~ 0 0 true"
           ],
           "transitions": [
             {"kaminari3_1":"(1.0)"}
@@ -181,9 +181,9 @@
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6火雷神\"}]}",
             "/gamerule sendcommandfeedback false",
-            "/execute @e[tag=kokyu_kaminari7_target] ^^^2 tp @e[tag=kokyu_kaminari7] ~~~",
-            "/execute @s ~~~ particle kurokumaft:kaminari2_particle ~~~",
-            "/execute @s ~~~ damage @e[tag=!kokyu_kaminari7,r=10] 50 lightning"
+            "/execute at @e[tag=kokyu_kaminari7_target] positioned ^^^2 run tp @e[tag=kokyu_kaminari7] ~~~",
+            "/execute as @s run particle kurokumaft:kaminari2_particle ~~~",
+            "/execute as @s run damage @e[tag=!kokyu_kaminari7,r=10] 50 lightning"
           ],
           "on_exit": [
             "/effect @s speed 0",

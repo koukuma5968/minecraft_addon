@@ -25,8 +25,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "storm_bread": "!query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && variable.attack_time" },
-            { "stone_needle": "query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && variable.attack_time" },
+            { "storm_bread": "!query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && !query.is_using_item && variable.attack_time" },
+            { "stone_needle": "query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && !query.is_using_item && variable.attack_time" },
             { "rock_break": "!query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && query.is_using_item" },
             { "grey_bomb": "query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && query.is_using_item" }
           ]
@@ -43,7 +43,11 @@
         "stone_needle": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンニードル\"}]}",
+            "/tag @s add stone_needle_self",
             "/function magic/stone/stone_needle"
+          ],
+          "on_exit": [
+            "/tag @s remove stone_needle_self"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
@@ -52,7 +56,11 @@
         "rock_break": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ロックブレイク\"}]}",
+            "/tag @s add rock_break_self",
             "/function magic/stone/rock_break"
+          ],
+          "on_exit": [
+            "/tag @s remove rock_break_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}
@@ -61,7 +69,11 @@
         "grey_bomb": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7グレイボム\"}]}",
+            "/tag @s add grey_bomb_self",
             "/function magic/stone/grey_bomb"
+          ],
+          "on_exit": [
+            "/tag @s remove grey_bomb_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

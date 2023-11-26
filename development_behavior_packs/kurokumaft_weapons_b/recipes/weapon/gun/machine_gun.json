@@ -1,0 +1,26 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:machine_gun"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "B  ",
+            " B ",
+            "  B"
+        ],
+        "key": {
+            "B": {
+                "item": "kurokumaft:black_quartz"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:machine_gun",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

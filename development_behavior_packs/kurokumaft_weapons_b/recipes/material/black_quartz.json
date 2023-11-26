@@ -1,0 +1,14 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "kurokumaft:black_quartz"
+        },
+        "tags": ["furnace", "blast_furnace"],
+        "input": "minecraft:blackstone",
+        "output": {
+            "item": "kurokumaft:black_quartz",
+            "count": 1
+        }
+    }
+}    

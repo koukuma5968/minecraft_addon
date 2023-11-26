@@ -95,6 +95,7 @@
 					}
 				]
 			},
+			"minecraft:fire_immune": {},
 			"minecraft:physics": {
 			},
 			"minecraft:pushable": {

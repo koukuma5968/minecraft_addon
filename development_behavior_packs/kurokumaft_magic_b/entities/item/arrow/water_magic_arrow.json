@@ -82,7 +82,7 @@
       "homing": {
         "run_command": {
           "command": [
-            "execute @s ~~~ tp @s ^^^1 facing @e[family=monster,r=15,c=1]"
+            "tp @s ^^^1 facing @e[family=monster,r=15,c=1]"
           ],
           "target": "self"
         }

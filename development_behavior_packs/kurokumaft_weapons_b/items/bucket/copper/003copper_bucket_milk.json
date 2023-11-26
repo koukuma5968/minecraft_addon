@@ -31,6 +31,7 @@
           {
             "run_command": {
               "command": [
+                "gamerule sendcommandfeedback false",
                 "effect @s clear"
               ],
               "target": "player"

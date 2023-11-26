@@ -87,7 +87,7 @@
           {
             "run_command": {
               "command": [
-                "setblock ~~~ minecraft:magma 0 replace"
+                "setblock ~~~ minecraft:magma replace"
               ],
               "target": "block"
             },

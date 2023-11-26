@@ -6,8 +6,8 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ particle kurokumaft:kaze1_particle ^^^1.5",
-					"/execute @s ~~~ damage @e[tag=!kokyu_kaze1_self,r=2] 2 entity_attack"
+					"/execute as @s run particle kurokumaft:kaze1_particle ^^^1.5",
+					"/execute as @s run damage @e[tag=!kokyu_kaze1_self,r=2] 2 entity_attack"
 				]
 			}
 		},
@@ -52,7 +52,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ tp @s ~~0.25~"
+					"/execute as @s run tp @s ~~0.25~"
 				]
 			}
 		},
@@ -61,7 +61,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ tp @s ~~~",
+					"/execute as @s run tp @s ~~~",
 					"/function kaze/kaze9"
 				]
 			}

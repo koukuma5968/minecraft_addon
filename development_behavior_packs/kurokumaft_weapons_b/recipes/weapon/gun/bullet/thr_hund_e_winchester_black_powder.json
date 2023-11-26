@@ -1,0 +1,30 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:thr_hund_e_winchester_black_powder"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            " G ",
+            "GPG",
+            "GPG"
+        ],
+        "key": {
+            "G": {
+                "item": "minecraft:gold_ingot"
+            },
+            "P": {
+                "item": "kurokumaft:black_powder"
+            }
+
+        },
+        "result": {
+            "item": "kurokumaft:thr_hund_e_winchester",
+            "count": 9
+        },
+        "priority": 2
+    }
+}

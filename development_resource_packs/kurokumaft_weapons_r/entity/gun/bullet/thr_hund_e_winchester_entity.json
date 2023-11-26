@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:thr_hund_e_winchester_entity",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/gun/bullet/thr_hund_e_winchester"
+        },
+        "geometry": {
+          "default": "geometry.thr_hund_e_winchester_entity"
+        },
+        "scripts": {
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.bullet.shot"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

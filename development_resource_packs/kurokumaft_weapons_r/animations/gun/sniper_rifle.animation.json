@@ -1,0 +1,66 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sniper_rifle.hold": {
+			"loop": true,
+			"bones": {
+				"rifle": {
+					"rotation": [-92.5, 0, 0],
+					"position": [0, 13, 0]
+				},
+				"bipod": {
+					"rotation": [90, 0, 0]
+				}
+			}
+		},
+		"animation.sniper_rifle.hold_first_person": {
+			"loop": true,
+			"bones": {
+				"rifle": {
+					"rotation": [-15.50307, 51.7101, -36.20399],
+					"position": [10, 12, 6]
+				},
+				"bipod": {
+					"rotation": [90, 0, 0]
+				}
+			}
+		},
+		"animation.sniper_rifle.hold_therd_person": {
+			"loop": true,
+			"bones": {
+				"rifle": {
+					"rotation": [-92.5, 0, 0],
+					"position": [0, 24, 0]
+				},
+				"bipod": {
+					"rotation": [90, 0, 0]
+				}
+			}
+		},
+		"animation.sniper_rifle.shot_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rifle": {
+					"rotation": [94.49693, 51.7101, -36.20399],
+					"position": [9, 26, -3],
+					"scale": 1
+				},
+				"bipod": {
+					"rotation": [90, 0, 0]
+				}
+			}
+		},
+		"animation.sniper_rifle.shot_therd_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rifle": {
+					"rotation": [97.38733, -1.29876, 9.91615],
+					"position": [0, 21, 0]
+				},
+				"bipod": {
+					"rotation": [90, 0, 0]
+				}
+			}
+		}
+	}
+}

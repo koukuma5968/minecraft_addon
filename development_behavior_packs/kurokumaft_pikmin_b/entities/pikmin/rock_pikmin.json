@@ -134,6 +134,11 @@
             {
               "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
               "cause": "lava",
+              "damage_per_tick": 4
+            },
+            {
+              "filters": { "test": "in_water", "subject": "self", "operator": "==", "value": true },
+              "cause": "drowning",
               "damage_per_tick": 1
             }
           ]

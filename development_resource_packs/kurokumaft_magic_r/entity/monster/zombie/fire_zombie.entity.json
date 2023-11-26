@@ -11,7 +11,7 @@
         "default": "textures/kurokumaft/entity/zombie/fire_zombie"
       },
       "geometry": {
-        "default": "geometry.zombie.fire"
+        "default": "geometry.magic_zombie"
       },
       "spawn_egg": {
         "texture": "spawn_egg",

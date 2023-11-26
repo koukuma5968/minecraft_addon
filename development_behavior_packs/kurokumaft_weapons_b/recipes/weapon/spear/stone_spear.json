@@ -1,0 +1,26 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:stone_spear"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  F",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "F": {
+        "item": "minecraft:cobblestone"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:stone_spear",
+      "count": 1
+    }
+  }
+}

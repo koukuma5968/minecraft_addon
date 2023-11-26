@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:gomugomu_skill",
+        "materials": {
+          "default": "entity_alphatest"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/skill/noimage"
+        },
+        "geometry": {
+          "default": "geometry.noimage"
+        },
+        "render_controllers": ["controller.render.noimage"]
+      }
+    }
+  }
+  

@@ -55,6 +55,29 @@
 					"inertia": 1.0,
 					"liquid_inertia": 0
 				}
+			},
+			"kurokumaft:iron_spirit_sickle": {
+				"minecraft:projectile": {
+					"on_hit": {
+						"impact_damage": {
+							"damage": 3,
+							"knockback": false,
+							"destroy_on_hit": true,
+							"semirandomdiffdamage": false
+						},
+						"remove_on_hit": {}
+					},
+					"filter": "minecraft:player",
+					"power": 6.0,
+					"should_bounce": false,
+					"gravity": 0.00,
+					"angle_offset": 0.0,
+					"hit_sound": "fall.wood",
+					"hit_ground_sound": "fall.wood",
+					"offset": [0, 0, 0.5],
+					"inertia": 1.0,
+					"liquid_inertia": 0
+				}
 			}
 		},
 		"components": {
@@ -108,6 +131,18 @@
 					  },
 					  "add": {
 						"component_groups": [ "kurokumaft:stone_spirit_sickle" ]
+					  }
+					},
+					{
+					  "filters": {
+						"test": "has_equipment",
+						"domain": "hand",
+						"operator": "==",
+						"subject": "other",
+						"value": "kurokumaft:iron_sickle"
+					  },
+					  "add": {
+						"component_groups": [ "kurokumaft:iron_spirit_sickle" ]
 					  }
 					}
 				]

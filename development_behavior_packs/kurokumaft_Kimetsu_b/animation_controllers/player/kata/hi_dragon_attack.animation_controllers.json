@@ -12,7 +12,7 @@
           "on_entry": [
             "/tag @s add kokyu_hi6",
             "/event entity @s mark_variant2",
-            "/execute @s ~~~ damage @e[tag=!kokyu_hi6,r=5] 15 entity_attack"
+            "/execute as @s run damage @e[tag=!kokyu_hi6,r=5] 15 entity_attack"
           ],
           "on_exit": [
             "/event entity @s mark_variant1",

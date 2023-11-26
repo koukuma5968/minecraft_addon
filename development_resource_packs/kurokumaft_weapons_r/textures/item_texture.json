@@ -53,6 +53,15 @@
       "copper_axe" : {
          "textures" : "textures/kurokumaft/items/axe/copper_axe"
       },
+      "steel_axe" : {
+         "textures" : "textures/kurokumaft/items/axe/steel_axe"
+      },
+      "mithril_axe" : {
+         "textures" : "textures/kurokumaft/items/axe/mithril_axe"
+      },
+      "orichalcum_axe" : {
+         "textures" : "textures/kurokumaft/items/axe/orichalcum_axe"
+      },
 
       "bamboo_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/bamboo_battleaxe"
@@ -65,6 +74,9 @@
       },
       "steel_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/steel_battleaxe"
+      },
+      "bone_battleaxe": {
+         "textures" : "textures/kurokumaft/items/battleaxe/bone_battleaxe"
       },
 
       "bamboo_spear": {
@@ -88,6 +100,9 @@
       "blaze_spear": {
          "textures": "textures/kurokumaft/items/spear/blaze_spear"
       },
+      "mithril_spear": {
+         "textures": "textures/kurokumaft/items/spear/mithril_spear"
+      },
 
       "bamboo_knife": {
          "textures" : "textures/kurokumaft/items/knife/bamboo_knife"
@@ -100,6 +115,9 @@
       },
       "tnt_knife": {
          "textures" : "textures/kurokumaft/items/knife/tnt_knife"
+      },
+      "phantom_knife": {
+         "textures" : "textures/kurokumaft/items/knife/phantom_knife"
       },
 
       "wooden_bread": {
@@ -146,6 +164,9 @@
       "netherite_hammer": {
          "textures": "textures/kurokumaft/items/hammer/netherite_hammer"
       },
+      "warden_hammer": {
+         "textures": "textures/kurokumaft/items/hammer/warden_hammer"
+      },
 
       "wood_sickle": {
          "textures": "textures/kurokumaft/items/sickle/wood_sickle"
@@ -153,12 +174,18 @@
       "stone_sickle": {
          "textures": "textures/kurokumaft/items/sickle/stone_sickle"
       },
+      "iron_sickle": {
+         "textures": "textures/kurokumaft/items/sickle/iron_sickle"
+      },
 
       "wood_scythe": {
          "textures": "textures/kurokumaft/items/scythe/wood_scythe"
       },
       "stone_scythe": {
          "textures": "textures/kurokumaft/items/scythe/stone_scythe"
+      },
+      "iron_scythe": {
+         "textures": "textures/kurokumaft/items/scythe/iron_scythe"
       },
 
       "powder_ball": {
@@ -179,6 +206,9 @@
       },
       "gatling": {
          "textures": "textures/kurokumaft/items/gun/gatling"
+      },
+      "sniper_rifle": {
+         "textures": "textures/kurokumaft/items/gun/sniper_rifle"
       },
       "machine_gun": {
          "textures": [
@@ -207,6 +237,9 @@
       },
       "thirty_eight_special": {
          "textures": "textures/kurokumaft/items/gun/bullet/thirty_eight_special"
+      },
+      "thr_hund_e_winchester": {
+         "textures": "textures/kurokumaft/items/gun/bullet/thr_hund_e_winchester"
       },
 
       "barista": {
@@ -247,6 +280,28 @@
 
       "iron_arrow" : {
          "textures" : "textures/kurokumaft/items/arrow/iron_arrow"
+      },
+
+      "steel_bow" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/steel/steel_bow_standby",
+            "textures/kurokumaft/items/bow/steel/steel_bow_pulling_0",
+            "textures/kurokumaft/items/bow/steel/steel_bow_pulling_1",
+            "textures/kurokumaft/items/bow/steel/steel_bow_pulling_2"
+         ]
+      },
+
+      "sniper_steel_bow" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/steel/sniper_steel_bow_standby",
+            "textures/kurokumaft/items/bow/steel/sniper_steel_bow_pulling_0",
+            "textures/kurokumaft/items/bow/steel/sniper_steel_bow_pulling_1",
+            "textures/kurokumaft/items/bow/steel/sniper_steel_bow_pulling_2"
+         ]
+      },
+
+      "steel_arrow" : {
+         "textures" : "textures/kurokumaft/items/arrow/steel_arrow"
       },
 
       "diamond_bow" : {
@@ -306,6 +361,9 @@
       },
       "orichalcum" : {
          "textures" : "textures/kurokumaft/items/material/orichalcum"
+      },
+      "black_quartz" : {
+         "textures" : "textures/kurokumaft/items/material/black_quartz"
       },
 
       "black_powder" : {
@@ -415,17 +473,25 @@
       "steel_pickaxe" : {
          "textures" : "textures/kurokumaft/items/pickaxe/steel_pickaxe"
       },
+      "mithril_pickaxe" : {
+         "textures" : "textures/kurokumaft/items/pickaxe/mithril_pickaxe"
+      },
+      "orichalcum_pickaxe" : {
+         "textures" : "textures/kurokumaft/items/pickaxe/orichalcum_pickaxe"
+      },
 
       "steel_shovel" : {
          "textures" : "textures/kurokumaft/items/shovel/steel_shovel"
+      },
+      "mithril_shovel" : {
+         "textures" : "textures/kurokumaft/items/shovel/mithril_shovel"
       },
 
       "steel_hoe" : {
          "textures" : "textures/kurokumaft/items/hoe/steel_hoe"
       },
-
-      "steel_axe" : {
-         "textures" : "textures/kurokumaft/items/axe/steel_axe"
+      "mithril_hoe" : {
+         "textures" : "textures/kurokumaft/items/hoe/mithril_hoe"
       },
 
       "copper_bucket_axolotl" : {

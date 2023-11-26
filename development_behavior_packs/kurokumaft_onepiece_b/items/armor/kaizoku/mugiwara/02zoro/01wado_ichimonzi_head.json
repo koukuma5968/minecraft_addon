@@ -51,7 +51,8 @@
         }
       },
       "minecraft:wearable": {
-        "protection": 5
+        "protection": 5,
+        "slot": "slot.armor.head"
       },
       "minecraft:weapon": {
         "on_hurt_entity": {

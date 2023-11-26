@@ -64,7 +64,7 @@
                 ]
               }
             },
-            "cause": "attack",
+            "cause": "entity_attack",
             "deals_damage": false
           },
           {

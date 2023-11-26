@@ -11,7 +11,7 @@
         "default": "textures/kurokumaft/entity/zombie/thunder_zombie"
       },
       "geometry": {
-        "default": "geometry.zombie.thunder"
+        "default": "geometry.magic_zombie"
       },
       "spawn_egg": {
         "texture": "spawn_egg",

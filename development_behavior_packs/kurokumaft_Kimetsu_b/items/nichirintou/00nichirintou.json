@@ -47,6 +47,7 @@
           }
         ]
       },
+      "minecraft:use_duration": 1.0,
       "minecraft:chargeable": {
         "on_complete": {
           "event": "different_color"
@@ -69,33 +70,66 @@
       "different_color": {
         "randomize": [
           {
-            "weight": 5,
-            "transform_item": {
-              "transform": "kurokumaft:nichirintou_hi"
-            }
-          },
-          {
-            "weight": 70,
-            "transform_item": {
-              "transform": "kurokumaft:nichirintou_mizu"
-            }
-          },
-          {
-            "weight": 10,
-            "transform_item": {
-              "transform": "kurokumaft:nichirintou_kaminari"
+            "weight": 50,
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_mizu"
+              ],
+              "target": "player"
             }
           },
           {
             "weight": 30,
-            "transform_item": {
-              "transform": "kurokumaft:nichirintou_hono"
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_hono"
+              ],
+              "target": "player"
+            }
+          },
+          {
+            "weight": 10,
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_hana"
+              ],
+              "target": "player"
             }
           },
           {
             "weight": 5,
-            "transform_item": {
-              "transform": "kurokumaft:nichirintou_oto"
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_kaminari"
+              ],
+              "target": "player"
+            }
+          },
+          {
+            "weight": 5,
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_mushi"
+              ],
+              "target": "player"
+            }
+          },
+          {
+            "weight": 5,
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_oto"
+              ],
+              "target": "player"
+            }
+          },
+          {
+            "weight": 1,
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_hi"
+              ],
+              "target": "player"
             }
           }
         ]

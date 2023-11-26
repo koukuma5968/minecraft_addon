@@ -1,22 +1,24 @@
 {
     "format_version": "1.12",
-    "minecraft:recipe_shapeless": {
+    "minecraft:recipe_shaped": {
         "description": {
             "identifier": "kurokumaft:mithril_ingot"
         },
         "tags": ["crafting_table"],
         "priority": 2,
-        "ingredients": [
-            {
-                "item": "kurokumaft:steel_ingot"
-            },
-            {
-                "item": "minecraft:diamond"
-            },
-            {
-                "item": "minecraft:lapis_lazuli"
-            }
+        "pattern": [
+            " X ",
+            "XmX",
+            " X "
         ],
+        "key": {
+            "X": {
+                "item": "minecraft:quartz"
+            },
+            "m": {
+                "item": "kurokumaft:steel_ingot"
+            }
+        },
         "result": {
           "item": "kurokumaft:mithril_ingot",
           "count": 1

@@ -6,7 +6,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @e[tag=gravity_field_self] ~~~ particle kurokumaft:gravity_field_particle ~~~",
+					"/execute at @e[tag=gravity_field_self] run particle kurokumaft:gravity_field_particle ~~~",
 					"/function magic/stone/gravity_field"
 				]
 			}

@@ -25,8 +25,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "storm_bread": "!query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && variable.attack_time" },
-            { "wind_roar": "query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && variable.attack_time" },
+            { "storm_bread": "!query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && !query.is_using_item && variable.attack_time" },
+            { "wind_roar": "query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && !query.is_using_item && variable.attack_time" },
             { "storm": "!query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && query.is_using_item" },
             { "aero_bomb": "query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && query.is_using_item" }
           ]
@@ -52,7 +52,11 @@
         "storm": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aストーム\"}]}",
+            "/tag @s add storm_self",
             "/function magic/wind/storm"
+          ],
+          "on_exit": [
+            "/tag @s remove storm_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}
@@ -61,7 +65,11 @@
         "aero_bomb": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aエアロボム\"}]}",
+            "/tag @s add aero_bomb_self",
             "/function magic/wind/aero_bomb"
+          ],
+          "on_exit": [
+            "/tag @s remove aero_bomb_self"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

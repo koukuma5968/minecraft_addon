@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.ice_lance_magic.shooter": {
+			"loop": true,
+			"bones": {
+				"ice_lance_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "ice",
+					"locator": "ice_lance_body"
+				}
+			}
+		}
+	}
+}

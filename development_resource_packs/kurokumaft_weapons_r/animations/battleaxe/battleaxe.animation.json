@@ -1,0 +1,26 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.battleaxe.wield_first_person": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"pole": {
+					"rotation": [22.7831, -20.1094, -102.67194],
+					"position": [-4, -12, 3],
+					"scale": 1.5
+				}
+			}
+		},
+		"animation.battleaxe.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"pole": {
+					"rotation": [92.18344, -7.471, -91.53463],
+					"position": [1, 1, -25],
+					"scale": 1.5
+				}
+			}
+		}
+	}
+}

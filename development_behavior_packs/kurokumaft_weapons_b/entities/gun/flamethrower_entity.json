@@ -54,10 +54,10 @@
       "kurokumaft:despawn": {
         "run_command": {
           "command": [
-            "tag @e[tag=flamethrower_shot,r=1] remove flamethrower_shot",
-            "tag @e[tag=gun_shot,r=1] remove gun_shot"
+            "tag @e[tag=flamethrower_shot] remove flamethrower_shot",
+            "tag @e[tag=gun_shot] remove gun_shot"
           ],
-          "target": "self"
+          "target": "player"
         },
         "add": {
           "component_groups": [

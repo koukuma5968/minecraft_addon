@@ -7,7 +7,7 @@
 			"timeline": {
 				"0.0": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~1~"
+					"/execute as @s run tp @s ~~1~"
 				]
 			}
 		},
@@ -17,7 +17,7 @@
 			"timeline": {
 				"0.0": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~"
+					"/execute as @s run tp @s ~~~"
 				]
 			}
 		},
@@ -28,93 +28,93 @@
 				"0.0": [
 					"/tag @s add kokyu_hi4",
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ~~~"
+					"/execute as @s run tp @s ~~~"
 				],
 				"0.05": [
-					"/execute @s ^1^^1 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^2^1^1.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^1^^1 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^2^1^1.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^1^^1 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^2^1^1.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^1^^1 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^2^1^1.5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^1^^1 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^2^1^1.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^1^^1 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^2^1^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.10": [
-					"/execute @s ^4^2^2 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^3^3^2.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^3^2^2 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^4^3^2.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^3^1^2 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^4^3^2.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^4^2^2 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^3^3^2.5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^3^2^2 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^4^3^2.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^3^1^2 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^4^3^2.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.15": [
-					"/execute @s ^3^4^3 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^2^5^3.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^3^4^3 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^2^5^3.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^3^4^3 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^2^5^3.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^3^4^3 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^2^5^3.5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^3^4^3 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^2^5^3.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^3^4^3 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^2^5^3.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.20": [
-					"/execute @s ^1^6^4 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^0^7^4.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^1^6^4 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^0^7^4.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^1^6^4 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^0^7^4.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^1^6^4 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^0^7^4.5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^1^6^4 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^0^7^4.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^1^6^4 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^0^7^4.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.25": [
-					"/execute @s ^-2^6^5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^-4^5^5.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^-2^6^5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^-4^5^5.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^-2^6^5 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^-4^5^5.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^-2^6^5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-4^5^5.5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-2^6^5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^-4^5^5.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^-2^6^5 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^-4^5^5.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.30": [
-					"/execute @s ^-6^4^6 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^-8^3^6.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^-6^6^6 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^-8^3^6.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^-6^4^6 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^-8^3^6.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^-6^4^6 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-8^3^6.5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-6^6^6 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^-8^3^6.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^-6^4^6 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^-8^3^6.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.35": [
-					"/execute @s ^-6^2^7 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^-4^1^7.5 damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
-					"/execute @s ^-6^2^7 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^-4^1^7.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^-6^2^7 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^-4^1^7.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^-6^2^7 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-4^1^7.5 run damage @e[tag=!kokyu_hi4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-6^2^7 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^-4^1^7.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^-6^2^7 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^-4^1^7.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.40": [
-					"/execute @s ^-2^0^8 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^0^1^8.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^-2^0^8 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^0^1^8.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^-2^0^8 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^0^1^8.5 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^-2^0^8 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^0^1^8.5 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^-2^0^8 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^0^1^8.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^-2^0^8 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^0^1^8.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.45": [
-					"/execute @s ^3^3^9 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^6^5^9.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^9^7^10 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^3^3^9 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^6^5^9.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^9^7^10 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^3^3^9 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^6^5^9.5 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^9^7^10 particle kurokumaft:hi4_fire_particle ~~~"
+					"/execute as @s positioned ^3^3^9 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^6^5^9.5 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^9^7^10 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^3^3^9 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^6^5^9.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^9^7^10 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^3^3^9 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^6^5^9.5 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^9^7^10 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.50": [
-					"/execute @s ^6^9^10.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^3^11^11 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^0^12^11.5 damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
-					"/execute @s ^6^9^10.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^3^11^11 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^0^12^11.5 particle kurokumaft:hi4_particle ~~~",
-					"/execute @s ^6^9^10.5 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^3^11^11 particle kurokumaft:hi4_fire_particle ~~~",
-					"/execute @s ^0^12^11.5 particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^6^9^10.5 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^3^11^11 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^0^12^11.5 run damage @e[tag=!kokyu_hi4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^6^9^10.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^3^11^11 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^0^12^11.5 run particle kurokumaft:hi4_particle ~~~",
+					"/execute as @s positioned ^6^9^10.5 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^3^11^11 run particle kurokumaft:hi4_fire_particle ~~~",
+					"/execute as @s positioned ^0^12^11.5 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/tag @s remove kokyu_hi4"
 				]
 			}
@@ -126,23 +126,23 @@
 				"0.0": [
 					"/tag @s add kokyu_hi5",
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @s ^^^0.5 true",
-					"/execute @s ^0^^1 damage @e[tag=!kokyu_hi5,r=1.5] 15 entity_attack",
-					"/execute @s ^0.5^^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^1^0.5^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^1.5^1^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^2^1.5^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^1.5^2^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^1^2.5^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^0.5^3^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^0^3.5^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^-0.5^3^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^-1^2.5^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^-1.5^2^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^-2^1.5^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^-1.5^1^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^-1^0.5^1 particle kurokumaft:hi5_particle ~~~",
-					"/execute @s ^-0.5^^1 particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s run tp @s ^^^0.5 true",
+					"/execute as @s positioned ^0^^1 run damage @e[tag=!kokyu_hi5,r=1.5] 15 entity_attack",
+					"/execute as @s positioned ^0.5^^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^1^0.5^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^1.5^1^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^2^1.5^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^1.5^2^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^1^2.5^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^0.5^3^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^0^3.5^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^-0.5^3^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^-1^2.5^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^-1.5^2^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^-2^1.5^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^-1.5^1^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^-1^0.5^1 run particle kurokumaft:hi5_particle ~~~",
+					"/execute as @s positioned ^-0.5^^1 run particle kurokumaft:hi5_particle ~~~",
 					"/tag @s remove kokyu_hi5"
 				]
 			}
@@ -161,10 +161,10 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ tp @s ~~0.25~",
+					"/execute as @s run tp @s ~~0.25~",
 					"/tag @s add kokyu_hi9",
-					"/execute @s ^^^1 damage @e[tag=!kokyu_hi9,r=1.5] 20 entity_attack",
-					"/execute @s ~~~ particle kurokumaft:hi9_particle ~~~",
+					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_hi9,r=1.5] 20 entity_attack",
+					"/execute as @s run particle kurokumaft:hi9_particle ~~~",
 					"/tag @s remove kokyu_hi9"
 				]
 			}
@@ -174,7 +174,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ particle kurokumaft:hi11_particle ~~~"
+					"/execute as @s run particle kurokumaft:hi11_particle ~~~"
 				]
 			}
 		}

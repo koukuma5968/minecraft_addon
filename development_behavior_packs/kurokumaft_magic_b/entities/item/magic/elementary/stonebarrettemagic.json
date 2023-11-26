@@ -64,7 +64,7 @@
         "run_command": {
           "command": [
             "particle kurokumaft:stone_particle ~~~",
-            "setblock ~~~ stone 0 keep"
+            "setblock ~~~ stone keep"
           ],
           "target": "self"
         }

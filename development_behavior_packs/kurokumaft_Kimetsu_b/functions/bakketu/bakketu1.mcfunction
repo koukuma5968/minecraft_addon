@@ -1,3 +1,3 @@
-execute @e[tag=bakketu_enemy] ~~~ particle kurokumaft:bakketu ~~~
-execute @e[tag=bakketu_ally] ~~~ particle kurokumaft:bakketu ~~~
+execute as @e[tag=bakketu_enemy] at @s run particle kurokumaft:bakketu ~~~
+execute as @e[tag=bakketu_ally] at @s run particle kurokumaft:bakketu ~~~
 

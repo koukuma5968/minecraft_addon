@@ -6,7 +6,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute @s ~~~ tp @s ~~0.25~"
+					"/execute as @s run tp @s ~~0.25~"
 				]
 			}
 		},
@@ -16,7 +16,7 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_mizu8",
-					"/execute @s ^^^2 damage @e[tag=!kokyu_mizu8,r=3] 15 entity_attack",
+					"/execute as @s positioned ^^^2 run damage @e[tag=!kokyu_mizu8,r=3] 15 entity_attack",
 					"/tag @s remove kokyu_mizu8"
 				]
 			}
@@ -36,7 +36,7 @@
 			"timeline": {
 				"0.0": [
 					"/gamerule sendcommandfeedback false",
-					"/execute @s ~~~ tp @e[name=mizu10_doragon,c=1] ^^^1"
+					"/execute as @s run tp @e[name=mizu10_doragon,c=1] ^^^1"
 				]
 			}
 		},

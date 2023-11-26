@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:flamespark_staff",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/items/staff/flamespark_staff",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.staff"
+      },
+      "animations": {
+        "wield": "animation.staff.wield",
+        "wield_thred": "animation.staff.wield_thred"
+      },
+      "scripts": {
+        "animate": [
+          {"wield": "c.is_first_person"},
+          {"wield_thred": "!c.is_first_person"}
+        ]
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

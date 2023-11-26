@@ -27,11 +27,11 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:wind_magic_stone" ],
-            "repair_amount": 100
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:atmosphere_stick" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -71,17 +71,50 @@
           {
             "condition": "!query.is_sneaking",
             "trigger": "kurokumaft:storm_cutter_shot"
+          },
+          {
+            "trigger": "kurokumaft:durability"
           }
-        ],
-        "trigger": "kurokumaft:durability"
+        ]
       },
       "kurokumaft:storm_cutter_shot": {
-        "shoot": {
-          "projectile": "kurokumaft:storm_cutter_magic<kurokumaft:storm_cutter_owner>",
-          "angle_offset": 45,
-          "launch_power": 1.1
-        },
-        "trigger": "kurokumaft:durability"
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:storm_cutter_magic<kurokumaft:storm_cutter_owner>",
+              "angle_offset": 45,
+              "launch_power": 1.1
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:storm_cutter_magic<kurokumaft:storm_cutter_child1>",
+              "angle_offset": 45,
+              "launch_power": 1.1
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:storm_cutter_magic<kurokumaft:storm_cutter_child2>",
+              "angle_offset": 45,
+              "launch_power": 1.1
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:storm_cutter_magic<kurokumaft:storm_cutter_child3>",
+              "angle_offset": 45,
+              "launch_power": 1.1
+            }
+          },
+          {
+            "shoot": {
+              "projectile": "kurokumaft:storm_cutter_magic<kurokumaft:storm_cutter_child4>",
+              "angle_offset": 45,
+              "launch_power": 1.1
+            }
+          }
+        ]
       }
     }
   }

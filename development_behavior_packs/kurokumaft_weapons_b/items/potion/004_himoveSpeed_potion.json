@@ -31,6 +31,7 @@
           {
             "run_command": {
               "command": [
+                "gamerule sendcommandfeedback false",
                 "effect @s speed 100 5",
                 "effect @s jump_boost 100 5"
               ],

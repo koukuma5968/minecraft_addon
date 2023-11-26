@@ -1,0 +1,20 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:black_quartz",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.ingot"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:black_quartz.name"
+			},
+      "minecraft:icon": {
+        "texture": "black_quartz"
+      }
+    }
+  }
+}

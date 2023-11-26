@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:mithril_axe"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AA",
+            "A#",
+            " #"
+        ],
+        "key": {
+            "A": {
+                "item": "kurokumaft:mithril_ingot"
+            },
+            "#": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:mithril_axe",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

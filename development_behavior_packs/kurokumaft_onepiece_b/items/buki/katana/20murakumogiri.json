@@ -34,10 +34,7 @@
         "value": 10,
         "slot": "sword"
       },
-      "minecraft:can_destroy_in_creative": true,
-      "minecraft:wearable": {
-        "slot": "slot.equippable"
-      }
+      "minecraft:can_destroy_in_creative": true
     },
     "events": {
     }

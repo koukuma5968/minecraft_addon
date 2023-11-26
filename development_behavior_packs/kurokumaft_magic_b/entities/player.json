@@ -1189,49 +1189,49 @@
       "kurokumaft:lava_freeze": {
 				"run_command": {
 					"command": [
-            "execute @s ~~~ detect ^1^1^ lava -1 setblock ^1^1^ air",
-            "execute @s ~~~ detect ^-1^1^ lava -1 setblock ^-1^1^ air",
-            "execute @s ~~~ detect ^^1^1 lava -1 setblock ^^1^1 air",
-            "execute @s ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air",
-            "execute @s ~~~ detect ^^1^-1 lava -1 setblock ^^1^-1 air",
-            "execute @s ~~~ detect ^-1^2^ lava -1 setblock ^-1^2^ air",
-            "execute @s ~~~ detect ^^2^1 lava -1 setblock ^^2^1 air",
-            "execute @s ~~~ detect ^^2^-1 lava -1 setblock ^^2^-1 air",
-            "execute @s ~~~ detect ^^3^ lava -1 setblock ^^3^ air"
+            "execute as @s if block ^1^1^ lava run setblock ^1^1^ air",
+            "execute as @s if block ^-1^1^ lava run setblock ^-1^1^ air",
+            "execute as @s if block ^^1^1 lava run setblock ^^1^1 air",
+            "execute as @s if block ^^1^-1 lava run setblock ^^1^-1 air",
+            "execute as @s if block ^^1^-1 lava run setblock ^^1^-1 air",
+            "execute as @s if block ^-1^2^ lava run setblock ^-1^2^ air",
+            "execute as @s if block ^^2^1 lava run setblock ^^2^1 air",
+            "execute as @s if block ^^2^-1 lava run setblock ^^2^-1 air",
+            "execute as @s if block ^^3^ lava run setblock ^^3^ air"
           ]
 				}
 			},
       "kurokumaft:ice_walker": {
 				"run_command": {
 					"command": [
-            "execute @s ~~~ detect ~~-1~ water -1 setblock ~~-1~ packed_ice",
-            "execute @s ~~~ detect ~~-1~ flowing_water -1 setblock ~~-1~ packed_ice",
-            "execute @s ~~~ detect ^^-1^-1 packed_ice -1 setblock ^^-1^-1 water",
-            "execute @s ~~~ detect ^^-1^-1 flowing_water -1 setblock ^^-1^-1 packed_ice"
+            "execute as @s if block ~~-1~ water run setblock ~~-1~ packed_ice",
+            "execute as @s if block ~~-1~ flowing_water run setblock ~~-1~ packed_ice",
+            "execute as @s if block ^^-1^-1 packed_ice run setblock ^^-1^-1 water",
+            "execute as @s if block ^^-1^-1 flowing_water run setblock ^^-1^-1 packed_ice"
           ]
 				}
 			},
       "kurokumaft:snow_defrosting": {
 				"run_command": {
 					"command": [
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ snow -1 setblock ^1^1^ water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ snow -1 setblock ^-1^1^ water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 snow -1 setblock ^^1^1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 snow -1 setblock ^^1^-1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 snow -1 setblock ^^1^-1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ snow -1 setblock ^-1^2^ water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 snow -1 setblock ^^2^1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 snow -1 setblock ^^2^-1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ snow -1 setblock ^^3^ water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^1^1^ powder_snow -1 setblock ^1^1^ water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^1^ powder_snow -1 setblock ^-1^1^ water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^1 powder_snow -1 setblock ^^1^1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 powder_snow -1 setblock ^^1^-1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^1^-1 powder_snow -1 setblock ^^1^-1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^-1^2^ powder_snow -1 setblock ^-1^2^ water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^1 powder_snow -1 setblock ^^2^1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^2^-1 powder_snow -1 setblock ^^2^-1 water",
-            "execute @e[type=player,r=1,c=1] ~~~ detect ^^3^ powder_snow -1 setblock ^^3^ water"
+            "execute if block ^1^1^ snow run setblock ^1^1^ water",
+            "execute if block ^-1^1^ snow run setblock ^-1^1^ water",
+            "execute if block ^^1^1 snow run setblock ^^1^1 water",
+            "execute if block ^^1^-1 snow run setblock ^^1^-1 water",
+            "execute if block ^^1^-1 snow run setblock ^^1^-1 water",
+            "execute if block ^-1^2^ snow run setblock ^-1^2^ water",
+            "execute if block ^^2^1 snow run setblock ^^2^1 water",
+            "execute if block ^^2^-1 snow run setblock ^^2^-1 water",
+            "execute if block ^^3^ snow run setblock ^^3^ water",
+            "execute if block ^1^1^ powder_snow run setblock ^1^1^ water",
+            "execute if block ^-1^1^ powder_snow run setblock ^-1^1^ water",
+            "execute if block ^^1^1 powder_snow run setblock ^^1^1 water",
+            "execute if block ^^1^-1 powder_snow run setblock ^^1^-1 water",
+            "execute if block ^^1^-1 powder_snow run setblock ^^1^-1 water",
+            "execute if block ^-1^2^ powder_snow run setblock ^-1^2^ water",
+            "execute if block ^^2^1 powder_snow run setblock ^^2^1 water",
+            "execute if block ^^2^-1 powder_snow run setblock ^^2^-1 water",
+            "execute if block ^^3^ powder_snow run setblock ^^3^ water"
           ]
 				}
 			},
