@@ -1,0 +1,75 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.hebi" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"hebi1_1": "variable.equipped_obanai && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
+						{"hebi2_1": "variable.equipped_obanai && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
+						{"hebi3_1": "variable.equipped_obanai && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
+						{"hebi4_1": "variable.equipped_obanai && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
+						{"hebi5_1": "variable.equipped_obanai && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"}
+					]
+				},
+				"hebi1_1" : {
+					"animations" : [
+						"hebi.ichi_1"
+					],
+					"transitions" : [
+						{"hebi1_2":"!query.is_using_item"}
+					]
+				},
+				"hebi1_2" : {
+					"animations" : [
+						"hebi.ichi_2"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hebi2_1" : {
+					"animations" : [
+						"hebi.ni"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hebi3_1" : {
+					"animations" : [
+						"hebi.san"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hebi4_1" : {
+					"animations" : [
+						"hebi.shi_1"
+					],
+					"transitions" : [
+						{"hebi4_2":"query.mark_variant == 2"}
+					]
+				},
+				"hebi4_2" : {
+					"animations" : [
+						"hebi.shi_2"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hebi5_1" : {
+					"animations" : [
+						"hebi.go"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

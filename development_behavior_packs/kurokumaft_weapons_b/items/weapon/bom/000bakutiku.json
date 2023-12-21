@@ -16,8 +16,7 @@
         "texture": "bakutiku"
       },
       "minecraft:block_placer": {
-        "block": "bakutiku_block",
-        "use_on" : []
+        "block": "bakutiku_block"
       },
       "minecraft:use_duration": 1.0,
       "minecraft:chargeable": {

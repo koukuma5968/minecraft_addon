@@ -10,16 +10,16 @@
             }
           },
           "transitions": [
-            { "kedamono1": "query.variant == 1 && query.mark_variant == 0" },
-            { "kedamono2": "query.variant == 2 && query.mark_variant == 0" },
-            { "kedamono3": "query.variant == 3 && query.mark_variant == 0" },
-            { "kedamono4": "query.variant == 4 && query.mark_variant == 0" },
-            { "kedamono5": "query.variant == 5 && query.mark_variant == 0" },
-            { "kedamono6": "query.variant == 6 && query.mark_variant == 0" },
-            { "kedamono7": "query.variant == 7 && query.mark_variant == 0" },
-            { "kedamono8": "query.variant == 8 && query.mark_variant == 0" },
-            { "kedamono9": "query.variant == 9 && query.mark_variant == 0" },
-            { "kedamono10": "query.variant == 10 && query.mark_variant == 0" }
+            { "kedamono1": "query.skin_id == 1 && query.variant == 1 && query.mark_variant == 0" },
+            { "kedamono2": "query.skin_id == 1 && query.variant == 2 && query.mark_variant == 0" },
+            { "kedamono3": "query.skin_id == 1 && query.variant == 3 && query.mark_variant == 0" },
+            { "kedamono4": "query.skin_id == 1 && query.variant == 4 && query.mark_variant == 0" },
+            { "kedamono5": "query.skin_id == 1 && query.variant == 5 && query.mark_variant == 0" },
+            { "kedamono6": "query.skin_id == 1 && query.variant == 6 && query.mark_variant == 0" },
+            { "kedamono7": "query.skin_id == 1 && query.variant == 7 && query.mark_variant == 0" },
+            { "kedamono8": "query.skin_id == 1 && query.variant == 8 && query.mark_variant == 0" },
+            { "kedamono9": "query.skin_id == 1 && query.variant == 9 && query.mark_variant == 0" },
+            { "kedamono10": "query.skin_id == 1 && query.variant == 10 && query.mark_variant == 0" }
           ]
         },
         "kedamono1":{
@@ -28,8 +28,7 @@
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -41,8 +40,7 @@
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -54,8 +52,7 @@
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -67,8 +64,7 @@
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 60 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -80,8 +76,7 @@
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 60 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -93,8 +88,7 @@
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 80 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -108,8 +102,7 @@
           ],
           "on_exit": [
             "/function kemono/kemono7/kemono7_3",
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 100 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -122,8 +115,7 @@
           ],
           "on_exit": [
             "/effect @s speed 0",
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 80 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -135,8 +127,7 @@
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_inosuke = variable.kokyu_inosuke < 10 ? variable.kokyu_inosuke + 1:0;return variable.kokyu_inosuke == 0;"}
@@ -148,8 +139,7 @@
             "/event entity @s add_damage_clear"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s variant0",
+            "/event entity @s kurokumaft:random_kokyu_off",
             "/event entity @s remove_damage_clear"
           ],
           "transitions": [

@@ -21,7 +21,14 @@
         },
         "kasumi1":{
           "on_entry": [
-            "/event entity @s mark_variant1",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kasumi1_at":"!query.is_using_item"}
+          ]
+        },
+        "kasumi1_at":{
+          "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b垂天遠霞\"}]}",
             "/function kasumi/kasumi1"
           ],
@@ -39,7 +46,6 @@
             "/function kasumi/kasumi2"
           ],
           "on_exit": [
-            "/function kasumi/kasumi2",
             "/event entity @s mark_variant0"
           ],
           "transitions": [
@@ -48,7 +54,14 @@
         },
         "kasumi3":{
           "on_entry": [
-            "/event entity @s mark_variant1",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kasumi3_at":"!query.is_using_item"}
+          ]
+        },
+        "kasumi3_at":{
+          "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞散の飛沫\"}]}",
             "/function kasumi/kasumi3"
           ],
@@ -56,31 +69,42 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 100 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
+            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 10 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
           ]
         },
         "kasumi4":{
           "on_entry": [
-            "/event entity @s mark_variant1",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kasumi4_at":"!query.is_using_item"}
+          ]
+        },
+        "kasumi4_at":{
+          "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b移流斬り\"}]}",
             "/function kasumi/kasumi4"
           ],
           "on_exit": [
-            "/event entity @s mark_variant0",
-            "/event entity @s remove_damage_clear"
+            "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 60 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
+            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 10 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
           ]
         },
         "kasumi5":{
+          "animations" : [ "kasumi5_ani" ],
           "on_entry": [
             "/event entity @s mark_variant1",
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞雲の海\"}]}",
-            "/function kasumi/kasumi5"
+            "/effect @s speed 99999 10 true",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b霞雲の海\"}]}"
+          ],
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 60 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
+            {"default":"!query.is_using_item"}
           ]
         },
         "kasumi6":{
@@ -93,20 +117,22 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 10 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
+            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 20 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
           ]
         },
         "kasumi7":{
+          "animations" : [ "kasumi7_ani" ],
           "on_entry": [
             "/event entity @s mark_variant1",
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b朧\"}]}",
-            "/function kasumi/kasumi7"
+            "/effect @s speed 99999 10 true",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§b朧\"}]}"
           ],
           "on_exit": [
+            "/effect @s speed 0",
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 10 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
+            {"default":"variable.kokyu_kasumi_attack = variable.kokyu_kasumi_attack < 200 ? variable.kokyu_kasumi_attack + 1:0;return variable.kokyu_kasumi_attack == 0;"}
           ]
         }
       }

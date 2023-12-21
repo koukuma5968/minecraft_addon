@@ -40,7 +40,7 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
-      "minecraft:use_duration": 999999,
+      "minecraft:use_duration": 9999,
       "minecraft:chargeable": {
         "movement_modifier": 0.25
       },

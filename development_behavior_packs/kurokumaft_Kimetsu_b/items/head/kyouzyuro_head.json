@@ -13,13 +13,16 @@
 				"value": "item.kurokumaft:kyouzyuro_head.name"
 			},
       "minecraft:icon": {
-          "texture": "kyouzyuro_head"
+        "texture": "kyouzyuro_head"
+      },
+      "minecraft:block_placer": {
+        "block": "kurokumaft:kyouzyuro_skull"
       },
       "minecraft:repairable": {
         "repair_items": [
           {
             "items": [ "kurokumaft:kyouzyuro_head" ],
-            "repair_amount": 250
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           }
         ]
       },

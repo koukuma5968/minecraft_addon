@@ -10,6 +10,17 @@
 				}
 			}
 		},
+		"animation.kyouzyuro_first": {
+			"loop": true,
+			"animation_length": 0.70833,
+			"bones": {
+				"kyouzyuro_nichirinto": {
+					"rotation": [14.93001, 68.69274, -44.97092],
+					"position": [2, -4, 2],
+					"scale": [0.5, 0.5, 0.5]
+				}
+			}
+		},
 		"animation.kyouzyuro.attack": {
 			"animation_length": 0.5,
 			"bones": {
@@ -256,7 +267,7 @@
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.1667": [-105.98164, -5.43585, 159.40706],
-						"0.3333": [-6.45723, 11.90522, 157.68583]
+						"0.3333": [-25.98, -5.44, 159.41]
 					},
 					"position": [0, 0, 0]
 				},
@@ -306,7 +317,137 @@
 				}
 			},
 			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
 				"0.1667": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"1.0": [
 					{
 						"effect": "hono_blead_particle",
 						"locator": "kyouzyuro1"
@@ -390,7 +531,85 @@
 				}
 			},
 			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
 				"0.1667": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.5": [
 					{
 						"effect": "hono_blead_particle",
 						"locator": "kyouzyuro1"
@@ -460,7 +679,111 @@
 				}
 			},
 			"particle_effects": {
-				"0.4167": [
+				"0.0": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.5": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.6667": [
 					{
 						"effect": "hono_blead_particle",
 						"locator": "kyouzyuro1"
@@ -489,6 +812,7 @@
 			}
 		},
 		"animation.nichirintou_kokyu.kyouzyuro.go_1": {
+			"loop": "hold_on_last_frame",
 			"animation_length": 0.75,
 			"bones": {
 				"root": {
@@ -544,7 +868,33 @@
 				}
 			},
 			"particle_effects": {
-				"0.1667": [
+				"0.0": [
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro1"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro2"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro5"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "kyouzyuro6"
+					}
+				],
+				"0.4167": [
 					{
 						"effect": "hono_blead_particle",
 						"locator": "kyouzyuro1"
@@ -779,17 +1129,6 @@
 						"locator": "kyouzyuro6"
 					}
 				]
-			}
-		},
-		"animation.kyouzyuro_first": {
-			"loop": true,
-			"animation_length": 0.70833,
-			"bones": {
-				"kyouzyuro_nichirinto": {
-					"rotation": [14.93001, 68.69274, -44.97092],
-					"position": [2, -4, 2],
-					"scale": [0.5, 0.5, 0.5]
-				}
 			}
 		}
 	}

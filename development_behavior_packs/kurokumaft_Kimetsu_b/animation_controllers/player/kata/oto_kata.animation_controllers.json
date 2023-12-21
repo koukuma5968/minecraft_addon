@@ -17,35 +17,45 @@
         },
         "oto1":{
           "on_entry": [
+            "/event entity @s kurokumaft:knockback_add",
+            "/event entity @s kurokumaft:explosion_nullify",
+            "/tag @s add kokyu_oto1"
+          ],
+          "transitions": [
+            {"oto1_at":"1.0"}
+          ]
+        },
+        "oto1_at":{
+          "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e轟\"}]}",
             "/event entity @s mark_variant1",
-            "/event entity @s kurokumaft:knockback_add",
-            "/tag @s add kokyu_oto1",
-  					"/execute as @s run damage @e[tag=!kokyu_oto1,r=3.5] 10 entity_explosion",
-            "/effect @s resistance 99999 60 true",
-            "/effect @s fire_resistance 99999 60 true",
+  					"/damage @e[tag=!kokyu_oto1,r=3.5] 10 entity_explosion",
             "/summon kurokumaft:oto_bom ^1^^2 ~ ~ minecraft:explode",
             "/summon kurokumaft:oto_bom ^-1^^2 ~ ~ minecraft:explode"
           ],
           "on_exit": [
             "/event entity @s mark_variant0",
             "/event entity @s kurokumaft:knockback_remove",
-            "/tag @s remove kokyu_oto1",
-            "/effect @s resistance 0",
-            "/effect @s fire_resistance 0"
+            "/event entity @s kurokumaft:explosion_nullify_remove",
+            "/tag @s remove kokyu_oto1"
           ],
           "transitions": [
             {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 20 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
           ]
         },
         "oto4":{
+          "on_entry": [
+            "/event entity @s kurokumaft:explosion_nullify",
+            "/event entity @s kurokumaft:knockback_add"
+          ],
+          "transitions": [
+            {"oto4_at":"1.0"}
+          ]
+        },
+        "oto4_at":{
           "animations" : [ "oto4_ani" ],
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e響斬無間\"}]}",
-            "/effect @s resistance 99999 60 true",
-            "/effect @s fire_resistance 99999 60 true",
-            "/event entity @s kurokumaft:explosion_nullify",
-            "/event entity @s kurokumaft:knockback_add",
             "/event entity @s mark_variant1"
           ],
           "transitions": [
@@ -56,24 +66,27 @@
           "on_exit": [
             "/event entity @s mark_variant0",
             "/event entity @s kurokumaft:explosion_nullify_remove",
-            "/event entity @s kurokumaft:knockback_remove",
-            "/effect @s resistance 0",
-            "/effect @s fire_resistance 0"
+            "/event entity @s kurokumaft:knockback_remove"
           ],
           "transitions": [
             {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 5 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
           ]
         },
         "oto5":{
+          "on_entry": [
+            "/event entity @s kurokumaft:explosion_nullify",
+            "/event entity @s kurokumaft:knockback_add",
+            "/effect @s speed 99999 5 true"
+          ],
+          "transitions": [
+            {"oto5_at":"1.0"}
+          ]
+        },
+        "oto5_at":{
           "animations" : [ "oto5_ani" ],
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e鳴弦奏々\"}]}",
-            "/event entity @s mark_variant1",
-            "/event entity @s kurokumaft:explosion_nullify",
-            "/event entity @s kurokumaft:knockback_add",
-            "/effect @s speed 99999 5 true",
-            "/effect @s resistance 99999 20 true",
-            "/effect @s fire_resistance 99999 20 true"
+            "/event entity @s mark_variant1"
           ],
           "transitions": [
             {"oto5_f":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 100 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}
@@ -84,9 +97,7 @@
             "/event entity @s mark_variant0",
             "/event entity @s kurokumaft:explosion_nullify_remove",
             "/event entity @s kurokumaft:knockback_remove",
-            "/effect @s speed 0",
-            "/effect @s resistance 0",
-            "/effect @s fire_resistance 0"
+            "/effect @s speed 0"
           ],
           "transitions": [
             {"default":"variable.kokyu_oto_attack = variable.kokyu_oto_attack < 5 ? variable.kokyu_oto_attack + 1:0;return variable.kokyu_oto_attack == 0;"}

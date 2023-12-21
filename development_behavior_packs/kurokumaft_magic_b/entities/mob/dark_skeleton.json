@@ -76,11 +76,9 @@
         "speed_multiplier": 1.0
       },
       "minecraft:behavior.owner_hurt_by_target": {
-        "test": "is_family","operator": "not", "subject": "other","value": "player",
         "priority": 1
       },
       "minecraft:behavior.owner_hurt_target": {
-        "test": "is_family","operator": "==", "subject": "other","value": "player",
         "priority": 2
       },
       "minecraft:is_dyeable": {
@@ -151,8 +149,9 @@
         "alert_same_type": true,
         "entity_types": {
           "filters": {
-            "any_of": [
-              { "test": "is_family", "subject": "other", "value": "monster" }
+            "all_of": [
+              { "test": "is_family","operator": "not", "subject": "other","value": "player" },
+              { "test": "is_family","operator": "not", "subject": "other","value": "familiar" }
             ]
           }
         },
@@ -165,8 +164,9 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "monster" }
+              "all_of": [
+                { "test": "is_family","operator": "not", "subject": "other","value": "player" },
+                { "test": "is_family","operator": "not", "subject": "other","value": "familiar" }
               ]
             },
             "max_dist": 16
@@ -195,7 +195,7 @@
         "priority": 8
       },
       "minecraft:type_family": {
-        "family": [ "dark_skeleton", "inanimate" ]
+        "family": [ "dark_skeleton", "inanimate", "familiar" ]
       },
       "minecraft:physics": {
       },

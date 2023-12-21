@@ -45,7 +45,7 @@
 				}
 			},
 			"minecraft:crafting_table": {
-				"custom_description": "tile.kurokumaft:magic_enchant_table.name",
+				"table_name": "tile.kurokumaft:magic_enchant_table.name",
 				"crafting_tags": [
 					"magic_enchant"
 				]

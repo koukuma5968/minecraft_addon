@@ -119,7 +119,7 @@
         "breathes_water": true
       },
       "minecraft:attack": {
-        "damage": 3
+        "damage": 5
       },
       "minecraft:loot": {
         "table": "loot_tables/entities/zombie/zombie.json"

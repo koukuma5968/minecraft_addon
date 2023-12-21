@@ -49,6 +49,10 @@ entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
 entity.kurokumaft:shinobu.name=胡蝶 しのぶ
 entity.kurokumaft:tengen.name=宇髄 天元
 entity.kurokumaft:mituri.name=甘露寺 蜜璃
+entity.kurokumaft:sanemi.name=不死川 実弥
+entity.kurokumaft:genya.name=不死川 玄弥
+entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
+entity.kurokumaft:muitiro.name=時透 無一郎
 
 item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
 item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
@@ -60,11 +64,18 @@ item.spawn_egg.entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
 item.spawn_egg.entity.kurokumaft:shinobu.name=胡蝶 しのぶ
 item.spawn_egg.entity.kurokumaft:tengen.name=宇髄 天元
 item.spawn_egg.entity.kurokumaft:mituri.name=甘露寺 蜜璃
+item.spawn_egg.entity.kurokumaft:sanemi.name=不死川 実弥
+item.spawn_egg.entity.kurokumaft:genya.name=不死川 玄弥
+item.spawn_egg.entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
+item.spawn_egg.entity.kurokumaft:muitiro.name=時透 無一郎
 
 item.kurokumaft:soldier_jacket_guy.name=隊士服上着・茶(男)
 item.kurokumaft:soldier_pants_guy.name=隊士服ズボン・茶(男)
 item.kurokumaft:soldier_jacket_guy_blue.name=隊士服上着・紺(男)
 item.kurokumaft:soldier_pants_guy_blue.name=隊士服ズボン・紺(男)
+item.kurokumaft:soldier_jacket_guy_green.name=隊士服上着・緑(男)
+item.kurokumaft:soldier_pants_guy_green.name=隊士服ズボン・緑(男)
+
 item.kurokumaft:soldier_jacket_girl_blue.name=隊士服上着・紺(女)
 item.kurokumaft:soldier_jacket_girl_brown.name=隊士服上着・茶(女)
 item.kurokumaft:soldier_skirt_girl_blue.name=隊士服キュロット・紺(女)
@@ -108,7 +119,20 @@ item.kurokumaft:tengen_tabi.name=天元の足袋
 item.kurokumaft:mituri_haori.name=蜜璃の羽織
 item.kurokumaft:mituri_tabi.name=蜜璃の足袋
 item.kurokumaft:mituri_jacket.name=蜜璃の隊士服
-item.kurokumaft:mituri_jacket.name=蜜璃の隊士服スカート
+item.kurokumaft:mituri_skirt.name=蜜璃の隊士服スカート
+
+item.kurokumaft:sanemi_tabi.name=実弥の足袋
+item.kurokumaft:sanemi_haori_soldier_jacket.name=実弥の羽織
+
+item.kurokumaft:genya_tabi.name=玄弥の足袋
+item.kurokumaft:genya_haori_soldier_jacket.name=玄弥の羽織
+
+item.kurokumaft:gyoumei_tabi.name=行冥の足袋
+item.kurokumaft:gyoumei_haori_soldier_jacket.name=行冥の羽織
+
+item.kurokumaft:muitiro_tabi.name=無一郎の足袋
+item.kurokumaft:muitiro_jacket.name=無一郎の隊士服
+item.kurokumaft:muitiro_hakama.name=無一郎の袴
 
 item.kurokumaft:tanjiro_head.name=炭次郎の頭
 item.kurokumaft:zenitu_head.name=善逸の頭
@@ -120,4 +144,22 @@ item.kurokumaft:kyouzyuro_head.name=杏寿郎の頭
 item.kurokumaft:shinobu_head.name=しのぶの頭
 item.kurokumaft:tengen_head.name=天元の頭
 item.kurokumaft:mituri_head.name=蜜璃の頭
+item.kurokumaft:sanemi_head.name=実弥の頭
+item.kurokumaft:genya_head.name=玄弥の頭
+item.kurokumaft:gyoumei_head.name=行冥の頭
+item.kurokumaft:muitiro_head.name=無一郎の頭
 
+tile.kurokumaft:tanjiro_skull.name=炭次郎の頭
+tile.kurokumaft:zenitu_skull.name=善逸の頭
+tile.kurokumaft:inosuke_skull.name=伊之助の頭
+tile.kurokumaft:nezuko_skull.name=禰豆子の頭
+tile.kurokumaft:kanawo_skull.name=カナヲの頭
+tile.kurokumaft:giyu_skull.name=義勇の頭
+tile.kurokumaft:kyouzyuro_skull.name=杏寿郎の頭
+tile.kurokumaft:shinobu_skull.name=しのぶの頭
+tile.kurokumaft:tengen_skull.name=天元の頭
+tile.kurokumaft:mituri_skull.name=蜜璃の頭
+tile.kurokumaft:sanemi_skull.name=実弥の頭
+tile.kurokumaft:genya_skull.name=玄弥の頭
+tile.kurokumaft:gyoumei_skull.name=行冥の頭
+tile.kurokumaft:muitiro_skull.name=無一郎の頭

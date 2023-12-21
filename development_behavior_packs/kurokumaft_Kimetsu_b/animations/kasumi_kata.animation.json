@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.30",
+	"animations": {
+		"animation.kata.kasumi5": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function kasumi/kasumi5"
+				]
+			}
+		},
+		"animation.kata.kasumi7": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function kasumi/kasumi7/kasumi7"
+				]
+			}
+		}
+	}
+}

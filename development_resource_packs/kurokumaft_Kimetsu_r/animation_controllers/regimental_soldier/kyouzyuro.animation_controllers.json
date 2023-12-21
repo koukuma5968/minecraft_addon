@@ -53,7 +53,7 @@
 						"kyouzyuro.ni_1"
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"hono3_1" : {
@@ -61,7 +61,7 @@
 						"kyouzyuro.san_1"
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"hono4_1" : {
@@ -69,7 +69,7 @@
 						"kyouzyuro.shi_1"
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"hono5_1" : {
@@ -77,7 +77,7 @@
 						"kyouzyuro.go_1"
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"hono9_1" : {
@@ -101,7 +101,7 @@
 						"kyouzyuro.ku_2"
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				}
 			}

@@ -9,7 +9,8 @@
       "scripts":{
         "animate":[
           "tanjiro",
-          "mizu10_attack","hi_dragon_attack"
+          "mizu10_attack",
+          "hi_dragon_attack"
         ]
       },
       "animations":{
@@ -47,6 +48,17 @@
               "should_leash": false
             }
           ]
+        }
+      },
+
+      "kurokumaft:kokyu_reset": {
+        "minecraft:timer": {
+          "time": 5.0,
+          "looping": true,
+          "time_down_event": {
+            "event": "kurokumaft:random_kokyu",
+            "target": "self"
+          }
         }
       },
 
@@ -229,18 +241,6 @@
         "value": 200,
         "max": 200
       },
-      "minecraft:timer": {
-        "time": 5.0,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kokyu_off",
-          "target": "self"
-        }
-      },
-      "minecraft:on_target_acquired": {
-        "event": "kurokumaft:random_kokyu",
-        "target": "self"
-      },
       "minecraft:equipment": {
         "table": "loot_tables/entities/tanjiro_gear.json"
       },
@@ -413,6 +413,11 @@
     },
 
     "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+        }
+      },
       "minecraft:trigger_raid": {
         "add": {
           "component_groups": [ "minecraft:raid_trigger" ]
@@ -577,16 +582,9 @@
         ]
       },
       "kurokumaft:random_kokyu_off": {
-        "sequence": [
-          {
-            "filters": {
-              "test": "has_target", "value": false
-            },
-            "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
-            }
-          }
-        ]
+        "add": {
+          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+        }
       },
 
       "kurokumaft:nichirintou_remove": {

@@ -1,0 +1,65 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:ice_blockmagic",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.31,
+        "height": 0.31
+      },
+      "minecraft:type_family": {
+        "family": [
+          "magic"
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "affect_projectile": false,
+          "impact_damage": {
+            "damage": 15,
+            "knockback": true,
+            "catch_fire": false,
+            "destroy_on_hit": false,
+            "semi_random_diff_damage": false
+          },
+          "definition_event": {
+            "affectProjectile": false,
+            "eventTrigger": {
+              "event": "ice_block_particle",
+              "target": "self"
+            }
+          }
+        },
+        "power": 0,
+        "gravity": 0.1,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "reflect_on_hurt": false
+      },
+      "minecraft:damage_over_time": {
+        "damage_per_hurt": 50,
+        "time_between_hurt": 1.2
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "ice_block_particle": {
+        "run_command": {
+          "command": [
+            "particle kurokumaft:ice_particle ~~~"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:nezuko_head_stand",
+      "materials": {
+        "default": "armor_stand"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/head/nezuko_head"
+      },
+      "geometry": {
+        "default": "geometry.nezuko_head"
+      },
+      "animations": {
+        "mob_head": "controller.animation.mob_head",
+        "hit": "animation.mob_head.hit",
+        "hit2": "animation.mob_head.hit2"
+      },
+      "scripts": {
+        "animate": [
+          "mob_head"
+        ]
+      },
+      "render_controllers": [ "controller.render.armor_stand" ]
+    }
+  }
+}

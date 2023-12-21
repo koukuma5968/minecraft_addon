@@ -6,12 +6,12 @@
       "loop": true,
       "timeline": {
         "0.0": [
-          "/execute at @e[tag=flamethrower_shot] as @s run particle kurokumaft:flamethrower_fire ^^^1",
-          "/execute at @e[tag=flamethrower_shot] as @s run particle kurokumaft:flamethrower_fire ^^^2",
-          "/execute at @e[tag=flamethrower_shot] as @s run particle kurokumaft:flamethrower_fire ^^^3",
-          "/execute at @e[tag=flamethrower_shot] as @s run particle kurokumaft:flamethrower_fire ^^^4",
-          "/execute at @e[tag=flamethrower_shot] as @s run particle kurokumaft:flamethrower_fire ^^^5",
-          "/execute at @e[tag=flamethrower_shot] as @s positioned ^^^3 run damage @e[tag=!flamethrower_shot,r=3] 2 fire"
+          "/execute as @e[tag=flamethrower_shot,c=1] run particle kurokumaft:flamethrower_fire ^^^1",
+          "/execute as @e[tag=flamethrower_shot,c=1] run particle kurokumaft:flamethrower_fire ^^^2",
+          "/execute as @e[tag=flamethrower_shot,c=1] run particle kurokumaft:flamethrower_fire ^^^3",
+          "/execute as @e[tag=flamethrower_shot,c=1] run particle kurokumaft:flamethrower_fire ^^^4",
+          "/execute as @e[tag=flamethrower_shot,c=1] run particle kurokumaft:flamethrower_fire ^^^5",
+          "/execute as @e[tag=flamethrower_shot,c=1] positioned ^^^3 run damage @e[tag=!flamethrower_shot,r=3] 2 fire"
         ]
       }
     },

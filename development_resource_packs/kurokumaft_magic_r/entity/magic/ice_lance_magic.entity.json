@@ -4,7 +4,7 @@
       "description": {
         "identifier": "kurokumaft:ice_lance_magic",
         "materials": {
-            "default": "fireball"
+            "default": "arrow"
           },
           "textures": {
             "default": "textures/kurokumaft/models/magic/ice_lance_magic"

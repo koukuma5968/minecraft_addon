@@ -51,7 +51,7 @@
       },
       "minecraft:on_use":{
         "on_use":{
-          "event": "kurokumaft:durability",
+          "event": "kurokumaft:shoot_magic",
           "target": "self"
         }
       }
@@ -63,6 +63,25 @@
           "target":"self",
           "amount":1
         }
+      },
+      "kurokumaft:shoot_magic": {
+        "sequence":[
+          {
+            "condition": "!query.is_sneaking",
+            "trigger": "kurokumaft:holly_lance"
+          }
+        ],
+        "trigger": "kurokumaft:durability"
+      },
+      "kurokumaft:holly_lance": {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:holly_lance_magic",
+              "launch_power": 1.6
+            }
+          }
+        ]
       }
     }
   }

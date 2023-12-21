@@ -26,41 +26,43 @@
         "default": {
           "transitions": [
             { "jetblack_shock": "!query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && !query.is_using_item && variable.attack_time" },
-            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && !query.is_using_item && variable.attack_time" },
-            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" },
-            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" }
+            { "night_bit": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && !query.is_using_item && variable.attack_time" },
+            { "dark_lance": "!query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" },
+            { "black_hole": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" }
           ]
         },
         "jetblack_shock": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ライトニングストライク\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ジェットブラック\"}]}",
             "/function magic/dark/jetblack_shock"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
           ]
         },
-        "jewel_bit": {
+        "night_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ジュエルビット\"}]}",
-            "/function magic/dark/jewel_bit"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ナイトビット\"}]}",
+            "/function magic/dark/night_bit"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
           ]
         },
-        "stone_edge": {
+        "dark_lance": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ストーンエッジ\"}]}"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ダークランス\"}]}"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}
           ]
         },
-        "gaia_crash": {
+        "black_hole": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5ガイアクラッシュ\"}]}",
-            "/function magic/dark/blastbomb"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ブラックホール\"}]}",
+            "/tag @s add black_hole_self",
+            "/tag @e[tag=!black_hole_self,family=!black_hole,r=10] add black_hole_target",
+            "/function magic/dark/black_hole"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

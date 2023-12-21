@@ -2,10 +2,10 @@
   "format_version": "1.20.30",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:home_gate",
-        "menu_category": {
-          "category": "construction"
-        }
+      "identifier": "kurokumaft:home_gate",
+      "menu_category": {
+        "category": "items"
+      }
     },
     "components": {
       "minecraft:display_name": {

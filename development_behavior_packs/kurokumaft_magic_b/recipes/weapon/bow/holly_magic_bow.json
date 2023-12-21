@@ -6,9 +6,9 @@
     },
     "tags": [ "magic_enchant" ],
     "pattern": [
-      "mnX",
-      "#dX",
-      "mnX"
+      "d#X",
+      "#mX",
+      "d#X"
     ],
     "key": {
       "#": {
@@ -19,9 +19,6 @@
       },
       "m": {
         "item": "kurokumaft:light_magic_stone"
-      },
-      "n": {
-        "item": "minecraft:netherite_ingot"
       },
       "d": {
         "item": "minecraft:diamond"

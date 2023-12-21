@@ -6,7 +6,7 @@
 			"bones": {
 				"thunder_lance_body": {
 					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
-					"position": [1, 1, 1]
+					"position": [0, 0, 0]
 				}
 			},
 			"particle_effects": {

@@ -15,6 +15,11 @@
 		"geometry": "Geometry.hono_tiger",
 		"materials": [ { "*": "Material.default" } ],
 		"textures": ["Texture.hono_tiger"]
+	  },
+	  "controller.render.hebi": {
+		"geometry": "Geometry.hebi",
+		"materials": [ { "*": "Material.default" } ],
+		"textures": ["Texture.hebi"]
 	  }
 	}
   }

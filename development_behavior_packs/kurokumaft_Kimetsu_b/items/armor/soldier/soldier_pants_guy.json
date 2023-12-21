@@ -19,7 +19,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:soldier_pants_guy" ],
-            "repair_amount": 250
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           }
         ]
       },

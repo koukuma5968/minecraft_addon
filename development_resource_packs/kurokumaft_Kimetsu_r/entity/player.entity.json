@@ -14,6 +14,7 @@
 
         "mizu10_dragon": "textures/kurokumaft/models/mizu10_dragon",
         "hi_dragon": "textures/kurokumaft/models/hi_dragon",
+        "hebi":  "textures/kurokumaft/models/hebi",
 
         "cape": "textures/entity/cape_invisible"
       },
@@ -32,6 +33,7 @@
         "nichirintou_sanemi": "geometry.nichirintou_sanemi",
         "nichirintou_gyoumei": "geometry.nichirintou_gyoumei",
         "nichirintou_muitiro": "geometry.nichirintou_muitiro",
+        "nichirintou_obanai": "geometry.nichirintou_obanai",
 
         "nichirintou_mizu": "geometry.nichirintou_mizu",
         "nichirintou_hi": "geometry.nichirintou_hi",
@@ -43,6 +45,7 @@
 
         "mizu10_dragon": "geometry.mizu10_dragon",
         "hi_dragon": "geometry.hi_dragon",
+        "hebi": "geometry.hebi",
 
         "cape": "geometry.cape"
       },
@@ -61,7 +64,8 @@
         "mushi_chou_particle": "kurokumaft:mushi_chou_particle",
         "hana_bread_particle": "kurokumaft:hana_bread_particle",
         "hana_shi_particle": "kurokumaft:hana_shi_particle",
-        "koi_blead2_particle": "kurokumaft:koi_blead2_particle"
+        "koi_blead2_particle": "kurokumaft:koi_blead2_particle",
+        "kasumi1_particle": "kurokumaft:kasumi_slash_particle"
       },
       "scripts": {
         "scale": "0.9375",
@@ -229,7 +233,7 @@
           {"sanemi_third": "variable.equipped_sanemi && !variable.is_first_person"},
           {"sanemi_attack": "variable.equipped_sanemi && variable.attack_time"},
 
-          {"gyoumei.kokyu_con": "variable.equipped_gyoumei"},
+          {"gyoumei.kokyu_body": "variable.equipped_gyoumei"},
           {"gyoumei_attack_controller": "variable.equipped_gyoumei"},
           {"gyoumei_first": "variable.equipped_gyoumei && variable.is_first_person"},
           {"gyoumei_third": "variable.equipped_gyoumei && !variable.is_first_person"},
@@ -237,9 +241,16 @@
 
           {"muitiro.kokyu_con": "variable.equipped_muitiro"},
           {"muitiro_attack_controller": "variable.equipped_muitiro"},
+          {"muitiro_attack.kokyu_con": "variable.equipped_muitiro && query.variant == 7"},
           {"muitiro_first": "variable.equipped_muitiro && variable.is_first_person"},
           {"muitiro_third": "variable.equipped_muitiro && !variable.is_first_person"},
           {"muitiro_attack": "variable.equipped_muitiro && variable.attack_time"},
+
+          {"obanai.kokyu_con": "variable.equipped_obanai"},
+          {"obanai_attack_controller": "variable.equipped_obanai"},
+          {"obanai_first": "variable.equipped_obanai && variable.is_first_person"},
+          {"obanai_third": "variable.equipped_obanai && !variable.is_first_person"},
+          {"obanai_attack": "variable.equipped_obanai && variable.attack_time"},
 
           {"mizu.kokyu_con": "variable.equipped_mizu"},
           {"mizu_attack_controller": "variable.equipped_mizu"},
@@ -253,7 +264,8 @@
           {"hi_third": "variable.equipped_hi && !variable.is_first_person"},
           {"hi_attack": "variable.equipped_hi && variable.attack_time"},
 
-          {"kaminari.kokyu_con": "variable.equipped_kaminari"},{"kaminari_attack.kokyu_con": "variable.equipped_kaminari && query.variant == 1"},
+          {"kaminari.kokyu_con": "variable.equipped_kaminari"},
+          {"kaminari_attack.kokyu_con": "variable.equipped_kaminari && query.variant == 1"},
           {"kaminari_attack_controller": "variable.equipped_kaminari"},
           {"kaminari_first": "variable.equipped_hi && variable.is_first_person"},
           {"kaminari_third": "variable.equipped_hi && !variable.is_first_person"},
@@ -283,7 +295,8 @@
           {"hana_third": "variable.equipped_hana && !variable.is_first_person"},
           {"hana_attack": "variable.equipped_hana && variable.attack_time"},
 
-          {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"}
+          {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
+          {"hebi.con": "variable.equipped_obanai"}
 
         ]
       },
@@ -403,6 +416,11 @@
         "muitiro_third": "animation.muitiro_third",
         "muitiro_attack": "animation.muitiro.attack",
         "muitiro_attack_controller": "controller.animation.muitiro.attack",
+
+        "obanai_first": "animation.obanai_first",
+        "obanai_third": "animation.obanai_third",
+        "obanai_attack": "animation.obanai.attack",
+        "obanai_attack_controller": "controller.animation.obanai.attack",
 
         "mizu_first": "animation.mizu_first",
         "mizu_third": "animation.mizu_third",
@@ -671,15 +689,18 @@
         "sanemi.ku_1": "animation.nichirintou_kokyu.sanemi.ku_1",
         "sanemi.ku_2": "animation.nichirintou_kokyu.sanemi.ku_2",
 
-        "gyoumei.kokyu_con":"controller.animation.gyoumei_body.kokyu_player",
-        "gyoumei.ichi_1": "animation.nichirintou_kokyu.gyoumei_body.ichi_1",
-        "gyoumei.ni_1": "animation.nichirintou_kokyu.gyoumei_body.ni_1",
-        "gyoumei.ni_2": "animation.nichirintou_kokyu.gyoumei_body.ni_2",
-        "gyoumei.san_1": "animation.nichirintou_kokyu.gyoumei_body.san_1",
-        "gyoumei.shi_1": "animation.nichirintou_kokyu.gyoumei_body.shi_1",
-        "gyoumei.shi_2": "animation.nichirintou_kokyu.gyoumei_body.shi_2",
+        "gyoumei.kokyu_body":"controller.animation.gyoumei_body.kokyu_player",
+        "gyoumei_body.ichi_1": "animation.nichirintou_kokyu.gyoumei_body.ichi_1",
+        "gyoumei_body.ni_1": "animation.nichirintou_kokyu.gyoumei_body.ni_1",
+        "gyoumei_body.ni_2": "animation.nichirintou_kokyu.gyoumei_body.ni_2",
+        "gyoumei_body.san_1": "animation.nichirintou_kokyu.gyoumei_body.san_1",
+        "gyoumei_body.shi_1": "animation.nichirintou_kokyu.gyoumei_body.shi_1",
+        "gyoumei_body.shi_2": "animation.nichirintou_kokyu.gyoumei_body.shi_2",
+        "gyoumei_body.go_1": "animation.nichirintou_kokyu.gyoumei_body.go_1",
+        "gyoumei_body.go_2": "animation.nichirintou_kokyu.gyoumei_body.go_2",
 
         "muitiro.kokyu_con":"controller.animation.muitiro.kokyu_player",
+        "muitiro_attack.kokyu_con":"controller.animation.muitiro_attack.kokyu_player",
         "muitiro.ichi_1": "animation.nichirintou_kokyu.muitiro.ichi_1",
         "muitiro.ichi_2": "animation.nichirintou_kokyu.muitiro.ichi_2",
         "muitiro.ni_1": "animation.nichirintou_kokyu.muitiro.ni_1",
@@ -690,7 +711,24 @@
         "muitiro.go_1": "animation.nichirintou_kokyu.muitiro.go_1",
         "muitiro.roku_1": "animation.nichirintou_kokyu.muitiro.roku_1",
         "muitiro.shiti_1": "animation.nichirintou_kokyu.muitiro.shiti_1",
-        "muitiro.shiti_attack": "animation.nichirintou_kokyu.muitiro.shiti_attack"
+        "muitiro.shiti_attack": "animation.nichirintou_kokyu.muitiro.shiti_attack",
+
+        "obanai.kokyu_con":"controller.animation.obanai.kokyu_player",
+        "obanai.ichi_1": "animation.nichirintou_kokyu.obanai.ichi_1",
+        "obanai.ichi_2": "animation.nichirintou_kokyu.obanai.ichi_2",
+        "obanai.ni": "animation.nichirintou_kokyu.obanai.ni",
+        "obanai.san": "animation.nichirintou_kokyu.obanai.san",
+        "obanai.shi": "animation.nichirintou_kokyu.obanai.shi",
+        "obanai.go": "animation.nichirintou_kokyu.obanai.go",
+
+        "hebi.con": "controller.animation.hebi",
+        "hebi.ichi_1": "animation.hebi.ichi_1",
+        "hebi.ichi_2": "animation.hebi.ichi_2",
+        "hebi.ni": "animation.hebi.ni",
+        "hebi.san": "animation.hebi.san",
+        "hebi.shi_1": "animation.hebi.shi_1",
+        "hebi.shi_2": "animation.hebi.shi_2",
+        "hebi.go": "animation.hebi.go"
 
       },
       "render_controllers": [
@@ -711,6 +749,7 @@
         {"controller.render.nichirintou_sanemi": "variable.equipped_sanemi"},
         {"controller.render.nichirintou_gyoumei": "variable.equipped_gyoumei"},
         {"controller.render.nichirintou_muitiro": "variable.equipped_muitiro"},
+        {"controller.render.nichirintou_obanai": "variable.equipped_obanai"},
 
         {"controller.render.nichirintou_mizu": "variable.equipped_mizu"},
         {"controller.render.nichirintou_hi": "variable.equipped_hi"},
@@ -721,7 +760,8 @@
         {"controller.render.nichirintou_hana": "variable.equipped_hana"},
 
         {"controller.render.hi_dragon": "(variable.equipped_tanjiro || variable.equipped_hi) && query.variant == 16 && query.mark_variant == 2"},
-        {"controller.render.mizu10_dragon": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"}
+        {"controller.render.mizu10_dragon": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
+        {"controller.render.hebi": "(variable.equipped_obanai) && query.mark_variant >= 1"}
 
       ],
       "enable_attachables": true

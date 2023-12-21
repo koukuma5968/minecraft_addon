@@ -65,11 +65,13 @@
         }
       },
       "minecraft:behavior.owner_hurt_by_target": {
-        "test": "is_family","operator": "not", "subject": "other","value": "player",
+        "all_of": [
+          { "test": "is_family","operator": "not", "subject": "other","value": "player" },
+          { "test": "is_family","operator": "not", "subject": "other","value": "familiar" }
+        ],
         "priority": 1
       },
       "minecraft:behavior.owner_hurt_target": {
-        "test": "is_family","operator": "not", "subject": "other","value": "player",
         "priority": 2
       },
       "minecraft:is_tamed": {
@@ -78,7 +80,7 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:type_family": {
-        "family": [ "irongolem", "mob" ]
+        "family": [ "irongolem", "mob", "familiar" ]
       },
       "minecraft:nameable": {
       },
@@ -90,8 +92,8 @@
         "table": "loot_tables/entities/iron_golem.json"
       },
       "minecraft:health": {
-        "value": 100,
-        "max": 100
+        "value": 150,
+        "max": 150
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
@@ -225,20 +227,6 @@
           }
         ]
       },
-      "minecraft:behavior.target_when_pushed": {
-        "priority": 1,
-        "percent_chance": 5.0,
-        "entity_types": [
-          {
-            "filters": { 
-              "all_of": [
-                { "test" :  "is_family", "subject" : "other", "value" :  "monster" },
-                { "test" :  "is_family", "subject" : "other", "operator": "!=", "value" :  "creeper" }
-              ] 
-            }
-          }
-        ]
-      },
       "minecraft:behavior.melee_attack": {
         "priority": 1,
         "track_target": true
@@ -281,10 +269,11 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "monster" }
+              "all_of": [
+                { "test": "is_family","operator": "not", "subject": "other","value": "player" },
+                { "test": "is_family","operator": "not", "subject": "other","value": "familiar" }
               ]
-              },
+            },
             "within_default": 16
           }
         ]
@@ -292,8 +281,9 @@
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
         "entity_types": {
-          "any_of": [
-            { "test": "is_family", "subject": "other", "value": "monster" }
+          "all_of": [
+            { "test": "is_family","operator": "not", "subject": "other","value": "player" },
+            { "test": "is_family","operator": "not", "subject": "other","value": "familiar" }
           ]
         }
       },

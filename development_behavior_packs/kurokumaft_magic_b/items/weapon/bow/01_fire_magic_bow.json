@@ -40,7 +40,7 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
-      "minecraft:use_duration": 2,
+      "minecraft:use_duration": 1.75,
       "minecraft:chargeable": {
         "movement_modifier": 0.25,
         "on_complete": {
@@ -50,29 +50,21 @@
     },
     "events": {
       "kurokumaft:fire_magic_arrow": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムアロー\"}]}"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:fire_magic_arrow",
-              "launch_power":1
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount": 20
-            }
-          }
-        ]
+        "run_command": {
+          "command": [
+            "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムアロー\"}]}"
+          ],
+          "target": "self"
+        },
+        "shoot":{
+          "projectile":"kurokumaft:fire_magic_arrow",
+          "launch_power":1
+        },
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount": 20
+        }
       }
     }
   }

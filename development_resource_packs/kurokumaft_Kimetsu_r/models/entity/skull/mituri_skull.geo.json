@@ -1,0 +1,69 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.mituri_skull",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 0, -4], "size": [8, 8, 8], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-4, 0, -4], "size": [8, 8, 8], "inflate": 0.5, "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "hear",
+					"parent": "hat",
+					"pivot": [0, 0, 5]
+				},
+				{
+					"name": "Lefthear",
+					"parent": "hear",
+					"pivot": [3.4, -5.3, -1],
+					"rotation": [-48.458, -23.37058, -19.36497],
+					"cubes": [
+						{"origin": [7.34329, -2.77703, -9.16115], "size": [2, 4, 4], "pivot": [8.4, -0.3, -7], "rotation": [-15, 0, -5], "uv": [51, 32]},
+						{"origin": [7.15756, -13.7101, -8.56599], "size": [2, 11, 2], "pivot": [8.4, -2.3, -6], "rotation": [-12.5, 0, -5], "uv": [56, 19]}
+					]
+				},
+				{
+					"name": "Righthear",
+					"parent": "hear",
+					"pivot": [-5.3, 3.4, 1],
+					"rotation": [-46.534, 15.25096, 27.55895],
+					"cubes": [
+						{"origin": [-6.3, -0.77232, -2.30522], "size": [2, 4, 4], "pivot": [-0.34513, -0.77232, 5.69478], "rotation": [-12.5, 0, 5], "uv": [51, 32]},
+						{"origin": [-6.3, -10.77232, -1.30522], "size": [2, 11, 2], "pivot": [-0.34513, -0.77232, 5.69478], "rotation": [-12.5, 0, 5], "uv": [56, 19]}
+					]
+				},
+				{
+					"name": "Backhear",
+					"parent": "hear",
+					"pivot": [0, 3, 9],
+					"rotation": [67.5, 0, 0],
+					"cubes": [
+						{"origin": [-3, 3, 8], "size": [6, 5, 2], "pivot": [0, 3, 9], "rotation": [10, 0, 0], "uv": [48, 32]},
+						{"origin": [-2, 0, 8], "size": [4, 3, 2], "pivot": [0, 3, 9], "rotation": [10, 0, 0], "uv": [48, 32]},
+						{"origin": [-0.5, -6, 8], "size": [2, 11, 2], "pivot": [0, 3, 9], "rotation": [10, 0, 0], "uv": [56, 19]},
+						{"origin": [-1.5, -6, 8], "size": [2, 11, 2], "pivot": [0, 3, 9], "rotation": [10, 0, 0], "uv": [56, 19]}
+					]
+				}
+			]
+		}
+	]
+}

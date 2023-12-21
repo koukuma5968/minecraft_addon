@@ -5,8 +5,36 @@
       "identifier": "kurokumaft:home_gate",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false,
-      "runtime_identifier": "minecraft:armor_stand"
+      "is_experimental": false
+    },
+    "component_groups": {
+      "variant0": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "variant1": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "time": [1.0,1.0],
+          "time_down_event": { 
+            "event": "kurokumaft:hit_clear"
+          }
+        }
+      },
+      "variant2": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:timer": {
+          "time": [1.0,1.0],
+          "time_down_event": { 
+            "event": "kurokumaft:hit_clear"
+          }
+        }
+      }
     },
     "components": {
       "minecraft:type_family": {
@@ -23,6 +51,21 @@
       "minecraft:knockback_resistance": {
         "value": 1.0
       },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "event": "kurokumaft:hit_count"
+            },
+            "cause": "all",
+            "deals_damage": false,
+            "on_damage_sound_event": "item.shield.block"
+          }
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/gate/home_gate.json"
+      },
       "minecraft:persistent": {
       },
       "minecraft:physics": {
@@ -34,8 +77,42 @@
       "minecraft:conditional_bandwidth_optimization": {
       }
     },
-
     "events": {
+      "kurokumaft:hit_count": {
+        "sequence": [
+          {
+            "filters": {"test": "is_variant", "value": 0},
+            "add": {
+              "component_groups" : [ "variant1" ]
+            }
+          },
+          {
+            "filters": {"test": "is_variant", "value": 1},
+            "add": {
+              "component_groups" : [ "variant2" ]
+            }
+          },
+          {
+            "filters": {"test": "is_variant", "value": 2},
+            "run_command": {
+              "command": [
+                "scoreboard players reset @p home_x",
+                "scoreboard players reset @p home_y",
+                "scoreboard players reset @p home_z",
+                "scoreboard objectives remove home_x",
+                "scoreboard objectives remove home_y",
+                "scoreboard objectives remove home_z",
+                "kill @s"
+              ]
+            }
+          }
+        ]
+      },
+      "kurokumaft:hit_clear": {
+        "add": {
+          "component_groups" : [ "variant0" ]
+        }
+      }
     }
   }
 }

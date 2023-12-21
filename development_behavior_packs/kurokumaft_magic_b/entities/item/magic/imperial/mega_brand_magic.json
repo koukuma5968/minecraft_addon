@@ -21,12 +21,14 @@
         "duration": 0.2,
         "damage_filters": {
           "all_of": [
-            {"test": "is_family","operator": "not","subject": "other","value": "player"}
+            { "test": "is_family","operator": "not", "subject": "other","value": "player" },
+            { "test": "is_family","operator": "not", "subject": "other","value": "familiar" }
           ]
         },
         "knockback_filters": {
           "all_of": [
-            {"test": "is_family","operator": "not","subject": "other","value": "player"}
+            { "test": "is_family","operator": "not", "subject": "other","value": "player" },
+            { "test": "is_family","operator": "not", "subject": "other","value": "familiar" }
           ]
         },
         "knockback_height_cap": 3,

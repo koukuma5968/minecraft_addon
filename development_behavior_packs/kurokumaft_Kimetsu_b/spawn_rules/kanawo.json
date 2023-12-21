@@ -3,7 +3,7 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "kurokumaft:kanawo",
-      "population_control": "monster"
+      "population_control": "pillager"
     },
     "conditions": [
       {

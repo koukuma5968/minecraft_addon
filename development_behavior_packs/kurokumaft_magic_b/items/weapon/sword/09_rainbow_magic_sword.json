@@ -20,7 +20,7 @@
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
-        "max_durability": 20000
+        "max_durability": 10
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -74,7 +74,7 @@
             "damage":{
               "type":"durability",
               "target":"self",
-              "amount":100
+              "amount":1
             }
           }
         ]

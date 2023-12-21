@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:mailstrom",
+        "materials": {
+            "default": "armor_stand"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/items/magic/mailstrom"
+          },
+          "geometry": {
+            "default": "geometry.mailstrom"
+          },
+          "render_controllers": [ "controller.render.armor_stand" ]
+        }
+    }
+  }
+  

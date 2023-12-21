@@ -1,0 +1,984 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.obanai_first": {
+			"loop": true,
+			"animation_length": 0.70833,
+			"bones": {
+				"obanai_nichirinto": {
+					"rotation": [14.93001, 68.69274, -44.97092],
+					"position": [2, -4, 2],
+					"scale": 0.5
+				},
+				"leftArm": {
+					"rotation": [129.97836, -10.2588, -21.93613],
+					"position": [-9, -1, 4],
+					"scale": 0.5
+				}
+			}
+		},
+		"animation.obanai_third": {
+			"loop": true,
+			"bones": {
+				"obanai_nichirinto": {
+					"position": [1, -2, 0],
+					"scale": [0.3, 0.3, 0.3]
+				}
+			}
+		},
+		"animation.obanai.attack": {
+			"animation_length": 0.5,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-127.87778, -14.71935, -14.35508],
+						"0.3333": [-6.80402, -18.72066, -26.72532]
+					},
+					"position": [0, 0, 0]
+				},
+				"obanai_nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 12.5, 0],
+						"0.3333": [37.5, 12.5, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3333": [-1, -2, -3]
+					}
+				},
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, -22.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 22.5, 0],
+						"0.3333": [0, 17.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-137.18705, 25.70114, -41.5461],
+						"0.3333": [-31.02103, 56.23902, -0.33953]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [15.32723, 21.11183, -5.54121]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-14.3546, 24.56163, 7.86675]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou_kokyu.obanai.ichi_1": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"leftArm": {
+					"rotation": [-46.871, 27.06807, 23.08658]
+				},
+				"rightArm": {
+					"rotation": [-45.14615, -24.30509, -22.26914]
+				},
+				"obanai_nichirinto": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou_kokyu.obanai.ichi_2": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.625,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [25, 0, 0],
+						"0.4167": [42.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"waist": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3333": [0, -40, 0],
+						"0.4167": [0, -105, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"body": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [-12.5, 0, 0],
+						"0.3333": [-15.76701, 39.70046, 5.12339]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-46.871, 27.06807, 23.08658],
+						"0.125": [-77.23965, 42.08899, -15.83247],
+						"0.2083": [-97.23965, 42.08899, -15.83247],
+						"0.3333": [-88.93685, 10.16712, -59.42015],
+						"0.375": [-87.72175, 62.65035, -57.58403]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-45.14615, -24.30509, -22.26914],
+						"0.125": [-76.10568, 1.85314, -56.71573],
+						"0.2083": [-151.31353, 3.04571, -61.57596],
+						"0.25": [-99.19244, -16.71289, -58.43943],
+						"0.2917": [-67.64858, -22.13736, -76.50192],
+						"0.3333": [-48.55461, -21.64471, -64.10583],
+						"0.375": [-52.95744, -7.27568, -45.44275]
+					}
+				},
+				"obanai_nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.4167": [42.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.4167": [0, -3, -1]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [10, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [-55, 0, 0],
+						"0.4167": [-10, 0, 0]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou_kokyu.obanai.ni": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.41667,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 47.5, 0],
+						"0.25": [0, -22.5, 0],
+						"0.3333": [0, -145, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 0, 0],
+						"0.125": [-13, 0, -4],
+						"0.2083": [-16, 0, -12],
+						"0.3333": [-11, 0, -17]
+					}
+				},
+				"waist": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, -35, 0],
+						"0.125": [0, 20, 0],
+						"0.3333": [0, -147.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-59.70412, -28.02432, -11.17023],
+						"0.125": [-35.58716, -56.79827, -45.28283]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-144.65389, 51.86576, -102.20302],
+						"0.25": [-62.16133, 14.738, -90.50389],
+						"0.3333": [-62.16133, 14.738, -90.50389]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [17.35932, 2.24944, -7.15656]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-17.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou_kokyu.obanai.san": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.41667,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [12.67544, -14.94159, -1.3378],
+						"0.125": [26.97623, -31.96021, -5.80211],
+						"0.25": [3.85294, -9.51763, -4.06315],
+						"0.2917": [6.12429, 27.23302, 6.72991],
+						"0.375": [17.0281, -9.51775, -1.21601],
+						"0.4167": [39.53, -9.52, -1.22]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, 0, -2],
+						"0.125": [1, 0, -4],
+						"0.1667": [1, -1, -4],
+						"0.25": [-1, 0, -1],
+						"0.2917": [1, 0, -1],
+						"0.375": [0, 0, -3],
+						"0.4167": [1, -2, -7]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-99.17695, 15.59621, -46.69304],
+						"0.0833": [-92.10606, 22.99602, -47.98883],
+						"0.125": [-49.97361, 43.60101, -30.81528],
+						"0.2083": [-99.97, 43.6, -30.82],
+						"0.3333": [-97.87815, 23.83408, -27.10833],
+						"0.4167": [-64.91882, 56.99751, -11.6955]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-91.97658, -14.71196, -52.30979],
+						"0.0833": [-56.47431, -9.9322, -51.24325],
+						"0.125": [-43.97, -9.93, -51.24],
+						"0.1667": [-43.97, -9.93, -51.24],
+						"0.2083": [-116.15336, -1.15141, 106.26795],
+						"0.25": [-58.65, -1.15, 106.27],
+						"0.2917": [-13.65, -1.15, 106.27],
+						"0.3333": [-108.91904, -33.45948, -11.32971],
+						"0.375": [-71.49023, -14.20878, -25.19446],
+						"0.4167": [-32.54484, -13.02539, -27.14399]
+					},
+					"position": [0, 0, 0]
+				},
+				"obanai_nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 0, 0],
+						"0.125": [2.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [15, 0, -12.5],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-24.47761, 5.24826, 11.36081],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou_kokyu.obanai.shi": {
+			"loop": true,
+			"animation_length": 0.75,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, -25],
+						"0.0417": [-57.41667, 16.64965, 41.14272],
+						"0.0833": [-38.73964, -10.76461, 63.14485],
+						"0.25": [-32.94082, -24.06795, 44.06332],
+						"0.2917": [-39.8965, -2.82506, 72.87615],
+						"0.3333": [-47.3965, -2.82506, 72.87615],
+						"0.4167": [-52.99795, -66.38804, 109.55585],
+						"0.5417": [-57.41667, 16.64965, 41.14272],
+						"0.5833": [-38.73964, -10.76461, 63.14485],
+						"0.75": [-9.02021, -68.85765, -13.03933]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-83.32219, -41.9621, 65.24011],
+						"0.0833": [-35.82219, -41.9621, 65.24011],
+						"0.125": [-118.91744, -32.41483, 131.11773],
+						"0.1667": [-43.92, -32.41, 131.12],
+						"0.2083": [-140.47244, 23.05723, -58.27088],
+						"0.25": [-20.4943, 6.75377, -62.16694],
+						"0.2917": [-142.72643, -10.83696, 94.26882],
+						"0.3333": [-27.73, -10.84, 94.27],
+						"0.375": [-94.82024, -17.0255, 13.61183],
+						"0.4167": [20.18, -17.03, 13.61],
+						"0.4583": [-113.43807, -31.45025, 119.48967],
+						"0.5": [-15.93807, -31.45025, 119.48967],
+						"0.5417": [-83.32219, -41.9621, 65.24011],
+						"0.5833": [-35.82219, -41.9621, 65.24011],
+						"0.625": [-118.91744, -32.41483, 131.11773],
+						"0.6667": [-43.92, -32.41, 131.12],
+						"0.7083": [-141.68606, 19.16596, -61.63753],
+						"0.75": [-14.18606, 19.16596, -61.63753]
+					}
+				},
+				"obanai_nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-22.5, 0, 0],
+						"0.0833": [17.5, 0, 0],
+						"0.125": [-5, 0, 0],
+						"0.1667": [40, 0, 0],
+						"0.2083": [7.5, 0, 0],
+						"0.25": [30, 0, 0],
+						"0.2917": [-7.5, 0, 0],
+						"0.3333": [27.5, 0, 0],
+						"0.375": [-27.5, 0, 0],
+						"0.4167": [-2.5, 0, 0],
+						"0.5": [37.5, 0, 0],
+						"0.5417": [-22.5, 0, 0],
+						"0.5833": [17.5, 0, 0],
+						"0.625": [-5, 0, 0],
+						"0.6667": [40, 0, 0],
+						"0.75": [75, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -2, -2],
+						"0.1667": [0, -3, -1],
+						"0.2083": [0, -2, -3],
+						"0.25": [0, -5, -3],
+						"0.2917": [0, -1, -5],
+						"0.3333": [0, -2, -5],
+						"0.375": [0, 3, -3],
+						"0.4167": [0, 0, -3],
+						"0.5": [0, -4, -3],
+						"0.5833": [0, -2, -2],
+						"0.6667": [0, -3, -1],
+						"0.75": [1, -9, -1]
+					}
+				},
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [20, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 0, -4]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-17.5, 0, 0]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [22.5, 0, 0]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [-20, 0, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.0417": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.125": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.2083": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.2917": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.375": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.4167": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.4583": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.5": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.5417": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.5833": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.625": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.6667": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.7083": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				],
+				"0.75": [
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai4"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai3"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai2"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai1"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai5"
+					},
+					{
+						"effect": "hebi_particle",
+						"locator": "obanai6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_kokyu.obanai.go": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.2,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [-103.58761, -26.16284, 116.3502],
+						"0.2": [38.91239, -26.16284, 116.3502],
+						"0.3": [155.27582, 28.09711, 294.57036],
+						"0.4": [221.53472, 17.75169, 293.51413],
+						"0.5": [312.97886, 13.0371, 287.22648],
+						"0.6": [260.97569, -15.32421, 467.05743],
+						"0.7": [389.78637, -2.57183, 455.81921],
+						"0.8": [533.53776, 8.16764, 625.36467],
+						"0.9": [618.53776, 8.16764, 625.36467],
+						"1.0": [638.53776, 8.16764, 625.36467],
+						"1.1": [653.53776, 8.16764, 625.36467]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-51.4304, 89.63005, -51.62616],
+						"0.3": [-126.71571, 36.27127, -93.58058],
+						"0.6": [-44.17994, -7.57249, -92.61224],
+						"0.9": [-11.67994, -7.57249, -92.61224]
+					}
+				},
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2": [0, -2.5, 0],
+						"0.5": [0, -95, 0],
+						"0.7": [0, 0, 0],
+						"0.9": [0, -77.5, 0],
+						"1.1": [0, -162.5, 0]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [12.5, 0, -7.5]
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": [0, 32.5, 0],
+						"1.1": [0, 40, 0]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [-5, 0, 7.5]
+					}
+				},
+				"waist": {
+					"rotation": [0, 0, 0]
+				}
+			}
+		}
+	}
+}

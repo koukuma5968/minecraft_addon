@@ -10,10 +10,10 @@
             }
           },
           "transitions": [
-            { "mushi1": "query.variant == 1 && query.mark_variant == 0" },
-            { "mushi2": "query.variant == 2 && query.mark_variant == 0" },
-            { "mushi3": "query.variant == 3 && query.mark_variant == 0" },
-            { "mushi4": "query.variant == 4 && query.mark_variant == 0" }
+            { "mushi1": "query.skin_id == 1 && query.variant == 1 && query.mark_variant == 0" },
+            { "mushi2": "query.skin_id == 1 && query.variant == 2 && query.mark_variant == 0" },
+            { "mushi3": "query.skin_id == 1 && query.variant == 3 && query.mark_variant == 0" },
+            { "mushi4": "query.skin_id == 1 && query.variant == 4 && query.mark_variant == 0" }
           ]
         },
         "mushi1":{
@@ -22,8 +22,7 @@
             "/function mushi/chou"
           ],
           "on_exit": [
-            "/event entity @s variant0",
-            "/event entity @s mark_variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_shinobu = variable.kokyu_shinobu < 20 ? variable.kokyu_shinobu + 1:0;return variable.kokyu_shinobu == 0;"}
@@ -35,8 +34,7 @@
             "/function mushi/houga"
           ],
           "on_exit": [
-            "/event entity @s variant0",
-            "/event entity @s mark_variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_shinobu = variable.kokyu_shinobu < 10 ? variable.kokyu_shinobu + 1:0;return variable.kokyu_shinobu == 0;"}
@@ -48,8 +46,7 @@
             "/function mushi/seirei"
           ],
           "on_exit": [
-            "/event entity @s variant0",
-            "/event entity @s mark_variant0"
+            "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
             {"default":"variable.kokyu_shinobu = variable.kokyu_shinobu < 10 ? variable.kokyu_shinobu + 1:0;return variable.kokyu_shinobu == 0;"}
@@ -61,8 +58,7 @@
             "/function mushi/gokou1"
           ],
           "on_exit": [
-            "/event entity @s variant0",
-            "/event entity @s mark_variant0",
+            "/event entity @s kurokumaft:random_kokyu_off",
             "/function mushi/gokou2"
           ],
           "transitions": [

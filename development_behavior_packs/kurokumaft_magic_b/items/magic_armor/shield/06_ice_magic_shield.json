@@ -11,7 +11,6 @@
     "components": {
       "tag:shield": {},
       "tag:ice_shield": {},
-      "minecraft:use_duration":5,
       "minecraft:display_name": {
         "value": "item.kurokumaft:ice_magic_shield.name"
       },
@@ -21,12 +20,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:blue_ice" ],
-            "repair_amount": 5
+            "items": [ "kurokumaft:ice_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:ice_magic_shield" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },

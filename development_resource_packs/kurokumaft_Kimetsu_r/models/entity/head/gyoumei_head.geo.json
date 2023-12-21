@@ -1,0 +1,46 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.gyoumei_head",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 23.9, -4.1], "size": [8.2, 8.2, 8.2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 24, -4.1], "size": [8.2, 8.1, 8.2], "inflate": 0.5, "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "hea",
+					"parent": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-3, 31, -4], "size": [0, 2, 8], "uv": [48, -8]},
+						{"origin": [-2, 31, -4], "size": [0, 2, 8], "uv": [48, -8]},
+						{"origin": [-1, 31, -4], "size": [0, 2, 8], "uv": [48, -8]},
+						{"origin": [0, 31, -4], "size": [0, 2, 8], "uv": [48, -8]},
+						{"origin": [1, 31, -4], "size": [0, 2, 8], "uv": [48, -8]},
+						{"origin": [2, 31, -4], "size": [0, 2, 8], "uv": [48, -8]},
+						{"origin": [3, 31, -4], "size": [0, 2, 8], "uv": [48, -8]}
+					]
+				}
+			]
+		}
+	]
+}

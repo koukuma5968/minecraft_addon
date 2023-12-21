@@ -26,11 +26,12 @@ entity.kurokumaft:ice_skeleton_warrior.name=§fアイススケルトンウォリ
 
 entity.kurokumaft:home_gate.name=拠点の石碑
 
-item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレム
-item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレム
+item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムをスポーンさせる	#
 
-item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビ
-item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビ
+item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:water_zombie.name=ウォーターゾンビをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:fire_horse.name=フレイムホースをスポーンさせる	#
 action.interact.ride.kurokumaft:fire_horse=乗る	#
@@ -40,9 +41,9 @@ item.spawn_egg.entity.kurokumaft:storm_eagle.name=ストームイーグルをス
 action.interact.ride.kurokumaft:storm_eagle=乗る	#
 action.hint.exit.console.kurokumaft:storm_eagle=:_input_key.sneak: を押して降りる	#
 
-itemGroup.name.magic_shield=魔法の盾
+itemGroup.kurokumaft:magic_shield.name=魔法の盾
 
-tile.kurokumaft:magic_enchant_table.name=魔法エンチャント台
+tile.kurokumaft:magic_enchant_table.name=魔法エンチャントテーブル
 tile.kurokumaft:waterwall_block.name=水ブロック
 tile.kurokumaft:lightningwall_block.name=雷ブロック
 tile.kurokumaft:windwall_block.name=風ブロック
@@ -89,7 +90,7 @@ item.kurokumaft:firestorm_staff.name=§4§l火炎旋風の錫杖 帝級合体魔
 item.kurokumaft:explosion_staff.name=§8§l爆炎の錫杖 帝級合体魔法 地炎
 item.kurokumaft:flamespark_staff.name=§6§l火雷神の錫杖 帝級合体魔法 雷炎
 item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 帝級合体魔法 水風
-item.kurokumaft:thunderstorm_staff.name=§a§l渦雷の錫杖 帝級合体魔法 水雷
+item.kurokumaft:thundervortex_staff.name=§a§l渦雷の錫杖 帝級合体魔法 水雷
 item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 帝級合体魔法 氷水
 
 item.kurokumaft:fire_magic_sword.name=§4烈火の魔法剣

@@ -1,8 +1,8 @@
 {
 	"format_version": 2,
 	"header": {
-		"description": "武器アドオン",
-		"name": "kurokuma_weapons_r",
+		"name": "武器アドオン",
+		"description": "色々な武器や防具を追加するアドオン リソースパック",
 		"uuid": "73c6da0a-0ae1-4d2e-8b75-000428e43aae",
 		"version": [1, 2, 1],
 		"min_engine_version": [1, 20, 30]

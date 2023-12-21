@@ -27,6 +27,7 @@
           "event": "kurokumaft:barista_shot"
         }
       },
+      "minecraft:use_duration": 9999,
       "minecraft:chargeable": {
       }
     },

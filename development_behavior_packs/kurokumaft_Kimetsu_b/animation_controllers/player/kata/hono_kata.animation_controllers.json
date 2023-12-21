@@ -60,7 +60,7 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"(1.0)"}
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 10 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
           ]
         },
         "hono3":{
@@ -73,7 +73,7 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"(1.0)"}
+            {"default":"variable.kokyu_hono_attack = variable.kokyu_hono_attack < 10 ? variable.kokyu_hono_attack + 1:0;return variable.kokyu_hono_attack == 0;"}
           ]
         },
         "hono4":{
@@ -98,7 +98,7 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"(1.0)"}
+            {"default":"!query.is_using_item"}
           ]
         },
         "hono9":{

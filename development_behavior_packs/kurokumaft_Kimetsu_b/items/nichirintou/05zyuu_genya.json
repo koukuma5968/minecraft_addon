@@ -23,25 +23,35 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:scarlet_nugget" ],
-            "repair_amount": 150
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:zyuu_genya" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
       "minecraft:use_duration": 1,
       "minecraft:chargeable": {
-        "on_complete": {
-          "event": "kurokumaft:shooting"
-        }
+      },
+      "minecraft:shooter": {
+        "ammunition": [
+          {
+            "item": "kurokumaft:bullet_genya",
+            "use_offhand": true,
+            "search_inventory": true,
+            "use_in_creative": true
+          }
+        ],
+        "max_draw_duration": 10.0,
+        "charge_on_draw": false,
+        "scale_power_by_draw_duration": false
       },
       
       "minecraft:damage": 4,
       "minecraft:enchantable": {
         "value": 50,
-        "slot": "crossbow"
+        "slot": "bow"
       },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:weapon": {
@@ -57,23 +67,6 @@
           "target":"self",
           "amount":10
         }
-      },
-      "kurokumaft:shooting": {
-        "sequence":[
-          {
-            "shoot": {
-              "projectile": "kurokumaft:bullet_genya",
-              "launch_power": 1.1
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":2
-            }
-          }
-        ]
       }
     }
   }

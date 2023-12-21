@@ -6,34 +6,39 @@
             "places_feature": "kurokumaft:scarlet_feature"
         },
         "conditions": {
-            "placement_pass": "final_pass",
+            "placement_pass": "surface_pass",
             "minecraft:biome_filter": [
                 {
                     "test": "has_biome_tag",
                     "operator": "==",
-                    "value": "overworld"
+                    "value": "extreme_hills"
                 },
                 {
                     "test": "has_biome_tag",
                     "operator": "==",
-                    "value": "overworld_generation"
+                    "value": "mesa"
+                },
+                {
+                    "test": "has_biome_tag",
+                    "operator": "==",
+                    "value": "stone_beach"
                 }
-            ]
+    ]
         },
         "distribution": {
             "iterations": 1,
             "scatter_chance": 10.0,
             "x": {
                 "distribution": "uniform",
-                "extent": ["0","15"]
+                "extent": ["0","64"]
             },
             "y": {
                 "distribution": "uniform",
-                "extent": ["80","250"]
+                "extent": ["40","250"]
             },
             "z": {
                 "distribution": "uniform",
-                "extent": ["0","15"]
+                "extent": ["0","64"]
             }
         }
     }

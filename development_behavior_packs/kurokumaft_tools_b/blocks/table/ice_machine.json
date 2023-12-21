@@ -23,7 +23,7 @@
                 "event": "rotate"
             },
 			"minecraft:crafting_table": {
-				"custom_description": "tile.kurokumaft:ice_machine.name",
+				"table_name": "tile.kurokumaft:ice_machine.name",
 				"grid_size": 3,
 				"crafting_tags": [
 					"ice_machine"

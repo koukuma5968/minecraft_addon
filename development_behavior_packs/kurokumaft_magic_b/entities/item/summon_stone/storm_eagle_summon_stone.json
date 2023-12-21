@@ -5,7 +5,8 @@
       "identifier": "kurokumaft:storm_eagle_summon_stone",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snowball"
     },
     "components": {
       "minecraft:collision_box": {
@@ -17,7 +18,6 @@
           "impact_damage": {
             "damage": 1
           },
-          "remove_on_hit": { },
           "definition_event": {
             "affectProjectile": false,
             "eventTrigger": {
@@ -27,9 +27,9 @@
           }
         },
         "anchor": 1,
-        "power": 1.5,
+        "power": 0.5,
         "gravity": 0.2,
-        "angle_offset": 0.0,
+        "angle_offset": -25.0,
         "offset": [ 0, -0.1, 0 ]
       },
 	    "minecraft:physics": {
@@ -50,7 +50,8 @@
       "storm_eagle_summon": {
         "run_command": {
           "command": [
-            "summon kurokumaft:storm_eagle ~~~"
+            "summon kurokumaft:storm_eagle ~~~",
+            "kill @s"
           ],
           "target": "self"
         }

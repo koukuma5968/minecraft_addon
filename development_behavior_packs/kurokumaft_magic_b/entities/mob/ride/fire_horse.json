@@ -28,9 +28,22 @@
           "target_dist": 0.0,
           "track_target": true
         },
+        "minecraft:tameable": {
+          "probability": 1.0,
+          "tame_items": [
+            "carrot",
+            "golden_carrot",
+            "apple",
+            "golden_apple"
+          ],
+          "tame_event": {
+            "event": "minecraft:on_tame",
+            "target": "self"
+          }
+        },
         "minecraft:tamemount": {
           "min_temper": 0,
-          "max_temper": 100,
+          "max_temper": 10,
           "feed_text": "action.interact.feed",
           "ride_text": "action.interact.mount",
           "feed_items": [
@@ -48,7 +61,7 @@
             },
             {
               "item": "golden_carrot",
-              "temper_mod": 5
+              "temper_mod": 10
             },
             {
               "item": "golden_apple",
@@ -281,7 +294,7 @@
         ]
       },
       "minecraft:type_family": {
-        "family": [ "horse", "mob" ]
+        "family": [ "horse", "mob", "familiar" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -365,15 +378,15 @@
           },
           {
             "item": "golden_carrot",
-            "heal_amount": 4
+            "heal_amount": 20
           },
           {
             "item": "golden_apple",
-            "heal_amount": 10
+            "heal_amount": 20
           },
           {
             "item": "appleEnchanted",
-            "heal_amount": 10
+            "heal_amount": 30
           }
         ]
       },
@@ -457,9 +470,9 @@
       "kurokumaft:lava_walker": {
 				"run_command": {
 					"command": [
-            "execute @s ~~~ detect ~~-1~ lava -1 setblock ~~-1~ magma",
-            "execute @s ~~~ detect ~~-1~ flowing_lava -1 setblock ~~-1~ magma",
-            "execute @s ~~~ detect ^^-1^-1 magma -1 setblock ^^-1^-1 lava"
+            "execute if block ~~-1~ lava run setblock ~~-1~ magma",
+            "execute if block ~~-1~ flowing_lava run setblock ~~-1~ magma",
+            "execute if block ^^-1^-1 magma run setblock ^^-1^-1 lava"
           ]
 				}
 			}

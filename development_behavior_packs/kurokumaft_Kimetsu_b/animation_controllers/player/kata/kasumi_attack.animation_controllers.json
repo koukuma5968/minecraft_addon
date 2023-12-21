@@ -1,0 +1,22 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.kokyu.kasumi_attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "kasumi7_attack": "(query.skin_id == 8) && query.variant == 7 && query.mark_variant == 1 && variable.attack_time" }
+          ]
+        },
+        "kasumi7_attack":{
+          "on_entry": [
+            "/function kasumi/kasumi7/kasumi7_at"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

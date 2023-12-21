@@ -1,0 +1,55 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.sanemi_head",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 23.9, -4.1], "size": [8.2, 8.2, 8.2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "hat",
+					"parent": "head",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 23.9, -4.1], "size": [8.2, 8.2, 8.2], "inflate": 0.5, "uv": [32, 0]}
+					]
+				},
+				{
+					"name": "hea",
+					"parent": "hat",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [2.5, 31.5, -3.6], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [3.5, 29.5, -3.6], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [3.5, 27.5, -0.6], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [3.5, 28.5, 1.4], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [3.5, 25.5, 2.4], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [-4.5, 31.5, -2.6], "size": [2, 2, 0], "uv": [0, 0]},
+						{"origin": [-5.5, 29.5, -3.6], "size": [2, 2, 0], "uv": [0, 0]},
+						{"origin": [-5.5, 27.5, -0.6], "size": [2, 2, 0], "uv": [0, 0]},
+						{"origin": [-5.5, 30.5, 2.4], "size": [2, 2, 0], "uv": [0, 0]},
+						{"origin": [-5.5, 29.5, 0.4], "size": [2, 2, 0], "uv": [0, 0]},
+						{"origin": [-0.5, 31.5, 0.4], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [2.5, 31.5, 2.4], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [1.5, 31.5, -1.6], "size": [2, 2, 0], "uv": [1, 2]},
+						{"origin": [-3.5, 31.5, -1.6], "size": [2, 2, 0], "uv": [0, 0]},
+						{"origin": [-1.5, 31.5, 2.4], "size": [2, 2, 0], "uv": [0, 0]},
+						{"origin": [-0.5, 31.5, -3.6], "size": [2, 2, 0], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}

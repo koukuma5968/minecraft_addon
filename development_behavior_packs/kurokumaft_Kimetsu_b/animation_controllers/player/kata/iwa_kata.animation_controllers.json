@@ -42,6 +42,8 @@
         },
         "iwa2":{
           "on_entry": [
+            "/event entity @s kurokumaft:knockback_add",
+            "/event entity @s kurokumaft:explosion_nullify",
             "/event entity @s mark_variant1"
           ],
           "transitions": [
@@ -62,6 +64,8 @@
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7天面砕き\"}]}"
           ],
           "on_exit": [
+            "/event entity @s kurokumaft:knockback_remove",
+            "/event entity @s kurokumaft:explosion_nullify_remove",
             "/event entity @s mark_variant0"
           ],
           "transitions": [
@@ -78,11 +82,11 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 100 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0;"}
+            {"default":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 60 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0;"}
           ]
         },
         "iwa4":{
-          "animations" : [ "iwa3_ani" ],
+          "animations" : [ "iwa4_ani" ],
           "on_entry": [
             "/event entity @s mark_variant1",
             "/effect @s speed 99999 5 true",
@@ -93,26 +97,36 @@
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 60 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0;"}
+            {"default":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 120 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0;"}
           ]
         },
         "iwa5":{
+          "animations" : [ "iwa5_ani" ],
           "on_entry": [
-            "/event entity @s mark_variant1"
+            "/event entity @s mark_variant1",
+            "/tag @s add kokyu_iwa5"
           ],
           "transitions": [
             {"iwa5_2":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 10 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0;"}
           ]
         },
         "iwa5_2":{
+          "animations" : [ "iwa5_hover_ani","iwa5_2_ani" ],
           "on_entry": [
+            "/event entity @s mark_variant2",
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7瓦輪刑部\"}]}"
           ],
           "on_exit": [
+            "/tag @s remove kokyu_iwa5",
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 60 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0;"}
+            {"iwa5_f":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 60 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0;"}
+          ]
+        },
+        "iwa5_f":{
+          "transitions": [
+            {"default":"variable.kokyu_iwa_attack = variable.kokyu_iwa_attack < 10 ? variable.kokyu_iwa_attack + 1:0;return variable.kokyu_iwa_attack == 0 && !query.is_using_item;"}
           ]
         }
       }

@@ -10,7 +10,8 @@
             }
           },
           "transitions": [
-            { "bakketu": "query.is_item_name_any('slot.weapon.offhand',0,'kurokumaft:bakketu') && variable.attack_time && query.is_sneaking" }
+            { "bakketu": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bakketu') && query.is_using_item" },
+            { "bakketu": "query.is_item_name_any('slot.weapon.offhand',0,'kurokumaft:bakketu') && query.is_using_item" }
           ]
         },
         "bakketu":{
@@ -18,8 +19,8 @@
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"血気術\"}]}",
             "/tag @s add bakketu",
-            "/tag @e[tag=!bakketu,family=!player,family=!regimental_soldier,r=8] add bakketu_enemy",
-            "/tag @e[tag=!bakketu,family=player,r=8] add bakketu_ally",
+            "/tag @e[tag=!bakketu,family=!player,family=!regimental_soldier,family=!inanimate,type=!item,r=8] add bakketu_enemy",
+            "/tag @e[family=player,r=8] add bakketu_ally",
             "/tag @e[tag=!bakketu,family=regimental_soldier,r=8] add bakketu_ally",
             "/tag @e[tag=!bakketu,family=villager,r=8] add bakketu_ally"
           ],

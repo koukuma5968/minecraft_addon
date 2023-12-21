@@ -25,42 +25,42 @@
       "states": {
         "default": {
           "transitions": [
-            { "sparkle_shock": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
-            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
-            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" },
-            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" }
+            { "sparkle_light": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
+            { "flash_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
+            { "holly_lance": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" },
+            { "holly_field": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" }
           ]
         },
-        "sparkle_shock": {
+        "sparkle_light": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eライトニングストライク\"}]}",
-            "/function magic/light/sparkle_shock"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eスパークルライト\"}]}",
+            "/function magic/light/sparkle_light"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
           ]
         },
-        "jewel_bit": {
+        "flash_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eジュエルビット\"}]}",
-            "/function magic/light/jewel_bit"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eフラッシュビット\"}]}",
+            "/function magic/light/flash_bit"
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
           ]
         },
-        "stone_edge": {
+        "holly_lance": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eストーンエッジ\"}]}"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーランス\"}]}"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}
           ]
         },
-        "gaia_crash": {
+        "holly_field": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eガイアクラッシュ\"}]}",
-            "/function magic/light/blastbomb"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーフィールド\"}]}",
+            "/function magic/light/holly_field"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

@@ -21,8 +21,8 @@
           ]
         },
         "animations": {
-          "first": "animation.nichirintou_first",
-          "third": "animation.nichirintou_third"
+          "first": "animation.obanai_first",
+          "third": "animation.obanai_third"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

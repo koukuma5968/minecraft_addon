@@ -10,13 +10,13 @@
         "animate":[
           "kokyu_change",
           "tanjiro_change","zenitu_change","inosuke_change","kanawo_change","giyu_change","kyouzyuro_change","tengen_change","shinobu_change",
-          "mituri_change","sanemi_change","gyoumei_change","muitiro_change",
+          "mituri_change","sanemi_change","gyoumei_change","muitiro_change","obanai_change",
 
           "mizu_change","hi_change","kaminari_change","hono_change","oto_change","mushi_change","hana_change",
 
-          "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi","koi","kaze","iwa","kasumi",
+          "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi","koi","kaze","iwa","kasumi","hebi",
 
-          "mizu10_attack","hi_dragon_attack","kaminari_attack",
+          "mizu10_attack","hi_dragon_attack","kaminari_attack","kasumi_attack",
 
           "bakketu"
         ]
@@ -36,6 +36,7 @@
         "sanemi_change": "controller.animation.kokyu.sanemi_change",
         "gyoumei_change": "controller.animation.kokyu.gyoumei_change",
         "muitiro_change": "controller.animation.kokyu.muitiro_change",
+        "obanai_change": "controller.animation.kokyu.obanai_change",
 
         "mizu_change": "controller.animation.kokyu.mizu_change",
         "hi_change": "controller.animation.kokyu.hi_change",
@@ -81,10 +82,15 @@
         "kaze1_ani": "animation.kata.kaze1","kaze3_ani": "animation.kata.kaze3","kaze4_ani": "animation.kata.kaze4","kaze5_ani": "animation.kata.kaze5",
         "kaze8_ani": "animation.kata.kaze8","kaze9_ani": "animation.kata.kaze9","kaze9_2_ani": "animation.kata.kaze9_2",
 
-        "kasumi": "controller.animation.kokyu.kasumi",
+        "kasumi": "controller.animation.kokyu.kasumi","kasumi_attack": "controller.animation.kokyu.kasumi_attack",
+        "kasumi5_ani": "animation.kata.kasumi5","kasumi7_ani": "animation.kata.kasumi7",
+
+        "hebi": "controller.animation.kokyu.hebi",
+        "hebi4_ani": "animation.kata.hebi4","hebi5_ani": "animation.kata.hebi5",
 
         "iwa": "controller.animation.kokyu.iwa",
-        "iwa3_ani": "animation.kata.iwa3"
+        "iwa3_ani": "animation.kata.iwa3","iwa4_ani": "animation.kata.iwa4",
+        "iwa5_ani": "animation.kata.iwa5","iwa5_hover_ani": "animation.kata.iwa5_hover","iwa5_2_ani": "animation.kata.iwa5_2"
 
       }
     },
@@ -200,26 +206,32 @@
       },
 
       "kurokumaft:falling_nullify": {
-        "minecraft:hurt_on_condition": {
-          "damage_conditions": [
+        "minecraft:damage_sensor": {
+          "triggers": [
             {
-              "filters": { "test": "has_damage", "subject": "self", "operator": "==", "value": "fall" },
-              "damage_per_tick": 0
+              "on_damage": {
+                "filters": { "test": "has_damage", "subject": "self", "operator": "==", "value": "fall" }
+              },
+              "cause": "fall",
+              "deals_damage": false
             }
           ]
         }
       },
       "kurokumaft:explosion_nullify": {
-        "minecraft:hurt_on_condition": {
-          "damage_conditions": [
+        "minecraft:damage_sensor": {
+          "triggers": [
             {
-              "filters": { 
-                "any_of": [
-                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" },
-                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
-                ]
+              "on_damage": {
+                "filters": {
+                  "any_of": [
+                    {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" },
+                    {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
+                  ]
+                }
               },
-              "damage_per_tick": 0
+              "cause": "entity_explosion",
+              "deals_damage": false
             }
           ]
         }
@@ -271,6 +283,12 @@
           "value": 8
         }
       },
+      "kurokumaft:nichirintou_obanai": {
+        "minecraft:skin_id": {
+          "value": 9
+        }
+      },
+
       "kurokumaft:nichirintou_mizu": {
         "minecraft:skin_id": {
           "value": 11
@@ -820,6 +838,11 @@
       "kurokumaft:nichirintou_muitiro": {
         "add": {
           "component_groups": [ "kurokumaft:nichirintou_muitiro" ]
+        }
+      },
+      "kurokumaft:nichirintou_obanai": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_obanai" ]
         }
       },
 

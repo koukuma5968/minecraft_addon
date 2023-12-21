@@ -30,11 +30,11 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:fire_magic_stone", "kurokumaft:stone_magic_stone" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 6 < query.max_durability ? (query.max_durability - query.remaining_durability) / 6 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:explosion_staff" ],
-            "repair_amount": 1500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -51,7 +51,7 @@
       },
       "minecraft:on_use":{
         "on_use":{
-          "event":"kurokumaft:explosion"
+          "event":"kurokumaft:durability"
         }
       }
     },
@@ -66,11 +66,12 @@
       "kurokumaft:magic_weapon": {
         "sequence":[
           {
-            "condition": "!query.is_sneaking",
             "trigger": "kurokumaft:mega_brand"
+          },
+          {
+            "trigger": "kurokumaft:durability"
           }
-        ],
-        "trigger": "kurokumaft:durability"
+        ]
       },
       "kurokumaft:mega_brand": {
         "sequence":[
@@ -83,9 +84,6 @@
             }
           }
         ]
-      },
-      "kurokumaft:explosion": {
-        "trigger": "kurokumaft:durability"
       }
     }
   }

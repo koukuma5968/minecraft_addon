@@ -77,7 +77,7 @@
             "/tag @e[tag=flamecircle] remove flamecircle"
           ],
           "transitions": [
-            {"default":"variable.flame_magic = (variable.flame_magic ?? 0);variable.flame_magic = variable.flame_magic < 20 ? variable.flame_magic + 1:0;return variable.flame_magic == 0;"}
+            {"default":"variable.flame_magic = (variable.flame_magic ?? 0);variable.flame_magic = variable.flame_magic < 40 ? variable.flame_magic + 1:0;return variable.flame_magic == 0;"}
           ]
         },
         "burstflare": {

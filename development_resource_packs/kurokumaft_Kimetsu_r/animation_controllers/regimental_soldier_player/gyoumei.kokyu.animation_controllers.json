@@ -19,73 +19,6 @@
 				}
 			}
 		},
-		"controller.animation.gyoumei.kokyu_player" : {
-			"initial_state" : "default",
-			"states" : {
-				"default":{
-					"transitions" : [
-						{"iwa1_1": "query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
-						{"iwa2_1": "query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
-						{"iwa3_1": "query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
-						{"iwa4_1": "query.variant == 4 && query.mark_variant == 1 && query.is_using_item"}
-					]
-				},
-				"iwa1_1" : {
-					"animations" : [
-						{"gyoumei.ichi_1": "c.is_first_person"},
-						{"gyoumei.ichi_1": "!c.is_first_person"}
-					],
-					"transitions" : [
-						{"default":"query.mark_variant == 0"}
-					]
-				},
-				"iwa2_1" : {
-					"animations" : [
-						{"gyoumei.ni_1": "c.is_first_person"},
-						{"gyoumei.ni_1": "!c.is_first_person"}
-					],
-					"transitions" : [
-						{"iwa2_2":"query.mark_variant == 2"}
-					]
-				},
-				"iwa2_2" : {
-					"animations" : [
-						{"gyoumei.ni_2": "c.is_first_person"},
-						{"gyoumei.ni_2": "!c.is_first_person"}
-					],
-					"transitions" : [
-						{"default":"query.mark_variant == 0"}
-					]
-				},
-				"iwa3_1" : {
-					"animations" : [
-						{"gyoumei.san_1": "c.is_first_person"},
-						{"gyoumei.san_1": "!c.is_first_person"}
-					],
-					"transitions" : [
-						{"default":"query.mark_variant == 0"}
-					]
-				},
-				"iwa4_1" : {
-					"animations" : [
-						{"gyoumei.shi_1": "c.is_first_person"},
-						{"gyoumei.shi_1": "!c.is_first_person"}
-					],
-					"transitions" : [
-						{"iwa4_2":"query.any_animation_finished"}
-					]
-				},
-				"iwa4_2" : {
-					"animations" : [
-						{"gyoumei.shi_2": "c.is_first_person"},
-						{"gyoumei.shi_2": "!c.is_first_person"}
-					],
-					"transitions" : [
-						{"default":"query.mark_variant == 0"}
-					]
-				}
-			}
-		},
  		"controller.animation.gyoumei_body.kokyu_player" : {
 			"initial_state" : "default",
 			"states" : {
@@ -94,13 +27,14 @@
 						{"iwa1_1": "variable.equipped_gyoumei && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
 						{"iwa2_1": "variable.equipped_gyoumei && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
 						{"iwa3_1": "variable.equipped_gyoumei && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
-						{"iwa4_1": "variable.equipped_gyoumei && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"}
+						{"iwa4_1": "variable.equipped_gyoumei && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
+						{"iwa5_1": "variable.equipped_gyoumei && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"}
 					]
 				},
 				"iwa1_1" : {
 					"animations" : [
-						{"gyoumei.ichi_1": "variable.is_first_person"},
-						{"gyoumei.ichi_1": "!variable.is_first_person"}
+						{"gyoumei_body.ichi_1": "variable.is_first_person"},
+						{"gyoumei_body.ichi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.mark_variant == 0"}
@@ -108,8 +42,8 @@
 				},
 				"iwa2_1" : {
 					"animations" : [
-						{"gyoumei.ni_1": "variable.is_first_person"},
-						{"gyoumei.ni_1": "!variable.is_first_person"}
+						{"gyoumei_body.ni_1": "variable.is_first_person"},
+						{"gyoumei_body.ni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"iwa2_2":"query.mark_variant == 2"}
@@ -117,8 +51,8 @@
 				},
 				"iwa2_2" : {
 					"animations" : [
-						{"gyoumei.ni_2": "variable.is_first_person"},
-						{"gyoumei.ni_2": "!variable.is_first_person"}
+						{"gyoumei_body.ni_2": "variable.is_first_person"},
+						{"gyoumei_body.ni_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.mark_variant == 0"}
@@ -126,8 +60,8 @@
 				},
 				"iwa3_1" : {
 					"animations" : [
-						{"gyoumei.san_1": "variable.is_first_person"},
-						{"gyoumei.san_1": "!variable.is_first_person"}
+						{"gyoumei_body.san_1": "variable.is_first_person"},
+						{"gyoumei_body.san_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.mark_variant == 0"}
@@ -135,8 +69,8 @@
 				},
 				"iwa4_1" : {
 					"animations" : [
-						{"gyoumei.shi_1": "variable.is_first_person"},
-						{"gyoumei.shi_1": "!variable.is_first_person"}
+						{"gyoumei_body.shi_1": "variable.is_first_person"},
+						{"gyoumei_body.shi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"iwa4_2":"query.any_animation_finished"}
@@ -144,8 +78,26 @@
 				},
 				"iwa4_2" : {
 					"animations" : [
-						{"gyoumei.shi_2": "variable.is_first_person"},
-						{"gyoumei.shi_2": "!variable.is_first_person"}
+						{"gyoumei_body.shi_2": "variable.is_first_person"},
+						{"gyoumei_body.shi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"iwa5_1" : {
+					"animations" : [
+						{"gyoumei_body.go_1": "variable.is_first_person"},
+						{"gyoumei_body.go_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"iwa5_2":"query.mark_variant == 2"}
+					]
+				},
+				"iwa5_2" : {
+					"animations" : [
+						{"gyoumei_body.go_2": "variable.is_first_person"},
+						{"gyoumei_body.go_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
 						{"default":"query.mark_variant == 0"}

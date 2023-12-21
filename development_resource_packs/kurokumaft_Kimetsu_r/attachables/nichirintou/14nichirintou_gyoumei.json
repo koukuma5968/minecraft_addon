@@ -25,13 +25,15 @@
           "first": "animation.gyoumei_first",
           "third": "animation.gyoumei_third",
 
-          "gyoumei.kokyu_con":"controller.animation.gyoumei.kokyu_player",
+          "gyoumei.kokyu_con":"controller.animation.gyoumei.kokyu",
           "gyoumei.ichi_1": "animation.nichirintou_kokyu.gyoumei.ichi_1",
           "gyoumei.ni_1": "animation.nichirintou_kokyu.gyoumei.ni_1",
           "gyoumei.ni_2": "animation.nichirintou_kokyu.gyoumei.ni_2",
           "gyoumei.san_1": "animation.nichirintou_kokyu.gyoumei.san_1",
           "gyoumei.shi_1": "animation.nichirintou_kokyu.gyoumei.shi_1",
-          "gyoumei.shi_2": "animation.nichirintou_kokyu.gyoumei.shi_2"
+          "gyoumei.shi_2": "animation.nichirintou_kokyu.gyoumei.shi_2",
+          "gyoumei.go_1": "animation.nichirintou_kokyu.gyoumei.go_1",
+          "gyoumei.go_2": "animation.nichirintou_kokyu.gyoumei.go_2"
   
         },
         "render_controllers": ["controller.render.nichirintou"]

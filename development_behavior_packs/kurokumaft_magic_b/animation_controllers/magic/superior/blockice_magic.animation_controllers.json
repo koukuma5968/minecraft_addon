@@ -28,7 +28,7 @@
             { "ice_shock": "!query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && !query.is_using_item && variable.attack_time" },
             { "frozen_bit": "query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && !query.is_using_item && variable.attack_time" },
             { "ice_lance": "!query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && query.is_using_item" },
-            { "gaia_crash": "query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && query.is_using_item" }
+            { "ice_block": "query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && query.is_using_item" }
           ]
         },
         "ice_shock": {
@@ -61,10 +61,10 @@
             {"default":"!query.is_using_item"}
           ]
         },
-        "gaia_crash": {
+        "ice_block": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fガイアクラッシュ\"}]}",
-            "/function magic/ice/blastbomb"
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスブロック\"}]}",
+            "/function magic/ice/ice_block"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

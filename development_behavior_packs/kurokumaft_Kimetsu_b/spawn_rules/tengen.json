@@ -3,13 +3,13 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "kurokumaft:tengen",
-      "population_control": "monster"
+      "population_control": "pillager"
     },
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
         "minecraft:brightness_filter": {
-          "min": 0,
+          "min": 3,
           "max": 15,
           "adjust_for_weather": false
         },

@@ -242,6 +242,9 @@
         },
         "mizu8_1":{
           "animations" : [ "mizu8_ani" ],
+          "on_entry": [
+            "/event entity @s kurokumaft:falling_nullify"
+          ],
           "transitions": [
             {"mizu8_2":"variable.kokyu_mizu_attack = variable.kokyu_mizu_attack < 20 ? variable.kokyu_mizu_attack + 1:0;return variable.kokyu_mizu_attack == 0 && !query.is_using_item;"}
           ]
@@ -252,9 +255,15 @@
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9滝壺\"}]}",
             "/function mizu/mizu8"
           ],
+          "transitions": [
+            {"mizu8_f":"variable.kokyu_mizu_attack = variable.kokyu_mizu_attack < 10 ? variable.kokyu_mizu_attack + 1:0;return variable.kokyu_mizu_attack == 0 && !query.is_using_item;"}
+          ]
+        },
+        "mizu8_f":{
           "on_exit": [
             "/event entity @s mark_variant0",
-            "/execute as @s run tp @s ~~-1~"
+            "/execute as @s run tp @s ~~-1~ true",
+            "/event entity @s kurokumaft:falling_nullify_remove"
           ],
           "transitions": [
             {"default":"variable.kokyu_mizu_attack = variable.kokyu_mizu_attack < 10 ? variable.kokyu_mizu_attack + 1:0;return variable.kokyu_mizu_attack == 0 && !query.is_using_item;"}

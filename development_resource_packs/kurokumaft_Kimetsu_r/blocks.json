@@ -6,5 +6,62 @@
    "scarlet_gravel" : {
       "sound" : "gravel",
       "textures" : "scarlet_gravel"
+   },
+   "tanjiro_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "zenitu_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "inosuke_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "nezuko_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "kanawo_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "giyu_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "kyouzyuro_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "shinobu_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "mituri_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "tengen_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "sanemi_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "genya_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "gyoumei_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
+   },
+   "muitiro_skull" : {
+      "sound" : "stone",
+      "textures" : "skull"
    }
+
 }

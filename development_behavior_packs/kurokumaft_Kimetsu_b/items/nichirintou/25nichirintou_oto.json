@@ -23,11 +23,11 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:scarlet_nugget" ],
-            "repair_amount": 100
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:nichirintou_oto" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -50,6 +50,7 @@
           }
         ]
       },
+      "minecraft:use_duration": 999,
       "minecraft:chargeable": {
         "on_complete": {
           "event": "hurt_entity"

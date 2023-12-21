@@ -43,6 +43,7 @@
           "explosion","explosion_change",
           "firestorm","firestorm_change",
           "flamespark","flamespark_change",
+          "mailstrom", "mailstrom_change",
 
           "fire_grimoire_change",
 
@@ -91,6 +92,7 @@
         "explosion":"controller.animation.explosion_magic.explosion","explosion_change":"controller.animation.explosion_magic.explosion_change",
         "firestorm":"controller.animation.firestorm_magic.firestorm","firestorm_change":"controller.animation.firestorm_magic.firestorm_change",
         "flamespark":"controller.animation.flamespark_magic.flamespark","flamespark_change":"controller.animation.flamespark_magic.flamespark_change",
+        "mailstrom": "controller.animation.mailstrom_magic.mailstrom", "mailstrom_change": "controller.animation.mailstrom_magic.mailstrom_change",
 
         "framepillar_ani": "animation.fire.framepillar","flarecircle_ani": "animation.fire.flarecircle",
         "waterpillar_ani": "animation.water.waterpillar","aqua_shot_ani": "animation.water.aqua_shot","tidal_wave_ani": "animation.water.tidal_wave",

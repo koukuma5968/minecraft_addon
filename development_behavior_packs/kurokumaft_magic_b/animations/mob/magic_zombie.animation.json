@@ -24,6 +24,18 @@
 					"/event entity @s kurokumaft:lightningbolt_remove"
 				]
 			}
+		},
+		"animation.water_zombie.shot": {
+			"animation_length": 10.00,
+			"loop": true,
+			"timeline": {
+				"7.5": [
+					"/event entity @s kurokumaft:waterball"
+				],
+				"7.6": [
+					"/event entity @s kurokumaft:waterball_remove"
+				]
+			}
 		}
 	}
 }

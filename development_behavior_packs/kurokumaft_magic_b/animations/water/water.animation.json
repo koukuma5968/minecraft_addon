@@ -27,6 +27,30 @@
 					"/function magic/water/tidal_wave/tidal_wave2"
 				]
 			}
+		},
+		"animation.water.mailstrom.damage": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/tag @e[tag=!mailstrom_self] add mailstrom_target",
+					"/tp @e[tag=mailstrom_target,r=2.5] ~~~",
+					"/damage @e[tag=mailstrom_target,r=5] 15 drowning",
+					"/execute as @s run particle kurokumaft:mailstrom1_particle ~~~",
+					"/execute as @s run particle kurokumaft:mailstrom1_particle ~~0.5~",
+					"/execute as @s run particle kurokumaft:mailstrom2_particle ~~1~",
+					"/execute as @s run particle kurokumaft:mailstrom2_particle ~~1.5~",
+					"/execute as @s run particle kurokumaft:mailstrom3_particle ~~2~",
+					"/execute as @s run particle kurokumaft:mailstrom3_particle ~~2.5~",
+					"/execute as @s run particle kurokumaft:mailstrom4_particle ~~3~",
+					"/execute as @s run particle kurokumaft:mailstrom4_particle ~~3.5~",
+					"/execute as @s run particle kurokumaft:mailstrom5_particle ~~4~",
+					"/execute as @s run particle kurokumaft:mailstrom5_particle ~~4.5~",
+					"/execute as @s run particle kurokumaft:mailstrom6_particle ~~5~",
+					"/execute as @s run particle kurokumaft:mailstrom6_particle ~~5.5~"
+				]
+			}
 		}
 	}
 }

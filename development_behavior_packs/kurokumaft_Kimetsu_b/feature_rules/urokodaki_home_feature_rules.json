@@ -1,0 +1,44 @@
+{
+    "format_version": "1.20.30",
+    "minecraft:feature_rules": {
+        "description": {
+            "identifier": "kurokumaft:urokodaki_home_feature_rules",
+            "places_feature": "kurokumaft:urokodaki_home_feature"
+        },
+        "conditions": {
+            "placement_pass": "surface_pass",
+            "minecraft:biome_filter": [
+                {
+                    "any_of": [
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "kurokumaft:sunlight_mountains"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "forest"
+                        }
+                    ]
+                }
+            ]
+        },
+        "distribution": {
+            "iterations": 1,
+            "scatter_chance": 70.0,
+            "x": {
+                "distribution": "uniform",
+                "extent": ["0","64"]
+            },
+            "y": {
+                "distribution": "uniform",
+                "extent": ["50","90"]
+            },
+            "z": {
+                "distribution": "uniform",
+                "extent": ["0","64"]
+            }
+        }
+    }
+}

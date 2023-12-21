@@ -19,6 +19,24 @@
 				}
 			}
 		},
+		"controller.animation.muitiro_attack.kokyu_player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"muitiro7_att": "variable.equipped_muitiro && query.variant == 7 && query.mark_variant == 1 && variable.attack_time"}
+					]
+				},
+				"muitiro7_att" : {
+					"animations" : [
+						{"muitiro.shiti_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"!variable.attack_time"}
+					]
+				}
+			}
+		},
 		"controller.animation.muitiro.kokyu_player" : {
 			"initial_state" : "default",
 			"states" : {
@@ -30,8 +48,7 @@
 						{"muitiro4_1": "variable.equipped_muitiro && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
 						{"muitiro5_1": "variable.equipped_muitiro && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"},
 						{"muitiro6_1": "variable.equipped_muitiro && query.variant == 6 && query.mark_variant == 1 && query.is_using_item"},
-						{"muitiro7_1": "variable.equipped_muitiro && query.variant == 7 && query.mark_variant == 1 && query.is_using_item"},
-						{"muitiro7_att": "variable.equipped_muitiro && query.variant == 7 && query.mark_variant == 2 && variable.attack_time"}
+						{"muitiro7_1": "variable.equipped_muitiro && query.variant == 7 && query.mark_variant == 1 && query.is_using_item"}
 					]
 				},
 				"muitiro1_1" : {
@@ -47,7 +64,7 @@
 						{"muitiro.ichi_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"muitiro2_1" : {
@@ -55,7 +72,7 @@
 						{"muitiro.ni_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"muitiro3_1" : {
@@ -63,7 +80,7 @@
 						{"muitiro.san_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"muitiro3_2":"query.any_animation_finished"}
+						{"muitiro3_2":"!query.is_using_item"}
 					]
 				},
 				"muitiro3_2" : {
@@ -71,7 +88,7 @@
 						{"muitiro.san_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"muitiro4_1" : {
@@ -79,7 +96,7 @@
 						{"muitiro.shi_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"muitiro4_2":"query.any_animation_finished"}
+						{"muitiro4_2":"!query.is_using_item"}
 					]
 				},
 				"muitiro4_2" : {
@@ -87,7 +104,7 @@
 						{"muitiro.shi_2": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"muitiro5_1" : {
@@ -103,23 +120,15 @@
 						{"muitiro.roku_1": "!variable.is_first_person"}
 					],
 					"transitions" : [
-						{"default":"!query.is_using_item"}
+						{"default":"query.mark_variant == 0"}
 					]
 				},
 				"muitiro7_1" : {
 					"animations" : [
-						{"muitiro.shiti_1": "!variable.is_first_person"}
+						{"muitiro.shiti_1": "!variable.is_first_person && !variable.attack_time"}
 					],
 					"transitions" : [
-						{"default":"query.any_animation_finished"}
-					]
-				},
-				"muitiro7_att" : {
-					"animations" : [
-						{"muitiro.shiti_attack": "!variable.is_first_person"}
-					],
-					"transitions" : [
-						{"default":"query.any_animation_finished"}
+						{"default":"query.mark_variant == 0"}
 					]
 				}
 			}

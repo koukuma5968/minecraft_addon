@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.30",
+	"animations": {
+		"animation.kata.hebi4": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function hebi/hebi4"
+				]
+			}
+		},
+		"animation.kata.hebi5": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function hebi/hebi5"
+				]
+			}
+		}
+	}
+}

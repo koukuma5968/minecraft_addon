@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.dark_lance_magic.shooter": {
+			"loop": true,
+			"bones": {
+				"dark_lance_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "dark",
+					"locator": "dark_lance_body"
+				}
+			}
+		}
+	}
+}

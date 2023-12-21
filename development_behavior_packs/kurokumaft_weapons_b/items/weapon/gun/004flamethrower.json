@@ -38,7 +38,7 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
-      "minecraft:use_duration": 99999,
+      "minecraft:use_duration": 9999,
       "minecraft:on_use": {
         "on_use": {
           "event": "kurokumaft:fire_charge"

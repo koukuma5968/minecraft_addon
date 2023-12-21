@@ -1,0 +1,53 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:nichirintou_gyoumei",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_pants_guy_green",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:gyoumei_tabi",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 0,
+        "max": 1
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:gyoumei_haori_soldier_jacket",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_jacket_guy_green",
+          "weight": 5
+        }
+      ]
+    }
+
+  ]
+}

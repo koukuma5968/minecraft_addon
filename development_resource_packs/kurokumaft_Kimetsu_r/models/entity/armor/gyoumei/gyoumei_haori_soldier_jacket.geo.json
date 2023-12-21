@@ -1,0 +1,60 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.gyoumei_haori_soldier_jacket",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-9, 6, -2.5], "size": [18, 18.5, 5], "uv": [1, 0]},
+						{"origin": [-8.5, 23.5, -2.5], "size": [1, 1, 5], "uv": [26, 6]},
+						{"origin": [7.5, 23.5, -2.5], "size": [1, 1, 5], "uv": [26, 6]},
+						{"origin": [-9, 22.5, -2.5], "size": [1, 1, 5], "uv": [26, 6]},
+						{"origin": [8, 22.5, -2.5], "size": [1, 1, 5], "uv": [26, 6]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-8.25, 12.5, -2.25], "size": [4.5, 11.75, 4.5], "uv": [46, 28]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0],
+					"cubes": [
+						{"origin": [3.75, 12.5, -2.25], "size": [4.5, 11.75, 4.5], "uv": [46, 44]}
+					]
+				},
+				{
+					"name": "rightsode",
+					"parent": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-9.9, 8.5, -2.5], "size": [1, 14, 5], "uv": [34, 24]}
+					]
+				},
+				{
+					"name": "leftsode",
+					"parent": "body",
+					"pivot": [15, 22, 0],
+					"cubes": [
+						{"origin": [8.9, 8.5, -2.5], "size": [1, 14, 5], "uv": [34, 24]}
+					]
+				}
+			]
+		}
+	]
+}

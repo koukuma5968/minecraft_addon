@@ -23,6 +23,7 @@
 				"explosion_resistance": 80
 			},
 			"minecraft:crafting_table": {
+                "table_name": "tile.kurokumaft:kitchen_table.name",
 				"crafting_tags": ["kitchen_table"]
 			},
 			"minecraft:geometry": "geometry.kitchen_table",

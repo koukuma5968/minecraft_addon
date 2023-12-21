@@ -6,11 +6,11 @@
 			"is_experimental": false,
             "register_to_creative_menu": false,
 			"menu_category": {
-				"category": "Construction"
+				"category": "nature",
+				"group": "itemGroup.name.ore"
 			}
 		},
 		"components": {
-			"minecraft:display_name": "kurokumaft:scarlet_ore",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0.5
 			},

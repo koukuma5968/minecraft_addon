@@ -51,23 +51,7 @@
       "entries": [
         {
           "type": "loot_table",
-          "name": "loot_tables/entities/armor_set_leather.json"
-        },
-        {
-          "type": "loot_table",
-          "name": "loot_tables/entities/armor_set_gold.json"
-        },
-        {
-          "type": "loot_table",
-          "name": "loot_tables/entities/armor_set_chain.json"
-        },
-        {
-          "type": "loot_table",
-          "name": "loot_tables/entities/armor_set_iron.json"
-        },
-        {
-          "type": "loot_table",
-          "name": "loot_tables/entities/armor_set_diamond.json"
+          "name": "loot_tables/entities/armor/armor_set_thunder.json"
         }
       ]
     }

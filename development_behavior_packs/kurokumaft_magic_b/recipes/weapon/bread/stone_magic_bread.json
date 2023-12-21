@@ -4,11 +4,10 @@
     "description": {
       "identifier": "kurokumaft:stone_magic_bread"
     },
-
     "tags": [ "magic_enchant" ],
     "pattern": [
-      "m  ",
-      " l ",
+      "l ",
+      " m ",
       "  #"
     ],
     "key": {

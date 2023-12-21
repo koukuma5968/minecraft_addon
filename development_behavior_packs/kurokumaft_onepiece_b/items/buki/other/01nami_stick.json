@@ -35,6 +35,7 @@
         "slot": "sword"
       },
       "minecraft:can_destroy_in_creative": true,
+      "minecraft:use_duration": 9999,
       "minecraft:shooter" : {
         "charge_on_draw": true,
         "scale_power_by_draw_duration": false

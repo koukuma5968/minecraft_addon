@@ -17,6 +17,7 @@
       },
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
+      "minecraft:use_duration": 1,
       "minecraft:chargeable": {
         "on_complete": {
           "condition": "query.skin_id == 104",
@@ -29,8 +30,7 @@
           "event": "kurokumaft:meramera_shot",
           "target": "self"
         }
-      },
-      "minecraft:use_duration": 1
+      }
     },
     "events": {
       "kurokumaft:meramera_charge" : {

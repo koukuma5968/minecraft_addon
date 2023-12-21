@@ -112,9 +112,6 @@
           "start_distance": 10,
           "stop_distance": 16
         },
-        "minecraft:flying_speed": {
-          "value": 0.2
-        },
         "minecraft:movement": {
           "value": 0.1
         },
@@ -212,6 +209,9 @@
         }
       },
       "kurokumaft:ride_landing": {
+        "minecraft:flying_speed": {
+          "value": 0.2
+        },
         "minecraft:movement.fly": {
           "max_turn": 90.0
         }
@@ -225,6 +225,11 @@
       "mark_variant1": {
         "minecraft:mark_variant": {
             "value": 1
+        }
+      },
+      "mark_variant2": {
+        "minecraft:mark_variant": {
+            "value": 2
         }
       },
 
@@ -312,7 +317,7 @@
       "minecraft:nameable": {
       },
       "minecraft:type_family": {
-        "family": [ "eagle", "mob" ]
+        "family": [ "eagle", "mob", "familiar" ]
       },
       "minecraft:collision_box": {
         "width": 1.2,
@@ -425,7 +430,8 @@
         },
         "add": {
           "component_groups": [
-            "kurokumaft:storm_eagle_tamed"
+            "kurokumaft:storm_eagle_tamed",
+            "kurokumaft:ride_landing"
           ]
         }
       },
@@ -489,6 +495,13 @@
         "add": {
           "component_groups": [
             "mark_variant1"
+          ]
+        }
+      },
+      "mark_variant2": {
+        "add": {
+          "component_groups": [
+            "mark_variant2"
           ]
         }
       }

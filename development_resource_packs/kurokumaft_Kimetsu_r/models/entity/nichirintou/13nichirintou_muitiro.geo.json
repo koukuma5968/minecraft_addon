@@ -43,7 +43,15 @@
 				{
 					"name": "muitiro_nichirinto",
 					"parent": "rightArm",
-					"pivot": [-6, 15.50092, -2.33811]
+					"pivot": [-6, 15.50092, -2.33811],
+					"locators": {
+						"muitiro1": [-6, 15, -87],
+						"muitiro2": [-6, 16, -72],
+						"muitiro3": [-6, 16, -56],
+						"muitiro4": [-6, 16, -41],
+						"muitiro5": [-6, 16, -26],
+						"muitiro6": [-6, 16, -12]
+					}
 				},
 				{
 					"name": "muitiro_blade",

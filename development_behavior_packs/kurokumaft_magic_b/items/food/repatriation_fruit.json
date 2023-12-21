@@ -10,6 +10,7 @@
     },
 
     "components": {
+      "tag:repatriation_fruit": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:repatriation_fruit.name"
 			},
@@ -27,9 +28,6 @@
       "minecraft:damage": 0,
       "minecraft:food": {
         "nutrition": 4,
-        "on_consume": {
-          "event": "kurokumaft:repatriation"
-        },
         "cooldown_type": "repatriation",
         "cooldown_time": 1,
         "can_always_eat": true
@@ -41,19 +39,7 @@
           {
             "run_command": {
               "command": [
-                "tag @e[r=2.5,c=1,type=armor_stand] add home_base"
-              ],
-              "target": "self"
-            }
-          }
-        ]
-      },
-      "kurokumaft:repatriation": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "tp @s @e[tag=home_base]"
+                "execute if entity @e[family=home_gate,r=2] run tag @s add home_gate"
               ],
               "target": "self"
             }

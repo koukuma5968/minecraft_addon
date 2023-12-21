@@ -40,8 +40,6 @@
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
       "minecraft:use_duration": 9999,
-      "minecraft:chargeable": {
-      },
       "minecraft:shooter": {
         "ammunition": [
           {

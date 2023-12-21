@@ -50,6 +50,9 @@
       "nichirintou_muitiro": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_muitiro"
       },
+      "nichirintou_obanai": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_obanai"
+      },
 
       "nichirintou_hi": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hi"
@@ -173,6 +176,37 @@
          "textures" : "textures/kurokumaft/items/armor/mituri/mituri_skirt"
       },
 
+      "sanemi_haori_soldier_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/sanemi/sanemi_haori_soldier_jacket"
+      },
+      "sanemi_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/sanemi/sanemi_tabi"
+      },
+
+      "genya_haori_soldier_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/genya/genya_haori_soldier_jacket"
+      },
+      "genya_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/genya/genya_tabi"
+      },
+
+      "gyoumei_haori_soldier_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/gyoumei/gyoumei_haori_soldier_jacket"
+      },
+      "gyoumei_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/gyoumei/gyoumei_tabi"
+      },
+
+      "muitiro_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/muitiro/muitiro_jacket"
+      },
+      "muitiro_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/muitiro/muitiro_tabi"
+      },
+      "muitiro_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/muitiro/muitiro_hakama"
+      },
+
       "soldier_jacket_guy": {
          "textures" : "textures/kurokumaft/items/armor/soldier_jacket_guy"
       },
@@ -185,6 +219,13 @@
       "soldier_pants_guy_blue": {
          "textures" : "textures/kurokumaft/items/armor/soldier_pants_guy_blue"
       },
+      "soldier_jacket_guy_green": {
+         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_guy_green"
+      },
+      "soldier_pants_guy_green": {
+         "textures" : "textures/kurokumaft/items/armor/soldier_pants_guy_green"
+      },
+
       "soldier_jacket_girl_blue": {
          "textures" : "textures/kurokumaft/items/armor/soldier_jacket_girl_blue"
       },
@@ -235,6 +276,18 @@
       "mituri_head": {
          "textures" : "textures/kurokumaft/items/head/mituri_head"
       },
+      "sanemi_head": {
+         "textures" : "textures/kurokumaft/items/head/sanemi_head"
+      },
+      "genya_head": {
+         "textures" : "textures/kurokumaft/items/head/genya_head"
+      },
+      "gyoumei_head": {
+         "textures" : "textures/kurokumaft/items/head/gyoumei_head"
+      },
+      "muitiro_head": {
+         "textures" : "textures/kurokumaft/items/head/muitiro_head"
+      },
 
       "soldier_spawn_egg" : {
          "textures" : [
@@ -247,7 +300,11 @@
             "textures/kurokumaft/items/spawn_egg/soldier/kyouzyuro_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/shinobu_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/tengen_egg",
-            "textures/kurokumaft/items/spawn_egg/soldier/mituri_egg"
+            "textures/kurokumaft/items/spawn_egg/soldier/mituri_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/sanemi_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/genya_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/gyoumei_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/muitiro_egg"
          ]
       }
 

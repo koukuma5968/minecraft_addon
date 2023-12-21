@@ -91,7 +91,7 @@
 						"0.0": [0, 0, 0],
 						"0.5": [0, 0, 95]
 					},
-					"scale": [1, 1, 1]
+					"scale": 1
 				},
 				"leftArm": {
 					"rotation": {
@@ -127,27 +127,157 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro1"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro2"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro3"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro4"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro5"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.1": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.2": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.3": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.4": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.5": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
 						"locator": "muitiro6"
 					}
 				]
@@ -201,39 +331,299 @@
 				"muitiro_nichirinto": {
 					"rotation": {
 						"0.0": [0.66963, -14.98539, -92.58807],
-						"0.1": [-0.69529, 65.03337, -90.76994],
+						"0.1": [-1.13633, 75.03217, -91.2374],
 						"0.2": [-161.5913, 79.58352, -252.40424]
 					},
 					"position": {
-						"0.1": [0, -3, 0],
-						"0.2": [0, -6, 3]
+						"0.1": [0, 1, 1],
+						"0.2": [0, -5, 5]
 					}
 				}
 			},
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro1"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro2"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro3"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro4"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
 						"locator": "muitiro5"
 					},
 					{
-						"effect": "mizu_awa_particle",
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.1": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.2": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.3": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.4": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.5": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.6": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.7": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.8": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.9": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"1.0": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
 						"locator": "muitiro6"
 					}
 				]
@@ -279,7 +669,7 @@
 						"0.75": [-14.18606, 19.16596, -61.63753]
 					}
 				},
-				"kanawo_nichirinto": {
+				"muitiro_nichirinto": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.0417": [-22.5, 0, 0],
@@ -347,496 +737,496 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.0417": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.0833": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.125": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.1667": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.2083": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.25": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.2917": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.3333": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.375": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.4167": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.4583": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.5": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.5417": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.5833": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.625": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.6667": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.7083": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				],
 				"0.75": [
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo4"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo3"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo2"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo1"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo5"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
 					},
 					{
-						"effect": "hana_bread_particle",
-						"locator": "kanawo6"
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
 					}
 				]
 			}
@@ -891,6 +1281,34 @@
 					},
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.25": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.muitiro.san_2": {
@@ -940,6 +1358,112 @@
 					"rotation": [-23.30696, 9.30727, 20.57639],
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.muitiro.shi_1": {
@@ -998,11 +1522,39 @@
 					},
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.25": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.muitiro.shi_2": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.25,
+			"animation_length": 0.66667,
 			"bones": {
 				"root": {
 					"position": {
@@ -1062,11 +1614,117 @@
 					},
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.muitiro.go_1": {
 			"loop": true,
-			"animation_length": 0.33333,
+			"animation_length": 0.66667,
 			"bones": {
 				"leftArm": {
 					"rotation": {
@@ -1083,7 +1741,9 @@
 						"0.0833": [-9.50019, 8.507, 128.28739],
 						"0.1667": [-170.49981, -8.507, -51.71261],
 						"0.25": [-45.49981, -8.507, -51.71261],
-						"0.3333": [-106.09659, 61.55459, -54.53885]
+						"0.3333": [-106.09659, 61.55459, -54.53885],
+						"0.4167": [-152.71606, -3.15156, -127.99027],
+						"0.5": [44.78, -3.15, -127.99]
 					}
 				},
 				"muitiro_nichirinto": {
@@ -1092,9 +1752,143 @@
 						"0.0833": [50, 0, 0],
 						"0.1667": [-2.5, 0, 0],
 						"0.25": [55, 0, 0],
-						"0.3333": [2.5, 0, 0]
+						"0.3333": [2.5, 0, 0],
+						"0.4167": [2.5, 0, 0],
+						"0.5": [2.5, 0, 0]
 					}
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.muitiro.roku_1": {
@@ -1159,13 +1953,356 @@
 						"0.5": [0, 1, 1]
 					}
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.0417": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.125": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.2083": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.2917": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.375": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.4167": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.4583": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.5": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				]
 			}
 		},
 		"animation.nichirintou_kokyu.muitiro.shiti_1": {
 			"loop": true,
 			"bones": {
 				"root": {
-					"scale": [0, 0, 0]
+					"scale": 0
+				},
+				"head": {
+					"scale": 0
 				}
 			}
 		},
@@ -1200,6 +2337,138 @@
 						"0.3333": [0, -3, -1]
 					}
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.0833": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.1667": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.25": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				],
+				"0.3333": [
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro4"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro3"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro2"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro1"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro5"
+					},
+					{
+						"effect": "kasumi1_particle",
+						"locator": "muitiro6"
+					}
+				]
 			}
 		}
 	}

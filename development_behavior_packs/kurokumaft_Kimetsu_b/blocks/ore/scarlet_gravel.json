@@ -6,11 +6,10 @@
 			"is_experimental": false,
             "register_to_creative_menu": false,
 			"menu_category": {
-				"category": "Construction"
+				"category": "nature"
 			}
 		},
 		"components": {
-			"minecraft:display_name": "kurokumaft:scarlet_gravel",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 2.5
 			},

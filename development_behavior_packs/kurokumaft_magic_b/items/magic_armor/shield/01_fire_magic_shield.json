@@ -5,13 +5,13 @@
       "identifier": "kurokumaft:fire_magic_shield",
       "menu_category": {
         "category": "equipment",
-        "group": "itemGroup.name.magic_shield"
+        "group": "itemGroup.name.magic_shield",
+        "lore": "説明"
       }
     },
     "components": {
       "tag:shield": {},
       "tag:fire_shield": {},
-      "minecraft:use_duration":5,
       "minecraft:display_name": {
         "value": "item.kurokumaft:fire_magic_shield.name"
       },
@@ -21,12 +21,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:magma" ],
-            "repair_amount": 20
+            "items": [ "kurokumaft:fire_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:fire_magic_shield" ],
-            "repair_amount": 300
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },

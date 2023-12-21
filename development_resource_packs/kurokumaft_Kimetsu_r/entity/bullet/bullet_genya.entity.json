@@ -2,7 +2,7 @@
     "format_version": "1.10.0",
     "minecraft:client_entity": {
       "description": {
-        "identifier": "kurokumaft:bullet_genya",
+        "identifier": "kurokumaft:bullet_genya_entity",
         "materials": {
             "default": "fireball"
           },
@@ -13,7 +13,7 @@
             "default": "geometry.bullet_genya"
           },
           "scripts": {
-            "scale": "0.3"
+            "scale": "0.6"
           },
           "render_controllers": [ "controller.render.bullet" ]
         }

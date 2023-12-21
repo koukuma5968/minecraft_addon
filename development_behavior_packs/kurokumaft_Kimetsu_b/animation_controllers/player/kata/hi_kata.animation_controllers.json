@@ -162,13 +162,22 @@
           "animations" : [ "hi9_ani" ],
           "on_entry": [
             "/event entity @s mark_variant1",
+            "/event entity @s kurokumaft:falling_nullify",
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c輝輝恩光\"}]}"
           ],
           "on_exit": [
             "/event entity @s mark_variant0"
           ],
           "transitions": [
-            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 20 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0 && !query.is_using_item;"}
+            {"hi9_f":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 20 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0;"}
+          ]
+        },
+        "hi9_f":{
+          "on_exit": [
+            "/event entity @s kurokumaft:falling_nullify_remove"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_hi_attack = variable.kokyu_hi_attack < 10 ? variable.kokyu_hi_attack + 1:0;return variable.kokyu_hi_attack == 0;"}
           ]
         },
         "hi10":{

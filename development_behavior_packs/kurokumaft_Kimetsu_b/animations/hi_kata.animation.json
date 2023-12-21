@@ -161,6 +161,7 @@
 			"loop": true,
 			"timeline": {
 				"0.0": [
+					"/gamerule sendcommandfeedback false",
 					"/execute as @s run tp @s ~~0.25~",
 					"/tag @s add kokyu_hi9",
 					"/execute as @s positioned ^^^1 run damage @e[tag=!kokyu_hi9,r=1.5] 20 entity_attack",

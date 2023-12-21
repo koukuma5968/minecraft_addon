@@ -1,0 +1,90 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:mituri_skull",
+			"is_experimental": false,
+            "register_to_creative_menu": false,
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+                "kurokumaft:rotation": [ 1, 2, 3, 4, 5 ]
+            }
+		},
+		"components": {
+			"minecraft:display_name": "kurokumaft:mituri_skull",
+			"minecraft:selection_box": {
+				"origin": [-5.0, 0.0, -5.0],
+				"size": [10.0, 9.0, 10.0]
+			},
+			"minecraft:collision_box": {
+				"origin": [-5.0, 0.0, -5.0],
+				"size": [10.0, 9.0, 10.0]
+			},
+			"minecraft:geometry": "geometry.mituri_skull",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "mituri_skull",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 5.5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.0
+			},
+			"minecraft:loot": "loot_tables/blocks/skull/mituri_skull.json",
+            "minecraft:on_player_placing": {
+                "event": "rotate"
+            }
+		},
+        "events": {
+            "rotate": {
+                "sequence": [
+                    {
+                        "set_block_state": {
+                            "kurokumaft:rotation": "(query.cardinal_facing_2d)"
+                        }
+                    }
+                ]
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 2",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 180, 0 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 3",
+                "components": { 
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 0 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 4",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 270, 0 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 5",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 90, 0 ]
+                    }
+                }
+            }
+        ]
+	}
+}

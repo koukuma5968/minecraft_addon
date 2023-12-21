@@ -8,6 +8,48 @@
       },
       "scarlet_gravel" : {
          "textures" : "textures/kurokumaft/blocks/scarlet_gravel"
+      },
+      "tanjiro_skull" : {
+         "textures" : "textures/kurokumaft/models/head/tanjiro_head"
+      },
+      "zenitu_skull" : {
+         "textures" : "textures/kurokumaft/models/head/zenitu_head"
+      },
+      "inosuke_skull" : {
+         "textures" : "textures/kurokumaft/models/head/inosuke_head"
+      },
+      "nezuko_skull" : {
+         "textures" : "textures/kurokumaft/models/head/nezuko_head"
+      },
+      "kanawo_skull" : {
+         "textures" : "textures/kurokumaft/models/head/kanawo_head"
+      },
+      "giyu_skull" : {
+         "textures" : "textures/kurokumaft/models/head/giyu_head"
+      },
+      "kyouzyuro_skull" : {
+         "textures" : "textures/kurokumaft/models/head/kyouzyuro_head"
+      },
+      "shinobu_skull" : {
+         "textures" : "textures/kurokumaft/models/head/shinobu_head"
+      },
+      "mituri_skull" : {
+         "textures" : "textures/kurokumaft/models/head/mituri_head"
+      },
+      "tengen_skull" : {
+         "textures" : "textures/kurokumaft/models/head/tengen_head"
+      },
+      "sanemi_skull" : {
+         "textures" : "textures/kurokumaft/models/head/sanemi_head"
+      },
+      "genya_skull" : {
+         "textures" : "textures/kurokumaft/models/head/genya_head"
+      },
+      "gyoumei_skull" : {
+         "textures" : "textures/kurokumaft/models/head/gyoumei_head"
+      },
+      "muitiro_skull" : {
+         "textures" : "textures/kurokumaft/models/head/muitiro_head"
       }
    },
    "texture_name" : "atlas.terrain"

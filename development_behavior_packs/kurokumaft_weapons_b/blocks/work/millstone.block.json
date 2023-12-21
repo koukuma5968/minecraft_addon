@@ -24,6 +24,7 @@
 				"explosion_resistance": 30
 			},
 			"minecraft:crafting_table": {
+                "table_name": "tile.kurokumaft:millstone.name",
 				"crafting_tags": ["millstone"]
 			},
             "minecraft:on_player_placing": {

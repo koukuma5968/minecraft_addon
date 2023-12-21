@@ -30,18 +30,19 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:fire_magic_stone", "kurokumaft:wind_magic_stone" ],
-            "repair_amount": 500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 6 < query.max_durability ? (query.max_durability - query.remaining_durability) / 6 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:firestorm_staff" ],
-            "repair_amount": 1500
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:firestorm_staff.name"
-      },
-      "minecraft:chargeable": {
       },
 		  "minecraft:weapon": {
         "on_hurt_entity": {
@@ -65,11 +66,12 @@
       "kurokumaft:magic_weapon": {
         "sequence":[
           {
-            "condition": "!query.is_sneaking",
             "trigger": "kurokumaft:bram_fang"
+          },
+          {
+            "trigger": "kurokumaft:durability"
           }
-        ],
-        "trigger": "kurokumaft:durability"
+        ]
       },
 
       "kurokumaft:bram_fang": {
@@ -77,35 +79,7 @@
           {
             "shoot":{
               "projectile":"kurokumaft:bram_fang_magic",
-              "angle_offset": 100,
-              "launch_power":1
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:bram_fang_magic",
-              "angle_offset": 50,
-              "launch_power":1
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:bram_fang_magic",
               "angle_offset": 0,
-              "launch_power":1
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:bram_fang_magic",
-              "angle_offset": -50,
-              "launch_power":1
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:bram_fang_magic",
-              "angle_offset": -100,
               "launch_power":1
             }
           }
@@ -114,11 +88,12 @@
       "kurokumaft:shoot_magic": {
         "sequence":[
           {
-            "condition": "!query.is_sneaking",
             "trigger": "kurokumaft:firestorm"
+          },
+          {
+            "trigger": "kurokumaft:durability"
           }
-        ],
-        "trigger": "kurokumaft:durability"
+        ]
       },
       "kurokumaft:firestorm": {
         "sequence":[

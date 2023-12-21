@@ -1,0 +1,63 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.kokyu.obanai_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "obanai1": "query.skin_id == 9 && query.variant == 5 && query.is_sneaking" },
+            { "obanai2": "query.skin_id == 9 && query.variant == 1 && query.is_sneaking" },
+            { "obanai3": "query.skin_id == 9 && query.variant == 2 && query.is_sneaking" },
+            { "obanai4": "query.skin_id == 9 && query.variant == 3 && query.is_sneaking" },
+            { "obanai5": "query.skin_id == 9 && query.variant == 4 && query.is_sneaking" }
+          ]
+        },
+        "obanai1":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§3蛇の呼吸 壱ノ型\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "obanai2":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§3蛇の呼吸 弐ノ型\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "obanai3":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§3蛇の呼吸 参ノ型\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "obanai4":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§3蛇の呼吸 肆ノ型\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "obanai5":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§3蛇の呼吸 伍ノ型\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

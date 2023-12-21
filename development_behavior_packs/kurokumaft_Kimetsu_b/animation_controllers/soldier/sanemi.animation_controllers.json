@@ -1,0 +1,182 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.sanemi.kokyu": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_sanemi": {
+              "input": "variable.kokyu_sanemi = (variable.kokyu_sanemi ?? 0);"
+            }
+          },
+          "transitions": [
+            { "kaze1": "query.skin_id == 1 && query.variant == 1 && query.mark_variant == 0" },
+            { "kaze2": "query.skin_id == 1 && query.variant == 2 && query.mark_variant == 0" },
+            { "kaze3": "query.skin_id == 1 && query.variant == 3 && query.mark_variant == 0" },
+            { "kaze4": "query.skin_id == 1 && query.variant == 4 && query.mark_variant == 0" },
+            { "kaze5": "query.skin_id == 1 && query.variant == 5 && query.mark_variant == 0" },
+            { "kaze6": "query.skin_id == 1 && query.variant == 6 && query.mark_variant == 0" },
+            { "kaze7": "query.skin_id == 1 && query.variant == 7 && query.mark_variant == 0" },
+            { "kaze8": "query.skin_id == 1 && query.variant == 8 && query.mark_variant == 0" },
+            { "kaze9": "query.skin_id == 1 && query.variant == 9 && query.mark_variant == 0" }
+          ]
+        },
+        "kaze1":{
+          "animations" : [ "kaze1_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 99999 5 true",
+            "/tag @s add kokyu_kaze1_self"
+          ],
+          "transitions": [
+            {"kaze1_f":"variable.kokyu_sanemi = variable.kokyu_sanemi < 200 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"},
+            {"kaze1_2":"variable.attack_time"}
+          ]
+        },
+        "kaze1_2":{
+          "on_entry": [
+            "/event entity @s mark_variant2",
+            "/function kaze/kaze1"
+          ],
+          "transitions": [
+            {"kaze1_f":"variable.kokyu_sanemi = variable.kokyu_sanemi < 20 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze1_f":{
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s kurokumaft:random_kokyu_off",
+            "/tag @s remove kokyu_kaze1_self"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 10 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze2":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/function kaze/kaze2",
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 10 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze3":{
+          "animations" : [ "kaze3_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 100 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze4":{
+          "animations" : [ "kaze4_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/event entity @s add_damage_clear"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off",
+            "/event entity @s remove_damage_clear"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 60 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze5":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kaze5_2":"variable.kokyu_sanemi = variable.kokyu_sanemi < 10 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze5_2":{
+          "animations" : [ "kaze5_ani" ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 60 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze6":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function kaze/kaze6"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 10 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze7":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function kaze/kaze7"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 10 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze8":{
+          "animations" : [ "kaze8_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 20 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze9":{
+          "animations" : [ "kaze9_ani" ],
+          "on_entry": [
+            "/effect @s speed 99999 5 true",
+            "/gamerule sendcommandfeedback false",
+            "/event entity @s kurokumaft:falling_nullify",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kaze9_2":"variable.kokyu_sanemi = variable.kokyu_sanemi < 20 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze9_2":{
+          "animations" : [ "kaze9_2_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/effect @s speed 0"
+          ],
+          "transitions": [
+            {"kaze9_f":"variable.kokyu_sanemi = variable.kokyu_sanemi < 30 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        },
+        "kaze9_f":{
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off",
+            "/event entity @s kurokumaft:falling_nullify_remove"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_sanemi = variable.kokyu_sanemi < 30 ? variable.kokyu_sanemi + 1:0;return variable.kokyu_sanemi == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

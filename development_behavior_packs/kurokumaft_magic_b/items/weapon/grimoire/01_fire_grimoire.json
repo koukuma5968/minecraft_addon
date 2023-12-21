@@ -38,7 +38,7 @@
           }
         ]
       },
-      "minecraft:use_duration": 999999,
+      "minecraft:use_duration": 9999,
       "minecraft:chargeable": {
       },
       "minecraft:on_use":{

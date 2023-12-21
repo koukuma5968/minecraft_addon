@@ -1,0 +1,33 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.home_gate" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"hit": "query.variant == 1"},
+						{"hit2": "query.variant == 2"}
+					]
+				},
+				"hit" : {
+					"animations" : [
+						"hit"
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"},
+						{"hit2":"query.variant == 2"}
+					]
+				},
+				"hit2" : {
+					"animations" : [
+						"hit2"
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

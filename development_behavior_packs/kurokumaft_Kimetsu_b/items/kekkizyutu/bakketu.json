@@ -21,7 +21,7 @@
       "minecraft:damage": 0,
       "minecraft:allow_off_hand": true,
       "minecraft:can_destroy_in_creative": false,
-      "minecraft:use_duration": 20,
+      "minecraft:use_duration":20,
       "minecraft:chargeable": {
       },
       "minecraft:wearable": {

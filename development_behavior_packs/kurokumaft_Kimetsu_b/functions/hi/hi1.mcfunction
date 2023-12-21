@@ -1,5 +1,5 @@
 tag @s add kokyu_hi1
-execute as @s run damage @e[tag=!kokyu_hi1,ry=-5,rym=5,r=5.5] 10 entity_attack
+execute as @s run damage @e[tag=!kokyu_hi1,family=!inanimate,type=!item,ry=-5,rym=5,r=5.5] 10 entity_attack
 particle kurokumaft:hi1_particle ^ ^0 ^2
 particle kurokumaft:hi1_particle ^ ^-1 ^1.5
 particle kurokumaft:hi1_particle ^ ^-2 ^1

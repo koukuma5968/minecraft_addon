@@ -37,7 +37,7 @@
 						"/event entity @s kurokumaft:ride_hover"
 					],
 					"transitions": [
-						{"landing": "query.mark_variant == 0"}
+						{"landing": "query.mark_variant == 2"}
 					]
 				},
 				"landing": {
@@ -46,7 +46,7 @@
 						"/event entity @s kurokumaft:ride_landing"
 					],
 					"transitions": [
-						{"default": "(1.0)"}
+						{"default": "query.mark_variant != 2"}
 					]
 				}
 			}

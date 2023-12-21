@@ -4,11 +4,10 @@
     "description": {
       "identifier": "kurokumaft:wind_magic_bread"
     },
-
     "tags": [ "magic_enchant" ],
     "pattern": [
-      "m  ",
-      " l ",
+      "l ",
+      " m ",
       "  #"
     ],
     "key": {

@@ -20,7 +20,7 @@
             "damage": 50,
             "knockback": false,
             "catch_fire": true,
-            "destroy_on_hit": true,
+            "destroy_on_hit": false,
             "semi_random_diff_damage": false
           },
           "catch_fire": {
@@ -76,8 +76,8 @@
             "execute as @s run particle kurokumaft:firestome5_particle ~~8~",
             "execute as @s run particle kurokumaft:firestome5_particle ~~9~",
             "execute as @s run particle kurokumaft:firestome5_particle ~~10~",
-            "execute as @s run effect @e[r=5] wither 2 50 true",
-            "execute as @s run effect @e[r=5] levitation 1 20 true",
+            "execute as @s run damage @e[r=5] 30 fire",
+            "execute as @s run effect @e[r=5] wither 4 50 true",
             "execute as @s run fill ~-1 ~1 ~-1 ~1 ~1 ~1 fire replace",
             "execute as @s run kill @s"
           ],

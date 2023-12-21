@@ -6,9 +6,9 @@
     },
     "tags": [ "magic_enchant" ],
     "pattern": [
-      "m#X",
-      "#dX",
-      "m#X"
+      "d#X",
+      "#mX",
+      "d#X"
     ],
     "key": {
       "#": {

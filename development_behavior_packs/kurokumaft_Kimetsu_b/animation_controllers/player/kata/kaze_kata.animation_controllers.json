@@ -157,6 +157,7 @@
           "on_entry": [
             "/effect @s speed 99999 5 true",
             "/gamerule sendcommandfeedback false",
+            "/event entity @s kurokumaft:falling_nullify",
             "/event entity @s mark_variant1"
           ],
           "transitions": [
@@ -172,6 +173,14 @@
           "on_exit": [
             "/effect @s speed 0",
             "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"kaze9_f":"variable.kokyu_kaze_attack = variable.kokyu_kaze_attack < 30 ? variable.kokyu_kaze_attack + 1:0;return variable.kokyu_kaze_attack == 0;"}
+          ]
+        },
+        "kaze9_f":{
+          "on_exit": [
+            "/event entity @s kurokumaft:falling_nullify_remove"
           ],
           "transitions": [
             {"default":"variable.kokyu_kaze_attack = variable.kokyu_kaze_attack < 30 ? variable.kokyu_kaze_attack + 1:0;return variable.kokyu_kaze_attack == 0;"}

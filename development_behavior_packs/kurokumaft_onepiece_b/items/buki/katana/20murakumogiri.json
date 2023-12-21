@@ -28,6 +28,7 @@
         ]
       },
       "minecraft:damage": 30,
+      "minecraft:use_duration": 9999,
       "minecraft:chargeable": {
       },
       "minecraft:enchantable": {
