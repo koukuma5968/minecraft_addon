@@ -1,0 +1,23 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.pellet_grass" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"tremor": "query.variant != 0"}
+					]
+				},
+				"tremor" : {
+					"animations" : [
+						"tremor"
+					],
+					"transitions" : [
+						{"default":"query.variant == 0"}
+					]
+				}
+			}
+		}
+	}
+}

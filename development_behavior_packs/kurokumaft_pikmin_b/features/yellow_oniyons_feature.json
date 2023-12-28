@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:single_block_feature": {
+    "description": {
+      "identifier": "kurokumaft:yellow_oniyons_feature"
+    },
+    "places_block": "kurokumaft:yellow_oniyons",
+    "enforce_placement_rules": true,
+    "enforce_survivability_rules": true,
+    "may_attach_to": {
+      "min_sides_must_attach": 1,
+      "auto_rotate": false,
+      "bottom": [
+        "minecraft:grass",
+        "minecraft:hardened_clay",
+        "minecraft:sand"
+      ]
+    },
+    "may_replace": [
+      "minecraft:air",
+      "minecraft:deadbush"
+    ]
+}
+}
+  

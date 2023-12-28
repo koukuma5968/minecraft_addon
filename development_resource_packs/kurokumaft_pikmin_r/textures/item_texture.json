@@ -71,6 +71,10 @@
          "textures": "textures/kurokumaft/items/spray/extremely_hot_spray"
       },
 
+      "seeds_pellet_grass": {
+         "textures": "textures/kurokumaft/items/pellet/seed/seeds_pellet_grass"
+      },
+
       "pikmin_spawn_egg" : {
          "textures" : [
             "textures/kurokumaft/items/spawn_egg/pikmin/red_pikmin_egg",

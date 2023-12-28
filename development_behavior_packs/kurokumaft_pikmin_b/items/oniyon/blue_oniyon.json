@@ -18,7 +18,7 @@
       "minecraft:block_placer": {
         "block": "blue_oniyons",
         "use_on" : [
-          "farmland","grass","dirt"
+          "farmland","grass","dirt","gravel","sand"
         ]
       }
     },

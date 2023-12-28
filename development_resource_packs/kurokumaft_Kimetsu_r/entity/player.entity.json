@@ -42,6 +42,7 @@
         "nichirintou_mushi": "geometry.nichirintou_mushi",
         "nichirintou_oto": "geometry.nichirintou_oto",
         "nichirintou_hana": "geometry.nichirintou_hana",
+        "nichirintou_koi": "geometry.nichirintou_koi",
 
         "mizu10_dragon": "geometry.mizu10_dragon",
         "hi_dragon": "geometry.hi_dragon",
@@ -295,6 +296,12 @@
           {"hana_third": "variable.equipped_hana && !variable.is_first_person"},
           {"hana_attack": "variable.equipped_hana && variable.attack_time"},
 
+          {"koi.kokyu_body": "variable.equipped_koi"},
+          {"koi_attack_controller": "variable.equipp  ed_koi"},
+          {"koi_first": "variable.equipped_koi && variable.is_first_person"},
+          {"koi_third": "variable.equipped_koi && !variable.is_first_person"},
+          {"koi_attack": "variable.equipped_koi && variable.attack_time"},
+
           {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
           {"hebi.con": "variable.equipped_obanai"}
 
@@ -456,6 +463,11 @@
         "hana_third": "animation.hana_third",
         "hana_attack": "animation.hana.attack",
         "hana_attack_controller": "controller.animation.hana.attack",
+
+        "koi_first": "animation.koi_first",
+        "koi_third": "animation.koi_third",
+        "koi_attack": "animation.koi.attack",
+        "koi_attack_controller": "controller.animation.koi.attack",
 
         "tanjiro.kokyu_con":"controller.animation.tanjiro.kokyu_player",
         "tanjiro_mizu.ichi_1": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1",
@@ -673,6 +685,15 @@
         "mituri_body.go": "animation.nichirintou_kokyu.mituri_body.go",
         "mituri_body.roku": "animation.nichirintou_kokyu.mituri_body.roku",
 
+        "koi.kokyu_body":"controller.animation.koi.body_player",
+        "koi_body.ichi_1": "animation.nichirintou_kokyu.koi_body.ichi_1",
+        "koi_body.ichi_2": "animation.nichirintou_kokyu.koi_body.ichi_2",
+        "koi_body.ni_1": "animation.nichirintou_kokyu.koi_body.ni_1",
+        "koi_body.ni_2": "animation.nichirintou_kokyu.koi_body.ni_2",
+        "koi_body.san": "animation.nichirintou_kokyu.koi_body.san",
+        "koi_body.go": "animation.nichirintou_kokyu.koi_body.go",
+        "koi_body.roku": "animation.nichirintou_kokyu.koi_body.roku",
+
         "sanemi.kokyu_con":"controller.animation.sanemi.kokyu_player",
         "sanemi_attack.kokyu_con":"controller.animation.sanemi_attack.kokyu_player",
         "sanemi.ichi_1": "animation.nichirintou_kokyu.sanemi.ichi_1",
@@ -758,6 +779,7 @@
         {"controller.render.nichirintou_mushi": "variable.equipped_mushi"},
         {"controller.render.nichirintou_oto": "variable.equipped_oto"},
         {"controller.render.nichirintou_hana": "variable.equipped_hana"},
+        {"controller.render.nichirintou_koi": "variable.equipped_koi"},
 
         {"controller.render.hi_dragon": "(variable.equipped_tanjiro || variable.equipped_hi) && query.variant == 16 && query.mark_variant == 2"},
         {"controller.render.mizu10_dragon": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},

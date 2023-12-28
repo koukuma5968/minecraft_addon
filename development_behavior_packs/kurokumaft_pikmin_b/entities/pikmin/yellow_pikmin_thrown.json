@@ -9,10 +9,6 @@
       "runtime_identifier": "minecraft:arrow"
     },
     "component_groups": {
-      "kurokumaft:despawn": {
-        "minecraft:instant_despawn": {
-        }
-      },
       "kurokumaft:pikmin_projectile": {
         "minecraft:variant": {
           "value": 2
@@ -32,9 +28,8 @@
               }
             }
           },
-          "angle_offset": -55,
+          "angle_offset": -50,
           "knockback": false,
-          "destroy_on_hurt": true,
           "power": 2.5,
           "gravity": 0.10,
           "inertia": 1.0,
@@ -77,7 +72,7 @@
         "height": 0.8
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/pikmin/purple_pikmin.json"
+        "table": "loot_tables/entities/pikmin/yellow_pikmin.json"
       },
       "minecraft:physics": {
       },
@@ -98,18 +93,25 @@
         }
       },
       "kurokumaft:yellow_lightning": {
-        "run_command": {
-					"command": [
-            "particle kurokumaft:yellow_lightning ~~~",
-            "execute as @s run damage @e[r=6] 8 lightning"
-					],
-          "target":"self"
-				},
-        "add": {
-          "component_groups": [
-            "kurokumaft:despawn"
-          ]
-        }
+        "sequence": [
+          {
+            "run_command": {
+              "command": [
+                "execute at @e[family=!player,family=!inanimate,type=!item,r=6] run particle kurokumaft:yellow_lightning ~~~",
+                "damage @e[family=!player,family=!inanimate,type=!item,r=6] 8 lightning"
+              ],
+              "target":"self"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "kill @s"
+              ],
+              "target":"self"
+            }
+          }
+        ]
       }
     }
   }

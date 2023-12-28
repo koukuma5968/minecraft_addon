@@ -20,14 +20,20 @@
               "catch_fire": true,
               "semi_random_diff_damage": true
             },
-            "remove_on_hit": {}
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:red_fire",
+                "target": "self"
+              }
+            }
           },
-          "angle_offset": -45,
+          "angle_offset": -50,
           "knockback": false,
-          "destroy_on_hurt": true,
           "power": 1.5,
           "gravity": 0.10,
           "inertia": 1.0,
+          "destroy_on_hurt": true,
           "uncertaintyBase": 8,
           "uncertaintyMultiplier": 2.5,
           "anchor": 1,
@@ -88,6 +94,27 @@
             "kurokumaft:pikmin_projectile"
           ]
         }
+      },
+      "kurokumaft:red_fire": {
+        "sequence": [
+          {
+            "run_command": {
+              "command": [
+                "execute at @e[family=!player,family=!inanimate,type=!item,r=6] run particle minecraft:mobflame_single ~~~",
+                "damage @e[family=!player,family=!inanimate,type=!item,r=6] 8 fire"
+              ],
+              "target":"self"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "kill @s"
+              ],
+              "target":"self"
+            }
+          }
+        ]
       }
     }
   }

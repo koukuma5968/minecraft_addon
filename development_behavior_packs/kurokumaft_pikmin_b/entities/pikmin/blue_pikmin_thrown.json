@@ -20,16 +20,15 @@
               "catch_fire": false,
               "semi_random_diff_damage": true
             },
-            "mob_effect": {
-              "effect": "weakness",
-              "durationeasy": 200,
-              "durationnormal": 200,
-              "durationhard": 200,
-              "amplifier": 0
-            },
-            "remove_on_hit": {}
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "kurokumaft:blue_water",
+                "target": "self"
+              }
+            }
           },
-          "angle_offset": -45,
+          "angle_offset": -50,
           "knockback": false,
           "destroy_on_hurt": true,
           "power": 1.5,
@@ -93,6 +92,28 @@
             "kurokumaft:pikmin_projectile"
           ]
         }
+      },
+      "kurokumaft:blue_water": {
+        "sequence": [
+          {
+            "run_command": {
+              "command": [
+                "execute at @e[family=!player,family=!inanimate,type=!item,r=6] run particle minecraft:bubble_column_up_particle ~~~",
+                "effect @e[family=!player,family=!inanimate,type=!item,r=6] weakness 50 10 false",
+                "damage @e[family=!player,family=!inanimate,type=!item,r=6] 2 drowning"
+              ],
+              "target":"self"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "kill @s"
+              ],
+              "target":"self"
+            }
+          }
+        ]
       }
     }
   }

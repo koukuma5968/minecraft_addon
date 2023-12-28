@@ -47,7 +47,7 @@
           }
         ]
       },
-      "minecraft:use_duration": 1.0,
+      "minecraft:use_duration": 0.1,
       "minecraft:chargeable": {
         "on_complete": {
           "event": "different_color"

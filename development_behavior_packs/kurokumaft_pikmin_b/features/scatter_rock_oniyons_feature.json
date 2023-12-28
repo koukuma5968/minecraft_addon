@@ -1,0 +1,24 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "kurokumaft:scatter_rock_oniyons_feature"
+    },
+    "places_feature": "kurokumaft:rock_oniyons_feature",
+    "iterations": 10,
+    "scatter_chance": 40.0,
+    "x": {
+      "distribution": "uniform",
+      "extent": [ 0, 15 ]
+    },
+    "y": {
+      "distribution": "uniform",
+      "extent": [ 0, 60 ]
+    },
+    "z": {
+      "distribution": "uniform",
+      "extent": [ 0, 15 ]
+    }
+  }
+}
+  

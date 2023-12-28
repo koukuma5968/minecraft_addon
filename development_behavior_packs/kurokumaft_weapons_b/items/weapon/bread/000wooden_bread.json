@@ -68,9 +68,9 @@
               ]
             },
             "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":1
+              "type":"durability",
+              "target":"self",
+              "amount":1
             }
           }
         }

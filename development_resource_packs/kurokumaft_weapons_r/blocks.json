@@ -5,6 +5,10 @@
 	"chromium_ore": {
 		"sound": "stone"
 	},
+	"charcoal_block": {
+		"sound": "stone",
+		"textures": "charcoal_block"
+	},
 	"medicinal_plants": {
 		"sound": "grass"
 	},

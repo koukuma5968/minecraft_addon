@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "kurokumaft:feather_oniyon",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

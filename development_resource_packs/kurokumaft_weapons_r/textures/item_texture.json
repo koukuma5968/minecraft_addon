@@ -62,6 +62,9 @@
       "orichalcum_axe" : {
          "textures" : "textures/kurokumaft/items/axe/orichalcum_axe"
       },
+      "fire_brand" : {
+         "textures" : "textures/kurokumaft/items/axe/fire_brand"
+      },
 
       "bamboo_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/bamboo_battleaxe"

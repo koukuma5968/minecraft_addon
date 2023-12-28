@@ -29,7 +29,7 @@
             },
             "remove_on_hit": {}
           },
-          "angle_offset": -50,
+          "angle_offset": -30,
           "knockback": false,
           "destroy_on_hurt": true,
           "power": 1.5,

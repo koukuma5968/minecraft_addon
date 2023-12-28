@@ -93,6 +93,16 @@
 		},
 		"purple_oniyon_stage_3": {
 			"textures": "textures/kurokumaft/blocks/oniyon/purple/purple_oniyon_stage_3"
+		},
+
+		"pellet_grass_bud_stage_0": {
+			"textures": "textures/kurokumaft/blocks/pellet/pellet_grass_bud_stage_0"
+		},
+		"pellet_grass_bud_stage_1": {
+			"textures": "textures/kurokumaft/blocks/pellet/pellet_grass_bud_stage_1"
+		},
+		"pellet_grass_bud_stage_2": {
+			"textures": "textures/kurokumaft/blocks/pellet/pellet_grass_bud_stage_2"
 		}
 
 	}

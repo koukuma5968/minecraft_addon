@@ -36,6 +36,7 @@ item.kurokumaft:copper_axe.name=銅の斧
 item.kurokumaft:steel_axe.name=鋼の斧
 item.kurokumaft:mithril_axe.name=ミスリルの斧
 item.kurokumaft:orichalcum_axe.name=オリハルコンの斧
+item.kurokumaft:fire_brand.name=ファイアブランド
 
 item.kurokumaft:steel_pickaxe.name=鋼のツルハシ
 item.kurokumaft:mithril_pickaxe.name=ミスリルのツルハシ
@@ -169,6 +170,7 @@ item.kurokumaft:seeds_medicinal_plant.name=薬草の種
 item.kurokumaft:fish_meal.name=魚粉
 
 tile.kurokumaft:chromium_ore.name=クロム鉱石
+tile.kurokumaft:charcoal_block.name=木炭ブロック
 
 tile.kurokumaft:medicinal_plants.name=薬草
 

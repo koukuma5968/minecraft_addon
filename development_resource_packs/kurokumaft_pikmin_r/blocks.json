@@ -1,6 +1,23 @@
 {
-	"red_oniyon": {
-		"sound": "grass",
-		"textures": "red_oniyon"
-	 }  
+	"red_oniyons": {
+		"sound": "grass"
+	 },
+	 "blue_oniyons": {
+		"sound": "grass"
+	 },
+	 "yellow_oniyons": {
+		"sound": "grass"
+	 },
+	 "feather_oniyons": {
+		"sound": "grass"
+	 },
+	 "purple_oniyons": {
+		"sound": "grass"
+	 },
+	 "rock_oniyons": {
+		"sound": "grass"
+	},
+	"white_oniyons": {
+	   "sound": "grass"
+	}
 }

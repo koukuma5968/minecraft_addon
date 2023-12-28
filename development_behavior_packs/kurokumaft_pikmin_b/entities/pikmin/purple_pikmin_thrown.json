@@ -9,6 +9,10 @@
       "runtime_identifier": "minecraft:arrow"
     },
     "component_groups": {
+      "kurokumaft:despawn": {
+        "minecraft:instant_despawn": {
+        }
+      },
       "kurokumaft:pikmin_projectile": {
         "minecraft:variant": {
           "value": 2
@@ -26,8 +30,7 @@
                 "event": "kurokumaft:purple_shock",
                 "target": "self"
               }
-            },
-            "remove_on_hit": {}
+            }
           },
           "angle_offset": -50,
           "knockback": false,
@@ -99,6 +102,11 @@
             "summon kurokumaft:purple_shock ~~~"
 					],
           "target":"self"
+				},
+        "add": {
+          "component_groups": [
+            "kurokumaft:despawn"
+          ]
 				}
       }
     }

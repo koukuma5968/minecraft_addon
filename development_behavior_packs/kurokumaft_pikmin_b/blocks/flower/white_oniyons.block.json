@@ -12,8 +12,9 @@
 		},
 		"components": {
 			"minecraft:collision_box": false,
+			"minecraft:selection_box": false,
 			"minecraft:geometry": "geometry.oniyon",
-			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:loot": "loot_tables/blocks/oniyon/white_oniyons.json",
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0
 			},
@@ -27,16 +28,12 @@
 						"block_filter": [
 							{"name": "farmland"},
 							{"name": "grass"},
+							{"name": "podzol"},
+							{"name": "mycelium"},
 							{"name": "dirt"}
 						]
 					}
 				]
-			},
-			"minecraft:random_ticking": {
-				"on_tick": {
-					"condition": "query.block_state('kurokumaft:growth') < 3",
-					"event": "growth"
-				}
 			},
 			"minecraft:on_interact": {
 				"condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bone_meal')",
@@ -92,6 +89,7 @@
 			{
 				"condition": "query.block_state('kurokumaft:growth') == 3",
 				"components": {
+					"minecraft:loot": "loot_tables/empty.json",
 					"minecraft:selection_box": {
 						"origin": [-8.0, 0.0, -8.0]	,
 						"size": [16.0, 10.0, 16.0]
@@ -103,17 +101,13 @@
 						}
 					},
 					"minecraft:on_interact": {
+						"condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bone_meal')",
 						"event": "tame_oniyon"
 					}
 				}
 			}
 		],
 		"events": {
-			"growth": {
-			  "set_block_state": {
-				"kurokumaft:growth": "query.block_state('kurokumaft:growth') < 3 ? query.block_state('kurokumaft:growth') + 1 : 3"
-			  }
-			},
 			"meal_growth": {
 				"run_command": {
 					"command":  "particle minecraft:crop_growth_emitter ~~~"

@@ -1,8 +1,8 @@
 {
 	"format_version": 2,
 	"header": {
-		"description": "ピクミンアドオン",
-		"name": "kurokuma_pikmin_b",
+		"name": "ピクミンBv1",
+		"description": "ピクミン version1 キャラクターアドオン ビヘイビアーパック",
 		"uuid": "44dba80e-2235-497a-a7b9-96ef24a63ef6",
 		"version": [1,0,0],
 		"min_engine_version": [1,20,30]

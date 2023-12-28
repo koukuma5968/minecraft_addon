@@ -1,3 +1,4 @@
+
 entity.kurokumaft:red_pikmin.name=赤ピクミン
 entity.kurokumaft:yellow_pikmin.name=黄ピクミン
 entity.kurokumaft:blue_pikmin.name=青ピクミン
@@ -5,6 +6,14 @@ entity.kurokumaft:feather_pikmin.name=羽ピクミン
 entity.kurokumaft:rock_pikmin.name=岩ピクミン
 entity.kurokumaft:white_pikmin.name=白ピクミン
 entity.kurokumaft:purple_pikmin.name=紫ピクミン
+
+entity.kurokumaft:red_pellet_grass.name=赤のペレット草
+entity.kurokumaft:yellow_pellet_grass.name=黄のペレット草
+entity.kurokumaft:blue_pellet_grass.name=青のペレット草
+entity.kurokumaft:feather_pellet_grass.name=ピンクのペレット草
+entity.kurokumaft:rock_pellet_grass.name=黒のペレット草
+entity.kurokumaft:white_pellet_grass.name=白のペレット草
+entity.kurokumaft:purple_pellet_grass.name=紫のペレット草
 
 entity.kurokumaft:chappie.name=チャッピー
 entity.kurokumaft:chappie_kids.name=コチャッピーモドキ
@@ -73,3 +82,6 @@ tile.kurokumaft:feather_oniyon.name=羽ピクミンのオニヨン
 tile.kurokumaft:rock_oniyon.name=岩ピクミンのオニヨン
 tile.kurokumaft:white_oniyon.name=白ピクミンのオニヨン
 tile.kurokumaft:purple_oniyon.name=紫ピクミンのオニヨン
+
+item.kurokumaft:seeds_pellet_grass.name=ペレット草の種
+tile.kurokumaft:pellet_grass_bud.name=ペレット草のつぼみ

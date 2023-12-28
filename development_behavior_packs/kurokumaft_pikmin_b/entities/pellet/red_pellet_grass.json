@@ -1,0 +1,116 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:red_pellet_grass",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "kurokumaft:despawn": {
+        "minecraft:instant_despawn": {
+        }
+      },
+      "variant0": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "variant1": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:timer": {
+          "time": [1.0,1.0],
+          "time_down_event": { 
+            "event": "kurokumaft:hit_clear"
+          }
+        }
+      },
+      "variant2": {
+        "minecraft:variant": {
+          "value": 2
+        },
+        "minecraft:timer": {
+          "time": [1.0,1.0],
+          "time_down_event": { 
+            "event": "kurokumaft:hit_clear"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "armor_stand", "inanimate", "protoplast", "pellet_grass" ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 5.0
+      },
+      "minecraft:health": {
+        "value": 99999999,
+        "max": 99999999
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/pellet_grass/red_pellet_grass.json"
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "event": "kurokumaft:hit_count"
+            },
+            "cause": "all",
+            "deals_damage": false,
+            "on_damage_sound_event": "item.shield.block"
+          }
+        ]
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+    "events": {
+      "kurokumaft:hit_count": {
+        "sequence": [
+          {
+            "filters": {"test": "is_variant", "value": 0},
+            "add": {
+              "component_groups" : [ "variant1" ]
+            }
+          },
+          {
+            "filters": {"test": "is_variant", "value": 1},
+            "add": {
+              "component_groups" : [ "variant2" ]
+            }
+          },
+          {
+            "filters": {"test": "is_variant", "value": 2},
+            "run_command": {
+              "command": [
+                "kill @s"
+              ]
+            }
+          }
+        ]
+      },
+      "kurokumaft:hit_clear": {
+        "add": {
+          "component_groups" : [ "variant0" ]
+        }
+      }
+    }
+  }
+}
