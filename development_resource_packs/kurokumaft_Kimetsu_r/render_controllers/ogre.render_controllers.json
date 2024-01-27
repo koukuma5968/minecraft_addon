@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.ogre.ogre": {
+      "arrays": {
+        "textures": {
+          "array.texture_frames": [
+            "texture.ogre_1",
+            "texture.ogre_2",
+            "texture.ogre_3"
+          ]
+        },
+        "geometries": {
+          "array.geo_frames": [
+            "geometry.ogre_1",
+            "geometry.ogre_2",
+            "geometry.ogre_3"
+          ]
+        }
+      },
+      "geometry": "array.geo_frames[query.skin_id]",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.texture_frames[query.skin_id]" ]
+    },
+    "controller.render.ogre.rui": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+    "controller.render.ogre.akaza": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    }
+
+  }
+}

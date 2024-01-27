@@ -1,0 +1,19 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cross_bone.throw": {
+			"loop": true,
+			"animation_length": 0.125,
+			"bones": {
+				"cross_bone": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 90, 0],
+						"0.0833": [0, 180, 0],
+						"0.125": [0, 180, 0]
+					}
+				}
+			}
+		}
+	}
+}

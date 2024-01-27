@@ -23,12 +23,12 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:bone_battleaxe" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "items": [ "minecraft:bone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
-            "items": [ "minecraft:bone" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 8"
+            "items": [ "kurokumaft:bone_battleaxe" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -37,19 +37,24 @@
         "value": 15,
         "slot": "axe"
       },
+      "minecraft:on_use": {
+        "on_use": {
+          "event": "kurokumaft:cross_bone"
+        }
+      },
       "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
+        "on_dig": {
+          "event": "kurokumaft:durability_damage"
+        },
         "use_efficiency": true,
         "destroy_speeds": [
-          {"block": "minecraft:acacia_button","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 25}
+          {"block": "minecraft:bone_block","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 50}
         ]
       },
       "minecraft:weapon": {
         "on_hurt_entity": {
           "event": "kurokumaft:hurt_weapon"
-        },
-        "on_hit_block": {
-          "event": "kurokumaft:block_bone"
         }
       }
     },
@@ -58,9 +63,9 @@
         "sequence":[
           {
             "damage":{
-                "type":"durability",
-                "target":"self",
-                "amount":1
+              "type":"durability",
+              "target":"self",
+              "amount":1
             }
           }
         ]
@@ -86,17 +91,21 @@
             "damage": {
               "type": "durability",
               "target": "self",
-              "amount": 10
+              "amount": 5
             }
           }
         ]
       },
-      "kurokumaft:block_bone": {
-        "run_command": {
-          "command": [
-            "particle kurokumaft:slash_particle ^ ^1.8 ^2.4"
-          ],
-          "target": "self"
+      "kurokumaft:cross_bone": {
+        "swing": {},
+        "shoot":{
+          "projectile":"kurokumaft:cross_bone",
+          "launch_power":1
+        },
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount": 10
         }
       }
     }

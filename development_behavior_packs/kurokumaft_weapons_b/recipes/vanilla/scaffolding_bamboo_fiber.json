@@ -4,8 +4,6 @@
     "description": {
     "identifier": "kurokumaft:scaffolding_bamboo_fiber"
     },
-
-    
     "tags": [ "crafting_table" ],
     "pattern": [
       "|S|",

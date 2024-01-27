@@ -1,30 +1,35 @@
 {
     "format_version": "1.16",
     "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "kurokumaft:barista"
-        },
-        "tags": ["crafting_table"],
-        "pattern": [
-            " c ",
-            "###",
-            "AAA"
-        ],
-        "key": {
-            "c": {
-              "item": "minecraft:crossbow"
-            },
-            "A": {
-              "tag": "minecraft:planks"
-            },
-            "#": {
-              "tag": "minecraft:wooden_slabs"
-            }
-        },
-        "result": {
-            "item": "kurokumaft:barista",
-            "count": 1
-        },
-        "priority": 2
+      "description": {
+          "identifier": "kurokumaft:barista"
+      },
+      "tags": ["crafting_table"],
+      "pattern": [
+          " c ",
+          "###",
+          "AAA"
+      ],
+      "key": {
+          "c": {
+            "item": "minecraft:crossbow"
+          },
+          "A": {
+            "tag": "minecraft:planks"
+          },
+          "#": {
+            "tag": "minecraft:wooden_slabs"
+          }
+      },
+      "unlock": [
+        {
+          "tag": "minecraft:wooden_slabs"
+        }
+      ],
+      "result": {
+          "item": "kurokumaft:barista",
+          "count": 1
+      },
+      "priority": 2
     }
 }

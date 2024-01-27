@@ -66,8 +66,8 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "attack": "animation.giyu.attack",
-        "third": "animation.giyu_third",
+        "attack": "animation.muitiro.attack",
+        "third": "animation.muitiro_third",
 
         "muitiro.kokyu_con":"controller.animation.muitiro.kokyu",
         "muitiro_attack.kokyu_con":"controller.animation.muitiro_attack.kokyu",

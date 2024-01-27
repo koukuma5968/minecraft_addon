@@ -1,0 +1,45 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:akaza_hakama",
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.leggings"
+			}
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:akaza_hakama.name"
+			},
+      "minecraft:icon": {
+        "texture": "akaza_hakama"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:akaza_hakama" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_legs"
+      },
+      "minecraft:durability": {
+        "max_durability": 2000,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:wearable": {
+        "protection": 200,
+        "slot": "slot.armor.legs"
+      }
+    }
+  }
+}

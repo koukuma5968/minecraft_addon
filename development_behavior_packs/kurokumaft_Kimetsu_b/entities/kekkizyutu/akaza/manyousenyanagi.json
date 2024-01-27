@@ -1,0 +1,55 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:manyousenyanagi",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "minecraft:exploding": {
+				"minecraft:explode": {
+          "breaks_blocks": true,
+					"fuse_length": 0,
+					"fuse_lit": true,
+					"power": 6,
+					"causes_fire": false,
+					"fire_affected_by_griefing": true,
+					"destroy_affected_by_griefing": true
+				}
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.11,
+        "height": 0.11
+      },
+      "minecraft:damage_over_time": {
+        "damage_per_hurt": 50,
+        "time_between_hurt": 0.2
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "minecraft:explode": {
+        "add": {
+          "component_groups": [
+            "minecraft:exploding"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -20,6 +20,11 @@
                 "item": "minecraft:netherite_ingot"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:orichalcum"
+            }
+        ],
         "result": {
             "item": "kurokumaft:orichalcum_pickaxe",
             "count": 1

@@ -1,0 +1,45 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:soldier_jacket_girl_brown",
+      "menu_category": {
+				"category": "equipment",
+        "group": "itemGroup.name.chestplate"
+			}
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:soldier_jacket_girl_brown.name"
+			},
+      "minecraft:icon": {
+        "texture": "soldier_jacket_girl_brown"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:soldier_jacket_girl_brown" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_torso"
+      },
+      "minecraft:durability": {
+        "max_durability": 1000,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:wearable": {
+        "protection": 50,
+        "slot": "slot.armor.chest"
+      }
+    }
+  }
+}

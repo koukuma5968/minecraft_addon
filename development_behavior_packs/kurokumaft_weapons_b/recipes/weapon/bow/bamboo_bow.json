@@ -20,6 +20,11 @@
         "item": "minecraft:string"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:bamboo"
+      }
+    ],
     "result": {
       "item": "kurokumaft:bamboo_bow"
     }

@@ -20,6 +20,11 @@
                 "item": "minecraft:gunpowder"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:gold_nugget"
+            }
+        ],
         "result": {
             "item": "kurokumaft:thirty_eight_special",
             "count": 16

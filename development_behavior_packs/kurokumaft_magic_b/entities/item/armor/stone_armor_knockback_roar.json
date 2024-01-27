@@ -21,14 +21,12 @@
         "duration": 0.2,
         "damage_filters": {
           "all_of": [
-            {"test": "is_family","operator": "not","subject": "other","value": "chest"},
-            {"test": "has_tag","operator": "not","subject": "other","value": "stone_roar"}
+            {"test": "has_equipment","domain": "torso","operator": "!=","subject": "other","value": "kurokumaft:stone_magic_chestplate"}
           ]
         },
         "knockback_filters": {
           "all_of": [
-            {"test": "is_family","operator": "not","subject": "other","value": "chest"},
-            {"test": "has_tag","operator": "not","subject": "other","value": "stone_roar"}
+            {"test": "has_equipment","domain": "torso","operator": "!=","subject": "other","value": "kurokumaft:stone_magic_chestplate"}
           ]
         },
         "knockback_height_cap": 2,

@@ -18,6 +18,11 @@
         "item": "minecraft:stick"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:bamboo"
+      }
+    ],
     "result": {
       "item": "kurokumaft:bamboo_sword"
     }

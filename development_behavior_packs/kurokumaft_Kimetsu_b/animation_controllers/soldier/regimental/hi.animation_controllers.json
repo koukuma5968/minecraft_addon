@@ -1,0 +1,238 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.regimental.hi": {
+      "states": {
+        "default": {
+          "variables": {
+            "regimental_hi": {
+              "input": "variable.regimental_hi = (variable.regimental_hi ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hi1": "query.variant == 11 && query.mark_variant == 0" },
+            { "hi2": "query.variant == 12 && query.mark_variant == 0" },
+            { "hi3": "query.variant == 13 && query.mark_variant == 0" },
+            { "hi4": "query.variant == 14 && query.mark_variant == 0" },
+            { "hi5": "query.variant == 15 && query.mark_variant == 0" },
+            { "hi6": "query.variant == 16 && query.mark_variant == 0" },
+            { "hi7": "query.variant == 17 && query.mark_variant == 0" },
+            { "hi8": "query.variant == 18 && query.mark_variant == 0" },
+            { "hi9": "query.variant == 19 && query.mark_variant == 0" },
+            { "hi10": "query.variant == 20 && query.mark_variant == 0" },
+            { "hi11": "query.variant == 21 && query.mark_variant == 0" },
+            { "hi12": "query.variant == 22 && query.mark_variant == 0" }
+          ]
+        },
+        "hi1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi3/hi3_1"
+          ],
+          "transitions": [
+            {"hi3_1":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi3_1":{
+          "on_entry": [
+            "/function hi/hi3/hi3_2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi4":{
+          "animations" : [ "hi4_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 40 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi5":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hi5_1":{
+          "animations" : [ "hi5_ani" ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi6":{
+          "animations" : [ "hi6_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 10 10 true"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi7":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hi7_1":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi7_1":{
+          "on_entry": [
+            "/function hi/hi7"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi8":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hi8_1":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi8_1":{
+          "on_entry": [
+            "/function hi/hi8"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi9":{
+          "animations" : [ "hi9_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi10":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi10"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi11":{
+          "animations" : [ "hi11_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/event entity @s add_damage_clear",
+            "/effect @s invisibility 10 20 true"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off",
+            "/event entity @s remove_damage_clear",
+            "/effect @s invisibility 0"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 200 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi12":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hi/hi12"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        },
+        "hi12_1":{
+          "on_entry": [
+            "/function hi/hi12"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_regimental_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hi = variable.regimental_hi < 20 ? variable.regimental_hi + 1:0;return variable.regimental_hi == 0;"}
+          ]
+        }
+      }
+    },
+    "controller.animation.regimental.hi_dragon_attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "attack": "query.variant == 16 && (query.skin_id == 2 || query.skin_id == 12) && query.mark_variant == 1 && variable.attack_time" }
+          ]
+        },
+        "attack":{
+          "on_entry": [
+            "/tag @s add regimental_hi6",
+            "/event entity @s mark_variant2",
+            "/execute as @s run damage @e[tag=!regimental_hi6,r=5] 15 entity_attack"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant1",
+            "/tag @s remove regimental_hi6"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+
+  }
+}

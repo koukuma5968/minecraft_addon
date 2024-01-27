@@ -20,6 +20,11 @@
                 "item": "minecraft:stick"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:steel_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:steel_pickaxe",
             "count": 1

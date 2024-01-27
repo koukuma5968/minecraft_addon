@@ -20,6 +20,11 @@
         "item": "kurokumaft:bamboo_fiber"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
     "result": {
       "item": "kurokumaft:diamond_bow"
     }

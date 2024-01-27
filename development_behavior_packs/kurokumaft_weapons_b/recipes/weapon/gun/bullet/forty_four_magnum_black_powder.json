@@ -22,8 +22,12 @@
             "P": {
                 "item": "kurokumaft:black_powder"
             }
-
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:steel_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:forty_four_magnum",
             "count": 6

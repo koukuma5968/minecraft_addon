@@ -22,6 +22,10 @@
       },
 
       "kurokumaft:nichirintou_remove": {
+        "minecraft:follow_range": {
+          "value": 2,
+          "max": 2
+        },
         "minecraft:skin_id": {
           "value": 0
         }
@@ -31,11 +35,15 @@
         "minecraft:skin_id": {
           "value": 1
         },
+        "minecraft:follow_range": {
+          "value": 32,
+          "max": 32
+        },
         "minecraft:behavior.ranged_attack": {
           "priority": 0,
           "attack_interval_min": 1.0,
           "attack_interval_max": 3.0,
-          "attack_radius": 10.0,
+          "attack_radius": 20.0,
           "swing": true
         },
         "minecraft:shooter": {
@@ -174,11 +182,27 @@
         "despawn_from_distance": {}
       },
       "minecraft:target_nearby_sensor": {
-        "must_see": false
+        "must_see": false,
+        "outside_range": 64
+      },
+      "minecraft:follow_range": {
+        "value": 64,
+        "max": 64
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
-        "alert_same_type": true      },
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"}
+              ]
+            },
+            "max_dist": 64
+          }
+        ]
+      },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "reselect_targets": true,
@@ -186,19 +210,19 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "monster"},
-                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
+              "all_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
               ]
             },
             "max_dist": 64
           },
           {
             "filters": {
-              "test": "is_family","subject": "other","value": "ogre"
+              "all_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
+              ]
             },
-            "max_dist": 128,
-            "must_see": false
+            "max_dist": 128
           }
         ]
       },
@@ -227,7 +251,7 @@
         ]
       },
       "minecraft:attack": {
-        "damage": 2
+        "damage": 3
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -242,7 +266,7 @@
       "minecraft:physics": {
       },
       "minecraft:pushable": {
-        "is_pushable": false,
+        "is_pushable": true,
         "is_pushable_by_piston": true
       },
       "minecraft:rideable": {

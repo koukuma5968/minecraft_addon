@@ -25,7 +25,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:cherry_helmet" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -35,9 +35,6 @@
           "min": 80,
           "max": 100
         }
-      },
-      "minecraft:knockback_resistance": {
-        "protection": 1.0
       },
       "minecraft:wearable": {
         "slot": "slot.armor.head",

@@ -18,6 +18,11 @@
         "item": "minecraft:pink_petals"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:pink_petals"
+      }
+    ],
     "result": {
       "item": "kurokumaft:cherry_sword"
     }

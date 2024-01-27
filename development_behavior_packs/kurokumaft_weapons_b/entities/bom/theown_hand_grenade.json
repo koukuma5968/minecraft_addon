@@ -56,7 +56,7 @@
 				},
 				"liquid_inertia": 0.99,
 				"power": 5,
-				"gravity": 0.10,
+				"gravity": 0.05,
 				"uncertainty_base": 1,
 				"uncertainty_multiplier": 0,
 				"stop_on_hurt": true,

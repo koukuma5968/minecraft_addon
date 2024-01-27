@@ -13,7 +13,7 @@
 				"value": "item.kurokumaft:echo_sword.name"
 			},
       "minecraft:icon": {
-          "texture": "echo_sword"
+        "texture": "echo_sword"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -24,11 +24,11 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:echo_shard" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 8"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:echo_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           }
         ]
       },

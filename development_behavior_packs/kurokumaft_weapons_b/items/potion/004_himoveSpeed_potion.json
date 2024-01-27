@@ -36,6 +36,15 @@
                 "effect @s jump_boost 100 5"
               ],
               "target": "player"
+            },
+            "decrement_stack": {}
+          },
+          {
+            "run_command": {
+              "command": [
+                "give @s glass_bottle"
+              ],
+              "target": "player"
             }
           }
         ]

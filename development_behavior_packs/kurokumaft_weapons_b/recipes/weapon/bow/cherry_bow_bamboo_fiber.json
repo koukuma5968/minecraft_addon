@@ -18,6 +18,11 @@
         "item": "kurokumaft:bamboo_fiber"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:cherry_planks"
+      }
+    ],
     "result": {
       "item": "kurokumaft:cherry_bow"
     }

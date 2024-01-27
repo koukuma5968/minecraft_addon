@@ -4,17 +4,22 @@
 		"description": {
 			"identifier": "kurokumaft:charcoal_block",
 			"menu_category": {
-				"category": "construction"
+				"category": "none"
 			}
 		},
 		"components": {
 			"minecraft:collision_box": true,
+			"minecraft:flammable": {
+				"catch_chance_modifier": 10,
+				"destroy_chance_modifier": 50
+			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 3
 			},
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 30
 			},
+			"minecraft:loot": "loot_tables/blocks/fuel/charcoal_block.json",
 			"minecraft:map_color": "#727578"
 		}
 	}

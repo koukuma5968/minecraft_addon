@@ -24,11 +24,11 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"hono1_1": "variable.equipped_hono && query.variant == 1 && query.is_using_item"},
-						{"hono2_1": "variable.equipped_hono && query.variant == 2 && query.is_using_item"},
-						{"hono3_1": "variable.equipped_hono && query.variant == 3 && query.is_using_item"},
-						{"hono4_1": "variable.equipped_hono && query.variant == 4 && query.is_using_item"},
-						{"hono5_1": "variable.equipped_hono && query.variant == 5 && query.is_using_item"}
+						{"hono1_1": "variable.equipped_hono && query.variant == 1 && query.mark_variant == 1"},
+						{"hono2_1": "variable.equipped_hono && query.variant == 2 && query.mark_variant == 1"},
+						{"hono3_1": "variable.equipped_hono && query.variant == 3 && query.mark_variant == 1"},
+						{"hono4_1": "variable.equipped_hono && query.variant == 4 && query.mark_variant == 1"},
+						{"hono5_1": "variable.equipped_hono && query.variant == 5 && query.mark_variant == 1"}
 					]
 				},
 				"hono1_1" : {

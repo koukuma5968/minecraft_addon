@@ -14,12 +14,17 @@
         ],
         "key": {
             "A": {
-                "item": "stone"
+                "item": "cobblestone"
             },
             "B": {
                 "item": "stick"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:cobblestone"
+            }
+        ],
         "result": {
             "item": "kurokumaft:stone_boomerang",
             "count": 1

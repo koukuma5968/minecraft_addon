@@ -15,6 +15,11 @@
         "item": "minecraft:amethyst_shard"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:amethyst_shard"
+      }
+    ],
     "result": {
       "item": "kurokumaft:amethyst_sword"
     }

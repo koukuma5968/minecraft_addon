@@ -81,7 +81,41 @@
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Texture.default" ]
+    },
+    "controller.render.soldier.regimental_girl": {
+      "arrays": {
+        "textures": {
+          "array.texture_frames": [
+            "texture.girl_1",
+            "texture.girl_2",
+            "texture.girl_3"
+          ]
+        },
+        "geometries": {
+          "array.geo_frames": [
+            "geometry.girl_1",
+            "geometry.girl_2",
+            "geometry.girl_3"
+          ]
+        }
+      },
+      "geometry": "array.geo_frames[variable.skin_type]",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.texture_frames[variable.skin_type]" ]
+    },
+    "controller.render.soldier.regimental_guy": {
+      "arrays": {
+        "textures": {
+          "array.texture_frames": [
+            "texture.guy_1",
+            "texture.guy_2",
+            "texture.guy_3"
+          ]
+        }
+      },
+      "geometry": "geometry.guy",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.texture_frames[variable.skin_type]" ]
     }
-
   }
 }

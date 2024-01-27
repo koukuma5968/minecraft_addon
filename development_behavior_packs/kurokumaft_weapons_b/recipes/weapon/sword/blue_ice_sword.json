@@ -1,0 +1,30 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:blue_ice_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " | ",
+      " | ",
+      " # "
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:blue_ice"
+      },
+      "#": {
+        "item": "minecraft:stick"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:blue_ice"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:blue_ice_sword"
+    }
+  }
+}

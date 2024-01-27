@@ -49,6 +49,23 @@
             "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
             "cause": "lava",
             "damage_per_tick": 4
+          },
+          {
+            "filters": { "test": "has_damage", "subject": "self", "operator": "==", "value": "fall" },
+            "cause": "fall",
+            "damage_per_tick": 0
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": { "test": "has_damage", "subject": "self", "operator": "==", "value": "fall" }
+            },
+            "cause": "fall",
+            "deals_damage": false,
+            "on_damage_sound_event": "item.shield.block"
           }
         ]
       },
@@ -83,9 +100,19 @@
       },
       "minecraft:nameable": {
       },
+      "minecraft:can_power_jump": {
+      },
+      "minecraft:jump.static": {
+      },
       "minecraft:persistent": {
       },
       "minecraft:physics": {
+      },
+      "minecraft:horse.jump_strength": {
+        "value": {
+          "range_min": 0.6,
+          "range_max": 0.8
+        }
       },
       "minecraft:pushable": {
         "is_pushable": true,

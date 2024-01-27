@@ -24,9 +24,9 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"oto1_1": "variable.equipped_oto && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
-						{"oto4_1": "variable.equipped_oto && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
-						{"oto5_1": "variable.equipped_oto && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"}
+						{"oto1_1": "variable.equipped_oto && query.variant == 1 && query.mark_variant == 1"},
+						{"oto4_1": "variable.equipped_oto && query.variant == 4 && query.mark_variant == 1"},
+						{"oto5_1": "variable.equipped_oto && query.variant == 5 && query.mark_variant == 1"}
 					]
 				},
 				"oto1_1" : {

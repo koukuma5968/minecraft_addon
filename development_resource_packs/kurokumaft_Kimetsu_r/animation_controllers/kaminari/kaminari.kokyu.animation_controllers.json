@@ -24,11 +24,11 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"kaminari1_1": "variable.equipped_kaminari && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
-						{"kaminari2_1": "variable.equipped_kaminari && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
-						{"kaminari3_1": "variable.equipped_kaminari && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
-						{"kaminari4_1": "variable.equipped_kaminari && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
-						{"kaminari5_1": "variable.equipped_kaminari && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"},
+						{"kaminari1_1": "variable.equipped_kaminari && query.variant == 1 && query.mark_variant == 1"},
+						{"kaminari2_1": "variable.equipped_kaminari && query.variant == 2 && query.mark_variant == 1"},
+						{"kaminari3_1": "variable.equipped_kaminari && query.variant == 3 && query.mark_variant == 1"},
+						{"kaminari4_1": "variable.equipped_kaminari && query.variant == 4 && query.mark_variant == 1"},
+						{"kaminari5_1": "variable.equipped_kaminari && query.variant == 5 && query.mark_variant == 1"},
 						{"kaminari6_1": "variable.equipped_kaminari && query.variant == 6 && query.mark_variant == 1"}
 					]
 				},

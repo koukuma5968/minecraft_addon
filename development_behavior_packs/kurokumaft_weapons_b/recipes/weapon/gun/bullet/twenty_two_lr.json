@@ -20,6 +20,11 @@
             }
 
         },
+        "unlock": [
+            {
+              "item": "minecraft:gold_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:twenty_two_lr",
             "count": 9

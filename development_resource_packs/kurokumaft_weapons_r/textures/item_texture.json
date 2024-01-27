@@ -106,6 +106,12 @@
       "mithril_spear": {
          "textures": "textures/kurokumaft/items/spear/mithril_spear"
       },
+      "diamond_spear": {
+         "textures": "textures/kurokumaft/items/spear/diamond_spear"
+      },
+      "netherite_spear": {
+         "textures": "textures/kurokumaft/items/spear/netherite_spear"
+      },
 
       "bamboo_knife": {
          "textures" : "textures/kurokumaft/items/knife/bamboo_knife"
@@ -333,6 +339,25 @@
          "textures" : "textures/kurokumaft/items/arrow/cherry_arrow"
       },
 
+      "leather_knuckle": {
+         "textures" : "textures/kurokumaft/items/knuckle/leather_knuckle"
+      },
+      "stone_knuckle": {
+         "textures" : "textures/kurokumaft/items/knuckle/stone_knuckle"
+      },
+      "iron_knuckle": {
+         "textures" : "textures/kurokumaft/items/knuckle/iron_knuckle"
+      },
+      "golden_knuckle": {
+         "textures" : "textures/kurokumaft/items/knuckle/golden_knuckle"
+      },
+      "diamond_knuckle": {
+         "textures" : "textures/kurokumaft/items/knuckle/diamond_knuckle"
+      },
+      "netherite_knuckle": {
+         "textures" : "textures/kurokumaft/items/knuckle/netherite_knuckle"
+      },
+
       "kettle_lid" : {
          "textures" : "textures/kurokumaft/items/shield/kettle_lid"
       },
@@ -375,6 +400,9 @@
 
       "medicinal_plant" : {
          "textures" : "textures/kurokumaft/items/crops/medicinal_plant"
+      },
+      "poisonous_plant" : {
+         "textures" : "textures/kurokumaft/items/crops/poisonous_plant"
       },
 
       "copper_helmet": {
@@ -430,16 +458,8 @@
       },
 
       "cherry_chestplate" : {
-         "textures" : [
-            "textures/kurokumaft/items/armor/cherry/cherry_chestplate",
-            "textures/items/chainmail_chestplate",
-            "textures/items/iron_chestplate",
-            "textures/items/gold_chestplate",
-            "textures/items/diamond_chestplate",
-            "textures/items/netherite_chestplate"
-         ]
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_chestplate"
       },
-
       "cherry_helmet": {
          "textures" : "textures/kurokumaft/items/armor/cherry/cherry_helmet"
       },
@@ -448,6 +468,13 @@
       },
       "cherry_boots": {
          "textures" : "textures/kurokumaft/items/armor/cherry/cherry_boots"
+      },
+
+      "rabbit_helmet_brown": {
+         "textures" : "textures/kurokumaft/items/armor/rabbit/rabbit_helmet_brown"
+      },
+      "rabbit_helmet_white": {
+         "textures" : "textures/kurokumaft/items/armor/rabbit/rabbit_helmet_white"
       },
 
       "fish_meal" : {
@@ -530,6 +557,10 @@
       "copper_bucket_water" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_water"
       },
+
+      "charcoal_block_item": {
+			"textures": "textures/kurokumaft/items/block/charcoal_block"
+		},
 
       "bamboo_bag": {
          "textures" : "textures/kurokumaft/items/bag/bamboo_bag"

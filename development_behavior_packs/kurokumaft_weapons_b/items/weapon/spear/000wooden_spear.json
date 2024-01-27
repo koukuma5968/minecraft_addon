@@ -26,7 +26,7 @@
             "items": [
               "minecraft:stick"
             ],
-            "repair_amount": 50
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           }
         ]
       },

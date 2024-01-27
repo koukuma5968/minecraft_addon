@@ -6,8 +6,8 @@
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      " | ",
-      " # "
+      "|",
+      "#"
     ],
     "key": {
       "|": {
@@ -17,6 +17,11 @@
         "item": "minecraft:stick"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:bamboo"
+      }
+    ],
     "result": {
       "item": "kurokumaft:bamboo_knife"
     }

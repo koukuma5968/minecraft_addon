@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:leather_knuckle",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/knuckle/leather_knuckle",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.knuckle"
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

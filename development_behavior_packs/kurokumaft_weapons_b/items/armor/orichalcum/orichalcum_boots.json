@@ -24,7 +24,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:orichalcum_boots" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -39,8 +39,8 @@
         }
       },
       "minecraft:wearable": {
-        "protection": 20,
-        "slot": "slot.armor.feet"
+        "slot": "slot.armor.feet",
+        "protection": 8
       }
     }
   }

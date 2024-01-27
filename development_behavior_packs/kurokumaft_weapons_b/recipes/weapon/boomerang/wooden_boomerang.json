@@ -20,6 +20,11 @@
                 "item": "stick"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:planks"
+            }
+        ],
         "result": {
             "item": "kurokumaft:wooden_boomerang",
             "count": 1

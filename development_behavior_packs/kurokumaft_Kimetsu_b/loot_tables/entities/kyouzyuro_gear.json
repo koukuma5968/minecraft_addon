@@ -15,7 +15,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "kurokumaft:soldier_pants_guy",
+          "name": "kurokumaft:soldier_pants_guy_brown",
           "weight": 1
         }
       ]
@@ -43,7 +43,7 @@
         },
         {
           "type": "item",
-          "name": "kurokumaft:soldier_jacket_guy",
+          "name": "kurokumaft:soldier_jacket_guy_brown",
           "weight": 5
         }
       ]

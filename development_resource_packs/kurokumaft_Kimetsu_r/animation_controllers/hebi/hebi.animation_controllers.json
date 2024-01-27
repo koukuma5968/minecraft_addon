@@ -6,11 +6,11 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"hebi1_1": "variable.equipped_obanai && query.variant == 1 && query.mark_variant == 1 && query.is_using_item"},
-						{"hebi2_1": "variable.equipped_obanai && query.variant == 2 && query.mark_variant == 1 && query.is_using_item"},
-						{"hebi3_1": "variable.equipped_obanai && query.variant == 3 && query.mark_variant == 1 && query.is_using_item"},
-						{"hebi4_1": "variable.equipped_obanai && query.variant == 4 && query.mark_variant == 1 && query.is_using_item"},
-						{"hebi5_1": "variable.equipped_obanai && query.variant == 5 && query.mark_variant == 1 && query.is_using_item"}
+						{"hebi1_1": "variable.equipped_obanai && query.variant == 1 && query.mark_variant == 1 && query.mark_variant == 1"},
+						{"hebi2_1": "variable.equipped_obanai && query.variant == 2 && query.mark_variant == 1 && query.mark_variant == 1"},
+						{"hebi3_1": "variable.equipped_obanai && query.variant == 3 && query.mark_variant == 1 && query.mark_variant == 1"},
+						{"hebi4_1": "variable.equipped_obanai && query.variant == 4 && query.mark_variant == 1 && query.mark_variant == 1"},
+						{"hebi5_1": "variable.equipped_obanai && query.variant == 5 && query.mark_variant == 1 && query.mark_variant == 1"}
 					]
 				},
 				"hebi1_1" : {
@@ -18,7 +18,7 @@
 						"hebi.ichi_1"
 					],
 					"transitions" : [
-						{"hebi1_2":"!query.is_using_item"}
+						{"hebi1_2":"query.mark_variant == 0"}
 					]
 				},
 				"hebi1_2" : {

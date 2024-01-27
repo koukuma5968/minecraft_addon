@@ -32,6 +32,9 @@ item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレ
 item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:water_zombie.name=ウォーターゾンビをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:wind_zombie.name=ウィンドゾンビをスポーンさせる	#
+
+item.spawn_egg.entity.kurokumaft:fire_skeleton_warrior.name=ファイアスケルトン・ウォリアーをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:fire_horse.name=フレイムホースをスポーンさせる	#
 action.interact.ride.kurokumaft:fire_horse=乗る	#

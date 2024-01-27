@@ -1,0 +1,146 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.regimental.hono": {
+      "states": {
+        "default": {
+          "variables": {
+            "regimental_hono": {
+              "input": "variable.regimental_hono = (variable.regimental_hono ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hono1": "query.variant == 1 && query.mark_variant == 0" },
+            { "hono2": "query.variant == 2 && query.mark_variant == 0" },
+            { "hono3": "query.variant == 3 && query.mark_variant == 0" },
+            { "hono4": "query.variant == 4 && query.mark_variant == 0" },
+            { "hono5": "query.variant == 5 && query.mark_variant == 0" }
+          ]
+        },
+        "hono1":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hono1_2":"(1.0)"}
+          ]
+        },
+        "hono1_2":{
+          "on_entry": [
+            "/effect @s speed 99999 5 true"
+          ],
+          "transitions": [
+            {"hono1_e":"variable.regimental_hono = variable.regimental_hono < 100 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"},
+            {"hono1_f":"variable.attack_time"}
+          ]
+        },
+        "hono1_f":{
+          "on_entry": [
+            "/function hono/hono1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"hono1_e":"variable.regimental_hono = variable.regimental_hono < 30 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"}
+          ]
+        },
+        "hono1_e":{
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "hono2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hono/hono2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hono = variable.regimental_hono < 20 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"}
+          ]
+        },
+        "hono3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hono/hono2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hono = variable.regimental_hono < 20 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"}
+          ]
+        },
+        "hono4":{
+          "animations" : [ "hono4_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hono = variable.regimental_hono < 20 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"}
+          ]
+        },
+        "hono5":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/event entity @s kurokumaft:enko_add"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off",
+            "/event entity @s kurokumaft:enko_remove"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_hono = variable.regimental_hono < 20 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"}
+          ]
+        },
+        "hono9":{
+          "animations" : [ "hono9_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"hono9_2":"(1.0)"}
+          ]
+        },
+        "hono9_2":{
+          "animations" : [ "hono9_2_ani" ],
+          "on_entry": [
+            "/effect @s speed 99999 5 true"
+          ],
+          "transitions": [
+            {"hono9_e":"variable.regimental_hono = variable.regimental_hono < 200 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"},
+            {"hono9_3":"variable.attack_time"}
+          ]
+        },
+        "hono9_3":{
+          "on_entry": [
+            "/event entity @s mark_variant2",
+            "/function hono/hono9"
+          ],
+          "transitions": [
+            {"hono9_e":"variable.regimental_hono = variable.regimental_hono < 10 ? variable.regimental_hono + 1:0;return variable.regimental_hono == 0;"}
+          ]
+        },
+        "hono9_e":{
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -20,6 +20,11 @@
                 "tag": "minecraft:soul_fire_base_blocks"
             }
         },
+        "unlock": [
+            {
+              "tag": "minecraft:soul_fire_base_blocks"
+            }
+        ],
         "result": {
             "item": "kurokumaft:ghast_bazooka",
             "count": 1

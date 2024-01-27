@@ -40,7 +40,7 @@
       "render_controllers": [ "controller.render.magic_golem", "controller.render.magic_golem_cracks" ],
       "enable_attachables": true,
       "spawn_egg": {
-        "texture": "magic_spawn_egg",
+        "texture": "magic_golem_spawn_egg",
         "texture_index": 1
       }
     }

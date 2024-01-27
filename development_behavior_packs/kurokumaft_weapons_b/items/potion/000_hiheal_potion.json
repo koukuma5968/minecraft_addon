@@ -53,6 +53,14 @@
                 "weight": 9
               }
             ]
+          },
+          {
+            "run_command": {
+              "command": [
+                "give @s glass_bottle"
+              ],
+              "target": "player"
+            }
           }
         ]
       }

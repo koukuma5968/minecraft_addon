@@ -12,18 +12,25 @@
           "tanjiro_change","zenitu_change","inosuke_change","kanawo_change","giyu_change","kyouzyuro_change","tengen_change","shinobu_change",
           "mituri_change","sanemi_change","gyoumei_change","muitiro_change","obanai_change",
 
-          "mizu_change","hi_change","kaminari_change","hono_change","oto_change","mushi_change","hana_change",
+          "mizu_change","hi_change","kaminari_change","hono_change","oto_change","mushi_change","hana_change","koi_change","kaze_change",
 
           "mizu","hi","kaminari","kedamono","hana","hono","oto","mushi","koi","kaze","iwa","kasumi","hebi",
 
           "mizu10_attack","hi_dragon_attack","kaminari_attack","kasumi_attack",
 
-          "bakketu"
+          "kekkizyutu_change",
+
+          "rui_change","akaza_change",
+
+          "bakketu",
+          "koushi",
+          "hakaisatu"
         ]
       },
       "animations":{
-        "kokyu_charge_hi": "animation.kokyu.charge.hi",
         "kokyu_change": "controller.animation.kokyu.kokyu_change",
+        "kokyu_charge_hi": "animation.kokyu.charge.hi",
+
         "tanjiro_change": "controller.animation.kokyu.tanjiro_change",
         "zenitu_change": "controller.animation.kokyu.zenitu_change",
         "inosuke_change": "controller.animation.kokyu.inosuke_change",
@@ -45,6 +52,8 @@
         "oto_change": "controller.animation.kokyu.oto_change",
         "mushi_change": "controller.animation.kokyu.mushi_change",
         "hana_change": "controller.animation.kokyu.hana_change",
+        "kaze_change": "controller.animation.kokyu.kaze_change",
+        "koi_change": "controller.animation.kokyu.koi_change",
 
         "mizu":"controller.animation.kokyu.mizu",
         "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9","mizu10_ani": "animation.kata.mizu10",
@@ -90,7 +99,19 @@
 
         "iwa": "controller.animation.kokyu.iwa",
         "iwa3_ani": "animation.kata.iwa3","iwa4_ani": "animation.kata.iwa4",
-        "iwa5_ani": "animation.kata.iwa5","iwa5_hover_ani": "animation.kata.iwa5_hover","iwa5_2_ani": "animation.kata.iwa5_2"
+        "iwa5_ani": "animation.kata.iwa5","iwa5_hover_ani": "animation.kata.iwa5_hover","iwa5_2_ani": "animation.kata.iwa5_2",
+
+        "kekkizyutu_change": "controller.animation.kekkizyutu.kekkizyutu_change",
+
+        "rui_change": "controller.animation.kekkizyutu.rui_change",
+        "koushi": "controller.animation.kekkizyutu.koushi",
+        "kokushiryo": "animation.kekkizyutu.koushi.kokushiryo",
+
+        "akaza_change": "controller.animation.kekkizyutu.akaza_change",
+        "hakaisatu": "controller.animation.kekkizyutu.hakaisatu",
+        "ranshiki": "animation.kekkizyutu.hakaisatu.ranshiki","ryuseigunkou": "animation.kekkizyutu.hakaisatu.ryuseigunkou",
+        "hiyuseisenrin": "animation.kekkizyutu.hakaisatu.hiyuseisenrin","manyousenyanagi": "animation.kekkizyutu.hakaisatu.manyousenyanagi",
+        "kishinyaenshin": "animation.kekkizyutu.hakaisatu.kishinyaenshin","aoginranzankou": "animation.kekkizyutu.hakaisatu.aoginranzankou"
 
       }
     },
@@ -314,6 +335,16 @@
           "value": 15
         }
       },
+      "kurokumaft:nichirintou_kasumi": {
+        "minecraft:skin_id": {
+          "value": 16
+        }
+      },
+      "kurokumaft:nichirintou_hebi": {
+        "minecraft:skin_id": {
+          "value": 17
+        }
+      },
 
       "kurokumaft:nichirintou_inosuke": {
         "minecraft:skin_id": {
@@ -383,6 +414,21 @@
         }
       },
 
+      "kurokumaft:kekkizyutu_nezuko": {
+        "minecraft:skin_id": {
+          "value": 50
+        }
+      },
+      "kurokumaft:kekkizyutu_rui": {
+        "minecraft:skin_id": {
+          "value": 51
+        }
+      },
+      "kurokumaft:kekkizyutu_akaza": {
+        "minecraft:skin_id": {
+          "value": 52
+        }
+      },
 
       "mark_variant0": {
         "minecraft:mark_variant": {
@@ -881,9 +927,50 @@
           "component_groups": [ "kurokumaft:nichirintou_hana" ]
         }
       },
+      "kurokumaft:nichirintou_koi": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_koi" ]
+        }
+      },
       "kurokumaft:nichirintou_kaze": {
         "add": {
           "component_groups": [ "kurokumaft:nichirintou_kaze" ]
+        }
+      },
+      "kurokumaft:nichirintou_iwa": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_iwa" ]
+        }
+      },
+      "kurokumaft:nichirintou_kemono": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_kemono" ]
+        }
+      },
+      "kurokumaft:nichirintou_kasumi": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_kasumi" ]
+        }
+      },
+      "kurokumaft:nichirintou_hebi": {
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_hebi" ]
+        }
+      },
+
+      "kurokumaft:kekkizyutu_nezuko": {
+        "add": {
+          "component_groups": [ "kurokumaft:kekkizyutu_nezuko" ]
+        }
+      },
+      "kurokumaft:kekkizyutu_rui": {
+        "add": {
+          "component_groups": [ "kurokumaft:kekkizyutu_rui" ]
+        }
+      },
+      "kurokumaft:kekkizyutu_akaza": {
+        "add": {
+          "component_groups": [ "kurokumaft:kekkizyutu_akaza" ]
         }
       },
 

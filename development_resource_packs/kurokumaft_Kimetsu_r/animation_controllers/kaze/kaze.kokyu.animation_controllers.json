@@ -1,0 +1,138 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kaze.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"attack": "query.variant >= 1 && variable.attack_time"}
+					]
+				},
+				"attack" : {
+					"animations" : [
+						{"kaze_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.kaze.kokyu" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"kaze1_1": "variable.equipped_kaze && query.variant == 1 && query.mark_variant == 1"},
+						{"kaze2_1": "variable.equipped_kaze && query.variant == 2 && query.mark_variant == 1"},
+						{"kaze3_1": "variable.equipped_kaze && query.variant == 3 && query.mark_variant == 1"},
+						{"kaze4_1": "variable.equipped_kaze && query.variant == 4 && query.mark_variant == 1"},
+						{"kaze5_1": "variable.equipped_kaze && query.variant == 5 && query.mark_variant == 1"},
+						{"kaze6_1": "variable.equipped_kaze && query.variant == 6 && query.mark_variant == 1"},
+						{"kaze7_1": "variable.equipped_kaze && query.variant == 7 && query.mark_variant == 1"},
+						{"kaze8_1": "variable.equipped_kaze && query.variant == 8 && query.mark_variant == 1"},
+						{"kaze9_1": "variable.equipped_kaze && query.variant == 9 && query.mark_variant == 1"}
+					]
+				},
+				"kaze1_1" : {
+					"animations" : [
+						{"kaze.ichi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"},
+						{"kaze1_2":"query.any_animation_finished"}
+					]
+				},
+				"kaze1_2" : {
+					"animations" : [
+						{"kaze.ichi_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaze2_1" : {
+					"animations" : [
+						{"kaze.ni_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				},
+				"kaze3_1" : {
+					"animations" : [
+						{"kaze.san_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaze4_1" : {
+					"animations" : [
+						{"kaze.shi_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaze5_1" : {
+					"animations" : [
+						{"kaze.go_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kaze5_2":"query.any_animation_finished"}
+					]
+				},
+				"kaze5_2" : {
+					"animations" : [
+						{"kaze.go_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaze6_1" : {
+					"animations" : [
+						{"kaze.roku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaze7_1" : {
+					"animations" : [
+						{"kaze.shiti_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaze8_1" : {
+					"animations" : [
+						{"kaze.hati_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kaze9_1" : {
+					"animations" : [
+						{"kaze.ku_1": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"kaze9_2":"query.mark_variant == 2"}
+					]
+				},
+				"kaze9_2" : {
+					"animations" : [
+						{"kaze.ku_2": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

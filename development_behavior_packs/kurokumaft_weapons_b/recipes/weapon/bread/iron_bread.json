@@ -21,6 +21,11 @@
         "item": "minecraft:string"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:iron_bread"
     }

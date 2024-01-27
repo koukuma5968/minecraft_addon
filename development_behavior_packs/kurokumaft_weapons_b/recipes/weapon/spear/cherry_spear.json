@@ -21,6 +21,11 @@
         "item": "minecraft:flint"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:pink_petals"
+      }
+    ],
     "result": {
       "item": "kurokumaft:cherry_spear",
       "count": 1

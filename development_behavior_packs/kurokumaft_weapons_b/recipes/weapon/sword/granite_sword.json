@@ -1,0 +1,32 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:granite_sword"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " | ",
+      " | ",
+      " # "
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:stone",
+        "data": 2
+      },
+      "#": {
+        "item": "minecraft:stick"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:stone",
+        "data": 2
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:granite_sword"
+    }
+  }
+}

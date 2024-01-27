@@ -18,6 +18,11 @@
         "item": "minecraft:gold_ingot"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:blaze_rod"
+      }
+    ],
     "result": {
       "item": "kurokumaft:blaze_spear",
       "count": 1

@@ -12,7 +12,7 @@
         ]
       },
       "animations":{
-        "shot":"animation.water_zombie.shot"
+        "shot":"animation.zombie.magic_shot"
       }
     },
     "component_groups": {
@@ -50,7 +50,7 @@
         "minecraft:annotation.break_door": {
         }
       },
-      "kurokumaft:waterball": {
+      "kurokumaft:magic_shot": {
         "minecraft:spawn_entity": {
           "entities": [
             {
@@ -446,17 +446,17 @@
           }
         ]
       },
-      "kurokumaft:waterball": {
+      "kurokumaft:magic_shot": {
         "add": {
           "component_groups": [
-            "kurokumaft:waterball"
+            "kurokumaft:magic_shot"
           ]
         }
       },
-      "kurokumaft:waterball_remove": {
+      "kurokumaft:magic_shot_remove": {
         "remove": {
           "component_groups": [
-            "kurokumaft:waterball"
+            "kurokumaft:magic_shot"
           ]
         }
       }

@@ -18,7 +18,7 @@
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
-        "max_durability": 300
+        "max_durability": 2500
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -26,13 +26,13 @@
             "items": [
               "kurokumaft:mithril_ingot"
             ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 4"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [
               "kurokumaft:mithril_shovel"
             ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },

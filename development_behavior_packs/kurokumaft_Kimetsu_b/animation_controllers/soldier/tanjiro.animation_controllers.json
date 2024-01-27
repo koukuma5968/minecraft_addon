@@ -475,6 +475,27 @@
           ]
         }
       }
+    },
+    "controller.animation.tanjiro.mizu10_attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "attack": "query.variant == 10 && query.mark_variant == 1 && variable.attack_time" }
+          ]
+        },
+        "attack":{
+          "on_entry": [
+            "/event entity @s mark_variant2",
+            "/function mizu/mizu10/mizu10"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
     }
   }
 }

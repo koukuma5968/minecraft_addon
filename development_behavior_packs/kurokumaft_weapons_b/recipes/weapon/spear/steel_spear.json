@@ -18,6 +18,11 @@
         "item": "kurokumaft:steel_ingot"
       }
     },
+  	"unlock": [
+      {
+        "item": "kurokumaft:steel_ingot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:steel_spear",
       "count": 1

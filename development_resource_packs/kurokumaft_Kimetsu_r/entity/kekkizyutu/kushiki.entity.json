@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:kushiki",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/akaza/kushiki"
+          },
+          "geometry": {
+            "default": "geometry.kushiki"
+          },
+          "particle_effects": {
+            "kushiki": "kurokumaft:kushiki"
+          },
+          "animations": {
+            "kushiki": "animation.kekkizyutu.hakaisatu.kushiki"
+          },
+          "scripts": {
+            "scale": "1.5",
+            "animate": [
+              "kushiki"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

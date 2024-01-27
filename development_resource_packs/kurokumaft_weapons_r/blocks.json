@@ -3,7 +3,8 @@
 		"sound": "stone"
 	},
 	"chromium_ore": {
-		"sound": "stone"
+		"sound": "stone",
+		"textures": "chromium_ore"
 	},
 	"charcoal_block": {
 		"sound": "stone",

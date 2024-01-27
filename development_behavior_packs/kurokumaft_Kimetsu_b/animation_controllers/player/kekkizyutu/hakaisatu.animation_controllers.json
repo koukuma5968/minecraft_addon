@@ -1,0 +1,201 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.kekkizyutu.hakaisatu": {
+      "states": {
+        "default": {
+          "variables": {
+            "hakaisatu": {
+              "input": "variable.hakaisatu = (variable.hakaisatu ?? 0);"
+            }
+          },
+          "transitions": [
+            { "rashin": "query.skin_id == 52 && query.variant == 1 && query.is_using_item" },
+            { "kushiki": "query.skin_id == 52 && query.variant == 2 && query.is_using_item" },
+            { "ranshiki": "query.skin_id == 52 && query.variant == 3 && query.is_using_item" },
+            { "meshiki": "query.skin_id == 52 && query.variant == 4 && query.is_using_item" },
+            { "kamurosakiwari": "query.skin_id == 52 && query.variant == 5 && query.is_using_item" },
+            { "ryuseigunkou": "query.skin_id == 52 && query.variant == 6 && query.is_using_item" },
+            { "hiyuseisenrin": "query.skin_id == 52 && query.variant == 7 && query.is_using_item" },
+            { "manyousenyanagi": "query.skin_id == 52 && query.variant == 8 && query.is_using_item" },
+            { "kishinyaenshin": "query.skin_id == 52 && query.variant == 9 && query.is_using_item" },
+            { "aoginranzankou": "query.skin_id == 52 && query.variant == 10 && query.is_using_item" }
+          ]
+        },
+        "rashin":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・羅針\"}]}",
+            "/event entity @s mark_variant1",
+            "/function hakaisatu/rashin"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 10 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "kushiki":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・空式\"}]}",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"kushiki_f":"variable.hakaisatu = variable.hakaisatu < 5 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "kushiki_f":{
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 15 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "ranshiki":{
+          "animations" : [ "ranshiki" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・乱式\"}]}",
+            "/tag @s add ranshiki",
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/tag @s remove ranshiki",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 50 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "meshiki":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺\"}]}",
+            "/tag @s add meshiki",
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"meshiki_at":"!query.is_using_item"}
+          ]
+        },
+        "meshiki_at":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"滅式\"}]}",
+            "/event entity @s mark_variant2",
+            "/function hakaisatu/meshiki"
+          ],
+          "on_exit": [
+            "/tag @s remove meshiki",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 15 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "kamurosakiwari":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・脚式 冠先割\"}]}",
+            "/event entity @s mark_variant1",
+            "/tag @s add kamurosakiwari",
+            "/function hakaisatu/kamurosakiwari"
+          ],
+          "on_exit": [
+            "/tag @s remove kamurosakiwari",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 15 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "ryuseigunkou":{
+          "animations" : [ "ryuseigunkou" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・脚式 流閃群光\"}]}",
+            "/event entity @s mark_variant1",
+            "/tag @s add ryuseigunkou"
+          ],
+          "on_exit": [
+            "/tag @s remove ryuseigunkou",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 60 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "hiyuseisenrin":{
+          "animations" : [ "hiyuseisenrin" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・脚式 飛遊星千輪\"}]}",
+            "/event entity @s mark_variant1",
+            "/tag @s add hiyuseisenrin"
+          ],
+          "on_exit": [
+            "/tag @s remove hiyuseisenrin",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 30 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "manyousenyanagi":{
+          "animations" : [ "manyousenyanagi" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・砕式\"}]}",
+            "/event entity @s mark_variant1",
+            "/event entity @s kurokumaft:explosion_nullify",
+            "/event entity @s kurokumaft:knockback_add",
+            "/tag @s add manyousenyanagi"
+          ],
+          "transitions": [
+            {"manyousenyanagi_at":"variable.hakaisatu = variable.hakaisatu < 10 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "manyousenyanagi_at":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"万葉閃柳\"}]}",
+            "/event entity @s mark_variant2",
+            "/function hakaisatu/manyousenyanagi"
+          ],
+          "on_exit": [
+            "/tag @s remove manyousenyanagi",
+            "/event entity @s mark_variant0",
+            "/event entity @s kurokumaft:knockback_remove",
+            "/event entity @s kurokumaft:explosion_nullify_remove"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 10 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "kishinyaenshin":{
+          "animations" : [ "kishinyaenshin" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・鬼芯八重芯\"}]}",
+            "/event entity @s mark_variant1",
+            "/tag @s add kishinyaenshin"
+          ],
+          "on_exit": [
+            "/tag @s remove kishinyaenshin",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 30 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        },
+        "aoginranzankou":{
+          "animations" : [ "aoginranzankou" ],
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・終式・青銀乱残光\"}]}",
+            "/event entity @s mark_variant1",
+            "/tag @s add aoginranzankou"
+          ],
+          "on_exit": [
+            "/tag @s remove aoginranzankou",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.hakaisatu = variable.hakaisatu < 80 ? variable.hakaisatu + 1:0;return variable.hakaisatu == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

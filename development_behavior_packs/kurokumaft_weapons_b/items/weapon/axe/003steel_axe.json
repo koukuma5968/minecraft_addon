@@ -24,11 +24,11 @@
           "repair_items": [
             {
               "items": [ "kurokumaft:steel_ingot" ],
-              "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+              "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
             },
             {
               "items": [ "kurokumaft:steel_axe" ],
-              "repair_amount": "(query.max_durability - query.remaining_durability)"
+              "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
             }
           ]
         },

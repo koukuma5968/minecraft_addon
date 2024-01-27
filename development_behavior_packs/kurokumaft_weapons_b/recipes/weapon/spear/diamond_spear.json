@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:diamond_spear"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  F",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "F": {
+        "item": "minecraft:diamond"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:diamond_spear",
+      "count": 1
+    }
+  }
+}

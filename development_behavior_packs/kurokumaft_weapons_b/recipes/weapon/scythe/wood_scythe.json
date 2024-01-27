@@ -18,6 +18,11 @@
         "item": "minecraft:stick"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:planks"
+      }
+    ],
     "result": {
       "item": "kurokumaft:wood_scythe"
     }

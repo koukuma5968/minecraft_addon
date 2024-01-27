@@ -1,0 +1,30 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:steel_bow_bamboo_fiber"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " #X",
+      "# X",
+      " #X"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:steel_ingot"
+      },
+      "X": {
+        "item": "kurokumaft:bamboo_fiber"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:steel_ingot"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:steel_bow"
+    }
+  }
+}

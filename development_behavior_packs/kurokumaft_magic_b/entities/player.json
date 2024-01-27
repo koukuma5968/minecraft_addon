@@ -890,7 +890,7 @@
 				"run_command": {
 					"command": [
             "tag @s add fire_reflection",
-					  "execute @e[tag=!fire_reflection,r=2.5,c=1] ~~~ summon kurokumaft:fireballmagic ~~~",
+					  "execute at @e[tag=!fire_reflection,r=2.5,c=1] run summon kurokumaft:fireballmagic ~~~",
             "tag @s remove fire_reflection"
 					]
 				}
@@ -899,7 +899,7 @@
 				"run_command": {
 					"command": [
             "tag @s add weater_reflection",
-					  "execute @e[tag=!weater_reflection,r=2.5,c=1] ~~~ summon kurokumaft:waterballmagic ~~~",
+					  "execute at @e[tag=!weater_reflection,r=2.5,c=1] run summon kurokumaft:waterballmagic ~~~",
             "tag @s remove weater_reflection"
 					]
 				}
@@ -908,7 +908,7 @@
 				"run_command": {
 					"command": [
             "tag @s add wind_reflection",
-					  "execute @e[tag=!wind_reflection,r=2.5,c=1] ~~~ summon kurokumaft:fireballmagic ~~~",
+					  "execute at @e[tag=!wind_reflection,r=2.5,c=1] run summon kurokumaft:fireballmagic ~~~",
             "tag @s remove wind_reflection"
 					]
 				}
@@ -917,7 +917,7 @@
 				"run_command": {
 					"command": [
             "tag @s add thunder_reflection",
-					  "execute @e[tag=!thunder_reflection,r=2.5,c=1] ~~~ summon kurokumaft:lightningboltmagic ~~~",
+					  "execute at @e[tag=!thunder_reflection,r=2.5,c=1] run summon kurokumaft:lightningboltmagic ~~~",
             "tag @s remove thunder_reflection"
 					]
 				}
@@ -926,7 +926,7 @@
 				"run_command": {
 					"command": [
             "tag @s add ice_reflection",
-					  "execute @e[tag=!ice_reflection,r=2.5,c=1] ~~~ summon kurokumaft:deepsnowmagic ~~~",
+					  "execute at @e[tag=!ice_reflection,r=2.5,c=1] run summon kurokumaft:deepsnowmagic ~~~",
             "tag @s remove ice_reflection"
 					]
 				}
@@ -935,7 +935,7 @@
 				"run_command": {
 					"command": [
             "tag @s add stone_reflection",
-					  "execute @e[tag=!stone_reflection,r=2.5,c=1] ~~~ summon kurokumaft:stonebarrettemagic ~~~",
+					  "execute at @e[tag=!stone_reflection,r=2.5,c=1] run summon kurokumaft:stonebarrettemagic ~~~",
             "tag @s remove stone_reflection"
 					]
 				}
@@ -1037,7 +1037,7 @@
             "run_command": {
               "command": [
                 "tag @e[tag=lightning_m_h,c=1,r=1] add blindness_effect",
-                "execute @e[tag=blindness_effect,c=1,r=1] ~~~ effect @e[tag=!blindness_effect,r=2.5] blindness 5 10 true",
+                "execute at @e[tag=blindness_effect,c=1,r=1] run effect @e[tag=!blindness_effect,r=2.5] blindness 5 10 true",
                 "tag @e[tag=blindness_effect] remove blindness_effect"
               ]
             }
@@ -1046,7 +1046,7 @@
             "run_command": {
               "command": [
                 "tag @e[tag=lightning_m_c,c=1,r=1] add lightning_damage",
-                "execute @e[tag=lightning_damage,c=1,r=1] ~~~ damage @e[tag=!lightning_damage,r=5.0] 4 lightning",
+                "execute at @e[tag=lightning_damage,c=1,r=1] run damage @e[tag=!lightning_damage,r=5.0] 4 lightning",
                 "tag @e[tag=lightning_damage] remove lightning_damage"
               ]
             }
@@ -1055,7 +1055,7 @@
             "run_command": {
               "command": [
                 "tag @e[tag=stone_m_c,c=1,r=1] add stone_roar",
-                "execute @e[tag=stone_roar,r=5.0] ~~~ summon kurokumaft:stone_armor_knockback_roar ~~~",
+                "execute at @e[tag=stone_roar,r=5.0] run summon kurokumaft:stone_armor_knockback_roar ~~~",
                 "tag @e[tag=stone_roar] remove stone_roar"
               ]
             }
@@ -1064,7 +1064,7 @@
             "run_command": {
               "command": [
                 "tag @e[tag=stone_m_h,c=1,r=1] add nausea_effect",
-                "execute @e[tag=nausea_effect,c=1,r=1] ~~~ effect @e[tag=!nausea_effect,r=5.5] nausea 5 10 true",
+                "execute at @e[tag=nausea_effect,c=1,r=1] run effect @e[tag=!nausea_effect,r=5.5] nausea 5 10 true",
                 "tag @e[tag=nausea_effect] remove nausea_effect"
               ]
             }
@@ -1073,7 +1073,7 @@
             "run_command": {
               "command": [
                 "tag @e[tag=stone_m_b,c=1,r=1] add slowness_effect",
-                "execute @e[tag=slowness_effect,c=1,r=1] ~~~ effect @e[tag=!slowness_effect,r=5.5] slowness 10 5 true",
+                "execute at @e[tag=slowness_effect,c=1,r=1] run effect @e[tag=!slowness_effect,r=5.5] slowness 10 5 true",
                 "tag @e[tag=slowness_effect] remove slowness_effect"
               ]
             }

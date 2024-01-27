@@ -1,0 +1,120 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kekkizyutu.akaza" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"rashin": "variable.akaza && query.variant == 1 && query.mark_variant == 1"},
+						{"kushiki": "variable.akaza && query.variant == 2 && query.mark_variant == 1"},
+						{"ranshiki": "variable.akaza && query.variant == 3 && query.mark_variant == 1"},
+						{"meshiki": "variable.akaza && query.variant == 4 && query.mark_variant == 1"},
+						{"kamurosakiwari": "variable.akaza && query.variant == 5 && query.mark_variant == 1"},
+						{"ryuseigunkou": "variable.akaza && query.variant == 6 && query.mark_variant == 1"},
+						{"hiyuseisenrin": "variable.akaza && query.variant == 7 && query.mark_variant == 1"},
+						{"manyousenyanagi": "variable.akaza && query.variant == 8 && query.mark_variant == 1"},
+						{"kishinyaenshin": "variable.akaza && query.variant == 9 && query.mark_variant == 1"},
+						{"aoginranzankou": "variable.akaza && query.variant == 10 && query.mark_variant == 1"}
+					]
+				},
+				"rashin" : {
+					"animations" : [
+						{"rashin": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kushiki" : {
+					"animations" : [
+						{"kushiki": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"ranshiki" : {
+					"animations" : [
+						{"ranshiki": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"meshiki" : {
+					"animations" : [
+						{"meshiki": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"meshiki_at":"query.mark_variant == 2"}
+					]
+				},
+				"meshiki_at" : {
+					"animations" : [
+						{"meshiki_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kamurosakiwari" : {
+					"animations" : [
+						{"kamurosakiwari": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"ryuseigunkou" : {
+					"animations" : [
+						{"ryuseigunkou": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"hiyuseisenrin" : {
+					"animations" : [
+						{"hiyuseisenrin": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"manyousenyanagi" : {
+					"animations" : [
+						{"manyousenyanagi": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"manyousenyanagi_at":"query.mark_variant == 2"}
+					]
+				},
+				"manyousenyanagi_at" : {
+					"animations" : [
+						{"manyousenyanagi_attack": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"kishinyaenshin" : {
+					"animations" : [
+						{"kishinyaenshin": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				},
+				"aoginranzankou" : {
+					"animations" : [
+						{"aoginranzankou": "!variable.is_first_person"}
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

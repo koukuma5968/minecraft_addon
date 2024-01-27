@@ -10,8 +10,7 @@
             }
           },
           "transitions": [
-            { "bakketu": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bakketu') && query.is_using_item" },
-            { "bakketu": "query.is_item_name_any('slot.weapon.offhand',0,'kurokumaft:bakketu') && query.is_using_item" }
+            { "bakketu": "query.skin_id == 50 && query.is_using_item" }
           ]
         },
         "bakketu":{

@@ -21,6 +21,11 @@
         "item": "minecraft:crying_obsidian"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:ender_eye"
+      }
+    ],
     "result": {
       "item": "kurokumaft:ender_eye_sword"
     }

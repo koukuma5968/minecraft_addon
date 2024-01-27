@@ -24,10 +24,10 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"mushi1": "variable.equipped_mushi && query.variant == 1 && query.is_using_item"},
-						{"mushi2": "variable.equipped_mushi && query.variant == 2 && query.is_using_item"},
-						{"mushi3": "variable.equipped_mushi && query.variant == 3 && query.is_using_item"},
-						{"mushi4": "variable.equipped_mushi && query.variant == 4 && query.is_using_item"}
+						{"mushi1": "variable.equipped_mushi && query.variant == 1"},
+						{"mushi2": "variable.equipped_mushi && query.variant == 2"},
+						{"mushi3": "variable.equipped_mushi && query.variant == 3"},
+						{"mushi4": "variable.equipped_mushi && query.variant == 4"}
 					]
 				},
 				"mushi1" : {

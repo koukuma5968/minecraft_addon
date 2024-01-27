@@ -18,6 +18,11 @@
         "item": "minecraft:cobblestone"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:cobblestone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:stone_spear",
       "count": 1

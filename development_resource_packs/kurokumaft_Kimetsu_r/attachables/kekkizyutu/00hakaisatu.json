@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:hakaisatu",
+        "materials": {
+          "default": "entity_alphatest"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/kekkizyutu/akaza/rashin"
+        },
+        "geometry": {
+          "default": "geometry.hakaisatu"
+        },
+        "render_controllers": ["controller.render.rashin"]
+      }
+    }
+  }
+  

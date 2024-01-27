@@ -17,6 +17,11 @@
                 "item": "kurokumaft:black_quartz"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:black_quartz"
+            }
+        ],
         "result": {
             "item": "kurokumaft:machine_gun",
             "count": 1

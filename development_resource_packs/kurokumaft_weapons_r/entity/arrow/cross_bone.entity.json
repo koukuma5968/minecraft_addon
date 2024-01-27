@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:cross_bone",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/arrow/cross_bone"
+      },
+      "geometry": {
+        "default": "geometry.cross_bone"
+      },
+      "animations": {
+        "throw": "animation.cross_bone.throw"
+      },
+      "scripts": {
+        "animate": [
+          "throw"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

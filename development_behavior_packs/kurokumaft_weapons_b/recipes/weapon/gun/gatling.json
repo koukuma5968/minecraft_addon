@@ -20,6 +20,11 @@
                 "item": "kurokumaft:steel_ingot"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:steel_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:gatling",
             "count": 1

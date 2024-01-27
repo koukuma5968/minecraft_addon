@@ -99,8 +99,7 @@
 				{
 					"name": "nichirinto",
 					"parent": "rightArm",
-					"pivot": [-6, 15.50092, -2.33811],
-					"binding": "q.item_slot_to_bone_name(c.item_slot)"
+					"pivot": [-6, 15.50092, -2.33811]
 				},
 				{
 					"name": "blade",

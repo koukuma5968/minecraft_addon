@@ -7,13 +7,19 @@
             "default": "armor_stand"
           },
           "textures": {
-            "default": "textures/kurokumaft/models/kekkizyutu/ayamekago"
+            "default": "textures/kurokumaft/models/kekkizyutu/rui/ayamekago"
           },
           "geometry": {
             "default": "geometry.ayamekago"
           },
+          "animations": {
+            "ayamekago": "animation.kekkizyutu.rui.ayamekago"
+          },
           "scripts": {
-            "scale": "1.0"
+            "scale": "1.0",
+            "animate": [
+              "ayamekago"
+            ]
           },
           "render_controllers": [ "controller.render.armor_stand" ]
         }

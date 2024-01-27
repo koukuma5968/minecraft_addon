@@ -18,6 +18,11 @@
         "item": "minecraft:flint"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
     "result": {
       "item": "kurokumaft:wooden_spear",
       "count": 1

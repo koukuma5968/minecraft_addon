@@ -20,6 +20,11 @@
                 "item": "stick"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:iron_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:iron_boomerang",
             "count": 1

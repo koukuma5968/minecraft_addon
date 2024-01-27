@@ -77,6 +77,16 @@ item.kurokumaft:copper_sword.name=銅の剣
 item.kurokumaft:steel_sword.name=鋼の剣
 item.kurokumaft:tnt_sword.name=TNTソード
 item.kurokumaft:granite_sword.name=花崗剣
+item.kurokumaft:blue_ice_sword.name=青氷剣
+item.kurokumaft:glow_sword.name=グロウソード
+item.kurokumaft:magma_sword.name=溶岩剣
+item.kurokumaft:mithril_sword.name=ミスリルの剣
+item.kurokumaft:echo_sword.name=こだまの剣
+item.kurokumaft:cherry_sword.name=桜の剣
+item.kurokumaft:ender_dragon_sword.name=エンダードラゴンソード
+item.kurokumaft:wither_sword.name=呪いの剣
+item.kurokumaft:ender_eye_sword.name=邪眼の剣
+
 item.kurokumaft:diorite_sword.name=閃緑剣
 item.kurokumaft:andesite_sword.name=安山剣
 item.kurokumaft:basalt_sword.name=玄武剣
@@ -85,19 +95,10 @@ item.kurokumaft:crooked_sword.name=歪んだ剣
 item.kurokumaft:glass_sword.name=ガラスの剣
 item.kurokumaft:lapis_sword.name=ラピスラズリソード
 item.kurokumaft:quartz_sword.name=クォーツソード
-item.kurokumaft:blue_ice_sword.name=青氷剣
 item.kurokumaft:coal_sword.name=石炭剣
 item.kurokumaft:sealantern_sword.name=シーランタンソード
-item.kurokumaft:glow_sword.name=グロウソード
 item.kurokumaft:bone_sword.name=骨剣
 item.kurokumaft:amethyst_sword.name=アメジストソード
-item.kurokumaft:magma_sword.name=溶岩剣
-item.kurokumaft:mithril_sword.name=ミスリルの剣
-item.kurokumaft:echo_sword.name=こだまの剣
-item.kurokumaft:cherry_sword.name=桜の剣
-item.kurokumaft:ender_dragon_sword.name=エンダードラゴンソード
-item.kurokumaft:wither_sword.name=呪いの剣
-item.kurokumaft:ender_eye_sword.name=邪眼の剣
 
 item.kurokumaft:powder_ball.name=火薬玉
 item.kurokumaft:hand_grenade.name=手榴弾
@@ -147,6 +148,13 @@ item.kurokumaft:diamond_arrow.name=ダイヤモンドの矢
 item.kurokumaft:cherry_arrow.name=桜の矢
 item.kurokumaft:steel_arrow.name=鋼の矢
 
+item.kurokumaft:leather_knuckle.name=レザーナックル
+item.kurokumaft:stone_knuckle.name=ストーンナックル
+item.kurokumaft:iron_knuckle.name=アイアンナックル
+item.kurokumaft:golden_knuckle.name=ゴールデンナックル
+item.kurokumaft:diamond_knuckle.name=ダイアモンドナックル
+item.kurokumaft:netherite_knuckle.name=ネザライトナックル
+
 item.kurokumaft:kettle_lid.name=なべぶた	#
 item.kurokumaft:copper_shield.name=銅の盾	#
 item.kurokumaft:cherry_shield.name=桜の盾	#
@@ -166,6 +174,7 @@ item.kurokumaft:black_powder.name=黒色火薬
 
 item.kurokumaft:medicinal_plant.name=薬草
 item.kurokumaft:seeds_medicinal_plant.name=薬草の種
+item.kurokumaft:poisonous_plant.name=毒草
 
 item.kurokumaft:fish_meal.name=魚粉
 
@@ -211,6 +220,9 @@ item.kurokumaft:cherry_helmet.name=桜のヘルメット
 item.kurokumaft:cherry_chestplate.name=桜の胸当て
 item.kurokumaft:cherry_leggings.name=桜のレギンス
 item.kurokumaft:cherry_boots.name=桜のブーツ
+
+item.kurokumaft:rabbit_helmet_brown.name=兎のミミ
+item.kurokumaft:rabbit_helmet_white.name=兎のミミ
 
 potion.kurokumaft:hiheal.name=超回復のポーション
 potion.kurokumaft:hidamageBoost.name=剛力のポーション

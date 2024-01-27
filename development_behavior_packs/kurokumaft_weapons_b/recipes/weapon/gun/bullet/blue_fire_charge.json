@@ -20,6 +20,11 @@
             }
 
         },
+        "unlock": [
+            {
+              "tag": "minecraft:soul_fire_base_blocks"
+            }
+        ],
         "result": {
             "item": "kurokumaft:blue_fire_charge",
             "count": 9

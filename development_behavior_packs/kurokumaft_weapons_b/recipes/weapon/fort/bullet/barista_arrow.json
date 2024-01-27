@@ -21,6 +21,11 @@
             }
 
         },
+        "unlock": [
+            {
+              "item": "minecraft:arrow"
+            }
+        ],
         "result": {
             "item": "kurokumaft:barista_arrow",
             "count": 1

@@ -25,6 +25,11 @@
         "item": "minecraft:dragon_breath"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:dragon_breath"
+      }
+    ],
     "result": {
       "item": "kurokumaft:ender_dragon_sword"
     }

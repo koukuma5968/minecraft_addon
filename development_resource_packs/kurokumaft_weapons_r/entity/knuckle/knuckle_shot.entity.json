@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:knuckle_shot",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/knuckle/knuckle_shot"
+      },
+      "geometry": {
+        "default": "geometry.knuckle_shot"
+      },
+      "particle_effects": {
+        "knuckle_brow": "kurokumaft:knuckle_brow"
+      },
+      "animations": {
+        "brow": "animation.knuckle_shot.brow"
+      },
+      "scripts": {
+        "scale": "1.0",
+        "animate": [
+          "brow"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

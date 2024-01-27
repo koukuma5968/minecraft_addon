@@ -21,6 +21,11 @@
         "item": "minecraft:stick"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:tnt"
+      }
+    ],
     "result": {
       "item": "kurokumaft:tnt_sword"
     }

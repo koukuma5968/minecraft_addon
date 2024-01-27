@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:steel_shovel"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X",
+      "#",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "X": {
+        "item": "kurokumaft:steel_ingot"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "kurokumaft:steel_ingot"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:steel_shovel"
+    }
+  }
+}

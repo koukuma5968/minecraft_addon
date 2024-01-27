@@ -188,6 +188,15 @@
               ]
             },
             "event": "minecraft:trigger_raid"
+          },
+          {
+            "filters": {
+              "any_of": [
+                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:rabbit_helmet_brown"},
+                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:rabbit_helmet_white"}
+              ]
+            },
+            "event": "kurokumaft:rabbit_jump_boost"
           }
         ]
       },
@@ -280,6 +289,13 @@
 						"trigger": "kurokumaft:shield_damage_off"
 					}
 				]
+      },
+      "kurokumaft:rabbit_jump_boost": {
+				"run_command": {
+					"command": [
+            "effect @s jump_boost 10 2 true"
+          ]
+				}
       },
 
       "variant0": {

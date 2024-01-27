@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.block.wield_first_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"block": {
+					"rotation": [-35.84026, 32.52449, 28.58135],
+					"position": [-5, 24, -3]
+				}
+			}
+		},
+		"animation.block.wield_third_person": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"block": {
+					"rotation": [-60.58012, 38.57535, 20.77242],
+					"position": [-2, 20, -7]
+				}
+			}
+		}
+	}
+}

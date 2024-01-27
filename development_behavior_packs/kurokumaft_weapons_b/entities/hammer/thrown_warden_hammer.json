@@ -29,7 +29,7 @@
 							}
 						},
 						"stick_in_ground": {
-							"shake_time" : 2
+							"shake_time" : 0.3
 						}
 					},
 					"liquid_inertia": 0.99,

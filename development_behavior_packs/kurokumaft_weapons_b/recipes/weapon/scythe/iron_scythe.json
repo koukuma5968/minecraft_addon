@@ -18,6 +18,11 @@
         "item": "minecraft:stick"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:iron_scythe"
     }

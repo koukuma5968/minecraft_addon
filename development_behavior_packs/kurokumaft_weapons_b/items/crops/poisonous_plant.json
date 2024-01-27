@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:poisonous_plant",
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.medicinal"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:poisonous_plant.name"
+			},
+      "minecraft:icon": {
+        "texture": "poisonous_plant"
+      },
+      "minecraft:use_animation":"eat",
+      "minecraft:use_duration": 2,
+      "minecraft:chargeable": {
+        "on_complete": {
+          "event": "kurokumaft:poisonous"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:poisonous": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "effect @s poison 10 2",
+                "effect @s hunger 10 2"
+              ],
+              "target": "self"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

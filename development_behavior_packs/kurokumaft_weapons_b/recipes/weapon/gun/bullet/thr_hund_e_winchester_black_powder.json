@@ -21,6 +21,11 @@
             }
 
         },
+        "unlock": [
+            {
+              "item": "minecraft:gold_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:thr_hund_e_winchester",
             "count": 9

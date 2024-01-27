@@ -13,7 +13,7 @@
 				"value": "item.kurokumaft:glow_sword.name"
 			},
       "minecraft:icon": {
-          "texture": "glow_sword"
+        "texture": "glow_sword"
       },
       "minecraft:glint": false,
       "minecraft:max_stack_size": 1,
@@ -25,11 +25,11 @@
         "repair_items": [
           {
             "items": [ "minecraft:glowstone_dust" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 6"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:glow_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           }
         ]
       },

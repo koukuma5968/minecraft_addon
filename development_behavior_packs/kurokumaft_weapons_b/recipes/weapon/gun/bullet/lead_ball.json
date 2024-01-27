@@ -15,6 +15,11 @@
                 "item": "kurokumaft:lead_nugget"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:iron_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:lead_ball",
             "count": 3

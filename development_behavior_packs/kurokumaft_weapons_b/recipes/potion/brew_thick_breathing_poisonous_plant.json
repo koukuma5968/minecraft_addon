@@ -1,0 +1,13 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "kurokumaft:brew_thick_breathing_poisonous_plant"
+    },
+    "tags": [ "brewing_stand" ],
+    "input": "minecraft:potion_type:thick",
+    "reagent": "kurokumaft:poisonous_plant",
+    "output": "kurokumaft:hipoison_potion"
+  }
+
+}

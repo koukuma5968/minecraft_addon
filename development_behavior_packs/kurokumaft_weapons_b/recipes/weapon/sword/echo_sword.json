@@ -15,6 +15,11 @@
         "item": "minecraft:echo_shard"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:echo_shard"
+      }
+    ],
     "result": {
       "item": "kurokumaft:echo_sword"
     }

@@ -21,8 +21,8 @@
           ]
         },
         "animations": {
-          "first": "animation.nichirintou_first",
-          "third": "animation.nichirintou_third"
+          "first": "animation.kaze_first",
+          "third": "animation.kaze_third"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

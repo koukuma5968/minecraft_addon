@@ -26,7 +26,7 @@
             "items": [
               "kurokumaft:steel_ingot"
             ],
-            "repair_amount": 80
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           }
         ]
       },

@@ -1,0 +1,96 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item" : {
+    "description": {
+        "identifier": "kurokumaft:netherite_knuckle",
+        "menu_category": {
+          "category": "equipment",
+          "group": "itemGroup.name.knuckle"
+        }
+    },
+    "components": {
+      "tag:minecraft:is_knuckle": {},
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:netherite_knuckle.name"
+      },
+      "minecraft:icon":{
+        "texture": "netherite_knuckle"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 1180
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "minecraft:netherite_ingot" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:netherite_knuckle" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+
+      "minecraft:damage": 6,
+      "minecraft:enchantable": {
+        "value": 30,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:weapon": {
+          "on_hurt_entity": {
+              "event": "kurokumaft:hurt_entity"
+          }
+      },
+      "minecraft:use_duration": 2.0,
+      "minecraft:chargeable": {
+        "movement_modifier": 0.3,
+        "on_complete": {
+          "event": "kurokumaft:charge_knuckle"
+        }
+      }
+
+    },
+    "events": {
+      "kurokumaft:hurt_entity": {
+        "sequence":[
+          {
+            "damage":{
+                "type":"durability",
+                "target":"self",
+                "amount":1
+            }
+          },
+          {
+            "damage": {
+              "type": "entity_attack",
+              "target": "other",
+              "amount": 1
+            }
+          }
+        ]
+      },
+      "kurokumaft:charge_knuckle": {
+        "sequence":[
+          {
+            "shoot": {
+              "projectile": "kurokumaft:knuckle_shot<kurokumaft:netherite>",
+              "launch_power": 1.1
+            }
+          },
+          {
+            "damage": {
+              "type": "durability",
+              "target": "self",
+              "amount": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

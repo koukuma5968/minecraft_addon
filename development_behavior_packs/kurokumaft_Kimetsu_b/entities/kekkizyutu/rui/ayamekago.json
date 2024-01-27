@@ -1,0 +1,56 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:ayamekago",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:armor_stand",
+      "scripts":{
+        "animate":[
+          "ayamekago"
+        ]
+      },
+      "animations":{
+        "ayamekago": "controller.animation.kekkizyutu.ayamekago",
+        "attack": "animation.kekkizyutu.koushi.ayamekago.attack",
+        "tp": "animation.kekkizyutu.koushi.ayamekago.tp"
+      }
+    },
+    "component_groups": {
+      "kurokumaft:despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "armor_stand", "inanimate", "ayamekago" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.11,
+        "height": 0.11
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:despawn": {
+        "add": {
+            "component_groups": [ "kurokumaft:despawn" ]
+        }
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@
         ]
       },
       "animations":{
-        "shot":"animation.thunder_zombie.shot"
+        "shot":"animation.zombie.magic_shot"
       }
     },
     "component_groups": {
@@ -50,7 +50,7 @@
         "minecraft:annotation.break_door": {
         }
       },
-      "kurokumaft:lightningbolt": {
+      "kurokumaft:magic_shot": {
         "minecraft:spawn_entity": {
           "entities": [
             {
@@ -451,17 +451,17 @@
           }
         ]
       },
-      "kurokumaft:lightningbolt": {
+      "kurokumaft:magic_shot": {
         "add": {
           "component_groups": [
-            "kurokumaft:lightningbolt"
+            "kurokumaft:magic_shot"
           ]
         }
       },
-      "kurokumaft:lightningbolt_remove": {
+      "kurokumaft:magic_shot_remove": {
         "remove": {
           "component_groups": [
-            "kurokumaft:lightningbolt"
+            "kurokumaft:magic_shot"
           ]
         }
       }

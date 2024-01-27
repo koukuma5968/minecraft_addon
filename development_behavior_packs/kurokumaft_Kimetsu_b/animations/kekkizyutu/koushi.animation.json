@@ -1,0 +1,41 @@
+{
+	"format_version": "1.20.30",
+	"animations": {
+		"animation.kekkizyutu.koushi.kokushiryo": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function koushi/kokushiryo/kokushiryo_f"
+				]
+			}
+		},
+		"animation.kekkizyutu.koushi.ayamekago.attack": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function koushi/ayamekago/ayamekago_f"
+				]
+			}
+		},
+		"animation.kekkizyutu.koushi.ayamekago.tp": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/function koushi/ayamekago/ayamekago_tp"
+				]
+			}
+		},
+		"animation.kekkizyutu.koushi.kokushirinten": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:kokushirinten ~~~"
+				]
+			}
+		}
+	}
+}

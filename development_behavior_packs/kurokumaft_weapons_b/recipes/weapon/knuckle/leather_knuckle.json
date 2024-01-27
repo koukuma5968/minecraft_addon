@@ -1,0 +1,30 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:leather_knuckle"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "|",
+      "|",
+      "#"
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:leather"
+      },
+      "#": {
+        "item": "minecraft:planks"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:leather"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:leather_knuckle"
+    }
+  }
+}

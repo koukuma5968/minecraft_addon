@@ -18,6 +18,11 @@
         "item": "minecraft:stick"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:copper_sword"
     }

@@ -20,6 +20,11 @@
                 "item": "iron_ingot"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:iron_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:arquebus",
             "count": 1

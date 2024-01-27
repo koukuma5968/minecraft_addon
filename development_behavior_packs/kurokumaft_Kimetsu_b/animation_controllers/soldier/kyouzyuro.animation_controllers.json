@@ -93,10 +93,12 @@
         },
         "hono5":{
           "on_entry": [
-            "/event entity @s mark_variant1"
+            "/event entity @s mark_variant1",
+            "/event entity @s kurokumaft:enko_add"
           ],
           "on_exit": [
-            "/event entity @s kurokumaft:random_kokyu_off"
+            "/event entity @s kurokumaft:random_kokyu_off",
+            "/event entity @s kurokumaft:enko_remove"
           ],
           "transitions": [
             {"default":"variable.kokyu_kyouzyuro = variable.kokyu_kyouzyuro < 20 ? variable.kokyu_kyouzyuro + 1:0;return variable.kokyu_kyouzyuro == 0;"}

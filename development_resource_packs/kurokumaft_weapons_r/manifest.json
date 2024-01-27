@@ -1,18 +1,18 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "武器アドオン",
+		"name": "武器アドオンRv2",
 		"description": "色々な武器や防具を追加するアドオン リソースパック",
 		"uuid": "73c6da0a-0ae1-4d2e-8b75-000428e43aae",
-		"version": [1, 2, 1],
+		"version": [1, 4, 0],
 		"min_engine_version": [1, 20, 30]
 	},
 	"modules": [
 		{
-			"description": "武器アドオン",
+			"description": "武器アドオンRv2",
 			"type": "resources",
 			"uuid": "878ab913-c67c-48f0-8ba6-22b91e9a9902",
-			"version": [1, 2, 1]
+			"version": [1, 4, 0]
 		}
 	]
 }

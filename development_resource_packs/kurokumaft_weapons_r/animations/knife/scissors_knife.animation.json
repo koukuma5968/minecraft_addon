@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.scissors_knife.cross": {
+			"loop": true,
+			"animation_length": 0.16667,
+			"bones": {
+				"breadRight": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 0, 35]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [-1, 0, 0]
+					}
+				},
+				"breadLeft": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 0, -35]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [1, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

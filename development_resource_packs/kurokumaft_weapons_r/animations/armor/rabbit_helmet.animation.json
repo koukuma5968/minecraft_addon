@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.rabbit_helmet.lop_eared": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"earLeftUp": {
+					"rotation": [110.20569, -22.47741, -1.03509],
+					"position": [0, 1, -1]
+				}
+			}
+		}
+	}
+}

@@ -24,18 +24,18 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"hi1_1": "variable.equipped_hi && query.variant == 11 && query.is_using_item"},
-						{"hi2_1": "variable.equipped_hi && query.variant == 12 && query.is_using_item"},
-						{"hi3_1": "variable.equipped_hi && query.variant == 13 && query.is_using_item"},
-						{"hi4_1": "variable.equipped_hi && query.variant == 14 && query.mark_variant == 1 && query.is_using_item"},
-						{"hi5_1": "variable.equipped_hi && query.variant == 15 && query.is_using_item"},
+						{"hi1_1": "variable.equipped_hi && query.variant == 11 && query.mark_variant == 1"},
+						{"hi2_1": "variable.equipped_hi && query.variant == 12 && query.mark_variant == 1"},
+						{"hi3_1": "variable.equipped_hi && query.variant == 13 && query.mark_variant == 1"},
+						{"hi4_1": "variable.equipped_hi && query.variant == 14 && query.mark_variant == 1"},
+						{"hi5_1": "variable.equipped_hi && query.variant == 15 && query.mark_variant == 1"},
 						{"hi6_1": "variable.equipped_hi && query.variant == 16 && query.mark_variant == 2"},
-						{"hi7_1": "variable.equipped_hi && query.variant == 17 && query.is_using_item"},
-						{"hi8_1": "variable.equipped_hi && query.variant == 18 && query.is_using_item"},
-						{"hi9_1": "variable.equipped_hi && query.variant == 19 && query.is_using_item"},
-						{"hi10_1": "variable.equipped_hi && query.variant == 20 && query.is_using_item"},
-						{"hi11_1": "variable.equipped_hi && query.variant == 21 && query.is_using_item"},
-						{"hi12_1": "variable.equipped_hi && query.variant == 22 && query.is_using_item"}
+						{"hi7_1": "variable.equipped_hi && query.variant == 17 && query.mark_variant == 1"},
+						{"hi8_1": "variable.equipped_hi && query.variant == 18 && query.mark_variant == 1"},
+						{"hi9_1": "variable.equipped_hi && query.variant == 19 && query.mark_variant == 1"},
+						{"hi10_1": "variable.equipped_hi && query.variant == 20 && query.mark_variant == 1"},
+						{"hi11_1": "variable.equipped_hi && query.variant == 21 && query.mark_variant == 1"},
+						{"hi12_1": "variable.equipped_hi && query.variant == 22 && query.mark_variant == 1"}
 					]
 				},
 				"hi1_1" : {

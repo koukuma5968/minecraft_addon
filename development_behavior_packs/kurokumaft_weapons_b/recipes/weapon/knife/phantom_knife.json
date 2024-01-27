@@ -6,8 +6,8 @@
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      " | ",
-      " # "
+      "|",
+      "#"
     ],
     "key": {
       "|": {
@@ -17,6 +17,11 @@
         "item": "minecraft:end_rod"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:phantom_membrane"
+      }
+    ],
     "result": {
       "item": "kurokumaft:phantom_knife"
     }

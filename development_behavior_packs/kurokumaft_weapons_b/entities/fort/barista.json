@@ -105,6 +105,18 @@
       },
       "minecraft:physics": {
       },
+      "minecraft:can_power_jump": {
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:balloonable": {
+      },
+      "minecraft:horse.jump_strength": {
+        "value": {
+          "range_min": 0.4,
+          "range_max": 1.0
+        }
+      },
       "minecraft:pushable": {
         "is_pushable": false,
         "is_pushable_by_piston": true

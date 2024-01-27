@@ -18,6 +18,11 @@
         "item": "minecraft:stick"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:cobblestone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:stone_bread"
     }

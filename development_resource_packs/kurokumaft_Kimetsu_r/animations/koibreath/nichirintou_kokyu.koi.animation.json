@@ -122,7 +122,7 @@
 			}
 		},
 		"animation.nichirintou_kokyu.koi.ichi_2": {
-			"animation_length": 1.20833,
+			"animation_length": 1.79167,
 			"bones": {
 				"koi_nichirinto": {
 					"rotation": [37.5, 0, 0],

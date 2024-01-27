@@ -17,10 +17,8 @@
       },
       "minecraft:use_animation":"eat",
       "minecraft:use_duration": 2,
-      "minecraft:food": {
-        "can_always_eat": true,
-        "nutrition": 1,
-        "on_consume": {
+      "minecraft:chargeable": {
+        "on_complete": {
           "event": "kurokumaft:heel"
         }
       }

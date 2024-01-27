@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:sniper_steel_bow"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:steel_ingot"
+      },
+      "X": {
+        "item": "minecraft:spyglass"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:spyglass"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:sniper_steel_bow"
+    }
+  }
+}

@@ -24,6 +24,11 @@
             }
 
         },
+        "unlock": [
+            {
+              "item": "minecraft:iron_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:shell",
             "count": 4

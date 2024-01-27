@@ -1,27 +1,32 @@
 {
     "format_version": "1.16",
     "minecraft:recipe_shaped": {
-        "description": {
-            "identifier": "kurokumaft:tank"
-        },
-        "tags": ["crafting_table"],
-        "pattern": [
-            " c ",
-            "###",
-            "AAA"
-        ],
-        "key": {
-            "c": {
-              "item": "kurokumaft:steel_ingot"
-            },
-            "A": {
-              "item": "minecraft:iron_block"
-            },
-            "#": {
-              "item": "minecraft:iron_ingot"
-            }
-        },
-        "result": {
+      "description": {
+          "identifier": "kurokumaft:tank"
+      },
+      "tags": ["crafting_table"],
+      "pattern": [
+          " c ",
+          "###",
+          "AAA"
+      ],
+      "key": {
+          "c": {
+            "item": "kurokumaft:steel_ingot"
+          },
+          "A": {
+            "item": "minecraft:iron_block"
+          },
+          "#": {
+            "item": "minecraft:iron_ingot"
+          }
+      },
+      "unlock": [
+        {
+          "item": "kurokumaft:steel_ingot"
+        }
+      ],
+      "result": {
             "item": "kurokumaft:tank",
             "count": 1
         },

@@ -1,0 +1,305 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.regimental.mizu": {
+      "states": {
+        "default": {
+          "variables": {
+            "regimental_mizu": {
+              "input": "variable.regimental_mizu = (variable.regimental_mizu ?? 0);"
+            }
+          },
+          "transitions": [
+            { "mizu1": "query.variant == 1 && query.mark_variant == 0" },
+            { "mizu2": "query.variant == 2 && query.mark_variant == 0" },
+            { "mizu3": "query.variant == 3 && query.mark_variant == 0" },
+            { "mizu4": "query.variant == 4 && query.mark_variant == 0" },
+            { "mizu5": "query.variant == 5 && query.mark_variant == 0" },
+            { "mizu6": "query.variant == 6 && query.mark_variant == 0" },
+            { "mizu7": "query.variant == 7 && query.mark_variant == 0" },
+            { "mizu8": "query.variant == 8 && query.mark_variant == 0" },
+            { "mizu9": "query.variant == 9 && query.mark_variant == 0" },
+            { "mizu10": "query.variant == 10 && query.mark_variant == 0" }
+          ]
+        },
+        "mizu1":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu1_2":"variable.attack_time"}
+          ]
+        },
+        "mizu1_2":{
+          "on_entry": [
+            "/function mizu/mizu1"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 40 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mizu/mizu2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 40 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mizu/mizu3/mizu3_1"
+          ],
+          "transitions": [
+            {"mizu3_1":"variable.regimental_mizu = variable.regimental_mizu < 10 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu3_1":{
+          "on_entry": [
+            "/function mizu/mizu3/mizu3_2"
+          ],
+          "transitions": [
+            {"mizu3_2":"variable.regimental_mizu = variable.regimental_mizu < 10 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu3_2":{
+          "on_entry": [
+            "/function mizu/mizu3/mizu3_3"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 10 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu4":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function mizu/mizu4/mizu4_1"
+          ],
+          "transitions": [
+            {"mizu4_1":"variable.regimental_mizu = variable.regimental_mizu < 10 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu4_1":{
+          "on_entry": [
+            "/function mizu/mizu4/mizu4_2"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 10 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu5":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu5_1":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu5_1":{
+          "on_entry": [
+            "/function mizu/mizu5"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu6":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu6_1":"!query.is_in_water"},
+            {"mizu6_water_1":"query.is_in_water"}
+          ]
+        },
+        "mizu6_1":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6"
+          ],
+          "transitions": [
+            {"mizu6_2":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu6_2":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6"
+          ],
+          "transitions": [
+            {"mizu6_3":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu6_3":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu6_water_1":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6_water"
+          ],
+          "transitions": [
+            {"mizu6_water_2":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu6_water_2":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6_water"
+          ],
+          "transitions": [
+            {"mizu6_water_3":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu6_water_3":{
+          "on_entry": [
+            "/function mizu/mizu6/mizu6_water"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu7":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu7_2":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu7_2":{
+          "on_entry": [
+            "/function mizu/mizu7"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 40 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu8":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu8_1":"variable.regimental_mizu = variable.regimental_mizu < 10 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu8_1":{
+          "animations" : [ "mizu8_ani" ],
+          "transitions": [
+            {"mizu8_2":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu8_2":{
+          "animations" : [ "mizu8_2_ani" ],
+          "on_entry": [
+            "/function mizu/mizu8"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off",
+            "/execute as @s run tp @s ~~-1~"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 10 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu9":{
+          "animations" : [ "mizu9_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 10 5 true",
+            "/effect @s jump_boost 10 3 true"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 200 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu10":{
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"mizu10_c":"variable.regimental_mizu = variable.regimental_mizu < 100 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        },
+        "mizu10_c":{
+          "on_entry": [
+            "/event entity @s mark_variant3"
+          ],
+          "transitions": [
+            {"mizu10_f1":"(1.0)"}
+          ]
+        },
+        "mizu10_f1":{
+          "on_entry": [
+            "/function mizu/mizu10/mizu10_4",
+            "/event entity @s kurokumaft:mizu10_doragon"
+          ],
+          "transitions": [
+            {"mizu10_f2":"(1.0)"}
+          ]
+        },
+        "mizu10_f2":{
+          "animations" : [ "mizu10_ani" ],
+          "on_exit": [
+            "/event entity @s kurokumaft:mizu10_doragon_remove",
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.regimental_mizu = variable.regimental_mizu < 20 ? variable.regimental_mizu + 1:0;return variable.regimental_mizu == 0;"}
+          ]
+        }
+      }
+    },
+    "controller.animation.regimental.mizu10_attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "attack": "query.variant == 10 && query.mark_variant == 1 && variable.attack_time" }
+          ]
+        },
+        "attack":{
+          "on_entry": [
+            "/event entity @s mark_variant2",
+            "/function mizu/mizu10/mizu10"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant1"
+          ],
+          "transitions": [
+            {"default":"!variable.attack_time"}
+          ]
+        }
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:copper_leggings" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -36,8 +36,8 @@
         }
       },
       "minecraft:wearable": {
-        "protection": 5,
-        "slot": "slot.armor.legs"
+        "slot": "slot.armor.legs",
+        "protection": 3
       }
     }
   }

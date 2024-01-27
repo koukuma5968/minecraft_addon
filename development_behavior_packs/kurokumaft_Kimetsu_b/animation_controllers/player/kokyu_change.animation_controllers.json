@@ -28,7 +28,9 @@
             { "hono_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hono')" },
             { "mushi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_mushi')" },
             { "oto_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_oto')" },
-            { "hana_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hana')" }
+            { "hana_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hana')" },
+            { "koi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_koi')" },
+            { "kaze_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaze')" }
 
           ]
         },
@@ -282,6 +284,28 @@
           ],
           "transitions": [
             {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_hana')"}
+          ]
+        },
+        "koi_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_koi",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_koi')"}
+          ]
+        },
+        "kaze_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§2風の呼吸 壱ノ型\"}]}",
+            "/event entity @s kurokumaft:nichirintou_kaze",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaze')"}
           ]
         },
 

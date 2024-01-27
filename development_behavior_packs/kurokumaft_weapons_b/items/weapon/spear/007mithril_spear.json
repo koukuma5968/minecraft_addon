@@ -18,17 +18,17 @@
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
-        "max_durability": 550
+        "max_durability": 2550
       },
       "minecraft:repairable": {
         "repair_items": [
           {
             "items": [ "kurokumaft:mithril_ingot" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 8"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:mithril_spear" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -89,7 +89,7 @@
           {
             "run_command": {
               "command": [
-                "damage @e[type=!player,r=6] 2 fire"
+                "damage @e[type=!player,r=6] 10 entity_attack"
               ],
               "target": "other"
             }

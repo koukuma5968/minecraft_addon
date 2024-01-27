@@ -20,6 +20,11 @@
                 "item": "minecraft:netherite_ingot"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:mithril_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:mithril_pickaxe",
             "count": 1

@@ -139,6 +139,14 @@
       "minecraft:despawn": {
         "despawn_from_distance": {}
       },
+      "minecraft:target_nearby_sensor": {
+        "must_see": false,
+        "outside_range": 64
+      },
+      "minecraft:follow_range": {
+        "value": 64,
+        "max": 64
+      },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
         "alert_same_type": true,
@@ -160,16 +168,17 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "monster"},
-                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
+              "all_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
               ]
             },
             "max_dist": 64
           },
           {
             "filters": {
-              "test": "is_family","subject": "other","value": "ogre"
+              "all_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
+              ]
             },
             "max_dist": 128
           }
@@ -200,7 +209,7 @@
         ]
       },
       "minecraft:attack": {
-        "damage": 30
+        "damage": 4
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -215,7 +224,7 @@
       "minecraft:physics": {
       },
       "minecraft:pushable": {
-        "is_pushable": false,
+        "is_pushable": true,
         "is_pushable_by_piston": true
       },
       "minecraft:rideable": {

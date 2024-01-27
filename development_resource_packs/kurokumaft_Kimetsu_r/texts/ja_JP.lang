@@ -31,8 +31,6 @@ item.kurokumaft:nichirintou_iwa.name=日輪刀 岩
 item.kurokumaft:nichirintou_hebi.name=日輪刀 蛇
 item.kurokumaft:nichirintou_tuki.name=日輪刀 月
 
-item.kurokumaft:bakketu.name=血気術 爆血
-
 tile.kurokumaft:scarlet_gravel.name=緋の砂利
 tile.kurokumaft:scarlet_ore.name=緋の鉱石
 
@@ -53,6 +51,8 @@ entity.kurokumaft:sanemi.name=不死川 実弥
 entity.kurokumaft:genya.name=不死川 玄弥
 entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
 entity.kurokumaft:muitiro.name=時透 無一郎
+entity.kurokumaft:regimental_guy.name=隊士（男）
+entity.kurokumaft:regimental_girl.name=隊士（女）
 
 item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
 item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
@@ -68,20 +68,38 @@ item.spawn_egg.entity.kurokumaft:sanemi.name=不死川 実弥
 item.spawn_egg.entity.kurokumaft:genya.name=不死川 玄弥
 item.spawn_egg.entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
 item.spawn_egg.entity.kurokumaft:muitiro.name=時透 無一郎
+item.spawn_egg.entity.kurokumaft:regimental_guy.name=隊士（男）
+item.spawn_egg.entity.kurokumaft:regimental_girl.name=隊士（女）
 
-item.kurokumaft:soldier_jacket_guy.name=隊士服上着・茶(男)
-item.kurokumaft:soldier_pants_guy.name=隊士服ズボン・茶(男)
+item.kurokumaft:soldier_jacket_guy_brown.name=隊士服上着・茶(男)
+item.kurokumaft:soldier_jacket_guy_harf_brown.name=隊士服上着(袖なし)・茶(男)
+item.kurokumaft:soldier_pants_guy_brown.name=隊士服ズボン・茶(男)
+item.kurokumaft:soldier_boots_guy_brown.name=隊士服足袋・茶(男)
+
 item.kurokumaft:soldier_jacket_guy_blue.name=隊士服上着・紺(男)
+item.kurokumaft:soldier_jacket_guy_harf_blue.name=隊士服上着(袖なし)・紺(男)
 item.kurokumaft:soldier_pants_guy_blue.name=隊士服ズボン・紺(男)
+item.kurokumaft:soldier_boots_guy_blue.name=隊士服足袋・紺(男)
+
 item.kurokumaft:soldier_jacket_guy_green.name=隊士服上着・緑(男)
+item.kurokumaft:soldier_jacket_guy_harf_green.name=隊士服上着(袖なし)・緑(男)
 item.kurokumaft:soldier_pants_guy_green.name=隊士服ズボン・緑(男)
+item.kurokumaft:soldier_boots_guy_blue.name=隊士服足袋・緑(男)
 
 item.kurokumaft:soldier_jacket_girl_blue.name=隊士服上着・紺(女)
-item.kurokumaft:soldier_jacket_girl_brown.name=隊士服上着・茶(女)
+item.kurokumaft:soldier_pants_girl_blue.name=隊士服ズボン・紺(女)
 item.kurokumaft:soldier_skirt_girl_blue.name=隊士服キュロット・紺(女)
-item.kurokumaft:soldier_skirt_girl_brown.name=隊士服スカート・茶(女)
+item.kurokumaft:soldier_boots_girl_blue.name=隊士服ブーツ・紺(女)
+
+item.kurokumaft:soldier_jacket_girl_brown.name=隊士服上着・茶(女)
+item.kurokumaft:soldier_pants_girl_brown.name=隊士服スカート・茶(女)
+item.kurokumaft:soldier_skirt_girl_brown.name=隊士服キュロット・茶(女)
+item.kurokumaft:soldier_boots_girl_brown.name=隊士服ブーツ・茶(女)
+
 item.kurokumaft:soldier_jacket_girl_purple.name=隊士服上着・紫(女)
 item.kurokumaft:soldier_pants_girl_purple.name=隊士服ズボン・紫(女)
+item.kurokumaft:soldier_skirt_girl_purple.name=隊士服キュロット・紫(女)
+item.kurokumaft:soldier_boots_girl_purple.name=隊士服ブーツ・紫(女)
 
 item.kurokumaft:tanjiro_tabi.name=炭次郎の足袋
 item.kurokumaft:tanjiro_haori_soldier_jacket.name=炭次郎の羽織(隊士服)
@@ -163,3 +181,21 @@ tile.kurokumaft:sanemi_skull.name=実弥の頭
 tile.kurokumaft:genya_skull.name=玄弥の頭
 tile.kurokumaft:gyoumei_skull.name=行冥の頭
 tile.kurokumaft:muitiro_skull.name=無一郎の頭
+
+item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
+item.kurokumaft:koushi.name=血気術 累(鋼糸)
+item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
+
+entity.kurokumaft:rui.name=累
+entity.kurokumaft:akaza.name=猗窩座
+
+item.spawn_egg.entity.kurokumaft:ogre.name=鬼（下級）
+item.spawn_egg.entity.kurokumaft:rui.name=累
+item.spawn_egg.entity.kurokumaft:akaza.name=猗窩座
+
+item.kurokumaft:rui_kimono.name=累の着物
+
+item.kurokumaft:akaza_ashiwa.name=猗窩座の数珠
+item.kurokumaft:akaza_hakama.name=猗窩座の袴
+item.kurokumaft:akaza_jacket.name=猗窩座の羽織
+

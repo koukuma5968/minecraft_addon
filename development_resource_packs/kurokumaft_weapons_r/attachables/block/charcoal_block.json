@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:charcoal_block_item",
+      "materials": {
+        "default": "armor_stand"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/blocks/crops/charcoal_block"
+      },
+      "geometry": {
+        "default": "geometry.charcoal_block"
+      },
+      "animations": {
+        "first_person": "animation.block.wield_first_person",
+        "third_person": "animation.block.wield_third_person"
+      },
+      "scripts": {
+        "animate": [
+          {"first_person": "c.is_first_person"},
+          {"third_person": "!c.is_first_person"}
+        ]
+      },
+      "render_controllers": [ "controller.render.armor_stand" ]
+    }
+  }
+}

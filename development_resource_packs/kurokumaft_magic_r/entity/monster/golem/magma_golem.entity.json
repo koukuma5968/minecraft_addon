@@ -4,14 +4,10 @@
     "description": {
       "identifier": "kurokumaft:magma_golem",
       "materials": {
-        "default": "skeleton"
+        "default": "entity_alphatest"
       },
       "geometry": {
         "default": "geometry.magma_golem"
-      },
-      "spawn_egg": {
-        "texture": "magic_spawn_egg",
-        "texture_index": 0
       },
       "textures": {
         "default": "textures/kurokumaft/entity/golem/magma_golem",
@@ -40,6 +36,10 @@
         "walk_to_target": "animation.magma_golem.walk_to_target",
         "arm_movement": "controller.animation.golem.arm_movement",
         "move_con": "controller.animation.golem.move"
+      },
+      "spawn_egg": {
+        "texture": "magic_golem_spawn_egg",
+        "texture_index": 0
       },
       "render_controllers": [ "controller.render.magic_golem", "controller.render.magic_golem_cracks" ],
       "enable_attachables": true

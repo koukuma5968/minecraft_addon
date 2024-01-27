@@ -1,0 +1,113 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.kekkizyutu.akaza_change": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "rashin": "query.skin_id == 52 && query.variant == 10 && query.is_sneaking" },
+            { "kushiki": "query.skin_id == 52 && query.variant == 1 && query.is_sneaking" },
+            { "ranshiki": "query.skin_id == 52 && query.variant == 2 && query.is_sneaking" },
+            { "meshiki": "query.skin_id == 52 && query.variant == 3 && query.is_sneaking" },
+            { "kamurosakiwari": "query.skin_id == 52 && query.variant == 4 && query.is_sneaking" },
+            { "ryuseigunkou": "query.skin_id == 52 && query.variant == 5 && query.is_sneaking" },
+            { "hiyuseisenrin": "query.skin_id == 52 && query.variant == 6 && query.is_sneaking" },
+            { "manyousenyanagi": "query.skin_id == 52 && query.variant == 7 && query.is_sneaking" },
+            { "kishinyaenshin": "query.skin_id == 52 && query.variant == 8 && query.is_sneaking" },
+            { "aoginranzankou": "query.skin_id == 52 && query.variant == 9 && query.is_sneaking" }
+          ]
+        },
+        "rashin":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・羅針\"}]}",
+            "/event entity @s variant1"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kushiki":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・空式\"}]}",
+            "/event entity @s variant2"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "ranshiki":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・乱式\"}]}",
+            "/event entity @s variant3"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "meshiki":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・滅式\"}]}",
+            "/event entity @s variant4"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kamurosakiwari":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・脚式 冠先割\"}]}",
+            "/event entity @s variant5"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "ryuseigunkou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・脚式 流閃群光\"}]}",
+            "/event entity @s variant6"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "hiyuseisenrin":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・脚式 飛遊星千輪\"}]}",
+            "/event entity @s variant7"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "manyousenyanagi":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・砕式 万葉閃柳\"}]}",
+            "/event entity @s variant8"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "kishinyaenshin":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・鬼芯八重芯\"}]}",
+            "/event entity @s variant9"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        },
+        "aoginranzankou":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"破壊殺・終式・青銀乱残光\"}]}",
+            "/event entity @s variant10"
+          ],
+          "transitions": [
+            {"default":"!query.is_sneaking"}
+          ]
+        }
+      }
+    }
+  }
+}

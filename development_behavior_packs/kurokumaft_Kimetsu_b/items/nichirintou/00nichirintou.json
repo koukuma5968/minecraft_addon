@@ -88,6 +88,15 @@
             }
           },
           {
+            "weight": 20,
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_kaze"
+              ],
+              "target": "self"
+            }
+          },
+          {
             "weight": 10,
             "run_command": {
               "command": [
@@ -101,6 +110,15 @@
             "run_command": {
               "command": [
                 "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_kaminari"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "weight": 5,
+            "run_command": {
+              "command": [
+                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_koi"
               ],
               "target": "self"
             }

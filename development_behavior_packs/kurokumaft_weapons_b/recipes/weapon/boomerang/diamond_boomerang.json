@@ -17,6 +17,11 @@
                 "item": "diamond"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:diamond"
+            }
+        ],
         "result": {
             "item": "kurokumaft:diamond_boomerang",
             "count": 1

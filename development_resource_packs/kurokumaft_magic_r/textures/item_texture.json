@@ -490,10 +490,32 @@
          "textures" : "textures/kurokumaft/blocks/home_gate"
       },
 
-      "magic_spawn_egg" : {
+      "magic_golem_spawn_egg" : {
          "textures" : [
-            "textures/kurokumaft/items/egg/egg_maguma_golem",
-            "textures/kurokumaft/items/egg/egg_blue_ice_golem"
+            "textures/kurokumaft/items/egg/golem/egg_maguma_golem",
+            "textures/kurokumaft/items/egg/golem/egg_blue_ice_golem"
+         ]
+      },
+
+      "magic_zombie_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/egg/zombie/egg_fire_zombie",
+            "textures/kurokumaft/items/egg/zombie/egg_thunder_zombie",
+            "textures/kurokumaft/items/egg/zombie/egg_water_zombie",
+            "textures/kurokumaft/items/egg/zombie/egg_wind_zombie",
+            "textures/kurokumaft/items/egg/zombie/egg_stone_zombie",
+            "textures/kurokumaft/items/egg/zombie/egg_ice_zombie"
+         ]
+      },
+
+      "magic_skeleton_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/egg/skeleton/egg_fire_skeleton",
+            "textures/kurokumaft/items/egg/skeleton/egg_thunder_skeleton",
+            "textures/kurokumaft/items/egg/skeleton/egg_water_skeleton",
+            "textures/kurokumaft/items/egg/skeleton/egg_wind_skeleton",
+            "textures/kurokumaft/items/egg/skeleton/egg_stone_skeleton",
+            "textures/kurokumaft/items/egg/skeleton/egg_ice_skeleton"
          ]
       }
 

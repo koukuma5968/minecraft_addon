@@ -4,7 +4,7 @@
     "description": {
       "identifier": "kurokumaft:thrown_bamboo_knife",
       "materials": {
-        "default": "arrow"
+        "default": "entity_alphatest"
       },
       "textures": {
         "default": "textures/kurokumaft/models/knife/bamboo_knife",

@@ -11,7 +11,7 @@
 				},
 				"attack" : {
 					"animations" : [
-						"attack"
+						"koi_attack"
 					],
 					"transitions" : [
 						{"default":"query.any_animation_finished"}
@@ -44,7 +44,7 @@
 						"koi_body.ichi_2"
 					],
 					"transitions" : [
-						{"default":"query.mark_variant == 0"}
+						{"default":"query.any_animation_finished"}
 					]
 				},
 				"koi2_1" : {
@@ -76,7 +76,7 @@
 						"koi_body.go"
 					],
 					"transitions" : [
-						{"default":"query.mark_variant == 0"}
+						{"default":"query.any_animation_finished"}
 					]
 				},
 				"koi6_1" : {
@@ -84,7 +84,7 @@
 						"koi_body.roku"
 					],
 					"transitions" : [
-						{"default":"query.mark_variant == 0"}
+						{"default":"query.any_animation_finished"}
 					]
 				}
 			}
@@ -94,11 +94,11 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"koi1_1": "variable.equipped_koi && query.variant == 1 && query.mark_variant == 1"},
-						{"koi2_1": "variable.equipped_koi && query.variant == 2 && query.mark_variant == 1"},
-						{"koi3_1": "variable.equipped_koi && query.variant == 3 && query.mark_variant == 1"},
-						{"koi5_1": "variable.equipped_koi && query.variant == 5 && query.mark_variant == 1"},
-						{"koi6_1": "variable.equipped_koi && query.variant == 6 && query.mark_variant == 1"}
+						{"koi1_1": "query.variant == 1 && query.mark_variant == 1"},
+						{"koi2_1": "query.variant == 2 && query.mark_variant == 1"},
+						{"koi3_1": "query.variant == 3 && query.mark_variant == 1"},
+						{"koi5_1": "query.variant == 5 && query.mark_variant == 1"},
+						{"koi6_1": "query.variant == 6 && query.mark_variant == 1"}
 					]
 				},
 				"koi1_1" : {
@@ -114,7 +114,7 @@
 						"koi.ichi_2"
 					],
 					"transitions" : [
-						{"default":"query.mark_variant == 0"}
+						{"default":"query.any_animation_finished"}
 					]
 				},
 				"koi2_1" : {
@@ -146,7 +146,7 @@
 						"koi.go"
 					],
 					"transitions" : [
-						{"default":"query.mark_variant == 0"}
+						{"default":"query.any_animation_finished"}
 					]
 				},
 				"koi6_1" : {
@@ -154,7 +154,7 @@
 						"koi.roku"
 					],
 					"transitions" : [
-						{"default":"query.mark_variant == 0"}
+						{"default":"query.any_animation_finished"}
 					]
 				}
 			}

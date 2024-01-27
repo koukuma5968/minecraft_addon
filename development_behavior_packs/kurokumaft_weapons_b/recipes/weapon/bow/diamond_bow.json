@@ -18,6 +18,11 @@
         "item": "minecraft:string"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
     "result": {
       "item": "kurokumaft:diamond_bow"
     }

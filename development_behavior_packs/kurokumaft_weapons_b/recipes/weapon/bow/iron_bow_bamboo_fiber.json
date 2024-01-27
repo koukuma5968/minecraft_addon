@@ -4,8 +4,6 @@
     "description": {
     "identifier": "kurokumaft:iron_bow_bamboo_fiber"
     },
-
-    
     "tags": [ "crafting_table" ],
     "pattern": [
       " #X",
@@ -20,6 +18,11 @@
         "item": "kurokumaft:bamboo_fiber"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:iron_bow"
     }

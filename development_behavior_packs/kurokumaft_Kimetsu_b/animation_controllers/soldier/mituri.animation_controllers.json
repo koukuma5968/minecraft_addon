@@ -29,7 +29,6 @@
         },
         "koi1_2":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d初恋のわななき\"}]}",
             "/event entity @s mark_variant2",
             "/function koi/koi1"
           ],
@@ -49,7 +48,6 @@
         "koi2":{
           "animations" : [ "koi2_ani" ],
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d懊悩巡る恋\"}]}",
             "/event entity @s mark_variant1"
           ],
           "on_exit": [
@@ -62,7 +60,6 @@
         "koi3":{
           "animations" : [ "koi3_ani" ],
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d恋猫しぐれ\"}]}",
             "/effect @s speed 99999 5 true",
             "/effect @s jump_boost 99999 5 true",
             "/function koi/koi3/koi3_1",
@@ -88,12 +85,11 @@
             "/event entity @s kurokumaft:random_kokyu_off"
           ],
           "transitions": [
-            {"default":"(1.0)"}
+            {"default":"variable.kokyu_mituri = variable.kokyu_mituri < 10 ? variable.kokyu_mituri + 1:0;return variable.kokyu_mituri == 0;"}
           ]
         },
         "koi6":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d猫足恋風\"}]}",
             "/function koi/koi6",
             "/event entity @s add_damage_clear",
             "/event entity @s mark_variant1"
@@ -103,7 +99,7 @@
             "/event entity @s remove_damage_clear"
           ],
           "transitions": [
-            {"default":"(1.0)"}
+            {"default":"variable.kokyu_mituri = variable.kokyu_mituri < 10 ? variable.kokyu_mituri + 1:0;return variable.kokyu_mituri == 0;"}
           ]
         }
       }

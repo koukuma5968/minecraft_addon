@@ -6,17 +6,22 @@
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      " | ",
-      " # "
+      "|",
+      "#"
     ],
     "key": {
       "|": {
-        "item": "minecraft:stone"
+        "item": "minecraft:cobblestone"
       },
       "#": {
         "item": "minecraft:stick"
       }
     },
+  	"unlock": [
+      {
+        "item": "minecraft:cobblestone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:stone_knife"
     }

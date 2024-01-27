@@ -24,11 +24,11 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:copper_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2"
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           }
         ]
       },
-      "minecraft:damage": 5.5,
+      "minecraft:damage": 5,
       "minecraft:enchantable": {
         "value": 15,
         "slot": "sword"

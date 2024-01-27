@@ -40,8 +40,6 @@
         "oto4":{
           "animations" : [ "oto4_ani" ],
           "on_entry": [
-            "/effect @s resistance 99999 60 true",
-            "/effect @s fire_resistance 99999 60 true",
             "/event entity @s kurokumaft:explosion_nullify",
             "/event entity @s kurokumaft:knockback_add",
             "/event entity @s mark_variant1"
@@ -54,9 +52,7 @@
           "on_exit": [
             "/event entity @s kurokumaft:random_kokyu_off",
             "/event entity @s kurokumaft:explosion_nullify_remove",
-            "/event entity @s kurokumaft:knockback_remove",
-            "/effect @s resistance 0",
-            "/effect @s fire_resistance 0"
+            "/event entity @s kurokumaft:knockback_remove"
           ],
           "transitions": [
             {"default":"variable.kokyu_tengen = variable.kokyu_tengen < 5 ? variable.kokyu_tengen + 1:0;return variable.kokyu_tengen == 0 ;"}

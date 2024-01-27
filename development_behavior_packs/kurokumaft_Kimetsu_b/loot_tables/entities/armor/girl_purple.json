@@ -1,0 +1,40 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_jacket_girl_purple",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_skirt_girl_purple",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_pants_girl_purple",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "kurokumaft:soldier_boots_girl_purple",
+          "weight": 1
+        }
+      ]
+    }
+
+  ]
+}

@@ -75,6 +75,12 @@
       "nichirintou_hana": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hana"
       },
+      "nichirintou_koi": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_koi"
+      },
+      "nichirintou_kaze": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kaze"
+      },
 
       "scarlet_ironfish": {
          "textures" : "textures/kurokumaft/items/ore/scarlet_ironfish"
@@ -89,6 +95,7 @@
       "tanjiro_tabi": {
          "textures" : "textures/kurokumaft/items/armor/tanjiro/tanjiro_tabi"
       },
+
       "nezuko_kimono": {
          "textures" : "textures/kurokumaft/items/armor/nezuko/nezuko_kimono"
       },
@@ -207,43 +214,111 @@
          "textures" : "textures/kurokumaft/items/armor/muitiro/muitiro_hakama"
       },
 
-      "soldier_jacket_guy": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_guy"
+      "soldier_jacket_guy_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_jacket_guy_brown"
       },
-      "soldier_pants_guy": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_pants_guy"
+      "soldier_jacket_guy_harf_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_jacket_guy_harf_brown"
       },
+      "soldier_pants_guy_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_pants_guy_brown"
+      },
+      "soldier_boots_guy_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_boots_guy_brown"
+      },
+
       "soldier_jacket_guy_blue": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_guy_blue"
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_jacket_guy_blue"
+      },
+      "soldier_jacket_guy_harf_blue": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_jacket_guy_harf_blue"
       },
       "soldier_pants_guy_blue": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_pants_guy_blue"
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_pants_guy_blue"
       },
+      "soldier_boots_guy_blue": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_boots_guy_blue"
+      },
+
       "soldier_jacket_guy_green": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_guy_green"
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_jacket_guy_green"
+      },
+      "soldier_jacket_guy_harf_green": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_jacket_guy_harf_green"
       },
       "soldier_pants_guy_green": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_pants_guy_green"
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_pants_guy_green"
+      },
+      "soldier_boots_guy_green": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_boots_guy_green"
       },
 
       "soldier_jacket_girl_blue": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_girl_blue"
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_jacket_girl_blue"
       },
       "soldier_skirt_girl_blue": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_skirt_girl_blue"
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_skirt_girl_blue"
       },
-      "soldier_skirt_girl_brown": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_skirt_girl_brown"
+      "soldier_pants_girl_blue": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_pants_girl_blue"
       },
+      "soldier_boots_girl_blue": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_boots_girl_blue"
+      },
+
       "soldier_jacket_girl_purple": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_jacket_girl_purple"
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_jacket_girl_purple"
+      },
+      "soldier_skirt_girl_purple": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_skirt_girl_purple"
       },
       "soldier_pants_girl_purple": {
-         "textures" : "textures/kurokumaft/items/armor/soldier_pants_girl_purple"
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_pants_girl_purple"
       },
+      "soldier_boots_girl_purple": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_boots_girl_purple"
+      },
+
+      "soldier_jacket_girl_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_jacket_girl_brown"
+      },
+      "soldier_skirt_girl_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_skirt_girl_brown"
+      },
+      "soldier_pants_girl_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_pants_girl_brown"
+      },
+      "soldier_boots_girl_brown": {
+         "textures" : "textures/kurokumaft/items/armor/soldier/girl/soldier_boots_girl_brown"
+      },
+
+      "ogre_1_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/ogre/ogre_1_kimono"
+      },
+
 
       "bakketu": {
          "textures" : "textures/kurokumaft/items/kekkizyutu/bakketu"
+      },
+      "koushi": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/koushi"
+      },
+      "hakaisatu": {
+         "textures" : "textures/kurokumaft/models/kekkizyutu/akaza/rashin"
+      },
+
+      "rui_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/rui/rui_kimono"
+      },
+
+      "akaza_ashiwa": {
+         "textures" : "textures/kurokumaft/items/armor/akaza/akaza_ashiwa"
+      },
+      "akaza_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/akaza/akaza_hakama"
+      },
+      "akaza_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/akaza/akaza_jacket"
       },
 
       "tanjiro_head": {
@@ -304,7 +379,17 @@
             "textures/kurokumaft/items/spawn_egg/soldier/sanemi_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/genya_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/gyoumei_egg",
-            "textures/kurokumaft/items/spawn_egg/soldier/muitiro_egg"
+            "textures/kurokumaft/items/spawn_egg/soldier/muitiro_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/regimental_girl_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/regimental_guy_egg"
+         ]
+      },
+
+      "ogre_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/ogre/ogre_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/rui_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/akaza_egg"
          ]
       }
 
