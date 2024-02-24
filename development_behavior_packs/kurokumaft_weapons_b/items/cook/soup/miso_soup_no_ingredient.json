@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:miso_soup_no_ingredient",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:miso_soup_no_ingredient.name"
+			},
+      "minecraft:icon": {
+        "texture": "miso_soup_no_ingredient"
+      },
+      "minecraft:use_animation":"eat",
+      "minecraft:use_duration": 6,
+      "minecraft:food": {
+        "nutrition": 8,
+        "using_converts_to": "kurokumaft:soup_bowl"
+      }
+    }
+  }
+}

@@ -5,6 +5,10 @@
 			"loop": true,
 			"animation_length": 0.16667,
 			"bones": {
+				"pole": {
+					"rotation": ["90 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [0, -22, -9]
+				},
 				"breadRight": {
 					"rotation": {
 						"0.0": [0, 0, 0],
@@ -24,6 +28,37 @@
 						"0.0": [0, 0, 0],
 						"0.1667": [1, 0, 0]
 					}
+				}
+			}
+		},
+		"animation.scissors_knife.wield": {
+			"loop": true,
+			"bones": {
+				"breadRight": {
+					"rotation": [0, 0, 35],
+					"position": [-1, 0, 0]
+				},
+				"breadLeft": {
+					"rotation": [0, 0, -35],
+					"position": [1, 0, 0]
+				}
+			}
+		},
+		"animation.scissors_knife.off": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.16667,
+			"bones": {
+				"pole": {
+					"rotation": [0, 0, -145],
+					"position": [0, -20, -3]
+				},
+				"breadRight": {
+					"rotation": [0, 0, 35],
+					"position": [-1, 0, 0]
+				},
+				"breadLeft": {
+					"rotation": [0, 0, -35],
+					"position": [1, 0, 0]
 				}
 			}
 		}

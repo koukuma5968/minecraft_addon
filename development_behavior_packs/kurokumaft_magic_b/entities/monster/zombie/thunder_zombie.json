@@ -74,7 +74,7 @@
       "minecraft:burns_in_daylight":{},
 
       "minecraft:type_family": {
-        "family": [ "zombie", "undead", "monster", "mob" ]
+        "family": [ "zombie", "undead", "monster", "mob", "thunder" ]
       },
       "minecraft:equip_item": {
       },

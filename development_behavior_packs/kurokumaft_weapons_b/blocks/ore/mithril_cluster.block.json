@@ -1,0 +1,134 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:mithril_cluster",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+                "kurokumaft:rotation": [0, 1, 2, 3, 4, 5, 6]
+            }
+		},
+		"components": {
+			"minecraft:loot": "loot_tables/blocks/ore/mithril_cluster.json",
+			"minecraft:light_emission": 6,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 2
+			},
+			"minecraft:selection_box": {
+				"origin": [-5.0, 0.0, -5.0],
+				"size": [10.0, 6.0, 10.0]
+			},
+			"minecraft:collision_box": {
+				"origin": [-5.0, 0.0, -5.0],
+				"size": [10.0, 6.0, 10.0]
+			},
+			"minecraft:on_player_placing": {
+				"event": "onPlacing"
+			},
+			"minecraft:geometry": "geometry.mithril_bud",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "mithril_cluster",
+					"render_method": "alpha_test"
+				}
+			}
+		},
+		"permutations": [
+			{
+                "condition": "query.block_state('kurokumaft:rotation') == 1",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 0 ]
+					}
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:rotation') == 2",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 180, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:rotation') == 3",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 90, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:rotation') == 4",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 270, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:rotation') == 5",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 270 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:rotation') == 6",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 90 ]
+                    }
+                }
+			}
+		],
+		"events": {
+			"onPlacing": {
+				"sequence": [
+					{
+						"condition": "query.block_face == 1.0",
+						"set_block_state": {
+							"kurokumaft:rotation": "1"
+						}
+					},
+					{
+						"condition": "query.block_face == 0.0",
+						"set_block_state": {
+							"kurokumaft:rotation": "2"
+						}
+					},
+					{
+						"condition": "query.block_face == 3.0",
+						"set_block_state": {
+							"kurokumaft:rotation": "3"
+						}
+					},
+					{
+						"condition": "query.block_face == 2.0",
+						"set_block_state": {
+							"kurokumaft:rotation": "4"
+						}
+					},
+					{
+						"condition": "query.block_face == 5.0",
+						"set_block_state": {
+							"kurokumaft:rotation": "5"
+						}
+					},
+					{
+						"condition": "query.block_face == 4.0",
+						"set_block_state": {
+							"kurokumaft:rotation": "6"
+						}
+					}
+				]
+			}
+		}
+	}
+}

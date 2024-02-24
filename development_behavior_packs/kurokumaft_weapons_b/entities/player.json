@@ -10,6 +10,8 @@
         "animate":[
           "main_shield",
           "off_shield",
+
+          "flamethrower",
           "scope"
         ]
       },
@@ -17,6 +19,7 @@
         "main_shield":"controller.animation.armor.main_shield",
         "off_shield":"controller.animation.armor.off_shield",
 
+        "flamethrower": "controller.animation.flamethrower","flamethrower_shot": "animation.flamethrower.shot",
         "scope": "controller.animation.scope"
       }
     },

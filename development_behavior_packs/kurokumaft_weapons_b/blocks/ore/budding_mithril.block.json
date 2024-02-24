@@ -1,0 +1,86 @@
+{
+	"format_version": "1.20.30",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:budding_mithril",
+			"menu_category": {
+				"category": "nature"
+			},
+			"states": {
+				"kurokumaft:budding_pos": [0, 1, 2, 3, 4, 5, 6]
+			}
+		},
+		"components": {
+			"minecraft:collision_box": true,
+			"minecraft:light_emission": 5,
+			"minecraft:loot": "loot_tables/blocks/ore/mithril_block.json",
+			"minecraft:map_color": "#49aaac",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 10
+			},
+			"minecraft:queued_ticking": {
+				"interval_range": [180, 520],
+				"on_tick": {
+					"event": "budding"
+				}
+			}
+		},
+		"events": {
+			"budding": {
+				"randomize": [
+					{
+						"weight": 10,
+						"run_command": {
+							"command":[
+								"execute if block ^^1^ air positioned ^^1^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=1]"
+							]
+						}
+					},
+					{
+						"weight": 10,
+						"run_command": {
+							"command":[
+								"execute if block ^^-1^ air positioned ^^-1^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=2]"
+							]
+						}
+					},
+					{
+						"weight": 10,
+						"run_command": {
+							"command":[
+								"execute if block ^^^1 air positioned ^^^1 run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=3]"
+							]
+						}
+					},
+					{
+						"weight": 10,
+						"run_command": {
+							"command":[
+								"execute if block ^^^-1 air positioned ^^^-1 run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=4]"
+							]
+						}
+					},
+					{
+						"weight": 10,
+						"run_command": {
+							"command":[
+								"execute if block ^1^^ air positioned ^1^^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=5]"
+							]
+						}
+					},
+					{
+						"weight": 10,
+						"run_command": {
+							"command":[
+								"execute if block ^-1^^ air positioned ^-1^^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=6]"
+							]
+						}
+					}
+				]
+		    }
+		}
+	}
+}

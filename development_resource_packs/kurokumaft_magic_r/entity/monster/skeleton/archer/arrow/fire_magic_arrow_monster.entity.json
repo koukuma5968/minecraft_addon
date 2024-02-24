@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_arrow_monster",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/arrow/fire_magic_arrows"
+      },
+      "geometry": {
+        "default": "geometry.magic_arrow"
+      },
+      "animations": {
+        "move": "animation.magic_arrow.fire_move"
+      },
+      "particle_effects": {
+        "fire_arrow_particle": "kurokumaft:fire_arrow_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

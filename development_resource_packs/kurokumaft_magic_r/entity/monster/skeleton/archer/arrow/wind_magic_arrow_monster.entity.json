@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_arrow_monster",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/arrow/wind_magic_arrows"
+      },
+      "geometry": {
+        "default": "geometry.magic_arrow"
+      },
+      "animations": {
+        "move": "animation.magic_arrow.wind_move"
+      },
+      "particle_effects": {
+        "wind_arrow_particle": "kurokumaft:wind_arrow_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

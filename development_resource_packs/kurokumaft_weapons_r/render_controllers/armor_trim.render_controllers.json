@@ -4,7 +4,7 @@
       "controller.render.armor_trim": {
         "geometry": "Geometry.default",
         "materials": [ { "*": "variable.is_enchanted ? Material.enchanted : Material.default" } ],
-        "textures": [ "variable.has_trim ? variable.trim_path : Texture.default", "Texture.coast","Texture.enchanted" ],
+        "textures": ["variable.has_trim ? Texture.coast : Texture.default", "Texture.enchanted" ],
         "overlay_color": {
           "r": "255",
           "g": "255",

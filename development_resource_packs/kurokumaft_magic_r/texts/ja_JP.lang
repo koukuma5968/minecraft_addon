@@ -17,24 +17,49 @@ entity.kurokumaft:stone_zombie.name=§7ストーンゾンビ
 entity.kurokumaft:wind_zombie.name=§3ウィンドゾンビ
 entity.kurokumaft:ice_zombie.name=§fアイスゾンビ
 
-entity.kurokumaft:fire_skeleton_warrior.name=§4ファイアスケルトンウォリアー
-entity.kurokumaft:thunder_skeleton_warrior.name=§6サンダースケルトンウォリアー
-entity.kurokumaft:water_skeleton_warrior.name=§1ウォータースケルトンウォリアー
-entity.kurokumaft:stone_skeleton_warrior.name=§7ストーンスケルトンウォリアー
-entity.kurokumaft:wind_skeleton_warrior.name=§3ウィンドスケルトンウォリアー
-entity.kurokumaft:ice_skeleton_warrior.name=§fアイススケルトンウォリアー
+entity.kurokumaft:fire_skeleton_warrior.name=§4ファイアスケルトン・ウォリアー
+entity.kurokumaft:thunder_skeleton_warrior.name=§6サンダースケルトン・ウォリアー
+entity.kurokumaft:water_skeleton_warrior.name=§1ウォータースケルトン・ウォリアー
+entity.kurokumaft:stone_skeleton_warrior.name=§7ストーンスケルトン・ウォリアー
+entity.kurokumaft:wind_skeleton_warrior.name=§3ウィンドスケルトン・ウォリアー
+entity.kurokumaft:ice_skeleton_warrior.name=§fアイススケルトン・ウォリアー
 
-entity.kurokumaft:home_gate.name=拠点の石碑
+entity.kurokumaft:fire_skeleton_archer.name=§4ファイアスケルトン・アーチャー
+entity.kurokumaft:thunder_skeleton_archer.name=§6サンダースケルトン・アーチャー
+entity.kurokumaft:water_skeleton_archer.name=§1ウォータースケルトン・アーチャー
+entity.kurokumaft:stone_skeleton_archer.name=§7ストーンスケルトン・アーチャー
+entity.kurokumaft:wind_skeleton_archer.name=§3ウィンドスケルトン・アーチャー
+entity.kurokumaft:ice_skeleton_archer.name=§fアイススケルトン・アーチャー
 
-item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムをスポーンさせる	#
+entity.kurokumaft:phoenix.name=§4フェニックス
 
 item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:water_zombie.name=ウォーターゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:wind_zombie.name=ウィンドゾンビをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:stone_zombie.name=ストーンゾンビをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:ice_zombie.name=アイスゾンビをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:fire_skeleton_warrior.name=ファイアスケルトン・ウォリアーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:thunder_skeleton_warrior.name=サンダーケルトン・ウォリアーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:water_skeleton_warrior.name=ウォーターケルトン・ウォリアーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:wind_skeleton_warrior.name=ウィンドケルトン・ウォリアーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:stone_skeleton_warrior.name=ストーンケルトン・ウォリアーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:ice_skeleton_warrior.name=アイスケルトン・ウォリアーをスポーンさせる	#
+
+item.spawn_egg.entity.kurokumaft:fire_skeleton_archer.name=ファイアスケルトン・アーチャーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:thunder_skeleton_archer.name=サンダーケルトン・アーチャーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:water_skeleton_archer.name=ウォーターケルトン・アーチャーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:wind_skeleton_archer.name=ウィンドケルトン・アーチャーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:stone_skeleton_archer.name=ストーンケルトン・アーチャーをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン・アーチャーをスポーンさせる	#
+
+item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスをスポーンさせる	#
+
+entity.kurokumaft:home_gate.name=拠点の石碑
+
+item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:fire_horse.name=フレイムホースをスポーンさせる	#
 action.interact.ride.kurokumaft:fire_horse=乗る	#
@@ -52,6 +77,11 @@ tile.kurokumaft:lightningwall_block.name=雷ブロック
 tile.kurokumaft:windwall_block.name=風ブロック
 tile.kurokumaft:magma_portal.name=マグマポータル
 tile.kurokumaft:magma_portal_gate.name=ゲートブロック（炎）
+
+item.kurokumaft:phoenix_feather.name=§4魔炎鳥の羽
+item.kurokumaft:see_serpent_scale.name=§1魔海蛇の鱗
+item.kurokumaft:stone_golem_heart.name=§7魔岩像の核
+item.kurokumaft:fenrir_fang.name=§3魔嵐狼の牙
 
 item.kurokumaft:fire_magic_stone.name=§4火の魔法石
 item.kurokumaft:water_magic_stone.name=§1水の魔法石
@@ -179,3 +209,11 @@ item.kurokumaft:storm_eagle_summon_stone.name=召喚の魔石（ストームイ�
 item.kurokumaft:repatriation_fruit.name=帰還の実
 item.kurokumaft:home_gate.name=拠点の石碑
 
+item.kurokumaft:magic_bazooka.name=魔導砲
+
+item.kurokumaft:fire_magic_shell.name=爆炎の魔弾
+item.kurokumaft:water_magic_shell.name=瀑布の魔弾
+item.kurokumaft:lightning_magic_shell.name=轟雷の魔弾
+item.kurokumaft:wind_magic_shell.name=暴風の魔弾
+item.kurokumaft:stone_magic_shell.name=礫岩の魔弾
+item.kurokumaft:ice_magic_shell.name=凍土の魔弾

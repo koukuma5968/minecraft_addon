@@ -10,7 +10,6 @@
       },
       "textures": {
         "default": "textures/kurokumaft/models/armor/cherry_1",
-        "coast": "textures/trims/coast",
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {
@@ -25,7 +24,7 @@
       "animations": {
         "offset": "animation.armor.chestplate.offset"
       },
-      "render_controllers": [ "controller.render.armor_trim" ]
+      "render_controllers": [ "controller.render.armor" ]
     }
   }
 }

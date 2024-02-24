@@ -1,27 +1,14 @@
 {
-    "format_version": "1.12",
-    "minecraft:recipe_shaped": {
+    "format_version": "1.16",
+    "minecraft:recipe_furnace": {
         "description": {
             "identifier": "kurokumaft:mithril_ingot"
         },
-        "tags": ["crafting_table"],
-        "priority": 2,
-        "pattern": [
-            " X ",
-            "XmX",
-            " X "
-        ],
-        "key": {
-            "X": {
-                "item": "minecraft:quartz"
-            },
-            "m": {
-                "item": "kurokumaft:steel_ingot"
-            }
-        },
-        "result": {
-          "item": "kurokumaft:mithril_ingot",
-          "count": 1
+        "tags": ["furnace", "blast_furnace"],
+        "input": "kurokumaft:mithril_shard",
+        "output": {
+            "item": "kurokumaft:mithril_ingot",
+            "count": 1
         }
     }
-}
+}    

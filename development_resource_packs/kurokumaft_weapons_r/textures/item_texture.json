@@ -128,6 +128,9 @@
       "phantom_knife": {
          "textures" : "textures/kurokumaft/items/knife/phantom_knife"
       },
+      "scissors_knife": {
+         "textures" : "textures/kurokumaft/items/knife/scissors_knife"
+      },
 
       "wooden_bread": {
    		"textures": "textures/kurokumaft/items/bread/wooden_bread"
@@ -387,6 +390,9 @@
       "mithril_ingot" : {
          "textures" : "textures/kurokumaft/items/material/mithril_ingot"
       },
+      "mithril_shard" : {
+         "textures" : "textures/kurokumaft/items/material/mithril_shard"
+      },
       "orichalcum" : {
          "textures" : "textures/kurokumaft/items/material/orichalcum"
       },
@@ -558,13 +564,108 @@
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_water"
       },
 
+      "mithril_cluster" : {
+			"textures" : "textures/kurokumaft/blocks/ore/mithril/mithril_cluster"
+		},
+		"large_mithril_bud" : {
+			"textures" : "textures/kurokumaft/blocks/ore/mithril/large_mithril_bud"
+		},
+		"medium_mithril_bud" : {
+		   "textures" : "textures/kurokumaft/blocks/ore/mithril/medium_mithril_bud"
+		},
+		"small_mithril_bud" : {
+		   "textures" : "textures/kurokumaft/blocks/ore/mithril/small_mithril_bud"
+		},
+
       "charcoal_block_item": {
 			"textures": "textures/kurokumaft/items/block/charcoal_block"
 		},
 
       "bamboo_bag": {
          "textures" : "textures/kurokumaft/items/bag/bamboo_bag"
+      },
+
+      "baked_carrot" : {
+         "textures" : "textures/kurokumaft/items/cook/baked/baked_carrot"
+      },
+
+      "apple_pie" : {
+         "textures" : "textures/kurokumaft/items/cook/pie/apple_pie"
+      },
+
+      "carrot_stew" : {
+         "textures" : "textures/kurokumaft/items/cook/stew/carrot_stew"
+      },
+
+      "toast_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/toast_bread"
+      },
+      "apple_jam_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/apple_jam_bread"
+      },
+      "sweet_berries_jam_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/sweet_berries_jam_bread"
+      },
+      "glow_berries_jam_bread" : {
+         "textures" : "textures/kurokumaft/items/cook/bread/glow_berries_jam_bread"
+      },
+
+      "apple_jam" : {
+         "textures" : "textures/kurokumaft/items/cook/jam/apple_jam"
+      },
+      "sweet_berries_jam" : {
+         "textures" : "textures/kurokumaft/items/cook/jam/sweet_berries_jam"
+      },
+      "glow_berries_jam" : {
+         "textures" : "textures/kurokumaft/items/cook/jam/glow_berries_jam"
+      },
+
+      "miso_soup_no_ingredient" : {
+         "textures" : "textures/kurokumaft/items/cook/miso_soup_no_ingredient"
+      },
+
+      "chocolate_cake" : {
+         "textures" : "textures/kurokumaft/items/cook/cake/chocolate_cake"
+      },
+
+      "chocolate" : {
+         "textures" : "textures/kurokumaft/items/cook/chocolate/chocolate"
+      },
+      "milk_chocolate" : {
+         "textures" : "textures/kurokumaft/items/cook/chocolate/milk_chocolate"
+      },
+
+      "cheese" : {
+         "textures" : "textures/kurokumaft/items/cook/cheese"
+      },
+
+      "onion" : {
+         "textures" : "textures/kurokumaft/items/food/onion"
+      },
+      "soybean" : {
+         "textures" : "textures/kurokumaft/items/food/soybean"
+      },
+      "green_soybean" : {
+         "textures" : "textures/kurokumaft/items/food/green_soybean"
+      },
+
+      "malt" : {
+         "textures" : "textures/kurokumaft/items/seasoning/malt"
+      },
+      "salt" : {
+         "textures" : "textures/kurokumaft/items/seasoning/salt"
+      },
+
+      "wooden_bucket_empty" : {
+         "textures" : "textures/kurokumaft/items/tool/wooden_bucket_empty"
+      },
+      "wooden_bucket_miso" : {
+         "textures" : "textures/kurokumaft/items/tool/wooden_bucket_miso"
+      },
+      "soup_bowl" : {
+         "textures" : "textures/kurokumaft/items/tool/soup_bowl"
       }
+
    },
    "texture_name" : "atlas.items"
 }

@@ -1,0 +1,37 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:scissors_knife",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.knife"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:scissors_knife.name"
+      },
+      "minecraft:icon":{
+        "texture": "scissors_knife"
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:hand_equipped": true,
+      "minecraft:use_animation": "spear",
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:throwable": {
+        "do_swing_animation": true,
+        "min_draw_duration": 0.5,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:thrown_scissors_knife",
+        "minimum_critical_power": 1.0
+      }
+    },
+    "events": {
+      "decrement_stack": {}
+    }
+  }
+}

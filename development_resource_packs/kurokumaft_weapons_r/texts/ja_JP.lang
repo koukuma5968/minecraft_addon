@@ -59,6 +59,7 @@ item.kurokumaft:wooden_knife.name=木のナイフ
 item.kurokumaft:stone_knife.name=石のナイフ
 item.kurokumaft:tnt_knife.name=TNTダガー
 item.kurokumaft:phantom_knife.name=ファントムダガー
+item.kurokumaft:scissors_knife.name=シザースダガー
 
 item.kurokumaft:wooden_bread.name=木刀
 item.kurokumaft:stone_bread.name=石刀
@@ -165,6 +166,7 @@ item.kurokumaft:nitre_nugget.name=硝石
 
 item.kurokumaft:steel_ingot.name=スチールインゴット
 item.kurokumaft:mithril_ingot.name=ミスリルインゴット
+item.kurokumaft:mithril_shard.name=ミスリルの結晶
 item.kurokumaft:orichalcum.name=オリハルコン
 item.kurokumaft:black_quartz.name=ブラッククオーツ
 
@@ -184,6 +186,13 @@ tile.kurokumaft:charcoal_block.name=木炭ブロック
 tile.kurokumaft:medicinal_plants.name=薬草
 
 tile.kurokumaft:millstone.name=石臼
+
+tile.kurokumaft:mithril_block.name=ミスリルブロック
+tile.kurokumaft:budding_mithril.name=芽生えたミスリル
+tile.kurokumaft:small_mithril_bud.name=小さなミスリルの芽
+tile.kurokumaft:medium_mithril_bud.name=中くらいのミスリルの芽
+tile.kurokumaft:large_mithril_bud.name=大きなミスリルの芽
+tile.kurokumaft:mithril_cluster.name=ミスリルの塊
 
 item.kurokumaft:barista.name=バリスタ
 item.kurokumaft:barista_arrow.name=バリスタの矢
@@ -244,4 +253,46 @@ item.kurokumaft:copper_bucket_salmon.name=サケ入り銅バケツ
 item.kurokumaft:copper_bucket_tadpole.name=オタマジャクシ入り銅バケツ
 item.kurokumaft:copper_bucket_tropical.name=熱帯魚入り銅バケツ
 item.kurokumaft:copper_bucket_water.name=水入り銅バケツ
+
+item.kurokumaft:baked_carrot.name=ベイクド キャロット
+
+item.kurokumaft:toast_bread.name=トースト
+item.kurokumaft:apple_jam_bread.name=リンゴジャムパン
+item.kurokumaft:sweet_berries_jam_bread.name=スウィートベリージャムパン
+item.kurokumaft:glow_berries_jam_bread.name=グロウベリージャムパン
+
+item.kurokumaft:apple_pie.name=アップルパイ
+
+item.kurokumaft:carrot_stew.name=ニンジンシチュー
+
+item.kurokumaft:miso_soup_no_ingredient.name=味噌汁(具なし)
+
+item.kurokumaft:apple_jam.name=リンゴジャム
+item.kurokumaft:sweet_berries_jam.name=スウィートベリージャム
+item.kurokumaft:glow_berries_jam.name=グロウベリージャム
+
+item.kurokumaft:cheese.name=チーズ
+
+item.kurokumaft:chocolate.name=チョコレート
+tile.kurokumaft:chocolate_cake.name=チョコレートケーキ
+item.kurokumaft:chocolate_cake.name=チョコレートケーキ
+
+item.kurokumaft:milk_chocolate.name=ミルクチョコレート
+
+tile.kurokumaft:onions.name=玉ねぎ
+
+item.kurokumaft:onion.name=玉ねぎ
+item.kurokumaft:soybean.name=大豆
+item.kurokumaft:green_soybean.name=枝豆
+item.kurokumaft:malt.name=麹
+item.kurokumaft:salt.name=塩
+
+tile.kurokumaft:onions.name=玉ねぎ
+tile.kurokumaft:soybean.name=大豆
+
+item.kurokumaft:wooden_bucket_empty.name=木桶
+item.kurokumaft:wooden_bucket_miso.name=味噌入り木桶
+item.kurokumaft:soup_bowl.name=汁椀
+
+tile.kurokumaft:kitchen_table.name=調理台
 

@@ -1,0 +1,19 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:mithril_shard",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:mithril_shard.name"
+			},
+      "minecraft:icon": {
+        "texture": "mithril_shard"
+      }
+    }
+  }
+}

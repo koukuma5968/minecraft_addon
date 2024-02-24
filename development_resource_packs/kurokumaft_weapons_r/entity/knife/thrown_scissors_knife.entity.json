@@ -2,24 +2,26 @@
   "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
-      "identifier": "kurokumaft:thrown_wooden_knife",
+      "identifier": "kurokumaft:thrown_scissors_knife",
       "materials": {
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/knife/wooden_knife",
+        "default": "textures/kurokumaft/models/knife/scissors_knife",
         "loyalty_rope": "textures/entity/loyalty_rope"
       },
       "geometry": {
-        "default": "geometry.knife"
+        "default": "geometry.scissors_knife"
       },
       "animations": {
-        "move": "animation.knife.move"
+        "cross": "animation.scissors_knife.cross",
+        "off": "animation.scissors_knife.off"
       },
       "scripts": {
         "scale": "1.0",
         "animate": [
-          "move"
+          { "cross": "query.variant == 0" },
+          { "off": "query.variant == 1" }
         ]
       },
       "render_controllers": [ "controller.render.thrown_default" ]

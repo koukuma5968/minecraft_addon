@@ -57,7 +57,8 @@
           {
             "run_command": {
               "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5レ§1イ§9ン§aボー§eソ§6ー§4ド\"}]}"
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§5レ§1イ§9ン§aボー§eソ§6ー§4ド\"}]}",
+                "tag @s add rainbow_sword_s"
               ],
               "target": "self"
             }

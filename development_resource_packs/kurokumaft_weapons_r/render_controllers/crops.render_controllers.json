@@ -1,0 +1,21 @@
+{
+  "format_version": "1.10",
+  "render_controllers": {
+    "controller.render.crops": {
+      "arrays": {
+        "textures": {
+          "array.crops_texture_frames": [
+            "texture.default",
+            "texture.crops_stage_1",
+            "texture.crops_stage_2",
+            "texture.crops_stage_3"
+          ]
+        }
+      },
+      "geometry": "geometry.default",
+      "materials": [{"*":"material.default"}],
+      "textures": [ "array.crops_texture_frames[variable.growth]" ]
+    }
+  }
+}
+

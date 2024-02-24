@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wooden_bucket_empty"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "wooden_bucket",
+    "pattern": [
+      "# #",
+      "$$$",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:planks"
+      },
+      "$": {
+        "item": "minecraft:copper_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wooden_bucket_empty",
+      "count": 3
+    }
+  }
+}

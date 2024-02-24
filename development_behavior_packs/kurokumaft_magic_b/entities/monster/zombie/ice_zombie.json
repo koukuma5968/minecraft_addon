@@ -43,7 +43,7 @@
 
       "minecraft:can_have_equipment": {
         "minecraft:equipment": {
-          "table": "loot_tables/entities/zombie/stone_zombie_equipment.json"
+          "table": "loot_tables/entities/zombie/ice_zombie_equipment.json"
         }
       },
       "minecraft:can_break_doors": {
@@ -72,9 +72,8 @@
       "minecraft:nameable": {
       },
       "minecraft:burns_in_daylight":{},
-
       "minecraft:type_family": {
-        "family": [ "zombie", "undead", "monster", "mob" ]
+        "family": [ "zombie", "undead", "monster", "mob", "ice" ]
       },
       "minecraft:equip_item": {
       },

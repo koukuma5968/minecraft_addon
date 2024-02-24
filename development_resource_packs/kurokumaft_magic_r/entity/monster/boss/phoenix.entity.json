@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:phoenix",
+      "materials": { "default": "bat" },
+      "textures": {
+        "default": "textures/kurokumaft/entity/boss/phoenix"
+      },
+      "geometry": {
+        "default": "geometry.phoenix"
+      },
+      "particle_effects": {
+        "fire": "kurokumaft:phoenix_frame",
+        "head": "kurokumaft:fire_bread_particle"
+      },
+      "scripts": {
+        "scaleX": "3.00",
+        "scaleY": "3.00",
+        "scaleZ": "3.00",
+        "animate": [
+          "move"
+        ]
+      },
+      "animations": {
+        "move": "animation.phoenix.move"
+      },
+      "render_controllers": [ "controller.render.phoenix" ],
+      "spawn_egg": {
+        "texture": "magic_boss_spawn_egg",
+        "texture_index": 0
+      }
+    }
+  }
+}

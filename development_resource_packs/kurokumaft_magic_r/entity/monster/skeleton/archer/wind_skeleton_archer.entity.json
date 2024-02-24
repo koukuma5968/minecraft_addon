@@ -1,0 +1,79 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:wind_skeleton_archer",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/skeleton/wind_skeleton"
+      },
+      "geometry": {
+        "default": "geometry.magic_skeleton"
+      },
+      "spawn_egg": {
+        "texture": "magic_skeleton_spawn_egg",
+        "texture_index": 3
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate": [
+          "humanoid_base_pose_con",
+          "look_at_target",
+          "move_con",
+          "riding",
+          "holding_con",
+          "brandish_spear_con",
+          "charging_con",
+          "sneaking_con",
+          "bob_con",
+          "damage_nearby_mobs_con",
+          "swimming_con",
+          "use_item_progress_con",
+          "skeleton_attack_con"
+        ]
+      },
+      "animations": {
+        "humanoid_base_pose_con": "controller.animation.humanoid.base_pose" ,
+        "look_at_target": "controller.animation.humanoid.look_at_target" ,
+        "move_con": "controller.animation.humanoid.move" ,
+        "riding": "controller.animation.humanoid.riding" ,
+        "holding_con": "controller.animation.humanoid.holding" ,
+        "brandish_spear_con": "controller.animation.humanoid.brandish_spear" ,
+        "charging_con": "controller.animation.humanoid.charging" ,
+        "attack": "controller.animation.humanoid.attack" ,
+        "sneaking_con": "controller.animation.humanoid.sneaking" ,
+        "bob_con": "controller.animation.humanoid.bob" ,
+        "damage_nearby_mobs_con": "controller.animation.humanoid.damage_nearby_mobs" ,
+        "bow_and_arrow": "controller.animation.humanoid.bow_and_arrow",
+        "swimming_con": "controller.animation.humanoid.swimming" ,
+        "use_item_progress_con": "controller.animation.humanoid.use_item_progress" ,
+        "skeleton_attack_con": "controller.animation.skeleton.attack" ,
+
+        "humanoid_base_pose": "animation.humanoid.base_pose.v1.0",
+        "look_at_target_default": "animation.humanoid.look_at_target.default.v1.0",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding.v1.0",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming.v1.0",
+        "move": "animation.humanoid.move.v1.0",
+        "riding.arms": "animation.humanoid.riding.arms.v1.0",
+        "riding.legs": "animation.humanoid.riding.legs.v1.0",
+        "holding": "animation.humanoid.holding.v1.0",
+        "brandish_spear": "animation.humanoid.brandish_spear.v1.0",
+        "charging": "animation.humanoid.charging.v1.0",
+        "attack.rotations": "animation.humanoid.attack.rotations.v1.0",
+        "sneaking": "animation.humanoid.sneaking.v1.0",
+        "bob": "animation.humanoid.bob.v1.0",
+        "damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs.v1.0",
+        "bow_and_arrow": "animation.humanoid.bow_and_arrow",
+        "swimming": "animation.humanoid.swimming.v1.0",
+        "use_item_progress": "animation.humanoid.use_item_progress.v1.0",
+        "skeleton_attack": "animation.skeleton.attack.v1.0"
+      },
+      "render_controllers": [ "controller.render.skeleton" ],
+      "enable_attachables": true
+    }
+  }
+}

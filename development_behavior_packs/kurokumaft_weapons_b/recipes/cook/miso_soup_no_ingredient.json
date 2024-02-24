@@ -1,0 +1,32 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:miso_soup_no_ingredient"
+    },
+    "tags": [ "kitchen_table" ],
+    "group": "miso_soup",
+    "pattern": [
+      "KM",
+      "#W"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:soup_bowl"
+      },
+      "W": {
+        "item": "minecraft:water_bucket"
+      },
+      "M": {
+        "item": "kurokumaft:wooden_bucket_miso"
+      },
+      "K": {
+        "item": "minecraft:kelp"
+      }
+    },
+    "result": [
+      {"item": "kurokumaft:miso_soup_no_ingredient","count": 1},
+      {"item": "kurokumaft:wooden_bucket_empty", "count": 1}
+    ]
+  }
+}

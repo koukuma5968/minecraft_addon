@@ -1,0 +1,160 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:shell_stand",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+          "damage",
+          "hover"
+        ]
+      },
+      "animations":{
+        "damage":"controller.animation.shell.damage",
+        "hover": "animation.magic_shell.hover",
+        "fire": "animation.shell.damage.fire",
+        "water": "animation.shell.damage.water",
+        "lightning": "animation.shell.damage.lightning",
+        "wind": "animation.shell.damage.wind",
+        "stone": "animation.shell.damage.stone",
+        "ice": "animation.shell.damage.ice"
+      }
+    },
+    "component_groups": {
+      "variant0": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "mark_variant1": {
+        "minecraft:mark_variant": {
+          "value": 1
+        }
+      },
+      "mark_variant2": {
+        "minecraft:mark_variant": {
+          "value": 2
+        }
+      },
+      "mark_variant3": {
+        "minecraft:mark_variant": {
+          "value": 3
+        }
+      },
+      "mark_variant4": {
+        "minecraft:mark_variant": {
+          "value": 4
+        }
+      },
+      "mark_variant5": {
+        "minecraft:mark_variant": {
+          "value": 5
+        }
+      },
+      "mark_variant6": {
+        "minecraft:mark_variant": {
+          "value": 6
+        }
+      },
+      "kurokumaft:despawn": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "armor_stand", "inanimate", "shell_stand" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.1,
+        "height": 0.1
+      },
+      "minecraft:health": {
+        "value": 99999999,
+        "max": 99999999
+      },
+      "minecraft:timer": {
+        "time": [5.0,5.0],
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+    "events": {
+      "kurokumaft:fire_shell": {
+        "add": {
+          "component_groups": [
+            "variant0",
+            "mark_variant1"
+          ]
+        }
+      },
+      "kurokumaft:water_shell": {
+        "add": {
+          "component_groups": [
+            "variant0",
+            "mark_variant2"
+          ]
+        }
+      },
+      "kurokumaft:lightning_shell": {
+        "add": {
+          "component_groups": [
+            "variant0",
+            "mark_variant3"
+          ]
+        }
+      },
+      "kurokumaft:wind_shell": {
+        "add": {
+          "component_groups": [
+            "variant0",
+            "mark_variant4"
+          ]
+        }
+      },
+      "kurokumaft:stone_shell": {
+        "add": {
+          "component_groups": [
+            "variant0",
+            "mark_variant5"
+          ]
+        }
+      },
+      "kurokumaft:ice_shell": {
+        "add": {
+          "component_groups": [
+            "variant0",
+            "mark_variant6"
+          ]
+        }
+      },
+      "kurokumaft:despawn": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:despawn"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:golden_knuckle"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "|",
+      "|",
+      "#"
+    ],
+    "key": {
+      "|": {
+        "item": "minecraft:gold_ingot"
+      },
+      "#": {
+        "item": "minecraft:gold_nugget"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:gold_ingot"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:golden_knuckle"
+    }
+  }
+}

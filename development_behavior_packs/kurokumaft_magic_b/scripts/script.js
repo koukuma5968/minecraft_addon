@@ -160,10 +160,17 @@ world.afterEvents.itemStopUse.subscribe(event => {
     }
 });
 
-// world.events.itemStopCharge.subscribe(event => {
+// world.afterEvents.itemCompleteUse.subscribe(event => {
 //     let item = event.itemStack;
-//     print(event.source, item.typeId);
-//     home_tp(event.source);
+//     print(event.source, JSON.stringify(item));
+// });
+
+// world.afterEvents.entityHitEntity.subscribe(event => {
+//     var hit = event.hitEntity;
+//     if (hit != undefined) {
+//         print(hit, JSON.stringify(hit));
+//         shield_guard(hit.entity);
+//     }
 // });
 
 // world.afterEvents.projectileHitEntity.subscribe(event => {

@@ -475,6 +475,32 @@
          "textures" : "textures/kurokumaft/items/grimoire/fire_grimoire"
       },
 
+      "magic_bazooka": {
+         "textures" : "textures/kurokumaft/items/bazooka/magic_bazooka"
+      },
+      "fire_magic_bazooka": {
+         "textures" : "textures/kurokumaft/items/bazooka/fire_magic_bazooka"
+      },
+
+      "fire_magic_shell": {
+         "textures" : "textures/kurokumaft/items/bazooka/shell/fire_magic_shell"
+      },
+      "water_magic_shell": {
+         "textures" : "textures/kurokumaft/items/bazooka/shell/water_magic_shell"
+      },
+      "lightning_magic_shell": {
+         "textures" : "textures/kurokumaft/items/bazooka/shell/lightning_magic_shell"
+      },
+      "stone_magic_shell": {
+         "textures" : "textures/kurokumaft/items/bazooka/shell/stone_magic_shell"
+      },
+      "ice_magic_shell": {
+         "textures" : "textures/kurokumaft/items/bazooka/shell/ice_magic_shell"
+      },
+      "wind_magic_shell": {
+         "textures" : "textures/kurokumaft/items/bazooka/shell/wind_magic_shell"
+      },
+
       "fire_horse_summon_stone": {
          "textures" : "textures/kurokumaft/items/summon_stone/fire_horse_summon_stone"
       },
@@ -516,6 +542,12 @@
             "textures/kurokumaft/items/egg/skeleton/egg_wind_skeleton",
             "textures/kurokumaft/items/egg/skeleton/egg_stone_skeleton",
             "textures/kurokumaft/items/egg/skeleton/egg_ice_skeleton"
+         ]
+      },
+
+      "magic_boss_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/egg/boss/egg_phoenix"
          ]
       }
 

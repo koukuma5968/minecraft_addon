@@ -25,9 +25,6 @@
         },
         "minecraft:rideable": {
           "seat_count": 1,
-          "family_types": [
-            "zombie"
-          ],
           "seats": {
             "position": [ 0.0, 1.1, -0.35 ],
             "lock_rider_rotation": 0
@@ -72,9 +69,8 @@
       "minecraft:nameable": {
       },
       "minecraft:burns_in_daylight":{},
-
       "minecraft:type_family": {
-        "family": [ "zombie", "undead", "monster", "mob" ]
+        "family": [ "zombie", "undead", "monster", "mob", "fire" ]
       },
       "minecraft:equip_item": {
       },

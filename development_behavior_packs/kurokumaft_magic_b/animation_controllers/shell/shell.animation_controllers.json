@@ -1,0 +1,55 @@
+{
+  "format_version": "1.20.30",
+  "animation_controllers": {
+    "controller.animation.shell.damage": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "fire": "query.mark_variant == 1" },
+            { "water": "query.mark_variant == 2" },
+            { "lightning": "query.mark_variant == 3" },
+            { "wind": "query.mark_variant == 4" },
+            { "stone": "query.mark_variant == 5" },
+            { "ice": "query.mark_variant == 6" }
+          ]
+        },
+        "fire": {
+          "animations" : [ "fire" ],
+          "transitions": [
+            { "default": "query.variant == 1" }
+          ]
+        },
+        "water": {
+          "animations" : [ "water" ],
+          "transitions": [
+            { "default": "query.variant == 1" }
+          ]
+        },
+        "lightning": {
+          "animations" : [ "lightning" ],
+          "transitions": [
+            { "default": "query.variant == 1" }
+          ]
+        },
+        "wind": {
+          "animations" : [ "wind" ],
+          "transitions": [
+            { "default": "query.variant == 1" }
+          ]
+        },
+        "stone": {
+          "animations" : [ "stone" ],
+          "transitions": [
+            { "default": "query.variant == 1" }
+          ]
+        },
+        "ice": {
+          "animations" : [ "ice" ],
+          "transitions": [
+            { "default": "query.variant == 1" }
+          ]
+        }
+      }
+    }
+  }
+}

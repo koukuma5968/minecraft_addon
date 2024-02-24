@@ -15,5 +15,53 @@
 	},
 	"bakutiku": {
 		"sound": "bamboo"
-	}
+	},
+	"mithril_block" : {
+		"sound" : "amethyst_block",
+		"textures" : "mithril_block"
+	 },
+	 "mithril_cluster" : {
+		"sound" : "amethyst_cluster",
+		"textures" : "mithril_cluster"
+	 },
+	 "budding_mithril" : {
+		"sound" : "amethyst_block",
+		"textures" : "budding_mithril"
+	 },
+	 "large_mithril_bud" : {
+		"sound" : "large_amethyst_bud",
+		"textures" : "large_mithril_bud"
+	 },
+	 "medium_mithril_bud" : {
+		"sound" : "medium_amethyst_bud",
+		"textures" : "medium_mithril_bud"
+	},
+	"small_mithril_bud" : {
+	   "sound" : "small_amethyst_bud",
+	   "textures" : "small_mithril_bud"
+	},
+
+	"kitchen_table": {
+		"sound": "metal"
+	},
+	"onions": {
+		"sound": "grass",
+		"textures": "onions"
+	},
+	"soybeans": {
+		"sound": "grass",
+		"textures": "soybeans"
+	},
+	"chocolate_cake" : {
+		"sound" : "cloth",
+		"textures" : {
+		   "down" : "chocolate_cake_bottom",
+		   "east" : "chocolate_cake_side",
+		   "north" : "chocolate_cake_side",
+		   "south" : "chocolate_cake_side",
+		   "up" : "chocolate_cake_top",
+		   "west" : "chocolate_cake_west"
+		}
+	}  
+
 }

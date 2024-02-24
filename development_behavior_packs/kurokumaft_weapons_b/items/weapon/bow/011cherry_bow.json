@@ -19,8 +19,7 @@
       },
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
-        "texture": "cherry_bow",
-        "frame": 0
+        "texture": "cherry_bow"
       },
       "minecraft:repairable": {
         "repair_items": [

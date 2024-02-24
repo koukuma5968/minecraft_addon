@@ -1,0 +1,12 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "kurokumaft:furnace_carrot"
+    },
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "minecraft:carrot",
+    "output": "kurokumaft:baked_carrot"
+  }
+  
+}

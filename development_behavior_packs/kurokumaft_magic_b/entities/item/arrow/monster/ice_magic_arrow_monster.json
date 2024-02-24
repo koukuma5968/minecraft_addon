@@ -1,0 +1,98 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:ice_magic_arrow_monster",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:arrow"
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "arrow","inanimate" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 2,
+            "knockback": false,
+            "catch_fire": false,
+            "semi_random_diff_damage": false,
+            "max_critical_damage": 10,
+            "min_critical_damage": 9,
+            "power_multiplier": 0.97
+          },
+          "freeze_on_hit": {
+            "size": 5,
+            "shape": "cube"
+          },
+          "mob_effect": {
+            "effect": "slowness",
+            "durationeasy": 25,
+            "durationnormal": 20,
+            "durationhard": 10,
+            "amplifier": 5
+          },
+          "stick_in_ground": {
+            "shake_time" : 0.35
+          },
+          "arrow_effect": {
+          }
+        },
+        "filter": "minecraft:player",
+        "hit_sound": "bow.hit",
+        "power": 3,
+        "gravity": 0.02,
+        "uncertainty_base": 1,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "should_bounce": true,
+        "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:timer": {
+        "time": [2.5,2.5],
+        "time_down_event": { 
+          "event": "despawn"
+        }
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "alert_same_type": true,
+        "entity_types": {
+          "filters": {
+            "test": "is_family","operator": "not", "subject": "other","value": "player"
+          }
+        },
+        "priority": 1
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "despawn": {
+        "run_command": {
+          "command": [
+            "kill @s"
+          ],
+          "target": "self"
+        }
+      }
+    }
+  }
+}

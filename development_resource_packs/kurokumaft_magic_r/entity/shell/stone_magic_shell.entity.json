@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:stone_magic_shell",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/bazooka/shell/stone_magic_shell"
+      },
+      "geometry": {
+        "default": "geometry.magic_shell"
+      },
+      "animations": {
+        "move": "animation.magic_shell.move"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

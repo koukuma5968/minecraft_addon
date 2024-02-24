@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:holly_magic_arrow_monster",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/arrow/holly_magic_arrows"
+      },
+      "geometry": {
+        "default": "geometry.magic_arrow"
+      },
+      "animations": {
+        "move": "animation.magic_arrow.holly_move"
+      },
+      "particle_effects": {
+        "holly_arrow_particle": "kurokumaft:holly_arrow_particle"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

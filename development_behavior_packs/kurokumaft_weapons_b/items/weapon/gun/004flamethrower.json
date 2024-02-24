@@ -11,11 +11,11 @@
     "components": {
       "tag:gun": {},
       "minecraft:durability": {
-        "max_durability": 300
+        "max_durability": 500
       },
       "minecraft:cooldown": {
         "category": "flamethrower",
-        "duration": 5.0
+        "duration": 10.0
       },
       "minecraft:enchantable": {
         "value": 5,
@@ -38,7 +38,7 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
-      "minecraft:use_duration": 9999,
+      "minecraft:use_duration": 5,
       "minecraft:on_use": {
         "on_use": {
           "event": "kurokumaft:fire_charge"
@@ -49,11 +49,15 @@
     },
     "events": {
       "kurokumaft:fire_charge": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":5
+        },
         "run_command": {
           "command": [
             "tag @s add flamethrower_shot",
-            "tag @s add gun_shot",
-            "ride @s summon_rider kurokumaft:flamethrower_entity"
+            "tag @s add gun_shot"
           ],
           "target": "self"
         }

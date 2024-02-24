@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "undead", "magic", "skeleton", "mob" ]
+        "family": [ "undead", "magic", "skeleton", "mob", "fire" ]
       },
       "minecraft:behavior.melee_attack": {
         "priority": 1,
@@ -17,6 +17,8 @@
         "speed_multiplier": 1.25
       },
       "minecraft:nameable": {
+      },
+      "minecraft:burns_in_daylight": {
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -105,14 +107,39 @@
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
-        "reselect_targets": true,
         "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 25.0,
+        "must_see_forget_duration": 17.0,
         "entity_types": [
           {
             "filters": {
-              "test": "is_family","operator": "!=", "subject": "other","value": "monster"
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" }
+              ]
             },
-            "max_dist": 16
+            "max_dist": 35
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "villager" },
+                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+              ]
+            },
+            "max_dist": 35,
+            "must_see": false
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "value": "baby_turtle" },
+                { "test": "in_water", "subject": "other", "operator": "!=", "value": true }
+              ]
+            },
+            "max_dist": 35
           }
         ]
       },

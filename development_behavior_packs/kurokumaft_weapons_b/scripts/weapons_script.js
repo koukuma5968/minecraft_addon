@@ -1,8 +1,10 @@
 import { world } from "@minecraft/server";
-import { ActionFormData,ModalFormData } from "@minecraft/server-ui";
+//import { ActionFormData,ModalFormData } from "@minecraft/server-ui";
 
-var logs = ["minecraft:acacia_log","minecraft:birch_log","minecraft:cherry_log","minecraft:dark_oak_log","minecraft:jungle_log","minecraft:mangrove_log","minecraft:oak_log","minecraft:spruce_log","minecraft:stripped_acacia_log","minecraft:stripped_birch_log","minecraft:stripped_cherry_log","minecraft:stripped_dark_oak_log","minecraft:stripped_jungle_log","minecraft:stripped_mangrove_log","minecraft:stripped_oak_log","minecraft:stripped_spruce_log"];
-var woods = ["minecraft:cherry_wood","minecraft:double_wooden_slab","minecraft:mangrove_wood","minecraft:stripped_cherry_wood","minecraft:stripped_mangrove_wood","minecraft:wood"];
+const logs = ["minecraft:acacia_log","minecraft:birch_log","minecraft:cherry_log","minecraft:dark_oak_log","minecraft:jungle_log","minecraft:mangrove_log","minecraft:oak_log","minecraft:spruce_log","minecraft:stripped_acacia_log","minecraft:stripped_birch_log","minecraft:stripped_cherry_log","minecraft:stripped_dark_oak_log","minecraft:stripped_jungle_log","minecraft:stripped_mangrove_log","minecraft:stripped_oak_log","minecraft:stripped_spruce_log"];
+const woods = ["minecraft:cherry_wood","minecraft:double_wooden_slab","minecraft:mangrove_wood","minecraft:stripped_cherry_wood","minecraft:stripped_mangrove_wood","minecraft:wood"];
+const silkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
+                , "kurokumaft:mithril_cluster","kurokumaft:budding_mithril","kurokumaft:medicinal_plants", "kurokumaft:onions","kurokumaft:soybeans"]
 // var players = new Array();
 
 // world.afterEvents.entityDie.subscribe(event => {
@@ -58,7 +60,14 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
             }
         }
     }
-    if (block.typeId == "kurokumaft:charcoal_block") {
+    // var enc = item.getComponent("minecraft:enchantable");
+    // print(player, JSON.stringify(enc));
+    // var comps = item.getComponents();
+    // for (var i=0;i<comps.length;i++) {
+    //     print(player, comps[i]);
+    //     print(player, JSON.stringify(comps[i]));
+    // }
+    if (silkType.indexOf(block.typeId) != -1) {
         event.cancel = true;
         let commandText =  "execute as @s run setblock " + block.x + " " + block.y + " " + block.z + " air destroy";
         player.runCommandAsync(commandText);
@@ -69,6 +78,13 @@ function print(entity, value) {
     let text = "say \"" + value + "\""
     entity.runCommandAsync(text);
 };
+
+// world.afterEvents.itemDefinitionEvent.subscribe(event => {
+//     var player = event.source;
+//     var item = event.itemStack;
+//     print(player,item.typeId);
+// });
+
 
 // const form = new ActionFormData()
 // .title("Months")

@@ -27,6 +27,70 @@
 		},
 		"medicinal_plants_stage_3": {
 			"textures": "textures/kurokumaft/blocks/crops/medicinal/medicinal_plants_stage_3"
+		},
+
+		"mithril_block" : {
+			"textures" : "textures/kurokumaft/blocks/ore/mithril/mithril_block"
+		},
+		"mithril_cluster" : {
+			"textures" : "textures/kurokumaft/blocks/ore/mithril/mithril_cluster"
+		},
+		"budding_mithril" : {
+			"textures" : "textures/kurokumaft/blocks/ore/mithril/budding_mithril"
+		},
+		"large_mithril_bud" : {
+			"textures" : "textures/kurokumaft/blocks/ore/mithril/large_mithril_bud"
+		},
+		"medium_mithril_bud" : {
+		   "textures" : "textures/kurokumaft/blocks/ore/mithril/medium_mithril_bud"
+		},
+		"small_mithril_bud" : {
+		   "textures" : "textures/kurokumaft/blocks/ore/mithril/small_mithril_bud"
+		},
+
+
+		"kitchen_table": {
+			"textures": "textures/kurokumaft/blocks/work/kitchen_table"
+		},
+
+		"onion_stage_0": {
+			"textures": "textures/kurokumaft/blocks/crops/onion/onion_stage_0"
+		},
+		"onion_stage_1": {
+			"textures": "textures/kurokumaft/blocks/crops/onion/onion_stage_1"
+		},
+		"onion_stage_2": {
+			"textures": "textures/kurokumaft/blocks/crops/onion/onion_stage_2"
+		},
+		"onion_stage_3": {
+			"textures": "textures/kurokumaft/blocks/crops/onion/onion_stage_3"
+		},
+   
+		"soybean_stage_0": {
+			"textures": "textures/kurokumaft/blocks/crops/soy/soybean_stage_0"
+		},
+		"soybean_stage_1": {
+			"textures": "textures/kurokumaft/blocks/crops/soy/soybean_stage_1"
+		},
+		"soybean_stage_2": {
+			"textures": "textures/kurokumaft/blocks/crops/soy/soybean_stage_2"
+		},
+		"soybean_stage_3": {
+			"textures": "textures/kurokumaft/blocks/crops/soy/soybean_stage_3"
+		},
+
+		"chocolate_cake_bottom" : {
+			"textures" : [ "textures/kurokumaft/blocks/food/cake/chocolate_cake_bottom", "textures/kurokumaft/blocks/food/cake/chocolate_cake_bottom" ]
+		},
+		"chocolate_cake_side" : {
+			"textures" : [ "textures/kurokumaft/blocks/food/cake/chocolate_cake_side", "textures/kurokumaft/blocks/food/cake/chocolate_cake_side" ]
+		},
+		"chocolate_cake_top" : {
+			"textures" : [ "textures/kurokumaft/blocks/food/cake/chocolate_cake_top", "textures/kurokumaft/blocks/food/cake/chocolate_cake_top" ]
+		},
+		"chocolate_cake_east" : {
+			"textures" : [ "textures/kurokumaft/blocks/food/cake/chocolate_cake_side", "textures/kurokumaft/blocks/food/cake/chocolate_cake_inner" ]
 		}
+ 
 	}
 }

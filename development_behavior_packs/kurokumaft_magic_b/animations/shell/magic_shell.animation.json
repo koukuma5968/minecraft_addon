@@ -1,0 +1,75 @@
+{
+	"format_version": "1.20.30",
+	"animations": {
+		"animation.magic_shell.hover": {
+			"timeline": {
+			    "0.0": [
+					"/gamerule sendcommandfeedback false",
+					"/tp @s ~~0.1~"
+				]
+			},
+			"animation_length": 0.2,
+			"loop": true
+		},
+		"animation.shell.damage.fire": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:fire_shell ~~~",
+					"/damage @e[family=!shell_stand,r=6] 3 fire"
+				]
+			},
+			"animation_length": 0.2,
+			"loop": true
+		},
+		"animation.shell.damage.water": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:water_shell ~~~",
+					"/damage @e[family=!shell_stand,r=6] 3 drowning"
+				]
+			},
+			"animation_length": 0.2,
+			"loop": true
+		},
+		"animation.shell.damage.lightning": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:lightning_shell ~~~",
+					"/damage @e[family=!shell_stand,r=6] 3 lightning"
+				]
+			},
+			"animation_length": 0.2,
+			"loop": true
+		},
+		"animation.shell.damage.wind": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:wind_shell ~~~",
+					"/damage @e[family=!shell_stand,r=6] 3 fall"
+				]
+			},
+			"animation_length": 0.2,
+			"loop": true
+		},
+		"animation.shell.damage.stone": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:stone_shell ~~~",
+					"/damage @e[family=!shell_stand,r=6] 3 stalagmite"
+				]
+			},
+			"animation_length": 0.2,
+			"loop": true
+		},
+		"animation.shell.damage.ice": {
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:ice_shell ~~~",
+					"/damage @e[family=!shell_stand,r=6] 3 freezing"
+				]
+			},
+			"animation_length": 0.2,
+			"loop": true
+		}
+	}
+}

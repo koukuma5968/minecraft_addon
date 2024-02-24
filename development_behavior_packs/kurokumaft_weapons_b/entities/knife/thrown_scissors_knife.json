@@ -1,0 +1,133 @@
+{
+  "format_version": "1.20.30",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:thrown_scissors_knife",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:arrow"
+    },
+    "component_groups": {
+      "kurokumaft:despawn": {
+        "minecraft:instant_despawn": {}
+      },
+			"kurokumaft:stop": {
+				"minecraft:variant": {
+					"value": 1
+				}
+			}
+		},
+    "components": {
+      "minecraft:variant": {
+        "value": 0
+      },
+      "minecraft:break_blocks": {
+        "breakable_blocks": [
+          "minecraft:azalea_leaves",
+          "minecraft:azalea_leaves_flowered",
+          "minecraft:cherry_leaves",
+          "minecraft:leaves",
+          "minecraft:leaves2",
+          "minecraft:mangrove_leaves",
+          "minecraft:black_wool",
+          "minecraft:blue_wool",
+          "minecraft:brown_wool",
+          "minecraft:cyan_wool",
+          "minecraft:gray_wool",
+          "minecraft:green_wool",
+          "minecraft:light_blue_wool",
+          "minecraft:light_gray_wool",
+          "minecraft:lime_wool",
+          "minecraft:magenta_wool",
+          "minecraft:orange_wool",
+          "minecraft:pink_wool",
+          "minecraft:purple_wool",
+          "minecraft:red_wool",
+          "minecraft:white_wool",
+          "minecraft:yellow_wool"
+        ]
+      },
+      "minecraft:type_family": {
+        "family": [ "inanimate"  ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.25,
+        "height": 1.25
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 4,
+            "knockback": false,
+            "catch_fire": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": false,
+            "max_critical_damage": 10,
+            "min_critical_damage": 9,
+            "power_multiplier": 0.97
+          },
+          "definition_event": {
+						"affect_projectile": false,
+						"event_trigger": {
+						  "event": "kurokumaft:sheep_sheared",
+						  "target": "self"
+						}
+					}
+        },
+        "reflect_on_hurt": true,
+				"hit_sound": "item.trident.hit",
+				"hit_ground_sound": "item.trident.hit_ground",
+        "power": 2,
+        "gravity": 0.05,
+        "uncertainty_base": 1,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "should_bounce": true,
+        "offset": [ 0, 0, 0 ]
+      },
+      "minecraft:timer": {
+        "time": [2.0,2.0],
+        "time_down_event": { 
+          "event": "kurokumaft:despawn"
+        }
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    },
+		"events": {
+      "minecraft:entity_spawned": {
+        "run_command": {
+          "command": [
+            "execute as @p[c=1] run clear @s kurokumaft:scissors_knife 0 1"
+          ],
+          "target": "self"
+        }
+      },
+      "kurokumaft:sheep_sheared": {
+        "run_command": {
+          "command": [
+            "execute if entity @e[family=sheep,r=1.5] as @e[family=sheep,r=1.5] run event entity @s minecraft:on_sheared"
+          ],
+          "target": "self"
+        }
+			},
+      "kurokumaft:despawn": {
+				"add": {
+					"component_groups": ["kurokumaft:despawn" ]
+				}
+      }
+    }
+  }
+}

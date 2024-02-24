@@ -1,0 +1,12 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "kurokumaft:toast_bread"
+    },
+    "tags": ["furnace", "smoker", "campfire", "soul_campfire"],
+    "input": "minecraft:bread",
+    "output": "kurokumaft:toast_bread"
+  }
+  
+}
