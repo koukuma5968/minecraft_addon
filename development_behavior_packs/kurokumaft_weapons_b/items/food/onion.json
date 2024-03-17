@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:onion",
-      "menu_category": {
-        "category": "nature",
-        "group": "itemGroup.name.crop"
-      }
+      "category": "nature"
     },
     "components": {
       "minecraft:display_name": {
@@ -15,10 +12,14 @@
       "minecraft:icon": {
         "texture": "onion"
       },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.crop"
+      },
       "minecraft:use_animation":"eat",
       "minecraft:use_duration": 2,
-      "minecraft:chargeable": {
-        "on_complete": {
+      "minecraft:food": {
+        "nutrition": 1,
+        "on_consume": {
           "event": "kurokumaft:hunger_damage"
         }
       },

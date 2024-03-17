@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:mithril_shovel",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.shovel"
-      }
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
@@ -14,6 +11,9 @@
       },
       "minecraft:icon": {
         "texture": "mithril_shovel"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.shovel"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -189,7 +189,7 @@
         "damage":{
           "type":"durability",
           "target":"self",
-          "amount":3
+          "amount":1
         }
       },
       "kurokumaft:pavement": {
@@ -197,7 +197,7 @@
           "command": [
             "function shovel/pavement"
           ],
-          "target": "player"
+          "target": "block"
         }
       }
     }

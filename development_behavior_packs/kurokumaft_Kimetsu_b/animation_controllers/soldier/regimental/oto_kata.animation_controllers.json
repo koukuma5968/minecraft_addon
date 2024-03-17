@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "animation_controllers": {
     "controller.animation.regimental.oto": {
       "states": {
@@ -34,7 +34,8 @@
             "/effect @s fire_resistance 0"
           ],
           "transitions": [
-            {"default":"variable.regimental_oto = variable.regimental_oto < 20 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"}
+            {"default":"variable.regimental_oto = variable.regimental_oto < 20 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"},
+            {"default":"query.variant == 0"}
           ]
         },
         "oto4":{
@@ -47,7 +48,8 @@
             "/event entity @s mark_variant1"
           ],
           "transitions": [
-            {"oto4_f":"variable.regimental_oto = variable.regimental_oto < 100 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"}
+            {"oto4_f":"variable.regimental_oto = variable.regimental_oto < 100 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"},
+            {"default":"query.variant == 0"}
           ]
         },
         "oto4_f":{
@@ -59,7 +61,8 @@
             "/effect @s fire_resistance 0"
           ],
           "transitions": [
-            {"default":"variable.regimental_oto = variable.regimental_oto < 5 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0 ;"}
+            {"default":"variable.regimental_oto = variable.regimental_oto < 5 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0 ;"},
+            {"default":"query.variant == 0"}
           ]
         },
         "oto5":{
@@ -73,7 +76,8 @@
             "/effect @s fire_resistance 99999 20 true"
           ],
           "transitions": [
-            {"oto5_f":"variable.regimental_oto = variable.regimental_oto < 100 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"}
+            {"oto5_f":"variable.regimental_oto = variable.regimental_oto < 100 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"},
+            {"default":"query.variant == 0"}
           ]
         },
         "oto5_f":{
@@ -86,7 +90,8 @@
             "/effect @s fire_resistance 0"
           ],
           "transitions": [
-            {"default":"variable.regimental_oto = variable.regimental_oto < 5 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"}
+            {"default":"variable.regimental_oto = variable.regimental_oto < 5 ? variable.regimental_oto + 1:0;return variable.regimental_oto == 0;"},
+            {"default":"query.variant == 0"}
           ]
         }
       }

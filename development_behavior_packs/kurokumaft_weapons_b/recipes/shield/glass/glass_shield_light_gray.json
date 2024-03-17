@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:glass_shield_light_gray"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I#I",
+      "I#I",
+      " I "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:light_gray_stained_glass_pane"
+      },
+      "I": {
+        "item": "kurokumaft:mithril_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:glass_shield_light_gray"
+    },
+    "priority": -1
+  } 
+}

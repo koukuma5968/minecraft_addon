@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:malt",
@@ -9,6 +9,9 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:malt.name"
 			},
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.seasoning"
+      },
       "minecraft:icon": {
         "texture": "malt"
       }

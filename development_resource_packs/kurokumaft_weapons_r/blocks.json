@@ -6,6 +6,18 @@
 		"sound": "stone",
 		"textures": "chromium_ore"
 	},
+	"deepslate_chromium_ore": {
+		"sound": "stone",
+		"textures": "deepslate_chromium_ore"
+	},
+	"orichalcum_ore": {
+		"sound": "stone",
+		"textures": "orichalcum_ore"
+	},
+	"deepslate_orichalcum_ore": {
+		"sound": "stone",
+		"textures": "deepslate_orichalcum_ore"
+	},
 	"charcoal_block": {
 		"sound": "stone",
 		"textures": "charcoal_block"
@@ -62,6 +74,5 @@
 		   "up" : "chocolate_cake_top",
 		   "west" : "chocolate_cake_west"
 		}
-	}  
-
+	}
 }

@@ -1,19 +1,19 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fire_magic_shield",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_shield",
-        "lore": "説明"
-      }
+      "category": "equipment"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.magic_shield"
+      },
       "tag:shield": {},
       "tag:fire_shield": {},
       "minecraft:display_name": {
-        "value": "item.kurokumaft:fire_magic_shield.name"
+        "value": "item.kurokumaft:fire_magic_shield.name",
+        "lore": "説明"
       },
       "minecraft:icon":{
         "texture": "fire_magic_shield"

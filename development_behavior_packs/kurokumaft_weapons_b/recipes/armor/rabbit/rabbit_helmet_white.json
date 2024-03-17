@@ -13,6 +13,11 @@
         "item": "minecraft:white_dye"
       }
     ],
+    "unlock": [
+      {
+        "item": "minecraft:rabbit_hide"
+      }
+    ],
     "result": {
       "item": "kurokumaft:rabbit_helmet_white"
     }

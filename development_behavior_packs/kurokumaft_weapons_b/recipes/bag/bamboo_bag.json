@@ -15,6 +15,11 @@
         "item": "kurokumaft:bamboo_fiber"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:bamboo_fiber"
+      }
+    ],
     "result": {
       "item": "kurokumaft:bamboo_bag"
     }

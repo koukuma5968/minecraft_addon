@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:nichirintou",
-      "menu_category": {
-				"category": "equipment",
-        "group": "itemGroup.name.nichirintou"
-			}
+  		"category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
@@ -14,6 +11,9 @@
 			},
       "minecraft:icon": {
         "texture": "nichirintou"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.nichirintou"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {
@@ -27,7 +27,6 @@
           }
         ]
       },
-      
       "minecraft:damage": 6,
       "minecraft:enchantable": {
         "value": 50,
@@ -47,11 +46,8 @@
           }
         ]
       },
-      "minecraft:use_duration": 0.1,
+      "minecraft:use_duration": 1.5,
       "minecraft:chargeable": {
-        "on_complete": {
-          "event": "different_color"
-        }
       },
       "minecraft:weapon": {
         "on_hurt_entity": {
@@ -66,91 +62,6 @@
           "target":"self",
           "amount":5
         }
-      },
-      "different_color": {
-        "randomize": [
-          {
-            "weight": 50,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_mizu"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 30,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_hono"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 20,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_kaze"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 10,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_hana"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 5,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_kaminari"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 5,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_koi"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 5,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_mushi"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 5,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_oto"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 1,
-            "run_command": {
-              "command": [
-                "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:nichirintou_hi"
-              ],
-              "target": "self"
-            }
-          }
-        ]
       }
     }
   }

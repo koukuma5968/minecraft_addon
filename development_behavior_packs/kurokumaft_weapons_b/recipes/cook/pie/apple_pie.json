@@ -16,6 +16,11 @@
         "item": "minecraft:egg"
       }
     ],
+    "unlock": [
+      {
+        "item": "minecraft:apple"
+      }
+    ],
     "result": {
       "item": "kurokumaft:apple_pie"
     }

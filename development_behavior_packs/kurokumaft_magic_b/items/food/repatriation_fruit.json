@@ -1,15 +1,14 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:repatriation_fruit",
-      "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.food"
-      }
+      "category": "items"
     },
-
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.food"
+      },
       "tag:repatriation_fruit": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:repatriation_fruit.name"

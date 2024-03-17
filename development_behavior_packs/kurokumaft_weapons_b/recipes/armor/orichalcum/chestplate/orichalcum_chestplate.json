@@ -15,6 +15,11 @@
         "item": "kurokumaft:orichalcum"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:orichalcum"
+      }
+    ],
     "result": {
       "item": "kurokumaft:orichalcum_chestplate"
     }

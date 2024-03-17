@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item" : {
     "description": {
-        "identifier": "kurokumaft:iron_knuckle",
-        "menu_category": {
-          "category": "equipment",
-          "group": "itemGroup.name.knuckle"
-        }
+      "identifier": "kurokumaft:iron_knuckle",
+      "category": "equipment"
     },
     "components": {
       "tag:minecraft:is_knuckle": {},
@@ -15,6 +12,9 @@
       },
       "minecraft:icon":{
         "texture": "iron_knuckle"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.knuckle"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,

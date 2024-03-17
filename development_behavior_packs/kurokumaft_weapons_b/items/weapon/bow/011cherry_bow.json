@@ -1,17 +1,17 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:cherry_bow",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bow"
-      }
+      "category": "equipment"
     },
     "components": {
       "tag:bow": {},
       "minecraft:durability": {
         "max_durability": 200
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.bow"
       },
       "minecraft:enchantable": {
         "value": 15,

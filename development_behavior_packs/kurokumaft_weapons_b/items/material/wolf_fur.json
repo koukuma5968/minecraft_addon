@@ -1,0 +1,20 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:wolf_fur",
+      "category": "items"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.leather"
+      },
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:wolf_fur.name"
+			},
+      "minecraft:icon": {
+        "texture": "wolf_fur"
+      }
+    }
+  }
+}

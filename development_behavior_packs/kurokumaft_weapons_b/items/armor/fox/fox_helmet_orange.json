@@ -1,0 +1,44 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:fox_helmet_orange",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:fox_helmet_orange.name"
+			},
+      "minecraft:icon": {
+        "texture": "fox_helmet_orange"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.helmet"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 20,
+        "slot": "armor_head"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:fox_helmet_orange" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:durability": {
+        "max_durability": 200,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:wearable": {
+        "protection": 2,
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}

@@ -1,19 +1,19 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:echo_sword",
-        "menu_category": {
-          "category": "equipment",
-          "group": "itemGroup.name.sword"
-        }
-      },
+      "identifier": "kurokumaft:echo_sword",
+      "category": "equipment"
+    },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:echo_sword.name"
 			},
       "minecraft:icon": {
         "texture": "echo_sword"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -40,25 +40,43 @@
       "minecraft:can_destroy_in_creative": false,
       "minecraft:digger": {
         "use_efficiency": true,
+        "on_dig": {
+          "event": "kurokumaft:durability_damage"
+        },
         "destroy_speeds": [
           {
             "block": "minecraft:sculk",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_sensor",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_vein",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_catalyst",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_shrieker",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 5
           }
         ]
@@ -89,8 +107,7 @@
                 "execute as @e[r=4.5] positioned ^ ^1.6 ^2.4 run damage @s 2 magic"
               ],
               "target": "self"
-            },
-            "trigger": "kurokumaft:hurt_entity"
+            }
           },
           {
             "run_command": {
@@ -99,8 +116,7 @@
                 "execute at @e[r=4.5] positioned ^ ^1.2 ^2.4 run damage @s 2 magic"
               ],
               "target": "self"
-            },
-            "trigger": "kurokumaft:hurt_entity"
+            }
           },
           {
             "run_command": {
@@ -109,8 +125,10 @@
                 "execute at @e[r=4.5] positioned ^ ^2.0 ^2.4 run damage @s 2 magic"
               ],
               "target": "self"
-            },
-            "trigger": "kurokumaft:hurt_entity"
+            }
+          },
+          {
+            "trigger": "kurokumaft:durability_damage"
           }
         ]
       },
@@ -126,9 +144,9 @@
           "angle_offset": 0,
           "launch_power":1
         },
-        "trigger": "kurokumaft:hurt_entity"
+        "trigger": "kurokumaft:durability_damage"
       },
-      "kurokumaft:hurt_entity": {
+      "kurokumaft:durability_damage": {
         "damage":{
           "type":"durability",
           "target":"self",

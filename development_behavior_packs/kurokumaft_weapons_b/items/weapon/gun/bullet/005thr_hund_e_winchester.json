@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:thr_hund_e_winchester",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bullet"
-      }
+      "category": "equipment"
     },
     "components": {
       "tag:bullet": {},
@@ -17,6 +14,9 @@
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
         "value": "item.kurokumaft:thr_hund_e_winchester.name"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.bullet"
       },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:thr_hund_e_winchester_entity"

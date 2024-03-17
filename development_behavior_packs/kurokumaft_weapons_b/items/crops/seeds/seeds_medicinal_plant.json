@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:seeds_medicinal_plant",
-      "menu_category": {
-        "category": "nature",
-        "group": "itemGroup.name.seeds"
-      }
+      "category": "nature"
     },
     "components": {
       "minecraft:display_name": {
@@ -14,6 +11,9 @@
 			},
       "minecraft:icon": {
         "texture": "seeds_medicinal_plant"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.seeds"
       },
       "minecraft:block_placer": {
         "block": "medicinal_plants",

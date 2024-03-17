@@ -13,6 +13,11 @@
         "item": "kurokumaft:apple_jam"
       }
     ],
+    "unlock": [
+      {
+        "item": "kurokumaft:toast_bread"
+      }
+    ],
     "result": {
       "item": "kurokumaft:apple_jam_bread"
     }

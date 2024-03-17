@@ -16,6 +16,11 @@
         "item": "minecraft:honey_bottle"
       }
     ],
+    "unlock": [
+      {
+        "item": "minecraft:honey_bottle"
+      }
+    ],
     "result": {
       "item": "kurokumaft:glow_berries_jam"
     }

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "kurokumaft:netherite_shield"
+    },
+    "tags": [ "smithing_table" ],
+    "template": "minecraft:netherite_upgrade_smithing_template",
+    "base": "kurokumaft:diamond_shield",
+    "addition": "minecraft:netherite_ingot",
+    "result": "kurokumaft:netherite_shield"
+  }
+}

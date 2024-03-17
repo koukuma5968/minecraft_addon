@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:nichirintou_tanjiro",
-      "menu_category": {
-				"category": "equipment",
-        "group": "itemGroup.name.nichirintou"
-			}
+  		"category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
@@ -14,6 +11,9 @@
 			},
       "minecraft:icon": {
         "texture": "nichirintou_tanjiro"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.nichirintou"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,

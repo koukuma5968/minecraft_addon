@@ -19,6 +19,11 @@
                 "item": "minecraft:cobblestone"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:cobblestone"
+            }
+        ],
         "result": {
             "item": "kurokumaft:millstone",
             "count": 1

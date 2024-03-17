@@ -1,19 +1,19 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:amethyst_sword",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.sword"
-      }
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:amethyst_sword.name"
 			},
       "minecraft:icon": {
-          "texture": "amethyst_sword"
+        "texture": "amethyst_sword"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
       },
       "minecraft:glint": true,
       "minecraft:max_stack_size": 1,
@@ -41,24 +41,27 @@
       "minecraft:can_destroy_in_creative": false,
       "minecraft:digger": {
         "use_efficiency": true,
+        "on_dig": {
+          "event": "kurokumaft:durability_damage"
+        },
         "destroy_speeds": [
           {
             "block": "minecraft:stone",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 15
           }
-        ],
-        "on_dig": {
-          "event": "kurokumaft:hurt_entity"
-        }
+        ]
       },
       "minecraft:weapon": {
           "on_hurt_entity": {
-              "event": "kurokumaft:hurt_entity"
+              "event": "kurokumaft:durability_damage"
           }
       }
     },
     "events": {
-      "kurokumaft:hurt_entity": {
+      "kurokumaft:durability_damage": {
         "damage":{
           "type":"durability",
           "target":"self",

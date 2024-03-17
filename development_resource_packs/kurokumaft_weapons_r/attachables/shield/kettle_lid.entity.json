@@ -3,6 +3,9 @@
   "minecraft:attachable": {
     "description": {
       "identifier": "kurokumaft:kettle_lid",
+			"item": {
+				"kurokumaft:kettle_lid": "query.owner_identifier == 'minecraft:player'"
+			},
       "materials": {
         "default": "entity_alphatest",
         "enchanted": "entity_alphatest_glint"

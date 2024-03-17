@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:glass_shield_magenta"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I#I",
+      "I#I",
+      " I "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:magenta_stained_glass_pane"
+      },
+      "I": {
+        "item": "kurokumaft:mithril_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:glass_shield_magenta"
+    },
+    "priority": -1
+  } 
+}

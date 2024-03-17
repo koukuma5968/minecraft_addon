@@ -1,0 +1,26 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:fox_helmet_orange"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "kurokumaft:fox_fur"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:fox_fur"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:fox_helmet_orange"
+    }
+  }
+}

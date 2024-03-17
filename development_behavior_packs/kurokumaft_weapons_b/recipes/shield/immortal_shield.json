@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:immortal_shield"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I#I",
+      "ITI",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:gilded_blackstone"
+      },
+      "I": {
+        "item": "minecraft:copper_ingot"
+      },
+      "T": {
+        "item": "minecraft:totem"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:immortal_shield"
+    },
+    "priority": -1
+  } 
+}

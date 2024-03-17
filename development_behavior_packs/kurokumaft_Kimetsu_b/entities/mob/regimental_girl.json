@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:regimental_girl",
@@ -67,7 +67,7 @@
       "kurokumaft:kokyu_reset": {
         "minecraft:timer": {
           "time": 5.0,
-          "looping": false,
+          "looping": true,
           "time_down_event": {
             "event": "kurokumaft:random_kokyu",
             "target": "self"

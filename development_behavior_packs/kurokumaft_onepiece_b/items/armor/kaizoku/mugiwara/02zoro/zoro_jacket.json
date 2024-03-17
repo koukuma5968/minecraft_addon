@@ -1,11 +1,11 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:zoro_jacket",
       "menu_category": {
         "category": "equipment",
-        "group": "itemGroup.name.chestplate"
+        "parent": "itemGroup.name.chestplate"
       }
     },
     "components": {

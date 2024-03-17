@@ -1,10 +1,10 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "鬼滅の刃Bv3",
+		"name": "鬼滅の刃Bv3.1",
 		"description": "鬼滅の刃version3 日輪刀/キャラクターアドオン ビヘイビアーパック",
 		"uuid": "d174c416-a595-4bfc-86d3-0d993dd8b45c",
-		"version": [3, 0, 0],
+		"version": [3, 0, 1],
 		"min_engine_version": [1, 20, 30]
 	},
 	"modules": [
@@ -12,13 +12,26 @@
 			"description": "鬼滅の刃アドオン",
 			"type": "data",
 			"uuid": "445c582c-656e-42e5-ab25-72acfa3f761e",
-			"version": [3, 0, 0]
+			"version": [3, 0, 1]
+		},
+		{
+			"description": "鬼滅の刃アドオンscripting",
+			"type": "script",
+			"language": "javascript",
+			"uuid": "6e2c0627-c64d-414a-8bcc-94c249c6f89e",
+			"version": [1,0,0],
+			"entry": "scripts/kimetu_script.js"
 		}
+
 	],
 	"dependencies": [
 		{
 			"uuid": "7d00f465-dd97-4d70-a72b-df79443c2a6c",
-			"version": [3, 0, 0]
+			"version": [3, 0, 1]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.8.0"
 		}
 	]
 }

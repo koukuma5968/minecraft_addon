@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:shinobu_head",
-      "menu_category": {
-				"category": "items",
-        "group": "itemGroup.name.skull"
-			}
+			"category": "items"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.skull"
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:shinobu_head.name"
 			},

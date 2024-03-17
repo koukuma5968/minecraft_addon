@@ -1,0 +1,31 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.steel_shield",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
+			},
+			"bones": [
+				{
+					"name": "shield",
+					"pivot": [1, 15.5, 3],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
+					"cubes": [
+						{"origin": [-3.5, 39.5, -1.5], "size": [9, 1, 2], "uv": [25, 11]},
+						{"origin": [-4, 19, -1], "size": [10, 20, 1], "inflate": 0.5, "uv": [0, 0]},
+						{"origin": [-7, 29, -1], "size": [16, 8, 1], "inflate": 0.5, "uv": [26, 14]},
+						{"origin": [-3, 16, -1], "size": [8, 2, 1], "inflate": 0.5, "uv": [2, 21]},
+						{"origin": [0, 25, 0], "size": [2, 6, 6], "uv": [26, 0]},
+						{"origin": [-0.5, 31.5, -2], "size": [3, 5, 1], "uv": [55, 0]},
+						{"origin": [-1.5, 32.5, -2], "size": [5, 3, 1], "uv": [43, 0]}
+					]
+				}
+			]
+		}
+	]
+}

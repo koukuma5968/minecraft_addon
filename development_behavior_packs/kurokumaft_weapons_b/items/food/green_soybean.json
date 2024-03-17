@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:green_soybean",
-      "menu_category": {
-        "category": "nature",
-        "group": "itemGroup.name.crop"
-      }
+      "category": "nature"
     },
     "components": {
       "minecraft:display_name": {
@@ -15,10 +12,14 @@
       "minecraft:icon": {
         "texture": "green_soybean"
       },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.crop"
+      },
       "minecraft:use_animation":"eat",
       "minecraft:use_duration": 1,
-      "minecraft:chargeable": {
-        "on_complete": {
+      "minecraft:food": {
+        "nutrition": 2,
+        "on_consume": {
           "event": "kurokumaft:night_vision_eye"
         }
       }

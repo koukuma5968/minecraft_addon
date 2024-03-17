@@ -1,17 +1,17 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:bamboo_bag",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bag"
-      }
+      "category": "equipment"
     },
     "components": {
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
         "texture": "bamboo_bag"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.bag"
       },
       "minecraft:entity_placer": {
         "entity": "kurokumaft:bamboo_bag"

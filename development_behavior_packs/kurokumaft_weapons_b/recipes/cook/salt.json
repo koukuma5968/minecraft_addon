@@ -13,6 +13,11 @@
         "item": "minecraft:water_bucket"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:water_bucket"
+      }
+    ],
     "result": [
       { "item": "kurokumaft:salt", "count": 4 },
       { "item": "minecraft:bucket", "count": 1, "data": 0 }

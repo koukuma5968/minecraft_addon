@@ -1,8 +1,6 @@
-execute at @s if block ^0 ^0 ^1 dirt run setblock ^0 ^0 ^1 grass_path
-execute at @s if block ^0 ^0 ^2 dirt run setblock ^0 ^0 ^2 grass_path
-execute at @s if block ^0 ^1 ^1 dirt run setblock ^0 ^1 ^1 grass_path
-execute at @s if block ^0 ^1 ^2 dirt run setblock ^0 ^1 ^2 grass_path
-execute at @s if block ^0 ^0 ^1 grass run setblock ^0 ^0 ^1 grass_path
-execute at @s if block ^0 ^0 ^2 grass run setblock ^0 ^0 ^2 grass_path
-execute at @s if block ^0 ^1 ^1 grass run setblock ^0 ^1 ^1 grass_path
-execute at @s if block ^0 ^1 ^2 grass run setblock ^0 ^1 ^2 grass_path
+execute if block ~~~ dirt run setblock ~~~ grass_path
+execute if block ~~~ grass run setblock ~~~ grass_path
+execute if block ~~~ farmland run setblock ~~~ grass_path
+execute if block ~~~ podzol run setblock ~~~ grass_path
+execute if block ~~~ dirt ["dirt_type"="coarse"] run setblock ~~~ grass_path
+execute if block ~~~ dirt_with_roots run setblock ~~~ grass_path

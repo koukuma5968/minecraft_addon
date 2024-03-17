@@ -1,11 +1,11 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wooden_bucket_miso",
       "menu_category": {
         "category": "items",
-        "group": "itemGroup.name.wooden_bucket"
+        "parent": "itemGroup.name.wooden_bucket"
       }
     },
     "components": {

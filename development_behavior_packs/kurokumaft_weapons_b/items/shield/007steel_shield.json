@@ -1,0 +1,41 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:steel_shield",
+      "category": "equipment"
+    },
+    "components": {
+      "tag:shield": {},
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.shield"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:steel_shield.name"
+      },
+      "minecraft:icon":{
+        "texture": "steel_shield"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "minecraft:steel_ingot" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:allow_off_hand": true,
+      "minecraft:durability": {
+        "max_durability": 500,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:wearable": {
+        "slot": "slot.weapon.offhand"
+      }
+    }
+  }
+}

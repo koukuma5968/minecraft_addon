@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:wolf_helmet_black"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:wolf_helmet_white"
+      },
+      {
+        "item": "minecraft:white_dye"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "kurokumaft:wolf_fur"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:wolf_helmet_black"
+    }
+  }
+}

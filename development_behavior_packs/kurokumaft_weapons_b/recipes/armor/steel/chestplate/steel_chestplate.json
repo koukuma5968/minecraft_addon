@@ -15,6 +15,11 @@
         "item": "kurokumaft:steel_ingot"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:steel_ingot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:steel_chestplate"
     }

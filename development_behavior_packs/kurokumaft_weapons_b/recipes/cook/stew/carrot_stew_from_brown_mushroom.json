@@ -23,6 +23,11 @@
         "item": "minecraft:cooked_chicken"
       }
     ],
+    "unlock": [
+      {
+        "item": "kurokumaft:baked_carrot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:carrot_stew"
     }

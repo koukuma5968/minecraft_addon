@@ -18,6 +18,11 @@
         "item": "kurokumaft:chocolate"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:chocolate"
+      }
+    ],
     "result": [
       { "item": "kurokumaft:milk_chocolate", "count": 5 },
       { "item": "minecraft:bucket", "count": 1, "data": 0 }

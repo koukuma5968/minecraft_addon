@@ -1,0 +1,29 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:blueice_shield"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I#I",
+      "I#I",
+      " d "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:blue_ice"
+      },
+      "I": {
+        "item": "kurokumaft:steel_ingot"
+      },
+      "d": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:blueice_shield"
+    },
+    "priority": -1
+  } 
+}

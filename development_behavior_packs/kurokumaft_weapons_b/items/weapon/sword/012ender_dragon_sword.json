@@ -1,19 +1,19 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:ender_dragon_sword",
-        "menu_category": {
-          "category": "equipment",
-          "group": "itemGroup.name.sword"
-        }
-      },
+      "identifier": "kurokumaft:ender_dragon_sword",
+      "category": "equipment"
+    },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:ender_dragon_sword.name"
 			},
       "minecraft:icon": {
-          "texture": "ender_dragon_sword"
+        "texture": "ender_dragon_sword"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
       },
       "minecraft:cooldown": {
         "category": "dragon_fireball",
@@ -40,10 +40,23 @@
       "minecraft:can_destroy_in_creative": false,
       "minecraft:digger": {
         "use_efficiency": true,
+        "on_dig": {
+          "event": "kurokumaft:durability_damage"
+        },
         "destroy_speeds": [
           {
             "block": "minecraft:web",
-            "speed": 5
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
+            "speed": 15
+          },
+          {
+            "block": "minecraft:bamboo",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
+            "speed": 10
           }
         ]
       },
@@ -79,7 +92,7 @@
               ],
               "target": "other"
             },
-            "trigger": "kurokumaft:hurt_entity"
+            "trigger": "kurokumaft:durability_damage"
           }
         ]
       },
@@ -87,9 +100,10 @@
         "shoot": {
           "projectile": "kurokumaft:dragon_fireball_2",
           "launch_power": 0.25
-        }
+        },
+        "trigger": "kurokumaft:durability_damage"
       },
-      "kurokumaft:hurt_entity": {
+      "kurokumaft:durability_damage": {
         "damage":{
           "type":"durability",
           "target":"self",

@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:glow_berries_jam",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.miscFood"
-      }
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
@@ -14,6 +11,9 @@
 			},
       "minecraft:icon": {
         "texture": "glow_berries_jam"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.miscFood"
       },
       "minecraft:glint": true,
       "minecraft:use_animation":"eat",

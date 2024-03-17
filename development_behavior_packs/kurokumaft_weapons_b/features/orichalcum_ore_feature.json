@@ -1,0 +1,22 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:ore_feature": {
+    "description": {
+      "identifier": "kurokumaft:orichalcum_ore_feature"
+    },
+    "count": 5,
+    "replace_rules": [
+      {
+        "places_block": "kurokumaft:orichalcum_ore",
+        "may_replace": [
+          {
+            "name": "minecraft:stone"
+          },
+          {
+            "name": "minecraft:gold_ore"
+          }
+        ]
+      }
+    ]
+  }
+}

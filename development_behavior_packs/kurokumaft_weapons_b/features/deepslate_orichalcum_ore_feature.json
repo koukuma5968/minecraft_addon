@@ -1,0 +1,22 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:ore_feature": {
+    "description": {
+      "identifier": "kurokumaft:deepslate_orichalcum_ore_feature"
+    },
+    "count": 5,
+    "replace_rules": [
+      {
+        "places_block": "kurokumaft:deepslate_orichalcum_ore",
+        "may_replace": [
+          {
+            "name": "minecraft:deepslate"
+          },
+          {
+            "name": "minecraft:deepslate_gold_ore"
+          }
+        ]
+      }
+    ]
+  }
+}

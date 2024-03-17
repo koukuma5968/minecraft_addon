@@ -10,6 +10,15 @@
 		"chromium_ore": {
 			"textures": "textures/kurokumaft/blocks/ore/chromium_ore"
 		},
+		"deepslate_chromium_ore": {
+			"textures": "textures/kurokumaft/blocks/ore/deepslate_chromium_ore"
+		},
+		"orichalcum_ore": {
+			"textures": "textures/kurokumaft/blocks/ore/orichalcum_ore"
+		},
+		"deepslate_orichalcum_ore": {
+			"textures": "textures/kurokumaft/blocks/ore/deepslate_orichalcum_ore"
+		},
 		"charcoal_block": {
 			"textures": "textures/kurokumaft/blocks/crops/charcoal_block"
 		},
@@ -91,6 +100,5 @@
 		"chocolate_cake_east" : {
 			"textures" : [ "textures/kurokumaft/blocks/food/cake/chocolate_cake_side", "textures/kurokumaft/blocks/food/cake/chocolate_cake_inner" ]
 		}
- 
 	}
 }

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:axolotl_helmet_cyan"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XAX",
+      "XDX"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:leather"
+      },
+      "A": {
+        "item": "minecraft:axolotl_bucket"
+      },
+      "D": {
+        "item": "minecraft:cyan_dye"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:axolotl_bucket"
+      }
+    ],
+    "result": [
+      { "item": "kurokumaft:axolotl_helmet_cyan", "count": 1 },
+      { "item": "minecraft:bucket", "count": 1, "data": 0 }
+    ]
+  }
+}

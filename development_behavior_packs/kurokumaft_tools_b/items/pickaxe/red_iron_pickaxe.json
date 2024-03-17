@@ -1,11 +1,11 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:red_iron_pickaxe",
       "menu_category": {
         "category": "equipment",
-        "group": "itemGroup.name.pickaxe"
+        "parent": "itemGroup.name.pickaxe"
       }
     },
     "components": {      

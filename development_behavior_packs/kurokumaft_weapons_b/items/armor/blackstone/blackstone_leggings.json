@@ -1,19 +1,19 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:blackstone_leggings",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
-      }
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:blackstone_leggings.name"
 			},
       "minecraft:icon": {
-          "texture": "blackstone_leggings"
+        "texture": "blackstone_leggings"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.leggings"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:enchantable": {

@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:ice_magic_shield",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_shield"
-      }
+      "category": "equipment"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.magic_shield"
+      },
       "tag:shield": {},
       "tag:ice_shield": {},
       "minecraft:display_name": {

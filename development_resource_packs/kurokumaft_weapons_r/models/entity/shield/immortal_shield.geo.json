@@ -1,0 +1,39 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.immortal_shield",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "shield",
+					"pivot": [1, 15.5, 3],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
+					"cubes": [
+						{"origin": [0, 25, 0], "size": [2, 6, 6], "uv": [26, 0]},
+						{"origin": [-5, 17, -1], "size": [12, 22, 1], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "totem",
+					"parent": "shield",
+					"pivot": [1, 15.5, 3],
+					"cubes": [
+						{"origin": [-2, 34.5, -2], "size": [6, 1, 1], "uv": [8, 25]},
+						{"origin": [-3, 23.5, -2], "size": [8, 11, 1], "uv": [6, 27]},
+						{"origin": [-2, 21.5, -2], "size": [6, 2, 1], "uv": [7, 39]},
+						{"origin": [-6, 26.5, -2], "size": [14, 2, 1], "uv": [27, 35]},
+						{"origin": [-1, 20.5, -2], "size": [4, 1, 1], "uv": [6, 43]},
+						{"origin": [-5, 25.5, -2], "size": [12, 1, 1], "uv": [31, 38]}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.30",
+    "format_version": "1.20.10",
     "minecraft:feature_rules": {
         "description": {
             "identifier": "kurokumaft:chromium_ore_feature_rules",
@@ -34,7 +34,7 @@
             },
             "y": {
                 "distribution": "uniform",
-                "extent": [ -64, 100 ]
+                "extent": [ 0, 100 ]
             },
             "z": {
               "distribution": "uniform",

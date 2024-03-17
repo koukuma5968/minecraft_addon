@@ -14,6 +14,11 @@
             "item": "minecraft:fermented_spider_eye"
         }
     ],
+    "unlock": [
+      {
+        "item": "kurokumaft:medicinal_plant"
+      }
+    ],
     "result": {
       "item": "kurokumaft:poisonous_plant",
       "count": 1

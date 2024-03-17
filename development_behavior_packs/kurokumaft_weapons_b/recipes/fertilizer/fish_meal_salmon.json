@@ -11,6 +11,11 @@
                 "item": "minecraft:cooked_salmon"
             }
         ],
+        "unlock": [
+            {
+              "item": "minecraft:cooked_salmon"
+            }
+        ],
         "result": {
           "item": "kurokumaft:fish_meal",
           "count": 4

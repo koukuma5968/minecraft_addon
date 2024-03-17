@@ -13,6 +13,11 @@
         "item": "kurokumaft:glow_berries_jam"
       }
     ],
+    "unlock": [
+      {
+        "item": "kurokumaft:toast_bread"
+      }
+    ],
     "result": {
       "item": "kurokumaft:glow_berries_jam_bread"
     }

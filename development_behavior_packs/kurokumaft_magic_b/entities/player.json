@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:player",
@@ -436,15 +436,37 @@
                       {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"},
                       {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"},
                       {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "magic"}
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
                     ]
                   }
                 ]
               }
             },
             "cause": "all",
-            "deals_damage": false,
-            "on_damage_sound_event": "item.shield.block"
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {
+                    "any_of" :[
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "main_shield_guard"},
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
+                    ]
+                  },
+                  {
+                    "any_of" :[
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"}
+                    ]
+                  }
+                ]
+              }
+            },
+            "cause": "block_explosion",
+            "damage_modifier": -20,
+            "deals_damage": true
           },
           {
             "on_damage": {

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:chicken_helmet_white"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "XXX",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:feather"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:feather"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:chicken_helmet_white"
+    }
+  }
+}

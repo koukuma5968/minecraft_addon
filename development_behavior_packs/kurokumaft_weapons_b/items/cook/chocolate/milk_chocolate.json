@@ -1,12 +1,9 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:milk_chocolate",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.miscFood"
-      }
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
@@ -15,11 +12,16 @@
       "minecraft:icon": {
         "texture": "milk_chocolate"
       },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.miscFood"
+      },
       "minecraft:use_animation":"eat",
       "minecraft:max_stack_size": 32,
       "minecraft:use_duration": 1,
-      "minecraft:chargeable": {
-        "on_complete": {
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 1,
+        "on_consume": {
           "event": "kurokumaft:effect_clear"
         }
       }

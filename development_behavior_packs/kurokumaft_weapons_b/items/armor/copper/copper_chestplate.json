@@ -1,19 +1,19 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:copper_chestplate",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.chestplate"
-      }
+      "category": "equipment"
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:copper_chestplate.name"
 			},
       "minecraft:icon": {
-          "texture": "copper_chestplate"
+        "texture": "copper_chestplate"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.chestplate"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:enchantable": {

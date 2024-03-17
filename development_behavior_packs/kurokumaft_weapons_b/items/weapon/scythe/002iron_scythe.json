@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:iron_scythe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.scythe"
-      }
+      "category": "equipment"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.scythe"
+      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 3,
 		  "minecraft:weapon": {
@@ -19,9 +19,20 @@
           "event":"kurokumaft:iron_scythe"
         }
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "kurokumaft:wood_sickle"
+            ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
       "minecraft:on_use": {
         "on_use": {
-          "event": "use_trigger"
+          "condition": "!query.is_sneaking",
+          "event": "circle_scythe"
         }
       },
       "minecraft:enchantable": {
@@ -61,20 +72,8 @@
             "damage":{
               "type":"durability",
               "target":"self",
-              "amount":5
+              "amount":1
             }
-          }
-        ]
-      },
-      "use_trigger": {
-        "sequence":[
-          {
-            "condition": "!query.is_sneaking",
-            "trigger": "circle_scythe"
-          },
-          {
-            "condition": "query.is_sneaking",
-            "trigger": "change_sickle"
           }
         ]
       },
@@ -93,15 +92,7 @@
         "damage":{
           "type":"durability",
           "target":"self",
-          "amount":15
-        }
-      },
-      "change_sickle": {
-        "run_command": {
-          "command": [
-            "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:iron_sickle"
-          ],
-          "target": "player"
+          "amount":1
         }
       }
     }

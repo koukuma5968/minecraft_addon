@@ -14,6 +14,12 @@
         "data": 1
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:bucket",
+        "data": 1
+      }
+    ],
     "result": [
       { "item": "kurokumaft:cheese" },
       { "item": "minecraft:bucket", "count": 1, "data": 0 }

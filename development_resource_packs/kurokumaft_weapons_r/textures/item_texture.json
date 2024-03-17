@@ -370,6 +370,78 @@
       "cherry_shield" : {
          "textures" : "textures/kurokumaft/items/shield/cherry_shield"
       },
+      "diamond_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/diamond_shield"
+      },
+      "netherite_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/netherite_shield"
+      },
+      "magma_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/magma_shield"
+      },
+      "blueice_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/blueice_shield"
+      },
+      "steel_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/steel_shield"
+      },
+      "tnt_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/tnt_shield"
+      },
+      "immortal_shield" : {
+         "textures" : "textures/kurokumaft/items/shield/immortal_shield"
+      },
+      "glass_shield_clear" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_clear"
+      },
+      "glass_shield_black" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_black"
+      },
+      "glass_shield_blue" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_blue"
+      },
+      "glass_shield_brown" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_brown"
+      },
+      "glass_shield_cyan" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_cyan"
+      },
+      "glass_shield_yellow" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_yellow"
+      },
+      "glass_shield_gray" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_gray"
+      },
+      "glass_shield_green" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_green"
+      },
+      "glass_shield_light_blue" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_light_blue"
+      },
+      "glass_shield_lime" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_lime"
+      },
+      "glass_shield_magenta" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_magenta"
+      },
+      "glass_shield_orange" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_orange"
+      },
+      "glass_shield_pink" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_pink"
+      },
+      "glass_shield_purple" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_purple"
+      },
+      "glass_shield_red" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_red"
+      },
+      "glass_shield_light_gray" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_light_gray"
+      },
+      "glass_shield_white" : {
+         "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_white"
+      },
 
       "chromium_nugget" : {
          "textures" : "textures/kurokumaft/items/material/chromium_nugget"
@@ -481,6 +553,37 @@
       },
       "rabbit_helmet_white": {
          "textures" : "textures/kurokumaft/items/armor/rabbit/rabbit_helmet_white"
+      },
+
+      "wolf_helmet_white": {
+         "textures" : "textures/kurokumaft/items/armor/wolf/wolf_helmet_white"
+      },
+      "wolf_helmet_black": {
+         "textures" : "textures/kurokumaft/items/armor/wolf/wolf_helmet_black"
+      },
+
+      "chicken_helmet_white": {
+         "textures" : "textures/kurokumaft/items/armor/chicken/chicken_helmet_white"
+      },
+
+      "fox_helmet_orange": {
+         "textures" : "textures/kurokumaft/items/armor/fox/fox_helmet_orange"
+      },
+
+      "axolotl_helmet_blue": {
+         "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_blue"
+      },
+      "axolotl_helmet_cyan": {
+         "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_cyan"
+      },
+      "axolotl_helmet_gold": {
+         "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_gold"
+      },
+      "axolotl_helmet_lucy": {
+         "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_lucy"
+      },
+      "axolotl_helmet_wild": {
+         "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_wild"
       },
 
       "fish_meal" : {
@@ -608,6 +711,13 @@
       },
       "glow_berries_jam_bread" : {
          "textures" : "textures/kurokumaft/items/cook/bread/glow_berries_jam_bread"
+      },
+
+      "wolf_fur" : {
+         "textures" : "textures/kurokumaft/items/material/wolf_fur"
+      },
+      "fox_fur" : {
+         "textures" : "textures/kurokumaft/items/material/fox_fur"
       },
 
       "apple_jam" : {

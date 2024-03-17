@@ -28,6 +28,11 @@
         "item": "minecraft:egg"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:chocolate"
+      }
+    ],
     "result": [
       { "item": "kurokumaft:chocolate_cake" },
       { "item": "minecraft:bucket", "count": 1, "data": 0 }

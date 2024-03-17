@@ -13,6 +13,8 @@ item.kurokumaft:steel_spear.name=スチールスピアー
 item.kurokumaft:blaze_spear.name=ブレイズスピアー
 item.kurokumaft:mithril_spear.name=ミスリルスピアー
 
+entity.kurokumaft:thrown_mithril_spear.name=ミスリルスピアー
+
 item.kurokumaft:copper_spear.name=ブロンズスピアー
 item.kurokumaft:granite_spear.name=御影石のやり
 item.kurokumaft:diorite_spear.name=閃緑岩のやり
@@ -159,6 +161,30 @@ item.kurokumaft:netherite_knuckle.name=ネザライトナックル
 item.kurokumaft:kettle_lid.name=なべぶた	#
 item.kurokumaft:copper_shield.name=銅の盾	#
 item.kurokumaft:cherry_shield.name=桜の盾	#
+item.kurokumaft:diamond_shield.name=ダイヤモンドの盾	#
+item.kurokumaft:netherite_shield.name=ネザライトの盾	#
+item.kurokumaft:magma_shield.name=マグマシールド	#
+item.kurokumaft:blueice_shield.name=ブルーアイスシールド	#
+item.kurokumaft:steel_shield.name=鋼の盾	#
+item.kurokumaft:tnt_shield.name=TNTシールド	#
+item.kurokumaft:immortal_shield.name=不死守の盾	#
+item.kurokumaft:glass_shield_clear.name=ミラーシールド	#
+item.kurokumaft:glass_shield_yellow.name=ミラーシールド（イエロー）	#
+item.kurokumaft:glass_shield_black.name=ミラーシールド（ブラック）	#
+item.kurokumaft:glass_shield_blue.name=ミラーシールド（ブルー）	#
+item.kurokumaft:glass_shield_brown.name=ミラーシールド（ブラウン）	#
+item.kurokumaft:glass_shield_cyan.name=ミラーシールド（シアン）	#
+item.kurokumaft:glass_shield_gray.name=ミラーシールド（グレイ）	#
+item.kurokumaft:glass_shield_green.name=ミラーシールド（グリーン）	#
+item.kurokumaft:glass_shield_light_blue.name=ミラーシールド（ライトブルー）	#
+item.kurokumaft:glass_shield_lime.name=ミラーシールド（ライム）	#
+item.kurokumaft:glass_shield_magenta.name=ミラーシールド（マゼンタ）	#
+item.kurokumaft:glass_shield_orange.name=ミラーシールド（オレンジ）	#
+item.kurokumaft:glass_shield_pink.name=ミラーシールド（ピンク）	#
+item.kurokumaft:glass_shield_purple.name=ミラーシールド（パープル）	#
+item.kurokumaft:glass_shield_red.name=ミラーシールド（レッド）	#
+item.kurokumaft:glass_shield_light_gray.name=ミラーシールド（ライトグレイ）	#
+item.kurokumaft:glass_shield_white.name=ミラーシールド（ホワイト）	#
 
 item.kurokumaft:chromium_nugget.name=クロム塊
 item.kurokumaft:lead_nugget.name=鉛塊
@@ -181,6 +207,10 @@ item.kurokumaft:poisonous_plant.name=毒草
 item.kurokumaft:fish_meal.name=魚粉
 
 tile.kurokumaft:chromium_ore.name=クロム鉱石
+tile.kurokumaft:deepslate_chromium_ore.name=深層岩クロム鉱石
+tile.kurokumaft:orichalcum_ore.name=オリハルコン鉱石
+tile.kurokumaft:deepslate_orichalcum_ore.name=深層岩オリハルコン鉱石
+
 tile.kurokumaft:charcoal_block.name=木炭ブロック
 
 tile.kurokumaft:medicinal_plants.name=薬草
@@ -229,9 +259,6 @@ item.kurokumaft:cherry_helmet.name=桜のヘルメット
 item.kurokumaft:cherry_chestplate.name=桜の胸当て
 item.kurokumaft:cherry_leggings.name=桜のレギンス
 item.kurokumaft:cherry_boots.name=桜のブーツ
-
-item.kurokumaft:rabbit_helmet_brown.name=兎のミミ
-item.kurokumaft:rabbit_helmet_white.name=兎のミミ
 
 potion.kurokumaft:hiheal.name=超回復のポーション
 potion.kurokumaft:hidamageBoost.name=剛力のポーション
@@ -295,4 +322,19 @@ item.kurokumaft:wooden_bucket_miso.name=味噌入り木桶
 item.kurokumaft:soup_bowl.name=汁椀
 
 tile.kurokumaft:kitchen_table.name=調理台
+
+item.kurokumaft:wolf_fur.name=オオカミの毛皮
+item.kurokumaft:fox_fur.name=キツネの毛皮
+
+item.kurokumaft:rabbit_helmet_brown.name=兎のミミ
+item.kurokumaft:rabbit_helmet_white.name=兎のミミ
+item.kurokumaft:wolf_helmet_white.name=オオカミのキバ
+item.kurokumaft:wolf_helmet_black.name=オオカミのキバ
+item.kurokumaft:chicken_helmet_white.name=ニワトリのくちばし
+item.kurokumaft:fox_helmet_orange.name=キツネのしっぽ
+item.kurokumaft:axolotl_helmet_blue.name=ウーパールーパー(青)
+item.kurokumaft:axolotl_helmet_cyan.name=ウーパールーパー(シアン)
+item.kurokumaft:axolotl_helmet_gold.name=ウーパールーパー(ゴールド)
+item.kurokumaft:axolotl_helmet_lucy.name=ウーパールーパー(リューシ)
+item.kurokumaft:axolotl_helmet_wild.name=ウーパールーパー(茶)
 

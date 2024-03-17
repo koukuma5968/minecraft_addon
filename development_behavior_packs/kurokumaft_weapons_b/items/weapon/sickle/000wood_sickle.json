@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wood_sickle",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.sickle"
-      }
+      "category": "equipment"
     },
     "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sickle"
+      },
       "minecraft:hand_equipped": true,
       "minecraft:damage": 4,
 		  "minecraft:weapon": {
@@ -19,9 +19,20 @@
           "event":"kurokumaft:wood_sickle"
         }
       },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [
+              "kurokumaft:wood_sickle"
+            ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
       "minecraft:on_use": {
         "on_use": {
-          "event": "use_trigger"
+          "condition": "!query.is_sneaking",
+          "event": "spirit_sickle"
         }
       },
       "minecraft:enchantable": {
@@ -68,20 +79,8 @@
             "damage":{
               "type":"durability",
               "target":"self",
-              "amount":5
+              "amount":1
             }
-          }
-        ]
-      },
-      "use_trigger": {
-        "sequence":[
-          {
-            "condition": "!query.is_sneaking",
-            "trigger": "spirit_sickle"
-          },
-          {
-            "condition": "query.is_sneaking",
-            "trigger": "change_scythe"
           }
         ]
       },
@@ -99,15 +98,7 @@
         "damage":{
           "type":"durability",
           "target":"self",
-          "amount":10
-        }
-      },
-      "change_scythe": {
-        "run_command": {
-          "command": [
-            "replaceitem entity @s slot.weapon.mainhand 0 kurokumaft:wood_scythe"
-          ],
-          "target": "player"
+          "amount":1
         }
       }
     }

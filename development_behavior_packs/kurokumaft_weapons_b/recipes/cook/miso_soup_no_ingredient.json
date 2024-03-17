@@ -24,6 +24,11 @@
         "item": "minecraft:kelp"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:soup_bowl"
+      }
+    ],
     "result": [
       {"item": "kurokumaft:miso_soup_no_ingredient","count": 1},
       {"item": "kurokumaft:wooden_bucket_empty", "count": 1}

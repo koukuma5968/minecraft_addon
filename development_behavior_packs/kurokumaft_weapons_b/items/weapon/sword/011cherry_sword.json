@@ -1,19 +1,19 @@
 {
-  "format_version": "1.20.30",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:cherry_sword",
-        "menu_category": {
-          "category": "equipment",
-          "group": "itemGroup.name.sword"
-        }
-      },
+      "identifier": "kurokumaft:cherry_sword",
+      "category": "equipment"
+    },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:cherry_sword.name"
 			},
       "minecraft:icon": {
-          "texture": "cherry_sword"
+        "texture": "cherry_sword"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -36,31 +36,39 @@
       "minecraft:can_destroy_in_creative": false,
       "minecraft:digger": {
         "use_efficiency": true,
+        "on_dig": {
+          "event": "kurokumaft:durability_damage"
+        },
         "destroy_speeds": [
           {
             "block": "minecraft:web",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 15
           },
           {
             "block": "minecraft:bamboo",
+            "on_dig": {
+              "event": "kurokumaft:durability_damage"
+            },
             "speed": 10
           }
         ]
       },
       "minecraft:weapon": {
           "on_hurt_entity": {
-              "event": "kurokumaft:hurt_entity"
+              "event": "kurokumaft:cherry_leaves"
           }
       }
     },
     "events": {
-      "kurokumaft:hurt_entity": {
+      "kurokumaft:durability_damage": {
         "damage":{
           "type":"durability",
           "target":"self",
           "amount":1
-        },
-        "trigger": "kurokumaft:cherry_leaves"
+        }
       },
       "kurokumaft:cherry_leaves": {
         "run_command": {
@@ -68,7 +76,8 @@
             "particle kurokumaft:cherry_slash ~~~"
           ],
           "target": "other"
-        }
+        },
+        "trigger": "kurokumaft:durability_damage"
       }
     }
   }
