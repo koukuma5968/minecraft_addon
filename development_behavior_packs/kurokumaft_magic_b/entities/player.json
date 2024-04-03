@@ -472,22 +472,85 @@
             "on_damage": {
               "filters": {
                 "all_of" : [
-                  {"test": "has_damage","operator": "equals","subject": "self","value": "attack"},
                   {
                     "any_of" :[
-                      {"test": "has_tag","operator": "equals","subject": "self","value": "lightning_m_h"},
-                      {"test": "has_tag","operator": "equals","subject": "self","value": "lightning_m_c"},
-                      {"test": "has_tag","operator": "equals","subject": "self","value": "lightning_m_l"},
-                      {"test": "has_tag","operator": "equals","subject": "self","value": "stone_m_c"},
-                      {"test": "has_tag","operator": "equals","subject": "self","value": "stone_m_b"}
+                      {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_ice_magic_helmet"},
+                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_ice_magic_chestplate"},
+                      {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_ice_magic_leggings"},
+                      {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_ice_magic_boots"},
+                      {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_fire_magic_helmet"},
+                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_fire_magic_chestplate"},
+                      {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_fire_magic_leggings"},
+                      {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_fire_magic_boots"},
+                      {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_water_magic_helmet"},
+                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_water_magic_chestplate"},
+                      {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_water_magic_leggings"},
+                      {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_water_magic_boots"},
+                      {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_wind_magic_helmet"},
+                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_wind_magic_chestplate"},
+                      {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_wind_magic_leggings"},
+                      {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_wind_magic_boots"},
+                      {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_lightning_magic_helmet"},
+                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_lightning_magic_chestplate"},
+                      {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_lightning_magic_leggings"},
+                      {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_lightning_magic_boots"},
+                      {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_stone_magic_helmet"},
+                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_stone_magic_chestplate"},
+                      {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_stone_magic_leggings"},
+                      {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_stone_magic_boots"}
+                    ]
+                  },
+                  {
+                    "any_of" :[
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "attack"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
                     ]
                   }
                 ]
-              },
-              "event": "kurokumaft:equipment_trigger"
+              }
             },
-            "cause": "entity_attack",
+            "cause": "all",
+            "damage_modifier": -0.5,
             "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "fall"},
+                  {
+                    "any_of" :[
+                      {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:stone_magic_boots"},
+                      {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:nether_stone_magic_boots"}
+                    ]
+                  }
+                ]
+              }
+            },
+            "cause": "fall",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
+                  {
+                    "any_of" :[
+                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:wind_magic_helmet"},
+                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_wind_magic_helmet"},
+                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_helmet"},
+                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_lightning_magic_helmet"}
+                    ]
+                  }
+                ]
+              }
+            },
+            "cause": "projectile",
+            "deals_damage": false
           }
         ]
       },
@@ -506,32 +569,36 @@
 
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:ice_magic_helmet"}
+              "any_of": [
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:ice_magic_helmet"},
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_ice_magic_helmet"}
               ]
             },
             "event": "kurokumaft:night_vision_effect"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:ice_magic_chestplate"}
+              "any_of": [
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:ice_magic_chestplate"},
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:nether_ice_magic_chestplate"}
               ]
             },
             "event": "kurokumaft:lava_freeze"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:ice_magic_leggings"}
+              "any_of": [
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:ice_magic_leggings"},
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:nether_ice_magic_leggings"}
               ]
             },
             "event": "kurokumaft:fire_resistance_effect"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:ice_magic_boots"}
+              "any_of": [
+                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:ice_magic_boots"},
+                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:nether_ice_magic_boots"}
               ]
             },
             "event": "kurokumaft:ice_walker"
@@ -539,16 +606,18 @@
 
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:fire_magic_helmet"}
+              "any_of": [
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:fire_magic_helmet"},
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_fire_magic_helmet"}
               ]
             },
             "event": "kurokumaft:fire_resistance_effect"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:fire_magic_chestplate"}
+              "any_of": [
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:fire_magic_chestplate"},
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:nether_fire_magic_chestplate"}
               ]
             },
             "event": "kurokumaft:attack20_up"
@@ -556,23 +625,26 @@
           {
             "filters": {
               "all_of": [
-                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:fire_magic_chestplate"}
+                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:fire_magic_chestplate"},
+                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:nether_fire_magic_chestplate"}
               ]
             },
             "event": "kurokumaft:attack_down"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:fire_magic_leggings"}
+              "any_of": [
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:fire_magic_leggings"},
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:nether_fire_magic_leggings"}
               ]
             },
             "event": "kurokumaft:jump_boost_effect"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:fire_magic_boots"}
+              "any_of": [
+                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:fire_magic_boots"},
+                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:nether_fire_magic_boots"}
               ]
             },
             "event": "kurokumaft:float_walker"
@@ -580,7 +652,8 @@
           {
             "filters": {
               "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:fire_magic_boots"}
+                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:fire_magic_boots"},
+                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:nether_fire_magic_boots"}
               ]
             },
             "event": "kurokumaft:float_walker_remove"
@@ -588,16 +661,18 @@
 
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:water_magic_helmet"}
+              "any_of": [
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:water_magic_helmet"},
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_water_magic_helmet"}
               ]
             },
             "event": "kurokumaft:water_breathing_effect"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:water_magic_chestplate"}
+              "any_of": [
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:water_magic_chestplate"},
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:nether_water_magic_chestplate"}
               ]
             },
             "event": "kurokumaft:health40_up"
@@ -605,15 +680,17 @@
           {
             "filters": {
               "all_of": [
-                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:water_magic_chestplate"}
+                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:water_magic_chestplate"},
+                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:nether_water_magic_chestplate"}
               ]
             },
             "event": "kurokumaft:health_down"
           },
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:water_magic_leggings"}
+              "any_of": [
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:water_magic_leggings"},
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:nether_water_magic_leggings"}
               ]
             },
             "event": "kurokumaft:regeneration_effect"
@@ -621,7 +698,12 @@
           {
             "filters": {
               "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:water_magic_boots"},
+                {
+                  "any_of": [
+                    {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:water_magic_boots"},
+                    {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:nether_water_magic_boots"}
+                  ]
+                },
                 {"test": "in_water","operator": "==","subject": "self","value": true}
               ]
             },
@@ -630,7 +712,12 @@
           {
             "filters": {
               "any_of": [
-                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:water_magic_boots"},
+                {
+                  "all_of": [
+                    {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:water_magic_boots"},
+                    {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:nether_water_magic_boots"}
+                  ]
+                },
                 {"test": "in_water","operator": "==","subject": "self","value": false}
               ]
             },
@@ -639,16 +726,9 @@
 
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:wind_magic_helmet"}
-              ]
-            },
-            "event": "kurokumaft:haste_effect"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:wind_magic_leggings"}
+              "any_of": [
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:wind_magic_leggings"},
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:nether_wind_magic_leggings"}
               ]
             },
             "event": "kurokumaft:jump_boost_hyper_effect"
@@ -656,7 +736,12 @@
           {
             "filters": {
               "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:wind_magic_boots"},
+                {
+                  "any_of": [
+                    {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:wind_magic_boots"},
+                    {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:nether_wind_magic_boots"}
+                  ]
+                },
                 {"test": "in_water","operator": "==","subject": "self","value": false}
               ]
             },
@@ -665,7 +750,12 @@
           {
             "filters": {
               "any_of": [
-                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:wind_magic_boots"},
+                {
+                  "all_of": [
+                    {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:wind_magic_boots"},
+                    {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:nether_wind_magic_boots"}
+                  ]
+                },
                 {"test": "in_water","operator": "==","subject": "self","value": true}
               ]
             },
@@ -674,8 +764,9 @@
 
           {
             "filters": {
-              "all_of" :[
-                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_helmet"}
+              "any_of" :[
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_helmet"},
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_lightning_magic_helmet"}
               ]
             },
             "event": "kurokumaft:lightning_magic_helmet_add"
@@ -683,7 +774,8 @@
           {
             "filters": {
               "all_of" :[
-                {"test": "has_equipment","domain": "head","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_helmet"}
+                {"test": "has_equipment","domain": "head","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_helmet"},
+                {"test": "has_equipment","domain": "head","operator": "!=","subject": "self","value": "kurokumaft:nether_lightning_magic_helmet"}
               ]
             },
             "event": "kurokumaft:lightning_magic_helmet_remove"
@@ -691,8 +783,9 @@
 
           {
             "filters": {
-              "all_of" :[
-                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_chestplate"}
+              "any_of" :[
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_chestplate"},
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:nether_lightning_magic_chestplate"}
               ]
             },
             "event": "kurokumaft:lightning_magic_chestplate_add"
@@ -700,7 +793,8 @@
           {
             "filters": {
               "all_of" :[
-                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_chestplate"}
+                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_chestplate"},
+                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:nether_lightning_magic_chestplate"}
               ]
             },
             "event": "kurokumaft:lightning_magic_chestplate_remove"
@@ -708,25 +802,9 @@
 
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_leggings"}
-              ]
-            },
-            "event": "kurokumaft:lightning_magic_leggings_add"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "leg","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_leggings"}
-              ]
-            },
-            "event": "kurokumaft:lightning_magic_leggings_remove"
-          },
-
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_boots"}
+              "any_of": [
+                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_boots"},
+                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:nether_lightning_magic_boots"}
               ]
             },
             "event": "kurokumaft:speed_walker_up4"
@@ -734,7 +812,8 @@
           {
             "filters": {
               "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_boots"}
+                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_boots"},
+                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:nether_lightning_magic_boots"}
               ]
             },
             "event": "kurokumaft:speed_walker_down"
@@ -742,32 +821,18 @@
 
           {
             "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:stone_magic_helmet"}
+              "any_of": [
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:stone_magic_helmet"},
+                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_stone_magic_helmet"}
               ]
             },
             "event": "kurokumaft:resistance_effect"
           },
           {
             "filters": {
-              "all_of" :[
-                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:stone_magic_chestplate"}
-              ]
-            },
-            "event": "kurokumaft:stone_magic_chestplate_add"
-          },
-          {
-            "filters": {
-              "all_of" :[
-                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:stone_magic_chestplate"}
-              ]
-            },
-            "event": "kurokumaft:stone_magic_chestplate_remove"
-          },
-          {
-            "filters": {
-              "all_of" :[
-                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:stone_magic_leggings"}
+              "any_of" :[
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:stone_magic_leggings"},
+                {"test": "has_equipment","domain": "leg","operator": "==","subject": "self","value": "kurokumaft:nether_stone_magic_leggings"}
               ]
             },
             "event": "kurokumaft:armor_knockback_add"
@@ -775,26 +840,11 @@
           {
             "filters": {
               "all_of" :[
-                {"test": "has_equipment","domain": "leg","operator": "!=","subject": "self","value": "kurokumaft:stone_magic_leggings"}
+                {"test": "has_equipment","domain": "leg","operator": "!=","subject": "self","value": "kurokumaft:stone_magic_leggings"},
+                {"test": "has_equipment","domain": "leg","operator": "!=","subject": "self","value": "kurokumaft:nether_stone_magic_leggings"}
               ]
             },
             "event": "kurokumaft:armor_knockback_remove"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:stone_magic_boots"}
-              ]
-            },
-            "event": "kurokumaft:stone_magic_boots_add"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "feet","operator": "!=","subject": "self","value": "kurokumaft:stone_magic_boots"}
-              ]
-            },
-            "event": "kurokumaft:stone_magic_boots_remove"
           },
 
           {
@@ -961,158 +1011,6 @@
             "tag @s remove stone_reflection"
 					]
 				}
-			},
-
-      "kurokumaft:lightning_magic_helmet_add": {
-				"run_command": {
-					"command": [
-            "tag @s add lightning_m_h"
-					]
-				}
-			},
-      "kurokumaft:lightning_magic_helmet_remove": {
-				"run_command": {
-					"command": [
-            "tag @s remove lightning_m_h"
-					]
-				}
-			},
-
-      "kurokumaft:lightning_magic_chestplate_add": {
-				"run_command": {
-					"command": [
-            "tag @s add lightning_m_c"
-					]
-				}
-			},
-      "kurokumaft:lightning_magic_chestplate_remove": {
-				"run_command": {
-					"command": [
-            "tag @s remove lightning_m_c"
-					]
-				}
-			},
-
-      "kurokumaft:lightning_magic_leggings_add": {
-				"run_command": {
-					"command": [
-            "tag @s add lightning_m_l"
-					]
-				}
-			},
-      "kurokumaft:lightning_magic_leggings_remove": {
-				"run_command": {
-					"command": [
-            "tag @s remove lightning_m_l"
-					]
-				}
-			},
-
-      "kurokumaft:stone_magic_chestplate_add": {
-				"run_command": {
-					"command": [
-            "tag @s add stone_m_c"
-					]
-				}
-			},
-      "kurokumaft:stone_magic_chestplate_remove": {
-				"run_command": {
-					"command": [
-            "tag @s remove stone_m_c"
-					]
-				}
-			},
-
-      "kurokumaft:stone_magic_boots_add": {
-				"run_command": {
-					"command": [
-            "tag @s add stone_m_b"
-					]
-				}
-			},
-      "kurokumaft:stone_magic_boots_remove": {
-				"run_command": {
-					"command": [
-            "tag @s remove stone_m_b"
-					]
-				}
-			},
-
-      "kurokumaft:equipment_trigger": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "tag @e[tag=lightning_m_h,c=1,r=1] add blindness_effect",
-                "execute at @e[tag=blindness_effect,c=1,r=1] run effect @e[tag=!blindness_effect,r=2.5] blindness 5 10 true",
-                "tag @e[tag=blindness_effect] remove blindness_effect"
-              ]
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "tag @e[tag=lightning_m_c,c=1,r=1] add lightning_damage",
-                "execute at @e[tag=lightning_damage,c=1,r=1] run damage @e[tag=!lightning_damage,r=5.0] 4 lightning",
-                "tag @e[tag=lightning_damage] remove lightning_damage"
-              ]
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "tag @e[tag=stone_m_c,c=1,r=1] add stone_roar",
-                "execute at @e[tag=stone_roar,r=5.0] run summon kurokumaft:stone_armor_knockback_roar ~~~",
-                "tag @e[tag=stone_roar] remove stone_roar"
-              ]
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "tag @e[tag=stone_m_b,c=1,r=1] add Weakness_effect",
-                "execute at @e[tag=Weakness_effect,c=1,r=1] run effect @e[tag=!Weakness_effect,r=5.5] Weakness 10 5 true",
-                "tag @e[tag=Weakness_effect] remove Weakness_effect"
-              ]
-            }
-          },
-          {
-            "randomize": [
-              {
-                "weight": 5,
-                "run_command": {
-                  "command": [
-                    "tp @e[tag=lightning_m_l,c=1,r=1] ~5~~"
-                  ]
-                }
-              },
-              {
-                "weight": 5,
-                "run_command": {
-                  "command": [
-                    "tp @e[tag=lightning_m_l,c=1,r=1] ~~~5"
-                  ]
-                }
-              },
-              {
-                "weight": 5,
-                "run_command": {
-                  "command": [
-                    "tp @e[tag=lightning_m_l,c=1,r=1] ~-5~~"
-                  ]
-                }
-              },
-              {
-                "weight": 5,
-                "run_command": {
-                  "command": [
-                    "tp @e[tag=lightning_m_l,c=1,r=1] ~~~-5"
-                  ]
-                }
-              }
-            ]
-          }
-        ]
 			},
 
       "kurokumaft:night_vision_effect": {

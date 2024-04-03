@@ -143,11 +143,6 @@
         "priority": 7,
         "speed_multiplier": 1
       },
-      "minecraft:behavior.look_at_player": {
-        "priority": 8,
-        "look_distance": 6,
-        "probability": 0.02
-      },
       "minecraft:behavior.random_look_around": {
         "priority": 9
       },
@@ -158,11 +153,8 @@
         "priority": 6,
         "look_distance": 8
       },
-      "minecraft:behavior.random_look_around": {
-        "priority": 7
-      },
       "minecraft:type_family": {
-        "family": [ "fire", "magic", "monster", "undead", "mob" ]
+        "family": [ "fire", "magic", "monster" ]
       },
       "minecraft:persistent": {
       },
@@ -173,6 +165,15 @@
         "is_pushable_by_piston": true
       },
       "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 6.0,
+            "height": 3.0,
+            "pivot": [ 0, 0, 0 ]
+          }
+        ]
       }
     },
 

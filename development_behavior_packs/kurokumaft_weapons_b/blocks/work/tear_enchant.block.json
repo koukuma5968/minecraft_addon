@@ -1,0 +1,117 @@
+{
+	"format_version": "1.20.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:tear_enchant",
+			"menu_category": {
+				"category": "items"
+			},
+            "states": {
+                "kurokumaft:isBook": [ 0, 1 ],
+                "kurokumaft:rotation": [ 1, 2, 3, 4, 5 ]
+            }
+		},
+		"components": {
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": {
+				"origin": [-7.0, 0.0, -6.0],
+				"size": [14.0, 9.0, 12.0]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30
+			},
+            "minecraft:on_player_placing": {
+                "event": "rotate"
+            },
+            "minecraft:display_name": "tile.kurokumaft:tear_enchant.name",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "tear_enchant",
+					"render_method": "alpha_test"
+				}
+			},
+            "minecraft:on_interact": {
+                "event": "setBook"
+            },
+			"minecraft:map_color": "#65635e"
+		},
+        "events": {
+            "rotate": {
+                "sequence": [
+                    {
+                        "set_block_state": {
+                            "kurokumaft:rotation": "(query.cardinal_facing_2d)"
+                        }
+                    }
+                ]
+            },
+            "setBook": {
+                "sequence": [
+                    {
+                        "condition": "query.block_state('kurokumaft:isBook') == 0 && (query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:book') || query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:enchanted_book'))",
+                        "decrement_stack": {},
+                        "set_block_state": {
+                            "kurokumaft:isBook": "1"
+                        }
+                    },
+                    {
+                        "condition": "query.block_state('kurokumaft:isBook') == 1 && query.is_item_name_any('slot.weapon.mainhand',0,'')",
+                        "set_block_state": {
+                            "kurokumaft:isBook": "0"
+                        }
+                    }
+
+                ]
+            }  
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state('kurokumaft:isBook') == 0",
+                "components": {
+                    "minecraft:geometry": "geometry.tear_enchant"
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:isBook') == 1",
+                "components": {
+                    "minecraft:geometry": "geometry.tear_enchant_book"
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 2",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0, 0, 0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 3",
+                "components": { 
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 180, 0 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 4",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 90, 0 ]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:rotation') == 5",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 270, 0 ]
+                    }
+                }
+            }
+        ]
+	}
+}

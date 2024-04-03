@@ -8,7 +8,7 @@
 					"animations": ["stay"],
 					"transitions": [
 						{
-							"burdened": "query.get_ride"
+							"burdened": "query.has_rider == 1"
 						}
 					]
 				},
@@ -16,7 +16,7 @@
 					"animations": ["burdened"],
 					"transitions": [
 						{
-							"stay": "query.get_ride == 0"
+							"stay": "query.has_rider == 0"
 						}
 					]
 				}

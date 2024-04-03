@@ -92,11 +92,14 @@
                 }
               ],
               "gives": [
-              {
-                "item": "kurokumaft:seeds_medicinal_plant",
-                "quantity": 6
-              }
-              ]
+                {
+                  "item": "kurokumaft:seeds_medicinal_plant",
+                  "quantity": 6
+                }
+              ],
+              "trader_exp": 10,
+              "max_uses": 16,
+              "reward_exp": true
             },
             {
               "wants": [
@@ -126,6 +129,24 @@
         {
           "num_to_select": 1,
           "trades": [
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 1,
+                  "price_multiplier": 0.05
+                }
+              ],
+              "gives": [
+                {
+                  "item": "kurokumaft:onion",
+                  "quantity": 4
+                }
+              ],
+              "trader_exp": 5,
+              "max_uses": 16,
+              "reward_exp": true
+            },
             {
               "wants": [
                 {
@@ -178,6 +199,24 @@
               "gives": [
                 {
                   "item": "minecraft:apple",
+                  "quantity": 4
+                }
+              ],
+              "trader_exp": 5,
+              "max_uses": 16,
+              "reward_exp": true
+            },
+            {
+              "wants": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 1,
+                  "price_multiplier": 0.05
+                }
+              ],
+              "gives": [
+                {
+                  "item": "kurokumaft:soybean",
                   "quantity": 4
                 }
               ],

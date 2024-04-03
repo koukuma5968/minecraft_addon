@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:single_block_feature": {
+    "description": {
+      "identifier": "kurokumaft:soybeans_feature"
+    },
+    "places_block": "kurokumaft:soybeans",
+    "enforce_placement_rules": true,
+    "enforce_survivability_rules": true,
+    "may_attach_to": {
+      "min_sides_must_attach": 1,
+      "auto_rotate": false,
+      "bottom": [
+        "minecraft:grass",
+        "minecraft:dirt"
+      ]
+    },
+    "may_replace": [
+      "minecraft:air"
+    ]
+}
+}
+  

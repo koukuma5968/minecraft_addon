@@ -1,29 +1,36 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:lightning_magic_chestplate",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:lightning_magic_chestplate.name"
 			},
       "minecraft:icon": {
-          "texture": "lightning_magic_chestplate"
+        "textures": {
+          "default": "lightning_magic_chestplate"
+        }
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:trimmable_armors"
+        ]
       },
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:lightning_magic_stone"],
-            "repair_amount": 50
+            "items": [ "kurokumaft:lightning_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:lightning_magic_chestplate" ],
-            "repair_amount": 250
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },

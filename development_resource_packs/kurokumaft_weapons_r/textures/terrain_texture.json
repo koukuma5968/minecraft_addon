@@ -61,6 +61,9 @@
 		"kitchen_table": {
 			"textures": "textures/kurokumaft/blocks/work/kitchen_table"
 		},
+		"tear_enchant": {
+			"textures": "textures/kurokumaft/blocks/work/tear_enchant"
+		},
 
 		"onion_stage_0": {
 			"textures": "textures/kurokumaft/blocks/crops/onion/onion_stage_0"

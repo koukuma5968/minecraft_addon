@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:scatter_feature": {
+    "description": {
+      "identifier": "kurokumaft:scatter_onion_feature"
+    },
+    "places_feature": "kurokumaft:onion_feature",
+    "iterations": 10,
+    "project_input_to_floor": true,
+    "scatter_chance": 30.0,
+    "x": {
+      "distribution": "gaussian",
+      "extent": [ -5, 5 ]
+    },
+    "y": {
+      "distribution": "fixed_grid",
+      "extent": [ 0, 1 ]
+    },
+    "z": {
+      "distribution": "gaussian",
+      "extent": [ -5, 5 ]
+    }
+  }
+}
+  

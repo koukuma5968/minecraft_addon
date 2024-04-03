@@ -32,6 +32,7 @@ entity.kurokumaft:wind_skeleton_archer.name=§3ウィンドスケルトン・ア
 entity.kurokumaft:ice_skeleton_archer.name=§fアイススケルトン・アーチャー
 
 entity.kurokumaft:phoenix.name=§4フェニックス
+entity.kurokumaft:fenrir.name=§3フェンリル
 
 item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビをスポーンさせる	#
@@ -55,6 +56,7 @@ item.spawn_egg.entity.kurokumaft:stone_skeleton_archer.name=ストーンケル�
 item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン・アーチャーをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:fenrir.name=フェニックスをスポーンさせる	#
 
 entity.kurokumaft:home_gate.name=拠点の石碑
 
@@ -175,6 +177,36 @@ item.kurokumaft:stone_magic_chestplate.name=§7ガイアマジックプレート
 item.kurokumaft:stone_magic_leggings.name=§7ガイアマジックレギンス
 item.kurokumaft:stone_magic_boots.name=§7ガイアマジックブーツ
 
+item.kurokumaft:nether_ice_magic_helmet.name=§fフロストマジックヘルム
+item.kurokumaft:nether_ice_magic_chestplate.name=§fフロストマジックプレート
+item.kurokumaft:nether_ice_magic_leggings.name=§fフロストマジックレギンス
+item.kurokumaft:nether_ice_magic_boots.name=§fフロストマジックブーツ
+
+item.kurokumaft:nether_fire_magic_helmet.name=§4ブレイブマジックヘルム
+item.kurokumaft:nether_fire_magic_chestplate.name=§4ブレイブマジックプレート
+item.kurokumaft:nether_fire_magic_leggings.name=§4ブレイブマジックレギンス
+item.kurokumaft:nether_fire_magic_boots.name=§4ブレイブマジックブーツ
+
+item.kurokumaft:nether_water_magic_helmet.name=§1ハイドロマジックヘルム
+item.kurokumaft:nether_water_magic_chestplate.name=§1ハイドロマジックプレート
+item.kurokumaft:nether_water_magic_leggings.name=§1ハイドロマジックレギンス
+item.kurokumaft:nether_water_magic_boots.name=§1ハイドロマジックブーツ
+
+item.kurokumaft:nether_wind_magic_helmet.name=§3ブリーズマジックヘルム
+item.kurokumaft:nether_wind_magic_chestplate.name=§3ブリーズマジックプレート
+item.kurokumaft:nether_wind_magic_leggings.name=§3ブリーズマジックレギンス
+item.kurokumaft:nether_wind_magic_boots.name=§3ブリーズマジックブーツ
+
+item.kurokumaft:nether_lightning_magic_helmet.name=§6エレクトマジックヘルム
+item.kurokumaft:nether_lightning_magic_chestplate.name=§6エレクトマジックプレート
+item.kurokumaft:nether_lightning_magic_leggings.name=§6エレクトマジックレギンス
+item.kurokumaft:nether_lightning_magic_boots.name=§6エレクトマジックブーツ
+
+item.kurokumaft:nether_stone_magic_helmet.name=§7グランドマジックヘルム
+item.kurokumaft:nether_stone_magic_chestplate.name=§7グランドマジックプレート
+item.kurokumaft:nether_stone_magic_leggings.name=§7グランドマジックレギンス
+item.kurokumaft:nether_stone_magic_boots.name=§7グランドマジックブーツ
+
 item.kurokumaft:fire_magic_bow.name=§4業火の魔弓
 item.kurokumaft:ice_magic_bow.name=§f六華の魔弓
 item.kurokumaft:water_magic_bow.name=§1流麗の魔弓
@@ -209,8 +241,14 @@ item.kurokumaft:storm_eagle_summon_stone.name=召喚の魔石（ストームイ�
 item.kurokumaft:repatriation_fruit.name=帰還の実
 item.kurokumaft:home_gate.name=拠点の石碑
 
-item.kurokumaft:magic_bazooka.name=魔導砲
+item.kurokumaft:fire_magic_bazooka.name=爆炎の魔導砲
+item.kurokumaft:water_magic_bazooka.name=瀑布の魔導砲
+item.kurokumaft:lightning_magic_bazooka.name=轟雷の魔導砲
+item.kurokumaft:wind_magic_bazooka.name=暴風の魔導砲
+item.kurokumaft:stone_magic_bazooka.name=礫岩の魔導砲
+item.kurokumaft:ice_magic_bazooka.name=凍土の魔導砲
 
+item.kurokumaft:magic_shell.name=魔弾（空）
 item.kurokumaft:fire_magic_shell.name=爆炎の魔弾
 item.kurokumaft:water_magic_shell.name=瀑布の魔弾
 item.kurokumaft:lightning_magic_shell.name=轟雷の魔弾

@@ -9,6 +9,7 @@
       },
       "textures": {
         "default": "textures/kurokumaft/models/bazooka/lightning_magic_bazooka",
+        "chage": "textures/kurokumaft/models/bazooka/lightning_magic_bazooka_chage",
         "enchanted": "textures/misc/enchanted_item_glint"
       },
       "geometry": {

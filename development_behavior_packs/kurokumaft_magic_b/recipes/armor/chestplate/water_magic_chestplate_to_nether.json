@@ -1,0 +1,13 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "kurokumaft:water_magic_chestplate_to_nether"
+    },
+    "tags": [ "smithing_table" ],
+    "template": "minecraft:netherite_upgrade_smithing_template",
+    "base": "kurokumaft:water_magic_chestplate",
+    "addition": "minecraft:netherite_ingot",
+    "result": "kurokumaft:nether_water_magic_chestplate"
+  }
+}

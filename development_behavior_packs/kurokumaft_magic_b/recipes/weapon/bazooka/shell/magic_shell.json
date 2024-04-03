@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:magic_shell"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      " # ",
+      "#G#",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:gold_ingot"
+      },
+      "G": {
+        "item": "minecraft:gunpowder"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:magic_shell"
+    }
+  }
+}

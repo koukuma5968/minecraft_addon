@@ -1,0 +1,24 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_shell"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#",
+      "m"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:magic_shell"
+      },
+      "m": {
+        "item": "kurokumaft:wind_magic_stone"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:wind_magic_shell"
+    }
+  }
+}

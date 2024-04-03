@@ -1,0 +1,24 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:stone_magic_shell"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#",
+      "m"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:magic_shell"
+      },
+      "m": {
+        "item": "kurokumaft:stone_magic_stone"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:stone_magic_shell"
+    }
+  }
+}

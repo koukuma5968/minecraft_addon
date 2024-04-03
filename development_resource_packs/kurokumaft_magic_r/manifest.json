@@ -1,10 +1,10 @@
 {
     "format_version": 2,
     "header": {
-        "name": "魔法アドオンRv1",
+        "name": "魔法アドオンRv2",
         "description": "魔法の武器/防具が追加されるアドオン リソースパック",
         "uuid": "f93bea78-77fd-4ce9-8a18-6eb10a2bd5bd",
-        "version": [1, 0, 0],
+        "version": [2, 0, 0],
         "min_engine_version": [1,20,30]
     },
     "modules": [
@@ -12,7 +12,7 @@
             "description": "kurokumaft_magic_r",
             "type": "resources",
             "uuid": "5fe93994-5b72-45fe-b52f-1b10130ccf5e",
-            "version": [1, 0, 0]
+            "version": [2, 0, 0]
         }
     ]
 }

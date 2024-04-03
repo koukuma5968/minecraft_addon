@@ -2,22 +2,23 @@
   "format_version": "1.20.10",
   "minecraft:scatter_feature": {
     "description": {
-      "identifier": "kurokumaft:medicinal_feature"
+      "identifier": "kurokumaft:scatter_medicinal_feature"
     },
-    "places_feature": "kurokumaft:medicinal_plants",
+    "places_feature": "kurokumaft:medicinal_feature",
     "iterations": 10,
-    "scatter_chance": 50.0,
+    "project_input_to_floor": true,
+    "scatter_chance": 10.0,
     "x": {
       "distribution": "gaussian",
-      "extent": [ 0, 15 ]
+      "extent": [ -5, 5 ]
     },
     "y": {
-      "distribution": "gaussian",
-      "extent": [ 30, 84 ]
+      "distribution": "fixed_grid",
+      "extent": [ 0, 1 ]
     },
     "z": {
       "distribution": "gaussian",
-      "extent": [ 0, 15 ]
+      "extent": [ -5, 5 ]
     }
   }
 }

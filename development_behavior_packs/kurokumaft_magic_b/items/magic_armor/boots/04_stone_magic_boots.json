@@ -1,33 +1,36 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_magic_boots",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.boots"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boots"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:stone_magic_boots.name"
 			},
       "minecraft:icon": {
-        "texture": "stone_magic_boots"
+        "textures": {
+          "default": "stone_magic_boots"
+        }
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:trimmable_armors"
+        ]
       },
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:stone"],
-            "repair_amount": 50
-          },
-          {
-            "items": [ "minecraft:dart"],
-            "repair_amount": 50
+            "items": [ "minecraft:dart","minecraft:stone","kurokumaft:stone_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:stone_magic_boots" ],
-            "repair_amount": 250
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },

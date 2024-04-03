@@ -1,0 +1,51 @@
+{
+  "format_version": "1.20.70",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:nether_lightning_magic_chestplate",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:nether_lightning_magic_chestplate.name"
+			},
+      "minecraft:icon": {
+        "textures": {
+          "default": "nether_lightning_magic_chestplate"
+        }
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:lightning_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:nether_lightning_magic_chestplate" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 50,
+        "slot": "armor_torso"
+      },
+      "minecraft:durability": {
+        "max_durability": 3000,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 4,
+      "minecraft:wearable": {
+        "protection": 30,
+        "slot": "slot.armor.chest"
+      }
+    }
+  }
+}

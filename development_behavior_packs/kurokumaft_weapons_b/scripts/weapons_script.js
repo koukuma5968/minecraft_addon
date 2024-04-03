@@ -1,5 +1,5 @@
-import { world,system,EquipmentSlot,EntityComponentTypes,ItemComponentTypes } from "@minecraft/server";
-//import { ActionFormData,ModalFormData } from "@minecraft/server-ui";
+import { world,system,EnchantmentType,EntityComponentTypes,ItemComponentTypes,ItemStack } from "@minecraft/server";
+import { ActionFormData,MessageFormData,ModalFormData } from "@minecraft/server-ui";
 
 const logs = ["minecraft:acacia_log","minecraft:birch_log","minecraft:cherry_log","minecraft:dark_oak_log","minecraft:jungle_log","minecraft:mangrove_log","minecraft:oak_log","minecraft:spruce_log","minecraft:stripped_acacia_log","minecraft:stripped_birch_log","minecraft:stripped_cherry_log","minecraft:stripped_dark_oak_log","minecraft:stripped_jungle_log","minecraft:stripped_mangrove_log","minecraft:stripped_oak_log","minecraft:stripped_spruce_log"];
 const woods = ["minecraft:cherry_wood","minecraft:double_wooden_slab","minecraft:mangrove_wood","minecraft:stripped_cherry_wood","minecraft:stripped_mangrove_wood","minecraft:wood"];
@@ -18,19 +18,22 @@ const scythes = ["kurokumaft:wood_scythe","kurokumaft:stone_scythe","kurokumaft:
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
+const tear_enchant_blocks = [];
+var encBookSetFlg = false;
+
 // アイテムブロック使用前
 world.beforeEvents.itemUseOn.subscribe(event => {
     var player = event.source;
     var item = event.itemStack;
     var block = event.block;
-    if (item != undefined) {
+    if (item != undefined && player != undefined) {
         // クワの耐久値減少
         if (hoes.indexOf(item.typeId) != -1) {
             if (hoeDirts.indexOf(block.typeId) != -1) {
                 if (item.maxDurability <= (item.damage + 1)) {
                     breakItem(hitEn, "slot.weapon.mainhand");
                 } else {
-                    durabilityDamage(player, item, item.typeId, "slot.weapon.mainhand", 1);
+                    durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", 1);
                 }
             }
         }
@@ -40,7 +43,7 @@ world.beforeEvents.itemUseOn.subscribe(event => {
                 if (item.maxDurability <= (item.damage + 1)) {
                     breakItem(hitEn, "slot.weapon.mainhand");
                 } else {
-                    durabilityDamage(player, item, item.typeId, "slot.weapon.mainhand", 1);
+                    durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", 1);
                 }
             }
         }
@@ -50,7 +53,137 @@ world.beforeEvents.itemUseOn.subscribe(event => {
                 if (item.maxDurability <= (item.damage + 1)) {
                     breakItem(hitEn, "slot.weapon.mainhand");
                 } else {
-                    durabilityDamage(player, item, item.typeId, "slot.weapon.mainhand", 1);
+                    durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", 1);
+                }
+            }
+        }
+    }
+    // エンチャントリリース
+    if (block.typeId == "kurokumaft:tear_enchant") {
+        if (block.matches("kurokumaft:tear_enchant",{"kurokumaft:isBook":1})) {
+
+            system.runTimeout(() => {
+
+                let equ = player.getComponent(EntityComponentTypes.Equippable);
+                let mainhand = equ.getEquipment("Mainhand");
+                // print("エンチャントリリース");
+                if (item != undefined) {
+                    let actionForm = new ActionFormData().title({ translate: "tile.kurokumaft:tear_enchant.name" });
+                    let enc = mainhand.getComponent(ItemComponentTypes.Enchantable);
+                    if (enc != undefined) {
+                        // print("エンチャントコンポーネントあり");
+                        let encs = enc.getEnchantments();
+                        if (encs != undefined && encs.length>0) {
+                            // print("エンチャントあり");
+                            actionForm
+                            .body({rawtext : [
+                                {translate: "tear_enchant.mess.body"},
+                                {text : "\n\n"},
+                                { translate: "tear_enchant.mess.body.kome1" },
+                                {text : "\n"},
+                                { translate: "tear_enchant.mess.body.kome2" }
+                            ]})
+                            .button({ translate: "tear_enchant.mess.ok" })
+                            .button({ translate: "tear_enchant.mess.cancel" });
+                            actionForm.show(player).then(formData => {
+                                if (formData.selection == 0) {
+                                    // print("空の本を作る");
+                                    let encBook = new ItemStack("minecraft:enchanted_book",1);
+                                    let bookEncComp = encBook.getComponent(ItemComponentTypes.Enchantable);
+                                    // セット時に本についていたエンチャントを取る
+                                    for (let i=0;i<tear_enchant_blocks.length;i++) {
+                                        if (tear_enchant_blocks[i].x == block.x && tear_enchant_blocks[i].y == block.y && tear_enchant_blocks[i].z == block.z) {
+                                            // Array.prototype.push.apply(addencs, tear_enchant_blocks[i].enchant.getEnchantments());
+                                            bookEncComp.addEnchantments(tear_enchant_blocks[i].enchant.getEnchantments());
+                                            tear_enchant_blocks.splice(i, 1);
+                                            break;
+                                        }
+                                    }
+                                    // 右手のアイテムのエンチャント分
+                                    for (let i=0;i<encs.length;i++) {
+                                        let repEnc = encs[i];
+                                        // print("武器エンチャント" + repEnc.type.id);
+                                        try {
+                                            if (bookEncComp.canAddEnchantment(repEnc)) {
+                                                // print("本エンチャント可能");
+                                                if (bookEncComp.hasEnchantment(repEnc.type.id)) {
+                                                    // print("同じエンチャントあり" + repEnc.type.id);
+                                                    let tearEnc = bookEncComp.getEnchantment(repEnc.type.id);
+                                                    // 同じレベルかつ最大値以下なら＋1
+                                                    // print("武器レベル" + repEnc.level);
+                                                    if (repEnc.level == tearEnc.level && repEnc.level < repEnc.type.maxLevel) {
+                                                        // print("同じかつ最大値未満");
+                                                        bookEncComp.removeEnchantment(repEnc.type);
+                                                        bookEncComp.addEnchantment({"level": repEnc.level+1,"type": repEnc.type});
+                                                    // 超えていればそのまま
+                                                    } else if (repEnc.level > tearEnc.level) {
+                                                        // print("本よりも大きい");
+                                                        bookEncComp.removeEnchantment(repEnc.type);
+                                                        bookEncComp.addEnchantment({"level": repEnc.level,"type": repEnc.type});
+                                                    }
+                                                } else {
+                                                    // print("同じエンチャントなし" + repEnc.type.id);
+                                                    bookEncComp.addEnchantment({"level": repEnc.level,"type": repEnc.type});
+                                                }
+                                                enc.removeEnchantment(repEnc.type);
+                                            }
+                                        } catch (error) { 
+                                            // print("付けられない" + repEnc.type.id);
+                                        }
+                                    }
+                                    equ.setEquipment("Mainhand", mainhand);
+                                    tear_enchant_blocks.push({"x":block.x,"y":block.y,"z":block.z,"enchant":bookEncComp});
+                                } else {
+                                    player.sendMessage("キャンセルしました。");
+                                }
+                            });
+                        } else {
+                            // print("アイテムなし");
+                            actionForm
+                            .body({ translate: "tear_enchant.mess.body.notenc"})
+                            .button({ translate: "tear_enchant.mess.confirm"});
+                            actionForm
+                                .show(player)
+                                .then((formData) => {
+                                })
+                                .catch((error) => {
+                                    player.sendMessage("エラー:" + error);
+                                });
+                        }
+                    } else {
+                        // print("アイテムなし");
+                        actionForm
+                        .body({ translate: "tear_enchant.mess.body.notenc"})
+                        .button({ translate: "tear_enchant.mess.confirm"});
+                        actionForm
+                            .show(player)
+                            .then((formData) => {
+                            })
+                            .catch((error) => {
+                                player.sendMessage("エラー:" + error);
+                            });
+                    }
+                }
+            }, 1);
+        } else {
+            if (item != undefined) {
+                if (item.typeId == "minecraft:book") {
+                    // print("本");
+                    let equ = player.getComponent(EntityComponentTypes.Equippable);
+                    let mainhand = equ.getEquipment("Mainhand");
+                    let enc = mainhand.getComponent(ItemComponentTypes.Enchantable);
+                    tear_enchant_blocks.push({"x":block.x,"y":block.y,"z":block.z,"enchant":enc});
+                    encBookSetFlg = true;
+                } else if (item.typeId == "minecraft:enchanted_book") {
+                    // print("エンチャント本");
+                    let equ = player.getComponent(EntityComponentTypes.Equippable);
+                    let mainhand = equ.getEquipment("Mainhand");
+                    let enc = mainhand.getComponent(ItemComponentTypes.Enchantable);
+                    tear_enchant_blocks.push({"x":block.x,"y":block.y,"z":block.z,"enchant":enc});
+                    encBookSetFlg = true;
+                    system.runTimeout(() => {
+                        equ.setEquipment("Mainhand", null);
+                    }, 1);
                 }
             }
         }
@@ -62,22 +195,60 @@ world.afterEvents.itemUseOn.subscribe(event => {
     var item = event.itemStack;
     var block = event.block;
     if (item != undefined) {
-        // クワエンチャント付けなおし
-        if (hoes.indexOf(item.typeId) != -1) {
-            if (hoeDirts.indexOf(block.typeId) != -1) {
-                replaceEnchant(player, item);
+
+    }
+});
+world.afterEvents.playerInteractWithBlock.subscribe(event => {
+    var block = event.block;
+    var item = event.itemStack;
+    var player = event.player;
+    if (block.typeId == "kurokumaft:tear_enchant") {
+        let bookflg = false;
+        if (item == undefined && !encBookSetFlg) {
+            let equ = player.getComponent(EntityComponentTypes.Equippable);
+            for (let i=0;i<tear_enchant_blocks.length;i++) {
+                if (tear_enchant_blocks[i].x == block.x && tear_enchant_blocks[i].y == block.y && tear_enchant_blocks[i].z == block.z) {
+                    let encBlock = tear_enchant_blocks[i].enchant.getEnchantments();
+                    let book;
+                    if (encBlock.length != 0) {
+                        // print("エンチャント本を渡す");
+                        book = new ItemStack("minecraft:enchanted_book",1);
+                        let enc = book.getComponent(ItemComponentTypes.Enchantable);
+                        enc.addEnchantments(encBlock);
+                    } else {
+                        // print("本を渡す");
+                        book = new ItemStack("minecraft:book",1);
+                    }
+                    equ.setEquipment("Mainhand", book);
+                    tear_enchant_blocks.splice(i, 1);
+                    bookflg = true;
+                }
             }
         }
-        // シャベルエンチャント付けなおし
-        else if (shovels.indexOf(item.typeId) != -1) {
-            if (shovelDirts.indexOf(block.typeId) != -1) {
-                replaceEnchant(player, item);
-            }
-        }
-        // 斧エンチャント付けなおし
-        else if (axes.indexOf(item.typeId) != -1) {
-            if (logs.indexOf(block.typeId) != -1 || woods.indexOf(block.typeId) != -1) {
-                replaceEnchant(player, item);
+        encBookSetFlg = false;
+        if (block.matches("kurokumaft:tear_enchant",{"kurokumaft:isBook":0})) {
+            if (!bookflg) {
+                // print("アイテムなし");
+                system.runTimeout(() => {
+                    let actionForm = new ActionFormData()
+                    .title({ translate: "tile.kurokumaft:tear_enchant.name" })
+                    .body({rawtext: [
+                        { translate: "tear_enchant.mess.body.notbook" },
+                        {text : "\n\n"},
+                        { translate: "tear_enchant.mess.body.notbook_kome1" },
+                        {text : "\n\n"},
+                        { translate: "tear_enchant.mess.body.notbook_kome2" },
+                        {text : "\n\n"},
+                        { translate: "tear_enchant.mess.body.notbook_kome3" },
+                        {text : "\n\n"},
+                        { translate: "tear_enchant.mess.body.kome1" },
+                        {text : "\n"},
+                        { translate: "tear_enchant.mess.body.kome2" }
+                    ]})
+                    .button({ translate: "tear_enchant.mess.confirm"});
+    
+                    actionForm.show(player);
+                }, 1);
             }
         }
     }
@@ -87,14 +258,6 @@ world.beforeEvents.itemUse.subscribe(event => {
     var player = event.source;
     var item = event.itemStack;
     if (item != undefined) {
-        // シックル→サイス
-        if (item.typeId.indexOf("sickle") != -1 && player.isSneaking) {
-            itemTans(player, item, scythes[sickles.indexOf(item.typeId)], "slot.weapon.mainhand");
-        }
-        // サイス→シックル
-        else if (item.typeId.indexOf("scythe") != -1 && player.isSneaking) {
-            itemTans(player, item, sickles[scythes.indexOf(item.typeId)], "slot.weapon.mainhand");
-        }
     }
 });
 // アイテム使用後
@@ -104,11 +267,13 @@ world.afterEvents.itemUse.subscribe(event => {
     if (item != undefined) {
         // シックル→サイスエンチャント付けなおし
         if (item.typeId.indexOf("sickle") != -1 && player.isSneaking) {
-            replaceEnchant(player, item);
+            itemTans(player, item, scythes[sickles.indexOf(item.typeId)], "slot.weapon.mainhand", "Mainhand");
+//            replaceEnchant(player, item);
         }
         // サイス→シックルエンチャント付けなおし
         else if (item.typeId.indexOf("scythe") != -1 && player.isSneaking) {
-            replaceEnchant(player, item);
+            itemTans(player, item, sickles[scythes.indexOf(item.typeId)], "slot.weapon.mainhand", "Mainhand");
+//            replaceEnchant(player, item);
         }
     }
 });
@@ -134,50 +299,12 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
         player.runCommandAsync(commandText);
     }
 });
-// world.beforeEvents.entityRemove.subscribe(event => {
-//     var entity = event.removedEntity;
-//     print(entity, entity.typeId);
-//     var comps = entity.getComponents();
-//     for (var i=0;i<comps.length;i++) {
-//         print(entity, JSON.stringify(comps[i]));
-//     }
-//     // let health = entity.getComponent(EntityComponentTypes.Health);
-//     // print(entity, parseInt(health.currentValue));
-// });
-// var useItemStack = new Map();
-// world.beforeEvents.itemUse.subscribe(event => {
-//     var entity = event.source;
-//     print(entity, "itemUse");
-//     var item = event.itemStack;
-//     if (item != undefined) {
-//         print(entity, item.type.id);
-//         if (item != undefined) {
-//             let id = entity.id;
-//             useItemStack.set(id, item);
-//             let dur = item.getComponent(ItemComponentTypes.Durability);
-//             print(entity, dur.damage);
-//         }
-//     }
-// });
-// world.afterEvents.itemReleaseUse.subscribe(event => {
-//     var entity = event.source;
-//     print(entity, "itemReleaseUse");
-// });
-// world.afterEvents.entitySpawn.subscribe(event => {
-//     var entity = event.entity;
-//     print(entity, JSON.stringify(useItemStack));
-//     print(entity, "entitySpawn");
-//     print(entity, entity.typeId);
-//     var comps = entity.getComponents();
-//     for (var i=0;i<comps.length;i++) {
-//         print(entity, JSON.stringify(comps[i]));
-//     }
-// });
+
 // 近接hit後
 world.afterEvents.entityHitEntity.subscribe(event => {
     var damageEn = event.damagingEntity;
     var hitEn = event.hitEntity;
-    if (hitEn.typeId == "minecraft:player") {
+    if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
         shieldGuard(hitEn, true);
         shieldCounter(hitEn, damageEn);
     }
@@ -187,7 +314,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     var projectileEn = event.projectile;
     var hitEn = event.getEntityHit().entity;
     var hitVector = event.hitVector;
-    if (hitEn.typeId == "minecraft:player") {
+    if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
         shieldGuard(hitEn, false);
         glassReflection(hitEn, projectileEn, hitVector);
     }
@@ -207,7 +334,7 @@ world.afterEvents.entityHurt.subscribe(event => {
 });
 // デバッグ用
 function print(text) {
-    world.sendMessage(text);
+    world.sendMessage(text+"");
 };
 // ガード
 function shieldGuard(player, range) {
@@ -221,10 +348,10 @@ function shieldGuard(player, range) {
             if (dur.maxDurability > (dur.damage + 1)) {
                 // ガラスで近接は10減少
                 if (offhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
-                    durabilityDamage(player, offhand, offhand.typeId, "slot.weapon.offhand", 10);
+                    durabilityDamage(player, offhand, "slot.weapon.offhand", "Offhand", 10);
                     playsound(player, "random.glass");
                 } else {
-                    durabilityDamage(player, offhand, offhand.typeId, "slot.weapon.offhand", 1);
+                    durabilityDamage(player, offhand, "slot.weapon.offhand", "Offhand", 1);
                     if (offhand.typeId == "kurokumaft:tnt_shield" && range) {
                         playsound(player, "random.explode");
                     } else if (offhand.typeId == "kurokumaft:steel_shield") {
@@ -241,10 +368,10 @@ function shieldGuard(player, range) {
             if (dur.maxDurability > (dur.damage + 1)) {
                 // ガラスで近接は10減少
                 if (mainhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
-                    durabilityDamage(player, mainhand, mainhand.typeId, "slot.weapon.mainhand", 10);
+                    durabilityDamage(player, mainhand, "slot.weapon.mainhand", "Mainhand", 10);
                     playsound(player, "random.glass");
                 } else {
-                    durabilityDamage(player, mainhand, mainhand.typeId, "slot.weapon.mainhand", 1);
+                    durabilityDamage(player, mainhand, "slot.weapon.mainhand", "Mainhand", 1);
                     if (mainhand.typeId == "kurokumaft:tnt_shield" && range) {
                         playsound(player, "random.explode");
                     } else {
@@ -354,7 +481,7 @@ function resuscitationEquipment(player) {
             let dur = offhand.getComponent(ItemComponentTypes.Durability);
             resuscitation(player);
             if ((dur.damage + ((30/100)*dur.maxDurability)) < dur.maxDurability) {
-                durabilityDamage(player, offhand, offhand.typeId, "slot.weapon.offhand", (30/100)*dur.maxDurability);
+                durabilityDamage(player, offhand, "slot.weapon.offhand", "Offhand", (30/100)*dur.maxDurability);
             } else {
                 breakItem(player, "slot.weapon.offhand");
             }
@@ -362,7 +489,7 @@ function resuscitationEquipment(player) {
             let dur = mainhand.getComponent(ItemComponentTypes.Durability);
             resuscitation(player);
             if ((dur.damage + ((30/100)*dur.maxDurability)) < dur.maxDurability) {
-                durabilityDamage(player, mainhand, mainhand.typeId, "slot.weapon.mainhand", (30/100)*dur.maxDurability);
+                durabilityDamage(player, mainhand, "slot.weapon.mainhand", "Mainhand", (30/100)*dur.maxDurability);
             } else {
                 breakItem(player, "slot.weapon.mainhand");
             }
@@ -395,16 +522,59 @@ function playsound(entity, sound) {
     entity.runCommandAsync(commandText);
 };
 // 耐久値減少
-function durabilityDamage(player, item, replaceitem, slot, damage) {
-    var dur = item.getComponent(ItemComponentTypes.Durability);
-    let commandText =  "replaceitem entity @s " + slot + " 0 " + replaceitem + " 1 " + (dur.damage + damage);
+function durabilityDamage(player, item, slotName, slot, damage) {
+    let dur = item.getComponent(ItemComponentTypes.Durability);
+    let enc = item.getComponent(ItemComponentTypes.Enchantable);
+    let encs = null;
+    if (enc) {
+        encs = enc.getEnchantments();
+    }
+    let commandText =  "replaceitem entity @s " + slotName + " 0 " + item.typeId + " 1 " + (dur.damage + damage);
     player.runCommandAsync(commandText);
+
+    if (encs) {
+        let intervalNum = system.runInterval(() => {
+            let reEqu = player.getComponent(EntityComponentTypes.Equippable);
+            let reItem = reEqu.getEquipment(slot);
+            let reEnc = reItem.getComponent(ItemComponentTypes.Enchantable);
+            for (let i=0;i<encs.length;i++) {
+                reEnc.addEnchantment(encs[i]);
+            }
+            reEqu.setEquipment(slot, reItem);
+        
+        }, 2);
+        system.runTimeout(() => {
+            system.clearRun(intervalNum);
+        }, 3);
+    }
 };
 // アイテム変換
-function itemTans(player, item, replaceitem, slot) {
-    var dur = item.getComponent(ItemComponentTypes.Durability);
-    let commandText =  "replaceitem entity @s " + slot + " 0 " + replaceitem + " 1 " + dur;
+function itemTans(player, item, replaceitem, slotName, slot) {
+    let dur = item.getComponent(ItemComponentTypes.Durability);
+    let enc = item.getComponent(ItemComponentTypes.Enchantable);
+    let encs = null;
+    if (enc) {
+        encs = enc.getEnchantments();
+    }
+    let commandText =  "replaceitem entity @s " + slotName + " 0 " + replaceitem + " 1 " + dur.damage;
     player.runCommandAsync(commandText);
+
+    if (encs) {
+        let intervalNum = system.runInterval(() => {
+            let reEqu = player.getComponent(EntityComponentTypes.Equippable);
+            let reItem = reEqu.getEquipment(slot);
+            let reEnc = reItem.getComponent(ItemComponentTypes.Enchantable);
+            for (let i=0;i<encs.length;i++) {
+                reEnc.addEnchantment(encs[i]);
+            }
+            reEqu.setEquipment(slot, reItem);
+        
+        }, 2);
+        system.runTimeout(() => {
+            system.clearRun(intervalNum);
+        }, 3);
+    }
+
 };
 // エンチャント再設定
 function replaceEnchant(player, item) {

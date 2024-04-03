@@ -1,0 +1,23 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:tear_enchant"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "dI"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:grindstone"
+      },
+      "d": {
+        "item": "minecraft:enchanting_table"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:tear_enchant"
+    }
+  }
+}

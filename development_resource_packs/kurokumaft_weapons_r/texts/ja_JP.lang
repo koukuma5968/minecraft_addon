@@ -84,7 +84,7 @@ item.kurokumaft:blue_ice_sword.name=青氷剣
 item.kurokumaft:glow_sword.name=グロウソード
 item.kurokumaft:magma_sword.name=溶岩剣
 item.kurokumaft:mithril_sword.name=ミスリルの剣
-item.kurokumaft:echo_sword.name=こだまの剣
+item.kurokumaft:echo_sword.name=残響の剣
 item.kurokumaft:cherry_sword.name=桜の剣
 item.kurokumaft:ender_dragon_sword.name=エンダードラゴンソード
 item.kurokumaft:wither_sword.name=呪いの剣
@@ -322,6 +322,18 @@ item.kurokumaft:wooden_bucket_miso.name=味噌入り木桶
 item.kurokumaft:soup_bowl.name=汁椀
 
 tile.kurokumaft:kitchen_table.name=調理台
+tile.kurokumaft:tear_enchant.name=エンチャントリリース
+tear_enchant.mess.body=取り除いたエンチャントを本に付け替える
+tear_enchant.mess.body.notenc=エンチャント付きのアイテムを持ってください
+tear_enchant.mess.body.notbook=本をセットしてください。
+tear_enchant.mess.body.notbook_kome1=1.エンチャントを移す本を持って右クリック
+tear_enchant.mess.body.notbook_kome2=2.エンチャントを剥がすアイテムを持って右クリック
+tear_enchant.mess.body.notbook_kome3=3.何も持たずに右クリックでエンチャントを付け替えた本を取る
+tear_enchant.mess.body.kome1=※ 付け変え出来ないエンチャントはアイテムに残ります。幸運があるとシルクタッチが付かないなど
+tear_enchant.mess.body.kome2=※ 本をセットしたままワールドを出ると本が消失してしまうので注意
+tear_enchant.mess.ok=エンチャントを取り除く
+tear_enchant.mess.cancel=キャンセル
+tear_enchant.mess.confirm=確認
 
 item.kurokumaft:wolf_fur.name=オオカミの毛皮
 item.kurokumaft:fox_fur.name=キツネの毛皮

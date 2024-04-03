@@ -1,0 +1,38 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:warden_hammer"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "Z#Z",
+      "YXY",
+      " X"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:sculk_shrieker"
+      },
+      "Z": {
+        "item": "minecraft:sculk"
+      },
+      "X": {
+        "item": "minecraft:echo_shard"
+      },
+      "Y": {
+        "item": "minecraft:sculk_vein"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:echo_shard"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:warden_hammer"
+    }
+  }
+}

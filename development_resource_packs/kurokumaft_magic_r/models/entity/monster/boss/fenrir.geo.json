@@ -1,0 +1,88 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.fenrir",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 4,
+				"visible_bounds_offset": [0, 2, 0]
+			},
+			"bones": [
+				{
+					"name": "fenrir",
+					"pivot": [-1, -0.5, 0]
+				},
+				{
+					"name": "head",
+					"parent": "fenrir",
+					"pivot": [-1, 22.5, -15],
+					"cubes": [
+						{"origin": [-4, 10.5, -10], "size": [6, 6, 5], "uv": [27, 0]},
+						{"origin": [-3, 10.5, -13], "size": [4, 3, 3], "uv": [27, 31]},
+						{"origin": [-4, 16.5, -7], "size": [2, 2, 1], "uv": [0, 22]},
+						{"origin": [0, 16.5, -7], "size": [2, 2, 1], "uv": [0, 19]}
+					]
+				},
+				{
+					"name": "body",
+					"parent": "fenrir",
+					"pivot": [0, 19, 5],
+					"cubes": [
+						{"origin": [-5, 8, 1], "size": [8, 8, 11], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "upperBody",
+					"parent": "fenrir",
+					"pivot": [-1, 26, 5],
+					"cubes": [
+						{"origin": [-5, 9, -5], "size": [8, 8, 7], "uv": [0, 19]}
+					]
+				},
+				{
+					"name": "leg0",
+					"parent": "fenrir",
+					"pivot": [-3.5, 8, 11],
+					"cubes": [
+						{"origin": [-4.5, 0, 9], "size": [2, 9, 2], "uv": [16, 34]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "fenrir",
+					"pivot": [1.5, 8, 10],
+					"cubes": [
+						{"origin": [0.5, 0, 9], "size": [2, 9, 2], "uv": [8, 34]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "fenrir",
+					"pivot": [-3.5, 9, -3],
+					"cubes": [
+						{"origin": [-4.5, 0, -4], "size": [2, 9, 2], "uv": [0, 34]}
+					]
+				},
+				{
+					"name": "leg3",
+					"parent": "fenrir",
+					"pivot": [1.5, 9, -3],
+					"cubes": [
+						{"origin": [0.5, 0, -4], "size": [2, 9, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "fenrir",
+					"pivot": [-1, 26, 27],
+					"cubes": [
+						{"origin": [-3, 3, 12], "size": [4, 11, 1], "uv": [30, 19]}
+					]
+				}
+			]
+		}
+	]
+}

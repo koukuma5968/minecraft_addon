@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:steel_shield"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "###",
+      "#I#",
+      "###"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:emerald"
+      },
+      "#": {
+        "item": "kurokumaft:steel_ingot"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:steel_shield"
+    },
+    "priority": -1
+  } 
+}

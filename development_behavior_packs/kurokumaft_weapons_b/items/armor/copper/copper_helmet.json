@@ -1,19 +1,26 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:copper_helmet",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:copper_helmet.name"
 			},
       "minecraft:icon": {
-        "texture": "copper_helmet"
+        "textures": {
+          "default": "copper_helmet"
+        }
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:trimmable_armors"
+        ]
       },
       "minecraft:max_stack_size": 1,
       "minecraft:enchantable": {

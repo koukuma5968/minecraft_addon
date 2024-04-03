@@ -1,0 +1,51 @@
+{
+  "format_version": "1.20.70",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:nether_stone_magic_helmet",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:nether_stone_magic_helmet.name"
+			},
+      "minecraft:icon": {
+        "textures": {
+          "default": "nether_stone_magic_helmet"
+        }
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "minecraft:dart","minecraft:stone","kurokumaft:stone_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:nether_stone_magic_helmet" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 50,
+        "slot": "armor_head"
+      },
+      "minecraft:durability": {
+        "max_durability": 2500,
+        "damage_chance": {
+          "min": 80,
+          "max": 100
+        }
+      },
+      "minecraft:damage": 4,
+      "minecraft:wearable": {
+        "protection": 20,
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}

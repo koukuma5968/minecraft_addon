@@ -32,7 +32,7 @@
 				"uv": {
 					"texture_width": 128,
 					"texture_height": 128,
-					"uv": [0, 48],
+					"uv": [8, 48],
 					"uv_size": [8, 8]
 				}
 			},

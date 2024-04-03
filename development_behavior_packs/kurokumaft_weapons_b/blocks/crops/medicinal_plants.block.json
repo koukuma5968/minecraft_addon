@@ -24,6 +24,8 @@
 					{
 						"allowed_faces": ["up"],
 						"block_filter": [
+							{"name": "grass"},
+							{"name": "dirt"},
 							{"name": "farmland"}
 						]
 					}

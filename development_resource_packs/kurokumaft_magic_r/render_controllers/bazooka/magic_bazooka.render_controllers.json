@@ -6,7 +6,7 @@
         "textures": {
           "array.bazooka_texture_frames": [
             "texture.default",
-            "texture.fire"
+            "texture.chage"
           ]
         }
       },

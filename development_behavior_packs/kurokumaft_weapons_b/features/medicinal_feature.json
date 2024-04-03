@@ -10,10 +10,9 @@
     "may_attach_to": {
       "min_sides_must_attach": 2,
       "auto_rotate": false,
-      "bottom": "minecraft:grass",
-      "top": [
-        "minecraft:air",
-        "minecraft:leaves"
+      "bottom": [
+        "minecraft:grass",
+        "minecraft:dirt"
       ]
     },
     "may_replace": [

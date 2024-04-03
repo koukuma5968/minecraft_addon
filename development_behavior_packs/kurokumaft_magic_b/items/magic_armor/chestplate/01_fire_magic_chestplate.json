@@ -1,29 +1,36 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fire_magic_chestplate",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fire_magic_chestplate.name"
 			},
       "minecraft:icon": {
-          "texture": "fire_magic_chestplate"
+        "textures": {
+          "default": "fire_magic_chestplate"
+        }
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:trimmable_armors"
+        ]
       },
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:magma"],
-            "repair_amount": 50
+            "items": [ "minecraft:magma","kurokumaft:water_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:fire_magic_chestplate" ],
-            "repair_amount": 250
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
       },

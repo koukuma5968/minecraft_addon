@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:fenrir",
+      "materials": { "default": "wolf" },
+      "textures": {
+        "default": "textures/kurokumaft/entity/boss/fenrir"
+      },
+      "geometry": {
+        "default": "geometry.fenrir"
+      },
+      "scripts": {
+        "scaleX": "1.75",
+        "scaleY": "1.5",
+        "scaleZ": "1.75",
+        "animate": [
+          {"move": "query.modified_move_speed"}
+        ]
+      },
+      "animations": {
+        "move": "animation.fenrir.move"
+      },
+      "render_controllers": [ "controller.render.fenrir" ],
+      "spawn_egg": {
+        "texture": "magic_boss_spawn_egg",
+        "texture_index": 1
+      }
+    }
+  }
+}

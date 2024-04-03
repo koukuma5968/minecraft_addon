@@ -154,6 +154,40 @@
               }
             }
           ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": 1
+            }
+          ],
+          "gives": [
+            {
+              "item": "kurokumaft:onion",
+              "quantity": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:emerald",
+              "quantity": 1
+            }
+          ],
+          "gives": [
+            {
+              "item": "kurokumaft:soybean",
+              "quantity": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
         }
       ]
     },
