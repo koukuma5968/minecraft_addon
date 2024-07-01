@@ -20,6 +20,11 @@
                 "item": "minecraft:diamond"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:diamond"
+            }
+        ],
         "result": {
             "item": "kurokumaft:diamond_arrow",
             "count": 1

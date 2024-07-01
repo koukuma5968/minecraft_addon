@@ -1,5 +1,5 @@
 {
- "format_version": "1.20.10",
+  "format_version": "1.20.10",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:storm_eagle",
@@ -31,10 +31,6 @@
             "position": [ 0.0, 1.1, -0.2 ]
           }
 
-        },
-        "minecraft:movement.fly": {
-          "speed_multiplier": 0.2,
-          "max_turn": 0.5
         },
   
         "minecraft:behavior.float_wander": {
@@ -123,9 +119,14 @@
             "player"
           ],
           "interact_text": "action.interact.ride.horse",
-          "seats": {
+          "seats": [
+            {
             "position": [ 0.0, 1.1, -0.5 ]
-          }
+            },
+            {
+              "position": [ 0.0, 0.7, -0.6 ]
+            }
+          ]
 
         },
         "minecraft:strength": {
@@ -136,33 +137,6 @@
           "inventory_size": 14,
           "container_type": "horse",
           "additional_slots_per_strength": 3
-        },
-        "minecraft:breedable": {
-          "require_tame": true,
-          "inherit_tamed": false,
-          "breeds_with": [
-            {
-              "mate_type": "minecraft:horse",
-              "baby_type": "minecraft:horse",
-              "breed_event": {
-                "event": "minecraft:entity_born",
-                "target": "baby"
-              }
-            },
-            {
-              "mate_type": "minecraft:donkey",
-              "baby_type": "minecraft:mule",
-              "breed_event": {
-                "event": "minecraft:entity_born",
-                "target": "baby"
-              }
-            }
-          ],
-          "breed_items": [
-            "golden_carrot",
-            "golden_apple",
-            "appleEnchanted"
-          ]
         },
         "minecraft:behavior.tempt": {
           "priority": 5,
@@ -200,20 +174,6 @@
               "interact_text": "action.interact.attachchest"
             }
           ]
-        }
-      },
-
-      "kurokumaft:ride_hover": {
-        "minecraft:movement.hover": {
-          "max_turn": 90.0
-        }
-      },
-      "kurokumaft:ride_landing": {
-        "minecraft:flying_speed": {
-          "value": 0.2
-        },
-        "minecraft:movement.fly": {
-          "max_turn": 90.0
         }
       },
 
@@ -257,6 +217,9 @@
       },
       "minecraft:attack": {
         "damage": 6
+      },
+      "minecraft:movement.hover": {
+        "max_turn": 90.0
       },
 
       "minecraft:behavior.beg": {
@@ -304,6 +267,59 @@
           }
         ]
       },
+      "minecraft:healable": {
+        "items": [
+          {
+            "item": "fish",
+            "heal_amount": 4
+          },
+          {
+            "item": "salmon",
+            "heal_amount": 4
+          },
+          {
+            "item": "clownfish",
+            "heal_amount": 2
+          },
+          {
+            "item": "pufferfish",
+            "heal_amount": 2
+          },
+          {
+            "item": "cooked_fish",
+            "heal_amount": 10
+          },
+          {
+            "item": "cooked_salmon",
+            "heal_amount": 12
+          },
+          {
+            "item": "rotten_flesh",
+            "heal_amount": 8
+          },
+          {
+            "item": "wheat",
+            "heal_amount": 2
+          },
+          {
+            "item": "apple",
+            "heal_amount": 10
+          },
+          {
+            "item": "golden_carrot",
+            "heal_amount": 20
+          },
+          {
+            "item": "golden_apple",
+            "heal_amount": 20
+          },
+          {
+            "item": "appleEnchanted",
+            "heal_amount": 30
+          }
+
+        ]
+      },
       "minecraft:leashable": {
         "soft_distance": 4.0,
         "hard_distance": 6.0,
@@ -317,7 +333,7 @@
       "minecraft:nameable": {
       },
       "minecraft:type_family": {
-        "family": [ "eagle", "mob", "familiar" ]
+        "family": [ "eagle", "mob", "familiar", "irongolem" ]
       },
       "minecraft:collision_box": {
         "width": 1.2,
@@ -384,7 +400,13 @@
         "priority": 9
       },
       "minecraft:behavior.hurt_by_target": {
-        "priority": 1
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "monster"},
+            "max_dist": 32
+          }
+        ]  
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -455,31 +477,6 @@
         "add": {
           "component_groups": [
             "minecraft:horse_chested"
-          ]
-        }
-      },
-
-      "kurokumaft:ride_hover": {
-        "remove": {
-          "component_groups": [
-            "kurokumaft:ride_landing"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "kurokumaft:ride_hover"
-          ]
-        }
-      },
-      "kurokumaft:ride_landing": {
-        "remove": {
-          "component_groups": [
-            "kurokumaft:ride_hover"
-          ]
-        },
-        "add": {
-          "component_groups": [
-            "kurokumaft:ride_landing"
           ]
         }
       },

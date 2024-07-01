@@ -1,5 +1,5 @@
 tag @s add seireinomai
-tag @e[tag=!seireinomai,family=!inanimate,type=!item,r=3,c=1] add seireinomai_t
+tag @e[tag=!seireinomai,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3,c=1] add seireinomai_t
 execute as @s run damage @e[tag=seireinomai_t] 5 wither
 execute as @s run damage @e[tag=seireinomai_t] 5 wither
 execute as @s run damage @e[tag=seireinomai_t] 5 wither

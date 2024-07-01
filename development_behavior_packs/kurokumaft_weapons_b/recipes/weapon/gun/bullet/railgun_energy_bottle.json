@@ -1,0 +1,37 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:railgun_energy_bottle"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+           "BAB",
+           "ACA",
+           "BAB"
+        ],
+        "key": {
+            "A": {
+                "item": "kurokumaft:black_powder"
+            },
+            "B": {
+                "item": "minecraft:glowstone_dust"
+            },
+            "C": {
+                "item": "minecraft:experience_bottle"
+            }
+        },
+        "unlock": [
+            {
+              "item": "minecraft:experience_bottle"
+            }
+        ],
+        "result": {
+            "item": "kurokumaft:railgun_energy_bottle",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

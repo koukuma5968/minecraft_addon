@@ -44,6 +44,12 @@
        "liquid_inertia": 1,
        "reflect_on_hurt": true
       },
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "max_distance": 32,
+          "min_distance": 16
+        }
+      },
       "minecraft:physics": {
       },
       "minecraft:pushable": {

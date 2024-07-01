@@ -40,6 +40,32 @@
         "item": "minecraft:netherite_sword"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:dark_magic_sword"
+      },
+      {
+        "item": "kurokumaft:fire_magic_sword"
+      },
+      {
+        "item": "kurokumaft:holly_magic_sword"
+      },
+      {
+        "item": "kurokumaft:ice_magic_sword"
+      },
+      {
+        "item": "kurokumaft:stone_magic_sword"
+      },
+      {
+        "item": "kurokumaft:thunder_magic_sword"
+      },
+      {
+        "item": "kurokumaft:wind_magic_sword"
+      },
+      {
+        "item": "kurokumaft:water_magic_sword"
+      }
+    ],
     "result": {
       "item": "kurokumaft:rainbow_magic_sword",
       "count": 1

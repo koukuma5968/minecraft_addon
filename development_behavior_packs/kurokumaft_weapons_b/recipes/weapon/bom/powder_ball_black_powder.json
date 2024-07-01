@@ -20,6 +20,11 @@
                 "item": "kurokumaft:black_powder"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:black_powder"
+            }
+        ],
         "result": {
             "item": "kurokumaft:powder_ball",
             "count": 4

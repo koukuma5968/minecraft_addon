@@ -1,0 +1,31 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:steel_block"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+          "BBB",
+          "BBB",
+          "BBB"
+        ],
+        "key": {
+            "B": {
+                "item": "kurokumaft:steel_ingot"
+            }
+        },
+        "unlock": [
+            {
+              "item": "kurokumaft:steel_ingot"
+            }
+        ],
+        "result": {
+            "item": "kurokumaft:steel_block",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

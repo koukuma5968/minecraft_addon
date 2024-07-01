@@ -45,6 +45,12 @@
         "reflect_on_hurt": true,
         "catch_fire": false
       },
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "max_distance": 32,
+          "min_distance": 16
+        }
+      },
       "minecraft:timer": {
         "time": [2.0,2.0],
         "time_down_event": { 

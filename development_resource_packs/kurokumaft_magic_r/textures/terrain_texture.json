@@ -35,6 +35,12 @@
          "textures" : "textures/kurokumaft/blocks/windwall_block"
       },
 
+		"grimoire_torchlight_block": {
+			"textures": "textures/kurokumaft/blocks/grimoire_torchlight_block.png"
+		},
+		"magic_lectern": {
+			"textures": "textures/kurokumaft/blocks/magic_lectern"
+		},
       "magma_portal_gate" : {
          "textures" : "textures/kurokumaft/blocks/magma_portal_gate"
       }

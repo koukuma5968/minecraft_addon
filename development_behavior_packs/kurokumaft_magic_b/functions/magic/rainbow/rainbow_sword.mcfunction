@@ -7,7 +7,7 @@ effect @s weakness 50 100 true
 effect @s poison 50 100 true
 effect @s slowness 20 30 true
 effect @s wither 10 30 false
-effect @s instant_health 1 70 false
+effect @e[tag=rainbow_sword_s] instant_health 1 70 false
 tag @s remove rainbow_sword
 tag @e[tag=rainbow_sword_s] remove rainbow_sword_s
 

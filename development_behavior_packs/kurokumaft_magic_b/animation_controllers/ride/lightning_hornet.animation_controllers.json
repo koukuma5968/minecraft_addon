@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.10",
+	"animation_controllers": {
+		"controller.animation.lightning_hornet.rider": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"lightning_hornet_rider": "query.has_rider"}
+					]
+				},
+				"lightning_hornet_rider": {
+					"on_entry": [
+						"/tag @s add lightning_hornet_rider"
+					],
+					"animations" : [ "landing", "takeoff" ],
+					"on_exit": [
+						"/event entity @s mark_variant0",
+						"/effect @s speed 0",
+						"/tag @s remove lightning_hornet_rider"
+					],
+					"transitions": [
+						{"default": "!query.has_rider"}
+					]
+				}
+			}
+		}
+	}
+}

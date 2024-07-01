@@ -16,7 +16,7 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_mizu8",
-					"/execute as @s positioned ^^^2 run damage @e[tag=!kokyu_mizu8,r=3] 15 entity_attack",
+					"/execute as @s positioned ^^^2 run damage @e[tag=!kokyu_mizu8,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 15 entity_attack",
 					"/tag @s remove kokyu_mizu8"
 				]
 			}

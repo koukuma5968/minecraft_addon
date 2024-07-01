@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:urogi_ultrasonic",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/hantengu/urogi_ultrasonic"
+          },
+          "geometry": {
+            "default": "geometry.urogi_ultrasonic"
+          },
+          "particle_effects": {
+            "ultrasonic_waves": "kurokumaft:ultrasonic_waves_particle"
+          },
+          "animations": {
+            "urogi_ultrasonic": "animation.kekkizyutu.hantengu.urogi_ultrasonic"
+          },
+          "scripts": {
+            "scale": "1.5",
+            "animate": [
+              "urogi_ultrasonic"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

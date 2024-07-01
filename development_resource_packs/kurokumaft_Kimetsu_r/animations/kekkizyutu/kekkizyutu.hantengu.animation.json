@@ -1,0 +1,15 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kekkizyutu.hantengu.urogi_ultrasonic": {
+			"loop": true,
+			"animation_length": 0.1,
+			"particle_effects": {
+				"0.0": {
+					"effect": "ultrasonic_waves",
+					"locator": "ultrasonic_waves"
+				}
+			}
+		}
+	}
+}

@@ -18,6 +18,11 @@
         "item": "minecraft:gunpowder"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
     "result": {
       "item": "kurokumaft:magic_shell"
     }

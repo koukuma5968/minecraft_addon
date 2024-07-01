@@ -23,6 +23,11 @@
                 "item": "kurokumaft:bamboo_fiber"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:bamboo_fiber"
+            }
+        ],
         "result": {
             "item": "kurokumaft:bakutiku",
             "count": 1

@@ -1,0 +1,73 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magic_stone_entity.stand_n": {
+			"loop": true,
+			"animation_length": 0.9583,
+			"bones": {
+				"magic_stone_entity": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [0, 90, 0],
+						"0.4583": [0, 180, 0],
+						"0.7083": [0, 270, 0],
+						"0.9583": [0, 360, 0]
+					},
+					"position": [0, -2, -3],
+					"scale": 0.25
+				}
+			}
+		},
+		"animation.magic_stone_entity.stand_s": {
+			"loop": true,
+			"animation_length": 0.9583,
+			"bones": {
+				"magic_stone_entity": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [0, 90, 0],
+						"0.4583": [0, 180, 0],
+						"0.7083": [0, 270, 0],
+						"0.9583": [0, 360, 0]
+					},
+					"position": [0, -2, 3],
+					"scale": 0.25
+				}
+			}
+		},
+		"animation.magic_stone_entity.stand_e": {
+			"loop": true,
+			"animation_length": 0.9583,
+			"bones": {
+				"magic_stone_entity": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [0, 90, 0],
+						"0.4583": [0, 180, 0],
+						"0.7083": [0, 270, 0],
+						"0.9583": [0, 360, 0]
+					},
+					"position": [-3, -2, 0],
+					"scale": 0.25
+				}
+			}
+		},
+		"animation.magic_stone_entity.stand_w": {
+			"loop": true,
+			"animation_length": 0.9583,
+			"bones": {
+				"magic_stone_entity": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [0, 90, 0],
+						"0.4583": [0, 180, 0],
+						"0.7083": [0, 270, 0],
+						"0.9583": [0, 360, 0]
+					},
+					"position": [3, -2, 0],
+					"scale": 0.25
+				}
+			}
+		}
+	}
+}

@@ -30,17 +30,6 @@
         }
       },
 
-      "kurokumaft:kekkizyutu_reset": {
-        "minecraft:timer": {
-          "time": 5.0,
-          "looping": true,
-          "time_down_event": {
-            "event": "kurokumaft:random_kekkizyutu",
-            "target": "self"
-          }
-        }
-      },
-
       "mark_variant0": {
         "minecraft:mark_variant": {
             "value": 0
@@ -103,11 +92,20 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 550,
-        "max": 550
+        "value": 400,
+        "max": 400
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/ogre/rui_gear.json"
+      },
+      "minecraft:timer": {
+        "time": [10.0, 15.0],
+        "randomInterval": true,
+        "looping": true,
+        "time_down_event": {
+          "event": "kurokumaft:random_kekkizyutu",
+          "target": "self"
+        }
       },
       "minecraft:navigation.walk": {
         "is_amphibious": true,
@@ -281,12 +279,17 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kekkizyutu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
 
       "kurokumaft:random_kekkizyutu": {
         "sequence": [
+          {
+            "add": {
+              "component_groups": [ "variant0","mark_variant0" ]
+            }
+          },
           {
             "filters": {
               "test": "has_target"
@@ -316,7 +319,7 @@
       },
       "kurokumaft:random_kekkizyutu_off": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kekkizyutu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
 

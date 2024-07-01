@@ -1,0 +1,56 @@
+{
+	"format_version": "1.20.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:grimoire_torchlight_block",
+			"menu_category": {
+				"category": "none"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": false,
+            "minecraft:selection_box": {
+				"origin": [-4.0, 6.0, -4.0],
+				"size": [8.0, 6.0, 8.0]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.1
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:on_placed": {
+				"event": "torchlight_fire"
+			},
+			"minecraft:queued_ticking": {
+				"interval_range": [50.0,50.0],
+				"looping": true,
+				"on_tick": {
+					"event": "torchlight_fire"
+				}
+			},
+			"minecraft:geometry": "geometry.grimoire_torchlight_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "grimoire_torchlight_block",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:light_emission": 15,
+			"minecraft:light_dampening": 0,
+			"minecraft:map_color": "#fe8158"
+		},
+		"events": {
+			"torchlight_fire": {
+				"run_command": {
+					"command": [
+					  "particle kurokumaft:torchlight_fire ~~~"
+					],
+					"target": "self"
+				}
+			}
+		}
+	}
+}

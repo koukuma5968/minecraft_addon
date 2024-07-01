@@ -156,8 +156,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 200,
-        "max": 200
+        "value": 300,
+        "max": 300
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/genya_gear.json"
@@ -338,7 +338,7 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
       "minecraft:trigger_raid": {

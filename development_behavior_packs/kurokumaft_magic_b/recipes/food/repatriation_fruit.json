@@ -18,6 +18,11 @@
         "item": "minecraft:gold_ingot"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:chorus_fruit"
+      }
+    ],
     "result": {
       "item": "kurokumaft:repatriation_fruit"
     }

@@ -67,7 +67,6 @@
       },
       "minecraft:on_use":{
         "on_use":{
-          "condition": "query.variant == 0",
           "event": "kurokumaft:mercury_smash"
         }
       },

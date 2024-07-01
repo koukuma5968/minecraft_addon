@@ -21,6 +21,11 @@
         "item": "minecraft:stick"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:light_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:light_wand"
     }

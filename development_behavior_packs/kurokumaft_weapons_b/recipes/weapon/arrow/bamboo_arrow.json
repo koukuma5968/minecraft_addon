@@ -20,6 +20,11 @@
                 "item": "minecraft:bamboo"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:bamboo"
+            }
+        ],
         "result": {
             "item": "kurokumaft:bamboo_arrow",
             "count": 1

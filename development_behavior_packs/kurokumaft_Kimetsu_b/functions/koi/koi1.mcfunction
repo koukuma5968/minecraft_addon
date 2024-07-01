@@ -1,5 +1,5 @@
 tag @s add kokyu_koi1
-tag @e[tag=!kokyu_koi1,family=!inanimate,type=!item,r=6] add kokyu_koi1_t
+tag @e[tag=!kokyu_koi1,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=6] add kokyu_koi1_t
 damage @e[tag=kokyu_koi1_t] 10 entity_attack
 execute as @e[tag=kokyu_koi1_t] run particle kurokumaft:koi_blead_particle ~~~
 execute as @e[tag=kokyu_koi1_t] run particle kurokumaft:koi_blead_particle ~~~

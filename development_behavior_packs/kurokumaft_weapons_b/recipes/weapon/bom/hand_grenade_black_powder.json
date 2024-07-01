@@ -20,6 +20,11 @@
                 "item": "kurokumaft:black_powder"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:black_powder"
+            }
+        ],
         "result": {
             "item": "kurokumaft:hand_grenade",
             "count": 4

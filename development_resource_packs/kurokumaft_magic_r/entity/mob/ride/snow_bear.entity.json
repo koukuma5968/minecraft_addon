@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:snow_bear",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/ride/snow_bear"
+      },
+      "geometry": {
+        "default": "geometry.snow_bear"
+      },
+      "animations": {
+        "walk": "animation.quadruped.walk",
+        "move": "animation.snow_bear.move",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "scripts": {
+        "scale": "1.2"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.snow_bear.move"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.snow_bear"
+      ],
+      "spawn_egg": {
+        "base_color": "#eeeede",
+        "overlay_color": "#d5d6cd"
+      }
+    }
+  }
+}

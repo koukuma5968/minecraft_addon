@@ -20,6 +20,11 @@
                 "item": "minecraft:iron_ingot"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:iron_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:iron_arrow",
             "count": 1

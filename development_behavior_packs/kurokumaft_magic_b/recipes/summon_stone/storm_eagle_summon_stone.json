@@ -21,6 +21,11 @@
         "item": "minecraft:phantom_membrane"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:wind_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:storm_eagle_summon_stone"
     }

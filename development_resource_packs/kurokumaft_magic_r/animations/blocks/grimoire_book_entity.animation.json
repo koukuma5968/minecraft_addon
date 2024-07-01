@@ -1,0 +1,184 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.grimoire_book.stand_n": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"grimoire_book": {
+					"position": [0, 1, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fire",
+						"locator": "book"
+					},
+					{
+						"effect": "water",
+						"locator": "book"
+					},
+					{
+						"effect": "wind",
+						"locator": "book"
+					},
+					{
+						"effect": "stone",
+						"locator": "book"
+					},
+					{
+						"effect": "lightning",
+						"locator": "book"
+					},
+					{
+						"effect": "ice",
+						"locator": "book"
+					},
+					{
+						"effect": "light",
+						"locator": "book"
+					},
+					{
+						"effect": "dark",
+						"locator": "book"
+					}
+				]
+			}
+		},
+		"animation.grimoire_book.stand_s": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"grimoire_book": {
+					"rotation": [0, 180, 0],
+					"position": [0, 1, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fire",
+						"locator": "book"
+					},
+					{
+						"effect": "water",
+						"locator": "book"
+					},
+					{
+						"effect": "wind",
+						"locator": "book"
+					},
+					{
+						"effect": "stone",
+						"locator": "book"
+					},
+					{
+						"effect": "lightning",
+						"locator": "book"
+					},
+					{
+						"effect": "ice",
+						"locator": "book"
+					},
+					{
+						"effect": "light",
+						"locator": "book"
+					},
+					{
+						"effect": "dark",
+						"locator": "book"
+					}
+				]
+			}
+		},
+		"animation.grimoire_book.stand_e": {
+			"loop": true,
+			"bones": {
+				"grimoire_book": {
+					"rotation": [0, 90, 0],
+					"position": [0, 1, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fire",
+						"locator": "book"
+					},
+					{
+						"effect": "water",
+						"locator": "book"
+					},
+					{
+						"effect": "wind",
+						"locator": "book"
+					},
+					{
+						"effect": "stone",
+						"locator": "book"
+					},
+					{
+						"effect": "lightning",
+						"locator": "book"
+					},
+					{
+						"effect": "ice",
+						"locator": "book"
+					},
+					{
+						"effect": "light",
+						"locator": "book"
+					},
+					{
+						"effect": "dark",
+						"locator": "book"
+					}
+				]
+			}
+		},
+		"animation.grimoire_book.stand_w": {
+			"loop": true,
+			"bones": {
+				"grimoire_book": {
+					"rotation": [0, -90, 0],
+					"position": [0, 1, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fire",
+						"locator": "book"
+					},
+					{
+						"effect": "water",
+						"locator": "book"
+					},
+					{
+						"effect": "wind",
+						"locator": "book"
+					},
+					{
+						"effect": "stone",
+						"locator": "book"
+					},
+					{
+						"effect": "lightning",
+						"locator": "book"
+					},
+					{
+						"effect": "ice",
+						"locator": "book"
+					},
+					{
+						"effect": "light",
+						"locator": "book"
+					},
+					{
+						"effect": "dark",
+						"locator": "book"
+					}
+				]
+			}
+		}
+	}
+}

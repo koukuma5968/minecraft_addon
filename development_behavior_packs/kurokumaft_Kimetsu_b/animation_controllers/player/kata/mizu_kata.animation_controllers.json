@@ -112,13 +112,47 @@
             "/event entity @s mark_variant1"
           ],
           "transitions": [
-            {"mizu5_1":"!query.is_using_item"}
+            {"mizu5_ran":"!query.is_using_item"}
           ]
         },
-        "mizu5_1":{
+        "mizu5_ran":{
+          "on_entry": [
+            "variable.mizu5_ran = (variable.mizu5_ran ?? 0);variable.mizu5_ran = math.random_integer(1, 20);"
+          ],
+          "transitions": [
+            {"mizu5_s":"variable.mizu5_ran <= 13"},
+            {"mizu5_l":"variable.mizu5_ran <= 19"},
+            {"mizu5_k":"variable.mizu5_ran == 20"}
+          ]
+        },
+        "mizu5_s":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9干天の慈雨\"}]}",
-            "/function mizu/mizu5"
+            "/function mizu/mizu5_small"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "mizu5_l":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9干天の慈雨\"}]}",
+            "/function mizu/mizu5_large"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"(1.0)"}
+          ]
+        },
+        "mizu5_k":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9干天の慈雨\"}]}",
+            "/function mizu/mizu5_kill"
           ],
           "on_exit": [
             "/event entity @s mark_variant0"

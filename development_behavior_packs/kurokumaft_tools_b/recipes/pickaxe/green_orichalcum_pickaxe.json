@@ -1,0 +1,30 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:green_orichalcum_pickaxe"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "###",
+      "Y|Y",
+      "#|#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:orichalcum"
+      },
+      "Y": {
+        "item": "minecraft:emerald"
+      },
+      "|": {
+        "item": "minecraft:stick"
+      }
+      
+    },
+    "result": {
+      "item": "kurokumaft:green_orichalcum_pickaxe",
+      "count": 1
+    }
+  }
+}

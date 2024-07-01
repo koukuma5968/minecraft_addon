@@ -41,7 +41,7 @@
         "explosion": {
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cエクスプロージョン\"}]}",
-            "/summon kurokumaft:explosionmagic ^ ^15 ^20"
+            "/summon kurokumaft:explosionmagic ^ ^25 ^25"
           ],
           "transitions": [
             {"default":"!query.is_using_item"}

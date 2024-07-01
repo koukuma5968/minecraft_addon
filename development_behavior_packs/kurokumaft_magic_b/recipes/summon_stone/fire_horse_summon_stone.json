@@ -21,6 +21,11 @@
         "item": "minecraft:leather"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:fire_horse_summon_stone"
     }

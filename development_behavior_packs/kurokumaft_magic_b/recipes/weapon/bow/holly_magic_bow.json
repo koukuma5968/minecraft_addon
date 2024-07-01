@@ -24,6 +24,11 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:light_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:holly_magic_bow"
     }

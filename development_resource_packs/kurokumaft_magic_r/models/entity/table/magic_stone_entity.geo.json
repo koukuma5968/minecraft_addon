@@ -1,0 +1,33 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.magic_stone_entity",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 1,
+				"visible_bounds_height": 1,
+				"visible_bounds_offset": [0, 0, 0]
+			},
+			"bones": [
+				{
+					"name": "magic_stone_entity",
+					"pivot": [0, 0, 0],
+					"texture_meshes": [
+						{
+							"texture": "fire",
+							"position": [0, -16, -8],
+							"rotation": [0, -90, -90]
+						},
+						{
+							"texture": "water",
+							"position": [0, -16, -8],
+							"rotation": [0, -90, -90]
+						}
+					]
+				}
+			]
+		}
+	]
+}

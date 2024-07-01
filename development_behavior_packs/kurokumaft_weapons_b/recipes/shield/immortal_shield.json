@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:immortal_shield"
@@ -21,6 +21,11 @@
         "item": "minecraft:totem"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:gilded_blackstone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:immortal_shield"
     },

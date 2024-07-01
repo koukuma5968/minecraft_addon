@@ -26,6 +26,11 @@
                 "item": "minecraft:pink_petals"
             }
         },
+        "unlock": [
+            {
+              "item": "minecraft:cherry_planks"
+            }
+        ],
         "result": {
             "item": "kurokumaft:cherry_arrow",
             "count": 1

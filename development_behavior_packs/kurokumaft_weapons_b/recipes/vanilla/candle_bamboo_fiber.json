@@ -20,6 +20,11 @@
                 "item": "kurokumaft:bamboo_fiber"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:bamboo_fiber"
+            }
+        ],
         "result": {
             "item": "minecraft:candle",
             "count": 1

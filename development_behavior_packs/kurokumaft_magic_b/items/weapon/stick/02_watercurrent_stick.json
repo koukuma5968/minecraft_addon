@@ -46,6 +46,9 @@
           "event": "kurokumaft:durability"
         }
       },
+      "minecraft:use_duration": 0.1,
+      "minecraft:chargeable": {
+      },
       "minecraft:on_use":{
         "on_use":{
           "event": "kurokumaft:durability",

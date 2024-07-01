@@ -54,17 +54,13 @@
           }
         ]
       },
-      "minecraft:shooter" : {
-        "charge_on_draw": true,
-        "scale_power_by_draw_duration": false
-      },
-      "minecraft:use_duration": 0.3,
+      "minecraft:use_duration": 1.0,
       "minecraft:chargeable": {
-        "on_complete": {
-          "event": "kurokumaft:wind_bark_slash"
-        }
       },
       "minecraft:on_use":{
+        "on_use":{
+          "event": "kurokumaft:wind_bark_slash"
+        }
       },
       "minecraft:weapon": {
         "on_hurt_entity": {

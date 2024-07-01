@@ -1,7 +1,7 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "鬼滅の刃Bv3.1",
+		"name": "kimatuKuroBv3.1",
 		"description": "鬼滅の刃version3 日輪刀/キャラクターアドオン ビヘイビアーパック",
 		"uuid": "d174c416-a595-4bfc-86d3-0d993dd8b45c",
 		"version": [3, 0, 1],
@@ -31,7 +31,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.8.0"
+			"version": "1.10.0"
 		}
 	]
 }

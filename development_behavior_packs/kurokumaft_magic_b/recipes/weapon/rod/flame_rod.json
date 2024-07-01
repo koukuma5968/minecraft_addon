@@ -21,6 +21,11 @@
         "item": "minecraft:iron_ingot"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:flame_rod"
     }

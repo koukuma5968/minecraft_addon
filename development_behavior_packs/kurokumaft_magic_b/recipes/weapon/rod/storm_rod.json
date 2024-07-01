@@ -21,6 +21,11 @@
         "item": "minecraft:iron_ingot"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:wind_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:storm_rod"
     }

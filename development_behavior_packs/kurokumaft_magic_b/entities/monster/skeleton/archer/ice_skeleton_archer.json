@@ -18,7 +18,7 @@
         "height": 1.9
       },
       "minecraft:type_family": {
-        "family": [ "skeleton", "undead", "monster", "mob", "ice" ]
+        "family": [ "skeleton", "magic", "undead", "monster", "ice" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -122,6 +122,7 @@
             "filters": {
               "any_of": [
                 { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" },
                 { "test": "is_family", "subject": "other", "value": "snowgolem" },
                 { "test": "is_family", "subject": "other", "value": "irongolem" }
               ]

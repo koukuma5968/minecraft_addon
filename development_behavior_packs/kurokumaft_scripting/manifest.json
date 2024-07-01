@@ -1,30 +1,30 @@
 {
 	"format_version": 2,
 	"header": {
-		"description": "ゲームテスト",
-		"name": "kurokumaft_scripting",
+		"description": "ScriptAPI",
+		"name": "Script APIを利用するビヘイビアーパック",
 		"uuid": "1A2F42BD-98D4-4E0D-8E3F-934AB8A0C05E",
 		"version": [1,0,0],
-		"min_engine_version": [1,19,0]
+		"min_engine_version": [1,20,30]
 	},
 	"modules": [
 		{
-			"description": "kurokumaft_scripting",
+			"description": "ScriptAPI",
 			"type": "script",
 			"language": "javascript",
 			"uuid": "6e2c0627-c64d-414a-8bcc-94c249c6f89e",
 			"version": [1,0,0],
-			"entry": "scripts/script.js"
+			"entry": "scripts/my_script.js"
 		}
 	],
 	"dependencies": [
 		{
-			"module_name": "@minecraft/server",
-			"version": "1.0.0-beta"
+			"module_name": "@minecraft/server-ui",
+			"version": "1.2.0-beta"
 		},
 		{
-			"module_name": "@minecraft/server-gametest",
-			"version": "1.0.0-beta"
+			"module_name": "@minecraft/server",
+			"version": "1.11.0-beta"
 		}
 	]
 }

@@ -113,7 +113,8 @@
           "variable.equipped_zyuu_genya = 0.0;",
 
           "variable.rui = 0.0;",
-          "variable.akaza = 0.0;"
+          "variable.akaza = 0.0;",
+          "variable.daki = 0.0;"
 
         ],
         "pre_animation": [
@@ -169,7 +170,8 @@
           "variable.equipped_zyuu_genya = query.skin_id == 40;",
 
           "variable.rui = query.skin_id == 51;",
-          "variable.akaza = query.skin_id == 52;"
+          "variable.akaza = query.skin_id == 52;",
+          "variable.daki = query.skin_id == 53;"
 
         ],
         "animate": [
@@ -318,6 +320,7 @@
           {"kaze_attack": "variable.equipped_kaze && variable.attack_time"},
 
           {"akaza.kekkizyutu_body": "variable.akaza"},
+          {"daki.kekkizyutu_body":  "variable.daki"},
 
           {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
           {"hebi.con": "variable.equipped_obanai"}
@@ -801,7 +804,11 @@
         "manyousenyanagi": "animation.kekkizyutu.hakaisatu.body.manyousenyanagi",
         "manyousenyanagi_attack": "animation.kekkizyutu.hakaisatu.body.manyousenyanagi_attack",
         "kishinyaenshin": "animation.kekkizyutu.hakaisatu.body.kishinyaenshin",
-        "aoginranzankou": "animation.kekkizyutu.hakaisatu.body.aoginranzankou"
+        "aoginranzankou": "animation.kekkizyutu.hakaisatu.body.aoginranzankou",
+
+        "daki.kekkizyutu_body": "controller.animation.kekkizyutu.daki",
+        "yaeobigiri": "animation.kekkizyutu.obi.yaeobigiri_body"
+
 
       },
       "render_controllers": [

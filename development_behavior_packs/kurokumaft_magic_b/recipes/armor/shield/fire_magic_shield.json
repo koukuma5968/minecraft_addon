@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:fire_magic_shield"
@@ -22,6 +22,11 @@
         "item": "minecraft:planks"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:fire_magic_shield",
       "count": 1

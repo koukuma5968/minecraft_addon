@@ -28,6 +28,11 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:water_magic_stone"
+      }
+    ],
     "result": [
       {"item": "kurokumaft:watercurrent_stick"},
       { "item": "minecraft:bucket", "count": 2, "data": 0 }

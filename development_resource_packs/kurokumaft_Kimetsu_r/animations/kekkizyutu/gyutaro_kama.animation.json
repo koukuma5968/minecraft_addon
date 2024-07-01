@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gyutaro_kama.first_person": {
+			"loop": true,
+			"bones": {
+				"gyutaro_kama": {
+					"rotation": [-9.75261, 74.16096, -67.78876],
+					"position": [-3, 12, -8],
+					"scale": 1
+				}
+			}
+		},
+		"animation.gyutaro_kama.third_person": {
+			"loop": true,
+			"bones": {
+				"gyutaro_kama": {
+					"rotation": [0, 0, 0],
+					"position": [0, 22, -3],
+					"scale": 1.25
+				}
+			}
+		}
+	}
+}

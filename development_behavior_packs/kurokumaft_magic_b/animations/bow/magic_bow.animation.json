@@ -38,13 +38,13 @@
 				"0.0": [
 					"/event entity @s variant0"
 				],
-				"0.02": [
+				"0.25": [
 					"/event entity @s variant1"
 				],
-				"0.06": [
+				"0.5": [
 					"/event entity @s variant2"
 				],
-				"0.10": [
+				"0.75": [
 					"/event entity @s variant3"
 				]
 			}

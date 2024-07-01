@@ -1,5 +1,5 @@
 tag @s add chounomai
-tag @e[tag=!chounomai,family=!inanimate,type=!item] add chounomai_t
+tag @e[tag=!chounomai,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item] add chounomai_t
 execute as @s positioned ^^^1.5 run damage @e[tag=chounomai_t,c=1,r=2.5] 2 wither
 execute as @s positioned ^^^1.5 run damage @e[tag=chounomai_t,c=1,r=2.5] 2 wither
 execute as @s positioned ^^^1.5 run damage @e[tag=chounomai_t,c=1,r=2.5] 2 wither

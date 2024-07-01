@@ -93,17 +93,7 @@
             "event": "minecraft:on_tame",
             "target": "self"
           }
-        },
-        "minecraft:behavior.nearest_attackable_target": {
-          "priority": 5,
-          "must_see": true,
-          "entity_types": [
-            {
-              "filters": { "test" :  "is_family", "subject" : "other", "value" :  "monster"},
-              "max_dist": 16
-            }
-          ]
-        }    
+        }
       },
 
       "minecraft:horse_tamed": {
@@ -114,9 +104,6 @@
           "speed_multiplier": 0.5,
           "start_distance": 10,
           "stop_distance": 6
-        },
-        "minecraft:behavior.owner_hurt_by_target": {
-          "priority": 1
         },
         "minecraft:behavior.owner_hurt_target": {
           "priority": 2
@@ -294,7 +281,7 @@
         ]
       },
       "minecraft:type_family": {
-        "family": [ "horse", "mob", "familiar" ]
+        "family": [ "horse", "mob", "familiar", "irongolem" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -318,7 +305,25 @@
           }
         ]
       },
-
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "monster"},
+            "max_dist": 32
+          }
+        ]  
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 5,
+        "must_see": true,
+        "entity_types": [
+          {
+            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "monster"},
+            "max_dist": 16
+          }
+        ]
+      },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
           {
@@ -334,6 +339,7 @@
           "range_max": 0.3375
         }
       },
+      
       "minecraft:navigation.walk": {
         "can_path_over_water": true,
         "avoid_water": true,
@@ -361,20 +367,36 @@
       "minecraft:healable": {
         "items": [
           {
+            "item": "porkchop",
+            "heal_amount": 6
+          },
+          {
+            "item": "beef",
+            "heal_amount": 6
+          },
+          {
+            "item": "chicken",
+            "heal_amount": 4
+          },
+          {
+            "item": "muttonRaw",
+            "heal_amount": 4
+          },
+          {
+            "item": "rabbit",
+            "heal_amount": 6
+          },
+          {
             "item": "wheat",
             "heal_amount": 2
           },
           {
-            "item": "sugar",
-            "heal_amount": 1
-          },
-          {
-            "item": "hay_block",
-            "heal_amount": 20
-          },
-          {
             "item": "apple",
-            "heal_amount": 3
+            "heal_amount": 10
+          },
+          {
+            "item": "carrot",
+            "heal_amount": 10
           },
           {
             "item": "golden_carrot",

@@ -13,7 +13,7 @@
 				"num_particles": 1
 			},
 			"minecraft:emitter_lifetime_once": {
-				"active_time": 1
+				"active_time": 0.1
 			},
 			"minecraft:emitter_shape_point": {},
 			"minecraft:particle_lifetime_expression": {
@@ -26,7 +26,7 @@
 			},
 			"minecraft:particle_appearance_billboard": {
 				"size": [2.5, 2.5],
-				"facing_camera_mode": "lookat_xyz",
+				"facing_camera_mode": "rotate_xyz",
 				"uv": {
 					"texture_width": 32,
 					"texture_height": 256,
@@ -46,7 +46,7 @@
 				"collision_radius": 0.1
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.43137, 0.78824, 0.93333, 1]
+				"color": [0.43137, 0.93333, 0.69412, 1]
 			}
 		}
 	}

@@ -1,0 +1,184 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:magic_stone_entity",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      },
+      "variant0": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "variant1": {
+        "minecraft:variant": {
+          "value": 1
+        }
+      },
+      "variant2": {
+        "minecraft:variant": {
+          "value": 2
+        }
+      },
+      "variant3": {
+        "minecraft:variant": {
+          "value": 3
+        }
+      },
+      "variant4": {
+        "minecraft:variant": {
+          "value": 4
+        }
+      },
+      "variant5": {
+        "minecraft:variant": {
+          "value": 5
+        }
+      },
+      "variant6": {
+        "minecraft:variant": {
+          "value": 6
+        }
+      },
+      "variant7": {
+        "minecraft:variant": {
+          "value": 7
+        }
+      },
+
+      "mark_variant0": {
+        "minecraft:mark_variant": {
+          "value": 0
+        }
+      },
+      "mark_variant1": {
+        "minecraft:mark_variant": {
+          "value": 1
+        }
+      },
+      "mark_variant2": {
+        "minecraft:mark_variant": {
+          "value": 2
+        }
+      },
+      "mark_variant3": {
+        "minecraft:mark_variant": {
+          "value": 3
+        }
+      }
+
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "armor_stand", "inanimate", "magic_stone_entity" ]
+      },
+      "minecraft:inventory": {
+        "inventory_size": 1,
+        "container_type": "horse"
+      },
+      "minecraft:collision_box": {
+        "width": 0.05,
+        "height": 0.05
+      },
+      "minecraft:health": {
+        "value": 10,
+        "max":10
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+    "events": {
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
+        }
+      },
+      "kurokumaft:fire": {
+        "add": {
+          "component_groups" : [ "variant0" ]
+        }
+      },
+      "kurokumaft:water": {
+        "add": {
+          "component_groups" : [ "variant1" ]
+        }
+      },
+      "kurokumaft:wind": {
+        "add": {
+          "component_groups" : [ "variant2" ]
+        }
+      },
+      "kurokumaft:stone": {
+        "add": {
+          "component_groups" : [ "variant3" ]
+        }
+      },
+      "kurokumaft:lightning": {
+        "add": {
+          "component_groups" : [ "variant4" ]
+        }
+      },
+      "kurokumaft:ice": {
+        "add": {
+          "component_groups" : [ "variant5" ]
+        }
+      },
+      "kurokumaft:light": {
+        "add": {
+          "component_groups" : [ "variant6" ]
+        }
+      },
+      "kurokumaft:dark": {
+        "add": {
+          "component_groups" : [ "variant7" ]
+        }
+      },
+
+      "kurokumaft:north": {
+        "add": {
+          "component_groups" : [ "mark_variant0" ]
+        }
+      },
+      "kurokumaft:south": {
+        "add": {
+          "component_groups" : [ "mark_variant1" ]
+        }
+      },
+      "kurokumaft:east": {
+        "add": {
+          "component_groups" : [ "mark_variant2" ]
+        }
+      },
+      "kurokumaft:west": {
+        "add": {
+          "component_groups" : [ "mark_variant3" ]
+        }
+      }
+    }
+  }
+}

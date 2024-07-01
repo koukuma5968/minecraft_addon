@@ -1,0 +1,51 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.aizetu_jacket",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 13.5, -2.5], "size": [8.2, 11, 5], "uv": [1, 0]}
+					]
+				},
+				{
+					"name": "nawa",
+					"parent": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-5, 19, 3], "size": [10, 8, 2], "uv": [40, 23]},
+						{"origin": [-4, 20, 3], "size": [8, 5, 2], "uv": [44, 47]},
+						{"origin": [4, 20, -3], "size": [2, 6, 6], "uv": [48, 34]},
+						{"origin": [-6, 20, -3], "size": [2, 6, 6], "uv": [48, 34]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-8.05, 14.5, -2.5], "size": [4.2, 10, 5], "uv": [20, 18]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0],
+					"cubes": [
+						{"origin": [3.9, 14.5, -2.5], "size": [4.2, 10, 5], "uv": [0, 18]}
+					]
+				}
+			]
+		}
+	]
+}

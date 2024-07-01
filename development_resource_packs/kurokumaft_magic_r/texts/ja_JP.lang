@@ -9,6 +9,41 @@ entity.kurokumaft:bule_ice_golem.name=§fブルーアイスゴーレム
 
 entity.kurokumaft:fire_horse.name=§4フレイムホース
 entity.kurokumaft:storm_eagle.name=§3ストームイーグル
+entity.kurokumaft:lightning_hornet.name=§6ライトニングホーネット
+entity.kurokumaft:snow_bear.name=§fスノーベアー
+entity.kurokumaft:rock_scorpion.name=§7ロックスコーピオン
+entity.kurokumaft:aqua_frog.name=§1アクアフロッグ
+
+item.kurokumaft:fire_horse_summon_stone.name=召喚の魔石（フレイムホース）
+item.kurokumaft:storm_eagle_summon_stone.name=召喚の魔石（ストームイーグル）
+item.kurokumaft:lightning_hornet_summon_stone.name=召喚の魔石（ライトニングホーネット）
+item.kurokumaft:snow_bear_summon_stone.name=召喚の魔石（スノーベアー）
+item.kurokumaft:rock_scorpion_summon_stone.name=召喚の魔石（ロックスコーピオン）
+item.kurokumaft:aqua_frog_summon_stone.name=召喚の魔石（アクアフロッグ）
+
+item.spawn_egg.entity.kurokumaft:fire_horse.name=フレイムホースをスポーンさせる	#
+action.interact.ride.kurokumaft:fire_horse=乗る	#
+action.hint.exit.console.kurokumaft:fire_horse=:_input_key.sneak: を押して降りる	#
+
+item.spawn_egg.entity.kurokumaft:storm_eagle.name=ストームイーグルをスポーンさせる	#
+action.interact.ride.kurokumaft:storm_eagle=乗る	#
+action.hint.exit.console.kurokumaft:storm_eagle=:_input_key.sneak: を押して降りる	#
+
+item.spawn_egg.entity.kurokumaft:lightning_hornet.name=ライトニングホーネットをスポーンさせる	#
+action.interact.ride.kurokumaft:lightning_hornet=乗る	#
+action.hint.exit.console.kurokumaft:lightning_hornet=:_input_key.sneak: を押して降りる	#
+
+item.spawn_egg.entity.kurokumaft:snow_bear.name=スノーベアーをスポーンさせる	#
+action.interact.ride.kurokumaft:snow_bear=乗る	#
+action.hint.exit.console.kurokumaft:snow_bear=:_input_key.sneak: を押して降りる	#
+
+item.spawn_egg.entity.kurokumaft:rock_scorpion.name=ロックスコーピオンをスポーンさせる	#
+action.interact.ride.kurokumaft:rock_scorpion=乗る	#
+action.hint.exit.console.kurokumaft:rock_scorpion=:_input_key.sneak: を押して降りる	#
+
+item.spawn_egg.entity.kurokumaft:aqua_frog.name=アクアフロッグをスポーンさせる	#
+action.interact.ride.kurokumaft:aqua_frog=乗る	#
+action.hint.exit.console.kurokumaft:aqua_frog=:_input_key.sneak: を押して降りる	#
 
 entity.kurokumaft:fire_zombie.name=§4ファイアゾンビ
 entity.kurokumaft:thunder_zombie.name=§6サンダーゾンビ
@@ -63,21 +98,17 @@ entity.kurokumaft:home_gate.name=拠点の石碑
 item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムをスポーンさせる	#
 
-item.spawn_egg.entity.kurokumaft:fire_horse.name=フレイムホースをスポーンさせる	#
-action.interact.ride.kurokumaft:fire_horse=乗る	#
-action.hint.exit.console.kurokumaft:fire_horse=:_input_key.sneak: を押して降りる	#
-
-item.spawn_egg.entity.kurokumaft:storm_eagle.name=ストームイーグルをスポーンさせる	#
-action.interact.ride.kurokumaft:storm_eagle=乗る	#
-action.hint.exit.console.kurokumaft:storm_eagle=:_input_key.sneak: を押して降りる	#
-
 itemGroup.kurokumaft:magic_shield.name=魔法の盾
 
 tile.kurokumaft:magic_enchant_table.name=魔法エンチャントテーブル
+tile.kurokumaft:magic_lectern.name=魔導書見台
+
 tile.kurokumaft:waterwall_block.name=水ブロック
 tile.kurokumaft:lightningwall_block.name=雷ブロック
 tile.kurokumaft:windwall_block.name=風ブロック
+
 tile.kurokumaft:magma_portal.name=マグマポータル
+
 tile.kurokumaft:magma_portal_gate.name=ゲートブロック（炎）
 
 item.kurokumaft:phoenix_feather.name=§4魔炎鳥の羽
@@ -221,6 +252,7 @@ item.kurokumaft:water_magic_gun.name=§1烈水の魔法銃
 item.kurokumaft:wind_magic_gun.name=§3嵐牙の魔法銃
 item.kurokumaft:lightning_magic_gun.name=§6万雷の魔法銃
 item.kurokumaft:stone_magic_gun.name=§7破岩の魔法銃
+item.kurokumaft:ice_magic_gun.name=§f氷河の魔法銃
 
 item.kurokumaft:fire_magic_bread.name=§4紅蓮の妖魔刀
 item.kurokumaft:water_magic_bread.name=§1水星の妖魔刀
@@ -233,10 +265,19 @@ item.kurokumaft:magma_blow.name=§4マグマブロー
 
 item.kurokumaft:fire_flagstone.name=§4火の魔法石と打ち金
 
-item.kurokumaft:fire_grimoire.name=§4炎の魔導書
+item.kurokumaft:grimoire_empty.name=魔導書（空）
+item.kurokumaft:grimoire_damage.name=魔導書（破損）
+item.kurokumaft:grimoire_torchlight.name=魔導書（トーチ：火）
+item.kurokumaft:grimoire_ignited.name=魔導書（イグナイテッド：火）
+item.kurokumaft:grimoire_water.name=魔導書（ウォーター：水）
+item.kurokumaft:grimoire_purification.name=魔導書（ピュリフィケーション：水）
+item.kurokumaft:grimoire_music_sound.name=魔導書（プレイングサウンド：風）
+item.kurokumaft:grimoire_mowing.name=魔導書（モーウィング：風）
+item.kurokumaft:grimoire_growth.name=魔導書（グロウス：土）
+item.kurokumaft:grimoire_flower_garden.name=魔導書（フラワーガーデン：土）
+item.kurokumaft:grimoire_paralysis_carpet.name=魔導書（パラライズカーペット：雷）
 
-item.kurokumaft:fire_horse_summon_stone.name=召喚の魔石（フレイムホース）
-item.kurokumaft:storm_eagle_summon_stone.name=召喚の魔石（ストームイーグル）
+item.kurokumaft:fire_grimoire.name=§4炎の魔導書
 
 item.kurokumaft:repatriation_fruit.name=帰還の実
 item.kurokumaft:home_gate.name=拠点の石碑

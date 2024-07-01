@@ -1,5 +1,5 @@
 tag @s add houganomai
-tag @e[tag=!houganomai,family=!inanimate,type=!item,r=10,c=1] add houganomai_target
+tag @e[tag=!houganomai,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=10,c=1] add houganomai_target
 gamerule sendcommandfeedback false
 execute as @s run tp @s ~~~ facing @e[tag=houganomai_target]
 execute as @e[tag=houganomai_target] positioned ^^^1.5 run tp @e[tag=houganomai] ~~~

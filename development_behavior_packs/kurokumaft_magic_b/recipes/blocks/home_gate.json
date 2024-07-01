@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:home_gate"
@@ -21,6 +21,11 @@
         "item": "minecraft:chorus_flower"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:chorus_flower"
+      }
+    ],
     "result": {
       "item": "kurokumaft:home_gate"
     }

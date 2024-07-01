@@ -321,6 +321,47 @@
          "textures" : "textures/kurokumaft/items/armor/akaza/akaza_jacket"
       },
 
+      "daki_obi": {
+         "textures" : "textures/kurokumaft/items/armor/daki/daki_obi"
+      },
+      "daki_kanzashi": {
+         "textures" : "textures/kurokumaft/items/armor/daki/daki_kanzashi"
+      },
+      "daki_leggings": {
+         "textures" : "textures/kurokumaft/items/armor/daki/daki_leggings"
+      },
+      "daki_geta": {
+         "textures" : "textures/kurokumaft/items/armor/daki/daki_geta"
+      },
+
+      "gyutaro_obi": {
+         "textures" : "textures/kurokumaft/items/armor/gyutaro/gyutaro_obi"
+      },
+      "gyutaro_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/gyutaro/gyutaro_hakama"
+      },
+      "gyutaro_kama": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/gyutaro_kama"
+      },
+
+      "hantengu_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/hantengu_kimono"
+      },
+
+      "sekido_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/sekido/sekido_kimono"
+      },
+      "sekido_syakuzyou": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/sekido_syakuzyou"
+      },
+      "karaku_ougi": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/karaku_ougi"
+      },
+
+      "aizetu_spear": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/aizetu_spear"
+      },
+
       "tanjiro_head": {
          "textures" : "textures/kurokumaft/items/head/tanjiro_head"
       },
@@ -389,7 +430,15 @@
          "textures" : [
             "textures/kurokumaft/items/spawn_egg/ogre/ogre_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/rui_egg",
-            "textures/kurokumaft/items/spawn_egg/ogre/akaza_egg"
+            "textures/kurokumaft/items/spawn_egg/ogre/akaza_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/daki_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/gyutaro_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/hantengu_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/sekido_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/karaku_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/aizetu_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/urogi_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/zouhakuten_egg"
          ]
       }
 

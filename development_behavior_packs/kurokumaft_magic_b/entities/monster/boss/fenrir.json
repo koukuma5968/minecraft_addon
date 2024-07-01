@@ -9,10 +9,10 @@
     },
     "components": {
       "minecraft:experience_reward": {
-        "on_death": "query.last_hit_by_player ? 150 : 0"
+        "on_death": "150"
       },
       "minecraft:type_family": {
-        "family": [ "wind", "magic", "monster" ]
+        "family": [ "wind", "magic", "monster", "boss" ]
       },
       "minecraft:health": {
         "value": 2500,
@@ -28,8 +28,15 @@
         "priority": 3,
         "entity_types": [
           {
-            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-            "max_dist": 32
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" },
+                { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" }
+              ]
+            },
+            "max_dist": 35
           },
           {
             "filters": {

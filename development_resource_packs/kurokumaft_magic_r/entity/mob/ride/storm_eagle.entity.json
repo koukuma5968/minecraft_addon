@@ -3,7 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "kurokumaft:storm_eagle",
-      "materials": { "default": "bat" },
+      "materials": { "default": "entity_alphatest" },
       "textures": {
         "default": "textures/kurokumaft/entity/ride/storm_eagle"
       },

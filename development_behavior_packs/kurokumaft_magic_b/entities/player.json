@@ -6,6 +6,20 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:burning_hell_states": {
+          "range": [ 0, 1 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:burning_hell_tp": {
+          "range": [ 0, 1 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
           "main_shield","off_shield",
@@ -50,7 +64,7 @@
 
           "wind_magic_chestplate",
 
-          "burning_hell"
+          {"burning_hell_player": "query.property('kurokumaft:burning_hell_states') == 1"}
         ]
       },
       "animations":{
@@ -127,7 +141,7 @@
         "wind_magic_chestplate": "controller.animation.armor.wind_magic_chestplate",
         "wind_magic_takeoff": "animation.wind_magic_chestplate.takeoff","wind_magic_landing": "animation.wind_magic_chestplate.landing",
 
-        "burning_hell": "controller.animation.burning_hell"
+        "burning_hell_player": "controller.animation.burning_hell_player"
       }
     },
 
@@ -845,16 +859,6 @@
               ]
             },
             "event": "kurokumaft:armor_knockback_remove"
-          },
-
-          {
-            "filters": {
-              "any_of": [
-                {"test": "in_block","operator": "==","subject": "self","value": "kurokumaft:magma_portal_y"},
-                {"test": "in_block","operator": "==","subject": "self","value": "kurokumaft:magma_portal_z"}
-              ]
-            },
-            "event": "kurokumaft:burning_hell"
           }
 
         ]
@@ -1217,13 +1221,25 @@
         }
 			},
 
-      "kurokumaft:burning_hell": {
-				"run_command": {
-					"command": [
-            "scoreboard objectives add burning_hell dummy",
-            "scoreboard players set @s burning_hell 1"
-          ]
-				}
+      "burning_hell_states_0":{ 
+        "set_property": {
+          "kurokumaft:burning_hell_states": 0
+        }
+      },
+      "burning_hell_states_1":{ 
+        "set_property": {
+          "kurokumaft:burning_hell_states": 1
+        }
+      },
+      "burning_hell_tp_0":{ 
+        "set_property": {
+          "kurokumaft:burning_hell_tp": 0
+        }
+      },
+      "burning_hell_tp_1":{ 
+        "set_property": {
+          "kurokumaft:burning_hell_tp": 1
+        }
       }
     }
   }

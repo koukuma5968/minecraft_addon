@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:grimoire_book_entity",
+        "materials": {
+            "default": "armor_stand"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/blocks/grimoire_book"
+          },
+          "geometry": {
+            "default": "geometry.grimoire_book"
+          },
+          "animations": {
+            "stand_n": "animation.grimoire_book.stand_n",
+            "stand_s": "animation.grimoire_book.stand_s",
+            "stand_e": "animation.grimoire_book.stand_e",
+            "stand_w": "animation.grimoire_book.stand_w"
+          },
+          "particle_effects": {
+            "fire": "kurokumaft:grimoire_frame",
+            "water": "kurokumaft:grimoire_water",
+            "wind": "kurokumaft:grimoire_wind",
+            "stone": "kurokumaft:grimoire_stone",
+            "lightning": "kurokumaft:grimoire_lightning",
+            "ice": "kurokumaft:grimoire_ice",
+            "light": "kurokumaft:grimoire_light",
+            "dark": "kurokumaft:grimoire_dark"
+          },
+          "scripts": {
+            "animate": [
+              {"stand_n": "query.mark_variant == 0"},
+              {"stand_s": "query.mark_variant == 1"},
+              {"stand_e": "query.mark_variant == 2"},
+              {"stand_w": "query.mark_variant == 3"}
+            ]
+          },
+          "render_controllers": [ "controller.render.armor_stand" ]
+        }
+    }
+  }
+  

@@ -35,17 +35,6 @@
         }
       },
 
-      "kurokumaft:kokyu_reset": {
-        "minecraft:timer": {
-          "time": 5.0,
-          "looping": true,
-          "time_down_event": {
-            "event": "kurokumaft:random_kokyu",
-            "target": "self"
-          }
-        }
-      },
-
       "is_headdress": {
         "minecraft:is_saddled": {
         }
@@ -135,8 +124,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 150,
-        "max": 150
+        "value": 650,
+        "max": 650
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/tengen_gear.json"
@@ -175,7 +164,8 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"}
               ]
             },
             "max_dist": 64
@@ -271,6 +261,15 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
+      "minecraft:timer": {
+        "time": [10.0, 15.0],
+        "randomInterval": true,
+        "looping": true,
+        "time_down_event": {
+          "event": "kurokumaft:random_kokyu",
+          "target": "self"
+        }
+      },
       "minecraft:block_climber": {},
       "minecraft:environment_sensor": {
         "triggers": [
@@ -324,7 +323,7 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
       "minecraft:trigger_raid": {
@@ -367,6 +366,11 @@
       "kurokumaft:random_kokyu": {
         "sequence": [
           {
+            "add": {
+              "component_groups": [ "variant0","mark_variant0" ]
+            }
+          },
+          {
             "filters": {
               "test": "has_target"
             },
@@ -395,7 +399,7 @@
       },
       "kurokumaft:random_kokyu_off": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
       "is_headdress": {

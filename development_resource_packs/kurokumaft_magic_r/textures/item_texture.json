@@ -516,6 +516,23 @@
             "textures/kurokumaft/items/gun/stone/stone_magic_gun_charge_full"
          ]
       },
+      "ice_magic_gun": {
+         "textures" : "textures/kurokumaft/items/gun/ice/ice_magic_gun_empty"
+      },
+      "ice_magic_gun_charge" : {
+         "textures" : [
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_1",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_2",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_3",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_4",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_5",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_6",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_7",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_8",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_9",
+            "textures/kurokumaft/items/gun/ice/ice_magic_gun_charge_full"
+         ]
+      },
 
       "fire_magic_bread": {
          "textures" : "textures/kurokumaft/items/bread/fire_magic_bread"
@@ -542,6 +559,25 @@
 
       "fire_flagstone": {
          "textures" : "textures/kurokumaft/items/flagstone/fire_flagstone"
+      },
+
+      "grimoire_empty": {
+         "textures" : "textures/kurokumaft/items/grimoire/grimoire_empty"
+      },
+      "grimoire_life_magic_fire": {
+         "textures" : "textures/kurokumaft/items/grimoire/grimoire_life_magic_fire"
+      },
+      "grimoire_life_magic_water": {
+         "textures" : "textures/kurokumaft/items/grimoire/grimoire_life_magic_water"
+      },
+      "grimoire_life_magic_stone": {
+         "textures" : "textures/kurokumaft/items/grimoire/grimoire_life_magic_stone"
+      },
+      "grimoire_life_magic_wind": {
+         "textures" : "textures/kurokumaft/items/grimoire/grimoire_life_magic_wind"
+      },
+      "grimoire_damage": {
+         "textures" : "textures/kurokumaft/items/grimoire/grimoire_damage"
       },
 
       "fire_grimoire": {
@@ -595,6 +631,12 @@
       "storm_eagle_summon_stone": {
          "textures" : "textures/kurokumaft/items/summon_stone/storm_eagle_summon_stone"
       },
+      "lightning_hornet_summon_stone": {
+         "textures" : "textures/kurokumaft/items/summon_stone/lightning_hornet_summon_stone"
+      },
+      "snow_bear_summon_stone": {
+         "textures" : "textures/kurokumaft/items/summon_stone/snow_bear_summon_stone"
+      },
 
       "repatriation_fruit": {
          "textures" : "textures/kurokumaft/items/food/repatriation_fruit"
@@ -602,6 +644,10 @@
 
       "home_gate": {
          "textures" : "textures/kurokumaft/blocks/home_gate"
+      },
+
+      "phoenix_feather": {
+         "textures" : "textures/kurokumaft/items/materials/phoenix_feather"
       },
 
       "magic_golem_spawn_egg" : {

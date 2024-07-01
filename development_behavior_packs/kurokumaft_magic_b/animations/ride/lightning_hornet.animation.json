@@ -1,0 +1,25 @@
+{
+	"format_version": "1.20.10",
+	"animations": {	
+		"animation.lightning_hornet.takeoff": {
+			"timeline": {
+			    "0.0": [
+					"/execute as @p[rx=39,rxm=-90,c=1,r=2] run event entity @e[tag=lightning_hornet_rider,c=1,r=1.5] mark_variant1",
+					"/execute as @p[rx=-15,rxm=-90,c=1,r=2] run effect @e[tag=lightning_hornet_rider,c=1,r=1.5] levitation 1 10 true"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.lightning_hornet.landing": {
+			"timeline": {
+			    "0.0": [
+					"/execute as @p[rx=90,rxm=40,c=1,r=2] run event entity @e[tag=lightning_hornet_rider,c=1,r=1.5] mark_variant2",
+					"/execute as @p[rx=90,rxm=40,c=1,r=2] run tp @e[tag=lightning_hornet_rider,c=1,r=1.5] ~~-0.5~ true"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		}
+	}
+}

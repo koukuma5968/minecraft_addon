@@ -37,6 +37,9 @@
             "side" : "magma_portal_gate",
             "up" : "magma_portal_gate"
         }
-    }
+    },
+    "magic_lectern": {
+		"sound": "metal"
+	}
 
 }

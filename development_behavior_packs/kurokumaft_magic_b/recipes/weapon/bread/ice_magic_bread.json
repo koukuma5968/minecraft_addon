@@ -21,6 +21,11 @@
         "item": "minecraft:diamond_sword"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:ice_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:ice_magic_bread",
       "count": 1

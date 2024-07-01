@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
     "identifier": "kurokumaft:wooden_bucket_miso"
@@ -25,6 +25,11 @@
         "item": "kurokumaft:soybean"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:wooden_bucket_empty"
+      }
+    ],
     "result": {
       "item": "kurokumaft:wooden_bucket_miso",
       "count": 3

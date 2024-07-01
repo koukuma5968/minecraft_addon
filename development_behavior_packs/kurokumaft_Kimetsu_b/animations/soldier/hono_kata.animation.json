@@ -11,73 +11,73 @@
 					"/execute as @s run tp @s ~~~"
 				],
 				"0.1": [
-					"/execute as @s positioned ^1^^1 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
-					"/execute as @s positioned ^2^1^1.5 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^1^^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
+					"/execute as @s positioned ^2^1^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
 					"/execute as @s positioned ^1^^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^2^1^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^1^^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^2^1^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.2": [
-					"/execute as @s positioned ^4^2^1 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
-					"/execute as @s positioned ^3^3^1.5 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^4^2^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
+					"/execute as @s positioned ^3^3^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
 					"/execute as @s positioned ^3^2^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^4^3^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^3^1^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^4^3^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.3": [
-					"/execute as @s positioned ^3^4^1 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
-					"/execute as @s positioned ^2^5^1.5 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^3^4^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
+					"/execute as @s positioned ^2^5^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
 					"/execute as @s positioned ^3^4^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^2^5^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^3^4^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^2^5^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.4": [
-					"/execute as @s positioned ^1^6^1 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
-					"/execute as @s positioned ^0^7^1.5 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^1^6^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
+					"/execute as @s positioned ^0^7^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
 					"/execute as @s positioned ^1^6^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^0^7^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^1^6^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^0^7^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.5": [
-					"/execute as @s positioned ^-2^6^1 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
-					"/execute as @s positioned ^-4^5^1.5 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-2^6^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-4^5^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
 					"/execute as @s positioned ^-2^6^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^-4^5^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^-2^6^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^-4^5^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.6": [
-					"/execute as @s positioned ^-6^4^1 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
-					"/execute as @s positioned ^-8^3^1.5 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-6^4^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-8^3^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
 					"/execute as @s positioned ^-6^6^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^-8^3^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^-6^4^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^-8^3^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.7": [
-					"/execute as @s positioned ^-6^2^1 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
-					"/execute as @s positioned ^-4^1^1.5 run damage @e[tag=!kokyu_hono4,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-6^2^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
+					"/execute as @s positioned ^-4^1^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=4] 3 entity_attack",
 					"/execute as @s positioned ^-6^2^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^-4^1^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^-6^2^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^-4^1^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.8": [
-					"/execute as @s positioned ^-2^0^1 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
-					"/execute as @s positioned ^0^1^1.5 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^-2^0^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
+					"/execute as @s positioned ^0^1^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
 					"/execute as @s positioned ^-2^0^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^0^1^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^-2^0^1 run particle kurokumaft:hi4_fire_particle ~~~",
 					"/execute as @s positioned ^0^1^1.5 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"0.9": [
-					"/execute as @s positioned ^3^3^1 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
-					"/execute as @s positioned ^6^5^1.5 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
-					"/execute as @s positioned ^9^7^1 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^3^3^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
+					"/execute as @s positioned ^6^5^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
+					"/execute as @s positioned ^9^7^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
 					"/execute as @s positioned ^3^3^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^6^5^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^9^7^1 run particle kurokumaft:hi4_particle ~~~",
@@ -86,9 +86,9 @@
 					"/execute as @s positioned ^9^7^1 run particle kurokumaft:hi4_fire_particle ~~~"
 				],
 				"1.0": [
-					"/execute as @s positioned ^6^9^1.5 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
-					"/execute as @s positioned ^3^11^1 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
-					"/execute as @s positioned ^0^12^1.5 run damage @e[tag=!kokyu_hono4,r=3] 3 entity_attack",
+					"/execute as @s positioned ^6^9^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
+					"/execute as @s positioned ^3^11^1 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
+					"/execute as @s positioned ^0^12^1.5 run damage @e[tag=!kokyu_hono4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3] 3 entity_attack",
 					"/execute as @s positioned ^6^9^1.5 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^3^11^1 run particle kurokumaft:hi4_particle ~~~",
 					"/execute as @s positioned ^0^12^1.5 run particle kurokumaft:hi4_particle ~~~",

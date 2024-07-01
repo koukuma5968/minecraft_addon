@@ -1,0 +1,23 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kekkizyutu.daki" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"yaeobigiri": "variable.daki && query.variant == 1 && query.mark_variant == 1"}
+					]
+				},
+				"yaeobigiri" : {
+					"animations" : [
+						"yaeobigiri"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

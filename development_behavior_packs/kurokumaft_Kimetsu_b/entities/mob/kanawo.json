@@ -42,17 +42,6 @@
         }
       },
 
-      "kurokumaft:kokyu_reset": {
-        "minecraft:timer": {
-          "time": 5.0,
-          "looping": true,
-          "time_down_event": {
-            "event": "kurokumaft:random_kokyu",
-            "target": "self"
-          }
-        }
-      },
-
       "kurokumaft:nichirintou_remove": {
         "minecraft:skin_id": {
           "value": 0
@@ -134,8 +123,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 150,
-        "max": 150
+        "value": 250,
+        "max": 250
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/kanawo_gear.json"
@@ -270,6 +259,15 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
+      "minecraft:timer": {
+        "time": [10.0, 15.0],
+        "randomInterval": true,
+        "looping": true,
+        "time_down_event": {
+          "event": "kurokumaft:random_kokyu",
+          "target": "self"
+        }
+      },
       "minecraft:block_climber": {},
       "minecraft:environment_sensor": {
         "triggers": [
@@ -306,7 +304,7 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
       "minecraft:trigger_raid": {
@@ -332,6 +330,11 @@
 
       "kurokumaft:random_kokyu": {
         "sequence": [
+          {
+            "add": {
+              "component_groups": [ "variant0","mark_variant0" ]
+            }
+          },
           {
             "filters": {
               "test": "has_target"
@@ -374,7 +377,7 @@
       },
       "kurokumaft:random_kokyu_off": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
 

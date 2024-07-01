@@ -1,0 +1,25 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.magic_stone_entity": {
+      "arrays": {
+        "textures": {
+          "array.bow_texture_frames": [
+            "texture.fire",
+            "texture.water",
+            "texture.wind",
+            "texture.stone",
+            "texture.lightning",
+            "texture.ice",
+            "texture.light",
+            "texture.dark"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.bow_texture_frames[query.variant]"],
+      "filter_lighting": true
+    }
+  }
+}

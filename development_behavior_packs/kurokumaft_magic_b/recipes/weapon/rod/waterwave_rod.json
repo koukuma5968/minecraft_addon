@@ -21,6 +21,11 @@
         "item": "minecraft:iron_ingot"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:water_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:waterwave_rod"
     }

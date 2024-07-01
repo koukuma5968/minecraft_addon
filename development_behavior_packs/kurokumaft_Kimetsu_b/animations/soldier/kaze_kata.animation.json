@@ -7,7 +7,7 @@
 			"timeline": {
 				"0.0": [
 					"/execute as @s run particle kurokumaft:kaze1_particle ^^^1.5",
-					"/execute as @s run damage @e[tag=!kokyu_kaze1_self,r=2] 2 entity_attack"
+					"/execute as @s run damage @e[tag=!kokyu_kaze1_self,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=2] 2 entity_attack"
 				]
 			}
 		},

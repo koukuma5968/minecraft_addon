@@ -77,7 +77,6 @@
         },
         "koi5":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§d揺らめく恋情・乱れ爪\"}]}",
             "/function koi/koi5",
             "/event entity @s mark_variant1"
           ],

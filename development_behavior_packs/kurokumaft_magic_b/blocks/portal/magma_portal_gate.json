@@ -16,9 +16,25 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 10.0
 			},
+			"minecraft:on_step_on": {
+				"event": "portal_break"
+			},
 			"minecraft:flammable": false
 		},
         "events": {
+			"portal_break": {
+                "sequence": [
+                    {
+                        "run_command": {
+                            "target": "self",
+							"command": [
+								"execute if block ~ ~1 ~ kurokumaft:magma_portal_y run event entity @e[family=flagstone_stand,c=1] mark_variant1",
+								"execute if block ~ ~1 ~ kurokumaft:magma_portal_z run event entity @e[family=flagstone_stand,c=1] mark_variant1"
+							]
+                        }
+                    }
+                ]
+            }
         }
     }
 }

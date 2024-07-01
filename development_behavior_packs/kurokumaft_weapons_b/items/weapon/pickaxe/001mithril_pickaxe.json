@@ -20,10 +20,11 @@
       "minecraft:durability": {
         "max_durability": 1500
       },
+      "minecraft:allow_off_hand": true,
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:nitre_ingot" ],
+            "items": [ "kurokumaft:mithril_ingot" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
@@ -49,6 +50,8 @@
           {"block": "kurokumaft:orichalcum_ore","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 18},
           {"block": "kurokumaft:deepslate_orichalcum_ore","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 18},
           {"block": "kurokumaft:charcoal_block","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 18},
+          {"block": "kurokumaft:steel_block","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 18},
+          {"block": "kurokumaft:orichalcum_block","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 18},
 
           {"block": "minecraft:amethyst_block","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 18},
           {"block": "minecraft:amethyst_cluster","on_dig": {"event": "kurokumaft:durability_damage"},"use_efficiency": true,"speed": 18},

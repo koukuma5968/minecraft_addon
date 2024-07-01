@@ -18,6 +18,11 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
     "result": {
       "item": "kurokumaft:water_magic_stone"
     }

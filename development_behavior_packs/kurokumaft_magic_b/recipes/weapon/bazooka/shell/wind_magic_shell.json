@@ -17,6 +17,11 @@
         "item": "kurokumaft:wind_magic_stone"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:wind_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:wind_magic_shell"
     }

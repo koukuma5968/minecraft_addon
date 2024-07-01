@@ -20,6 +20,11 @@
                 "item": "gunpowder"
             }
         },
+        "unlock": [
+            {
+              "item": "gunpowder"
+            }
+        ],
         "result": {
             "item": "kurokumaft:powder_ball",
             "count": 4

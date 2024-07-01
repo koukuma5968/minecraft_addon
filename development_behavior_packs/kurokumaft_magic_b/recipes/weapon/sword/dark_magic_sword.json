@@ -21,6 +21,11 @@
         "item": "minecraft:diamond_sword"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:dark_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:dark_magic_sword",
       "count": 1

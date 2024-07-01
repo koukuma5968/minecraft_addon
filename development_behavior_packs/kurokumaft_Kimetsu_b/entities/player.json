@@ -111,7 +111,11 @@
         "hakaisatu": "controller.animation.kekkizyutu.hakaisatu",
         "ranshiki": "animation.kekkizyutu.hakaisatu.ranshiki","ryuseigunkou": "animation.kekkizyutu.hakaisatu.ryuseigunkou",
         "hiyuseisenrin": "animation.kekkizyutu.hakaisatu.hiyuseisenrin","manyousenyanagi": "animation.kekkizyutu.hakaisatu.manyousenyanagi",
-        "kishinyaenshin": "animation.kekkizyutu.hakaisatu.kishinyaenshin","aoginranzankou": "animation.kekkizyutu.hakaisatu.aoginranzankou"
+        "kishinyaenshin": "animation.kekkizyutu.hakaisatu.kishinyaenshin","aoginranzankou": "animation.kekkizyutu.hakaisatu.aoginranzankou",
+
+        "daki_change": "controller.animation.kekkizyutu.daki_change",
+        "obi": "controller.animation.kekkizyutu.obi",
+        "yaeobigiri": "animation.kekkizyutu.obi.yaeobigiri"
 
       }
     },
@@ -427,6 +431,16 @@
       "kurokumaft:kekkizyutu_akaza": {
         "minecraft:skin_id": {
           "value": 52
+        }
+      },
+      "kurokumaft:kekkizyutu_daki": {
+        "minecraft:skin_id": {
+          "value": 53
+        }
+      },
+      "kurokumaft:kekkizyutu_gyutaro": {
+        "minecraft:skin_id": {
+          "value": 54
         }
       },
 
@@ -971,6 +985,16 @@
       "kurokumaft:kekkizyutu_akaza": {
         "add": {
           "component_groups": [ "kurokumaft:kekkizyutu_akaza" ]
+        }
+      },
+      "kurokumaft:kekkizyutu_daki": {
+        "add": {
+          "component_groups": [ "kurokumaft:kekkizyutu_daki" ]
+        }
+      },
+      "kurokumaft:kekkizyutu_gyutaro": {
+        "add": {
+          "component_groups": [ "kurokumaft:kekkizyutu_gyutaro" ]
         }
       },
 

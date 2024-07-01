@@ -2,29 +2,57 @@
 	"format_version": "1.20.10",
 	"animations": {
 		"animation.magic_bullet.fire_magic_bullet_frame": {
-			"animation_length": 0.01,
+			"animation_length": 0.1,
 			"loop": true,
 			"timeline": {
 				"0.0": [
-					"/execute at @e[family=!player,r=1.5] run summon kurokumaft:fire_sword_magic ~~~"
+					"/particle kurokumaft:fire_bullet_particle ~~~"
 				]
 			}
 		},
 		"animation.magic_bullet.water_magic_bullet_frame": {
-			"animation_length": 0.01,
+			"animation_length": 0.1,
 			"loop": true,
 			"timeline": {
 				"0.0": [
+					"/particle kurokumaft:water_bullet_particle ~~~",
 					"/damage @e[family=!player,r=3.5] 5 drowning"
 				]
 			}
 		},
 		"animation.magic_bullet.wind_magic_bullet_frame": {
-			"animation_length": 0.2,
+			"animation_length": 0.1,
 			"loop": true,
 			"timeline": {
-				"0.2": [
-					"/execute at @e[family=!player,r=4.5] run summon kurokumaft:burstflaremagic ~~~ ~ ~ minecraft:explode"
+				"0.0": [
+					"/particle kurokumaft:wind_bullet_particle ~~~"
+				]
+			}
+		},
+		"animation.magic_bullet.stone_magic_bullet_frame": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:stone_bullet_particle ~~~"
+				]
+			}
+		},
+		"animation.magic_bullet.lightning_magic_bullet_frame": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:lightning_bullet_particle ~~~"
+				]
+			}
+		},
+		"animation.magic_bullet.ice_magic_bullet_frame": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:ice_bullet_particle ~~~"
 				]
 			}
 		}

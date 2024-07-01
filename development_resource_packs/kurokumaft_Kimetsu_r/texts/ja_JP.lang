@@ -188,10 +188,24 @@ item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
 
 entity.kurokumaft:rui.name=累
 entity.kurokumaft:akaza.name=猗窩座
+entity.kurokumaft:daki.name=堕姫
+entity.kurokumaft:gyutaro.name=妓夫太郎
+entity.kurokumaft:hantengu.name=半天狗
+entity.kurokumaft:sekido.name=積怒
+entity.kurokumaft:karaku.name=可楽
+entity.kurokumaft:aizetu.name=哀絶
+entity.kurokumaft:urogi.name=空喜
 
 item.spawn_egg.entity.kurokumaft:ogre.name=鬼（下級）
 item.spawn_egg.entity.kurokumaft:rui.name=累
 item.spawn_egg.entity.kurokumaft:akaza.name=猗窩座
+item.spawn_egg.entity.kurokumaft:daki.name=堕姫
+item.spawn_egg.entity.kurokumaft:gyutaro.name=妓夫太郎
+item.spawn_egg.entity.kurokumaft:hantengu.name=半天狗
+item.spawn_egg.entity.kurokumaft:sekido.name=積怒
+item.spawn_egg.entity.kurokumaft:karaku.name=可楽
+item.spawn_egg.entity.kurokumaft:aizetu.name=哀絶
+item.spawn_egg.entity.kurokumaft:urogi.name=空喜
 
 item.kurokumaft:rui_kimono.name=累の着物
 
@@ -199,3 +213,27 @@ item.kurokumaft:akaza_ashiwa.name=猗窩座の数珠
 item.kurokumaft:akaza_hakama.name=猗窩座の袴
 item.kurokumaft:akaza_jacket.name=猗窩座の羽織
 
+item.kurokumaft:daki_obi.name=堕姫の帯
+item.kurokumaft:daki_kanzashi.name=堕姫の簪
+item.kurokumaft:daki_leggings.name=堕姫の靴下
+item.kurokumaft:daki_geta.name=堕姫の下駄
+
+item.kurokumaft:gyutaro_obi.name=妓夫太郎の帯
+item.kurokumaft:gyutaro_hakama.name=妓夫太郎の袴
+item.kurokumaft:gyutaro_kama.name=妓夫太郎の鎌
+
+item.kurokumaft:hantengu_kimono.name=半天狗の着物
+
+item.kurokumaft:sekido_syakuzyou.name=積怒の錫杖
+item.kurokumaft:sekido_kimono.name=積怒の着物
+
+item.kurokumaft:karaku_ougi.name=可楽の扇
+item.kurokumaft:karaku_jacket.name=可楽の梵天結袈裟
+item.kurokumaft:karaku_hakama.name=可楽の袴
+
+item.kurokumaft:aizetu_spear.name=哀絶の槍
+item.kurokumaft:aizetu_jacket.name=哀絶の行者浄衣
+item.kurokumaft:aizetu_hakama.name=哀絶のズボン
+
+item.kurokumaft:urogi_hakama.name=空喜のズボン
+item.kurokumaft:urogi_zyuzu.name=空喜の数珠

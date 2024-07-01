@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hyper_shell.move": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"magic_shell": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			}
+		}
+	}
+}

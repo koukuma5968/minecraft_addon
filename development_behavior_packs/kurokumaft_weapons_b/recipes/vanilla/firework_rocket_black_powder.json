@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
     "identifier": "kurokumaft:firework_rocket_black_powder"
@@ -16,6 +16,11 @@
         "item": "kurokumaft:black_powder"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:black_powder"
+      }
+    ],
     "result": {
       "item": "minecraft:firework_rocket"
     }

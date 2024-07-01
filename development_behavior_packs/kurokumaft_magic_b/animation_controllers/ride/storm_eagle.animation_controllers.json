@@ -33,17 +33,13 @@
 					]
 				},
 				"hover": {
-					"on_entry": [
-						"/event entity @s kurokumaft:ride_hover"
-					],
 					"transitions": [
 						{"landing": "query.mark_variant == 2"}
 					]
 				},
 				"landing": {
 					"on_entry": [
-						"/effect @s speed 0",
-						"/event entity @s kurokumaft:ride_landing"
+						"/effect @s speed 0"
 					],
 					"transitions": [
 						{"default": "query.mark_variant != 2"}

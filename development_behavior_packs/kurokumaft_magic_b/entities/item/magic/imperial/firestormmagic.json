@@ -25,19 +25,6 @@
           },
           "catch_fire": {
             "fire_affected_by_griefing": true
-          },
-          "particle_on_hit": {
-            "particle_type": "kurokumaft:flames_particle",
-            "num_particle": 6,
-            "on_entity_hit": true,
-            "on_other_hit": true
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "flames_particle",
-              "target": "self"
-            }
           }
        },
        "hit_sound": "fire",
@@ -62,28 +49,6 @@
      }
     },
     "events": {
-      "flames_particle": {
-        "run_command": {
-          "command": [
-            "execute as @s run particle kurokumaft:firestome1_particle ~~~",
-            "execute as @s run particle kurokumaft:firestome1_particle ~~1~",
-            "execute as @s run particle kurokumaft:firestome2_particle ~~2~",
-            "execute as @s run particle kurokumaft:firestome2_particle ~~3~",
-            "execute as @s run particle kurokumaft:firestome3_particle ~~4~",
-            "execute as @s run particle kurokumaft:firestome3_particle ~~5~",
-            "execute as @s run particle kurokumaft:firestome4_particle ~~6~",
-            "execute as @s run particle kurokumaft:firestome4_particle ~~7~",
-            "execute as @s run particle kurokumaft:firestome5_particle ~~8~",
-            "execute as @s run particle kurokumaft:firestome5_particle ~~9~",
-            "execute as @s run particle kurokumaft:firestome5_particle ~~10~",
-            "execute as @s run damage @e[r=5] 30 fire",
-            "execute as @s run effect @e[r=5] wither 4 50 true",
-            "execute as @s run fill ~-1 ~1 ~-1 ~1 ~1 ~1 fire replace",
-            "execute as @s run kill @s"
-          ],
-          "target": "self"
-        }
-      }
     }
   }
 }

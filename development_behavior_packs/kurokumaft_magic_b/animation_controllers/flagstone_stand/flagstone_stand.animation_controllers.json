@@ -1,6 +1,37 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
+    "controller.animation.flagstone_stand.break": {
+      "states": {
+        "default": {
+          "variables": {
+            "flagstone_stand": {
+              "input": "variable.flagstone_stand = (variable.flagstone_stand ?? 0);"
+            }
+          },
+          "on_entry": [
+            "/execute if block ~~~ air run event entity @s variant2"
+          ],
+          "transitions": [
+            { "break_check": "query.variant == 1" },
+            { "break": "query.variant == 2" }
+          ]
+        },
+        "break_check": {
+          "transitions": [
+            { "default": "variable.flagstone_stand = variable.flagstone_stand < 5 ? variable.flagstone_stand + 1:0;return variable.flagstone_stand == 0;" }
+          ]
+        },
+        "break": {
+          "on_entry": [
+            "/kill @s"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        }
+      }
+    },
     "controller.animation.flagstone_stand.fire": {
       "states": {
         "default": {
@@ -77,7 +108,7 @@
             "/scoreboard objectives remove fire_flag_stand"
           ],
           "on_exit": [
-            "/kill @s"
+            "/event entity @s variant1"
           ],
           "transitions": [
             { "default": "(1.0)" }

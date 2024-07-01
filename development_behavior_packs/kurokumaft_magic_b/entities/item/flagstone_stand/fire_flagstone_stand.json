@@ -7,18 +7,67 @@
       "is_summonable": true,
       "is_experimental": false,
       "runtime_identifier": "minecraft:armor_stand",
+      "properties": {
+        "kurokumaft:stand_states": {
+          "range": [ 0, 1 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
-          "flagstone_stand"
+          {"burning_hell": "query.mark_variant == 1"},
+          {"break":  "query.variant != 0"},
+          {"flagstone_stand": "query.variant == 0"} 
         ]
       },
       "animations":{
+        "burning_hell": "controller.animation.burning_hell",
+        "break": "controller.animation.flagstone_stand.break",
         "flagstone_stand":"controller.animation.flagstone_stand.fire"
       }
     },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      },
+      "variant0": {
+        "minecraft:variant": {
+          "value": 0
+        }
+      },
+      "variant1": {
+        "minecraft:variant": {
+          "value": 1
+        }
+      },
+      "variant2": {
+        "minecraft:variant": {
+          "value": 2
+        }
+      },
+      "mark_variant0": {
+        "minecraft:mark_variant": {
+          "value": 0
+        }
+      },
+      "mark_variant1": {
+        "minecraft:mark_variant": {
+          "value": 1
+        }
+      },
+      "mark_variant2": {
+        "minecraft:variant": {
+          "value": 2
+        }
+      }
+
+    },
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "inanimate", "mob" ]
+        "family": [ "armor_stand", "inanimate", "mob", "flagstone_stand" ]
       },
       "minecraft:collision_box": {
         "width": 0.5,
@@ -44,6 +93,48 @@
     },
 
     "events": {
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
+        }
+      },
+      "stand_states_0":{ 
+        "set_property": {
+          "kurokumaft:stand_states": 0
+        }
+      },
+      "stand_states_1":{ 
+        "set_property": {
+          "kurokumaft:stand_states": 1
+        }
+      },
+      "variant0": {
+        "add": {
+          "component_groups" : [ "variant0" ]
+        }
+      },
+      "variant1": {
+        "add": {
+          "component_groups" : [ "variant1" ]
+        }
+      },
+      "variant2": {
+        "add": {
+          "component_groups" : [ "variant2" ]
+        }
+      },
+      "mark_variant0": {
+        "add": {
+          "component_groups" : [ "mark_variant0" ]
+        }
+      },
+      "mark_variant1": {
+        "add": {
+          "component_groups" : [ "mark_variant1" ]
+        }
+      }
     }
   }
 }

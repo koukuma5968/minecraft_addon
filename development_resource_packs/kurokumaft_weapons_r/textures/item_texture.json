@@ -234,6 +234,12 @@
       "flamethrower": {
          "textures": "textures/kurokumaft/items/gun/flamethrower"
       },
+      "railgun": {
+         "textures": "textures/kurokumaft/items/gun/railgun"
+      },
+      "hyper_bazooka" :{
+         "textures": "textures/kurokumaft/items/gun/hyper_bazooka"
+      },
 
       "lead_ball": {
          "textures": "textures/kurokumaft/items/gun/bullet/lead_ball"
@@ -252,6 +258,12 @@
       },
       "thr_hund_e_winchester": {
          "textures": "textures/kurokumaft/items/gun/bullet/thr_hund_e_winchester"
+      },
+      "railgun_energy_bottle": {
+         "textures": "textures/kurokumaft/items/gun/bullet/railgun_energy_bottle"
+      },
+      "hyper_shell": {
+         "textures": "textures/kurokumaft/items/gun/bullet/hyper_shell"
       },
 
       "barista": {

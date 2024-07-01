@@ -1,0 +1,70 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:gyutaro_kama",
+			"category": "equipment"
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:gyutaro_kama.name"
+			},
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.kekkizyutu"
+      },
+      "tag:kurokumaft:kekkizyutu": {},
+      "tag:kurokumaft:gyutaro_kama": {},
+      "minecraft:icon": {
+        "texture": "gyutaro_kama"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:durability": {
+        "max_durability": 3500
+      },
+      "minecraft:damage": 10,
+      "minecraft:allow_off_hand": true,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:use_duration":1,
+      "minecraft:chargeable": {
+      },
+      "minecraft:weapon": {
+        "on_hurt_entity": {
+            "event": "kamadoku"
+        }
+      },
+      "minecraft:on_use": {
+        "on_use": {
+          "condition": "query.variant == 1",
+          "event": "tobi_tigama",
+          "target": "self"
+        }
+      }
+    },
+    "events": {
+      "hurt_entity": {
+        "damage":{
+          "type":"durability",
+          "target":"self",
+          "amount":1
+        }
+      },
+      "kamadoku": {
+        "run_command": {
+          "command": [
+            "execute as @s run effect @s poison 30 5 false"
+          ],
+          "target": "other"
+        },
+        "trigger": "hurt_entity"
+      },
+      "tobi_tigama" : {
+        "shoot": {
+          "projectile": "kurokumaft:tobi_tigama",
+          "launch_power": 1.1
+        },
+        "trigger": "hurt_entity"
+      }
+    }
+  }
+}
+

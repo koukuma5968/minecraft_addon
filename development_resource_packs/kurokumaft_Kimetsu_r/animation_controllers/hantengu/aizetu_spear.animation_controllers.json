@@ -1,0 +1,43 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.aizetu_spear.wield": {
+			"initial_state": "first_person",
+			"states": {
+				"default": {
+					"transitions": [
+						{"first_person": "c.is_first_person && query.owner_identifier == 'minecraft:player'"},
+						{"third_person": "!c.is_first_person && query.owner_identifier == 'minecraft:player'"},
+						{"third_person_other": "query.owner_identifier != 'minecraft:player'"}
+					]
+				},
+				"first_person": {
+					"animations": [
+						"wield_first_person",
+						{"wield_first_person_raise": "query.main_hand_item_use_duration > 0.0f"},
+						{"wield_first_person_raise_shake": "query.main_hand_item_use_duration > 0.0f"},
+						{"wield_first_person_riptide": "query.can_damage_nearby_mobs > 0.0"}
+					],
+					"transitions": [
+						{"default": "!c.is_first_person"}
+					]
+				},
+				"third_person": {
+					"animations": [
+						"wield_third_person",
+						{"wield_third_person_raise": "query.main_hand_item_use_duration > 0.0f || query.has_target"}
+					],
+					"transitions": [
+						{"default": "c.is_first_person"}
+					]
+				},
+				"third_person_other": {
+					"animations": ["wield_third_person2"],
+					"transitions": [
+						{"default": "c.is_first_person"}
+					]
+				}
+			}
+		}
+	}
+}

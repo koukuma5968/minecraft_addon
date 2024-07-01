@@ -5,21 +5,50 @@
       "states": {
         "default": {
           "transitions": [
-            { "end_tp": "query.scoreboard('burning_hell') == 1" }
+            { "hell_event": "query.property('kurokumaft:stand_states') == 1" },
+            { "structures": "query.property('kurokumaft:stand_states') == 0" }
           ]
         },
-        "end_tp": {
+        "structures": {
+          "on_entry": [
+            "/say structures",
+            "/event entity @p[r=1.5,c=1] burning_hell_tp_1"
+          ],
+          "transitions": [
+            { "hell_event": "1.0" }
+          ]
+        },
+        "hell_event": {
+          "on_entry": [
+            "/say hell_event",
+            "/event entity @s stand_states_1",
+            "/event entity @s mark_variant0"
+          ],
+          "on_exit": [
+            "/event entity @p[r=1.5,c=1] burning_hell_states_1"
+          ],
+          "transitions": [
+            { "default": "1.0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.burning_hell_player": {
+      "states": {
+        "default": {
           "on_entry": [
             "/effect @s blindness 3 10 true",
             "/execute positioned ~~250~ run fill ~-1 ~0 ~-1 ~1 ~0 ~1 end_portal",
             "/tp @s ~~251~"
           ],
           "transitions": [
-            { "burning_hell_structures": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
+            { "burning_hell_tp": "query.property('kurokumaft:burning_hell_tp') == 0" },
+            { "burning_hell_structures": "query.property('kurokumaft:burning_hell_tp') == 1" }
           ]
         },
         "burning_hell_structures": {
           "on_entry": [
+            "/say burning_hell_structures",
             "/structure load burning_hell_1_1 -564 100 -564",
             "/structure load burning_hell_1_2 -548 100 -564",
             "/structure load burning_hell_1_3 -532 100 -564",
@@ -90,17 +119,18 @@
           ]
         },
         "burning_hell_tp": {
-          "on_entry": [
-            "/execute as @s if block ~~-1~ obsidian run tp @s -544 130 -464"
+          "on_exit": [
+            "/say burning_hell_tp",
+            "/execute at @s if block ~~-1~ obsidian as @s run tp @s -544 130 -464"
           ],
           "transitions": [
-            { "stand_kill": "(1.0)" }
+            { "stand_kill": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
           ]
         },
         "stand_kill": {
           "on_entry": [
-            "/scoreboard players reset @s burning_hell",
-            "/scoreboard objectives remove burning_hell"
+            "/event entity @s burning_hell_states_0",
+            "/event entity @s burning_hell_tp_0"
           ],
           "transitions": [
             { "default": "(1.0)" }

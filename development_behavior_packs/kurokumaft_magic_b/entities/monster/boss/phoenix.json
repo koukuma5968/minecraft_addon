@@ -12,7 +12,7 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:experience_reward": {
-        "on_death": "50"
+        "on_death": "150"
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -101,8 +101,15 @@
         "priority": 3,
         "entity_types": [
           {
-            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-            "max_dist": 32
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" },
+                { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" }
+              ]
+            },
+            "max_dist": 35
           },
           {
             "filters": {
@@ -154,7 +161,7 @@
         "look_distance": 8
       },
       "minecraft:type_family": {
-        "family": [ "fire", "magic", "monster" ]
+        "family": [ "fire", "magic", "monster", "boss" ]
       },
       "minecraft:persistent": {
       },

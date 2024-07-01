@@ -21,6 +21,11 @@
         "item": "minecraft:stick"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:ice_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:snow_wand"
     }

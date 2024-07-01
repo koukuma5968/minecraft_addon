@@ -1,5 +1,5 @@
 tag @s add kokyu_hi2
-execute as @s run  damage @e[tag=!kokyu_hi2,family=!inanimate,type=!item,r=6] 15 fire
+execute as @s run  damage @e[tag=!kokyu_hi2,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=6] 15 fire
 particle kurokumaft:hi2_fire_particle ^^^
 particle kurokumaft:hi2_fire_particle ^^^-2
 particle kurokumaft:hi2_fire_particle ^^^2

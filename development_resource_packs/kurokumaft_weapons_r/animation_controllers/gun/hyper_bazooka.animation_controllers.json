@@ -1,0 +1,21 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.hyper_bazooka.wield": {
+			"states": {
+				"default": {
+					"animations": ["wield_first_person"],
+					"transitions": [
+						{"therd_person": "!c.is_first_person"}
+					]
+				},
+				"therd_person": {
+					"animations": ["wield_therd_person"],
+					"transitions": [
+						{"default": "c.is_first_person"}
+					]
+				}
+			}
+		}
+	}
+}

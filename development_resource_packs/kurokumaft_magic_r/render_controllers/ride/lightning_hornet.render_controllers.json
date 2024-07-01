@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.lightning_hornet": {
+      "part_visibility": [
+        { "Saddle": "query.is_saddled" },
+        { "Bit*": "query.is_saddled" },
+        { "Bridle": "query.is_saddled" },
+        { "Reins*" : "query.is_saddled && query.has_rider" },
+        { "MuleEar*" : false}
+      ],
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    }
+  }
+}

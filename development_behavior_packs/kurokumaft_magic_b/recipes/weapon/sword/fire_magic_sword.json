@@ -20,6 +20,11 @@
         "item": "minecraft:diamond_sword"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:fire_magic_sword",
       "count": 1

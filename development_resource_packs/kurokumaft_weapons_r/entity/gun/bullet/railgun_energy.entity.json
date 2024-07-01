@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:railgun_energy",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/gun/bullet/railgun_energy"
+          },
+          "geometry": {
+            "default": "geometry.railgun_energy"
+          },
+          "particle_effects": {
+            "railgun_shot": "kurokumaft:railgun_shot"
+          },
+          "animations": {
+            "railgun_energy": "animation.railgun_energy"
+          },
+          "scripts": {
+            "scale": "1.5",
+            "animate": [
+              "railgun_energy"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

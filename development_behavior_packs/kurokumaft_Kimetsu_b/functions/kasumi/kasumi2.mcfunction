@@ -1,5 +1,5 @@
 tag @s add self_kasumi2
-tag @e[tag=!self_kasumi2,family=!inanimate,type=!item,r=6,c=1] add kokyu_kasumi2
+tag @e[tag=!self_kasumi2,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=6,c=1] add kokyu_kasumi2
 damage @e[tag=kokyu_kasumi2] 10 entity_attack
 execute as @s positioned ^^^4 run particle kurokumaft:kasumi2_1_particle ~~~
 damage @e[tag=kokyu_kasumi2] 10 entity_attack

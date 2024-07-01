@@ -20,6 +20,11 @@
                 "item": "stick"
             }
         },
+        "unlock": [
+            {
+              "item": "planks"
+            }
+        ],
         "result": {
             "item": "kurokumaft:wooden_battleaxe",
             "count": 1

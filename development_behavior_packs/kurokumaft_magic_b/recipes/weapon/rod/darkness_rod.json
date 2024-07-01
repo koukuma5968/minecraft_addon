@@ -21,6 +21,11 @@
         "item": "minecraft:iron_ingot"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:dark_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:darkness_rod"
     }

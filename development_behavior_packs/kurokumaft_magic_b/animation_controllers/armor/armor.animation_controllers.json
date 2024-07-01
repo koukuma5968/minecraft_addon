@@ -5,12 +5,12 @@
       "states": {
         "default": {
           "transitions": [
-            { "wind_chest_mounting": "query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate')" }
+            { "wind_chest_mounting": "query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate') || query.is_item_name_any('slot.armor.chest','kurokumaft:nether_wind_magic_chestplate')" }
           ]
         },
         "wind_chest_mounting":{
           "transitions": [
-            {"default":"!query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate')"},
+            {"default":"!query.is_item_name_any('slot.armor.chest','kurokumaft:wind_magic_chestplate') && !query.is_item_name_any('slot.armor.chest','kurokumaft:nether_wind_magic_chestplate')"},
             {"wind_chest_slow_falling":"!query.is_jumping"},
             {"wind_chest_levitation":"query.is_jumping"}
           ]

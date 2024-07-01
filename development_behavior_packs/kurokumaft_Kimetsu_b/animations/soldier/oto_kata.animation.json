@@ -7,7 +7,7 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_oto4",
-					"/execute as @s run damage @e[tag=!kokyu_oto4,r=3.5] 15 entity_explosion",
+					"/execute as @s run damage @e[tag=!kokyu_oto4,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3.5] 15 entity_explosion",
 					"/summon kurokumaft:oto_bom ^-2^2^2 ~ ~ minecraft:explode"
 				],
 				"0.1": [
@@ -34,7 +34,7 @@
 			"timeline": {
 				"0.0": [
 					"/tag @s add kokyu_oto5",
-					"/execute as @s run damage @e[tag=!kokyu_oto5,r=3.5] 15 entity_explosion",
+					"/execute as @s run damage @e[tag=!kokyu_oto5,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3.5] 15 entity_explosion",
 					"/summon kurokumaft:oto_bom ^-1.5^1.5^1 ~ ~ minecraft:explode"
 				],
 				"0.1": [

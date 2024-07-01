@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
     "identifier": "kurokumaft:bow_bamboo_fiber"
@@ -18,6 +18,11 @@
         "item": "kurokumaft:bamboo_fiber"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:bamboo_fiber"
+      }
+    ],
     "result": {
       "item": "minecraft:bow"
     }

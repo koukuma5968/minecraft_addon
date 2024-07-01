@@ -21,6 +21,11 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:wind_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:wind_magic_gun"
     }

@@ -1,0 +1,83 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:ice_magic_gun",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.magic_gun"
+      },
+      "tag:gun": {},
+      "tag:ice_magic_gun": {},
+      "minecraft:damage": 2,
+      "minecraft:durability": {
+        "max_durability": 1500
+      },
+      "minecraft:enchantable": {
+        "value": 50,
+        "slot": "crossbow"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "texture": "ice_magic_gun"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:ice_magic_stone" ],
+            "repair_amount": 300
+          },
+          {
+            "items": [ "kurokumaft:ice_magic_gun" ],
+            "repair_amount": 800
+          }
+        ]
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:ice_magic_gun.name"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:use_animation": "bow",
+      "minecraft:use_duration": 9999,
+      "minecraft:chargeable": {
+        "movement_modifier": 0.25
+      },
+      "minecraft:on_use":{
+        "on_use":{
+          "condition": "query.variant >= 10",
+          "event":"kurokumaft:ice_magic_bullet"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:ice_magic_bullet": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fグレイシアファング\"}]}",
+                "event entity @s variant0"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "shoot":{
+              "projectile":"kurokumaft:ice_magic_bullet",
+              "launch_power":0.5
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

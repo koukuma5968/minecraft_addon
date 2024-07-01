@@ -6,7 +6,15 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball"
+      "runtime_identifier": "minecraft:snowball",
+      "scripts":{
+        "animate":[
+          "stone_magic_bullet"
+        ]
+      },
+      "animations":{
+        "stone_magic_bullet":"animation.magic_bullet.stone_magic_bullet_frame"
+      }
     },
     "components": {
       "minecraft:type_family": {
@@ -40,6 +48,12 @@
         "anchor": 1,
         "should_bounce": true,
         "offset": [ 0, 0, 0 ]
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "max_distance": 32,
+          "min_distance": 16
+        }
       },
       "minecraft:timer": {
         "time": [0.2,0.2],

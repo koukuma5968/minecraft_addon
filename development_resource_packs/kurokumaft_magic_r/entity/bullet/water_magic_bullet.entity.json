@@ -15,9 +15,6 @@
       "animations": {
         "move": "animation.magic_bullet.move"
       },
-      "particle_effects": {
-        "bullet_particle": "kurokumaft:water_bullet_particle"
-      },
       "scripts": {
         "animate": [
           "move"

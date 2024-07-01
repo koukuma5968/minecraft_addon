@@ -4,21 +4,26 @@
 		"description": "工具アドオン",
 		"name": "kurokuma_tools_b",
 		"uuid": "2e76165e-37b6-4eb0-8fdb-608544f12124",
-		"version": [1,0,1],
-		"min_engine_version": [1,20,30]
+		"version": [1, 0, 1],
+		"min_engine_version": [1, 20, 30]
 	},
 	"modules": [
 		{
 			"description": "工具アドオン",
 			"type": "data",
 			"uuid": "54a5df53-1a62-4d75-a963-c296b5b33094",
-			"version": [1,0,1]
+			"version": [1, 0, 1]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "c9952c66-69cd-441a-98a4-672d26071eb4",
-			"version": [1,0,1]
+			"version": [1, 0, 1]
 		}
-	]
+	],
+	"metadata": {
+		"generated_with": {
+			"blockbench_block_wizard": ["1.2.2"]
+		}
+	}
 }

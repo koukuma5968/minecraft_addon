@@ -21,6 +21,11 @@
         "item": "minecraft:stick"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:water_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:water_wand"
     }

@@ -17,7 +17,7 @@
 			},
 			"minecraft:emitter_shape_disc": {
 				"radius": 5,
-				"plane_normal": ["math.random(-10, 10)", "math.random(-10, 10)", "math.random(-10, 10)"],
+				"plane_normal": ["math.random(-10, 10)", "math.random(0, 10)", "math.random(-10, 10)"],
 				"surface_only": true,
 				"direction": [5, 5, 5]
 			},

@@ -10,6 +10,10 @@
 		"sound": "stone",
 		"textures": "deepslate_chromium_ore"
 	},
+	"steel_block": {
+		"sound": "stone",
+		"textures": "steel_block"
+	},
 	"orichalcum_ore": {
 		"sound": "stone",
 		"textures": "orichalcum_ore"
@@ -17,6 +21,10 @@
 	"deepslate_orichalcum_ore": {
 		"sound": "stone",
 		"textures": "deepslate_orichalcum_ore"
+	},
+	"orichalcum_block": {
+		"sound": "stone",
+		"textures": "orichalcum_block"
 	},
 	"charcoal_block": {
 		"sound": "stone",

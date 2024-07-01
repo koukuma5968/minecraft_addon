@@ -1,0 +1,29 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:orichalcum_to_block"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+          "B"
+        ],
+        "key": {
+            "B": {
+                "item": "kurokumaft:orichalcum_block"
+            }
+        },
+        "unlock": [
+            {
+              "item": "kurokumaft:orichalcum_block"
+            }
+        ],
+        "result": {
+            "item": "kurokumaft:orichalcum",
+            "count": 9
+        },
+        "priority": 2
+    }
+}

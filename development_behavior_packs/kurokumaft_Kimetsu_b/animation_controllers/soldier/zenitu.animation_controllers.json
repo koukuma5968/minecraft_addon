@@ -37,7 +37,7 @@
           "on_entry": [
             "/effect @s speed 99999 20 true",
             "/tag @s add kokyu_kaminari7",
-            "/tag @e[r=50,c=1,tag=!kokyu_kaminari7,family=monster] add kokyu_kaminari7_target",
+            "/tag @e[r=50,c=1,tag=!kokyu_kaminari7,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item] add kokyu_kaminari7_target",
             "/event entity @s mark_variant1"
           ],
           "transitions": [
@@ -49,7 +49,7 @@
             "/gamerule sendcommandfeedback false",
             "/execute at @e[tag=kokyu_kaminari7_target] positioned ^^^2 run tp @e[tag=kokyu_kaminari7] ~~~",
             "/execute as @s run particle kurokumaft:kaminari2_particle ~~~",
-            "/execute as @s run damage @e[tag=!kokyu_kaminari7,r=10] 50 lightning"
+            "/execute as @s run damage @e[tag=!kokyu_kaminari7,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=10] 50 lightning"
           ],
           "on_exit": [
             "/effect @s speed 0",

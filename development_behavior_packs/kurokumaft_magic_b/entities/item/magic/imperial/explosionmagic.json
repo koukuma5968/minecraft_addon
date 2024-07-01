@@ -13,7 +13,7 @@
           "breaks_blocks": true,
           "fuse_length": [-1,-1],
           "fuse_lit": true,
-          "power": 6,
+          "power": 10,
           "causes_fire": true
         }
       }
@@ -27,6 +27,12 @@
         "family": [
           "magic"
         ]
+      },
+      "minecraft:timer": {
+        "time": [0.2,0.2],
+        "time_down_event": { 
+          "event": "kurokumaft:explosion_wave"
+        }
       },
       "minecraft:projectile": {
         "on_hit": {
@@ -51,7 +57,21 @@
       }
     },
     "events": {
+      "kurokumaft:explosion_wave": {
+        "run_command": {
+          "command": [
+            "particle kurokumaft:explosion_wave_particle ~~~"
+          ],
+          "target": "self"
+        }
+      },
       "kurokumaft:explosionmagic": {
+        "run_command": {
+          "command": [
+            "particle kurokumaft:explosion_shell ~~~"
+          ],
+          "target": "self"
+        },
         "add": {
           "component_groups": [
             "minecraft:exploding"

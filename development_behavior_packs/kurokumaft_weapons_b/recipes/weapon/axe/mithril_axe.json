@@ -20,6 +20,11 @@
                 "item": "minecraft:iron_ingot"
             }
         },
+        "unlock": [
+            {
+              "item": "kurokumaft:mithril_ingot"
+            }
+        ],
         "result": {
             "item": "kurokumaft:mithril_axe",
             "count": 1

@@ -1,0 +1,45 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:magic_lectern"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "iSs",
+      "ckc",
+      "rmr"
+    ],
+    "key": {
+      "c": {
+        "item": "minecraft:sculk"
+      },
+      "S": {
+        "item": "minecraft:sculk_sensor"
+      },
+      "s": {
+        "item": "minecraft:sculk_shrieker"
+      },
+      "k": {
+        "item": "minecraft:sculk_catalyst"
+      },
+      "i": {
+        "item": "minecraft:lectern"
+      },
+      "r": {
+        "item": "minecraft:redstone"
+      },
+      "m": {
+        "item": "minecraft:ancient_debris"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:ancient_debris"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:magic_lectern"
+    }
+  }
+}

@@ -24,6 +24,11 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:ice_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:ice_magic_bow"
     }

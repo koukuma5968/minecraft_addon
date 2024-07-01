@@ -140,26 +140,6 @@
       "minecraft:behavior.equip_item": {
         "priority": 3
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 3,
-        "alert_same_type": true,
-        "entity_types": [
-          {
-            "max_dist": 64
-          }
-        ]
-      },
-      "minecraft:behavior.nearest_attackable_target": {
-        "priority": 2,
-        "reselect_targets": true,
-        "must_see": true,
-        "entity_types": [
-          {
-            "max_dist": 128,
-            "must_see": false
-          }
-        ]
-      },
       "minecraft:burns_in_daylight": {
       },
       "minecraft:hurt_on_condition": {

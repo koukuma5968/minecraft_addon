@@ -7,7 +7,9 @@
           "transitions": [
             { "bakketu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:bakketu')" },
             { "koushi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:koushi')" },
-            { "hakaisatu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hakaisatu')" }
+            { "hakaisatu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hakaisatu')" },
+            { "obi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:obi')" },
+            { "kama_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gyutaro_kama')" }
 
           ]
         },
@@ -42,6 +44,28 @@
           ],
           "transitions": [
             {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:hakaisatu')"}
+          ]
+        },
+        "obi_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"血気術 堕姫(帯)\"}]}",
+            "/event entity @s kurokumaft:kekkizyutu_daki",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:obi')"}
+          ]
+        },
+        "kama_add":{
+          "on_entry": [
+            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"血気術 妓夫太郎(血鎌)\"}]}",
+            "/event entity @s kurokumaft:kekkizyutu_gyutaro",
+            "/event entity @s variant1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:gyutaro_kama')"}
           ]
         },
 

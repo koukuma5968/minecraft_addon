@@ -20,6 +20,11 @@
                 "item": "gunpowder"
             }
         },
+        "unlock": [
+            {
+              "item": "gunpowder"
+            }
+        ],
         "result": {
             "item": "kurokumaft:hand_grenade",
             "count": 4

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:wind_magic_leggings_to_magicstone"
@@ -22,6 +22,11 @@
         "item": "minecraft:emerald_block"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:wind_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:wind_magic_leggings",
       "count": 1

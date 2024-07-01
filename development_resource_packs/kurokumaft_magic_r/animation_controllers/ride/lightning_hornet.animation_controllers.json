@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.lightning_hornet.drip": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "particle_effects": [
+            {
+              "effect": "lightning_dripping"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.lightning_hornet.sting": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [ "bee_sting" ]
+        }
+      }
+    },
+    "controller.animation.lightning_hornet.root": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            "flying",
+            "drip",
+            "controller_bee_sting"
+          ],
+          "transitions": [
+            {
+              "attack": "variable.attack_time > 0.0"
+            }
+          ]
+        },
+        "attack": {
+          "animations": [
+            "attack"
+          ],
+          "transitions": [
+            {
+              "default": "variable.attack_time <= 0.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

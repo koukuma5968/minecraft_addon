@@ -6,7 +6,15 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snowball"
+      "runtime_identifier": "minecraft:snowball",
+      "scripts":{
+        "animate":[
+          "wind_magic_bullet"
+        ]
+      },
+      "animations":{
+        "wind_magic_bullet":"animation.magic_bullet.wind_magic_bullet_frame"
+      }
     },
     "components": {
       "minecraft:type_family": {
@@ -33,16 +41,22 @@
         },
         "reflect_on_hurt": false,
         "hit_sound": "sonic_boom",
-        "power": 8,
-        "gravity": 0.01,
+        "power": 4,
+        "gravity": 0,
         "uncertainty_base": 1,
         "uncertainty_multiplier": 0,
         "anchor": 1,
         "should_bounce": true,
         "offset": [ 0, 0, 0 ]
       },
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "max_distance": 32,
+          "min_distance": 16
+        }
+      },
       "minecraft:timer": {
-        "time": [1.0,1.0],
+        "time": [8.0,8.0],
         "time_down_event": { 
           "event": "kurokumaft:despawn"
         }

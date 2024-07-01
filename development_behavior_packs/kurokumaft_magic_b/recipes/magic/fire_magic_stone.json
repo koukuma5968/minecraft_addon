@@ -17,6 +17,11 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
     "result": {
       "item": "kurokumaft:fire_magic_stone"
     }

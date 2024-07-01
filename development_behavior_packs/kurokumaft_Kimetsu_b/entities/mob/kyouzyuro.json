@@ -37,17 +37,6 @@
         }
       },
 
-      "kurokumaft:kokyu_reset": {
-        "minecraft:timer": {
-          "time": 5.0,
-          "looping": true,
-          "time_down_event": {
-            "event": "kurokumaft:random_kokyu",
-            "target": "self"
-          }
-        }
-      },
-
       "kurokumaft:enko": {
         "minecraft:follow_range": {
           "value": 32,
@@ -143,8 +132,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 200,
-        "max": 200
+        "value": 600,
+        "max": 600
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/kyouzyuro_gear.json"
@@ -279,6 +268,15 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
+      "minecraft:timer": {
+        "time": [10.0, 15.0],
+        "randomInterval": true,
+        "looping": true,
+        "time_down_event": {
+          "event": "kurokumaft:random_kokyu",
+          "target": "self"
+        }
+      },
       "minecraft:block_climber": {},
       "minecraft:environment_sensor": {
         "triggers": [
@@ -325,31 +323,16 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
-        }
-      },
-      "minecraft:trigger_raid": {
-        "add": {
-          "component_groups": [ "minecraft:raid_trigger" ]
-        }
-      },
-      "minecraft:remove_raid_trigger": {
-        "remove": {
-          "component_groups": [ "minecraft:raid_trigger" ]
-        }
-      },
-      "kurokumaft:mizu10_doragon": {
-        "add": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
-        }
-      },
-      "kurokumaft:mizu10_doragon_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
       "kurokumaft:random_kokyu": {
         "sequence": [
+          {
+            "add": {
+              "component_groups": [ "variant0","mark_variant0" ]
+            }
+          },
           {
             "filters": {
               "test": "has_target"
@@ -397,7 +380,7 @@
       },
       "kurokumaft:random_kokyu_off": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0","kurokumaft:kokyu_reset" ]
+          "component_groups": [ "variant0","mark_variant0" ]
         }
       },
 

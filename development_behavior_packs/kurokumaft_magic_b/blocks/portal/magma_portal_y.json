@@ -19,8 +19,12 @@
 			"minecraft:flammable": false,
 			"minecraft:loot": "loot_tables/block/magma_portal.json",
             "minecraft:geometry": "geometry.magma_portal_y",
-			"minecraft:on_interact": {
-				"event": "portal_tp"
+			"minecraft:queued_ticking": {
+				"interval_range": [1.0,1.0],
+				"looping": true,
+				"on_tick": {
+					"event": "portal_break"
+				}
 			},
 			"minecraft:material_instances": {
 				"*": {
@@ -31,12 +35,17 @@
 			}
 		},
         "events": {
-            "portal_tp": {
+            "portal_break": {
                 "sequence": [
                     {
                         "run_command": {
                             "target": "self",
-                            "command": "titleraw @a actionbar {\"rawtext\":[{\"text\":\"§cマグマポータル\"}]}"
+							"command": [
+								"execute if block ~ ~-1 ~ air run setblock ~~~ air",
+								"execute if block ~ ~1 ~ air run setblock ~~~ air",
+								"execute if block ~-1 ~ ~ air run setblock ~~~ air",
+								"execute if block ~1 ~ ~ air run setblock ~~~ air"
+							]
                         }
                     }
                 ]

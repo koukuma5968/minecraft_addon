@@ -20,6 +20,7 @@
       "minecraft:durability": {
         "max_durability": 2500
       },
+      "minecraft:allow_off_hand": true,
       "minecraft:repairable": {
         "repair_items": [
           {

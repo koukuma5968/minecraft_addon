@@ -20,7 +20,7 @@
             "/event entity @s mark_variant1",
             "/event entity @s kurokumaft:knockback_add",
             "/tag @s add kokyu_oto1",
-  					"/execute as @s run damage @e[tag=!kokyu_oto1,r=3.5] 10 entity_explosion",
+  					"/execute as @s run damage @e[tag=!kokyu_oto1,family=!inanimate,family=!villager,family=!regimental_soldier,type=!item,r=3.5] 10 entity_explosion",
             "/effect @s resistance 99999 60 true",
             "/effect @s fire_resistance 99999 60 true",
             "/summon kurokumaft:oto_bom ^1^^2 ~ ~ minecraft:explode",

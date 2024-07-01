@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:kitchen_table"
@@ -19,6 +19,11 @@
         "data": 5
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
     "result": {
       "item": "kurokumaft:kitchen_table"
     }

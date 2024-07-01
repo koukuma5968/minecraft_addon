@@ -10,6 +10,14 @@
 			}
 		},
 		"components": {
+			"minecraft:collision_box": {
+				"origin": [-8.0, 0.0, -8.0],
+				"size": [16.0, 10.0, 16.0]
+			},
+            "minecraft:selection_box": {
+				"origin": [-8.0, 0.0, -8.0],
+				"size": [16.0, 10.0, 16.0]
+			},
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0.5
 			},

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:magic_enchant_table"
@@ -39,6 +39,23 @@
         "item": "minecraft:diamond_block"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      {
+        "item": "kurokumaft:lightning_magic_stone"
+      },
+      {
+        "item": "kurokumaft:wind_magic_stone"
+      },
+      {
+        "item": "kurokumaft:water_magic_stone"
+      },
+      {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:magic_enchant_table"
     }

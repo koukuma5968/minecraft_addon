@@ -118,12 +118,44 @@
             "/event entity @s mark_variant1"
           ],
           "transitions": [
-            {"mizu5_1":"variable.kokyu_tanjiro = variable.kokyu_tanjiro < 20 ? variable.kokyu_tanjiro + 1:0;return variable.kokyu_tanjiro == 0;"}
+            {"mizu5_ran":"variable.kokyu_tanjiro = variable.kokyu_tanjiro < 20 ? variable.kokyu_tanjiro + 1:0;return variable.kokyu_tanjiro == 0;"}
           ]
         },
-        "mizu5_1":{
+        "mizu5_ran":{
           "on_entry": [
-            "/function mizu/mizu5"
+            "variable.mizu5_ran = (variable.mizu5_ran ?? 0);variable.mizu5_ran = math.random_integer(1, 20);"
+          ],
+          "transitions": [
+            {"mizu5_s":"variable.mizu5_ran <= 13"},
+            {"mizu5_l":"variable.mizu5_ran <= 19"},
+            {"mizu5_k":"variable.mizu5_ran == 20"}
+          ]
+        },
+        "mizu5_s":{
+          "on_entry": [
+            "/function mizu/mizu5_small"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_tanjiro = variable.kokyu_tanjiro < 20 ? variable.kokyu_tanjiro + 1:0;return variable.kokyu_tanjiro == 0;"}
+          ]
+        },
+        "mizu5_l":{
+          "on_entry": [
+            "/function mizu/mizu5_large"
+          ],
+          "on_exit": [
+            "/event entity @s kurokumaft:random_kokyu_off"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_tanjiro = variable.kokyu_tanjiro < 20 ? variable.kokyu_tanjiro + 1:0;return variable.kokyu_tanjiro == 0;"}
+          ]
+        },
+        "mizu5_k":{
+          "on_entry": [
+            "/function mizu/mizu5_kill"
           ],
           "on_exit": [
             "/event entity @s kurokumaft:random_kokyu_off"

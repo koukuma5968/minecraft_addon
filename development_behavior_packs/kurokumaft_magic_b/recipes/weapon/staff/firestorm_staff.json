@@ -24,6 +24,14 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:flame_rod"
+      },
+      {
+        "item": "kurokumaft:storm_rod"
+      }
+    ],
     "result": {
       "item": "kurokumaft:firestorm_staff"
     }

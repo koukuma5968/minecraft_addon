@@ -13,11 +13,17 @@
 		"deepslate_chromium_ore": {
 			"textures": "textures/kurokumaft/blocks/ore/deepslate_chromium_ore"
 		},
+		"steel_block": {
+			"textures": "textures/kurokumaft/blocks/ore/steel_block"
+		},
 		"orichalcum_ore": {
 			"textures": "textures/kurokumaft/blocks/ore/orichalcum_ore"
 		},
 		"deepslate_orichalcum_ore": {
 			"textures": "textures/kurokumaft/blocks/ore/deepslate_orichalcum_ore"
+		},
+		"orichalcum_block": {
+			"textures": "textures/kurokumaft/blocks/ore/orichalcum_block"
 		},
 		"charcoal_block": {
 			"textures": "textures/kurokumaft/blocks/crops/charcoal_block"

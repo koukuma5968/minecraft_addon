@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:hyper_shell",
+      "category": "equipment"
+    },
+    "components": {
+      "tag:bullet": {},
+      "minecraft:max_stack_size": 16,
+      "minecraft:icon": {
+        "texture": "hyper_shell"
+      },
+      "minecraft:allow_off_hand": true,
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:hyper_shell.name"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.bullet"
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:hyper_shell_entity"
+      }
+    },
+    "events": {
+      
+    }
+  }
+}

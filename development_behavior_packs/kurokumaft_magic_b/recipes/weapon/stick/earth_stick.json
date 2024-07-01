@@ -28,6 +28,11 @@
         "item": "minecraft:diamond"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:stone_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:earth_stick"
     }

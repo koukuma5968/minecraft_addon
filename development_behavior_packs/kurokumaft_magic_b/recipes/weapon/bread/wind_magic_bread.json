@@ -21,6 +21,11 @@
         "item": "minecraft:diamond_sword"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:wind_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:wind_magic_bread",
       "count": 1

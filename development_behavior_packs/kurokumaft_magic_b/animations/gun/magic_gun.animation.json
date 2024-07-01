@@ -169,11 +169,35 @@
 				"0.25": [
 					"/event entity @s variant1"
 				],
-				"0.75": [
+				"0.5": [
 					"/event entity @s variant2"
 				],
-				"1.00": [
+				"0.75": [
 					"/event entity @s variant3"
+				],
+				"1": [
+					"/event entity @s variant4"
+				],
+				"1.25": [
+					"/event entity @s variant5"
+				],
+				"1.5": [
+					"/event entity @s variant6"
+				],
+				"1.75": [
+					"/event entity @s variant7"
+				],
+				"2": [
+					"/event entity @s variant8"
+				],
+				"2.25": [
+					"/event entity @s variant9"
+				],
+				"2.5": [
+					"/event entity @s variant10"
+				],
+				"2.51": [
+					"/event entity @s variant11"
 				]
 			}
 		},

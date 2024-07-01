@@ -20,6 +20,9 @@
       "blue_seaLantern_pickaxe": { 
          "textures": "textures/kurokumaft/items/pickaxe/blue_seaLantern_pickaxe"
       },
+      "green_orichalcum_pickaxe": {
+         "textures": "textures/kurokumaft/items/pickaxe/green_orichalcum_pickaxe"
+      },
 
       "red_iron_shovel": { 
          "textures": "textures/kurokumaft/items/shovel/red_iron_shovel"

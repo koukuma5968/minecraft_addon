@@ -1,0 +1,40 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:magic_stone_entity",
+        "materials": {
+            "default": "armor_stand"
+          },
+          "textures": {
+            "fire": "textures/kurokumaft/items/magic/stone/fire_magic_stone",
+            "water": "textures/kurokumaft/items/magic/stone/water_magic_stone",
+            "wind": "textures/kurokumaft/items/magic/stone/wind_magic_stone",
+            "stone": "textures/kurokumaft/items/magic/stone/stone_magic_stone",
+            "lightning": "textures/kurokumaft/items/magic/stone/lightning_magic_stone",
+            "ice": "textures/kurokumaft/items/magic/stone/ice_magic_stone",
+            "light": "textures/kurokumaft/items/magic/stone/light_magic_stone",
+            "dark": "textures/kurokumaft/items/magic/stone/dark_magic_stone"
+          },
+          "geometry": {
+            "default": "geometry.magic_stone_entity"
+          },
+          "animations": {
+            "stand_n": "animation.magic_stone_entity.stand_n",
+            "stand_s": "animation.magic_stone_entity.stand_s",
+            "stand_e": "animation.magic_stone_entity.stand_e",
+            "stand_w": "animation.magic_stone_entity.stand_w"
+          },
+          "scripts": {
+            "animate": [
+              {"stand_n": "query.mark_variant == 0"},
+              {"stand_s": "query.mark_variant == 1"},
+              {"stand_e": "query.mark_variant == 2"},
+              {"stand_w": "query.mark_variant == 3"}
+            ]
+          },
+          "render_controllers": [ "controller.render.magic_stone_entity" ]
+        }
+    }
+  }
+  

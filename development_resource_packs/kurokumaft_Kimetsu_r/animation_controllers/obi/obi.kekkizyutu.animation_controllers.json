@@ -1,0 +1,23 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kekkizyutu.obi_body" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"yaeobigiri": "query.variant == 2 && query.mark_variant == 1"}
+					]
+				},
+				"yaeobigiri" : {
+					"animations" : [
+						"yaeobigiri"
+					],
+					"transitions" : [
+						{"default":"query.mark_variant == 0"}
+					]
+				}
+			}
+		}
+    }
+}

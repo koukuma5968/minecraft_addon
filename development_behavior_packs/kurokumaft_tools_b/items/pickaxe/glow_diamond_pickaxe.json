@@ -3,10 +3,7 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:glow_diamond_pickaxe",
-      "menu_category": {
-        "category": "equipment",
-        "parent": "itemGroup.name.pickaxe"
-      }
+      "category": "equipment"
     },
     "components": {      
       "minecraft:max_stack_size": 1,
@@ -14,6 +11,9 @@
       "minecraft:use_duration":32,
       "minecraft:display_name":{
         "value":"item.kurokumaft:glow_diamond_pickaxe.name"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.pickaxe"
       },
       "minecraft:durability": {
         "max_durability": 1200

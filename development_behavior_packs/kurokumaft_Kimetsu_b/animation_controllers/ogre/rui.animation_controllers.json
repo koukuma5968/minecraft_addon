@@ -88,7 +88,7 @@
             "/event entity @s kurokumaft:despawn"
           ],
           "transitions": [
-            {"default":"variable.rui_ayamekago = variable.rui_ayamekago < 80 ? variable.rui_ayamekago + 1:0;return variable.rui_ayamekago == 0;"}
+            {"default":"variable.rui_ayamekago = variable.rui_ayamekago < 20 ? variable.rui_ayamekago + 1:0;return variable.rui_ayamekago == 0;"}
           ]
         }
       }

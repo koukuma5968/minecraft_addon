@@ -1,5 +1,5 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "kurokumaft:stone_magic_helmet_to_magicstone"
@@ -22,6 +22,11 @@
         "item": "minecraft:smooth_stone"
       }
     },
+    "unlock": [
+      {
+        "item": "kurokumaft:stone_magic_stone"
+      }
+    ],
     "result": {
       "item": "kurokumaft:stone_magic_helmet",
       "count": 1

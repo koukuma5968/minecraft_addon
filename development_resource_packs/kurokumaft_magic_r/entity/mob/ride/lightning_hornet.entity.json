@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:lightning_hornet",
+      "materials": { "default": "bat" },
+      "textures": {
+        "default": "textures/kurokumaft/entity/ride/lightning_hornet"
+      },
+      "geometry": {
+        "default": "geometry.lightning_hornet"
+      },
+      "scripts": {
+        "animate": [
+          "bee_root_controller"
+        ]
+      },
+      "animations": {
+        "flying": "animation.lightning_hornet.flying",
+        "drip": "controller.animation.lightning_hornet.drip",
+        "controller_bee_sting": "controller.animation.lightning_hornet.sting",
+        "bee_sting": "animation.lightning_hornet.sting",
+        "bee_no_stinger": "animation.lightning_hornet.no_stinger",
+        "bee_fly_bobbing": "animation.lightning_hornet.fly.bobbing",
+        "bee_root_controller": "controller.animation.lightning_hornet.root",
+        "attack":"animation.lightning_hornet.attack"
+      },
+      "particle_effects": {
+        "lightning_dripping": "kurokumaft:lightning_drip_particle"
+      },
+      "render_controllers": [ "controller.render.lightning_hornet" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 10
+      }
+    }
+  }
+}
