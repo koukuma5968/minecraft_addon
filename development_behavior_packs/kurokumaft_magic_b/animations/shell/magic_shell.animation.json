@@ -15,7 +15,7 @@
 			"timeline": {
 			    "0.0": [
 					"/particle kurokumaft:fire_shell ~~~",
-					"/damage @e[family=!shell_stand,r=6] 3 fire"
+					"/damage @e[family=!shell_stand,family=!magic,family=!player,r=6] 3 fire"
 				]
 			},
 			"animation_length": 0.2,
@@ -25,7 +25,7 @@
 			"timeline": {
 			    "0.0": [
 					"/particle kurokumaft:water_shell ~~~",
-					"/damage @e[family=!shell_stand,r=6] 3 drowning"
+					"/damage @e[family=!shell_stand,family=!magic,family=!player,r=6] 3 drowning"
 				]
 			},
 			"animation_length": 0.2,
@@ -35,7 +35,7 @@
 			"timeline": {
 			    "0.0": [
 					"/particle kurokumaft:lightning_shell ~~~",
-					"/damage @e[family=!shell_stand,r=6] 3 lightning"
+					"/damage @e[family=!shell_stand,family=!magic,family=!player,r=6] 3 lightning"
 				]
 			},
 			"animation_length": 0.2,
@@ -45,7 +45,7 @@
 			"timeline": {
 			    "0.0": [
 					"/particle kurokumaft:wind_shell ~~~",
-					"/damage @e[family=!shell_stand,r=6] 3 fall"
+					"/damage @e[family=!shell_stand,family=!magic,family=!player,r=6] 3 fall"
 				]
 			},
 			"animation_length": 0.2,
@@ -55,7 +55,7 @@
 			"timeline": {
 			    "0.0": [
 					"/particle kurokumaft:stone_shell ~~~",
-					"/damage @e[family=!shell_stand,r=6] 3 stalagmite"
+					"/damage @e[family=!shell_stand,family=!magic,family=!player,r=6] 3 stalagmite"
 				]
 			},
 			"animation_length": 0.2,
@@ -65,7 +65,7 @@
 			"timeline": {
 			    "0.0": [
 					"/particle kurokumaft:ice_shell ~~~",
-					"/damage @e[family=!shell_stand,r=6] 3 freezing"
+					"/damage @e[family=!shell_stand,family=!magic,family=!player,r=6] 3 freezing"
 				]
 			},
 			"animation_length": 0.2,

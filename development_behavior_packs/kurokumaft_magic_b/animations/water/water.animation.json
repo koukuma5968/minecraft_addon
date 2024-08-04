@@ -2,7 +2,7 @@
 	"format_version": "1.20.10",
 	"animations": {
 		"animation.water.waterpillar": {
-			"animation_length": 0.01,
+			"animation_length": 0.5,
 			"loop": true,
 			"timeline": {
 				"0.0": [
@@ -20,7 +20,7 @@
 			}
 		},
 		"animation.water.tidal_wave": {
-			"animation_length": 0.05,
+			"animation_length": 0.1,
 			"loop": true,
 			"timeline": {
 				"0.0": [
@@ -29,14 +29,14 @@
 			}
 		},
 		"animation.water.mailstrom.damage": {
-			"animation_length": 0.05,
+			"animation_length": 0.5,
 			"loop": true,
 			"timeline": {
 				"0.0": [
 					"/gamerule sendcommandfeedback false",
-					"/tag @e[tag=!mailstrom_self] add mailstrom_target",
-					"/tp @e[tag=mailstrom_target,r=2.5] ~~~",
-					"/damage @e[tag=mailstrom_target,r=5] 15 drowning",
+					"/execute as @s run tag @e[tag=!mailstrom_self,family=!magic,family=!inanimate,family=!familiar,family=!item,family=!player,r=6] add mailstrom_target",
+					"/tp @e[tag=mailstrom_target,r=5.5] ~~~",
+					"/execute as @s run damage @e[tag=mailstrom_target] 5 drowning",
 					"/execute as @s run particle kurokumaft:mailstrom1_particle ~~~",
 					"/execute as @s run particle kurokumaft:mailstrom1_particle ~~0.5~",
 					"/execute as @s run particle kurokumaft:mailstrom2_particle ~~1~",

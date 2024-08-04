@@ -36,6 +36,26 @@
 					"/function magic/fire/flamespark/flamespark4"
 				]
 			}
+		},
+		"animation.fire.firestormmagic.damage": {
+			"animation_length": 0.5,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s run tag @e[tag=!firestormmagic_self,family=!magic,family=!inanimate,family=!familiar,family=!item,family=!player,r=5] add firestormmagic_target",
+					"/execute as @s run damage @e[tag=firestormmagic_target] 5 fire",
+					"/execute as @s run particle kurokumaft:firestome5_particle ~~~"
+				]
+			}
+		},
+		"animation.fire.phoenix_spear.damage": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/execute as @s run damage @e[family=!magic,family=!inanimate,family=!familiar,family=!item,family=!player,r=10] 15 fire"
+				]
+			}
 		}
 	}
 }

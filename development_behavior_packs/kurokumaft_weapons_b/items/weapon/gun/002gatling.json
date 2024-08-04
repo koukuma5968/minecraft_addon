@@ -33,13 +33,7 @@
       },
       "minecraft:use_animation": "bow",
       "minecraft:hand_equipped": true,
-      "minecraft:on_use": {
-        "on_use": {
-          "condition": "query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:twenty_two_lr')",
-          "event": "kurokumaft:gatling_shot"
-        }
-      },
-      "minecraft:use_duration": 0.1,
+      "minecraft:use_duration": 1.0,
       "minecraft:chargeable": {
         "on_complete": {
           "condition": "query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:twenty_two_lr')",

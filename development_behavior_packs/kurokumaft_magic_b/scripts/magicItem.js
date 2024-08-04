@@ -1,5 +1,6 @@
 import { world,system,Player,Block,Entity,EntityComponentTypes,ItemStack,Direction,ItemComponentTypes,Dimension } from "@minecraft/server";
 import { print, CraftBlocks, MusicRecodes } from "./common";
+import MagicBookComponent from "./magic/MagicBookComponent";
 import { ModalFormData } from "@minecraft/server-ui";
 
 // 帰還の実で転移
@@ -663,6 +664,59 @@ function music_sound_use(player, item) {
     decrimentGrimoireCount(player, item);
 };
 
+// 魔導書オブジェクトを保持するリストを作成
+const magicBookList = [];
+
+// 魔導書（召喚）使用開始
+/**
+ * @param {Player} player
+ * @param {ItemStack} item
+ */
+function grimoire_summon_use(player, item) {
+    let particle = "";
+    if (item.typeId == "kurokumaft:fire_grimoire") {
+        particle = "kurokumaft:fire_bread_particle";
+    }
+    player.runCommand("particle " + particle + " ~~0.75~");
+    let intervalNum = system.runInterval(() => {
+        player.runCommand("particle " + particle + " ~~0.75~");
+    }, 10);
+    let magicBook = new MagicBookComponent(player.id, item, item.getComponent("minecraft:durability").damage, intervalNum);
+    magicBookList.push(magicBook);
+    system.runTimeout(() => {
+        system.clearRun(intervalNum);
+    }, 60);
+
+};
+
+// 魔導書（召喚）使用解放
+/**
+ * @param {Player} player
+ * @param {ItemStack} item
+ * @param {Number} duration
+ */
+function grimoire_summon_Release(player, item, duration) {
+    let magicBook = magicBookList.find(book => book.isPlayerId(player.id));
+    if (duration <= 900) {
+        let inventory = player.getComponent(EntityComponentTypes.Inventory);
+        let grimoire_damage = new ItemStack(item.typeId, 1);
+        let grimoire_dur = grimoire_damage.getComponent("minecraft:durability");
+        let item_dur = item.getComponent("minecraft:durability");
+
+        grimoire_dur.damage = item_dur.damage + 1;
+        if (item_dur.maxDurability != grimoire_dur.damage) {
+            inventory.container.setItem(player.selectedSlotIndex, grimoire_damage);
+        }
+    }
+
+    let delIndex = magicBookList.findIndex(book => book.isPlayerId(player.id));
+    if (delIndex != -1) {
+        magicBookList.splice(delIndex, 1);
+    }
+    system.clearRun(magicBook.getIntervalNum());
+
+};
+
 // 魔導書耐久減少
 /**
  * @param {Player} player
@@ -684,4 +738,5 @@ function decrimentGrimoireCount(player, item) {
     }
 }
 
-export { home_tp, homeSetDialog, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use };
+export { home_tp, homeSetDialog, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, 
+    mowing_use, music_sound_use, grimoire_summon_use, grimoire_summon_Release };

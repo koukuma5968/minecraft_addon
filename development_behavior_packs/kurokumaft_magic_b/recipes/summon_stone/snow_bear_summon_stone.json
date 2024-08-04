@@ -1,0 +1,33 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:snow_bear_summon_stone"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "lml",
+      "mem",
+      "lml"
+    ],
+    "key": {
+      "e": {
+        "item": "minecraft:ender_eye"
+      },
+      "m": {
+        "item": "kurokumaft:ice_magic_stone"
+      },
+      "l": {
+        "item": "minecraft:blue_ice"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:ice_magic_stone"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:snow_bear_summon_stone"
+    }
+  }
+}

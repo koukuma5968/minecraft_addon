@@ -1,7 +1,8 @@
 import { world,system,EntityComponentTypes,BlockComponentTypes,ItemComponentTypes } from "@minecraft/server";
 import { shieldGuard, shieldCounter } from "./shieldEvent";
 import { print, playsound, durabilityDamage, breakItem } from "./common";
-import { home_tp, homeSetDialog, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use } from "./magicItem";
+import { home_tp, homeSetDialog, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use, 
+    grimoire_summon_use, grimoire_summon_Release } from "./magicItem";
 import { magic_lectern, magic_lectern_break } from "./magicBlock";
 import { magicAmor } from "./magic/magicAmorEvent";
 import { fireStorm } from "./magic/imperial";
@@ -64,13 +65,15 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
 
 // ダメージ
 world.afterEvents.entityHurt.subscribe(event => {
-    var damage = event.damage;
-    var damageSource = event.damageSource;
-    var hitEn = event.hurtEntity;
-    // print(hitEn, damageSource.cause + "=" + damage);
-    if (hitEn != undefined && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
-        if (guards.indexOf(damageSource.cause) != -1) {
-            shieldGuard(hitEn, false);
+    if (event) {
+        var damage = event.damage;
+        var damageSource = event.damageSource;
+        var hitEn = event.hurtEntity;
+        // print(hitEn, damageSource.cause + "=" + damage);
+        if (hitEn != undefined && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
+            if (guards.indexOf(damageSource.cause) != -1) {
+                shieldGuard(hitEn, false);
+            }
         }
     }
 });
@@ -103,12 +106,30 @@ world.afterEvents.playerInteractWithBlock.subscribe(event => {
 world.afterEvents.itemUse.subscribe(event => {
     var player = event.source;
     var item = event.itemStack;
-    // print("itemUse");
+    print("itemUse");
     if (item != undefined) {
+        print(item.typeId);
         if (item.typeId == "kurokumaft:grimoire_mowing") {
             mowing_use(player, item);
         } else if (item.typeId == "kurokumaft:grimoire_music_sound") {
             music_sound_use(player, item);
+        } else if (item.typeId == "kurokumaft:fire_grimoire") {
+            grimoire_summon_use(player, item);
+        }
+    }
+});
+
+// アイテム右クリックリリース後
+world.afterEvents.itemReleaseUse.subscribe(event => {
+    var player = event.source;
+    var item = event.itemStack;
+    var duration = event.useDuration;
+    print("itemReleaseUse");
+    if (item != undefined) {
+        print(item.typeId);
+        print(duration);
+        if (item.typeId == "kurokumaft:fire_grimoire") {
+            grimoire_summon_Release(player, item, duration);
         }
     }
 });

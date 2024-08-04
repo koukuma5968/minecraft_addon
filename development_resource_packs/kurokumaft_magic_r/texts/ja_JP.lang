@@ -11,15 +11,17 @@ entity.kurokumaft:fire_horse.name=§4フレイムホース
 entity.kurokumaft:storm_eagle.name=§3ストームイーグル
 entity.kurokumaft:lightning_hornet.name=§6ライトニングホーネット
 entity.kurokumaft:snow_bear.name=§fスノーベアー
-entity.kurokumaft:rock_scorpion.name=§7ロックスコーピオン
 entity.kurokumaft:aqua_frog.name=§1アクアフロッグ
+entity.kurokumaft:crag_kong.name=§7クラッグコング
+entity.kurokumaft:black_venom.name=§5ブラックヴェノム
 
 item.kurokumaft:fire_horse_summon_stone.name=召喚の魔石（フレイムホース）
 item.kurokumaft:storm_eagle_summon_stone.name=召喚の魔石（ストームイーグル）
 item.kurokumaft:lightning_hornet_summon_stone.name=召喚の魔石（ライトニングホーネット）
 item.kurokumaft:snow_bear_summon_stone.name=召喚の魔石（スノーベアー）
-item.kurokumaft:rock_scorpion_summon_stone.name=召喚の魔石（ロックスコーピオン）
+item.kurokumaft:crag_kong_summon_stone.name=召喚の魔石（クラッグコング）
 item.kurokumaft:aqua_frog_summon_stone.name=召喚の魔石（アクアフロッグ）
+item.kurokumaft:black_venom_summon_stone.name=召喚の魔石（ブラックヴェノム）
 
 item.spawn_egg.entity.kurokumaft:fire_horse.name=フレイムホースをスポーンさせる	#
 action.interact.ride.kurokumaft:fire_horse=乗る	#
@@ -37,13 +39,26 @@ item.spawn_egg.entity.kurokumaft:snow_bear.name=スノーベアーをスポー�
 action.interact.ride.kurokumaft:snow_bear=乗る	#
 action.hint.exit.console.kurokumaft:snow_bear=:_input_key.sneak: を押して降りる	#
 
-item.spawn_egg.entity.kurokumaft:rock_scorpion.name=ロックスコーピオンをスポーンさせる	#
-action.interact.ride.kurokumaft:rock_scorpion=乗る	#
-action.hint.exit.console.kurokumaft:rock_scorpion=:_input_key.sneak: を押して降りる	#
+item.spawn_egg.entity.kurokumaft:crag_kong.name=クラッグコングをスポーンさせる	#
+action.interact.ride.kurokumaft:crag_kong=乗る	#
+action.hint.exit.console.kurokumaft:crag_kong=:_input_key.sneak: を押して降りる	#
 
 item.spawn_egg.entity.kurokumaft:aqua_frog.name=アクアフロッグをスポーンさせる	#
 action.interact.ride.kurokumaft:aqua_frog=乗る	#
 action.hint.exit.console.kurokumaft:aqua_frog=:_input_key.sneak: を押して降りる	#
+
+item.spawn_egg.entity.kurokumaft:black_venom.name=ブラックヴェノムをスポーンさせる	#
+action.interact.ride.kurokumaft:black_venom=乗る	#
+action.hint.exit.console.kurokumaft:black_venom=:_input_key.sneak: を押して降りる	#
+
+tile.kurokumaft:fire_froglight.name=真紅色のフロッグライト
+tile.kurokumaft:aqua_froglight.name=露草色のフロッグライト
+tile.kurokumaft:aero_froglight.name=翡翠色のフロッグライト
+tile.kurokumaft:gaia_froglight.name=薄鈍色のフロッグライト
+tile.kurokumaft:lightning_froglight.name=黄檗色のフロッグライト
+tile.kurokumaft:cold_froglight.name=瑠璃色のフロッグライト
+tile.kurokumaft:dark_froglight.name=紫紺色のフロッグライト
+tile.kurokumaft:shining_froglight.name=白磁色のフロッグライト
 
 entity.kurokumaft:fire_zombie.name=§4ファイアゾンビ
 entity.kurokumaft:thunder_zombie.name=§6サンダーゾンビ
@@ -91,7 +106,7 @@ item.spawn_egg.entity.kurokumaft:stone_skeleton_archer.name=ストーンケル�
 item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン・アーチャーをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:fenrir.name=フェニックスをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:fenrir.name=フェンリルをスポーンさせる	#
 
 entity.kurokumaft:home_gate.name=拠点の石碑
 
@@ -102,6 +117,10 @@ itemGroup.kurokumaft:magic_shield.name=魔法の盾
 
 tile.kurokumaft:magic_enchant_table.name=魔法エンチャントテーブル
 tile.kurokumaft:magic_lectern.name=魔導書見台
+magic_lectern.mess.title=魔導書見台
+magic_lectern.mess.body1=魔導書と魔法石をセット後、各属性に対応したアイテムを持って右クリックして使用します。
+magic_lectern.mess.errorInfo=うまくセット出来ない場合はブロックを置きなおしてください。
+magic_lectern.mess.confirm=OK
 
 tile.kurokumaft:waterwall_block.name=水ブロック
 tile.kurokumaft:lightningwall_block.name=雷ブロック
@@ -168,6 +187,8 @@ item.kurokumaft:wind_magic_sword.name=§3刃風の魔法剣
 item.kurokumaft:holly_magic_sword.name=§e光華の魔法剣
 item.kurokumaft:dark_magic_sword.name=§5常闇の魔法剣
 item.kurokumaft:rainbow_magic_sword.name=虹の魔法剣
+
+item.kurokumaft:phoenix_sword.name=§4魔炎鳥の宝剣
 
 item.kurokumaft:fire_magic_shield.name=§4耐火の魔法盾
 item.kurokumaft:ice_magic_shield.name=§f堅氷の魔法盾

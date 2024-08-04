@@ -38,7 +38,77 @@
             "up" : "magma_portal_gate"
         }
     },
-    "magic_lectern": {
+    "kurokumaft:aqua_froglight": {
+        "textures" : {
+            "down" : "aqua_froglight_top",
+            "side" : "aqua_froglight_side",
+            "up" : "aqua_froglight_top"
+        }
+    },
+    "kurokumaft:fire_froglight": {
+        "textures" : {
+            "down" : "fire_froglight_top",
+            "side" : "fire_froglight_side",
+            "up" : "fire_froglight_top"
+        }
+    },
+    "kurokumaft:aero_froglight": {
+        "textures" : {
+            "down" : "aero_froglight_top",
+            "side" : "aero_froglight_side",
+            "up" : "aero_froglight_top"
+        }
+    },
+    "kurokumaft:gaia_froglight": {
+        "textures" : {
+            "down" : "gaia_froglight_top",
+            "side" : "gaia_froglight_side",
+            "up" : "gaia_froglight_top"
+        }
+    },
+    "kurokumaft:lightning_froglight": {
+        "textures" : {
+            "down" : "lightning_froglight_top",
+            "side" : "lightning_froglight_side",
+            "up" : "lightning_froglight_top"
+        }
+    },
+    "kurokumaft:cold_froglight": {
+        "textures" : {
+            "down" : "cold_froglight_top",
+            "side" : "cold_froglight_side",
+            "up" : "cold_froglight_top"
+        }
+    },
+    "kurokumaft:dark_froglight": {
+        "textures" : {
+            "down" : "dark_froglight_top",
+            "side" : "dark_froglight_side",
+            "up" : "dark_froglight_top"
+        }
+    },
+    "kurokumaft:shining_froglight": {
+        "textures" : {
+            "down" : "shining_froglight_top",
+            "side" : "shining_froglight_side",
+            "up" : "shining_froglight_top"
+        }
+    },
+    "kurokumaft:phoenix_summon": {
+        "textures" : {
+            "down" : "phoenix_summon_top",
+            "side" : "phoenix_summon_side",
+            "up" : "phoenix_summon_top"
+        }
+    },
+    "kurokumaft:fenrir_summon": {
+        "textures" : {
+            "down" : "fenrir_summon_top",
+            "side" : "fenrir_summon_side",
+            "up" : "fenrir_summon_top"
+        }
+    },
+    "kurokumaft:magic_lectern": {
 		"sound": "metal"
 	}
 

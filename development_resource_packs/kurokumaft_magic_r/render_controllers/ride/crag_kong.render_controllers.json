@@ -1,0 +1,13 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.crag_kong": {
+      "part_visibility": [
+        { "Bag*" : "query.is_chested" }
+      ],
+      "materials": [ { "*": "Material.default" } ],
+      "geometry": "Geometry.default",
+      "textures": [ "Texture.default" ]
+    }
+  }
+}

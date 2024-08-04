@@ -130,22 +130,13 @@
 
         },
         "minecraft:strength": {
-          "value": 100,
-          "max": 200
+          "value": 80,
+          "max": 150
         },
         "minecraft:inventory": {
           "inventory_size": 14,
           "container_type": "horse",
           "additional_slots_per_strength": 3
-        },
-        "minecraft:behavior.tempt": {
-          "priority": 5,
-          "speed_multiplier": 1.2,
-          "items": [
-            "golden_apple",
-            "appleEnchanted",
-            "golden_carrot"
-          ]
         },
         "minecraft:interact": {
           "interactions": [
@@ -240,6 +231,24 @@
       "minecraft:follow_range": {
         "value": 8,
         "max": 16
+      },
+      "minecraft:behavior.random_hover": {
+        "priority": 12,
+        "xz_dist": 8,
+        "y_dist": 4,
+        "y_offset": 3,
+        "interval": 1,
+        "hover_height": [ 1, 4 ]
+      },
+
+      "minecraft:behavior.tempt": {
+        "priority": 5,
+        "speed_multiplier": 1.2,
+        "items": [
+          "golden_apple",
+          "appleEnchanted",
+          "golden_carrot"
+        ]
       },
 
       "minecraft:equippable": {
@@ -391,6 +400,11 @@
         "priority": 7,
         "speed_multiplier": 1
       },
+      "minecraft:behavior.look_at_target": {
+        "priority": 7,
+        "look_distance": 6.0,
+        "probability": 0.02
+      },
       "minecraft:behavior.look_at_player": {
         "priority": 8,
         "look_distance": 6,
@@ -421,7 +435,7 @@
                 { "test": "is_family", "subject": "other", "value": "monster" }
               ]
             },
-            "max_dist": 80
+            "max_dist": 16
           }
         ]
       },

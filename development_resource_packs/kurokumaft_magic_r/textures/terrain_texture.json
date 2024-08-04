@@ -4,36 +4,85 @@
    "padding" : 8,
    "num_mip_levels" : 4,
    "texture_data" : {
-      "magic_enchant_table_bottom" : {
-         "textures" : "textures/kurokumaft/blocks/magic_enchant_table_bottom"
-      },
-      "magic_enchant_table_south" : {
-         "textures" : "textures/kurokumaft/blocks/magic_enchant_table_south"
-      },
-      "magic_enchant_table_north" : {
-         "textures" : "textures/kurokumaft/blocks/magic_enchant_table_north"
-      },
-      "magic_enchant_table_east" : {
-         "textures" : "textures/kurokumaft/blocks/magic_enchant_table_east"
-      },
-      "magic_enchant_table_west" : {
-         "textures" : "textures/kurokumaft/blocks/magic_enchant_table_west"
-      },
-      "magic_enchant_table_top" : {
-         "textures" : "textures/kurokumaft/blocks/magic_enchant_table_top"
-      },
-      "magic_enchant_table" : {
-         "textures" : "textures/kurokumaft/models/blocks/magic_enchant_table"
-      },
-      "waterwall_block" : {
-         "textures" : "textures/blocks/water_placeholder"
-      },
-      "lightningwall_block" : {
-         "textures" : "textures/kurokumaft/blocks/lightningwall_block"
-      },
-      "windwall_block" : {
-         "textures" : "textures/kurokumaft/blocks/windwall_block"
-      },
+		"magic_enchant_table_bottom" : {
+			"textures" : "textures/kurokumaft/blocks/magic_enchant_table_bottom"
+		},
+		"magic_enchant_table_south" : {
+			"textures" : "textures/kurokumaft/blocks/magic_enchant_table_south"
+		},
+		"magic_enchant_table_north" : {
+			"textures" : "textures/kurokumaft/blocks/magic_enchant_table_north"
+		},
+		"magic_enchant_table_east" : {
+			"textures" : "textures/kurokumaft/blocks/magic_enchant_table_east"
+		},
+		"magic_enchant_table_west" : {
+			"textures" : "textures/kurokumaft/blocks/magic_enchant_table_west"
+		},
+		"magic_enchant_table_top" : {
+			"textures" : "textures/kurokumaft/blocks/magic_enchant_table_top"
+		},
+		"magic_enchant_table" : {
+			"textures" : "textures/kurokumaft/models/blocks/magic_enchant_table"
+		},
+		"waterwall_block" : {
+			"textures" : "textures/blocks/water_placeholder"
+		},
+		"lightningwall_block" : {
+			"textures" : "textures/kurokumaft/blocks/lightningwall_block"
+		},
+		"windwall_block" : {
+			"textures" : "textures/kurokumaft/blocks/windwall_block"
+		},
+
+		"aqua_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/aqua_froglight_side.png"
+		},
+		"aqua_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/aqua_froglight_top.png"
+		},
+		"fire_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/fire_froglight_side.png"
+		},
+		"fire_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/fire_froglight_top.png"
+		},
+		"aero_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/aero_froglight_side.png"
+		},
+		"aero_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/aero_froglight_top.png"
+		},
+		"gaia_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/gaia_froglight_side.png"
+		},
+		"gaia_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/gaia_froglight_top.png"
+		},
+		"lightning_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/lightning_froglight_side.png"
+		},
+		"lightning_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/lightning_froglight_top.png"
+		},
+		"cold_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/cold_froglight_side.png"
+		},
+		"cold_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/cold_froglight_top.png"
+		},
+		"dark_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/dark_froglight_side.png"
+		},
+		"dark_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/dark_froglight_top.png"
+		},
+		"shining_froglight_side": {
+			"textures": "textures/kurokumaft/blocks/frog/shining_froglight_side.png"
+		},
+		"shining_froglight_top": {
+			"textures": "textures/kurokumaft/blocks/frog/shining_froglight_top.png"
+		},
 
 		"grimoire_torchlight_block": {
 			"textures": "textures/kurokumaft/blocks/grimoire_torchlight_block.png"
@@ -41,9 +90,22 @@
 		"magic_lectern": {
 			"textures": "textures/kurokumaft/blocks/magic_lectern"
 		},
-      "magma_portal_gate" : {
-         "textures" : "textures/kurokumaft/blocks/magma_portal_gate"
-      }
+		"magma_portal_gate" : {
+			"textures" : "textures/kurokumaft/blocks/magma_portal_gate"
+		},
 
+		"phoenix_summon_top": {
+			"textures" : "textures/kurokumaft/blocks/summon/phoenix_summon_top"
+		},
+		"phoenix_summon_side": {
+			"textures" : "textures/kurokumaft/blocks/summon/phoenix_summon_side"
+		},
+
+		"fenrir_summon_top": {
+			"textures" : "textures/kurokumaft/blocks/summon/fenrir_summon_top"
+		},
+		"fenrir_summon_side": {
+			"textures" : "textures/kurokumaft/blocks/summon/fenrir_summon_side"
+		}
    }
 }

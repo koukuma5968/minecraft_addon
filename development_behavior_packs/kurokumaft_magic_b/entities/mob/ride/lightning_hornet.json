@@ -11,9 +11,9 @@
         ]
       },
       "animations":{
-        "rider":"controller.animation.storm_eagle.rider",
-        "takeoff":"animation.storm_eagle.takeoff",
-        "landing":"animation.storm_eagle.landing"
+        "rider":"controller.animation.lightning_hornet.rider",
+        "takeoff":"animation.lightning_hornet.takeoff",
+        "landing":"animation.lightning_hornet.landing"
       },
       "properties": {
         "minecraft:has_nectar": {
@@ -138,10 +138,10 @@
         },
         "minecraft:strength": {
           "value": 100,
-          "max": 200
+          "max": 150
         },
         "minecraft:inventory": {
-          "inventory_size": 14,
+          "inventory_size": 2,
           "container_type": "horse",
           "additional_slots_per_strength": 3
         },
@@ -189,7 +189,7 @@
       "minecraft:behavior.random_hover": {
         "priority": 12,
         "xz_dist": 8,
-        "y_dist": 8,
+        "y_dist": 4,
         "y_offset": 3,
         "interval": 1,
         "hover_height": [ 1, 4 ]
@@ -280,6 +280,11 @@
       "minecraft:behavior.random_stroll": {
         "priority": 7,
         "speed_multiplier": 1
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 7,
+        "look_distance": 6.0,
+        "probability": 0.02
       },
       "minecraft:behavior.look_at_player": {
         "priority": 8,

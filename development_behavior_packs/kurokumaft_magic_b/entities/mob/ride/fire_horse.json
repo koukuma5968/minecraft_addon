@@ -126,33 +126,6 @@
           "container_type": "horse",
           "additional_slots_per_strength": 3
         },
-        "minecraft:breedable": {
-          "require_tame": true,
-          "inherit_tamed": false,
-          "breeds_with": [
-            {
-              "mate_type": "minecraft:horse",
-              "baby_type": "minecraft:horse",
-              "breed_event": {
-                "event": "minecraft:entity_born",
-                "target": "baby"
-              }
-            },
-            {
-              "mate_type": "minecraft:donkey",
-              "baby_type": "minecraft:mule",
-              "breed_event": {
-                "event": "minecraft:entity_born",
-                "target": "baby"
-              }
-            }
-          ],
-          "breed_items": [
-            "golden_carrot",
-            "golden_apple",
-            "appleEnchanted"
-          ]
-        },
         "minecraft:behavior.tempt": {
           "priority": 5,
           "speed_multiplier": 1.2,
@@ -293,8 +266,8 @@
       },
       "minecraft:health": {
         "value": {
-          "range_min": 300,
-          "range_max": 400
+          "range_min": 100,
+          "range_max": 250
         }
       },
       "minecraft:fire_immune": {},
@@ -425,6 +398,11 @@
       "minecraft:behavior.random_stroll": {
         "priority": 6,
         "speed_multiplier": 0.7
+      },
+      "minecraft:behavior.look_at_target": {
+        "priority": 7,
+        "look_distance": 6.0,
+        "probability": 0.02
       },
       "minecraft:behavior.look_at_player": {
         "priority": 7,

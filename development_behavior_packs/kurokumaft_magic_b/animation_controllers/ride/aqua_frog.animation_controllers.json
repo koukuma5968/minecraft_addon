@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.10",
+	"animation_controllers": {
+		"controller.animation.aqua_frog.rider": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"aqua_frog_rider": "query.has_rider"}
+					]
+				},
+				"aqua_frog_rider": {
+					"on_entry": [
+						"/tag @s add aqua_frog_rider"
+					],
+					"animations" : [ "landing", "takeoff" ],
+					"on_exit": [
+						"/event entity @s mark_variant0",
+						"/tag @s remove aqua_frog_rider"
+					],
+					"transitions": [
+						{"default": "!query.has_rider"}
+					]
+				}
+			}
+		}
+	}
+}

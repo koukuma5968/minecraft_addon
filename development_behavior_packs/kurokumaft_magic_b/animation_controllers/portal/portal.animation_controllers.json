@@ -21,11 +21,11 @@
         "hell_event": {
           "on_entry": [
             "/say hell_event",
-            "/event entity @s stand_states_1",
-            "/event entity @s mark_variant0"
+            "/event entity @p[r=1.5,c=1] burning_hell_states_1"
           ],
           "on_exit": [
-            "/event entity @p[r=1.5,c=1] burning_hell_states_1"
+            "/event entity @s stand_states_1",
+            "/event entity @s mark_variant0"
           ],
           "transitions": [
             { "default": "1.0" }
@@ -42,13 +42,23 @@
             "/tp @s ~~251~"
           ],
           "transitions": [
-            { "burning_hell_tp": "query.property('kurokumaft:burning_hell_tp') == 0" },
+            { "burning_hell_tp": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
+          ]
+        },
+        "burning_hell_tp": {
+          "on_entry": [
+            "/say burning_hell_tp",
+            "/execute at @s if block ~~-1~ obsidian as @s run tp @s -544 130 -464"
+          ],
+          "transitions": [
+            { "stand_kill": "query.property('kurokumaft:burning_hell_tp') == 0" },
             { "burning_hell_structures": "query.property('kurokumaft:burning_hell_tp') == 1" }
           ]
         },
         "burning_hell_structures": {
           "on_entry": [
             "/say burning_hell_structures",
+            "/effect @s slow_falling 3 5 true",
             "/structure load burning_hell_1_1 -564 100 -564",
             "/structure load burning_hell_1_2 -548 100 -564",
             "/structure load burning_hell_1_3 -532 100 -564",
@@ -112,16 +122,7 @@
             "/structure load burning_hell_8_5 -500 100 -452",
             "/structure load burning_hell_8_6 -484 100 -452",
             "/structure load burning_hell_8_7 -468 100 -452",
-            "/structure load burning_hell_8_8 -452 100 -452"            
-          ],
-          "transitions": [
-            { "burning_hell_tp": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
-          ]
-        },
-        "burning_hell_tp": {
-          "on_exit": [
-            "/say burning_hell_tp",
-            "/execute at @s if block ~~-1~ obsidian as @s run tp @s -544 130 -464"
+            "/structure load burning_hell_8_8 -452 100 -452"
           ],
           "transitions": [
             { "stand_kill": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }

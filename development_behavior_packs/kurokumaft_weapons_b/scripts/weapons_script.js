@@ -264,6 +264,7 @@ world.beforeEvents.itemUse.subscribe(event => {
 world.afterEvents.itemUse.subscribe(event => {
     var player = event.source;
     var item = event.itemStack;
+    print(item.typeId);
     if (item != undefined) {
         // シックル→サイスエンチャント付けなおし
         if (item.typeId.indexOf("sickle") != -1 && player.isSneaking) {

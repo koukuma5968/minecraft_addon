@@ -42,19 +42,25 @@ function magicAmor(player, damager, projectile, hitVector) {
     }
     if (head != undefined) {
         if ((head.typeId == "kurokumaft:lightning_magic_helmet" || head.typeId == "kurokumaft:nether_lightning_magic_helmet") && projectile != undefined) {
-            projectile.clearVelocity();
-            projectile.runCommand("particle kurokumaft:lightning_arrow_particle ~~~");
-            let intervalNum = system.runInterval(() => {
+            try {
                 projectile.clearVelocity();
-            }, 5);
-            system.runTimeout(() => {
-                system.clearRun(intervalNum);
-            }, 30);
+                projectile.runCommand("particle kurokumaft:lightning_arrow_particle ~~~");
+                let intervalNum = system.runInterval(() => {
+                    projectile.clearVelocity();
+                }, 5);
+                system.runTimeout(() => {
+                    system.clearRun(intervalNum);
+                }, 30);
+            } catch (error) {
+            }
         }
         if ((head.typeId == "kurokumaft:wind_magic_helmet" || head.typeId == "kurokumaft:nether_wind_magic_helmet") && projectile != undefined) {
-            projectile.clearVelocity();
-            projectile.runCommand("particle kurokumaft:wind_arrow_particle ~~~");
-            projectile.applyImpulse({x:hitVector.x,y:hitVector.y,z:hitVector.z - 180});
+            try {
+                projectile.clearVelocity();
+                projectile.runCommand("particle kurokumaft:wind_arrow_particle ~~~");
+                projectile.applyImpulse({x:hitVector.x,y:hitVector.y,z:-hitVector.z});
+            } catch (error) {
+            }
         }
     }
 };

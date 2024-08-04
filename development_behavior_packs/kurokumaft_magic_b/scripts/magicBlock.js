@@ -3,7 +3,7 @@ import { print, playsound, durabilityDamage, breakItem } from "./common";
 import { getGrimoireObjectId, isGrimoireItemsObject, isGrimoireAllItemsObject, getGrimoireItemsMultiValue, 
     getGrimoireAllItemsMultiValue, getGrimoireAllItemsId, isGrimoireAllItemsId, getGrimoireAllObjectsId, getGrimoireAllItemsEvent } from "./magic/GrimoireBookComponent";
 import { getMagicStoneOjectByName, isMagicStoneOject } from "./magic/MagicStoneComponet";
-import { ModalFormData } from "@minecraft/server-ui";
+import { ActionFormData } from "@minecraft/server-ui";
 
 // 魔導書見台
 /**
@@ -190,6 +190,20 @@ function magic_lectern(player, item, block) {
                 }
             }
         } else {
+
+            let actionForm = new ActionFormData()
+            .title({ translate: "tile.kurokumaft:magic_lectern.name" })
+            .body({rawtext: [
+                { translate: "magic_lectern.mess.title" },
+                {text : "\n\n"},
+                { translate: "magic_lectern.mess.body1" },
+                {text : "\n\n"},
+                { translate: "magic_lectern.mess.errorInfo" },
+                {text : "\n"}
+            ]})
+            .button({ translate: "magic_lectern.mess.confirm"});
+
+            actionForm.show(player);
 
         }
         // if (blockPer.getState("kurokumaft:stone_set") != 0) {

@@ -161,6 +161,10 @@
          "textures" : "textures/kurokumaft/items/magic_weapon/rainbow_magic_sword"
       },
 
+      "phoenix_sword": {
+         "textures" : "textures/kurokumaft/items/magic_weapon/shin/phoenix_sword"
+      },
+
       "ice_magic_helmet": {
          "textures" : "textures/kurokumaft/items/magic_armer/ice/ice_magic_helmet"
       },
@@ -628,6 +632,9 @@
       "fire_horse_summon_stone": {
          "textures" : "textures/kurokumaft/items/summon_stone/fire_horse_summon_stone"
       },
+      "aqua_frog_summon_stone": {
+         "textures" : "textures/kurokumaft/items/summon_stone/aqua_frog_summon_stone"
+      },
       "storm_eagle_summon_stone": {
          "textures" : "textures/kurokumaft/items/summon_stone/storm_eagle_summon_stone"
       },
@@ -636,6 +643,9 @@
       },
       "snow_bear_summon_stone": {
          "textures" : "textures/kurokumaft/items/summon_stone/snow_bear_summon_stone"
+      },
+      "crag_kong_summon_stone": {
+         "textures" : "textures/kurokumaft/items/summon_stone/crag_kong_summon_stone"
       },
 
       "repatriation_fruit": {

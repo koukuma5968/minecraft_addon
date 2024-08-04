@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:crag_kong",
+      "materials": {
+        "default": "iron_golem"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/ride/crag_kong"
+      },
+      "geometry": {
+        "default": "geometry.crag_kong"
+      },
+      "animations": {
+        "walk": "animation.crag_kong.walk",
+        "move": "animation.crag_kong.move",
+        "attack": "animation.crag_kong.attack",
+        "look_at_target": "animation.common.look_at_target",
+        "walk_to_target": "animation.crag_kong.walk_to_target",
+        "move_to_target": "animation.crag_kong.move_to_target",
+        "move_controller": "controller.animation.crag_kong.move",
+        "arm_controller": "controller.animation.crag_kong.arm_movement"
+      },
+      "render_controllers": [
+        "controller.render.crag_kong"
+      ],
+      "scripts": {
+        "pre_animation": [
+          "variable.modified_tcos0 = Math.clamp(((Math.cos(query.modified_distance_moved * 13.5) * Math.min(query.modified_move_speed, 0.6) / variable.gliding_speed_value) * 25.0), -12.5, 12.5);"
+        ],
+        "animate": [
+          "look_at_target",
+          "move_controller",
+          "arm_controller"
+        ]
+      }
+    }
+  }
+}

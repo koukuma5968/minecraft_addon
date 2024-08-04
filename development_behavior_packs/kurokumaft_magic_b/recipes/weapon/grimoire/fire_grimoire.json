@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "kurokumaft:fire_grimoire"
+    },
+    "tags": [ "magic_enchant" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:grimoire_empty"
+      },
+      {
+        "item": "kurokumaft:phoenix_feather"
+      }
+    ],
+	"unlock": [
+      {
+        "item": "kurokumaft:grimoire_empty"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:fire_grimoire",
+      "count": 1
+    }
+  }
+}

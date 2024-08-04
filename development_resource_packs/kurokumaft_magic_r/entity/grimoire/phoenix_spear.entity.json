@@ -1,0 +1,33 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:phoenix_spear",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/boss/phoenix"
+      },
+      "geometry": {
+        "default": "geometry.phoenix"
+      },
+      "particle_effects": {
+        "fire": "kurokumaft:phoenix_frame",
+        "head": "kurokumaft:fire_bread_particle"
+      },
+      "scripts": {
+        "scaleX": "3.00",
+        "scaleY": "3.00",
+        "scaleZ": "3.00",
+        "animate": [
+          "spear"
+        ]
+      },
+      "animations": {
+        "spear": "animation.phoenix.spear"
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

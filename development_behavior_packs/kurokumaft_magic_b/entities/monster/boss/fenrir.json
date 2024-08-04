@@ -12,11 +12,11 @@
         "on_death": "150"
       },
       "minecraft:type_family": {
-        "family": [ "wind", "magic", "monster", "boss" ]
+        "family": [ "wind", "monster", "boss" ]
       },
       "minecraft:health": {
-        "value": 2500,
-        "max": 2500
+        "value": 800,
+        "max": 800
       },
       "minecraft:scale": {
         "value": 2.0

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.10",
+	"animations": {	
+		"animation.aqua_frog.takeoff": {
+			"timeline": {
+			    "0.0": [
+					"/execute as @p[rx=39,rxm=-90,c=1,r=2] run event entity @e[tag=aqua_frog_rider,c=1,r=1.5] mark_variant1",
+					"/execute as @p[rx=-15,rxm=-90,c=1,r=2] run effect @e[tag=aqua_frog_rider,c=1,r=1.5] levitation 1 3 true",
+					"/execute as @p[c=1,r=2] run effect @s water_breathing 2 10 true"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		},
+		"animation.aqua_frog.landing": {
+			"timeline": {
+			    "0.0": [
+					"/execute as @p[rx=90,rxm=40,c=1,r=2] run event entity @e[tag=aqua_frog_rider,c=1,r=1.5] mark_variant2",
+					"/execute as @p[rx=90,rxm=40,c=1,r=2] run tp @e[tag=aqua_frog_rider,c=1,r=1.5] ~~-0.5~ true"
+				]
+			},
+			"animation_length": 0.1,
+			"loop": true
+		}
+	}
+}

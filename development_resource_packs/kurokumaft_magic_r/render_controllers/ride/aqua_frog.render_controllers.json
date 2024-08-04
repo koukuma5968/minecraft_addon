@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.aqua_frog": {
+      "part_visibility": [
+        { "Bit*": "query.is_saddled" },
+        { "Bridle": "query.is_saddled" }
+      ],
+      "arrays": {
+        "textures": {
+          "Array.light": [
+            "Texture.water",
+            "Texture.fire",
+            "Texture.wind",
+            "Texture.stone",
+            "Texture.lightning",
+            "Texture.ice",
+            "Texture.dark",
+            "Texture.light"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Array.light[query.property('kurokumaft:light_type')]" ]
+    }
+  }
+}

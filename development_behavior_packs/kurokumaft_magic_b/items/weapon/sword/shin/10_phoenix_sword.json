@@ -1,0 +1,128 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:phoenix_sword",
+      "category": "equipment"
+    },
+    "components": {
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.sword"
+      },
+      "tag:magic_sword": {},
+      "tag:phoenix_sword": {},
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:phoenix_sword.name"
+			},
+      "minecraft:icon": {
+          "texture": "phoenix_sword"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "max_durability": 5000
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:phoenix_feather"],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:phoenix_sword" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:damage": 50,
+      "minecraft:enchantable": {
+        "value": 30,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:web",
+            "speed": 15
+          },
+          {
+            "block": "minecraft:magma",
+            "speed": 10
+          }
+        ]
+      },
+      "minecraft:use_animation": "spear",
+      "minecraft:use_duration": 6.0,
+      "minecraft:chargeable": {
+        "movement_modifier": 0.25,
+        "on_complete": {
+          "event":"kurokumaft:blaze_burst"
+        }
+      },
+      "minecraft:weapon": {
+        "on_hurt_entity": {
+          "event": "kurokumaft:fire_magic_sword"
+        }
+      }
+    },
+    "events": {
+      "kurokumaft:blaze_burst": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cブレイズバースト\"}]}"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/fire/blaze_burst"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":100
+            }
+          }
+        ]
+      },
+      "kurokumaft:fire_magic_sword": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムソード\"}]}"
+              ],
+              "target": "self"
+            }
+          },
+          {
+            "run_command": {
+              "command": [
+                "function magic/fire/fire_sword"
+              ],
+              "target": "other"
+            }
+          },
+          {
+            "damage":{
+              "type":"durability",
+              "target":"self",
+              "amount":25
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
