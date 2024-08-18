@@ -1,16 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:lightning_magic_bow",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_bow"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_bow"
-      },
-      "tag:bow": {},
-      "tag:lightning_magic_bow": {},
       "minecraft:damage": 2,
       "minecraft:durability": {
         "max_durability": 1500
@@ -20,8 +18,13 @@
         "slot": "bow"
       },
       "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:lightning_magic_bow.name"
+      },
       "minecraft:icon": {
-        "texture": "lightning_magic_bow"
+        "textures": {
+          "default": "lightning_magic_bow"
+        }
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -35,59 +38,11 @@
           }
         ]
       },
-      "minecraft:display_name": {
-        "value": "item.kurokumaft:lightning_magic_bow.name"
-      },
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
-      "minecraft:use_duration": 2,
-      "minecraft:chargeable": {
+      "minecraft:use_modifiers": {
         "movement_modifier": 0.25,
-        "on_complete": {
-          "event":"kurokumaft:lightning_magic_arrow"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:lightning_magic_arrow": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングアロー\"}]}"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:lightning_magic_arrow",
-              "angle_offset": 100,
-              "launch_power":1
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:lightning_magic_arrow",
-              "angle_offset": 0,
-              "launch_power":1
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:lightning_magic_arrow",
-              "angle_offset": -100,
-              "launch_power":1
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount": 20
-            }
-          }
-        ]
+        "use_duration": 2
       }
     }
   }

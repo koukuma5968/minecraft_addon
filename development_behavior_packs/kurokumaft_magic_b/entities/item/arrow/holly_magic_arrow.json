@@ -79,7 +79,7 @@
 
     "events": {
       "holly": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "function magic/light/holly_arrow"
           ],

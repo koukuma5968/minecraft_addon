@@ -1,21 +1,21 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:ice_magic_shield",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_shield"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_shield"
-      },
-      "tag:shield": {},
-      "tag:ice_shield": {},
       "minecraft:display_name": {
         "value": "item.kurokumaft:ice_magic_shield.name"
       },
-      "minecraft:icon":{
-        "texture": "ice_magic_shield"
+      "minecraft:icon": {
+        "textures": {
+          "default": "ice_magic_shield"
+        }
       },
       "minecraft:repairable": {
         "repair_items": [

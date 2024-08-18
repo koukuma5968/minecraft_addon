@@ -36,13 +36,13 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "inanimate", "black_hole" ]
+        "family": [ "armor_stand", "inanimate", "black_hole", "magic" ]
       },
       "minecraft:variant": {
         "value": 0
       },
       "minecraft:timer": {
-        "time": [10.0,10.0],
+        "time": [6.0,6.0],
         "time_down_event": { 
           "event": "kurokumaft:stop"
         }
@@ -91,7 +91,7 @@
             "kurokumaft:kill"
           ]
         },
-        "run_command": {
+        "queue_command": {
           "command": [
             "tag @e[tag=black_hole_self] remove black_hole_self",
             "tag @e[tag=black_hole_target] remove black_hole_target"

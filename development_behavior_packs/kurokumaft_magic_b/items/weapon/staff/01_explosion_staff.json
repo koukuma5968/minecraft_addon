@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:explosion_staff",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_staff"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_staff"
-      },
       "minecraft:cooldown": {
         "category": "explosion_magic_staff",
         "duration": 8.0
@@ -24,7 +24,9 @@
         "slot": "sword"
       },
       "minecraft:icon": {
-        "texture": "explosion_staff"
+        "textures": {
+          "default": "explosion_staff"
+        }
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -41,49 +43,8 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:explosion_staff.name"
       },
-      "minecraft:use_duration": 0.1,
-      "minecraft:chargeable": {
-      },
-		  "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event":"kurokumaft:magic_weapon"
-        }
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event":"kurokumaft:durability"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:durability": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      },
-      "kurokumaft:magic_weapon": {
-        "sequence":[
-          {
-            "trigger": "kurokumaft:mega_brand"
-          },
-          {
-            "trigger": "kurokumaft:durability"
-          }
-        ]
-      },
-      "kurokumaft:mega_brand": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "summon kurokumaft:mega_brand_magic ~~~"
-              ],
-              "target": "other"
-            }
-          }
-        ]
+      "minecraft:use_modifiers": {
+        "use_duration": 1
       }
     }
   }

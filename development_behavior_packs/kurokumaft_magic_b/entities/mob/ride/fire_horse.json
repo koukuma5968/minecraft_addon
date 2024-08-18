@@ -468,7 +468,7 @@
       },
 
       "kurokumaft:lava_walker": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "execute if block ~~-1~ lava run setblock ~~-1~ magma",
             "execute if block ~~-1~ flowing_lava run setblock ~~-1~ magma",

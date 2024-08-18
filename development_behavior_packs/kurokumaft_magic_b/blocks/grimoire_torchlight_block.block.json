@@ -19,16 +19,6 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0
 			},
-			"minecraft:on_placed": {
-				"event": "torchlight_fire"
-			},
-			"minecraft:queued_ticking": {
-				"interval_range": [50.0,50.0],
-				"looping": true,
-				"on_tick": {
-					"event": "torchlight_fire"
-				}
-			},
 			"minecraft:geometry": "geometry.grimoire_torchlight_block",
 			"minecraft:material_instances": {
 				"*": {
@@ -41,16 +31,6 @@
 			"minecraft:light_emission": 15,
 			"minecraft:light_dampening": 0,
 			"minecraft:map_color": "#fe8158"
-		},
-		"events": {
-			"torchlight_fire": {
-				"run_command": {
-					"command": [
-					  "particle kurokumaft:torchlight_fire ~~~"
-					],
-					"target": "self"
-				}
-			}
 		}
 	}
 }

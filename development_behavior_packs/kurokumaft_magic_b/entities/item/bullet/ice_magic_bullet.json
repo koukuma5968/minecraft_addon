@@ -80,7 +80,7 @@
       "kurokumaft:despawn": {
         "sequence":[
           {
-            "run_command": {
+            "queue_command": {
               "command": [
                 "kill @s"
               ],

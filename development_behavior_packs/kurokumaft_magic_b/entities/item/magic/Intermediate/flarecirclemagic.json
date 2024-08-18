@@ -50,7 +50,7 @@
     },
     "events": {
       "flarecircle_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "tag @e[family=!magic,type=!item,type=!player,c=3,r=20] add flarecircle",
             "execute at @e[tag=flarecircle] run particle kurokumaft:firestome1_particle ~~~",

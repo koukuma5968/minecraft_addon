@@ -1,49 +1,35 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:repatriation_fruit",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.food"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.food"
-      },
-      "tag:repatriation_fruit": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:repatriation_fruit.name"
 			},
       "minecraft:icon": {
-        "texture": "repatriation_fruit"
+        "textures": {
+          "default": "repatriation_fruit"
+        }
       },
       "minecraft:use_animation":"eat",
-      "minecraft:use_duration": 2,
+      "minecraft:use_modifiers": {
+        "use_duration": 2
+      },
       "minecraft:max_stack_size": 16,
-      "minecraft:weapon": {
-        "on_not_hurt_entity": {
-          "event":"kurokumaft:repatriation_set"
-        }
+      "minecraft:cooldown":{
+        "category" : "repatriation",
+        "duration" : 1
       },
       "minecraft:damage": 0,
       "minecraft:food": {
         "nutrition": 4,
-        "cooldown_type": "repatriation",
-        "cooldown_time": 1,
         "can_always_eat": true
-      }
-    },
-    "events": {
-      "kurokumaft:repatriation_set": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "execute if entity @e[family=home_gate,r=2] run tag @s add home_gate"
-              ],
-              "target": "self"
-            }
-          }
-        ]
       }
     }
   }

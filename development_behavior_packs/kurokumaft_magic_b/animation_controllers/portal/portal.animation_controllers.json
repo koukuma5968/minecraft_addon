@@ -11,7 +11,6 @@
         },
         "structures": {
           "on_entry": [
-            "/say structures",
             "/event entity @p[r=1.5,c=1] burning_hell_tp_1"
           ],
           "transitions": [
@@ -20,7 +19,6 @@
         },
         "hell_event": {
           "on_entry": [
-            "/say hell_event",
             "/event entity @p[r=1.5,c=1] burning_hell_states_1"
           ],
           "on_exit": [
@@ -47,7 +45,6 @@
         },
         "burning_hell_tp": {
           "on_entry": [
-            "/say burning_hell_tp",
             "/execute at @s if block ~~-1~ obsidian as @s run tp @s -544 130 -464"
           ],
           "transitions": [
@@ -57,7 +54,6 @@
         },
         "burning_hell_structures": {
           "on_entry": [
-            "/say burning_hell_structures",
             "/effect @s slow_falling 3 5 true",
             "/structure load burning_hell_1_1 -564 100 -564",
             "/structure load burning_hell_1_2 -548 100 -564",

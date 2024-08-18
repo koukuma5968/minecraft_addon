@@ -78,7 +78,7 @@
 
     "events": {
       "kurokumaft:despawn": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "summon kurokumaft:stone_magic_knockback_roar ~~~",
             "summon kurokumaft:stone_magic_knockback_roar ~-1~~",

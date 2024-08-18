@@ -67,7 +67,7 @@
 
     "events": {
       "knockback_roar": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "summon kurokumaft:stone_magic_knockback_roar ~~~"
           ],

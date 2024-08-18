@@ -1,13 +1,21 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:rock_rod",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_rod"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_rod"
+      "minecraft:icon": {
+        "textures": {
+          "default": "rock_rod"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:rock_rod.name"
       },
       "minecraft:cooldown": {
         "category": "rock_magic_rod",
@@ -35,33 +43,9 @@
           }
         ]
       },
-      "minecraft:icon": {
-        "texture": "rock_rod"
-      },
-      "minecraft:display_name": {
-        "value": "item.kurokumaft:rock_rod.name"
-      },
-      "minecraft:use_duration": 0.1,
-      "minecraft:chargeable": {
+      "minecraft:use_modifiers": {
+        "use_duration": 1,
         "movement_modifier": 0.25
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event":"kurokumaft:rockbreak"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:rockbreak": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          }
-        ]
       }
     }
   }

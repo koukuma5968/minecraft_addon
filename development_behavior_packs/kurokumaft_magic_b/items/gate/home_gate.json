@@ -1,24 +1,26 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:home_gate",
-      "category": "items"
+      "menu_category": {
+        "category": "items"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:home_gate.name"
 			},
       "minecraft:icon": {
-          "texture": "home_gate"
+        "textures": {
+          "default": "home_gate"
+        }
       },
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
       "minecraft:entity_placer": {
         "entity": "kurokumaft:home_gate"
       }
-    },
-    "events": {
     }
   }
 }

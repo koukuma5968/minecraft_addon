@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:phoenix_summon",
@@ -20,29 +20,7 @@
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 15.0
-			},
-			"minecraft:on_step_on": {
-				"event": "summon_boss",
-				"target": "player"
 			}
-		},
-		"events": {
-			"summon_boss": {
-                "sequence": [
-                    {
-                        "condition": "query.block_state('kurokumaft:summon_check') == 0",
-                        "run_command": {
-                            "target": "self",
-							"command": [
-								"summon kurokumaft:phoenix ~ ~6 ~"
-							]
-                        },
-						"set_block_state": {
-							"kurokumaft:summon_check": 1
-						}
-                    }
-                ]
-            }
 		}
 	}
 }

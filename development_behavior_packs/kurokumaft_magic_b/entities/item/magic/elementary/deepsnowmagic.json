@@ -61,7 +61,7 @@
     },
     "events": {
       "snow_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "particle kurokumaft:snow_particle ~~~",
             "setblock ~~~ snow keep"

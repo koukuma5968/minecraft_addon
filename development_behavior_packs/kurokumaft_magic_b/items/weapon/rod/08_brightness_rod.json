@@ -1,13 +1,21 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:brightness_rod",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_rod"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_rod"
+      "minecraft:icon": {
+        "textures": {
+          "default": "brightness_rod"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:brightness_rod.name"
       },
       "minecraft:cooldown": {
         "category": "brightness_magic_rod",
@@ -35,32 +43,8 @@
           }
         ]
       },
-      "minecraft:icon": {
-        "texture": "brightness_rod"
-      },
-      "minecraft:display_name": {
-        "value": "item.kurokumaft:brightness_rod.name"
-      },
-      "minecraft:use_duration": 0.1,
-      "minecraft:chargeable": {
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event":"kurokumaft:damage"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:damage": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":5
-            }
-          }
-        ]
+      "minecraft:use_modifiers": {
+        "use_duration": 1
       }
     }
   }

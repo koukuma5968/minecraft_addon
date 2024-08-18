@@ -67,7 +67,7 @@
     },
     "events": {
       "fire_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "particle kurokumaft:fire_particle ~~~",
             "setblock ~~~ fire keep"

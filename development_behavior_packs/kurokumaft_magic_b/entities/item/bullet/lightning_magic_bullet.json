@@ -81,7 +81,7 @@
       "kurokumaft:heavy_thunder": {
         "sequence":[
           {
-            "run_command": {
+            "queue_command": {
               "command": [
                 "summon minecraft:lightning_bolt ^-3^^",
                 "summon minecraft:lightning_bolt ^3^^",
@@ -92,7 +92,7 @@
             }
           },
           {
-            "run_command": {
+            "queue_command": {
               "command": [
                 "kill @s"
               ],

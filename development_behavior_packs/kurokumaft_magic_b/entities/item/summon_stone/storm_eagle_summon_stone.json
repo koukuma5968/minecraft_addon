@@ -48,7 +48,7 @@
     },
     "events": {
       "storm_eagle_summon": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "summon kurokumaft:storm_eagle ~~~",
             "kill @s"

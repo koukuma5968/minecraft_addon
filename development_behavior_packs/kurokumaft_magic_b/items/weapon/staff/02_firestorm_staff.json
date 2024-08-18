@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:firestorm_staff",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_staff"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_staff"
-      },
       "minecraft:cooldown": {
         "category": "firestorm_magic_staff",
         "duration": 8.0
@@ -24,7 +24,9 @@
         "slot": "sword"
       },
       "minecraft:icon": {
-        "texture": "firestorm_staff"
+        "textures": {
+          "default": "firestorm_staff"
+        }
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -38,72 +40,11 @@
           }
         ]
       },
-      "minecraft:use_duration": 0.1,
-      "minecraft:chargeable": {
+      "minecraft:use_modifiers": {
+        "use_duration": 1
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:firestorm_staff.name"
-      },
-		  "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event":"kurokumaft:magic_weapon"
-        }
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event":"kurokumaft:shoot_magic"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:durability": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      },
-      "kurokumaft:magic_weapon": {
-        "sequence":[
-          {
-            "trigger": "kurokumaft:bram_fang"
-          },
-          {
-            "trigger": "kurokumaft:durability"
-          }
-        ]
-      },
-
-      "kurokumaft:bram_fang": {
-        "sequence":[
-          {
-            "shoot":{
-              "projectile":"kurokumaft:bram_fang_magic",
-              "angle_offset": 0,
-              "launch_power":1
-            }
-          }
-        ]
-      },
-      "kurokumaft:shoot_magic": {
-        "sequence":[
-          {
-            "trigger": "kurokumaft:firestorm"
-          },
-          {
-            "trigger": "kurokumaft:durability"
-          }
-        ]
-      },
-      "kurokumaft:firestorm": {
-        "sequence":[
-          {
-            "shoot":{
-              "projectile":"kurokumaft:firestormmagic",
-              "launch_power":1
-            }
-          }
-        ]
       }
     }
   }

@@ -82,7 +82,7 @@
             "kurokumaft:stop"
           ]
         },
-        "run_command": {
+        "queue_command": {
           "command": [
             "tag @e[tag=mailstrom_self] remove mailstrom_self",
             "tag @e[tag=mailstrom_target] remove mailstrom_target"

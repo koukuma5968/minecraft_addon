@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:lightningstrike_stick",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_stick"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_stick"
-      },
       "minecraft:cooldown": {
         "category": "lightningstrike_magic_stick",
         "duration": 3.0
@@ -36,52 +36,15 @@
         ]
       },
       "minecraft:icon": {
-        "texture": "lightningstrike_stick"
+        "textures": {
+          "default": "lightningstrike_stick"
+        }
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:lightningstrike_stick.name"
       },
-      "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event": "kurokumaft:durability"
-        }
-      },
-      "minecraft:use_duration": 0.5,
-      "minecraft:chargeable": {
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event": "kurokumaft:shoot_magic",
-          "target": "self"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:durability": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      },
-      "kurokumaft:shoot_magic": {
-        "sequence":[
-          {
-            "condition": "!query.is_sneaking",
-            "trigger": "kurokumaft:thunder_lance"
-          }
-        ],
-        "trigger": "kurokumaft:durability"
-      },
-      "kurokumaft:thunder_lance": {
-        "sequence":[
-          {
-            "shoot": {
-              "projectile": "kurokumaft:thunder_lance_magic",
-              "launch_power": 1.6
-            }
-          }
-        ]
+      "minecraft:use_modifiers": {
+        "use_duration": 1
       }
     }
   }

@@ -61,7 +61,7 @@
     },
     "events": {
       "lightning_bolt": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "summon minecraft:lightning_bolt ~~~",
             "summon minecraft:lightning_bolt ~~~",

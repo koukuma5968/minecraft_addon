@@ -48,7 +48,7 @@
     },
     "events": {
       "fire_horse_summon": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "summon kurokumaft:fire_horse ~~~",
             "kill @s"

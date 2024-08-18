@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:windwall_block",
@@ -18,21 +18,7 @@
 				"seconds_to_destroy": 1.2
 			},
 			"minecraft:light_dampening": 3,
-			"minecraft:friction": 0.3,
-			"minecraft:on_step_on": {
-				"event": "kurokumaft:wind_levitation"
-			}
-		},
-		"events": {
-			"kurokumaft:wind_levitation": {
-				"run_command": {
-					"command": [
-						"particle kurokumaft:storm1_particle ~~1~",
-						"effect @e[r=1.5] levitation 1 5 false"
-					],
-					"target": "self"
-   			    }
-			}
+			"minecraft:friction": 0.3
 		}
 	}
 }

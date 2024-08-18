@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_wand",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_wand"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_wand"
-      },
       "minecraft:cooldown": {
         "category": "stone_magic",
         "duration": 1.5
@@ -24,7 +24,9 @@
       },
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
-        "texture": "stone_wand"
+        "textures": {
+          "default": "stone_wand"
+        }
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -41,40 +43,8 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_wand.name"
       },
-      "minecraft:use_duration": 0.1,
-		  "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event": "kurokumaft:durability"
-        }
-      },
-      "minecraft:chargeable": {
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event":"kurokumaft:stone"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:durability": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      },
-      "kurokumaft:stone": {
-        "sequence":[
-          {
-            "shoot":{
-              "projectile":"kurokumaft:stonebarrettemagic",
-              "launch_power":1
-            }
-          },
-          {
-            "trigger": "kurokumaft:durability"
-          }
-        ]
+      "minecraft:use_modifiers": {
+        "use_duration": 1
       }
     }
   }

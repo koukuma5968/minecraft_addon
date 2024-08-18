@@ -1,15 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:grimoire_flower_garden",
-      "category": "equipment"
-  },
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.grimoire"
+      }
+    },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.grimoire"
-      },
-      "tag:grimoire_life_magic": {},
       "minecraft:damage": 0,
       "minecraft:cooldown": {
         "category": "grimoire_flower_garden",
@@ -19,17 +18,10 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:grimoire_flower_garden.name"
       },
-      "minecraft:on_use_on": {
-        "on_use_on":{
-          "event": "kurokumaft:on_use_on"
-        }
-      },
       "minecraft:icon": {
-        "texture": "grimoire_life_magic_stone"
-      }
-    },
-    "events": {
-      "kurokumaft:on_use_on": {
+        "textures": {
+          "default": "grimoire_life_magic_stone"
+        }
       }
     }
   }

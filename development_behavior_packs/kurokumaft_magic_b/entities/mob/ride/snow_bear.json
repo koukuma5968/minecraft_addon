@@ -525,7 +525,7 @@
         }
       },
       "kurokumaft:ice_walker": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "execute if block ~~-1~ water run setblock ~~-1~ ice",
             "execute if block ~~-1~ flowing_water run setblock ~~-1~ ice"

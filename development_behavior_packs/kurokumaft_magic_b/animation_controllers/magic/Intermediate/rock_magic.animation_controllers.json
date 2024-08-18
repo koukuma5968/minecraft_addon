@@ -47,10 +47,11 @@
             "/function magic/stone/stone_needle"
           ],
           "on_exit": [
-            "/tag @s remove stone_needle_self"
+            "/tag @s remove stone_needle_self",
+            "/tag @s remove stone_needle"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"default":"variable.stone_needle = (variable.stone_needle ?? 0);variable.stone_needle = variable.stone_needle < 10 ? variable.stone_needle + 1:0;return variable.stone_needle == 0;"}
           ]
         },
         "rock_break": {

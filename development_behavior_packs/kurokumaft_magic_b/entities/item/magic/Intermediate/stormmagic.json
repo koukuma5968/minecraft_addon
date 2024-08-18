@@ -48,7 +48,7 @@
     },
     "events": {
       "storm_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm1_particle ~~~",
             "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm2_particle ~~1~",

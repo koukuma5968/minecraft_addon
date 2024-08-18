@@ -1,21 +1,21 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:fire_magic_bread",
-        "category": "equipment"
-      },
+      "identifier": "kurokumaft:fire_magic_bread",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_bread"
+      }
+    },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_bread"
-      },
-      "tag:magic_bread": {},
-      "tag:fire_magic_bread": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fire_magic_bread.name"
 			},
       "minecraft:icon": {
-          "texture": "fire_magic_bread"
+        "textures": {
+          "default": "fire_magic_bread"
+        }
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -34,7 +34,6 @@
           }
         ]
       },
-      
       "minecraft:damage": 50,
       "minecraft:enchantable": {
         "value": 10,
@@ -66,73 +65,8 @@
         "charge_on_draw": true,
         "scale_power_by_draw_duration": false
       },
-      "minecraft:use_duration": 9999,
-      "minecraft:chargeable": {
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event": "kurokumaft:crimson_bread"
-        }
-      },
-      "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event": "kurokumaft:flaming_desires"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:flaming_desires": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c焔裂き(ほむらざき)\"}]}"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "particle kurokumaft:flaming_desires_particle ~~~"
-              ],
-              "target": "other"
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":5
-            }
-          }
-        ]
-      },
-      "kurokumaft:crimson_bread": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§c紅蓮剣(ぐれんけん)\"}]}"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:crimson_bread",
-              "angle_offset": 50,
-              "launch_power":5
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":5
-            }
-          }
-        ]
+      "minecraft:use_modifiers": {
+        "use_duration": 9999
       }
     }
   }

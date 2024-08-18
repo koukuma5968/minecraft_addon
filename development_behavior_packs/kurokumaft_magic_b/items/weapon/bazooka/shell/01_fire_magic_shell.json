@@ -1,18 +1,19 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fire_magic_shell",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_shell"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_shell"
-      },
-      "tag:fire_magic_shell": {},
       "minecraft:max_stack_size": 16,
       "minecraft:icon": {
-        "texture": "fire_magic_shell"
+        "textures": {
+          "default": "fire_magic_shell"
+        }
       },
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
@@ -21,8 +22,6 @@
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:fire_magic_shell"
       }
-    },
-    "events": {
     }
   }
 }

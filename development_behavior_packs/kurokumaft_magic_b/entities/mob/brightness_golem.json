@@ -318,7 +318,7 @@
         }
       },
       "kill_time": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "kill @s"
           ],

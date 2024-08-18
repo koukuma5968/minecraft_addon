@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:mailstrom_staff",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_staff"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_staff"
-      },
       "minecraft:cooldown": {
         "category": "mailstrom_magic_staff",
         "duration": 8.0
@@ -36,55 +36,15 @@
         ]
       },
       "minecraft:icon": {
-        "texture": "mailstrom_staff"
+        "textures": {
+          "default": "mailstrom_staff"
+        }
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:mailstrom_staff.name"
       },
-      "minecraft:use_duration": 0.1,
-      "minecraft:chargeable": {
-      },
-		  "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event":"kurokumaft:sonic_slicer"
-        }
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event":"kurokumaft:mailstrom"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:sonic_slicer": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "function magic/wind/sonic_slicer"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          }
-        ]
-      },
-      "kurokumaft:mailstrom": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          }
-        ]
+      "minecraft:use_modifiers": {
+        "use_duration": 1
       }
     }
   }

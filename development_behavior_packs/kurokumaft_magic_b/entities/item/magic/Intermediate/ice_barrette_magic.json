@@ -61,7 +61,7 @@
     },
     "events": {
       "ice_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "particle kurokumaft:ice_particle ~~~",
             "setblock ~~~ ice keep"

@@ -73,7 +73,7 @@
     },
     "events": {
       "kurokumaft:burst": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "summon kurokumaft:shell_stand ~~~ ~ ~ kurokumaft:ice_shell"
           ],

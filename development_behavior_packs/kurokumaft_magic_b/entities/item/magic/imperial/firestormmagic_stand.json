@@ -83,7 +83,7 @@
             "kurokumaft:stop"
           ]
         },
-        "run_command": {
+        "queue_command": {
           "command": [
             "tag @e[tag=firestormmagic_self] remove firestormmagic_self",
             "tag @e[tag=firestormmagic_target] remove firestormmagic_target"

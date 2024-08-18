@@ -1,28 +1,27 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:grimoire_torchlight",
-      "category": "equipment"
-  },
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.grimoire"
+      }
+    },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.grimoire"
-      },
-      "tag:grimoire_life_magic": {},
       "minecraft:damage": 0,
       "minecraft:max_stack_size": 1,
       "minecraft:display_name": {
         "value": "item.kurokumaft:grimoire_torchlight.name"
       },
       "minecraft:icon": {
-        "texture": "grimoire_life_magic_fire"
+        "textures": {
+          "default": "grimoire_life_magic_fire"
+        }
       },
       "minecraft:block_placer": {
         "block": "kurokumaft:grimoire_torchlight_block"
       }
-    },
-    "events": {
     }
   }
 }

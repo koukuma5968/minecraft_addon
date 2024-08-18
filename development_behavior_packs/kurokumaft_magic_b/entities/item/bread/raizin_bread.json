@@ -60,7 +60,7 @@
     },
     "events": {
       "lightning": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "execute as @s run summon lightning_bolt ~~~"
           ],

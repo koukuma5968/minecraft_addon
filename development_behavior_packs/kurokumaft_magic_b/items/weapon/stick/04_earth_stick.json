@@ -1,14 +1,14 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:earth_stick",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.magic_stick"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.magic_stick"
-      },
       "minecraft:cooldown": {
         "category": "earth_magic_stick",
         "duration": 3.0
@@ -36,54 +36,15 @@
         ]
       },
       "minecraft:icon": {
-        "texture": "earth_stick"
+        "textures": {
+          "default": "earth_stick"
+        }
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:earth_stick.name"
       },
-		  "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event": "kurokumaft:durability"
-        }
-      },
-      "minecraft:use_duration": 0.1,
-      "minecraft:chargeable": {
-      },
-      "minecraft:on_use":{
-        "on_use":{
-          "event": "kurokumaft:shoot_magic",
-          "target": "self"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:durability": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          }
-        ]
-      },
-      "kurokumaft:shoot_magic": {
-        "sequence":[
-          {
-            "condition": "!query.is_sneaking",
-            "trigger": "kurokumaft:stone_edge"
-          },
-          {
-            "trigger": "kurokumaft:durability"
-          }
-        ]
-      },
-      "kurokumaft:stone_edge": {
-        "shoot": {
-          "projectile": "kurokumaft:stone_edge_magic",
-          "launch_power": 1.1
-        }
+      "minecraft:use_modifiers": {
+        "use_duration": 1
       }
     }
   }

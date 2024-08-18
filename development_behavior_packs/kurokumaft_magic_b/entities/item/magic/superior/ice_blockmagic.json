@@ -53,7 +53,7 @@
     },
     "events": {
       "ice_block_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "particle kurokumaft:ice_particle ~~~"
           ],

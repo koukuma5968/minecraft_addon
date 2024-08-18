@@ -79,7 +79,7 @@
 
     "events": {
       "homing": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "tp @s ^^^1 facing @e[family=!inanimate,family=!familiar,type=!item,r=15,c=1]"
           ],

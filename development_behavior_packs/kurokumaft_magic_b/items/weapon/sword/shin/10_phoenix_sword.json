@@ -1,21 +1,21 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:phoenix_sword",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.sword"
-      },
-      "tag:magic_sword": {},
-      "tag:phoenix_sword": {},
       "minecraft:display_name": {
 				"value": "item.kurokumaft:phoenix_sword.name"
 			},
       "minecraft:icon": {
-          "texture": "phoenix_sword"
+        "textures": {
+          "default": "phoenix_sword"
+        }
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -54,73 +54,8 @@
         ]
       },
       "minecraft:use_animation": "spear",
-      "minecraft:use_duration": 6.0,
-      "minecraft:chargeable": {
-        "movement_modifier": 0.25,
-        "on_complete": {
-          "event":"kurokumaft:blaze_burst"
-        }
-      },
-      "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event": "kurokumaft:fire_magic_sword"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:blaze_burst": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cブレイズバースト\"}]}"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "function magic/fire/blaze_burst"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":100
-            }
-          }
-        ]
-      },
-      "kurokumaft:fire_magic_sword": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムソード\"}]}"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "function magic/fire/fire_sword"
-              ],
-              "target": "other"
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":25
-            }
-          }
-        ]
+      "minecraft:use_modifiers": {
+        "use_duration": 6.0
       }
     }
   }

@@ -47,10 +47,11 @@
             "/function magic/ice/ice_needle"
           ],
           "on_exit": [
-            "/tag @s remove ice_needle_self"
+            "/tag @s remove ice_needle_self",
+            "/tag @s remove ice_needle"
           ],
           "transitions": [
-            {"default":"!variable.attack_time"}
+            {"default":"variable.ice_needle = (variable.ice_needle ?? 0);variable.ice_needle = variable.ice_needle < 10 ? variable.ice_needle + 1:0;return variable.ice_needle == 0;"}
           ]
         },
         "ice_barrette": {

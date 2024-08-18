@@ -963,7 +963,7 @@
       },
 
       "kurokumaft:fire_reflection": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "tag @s add fire_reflection",
 					  "execute at @e[tag=!fire_reflection,r=2.5,c=1] run summon kurokumaft:fireballmagic ~~~",
@@ -972,7 +972,7 @@
 				}
 			},
       "kurokumaft:weater_reflection": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "tag @s add weater_reflection",
 					  "execute at @e[tag=!weater_reflection,r=2.5,c=1] run summon kurokumaft:waterballmagic ~~~",
@@ -981,7 +981,7 @@
 				}
 			},
       "kurokumaft:wind_reflection": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "tag @s add wind_reflection",
 					  "execute at @e[tag=!wind_reflection,r=2.5,c=1] run summon kurokumaft:fireballmagic ~~~",
@@ -990,7 +990,7 @@
 				}
 			},
       "kurokumaft:thunder_reflection": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "tag @s add thunder_reflection",
 					  "execute at @e[tag=!thunder_reflection,r=2.5,c=1] run summon kurokumaft:lightningboltmagic ~~~",
@@ -999,7 +999,7 @@
 				}
 			},
       "kurokumaft:ice_reflection": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "tag @s add ice_reflection",
 					  "execute at @e[tag=!ice_reflection,r=2.5,c=1] run summon kurokumaft:deepsnowmagic ~~~",
@@ -1008,7 +1008,7 @@
 				}
 			},
       "kurokumaft:stone_reflection": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "tag @s add stone_reflection",
 					  "execute at @e[tag=!stone_reflection,r=2.5,c=1] run summon kurokumaft:stonebarrettemagic ~~~",
@@ -1018,77 +1018,77 @@
 			},
 
       "kurokumaft:night_vision_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 					  "effect @s night_vision 15 10 true"
 					]
 				}
 			},
       "kurokumaft:water_breathing_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 					  "effect @s water_breathing 1 10 true"
 					]
 				}
 			},
 			"kurokumaft:fire_resistance_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s fire_resistance 1 5 true"
 					]
 				}
 			},
 			"kurokumaft:resistance_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s resistance 1 3 true"
 					]
 				}
 			},
 			"kurokumaft:strength_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s strength 1 5 true"
 					]
 				}
 			},
       "kurokumaft:conduit_power_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
 					  "effect @s conduit_power 1 20 true"
 					]
 				}
 			},
 			"kurokumaft:absorption_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s absorption 1 5 true"
           ]
 				}
 			},
 			"kurokumaft:regeneration_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s regeneration 1 2 true"
           ]
 				}
 			},
       "kurokumaft:jump_boost_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s jump_boost 1 1 true"
           ]
 				}
       },
       "kurokumaft:jump_boost_hyper_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s jump_boost 1 10 true"
           ]
 				}
       },
       "kurokumaft:haste_effect": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "effect @s haste 1 5 true"
           ]
@@ -1096,7 +1096,7 @@
       },
 
       "kurokumaft:lava_freeze": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "execute as @s if block ^1^1^ lava run setblock ^1^1^ air",
             "execute as @s if block ^-1^1^ lava run setblock ^-1^1^ air",
@@ -1111,7 +1111,7 @@
 				}
 			},
       "kurokumaft:ice_walker": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "execute as @s if block ~~-1~ water run setblock ~~-1~ packed_ice",
             "execute as @s if block ~~-1~ flowing_water run setblock ~~-1~ packed_ice",
@@ -1121,7 +1121,7 @@
 				}
 			},
       "kurokumaft:snow_defrosting": {
-				"run_command": {
+				"queue_command": {
 					"command": [
             "execute if block ^1^1^ snow run setblock ^1^1^ water",
             "execute if block ^-1^1^ snow run setblock ^-1^1^ water",

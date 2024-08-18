@@ -296,7 +296,7 @@
 
     "events": {
       "kurokumaft:despawn": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "kill @s"
           ],

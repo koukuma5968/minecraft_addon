@@ -67,7 +67,7 @@
     },
     "events": {
       "water_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "particle kurokumaft:water_particle ~~~"
           ],

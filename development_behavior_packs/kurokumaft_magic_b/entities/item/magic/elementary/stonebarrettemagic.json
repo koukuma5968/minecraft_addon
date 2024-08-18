@@ -61,7 +61,7 @@
     },
     "events": {
       "stone_particle": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "particle kurokumaft:stone_particle ~~~",
             "setblock ~~~ stone keep"

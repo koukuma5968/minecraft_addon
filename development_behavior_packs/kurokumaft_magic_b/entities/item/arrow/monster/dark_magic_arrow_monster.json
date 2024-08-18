@@ -79,7 +79,7 @@
 
     "events": {
       "dark": {
-        "run_command": {
+        "queue_command": {
           "command": [
             "function magic/dark/dark_arrow"
           ],

@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:waterwall_block",
@@ -18,19 +18,7 @@
 				"seconds_to_destroy": 2.2
 			},
 			"minecraft:light_dampening": 3,
-			"minecraft:friction": 0.3,
-			"minecraft:on_step_on": {
-				"event": "kurokumaft:water_damage"
-			}
-		},
-		"events": {
-			"kurokumaft:water_damage": {
-			  "damage": {
-				"amount": 1,
-				"target": "other",
-				"type": "drowning"
-			  }
-			}
+			"minecraft:friction": 0.3
 		}
 	}
 }
