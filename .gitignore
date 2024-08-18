@@ -13,3 +13,8 @@
 /scripts_packs/kurokumaft_magic_s/package-lock.json
 /scripts_packs/kurokumaft_magic_s/package.json
 /scripts_packs/kurokumaft_magic_s/README.md
+scripts_packs/kurokumaft_magic_s/just.config.ts
+scripts_packs/kurokumaft_magic_s/tsconfig.json
+scripts_packs/kurokumaft_magic_s/.prettierrc.json
+scripts_packs/package-lock.json
+scripts_packs/kurokumaft_magic_s/dist/scripts/magic_script.js
