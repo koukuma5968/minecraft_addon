@@ -34,31 +34,8 @@
       },
       "minecraft:use_animation": "bow",
       "minecraft:hand_equipped": true,
-      "minecraft:use_duration": 0.1,
+      "minecraft:use_duration": 9999,
       "minecraft:chargeable": {
-        "on_complete": {
-          "condition": "query.is_item_name_any('slot.weapon.offhand', 'kurokumaft:thirty_eight_special')",
-          "event": "kurokumaft:machine_gun_shot"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:machine_gun_shot": {
-        "sequence":[
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":1
-            }
-          },
-          {
-            "shoot":{
-              "projectile":"kurokumaft:thirty_eight_special_entity",
-              "launch_power":1
-            }
-          }
-        ]
       }
     }
   }

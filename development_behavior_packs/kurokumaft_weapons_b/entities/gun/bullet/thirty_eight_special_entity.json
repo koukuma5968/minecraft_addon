@@ -4,7 +4,7 @@
     "description": {
       "identifier": "kurokumaft:thirty_eight_special_entity",
       "is_spawnable": false,
-      "is_summonable": false,
+      "is_summonable": true,
       "is_experimental": false,
       "runtime_identifier": "minecraft:arrow"
     },
@@ -60,15 +60,6 @@
     },
 
     "events": {
-      "minecraft:entity_spawned": {
-        "run_command": {
-          "command": [
-            "particle minecraft:explosion_manual ^^0.5^2",
-            "clear @p kurokumaft:thirty_eight_special -1 1"
-          ],
-          "target": "self"
-        }
-      }
     }
   }
 }
