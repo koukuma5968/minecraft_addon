@@ -1,5 +1,5 @@
 {
-   "format_version": "1.17.0",
+   "format_version": "1.19.30",
    "kurokumaft:magic_enchant_table" : {
         "textures" : {
             "down" : "magic_enchant_table_bottom",
