@@ -89,6 +89,38 @@
         "minecraft:knockback_resistance": {
           "value": 0
         }
+      },
+      "kurokumaft:ranged_type": {
+        "minecraft:behavior.ranged_attack": {
+          "priority": 0,
+          "attack_interval": 0.1,
+          "attack_radius": 0.1
+        }
+      },
+      "kurokumaft:gatling_shot_1": {
+        "minecraft:shooter": {
+          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot1>"
+        }
+      },
+      "kurokumaft:gatling_shot_2": {
+        "minecraft:shooter": {
+          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot2>"
+        }
+      },
+      "kurokumaft:gatling_shot_3": {
+        "minecraft:shooter": {
+          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot3>"
+        }
+      },
+      "kurokumaft:gatling_shot_4": {
+        "minecraft:shooter": {
+          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot4>"
+        }
+      },
+      "kurokumaft:gatling_shot_5": {
+        "minecraft:shooter": {
+          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot5>"
+        }
       }
     },
 
@@ -453,6 +485,80 @@
         "add": {
           "component_groups": [ "variant2" ]
         }
+      },
+
+      "kurokumaft:ranged_type_set": {
+        "run_command": {
+					"command": [
+            "say ranged_type_set"
+          ]
+				},
+        "add": {
+          "component_groups": [ "kurokumaft:ranged_type" ]
+        }
+      },
+      "kurokumaft:ranged_type_remove": {
+        "run_command": {
+					"command": [
+            "say ranged_type_remove"
+          ]
+				},
+        "remove": {
+          "component_groups": [ 
+            "kurokumaft:ranged_type",
+            "kurokumaft:gatling_shot_1",
+            "kurokumaft:gatling_shot_2",
+            "kurokumaft:gatling_shot_3",
+            "kurokumaft:gatling_shot_4",
+            "kurokumaft:gatling_shot_5"
+          ]
+        }
+      },
+
+      "kurokumaft:gatling_shot": {
+        "sequence":[
+          {
+            "run_command": {
+              "command": [
+                "say gatling_shot"
+              ]
+            }    
+          },
+          {
+            "randomize": [
+              {
+                "weight": 5,
+                "add": {
+                  "component_groups": [ "kurokumaft:gatling_shot_1" ]
+                }
+              },
+              {
+                "weight": 5,
+                "add": {
+                  "component_groups": [ "kurokumaft:gatling_shot_2" ]
+                }
+              },
+              {
+                "weight": 5,
+                "add": {
+                  "component_groups": [ "kurokumaft:gatling_shot_3" ]
+                }
+              },
+              {
+                "weight": 5,
+                "add": {
+                  "component_groups": [ "kurokumaft:gatling_shot_4" ]
+                }
+              },
+              {
+                "weight": 5,
+                "add": {
+                  "component_groups": [ "kurokumaft:gatling_shot_5" ]
+                }
+              }
+            ]
+          }
+        ]
       }
     }
   }
