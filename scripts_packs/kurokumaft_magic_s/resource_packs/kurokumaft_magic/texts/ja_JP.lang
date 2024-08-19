@@ -250,7 +250,7 @@ item.kurokumaft:nether_wind_magic_leggings.name=§3ブリーズマジックレ�
 item.kurokumaft:nether_wind_magic_boots.name=§3ブリーズマジックブーツ
 
 item.kurokumaft:nether_lightning_magic_helmet.name=§6エレクトマジックヘルム
-item.kurokumaft:nether_lightning_magic_chestplate.name=§6エレクトマジックプレート
+item.kurokumaft:nether_lightning_magic_chest.name=§6エレクトマジックプレート
 item.kurokumaft:nether_lightning_magic_leggings.name=§6エレクトマジックレギンス
 item.kurokumaft:nether_lightning_magic_boots.name=§6エレクトマジックブーツ
 

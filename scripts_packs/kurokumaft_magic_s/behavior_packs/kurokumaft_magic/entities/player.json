@@ -505,7 +505,7 @@
                       {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_wind_magic_leggings"},
                       {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_wind_magic_boots"},
                       {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_lightning_magic_helmet"},
-                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_lightning_magic_chestplate"},
+                      {"test":"has_equipment","domain":"torso","operator":"==","subject":"self","value":"nether_lightning_magic_chest"},
                       {"test":"has_equipment","domain":"leg","operator":"==","subject":"self","value":"nether_lightning_magic_leggings"},
                       {"test":"has_equipment","domain":"feet","operator":"==","subject":"self","value":"nether_lightning_magic_boots"},
                       {"test":"has_equipment","domain":"head","operator":"==","subject":"self","value":"nether_stone_magic_helmet"},
@@ -799,7 +799,7 @@
             "filters": {
               "any_of" :[
                 {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_chestplate"},
-                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:nether_lightning_magic_chestplate"}
+                {"test": "has_equipment","domain": "torso","operator": "==","subject": "self","value": "kurokumaft:nether_lightning_magic_chest"}
               ]
             },
             "event": "kurokumaft:lightning_magic_chestplate_add"
@@ -808,7 +808,7 @@
             "filters": {
               "all_of" :[
                 {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:lightning_magic_chestplate"},
-                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:nether_lightning_magic_chestplate"}
+                {"test": "has_equipment","domain": "torso","operator": "!=","subject": "self","value": "kurokumaft:nether_lightning_magic_chest"}
               ]
             },
             "event": "kurokumaft:lightning_magic_chestplate_remove"

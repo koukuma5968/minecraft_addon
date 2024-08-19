@@ -325,8 +325,8 @@
       "nether_lightning_magic_helmet": {
          "textures" : "textures/kurokumaft/items/magic_armer/nether/lightning/nether_lightning_magic_helmet"
       },
-      "nether_lightning_magic_chestplate": {
-         "textures" : "textures/kurokumaft/items/magic_armer/nether/lightning/nether_lightning_magic_chestplate"
+      "nether_lightning_magic_chest": {
+         "textures" : "textures/kurokumaft/items/magic_armer/nether/lightning/nether_lightning_magic_chest"
       },
       "nether_lightning_magic_leggings": {
          "textures" : "textures/kurokumaft/items/magic_armer/nether/lightning/nether_lightning_magic_leggings"

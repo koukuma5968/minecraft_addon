@@ -8,6 +8,6 @@
     "template": "minecraft:netherite_upgrade_smithing_template",
     "base": "kurokumaft:lightning_magic_chestplate",
     "addition": "minecraft:netherite_ingot",
-    "result": "kurokumaft:nether_lightning_magic_chestplate"
+    "result": "kurokumaft:nether_lightning_magic_chest"
   }
 }

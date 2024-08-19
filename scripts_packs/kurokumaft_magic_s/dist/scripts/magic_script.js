@@ -1011,7 +1011,7 @@ function magicAmor(player, damager, projectile, hitVector) {
         damager.runCommandAsync("particle minecraft:large_explosion  ~~~");
         damager.applyKnockback(Math.round(view.x) * 10, Math.round(view.z) * 10, 10, 1);
       }
-      if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chestplate") {
+      if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chest") {
         damager.applyDamage(5, { "cause": "lightning" });
         damager.runCommandAsync("particle kurokumaft:lightning_arrow_particle ~~~");
       }

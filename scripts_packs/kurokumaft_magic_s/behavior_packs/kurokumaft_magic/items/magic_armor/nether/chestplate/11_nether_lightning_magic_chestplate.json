@@ -2,7 +2,7 @@
   "format_version": "1.20.70",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:nether_lightning_magic_chestplate",
+      "identifier": "kurokumaft:nether_lightning_magic_chest",
       "menu_category": {
         "category": "equipment",
         "group": "itemGroup.name.chestplate"
@@ -10,11 +10,11 @@
     },
     "components": {
       "minecraft:display_name": {
-				"value": "item.kurokumaft:nether_lightning_magic_chestplate.name"
+				"value": "item.kurokumaft:nether_lightning_magic_chest.name"
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "nether_lightning_magic_chestplate"
+          "default": "nether_lightning_magic_chest"
         }
       },
       "minecraft:repairable": {
@@ -24,7 +24,7 @@
             "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
-            "items": [ "kurokumaft:nether_lightning_magic_chestplate" ],
+            "items": [ "kurokumaft:nether_lightning_magic_chest" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
