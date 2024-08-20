@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.70",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:rainbow_magic_sword",
@@ -25,7 +25,11 @@
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
-        "max_durability": 10
+        "damage_chance": {
+          "min": 1,
+          "max": 5
+        },
+        "max_durability": 100
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -49,7 +53,10 @@
             "speed": 15
           }
         ]
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:sword_magic"
+      ]
     }
   }
 }

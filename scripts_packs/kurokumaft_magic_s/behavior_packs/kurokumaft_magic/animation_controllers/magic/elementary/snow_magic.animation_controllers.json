@@ -1,42 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.snow_magic.snow_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'snow_wand'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add snow_wand"
-          ],
-          "on_exit": [
-            "/tag @s remove snow_wand"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'snow_wand'"}
-          ]
-        }
-      }
-    },
     "controller.animation.snow_magic.snow": {
       "states": {
         "default": {
           "transitions": [
-            { "powdered_snow": "!query.is_sneaking && query.get_equipped_item_name == 'snow_wand' && !query.is_using_item && variable.attack_time" },
-            { "icewall": "query.is_sneaking && query.get_equipped_item_name == 'snow_wand' && !query.is_using_item && variable.attack_time" },
-            { "deep_snow": "query.get_equipped_item_name == 'snow_wand' && query.is_using_item" }
-          ]
-        },
-        "powdered_snow": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fパウダースノー\"}]}",
-            "/function magic/ice/powdered_snow"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "icewall": "query.is_sneaking && query.get_equipped_item_name == 'snow_wand' && variable.attack_time" }
           ]
         },
         "icewall": {
@@ -46,19 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "deep_snow": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fディープスノー\"}]}",
-            "/tag @s add deep_snow_self",
-            "/function magic/ice/deep_snow"
-          ],
-          "on_exit": [
-            "/tag @s remove deep_snow_self"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

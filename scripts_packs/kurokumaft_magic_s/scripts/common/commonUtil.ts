@@ -5,9 +5,9 @@ const CraftBlocks = ["minecraft:crafting_table","minecraft:anvil","minecraft:smi
 
 // デバッグ用
 /**
- * @param {String} text
+ * @param {Object} text
  */
-function print(text:String) {
+function print(text:Object) {
     world.sendMessage(text + "");
 };
 

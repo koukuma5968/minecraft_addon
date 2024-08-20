@@ -3,24 +3,27 @@ import { print,getRandomInRange } from "./commonUtil";
 
 /**
  * アイテムダメージ
- * @param {Player} player
+ * @param {Entity} entity
  * @param {ItemStack} item
+ * @param {EquipmentSlot} slot
  */
-async function ItemDurabilityDamageEvent(player:Player, item:ItemStack) {
+async function ItemDurabilityDamageEvent(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
     let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-    print(durability.damage+"");
-    let damageRan = parseFloat(getRandomInRange(durability.getDamageChanceRange().min, durability.getDamageChanceRange().max).toFixed(3));
-    print(damageRan+"");
-    let dChange = durability.getDamageChance(damageRan);
-    print(dChange+"");
+//    let damageRan = Math.ceil(getRandomInRange(durability.getDamageChanceRange().min, durability.getDamageChanceRange().max));
+    let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
+    print(dChange);
 
-    durability.damage = durability.damage + dChange;
-    print(durability.damage+"");
+    if ((durability.damage + dChange) >= durability.maxDurability) {
+        equ.setEquipment(slot, undefined);
+    } else {
 
-    equ.setEquipment(EquipmentSlot.Mainhand, item);
+        durability.damage = durability.damage + dChange;
+        equ.setEquipment(slot, item);
+    }
+
 }
 
 export {ItemDurabilityDamageEvent};

@@ -1,42 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.stone_magic.stone_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'stone_wand'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add stone_wand"
-          ],
-          "on_exit": [
-            "/tag @s remove stone_wand"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'stone_wand'"}
-          ]
-        }
-      }
-    },
     "controller.animation.stone_magic.stone": {
       "states": {
         "default": {
           "transitions": [
-            { "sand_blast": "!query.is_sneaking && query.get_equipped_item_name == 'stone_wand' && !query.is_using_item && variable.attack_time" },
-            { "stonewall": "query.is_sneaking && query.get_equipped_item_name == 'stone_wand' && !query.is_using_item && variable.attack_time" },
-            { "stonebarrette": "query.get_equipped_item_name == 'stone_wand' && query.is_using_item" }
-          ]
-        },
-        "sand_blast": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7サンドブラスト\"}]}",
-            "/function magic/stone/sand_blast"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "stonewall": "query.is_sneaking && query.get_equipped_item_name == 'stone_wand' && variable.attack_time" }
           ]
         },
         "stonewall": {
@@ -46,14 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "stonebarrette": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンバレット\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

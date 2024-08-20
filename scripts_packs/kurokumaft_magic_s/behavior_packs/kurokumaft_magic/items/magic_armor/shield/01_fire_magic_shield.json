@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.70",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fire_magic_shield",
@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:magic_shield"
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:fire_magic_shield.name"
       },
@@ -44,7 +49,10 @@
       },
       "minecraft:wearable": {
         "slot": "slot.weapon.offhand"
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:shield_magic"
+      ]
     }
   }
 }

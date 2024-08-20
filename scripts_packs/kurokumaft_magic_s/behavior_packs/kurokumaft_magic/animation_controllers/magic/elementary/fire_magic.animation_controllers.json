@@ -1,42 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.fire_magic.fire_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'fire_wand'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add fire_wand"
-          ],
-          "on_exit": [
-            "/tag @s remove fire_wand"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'fire_wand'"}
-          ]
-        }
-      }
-    },
     "controller.animation.fire_magic.fire": {
       "states": {
         "default": {
           "transitions": [
-            { "burst_rondo": "!query.is_sneaking && query.get_equipped_item_name == 'fire_wand' && !query.is_using_item && variable.attack_time" },
-            { "firewall": "query.is_sneaking && query.get_equipped_item_name == 'fire_wand' && !query.is_using_item && variable.attack_time" },
-            { "fireball": "query.get_equipped_item_name == 'fire_wand' && query.is_using_item" }
-          ]
-        },
-        "burst_rondo": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cバーストロンド\"}]}",
-            "/function magic/fire/burst_rondo"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "firewall": "query.is_sneaking && query.get_equipped_item_name == 'fire_wand' && variable.attack_time" }
           ]
         },
         "firewall": {
@@ -46,14 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "fireball": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cファイアボール\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

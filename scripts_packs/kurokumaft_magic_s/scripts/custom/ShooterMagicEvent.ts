@@ -24,9 +24,6 @@ function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:Vector
     bulet.setRotation({x:0,y:player.getRotation().y});
     bulet.applyImpulse({x:xapply! * 1.5,y:yapply! * 1.5,z:zapply! * 1.5});
 
-    let cool = item.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
-    cool.startCooldown(player);
-
 }
 
 export {throwing};

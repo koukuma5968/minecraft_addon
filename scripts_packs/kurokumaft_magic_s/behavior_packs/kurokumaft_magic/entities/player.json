@@ -28,14 +28,7 @@
           "magic_bread",
           "bazooka_chage",
 
-          "fire","fire_change",
-          "water","water_change",
-          "lightning","lightning_change",
-          "light","light_change",
-          "dark","dark_change",
-          "stone","stone_change",
-          "snow","snow_change",
-          "wind","wind_change",
+          "fire","water","lightning","light","dark","stone","snow","wind",
 
           "flame","flame_change",
           "waterwave","waterwave_change",
@@ -79,14 +72,14 @@
 
         "bazooka_chage": "controller.animation.magic.bazooka.chage",
 
-        "fire":"controller.animation.fire_magic.fire","fire_change": "controller.animation.fire_magic.fire_change",
-        "water":"controller.animation.water_magic.water","water_change": "controller.animation.water_magic.water_change",
-        "lightning":"controller.animation.lightning_magic.lightning","lightning_change": "controller.animation.lightning_magic.lightning_change",
-        "light":"controller.animation.light_magic.light","light_change": "controller.animation.light_magic.light_change",
-        "dark":"controller.animation.dark_magic.dark","dark_change": "controller.animation.dark_magic.dark_change",
-        "stone":"controller.animation.stone_magic.stone","stone_change": "controller.animation.stone_magic.stone_change",
-        "snow":"controller.animation.snow_magic.snow","snow_change": "controller.animation.snow_magic.snow_change",
-        "wind":"controller.animation.wind_magic.wind","wind_change": "controller.animation.wind_magic.wind_change",
+        "fire":"controller.animation.fire_magic.fire",
+        "water":"controller.animation.water_magic.water",
+        "lightning":"controller.animation.lightning_magic.lightning",
+        "light":"controller.animation.light_magic.light",
+        "dark":"controller.animation.dark_magic.dark",
+        "stone":"controller.animation.stone_magic.stone",
+        "snow":"controller.animation.snow_magic.snow",
+        "wind":"controller.animation.wind_magic.wind",
 
         "flame":"controller.animation.flame_magic.flame","flame_change": "controller.animation.flame_magic.flame_change",
         "waterwave":"controller.animation.water_magic.waterwave","waterwave_change": "controller.animation.water_magic.waterwave_change",

@@ -1,42 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.lightning_magic.lightning_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'lightning_wand'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add lightning_wand"
-          ],
-          "on_exit": [
-            "/tag @s remove lightning_wand"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'lightning_wand'"}
-          ]
-        }
-      }
-    },
     "controller.animation.lightning_magic.lightning": {
       "states": {
         "default": {
           "transitions": [
-            { "spark": "!query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && !query.is_using_item && variable.attack_time" },
-            { "lightningwall": "query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && !query.is_using_item && variable.attack_time" },
-            { "lightningbolt": "query.get_equipped_item_name == 'lightning_wand' && query.is_using_item" }
-          ]
-        },
-        "spark": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6スパーク\"}]}",
-            "/function magic/lightning/spark"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "lightningwall": "query.is_sneaking && query.get_equipped_item_name == 'lightning_wand' && variable.attack_time" }
           ]
         },
         "lightningwall": {
@@ -46,14 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "lightningbolt": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングボルト\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

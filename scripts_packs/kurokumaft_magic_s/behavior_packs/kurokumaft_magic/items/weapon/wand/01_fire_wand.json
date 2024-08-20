@@ -51,7 +51,7 @@
         "use_duration": 1
       },
       "minecraft:custom_components": [
-        "kurokumaft:fire_ball"
+        "kurokumaft:wand_magic"
       ]
     }
   }

@@ -77,14 +77,12 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
 
 // ダメージ
 world.afterEvents.entityHurt.subscribe(event => {
-    if (event) {
-        var damageSource = event.damageSource as EntityDamageSource;
-        var hitEn = event.hurtEntity as Entity;
-        // print(hitEn, damageSource.cause + "=" + damage);
-        if (hitEn != undefined && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
-            if (guards.indexOf(damageSource.cause) != -1) {
-                shieldGuard(hitEn as Player, false);
-            }
+    var damageSource = event.damageSource as EntityDamageSource;
+    var hitEn = event.hurtEntity as Entity;
+    // print(hitEn, damageSource.cause + "=" + damage);
+    if (hitEn != undefined && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
+        if (guards.indexOf(damageSource.cause) != -1) {
+            shieldGuard(hitEn as Player, false);
         }
     }
 });

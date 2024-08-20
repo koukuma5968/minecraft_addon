@@ -1,5 +1,5 @@
 // scripts/magic_script.ts
-import { world as world4 } from "@minecraft/server";
+import { world as world6 } from "@minecraft/server";
 
 // scripts/shieldEvent.ts
 import {
@@ -1060,8 +1060,8 @@ function fireStorm(dim, locat) {
   stand.runCommand("tag @s add firestormmagic_self");
 }
 
-// scripts/custom/ShooterMagicEvent.ts
-import { ItemComponentTypes as ItemComponentTypes4 } from "@minecraft/server";
+// scripts/weapon/wand/WandWeaponMagic.ts
+import { EquipmentSlot as EquipmentSlot6, GameMode, ItemComponentTypes as ItemComponentTypes5, Player as Player7, world as world4 } from "@minecraft/server";
 
 // scripts/common/ShooterPoints.ts
 function getAdjacentSphericalPoints(rotation, location) {
@@ -1231,49 +1231,446 @@ function throwing(player, item, throwItem, ranNum) {
   item.amount++;
   bulet.setRotation({ x: 0, y: player.getRotation().y });
   bulet.applyImpulse({ x: xapply * 1.5, y: yapply * 1.5, z: zapply * 1.5 });
-  let cool = item.getComponent(ItemComponentTypes4.Cooldown);
-  cool.startCooldown(player);
 }
 
 // scripts/common/ItemDurabilityDamage.ts
-import { ItemComponentTypes as ItemComponentTypes5, EntityComponentTypes as EntityComponentTypes6, EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
-async function ItemDurabilityDamageEvent(player, item) {
-  let equ = player.getComponent(EntityComponentTypes6.Equippable);
-  let durability = item.getComponent(ItemComponentTypes5.Durability);
-  print(durability.damage + "");
-  let damageRan = parseFloat(getRandomInRange(durability.getDamageChanceRange().min, durability.getDamageChanceRange().max).toFixed(3));
-  print(damageRan + "");
-  let dChange = durability.getDamageChance(damageRan);
-  print(dChange + "");
-  durability.damage = durability.damage + dChange;
-  print(durability.damage + "");
-  equ.setEquipment(EquipmentSlot5.Mainhand, item);
+import { ItemComponentTypes as ItemComponentTypes4, EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
+async function ItemDurabilityDamageEvent(entity, item, slot) {
+  let equ = entity.getComponent(EntityComponentTypes6.Equippable);
+  let durability = item.getComponent(ItemComponentTypes4.Durability);
+  let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
+  print(dChange);
+  if (durability.damage + dChange >= durability.maxDurability) {
+    equ.setEquipment(slot, void 0);
+  } else {
+    durability.damage = durability.damage + dChange;
+    equ.setEquipment(slot, item);
+  }
 }
 
-// scripts/weapon/wand/FireMagicWand.ts
-var FireBallShot = class {
+// scripts/weapon/wand/WandWeaponMagic.ts
+var WandHitObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:fire_wand",
+    event: "fire/burst_rondo",
+    sendMsg: "\xA7c\u30D0\u30FC\u30B9\u30C8\u30ED\u30F3\u30C9"
+  },
+  {
+    itemName: "kurokumaft:water_wand",
+    event: "water/splash",
+    sendMsg: "\xA7b\u30B9\u30D7\u30E9\u30C3\u30B7\u30E5"
+  },
+  {
+    itemName: "kurokumaft:wind_wand",
+    event: "wind/wind_edge",
+    sendMsg: "\xA7a\u30A6\u30A3\u30F3\u30C9\u30A8\u30C3\u30B8"
+  },
+  {
+    itemName: "kurokumaft:stone_wand",
+    event: "stone/sand_blast",
+    sendMsg: "\xA77\u30B5\u30F3\u30C9\u30D6\u30E9\u30B9\u30C8"
+  },
+  {
+    itemName: "kurokumaft:lightning_wand",
+    event: "lightning/spark",
+    sendMsg: "\xA76\u30B9\u30D1\u30FC\u30AF"
+  },
+  {
+    itemName: "kurokumaft:snow_wand",
+    event: "ice/powdered_snow",
+    sendMsg: "\xA7f\u30D1\u30A6\u30C0\u30FC\u30B9\u30CE\u30FC"
+  },
+  {
+    itemName: "kurokumaft:dark_wand",
+    event: "dark/dark_bread",
+    sendMsg: "\xA78\u30C0\u30FC\u30AF\u30D6\u30EC\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:light_wand",
+    event: "light/light_bread",
+    sendMsg: "\xA7e\u30E9\u30A4\u30C8\u30D6\u30EC\u30FC\u30C9"
+  }
+]);
+var BallMagicObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:fire_wand",
+    event: "kurokumaft:fireballmagic",
+    sendMsg: "\xA7c\u30D5\u30A1\u30A4\u30E4\u30FC\u30DC\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:water_wand",
+    event: "kurokumaft:waterballmagic",
+    sendMsg: "\xA7b\u30A6\u30A9\u30FC\u30BF\u30FC\u30DC\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:wind_wand",
+    event: "kurokumaft:windcuttermagic",
+    sendMsg: "\xA7a\u30A6\u30A3\u30F3\u30C9\u30AB\u30C3\u30BF\u30FC"
+  },
+  {
+    itemName: "kurokumaft:stone_wand",
+    event: "kurokumaft:stonebarrettemagic",
+    sendMsg: "\xA77\u30B9\u30C8\u30FC\u30F3\u30D0\u30EC\u30C3\u30C8"
+  },
+  {
+    itemName: "kurokumaft:lightning_wand",
+    event: "kurokumaft:lightningboltmagic",
+    sendMsg: "\xA76\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u30DC\u30EB\u30C8"
+  }
+]);
+var WallMagicObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:fire_wand",
+    event: "fire/firewall",
+    sendMsg: "\xA7c\u30D5\u30A1\u30A4\u30A2\u30A6\u30A9\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:water_wand",
+    event: "water/waterwall",
+    sendMsg: "\xA7b\u30A6\u30A9\u30FC\u30BF\u30FC\u30A6\u30A9\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:wind_wand",
+    event: "wind/windwall",
+    sendMsg: "\xA7a\u30A6\u30A3\u30F3\u30C9\u30A6\u30A9\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:stone_wand",
+    event: "stone/stonewall",
+    sendMsg: "\xA77\u30B9\u30C8\u30FC\u30F3\u30A6\u30A9\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:lightning_wand",
+    event: "lightning/lightningwall",
+    sendMsg: "\xA76\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u30A6\u30A9\u30FC\u30EB"
+  }
+]);
+var OtherUpMagicObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:snow_wand",
+    event: "ice/deep_snow",
+    sendMsg: "\xA7f\u30C7\u30A3\u30FC\u30D7\u30B9\u30CE\u30FC"
+  },
+  {
+    itemName: "kurokumaft:dark_wand",
+    event: "dark/absorption",
+    sendMsg: "\xA78\u30A2\u30D6\u30BD\u30FC\u30D7\u30B7\u30E7\u30F3"
+  },
+  {
+    itemName: "kurokumaft:light_wand",
+    event: "light/healing",
+    sendMsg: "\xA7e\u30D2\u30FC\u30EA\u30F3\u30B0"
+  }
+]);
+var OtherDownMagicObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:snow_wand",
+    event: "ice/deep_snow",
+    sendMsg: "\xA7f\u30C7\u30A3\u30FC\u30D7\u30B9\u30CE\u30FC"
+  },
+  {
+    itemName: "kurokumaft:dark_wand",
+    event: "dark/invisibility",
+    sendMsg: "\xA78\u30A4\u30F3\u30D3\u30B8\u30D6\u30EB"
+  },
+  {
+    itemName: "kurokumaft:light_wand",
+    event: "light/recovery",
+    sendMsg: "\xA7e\u30EA\u30AB\u30D0\u30EA\u30FC"
+  }
+]);
+var WandWeaponMagic = class {
+  // 通常攻撃
+  onHitEntity(event) {
+    let itemStack = event.itemStack;
+    let attackEntity = event.attackingEntity;
+    let hitEntity = event.hitEntity;
+    let effect = event.hadEffect;
+    if (!itemStack || hitEntity instanceof Player7 && !world4.gameRules.pvp) {
+      return;
+    }
+    let wandMagicObject = WandHitObjects.find((obj) => obj.itemName == itemStack.typeId);
+    attackEntity.runCommand("/function magic/" + wandMagicObject.event);
+    attackEntity.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + wandMagicObject.sendMsg + '"}]}');
+  }
+  // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
     let xran = parseFloat(getRandomInRange(-0.1, 0.5).toFixed(3));
     let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
     let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    ItemDurabilityDamageEvent(player, itemStack);
-    throwing(player, itemStack, "kurokumaft:fireballmagic", { x: xran, y: yran, z: zran });
+    if (player.getGameMode() != GameMode.creative) {
+      ItemDurabilityDamageEvent(player, itemStack, EquipmentSlot6.Mainhand);
+    }
+    if (world4.gameRules.pvp) {
+      let ballMagicObject = BallMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
+      if (ballMagicObject) {
+        throwing(player, itemStack, ballMagicObject.event, { x: xran, y: yran, z: zran });
+        player.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + ballMagicObject.sendMsg + '"}]}');
+      } else {
+        if (player.isSneaking) {
+          let otherDownMagicObject = OtherDownMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
+          if (otherDownMagicObject) {
+            player.runCommand("/function magic/" + otherDownMagicObject.event);
+            player.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + otherDownMagicObject.sendMsg + '"}]}');
+          }
+        } else {
+          let otherUpMagicObject = OtherUpMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
+          if (otherUpMagicObject) {
+            player.runCommand("/function magic/" + otherUpMagicObject.event);
+            player.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + otherUpMagicObject.sendMsg + '"}]}');
+          }
+        }
+      }
+    } else {
+      let ballMagicObject = BallMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
+      if (ballMagicObject) {
+        throwing(player, itemStack, ballMagicObject.event, { x: xran, y: yran, z: zran });
+        player.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + ballMagicObject.sendMsg + '"}]}');
+      } else {
+        if (player.isSneaking) {
+          let otherDownMagicObject = OtherDownMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
+          if (otherDownMagicObject) {
+            player.runCommand("/function magic/" + otherDownMagicObject.event);
+            player.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + otherDownMagicObject.sendMsg + '"}]}');
+          }
+        } else {
+          let otherUpMagicObject = OtherUpMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
+          if (otherUpMagicObject) {
+            player.runCommand("/function magic/" + otherUpMagicObject.event);
+            player.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + otherUpMagicObject.sendMsg + '"}]}');
+          }
+        }
+      }
+    }
+    let cool = itemStack.getComponent(ItemComponentTypes5.Cooldown);
+    cool.startCooldown(player);
+  }
+  // ブロッククリック
+  onUseOn(event) {
+  }
+};
+
+// scripts/weapon/shield/ShieldMagic.ts
+var ShieldMagicObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:fire_wand",
+    event: "kurokumaft:fireballmagic",
+    sendMsg: "\xA7c\u30D5\u30A1\u30A4\u30E4\u30FC\u30DC\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:water_wand",
+    event: "kurokumaft:waterballmagic",
+    sendMsg: "\xA7b\u30A6\u30A9\u30FC\u30BF\u30FC\u30DC\u30FC\u30EB"
+  },
+  {
+    itemName: "kurokumaft:wind_wand",
+    event: "kurokumaft:windcuttermagic",
+    sendMsg: "\xA7a\u30A6\u30A3\u30F3\u30C9\u30AB\u30C3\u30BF\u30FC"
+  },
+  {
+    itemName: "kurokumaft:stone_wand",
+    event: "kurokumaft:stonebarrettemagic",
+    sendMsg: "\xA77\u30B9\u30C8\u30FC\u30F3\u30D0\u30EC\u30C3\u30C8"
+  },
+  {
+    itemName: "kurokumaft:lightning_wand",
+    event: "kurokumaft:lightningboltmagic",
+    sendMsg: "\xA76\u30E9\u30A4\u30C8\u30CB\u30F3\u30B0\u30DC\u30EB\u30C8"
+  }
+]);
+var ShieldMagic = class {
+  // 通常攻撃
+  onBeforeDurabilityDamage(event) {
+    print("onBeforeDurabilityDamage");
+    let attackEntity = event.attackingEntity;
+    let damage = event.durabilityDamage;
+    let itemStack = event.itemStack;
+    let hitEntity = event.hitEntity;
+  }
+};
+
+// scripts/weapon/sword/SwordWeaponMagic.ts
+import { Player as Player8, GameMode as GameMode2, EquipmentSlot as EquipmentSlot7 } from "@minecraft/server";
+var SwordHitObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:fire_magic_sword",
+    event: "fire/fire_sword",
+    sendMsg: "\xA7c\u30D5\u30EC\u30A4\u30E0\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:water_magic_sword",
+    event: "water/water_sword",
+    sendMsg: "\xA7b\u30A6\u30A9\u30FC\u30BF\u30FC\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:wind_magic_sword",
+    event: "wind/wind_sword",
+    sendMsg: "\xA7a\u30A6\u30A3\u30F3\u30C9\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:stone_magic_sword",
+    event: "stone/stone_sword",
+    sendMsg: "\xA77\u30B9\u30C8\u30FC\u30F3\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:thunder_magic_sword",
+    event: "lightning/thunder_sword",
+    sendMsg: "\xA76\u30B5\u30F3\u30C0\u30FC\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:ice_magic_sword",
+    event: "ice/ice_sword",
+    sendMsg: "\xA7f\u30A2\u30A4\u30B9\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:dark_magic_sword",
+    event: "dark/dark_sword",
+    sendMsg: "\xA78\u30C0\u30FC\u30AF\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:holly_magic_sword",
+    event: "light/holly_sword",
+    sendMsg: "\xA7e\u30DB\u30FC\u30EA\u30FC\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:rainbow_magic_sword",
+    event: "rainbow/rainbow_sword",
+    sendMsg: "\xA75\u30EC\xA71\u30A4\xA79\u30F3\xA7a\u30DC\u30FC\xA7e\u30BD\xA76\u30FC\xA74\u30C9"
+  },
+  {
+    itemName: "kurokumaft:phoenix_sword",
+    event: "fire/fire_sword",
+    sendMsg: "\xA7c\u30D5\u30EC\u30A4\u30E0\u30BD\u30FC\u30C9"
+  }
+]);
+var SwordHitMonsObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:fire_magic_sword",
+    event: "fire/fire_sword",
+    sendMsg: "\xA7c\u30D5\u30EC\u30A4\u30E0\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:water_magic_sword",
+    event: "water/water_sword",
+    sendMsg: "\xA7b\u30A6\u30A9\u30FC\u30BF\u30FC\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:wind_magic_sword",
+    event: "wind/wind_sword",
+    sendMsg: "\xA7a\u30A6\u30A3\u30F3\u30C9\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:stone_magic_sword",
+    event: "stone/stone_sword",
+    sendMsg: "\xA77\u30B9\u30C8\u30FC\u30F3\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:thunder_magic_sword",
+    event: "lightning/thunder_sword",
+    sendMsg: "\xA76\u30B5\u30F3\u30C0\u30FC\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:ice_magic_sword",
+    event: "ice/ice_sword",
+    sendMsg: "\xA7f\u30A2\u30A4\u30B9\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:dark_magic_sword",
+    event: "dark/dark_sword",
+    sendMsg: "\xA78\u30C0\u30FC\u30AF\u30BD\u30FC\u30C9"
+  },
+  {
+    itemName: "kurokumaft:holly_magic_sword",
+    event: "light/holly_sword",
+    sendMsg: "\xA7e\u30DB\u30FC\u30EA\u30FC\u30BD\u30FC\u30C9"
+  }
+]);
+var SwordChargeObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:phoenix_sword",
+    event: "fire/blaze_burst",
+    sendMsg: "\xA7c\u30D6\u30EC\u30A4\u30BA\u30D0\u30FC\u30B9\u30C8"
+  }
+]);
+var SwordWeaponMagic = class {
+  // 通常攻撃
+  onHitEntity(event) {
+    let itemStack = event.itemStack;
+    let attackEntity = event.attackingEntity;
+    let hitEntity = event.hitEntity;
+    let effect = event.hadEffect;
+    if (!itemStack) {
+      return;
+    }
+    let swordMagicObject = SwordHitObjects.find((obj) => obj.itemName == itemStack.typeId);
+    hitEntity.runCommand("/function magic/" + swordMagicObject.event);
+    if (attackEntity instanceof Player8 && attackEntity.getGameMode() != GameMode2.creative) {
+      ItemDurabilityDamageEvent(attackEntity, itemStack, EquipmentSlot7.Mainhand);
+    }
+  }
+  // チャージ完了
+  onCompleteUse(event) {
+    let itemStack = event.itemStack;
+    let player = event.source;
+    if (!itemStack) {
+      return;
+    }
+    let swordChargeMagicObject = SwordChargeObjects.find((obj) => obj.itemName == itemStack.typeId);
+    player.runCommand("/function magic/" + swordChargeMagicObject.event);
+    if (player.getGameMode() != GameMode2.creative) {
+      ItemDurabilityDamageEvent(player, itemStack, EquipmentSlot7.Mainhand);
+    }
+  }
+  // 右クリック
+  onUse(event) {
+    let itemStack = event.itemStack;
+    let player = event.source;
+  }
+  // ブロッククリック
+  onUseOn(event) {
+  }
+};
+var SwordWeaponMagicMons = class {
+  // 通常攻撃
+  onHitEntity(event) {
+    let itemStack = event.itemStack;
+    let attackEntity = event.attackingEntity;
+    let hitEntity = event.hitEntity;
+    let effect = event.hadEffect;
+    if (!itemStack) {
+      return;
+    }
+    let swordMagicObject = SwordHitMonsObjects.find((obj) => obj.itemName == itemStack.typeId);
+    hitEntity.runCommand("/function monster/" + swordMagicObject.event);
+    attackEntity.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + swordMagicObject.sendMsg + '"}]}');
+    ItemDurabilityDamageEvent(attackEntity, itemStack, EquipmentSlot7.Mainhand);
+  }
+  // 右クリック
+  onUse(event) {
+    let itemStack = event.itemStack;
+    let player = event.source;
+  }
+  // ブロッククリック
+  onUseOn(event) {
   }
 };
 
 // scripts/custom/CustomComponentRegistry.ts
 function registerCustomComponentFunction(initEvent) {
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:fire_ball", new FireBallShot());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:wand_magic", new WandWeaponMagic());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:sword_magic", new SwordWeaponMagic());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:sword_magic_monster", new SwordWeaponMagicMons());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:shield_magic", new ShieldMagic());
 }
 
 // scripts/magic_script.ts
 var guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
-world4.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world6.beforeEvents.worldInitialize.subscribe((initEvent) => {
   registerCustomComponentFunction(initEvent);
 });
-world4.afterEvents.entityHitEntity.subscribe((event) => {
+world6.afterEvents.entityHitEntity.subscribe((event) => {
   var dameger = event.damagingEntity;
   var hitEn = event.hitEntity;
   if (hitEn.typeId == "minecraft:player") {
@@ -1282,7 +1679,7 @@ world4.afterEvents.entityHitEntity.subscribe((event) => {
     magicAmor(hitEn, dameger, void 0, void 0);
   }
 });
-world4.afterEvents.projectileHitEntity.subscribe((event) => {
+world6.afterEvents.projectileHitEntity.subscribe((event) => {
   var projectileEn = event.projectile;
   var hitEn = event.getEntityHit().entity;
   var dameger = event.source;
@@ -1298,7 +1695,7 @@ world4.afterEvents.projectileHitEntity.subscribe((event) => {
     }
   }
 });
-world4.afterEvents.projectileHitBlock.subscribe((event) => {
+world6.afterEvents.projectileHitBlock.subscribe((event) => {
   var projectileEn = event.projectile;
   if (projectileEn) {
     if (projectileEn.typeId == "kurokumaft:firestormmagic") {
@@ -1306,18 +1703,16 @@ world4.afterEvents.projectileHitBlock.subscribe((event) => {
     }
   }
 });
-world4.afterEvents.entityHurt.subscribe((event) => {
-  if (event) {
-    var damageSource = event.damageSource;
-    var hitEn = event.hurtEntity;
-    if (hitEn != void 0 && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
-      if (guards.indexOf(damageSource.cause) != -1) {
-        shieldGuard(hitEn, false);
-      }
+world6.afterEvents.entityHurt.subscribe((event) => {
+  var damageSource = event.damageSource;
+  var hitEn = event.hurtEntity;
+  if (hitEn != void 0 && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
+    if (guards.indexOf(damageSource.cause) != -1) {
+      shieldGuard(hitEn, false);
     }
   }
 });
-world4.afterEvents.itemCompleteUse.subscribe((event) => {
+world6.afterEvents.itemCompleteUse.subscribe((event) => {
   var en = event.source;
   var item = event.itemStack;
   if (en != void 0 && en.typeId == "minecraft:player" && item != void 0) {
@@ -1326,7 +1721,7 @@ world4.afterEvents.itemCompleteUse.subscribe((event) => {
     }
   }
 });
-world4.afterEvents.itemUse.subscribe((event) => {
+world6.afterEvents.itemUse.subscribe((event) => {
   var player = event.source;
   var item = event.itemStack;
   if (item != void 0) {
@@ -1339,7 +1734,7 @@ world4.afterEvents.itemUse.subscribe((event) => {
     }
   }
 });
-world4.afterEvents.itemReleaseUse.subscribe((event) => {
+world6.afterEvents.itemReleaseUse.subscribe((event) => {
   var player = event.source;
   var item = event.itemStack;
   var duration = event.useDuration;
@@ -1349,7 +1744,7 @@ world4.afterEvents.itemReleaseUse.subscribe((event) => {
     }
   }
 });
-world4.afterEvents.itemUseOn.subscribe((event) => {
+world6.afterEvents.itemUseOn.subscribe((event) => {
   var player = event.source;
   var item = event.itemStack;
   var block = event.block;
@@ -1368,7 +1763,7 @@ world4.afterEvents.itemUseOn.subscribe((event) => {
     }
   }
 });
-world4.beforeEvents.itemUseOn.subscribe((event) => {
+world6.beforeEvents.itemUseOn.subscribe((event) => {
   var player = event.source;
   var item = event.itemStack;
   var block = event.block;
@@ -1379,7 +1774,7 @@ world4.beforeEvents.itemUseOn.subscribe((event) => {
     }
   }
 });
-world4.beforeEvents.playerBreakBlock.subscribe((event) => {
+world6.beforeEvents.playerBreakBlock.subscribe((event) => {
   var player = event.player;
   var block = event.block;
   if (player != void 0) {
@@ -1388,10 +1783,10 @@ world4.beforeEvents.playerBreakBlock.subscribe((event) => {
     }
   }
 });
-world4.afterEvents.entityLoad.subscribe((event) => {
+world6.afterEvents.entityLoad.subscribe((event) => {
   var entity = event.entity;
 });
-world4.afterEvents.entitySpawn.subscribe((event) => {
+world6.afterEvents.entitySpawn.subscribe((event) => {
   var entity = event.entity;
   var cause = event.cause;
 });

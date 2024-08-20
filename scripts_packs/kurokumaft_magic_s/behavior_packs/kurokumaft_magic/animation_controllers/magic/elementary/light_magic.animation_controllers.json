@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.light_magic.light_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "light": "query.get_equipped_item_name == 'light_wand'" }
-          ]
-        },
-        "light": {
-          "on_entry": [
-            "/tag @s add light_wand"
-          ],
-          "on_exit": [
-            "/tag @s remove light_wand"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'light_wand'"}
-          ]
-        }
-      }
-    },
     "controller.animation.light_magic.light": {
       "states": {
         "default": {
           "transitions": [
-            { "light_bread": "!query.is_sneaking && query.get_equipped_item_name == 'light_wand' && !query.is_using_item && variable.attack_time" },
-            { "flash": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && !query.is_using_item && variable.attack_time" },
-            { "healing": "!query.is_sneaking && query.get_equipped_item_name == 'light_wand' && query.is_using_item" },
-            { "recovery": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && query.is_using_item" }
-          ]
-        },
-        "light_bread": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eライトブレード\"}]}",
-            "/function magic/light/light_bread"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "flash": "query.is_sneaking && query.get_equipped_item_name == 'light_wand' && variable.attack_time" }
           ]
         },
         "flash": {
@@ -47,24 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "healing": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eヒーリング\"}]}",
-            "/function magic/light/healing"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "recovery": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eリカバリー\"}]}",
-            "/function magic/light/recovery"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

@@ -1,42 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.water_magic.water_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'water_wand'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add water_wand"
-          ],
-          "on_exit": [
-            "/tag @s remove water_wand"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'water_wand'"}
-          ]
-        }
-      }
-    },
     "controller.animation.water_magic.water": {
       "states": {
         "default": {
           "transitions": [
-            { "splash": "!query.is_sneaking && query.get_equipped_item_name == 'water_wand' && !query.is_using_item && variable.attack_time" },
-            { "waterwall": "query.is_sneaking && query.get_equipped_item_name == 'water_wand' && !query.is_using_item && variable.attack_time" },
-            { "waterball": "query.get_equipped_item_name == 'water_wand' && query.is_using_item" }
-          ]
-        },
-        "splash": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bスプラッシュ\"}]}",
-            "/function magic/water/splash"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "waterwall": "query.is_sneaking && query.get_equipped_item_name == 'water_wand' && variable.attack_time" }
           ]
         },
         "waterwall": {
@@ -46,14 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "waterball": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターボール\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }
