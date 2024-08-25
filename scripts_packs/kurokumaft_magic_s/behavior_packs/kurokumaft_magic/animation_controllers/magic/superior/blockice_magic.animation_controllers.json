@@ -1,47 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.ice_magic.blockice_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'blockice_stick'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add blockice_stick"
-          ],
-          "on_exit": [
-            "/tag @s remove blockice_stick"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'blockice_stick'"}
-          ]
-        }
-      }
-    },
     "controller.animation.ice_magic.blockice": {
       "states": {
         "default": {
           "transitions": [
-            { "ice_shock": "!query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && !query.is_using_item && variable.attack_time" },
-            { "frozen_bit": "query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && !query.is_using_item && variable.attack_time" },
-            { "ice_lance": "!query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && query.is_using_item" },
-            { "ice_block": "query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && query.is_using_item" }
-          ]
-        },
-        "ice_shock": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスショック\"}]}",
-            "/tag @s add ice_shock_self",
-            "/function magic/ice/ice_shock"
-          ],
-          "on_exit": [
-            "/tag @s remove ice_shock_self"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "frozen_bit": "query.is_sneaking && query.get_equipped_item_name == 'blockice_stick' && variable.attack_time" }
           ]
         },
         "frozen_bit": {
@@ -51,23 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "ice_lance": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスランス\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "ice_block": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスブロック\"}]}",
-            "/function magic/ice/ice_block"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

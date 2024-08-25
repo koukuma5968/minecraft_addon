@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.stone_magic.earth_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'earth_stick'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add earth_stick"
-          ],
-          "on_exit": [
-            "/tag @s remove earth_stick"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'earth_stick'"}
-          ]
-        }
-      }
-    },
     "controller.animation.stone_magic.earth": {
       "states": {
         "default": {
           "transitions": [
-            { "earth_shock": "!query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && !query.is_using_item && variable.attack_time" },
-            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && !query.is_using_item && variable.attack_time" },
-            { "stone_edge": "!query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && query.is_using_item" },
-            { "gravity_field": "query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && query.is_using_item" }
-          ]
-        },
-        "earth_shock": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7アースショック\"}]}",
-            "/function magic/stone/earth_shock"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "jewel_bit": "query.is_sneaking && query.get_equipped_item_name == 'earth_stick' && variable.attack_time" }
           ]
         },
         "jewel_bit": {
@@ -47,32 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "stone_edge": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンエッジ\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "gravity_field": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7グラビティフィールド\"}]}",
-            "/tag @s add gravity_field_self"
-          ],
-          "transitions": [
-            {"gravity_field_at":"(1.0)"}
-          ]
-        },
-        "gravity_field_at": {
-          "animations" : [ "gravity_field_ani" ],
-          "on_exit": [
-            "/tag @s remove gravity_field_self"
-          ],
-          "transitions": [
-            {"default":"variable.gravity_field = (variable.gravity_field ?? 0);variable.gravity_field = variable.gravity_field < 100 ? variable.gravity_field + 1:0;return variable.gravity_field == 0;"}
           ]
         }
       }

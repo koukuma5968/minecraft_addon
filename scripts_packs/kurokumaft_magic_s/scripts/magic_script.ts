@@ -1,18 +1,19 @@
-import { world,system,EntityComponentTypes,EquipmentSlot, Entity, Player, EntityEquippableComponent, EntityDamageSource } from "@minecraft/server";
-import { shieldGuard, shieldCounter } from "./shieldEvent";
-import { print, playsound, durabilityDamage, breakItem } from "./common/commonUtil";
-import { home_tp, homeSetDialog, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use, 
+import { world,Entity, Player, EntityDamageSource, MolangVariableMap } from "@minecraft/server";
+import { shieldGuard, shieldCounter } from "./weapon/shield/shieldEvent";
+import { home_tp, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use, 
     grimoire_summon_use, grimoire_summon_Release } from "./magicItem";
-import { magic_lectern, magic_lectern_break } from "./magicBlock";
+import { magic_lectern_break } from "./magicBlock";
 import { magicAmor } from "./magic/magicAmorEvent";
 import { fireStorm } from "./magic/imperial";
-import { registerCustomComponentFunction } from "./custom/CustomComponentRegistry";
+import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
+import { magicBowShot } from "./weapon/bow/BowWeaponMagic";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
 // ワールド接続時
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
-    registerCustomComponentFunction(initEvent);
+    initRegisterCustom(initEvent);
+    initStateChangeMonitor(initEvent);
 });
 
 // エンティティを右クリック
@@ -140,7 +141,11 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
         if (item.typeId == "kurokumaft:fire_grimoire") {
             grimoire_summon_Release(player, item, duration);
         }
+        if (player.getDynamicProperty("BowShotMagicCharge")) {
+            magicBowShot(player, item, duration);
+        }
     }
+
 });
 
 // ブロック右クリック後

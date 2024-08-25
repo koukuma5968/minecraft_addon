@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.freeze_magic.freeze_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'freeze_rod'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add freeze_rod"
-          ],
-          "on_exit": [
-            "/tag @s remove freeze_rod"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'freeze_rod'"}
-          ]
-        }
-      }
-    },
     "controller.animation.freeze_magic.freeze": {
       "states": {
         "default": {
           "transitions": [
-            { "ice_bread": "!query.is_sneaking && query.get_equipped_item_name == 'freeze_rod' && !query.is_using_item && variable.attack_time" },
-            { "ice_needle": "query.is_sneaking && query.get_equipped_item_name == 'freeze_rod' && !query.is_using_item && variable.attack_time" },
-            { "ice_barrette": "!query.is_sneaking && query.get_equipped_item_name == 'freeze_rod' && query.is_using_item" },
-            { "freez_conclusion": "query.is_sneaking && query.get_equipped_item_name == 'freeze_rod' && query.is_using_item" }
-          ]
-        },
-        "ice_bread": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスブレード\"}]}",
-            "/function magic/ice/ice_bread"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "ice_needle": "query.is_sneaking && query.get_equipped_item_name == 'freeze_rod' && !query.is_using_item && variable.attack_time" }
           ]
         },
         "ice_needle": {
@@ -53,28 +21,7 @@
           "transitions": [
             {"default":"variable.ice_needle = (variable.ice_needle ?? 0);variable.ice_needle = variable.ice_needle < 10 ? variable.ice_needle + 1:0;return variable.ice_needle == 0;"}
           ]
-        },
-        "ice_barrette": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスバレット\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "freez_conclusion": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fフリーズコフィン\"}]}",
-            "/tag @s add freez_conclusion_self",
-            "/function magic/ice/freez_conclusion"
-          ],
-          "on_exit": [
-            "/tag @s remove freez_conclusion_self"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        }
+       }
       }
     }
   }

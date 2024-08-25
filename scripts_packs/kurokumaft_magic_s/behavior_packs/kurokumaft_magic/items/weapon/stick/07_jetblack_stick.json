@@ -45,7 +45,10 @@
       },
       "minecraft:use_modifiers": {
         "use_duration": 1
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:stick_magic"
+      ]
     }
   }
 }

@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.lightning_magic.lightningstrike_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'lightningstrike_stick'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add lightningstrike_stick"
-          ],
-          "on_exit": [
-            "/tag @s remove lightningstrike_stick"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'lightningstrike_stick'"}
-          ]
-        }
-      }
-    },
     "controller.animation.lightning_magic.lightningstrike": {
       "states": {
         "default": {
           "transitions": [
-            { "spark_shock": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && !query.is_using_item && variable.attack_time" },
-            { "thunder_bit": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && !query.is_using_item && variable.attack_time" },
-            { "thunder_lance": "!query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" },
-            { "lightningstrike": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && query.is_using_item" }
-          ]
-        },
-        "spark_shock": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6スパークショック\"}]}",
-            "/function magic/lightning/spark_shock"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "thunder_bit": "query.is_sneaking && query.get_equipped_item_name == 'lightningstrike_stick' && variable.attack_time" }
           ]
         },
         "thunder_bit": {
@@ -47,32 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "thunder_lance": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダーランス\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "lightningstrike": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングストライク\"}]}",
-            "/tag @s add lightningstrike_self"
-          ],
-          "transitions": [
-            {"lightningstrike_at":"(1.0)"}
-          ]
-        },
-        "lightningstrike_at": {
-          "animations" : [ "lightningstrike_ani" ],
-          "on_exit": [
-            "/tag @s remove lightningstrike_self"
-          ],
-          "transitions": [
-            {"default":"variable.lightningstrike = (variable.lightningstrike ?? 0);variable.lightningstrike = variable.lightningstrike < 100 ? variable.lightningstrike + 1:0;return variable.lightningstrike == 0;"}
           ]
         }
       }

@@ -51,9 +51,6 @@
           "use_motion_prediction_hints": true
         }
       }
-    },
-
-    "events": {
     }
   }
 }

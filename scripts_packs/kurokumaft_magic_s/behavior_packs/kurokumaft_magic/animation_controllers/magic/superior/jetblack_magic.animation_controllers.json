@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.dark_magic.jetblack_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'jetblack_stick'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add jetblack_stick"
-          ],
-          "on_exit": [
-            "/tag @s remove jetblack_stick"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'jetblack_stick'"}
-          ]
-        }
-      }
-    },
     "controller.animation.dark_magic.jetblack": {
       "states": {
         "default": {
           "transitions": [
-            { "jetblack_shock": "!query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && !query.is_using_item && variable.attack_time" },
-            { "night_bit": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && !query.is_using_item && variable.attack_time" },
-            { "dark_lance": "!query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" },
-            { "black_hole": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && query.is_using_item" }
-          ]
-        },
-        "jetblack_shock": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ジェットブラック\"}]}",
-            "/function magic/dark/jetblack_shock"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "night_bit": "query.is_sneaking && query.get_equipped_item_name == 'jetblack_stick' && variable.attack_time" }
           ]
         },
         "night_bit": {
@@ -47,25 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "dark_lance": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ダークランス\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "black_hole": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ブラックホール\"}]}",
-            "/tag @s add black_hole_self",
-            "/tag @e[tag=!black_hole_self,family=!black_hole,r=10] add black_hole_target",
-            "/function magic/dark/black_hole"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

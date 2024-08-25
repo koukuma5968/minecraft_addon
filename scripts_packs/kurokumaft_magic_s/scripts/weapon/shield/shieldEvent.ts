@@ -1,7 +1,7 @@
 import { system,Player,Entity,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,
     ItemDurabilityComponent,EntityApplyDamageOptions
  } from "@minecraft/server";
-import { print, playsound, durabilityDamage, breakItem } from "./common/commonUtil"
+import { playsound, durabilityDamage, breakItem } from "../../common/commonUtil"
 
 // シールドガード
 /**

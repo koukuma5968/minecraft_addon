@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.fire_magic.blaze_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'blaze_stick'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add blaze_stick"
-          ],
-          "on_exit": [
-            "/tag @s remove blaze_stick"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'blaze_stick'"}
-          ]
-        }
-      }
-    },
     "controller.animation.fire_magic.blaze": {
       "states": {
         "default": {
           "transitions": [
-            { "flame_shock": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && !query.is_using_item && variable.attack_time" },
-            { "flare_bit": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && !query.is_using_item && variable.attack_time" },
-            { "valleleflair": "!query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" },
-            { "blastbomb": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && query.is_using_item" }
-          ]
-        },
-        "flame_shock": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムショック\"}]}",
-            "/function magic/fire/flame_shock"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "flare_bit": "query.is_sneaking && query.get_equipped_item_name == 'blaze_stick' && variable.attack_time" }
           ]
         },
         "flare_bit": {
@@ -47,27 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "valleleflair": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cヴァルフレア\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "blastbomb": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cブラストボム\"}]}",
-            "/tag @s add blastbomb_self",
-            "/function magic/fire/blastbomb"
-          ],
-          "on_exit": [
-            "/tag @s remove blastbomb_self"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

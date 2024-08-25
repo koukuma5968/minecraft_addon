@@ -11,6 +11,15 @@ function print(text:Object) {
     world.sendMessage(text + "");
 };
 
+// 制限
+/**
+ * @param {number} min
+ * @param {number} max
+ */
+function clamp(value:number, min:number, max:number) {
+    return Math.min(Math.max(value, min), max);
+};
+
 // 乱数
 /**
  * @param {number} min
@@ -96,4 +105,4 @@ const MusicRecodes = Object.freeze([
     "record.otherside"
 ]);
 
-export { print, getRandomInRange, playsound, durabilityDamage, breakItem, CraftBlocks, MusicRecodes };
+export { print, clamp, getRandomInRange, playsound, durabilityDamage, breakItem, CraftBlocks, MusicRecodes };

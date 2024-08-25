@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.water_magic.watercurrent_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'watercurrent_stick'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add watercurrent_stick"
-          ],
-          "on_exit": [
-            "/tag @s remove watercurrent_stick"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'watercurrent_stick'"}
-          ]
-        }
-      }
-    },
     "controller.animation.water_magic.watercurrent": {
       "states": {
         "default": {
           "transitions": [
-            { "aqua_shock": "!query.is_sneaking && query.get_equipped_item_name == 'watercurrent_stick' && !query.is_using_item && variable.attack_time" },
-            { "aqua_bit": "query.is_sneaking && query.get_equipped_item_name == 'watercurrent_stick' && !query.is_using_item && variable.attack_time" },
-            { "aqua_shot": "!query.is_sneaking && query.get_equipped_item_name == 'watercurrent_stick' && query.is_using_item" },
-            { "tidal_wave": "query.is_sneaking && query.get_equipped_item_name == 'watercurrent_stick' && query.is_using_item" }
-          ]
-        },
-        "aqua_shock": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bアクアショック\"}]}",
-            "/function magic/water/aqua_shock"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "aqua_bit": "query.is_sneaking && query.get_equipped_item_name == 'watercurrent_stick' && variable.attack_time" }
           ]
         },
         "aqua_bit": {
@@ -47,47 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "aqua_shot": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bアクアショット\"}]}",
-            "/tag @s add aqua_shot_self",
-            "/tag @e[tag=!aqua_shot_self,family=!inanimate,type=!item,c=4,r=10] add aqua_shot1"
-          ],
-          "transitions": [
-            {"aqua_shot_at":"(1.0)"}
-          ]
-        },
-        "aqua_shot_at": {
-          "animations" : [ "aqua_shot_ani" ],
-          "on_exit": [
-            "/tag @s remove aqua_shot_self",
-            "/tag @e[tag=aqua_shot1] remove aqua_shot1"
-          ],
-          "transitions": [
-            {"default":"variable.aqua_shot_magic = (variable.aqua_shot_magic ?? 0);variable.aqua_shot_magic = variable.aqua_shot_magic < 40 ? variable.aqua_shot_magic + 1:0;return variable.aqua_shot_magic == 0 && !query.is_using_item;"}
-          ]
-        },
-        "tidal_wave": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bタイダルウェイブ\"}]}",
-            "/tag @s add tidal_wave_self",
-            "/function magic/water/tidal_wave/tidal_wave1"
-          ],
-          "transitions": [
-            {"tidal_wave_at":"(1.0)"}
-          ]
-        },
-        "tidal_wave_at": {
-          "animations" : [ "tidal_wave_ani" ],
-          "on_exit": [
-            "/tag @s remove tidal_wave_self",
-            "/tag @e[tag=tidal_wave] remove tidal_wave",
-            "/tag @e[tag=tidal_wave_at] remove tidal_wave_at"
-          ],
-          "transitions": [
-            {"default":"variable.tidal_wave_magic = (variable.tidal_wave_magic ?? 0);variable.tidal_wave_magic = variable.tidal_wave_magic < 100 ? variable.tidal_wave_magic + 1:0;return variable.tidal_wave_magic == 0 && !query.is_using_item;"}
           ]
         }
       }

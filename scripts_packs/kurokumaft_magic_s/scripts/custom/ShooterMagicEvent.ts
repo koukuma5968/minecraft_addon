@@ -1,6 +1,6 @@
 import { ItemComponentTypes, ItemCooldownComponent, ItemStack, Player, Vector3 } from "@minecraft/server"
 import { getAdjacentSphericalPoints } from "../common/ShooterPoints";
-import { getRandomInRange } from "../common/commonUtil";
+import { print, getRandomInRange } from "../common/commonUtil";
 
 /**
  * 投擲系魔法
@@ -26,4 +26,36 @@ function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:Vector
 
 }
 
-export {throwing};
+/**
+ * 投射系魔法
+ * @param {Player} player
+ * @param {ItemStack} item
+ * @param {string} throwItem
+ * @param {Vector3} ranNum
+ */
+function shooting(player:Player, item:ItemStack, throwItem:string, ranNum:Vector3, seepd:number) {
+
+    let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
+
+    let xpos = Math.floor(xlocation! + ranNum.x) as number;
+    let ypos = Math.floor(ylocation! + ranNum.y) as number;
+    let zpos = Math.floor(zlocation! + ranNum.z) as number;
+
+    let bulet = player.dimension.spawnEntity(throwItem, 
+        {
+            x:xlocation! + ranNum.x,
+            y:ylocation! + ranNum.y,
+            z:zlocation! + ranNum.z
+        }
+    );
+    // item.amount++;
+    // bulet.teleport({x:xlocation! + ranNum.x, y:ylocation! + ranNum.y, z:zlocation! + ranNum.z},
+    //     {
+    //         rotation: {x:5,y:0},
+    //     }
+    // );
+    
+    bulet.applyImpulse({x:xapply! * seepd,y:yapply! * seepd,z:zapply! * seepd});
+
+}
+export {throwing, shooting};

@@ -2,7 +2,7 @@ import { Vector2, Vector3 } from "@minecraft/server";
 import { print } from "./commonUtil";
 
 /**
- * 弾丸発射位置
+ * 投擲発射位置
  * @param {Vector2} rotation
  * @param {Vector3} location
  */

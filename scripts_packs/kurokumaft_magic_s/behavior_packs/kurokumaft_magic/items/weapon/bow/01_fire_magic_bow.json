@@ -23,7 +23,8 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "fire_magic_bow"
+          "default": "fire_magic_bow",
+          "pulling": "fire_magic_bow_pulling"
         }
       },
       "minecraft:repairable": {
@@ -41,8 +42,7 @@
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
       "minecraft:use_modifiers": {
-        "movement_modifier": 0.25,
-        "use_duration": 1.0
+        "movement_modifier": 0.5
       },
       "minecraft:custom_components": [
         "kurokumaft:bow_magic"

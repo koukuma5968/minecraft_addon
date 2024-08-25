@@ -1,15 +1,15 @@
 {
 	"format_version": 2,
 	"header": {
-		"description": "ウルトラ怪獣アドオン",
-		"name": "kurokuma_ultra_monster_b",
+		"description": "ultraMonster",
+		"name": "ウルトラ怪獣アドオンB",
 		"uuid": "0d457a2b-3fc8-47d4-ab95-419f32fdfba0",
 		"version": [1,0,0],
 		"min_engine_version": [1,16,0]
 	},
 	"modules": [
 		{
-			"description": "ウルトラ怪獣アドオン",
+			"description": "ウルトラ怪獣アドオンB",
 			"type": "data",
 			"uuid": "02fc4c16-c2e3-41d0-8343-7943beb6c6b3",
 			"version": [1,0,0]
@@ -19,6 +19,14 @@
 		{
 			"uuid": "15867c6f-ad6b-42eb-8a99-6ef7f67ba21e",
 			"version": [1,0,0]
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "1.2.0"
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.13.0"
 		}
 	]
 }

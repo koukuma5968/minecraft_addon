@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            {"shield_guard":"query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:magic_shield') && query.blocking"}
+            {"shield_guard":"query.equipped_item_any_tag('slot.weapon.mainhand','shield') && query.blocking"}
           ]
         },
         "shield_guard":{
@@ -16,7 +16,7 @@
             "/tag @s remove main_shield_guard"
           ],
           "transitions": [
-            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:magic_shield') || !query.blocking"}
+            {"default":"!query.equipped_item_any_tag('slot.weapon.mainhand','shield') || !query.blocking"}
           ]
         }
       }
@@ -25,7 +25,7 @@
       "states": {
         "default": {
           "transitions": [
-            {"shield_guard":"query.equipped_item_any_tag('slot.weapon.offhand','kurokumaft:magic_shield') && query.blocking"}
+            {"shield_guard":"query.equipped_item_any_tag('slot.weapon.offhand','shield') && query.blocking"}
           ]
         },
         "shield_guard":{
@@ -36,7 +36,7 @@
             "/tag @s remove off_shield_guard"
           ],
           "transitions": [
-            {"default":"!query.equipped_item_any_tag('slot.weapon.offhand','kurokumaft:magic_shield') || !query.blocking"}
+            {"default":"!query.equipped_item_any_tag('slot.weapon.offhand','shield') || !query.blocking"}
           ]
         }
       }

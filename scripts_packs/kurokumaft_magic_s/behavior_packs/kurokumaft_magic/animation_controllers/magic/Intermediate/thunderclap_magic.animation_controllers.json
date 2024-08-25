@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.thunderclap_magic.thunderclap_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'thunderclap_rod'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add thunderclap_rod"
-          ],
-          "on_exit": [
-            "/tag @s remove thunderclap_rod"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'thunderclap_rod'"}
-          ]
-        }
-      }
-    },
     "controller.animation.thunderclap_magic.thunderclap": {
       "states": {
         "default": {
           "transitions": [
-            { "lightning_bread": "!query.is_sneaking && query.get_equipped_item_name == 'thunderclap_rod' && !query.is_using_item && variable.attack_time" },
-            { "thunder_cutter": "query.is_sneaking && query.get_equipped_item_name == 'thunderclap_rod' && !query.is_using_item && variable.attack_time" },
-            { "thunderclap": "!query.is_sneaking && query.get_equipped_item_name == 'thunderclap_rod' && query.is_using_item" },
-            { "thunder_jail": "query.is_sneaking && query.get_equipped_item_name == 'thunderclap_rod' && query.is_using_item" }
-          ]
-        },
-        "lightning_bread": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6ライトニングブレード\"}]}",
-            "/function magic/lightning/lightning_bread"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "thunder_cutter": "query.is_sneaking && query.get_equipped_item_name == 'thunderclap_rod' && variable.attack_time" }
           ]
         },
         "thunder_cutter": {
@@ -47,32 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "thunderclap": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダークラップ\"}]}",
-            "/tag @s add thunderclap_self",
-            "/function magic/lightning/thunderclap"
-          ],
-          "on_exit": [
-            "/tag @s remove thunderclap_self"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "thunder_jail": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダージェイル\"}]}",
-            "/tag @s add thunder_jail_self",
-            "/function magic/lightning/thunder_jail"
-          ],
-          "on_exit": [
-            "/tag @s remove thunder_jail_self"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

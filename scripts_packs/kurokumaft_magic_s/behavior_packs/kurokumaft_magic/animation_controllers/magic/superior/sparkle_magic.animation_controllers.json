@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.light_magic.sparkle_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'sparkle_stick'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add sparkle_stick"
-          ],
-          "on_exit": [
-            "/tag @s remove sparkle_stick"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'sparkle_stick'"}
-          ]
-        }
-      }
-    },
     "controller.animation.light_magic.sparkle": {
       "states": {
         "default": {
           "transitions": [
-            { "sparkle_light": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
-            { "flash_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" },
-            { "holly_lance": "!query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" },
-            { "holly_field": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && query.is_using_item" }
-          ]
-        },
-        "sparkle_light": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eスパークルライト\"}]}",
-            "/function magic/light/sparkle_light"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "flash_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && variable.attack_time" }
           ]
         },
         "flash_bit": {
@@ -47,23 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "holly_lance": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーランス\"}]}"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "holly_field": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eホーリーフィールド\"}]}",
-            "/function magic/light/holly_field"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }

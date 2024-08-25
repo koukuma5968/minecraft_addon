@@ -1,43 +1,11 @@
 {
   "format_version": "1.20.10",
   "animation_controllers": {
-    "controller.animation.storm_magic.storm_change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.get_equipped_item_name == 'storm_rod'" }
-          ]
-        },
-        "change": {
-          "on_entry": [
-            "/tag @s add storm_rod"
-          ],
-          "on_exit": [
-            "/tag @s remove storm_rod"
-          ],
-          "transitions": [
-            {"default":"query.get_equipped_item_name != 'storm_rod'"}
-          ]
-        }
-      }
-    },
     "controller.animation.storm_magic.storm": {
       "states": {
         "default": {
           "transitions": [
-            { "storm_bread": "!query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && !query.is_using_item && variable.attack_time" },
-            { "wind_roar": "query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && !query.is_using_item && variable.attack_time" },
-            { "storm": "!query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && query.is_using_item" },
-            { "aero_bomb": "query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && query.is_using_item" }
-          ]
-        },
-        "storm_bread": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aストームブレード\"}]}",
-            "/function magic/wind/storm_bread"
-          ],
-          "transitions": [
-            {"default":"!variable.attack_time"}
+            { "wind_roar": "query.is_sneaking && query.get_equipped_item_name == 'storm_rod' && variable.attack_time" }
           ]
         },
         "wind_roar": {
@@ -47,32 +15,6 @@
           ],
           "transitions": [
             {"default":"!variable.attack_time"}
-          ]
-        },
-        "storm": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aストーム\"}]}",
-            "/tag @s add storm_self",
-            "/function magic/wind/storm"
-          ],
-          "on_exit": [
-            "/tag @s remove storm_self"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
-          ]
-        },
-        "aero_bomb": {
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aエアロボム\"}]}",
-            "/tag @s add aero_bomb_self",
-            "/function magic/wind/aero_bomb"
-          ],
-          "on_exit": [
-            "/tag @s remove aero_bomb_self"
-          ],
-          "transitions": [
-            {"default":"!query.is_using_item"}
           ]
         }
       }
