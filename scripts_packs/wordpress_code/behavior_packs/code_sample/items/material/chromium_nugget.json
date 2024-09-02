@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:chromium_nugget",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.chromium_nugget"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+    		"value": "item.kurokumaft:chromium_nugget.name"
+      },
+      "minecraft:icon": "chromium_nugget"
+    }
+  }
+}
