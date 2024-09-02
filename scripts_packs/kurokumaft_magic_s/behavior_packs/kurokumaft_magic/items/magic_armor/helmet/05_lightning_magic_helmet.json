@@ -19,7 +19,8 @@
       },
       "minecraft:tags": {
         "tags": [
-          "minecraft:trimmable_armors"
+          "kurokumaft:magic_helmet",
+          "minecraft:transformable_items"
         ]
       },
       "minecraft:repairable": {

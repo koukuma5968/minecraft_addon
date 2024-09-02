@@ -14,7 +14,6 @@
        "height": 0.31
       },
       "minecraft:projectile": {
-   
        "on_hit": {
           "affect_projectile": true,
           "impact_damage": {
@@ -23,13 +22,6 @@
             "catch_fire": false,
             "destroy_on_hit": true,
             "semi_random_diff_damage": false
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "lightning",
-              "target": "self"
-            }
           },
           "remove_on_hit": { }
         },
@@ -44,6 +36,9 @@
       "minecraft:loot": {
         "table": "loot_tables/empty.json"
       },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
       "minecraft:physics": {
       },
       "minecraft:pushable": {
@@ -57,16 +52,6 @@
          "use_motion_prediction_hints": true
        }
      }
-    },
-    "events": {
-      "lightning": {
-        "queue_command": {
-          "command": [
-            "execute as @s run summon lightning_bolt ~~~"
-          ],
-          "target": "self"
-        }
-      }
     }
   }
 }

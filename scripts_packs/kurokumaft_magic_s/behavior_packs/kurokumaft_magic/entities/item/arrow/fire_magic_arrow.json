@@ -10,7 +10,7 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "arrow","inanimate"  ]
+        "family": [ "arrow","inanimate","magic" ]
       },
       "minecraft:collision_box": {
         "width": 0.25,
@@ -31,11 +31,6 @@
           "catch_fire": {
             "fire_affected_by_griefing": true
           },
-          "stick_in_ground": {
-            "shake_time" : 0.35
-          },
-          "arrow_effect": {
-          },
           "remove_on_hit": {}
         },
         "on_fire_time": 50,
@@ -47,6 +42,9 @@
         "anchor": 1,
         "should_bounce": true,
         "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:physics": {
       },

@@ -24,6 +24,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
             if (block.matches(block.typeId,{"kurokumaft:book_set":0})) {
                 block.setPermutation(blockPer.withState("kurokumaft:book_set", 1));
                 let grimoire_book_entity = block.dimension.spawnEntity("kurokumaft:grimoire_book_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
+                grimoire_book_entity.nameTag = "grimoire_book_table";
                 let bookObj = getGrimoireAllObjectsId(item.typeId) as GrimoireBook;
                 grimoire_book_entity.triggerEvent(bookObj.event);
                 let invent = grimoire_book_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;

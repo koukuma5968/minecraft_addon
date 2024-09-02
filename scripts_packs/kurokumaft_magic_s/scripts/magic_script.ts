@@ -1,12 +1,11 @@
-import { world,Entity, Player, EntityDamageSource, MolangVariableMap } from "@minecraft/server";
-import { shieldGuard, shieldCounter } from "./weapon/shield/shieldEvent";
-import { home_tp, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use, 
-    grimoire_summon_use, grimoire_summon_Release } from "./magicItem";
+import { world,Entity, Player, EntityDamageSource, MolangVariableMap, Dimension, Vector3, ItemStack, system, EntityInventoryComponent } from "@minecraft/server";
+import { shieldGuard, shieldCounter } from "./items/weapon/shield/shieldEvent";
+import { home_tp, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use } from "./magicItem";
 import { magic_lectern_break } from "./magicBlock";
-import { magicAmor } from "./magic/magicAmorEvent";
-import { fireStorm } from "./magic/imperial";
+import { hitMagicAmor } from "./items/weapon/armor/magicAmorHitEvent";
 import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
-import { magicBowShot } from "./weapon/bow/BowWeaponMagic";
+import { magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
+import { grimoire_summon_Release } from "./items/weapon/grimoire/SummonGrimoireMagic";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -39,7 +38,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     if (hitEn.typeId == "minecraft:player") {
         shieldGuard(hitEn as Player, true);
         shieldCounter(hitEn as Player, dameger);
-        magicAmor(hitEn as Player, dameger, undefined, undefined);
+        hitMagicAmor(hitEn as Player, dameger, undefined, undefined);
     }
     // let equ = dameger.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     // let mainItem = equ.getEquipment(EquipmentSlot.Mainhand);
@@ -57,12 +56,9 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
         shieldGuard(hitEn as Player, false);
         shieldCounter(hitEn as Player, dameger);
-        magicAmor(hitEn as Player,dameger,projectileEn, hitVector);
+        hitMagicAmor(hitEn as Player,dameger,projectileEn, hitVector);
     }
     if (projectileEn) {
-        if (projectileEn.typeId == "kurokumaft:firestormmagic") {
-            fireStorm(event.dimension, event.location);
-        }
     }
 });
 
@@ -70,9 +66,6 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
 world.afterEvents.projectileHitBlock.subscribe(event => {
     var projectileEn = event.projectile;
     if (projectileEn) {
-        if (projectileEn.typeId == "kurokumaft:firestormmagic") {
-            fireStorm(event.dimension, event.location);
-        }
     }
 });
 
@@ -123,8 +116,6 @@ world.afterEvents.itemUse.subscribe(event => {
             mowing_use(player, item);
         } else if (item.typeId == "kurokumaft:grimoire_music_sound") {
             music_sound_use(player, item);
-        } else if (item.typeId == "kurokumaft:fire_grimoire") {
-            grimoire_summon_use(player, item);
         }
     }
 });
@@ -137,12 +128,15 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     // print("itemReleaseUse");
     if (item != undefined) {
         // print(item.typeId);
-        // print(duration);
-        if (item.typeId == "kurokumaft:fire_grimoire") {
+        world.sendMessage("残り使用時間:" + duration);
+        if (player.getDynamicProperty("summon_grimoire")) {
             grimoire_summon_Release(player, item, duration);
         }
         if (player.getDynamicProperty("BowShotMagicCharge")) {
             magicBowShot(player, item, duration);
+        }
+        if (player.getDynamicProperty("gunCharge") == "full") {
+            player.setDynamicProperty("gunCharge", "release");
         }
     }
 
@@ -213,3 +207,4 @@ world.afterEvents.entitySpawn.subscribe(event => {
     // print(entity.typeId);
     // print(cause);
 });
+

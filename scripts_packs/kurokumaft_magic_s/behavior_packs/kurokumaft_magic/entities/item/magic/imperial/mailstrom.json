@@ -6,31 +6,7 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "scripts":{
-        "animate":[
-          {"damage": "query.variant == 0"}
-        ]
-      },
-      "animations":{
-        "damage": "animation.water.mailstrom.damage"
-      }
-    },
-    "component_groups": {
-      "kurokumaft:stop": {
-        "minecraft:timer": {
-          "time": [1.0,1.0],
-          "time_down_event": { 
-            "event": "kurokumaft:kill"
-          }
-        },
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "kurokumaft:kill": {
-       "minecraft:instant_despawn": {
-       }
-      }
+      "runtime_identifier": "minecraft:armor_stand"
     },
     "components": {
       "minecraft:type_family": {
@@ -73,29 +49,6 @@
         "is_pushable_by_piston": false
       },
       "minecraft:conditional_bandwidth_optimization": {
-      }
-    },
-    "events": {
-      "kurokumaft:stop": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:stop"
-          ]
-        },
-        "queue_command": {
-          "command": [
-            "tag @e[tag=mailstrom_self] remove mailstrom_self",
-            "tag @e[tag=mailstrom_target] remove mailstrom_target"
-          ],
-          "target": "self"
-        }
-      },
-      "kurokumaft:kill": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:kill"
-          ]
-        }
       }
     }
   }

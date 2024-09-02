@@ -42,7 +42,7 @@
         "offset": [ 0, -0.1, 0 ]
       },
       "minecraft:timer": {
-        "randomInterval": false,
+        "randomInterval": true,
         "time": [5.0,5.0],
         "time_down_event": {
           "event": "kill_time",

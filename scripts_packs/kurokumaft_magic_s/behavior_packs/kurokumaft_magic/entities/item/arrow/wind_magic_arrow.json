@@ -8,9 +8,16 @@
       "is_experimental": false,
       "runtime_identifier": "minecraft:arrow"
     },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
+
     "components": {
       "minecraft:type_family": {
-        "family": [ "arrow","inanimate" ]
+        "family": [ "arrow","inanimate","magic" ]
       },
       "minecraft:collision_box": {
         "width": 0.25,
@@ -23,6 +30,7 @@
             "knockback": false,
             "catch_fire": false,
             "semi_random_diff_damage": false,
+            "destroy_on_hit": false,
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
@@ -33,11 +41,6 @@
             "durationnormal": 250,
             "durationhard": 250,
             "amplifier": 2
-          },
-          "stick_in_ground": {
-            "shake_time" : 0.35
-          },
-          "arrow_effect": {
           }
         },
         "filter": "minecraft:player",
@@ -50,10 +53,13 @@
         "should_bounce": true,
         "offset": [ 0, -0.1, 0 ]
       },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
       "minecraft:timer": {
         "time": [2.5,2.5],
         "time_down_event": { 
-          "event": "despawn"
+          "event": "on_breaking"
         }
       },
       "minecraft:behavior.hurt_by_target": {
@@ -81,12 +87,11 @@
     },
 
     "events": {
-      "despawn": {
-        "queue_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

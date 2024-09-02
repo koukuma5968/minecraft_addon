@@ -12,7 +12,7 @@
       },
       "geometry": "geometry.default",
       "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "array.bazooka_texture_frames[query.variant]", "texture.enchanted" ]
+      "textures": [ "array.bazooka_texture_frames[variable.charge_amount]", "texture.enchanted" ]
     }
   }
 }

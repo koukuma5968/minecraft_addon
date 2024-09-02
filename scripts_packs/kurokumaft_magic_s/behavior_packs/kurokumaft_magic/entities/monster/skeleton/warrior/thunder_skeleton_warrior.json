@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "undead", "magic", "skeleton", "monster", "thunder" ]
+        "family": [ "undead", "skeleton", "monster", "thunder" ]
       },
       "minecraft:behavior.melee_attack": {
         "priority": 1,

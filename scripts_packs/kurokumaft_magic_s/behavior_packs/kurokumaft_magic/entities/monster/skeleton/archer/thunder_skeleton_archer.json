@@ -18,7 +18,7 @@
         "height": 1.9
       },
       "minecraft:type_family": {
-        "family": [ "skeleton", "magic", "undead", "monster", "lightning" ]
+        "family": [ "skeleton", "undead", "monster", "lightning" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,

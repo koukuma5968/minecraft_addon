@@ -20,6 +20,10 @@
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 4,
+          "max": 8
+        },
         "max_durability": 2500
       },
       "minecraft:repairable": {
@@ -57,13 +61,9 @@
         "category": "ice_magic_bread",
         "duration": 5.0
       },
-      "minecraft:shooter" : {
-        "charge_on_draw": true,
-        "scale_power_by_draw_duration": false
-      },
-      "minecraft:use_modifiers": {
-        "use_duration": 9999
-      }
+      "minecraft:custom_components": [
+        "kurokumaft:bread_magic"
+      ]
     }
   }
 }

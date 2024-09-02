@@ -19,13 +19,14 @@
       },
       "minecraft:tags": {
         "tags": [
-          "minecraft:trimmable_armors"
+          "kurokumaft:magic_helmet",
+          "minecraft:transformable_items"
         ]
       },
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:magma","kurokumaft:water_magic_stone" ],
+            "items": [ "minecraft:magma","kurokumaft:fire_magic_stone" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {

@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "stone_needle": "query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && variable.attack_time" }
+            { "stone_needle": "query.is_sneaking && query.get_equipped_item_name == 'rock_rod' && !query.is_using_item && variable.attack_time" }
           ]
         },
         "stone_needle": {

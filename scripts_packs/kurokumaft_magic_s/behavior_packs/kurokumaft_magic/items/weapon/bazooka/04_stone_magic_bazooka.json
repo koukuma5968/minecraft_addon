@@ -10,6 +10,10 @@
     },
     "components": {
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 4,
+          "max": 8
+        },
         "max_durability": 1500
       },
       "minecraft:enchantable": {
@@ -60,7 +64,10 @@
         "charge_on_draw" : true,
         "max_draw_duration": 1.0,
         "scale_power_by_draw_duration": true
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:bazooka_magic"
+      ]
     }
   }
 }

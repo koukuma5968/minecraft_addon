@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:magic_boots"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nether_stone_magic_boots.name"
 			},

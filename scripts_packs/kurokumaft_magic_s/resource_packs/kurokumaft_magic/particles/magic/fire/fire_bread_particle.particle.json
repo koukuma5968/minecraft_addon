@@ -9,15 +9,14 @@
 			}
 		},
 		"components": {
-			"minecraft:emitter_rate_steady": {
-				"spawn_rate": 50,
-				"max_particles": 150
+			"minecraft:emitter_rate_instant": {
+				"num_particles": 15
 			},
 			"minecraft:emitter_lifetime_once": {
-				"active_time": 2
+				"active_time": 0.1
 			},
 			"minecraft:emitter_shape_sphere": {
-				"offset": ["math.random(-0.5, 0.5)", -0.25, 0],
+				"offset": ["math.random(-0.5, 0.5)", 0.25, 0],
 				"radius": "math.random(0, 0.25)",
 				"direction": "outwards"
 			},

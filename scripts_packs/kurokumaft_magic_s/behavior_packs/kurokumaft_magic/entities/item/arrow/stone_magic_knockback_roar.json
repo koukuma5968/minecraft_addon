@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "arrow","inanimate"  ]
+        "family": [ "arrow","inanimate","magic" ]
       },
       "minecraft:collision_box": {
         "width": 0.25,

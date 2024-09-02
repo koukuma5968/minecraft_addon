@@ -8,11 +8,7 @@
       "is_experimental": false,
       "runtime_identifier": "minecraft:arrow"
     },
-    "component_groups": {
-      "kurokumaft:center": {
-      }
-     },
-     "components": {
+    "components": {
       "minecraft:type_family": {
         "family": [ "arrow","inanimate"  ]
       },
@@ -73,17 +69,6 @@
           "max_optimized_distance": 80.0,
           "max_dropped_ticks": 7,
           "use_motion_prediction_hints": true
-        }
-      }
-    },
-
-    "events": {
-      "dark": {
-        "queue_command": {
-          "command": [
-            "function magic/dark/dark_arrow"
-          ],
-          "target": "self"
         }
       }
     }

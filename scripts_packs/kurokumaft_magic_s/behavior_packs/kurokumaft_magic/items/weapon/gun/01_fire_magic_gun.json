@@ -40,10 +40,18 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
+      "minecraft:shooter": {
+        "charge_on_draw" : true,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
       "minecraft:use_modifiers": {
-        "use_duration": 9999,
-        "movement_modifier": 0.25
-      }
+        "movement_modifier": 0.25,
+        "use_duration": 15
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:gun_magic"
+      ]
     }
   }
 }

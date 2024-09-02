@@ -21,7 +21,7 @@
       },
       "geometry": "geometry.default",
       "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "array.gun_texture_frames[query.variant >= 10 ? 10 : query.variant]", "texture.enchanted" ]
+      "textures": [ "array.gun_texture_frames[variable.charge_amount]", "texture.enchanted" ]
     }
   }
 }

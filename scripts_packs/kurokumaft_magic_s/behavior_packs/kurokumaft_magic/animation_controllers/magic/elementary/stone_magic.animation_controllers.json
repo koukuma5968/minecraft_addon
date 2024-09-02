@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "stonewall": "query.is_sneaking && query.get_equipped_item_name == 'stone_wand' && variable.attack_time" }
+            { "stonewall": "query.is_sneaking && query.get_equipped_item_name == 'stone_wand' && !query.is_using_item && variable.attack_time" }
           ]
         },
         "stonewall": {

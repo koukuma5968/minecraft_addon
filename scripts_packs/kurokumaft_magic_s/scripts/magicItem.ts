@@ -1,12 +1,11 @@
 import { world,system,Player,Block,Entity,EntityComponentTypes,ItemStack,Direction,ItemComponentTypes,Dimension
     ,EntityInventoryComponent,
     ItemCooldownComponent,
-    ItemDurabilityComponent,
     Container
  } from "@minecraft/server";
 import { print, CraftBlocks, MusicRecodes } from "./common/commonUtil";
-import MagicBookComponent from "./magic/MagicBookComponent";
 import { ModalFormData } from "@minecraft/server-ui";
+import { decrimentGrimoireCount } from "./common/ItemDurabilityDamage";
 
 // 帰還の実で転移
 /**
@@ -703,82 +702,5 @@ function music_sound_use(player:Player, item:ItemStack) {
     decrimentGrimoireCount(player, item);
 };
 
-// 魔導書オブジェクトを保持するリストを作成
-const magicBookList:Array<MagicBookComponent> = [];
-
-// 魔導書（召喚）使用開始
-/**
- * @param {Player} player
- * @param {ItemStack} item
- */
-function grimoire_summon_use(player:Player, item:ItemStack) {
-    let particle = "";
-    if (item.typeId == "kurokumaft:fire_grimoire") {
-        particle = "kurokumaft:fire_bread_particle";
-    }
-    player.runCommand("particle " + particle + " ~~0.75~");
-    let intervalNum = system.runInterval(() => {
-        player.runCommand("particle " + particle + " ~~0.75~");
-    }, 10);
-    let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-    let magicBook = new MagicBookComponent(player.id, item, durability.damage, intervalNum);
-    magicBookList.push(magicBook);
-    system.runTimeout(() => {
-        system.clearRun(intervalNum);
-    }, 60);
-
-};
-
-// 魔導書（召喚）使用解放
-/**
- * @param {Player} player
- * @param {ItemStack} item
- * @param {number} duration
- */
-function grimoire_summon_Release(player:Player, item:ItemStack, duration:number) {
-    let magicBook = magicBookList.find(book => book.isPlayerId(player.id)) as MagicBookComponent;
-    if (duration <= 900) {
-        let inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-        let grimoire_damage = new ItemStack(item.typeId, 1);
-        let grimoire_dur = grimoire_damage.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-        let item_dur = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-
-        grimoire_dur.damage = item_dur.damage + 1;
-        if (item_dur.maxDurability != grimoire_dur.damage) {
-            let con = inventory.container as Container;
-            con.setItem(player.selectedSlotIndex, grimoire_damage);
-        }
-    }
-
-    let delIndex = magicBookList.findIndex(book => book.isPlayerId(player.id));
-    if (delIndex != -1) {
-        magicBookList.splice(delIndex, 1);
-    }
-    system.clearRun(magicBook.getIntervalNum());
-
-};
-
-// 魔導書耐久減少
-/**
- * @param {Player} player
- * @param {ItemStack} item
- */
-function decrimentGrimoireCount(player:Player, item:ItemStack) {
-    let lore = item.getLore();
-    if (lore.length > 0) {
-        let cont = Number(lore[0].substr(3));
-        cont--;
-        let inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-        let con = inventory.container as Container;
-        if (cont == 0) {
-            let grimoire_damage = new ItemStack("kurokumaft:grimoire_damage", 1);
-            con.setItem(player.selectedSlotIndex, grimoire_damage);
-        } else {
-            item.setLore(["残数：" + cont]);
-            con.setItem(player.selectedSlotIndex, item);
-        }
-    }
-}
-
 export { home_tp, homeSetDialog, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, 
-    mowing_use, music_sound_use, grimoire_summon_use, grimoire_summon_Release };
+    mowing_use, music_sound_use };

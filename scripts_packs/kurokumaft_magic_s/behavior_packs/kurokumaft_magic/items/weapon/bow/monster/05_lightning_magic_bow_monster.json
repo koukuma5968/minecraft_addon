@@ -10,6 +10,10 @@
     "components": {
       "minecraft:damage": 2,
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 4,
+          "max": 8
+        },
         "max_durability": 1500
       },
       "minecraft:enchantable": {

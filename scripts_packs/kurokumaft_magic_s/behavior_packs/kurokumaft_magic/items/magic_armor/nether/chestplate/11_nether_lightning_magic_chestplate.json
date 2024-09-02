@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:magic_chestplate"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nether_lightning_magic_chest.name"
 			},

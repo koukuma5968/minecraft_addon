@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:magic_leggings"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nether_ice_magic_leggings.name"
 			},

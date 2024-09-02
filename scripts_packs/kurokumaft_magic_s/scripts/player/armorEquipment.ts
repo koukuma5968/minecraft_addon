@@ -1,6 +1,10 @@
 import { EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, Player, system, world } from "@minecraft/server";
+import { MagicHelmetSurveillance } from "../items/weapon/armor/MagicHelmetSurveillance";
+import { MagicChestSurveillance } from "../items/weapon/armor/MagicChestSurveillance";
+import { MagicLeggingsSurveillance } from "../items/weapon/armor/MagicLeggingsSurveillance";
+import { MagicBootsSurveillance } from "../items/weapon/armor/MagicBootsSurveillance";
 
-function checkPlayerEquTick() {
+async function checkPlayerEquTick() {
 
     let players = world.getPlayers() as Player[];
 
@@ -30,6 +34,38 @@ function checkPlayerEquTick() {
                     player.removeTag("main_shield_guard");
                 }
             }
+        }
+        let head = equ.getEquipment(EquipmentSlot.Head);
+        if (head) {
+            if (!player.getDynamicProperty("magic_helmet_equ")) {
+                new MagicHelmetSurveillance(player, head).checkMagicHelmetTick();
+            }
+        } else {
+            player.setDynamicProperty("magic_helmet_equ", false);
+        }
+        let chest = equ.getEquipment(EquipmentSlot.Chest);
+        if (chest) {
+            if (!player.getDynamicProperty("magic_chest_equ")) {
+                new MagicChestSurveillance(player, chest).checkMagicChestTick();
+            }
+        } else {
+            player.setDynamicProperty("magic_chest_equ", false);
+        }
+        let legs = equ.getEquipment(EquipmentSlot.Legs);
+        if (legs) {
+            if (!player.getDynamicProperty("magic_leg_equ")) {
+                new MagicLeggingsSurveillance(player, legs).checkMagicLeggingsTick();
+            }
+        } else {
+            player.setDynamicProperty("magic_leg_equ", false);
+        }
+        let feet = equ.getEquipment(EquipmentSlot.Feet);
+        if (feet) {
+            if (!player.getDynamicProperty("magic_boot_equ")) {
+                new MagicBootsSurveillance(player, feet).checkMagicBootsTick();
+            }
+        } else {
+            player.setDynamicProperty("magic_boot_equ", false);
         }
     }
 

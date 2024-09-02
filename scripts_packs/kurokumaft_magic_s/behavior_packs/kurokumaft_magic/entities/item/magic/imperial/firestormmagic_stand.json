@@ -6,31 +6,7 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "scripts":{
-        "animate":[
-          {"damage": "query.variant == 0"}
-        ]
-      },
-      "animations":{
-        "damage": "animation.fire.firestormmagic.damage"
-      }
-    },
-    "component_groups": {
-      "kurokumaft:stop": {
-        "minecraft:timer": {
-          "time": [1.0,1.0],
-          "time_down_event": { 
-            "event": "kurokumaft:kill"
-          }
-        },
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "kurokumaft:kill": {
-       "minecraft:instant_despawn": {
-       }
-      }
+      "runtime_identifier": "minecraft:armor_stand"
     },
     "components": {
       "minecraft:type_family": {
@@ -38,12 +14,6 @@
       },
       "minecraft:variant": {
         "value": 0
-      },
-      "minecraft:timer": {
-        "time": [10.0,10.0],
-        "time_down_event": { 
-          "event": "kurokumaft:stop"
-        }
       },
       "minecraft:collision_box": {
         "width": 0.1,
@@ -73,30 +43,6 @@
         "is_pushable_by_piston": false
       },
       "minecraft:conditional_bandwidth_optimization": {
-      }
-    },
-
-    "events": {
-      "kurokumaft:stop": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:stop"
-          ]
-        },
-        "queue_command": {
-          "command": [
-            "tag @e[tag=firestormmagic_self] remove firestormmagic_self",
-            "tag @e[tag=firestormmagic_target] remove firestormmagic_target"
-          ],
-          "target": "self"
-        }
-      },
-      "kurokumaft:kill": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:kill"
-          ]
-        }
       }
     }
   }

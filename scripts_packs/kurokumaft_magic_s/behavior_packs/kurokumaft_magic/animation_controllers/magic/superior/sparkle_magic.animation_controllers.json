@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "flash_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && variable.attack_time" }
+            { "flash_bit": "query.is_sneaking && query.get_equipped_item_name == 'sparkle_stick' && !query.is_using_item && variable.attack_time" }
           ]
         },
         "flash_bit": {

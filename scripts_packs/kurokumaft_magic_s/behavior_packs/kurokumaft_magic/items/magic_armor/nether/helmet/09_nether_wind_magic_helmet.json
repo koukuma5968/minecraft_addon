@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:magic_helmet"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nether_wind_magic_helmet.name"
 			},

@@ -41,9 +41,12 @@
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
       "minecraft:use_modifiers": {
-        "use_duration": 9999,
-        "movement_modifier": 0.25
-      }
+        "movement_modifier": 0.25,
+        "use_duration": 10
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:gun_magic"
+      ]
     }
   }
 }

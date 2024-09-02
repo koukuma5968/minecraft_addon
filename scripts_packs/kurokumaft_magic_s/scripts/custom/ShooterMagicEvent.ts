@@ -32,14 +32,11 @@ function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:Vector
  * @param {ItemStack} item
  * @param {string} throwItem
  * @param {Vector3} ranNum
+ * @param {string} event
  */
-function shooting(player:Player, item:ItemStack, throwItem:string, ranNum:Vector3, seepd:number) {
+function shooting(player:Player, throwItem:string, ranNum:Vector3, seepd:number, event:string | undefined) {
 
     let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
-
-    let xpos = Math.floor(xlocation! + ranNum.x) as number;
-    let ypos = Math.floor(ylocation! + ranNum.y) as number;
-    let zpos = Math.floor(zlocation! + ranNum.z) as number;
 
     let bulet = player.dimension.spawnEntity(throwItem, 
         {
@@ -48,13 +45,11 @@ function shooting(player:Player, item:ItemStack, throwItem:string, ranNum:Vector
             z:zlocation! + ranNum.z
         }
     );
-    // item.amount++;
-    // bulet.teleport({x:xlocation! + ranNum.x, y:ylocation! + ranNum.y, z:zlocation! + ranNum.z},
-    //     {
-    //         rotation: {x:5,y:0},
-    //     }
-    // );
     
+    if (event) {
+        bulet.triggerEvent(event);
+    }
+
     bulet.applyImpulse({x:xapply! * seepd,y:yapply! * seepd,z:zapply! * seepd});
 
 }
