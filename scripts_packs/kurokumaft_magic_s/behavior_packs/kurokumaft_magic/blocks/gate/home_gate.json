@@ -1,0 +1,35 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:home_gate",
+			"is_experimental": false,
+            "register_to_creative_menu": false,
+			"menu_category": {
+				"category": "items"
+			}
+        },
+		"components": {
+            "minecraft:selection_box": {
+				"origin": [-8.0, 0.0, -8.0],
+				"size": [16.0, 2.0, 16.0]
+			},
+			"minecraft:collision_box": {
+				"origin": [-8.0, 0.0, -8.0],
+				"size": [16.0, 2.0, 16.0]
+			},
+            "minecraft:geometry": "geometry.home_gate",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "home_gate",
+                    "face_dimming": false,
+					"render_method": "blend"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 10.0
+			},
+			"minecraft:flammable": false
+        }
+    }
+}

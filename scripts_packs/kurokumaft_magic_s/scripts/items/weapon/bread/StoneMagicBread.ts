@@ -1,36 +1,17 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
+import { Entity, EntityDamageCause, Player } from "@minecraft/server";
+import { getRandomInRange } from "../../../common/commonUtil";
 import { shooting } from "../../../custom/ShooterMagicEvent";
 
 /**
  * 岩割刃(がんかつじん)
  */
-export async function stoneDesires(player:Player) {
-    player.addTag("stone_desires");
-
-    let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 2);
-    let targets = player.dimension.getEntities({
-        excludeTags: [
-            "stone_desires"
-        ],
-        excludeFamilies: [
-            "inanimate", "magic", "player"
-        ],
-        excludeTypes: [
-            "item"
-        ],
-        location: {x:xlocation!, y:player.location.y + 0.5, z:zlocation!},
-        maxDistance: 3,
-        closest: 1
-    });
-
-    targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:stone_desires_particle ~~~");
-        en.applyDamage(5, {
-            cause: EntityDamageCause.piston
+export async function stoneDesires(entity:Entity) {
+    if (entity != undefined && entity.isValid()) {
+        entity.dimension.spawnParticle("kurokumaft:stone_desires_particle", entity.location);
+        entity.applyDamage(5, {
+            cause: EntityDamageCause.thorns
         });
-    });
-    player.removeTag("stone_desires");
+    }
 }
 
 /**

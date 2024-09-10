@@ -1,4 +1,5 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * ストーム
@@ -10,7 +11,7 @@ export async function storm(player:Player) {
             "storm_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -24,7 +25,7 @@ export async function storm(player:Player) {
         en.runCommand("/particle kurokumaft:storm2_particle ~~1~");
         en.runCommand("/particle kurokumaft:storm3_particle ~~2~");
         en.runCommand("/particle kurokumaft:storm4_particle ~~3~");
-        en.addEffect("levitation", 1, {
+        en.addEffect(MinecraftEffectTypes.Levitation, 1*TicksPerSecond, {
             amplifier: 15
         });
         en.applyDamage(2, {
@@ -44,7 +45,7 @@ export async function aerobomb(player:Player) {
             "aero_bomb_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"

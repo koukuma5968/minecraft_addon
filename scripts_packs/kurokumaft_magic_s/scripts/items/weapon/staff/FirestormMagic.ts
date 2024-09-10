@@ -1,5 +1,5 @@
 import { Dimension, Entity, EntityDamageCause, Player, system, Vector3 } from "@minecraft/server";
-import { getLookPoints } from "../../../common/commonUtil";
+import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
 
 /**
  * ブラム・ファング
@@ -10,7 +10,7 @@ export async function bramFang(player:Player) {
             "flamecircle_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -29,31 +29,25 @@ export async function bramFang(player:Player) {
  */
 export async function fireStorm(player:Player) {
 
-    player.addTag("mailstrom_self");
+    player.addTag("firestormmagic_self");
 
     let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 15);
 
-    let stand = player.dimension.spawnEntity("kurokumaft:firestormmagic_stand", 
-        {
-            x:xlocation!,
-            y:player.location.y + 0.5,
-            z:zlocation!
-        }
-    );
-    let stormLo = stand.location;
+    let dim = player.dimension;
+    let ploc = player.location
     let intervalNum = system.runInterval(() => {
-        stand.runCommand("/particle kurokumaft:firestome5_particle ~~~");
-        let targets = stand.dimension.getEntities({
+        dim.spawnParticle("kurokumaft:firestome5_particle", {x:xlocation!,y:ploc.y,z:zlocation!});
+        let targets = dim.getEntities({
             excludeTags: [
                 "firestormmagic_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
             ],
-            location: stormLo,
+            location: {x:xlocation!,y:player.location.y,z:zlocation!},
             maxDistance: 10
         });
         targets.forEach(en => {
@@ -61,12 +55,11 @@ export async function fireStorm(player:Player) {
                 cause: EntityDamageCause.fire
             });
         })
-    }, 10);
+    }, 1);
     system.runTimeout(() => {
         system.clearRun(intervalNum);
         player.removeTag("firestormmagic_self");
-        stand.remove();
-    }, 100);
+    }, 60);
 
 };
 

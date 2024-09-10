@@ -2,7 +2,7 @@ import { Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityE
 import { shooting, throwing } from "../../../custom/ShooterMagicEvent";
 import { print, getRandomInRange, clamp } from "../../../common/commonUtil";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { bramFang } from "./FirestormMagic";
+import { bramFang, fireStorm } from "./FirestormMagic";
 import { explosion } from "./ExplosionMagic";
 import { flameSpark } from "./FlameSparkMagic";
 import { mailstrom } from "./MailstromMagic";
@@ -42,7 +42,7 @@ const StaffHitObjects = Object.freeze([
 const StaffRightOneMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:firestorm_staff",
-        func: flameSpark,
+        func: fireStorm,
         sendMsg: "§cファイアストーム"
     },
     {

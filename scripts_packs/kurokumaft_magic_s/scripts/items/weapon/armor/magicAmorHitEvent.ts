@@ -21,12 +21,12 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
             if (chest.typeId == "kurokumaft:stone_magic_chestplate" || chest.typeId == "kurokumaft:nether_stone_magic_chestplate") {
                 let view = player.getViewDirection();
                 damager.applyDamage(5,{"cause":"entityExplosion"} as EntityApplyDamageOptions);
-                damager.runCommandAsync("particle minecraft:large_explosion  ~~~");
+                damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
                 damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
             }
             if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chest") {
                 damager.applyDamage(5,{"cause":"lightning"} as EntityApplyDamageOptions);
-                damager.runCommandAsync("particle kurokumaft:lightning_arrow_particle ~~~");
+                damager.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", damager.location);
             }
         }
     }
@@ -39,7 +39,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 let randomNum2 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
                 let randomInRange1 = Math.floor(Math.random()*2) == 1 ? -randomNum1 : randomNum1;
                 let randomInRange2 = Math.floor(Math.random()*2) == 1 ? -randomNum2 : randomNum2;
-                damager.teleport({x:location.x + randomInRange1, y:location.y, z:location.z + randomInRange2},undefined);
+                damager.teleport({x:location.x + randomInRange1, y:location.y, z:location.z + randomInRange2});
             }
         }
     }
@@ -47,7 +47,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
         if ((head.typeId == "kurokumaft:lightning_magic_helmet" || head.typeId == "kurokumaft:nether_lightning_magic_helmet") && projectile != undefined) {
             try {
                 projectile.clearVelocity();
-                projectile.runCommand("particle kurokumaft:lightning_arrow_particle ~~~");
+                projectile.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", projectile.location);
                 let intervalNum = system.runInterval(() => {
                     projectile.clearVelocity();
                 }, 5);
@@ -60,7 +60,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
         if ((head.typeId == "kurokumaft:wind_magic_helmet" || head.typeId == "kurokumaft:nether_wind_magic_helmet") && projectile != undefined) {
             try {
                 projectile.clearVelocity();
-                projectile.runCommand("particle kurokumaft:wind_arrow_particle ~~~");
+                projectile.dimension.spawnParticle("kurokumaft:wind_arrow_particle", projectile.location);
                 projectile.applyImpulse({x:hitVector!.x,y:hitVector!.y,z:-hitVector!.z});
             } catch (error) {
             }

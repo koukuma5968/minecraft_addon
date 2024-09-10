@@ -17,6 +17,10 @@
       }
     },
     "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      },
       "kurokumaft:projectile_1": {
         "minecraft:projectile": {
           "on_hit": {
@@ -253,8 +257,6 @@
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
-          },
-          "arrow_effect": {
           }
         },
         "reflect_on_hurt": false,
@@ -276,7 +278,7 @@
       "minecraft:timer": {
         "time": [3.0,3.0],
         "time_down_event": { 
-          "event": "kurokumaft:despawn"
+          "event": "on_breaking"
         }
       },
       "minecraft:physics": {
@@ -295,12 +297,11 @@
     },
 
     "events": {
-      "kurokumaft:despawn": {
-        "queue_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       },
       "kurokumaft:projectile_1": {

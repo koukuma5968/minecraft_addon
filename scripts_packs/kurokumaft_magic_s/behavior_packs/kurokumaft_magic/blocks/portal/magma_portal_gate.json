@@ -10,13 +10,15 @@
 			}
         },
 		"components": {
-            "tag:magma_portal_gate": {},
 			"minecraft:selection_box": true,
 			"minecraft:collision_box": true,
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 10.0
 			},
-			"minecraft:flammable": false
-        }
+			"minecraft:flammable": false,
+			"minecraft:custom_components": [
+				"kurokumaft:portal_gate"
+			]
+		}
     }
 }

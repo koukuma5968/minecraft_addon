@@ -1,36 +1,17 @@
-import { EntityDamageCause, Player, system, world } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
+import { Entity, EntityDamageCause, Player } from "@minecraft/server";
+import { getRandomInRange } from "../../../common/commonUtil";
 import { shooting } from "../../../custom/ShooterMagicEvent";
 
 /**
  * 焔裂き(ほむらざき)
  */
-export async function flamingDesires(player:Player) {
-    player.addTag("flaming_desires");
-
-    let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 2);
-    let targets = player.dimension.getEntities({
-        excludeTags: [
-            "flaming_desires"
-        ],
-        excludeFamilies: [
-            "inanimate", "magic", "player"
-        ],
-        excludeTypes: [
-            "item"
-        ],
-        location: {x:xlocation!, y:player.location.y + 0.5, z:zlocation!},
-        maxDistance: 3,
-        closest: 1
-    });
-    targets.forEach(en => {
-
-        en.runCommand("/particle kurokumaft:flaming_desires_particle ~~~");
-        en.applyDamage(5, {
+export async function flamingDesires(entity:Entity) {
+    if (entity != undefined && entity.isValid()) {
+        entity.dimension.spawnParticle("kurokumaft:flaming_desires_particle", entity.location);
+        entity.applyDamage(5, {
             cause: EntityDamageCause.fire
         });
-    });
-    player.removeTag("flaming_desires");
+    }
 }
 
 /**

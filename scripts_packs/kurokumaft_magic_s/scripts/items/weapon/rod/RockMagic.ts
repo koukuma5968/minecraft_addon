@@ -1,4 +1,5 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * ロックブレイク
@@ -10,7 +11,7 @@ export async function rockbreak(player:Player) {
             "rock_break_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -20,10 +21,10 @@ export async function rockbreak(player:Player) {
         closest: 3
     });
     targets.forEach(en => {
-        en.addEffect("nausea", 5, {
+        en.addEffect(MinecraftEffectTypes.Nausea, 5*TicksPerSecond, {
             amplifier: 10
         });
-        let rock = en.dimension.spawnEntity("kurokumaft:burstflaremagic", {x:en.location.x,y:en.location.y + 10, z:en.location.z});
+        let rock = en.dimension.spawnEntity("kurokumaft:rockbreakmagic", {x:en.location.x,y:en.location.y + 10, z:en.location.z});
     })
     player.removeTag("rock_break_self");
 }
@@ -38,7 +39,7 @@ export async function greybomb(player:Player) {
             "grey_bomb_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -48,7 +49,7 @@ export async function greybomb(player:Player) {
         closest: 3
     });
     targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:grey_bomb_particle ~~~");
+        en.dimension.spawnParticle("kurokumaft:grey_bomb_particle", en.location);
         en.applyDamage(10, {
             cause: EntityDamageCause.fallingBlock
         });

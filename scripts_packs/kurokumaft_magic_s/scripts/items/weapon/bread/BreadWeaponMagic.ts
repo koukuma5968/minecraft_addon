@@ -96,7 +96,7 @@ export class BreadWeaponMagic implements ItemCustomComponent {
             return;
         }
         let breadMagicObject = BreadHitObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
-        breadMagicObject.func(attackEntity);
+        breadMagicObject.func(hitEntity);
         attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + breadMagicObject.sendMsg + "\"}]}");
         if (attackEntity instanceof Player && attackEntity.getGameMode() != GameMode.creative) {
             ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);

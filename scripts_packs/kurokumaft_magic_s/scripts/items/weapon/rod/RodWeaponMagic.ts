@@ -193,7 +193,7 @@ export class RodWeaponMagic implements ItemCustomComponent {
             } else {
                 let rodShotMagicObject = RodShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
                 if (rodShotMagicObject) {
-                    let xran = parseFloat(getRandomInRange(-0.1, 0.5).toFixed(3));
+                    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
                     let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
                     let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
 
@@ -207,6 +207,28 @@ export class RodWeaponMagic implements ItemCustomComponent {
                 }
             }
         } else {
+            if (player.isSneaking) {
+                let rodFuncMagicObject = RodRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
+                if (rodFuncMagicObject) {
+                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodFuncMagicObject.sendMsg + "\"}]}");
+                    rodFuncMagicObject.func(player);
+                }
+            } else {
+                let rodShotMagicObject = RodShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
+                if (rodShotMagicObject) {
+                    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
+                    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
+                    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
+
+                    shooting(player, rodShotMagicObject.event, {x:xran,y:yran,z:zran}, rodShotMagicObject.addition, undefined);
+                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodShotMagicObject.sendMsg + "\"}]}");
+                }
+                let rodRightOneMagicObject = RodRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
+                if (rodRightOneMagicObject) {
+                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodRightOneMagicObject.sendMsg + "\"}]}");
+                    rodRightOneMagicObject.func(player);
+                }
+            }
         }
 
         if (player.getGameMode() != GameMode.creative) {
@@ -218,7 +240,4 @@ export class RodWeaponMagic implements ItemCustomComponent {
 
     }
 
-    // ブロッククリック
-    onUseOn(event:ItemComponentUseOnEvent) {
-    }
 }

@@ -190,49 +190,45 @@ export class StickWeaponMagic implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let player = event.source as Player;
 
-        // pvp用
-        if (world.gameRules.pvp) {
-            if (player.isSneaking) {
-                let stickEventMagicObject = StickRightEventMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
-                if (stickEventMagicObject) {
-                    player.runCommand("/function magic/" + stickEventMagicObject.event);
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickEventMagicObject.sendMsg + "\"}]}");
-                }
-                let stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
-                if (stickFuncMagicObject) {
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickFuncMagicObject.sendMsg + "\"}]}");
-                    stickFuncMagicObject.func(player);
-                }
-            } else {
-                let stickShotMagicObject = StickShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
-                if (stickShotMagicObject) {
-                    let xran = parseFloat(getRandomInRange(-0.1, 0.5).toFixed(3));
-                    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-                    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
-                    if (itemStack.typeId == "kurokumaft:atmosphere_stick") {
-                        let intervalNum = system.runInterval(() => {
-                            xran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-                            yran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-                            zran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-        
-                            shooting(player, stickShotMagicObject.event, {x:xran,y:yran,z:zran}, stickShotMagicObject.addition, undefined);
-                        }, 4);
-                        system.runTimeout(() => {
-                            system.clearRun(intervalNum);
-                        }, 16);
-                    } else {
-                        shooting(player, stickShotMagicObject.event, {x:xran,y:yran,z:zran}, stickShotMagicObject.addition, undefined);
-                    }
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickShotMagicObject.sendMsg + "\"}]}");
-                }
-                let stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
-                if (stickRightOneMagicObject) {
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickRightOneMagicObject.sendMsg + "\"}]}");
-                    stickRightOneMagicObject.func(player);
-                }
+        if (player.isSneaking) {
+            let stickEventMagicObject = StickRightEventMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
+            if (stickEventMagicObject) {
+                player.runCommand("/function magic/" + stickEventMagicObject.event);
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickEventMagicObject.sendMsg + "\"}]}");
+            }
+            let stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
+            if (stickFuncMagicObject) {
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickFuncMagicObject.sendMsg + "\"}]}");
+                stickFuncMagicObject.func(player);
             }
         } else {
+            let stickShotMagicObject = StickShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
+            if (stickShotMagicObject) {
+                let xran = parseFloat(getRandomInRange(-0.1, 0.5).toFixed(3));
+                let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
+                let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
+
+                if (itemStack.typeId == "kurokumaft:atmosphere_stick") {
+                    let intervalNum = system.runInterval(() => {
+                        xran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
+                        yran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
+                        zran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
+    
+                        shooting(player, stickShotMagicObject.event, {x:xran,y:yran,z:zran}, stickShotMagicObject.addition, undefined);
+                    }, 4);
+                    system.runTimeout(() => {
+                        system.clearRun(intervalNum);
+                    }, 16);
+                } else {
+                    shooting(player, stickShotMagicObject.event, {x:xran,y:yran,z:zran}, stickShotMagicObject.addition, undefined);
+                }
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickShotMagicObject.sendMsg + "\"}]}");
+            }
+            let stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
+            if (stickRightOneMagicObject) {
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickRightOneMagicObject.sendMsg + "\"}]}");
+                stickRightOneMagicObject.func(player);
+            }
         }
 
         if (player.getGameMode() != GameMode.creative) {
@@ -244,7 +240,4 @@ export class StickWeaponMagic implements ItemCustomComponent {
 
     }
 
-    // ブロッククリック
-    onUseOn(event:ItemComponentUseOnEvent) {
-    }
 }

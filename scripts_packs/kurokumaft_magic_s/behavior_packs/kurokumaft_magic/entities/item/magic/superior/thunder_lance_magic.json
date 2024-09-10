@@ -21,15 +21,8 @@
             "damage": 20,
             "knockback": true,
             "catch_fire": false,
-            "destroy_on_hit": false,
+            "destroy_on_hit": true,
             "semi_random_diff_damage": false
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "lightning_bolt",
-              "target": "self"
-            }
           },
           "remove_on_hit": { }
         },
@@ -56,19 +49,6 @@
          "max_optimized_distance": 80.0,
          "max_dropped_ticks": 7,
          "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      "lightning_bolt": {
-        "queue_command": {
-          "command": [
-            "summon minecraft:lightning_bolt ~~~",
-            "summon minecraft:lightning_bolt ~~~",
-            "summon minecraft:lightning_bolt ~~~",
-            "summon minecraft:lightning_bolt ~~~"
-          ],
-          "target": "self"
         }
       }
     }

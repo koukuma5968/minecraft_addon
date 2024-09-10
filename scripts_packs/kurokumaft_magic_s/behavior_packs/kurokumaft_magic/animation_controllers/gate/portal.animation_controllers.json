@@ -1,0 +1,139 @@
+{
+  "format_version": "1.20.10",
+  "animation_controllers": {
+    "controller.animation.burning_hell": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "hell_event": "query.property('kurokumaft:stand_states') == 1" },
+            { "structures": "query.property('kurokumaft:stand_states') == 0" }
+          ]
+        },
+        "structures": {
+          "on_entry": [
+            "/event entity @p[r=1.5,c=1] burning_hell_tp_1"
+          ],
+          "transitions": [
+            { "hell_event": "1.0" }
+          ]
+        },
+        "hell_event": {
+          "on_entry": [
+            "/event entity @p[r=1.5,c=1] burning_hell_states_1"
+          ],
+          "on_exit": [
+            "/event entity @s stand_states_1",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            { "default": "1.0" }
+          ]
+        }
+      }
+    },
+    "controller.animation.burning_hell_player": {
+      "states": {
+        "default": {
+          "on_entry": [
+            "/effect @s blindness 3 10 true",
+            "/execute positioned ~~250~ run fill ~-1 ~0 ~-1 ~1 ~0 ~1 end_portal",
+            "/tp @s ~~251~"
+          ],
+          "transitions": [
+            { "burning_hell_tp": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
+          ]
+        },
+        "burning_hell_tp": {
+          "on_entry": [
+            "/execute at @s if block ~~-1~ obsidian as @s run tp @s -544 130 -464"
+          ],
+          "transitions": [
+            { "stand_kill": "query.property('kurokumaft:burning_hell_tp') == 0" },
+            { "burning_hell_structures": "query.property('kurokumaft:burning_hell_tp') == 1" }
+          ]
+        },
+        "burning_hell_structures": {
+          "on_entry": [
+            "/effect @s slow_falling 3 5 true",
+            "/structure load burning_hell_1_1 -564 100 -564",
+            "/structure load burning_hell_1_2 -548 100 -564",
+            "/structure load burning_hell_1_3 -532 100 -564",
+            "/structure load burning_hell_1_4 -516 100 -564",
+            "/structure load burning_hell_1_5 -500 100 -564",
+            "/structure load burning_hell_1_6 -484 100 -564",
+            "/structure load burning_hell_1_7 -468 100 -564",
+            "/structure load burning_hell_1_8 -452 100 -564",
+            "/structure load burning_hell_2_1 -564 100 -548",
+            "/structure load burning_hell_2_2 -548 100 -548",
+            "/structure load burning_hell_2_3 -532 100 -548",
+            "/structure load burning_hell_2_4 -516 100 -548",
+            "/structure load burning_hell_2_5 -500 100 -548",
+            "/structure load burning_hell_2_6 -484 100 -548",
+            "/structure load burning_hell_2_7 -468 100 -548",
+            "/structure load burning_hell_2_8 -452 100 -548",
+            "/structure load burning_hell_3_1 -564 100 -532",
+            "/structure load burning_hell_3_2 -548 100 -532",
+            "/structure load burning_hell_3_3 -532 100 -532",
+            "/structure load burning_hell_3_4 -516 100 -532",
+            "/structure load burning_hell_3_5 -500 100 -532",
+            "/structure load burning_hell_3_6 -484 100 -532",
+            "/structure load burning_hell_3_7 -468 100 -532",
+            "/structure load burning_hell_3_8 -452 100 -532",
+            "/structure load burning_hell_4_1 -564 100 -516",
+            "/structure load burning_hell_4_2 -548 100 -516",
+            "/structure load burning_hell_4_3 -532 100 -516",
+            "/structure load burning_hell_4_4 -516 100 -516",
+            "/structure load burning_hell_4_5 -500 100 -516",
+            "/structure load burning_hell_4_6 -484 100 -516",
+            "/structure load burning_hell_4_7 -468 100 -516",
+            "/structure load burning_hell_4_8 -452 100 -516",
+            "/structure load burning_hell_5_1 -564 100 -500",
+            "/structure load burning_hell_5_2 -548 100 -500",
+            "/structure load burning_hell_5_3 -532 100 -500",
+            "/structure load burning_hell_5_4 -516 100 -500",
+            "/structure load burning_hell_5_5 -500 100 -500",
+            "/structure load burning_hell_5_6 -484 100 -500",
+            "/structure load burning_hell_5_7 -468 100 -500",
+            "/structure load burning_hell_5_8 -452 100 -500",
+            "/structure load burning_hell_6_1 -564 100 -484",
+            "/structure load burning_hell_6_2 -548 100 -484",
+            "/structure load burning_hell_6_3 -532 100 -484",
+            "/structure load burning_hell_6_4 -516 100 -484",
+            "/structure load burning_hell_6_5 -500 100 -484",
+            "/structure load burning_hell_6_6 -484 100 -484",
+            "/structure load burning_hell_6_7 -468 100 -484",
+            "/structure load burning_hell_6_8 -452 100 -484",
+            "/structure load burning_hell_7_1 -564 100 -468",
+            "/structure load burning_hell_7_2 -548 100 -468",
+            "/structure load burning_hell_7_3 -532 100 -468",
+            "/structure load burning_hell_7_4 -516 100 -468",
+            "/structure load burning_hell_7_5 -500 100 -468",
+            "/structure load burning_hell_7_6 -484 100 -468",
+            "/structure load burning_hell_7_7 -468 100 -468",
+            "/structure load burning_hell_7_8 -452 100 -468",
+            "/structure load burning_hell_8_1 -564 100 -452",
+            "/structure load burning_hell_8_2 -548 100 -452",
+            "/structure load burning_hell_8_3 -532 100 -452",
+            "/structure load burning_hell_8_4 -516 100 -452",
+            "/structure load burning_hell_8_5 -500 100 -452",
+            "/structure load burning_hell_8_6 -484 100 -452",
+            "/structure load burning_hell_8_7 -468 100 -452",
+            "/structure load burning_hell_8_8 -452 100 -452"
+          ],
+          "transitions": [
+            { "stand_kill": "variable.burning_hell_tp = (variable.burning_hell_tp ?? 0);variable.burning_hell_tp = variable.burning_hell_tp < 10 ? variable.burning_hell_tp + 1:0;return variable.burning_hell_tp == 0;" }
+          ]
+        },
+        "stand_kill": {
+          "on_entry": [
+            "/event entity @s burning_hell_states_0",
+            "/event entity @s burning_hell_tp_0"
+          ],
+          "transitions": [
+            { "default": "(1.0)" }
+          ]
+        }
+      }
+    }
+  }
+}

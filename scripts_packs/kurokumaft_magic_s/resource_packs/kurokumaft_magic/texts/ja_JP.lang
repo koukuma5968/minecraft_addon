@@ -108,7 +108,7 @@ item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン�
 item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:fenrir.name=フェンリルをスポーンさせる	#
 
-entity.kurokumaft:home_gate.name=拠点の石碑
+tile.kurokumaft:home_gate.name=拠点の石碑
 
 item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムをスポーンさせる	#
@@ -317,3 +317,12 @@ item.kurokumaft:lightning_magic_shell.name=轟雷の魔弾
 item.kurokumaft:wind_magic_shell.name=暴風の魔弾
 item.kurokumaft:stone_magic_shell.name=礫岩の魔弾
 item.kurokumaft:ice_magic_shell.name=凍土の魔弾
+
+mess.kurokumaft:musicSound.title=ミュージックレコード再生
+mess.kurokumaft:musicSound.body=再生する音楽を選択
+
+mess.kurokumaft:homegate.title=拠点名を入力
+mess.kurokumaft:homegate.textLabel=拠点名
+mess.kurokumaft:homegate.lore=拠点
+mess.kurokumaft:homegate.commit=拠点を登録しました。
+mess.kurokumaft:homegate.lost=登録した拠点は消失しています。

@@ -16,6 +16,12 @@
         "lightning_magic_bullet":"animation.magic_bullet.lightning_magic_bullet_frame"
       }
     },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
     "components": {
       "minecraft:type_family": {
         "family": [ "inanimate"  ]
@@ -35,15 +41,6 @@
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "kurokumaft:heavy_thunder",
-              "target": "self"
-            }
-          },
-          "arrow_effect": {
           }
         },
         "reflect_on_hurt": true,
@@ -65,7 +62,7 @@
       "minecraft:timer": {
         "time": [4.0,4.0],
         "time_down_event": { 
-          "event": "kurokumaft:despawn"
+          "event": "on_breaking"
         }
       },
       "minecraft:physics": {
@@ -82,30 +79,13 @@
         }
       }
     },
-
     "events": {
-      "kurokumaft:heavy_thunder": {
-        "sequence":[
-          {
-            "queue_command": {
-              "command": [
-                "summon minecraft:lightning_bolt ^-3^^",
-                "summon minecraft:lightning_bolt ^3^^",
-                "summon minecraft:lightning_bolt ^^^3",
-                "summon minecraft:lightning_bolt ^^^-3"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "queue_command": {
-              "command": [
-                "kill @s"
-              ],
-              "target": "self"
-            }
-          }
-        ]
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
+        }
       }
     }
   }

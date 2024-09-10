@@ -28,15 +28,7 @@
             "num_particle": 6,
             "on_entity_hit": true,
             "on_other_hit": true
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "wind_particle",
-              "target": "self"
-            }
-          },
-          "remove_on_hit": { }
+          }
        },
        "power": 2,
        "gravity": 0.05,
@@ -61,16 +53,6 @@
          "max_optimized_distance": 80.0,
          "max_dropped_ticks": 7,
          "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      "wind_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:wind_particle ~~~"
-          ],
-          "target": "self"
         }
       }
     }

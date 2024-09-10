@@ -1,12 +1,16 @@
-import { Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, world } from "@minecraft/server";
+import { Block, Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, RawMessage, world } from "@minecraft/server";
 import { throwing } from "../../../custom/ShooterMagicEvent";
 import { print, getRandomInRange } from "../../../common/commonUtil";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { deepSnow } from "./SnowWandMagic";
+import { absorption, invisibility } from "./DarkWandMagic";
+import { healing, recovery } from "./LightWandMagic";
 
 interface WandMagicObject {
     itemName:string,
     event:string
-    sendMsg:string
+    sendMsg:string,
+    func:any
 }
 
 const WandHitObjects = Object.freeze([
@@ -107,6 +111,11 @@ const WallMagicObjects = Object.freeze([
         itemName: "kurokumaft:lightning_wand",
         event: "lightning/lightningwall",
         sendMsg: "§6ライトニングウォール"
+    },
+    {
+        itemName: "kurokumaft:snow_wand",
+        event: "ice/icewall",
+        sendMsg: "§fアイスウォール"
     }
 
 ]);
@@ -114,17 +123,17 @@ const WallMagicObjects = Object.freeze([
 const OtherUpMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:snow_wand",
-        event: "ice/deep_snow",
+        func: deepSnow,
         sendMsg: "§fディープスノー"
     },
     {
         itemName: "kurokumaft:dark_wand",
-        event: "dark/absorption",
+        func: absorption,
         sendMsg: "§8アブソープション"
     },
     {
         itemName: "kurokumaft:light_wand",
-        event: "light/healing",
+        func: healing,
         sendMsg: "§eヒーリング"
     }
 
@@ -132,18 +141,13 @@ const OtherUpMagicObjects = Object.freeze([
 
 const OtherDownMagicObjects = Object.freeze([
     {
-        itemName: "kurokumaft:snow_wand",
-        event: "ice/deep_snow",
-        sendMsg: "§fディープスノー"
-    },
-    {
         itemName: "kurokumaft:dark_wand",
-        event: "dark/invisibility",
+        func: invisibility,
         sendMsg: "§8インビジブル"
     },
     {
         itemName: "kurokumaft:light_wand",
-        event: "light/recovery",
+        func: recovery,
         sendMsg: "§eリカバリー"
     }
 
@@ -164,10 +168,11 @@ export class WandWeaponMagic implements ItemCustomComponent {
         if (!itemStack || (hitEntity instanceof Player && !world.gameRules.pvp)) {
             return;
         }
-        let wandMagicObject = WandHitObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-        attackEntity.runCommand("/function magic/" + wandMagicObject.event);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + wandMagicObject.sendMsg + "\"}]}");
-
+        let wandMagic = WandHitObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
+        attackEntity.runCommand("/function magic/" + wandMagic.event);
+        attackEntity.runCommand("/titleraw @s actionbar " + JSON.stringify({
+            rawtext: [{ text: wandMagic.sendMsg }]
+        }));
     }
 
     // 右クリック
@@ -179,56 +184,74 @@ export class WandWeaponMagic implements ItemCustomComponent {
         let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
         let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
 
+        let wandMagic:WandMagicObject;
+        // pvp用
+        if (player.isSneaking) {
+            wandMagic = WallMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
+            if (wandMagic) {
+                player.runCommand("/function magic/" + wandMagic.event);
+            } else {
+                wandMagic = OtherDownMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
+                wandMagic.func(player);
+            }
+        } else {
+            wandMagic = BallMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
+            if (wandMagic) {
+                throwing(player, itemStack, wandMagic.event, {x:xran,y:yran,z:zran});
+            } else {
+                wandMagic = OtherUpMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
+                wandMagic.func(player);
+            }
+        }
+
+        let rawMessage = {
+            rawtext: [{ text: wandMagic.sendMsg }]
+        } as RawMessage;
+        player.runCommand("/titleraw @s actionbar " + JSON.stringify(rawMessage));
+
         if (player.getGameMode() != GameMode.creative) {
             ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
         }
 
-        // pvp用
-        if (world.gameRules.pvp) {
-            let ballMagicObject = BallMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-            if (ballMagicObject) {
-                throwing(player, itemStack, ballMagicObject.event, {x:xran,y:yran,z:zran});
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + ballMagicObject.sendMsg + "\"}]}");
-            } else {
-                if (player.isSneaking) {
-                    let otherDownMagicObject = OtherDownMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-                    if (otherDownMagicObject) {
-                        player.runCommand("/function magic/" + otherDownMagicObject.event);
-                        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + otherDownMagicObject.sendMsg + "\"}]}");
-                    }
-                } else {
-                    let otherUpMagicObject = OtherUpMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-                    if (otherUpMagicObject) {
-                        player.runCommand("/function magic/" + otherUpMagicObject.event);
-                        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + otherUpMagicObject.sendMsg + "\"}]}");
-                    } 
-                }
-            }
-
-        } else {
-            let ballMagicObject = BallMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-            if (ballMagicObject) {
-                throwing(player, itemStack, ballMagicObject.event, {x:xran,y:yran,z:zran});
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + ballMagicObject.sendMsg + "\"}]}");
-            } else {
-                if (player.isSneaking) {
-                    let otherDownMagicObject = OtherDownMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-                    if (otherDownMagicObject) {
-                        player.runCommand("/function magic/" + otherDownMagicObject.event);
-                        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + otherDownMagicObject.sendMsg + "\"}]}");
-                    }
-                } else {
-                    let otherUpMagicObject = OtherUpMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-                    if (otherUpMagicObject) {
-                        player.runCommand("/function magic/" + otherUpMagicObject.event);
-                        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + otherUpMagicObject.sendMsg + "\"}]}");
-                    } 
-                }
-            }
-   
-        }
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
     }
 
+}
+
+const WandProjectileObjects = Object.freeze([
+    {
+        itemName: "kurokumaft:fireballmagic",
+        event: "fire/fireball"
+    },
+    {
+        itemName: "kurokumaft:waterballmagic",
+        event: "water/waterball"
+    },
+    {
+        itemName: "kurokumaft:windcuttermagic",
+        event: "wind/windcutter"
+    },
+    {
+        itemName: "kurokumaft:stonebarrettemagic",
+        event: "stone/stonebarrette"
+    },
+    {
+        itemName: "kurokumaft:lightningboltmagic",
+        event: "lightning/lightningbolt"
+    }
+
+]);
+
+export function checkWandProjectile(projectileName:string) {
+   return WandProjectileObjects.some(obj => obj.itemName == projectileName);
+}
+
+export function hitProjectileEvent(projectile:Entity) {
+    let proje = WandProjectileObjects.find(obj => obj.itemName == projectile.typeId) as WandMagicObject;
+    try {
+        projectile.runCommand("/function magic/" + proje.event);
+        projectile.remove();
+    } catch (error) {
+    }
 }

@@ -1,4 +1,5 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
+import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
 
 /**
  * サンダークラップ
@@ -10,7 +11,7 @@ export async function thunderclap(player:Player) {
             "thunderclap_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -20,8 +21,8 @@ export async function thunderclap(player:Player) {
         closest: 3
     });
     targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:lightningbolt_particle ~~~");
-        en.dimension.spawnEntity("Lightning_Bolt", en.location);
+        en.dimension.spawnParticle("kurokumaft:lightningbolt_particle", en.location);
+        en.dimension.spawnEntity(MinecraftEntityTypes.LightningBolt, en.location);
         en.applyDamage(10, {
             cause: EntityDamageCause.lightning
         });
@@ -39,7 +40,7 @@ export async function thunderjail(player:Player) {
             "thunder_jail_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -49,7 +50,7 @@ export async function thunderjail(player:Player) {
     });
     targets.forEach(en => {
         en.runCommand("/particle kurokumaft:thunder_jail_particle ~~~");
-        en.addEffect("slowness", 2, {
+        en.addEffect("slowness", 10*TicksPerSecond, {
             amplifier: 30
         });
         en.applyDamage(4, {

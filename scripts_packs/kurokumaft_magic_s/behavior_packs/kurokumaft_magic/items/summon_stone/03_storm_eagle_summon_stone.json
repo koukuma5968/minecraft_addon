@@ -25,7 +25,10 @@
       },
       "minecraft:use_modifiers": {
         "use_duration": 30
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:summon_stone"
+      ]
     }
   }
 }

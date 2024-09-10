@@ -30,7 +30,10 @@
       "minecraft:food": {
         "nutrition": 4,
         "can_always_eat": true
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:repatriation_fruit"
+      ]
     }
   }
 }

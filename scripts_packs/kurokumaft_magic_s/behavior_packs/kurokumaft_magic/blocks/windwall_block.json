@@ -18,7 +18,10 @@
 				"seconds_to_destroy": 1.2
 			},
 			"minecraft:light_dampening": 3,
-			"minecraft:friction": 0.3
+			"minecraft:friction": 0.3,
+			"minecraft:custom_components": [
+				"kurokumaft:wall_block"
+			]
 		}
 	}
 }

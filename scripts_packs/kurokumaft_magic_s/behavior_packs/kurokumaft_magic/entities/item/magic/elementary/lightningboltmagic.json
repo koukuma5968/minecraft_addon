@@ -17,7 +17,7 @@
         "family":["lightning"]          
       },
       "minecraft:projectile": {
-       "on_hit": {
+        "on_hit": {
           "affect_projectile": true,
           "impact_damage": {
             "damage": 5,
@@ -31,21 +31,13 @@
             "num_particle": 6,
             "on_entity_hit": true,
             "on_other_hit": true
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "lightning_particle",
-              "target": "self"
-            }
-          },
-          "remove_on_hit": { }
-       },
-       "power": 2,
-       "gravity": 0.05,
-       "inertia": 1,
-       "liquid_inertia": 1,
-       "reflect_on_hurt": true
+          }
+        },
+        "power": 2,
+        "gravity": 0.05,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "reflect_on_hurt": true
       },
       "minecraft:physics": {
       },
@@ -58,16 +50,6 @@
          "max_optimized_distance": 80.0,
          "max_dropped_ticks": 7,
          "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      "lightning_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:lightning_particle ~~~"
-          ],
-          "target": "self"
         }
       }
     }

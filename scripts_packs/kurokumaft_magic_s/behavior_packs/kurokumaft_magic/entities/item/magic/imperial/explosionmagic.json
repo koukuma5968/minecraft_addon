@@ -28,12 +28,6 @@
           "magic"
         ]
       },
-      "minecraft:timer": {
-        "time": [0.2,0.2],
-        "time_down_event": { 
-          "event": "kurokumaft:explosion_wave"
-        }
-      },
       "minecraft:projectile": {
         "on_hit": {
           "affect_projectile": false,
@@ -57,21 +51,7 @@
       }
     },
     "events": {
-      "kurokumaft:explosion_wave": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:explosion_wave_particle ~~~"
-          ],
-          "target": "self"
-        }
-      },
       "kurokumaft:explosionmagic": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:explosion_shell ~~~"
-          ],
-          "target": "self"
-        },
         "add": {
           "component_groups": [
             "minecraft:exploding"

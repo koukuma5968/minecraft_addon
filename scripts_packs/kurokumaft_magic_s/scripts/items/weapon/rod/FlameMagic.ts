@@ -11,7 +11,7 @@ export async function flarecircle(player:Player) {
                 "flamecircle_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
@@ -21,7 +21,7 @@ export async function flarecircle(player:Player) {
             closest: 3
         });
         targets.forEach(en => {
-            en.runCommand("/particle kurokumaft:firestome1_particle ~~~");
+            en.dimension.spawnParticle("kurokumaft:explosion_wave_particle",en.location);
             en.applyDamage(5, {
                 cause: EntityDamageCause.fire
             });
@@ -43,7 +43,7 @@ export async function burstflare(player:Player) {
             "burstflare_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"

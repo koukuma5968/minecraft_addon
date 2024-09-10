@@ -1,4 +1,5 @@
-import { EffectType, EntityDamageCause, Player, system, world } from "@minecraft/server";
+import { EffectType, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * アクアショット
@@ -11,7 +12,7 @@ export async function aquaShot(player:Player) {
             "aqua_shot_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -49,7 +50,7 @@ export async function tidalWave(player:Player) {
             "tidal_wave_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -59,8 +60,8 @@ export async function tidalWave(player:Player) {
     });
     let intervalNum = system.runInterval(() => {
         targets.forEach(en => {
-            en.runCommand("/particle kurokumaft:tidal_wave_particle ~~~")
-            en.addEffect("slowness", 1, {
+            en.dimension.spawnParticle("kurokumaft:tidal_wave_particle", en.location);
+            en.addEffect(MinecraftEffectTypes.Slowness, 2*TicksPerSecond, {
                 amplifier: 10
             });
             en.applyDamage(3, {

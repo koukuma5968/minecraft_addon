@@ -31,17 +31,12 @@
               "target": "self"
             }
           },
-          "stick_in_ground": {
-            "shake_time" : 0.35
-          },
           "mob_effect": {
             "effect": "wither",
             "durationeasy": 50,
             "durationnormal": 50,
             "durationhard": 50,
             "amplifier": 5
-          },
-          "arrow_effect": {
           },
           "remove_on_hit": {}
         },
@@ -53,6 +48,15 @@
         "anchor": 1,
         "should_bounce": true,
         "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:timer": {
+        "time": [2.5,2.5],
+        "time_down_event": { 
+          "event": "on_breaking"
+        }
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:collision_box": {
         "width": 0.25,
@@ -69,6 +73,16 @@
           "max_optimized_distance": 80.0,
           "max_dropped_ticks": 7,
           "use_motion_prediction_hints": true
+        }
+      }
+    },
+
+    "events": {
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

@@ -13,16 +13,17 @@ export async function blackHole(player:Player) {
         }
     );
     let holeLo = black_hole.location;
+    let dim = black_hole.dimension;
     let intervalNum = system.runInterval(() => {
         black_hole.teleport({x:holeLo.x, y:holeLo.y+0.1, z:holeLo.z});
-        black_hole.runCommand("/particle kurokumaft:black_hole_particle ~~~");
-        black_hole.runCommand("/particle kurokumaft:black_hole_outer_particle ~~~");
+        dim.spawnParticle("kurokumaft:black_hole_particle",black_hole.location);
+        dim.spawnParticle("kurokumaft:black_hole_outer_particle",black_hole.location);
         let targets = player.dimension.getEntities({
             excludeTags: [
                 "black_hole_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"

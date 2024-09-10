@@ -52,8 +52,11 @@
       "minecraft:timer": {
         "time": [2.5,2.5],
         "time_down_event": { 
-          "event": "despawn"
+          "event": "on_breaking"
         }
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:behavior.hurt_by_target": {
         "alert_same_type": true,
@@ -78,14 +81,12 @@
         }
       }
     },
-
     "events": {
-      "despawn": {
-        "queue_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

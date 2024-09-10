@@ -1,4 +1,4 @@
-import { world,system,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Vector2, Vector3} from "@minecraft/server";
+import { world,system,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Vector2, Vector3, Direction} from "@minecraft/server";
 
 const CraftBlocks = ["minecraft:crafting_table","minecraft:anvil","minecraft:smithing_table","minecraft:cartography_table","minecraft:loom","minecraft:barrel"
                     ,"minecraft:smoker","minecraft:blast_furnace","minecraft:furnace","kurokumaft:magic_lectern"];
@@ -84,26 +84,6 @@ function breakItem(player:Player, slotName:String) {
     let commandText =  "replaceitem entity @s " + slotName + " 0 destroy air";
     player.runCommand(commandText);
 };
-
-// ミュージックレコード
-const MusicRecodes = Object.freeze([
-    "record.5",
-    "record.relic",
-    "record.13",
-    "record.cat",
-    "record.blocks",
-    "record.chirp",
-    "record.far",
-    "record.mall",
-    "record.mellohi",
-    "record.stal",
-    "record.strad",
-    "record.ward",
-    "record.11",
-    "record.wait",
-    "record.pigstep",
-    "record.otherside"
-]);
 
 /**
  * 視線位置
@@ -201,4 +181,50 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
     return { xlocation, ylocation, zlocation };
 }
 
-export { print, clamp, getRandomInRange, playsound, durabilityDamage, breakItem, getLookPoints, CraftBlocks, MusicRecodes };
+function normalizeVector(v: Vector3): Vector3 {
+    const length = Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    return {
+        x: v.x / length,
+        y: v.y / length,
+        z: v.z / length
+    };
+}
+
+function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
+    const direction = {
+        x: targetEn.x - thisEn.x,
+        y: targetEn.y - thisEn.y,
+        z: targetEn.z - thisEn.z
+    };
+    return normalizeVector(direction);
+}
+
+const BlockLocationList = Object.freeze([
+    {
+        direction: Direction.Up,
+        location: {x:0,y:1,z:0}
+    },
+    {
+        direction: Direction.Down,
+        location: {x:0,y:-1,z:0}
+    },
+    {
+        direction: Direction.South,
+        location: {x:0,y:0,z:1}
+    },
+    {
+        direction: Direction.North,
+        location: {x:0,y:0,z:-1}
+    },
+    {
+        direction: Direction.East,
+        location: {x:1,y:0,z:0}
+    },
+    {
+        direction: Direction.West,
+        location: {x:-1,y:0,z:0}
+    }
+
+]);
+
+export { print, clamp, getRandomInRange, playsound, durabilityDamage, breakItem, getLookPoints, getDirectionVector, CraftBlocks, BlockLocationList };

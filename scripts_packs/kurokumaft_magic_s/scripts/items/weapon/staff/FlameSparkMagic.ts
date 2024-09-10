@@ -1,5 +1,6 @@
 import { EntityDamageCause, Player, system } from "@minecraft/server";
 import { getAdjacentSphericalPoints } from "../../../common/ShooterPoints";
+import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
 
 /**
  * フレイムスパーク
@@ -12,7 +13,7 @@ export async function flameSpark(player:Player) {
                 "flamespark_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar", "magic"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
@@ -22,11 +23,11 @@ export async function flameSpark(player:Player) {
             closest: 3
         });
         targets.forEach(en => {
-            en.runCommand("/particle kurokumaft:firewall_particle ~~~");
+            en.dimension.spawnParticle("kurokumaft:firewall_particle", en.location);
             en.applyDamage(3, {
                 cause: EntityDamageCause.fire
             });
-            en.dimension.spawnEntity("minecraft:lightning_bolt", en.location);
+            en.dimension.spawnEntity(MinecraftEntityTypes.LightningBolt, en.location);
             en.applyDamage(3, {
                 cause: EntityDamageCause.lightning
             });

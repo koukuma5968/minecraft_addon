@@ -26,17 +26,10 @@
             "catch_fire": false,
             "destroy_on_hit": false,
             "semi_random_diff_damage": false
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "waterwave_particle",
-              "target": "self"
-            }
           }
         },
         "power": 1.5,
-        "gravity": 10.0,
+        "gravity": 0.1,
         "inertia": 1,
         "liquid_inertia": 1,
         "reflect_on_hurt": false
@@ -65,16 +58,6 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
-      }
-    },
-    "events": {
-      "waterwave_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:water_particle ~~~"
-          ],
-          "target": "self"
-        }
       }
     }
   }

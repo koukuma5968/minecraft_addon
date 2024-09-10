@@ -16,6 +16,12 @@
         "stone_magic_bullet":"animation.magic_bullet.stone_magic_bullet_frame"
       }
     },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
     "components": {
       "minecraft:type_family": {
         "family": [ "inanimate"  ]
@@ -35,8 +41,6 @@
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
-          },
-          "arrow_effect": {
           }
         },
         "reflect_on_hurt": false,
@@ -58,7 +62,7 @@
       "minecraft:timer": {
         "time": [0.2,0.2],
         "time_down_event": { 
-          "event": "kurokumaft:despawn"
+          "event": "on_breaking"
         }
       },
       "minecraft:physics": {
@@ -77,15 +81,11 @@
     },
 
     "events": {
-      "kurokumaft:despawn": {
-        "queue_command": {
-          "command": [
-            "summon kurokumaft:stone_magic_knockback_roar ~~~",
-            "summon kurokumaft:stone_magic_knockback_roar ~-1~~",
-            "summon kurokumaft:stone_magic_knockback_roar ~1~~",
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

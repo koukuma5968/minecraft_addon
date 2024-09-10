@@ -7,6 +7,12 @@
       "is_summonable": true,
       "is_experimental": false
     },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
     "components": {
       "minecraft:collision_box": {
         "width": 0.31,
@@ -26,24 +32,19 @@
             "catch_fire": false,
             "destroy_on_hit": false,
             "semi_random_diff_damage": false
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "rockbreak_particle",
-              "target": "self"
-            }
           }
         },
         "power": 0,
-        "gravity": 0.1,
+        "gravity": 0.2,
         "inertia": 1,
         "liquid_inertia": 1,
         "reflect_on_hurt": false
       },
-      "minecraft:damage_over_time": {
-        "damage_per_hurt": 50,
-        "time_between_hurt": 1.2
+      "minecraft:timer": {
+        "time": [1.5,1.5],
+        "time_down_event": { 
+          "event": "on_breaking"
+        }
       },
       "minecraft:physics": {},
       "minecraft:pushable": {
@@ -52,12 +53,11 @@
       }
     },
     "events": {
-      "rockbreak_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:stone_particle ~~~"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

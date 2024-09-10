@@ -1,43 +1,27 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
+import { Entity, EntityDamageCause, Player, system } from "@minecraft/server";
+import { getRandomInRange } from "../../../common/commonUtil";
 import { shooting } from "../../../custom/ShooterMagicEvent";
 
 /**
  * 烈風刃(れっぷうじん)
  */
-export function windDesires(player:Player) {
-    player.addTag("wind_desires");
+export function windDesires(entity:Entity) {
 
-    let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 2);
-    let targets = player.dimension.getEntities({
-        excludeTags: [
-            "wind_desires"
-        ],
-        excludeFamilies: [
-            "inanimate", "magic", "player"
-        ],
-        excludeTypes: [
-            "item"
-        ],
-        location: {x:xlocation!, y:player.location.y + 0.5, z:zlocation!},
-        maxDistance: 3,
-        closest: 3
-    });
-    targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:wind_desires_particle ^0.5^^");
-        en.runCommand("/particle kurokumaft:wind_desires_particle ^^^");
-        en.runCommand("/particle kurokumaft:wind_desires_particle ^-0.5^^");
-        en.applyDamage(2, {
+    if (entity != undefined && entity.isValid()) {
+        entity.dimension.spawnParticle("kurokumaft:wind_desires_particle", {x:entity.location.x+0.5,y:entity.location.y,z:entity.location.z});
+        entity.dimension.spawnParticle("kurokumaft:wind_desires_particle", {x:entity.location.x,y:entity.location.y,z:entity.location.z});
+        entity.dimension.spawnParticle("kurokumaft:wind_desires_particle", {x:entity.location.x-0.5,y:entity.location.y,z:entity.location.z});
+        entity.applyDamage(2, {
             cause: EntityDamageCause.flyIntoWall
         });
-        en.applyDamage(2, {
+        entity.applyDamage(2, {
             cause: EntityDamageCause.flyIntoWall
         });
-        en.applyDamage(2, {
+        entity.applyDamage(2, {
             cause: EntityDamageCause.flyIntoWall
         });
-    });
-    player.removeTag("wind_desires");
+    }
+
 }
 
 /**

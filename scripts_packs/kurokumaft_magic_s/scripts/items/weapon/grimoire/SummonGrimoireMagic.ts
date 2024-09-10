@@ -43,7 +43,7 @@ export class SummonGrimoireMagic implements ItemCustomComponent {
  */
 async function grimoire_summon_use(player: Player, item: ItemStack, summonMagicObject: SummonGrimoireMagicObject) {
 
-    player.runCommand("particle " + summonMagicObject.particle + " ~~0.75~");
+    player.dimension.spawnParticle(summonMagicObject.particle, {x:player.location.x,y:player.location.y+0.75,z:player.location.z});
 
 };
 

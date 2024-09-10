@@ -17,6 +17,10 @@
     },
 
     "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      },
       "sword_equipment": {
         "minecraft:attack": {
           "damage": 8,
@@ -54,7 +58,7 @@
         "randomInterval": false,
         "time": [180.0,180.0],
         "time_down_event": {
-          "event": "kill_time",
+          "event": "on_breaking",
           "target": "self"
         }
       },
@@ -228,12 +232,11 @@
           }
         ]
       },
-      "kill_time": {
-        "queue_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

@@ -45,17 +45,6 @@
           "use_motion_prediction_hints": true
         }
       }
-    },
-    "events": {
-      "storm_eagle_summon": {
-        "queue_command": {
-          "command": [
-            "summon kurokumaft:storm_eagle ~~~",
-            "kill @s"
-          ],
-          "target": "self"
-        }
-      }
     }
   }
 }

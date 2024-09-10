@@ -20,13 +20,12 @@
       "minecraft:projectile": {
         "on_hit": {
           "affect_projectile": false,
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "storm_particle",
-              "target": "self"
-            }
-          }
+          "impact_damage": {
+            "damage": 5,
+            "destroy_on_hit": true,
+            "semi_random_diff_damage": false
+          },
+          "remove_on_hit": { }
         },
         "power": 0,
         "gravity": 1,
@@ -43,21 +42,6 @@
           "max_optimized_distance": 80.0,
           "max_dropped_ticks": 7,
           "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      "storm_particle": {
-        "queue_command": {
-          "command": [
-            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm1_particle ~~~",
-            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm2_particle ~~1~",
-            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm3_particle ~~2~",
-            "execute @e[tag=storm,c=1] ~~~ particle kurokumaft:storm4_particle ~~3~",
-            "effect @e[tag=storm,c=1] wither 2 5 true",
-            "effect @e[tag=storm,c=1] levitation 1 15 true"
-          ],
-          "target": "self"
         }
       }
     }

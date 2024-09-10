@@ -16,6 +16,12 @@
         "damage": "animation.fire.phoenix_spear.damage"
       }
     },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
     "components": {
       "minecraft:type_family": {
         "family": [ "arrow","inanimate","magic" ]
@@ -41,11 +47,17 @@
         "should_bounce": true,
         "offset": [ 0, -0.1, 0 ]
       },
+      "minecraft:despawn": {
+        "despawn_from_distance": {
+          "max_distance": 32,
+          "min_distance": 16
+        }
+      },
       "minecraft:timer": {
         "randomInterval": true,
         "time": [5.0,5.0],
         "time_down_event": {
-          "event": "kill_time",
+          "event": "on_breaking",
           "target": "self"
         }
       },
@@ -68,12 +80,11 @@
       }
     },
     "events": {
-      "kill_time": {
-        "queue_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

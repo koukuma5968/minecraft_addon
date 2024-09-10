@@ -29,9 +29,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = yRotax * xRota;
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             }
             yapply = (yRota);
 
@@ -45,9 +45,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = yRotax * xRota;
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             }
             yapply = (yRota);
 
@@ -74,9 +74,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.75) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -99,9 +99,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.75) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -127,9 +127,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = yRotax * xRota;
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -143,9 +143,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = yRotax * xRota;
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -166,9 +166,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             }
             yapply = (yRota);
 
@@ -187,9 +187,9 @@ function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 

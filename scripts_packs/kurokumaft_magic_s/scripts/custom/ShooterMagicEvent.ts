@@ -52,5 +52,6 @@ function shooting(player:Player, throwItem:string, ranNum:Vector3, seepd:number,
 
     bulet.applyImpulse({x:xapply! * seepd,y:yapply! * seepd,z:zapply! * seepd});
 
+    return bulet;
 }
 export {throwing, shooting};

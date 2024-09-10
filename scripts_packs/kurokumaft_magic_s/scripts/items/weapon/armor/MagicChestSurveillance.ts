@@ -1,4 +1,5 @@
-import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond} from "@minecraft/server";
+import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond, Block, EffectTypes} from "@minecraft/server";
+import { MinecraftBlockTypes, MinecraftEffectTypes, MinecraftPotionEffectTypes } from "@minecraft/vanilla-data";
 
 interface MagicChestObject {
     itemName:string,
@@ -17,7 +18,7 @@ const MagicChestObjects = Object.freeze([
     {
         itemName: "kurokumaft:water_magic_chestplate",
         func: waterHealthUp,
-        delay: TicksPerSecond * 5,
+        delay: TicksPerSecond * 20,
         removeFunc: waterHealthReset
     },
     {
@@ -35,7 +36,7 @@ const MagicChestObjects = Object.freeze([
     {
         itemName: "kurokumaft:nether_water_magic_chestplate",
         func: waterHealthUp,
-        delay: TicksPerSecond * 5,
+        delay: TicksPerSecond * 10,
         removeFunc: waterHealthReset
     },
     {
@@ -86,31 +87,34 @@ export class MagicChestSurveillance {
 }
 
 async function fireAttackUp(player:Player) {
-    player.runCommand("/event entity @s kurokumaft:attack20_up");
+    player.triggerEvent("kurokumaft:attack20_up");
 }
 
 async function waterHealthUp(player:Player) {
-    player.runCommand("/event entity @s kurokumaft:health40_up");
+    player.addEffect(MinecraftPotionEffectTypes.Healing, 10, {
+        amplifier: 2,
+        showParticles: true
+    })
 }
 
 async function lavaFreeze(player:Player) {
-    player.runCommand("/execute as @s if block ^1^1^ lava run setblock ^1^1^ air");
-    player.runCommand("/execute as @s if block ^-1^1^ lava run setblock ^-1^1^ air");
-    player.runCommand("/execute as @s if block ^^1^1 lava run setblock ^^1^1 air");
-    player.runCommand("/execute as @s if block ^^1^-1 lava run setblock ^^1^-1 air");
-    player.runCommand("/execute as @s if block ^^1^-1 lava run setblock ^^1^-1 air");
-    player.runCommand("/execute as @s if block ^-1^2^ lava run setblock ^-1^2^ air");
-    player.runCommand("/execute as @s if block ^^2^1 lava run setblock ^^2^1 air");
-    player.runCommand("/execute as @s if block ^^2^-1 lava run setblock ^^2^-1 air");
-    player.runCommand("/execute as @s if block ^^3^ lava run setblock ^^3^ air");
+    for (let x=-2;x<=2;x++) {
+        for (let z=-2;x<=2;x++) {
+            for (let y=-2;y<=2;y++) {
+                let underBlock = player.dimension.getBlock({x:player.location.x+x,y:player.location.y+y,z:player.location.z+z}) as Block;
+                if (underBlock.typeId == MinecraftBlockTypes.Lava || underBlock.typeId == MinecraftBlockTypes.Magma) {
+                    player.dimension.setBlockType({x:player.location.x+x,y:player.location.y+y,z:player.location.z+z}, MinecraftBlockTypes.Ice);
+                }
+            }
+        }
+    }
 }
 
 async function fireAttackReset(player:Player) {
-    player.runCommand("/event entity @s kurokumaft:attack_down");
+    player.triggerEvent("kurokumaft:attack_down");
 }
 
 async function waterHealthReset(player:Player) {
-    player.runCommand("/event entity @s kurokumaft:health_down");
 }
 
 async function lavaFreezeReset(player:Player) {

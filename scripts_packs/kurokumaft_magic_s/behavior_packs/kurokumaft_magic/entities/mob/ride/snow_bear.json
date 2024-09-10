@@ -387,13 +387,6 @@
       },
       "minecraft:movement.basic": {
       },
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "event": "kurokumaft:ice_walker"
-          }
-        ]
-      },
       "minecraft:jump.static": {
       },
       "minecraft:can_climb": {
@@ -523,16 +516,7 @@
             "minecraft:horse_chested"
           ]
         }
-      },
-      "kurokumaft:ice_walker": {
-				"queue_command": {
-					"command": [
-            "execute if block ~~-1~ water run setblock ~~-1~ ice",
-            "execute if block ~~-1~ flowing_water run setblock ~~-1~ ice"
-          ]
-				}
 			}
-
     }
   }
 }

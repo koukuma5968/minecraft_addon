@@ -271,13 +271,6 @@
         }
       },
       "minecraft:fire_immune": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "event": "kurokumaft:lava_walker"
-          }
-        ]
-      },
       "minecraft:behavior.hurt_by_target": {
         "priority": 1,
         "entity_types": [
@@ -465,18 +458,7 @@
             "minecraft:horse_chested"
           ]
         }
-      },
-
-      "kurokumaft:lava_walker": {
-				"queue_command": {
-					"command": [
-            "execute if block ~~-1~ lava run setblock ~~-1~ magma",
-            "execute if block ~~-1~ flowing_lava run setblock ~~-1~ magma",
-            "execute if block ^^-1^-1 magma run setblock ^^-1^-1 lava"
-          ]
-				}
-			}
-
+ 			}
     }
   }
 }

@@ -45,17 +45,6 @@
           "use_motion_prediction_hints": true
         }
       }
-    },
-    "events": {
-      "fire_horse_summon": {
-        "queue_command": {
-          "command": [
-            "summon kurokumaft:fire_horse ~~~",
-            "kill @s"
-          ],
-          "target": "self"
-        }
-      }
     }
   }
 }

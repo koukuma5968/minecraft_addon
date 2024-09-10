@@ -1,4 +1,4 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EntityDamageCause, Player, system, Vector3 } from "@minecraft/server";
 import { getLookPoints } from "../../../common/commonUtil";
 
 /**
@@ -8,33 +8,27 @@ export async function mailstrom(player:Player) {
     player.addTag("mailstrom_self");
 
     let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 15);
-    let mailstrom_en = player.dimension.spawnEntity("kurokumaft:mailstrom", 
-        {
-            x:xlocation!,
-            y:player.location.y + 0.5,
-            z:zlocation!
-        }
-    );
-    let mailLo = mailstrom_en.location;
+    let mailLo = {x:xlocation, y:player.location.y, z:zlocation} as Vector3;
+    let dim = player.dimension;
     let intervalNum = system.runInterval(() => {
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom1_particle ~~~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom1_particle ~~0.5~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom2_particle ~~1~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom2_particle ~~1.5~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom3_particle ~~2~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom3_particle ~~2.5~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom4_particle ~~3~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom4_particle ~~3.5~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom5_particle ~~4~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom5_particle ~~4.5~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom6_particle ~~5~");
-        mailstrom_en.runCommand("/particle kurokumaft:mailstrom6_particle ~~5.5~");
-        let targets = mailstrom_en.dimension.getEntities({
+        dim.spawnParticle("kurokumaft:mailstrom1_particle", mailLo);
+        dim.spawnParticle("kurokumaft:mailstrom1_particle", {x:mailLo.x,y:mailLo.y+0.5,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom2_particle", {x:mailLo.x,y:mailLo.y+1,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom2_particle", {x:mailLo.x,y:mailLo.y+1.5,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom3_particle", {x:mailLo.x,y:mailLo.y+2,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom3_particle", {x:mailLo.x,y:mailLo.y+2.5,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom4_particle", {x:mailLo.x,y:mailLo.y+3,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom4_particle", {x:mailLo.x,y:mailLo.y+3.5,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom5_particle", {x:mailLo.x,y:mailLo.y+4,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom5_particle", {x:mailLo.x,y:mailLo.y+4.5,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom6_particle", {x:mailLo.x,y:mailLo.y+5,z:mailLo.z});
+        dim.spawnParticle("kurokumaft:mailstrom6_particle", {x:mailLo.x,y:mailLo.y+5.5,z:mailLo.z});
+        let targets = dim.getEntities({
             excludeTags: [
                 "mailstrom_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
@@ -48,10 +42,9 @@ export async function mailstrom(player:Player) {
                 cause: EntityDamageCause.drowning
             });
         })
-    }, 10);
+    }, 5);
     system.runTimeout(() => {
         system.clearRun(intervalNum);
         player.removeTag("mailstrom_self");
-        mailstrom_en.remove();
     }, 100);
 }

@@ -1,4 +1,5 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * ライトニングストライク
@@ -6,13 +7,13 @@ import { EntityDamageCause, Player, system } from "@minecraft/server";
 export async function lightningStrike(player:Player) {
     player.addTag("lightningstrike_self");
     let intervalNum = system.runInterval(() => {
-        player.runCommand("/particle kurokumaft:thunder_sword_particle ~~~");
+        player.dimension.spawnParticle("kurokumaft:thunder_sword_particle", player.location);
         let targets = player.dimension.getEntities({
             excludeTags: [
                 "lightningstrike_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
@@ -21,9 +22,9 @@ export async function lightningStrike(player:Player) {
             maxDistance: 10
         });
         targets.forEach(en => {
-            en.runCommand("/particle kurokumaft:spark_particle ~~~");
-            en.addEffect("slowness", 1, {
-                amplifier: 1
+            en.dimension.spawnParticle("kurokumaft:spark_particle", en.location);
+            en.addEffect(MinecraftEffectTypes.Slowness, 2*TicksPerSecond, {
+                amplifier: 3
             });
             en.applyDamage(6, {
                 cause: EntityDamageCause.lightning

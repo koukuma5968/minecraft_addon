@@ -22,7 +22,10 @@
         "textures": {
           "default": "grimoire_life_magic_stone"
         }
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:life_grimoire_block"
+      ]
     }
   }
 }

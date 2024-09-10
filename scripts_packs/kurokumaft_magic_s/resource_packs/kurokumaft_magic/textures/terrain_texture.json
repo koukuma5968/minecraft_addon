@@ -93,6 +93,9 @@
 		"magma_portal_gate" : {
 			"textures" : "textures/kurokumaft/blocks/magma_portal_gate"
 		},
+		"home_gate" : {
+			"textures" : "textures/kurokumaft/blocks/home_gate"
+		},
 
 		"phoenix_summon_top": {
 			"textures" : "textures/kurokumaft/blocks/summon/phoenix_summon_top"

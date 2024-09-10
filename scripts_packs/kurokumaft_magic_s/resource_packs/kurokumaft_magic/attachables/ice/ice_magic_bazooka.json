@@ -25,7 +25,10 @@
           "variable.charge_amount = query.item_is_charged('main_hand');"
         ],
         "animate": [
-          "wield"
+          "wield",
+          {
+            "wield_first_person": "query.main_hand_item_use_duration < 0.0f && c.is_first_person"
+          }
         ]
       },
       "render_controllers": [ "controller.render.magic_bazooka" ]

@@ -1,18 +1,21 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EffectTypes, EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * アトモスフィア
  */
 export async function atmosphere(player:Player) {
     player.addTag("atmosphere_self");
+    let dimen = player.dimension;
     let intervalNum = system.runInterval(() => {
-        player.runCommand("/particle kurokumaft:atmosphere_particle ~~~");
-        let targets = player.dimension.getEntities({
+        let ploca = player.location;
+        dimen.spawnParticle("kurokumaft:atmosphere_particle", ploca);
+        let targets = dimen.getEntities({
             excludeTags: [
                 "atmosphere_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
@@ -21,12 +24,13 @@ export async function atmosphere(player:Player) {
             maxDistance: 10
         });
         targets.forEach(en => {
-            en.runCommand("/particle kurokumaft:wind_particle ~~~");
-            en.runCommand("/particle kurokumaft:storm1_particle ~~1~");
-            en.runCommand("/particle kurokumaft:storm2_particle ~~0~");
-            en.runCommand("/particle kurokumaft:storm3_particle ~~1.5~");
-            en.runCommand("/particle kurokumaft:storm4_particle ~~0.5~");
-            en.addEffect("slowness", 1, {
+            let enloca = en.location;
+            dimen.spawnParticle("kurokumaft:wind_particle", {x:enloca.x,y:enloca.y,z:enloca.z});
+            dimen.spawnParticle("kurokumaft:storm1_particle", {x:enloca.x,y:enloca.y+1,z:enloca.z});
+            dimen.spawnParticle("kurokumaft:storm2_particle", {x:enloca.x,y:enloca.y,z:enloca.z});
+            dimen.spawnParticle("kurokumaft:storm3_particle", {x:enloca.x,y:enloca.y+1.5,z:enloca.z});
+            dimen.spawnParticle("kurokumaft:storm4_particle", {x:enloca.x,y:enloca.y+0.5,z:enloca.z});
+            en.addEffect(MinecraftEffectTypes.Levitation, 1*TicksPerSecond, {
                 amplifier: 10
             });
             en.applyDamage(3, {

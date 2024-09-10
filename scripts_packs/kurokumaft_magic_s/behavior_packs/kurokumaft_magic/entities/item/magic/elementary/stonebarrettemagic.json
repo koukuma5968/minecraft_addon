@@ -28,15 +28,7 @@
             "num_particle": 6,
             "on_entity_hit": true,
             "on_other_hit": true
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "stone_particle",
-              "target": "self"
-            }
-          },
-          "remove_on_hit": { }
+          }
        },
        "hit_sound": "tripod",
        "power": 2,
@@ -56,17 +48,6 @@
          "max_optimized_distance": 80.0,
          "max_dropped_ticks": 7,
          "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      "stone_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:stone_particle ~~~",
-            "setblock ~~~ stone keep"
-          ],
-          "target": "self"
         }
       }
     }

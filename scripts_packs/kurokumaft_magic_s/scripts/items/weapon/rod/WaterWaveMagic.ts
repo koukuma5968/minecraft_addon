@@ -1,5 +1,6 @@
-import { Player } from "@minecraft/server";
+import { Player, system, TicksPerSecond } from "@minecraft/server";
 import { getAdjacentSphericalPoints } from "../../../common/ShooterPoints";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * ウォーターウェーブ
@@ -9,8 +10,14 @@ export async function waterwave(player:Player) {
     let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
 
     let wave = player.dimension.spawnEntity("kurokumaft:waterwavemagic", {x:xlocation!,y:player.location.y,z:zlocation!});
-    wave.applyImpulse({x:xapply!,y:0,z:zapply!});
-
+    let intervalNum = system.runInterval(() => {
+        wave.applyImpulse({x:xapply!,y:0,z:zapply!});
+        wave.setRotation({x:xlocation!,y:zlocation!});
+    }, 2);
+    system.runTimeout(() => {
+        system.clearRun(intervalNum);
+        wave.remove();
+    }, 60);
 }
 
 /**
@@ -34,7 +41,7 @@ export async function waterjail(player:Player) {
     });
     targets.forEach(en => {
         en.runCommand("/particle kurokumaft:waterjail_particle ~~~");
-        en.addEffect("slowness", 10, {
+        en.addEffect(MinecraftEffectTypes.Slowness, 10*TicksPerSecond, {
             amplifier: 50
         });
     })

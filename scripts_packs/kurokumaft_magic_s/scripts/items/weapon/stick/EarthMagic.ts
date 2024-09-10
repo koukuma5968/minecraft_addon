@@ -1,4 +1,5 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * グラビティフィールド
@@ -6,13 +7,13 @@ import { EntityDamageCause, Player, system } from "@minecraft/server";
 export async function gravityField(player:Player) {
     player.addTag("gravity_field_self");
     let intervalNum = system.runInterval(() => {
-        player.runCommand("/particle kurokumaft:gravity_field_particle ~~~");
+        player.dimension.spawnParticle("kurokumaft:gravity_field_particle", player.location);
         let targets = player.dimension.getEntities({
             excludeTags: [
                 "atmosphere_self"
             ],
             excludeFamilies: [
-                "inanimate", "player", "familiar"
+                "inanimate", "player", "familiar", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
@@ -21,9 +22,9 @@ export async function gravityField(player:Player) {
             maxDistance: 15
         });
         targets.forEach(en => {
-            en.runCommand("/particle kurokumaft:gravity_particle ~~~");
-            en.addEffect("slowness", 1, {
-                amplifier: 10
+            en.dimension.spawnParticle("kurokumaft:gravity_particle", en.location);
+            en.addEffect(MinecraftEffectTypes.Slowness, 2*TicksPerSecond, {
+                amplifier: 5
             });
             en.applyDamage(3, {
                 cause: EntityDamageCause.fallingBlock

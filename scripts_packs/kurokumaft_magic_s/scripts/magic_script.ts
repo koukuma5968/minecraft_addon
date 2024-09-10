@@ -1,11 +1,14 @@
-import { world,Entity, Player, EntityDamageSource, MolangVariableMap, Dimension, Vector3, ItemStack, system, EntityInventoryComponent } from "@minecraft/server";
+import { world,Entity, Player, EntityDamageSource } from "@minecraft/server";
 import { shieldGuard, shieldCounter } from "./items/weapon/shield/shieldEvent";
-import { home_tp, torchlight_use, ignited_use_af, ignited_use_be, water_use, flower_garden_use, growth_use, mowing_use, music_sound_use } from "./magicItem";
-import { magic_lectern_break } from "./magicBlock";
 import { hitMagicAmor } from "./items/weapon/armor/magicAmorHitEvent";
 import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
-import { magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
+import { checkArrowProjectile, hitArrowEvent, magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
 import { grimoire_summon_Release } from "./items/weapon/grimoire/SummonGrimoireMagic";
+import { checkWandProjectile, hitProjectileEvent } from "./items/weapon/wand/WandWeaponMagic";
+import { checkShellProjectile, hitShellEvent } from "./items/weapon/bazooka/BazookaWeaponMagic";
+import { waterCauldron } from "./items/weapon/grimoire/WaterGrimoireMagic";
+import { magic_lectern_break } from "./block/MagicLecternBlock";
+import { portalGateBreak } from "./block/PortalBlock";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -14,66 +17,62 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
     initRegisterCustom(initEvent);
     initStateChangeMonitor(initEvent);
 });
-
-// エンティティを右クリック
-// world.afterEvents.playerInteractWithEntity.subscribe(event => {
-//     var player = event.player;
-//     var target = event.target;
-//     var item = event.itemStack;
-//     if (item) {
-//         if (item.typeId == "kurokumaft:repatriation_fruit" && target.typeId == "kurokumaft:home_gate") {
-//             homeSetDialog(player, item, target);
-//         }
-//     }
-//     if (target.typeId == "kurokumaft:fire_magic_sword") {
-//         // print(target.typeId);
-//     }
-
-// });
+world.beforeEvents.playerLeave.subscribe(leaveEvent => {
+    leaveEvent.player.clearDynamicProperties();
+});
 
 // 近接hit後
 world.afterEvents.entityHitEntity.subscribe(event => {
-    var dameger = event.damagingEntity as Entity;
-    var hitEn = event.hitEntity as Entity;
+    let dameger = event.damagingEntity as Entity;
+    let hitEn = event.hitEntity as Entity;
     if (hitEn.typeId == "minecraft:player") {
         shieldGuard(hitEn as Player, true);
         shieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player, dameger, undefined, undefined);
     }
-    // let equ = dameger.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    // let mainItem = equ.getEquipment(EquipmentSlot.Mainhand);
-    // if (mainItem && mainItem.typeId.indexOf("magic_sword")) {
-
-    // }
-
 });
+
 // 遠距離hit後
 world.afterEvents.projectileHitEntity.subscribe(event => {
-    var projectileEn = event.projectile;
-    var hitEn = event.getEntityHit().entity as Entity;
-    var dameger = event.source as Entity;
-    var hitVector = event.hitVector;
+    let projectileEn = event.projectile;
+    let hitEn = event.getEntityHit().entity as Entity;
+    let dameger = event.source as Entity;
+    let hitVector = event.hitVector;
     if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
         shieldGuard(hitEn as Player, false);
         shieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player,dameger,projectileEn, hitVector);
     }
     if (projectileEn) {
+        if (checkWandProjectile(projectileEn.typeId)) {
+            hitProjectileEvent(projectileEn);
+        }
+        if (checkArrowProjectile(projectileEn.typeId)) {
+            hitArrowEvent(projectileEn, hitEn);
+        }
+        if (checkShellProjectile(projectileEn.typeId)) {
+            hitShellEvent(projectileEn);
+        }
     }
 });
 
 // ブロックhit後
 world.afterEvents.projectileHitBlock.subscribe(event => {
-    var projectileEn = event.projectile;
+    let projectileEn = event.projectile;
     if (projectileEn) {
+        if (checkWandProjectile(projectileEn.typeId)) {
+            hitProjectileEvent(projectileEn);
+        }
+        if (checkShellProjectile(projectileEn.typeId)) {
+            hitShellEvent(projectileEn);
+        }
     }
 });
 
 // ダメージ
 world.afterEvents.entityHurt.subscribe(event => {
-    var damageSource = event.damageSource as EntityDamageSource;
-    var hitEn = event.hurtEntity as Entity;
-    // print(hitEn, damageSource.cause + "=" + damage);
+    let damageSource = event.damageSource as EntityDamageSource;
+    let hitEn = event.hurtEntity as Entity;
     if (hitEn != undefined && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
         if (guards.indexOf(damageSource.cause) != -1) {
             shieldGuard(hitEn as Player, false);
@@ -81,54 +80,12 @@ world.afterEvents.entityHurt.subscribe(event => {
     }
 });
 
-// アイテム使用完了
-world.afterEvents.itemCompleteUse.subscribe(event => {
-    var en = event.source;
-    var item = event.itemStack;
-    if (en != undefined && en.typeId == "minecraft:player" && item != undefined ) {
-        if (item.typeId === "kurokumaft:repatriation_fruit") {
-            home_tp(en, item)
-        }
-    }
-});
-
-// ブロックアイテム右クリック後
-// world.afterEvents.playerInteractWithBlock.subscribe(event => {
-//     var player = event.player;
-//     var item = event.itemStack;
-//     var block = event.block;
-//     // print("playerInteractWithBlock");
-//     if (player != undefined) {
-//         if (block.typeId == "kurokumaft:magic_lectern") {
-//             magic_lectern(player, item, block);
-//         }
-//     }
-// });
-
-// アイテム右クリック後
-world.afterEvents.itemUse.subscribe(event => {
-    var player = event.source;
-    var item = event.itemStack;
-    // print("itemUse");
-    if (item != undefined) {
-        // print(item.typeId);
-        if (item.typeId == "kurokumaft:grimoire_mowing") {
-            mowing_use(player, item);
-        } else if (item.typeId == "kurokumaft:grimoire_music_sound") {
-            music_sound_use(player, item);
-        }
-    }
-});
-
 // アイテム右クリックリリース後
 world.afterEvents.itemReleaseUse.subscribe(event => {
-    var player = event.source;
-    var item = event.itemStack;
-    var duration = event.useDuration;
-    // print("itemReleaseUse");
+    let player = event.source;
+    let item = event.itemStack;
+    let duration = event.useDuration;
     if (item != undefined) {
-        // print(item.typeId);
-        world.sendMessage("残り使用時間:" + duration);
         if (player.getDynamicProperty("summon_grimoire")) {
             grimoire_summon_Release(player, item, duration);
         }
@@ -144,67 +101,53 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 
 // ブロック右クリック後
 world.afterEvents.itemUseOn.subscribe(event => {
-    var player = event.source;
-    var item = event.itemStack;
-    var block = event.block;
-    var blockFace = event.blockFace;
-    // print("itemUseOnAf");
-    // print(block.typeId);
-    if (item != undefined) {
-        if (item.typeId == "kurokumaft:grimoire_torchlight") {
-            torchlight_use(player, block, item);
-        } else if (item.typeId == "kurokumaft:grimoire_ignited") {
-            ignited_use_af(player, block, blockFace, item);
-        } else if (item.typeId == "kurokumaft:grimoire_water") {
-            water_use(player, block, blockFace, item);
-        } else if (item.typeId == "kurokumaft:grimoire_flower_garden") {
-            flower_garden_use(player, block, blockFace, item);
-        } else if (item.typeId == "kurokumaft:grimoire_growth") {
-            growth_use(player, block, blockFace, item);
-        }
+    let player = event.source;
+    let item = event.itemStack;
+    let block = event.block;
+    let blockFace = event.blockFace;
+
+    if (item != undefined && item.typeId == "kurokumaft:grimoire_water") {
+        waterCauldron(event);
     }
+
 });
 
 // ブロック右クリック前
 world.beforeEvents.itemUseOn.subscribe(event => {
-    var player = event.source;
-    var item = event.itemStack;
-    var block = event.block;
-    var blockFace = event.blockFace;
-    // print("itemUseOnBe");
-    // print(block.typeId);
-    // print(item.typeId);
-    if (item != undefined) {
-        if (block.typeId != "minecraft:tnt" && item.typeId == "kurokumaft:grimoire_ignited") {
-            ignited_use_be(player, block, blockFace, item);
-        }
+    let player = event.source;
+    let item = event.itemStack;
+    let block = event.block;
+    let blockFace = event.blockFace;
+
+});
+
+// ブロック爆発後
+world.afterEvents.blockExplode.subscribe(event => {
+    let block = event.block;
+    if (block.typeId == "kurokumaft:magic_lectern") {
+        magic_lectern_break(block, block.dimension);
+    }
+    if (block.typeId == "kurokumaft:magma_portal_x" || block.typeId == "kurokumaft:magma_portal_z") {
+        portalGateBreak(block, event.explodedBlockPermutation);
     }
 });
 
 // ブロック破壊前
 world.beforeEvents.playerBreakBlock.subscribe(event => {
-    var player = event.player;
-    var block = event.block;
-    // print("playerBreakBlock");
+    let player = event.player;
+    let block = event.block;
     if (player != undefined) {
-        // print(block.typeId);
-        if (block.typeId == "kurokumaft:magic_lectern") {
-            magic_lectern_break(player, block);
-        }
     }
 });
 
 // エンティティ読み込み
 world.afterEvents.entityLoad.subscribe(event => {
-    var entity = event.entity;
+    let entity = event.entity;
 });
 
 // エンティティスポーン
 world.afterEvents.entitySpawn.subscribe(event => {
-    // print("entitySpawn");
-    var entity = event.entity;
-    var cause = event.cause;
-    // print(entity.typeId);
-    // print(cause);
+    let entity = event.entity;
+    let cause = event.cause;
 });
 

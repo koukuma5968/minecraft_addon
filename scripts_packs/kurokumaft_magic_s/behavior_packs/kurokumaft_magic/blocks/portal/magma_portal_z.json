@@ -24,7 +24,10 @@
                     "face_dimming": false,
 					"render_method": "blend"
 				}
-			}
+			},
+			"minecraft:custom_components": [
+				"kurokumaft:portal"
+			]
        }
     }
 }

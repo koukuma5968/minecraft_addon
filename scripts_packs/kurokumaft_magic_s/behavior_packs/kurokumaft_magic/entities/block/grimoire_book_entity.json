@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:grimoire_book_entity",
@@ -77,17 +77,13 @@
 
     },
     "components": {
-      "minecraft:inventory": {
-        "inventory_size": 1,
-        "container_type": "horse"
-      },
       "minecraft:collision_box": {
         "width": 0.05,
         "height": 0.05
       },
       "minecraft:type_family": {
         "family": [
-          "chest", "inanimate", "grimoire_book"
+          "armor_stand", "inanimate", "grimoire_book", "magic"
         ]
       },
       "minecraft:loot": {
@@ -99,16 +95,16 @@
         "breathes_water": true,
         "breathes_solids": true
       },
+      "minecraft:inventory": {
+        "inventory_size": 1,
+        "container_type": "horse"
+      },
       "minecraft:nameable": {
         "allow_name_tag_renaming": false
       },
       "minecraft:pushable": {
         "is_pushable": false,
         "is_pushable_by_piston": false
-      },
-      "minecraft:health": {
-        "value": 1,
-        "max": 1
       },
       "minecraft:fire_immune": {},
       "minecraft:damage_sensor": {
@@ -121,14 +117,6 @@
       }
     },
     "events": {
-      "on_breaking": {
-        "add": {
-          "component_groups": [
-            "breaking"
-          ]
-        }
-      },
-
       "kurokumaft:none": {
         "add": {
           "component_groups" : [ "variant0" ]

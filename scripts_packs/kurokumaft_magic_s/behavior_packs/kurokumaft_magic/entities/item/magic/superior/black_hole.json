@@ -90,13 +90,6 @@
           "component_groups": [
             "kurokumaft:kill"
           ]
-        },
-        "queue_command": {
-          "command": [
-            "tag @e[tag=black_hole_self] remove black_hole_self",
-            "tag @e[tag=black_hole_target] remove black_hole_target"
-          ],
-          "target": "self"
         }
       }
     }

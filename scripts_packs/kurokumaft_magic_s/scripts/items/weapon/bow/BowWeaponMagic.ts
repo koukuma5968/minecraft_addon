@@ -1,12 +1,21 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentUseOnEvent, system, ItemComponentCompleteUseEvent } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentUseOnEvent, system, ItemComponentCompleteUseEvent, Entity } from "@minecraft/server";
 import { getRandomInRange, clamp } from "../../../common/commonUtil";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../custom/ShooterMagicEvent";
+import { fireArrow } from "./FireArrowMagic";
+import { waterArrow, waterArrowHoming } from "./WaterArrowMagic";
+import { windArrow, windArrowShot } from "./WindArrowMagic";
+import { stoneArrow } from "./StoneArrowMagic";
+import { lightningArrow } from "./LightningArrowMagic";
+import { iceArrow } from "./IceArrowMagic";
+import { darkArrow } from "./DarkArrowMagic";
+import { hollyArrow } from "./HollyArrowMagic";
 
 interface BowMagicObject {
     itemName:string,
     event:string
     sendMsg:string,
+    func:any,
     maxduration:number,
     addition:number
 }
@@ -70,18 +79,11 @@ const BowChargeObjects = Object.freeze([
     }
 ]);
 
-
 /**
  * 弓系魔法
  */
 export class BowShotMagic implements ItemCustomComponent {
 
-    // チャージ完了
-    onCompleteUse(event:ItemComponentCompleteUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
-    }
-    
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
         let itemStack = event.itemStack as ItemStack;
@@ -90,6 +92,7 @@ export class BowShotMagic implements ItemCustomComponent {
         if (!itemStack) {
             return;
         }
+        player.setDynamicProperty("BowShotMagicCharge", true);
     }
 
 }
@@ -114,12 +117,9 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
 
         let speed = Math.ceil(clamp((-duration) / bowMagicObject.maxduration, 0.0, 3.0) * bowMagicObject.addition);
         if (itemStack.typeId == "kurokumaft:wind_magic_bow") {
-            let intervalNum = system.runInterval(() => {
-                shooting(player, bowMagicObject.event, {x:xran,y:yran,z:zran}, speed, undefined);
-            }, 2);
-            system.runTimeout(() => {
-                system.clearRun(intervalNum);
-            }, 10);
+            windArrowShot(player, bowMagicObject.event, {x:xran,y:yran,z:zran}, speed);
+        } else if (itemStack.typeId == "kurokumaft:water_magic_bow") {
+            waterArrowHoming(player, bowMagicObject.event, {x:xran,y:yran,z:zran}, speed);
         } else {
             shooting(player, bowMagicObject.event, {x:xran,y:yran,z:zran}, speed, undefined);
         }
@@ -128,6 +128,53 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
         }
     }
 
+}
+
+const BowCProjectilehargeObjects = Object.freeze([
+    {
+        itemName: "kurokumaft:fire_magic_arrow",
+        func: fireArrow
+    },
+    {
+        itemName: "kurokumaft:water_magic_arrow",
+        func: waterArrow
+    },
+    {
+        itemName: "kurokumaft:wind_magic_arrow",
+        func: windArrow
+    },
+    {
+        itemName: "kurokumaft:stone_magic_arrow",
+        func: stoneArrow
+    },
+    {
+        itemName: "kurokumaft:lightning_magic_arrow",
+        func: lightningArrow
+    },
+    {
+        itemName: "kurokumaft:ice_magic_arrow",
+        func: iceArrow
+    },
+    {
+        itemName: "kurokumaft:dark_magic_arrow",
+        func: darkArrow
+    },
+    {
+        itemName: "kurokumaft:holly_magic_arrow",
+        func: hollyArrow
+    }
+]);
+
+export function checkArrowProjectile(projectileName:string) {
+    return BowCProjectilehargeObjects.some(obj => obj.itemName == projectileName);
+}
+
+export function hitArrowEvent(projectile:Entity, target:Entity) {
+    let proje = BowCProjectilehargeObjects.find(obj => obj.itemName == projectile.typeId) as BowMagicObject;
+    try {
+        proje.func(target);
+    } catch (error) {
+    }
 }
 
 export {magicBowShot}

@@ -1,36 +1,18 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
+import { Entity, EntityDamageCause, Player } from "@minecraft/server";
+import { getRandomInRange } from "../../../common/commonUtil";
 import { shooting } from "../../../custom/ShooterMagicEvent";
 
 /**
  * 斬雪(ざんせつ)
  */
-export async function iceDesires(player:Player) {
-    player.addTag("ice_desires");
-
-    let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 2);
-    let targets = player.dimension.getEntities({
-        excludeTags: [
-            "ice_desires"
-        ],
-        excludeFamilies: [
-            "inanimate", "magic", "player"
-        ],
-        excludeTypes: [
-            "item"
-        ],
-        location: {x:xlocation!, y:player.location.y + 0.5, z:zlocation!},
-        maxDistance: 3,
-        closest: 1
-    });
-
-    targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:ice_desires_particle ~~~");
-        en.applyDamage(10, {
+export async function iceDesires(entity:Entity) {
+    if (entity != undefined && entity.isValid()) {
+        entity.dimension.spawnParticle("kurokumaft:ice_desires_particle", entity.location);
+        entity.applyDamage(5, {
             cause: EntityDamageCause.freezing
         });
-    });
-    player.removeTag("ice_desires");
+    }
+
 }
 
 /**

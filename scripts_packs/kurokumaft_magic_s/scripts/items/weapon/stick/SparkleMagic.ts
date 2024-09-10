@@ -1,4 +1,5 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
+import { EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * ホーリーフィールド
@@ -13,14 +14,11 @@ export async function hollyField(player:Player) {
     );
     let holeLo = holly_field.location;
     let intervalNum = system.runInterval(() => {
-        holly_field.runCommand("/particle kurokumaft:holly_field_particle ~~~");
-        holly_field.runCommand("/particle kurokumaft:holly_field_outer_particle ~~~");
+        holly_field.dimension.spawnParticle("kurokumaft:holly_field_particle", holly_field.location);
+        holly_field.dimension.spawnParticle("kurokumaft:holly_field_outer_particle", holly_field.location);
         let targets = player.dimension.getEntities({
-            excludeTags: [
-                "black_hole_self"
-            ],
             excludeFamilies: [
-                "inanimate"
+                "inanimate", "magic", "arrow"
             ],
             excludeTypes: [
                 "item"
@@ -29,7 +27,7 @@ export async function hollyField(player:Player) {
             maxDistance: 15
         });
         targets.forEach(en => {
-            en.addEffect("instant_health", 2, {
+            en.addEffect(MinecraftEffectTypes.InstantHealth, 2*TicksPerSecond, {
                 amplifier: 10
             });
         })

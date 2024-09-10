@@ -6,73 +6,16 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
-      "properties": {
-        "kurokumaft:gun_charge_fire": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        },
-        "kurokumaft:gun_charge_water": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        },
-        "kurokumaft:gun_charge_wind": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        },
-        "kurokumaft:gun_charge_lightning": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        },
-        "kurokumaft:gun_charge_stone": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        },
-        "kurokumaft:gun_charge_ice": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        },
-        "kurokumaft:burning_hell_states": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        },
-        "kurokumaft:burning_hell_tp": {
-          "range": [ 0, 1 ],
-          "type": "int",
-          "default": 0,
-          "client_sync": true
-        }
-      },
       "scripts":{
         "animate":[
-          "magic_gun",
-          "magic_bread",
-          "bazooka_chage",
 
-          "fire","water","lightning","light","dark","stone","snow","wind",
+          "light","dark",
 
           "flame","waterwave","storm","rock","thunderclap","freeze","brightness","darkness",
 
-          "blaze","watercurrent","earth","atmosphere","blockice","lightningstrike","sparkle","jetblack",          
+          "blaze","watercurrent","earth","atmosphere","blockice","lightningstrike","sparkle","jetblack",
 
-          "fire_grimoire_change",
-
-          "wind_magic_chestplate",
-
-          {"burning_hell_player": "query.property('kurokumaft:burning_hell_states') == 1"}
+          "wind_magic_chestplate"
         ]
       },
       "animations":{
@@ -80,19 +23,8 @@
         "ten_mine": "animation.cooldown.ten_mine",
         "twenty_mine": "animation.cooldown.twenty_mine",
 
-        "magic_gun": "controller.animation.magic.gun",
-        "magic_bread": "controller.animation.magic.bread",
-
-        "bazooka_chage": "controller.animation.magic.bazooka.chage",
-
-        "fire":"controller.animation.fire_magic.fire",
-        "water":"controller.animation.water_magic.water",
-        "lightning":"controller.animation.lightning_magic.lightning",
         "light":"controller.animation.light_magic.light",
         "dark":"controller.animation.dark_magic.dark",
-        "stone":"controller.animation.stone_magic.stone",
-        "snow":"controller.animation.snow_magic.snow",
-        "wind":"controller.animation.wind_magic.wind",
 
         "flame":"controller.animation.flame_magic.flame",
         "waterwave":"controller.animation.water_magic.waterwave",
@@ -115,21 +47,8 @@
         "sparkle":"controller.animation.light_magic.sparkle",
         "jetblack":"controller.animation.dark_magic.jetblack",
 
-        "fire_grimoire_change": "controller.animation.grimoire.fire_change",
-
-        "fire_magic_gun_frame": "animation.magic_gun.fire_magic_gun_frame",
-        "water_magic_gun_frame": "animation.magic_gun.water_magic_gun_frame",
-        "wind_magic_gun_frame": "animation.magic_gun.wind_magic_gun_frame",
-        "stone_magic_gun_frame": "animation.magic_gun.stone_magic_gun_frame",
-        "ice_magic_gun_frame": "animation.magic_gun.ice_magic_gun_frame",
-        "lightning_magic_gun_frame": "animation.magic_gun.lightning_magic_gun_frame",
-        "dark_magic_gun_frame": "animation.magic_gun.dark_magic_gun_frame",
-        "holly_magic_gun_frame": "animation.magic_gun.holly_magic_gun_frame",
-
         "wind_magic_chestplate": "controller.animation.armor.wind_magic_chestplate",
-        "wind_magic_takeoff": "animation.wind_magic_chestplate.takeoff","wind_magic_landing": "animation.wind_magic_chestplate.landing",
-
-        "burning_hell_player": "controller.animation.burning_hell_player"
+        "wind_magic_takeoff": "animation.wind_magic_chestplate.takeoff","wind_magic_landing": "animation.wind_magic_chestplate.landing"
       }
     },
 
@@ -743,27 +662,6 @@
 			"kurokumaft:armor_knockback_remove": {
 				"add": {
           "component_groups": [ "kurokumaft:armor_knockback_remove" ]
-        }
-			},
-
-      "burning_hell_states_0":{ 
-        "set_property": {
-          "kurokumaft:burning_hell_states": 0
-        }
-      },
-      "burning_hell_states_1":{ 
-        "set_property": {
-          "kurokumaft:burning_hell_states": 1
-        }
-      },
-      "burning_hell_tp_0":{ 
-        "set_property": {
-          "kurokumaft:burning_hell_tp": 0
-        }
-      },
-      "burning_hell_tp_1":{ 
-        "set_property": {
-          "kurokumaft:burning_hell_tp": 1
         }
       }
     }

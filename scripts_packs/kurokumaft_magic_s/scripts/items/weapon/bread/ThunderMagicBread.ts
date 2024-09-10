@@ -1,36 +1,19 @@
-import { EntityDamageCause, Player, system } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
+import { Entity, EntityDamageCause, Player } from "@minecraft/server";
+import { getRandomInRange } from "../../../common/commonUtil";
 import { shooting } from "../../../custom/ShooterMagicEvent";
 
 /**
  * 雷斬(らいきり)
  */
-export async function thunderDesires(player:Player) {
-    player.addTag("thunder_desires");
+export async function thunderDesires(entity:Entity) {
 
-    let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 2);
-    let targets = player.dimension.getEntities({
-        excludeTags: [
-            "thunder_desires"
-        ],
-        excludeFamilies: [
-            "inanimate", "magic", "player"
-        ],
-        excludeTypes: [
-            "item"
-        ],
-        location: {x:xlocation!, y:player.location.y + 0.5, z:zlocation!},
-        maxDistance: 3,
-        closest: 2
-    });
-
-    targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:thunder_desires_particle ~~~");
-        en.applyDamage(10, {
+    if (entity != undefined && entity.isValid()) {
+        entity.dimension.spawnParticle("kurokumaft:thunder_desires_particle", entity.location);
+        entity.applyDamage(5, {
             cause: EntityDamageCause.lightning
         });
-    });
-    player.removeTag("thunder_desires");
+    }
+
 }
 
 /**

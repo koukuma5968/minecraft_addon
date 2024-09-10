@@ -26,13 +26,6 @@
             "catch_fire": false,
             "destroy_on_hit": false,
             "semi_random_diff_damage": false
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "ice_block_particle",
-              "target": "self"
-            }
           }
         },
         "power": 0,
@@ -49,16 +42,6 @@
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
-      }
-    },
-    "events": {
-      "ice_block_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:ice_particle ~~~"
-          ],
-          "target": "self"
-        }
       }
     }
   }

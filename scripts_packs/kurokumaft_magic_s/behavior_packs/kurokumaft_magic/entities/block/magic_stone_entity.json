@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:magic_stone_entity",
@@ -77,22 +77,18 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "inanimate", "magic_stone_entity" ]
-      },
-      "minecraft:inventory": {
-        "inventory_size": 1,
-        "container_type": "horse"
+        "family": [ "armor_stand", "inanimate", "magic" ]
       },
       "minecraft:collision_box": {
         "width": 0.05,
         "height": 0.05
       },
-      "minecraft:health": {
-        "value": 10,
-        "max":10
-      },
       "minecraft:knockback_resistance": {
-        "value": 1.0
+        "value": 10.0
+      },
+      "minecraft:inventory": {
+        "inventory_size": 1,
+        "container_type": "horse"
       },
       "minecraft:damage_sensor": {
         "triggers": [
@@ -111,13 +107,6 @@
       }
     },
     "events": {
-      "on_breaking": {
-        "add": {
-          "component_groups": [
-            "breaking"
-          ]
-        }
-      },
       "kurokumaft:fire": {
         "add": {
           "component_groups" : [ "variant0" ]

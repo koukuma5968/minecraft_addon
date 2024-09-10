@@ -73,12 +73,6 @@
     },
     "events": {
       "kurokumaft:burst": {
-        "queue_command": {
-          "command": [
-            "summon kurokumaft:shell_stand ~~~ ~ ~ kurokumaft:stone_shell"
-          ],
-          "target": "self"
-        },
         "add": {
           "component_groups": [
             "kurokumaft:despawn"

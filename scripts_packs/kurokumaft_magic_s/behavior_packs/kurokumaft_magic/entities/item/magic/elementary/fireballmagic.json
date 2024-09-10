@@ -14,13 +14,12 @@
        "height": 0.31
       },
       "minecraft:projectile": {
-   
        "on_hit": {
           "affect_projectile": true,
          "impact_damage": {
            "damage": 5,
            "knockback": false,
-           "catch_fire": true,
+           "catch_fire": false,
            "destroy_on_hit": true,
            "semi_random_diff_damage": false
          },
@@ -32,15 +31,7 @@
           "num_particle": 6,
           "on_entity_hit": true,
           "on_other_hit": true
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "fire_particle",
-              "target": "self"
-            }
-          },
-         "remove_on_hit": { }
+          }
        },
        "hit_sound": "fire",
        "power": 2.5,
@@ -63,17 +54,6 @@
          "max_dropped_ticks": 7,
          "use_motion_prediction_hints": true
        }
-     }
-    },
-    "events": {
-      "fire_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:fire_particle ~~~",
-            "setblock ~~~ fire keep"
-          ],
-          "target": "self"
-        }
       }
     }
   }

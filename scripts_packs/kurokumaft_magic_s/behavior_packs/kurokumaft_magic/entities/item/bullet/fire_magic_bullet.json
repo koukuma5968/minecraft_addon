@@ -16,6 +16,12 @@
         "fire_magic_bullet":"animation.magic_bullet.fire_magic_bullet_frame"
       }
     },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
     "components": {
       "minecraft:type_family": {
         "family": [ "inanimate"  ]
@@ -62,7 +68,7 @@
       "minecraft:timer": {
         "time": [2.0,2.0],
         "time_down_event": { 
-          "event": "kurokumaft:despawn"
+          "event": "on_breaking"
         }
       },
       "minecraft:physics": {
@@ -79,14 +85,12 @@
         }
       }
     },
-
     "events": {
-      "kurokumaft:despawn": {
-        "queue_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }

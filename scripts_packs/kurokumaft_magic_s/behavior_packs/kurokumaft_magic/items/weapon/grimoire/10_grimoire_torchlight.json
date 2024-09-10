@@ -21,7 +21,10 @@
       },
       "minecraft:block_placer": {
         "block": "kurokumaft:grimoire_torchlight_block"
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:life_grimoire_block"
+      ]
     }
   }
 }

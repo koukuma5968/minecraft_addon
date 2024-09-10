@@ -28,15 +28,7 @@
             "num_particle": 6,
             "on_entity_hit": true,
             "on_other_hit": true
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "water_particle",
-              "target": "self"
-            }
-          },
-          "remove_on_hit": { }
+          }
        },
        "hit_sound": "hurt.in.water",
        "power": 2,
@@ -62,16 +54,6 @@
          "max_optimized_distance": 80.0,
          "max_dropped_ticks": 7,
          "use_motion_prediction_hints": true
-        }
-      }
-    },
-    "events": {
-      "water_particle": {
-        "queue_command": {
-          "command": [
-            "particle kurokumaft:water_particle ~~~"
-          ],
-          "target": "self"
         }
       }
     }

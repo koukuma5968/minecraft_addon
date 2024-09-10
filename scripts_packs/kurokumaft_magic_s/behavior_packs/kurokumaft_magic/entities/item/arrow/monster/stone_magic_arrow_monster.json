@@ -26,18 +26,6 @@
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
-          },
-          "definition_event": {
-            "affectProjectile": false,
-            "eventTrigger": {
-              "event": "knockback_roar",
-              "target": "self"
-            }
-          },
-          "stick_in_ground": {
-            "shake_time" : 0.35
-          },
-          "arrow_effect": {
           }
         },
         "hit_sound": "bow.hit",
@@ -48,6 +36,9 @@
         "anchor": 1,
         "should_bounce": true,
         "offset": [ 0, -0.1, 0 ]
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:physics": {
       },
@@ -60,17 +51,6 @@
           "max_optimized_distance": 80.0,
           "max_dropped_ticks": 7,
           "use_motion_prediction_hints": true
-        }
-      }
-    },
-
-    "events": {
-      "knockback_roar": {
-        "queue_command": {
-          "command": [
-            "summon kurokumaft:stone_magic_knockback_roar_monster ~~~"
-          ],
-          "target": "self"
         }
       }
     }

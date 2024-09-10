@@ -20,7 +20,10 @@
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 15.0
-			}
+			},
+			"minecraft:custom_components": [
+				"kurokumaft:boss_summon_block"
+			]
 		}
 	}
 }

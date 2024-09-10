@@ -10,7 +10,7 @@ export async function brushash(player:Player) {
             "brushash_self"
         ],
         excludeFamilies: [
-            "inanimate", "player", "familiar"
+            "inanimate", "player", "familiar", "magic", "arrow"
         ],
         excludeTypes: [
             "item"
@@ -20,7 +20,7 @@ export async function brushash(player:Player) {
         closest: 3
     });
     targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:dark_brushash_particle ~~~");
+        en.dimension.spawnParticle("kurokumaft:dark_brushash_particle", en.location);
         en.applyDamage(6, {
             cause: EntityDamageCause.wither
         });

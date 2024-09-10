@@ -24,13 +24,12 @@
             "knockback": false,
             "catch_fire": false,
             "semi_random_diff_damage": false,
-            "destroy_on_hit": true,
+            "destroy_on_hit": false,
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
           },
-          "douse_fire": {},
-          "remove_on_hit": {}
+          "douse_fire": {}
         },
         "filter": "minecraft:player",
         "hit_sound": "bow.hit",

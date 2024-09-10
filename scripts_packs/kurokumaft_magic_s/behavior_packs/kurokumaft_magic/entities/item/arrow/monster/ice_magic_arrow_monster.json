@@ -54,12 +54,6 @@
         "should_bounce": true,
         "offset": [ 0, -0.1, 0 ]
       },
-      "minecraft:timer": {
-        "time": [2.5,2.5],
-        "time_down_event": { 
-          "event": "despawn"
-        }
-      },
       "minecraft:behavior.hurt_by_target": {
         "alert_same_type": true,
         "entity_types": {
@@ -68,6 +62,15 @@
           }
         },
         "priority": 1
+      },
+      "minecraft:timer": {
+        "time": [2.5,2.5],
+        "time_down_event": { 
+          "event": "on_breaking"
+        }
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
       },
       "minecraft:physics": {
       },
@@ -85,12 +88,11 @@
     },
 
     "events": {
-      "despawn": {
-        "queue_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
         }
       }
     }
