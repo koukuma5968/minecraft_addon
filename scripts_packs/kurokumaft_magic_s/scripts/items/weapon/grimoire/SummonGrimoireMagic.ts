@@ -5,7 +5,8 @@ import { ItemDurabilityDamage, SummonGrimoireDurabilityDamage } from "../../../c
 
 interface SummonGrimoireMagicObject {
     itemName:string,
-    particle:string
+    particle:string,
+    entity:string,
     sendMsg:string
 }
 
@@ -13,6 +14,7 @@ const SummonGrimoireObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_grimoire",
         particle: "kurokumaft:fire_bread_particle",
+        entity: "kurokumaft:phoenix_spear",
         sendMsg: "§c魔炎鳥"
     }
 
@@ -43,6 +45,7 @@ export class SummonGrimoireMagic implements ItemCustomComponent {
  */
 async function grimoire_summon_use(player: Player, item: ItemStack, summonMagicObject: SummonGrimoireMagicObject) {
 
+    player.setDynamicProperty("summon_grimoire", true);
     player.dimension.spawnParticle(summonMagicObject.particle, {x:player.location.x,y:player.location.y+0.75,z:player.location.z});
 
 };
@@ -61,7 +64,8 @@ export async function grimoire_summon_Release(player:Player, itemStack:ItemStack
         let summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
 
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + summonMagicObject.sendMsg + "\"}]}");
-    
+        throwing(player, itemStack, summonMagicObject.entity, {x:0,y:0,z:0}); 
+
         if (player.getGameMode() != GameMode.creative) {
             SummonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
         }

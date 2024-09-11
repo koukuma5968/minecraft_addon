@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:nezuko_mask",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nezuko_mask.name"
 			},
-      "minecraft:icon": {
-        "texture": "nezuko_mask"
-      },
+      "minecraft:icon": "nezuko_mask",
       "minecraft:repairable": {
         "repair_items": [
           {

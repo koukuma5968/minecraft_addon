@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.10",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:scarlet_ore",
@@ -20,8 +20,6 @@
 			"minecraft:light_dampening": 15,
 			"minecraft:light_emission": 5,
 			"minecraft:loot": "loot_tables/blocks/ore/scarlet_ore.json"
-		},
-		"events": {
 		}
 	}
 }

@@ -1,44 +1,33 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:koushi",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.kekkizyutu"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:koushi.name"
 			},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.kekkizyutu"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:kekkizyutu"
+        ]
       },
-      "tag:kurokumaft:kekkizyutu": {},
-      "tag:kurokumaft:koushi": {},
-      "minecraft:icon": {
-        "texture": "koushi"
-      },
+      "minecraft:icon": "koushi",
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
       "minecraft:allow_off_hand": true,
       "minecraft:can_destroy_in_creative": false,
-      "minecraft:use_duration":1,
-      "minecraft:chargeable": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1
       },
-      "minecraft:on_use": {
-        "on_use": {
-          "condition": "query.variant == 3",
-          "event": "kokushirinten",
-          "target": "self"
-        }
-      }
-    },
-    "events": {
-      "kokushirinten" : {
-        "shoot": {
-          "projectile": "kurokumaft:kokushirinten",
-          "launch_power": 1.1
-        }
-      }
+      "minecraft:custom_components": [
+        "kurokumaft:kekkizyutu_koushi"
+      ]
     }
   }
 }

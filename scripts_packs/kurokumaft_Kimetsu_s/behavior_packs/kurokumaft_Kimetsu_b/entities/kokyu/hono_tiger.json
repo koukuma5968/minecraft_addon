@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.10",
+    "format_version": "1.21.10",
     "minecraft:entity": {
         "description": {
             "identifier": "kurokumaft:hono_tiger",
@@ -19,11 +19,7 @@
             "minecraft:projectile": {
                 "on_hit": {
                     "definition_event": {
-                      "affect_projectile": true,
-                      "event_trigger": {
-                        "event": "kurokumaft:hono_tiger_particle",
-                        "target": "self"
-                      }
+                      "affect_projectile": true
                     },
                     "impact_damage": {
                         "damage": 20,
@@ -58,16 +54,6 @@
                     "max_dropped_ticks": 7,
                     "use_motion_prediction_hints": true
                   }
-            }
-        },
-        "events": {
-            "kurokumaft:hono_tiger_particle": {
-                "run_command": {
-                    "command": [
-                      "particle kurokumaft:hono_tiger_hit_particle ~~~"
-                    ],
-                    "target": "self"
-                }
             }
         }
     }

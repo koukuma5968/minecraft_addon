@@ -325,12 +325,12 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
       if (chest.typeId == "kurokumaft:stone_magic_chestplate" || chest.typeId == "kurokumaft:nether_stone_magic_chestplate") {
         let view = player.getViewDirection();
         damager.applyDamage(5, { "cause": "entityExplosion" });
-        damager.runCommandAsync("particle minecraft:large_explosion  ~~~");
+        damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
         damager.applyKnockback(Math.round(view.x) * 10, Math.round(view.z) * 10, 10, 1);
       }
       if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chest") {
         damager.applyDamage(5, { "cause": "lightning" });
-        damager.runCommandAsync("particle kurokumaft:lightning_arrow_particle ~~~");
+        damager.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", damager.location);
       }
     }
   }
@@ -342,7 +342,7 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
         let randomNum2 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
         let randomInRange1 = Math.floor(Math.random() * 2) == 1 ? -randomNum1 : randomNum1;
         let randomInRange2 = Math.floor(Math.random() * 2) == 1 ? -randomNum2 : randomNum2;
-        damager.teleport({ x: location.x + randomInRange1, y: location.y, z: location.z + randomInRange2 }, void 0);
+        damager.teleport({ x: location.x + randomInRange1, y: location.y, z: location.z + randomInRange2 });
       }
     }
   }
@@ -350,7 +350,7 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
     if ((head.typeId == "kurokumaft:lightning_magic_helmet" || head.typeId == "kurokumaft:nether_lightning_magic_helmet") && projectile != void 0) {
       try {
         projectile.clearVelocity();
-        projectile.runCommand("particle kurokumaft:lightning_arrow_particle ~~~");
+        projectile.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", projectile.location);
         let intervalNum = system3.runInterval(() => {
           projectile.clearVelocity();
         }, 5);
@@ -363,7 +363,7 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
     if ((head.typeId == "kurokumaft:wind_magic_helmet" || head.typeId == "kurokumaft:nether_wind_magic_helmet") && projectile != void 0) {
       try {
         projectile.clearVelocity();
-        projectile.runCommand("particle kurokumaft:wind_arrow_particle ~~~");
+        projectile.dimension.spawnParticle("kurokumaft:wind_arrow_particle", projectile.location);
         projectile.applyImpulse({ x: hitVector.x, y: hitVector.y, z: -hitVector.z });
       } catch (error) {
       }
@@ -4387,7 +4387,7 @@ var MagicChestObjects = Object.freeze([
   {
     itemName: "kurokumaft:water_magic_chestplate",
     func: waterHealthUp,
-    delay: TicksPerSecond12 * 5,
+    delay: TicksPerSecond12 * 20,
     removeFunc: waterHealthReset
   },
   {
@@ -4405,7 +4405,7 @@ var MagicChestObjects = Object.freeze([
   {
     itemName: "kurokumaft:nether_water_magic_chestplate",
     func: waterHealthUp,
-    delay: TicksPerSecond12 * 5,
+    delay: TicksPerSecond12 * 10,
     removeFunc: waterHealthReset
   },
   {
@@ -4443,27 +4443,30 @@ var MagicChestSurveillance = class {
   }
 };
 async function fireAttackUp(player) {
-  player.runCommand("/event entity @s kurokumaft:attack20_up");
+  player.triggerEvent("kurokumaft:attack20_up");
 }
 async function waterHealthUp(player) {
-  player.runCommand("/event entity @s kurokumaft:health40_up");
+  player.addEffect(MinecraftPotionEffectTypes.Healing, 10, {
+    amplifier: 2,
+    showParticles: true
+  });
 }
 async function lavaFreeze(player) {
-  player.runCommand("/execute as @s if block ^1^1^ lava run setblock ^1^1^ air");
-  player.runCommand("/execute as @s if block ^-1^1^ lava run setblock ^-1^1^ air");
-  player.runCommand("/execute as @s if block ^^1^1 lava run setblock ^^1^1 air");
-  player.runCommand("/execute as @s if block ^^1^-1 lava run setblock ^^1^-1 air");
-  player.runCommand("/execute as @s if block ^^1^-1 lava run setblock ^^1^-1 air");
-  player.runCommand("/execute as @s if block ^-1^2^ lava run setblock ^-1^2^ air");
-  player.runCommand("/execute as @s if block ^^2^1 lava run setblock ^^2^1 air");
-  player.runCommand("/execute as @s if block ^^2^-1 lava run setblock ^^2^-1 air");
-  player.runCommand("/execute as @s if block ^^3^ lava run setblock ^^3^ air");
+  for (let x = -2; x <= 2; x++) {
+    for (let z = -2; x <= 2; x++) {
+      for (let y = -2; y <= 2; y++) {
+        let underBlock = player.dimension.getBlock({ x: player.location.x + x, y: player.location.y + y, z: player.location.z + z });
+        if (underBlock.typeId == MinecraftBlockTypes.Lava || underBlock.typeId == MinecraftBlockTypes.Magma) {
+          player.dimension.setBlockType({ x: player.location.x + x, y: player.location.y + y, z: player.location.z + z }, MinecraftBlockTypes.Ice);
+        }
+      }
+    }
+  }
 }
 async function fireAttackReset(player) {
-  player.runCommand("/event entity @s kurokumaft:attack_down");
+  player.triggerEvent("kurokumaft:attack_down");
 }
 async function waterHealthReset(player) {
-  player.runCommand("/event entity @s kurokumaft:health_down");
 }
 async function lavaFreezeReset(player) {
 }
@@ -4655,40 +4658,52 @@ var MagicBootsSurveillance = class {
   }
 };
 async function lavaWalker(player) {
-  player.runCommand("/execute as @s if block ~~-1~ lava run setblock ~~-1~ magma");
-  player.runCommand("/execute as @s if block ~~-1~ flowing_lava run setblock ~~-1~ magma");
+  for (let x = -1; x <= 1; x++) {
+    for (let z = -1; x <= 1; x++) {
+      let underBlock = player.dimension.getBlock({ x: player.location.x + x, y: player.location.y - 1, z: player.location.z + z });
+      if (underBlock.typeId == MinecraftBlockTypes.Lava || underBlock.typeId == MinecraftBlockTypes.FlowingLava) {
+        player.dimension.setBlockType({ x: player.location.x + x, y: player.location.y - 1, z: player.location.z + z }, MinecraftBlockTypes.Magma);
+      }
+    }
+  }
 }
 async function waterSpeedUp(player) {
   if (player.isInWater) {
-    player.runCommand("/event entity @s kurokumaft:water_speed_walker_up");
+    player.triggerEvent("kurokumaft:water_speed_walker_up");
   } else {
-    player.runCommand("/event entity @s kurokumaft:water_speed_walker_down");
+    player.triggerEvent("kurokumaft:water_speed_walker_down");
   }
 }
 async function windSpeedUp(player) {
   if (!player.isInWater) {
-    player.runCommand("/event entity @s kurokumaft:speed_walker_up");
+    player.triggerEvent("kurokumaft:speed_walker_up");
   } else {
-    player.runCommand("/event entity @s kurokumaft:speed_walker_down");
+    player.triggerEvent("kurokumaft:speed_walker_down");
   }
 }
 async function lightningSpeedUp(player) {
-  player.runCommand("/event entity @s kurokumaft:speed_walker_up4");
+  player.triggerEvent("kurokumaft:speed_walker_up4");
 }
 async function iceWalker(player) {
-  player.runCommand("/execute as @s if block ~~-1~ water run setblock ~~-1~ packed_ice");
-  player.runCommand("/execute as @s if block ~~-1~ flowing_water run setblock ~~-1~ packed_ice");
+  for (let x = -1; x <= 1; x++) {
+    for (let z = -1; x <= 1; x++) {
+      let underBlock = player.dimension.getBlock({ x: player.location.x + x, y: player.location.y - 1, z: player.location.z + z });
+      if (underBlock.typeId == MinecraftBlockTypes.Water || underBlock.typeId == MinecraftBlockTypes.FlowingWater) {
+        player.dimension.setBlockType({ x: player.location.x + x, y: player.location.y - 1, z: player.location.z + z }, MinecraftBlockTypes.PackedIce);
+      }
+    }
+  }
 }
 async function lavaWalkerReset(player) {
 }
 async function waterSpeedReset(player) {
-  player.runCommand("/event entity @s kurokumaft:water_speed_walker_down");
+  player.triggerEvent("kurokumaft:water_speed_walker_down");
 }
 async function windSpeedReset(player) {
-  player.runCommand("/event entity @s kurokumaft:speed_walker_down");
+  player.triggerEvent("kurokumaft:speed_walker_down");
 }
 async function lightningSpeedReset(player) {
-  player.runCommand("/event entity @s kurokumaft:speed_walker_down");
+  player.triggerEvent("kurokumaft:speed_walker_down");
 }
 async function iceWalkerReset(player) {
 }
@@ -6777,6 +6792,7 @@ var SummonGrimoireObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_grimoire",
     particle: "kurokumaft:fire_bread_particle",
+    entity: "kurokumaft:phoenix_spear",
     sendMsg: "\xA7c\u9B54\u708E\u9CE5"
   }
 ]);
@@ -6792,6 +6808,7 @@ var SummonGrimoireMagic = class {
   }
 };
 async function grimoire_summon_use(player, item, summonMagicObject) {
+  player.setDynamicProperty("summon_grimoire", true);
   player.dimension.spawnParticle(summonMagicObject.particle, { x: player.location.x, y: player.location.y + 0.75, z: player.location.z });
 }
 async function grimoire_summon_Release(player, itemStack, duration) {
@@ -6799,6 +6816,7 @@ async function grimoire_summon_Release(player, itemStack, duration) {
   if (-duration >= 25) {
     let summonMagicObject = SummonGrimoireObjects.find((obj) => obj.itemName == itemStack.typeId);
     player.runCommand('/titleraw @s actionbar {"rawtext":[{"text":"' + summonMagicObject.sendMsg + '"}]}');
+    throwing(player, itemStack, summonMagicObject.entity, { x: 0, y: 0, z: 0 });
     if (player.getGameMode() != GameMode9.creative) {
       SummonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot18.Mainhand);
     }

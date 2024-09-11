@@ -306,6 +306,9 @@
       "hakaisatu": {
          "textures" : "textures/kurokumaft/models/kekkizyutu/akaza/rashin"
       },
+      "urogi_ultrasonic": {
+         "textures" : "textures/kurokumaft/models/kekkizyutu/hantengu/urogi_ultrasonic"
+      },
 
       "rui_kimono": {
          "textures" : "textures/kurokumaft/items/armor/rui/rui_kimono"

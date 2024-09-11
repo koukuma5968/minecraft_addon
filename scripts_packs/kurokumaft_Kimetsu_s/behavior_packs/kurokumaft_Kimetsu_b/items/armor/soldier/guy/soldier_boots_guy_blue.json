@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:soldier_boots_guy_blue",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.boots"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boots"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:soldier_boots_guy_blue.name"
 			},
-      "minecraft:icon": {
-        "texture": "soldier_boots_guy_blue"
-      },
+      "minecraft:icon": "soldier_boots_guy_blue",
       "minecraft:repairable": {
         "repair_items": [
           {

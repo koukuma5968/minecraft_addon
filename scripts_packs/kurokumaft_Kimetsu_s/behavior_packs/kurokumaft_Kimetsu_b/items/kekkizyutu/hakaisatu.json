@@ -1,44 +1,33 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:hakaisatu",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.kekkizyutu"
+      }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:kekkizyutu"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:hakaisatu.name"
 			},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.kekkizyutu"
-      },
-      "tag:kurokumaft:kekkizyutu": {},
-      "tag:kurokumaft:hakaisatu": {},
-      "minecraft:icon": {
-        "texture": "hakaisatu"
-      },
+      "minecraft:icon": "hakaisatu",
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
       "minecraft:allow_off_hand": true,
       "minecraft:can_destroy_in_creative": false,
-      "minecraft:use_duration":9999,
-      "minecraft:chargeable": {
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1
       },
-      "minecraft:on_use": {
-        "on_use": {
-          "condition": "query.variant == 2",
-          "event": "kushiki",
-          "target": "self"
-        }
-      }
-    },
-    "events": {
-      "kushiki" : {
-        "shoot": {
-          "projectile": "kurokumaft:kushiki",
-          "launch_power": 1.1
-        }
-      }
+      "minecraft:custom_components": [
+        "kurokumaft:kekkizyutu_hakaisatu"
+      ]
     }
   }
 }

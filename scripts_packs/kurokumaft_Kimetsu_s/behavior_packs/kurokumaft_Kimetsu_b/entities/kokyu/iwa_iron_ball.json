@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:iwa_iron_ball",
@@ -52,9 +52,6 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       }
-    },
-
-    "events": {
     }
   }
 }

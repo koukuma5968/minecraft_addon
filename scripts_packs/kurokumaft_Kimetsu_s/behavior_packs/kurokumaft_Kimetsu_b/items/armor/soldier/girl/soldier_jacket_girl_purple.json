@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:soldier_jacket_girl_purple",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:soldier_jacket_girl_purple.name"
 			},
-      "minecraft:icon": {
-        "texture": "soldier_jacket_girl_purple"
-      },
+      "minecraft:icon": "soldier_jacket_girl_purple",
       "minecraft:repairable": {
         "repair_items": [
           {

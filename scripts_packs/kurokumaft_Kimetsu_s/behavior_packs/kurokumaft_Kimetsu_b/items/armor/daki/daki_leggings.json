@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:daki_leggings",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.leggings"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leggings"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:daki_leggings.name"
 			},
-      "minecraft:icon": {
-        "texture": "daki_leggings"
-      },
+      "minecraft:icon": "daki_leggings",
       "minecraft:repairable": {
         "repair_items": [
           {

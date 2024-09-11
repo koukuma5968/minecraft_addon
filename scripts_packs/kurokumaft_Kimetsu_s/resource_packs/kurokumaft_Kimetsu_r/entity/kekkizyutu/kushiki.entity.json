@@ -19,7 +19,7 @@
             "kushiki": "animation.kekkizyutu.hakaisatu.kushiki"
           },
           "scripts": {
-            "scale": "1.5",
+            "scale": "2.5",
             "animate": [
               "kushiki"
             ]

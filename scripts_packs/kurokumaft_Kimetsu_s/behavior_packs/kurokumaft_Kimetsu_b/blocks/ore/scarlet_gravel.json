@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.10",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:scarlet_gravel",
@@ -19,8 +19,6 @@
 			"minecraft:light_dampening": 10,
 			"minecraft:light_emission": 15,
 			"minecraft:loot": "loot_tables/blocks/ore/scarlet_gravel.json"
-		},
-		"events": {
 		}
 	}
 }

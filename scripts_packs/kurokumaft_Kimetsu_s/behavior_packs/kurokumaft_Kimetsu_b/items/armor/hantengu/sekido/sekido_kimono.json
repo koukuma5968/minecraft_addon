@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:sekido_kimono",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:sekido_kimono.name"
 			},
-      "minecraft:icon": {
-        "texture": "sekido_kimono"
-      },
+      "minecraft:icon": "sekido_kimono",
       "minecraft:repairable": {
         "repair_items": [
           {

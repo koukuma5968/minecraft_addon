@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:daki_kanzashi",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:daki_kanzashi.name"
 			},
-      "minecraft:icon": {
-        "texture": "daki_kanzashi"
-      },
+      "minecraft:icon": "daki_kanzashi",
       "minecraft:repairable": {
         "repair_items": [
           {

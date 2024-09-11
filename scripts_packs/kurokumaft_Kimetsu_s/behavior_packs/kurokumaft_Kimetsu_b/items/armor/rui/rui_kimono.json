@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:rui_kimono",
-  		"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:rui_kimono.name"
 			},
-      "minecraft:icon": {
-        "texture": "rui_kimono"
-      },
+      "minecraft:icon": "rui_kimono",
       "minecraft:repairable": {
         "repair_items": [
           {

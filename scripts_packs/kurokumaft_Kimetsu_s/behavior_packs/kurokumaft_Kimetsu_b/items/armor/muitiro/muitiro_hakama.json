@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:muitiro_hakama",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.leggings"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leggings"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:muitiro_hakama.name"
 			},
-      "minecraft:icon": {
-        "texture": "muitiro_hakama"
-      },
+      "minecraft:icon": "muitiro_hakama",
       "minecraft:repairable": {
         "repair_items": [
           {

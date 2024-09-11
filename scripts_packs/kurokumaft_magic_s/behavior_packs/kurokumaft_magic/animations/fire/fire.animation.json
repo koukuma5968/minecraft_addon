@@ -49,7 +49,7 @@
 			}
 		},
 		"animation.fire.phoenix_spear.damage": {
-			"animation_length": 0.2,
+			"animation_length": 1.0,
 			"loop": true,
 			"timeline": {
 				"0.0": [

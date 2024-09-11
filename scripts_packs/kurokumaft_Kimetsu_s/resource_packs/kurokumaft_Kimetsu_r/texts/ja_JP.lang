@@ -185,6 +185,7 @@ tile.kurokumaft:muitiro_skull.name=無一郎の頭
 item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
 item.kurokumaft:koushi.name=血気術 累(鋼糸)
 item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
+item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
 
 entity.kurokumaft:rui.name=累
 entity.kurokumaft:akaza.name=猗窩座

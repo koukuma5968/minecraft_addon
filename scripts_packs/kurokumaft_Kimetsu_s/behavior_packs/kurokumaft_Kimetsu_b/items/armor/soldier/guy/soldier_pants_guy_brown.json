@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:soldier_pants_guy_brown",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.leggings"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leggings"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:soldier_pants_guy_brown.name"
 			},
-      "minecraft:icon": {
-        "texture": "soldier_pants_guy_brown"
-      },
+      "minecraft:icon": "soldier_pants_guy_brown",
       "minecraft:repairable": {
         "repair_items": [
           {

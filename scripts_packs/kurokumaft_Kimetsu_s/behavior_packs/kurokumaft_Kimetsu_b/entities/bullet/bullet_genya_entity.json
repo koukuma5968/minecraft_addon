@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.10",
+    "format_version": "1.21.10",
     "minecraft:entity": {
         "description": {
             "identifier": "kurokumaft:bullet_genya_entity",
@@ -35,7 +35,7 @@
                 "uncertaintyBase": 8,
                 "uncertaintyMultiplier": 2.5,
                 "anchor": 1,
-                "offset": [0, -0.5, 0],
+                "offset": [-0.5, -0.5, 0],
                 "reflectOnHurt": true,
                 "catch_fire": false
             },
@@ -45,16 +45,6 @@
                   "max_optimized_distance": 80.0,
                   "max_dropped_ticks": 7,
                   "use_motion_prediction_hints": true
-                }
-            }
-        },
-        "events": {
-            "minecraft:entity_spawned": {
-                "run_command": {
-                    "command": [
-                      "particle minecraft:large_explosion ~~~"
-                    ],
-                    "target": "self"
                 }
             }
         }

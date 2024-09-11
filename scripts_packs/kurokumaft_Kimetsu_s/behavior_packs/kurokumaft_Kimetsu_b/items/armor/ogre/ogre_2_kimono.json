@@ -1,17 +1,17 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:ogre_2_kimono",
-      "category": "none"
+      "menu_category": {
+        "category": "none"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:ogre_2_kimono.name"
 			},
-      "minecraft:icon": {
-          "texture": "ogre_2_kimono"
-      },
+      "minecraft:icon": "ogre_2_kimono",
       "minecraft:repairable": {
         "repair_items": [
           {

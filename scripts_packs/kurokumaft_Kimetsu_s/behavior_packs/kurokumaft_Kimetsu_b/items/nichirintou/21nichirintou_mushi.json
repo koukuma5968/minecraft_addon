@@ -1,22 +1,24 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:nichirintou_mushi",
-  		"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.nichirintou"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_mushi.name"
 			},
-      "minecraft:icon": {
-        "texture": "nichirintou_mushi"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.nichirintou"
-      },
+      "minecraft:icon": "nichirintou_mushi",
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 3
+        },
         "max_durability": 1000
       },
       "minecraft:repairable": {
@@ -31,7 +33,6 @@
           }
         ]
       },
-      
       "minecraft:damage": 3,
       "minecraft:enchantable": {
         "value": 500,
@@ -51,38 +52,12 @@
           }
         ]
       },
-      "minecraft:use_duration": 999,
-      "minecraft:chargeable": {
-        "on_complete": {
-          "event": "hurt_entity"
-        }
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1
       },
-      "minecraft:weapon": {
-        "on_hurt_entity": {
-            "event": "hurt_entity"
-        }
-      }
-    },
-    "events": {
-      "hurt_entity": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "execute as @s run effect @s poison 10 5 false"
-              ],
-              "target": "other"
-            }
-          },
-          {
-            "damage":{
-              "type":"durability",
-              "target":"self",
-              "amount":5
-            }
-          }
-        ]
-      }
+      "minecraft:custom_components": [
+        "kurokumaft:nichirintou_mushi"
+      ]
     }
   }
 }

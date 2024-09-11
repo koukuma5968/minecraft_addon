@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.10",
+    "format_version": "1.21.10",
     "minecraft:entity": {
         "description": {
             "identifier": "kurokumaft:kushiki",
@@ -906,14 +906,12 @@
                         "destroyonhit": false
                     }
                 },
-                "power": 2.0,
-                "gravity": 0,
+                "power": 5.0,
+                "gravity": 0.01,
                 "inertia": 1.0,
-                "uncertaintyBase": 8,
-                "uncertaintyMultiplier": 2.5,
                 "anchor": 1,
                 "offset": [0, 0, 0],
-                "reflectOnHurt": true,
+                "reflect_on_hurt": false,
                 "catch_fire": false
             },
             "minecraft:timer": {

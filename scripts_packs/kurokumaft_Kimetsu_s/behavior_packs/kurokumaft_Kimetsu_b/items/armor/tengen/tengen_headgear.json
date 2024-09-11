@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:tengen_headgear",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:tengen_headgear.name"
 			},
-      "minecraft:icon": {
-        "texture": "tengen_headgear"
-      },
+      "minecraft:icon": "tengen_headgear",
       "minecraft:repairable": {
         "repair_items": [
           {

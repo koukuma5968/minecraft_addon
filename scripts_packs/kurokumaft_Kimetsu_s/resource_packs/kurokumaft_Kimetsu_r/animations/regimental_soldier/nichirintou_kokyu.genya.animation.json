@@ -13,8 +13,8 @@
 			"loop": true,
 			"bones": {
 				"zyuu": {
-					"rotation": [0, 32.5, 0],
-					"position": [0, -3, 0]
+					"rotation": [6.90455, 59.49995, -39.14254],
+					"position": [0, 11, -3]
 				}
 			}
 		},

@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:tanjiro_head",
-			"category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.skull"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.skull"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:tanjiro_head.name"
 			},
-      "minecraft:icon": {
-        "texture": "tanjiro_head"
-      },
+      "minecraft:icon": "tanjiro_head",
       "minecraft:block_placer": {
         "block": "kurokumaft:tanjiro_skull"
       },

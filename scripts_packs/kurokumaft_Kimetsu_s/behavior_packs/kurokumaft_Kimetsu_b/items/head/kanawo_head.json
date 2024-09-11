@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:kanawo_head",
-			"category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.skull"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.skull"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:kanawo_head.name"
 			},
-      "minecraft:icon": {
-        "texture": "kanawo_head"
-      },
+      "minecraft:icon": "kanawo_head",
       "minecraft:block_placer": {
         "block": "kurokumaft:kanawo_skull"
       },

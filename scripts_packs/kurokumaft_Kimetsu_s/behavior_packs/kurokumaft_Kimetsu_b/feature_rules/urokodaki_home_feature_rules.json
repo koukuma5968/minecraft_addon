@@ -1,5 +1,5 @@
 {
-    "format_version": "1.20.10",
+    "format_version": "1.20.30",
     "minecraft:feature_rules": {
         "description": {
             "identifier": "kurokumaft:urokodaki_home_feature_rules",

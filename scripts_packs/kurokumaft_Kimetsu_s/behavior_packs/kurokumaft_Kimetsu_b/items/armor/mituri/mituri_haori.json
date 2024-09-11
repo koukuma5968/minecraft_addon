@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:mituri_haori",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:mituri_haori.name"
 			},
-      "minecraft:icon": {
-        "texture": "mituri_haori"
-      },
+      "minecraft:icon": "mituri_haori",
       "minecraft:repairable": {
         "repair_items": [
           {

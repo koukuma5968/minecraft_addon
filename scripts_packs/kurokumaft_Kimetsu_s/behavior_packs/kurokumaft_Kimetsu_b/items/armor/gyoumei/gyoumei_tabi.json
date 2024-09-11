@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:gyoumei_tabi",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.boots"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boots"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:gyoumei_tabi.name"
 			},
-      "minecraft:icon": {
-          "texture": "gyoumei_tabi"
-      },
+      "minecraft:icon": "gyoumei_tabi",
       "minecraft:repairable": {
         "repair_items": [
           {

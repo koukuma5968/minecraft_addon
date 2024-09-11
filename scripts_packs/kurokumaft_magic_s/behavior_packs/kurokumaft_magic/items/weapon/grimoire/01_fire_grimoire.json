@@ -27,15 +27,8 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:fire_grimoire.name"
       },
-      "minecraft:throwable": {
-        "do_swing_animation": true,
-        "min_draw_duration": 2.5,
-        "max_draw_duration": 10.0,
-        "scale_power_by_draw_duration": true
-      },
-      "minecraft:projectile": {
-        "projectile_entity": "kurokumaft:phoenix_spear",
-        "minimum_critical_power": 1.0
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.5
       },
       "minecraft:custom_components": [
         "kurokumaft:summon_grimoire"

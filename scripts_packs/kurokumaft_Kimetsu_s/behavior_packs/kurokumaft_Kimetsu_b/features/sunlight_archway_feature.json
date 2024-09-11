@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.20.30",
   "minecraft:structure_template_feature": {
     "description": {
       "identifier": "kurokumaft:sunlight_archway_feature"

@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:kyouzyuro_head",
-			"category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.skull"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.skull"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:kyouzyuro_head.name"
 			},
-      "minecraft:icon": {
-        "texture": "kyouzyuro_head"
-      },
+      "minecraft:icon": "kyouzyuro_head",
       "minecraft:block_placer": {
         "block": "kurokumaft:kyouzyuro_skull"
       },

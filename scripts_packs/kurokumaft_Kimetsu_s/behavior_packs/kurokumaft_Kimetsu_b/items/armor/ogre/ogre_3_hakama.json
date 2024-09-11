@@ -1,17 +1,17 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:ogre_3_hakama",
-			"category": "none"
+      "menu_category": {
+        "category": "none"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:ogre_3_hakama.name"
 			},
-      "minecraft:icon": {
-        "texture": "ogre_3_hakama"
-      },
+      "minecraft:icon": "ogre_3_hakama",
       "minecraft:repairable": {
         "repair_items": [
           {

@@ -1,20 +1,18 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:tengen_soldier_jacket",
-			"category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.chestplate"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.chestplate"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:tengen_soldier_jacket.name"
 			},
-      "minecraft:icon": {
-        "texture": "tengen_soldier_jacket"
-      },
+      "minecraft:icon": "tengen_soldier_jacket",
       "minecraft:repairable": {
         "repair_items": [
           {

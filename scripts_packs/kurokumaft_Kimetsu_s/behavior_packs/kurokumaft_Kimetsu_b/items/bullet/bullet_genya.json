@@ -1,26 +1,22 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:bullet_genya",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bullet"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bullet"
-      },
       "minecraft:max_stack_size": 64,
-      "minecraft:icon": {
-        "texture": "bullet_genya"
-      },
+      "minecraft:icon": "bullet_genya",
       "minecraft:display_name": {
         "value": "item.kurokumaft:bullet_genya.name"
       },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:bullet_genya_entity"
       }
-    },
-    "events": {
     }
   }
 }
