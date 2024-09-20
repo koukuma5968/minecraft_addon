@@ -27,8 +27,10 @@
 /scripts_packs/kurokumaft_weapons_s/eslint.config.mjs
 /scripts_packs/kurokumaft_weapons_s/tsconfig.json
 /scripts_packs/kurokumaft_weapons_s/.prettierrc.json
-scripts_packs/wordpress_code/node_modules
-scripts_packs/wordpress_code/lib
-scripts_packs/wordpress_code/package-lock.json
-scripts_packs/wordpress_code/README.md
-scripts_packs/wordpress_code/.prettierrc.json
+/scripts_packs/wordpress_code/node_modules
+/scripts_packs/wordpress_code/lib
+/scripts_packs/wordpress_code/package-lock.json
+/scripts_packs/wordpress_code/README.md
+/scripts_packs/wordpress_code/.prettierrc.json
+/scripts_packs/wordpress_code/eslint.config.mjs
+/scripts_packs/wordpress_code/.prettierrc.json
