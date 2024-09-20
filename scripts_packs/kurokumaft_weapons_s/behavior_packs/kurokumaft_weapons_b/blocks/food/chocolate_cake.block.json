@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:chocolate_cake_block",
@@ -53,9 +53,6 @@
 			},
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 5
-			},
-			"minecraft:on_interact": {
-				"event": "eating"
 			}
 		},
 		"permutations": [
@@ -299,36 +296,6 @@
 					}
 				}
 			}
-		],
-		"events": {
-			"eating": {
-				"sequence":[
-					{
-					  "condition": "query.block_state('kurokumaft:eat') < 6",
-					  "trigger": "eat"
-					},
-					{
-					  "condition": "query.block_state('kurokumaft:eat') == 6",
-					  "trigger": "die"
-					}
-				]
-			},
-			"eat": {
-				"set_block_state": {
-					"kurokumaft:eat": "query.block_state('kurokumaft:eat') + 1"
-				},
-				"run_command": {
-					"command":  "effect @s saturation 1 2 true"
-				}
-			},
-			"die": {
-				"run_command": {
-					"command":  "effect @s saturation 1 2 true"
-				},
-				"die": {
-					"target": "self"
-				}
-		 	}
-		}
+		]
 	}
 }

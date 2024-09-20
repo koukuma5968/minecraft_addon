@@ -96,33 +96,20 @@
       }
     },
     "events": {
-			"minecraft:entity_spawned": {
-				"sequence": [
-					{
-						"filters": {
-              "test": "has_equipment","domain": "hand","operator": "==","subject": "other","value": "kurokumaft:wood_scythe"
-            },
-						"add": {
-						  "component_groups": [ "kurokumaft:wood_scythe_roar" ]
-					  }
-					},
-					{
-					  "filters": {
-						  "test": "has_equipment","domain": "hand","operator": "==","subject": "other","value": "kurokumaft:stone_scythe"
-					  },
-					  "add": {
-  						"component_groups": [ "kurokumaft:stone_scythe_roar" ]
-					  }
-					},
-					{
-					  "filters": {
-						  "test": "has_equipment","domain": "hand","operator": "==","subject": "other","value": "kurokumaft:iron_scythe"
-					  },
-					  "add": {
-  						"component_groups": [ "kurokumaft:iron_scythe_roar" ]
-					  }
-					}
-				]
+      "kurokumaft:wood_scythe_roar": {
+        "add": {
+          "component_groups": [ "kurokumaft:wood_scythe_roar" ]
+        }
+      },
+      "kurokumaft:stone_scythe_roar": {
+        "add": {
+          "component_groups": [ "kurokumaft:stone_scythe_roar" ]
+        }
+      },
+      "kurokumaft:iron_scythe_roar": {
+        "add": {
+          "component_groups": [ "kurokumaft:iron_scythe_roar" ]
+        }
 			}
     }
   }

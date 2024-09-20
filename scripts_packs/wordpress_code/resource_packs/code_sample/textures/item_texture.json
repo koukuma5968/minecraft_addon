@@ -9,7 +9,19 @@
       },
       "chromium_nugget" : {
          "textures" : "textures/kurokumaft/items/material/chromium_nugget"
+      },
+      "cherry_bow" : {
+         "textures" : [
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_standby",
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_pulling_0",
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_pulling_1",
+            "textures/kurokumaft/items/bow/cherry/cherry_bow_pulling_2"
+         ]
+      },
+      "cherry_arrow" : {
+         "textures" : "textures/kurokumaft/items/arrow/cherry_arrow"
       }
+
    },
    "texture_name" : "atlas.items"
 }

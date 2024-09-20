@@ -3,16 +3,14 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:iron_arrow",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.arrow"
+      }
     },
     "components": {
       "minecraft:max_stack_size": 64,
-      "minecraft:icon": {
-        "texture": "iron_arrow"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.arrow"
-      },
+      "minecraft:icon": "iron_arrow",
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
         "value": "item.kurokumaft:iron_arrow.name"
@@ -20,8 +18,6 @@
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:iron_arrow"
       }
-    },
-    "events": {
     }
   }
 }

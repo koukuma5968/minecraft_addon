@@ -3,7 +3,9 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:charcoal_block_item",
-      "category": "construction"
+      "menu_category": {
+        "category": "construction"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -12,9 +14,7 @@
       "minecraft:fuel": {
         "duration": 80.0
       },
-      "minecraft:icon": {
-        "texture": "charcoal_block_item"
-      },
+      "minecraft:icon":  "charcoal_block_item",
       "minecraft:block_placer": {
         "block": "charcoal_block"
       }

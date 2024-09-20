@@ -3,23 +3,23 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:apple_pie",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:apple_pie.name"
 			},
-      "minecraft:icon": {
-        "texture": "apple_pie"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.miscFood"
-      },
+      "minecraft:icon": "apple_pie",
       "minecraft:use_animation":"eat",
       "minecraft:max_stack_size": 32,
-      "minecraft:use_duration": 2,
       "minecraft:food": {
         "nutrition": 12
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
       }
     }
   }

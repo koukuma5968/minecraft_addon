@@ -1,120 +1,38 @@
-import { system,EntityComponentTypes } from "@minecraft/server";
-import { getAdjacentSphericalPoints } from "./gunSphericalPoints";
-import { print,getRandomInRange,durabilityDamage,subtractionItem,breakItem } from "../common";
+import { system,EntityComponentTypes, ItemStack, Player, EntityEquippableComponent, EquipmentSlot, Entity } from "@minecraft/server";
+import { getLookPoints, getRandomInRange } from "../common/commonUtil";
+import { ItemDurabilityDamage, subtractionItem } from "../common/ItemDurabilityDamage";
+import { shooting } from "../common/ShooterPoints";
 
-/**
- * ガトリング発射
- * @param {Player} player
- * @param {ItemStack} item
- */
-function shotGatling(player, item) {
-
-    player.setDynamicProperty("gatlingShot", true);
-    let count = 0;
-    player.setDynamicProperty("gatlingDamage", count);
-    let intervalNum = system.runInterval(() => {
-
-        let reEqu = player.getComponent(EntityComponentTypes.Equippable);
-        let reItem = reEqu.getEquipment("Offhand");
-        if (reItem == undefined || reItem.typeId != "kurokumaft:twenty_two_lr") {
-            system.clearRun(intervalNum);
-            return;
-        }
-
-        let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
-
-        let xran = parseFloat(getRandomInRange(-0.3, 0.3).toFixed(3));
-        let yran = parseFloat(getRandomInRange(-0.3, 0.3).toFixed(3));
-        let zran = parseFloat(getRandomInRange(-0.3, 0.3).toFixed(3));
-
-        let bulet = player.dimension.spawnEntity("kurokumaft:twenty_two_lr_entity", 
-            {
-                x:xlocation + xran,
-                y:ylocation + yran,
-                z:zlocation + zran
-            }
-        );
-        bulet.setRotation({x:0,y:player.getRotation().y});
-        if (count % 4 === 0) {
-            bulet.runCommand("particle minecraft:explosion_manual ~~~");
-            if (reItem.amount == 1) {
-                breakItem(player, "slot.weapon.offhand");
-            } else {
-                subtractionItem(player, reItem, "slot.weapon.offhand", "Offhand", reItem.amount - 1);
-            }
-        }
-        bulet.applyImpulse({x:xapply * 1.5,y:yapply * 1.5,z:zapply * 1.5});
-        count = count + 1;
-        player.setDynamicProperty("gatlingDamage", count);
-    }, 1);
-    player.setDynamicProperty("gatlingShotEventNum", intervalNum);
-
-}
-
-/**
- * ガトリング停止
- * @param {Player} player
- * @param {ItemStack} item
- */
-function stopGatling(player, item) {
-
-    let eventNum = player.getDynamicProperty("gatlingShotEventNum");
-    let damage = player.getDynamicProperty("gatlingDamage");
-    player.setDynamicProperty("gatlingShot", null);
-    player.setDynamicProperty("gatlingDamage", null);
-    player.setDynamicProperty("gatlingShotEventNum", null);
-    system.clearRun(eventNum);
-
-    let reEqu = player.getComponent(EntityComponentTypes.Equippable);
-    let reItem = reEqu.getEquipment("Mainhand");
-    if (reItem != undefined && reItem.typeId == "kurokumaft:gatling") {
-        durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", damage);
-    }
-
-}
 
 /**
  * マシンガン発射
  * @param {Player} player
  * @param {ItemStack} item
  */
-function shotMachinegun(player, item) {
+function shotMachinegun(player: Player, item: ItemStack) {
 
     player.setDynamicProperty("machinegunShot", true);
     let count = 0;
     player.setDynamicProperty("machinegunDamage", count);
     let intervalNum = system.runInterval(() => {
 
-        let reEqu = player.getComponent(EntityComponentTypes.Equippable);
-        let reItem = reEqu.getEquipment("Offhand");
+        let reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        let reItem = reEqu.getEquipment(EquipmentSlot.Offhand);
         if (reItem == undefined || reItem.typeId != "kurokumaft:thirty_eight_special") {
             system.clearRun(intervalNum);
             return;
         }
 
-        let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
-
         let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
         let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
         let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
 
-        let bulet = player.dimension.spawnEntity("kurokumaft:thirty_eight_special_entity", 
-            {
-                x:xlocation + xran,
-                y:ylocation + yran,
-                z:zlocation + zran
-            }
-        );
-        bulet.setRotation({x:0,y:player.getRotation().y});
+        shooting(player, reItem.typeId, {x:xran,y:yran,z:zran}, 5, undefined);
         if (count % 4 === 0) {
-            bulet.runCommand("particle minecraft:explosion_manual ~~~");
-            if (reItem.amount == 1) {
-                breakItem(player, "slot.weapon.offhand");
-            } else {
-                subtractionItem(player, reItem, "slot.weapon.offhand", "Offhand", reItem.amount - 1);
-            }
+            let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 1.5);
+            player.dimension.spawnParticle("minecraft:explosion_manual", {x:xlocation!, y:ylocation!, z:zlocation!});
+            subtractionItem(player, reItem, EquipmentSlot.Offhand, reItem.amount - 1);
         }
-        bulet.applyImpulse({x:xapply * 1.5,y:yapply * 1.5,z:zapply * 1.5});
         count = count + 1;
         player.setDynamicProperty("machinegunDamage", count);
     }, 1);
@@ -123,25 +41,25 @@ function shotMachinegun(player, item) {
 }
 
 /**
- * ガトリング停止
+ * マシンガン停止
  * @param {Player} player
  * @param {ItemStack} item
  */
-function stopMachinegun(player, item) {
+function stopMachinegun(player: Player, item: ItemStack) {
 
-    let eventNum = player.getDynamicProperty("machinegunShotEventNum");
-    let damage = player.getDynamicProperty("machinegunDamage");
-    player.setDynamicProperty("machinegunShot", null);
-    player.setDynamicProperty("machinegunDamage", null);
-    player.setDynamicProperty("machinegunShotEventNum", null);
+    let eventNum = player.getDynamicProperty("machinegunShotEventNum") as number;
+    let damage = player.getDynamicProperty("machinegunDamage") as number;
+    player.setDynamicProperty("machinegunShot", undefined);
+    player.setDynamicProperty("machinegunDamage", undefined);
+    player.setDynamicProperty("machinegunShotEventNum", undefined);
     system.clearRun(eventNum);
 
-    let reEqu = player.getComponent(EntityComponentTypes.Equippable);
-    let reItem = reEqu.getEquipment("Mainhand");
+    let reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    let reItem = reEqu.getEquipment(EquipmentSlot.Mainhand);
     if (reItem != undefined && reItem.typeId == "kurokumaft:machine_gun") {
-        durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", damage);
+        ItemDurabilityDamage(player, item, EquipmentSlot.Mainhand, damage);
     }
 
 }
 
-export {shotGatling, shotMachinegun, stopGatling, stopMachinegun}
+export {shotMachinegun, stopMachinegun}

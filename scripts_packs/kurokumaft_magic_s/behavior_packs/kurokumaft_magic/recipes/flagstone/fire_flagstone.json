@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:fire_flagstone"
+    },
+    "tags": [ "magic_enchant" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:fire_magic_stone"
+      },
+      {
+        "item": "minecraft:flint_and_steel"
+      }
+    ],
+  	"unlock": [
+      {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:fire_flagstone",
+      "count": 1
+    }
+  }
+}

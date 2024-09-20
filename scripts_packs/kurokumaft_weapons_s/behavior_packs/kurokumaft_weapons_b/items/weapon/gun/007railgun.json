@@ -3,23 +3,24 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:railgun",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.gun"
+      }
     },
     "components": {
+      "minecraft:icon": "railgun",
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:railgun.name"
+      },
       "minecraft:durability": {
         "max_durability": 1500
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.gun"
       },
       "minecraft:enchantable": {
         "value": 20,
         "slot": "bow"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:icon": {
-        "texture": "railgun"
-      },
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -28,12 +29,11 @@
           }
         ]
       },
-      "minecraft:display_name": {
-        "value": "item.kurokumaft:railgun.name"
-      },
       "minecraft:use_animation": "crossbow",
       "minecraft:hand_equipped": true,
-      "minecraft:use_duration": 1.5,
+      "minecraft:use_modifiers": {
+        "use_duration": 6
+      },
       "minecraft:shooter": {
         "ammunition": [
           {
@@ -44,13 +44,9 @@
           }
         ],
         "charge_on_draw": true,
-        "launch_power_scale": 0.3,
         "max_draw_duration": 1.0,
-        "max_launch_power": 3.0,
         "scale_power_by_draw_duration": true
       }
-    },
-    "events": {
     }
   }
 }

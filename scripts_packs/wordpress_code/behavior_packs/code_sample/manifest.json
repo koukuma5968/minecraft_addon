@@ -5,7 +5,7 @@
 		"name": "ビヘイビアーパックサンプル",
 		"uuid": "747f211d-9ffe-4eb3-82b8-cb194f1a54f1",
 		"version": [1, 0, 0],
-		"min_engine_version": [1, 21, 10]
+		"min_engine_version": [1, 20, 30]
 	},
 	"modules": [
 		{

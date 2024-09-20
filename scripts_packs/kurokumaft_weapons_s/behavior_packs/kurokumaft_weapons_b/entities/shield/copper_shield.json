@@ -102,22 +102,9 @@
 					"component_groups": ["kurokumaft:variant_0"]
 				}
 			},
-			"kurokumaft:on_breaking": {
-				"run_command": {
-					"command": [
-						"kill @s"
-					]
-				}
-			},
 			"kurokumaft:bag_burdened": {
 				"add": {
 					"component_groups": [ "kurokumaft:burdened", "kurokumaft:variant_3"]
-				},
-				"run_command": {
-					"command": [
-						"execute as @p run say bag_burdened",
-						"ride @s start_riding @e[family=player,c=1] teleport_rider"
-					]
 				}
 			},
 			"kurokumaft:stay": {
@@ -126,20 +113,9 @@
 				},
 				"add": {
 					"component_groups": [ "kurokumaft:stay", "kurokumaft:variant_0" ]
-				},
-				"run_command": {
-					"command": [
-						"execute as @p run say stay",
-						"ride @s stop_riding"
-					]
 				}
 			},
 			"kurokumaft:sneaking_on": {
-				"run_command": {
-					"command": [
-						"execute as @p run say sneaking_on"
-					]
-				},
 				"remove": {
 					"component_groups": [ "kurokumaft:burdened" ]
 				},
@@ -148,11 +124,6 @@
 				}
 			},
 			"kurokumaft:sneaking_off": {
-				"run_command": {
-					"command": [
-						"execute as @p run say sneaking_off"
-					]
-				},
 				"remove": {
 					"component_groups": [ "kurokumaft:sneaking" ]
 				},

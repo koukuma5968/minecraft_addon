@@ -3,15 +3,25 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:flamethrower",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.gun"
+      }
     },
     "components": {
-      "tag:gun": {},
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:gun"
+        ]
+      },
+      "minecraft:icon": "flamethrower",
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:flamethrower.name"
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:use_animation": "bow",
       "minecraft:durability": {
         "max_durability": 500
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.gun"
       },
       "minecraft:cooldown": {
         "category": "flamethrower",
@@ -22,9 +32,6 @@
         "slot": "bow"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:icon": {
-        "texture": "flamethrower"
-      },
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -32,35 +39,6 @@
             "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
-      },
-      "minecraft:display_name": {
-        "value": "item.kurokumaft:flamethrower.name"
-      },
-      "minecraft:hand_equipped": true,
-      "minecraft:use_animation": "bow",
-      "minecraft:use_duration": 5,
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "kurokumaft:fire_charge"
-        }
-      },
-      "minecraft:chargeable": {
-      }
-    },
-    "events": {
-      "kurokumaft:fire_charge": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":5
-        },
-        "run_command": {
-          "command": [
-            "tag @s add flamethrower_shot",
-            "tag @s add gun_shot"
-          ],
-          "target": "self"
-        }
       }
     }
   }

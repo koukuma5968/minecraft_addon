@@ -3,19 +3,21 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:magma_shield",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shield"
+      }
     },
     "components": {
-      "tag:shield": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shield"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:shield"
+        ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:magma_shield.name"
       },
-      "minecraft:icon":{
-        "texture": "magma_shield"
-      },
+      "minecraft:icon": "magma_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

@@ -3,19 +3,21 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:kettle_lid",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shield"
+      }
     },
     "components": {
-      "tag:shield": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shield"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:shield"
+        ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:kettle_lid.name"
       },
-      "minecraft:icon":{
-        "texture": "kettle_lid"
-      },
+      "minecraft:icon": "kettle_lid",
       "minecraft:repairable": {
         "repair_items": [
           {

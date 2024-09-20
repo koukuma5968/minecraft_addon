@@ -107,45 +107,20 @@
 			}
 		},
 		"events": {
-			"minecraft:entity_spawned": {
-				"sequence": [
-					{
-						"filters": {
-							"test": "has_equipment",
-							"domain": "hand",
-							"operator": "==",
-							"subject": "other",
-							"value": "kurokumaft:wood_sickle"
-						},
-						"add": {
-							"component_groups": [ "kurokumaft:wooden_spirit_sickle" ]
-						}
-					},
-					{
-					  "filters": {
-						"test": "has_equipment",
-						"domain": "hand",
-						"operator": "==",
-						"subject": "other",
-						"value": "kurokumaft:stone_sickle"
-					  },
-					  "add": {
-						"component_groups": [ "kurokumaft:stone_spirit_sickle" ]
-					  }
-					},
-					{
-					  "filters": {
-						"test": "has_equipment",
-						"domain": "hand",
-						"operator": "==",
-						"subject": "other",
-						"value": "kurokumaft:iron_sickle"
-					  },
-					  "add": {
-						"component_groups": [ "kurokumaft:iron_spirit_sickle" ]
-					  }
-					}
-				]
+			"kurokumaft:wooden_spirit_sickle": {
+				"add": {
+					"component_groups": [ "kurokumaft:wooden_spirit_sickle" ]
+				}
+			},
+			"kurokumaft:stone_spirit_sickle": {
+				"add": {
+					"component_groups": [ "kurokumaft:stone_spirit_sickle" ]
+				}
+			},
+			"kurokumaft:iron_spirit_sickle": {
+				"add": {
+					"component_groups": [ "kurokumaft:iron_spirit_sickle" ]
+				}
 			}
 		}
 	}

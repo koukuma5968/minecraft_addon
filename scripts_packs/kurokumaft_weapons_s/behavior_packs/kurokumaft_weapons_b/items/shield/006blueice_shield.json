@@ -3,19 +3,21 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:blueice_shield",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shield"
+      }
     },
     "components": {
-      "tag:shield": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shield"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:shield"
+        ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:blueice_shield.name"
       },
-      "minecraft:icon":{
-        "texture": "blueice_shield"
-      },
+      "minecraft:icon": "blueice_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

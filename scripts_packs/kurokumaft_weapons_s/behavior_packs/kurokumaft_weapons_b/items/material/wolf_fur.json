@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wolf_fur",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.leather"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leather"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:wolf_fur.name"
 			},
-      "minecraft:icon": {
-        "texture": "wolf_fur"
-      }
+      "minecraft:icon": "wolf_fur"
     }
   }
 }

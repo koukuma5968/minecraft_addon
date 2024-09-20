@@ -9,15 +9,7 @@
 			"runtime_identifier": "minecraft:arrow"
 		},
 		"component_groups": {
-			"kurokumaft:thrown_spear": {
-				"minecraft:variant": {
-					"value": 0
-				}
-			},
 			"kurokumaft:stop": {
-				"minecraft:variant": {
-					"value": 1
-				},
 				"minecraft:entity_sensor": {
 					"event": "kurokumaft:entity_kill",
 					"event_filters": {
@@ -28,11 +20,14 @@
 					},
 					"sensor_range": 1.1
 				}
+			},
+			"kurokumaft:entity_kill": {
+				"minecraft:instant_despawn": {}
 			}
 		},
 		"components": {
 			"minecraft:type_family": {
-				"family": [ "inanimate" ]
+				"family": [ "inanimate", "spear" ]
 			},
 			"minecraft:collision_box": {
 				"width": 0.35,
@@ -71,29 +66,12 @@
 				"offset": [ 0, -0.1, 0 ]
 			},
 			"minecraft:is_hidden_when_invisible": {},
-			"minecraft:hurt_on_condition": {
-				"damage_conditions": [
-				  {
-					"filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
-					"cause": "lava",
-					"damage_per_tick": 4
-				  }
-				]
+			"minecraft:inventory": {
+				"inventory_size": 1,
+				"container_type": "horse"
 			},
 			"minecraft:loot": {
-				"table": "loot_tables/entities/spear/diamond_spear.json"
-			},
-			"minecraft:damage_sensor": {
-				"triggers": [
-				  {
-					"cause": "entity_attack",
-					"deals_damage": false
-				  },
-				  {
-					"cause": "fall",
-					"deals_damage": false
-				  }
-				]
+				"table": "loot_tables/empty.json"
 			},
 			"minecraft:physics": {
 			},
@@ -110,25 +88,14 @@
 			}
 		},
 		"events": {
-			"minecraft:entity_spawned": {
+			"kurokumaft:entity_kill": {
 				"add": {
-					"component_groups": ["kurokumaft:thrown_spear" ]
+					"component_groups": ["kurokumaft:entity_kill" ]
 				}
 			},
 			"kurokumaft:stop": {
-				"remove": {
-					"component_groups": ["kurokumaft:thrown_spear" ]
-				},
 				"add": {
 					"component_groups": ["kurokumaft:stop" ]
-				}
-			},
-			"kurokumaft:entity_kill": {
-				"run_command": {
-				  "command": [
-					"kill @s"
-				  ],
-				  "target": "self"
 				}
 			}
 		}

@@ -3,22 +3,22 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:soybean",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.crop"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:soybean.name"
 			},
-      "minecraft:icon": {
-        "texture": "soybean"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.crop"
-      },
+      "minecraft:icon": "soybean",
       "minecraft:use_animation":"eat",
-      "minecraft:use_duration": 1,
       "minecraft:food": {
         "nutrition": 1
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
       },
       "minecraft:block_placer": {
         "block": "soybeans",
@@ -26,8 +26,6 @@
           "farmland"
         ]
       }
-    },
-    "events": {
     }
   }
 }

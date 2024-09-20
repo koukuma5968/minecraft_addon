@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wooden_boomerang",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.boomerang"
+      }
     },
     "components": {
       "minecraft:display_name": {
-      "value": "item.kurokumaft:wooden_boomerang.name"
+        "value": "item.kurokumaft:wooden_boomerang.name"
       },
-      "minecraft:icon":{
-        "texture": "wooden_boomerang"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boomerang"
-      },
+      "minecraft:icon": "wooden_boomerang",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,
@@ -35,8 +33,6 @@
         "scale_power_by_draw_duration": true
       },
       "minecraft:can_destroy_in_creative": false
-    },
-    "events": {
     }
   }
 }

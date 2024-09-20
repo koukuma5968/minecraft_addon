@@ -3,19 +3,21 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:glass_shield_light_gray",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shield"
+      }
     },
     "components": {
-      "tag:shield": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shield"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:shield"
+        ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:glass_shield_light_gray.name"
       },
-      "minecraft:icon":{
-        "texture": "glass_shield_light_gray"
-      },
+      "minecraft:icon": "glass_shield_light_gray",
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -30,23 +32,9 @@
       "minecraft:durability": {
         "max_durability": 100
       },
-      "minecraft:weapon": {
-        "on_not_hurt_entity": {
-          "event": "kurokumaft:hurt_entity"
-        }
-      },
       "minecraft:wearable": {
         "slot": "slot.weapon.offhand"
       }
-    },
-    "events": {
-      "kurokumaft:hurt_entity": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      }
-    }
+   }
   }
 }

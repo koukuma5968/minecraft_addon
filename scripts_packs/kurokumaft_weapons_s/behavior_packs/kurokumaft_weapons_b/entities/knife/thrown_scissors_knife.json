@@ -66,13 +66,6 @@
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
-          },
-          "definition_event": {
-						"affect_projectile": false,
-						"event_trigger": {
-						  "event": "kurokumaft:sheep_sheared",
-						  "target": "self"
-						}
 					}
         },
         "reflect_on_hurt": true,
@@ -84,13 +77,7 @@
         "uncertainty_multiplier": 0,
         "anchor": 1,
         "should_bounce": true,
-        "offset": [ 0, 0, 0 ]
-      },
-      "minecraft:timer": {
-        "time": [2.0,2.0],
-        "time_down_event": { 
-          "event": "kurokumaft:despawn"
-        }
+        "offset": [ -0.25, 0, 0 ]
       },
       "minecraft:physics": {
       },
@@ -107,22 +94,6 @@
       }
     },
 		"events": {
-      "minecraft:entity_spawned": {
-        "run_command": {
-          "command": [
-            "execute as @p[c=1] run clear @s kurokumaft:scissors_knife 0 1"
-          ],
-          "target": "self"
-        }
-      },
-      "kurokumaft:sheep_sheared": {
-        "run_command": {
-          "command": [
-            "execute if entity @e[family=sheep,r=1.5] as @e[family=sheep,r=1.5] run event entity @s minecraft:on_sheared"
-          ],
-          "target": "self"
-        }
-			},
       "kurokumaft:despawn": {
 				"add": {
 					"component_groups": ["kurokumaft:despawn" ]

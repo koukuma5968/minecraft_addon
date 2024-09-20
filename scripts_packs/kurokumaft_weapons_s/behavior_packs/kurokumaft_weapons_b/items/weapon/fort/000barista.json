@@ -3,24 +3,20 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:barista",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.fort"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:barista.name"
 			},
-      "minecraft:icon": {
-        "texture": "barista"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.fort"
-      },
+      "minecraft:icon": "barista",
       "minecraft:max_stack_size": 1,
       "minecraft:entity_placer": {
-        "entity": "kurokumaft:barista<minecraft:arrow_empty>"
+        "entity": "kurokumaft:barista<kurokumaft:arrow_empty>"
       }
-    },
-    "events": {
     }
   }
 }

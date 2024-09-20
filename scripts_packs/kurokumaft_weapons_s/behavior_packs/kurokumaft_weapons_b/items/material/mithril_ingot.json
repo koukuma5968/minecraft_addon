@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:mithril_ingot",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.ingot"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.ingot"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:mithril_ingot.name"
 			},
-      "minecraft:icon": {
-        "texture": "mithril_ingot"
-      }
+      "minecraft:icon": "mithril_ingot"
     }
   }
 }

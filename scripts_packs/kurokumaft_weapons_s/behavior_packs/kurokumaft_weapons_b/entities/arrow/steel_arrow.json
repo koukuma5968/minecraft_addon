@@ -147,17 +147,7 @@
             }
           }
         ]
-      },
-      "kurokumaft:entity_kill": {
-        "run_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
-        }
       }
-
     }
-
   }
 }

@@ -83,12 +83,6 @@
 				}
 			},
 			"throwable_bakutiku": {
-				"run_command": {
-					"command": [
-					  "execute as @p[c=1] run clear @s kurokumaft:bakutiku 0 1"
-					],
-					"target": "self"
-				},
 				"add": {
 					"component_groups": [
 						"throwable_bakutiku"

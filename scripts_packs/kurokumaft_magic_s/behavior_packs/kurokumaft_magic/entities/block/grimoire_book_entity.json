@@ -89,11 +89,8 @@
       "minecraft:loot": {
         "table": "loot_tables/empty.json"
       },
-      "minecraft:breathable": {
-        "total_supply": 20,
-        "suffocate_time": 0,
-        "breathes_water": true,
-        "breathes_solids": true
+      "minecraft:knockback_resistance": {
+        "value": 10.0
       },
       "minecraft:inventory": {
         "inventory_size": 1,

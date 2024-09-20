@@ -3,15 +3,15 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:small_mithril_bud_item",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "tile.kurokumaft:small_mithril_bud.name"
 			},
-      "minecraft:icon": {
-        "texture": "small_mithril_bud"
-      },
+      "minecraft:icon": "small_mithril_bud",
       "minecraft:block_placer": {
         "block": "small_mithril_bud"
       }

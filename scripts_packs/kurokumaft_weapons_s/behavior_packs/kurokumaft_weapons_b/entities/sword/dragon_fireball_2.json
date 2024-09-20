@@ -4,7 +4,7 @@
     "description": {
       "identifier": "kurokumaft:dragon_fireball_2",
       "is_spawnable": false,
-      "is_summonable": false,
+      "is_summonable": true,
       "is_experimental": false,
       "runtime_identifier": "minecraft:dragon_fireball"
     },

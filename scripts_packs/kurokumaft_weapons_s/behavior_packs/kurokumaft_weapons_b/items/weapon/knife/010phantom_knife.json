@@ -3,17 +3,20 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:phantom_knife",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.knife"
+      }
     },
     "components": {
       "minecraft:display_name": {
         "value": "item.kurokumaft:phantom_knife.name"
       },
-      "minecraft:icon":{
-        "texture": "phantom_knife"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.knife"
+      "minecraft:icon": "phantom_knife",
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:spear"
+        ]
       },
       "minecraft:glint": true,
       "minecraft:max_stack_size": 16,
@@ -24,6 +27,9 @@
         "slot": "sword"
       },
       "minecraft:can_destroy_in_creative": false,
+      "minecraft:use_modifiers": {
+        "use_duration": 100
+      },
       "minecraft:throwable": {
         "do_swing_animation": true,
         "min_draw_duration": 0.5,
@@ -33,16 +39,6 @@
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:thrown_phantom_knife",
         "minimum_critical_power": 1.0
-      },
-      "minecraft:weapon": {
-        "on_hurt_entity": {
-          "event": "kurokumaft:decrement"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:decrement": {
-        "decrement_stack": {}
       }
     }
   }

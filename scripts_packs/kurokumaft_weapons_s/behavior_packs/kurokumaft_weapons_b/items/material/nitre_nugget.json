@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:nitre_nugget",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.nugget"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.nugget"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nitre_nugget.name"
 			},
-      "minecraft:icon": {
-        "texture": "nitre_nugget"
-      }
+      "minecraft:icon": "nitre_nugget"
     }
   }
 }

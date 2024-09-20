@@ -1,7 +1,14 @@
-import { system,EntityComponentTypes,ItemComponentTypes,ItemStack,Block } from "@minecraft/server";
+import { system,EntityComponentTypes,ItemComponentTypes,ItemStack,Block, Player, EntityEquippableComponent, EquipmentSlot, ItemEnchantableComponent, Enchantment } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 
-const tear_enchant_blocks = [];
+const tear_enchant_blocks: 
+{ 
+        x: number; 
+        y: number; 
+        z: number; 
+        enchant: ItemEnchantableComponent;
+}[] = [];
+
 var encBookSetFlg = false;
 
 /**
@@ -10,17 +17,17 @@ var encBookSetFlg = false;
  * @param {ItemStack} item
  * @param {Block} block
  */
-function tearEnchantBlock(player, item, block) {
+function tearEnchantBlock(player: Player, item: ItemStack | undefined, block: Block) {
     if (block.matches("kurokumaft:tear_enchant",{"kurokumaft:isBook":1})) {
 
         system.runTimeout(() => {
     
-            let equ = player.getComponent(EntityComponentTypes.Equippable);
-            let mainhand = equ.getEquipment("Mainhand");
+            let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+            let mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
             // print("エンチャントリリース");
             if (item != undefined) {
                 let actionForm = new ActionFormData().title({ translate: "tile.kurokumaft:tear_enchant.name" });
-                let enc = mainhand.getComponent(ItemComponentTypes.Enchantable);
+                let enc = mainhand.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                 if (enc != undefined) {
                     // print("エンチャントコンポーネントあり");
                     let encs = enc.getEnchantments();
@@ -40,7 +47,7 @@ function tearEnchantBlock(player, item, block) {
                             if (formData.selection == 0) {
                                 // print("空の本を作る");
                                 let encBook = new ItemStack("minecraft:enchanted_book",1);
-                                let bookEncComp = encBook.getComponent(ItemComponentTypes.Enchantable);
+                                let bookEncComp = encBook.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                                 // セット時に本についていたエンチャントを取る
                                 for (let i=0;i<tear_enchant_blocks.length;i++) {
                                     if (tear_enchant_blocks[i].x == block.x && tear_enchant_blocks[i].y == block.y && tear_enchant_blocks[i].z == block.z) {
@@ -59,7 +66,7 @@ function tearEnchantBlock(player, item, block) {
                                             // print("本エンチャント可能");
                                             if (bookEncComp.hasEnchantment(repEnc.type.id)) {
                                                 // print("同じエンチャントあり" + repEnc.type.id);
-                                                let tearEnc = bookEncComp.getEnchantment(repEnc.type.id);
+                                                let tearEnc = bookEncComp.getEnchantment(repEnc.type.id) as Enchantment;
                                                 // 同じレベルかつ最大値以下なら＋1
                                                 // print("武器レベル" + repEnc.level);
                                                 if (repEnc.level == tearEnc.level && repEnc.level < repEnc.type.maxLevel) {
@@ -82,7 +89,7 @@ function tearEnchantBlock(player, item, block) {
                                         // print("付けられない" + repEnc.type.id);
                                     }
                                 }
-                                equ.setEquipment("Mainhand", mainhand);
+                                equ.setEquipment(EquipmentSlot.Mainhand, mainhand);
                                 tear_enchant_blocks.push({"x":block.x,"y":block.y,"z":block.z,"enchant":bookEncComp});
                             } else {
                                 player.sendMessage("キャンセルしました。");
@@ -120,20 +127,20 @@ function tearEnchantBlock(player, item, block) {
         if (item != undefined) {
             if (item.typeId == "minecraft:book") {
                 // print("本");
-                let equ = player.getComponent(EntityComponentTypes.Equippable);
-                let mainhand = equ.getEquipment("Mainhand");
-                let enc = mainhand.getComponent(ItemComponentTypes.Enchantable);
+                let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+                let mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+                let enc = mainhand.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                 tear_enchant_blocks.push({"x":block.x,"y":block.y,"z":block.z,"enchant":enc});
                 encBookSetFlg = true;
             } else if (item.typeId == "minecraft:enchanted_book") {
                 // print("エンチャント本");
-                let equ = player.getComponent(EntityComponentTypes.Equippable);
-                let mainhand = equ.getEquipment("Mainhand");
-                let enc = mainhand.getComponent(ItemComponentTypes.Enchantable);
+                let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+                let mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+                let enc = mainhand.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                 tear_enchant_blocks.push({"x":block.x,"y":block.y,"z":block.z,"enchant":enc});
                 encBookSetFlg = true;
                 system.runTimeout(() => {
-                    equ.setEquipment("Mainhand", null);
+                    equ.setEquipment(EquipmentSlot.Mainhand, undefined);
                 }, 1);
             }
         }
@@ -146,10 +153,10 @@ function tearEnchantBlock(player, item, block) {
  * @param {ItemStack} item
  * @param {Block} block
  */
-function setTearEnchantBook(player, item, block) {
+function setTearEnchantBook(player: Player, item: ItemStack, block: Block) {
     let bookflg = false;
     if (item == undefined && !encBookSetFlg) {
-        let equ = player.getComponent(EntityComponentTypes.Equippable);
+        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         for (let i=0;i<tear_enchant_blocks.length;i++) {
             if (tear_enchant_blocks[i].x == block.x && tear_enchant_blocks[i].y == block.y && tear_enchant_blocks[i].z == block.z) {
                 let encBlock = tear_enchant_blocks[i].enchant.getEnchantments();
@@ -157,13 +164,13 @@ function setTearEnchantBook(player, item, block) {
                 if (encBlock.length != 0) {
                     // print("エンチャント本を渡す");
                     book = new ItemStack("minecraft:enchanted_book",1);
-                    let enc = book.getComponent(ItemComponentTypes.Enchantable);
+                    let enc = book.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                     enc.addEnchantments(encBlock);
                 } else {
                     // print("本を渡す");
                     book = new ItemStack("minecraft:book",1);
                 }
-                equ.setEquipment("Mainhand", book);
+                equ.setEquipment(EquipmentSlot.Mainhand, book);
                 tear_enchant_blocks.splice(i, 1);
                 bookflg = true;
             }

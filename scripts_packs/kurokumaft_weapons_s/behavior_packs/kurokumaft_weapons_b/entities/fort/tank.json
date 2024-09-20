@@ -128,12 +128,6 @@
           "component_groups": [
             "kurokumaft:tank_shot"
           ]
-        },
-        "run_command": {
-          "command": [
-            "execute as @p[c=1] run clear @s kurokumaft:shell 0 1"
-          ],
-          "target": "self"
         }
       },
       "kurokumaft:tank_stop": {

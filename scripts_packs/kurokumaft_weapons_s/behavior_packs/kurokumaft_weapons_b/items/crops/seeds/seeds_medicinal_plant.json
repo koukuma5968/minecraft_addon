@@ -3,28 +3,22 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:seeds_medicinal_plant",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.seeds"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:seeds_medicinal_plant.name"
 			},
-      "minecraft:icon": {
-        "texture": "seeds_medicinal_plant"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.seeds"
-      },
+      "minecraft:icon": "seeds_medicinal_plant",
       "minecraft:block_placer": {
         "block": "medicinal_plants",
         "use_on" : [
-          "grass",
-          "dirt",
           "farmland"
         ]
       }
-    },
-    "events": {
     }
   }
 }

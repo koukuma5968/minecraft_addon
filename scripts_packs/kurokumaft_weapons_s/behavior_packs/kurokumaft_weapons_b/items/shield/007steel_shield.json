@@ -3,19 +3,21 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:steel_shield",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shield"
+      }
     },
     "components": {
-      "tag:shield": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shield"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:shield"
+        ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:steel_shield.name"
       },
-      "minecraft:icon":{
-        "texture": "steel_shield"
-      },
+      "minecraft:icon": "steel_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

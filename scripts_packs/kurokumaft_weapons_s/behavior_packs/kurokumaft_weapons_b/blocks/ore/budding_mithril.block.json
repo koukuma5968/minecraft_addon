@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:budding_mithril",
@@ -21,66 +21,9 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 10
 			},
-			"minecraft:queued_ticking": {
-				"interval_range": [180, 520],
-				"on_tick": {
-					"event": "budding"
-				}
+			"minecraft:tick": {
+				"interval_range": [180, 520]
 			}
-		},
-		"events": {
-			"budding": {
-				"randomize": [
-					{
-						"weight": 10,
-						"run_command": {
-							"command":[
-								"execute if block ^^1^ air positioned ^^1^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=1]"
-							]
-						}
-					},
-					{
-						"weight": 10,
-						"run_command": {
-							"command":[
-								"execute if block ^^-1^ air positioned ^^-1^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=2]"
-							]
-						}
-					},
-					{
-						"weight": 10,
-						"run_command": {
-							"command":[
-								"execute if block ^^^1 air positioned ^^^1 run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=3]"
-							]
-						}
-					},
-					{
-						"weight": 10,
-						"run_command": {
-							"command":[
-								"execute if block ^^^-1 air positioned ^^^-1 run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=4]"
-							]
-						}
-					},
-					{
-						"weight": 10,
-						"run_command": {
-							"command":[
-								"execute if block ^1^^ air positioned ^1^^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=5]"
-							]
-						}
-					},
-					{
-						"weight": 10,
-						"run_command": {
-							"command":[
-								"execute if block ^-1^^ air positioned ^-1^^ run setblock ~~~ kurokumaft:small_mithril_bud [\"kurokumaft:rotation\"=6]"
-							]
-						}
-					}
-				]
-		    }
 		}
 	}
 }

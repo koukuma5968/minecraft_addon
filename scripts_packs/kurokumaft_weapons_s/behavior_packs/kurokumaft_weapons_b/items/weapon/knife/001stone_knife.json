@@ -3,17 +3,20 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_knife",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.knife"
+      }
     },
     "components": {
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_knife.name"
       },
-      "minecraft:icon":{
-        "texture": "stone_knife"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.knife"
+      "minecraft:icon": "stone_knife",
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:spear"
+        ]
       },
       "minecraft:max_stack_size": 64,
       "minecraft:hand_equipped": true,
@@ -23,6 +26,9 @@
         "slot": "sword"
       },
       "minecraft:can_destroy_in_creative": false,
+      "minecraft:use_modifiers": {
+        "use_duration": 100
+      },
       "minecraft:throwable": {
         "do_swing_animation": true,
         "min_draw_duration": 0.5,
@@ -33,9 +39,6 @@
         "projectile_entity": "kurokumaft:thrown_stone_knife",
         "minimum_critical_power": 1.0
       }
-    },
-    "events": {
-      "decrement_stack": {}
     }
   }
 }

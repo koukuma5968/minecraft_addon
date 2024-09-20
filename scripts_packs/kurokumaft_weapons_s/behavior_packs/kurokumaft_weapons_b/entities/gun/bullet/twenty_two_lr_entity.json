@@ -33,7 +33,7 @@
         "uncertaintyBase": 2,
         "uncertaintyMultiplier": 1.0,
         "anchor": 1,
-        "offset": [0, 0, 0.5],
+        "offset": [-0.3, -0.5, 0],
         "reflect_on_hurt": true,
         "shoot_target": true,
         "catch_fire": false
@@ -57,9 +57,6 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       }
-    },
-
-    "events": {
     }
   }
 }

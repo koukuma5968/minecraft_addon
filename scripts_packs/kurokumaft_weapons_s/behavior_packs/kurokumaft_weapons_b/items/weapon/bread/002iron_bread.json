@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:iron_bread",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bread"
+      }
     },
     "components": {
       "minecraft:display_name": {
         "value": "item.kurokumaft:iron_bread.name"
       },
-      "minecraft:icon":{
-        "texture": "iron_bread"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bread"
-      },
+      "minecraft:icon": "iron_bread",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
@@ -28,7 +26,6 @@
           }
         ]
       },
-      
       "minecraft:damage": 5,
       "minecraft:enchantable": {
         "value": 15,
@@ -40,39 +37,14 @@
         "destroy_speeds": [
           {
             "block": "minecraft:web",
-            "speed": 15,
-            "on_dig": {
-              "event": "kurokumaft:hurt_entity"
-            }
+            "speed": 15
           },
           {
             "block": "minecraft:bamboo",
-            "speed": 10,
-            "on_dig": {
-              "event": "kurokumaft:hurt_entity"
-            }
+            "speed": 10
           }
         ]
-      },
-      "minecraft:weapon": {
-        "on_hurt_entity": {
-            "event": "kurokumaft:hurt_entity"
-        }
       }
-    },
-    "events": {
-      "kurokumaft:hurt_entity": {
-        "run_command": {
-          "command": [
-            "function bread/iron_bread_slash"
-          ]
-        },
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      }
-    }
+   }
   }
 }

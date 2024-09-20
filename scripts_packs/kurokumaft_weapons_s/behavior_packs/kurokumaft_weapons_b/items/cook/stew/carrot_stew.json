@@ -3,24 +3,23 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:carrot_stew",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
     },
-
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:carrot_stew.name"
 			},
-      "minecraft:icon": {
-        "texture": "carrot_stew"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.miscFood"
-      },
-      "minecraft:use_duration": 2,
+      "minecraft:icon": "carrot_stew",
       "minecraft:max_stack_size": 1,
       "minecraft:food": {
         "nutrition": 8,
         "using_converts_to": "bowl"
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
       }
     }
   }

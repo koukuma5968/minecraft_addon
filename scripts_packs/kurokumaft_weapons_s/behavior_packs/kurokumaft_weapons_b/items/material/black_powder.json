@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:black_powder",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.powder"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.powder"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:black_powder.name"
 			},
-      "minecraft:icon": {
-        "texture": "black_powder"
-      }
+      "minecraft:icon": "black_powder"
     }
   }
 }

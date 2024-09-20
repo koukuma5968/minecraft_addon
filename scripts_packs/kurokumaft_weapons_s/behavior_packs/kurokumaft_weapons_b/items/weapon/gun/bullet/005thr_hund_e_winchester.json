@@ -3,27 +3,26 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:thr_hund_e_winchester",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bullet"
+      }
     },
     "components": {
-      "tag:bullet": {},
-      "minecraft:max_stack_size": 64,
-      "minecraft:icon": {
-        "texture": "thr_hund_e_winchester"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bullet"
+        ]
       },
+      "minecraft:max_stack_size": 64,
+      "minecraft:icon": "thr_hund_e_winchester",
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
         "value": "item.kurokumaft:thr_hund_e_winchester.name"
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bullet"
-      },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:thr_hund_e_winchester_entity"
       }
-    },
-    "events": {
-      
     }
   }
 }

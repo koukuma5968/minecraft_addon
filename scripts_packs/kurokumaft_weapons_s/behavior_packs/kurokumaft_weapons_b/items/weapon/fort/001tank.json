@@ -3,24 +3,20 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:tank",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.fort"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:tank.name"
 			},
-      "minecraft:icon": {
-        "texture": "tank"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.fort"
-      },
+      "minecraft:icon": "tank",
       "minecraft:max_stack_size": 1,
       "minecraft:entity_placer": {
         "entity": "kurokumaft:tank"
       }
-    },
-    "events": {
     }
   }
 }

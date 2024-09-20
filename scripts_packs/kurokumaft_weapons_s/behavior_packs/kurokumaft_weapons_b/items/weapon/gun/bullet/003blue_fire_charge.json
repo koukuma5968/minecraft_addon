@@ -3,25 +3,21 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:blue_fire_charge",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bullet"
+      }
     },
     "components": {
       "minecraft:max_stack_size": 32,
-      "minecraft:icon": {
-        "texture": "blue_fire_charge"
-      },
+      "minecraft:icon": "blue_fire_charge",
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
         "value": "item.kurokumaft:blue_fire_charge.name"
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bullet"
-      },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:blue_fire_charge_entity"
       }
-    },
-    "events": {
     }
   }
 }

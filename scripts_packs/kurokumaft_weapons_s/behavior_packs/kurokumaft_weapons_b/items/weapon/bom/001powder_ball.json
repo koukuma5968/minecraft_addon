@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:powder_ball",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bom"
+      }
     },
     "components": {
       "minecraft:display_name": {
-      "value": "item.kurokumaft:powder_ball.name"
+        "value": "item.kurokumaft:powder_ball.name"
       },
-      "minecraft:icon":{
-        "texture": "powder_ball"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bom"
-      },
+      "minecraft:icon":"powder_ball",
       "minecraft:max_stack_size": 16,
       "minecraft:hand_equipped": true,
       "minecraft:projectile": {
@@ -30,9 +28,6 @@
         "scale_power_by_draw_duration": true
       },
       "minecraft:can_destroy_in_creative": false
-    },
-    "events": {
-      "decrement_stack": {}
     }
   }
 }

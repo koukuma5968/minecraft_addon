@@ -8,3 +8,9 @@ tile.kurokumaft:chromium_ore.name=クロム鉱石
 
 entity.kurokumaft:ghoul.name=グール	#
 item.spawn_egg.entity.kurokumaft:ghoul.name=グールをスポーンさせる
+
+item.kurokumaft:cherry_bow.name=桜の弓
+item.kurokumaft:cherry_arrow.name=桜の矢
+
+mess.entity_spawn.Born=%1 が生まれた
+mess.entity_spawn.Transformed=%1 に変化した

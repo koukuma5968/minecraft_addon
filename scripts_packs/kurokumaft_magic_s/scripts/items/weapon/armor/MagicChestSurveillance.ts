@@ -91,7 +91,7 @@ async function fireAttackUp(player:Player) {
 }
 
 async function waterHealthUp(player:Player) {
-    player.addEffect(MinecraftPotionEffectTypes.Healing, 10, {
+    player.addEffect(MinecraftPotionEffectTypes.Healing, 10*TicksPerSecond, {
         amplifier: 2,
         showParticles: true
     })

@@ -1,0 +1,35 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "kurokumaft:cherry_arrow"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+          " t ",
+          "pbp",
+          " f "
+        ],
+        "key": {
+            "t": {
+                "item": "minecraft:flint"
+            },
+            "f": {
+                "item": "minecraft:feather"
+            },
+            "b": {
+                "item": "minecraft:cherry_planks"
+            },
+            "p": {
+                "item": "minecraft:pink_petals"
+            }
+        },
+        "result": {
+            "item": "kurokumaft:cherry_arrow",
+            "count": 1
+        },
+        "priority": 2
+    }
+}

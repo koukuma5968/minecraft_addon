@@ -1,63 +1,29 @@
-import { world,system } from "@minecraft/server";
-import { print,itemTans,breakItem,durabilityDamage } from "./common";
+import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause } from "@minecraft/server";
+import { guards, silkType } from "./common/commonUtil";
 import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./shieldEvent";
-import { tearEnchantBlock,setTearEnchantBook } from "./block/tearEnchantEvent";
-import { shotGatling, shotMachinegun, stopGatling, stopMachinegun } from "./gun/gunShot";
+import { tearEnchantBlock } from "./block/tearEnchantEvent";
+import { stopMachinegun } from "./gun/gunShot";
+import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
+import { tntBreak } from "./items/weapons/sword/TntSwordBreak";
+import { breakBlock } from "./common/commonUtil";
+import { hitSpear, releaseSpear, removeSpear, spawnSpear, stopSpear } from "./items/weapons/spear/ThrowableSpear";
+import { stopGatling } from "./items/weapons/gun/Gatling";
+import { fireCharcoalBlock } from "./items/axe/FireBrand";
 
-const logs = ["minecraft:acacia_log","minecraft:birch_log","minecraft:cherry_log","minecraft:dark_oak_log","minecraft:jungle_log","minecraft:mangrove_log","minecraft:oak_log","minecraft:spruce_log","minecraft:stripped_acacia_log","minecraft:stripped_birch_log","minecraft:stripped_cherry_log","minecraft:stripped_dark_oak_log","minecraft:stripped_jungle_log","minecraft:stripped_mangrove_log","minecraft:stripped_oak_log","minecraft:stripped_spruce_log"];
-const woods = ["minecraft:cherry_wood","minecraft:double_wooden_slab","minecraft:mangrove_wood","minecraft:stripped_cherry_wood","minecraft:stripped_mangrove_wood","minecraft:wood"];
-
-const hoeDirts = ["minecraft:dirt","minecraft:grass","minecraft:grass_path","minecraft:podzol","minecraft:dirt_with_roots"];
-const shovelDirts = ["minecraft:dirt","minecraft:grass","minecraft:farmland","minecraft:podzol","minecraft:dirt_with_roots"];
-
-const silkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
-                , "kurokumaft:mithril_cluster","kurokumaft:budding_mithril","kurokumaft:medicinal_plants", "kurokumaft:onions","kurokumaft:soybeans"];
-const hoes = ["kurokumaft:steel_hoe","kurokumaft:mithril_hoe"];
-const shovels = ["kurokumaft:steel_shovel","kurokumaft:mithril_shovel"];
-const axes = ["kurokumaft:bamboo_axe","kurokumaft:copper_axe","kurokumaft:steel_axe","kurokumaft:mithril_axe","kurokumaft:orichalcum_axe","kurokumaft:fire_brand"];
-
-const sickles = ["kurokumaft:wood_sickle","kurokumaft:stone_sickle","kurokumaft:iron_sickle"];
-const scythes = ["kurokumaft:wood_scythe","kurokumaft:stone_scythe","kurokumaft:iron_scythe"];
-
-const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
+// ワールド接続時
+world.beforeEvents.worldInitialize.subscribe(initEvent => {
+    initRegisterCustom(initEvent);
+    initStateChangeMonitor(initEvent);
+});
+world.beforeEvents.playerLeave.subscribe(leaveEvent => {
+    leaveEvent.player.clearDynamicProperties();
+});
 
 // アイテムブロック使用前
 world.beforeEvents.itemUseOn.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
-    let block = event.block;
-    if (item != undefined && player != undefined) {
-        // クワの耐久値減少
-        if (hoes.indexOf(item.typeId) != -1) {
-            if (hoeDirts.indexOf(block.typeId) != -1) {
-                if (item.maxDurability <= (item.damage + 1)) {
-                    breakItem(hitEn, "slot.weapon.mainhand");
-                } else {
-                    durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", 1);
-                }
-            }
-        }
-        // シャベルの耐久値減少
-        else if (shovels.indexOf(item.typeId) != -1) {
-            if (shovelDirts.indexOf(block.typeId) != -1) {
-                if (item.maxDurability <= (item.damage + 1)) {
-                    breakItem(hitEn, "slot.weapon.mainhand");
-                } else {
-                    durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", 1);
-                }
-            }
-        }
-        // 斧の耐久値減少
-        else if (axes.indexOf(item.typeId) != -1) {
-            if (logs.indexOf(block.typeId) != -1 || woods.indexOf(block.typeId) != -1) {
-                if (item.maxDurability <= (item.damage + 1)) {
-                    breakItem(hitEn, "slot.weapon.mainhand");
-                } else {
-                    durabilityDamage(player, item, "slot.weapon.mainhand", "Mainhand", 1);
-                }
-            }
-        }
-    }
+    let player = event.source as Player;
+    let item = event.itemStack as ItemStack;
+    let block = event.block as Block;
     // エンチャントリリース
     if (block.typeId == "kurokumaft:tear_enchant") {
         tearEnchantBlock(player, item, block);
@@ -72,63 +38,71 @@ world.afterEvents.itemUseOn.subscribe(event => {
 
     }
 });
-// プレイヤーがブロックをクリック
-world.afterEvents.playerInteractWithBlock.subscribe(event => {
-    let block = event.block;
-    let item = event.itemStack;
-    let player = event.player;
-    if (block.typeId == "kurokumaft:tear_enchant") {
-        setTearEnchantBook(player, item, block);
-    }
-});
+// // プレイヤーがブロックをクリック
+// world.afterEvents.playerInteractWithBlock.subscribe(event => {
+//     let block = event.block;
+//     let item = event.itemStack;
+//     let player = event.player;
+//     if (block.typeId == "kurokumaft:tear_enchant") {
+//         setTearEnchantBook(player, item, block);
+//     }
+// });
 // アイテム使用開始
 world.afterEvents.itemStartUse.subscribe(event => {
     let player = event.source;
     let item = event.itemStack;
-    if (item != undefined) {
-        if (item.typeId == "kurokumaft:gatling") {
-            shotGatling(player, item);
-        } else if (item.typeId == "kurokumaft:machine_gun") {
-            shotMachinegun(player, item);
-        } 
-    }
 });
-// アイテム使用停止
-world.afterEvents.itemStopUse.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
-    if (item != undefined) {
-        if (player.getDynamicProperty("gatlingShot")) {
-            stopGatling(player, item);
-        } else if (player.getDynamicProperty("machinegunShot")) {
-            stopMachinegun(player, item);
-        }
-    }
+
+// エンティティ削除前
+world.beforeEvents.entityRemove.subscribe(event => {
+
+    let removedEntity = event.removedEntity;
+    removeSpear(removedEntity);
+
 });
+
 // アイテム使用リリース
 world.afterEvents.itemReleaseUse.subscribe(event => {
     let player = event.source;
     let item = event.itemStack;
+    world.sendMessage("itemReleaseUse");
     if (item != undefined) {
-        if (item.typeId == "kurokumaft:gatling") {
-            shotGatling(player, item);
-        } else if (item.typeId == "kurokumaft:machine_gun") {
-            shotMachinegun(player, item);
-        } else if (item.typeId.indexOf("spear")) {
-            print("itemReleaseUse");
-            print(item.typeId);
+        if (player.getDynamicProperty("machinegunShot")) {
+            stopMachinegun(player, item);
+        }
+        if (item.typeId.indexOf("spear") != -1) {
+            releaseSpear(player, item);
         } 
     }
 });
+
+// アイテム使用停止
+world.afterEvents.itemStopUse.subscribe(event => {
+    let player = event.source;
+    let item = event.itemStack;
+    world.sendMessage("itemStopUse");
+    if (item != undefined) {
+        if (player.getDynamicProperty("gatlingShot")) {
+            stopGatling(player);
+        }
+        if (player.getDynamicProperty("machinegunShot")) {
+            stopMachinegun(player, item);
+        }
+        if (item.typeId.indexOf("spear") != -1) {
+            stopSpear(player);
+        }
+    }
+});
+
 // エンティティスポーン
 world.afterEvents.entitySpawn.subscribe(event => {
     let cause = event.cause;
     let entity = event.entity;
-    if ("Spawned" == cause && entity.typeId.indexOf("spear")) {
-        print("entitySpawn");
-        print(entity.typeId);
+    if (EntityInitializationCause.Spawned == cause) {
+        spawnSpear(entity);
     }
 });
+
 // アイテム使用前
 world.beforeEvents.itemUse.subscribe(event => {
     let player = event.source;
@@ -140,18 +114,6 @@ world.beforeEvents.itemUse.subscribe(event => {
 world.afterEvents.itemUse.subscribe(event => {
     let player = event.source;
     let item = event.itemStack;
-    if (item != undefined) {
-        // シックル→サイスエンチャント付けなおし
-        if (item.typeId.indexOf("sickle") != -1 && player.isSneaking) {
-            itemTans(player, item, scythes[sickles.indexOf(item.typeId)], "slot.weapon.mainhand", "Mainhand");
-//            replaceEnchant(player, item);
-        }
-        // サイス→シックルエンチャント付けなおし
-        else if (item.typeId.indexOf("scythe") != -1 && player.isSneaking) {
-            itemTans(player, item, sickles[scythes.indexOf(item.typeId)], "slot.weapon.mainhand", "Mainhand");
-//            replaceEnchant(player, item);
-        }
-    }
 });
 // ブロック破壊前
 world.beforeEvents.playerBreakBlock.subscribe(event => {
@@ -159,15 +121,6 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
     let item = event.itemStack;
     let block = event.block;
     if (item != undefined) {
-        if (item.typeId == "kurokumaft:fire_brand") {
-            if (logs.indexOf(block.typeId) != -1 || woods.indexOf(block.typeId) != -1) {
-                event.cancel = true;
-                let commandText =  "particle kurokumaft:mobflame_firing " + block.x + " " + (block.y + 0.5) + " " + block.z;
-                player.runCommandAsync(commandText);
-                commandText =  "execute as @s run setblock " + block.x + " " + block.y + " " + block.z + " kurokumaft:charcoal_block replace";
-                player.runCommandAsync(commandText);
-            }
-        }
     }
     if (silkType.indexOf(block.typeId) != -1) {
         event.cancel = true;
@@ -178,28 +131,65 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
 
 // 近接hit後
 world.afterEvents.entityHitEntity.subscribe(event => {
-    let damageEn = event.damagingEntity;
-    let hitEn = event.hitEntity;
-    if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
+    let damageEn = event.damagingEntity as Entity;
+    let hitEn = event.hitEntity as Entity;
+    if (hitEn != undefined && hitEn instanceof Player) {
         shieldGuard(hitEn, true);
         shieldCounter(hitEn, damageEn);
     }
 });
+
+// 近接ブロックhit後
+world.afterEvents.entityHitBlock.subscribe(event => {
+    let damageEn = event.damagingEntity as Entity;
+    let hitBlock = event.hitBlock as Block;
+    if (hitBlock != undefined) {
+        let equ = damageEn.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        let itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        if (itemStack != undefined) {
+            if (itemStack.typeId == "kurokumaft:fire_brand") {
+                fireCharcoalBlock(damageEn, itemStack, hitBlock);
+            }
+            if (itemStack.typeId == "kurokumaft:tnt_sword") {
+                tntBreak(damageEn, itemStack, hitBlock.location);
+            }
+            if (itemStack.typeId == "kurokumaft:mithril_sword") {
+                breakBlock(hitBlock);
+            }
+        }
+  
+    }
+});
+
 // 遠距離hit後
 world.afterEvents.projectileHitEntity.subscribe(event => {
     let projectileEn = event.projectile;
-    let hitEn = event.getEntityHit().entity;
+    let source = event.source as Entity
+    let hitEn = event.getEntityHit().entity as Entity;
     let hitVector = event.hitVector;
-    if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
+    if (hitEn != undefined && hitEn instanceof Player) {
         shieldGuard(hitEn, false);
         glassReflection(hitEn, projectileEn, hitVector);
     }
+    if (source != undefined && source instanceof Player) {
+        hitSpear(source, projectileEn);
+    }
 });
+
+// 遠距離ブロックhit後
+world.afterEvents.projectileHitBlock.subscribe(event => {
+    let projectileEn = event.projectile;
+    let source = event.source as Entity
+    if (source != undefined && source instanceof Player) {
+        hitSpear(source, projectileEn);
+    }
+});
+
 // ダメージ
 world.afterEvents.entityHurt.subscribe(event => {
     let damage = event.damage;
     let damageSource = event.damageSource;
-    let hitEn = event.hurtEntity;
+    let hitEn = event.hurtEntity as Player;
     // print(hitEn, damageSource.cause + "=" + damage);
     if (hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
         if (guards.indexOf(damageSource.cause) != -1) {

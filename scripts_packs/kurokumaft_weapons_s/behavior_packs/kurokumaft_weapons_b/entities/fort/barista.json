@@ -131,12 +131,6 @@
           "component_groups": [
             "kurokumaft:barista_shot"
           ]
-        },
-        "run_command": {
-          "command": [
-            "execute as @p[c=1] run clear @s kurokumaft:barista_arrow 0 3"
-          ],
-          "target": "self"
         }
       },
       "kurokumaft:barista_stop": {

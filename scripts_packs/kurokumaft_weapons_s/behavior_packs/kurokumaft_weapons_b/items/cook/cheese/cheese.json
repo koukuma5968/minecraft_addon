@@ -3,22 +3,22 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:cheese",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:cheese.name"
 			},
-      "minecraft:icon": {
-        "texture": "cheese"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.miscFood"
-      },
+      "minecraft:icon": "cheese",
       "minecraft:use_animation":"eat",
-      "minecraft:use_duration": 4,
       "minecraft:food": {
         "nutrition": 6
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
       }
     }
   }

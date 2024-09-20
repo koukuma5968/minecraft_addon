@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:wooden_bucket_empty",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.bucket"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bucket"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:wooden_bucket_empty.name"
 			},
-      "minecraft:icon": {
-        "texture": "wooden_bucket_empty"
-      }
+      "minecraft:icon": "wooden_bucket_empty"
     }
   }
 }

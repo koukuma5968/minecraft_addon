@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:lead_nugget",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.nugget"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.nugget"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:lead_nugget.name"
 			},
-      "minecraft:icon": {
-        "texture": "lead_nugget"
-      }
+      "minecraft:icon": "lead_nugget"
     }
   }
 }

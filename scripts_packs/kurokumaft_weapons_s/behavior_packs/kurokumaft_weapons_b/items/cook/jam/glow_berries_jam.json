@@ -3,24 +3,24 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:glow_berries_jam",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:glow_berries_jam.name"
 			},
-      "minecraft:icon": {
-        "texture": "glow_berries_jam"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.miscFood"
-      },
+      "minecraft:icon": "glow_berries_jam",
       "minecraft:glint": true,
       "minecraft:use_animation":"eat",
       "minecraft:max_stack_size": 32,
-      "minecraft:use_duration": 2,
       "minecraft:food": {
         "nutrition": 3
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
       }
     }
   }

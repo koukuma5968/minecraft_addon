@@ -138,13 +138,6 @@
 				"remove": {
 					"component_groups": ["kurokumaft:thrown_hammer" ]
 				},
-				"run_command": {
-					"command": [
-					  "particle kurokumaft:warden_shock ~~~",
-					  "damage @e[family=!player,r=8] 8 entity_attack"
-					],
-					"target": "self"
-				},
 				"add": {
 					"component_groups": ["kurokumaft:stop" ]
 				}		  

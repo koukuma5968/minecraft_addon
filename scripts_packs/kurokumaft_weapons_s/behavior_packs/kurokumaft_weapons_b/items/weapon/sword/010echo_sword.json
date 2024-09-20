@@ -3,21 +3,23 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:echo_sword",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:echo_sword.name"
 			},
-      "minecraft:icon": {
-        "texture": "echo_sword"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.sword"
-      },
+      "minecraft:icon": "echo_sword",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 2
+        },
         "max_durability": 1500
       },
       "minecraft:repairable": {
@@ -37,122 +39,44 @@
         "value": 40,
         "slot": "sword"
       },
+      "minecraft:shooter":{
+        "max_draw_duration" :1.0,
+        "scale_power_by_draw_duration" :true,
+        "charge_on_draw" :false
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 3
+      },
       "minecraft:can_destroy_in_creative": false,
       "minecraft:digger": {
         "use_efficiency": true,
-        "on_dig": {
-          "event": "kurokumaft:durability_damage"
-        },
         "destroy_speeds": [
           {
             "block": "minecraft:sculk",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_sensor",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_vein",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_catalyst",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 5
           },
           {
             "block": "minecraft:sculk_shrieker",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 5
           }
         ]
       },
-      "minecraft:use_duration": 1.5,
-      "minecraft:chargeable": {
-        "movement_modifier": 1.0,
-        "on_complete": {
-          "event":"kurokumaft:sonic_bullet"
-        }
-      },
-      "minecraft:weapon": {
-          "on_hurt_entity": {
-              "event": "kurokumaft:hurt_sweep"
-          },
-          "on_not_hurt_entity": {
-              "event": "kurokumaft:hurt_sweep"
-          }
-      }
-    },
-    "events": {
-      "kurokumaft:hurt_sweep": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "particle kurokumaft:sweep_particle ^ ^1.6 ^2.4",
-                "execute as @e[r=4.5] positioned ^ ^1.6 ^2.4 run damage @s 2 magic"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "particle kurokumaft:sweep_particle ^ ^1.2 ^2.4",
-                "execute at @e[r=4.5] positioned ^ ^1.2 ^2.4 run damage @s 2 magic"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "particle kurokumaft:sweep_particle ^ ^2.0 ^2.4",
-                "execute at @e[r=4.5] positioned ^ ^2.0 ^2.4 run damage @s 2 magic"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "trigger": "kurokumaft:durability_damage"
-          }
-        ]
-      },
-      "kurokumaft:sonic_bullet": {
-        "run_command": {
-          "command": [
-            "titleraw @s actionbar {\"rawtext\":[{\"text\":\"ソニックブレード\"}]}"
-          ],
-          "target": "self"
-        },
-        "shoot":{
-          "projectile":"kurokumaft:sonic_bullet",
-          "angle_offset": 0,
-          "launch_power":1
-        },
-        "trigger": "kurokumaft:durability_damage"
-      },
-      "kurokumaft:durability_damage": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      }
+      "minecraft:custom_components": [
+        "kurokumaft:mine_durability",
+        "kurokumaft:echo_sword"
+      ]
     }
   }
 }

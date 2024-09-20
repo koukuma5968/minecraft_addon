@@ -3,21 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fish_meal",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.meal"
+      }
     },
     "components": {
-      "tag:meal": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.meal"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fish_meal.name"
 			},
-      "minecraft:icon": {
-        "texture": "fish_meal"
-      }
-    },
-    "events": {
+      "minecraft:icon": "fish_meal"
     }
   }
 }

@@ -3,24 +3,20 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:lead_ball",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bullet"
+      }
     },
     "components": {
       "minecraft:max_stack_size": 64,
-      "minecraft:icon": {
-        "texture": "lead_ball"
-      },
+      "minecraft:icon": "lead_ball",
       "minecraft:display_name": {
         "value": "item.kurokumaft:lead_ball.name"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bullet"
       },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:lead_ball_entity"
       }
-    },
-    "events": {
     }
   }
 }

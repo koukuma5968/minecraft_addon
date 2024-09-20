@@ -225,21 +225,9 @@
 					"component_groups": ["kurokumaft:variant_0"]
 				}
 			},
-			"kurokumaft:on_breaking": {
-				"run_command": {
-					"command": [
-						"kill @s"
-					]
-				}
-			},
 			"kurokumaft:bag_burdened": {
 				"add": {
 					"component_groups": [ "kurokumaft:burdened", "kurokumaft:variant_3"]
-				},
-				"run_command": {
-					"command": [
-						"ride @s start_riding @e[family=player,c=1] teleport_rider"
-					]
 				}
 			},
 			"kurokumaft:stay": {
@@ -248,11 +236,6 @@
 				},
 				"add": {
 					"component_groups": [ "kurokumaft:stay", "kurokumaft:variant_0" ]
-				},
-				"run_command": {
-					"command": [
-						"ride @s stop_riding"
-					]
 				}
 			},
 			"kurokumaft:sneaking_on": {

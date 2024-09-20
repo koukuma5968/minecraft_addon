@@ -1,12 +1,70 @@
-import { print } from "../common";
+import { ItemStack, Player, Vector2, Vector3, world } from "@minecraft/server";
+import { print } from "./commonUtil";
 
 /**
- * 弾丸発射位置
+ * 投擲系
+ * @param {Player} player
+ * @param {ItemStack} item
+ * @param {string} throwItem
+ * @param {Vector3} ranNum
+ */
+export async function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:Vector3) {
+
+    let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
+
+    let bulet = player.dimension.spawnEntity(throwItem, 
+        {
+            x:xlocation! + ranNum.x,
+            y:ylocation! + ranNum.y,
+            z:zlocation! + ranNum.z
+        }
+    );
+    item.amount++;
+    bulet.setRotation({x:0,y:player.getRotation().y});
+    bulet.applyImpulse({x:xapply! * 1.5,y:yapply! * 1.5,z:zapply! * 1.5});
+
+}
+
+/**
+ * 投射系
+ * @param {Player} player
+ * @param {string} throwItem
+ * @param {Vector3} ranNum
+ * @param {string} event
+ */
+export async function shooting(player:Player, throwItem:string, ranNum:Vector3, seepd:number, event:string | undefined) {
+
+    let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
+
+    // world.sendMessage("x:"+ xlocation);
+    // world.sendMessage("y:"+ ylocation);
+    // world.sendMessage("z:"+ zlocation);
+
+    let bulet = player.dimension.spawnEntity(throwItem, 
+        {
+            x:xlocation! + ranNum.x,
+            y:ylocation! + ranNum.y,
+            z:zlocation! + ranNum.z
+        }
+    );
+
+    if (event) {
+        bulet.triggerEvent(event);
+    }
+
+    bulet.setRotation({x:0,y:player.getRotation().y});
+    bulet.applyImpulse({x:xapply! * seepd,y:yapply! * seepd,z:zapply! * seepd});
+
+    return bulet;
+}
+
+/**
+ * 投擲発射位置
  * @param {Vector2} rotation
  * @param {Vector3} location
  */
-function getAdjacentSphericalPoints(rotation, location) {
-    let r = 1;  // 半径
+function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
+    let r = 1.5;  // 半径
 
     let piNum = 75;
     let xapply;
@@ -28,9 +86,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = yRotax * xRota;
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             }
             yapply = (yRota);
 
@@ -44,9 +102,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = yRotax * xRota;
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             }
             yapply = (yRota);
 
@@ -73,9 +131,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.75) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -98,9 +156,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.75) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -126,9 +184,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = yRotax * xRota;
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -142,9 +200,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = yRotax * xRota;
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -165,9 +223,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x <= -45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             } else {
-                ylocation = (location.y + 1.5) + (yRota) * 1.25;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             }
             yapply = (yRota);
 
@@ -186,9 +244,9 @@ function getAdjacentSphericalPoints(rotation, location) {
             xapply = -(yRotax * xRota);
 
             if (rotation.x >= 45) {
-                ylocation = (location.y + 1.25) + (yRota) * 1.5;
+                ylocation = (location.y + 1.75) + (yRota) * 1.5;
             } else {
-                ylocation = (location.y + 1.25) + (yRota) * 1.25;
+                ylocation = (location.y + 1.5) + (yRota) * 1.75;
             }
             yapply = (yRota);
 
@@ -204,5 +262,3 @@ function getAdjacentSphericalPoints(rotation, location) {
     }
     return { xapply, yapply, zapply, xlocation, ylocation, zlocation };
 }
-
-export { getAdjacentSphericalPoints }

@@ -2,22 +2,24 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-        "identifier": "kurokumaft:blue_ice_sword",
-        "category": "equipment"
-      },
+      "identifier": "kurokumaft:blue_ice_sword",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:blue_ice_sword.name"
 			},
-      "minecraft:icon": {
-        "texture": "blue_ice_sword"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.sword"
-      },
+      "minecraft:icon": "blue_ice_sword",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 2
+        },
         "max_durability": 500
       },
       "minecraft:repairable": {
@@ -40,92 +42,29 @@
       "minecraft:can_destroy_in_creative": false,
       "minecraft:digger": {
         "use_efficiency": true,
-        "on_dig": {
-          "event": "kurokumaft:durability_damage"
-        },
         "destroy_speeds": [
           {
             "block": "minecraft:web",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 15
           },
           {
             "block": "minecraft:ice",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 15
           },
           {
             "block": "minecraft:packed_ice",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 10
           },
           {
             "block": "minecraft:blue_ice",
-            "on_dig": {
-              "event": "kurokumaft:durability_damage"
-            },
             "speed": 10
           }
         ]
       },
-      "minecraft:on_use_on": {
-        "on_use_on": {
-          "event": "kurokumaft:set_blue_ice"
-        }
-      },
-      "minecraft:weapon": {
-        "on_hit_block": {
-          "event": "kurokumaft:set_blue_ice"
-        },
-        "on_hurt_entity": {
-            "event": "kurokumaft:hurt_ice"
-        },
-        "on_not_hurt_entity": {
-            "event": "kurokumaft:hurt_ice"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:hurt_ice": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "damage @s 6 freezing",
-                "setblock ~~~ minecraft:ice replace"
-              ],
-              "target": "other"
-            },
-            "trigger": "kurokumaft:durability_damage"
-          }
-        ]
-      },
-      "kurokumaft:set_blue_ice": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "setblock ~~~ minecraft:blue_ice replace"
-              ],
-              "target": "block"
-            },
-            "trigger": "kurokumaft:durability_damage"
-          }
-        ]
-      },
-      "kurokumaft:durability_damage": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      }
+      "minecraft:custom_components": [
+        "kurokumaft:mine_durability",
+        "kurokumaft:blue_ice_sword"
+      ]
     }
   }
 }

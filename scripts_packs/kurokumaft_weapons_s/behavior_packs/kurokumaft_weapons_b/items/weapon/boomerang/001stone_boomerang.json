@@ -3,21 +3,18 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_boomerang",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.boomerang"
+      }
     },
     "components": {
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_boomerang.name"
       },
-      "minecraft:icon":{
-        "texture": "stone_boomerang"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.boomerang"
-      },
+      "minecraft:icon": "stone_boomerang",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
-      
       "minecraft:damage": 3,
       "minecraft:enchantable": {
         "value": 15,
@@ -36,8 +33,6 @@
         "scale_power_by_draw_duration": true
       },
       "minecraft:can_destroy_in_creative": false
-    },
-    "events": {
     }
   }
 }

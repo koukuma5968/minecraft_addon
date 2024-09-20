@@ -1,0 +1,21 @@
+{
+  "format_version": "1.20.30",
+	"animation_controllers": {
+		"controller.animation.cherry_leaves.arrow": {
+			"states": {
+				"default": {
+					"transitions": [
+						{ "move": "query.is_moving" }
+					]
+				},
+				"move": {
+					"animations": ["cherry_leaves"],
+					"transitions": [
+						{ "default": "!query.is_moving" }
+					]
+				}
+			}
+		}
+
+	}
+}

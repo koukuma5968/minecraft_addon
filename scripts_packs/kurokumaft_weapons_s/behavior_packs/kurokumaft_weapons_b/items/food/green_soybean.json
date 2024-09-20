@@ -3,43 +3,22 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:green_soybean",
-      "category": "nature"
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.crop"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:green_soybean.name"
 			},
-      "minecraft:icon": {
-        "texture": "green_soybean"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.crop"
-      },
+      "minecraft:icon": "green_soybean",
       "minecraft:use_animation":"eat",
-      "minecraft:use_duration": 1,
       "minecraft:food": {
-        "nutrition": 2,
-        "on_consume": {
-          "event": "kurokumaft:night_vision_eye"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:night_vision_eye": {
-        "randomize": [
-          {
-            "weight": 20,
-            "run_command": {
-              "command": [
-                "effect @s night_vision 30 3"
-              ],
-              "target": "self"
-            }
-          },
-          {
-            "weight": 60
-          }
-        ]
+        "nutrition": 2
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
       }
     }
   }

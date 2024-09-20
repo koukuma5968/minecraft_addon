@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:black_quartz",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.quartz"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.quartz"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:black_quartz.name"
 			},
-      "minecraft:icon": {
-        "texture": "black_quartz"
-      }
+      "minecraft:icon": "black_quartz"
     }
   }
 }

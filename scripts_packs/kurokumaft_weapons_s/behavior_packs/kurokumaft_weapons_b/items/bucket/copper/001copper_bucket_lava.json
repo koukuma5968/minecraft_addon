@@ -3,99 +3,22 @@
   "minecraft:item" : {
     "description": {
       "identifier": "kurokumaft:copper_bucket_lava",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.copper_bucket"
+      }
     },
     "components": {
       "minecraft:display_name": {
         "value": "item.kurokumaft:copper_bucket_lava.name"
       },
-      "minecraft:icon":{
-        "texture": "copper_bucket_lava"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.copper_bucket"
-      },
+      "minecraft:icon": "copper_bucket_lava",
       "minecraft:fuel": {
         "duration": 2000
       },
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
-      "minecraft:liquid_clipped": true,
-      "minecraft:on_use_on": {
-        "on_use_on": {
-          "event": "kurokumaft:lava_put"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:lava_put": {
-        "sequence":[
-          {
-            "condition": "query.block_face == 0.0",
-            "run_command": {
-              "command": [
-                "setblock ~~-1~ flowing_lava"
-              ],
-              "target": "block"
-            }
-          },
-          {
-            "condition": "query.block_face == 1.0",
-            "run_command": {
-              "command": [
-                "setblock ~~1~ flowing_lava"
-              ],
-              "target": "block"
-            }
-          },
-          {
-            "condition": "query.block_face == 2.0",
-            "run_command": {
-              "command": [
-                "setblock ~~~-1 flowing_lava"
-              ],
-              "target": "block"
-            }
-          },
-          {
-            "condition": "query.block_face == 3.0",
-            "run_command": {
-              "command": [
-                "setblock ~~~1 flowing_lava"
-              ],
-              "target": "block"
-            }
-          },
-          {
-            "condition": "query.block_face == 4.0",
-            "run_command": {
-              "command": [
-                "setblock ~-1~~ flowing_lava"
-              ],
-              "target": "block"
-            }
-          },
-          {
-            "condition": "query.block_face == 5.0",
-            "run_command": {
-              "command": [
-                "setblock ~1~~ flowing_lava"
-              ],
-              "target": "block"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "gamerule sendcommandfeedback false",
-                "give @s kurokumaft:copper_bucket 1 0"
-              ],
-              "target": "player"
-            },
-            "decrement_stack": {}
-          }
-        ]
-      }
+      "minecraft:liquid_clipped": true
     }
   }
 }

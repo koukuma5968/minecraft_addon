@@ -103,6 +103,8 @@ item.kurokumaft:sealantern_sword.name=シーランタンソード
 item.kurokumaft:bone_sword.name=骨剣
 item.kurokumaft:amethyst_sword.name=アメジストソード
 
+mess.kurokumaft:echo_sword.sonic_bullet=ソニックブレード
+
 item.kurokumaft:powder_ball.name=火薬玉
 item.kurokumaft:hand_grenade.name=手榴弾
 item.kurokumaft:bakutiku.name=爆竹
@@ -138,9 +140,13 @@ item.kurokumaft:wood_sickle.name=木の小鎌
 item.kurokumaft:stone_sickle.name=石の小鎌
 item.kurokumaft:iron_sickle.name=鉄の小鎌
 
+mess.kurokumaft:spirit_sickle.shot=気鎌
+
 item.kurokumaft:wood_scythe.name=木の大鎌
 item.kurokumaft:stone_scythe.name=石の大鎌
 item.kurokumaft:iron_scythe.name=鉄の大鎌
+
+mess.kurokumaft:roar_scythe.shot=鎌飛ばし
 
 item.kurokumaft:bamboo_bow.name=竹の弓
 item.kurokumaft:iron_bow.name=鉄の弓

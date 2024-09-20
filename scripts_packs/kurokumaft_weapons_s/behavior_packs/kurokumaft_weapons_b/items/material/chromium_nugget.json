@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:chromium_nugget",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.nugget"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.nugget"
-      },
       "minecraft:display_name": {
          "value": "item.kurokumaft:chromium_nugget.name"
       },
-      "minecraft:icon": {
-        "texture": "chromium_nugget"
-      }
+      "minecraft:icon": "chromium_nugget"
     }
   }
 }

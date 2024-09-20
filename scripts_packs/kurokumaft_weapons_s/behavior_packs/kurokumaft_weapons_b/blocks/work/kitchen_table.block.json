@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:kitchen_table",
@@ -27,9 +27,6 @@
 				"crafting_tags": ["kitchen_table"]
 			},
 			"minecraft:geometry": "geometry.kitchen_table",
-            "minecraft:on_player_placing": {
-                "event": "rotate"
-            },
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "kitchen_table",
@@ -37,17 +34,6 @@
 				}
 			}
 		},
-        "events": {
-            "rotate": {
-                "sequence": [
-                    {
-                        "set_block_state": {
-                            "kurokumaft:rotation": "(query.cardinal_facing_2d)"
-                        }
-                    }
-                ]
-            }
-        },
         "permutations": [
             {
                 "condition": "query.block_state('kurokumaft:rotation') == 2",

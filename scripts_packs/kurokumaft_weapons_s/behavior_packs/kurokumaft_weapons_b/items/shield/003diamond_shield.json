@@ -3,20 +3,22 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:diamond_shield",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shield"
+      }
     },
     "components": {
-      "tag:shield": {},
-      "tag:minecraft:transformable_items": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shield"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:shield",
+          "minecraft:transformable_items"
+        ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:diamond_shield.name"
       },
-      "minecraft:icon":{
-        "texture": "diamond_shield"
-      },
+      "minecraft:icon": "diamond_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

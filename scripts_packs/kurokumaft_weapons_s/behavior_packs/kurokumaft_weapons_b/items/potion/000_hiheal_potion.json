@@ -3,67 +3,19 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:hiheal_potion",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.potion"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "potion.kurokumaft:hiheal.name"
 			},
-      "minecraft:icon": {
-        "texture": "potion_bottle_hiheal"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.potion"
-      },
+      "minecraft:icon": "potion_bottle_hiheal",
       "minecraft:glint": true,
       "minecraft:max_stack_size": 1,
-      "minecraft:use_animation":"eat",
-      "minecraft:use_duration": 2,
-      "minecraft:chargeable": {
-        "on_complete": {
-          "event": "kurokumaft:hiheel"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:hiheel": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "gamerule sendcommandfeedback false",
-                "effect @s instant_health 1 5 true"
-              ],
-              "target": "player"
-            },
-            "decrement_stack": {}
-          },
-          {
-            "randomize": [
-              {
-                "weight": 1,
-                "run_command": {
-                  "command": [
-                    "effect @s regeneration 180 3"
-                  ],
-                  "target": "player"
-                }
-              },
-              {
-                "weight": 9
-              }
-            ]
-          },
-          {
-            "run_command": {
-              "command": [
-                "give @s glass_bottle"
-              ],
-              "target": "player"
-            }
-          }
-        ]
-      }
+      "minecraft:use_animation":"eat"
     }
   }
 }

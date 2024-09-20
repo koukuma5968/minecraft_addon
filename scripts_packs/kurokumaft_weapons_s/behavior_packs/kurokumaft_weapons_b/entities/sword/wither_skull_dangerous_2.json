@@ -4,7 +4,7 @@
   "description": {
     "identifier": "kurokumaft:wither_skull_dangerous_2",
     "is_spawnable": false,
-    "is_summonable": false,
+    "is_summonable": true,
     "is_experimental": false,
     "runtime_identifier": "minecraft:wither_skull_dangerous"
   },

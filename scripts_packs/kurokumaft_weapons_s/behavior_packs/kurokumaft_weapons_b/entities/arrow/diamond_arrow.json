@@ -156,7 +156,6 @@
         }
       }
     },
-
     "events": {
       "minecraft:entity_spawned": {
         "sequence": [
@@ -179,17 +178,7 @@
             }
           }
         ]
-      },
-      "kurokumaft:entity_kill": {
-        "run_command": {
-          "command": [
-            "kill @s"
-          ],
-          "target": "self"
-        }
       }
-
     }
-
   }
 }

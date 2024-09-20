@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:axolotl_helmet_gold",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.helmet"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:axolotl_helmet_gold.name"
 			},
-      "minecraft:icon": {
-        "texture": "axolotl_helmet_gold"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.helmet"
-      },
+      "minecraft:icon": "axolotl_helmet_gold",
       "minecraft:max_stack_size": 1,
       "minecraft:enchantable": {
         "value": 20,

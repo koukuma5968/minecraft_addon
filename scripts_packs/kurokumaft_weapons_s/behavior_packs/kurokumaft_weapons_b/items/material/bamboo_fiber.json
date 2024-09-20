@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:bamboo_fiber",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.string"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:bamboo_fiber.name"
 			},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.string"
-      },
-      "minecraft:icon": {
-        "texture": "bamboo_fiber"
-      }
+      "minecraft:icon": "bamboo_fiber"
     }
   }
 }

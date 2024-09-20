@@ -3,51 +3,19 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:hidamageBoost_potion",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.potion"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "potion.kurokumaft:hidamageBoost.name"
 			},
-      "minecraft:icon": {
-        "texture": "potion_bottle_hidamageBoost"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.potion"
-      },
+      "minecraft:icon": "potion_bottle_hidamageBoost",
       "minecraft:glint": true,
       "minecraft:max_stack_size": 1,
-      "minecraft:use_animation":"eat",
-      "minecraft:use_duration": 2,
-      "minecraft:chargeable": {
-        "on_complete": {
-          "event": "kurokumaft:hidamageBoost"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:hidamageBoost": {
-        "sequence":[
-          {
-            "run_command": {
-              "command": [
-                "gamerule sendcommandfeedback false",
-                "effect @s strength 180 5"
-              ],
-              "target": "player"
-            },
-            "decrement_stack": {}
-          },
-          {
-            "run_command": {
-              "command": [
-                "give @s glass_bottle"
-              ],
-              "target": "player"
-            }
-          }
-        ]
-      }
+      "minecraft:use_animation":"eat"
     }
   }
 }

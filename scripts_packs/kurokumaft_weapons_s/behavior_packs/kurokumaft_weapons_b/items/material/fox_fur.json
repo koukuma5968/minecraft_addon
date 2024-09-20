@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:fox_fur",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.leather"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.leather"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fox_fur.name"
 			},
-      "minecraft:icon": {
-        "texture": "fox_fur"
-      }
+      "minecraft:icon": "fox_fur"
     }
   }
 }

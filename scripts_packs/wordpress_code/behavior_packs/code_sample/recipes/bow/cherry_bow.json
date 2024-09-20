@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:cherry_bow"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " #X",
+      "# X",
+      " #X"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:cherry_planks"
+      },
+      "X": {
+        "item": "minecraft:string"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:cherry_bow"
+    }
+  }
+}

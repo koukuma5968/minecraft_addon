@@ -3,18 +3,16 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:soup_bowl",
-      "category": "items"
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.soup_bowl"
+      }
     },
     "components": {
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.soup_bowl"
-      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:soup_bowl.name"
 			},
-      "minecraft:icon": {
-        "texture": "soup_bowl"
-      }
+      "minecraft:icon": "soup_bowl"
     }
   }
 }

@@ -3,22 +3,22 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:baked_carrot",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:baked_carrot.name"
 			},
-      "minecraft:icon": {
-        "texture": "baked_carrot"
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.miscFood"
-      },
+      "minecraft:icon": "baked_carrot",
       "minecraft:use_animation":"eat",
-      "minecraft:use_duration": 2,
       "minecraft:food": {
         "nutrition": 5
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
       }
     }
   }

@@ -32,13 +32,13 @@
             "catch_fire": false,
             "destroy_on_hit": false,
             "semi_random_diff_damage": false
-				  },
-					"definition_event": {
+          },
+          "definition_event": {
 						"affect_projectile": true,
 						"event_trigger": {
 						  "event": "kurokumaft:bom",
 						  "target": "self"
-						}
+            }
           }
        },
        "hit_sound": "item.trident.hit",
@@ -50,7 +50,7 @@
        "uncertainty_base": 0,
        "uncertainty_multiplier": 0,
        "reflect_on_hurt": true,
-       "offset": [ -0.5, -0.1, 0 ]
+       "offset": [ -0.25, -0.1, 0 ]
       },
 			"minecraft:physics": {
 				"has_gravity": false,
@@ -68,15 +68,7 @@
        }
       }
     },
-		"events": {
-      "minecraft:entity_spawned": {
-        "run_command": {
-          "command": [
-            "execute as @p[c=1] run clear @s kurokumaft:tnt_knife 0 1"
-          ],
-          "target": "self"
-        }
-      },
+    "events": {
       "kurokumaft:bom": {
         "add": {
           "component_groups": [

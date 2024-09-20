@@ -3,19 +3,21 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:copper_shield",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shield"
+      }
     },
     "components": {
-      "tag:shield": {},
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.shield"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:shield"
+        ]
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:copper_shield.name"
       },
-      "minecraft:icon":{
-        "texture": "copper_shield"
-      },
+      "minecraft:icon":"copper_shield",
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -30,23 +32,9 @@
       "minecraft:durability": {
         "max_durability": 120
       },
-      "minecraft:weapon": {
-        "on_not_hurt_entity": {
-          "event": "kurokumaft:hurt_entity"
-        }
-      },
       "minecraft:wearable": {
         "slot": "slot.weapon.offhand"
       }
-    },
-    "events": {
-      "kurokumaft:hurt_entity": {
-        "damage":{
-          "type":"durability",
-          "target":"self",
-          "amount":1
-        }
-      }
-    }
+   }
   }
 }

@@ -3,27 +3,26 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:railgun_energy_bottle",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.bullet"
+      }
     },
     "components": {
-      "tag:bullet": {},
-      "minecraft:max_stack_size": 16,
-      "minecraft:icon": {
-        "texture": "railgun_energy_bottle"
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bullet"
+        ]
       },
+      "minecraft:max_stack_size": 16,
+      "minecraft:icon": "railgun_energy_bottle",
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
         "value": "item.kurokumaft:railgun_energy_bottle.name"
       },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.bullet"
-      },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:railgun_energy"
       }
-    },
-    "events": {
-      
     }
   }
 }

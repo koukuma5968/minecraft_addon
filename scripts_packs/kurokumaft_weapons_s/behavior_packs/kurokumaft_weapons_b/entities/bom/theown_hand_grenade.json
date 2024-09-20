@@ -82,14 +82,6 @@
 			}
 		},
 		"events": {
-			"minecraft:entity_spawned": {
-				"run_command": {
-					"command": [
-					  "execute as @p[c=1] run clear @s kurokumaft:hand_grenade 0 1"
-					],
-					"target": "self"
-				}
-			},
 			"kurokumaft:bom": {
 				"add": {
 					"component_groups": [

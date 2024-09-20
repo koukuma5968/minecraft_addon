@@ -3,22 +3,28 @@
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:gatling",
-      "category": "equipment"
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.gun"
+      }
     },
     "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:gatling.name"
+      },
+      "minecraft:use_animation": "bow",
+      "minecraft:hand_equipped": true,
       "minecraft:durability": {
         "max_durability": 1500
-      },
-      "minecraft:creative_category": {
-        "parent": "itemGroup.name.gun"
       },
       "minecraft:enchantable": {
         "value": 20,
         "slot": "bow"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:icon": {
-        "texture": "gatling"
+      "minecraft:icon": "gatling",
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1
       },
       "minecraft:repairable": {
         "repair_items": [
@@ -28,14 +34,14 @@
           }
         ]
       },
-      "minecraft:display_name": {
-        "value": "item.kurokumaft:gatling.name"
+      "minecraft:throwable": {
+        "min_draw_duration": 0.2,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
       },
-      "minecraft:use_animation": "bow",
-      "minecraft:hand_equipped": true,
-      "minecraft:use_duration": 9999,
-      "minecraft:chargeable": {
-      }
+      "minecraft:custom_components": [
+        "kurokumaft:gatling"
+      ]
     }
   }
 }
