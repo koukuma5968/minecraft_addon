@@ -44,7 +44,10 @@
             "speed": 10
           }
         ]
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:mine_durability"
+      ]
     }
   }
 }

@@ -1,8 +1,5 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, world, system, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentTypes, ItemCooldownComponent, ItemComponentUseOnEvent, ItemComponentCompleteUseEvent, Dimension, Vector3, Block, BlockTypes, EntityDamageCause, EffectTypes, EntityComponent, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, ItemEnchantableComponent, EnchantmentType, EnchantmentTypes, System, EntityTypeFamilyComponent, Enchantment } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterPoints";
-import { getDirectionVector, getLookPoints, getLookRotaionPoints, itemCoolDown } from "../../../common/commonUtil";
-import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, EntityDamageCause } from "@minecraft/server";
+import { getLookPoints } from "../../../common/commonUtil";
 
 /**
  * ブレイズスピア
@@ -22,7 +19,7 @@ export class BlazeSpear implements ItemCustomComponent {
 async function blazeHit(attackEntity: Entity, hitEntity: Entity, itemStack: ItemStack) {
     attackEntity.addTag("blazeHit");
     let dim = attackEntity.dimension;
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
     let targetEn = dim.getEntities({
         excludeTags: [
             "blazeHit"
@@ -38,7 +35,7 @@ async function blazeHit(attackEntity: Entity, hitEntity: Entity, itemStack: Item
     })
 
     targetEn.forEach(en => {
-        dim.spawnParticle("kurokumaft:mobflame_firing", {x:xlocation!, y:ylocation!,z:zlocation!});
+        dim.spawnParticle("kurokumaft:mobflame_firing", look);
         en.applyDamage(6, {
             cause: EntityDamageCause.fire
         });

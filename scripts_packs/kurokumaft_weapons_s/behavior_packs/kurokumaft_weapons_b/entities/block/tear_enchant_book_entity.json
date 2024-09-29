@@ -1,0 +1,55 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:tear_enchant_book_entity",
+      "held_item_ignores_lighting": false,
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.05,
+        "height": 0.05
+      },
+      "minecraft:type_family": {
+        "family": [
+          "armor_stand", "inanimate", "tear_enchant_book"
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:knockback_resistance": {
+        "value": 10.0
+      },
+      "minecraft:inventory": {
+        "inventory_size": 1,
+        "container_type": "horse"
+      },
+      "minecraft:nameable": {
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:fire_immune": {},
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": false
+          }
+        ]
+      }
+    }
+  }
+}

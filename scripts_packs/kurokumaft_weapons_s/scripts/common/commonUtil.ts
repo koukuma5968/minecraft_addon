@@ -1,14 +1,11 @@
-import { world,system,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Vector2, Vector3, Direction, Block, EntityHealthComponent, Enchantment, ItemCooldownComponent} from "@minecraft/server";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Vector2, Vector3, Direction, Block, EntityHealthComponent, Enchantment, ItemCooldownComponent, EffectTypes, TicksPerSecond} from "@minecraft/server";
+import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { HorizonVector2 } from "./HorizonVector2";
 
 export const silkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
-                , "kurokumaft:mithril_cluster","kurokumaft:budding_mithril","kurokumaft:medicinal_plants", "kurokumaft:onions","kurokumaft:soybeans"];
+, "kurokumaft:mithril_cluster","kurokumaft:budding_mithril","kurokumaft:medicinal_plants", "kurokumaft:onions","kurokumaft:soybeans"];
 
 export const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
-
-export const CraftBlocks = ["minecraft:crafting_table","minecraft:anvil","minecraft:smithing_table","minecraft:cartography_table","minecraft:loom","minecraft:barrel"
-                    ,"minecraft:smoker","minecraft:blast_furnace","minecraft:furnace","kurokumaft:magic_lectern"];
-
 
 /**
  * アイテム変換
@@ -103,9 +100,37 @@ async function breakBlock(block:Block) {
 function resuscitation(player: Player) {
     let health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
     health.setCurrentValue(5);
-    let commandText =  "effect @s absorption 30 5 true";
-    player.runCommandAsync(commandText);
+    player.addEffect(MinecraftEffectTypes.Absorption, TicksPerSecond * 30, {
+        amplifier: 5,
+        showParticles: true
+    });
     playsound(player, "random.totem");
+};
+
+// 岩盤破壊キャンセル
+export function explodeBedrock(impactBLockList:Block[]): Block[] {
+    let filterBlockList = impactBLockList.filter(block => {
+        if (!block.matches("minecraft:bedrock")) {
+            return block;
+        }
+    });
+    return filterBlockList;
+}
+export const ProbabilisticChoice = (list: any[]) => {
+    const totalWeight = list.reduce((p, c) => {
+        return { weight: p.weight + c.weight }
+    }).weight
+
+    return {
+        pick () {
+        const r = Math.random() * totalWeight;
+        let s = 0.0;
+        for (const l of list) {
+            s += l.weight
+            if (r < s) { return l.item }
+        }
+        }
+    }
 };
 
 /**
@@ -114,7 +139,7 @@ function resuscitation(player: Player) {
  * @param {Vector3} location
  * @param {number} point
  */
-function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
+function getLookPoints(rotation:Vector2, location:Vector3, point:number) : Vector3 {
     let piNum = 90;
     let xlocation;
     let ylocation;
@@ -128,16 +153,16 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point);
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point)
         }
 
     // 北～東
@@ -149,15 +174,15 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point);
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point);
         }
 
     // 西～南
@@ -169,16 +194,16 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point);
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point);
         }
 
     // 東～南
@@ -189,49 +214,50 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point);
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+            xlocation = location.x + ((yRotax * xRota) * point);
+            ylocation = (location.y + 0.5) + (yRota);
+            zlocation = location.z + ((yRotaz * xRota) * point);
         }
 
     }
-    return { xlocation, ylocation, zlocation };
+    return { x:xlocation!, y:ylocation!, z:zlocation! };
 }
 
 /**
- * 視線位置
+ * 視線方向
  * @param {Vector2} rotation
  * @param {number} point
+ * @param {number} side
  */
-function getLookRotaionPoints(rotation:Vector2, point:number) {
+function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : HorizonVector2 {
     let piNum = 90;
     let rotax;
     let rotaz;
 
     // 西～北
     if (rotation.y >= -90 && rotation.y < 0) {
-        rotax = (-rotation.y / piNum) * point;
-        rotaz = ((rotation.y + 90) / piNum) * point;
+        rotax = (-rotation.y / piNum) * point + (side * ((rotation.y + 90) / piNum));
+        rotaz = ((rotation.y + 90) / piNum) * point + (side * (-rotation.y / piNum));
     // 北～東
     } else if (rotation.y >= 0 && rotation.y <= 90) {
-        rotax = (-rotation.y / piNum) * point;
-        rotaz = (-(rotation.y - 90) / piNum) * point;
+        rotax = (-rotation.y / piNum) * point + (side * (-(rotation.y + 90) / piNum));
+        rotaz = (-(rotation.y - 90) / piNum) * point + (side * (-rotation.y / piNum));
     // 西～南
     } else if (rotation.y < -90 && rotation.y > -180) {
-        rotax = ((rotation.y + 180) / piNum) * point;
-        rotaz = ((rotation.y + 90) / piNum) * point;
+        rotax = ((rotation.y + 180) / piNum) * point + (side * ((rotation.y + 90) / piNum));
+        rotaz = ((rotation.y + 90) / piNum) * point + (side * ((rotation.y + 180) / piNum));
     // 東～南
     } else if (rotation.y > 90 && rotation.y <= 180) {
-        rotax = ((rotation.y - 180) / piNum) * point;
-        rotaz = (-(rotation.y - 90) / piNum) * point;
+        rotax = ((rotation.y - 180) / piNum) * point + (side * (-(rotation.y - 90) / piNum));
+        rotaz = (-(rotation.y - 90) / piNum) * point + (side * ((rotation.y - 180) / piNum));
     }
-    return { rotax, rotaz };
+    return { x:rotax!, z:rotaz! };
 }
 
 function normalizeVector(v: Vector3): Vector3 {

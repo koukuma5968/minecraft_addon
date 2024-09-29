@@ -17,11 +17,13 @@
         },
         "scripts": {
           "animate": [
-            { "thrown": "query.variant != 1" }
+            { "thrown": "query.variant == 0" },
+            { "stand": "query.variant == 1" }
           ]
         },
         "animations": {
-          "thrown": "animation.hammer.thrown"
+          "thrown": "animation.hammer.thrown",
+          "stand": "animation.hammer.stand"
         },
         "render_controllers": [ "controller.render.hammer" ]
       }

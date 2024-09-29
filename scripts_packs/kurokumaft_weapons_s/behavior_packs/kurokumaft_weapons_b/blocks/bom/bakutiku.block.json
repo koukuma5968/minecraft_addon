@@ -8,17 +8,18 @@
 			},
 			"states": {
 				"kurokumaft:flint": [0, 1]
-			}
+            },
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face"]
+			    }
+            }
 		},
 		"components": {
-			"tag:minecraft:is_bakutiku": {},
-			"minecraft:collision_box": {
-				"origin": [-1.0, 0.0, -1.0],
-				"size": [2.0, 8.0, 2.0]
-			},
+			"minecraft:collision_box": false,
 			"minecraft:selection_box": {
-				"origin": [-1.0, 0.0, -1.0],
-				"size": [2.0, 8.0, 2.0]
+				"origin": [-4.0, 0.0, -4.0],
+				"size": [8.0, 6.0, 8.0]
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0
@@ -27,13 +28,9 @@
 				"explosion_resistance": 0
 			},
 			"minecraft:loot": "loot_tables/blocks/bom/bakutiku_block.json",
-			"minecraft:geometry": "geometry.bakutiku",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "bakutiku",
-					"render_method": "opaque"
-				}
-			}
+			"minecraft:custom_components": [
+				"kurokumaft:bakutiku_flint"
+			]
 		},
 		"permutations": [
 			{
@@ -41,11 +38,106 @@
 				"components": {
 					"minecraft:loot": "loot_tables/empty.json",
 					"minecraft:tick": {
-						"interval_range": [1,1],
+						"interval_range": [20,35],
 						"looping": false
-					}
+					},
+					"minecraft:custom_components": [
+						"kurokumaft:bakutiku_fire"
+					]
 				}
+			},
+
+			{
+                "condition": "query.block_state('minecraft:block_face') == 'up'",
+				"components": {
+					"minecraft:geometry": "geometry.bakutiku",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "bakutiku",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:transformation": {
+                        "rotation": [ 0, 0, 0 ]
+					}
+                }
+			},
+			{
+                "condition": "query.block_state('minecraft:block_face') == 'down'",
+                "components": {
+					"minecraft:geometry": "geometry.bakutiku",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "bakutiku",
+							"render_method": "opaque"
+						}
+					},
+                    "minecraft:transformation": {
+                        "rotation": [ 180, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+					"minecraft:geometry": "geometry.bakutiku_wall",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "bakutiku",
+							"render_method": "opaque"
+						}
+					},
+                    "minecraft:transformation": {
+                        "rotation": [ 90, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+					"minecraft:geometry": "geometry.bakutiku_wall",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "bakutiku",
+							"render_method": "opaque"
+						}
+					},
+                    "minecraft:transformation": {
+                        "rotation": [ 90, 180, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+					"minecraft:geometry": "geometry.bakutiku_wall",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "bakutiku",
+							"render_method": "opaque"
+						}
+					},
+                    "minecraft:transformation": {
+                        "rotation": [ 90, 90, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+					"minecraft:geometry": "geometry.bakutiku_wall",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "bakutiku",
+							"render_method": "opaque"
+						}
+					},
+                    "minecraft:transformation": {
+                        "rotation": [ 90, 270, 0 ]
+                    }
+                }
 			}
+
 		]
 	}
 }

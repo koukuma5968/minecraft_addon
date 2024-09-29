@@ -13,6 +13,16 @@
 				"value": "item.kurokumaft:bakutiku.name"
 			},
       "minecraft:icon": "bakutiku",
+      "minecraft:projectile": {
+        "minimum_critical_power": 1.0,
+        "projectile_entity": "kurokumaft:bakutiku_entity<throwable_bakutiku>"
+      },
+      "minecraft:throwable": {
+        "do_swing_animation": true,
+        "min_draw_duration": 0.8,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
       "minecraft:block_placer": {
         "block": "bakutiku_block"
       }

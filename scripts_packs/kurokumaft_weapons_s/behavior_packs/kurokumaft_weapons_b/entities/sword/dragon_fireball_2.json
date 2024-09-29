@@ -13,7 +13,9 @@
         "width": 0.31,
         "height": 0.31
       },
-
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
       "minecraft:projectile": {
         "on_hit": {
           "spawn_aoe_cloud": {

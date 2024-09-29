@@ -27,6 +27,10 @@
         "slot": "sword"
       },
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 2
+        },
         "max_durability": 1561
       },
       "minecraft:max_stack_size": 1,
@@ -41,7 +45,9 @@
         "minimum_critical_power": 1.0
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability"
+        "kurokumaft:mine_durability",
+        "kurokumaft:hammer_attack",
+        "kurokumaft:thrown_hammer"
       ]
     }
   }

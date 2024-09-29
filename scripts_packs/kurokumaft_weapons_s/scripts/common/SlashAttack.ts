@@ -9,8 +9,8 @@ import { getLookPoints, getLookRotaionPoints } from "./commonUtil";
  */
 export async function slashHit(attackEntity: Entity, hitEntity: Entity, damage:number) {
     let dim = attackEntity.dimension;
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
-    dim.spawnParticle("kurokumaft:slash_particle", {x:xlocation!, y:ylocation!,z:zlocation!});
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    dim.spawnParticle("kurokumaft:slash_particle", look);
     hitEntity.applyDamage(damage, {
         cause: EntityDamageCause.entityAttack
     });
@@ -24,11 +24,11 @@ export async function slashHit(attackEntity: Entity, hitEntity: Entity, damage:n
  */
 export async function slashThreeHit(attackEntity: Entity, hitEntity: Entity, damage:number) {
     let dim = attackEntity.dimension;
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
-    let {rotax, rotaz} = getLookRotaionPoints(attackEntity.getRotation(), 2.5);
-    dim.spawnParticle("kurokumaft:slash_particle", {x:xlocation!+rotax!, y:ylocation!,z:zlocation!+rotaz!});
-    dim.spawnParticle("kurokumaft:slash_particle", {x:xlocation!, y:ylocation!,z:zlocation!});
-    dim.spawnParticle("kurokumaft:slash_particle", {x:xlocation!-rotax!, y:ylocation!,z:zlocation!-rotaz!});
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    let rota = getLookRotaionPoints(attackEntity.getRotation(), 2.5, 0);
+    dim.spawnParticle("kurokumaft:slash_particle", {x:look.x+rota.x, y:look.y,z:look.z+rota.z});
+    dim.spawnParticle("kurokumaft:slash_particle", look);
+    dim.spawnParticle("kurokumaft:slash_particle", {x:look.x-rota.x, y:look.y,z:look.z-rota.z});
     hitEntity.applyDamage(damage, {
         cause: EntityDamageCause.entityAttack
     });

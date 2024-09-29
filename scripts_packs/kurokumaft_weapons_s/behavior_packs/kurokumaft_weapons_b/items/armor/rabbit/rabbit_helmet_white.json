@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "rabbit_helmet"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:rabbit_helmet_white.name"
 			},

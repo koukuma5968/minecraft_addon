@@ -32,7 +32,7 @@
       "minecraft:use_animation": "crossbow",
       "minecraft:hand_equipped": true,
       "minecraft:use_modifiers": {
-        "use_duration": 5
+        "use_duration": 3
       },
       "minecraft:shooter": {
         "ammunition": [

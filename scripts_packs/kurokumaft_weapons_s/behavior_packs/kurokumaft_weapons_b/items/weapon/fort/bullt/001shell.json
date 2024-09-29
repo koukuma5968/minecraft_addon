@@ -13,14 +13,14 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:shell.name"
       },
-      "minecraft:durability": {
-        "max_durability": 300
-      },
       "minecraft:max_stack_size": 16,
       "minecraft:cooldown": {
         "category": "shell",
         "duration": 10.0
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:shell_shot"
+      ]
     }
   }
 }

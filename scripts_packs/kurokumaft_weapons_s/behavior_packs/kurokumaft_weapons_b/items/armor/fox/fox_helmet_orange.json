@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "fox_helmet"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fox_helmet_orange.name"
 			},

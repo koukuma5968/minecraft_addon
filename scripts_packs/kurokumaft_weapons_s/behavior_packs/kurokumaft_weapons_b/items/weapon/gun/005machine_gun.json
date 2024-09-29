@@ -35,7 +35,18 @@
             "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
           }
         ]
-      }
+      },
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1
+      },
+      "minecraft:throwable": {
+        "min_draw_duration": 0.2,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:machine_gun"
+      ]
     }
   }
 }

@@ -6,15 +6,12 @@
 			"is_spawnable": false,
 			"is_summonable": true,
 			"is_experimental": false,
-			"runtime_identifier": "minecraft:tnt"
+			"runtime_identifier": "minecraft:arrow"
 		},
 		"component_groups": {
 			"from_explosion": {
 				"minecraft:explode": {
-					"fuse_length": {
-					"range_min": 0.5,
-					"range_max": 1.0
-					},
+					"fuse_length": -1,
 					"fuse_lit": true,
 					"power": 1,
 					"causes_fire": false
@@ -28,6 +25,13 @@
 							"knockback": false,
 							"semi_random_diff_damage": false,
 							"destroy_on_hit": false
+						},
+						"definition_event": {
+							"affect_projectile": true,
+							"event_trigger": {
+							  "event": "from_explosion",
+							  "target": "self"
+							}
 						}
 					},
 					"liquid_inertia": 0.99,
@@ -44,7 +48,7 @@
 				"minecraft:timer": {
 					"looping": false,
 					"randomInterval": false,
-					"time": 0.1,
+					"time": 1.0,
 					"time_down_event": {
 						"event": "from_explosion"
 					}

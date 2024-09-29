@@ -18,9 +18,9 @@ export class MithrilSpear implements ItemCustomComponent {
 async function mithrilHit(attackEntity: Entity, hitEntity: Entity, itemStack: ItemStack) {
     attackEntity.addTag("mithrilHit");
     let dim = attackEntity.dimension;
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
-    dim.spawnParticle("kurokumaft:sweep_particle", {x:xlocation!, y:ylocation!+0.5,z:zlocation!});
-    dim.spawnParticle("kurokumaft:sweep_particle", {x:xlocation!, y:ylocation!+1,z:zlocation!});
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    dim.spawnParticle("kurokumaft:sweep_particle", {x:look.x, y:look.y+0.5,z:look.z});
+    dim.spawnParticle("kurokumaft:sweep_particle", {x:look.x, y:look.y+1,z:look.z});
     let targetEn = dim.getEntities({
         excludeTags: [
             "mithrilHit"

@@ -7,7 +7,7 @@
 				"category": "none"
 			},
 			"states": {
-				"kurokumaft:growth": [0, 1, 2, 3]
+				"kurokumaft:growth": [0, 1, 2, 3, 4, 5, 6, 7]
 			}
 		},
 		"components": {
@@ -19,6 +19,9 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0
 			},
+			"minecraft:tick": {
+				"interval_range": [360, 840]
+			},
 			"minecraft:placement_filter": {
 				"conditions": [
 					{
@@ -28,11 +31,14 @@
 						]
 					}
 				]
-			}
+			},
+			"minecraft:custom_components": [
+			  "kurokumaft:plants_growth"
+			]
 		},
 		"permutations": [
 			{
-				"condition": "query.block_state('kurokumaft:growth') == 0",
+				"condition": "query.block_state('kurokumaft:growth') <= 1",
 				"components": {
 					"minecraft:loot": "loot_tables/blocks/crops/soybean/soybeans.json",
 					"minecraft:selection_box": {
@@ -48,7 +54,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('kurokumaft:growth') == 1",
+				"condition": "query.block_state('kurokumaft:growth') >= 2 && query.block_state('kurokumaft:growth') < 4",
 				"components": {
 					"minecraft:loot": "loot_tables/blocks/crops/soybean/soybeans.json",
 					"minecraft:selection_box": {
@@ -64,7 +70,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('kurokumaft:growth') == 2",
+				"condition": "query.block_state('kurokumaft:growth') >= 4 && query.block_state('kurokumaft:growth') <= 6",
 				"components": {
 					"minecraft:loot": "loot_tables/blocks/crops/soybean/soybeans_green.json",
 					"minecraft:selection_box": {
@@ -80,7 +86,7 @@
 				}
 			},
 			{
-				"condition": "query.block_state('kurokumaft:growth') == 3",
+				"condition": "query.block_state('kurokumaft:growth') == 7",
 				"components": {
 					"minecraft:loot": "loot_tables/blocks/crops/soybean/soybeans_growth.json",
 					"minecraft:selection_box": {

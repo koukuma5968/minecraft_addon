@@ -10,8 +10,8 @@ import { getLookPoints } from "./commonUtil";
 export async function sweepHit(attackEntity: Entity, hitEntity: Entity, damage:number) {
     attackEntity.addTag("sweepHit");
     let dim = attackEntity.dimension;
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
-    dim.spawnParticle("kurokumaft:sweep_particle", {x:xlocation!, y:ylocation!,z:zlocation!});
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    dim.spawnParticle("kurokumaft:sweep_particle", look);
     let targetEn = dim.getEntities({
         excludeTags: [
             "sweepHit"
@@ -44,10 +44,10 @@ export async function sweepHit(attackEntity: Entity, hitEntity: Entity, damage:n
 export async function sweepThreeHit(attackEntity: Entity, hitEntity: Entity, damage:number) {
     attackEntity.addTag("sweepHit");
     let dim = attackEntity.dimension;
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
-    dim.spawnParticle("kurokumaft:sweep_particle", {x:xlocation!, y:ylocation!-0.5,z:zlocation!});
-    dim.spawnParticle("kurokumaft:sweep_particle", {x:xlocation!, y:ylocation!,z:zlocation!});
-    dim.spawnParticle("kurokumaft:sweep_particle", {x:xlocation!, y:ylocation!+0.5,z:zlocation!});
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    dim.spawnParticle("kurokumaft:sweep_particle", {x:look.x, y:look.y-0.5,z:look.z});
+    dim.spawnParticle("kurokumaft:sweep_particle", look);
+    dim.spawnParticle("kurokumaft:sweep_particle", {x:look.x, y:look.y+0.5,z:look.z});
     let targetEn = dim.getEntities({
         excludeTags: [
             "sweepHit"

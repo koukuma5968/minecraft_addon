@@ -21,6 +21,33 @@ import { ChargeKnuckle } from "../items/weapons/knuckle/ChargeKnuckle";
 import { MineDurability } from "../items/tool/MineDurability";
 import { FireBrand } from "../items/axe/FireBrand";
 import { AxeStripped } from "../items/axe/AxeStripped";
+import { FlametHrower } from "../items/weapons/gun/FlametHrower";
+import { MachineGun } from "../items/weapons/gun/MachineGun";
+import { SniperRifle } from "../items/weapons/gun/SniperRifle";
+import { ThrowableHammer } from "../items/weapons/hammer/ThrowableHammer";
+import { HammerAttack } from "../items/weapons/hammer/HammerAttack";
+import { WardenHammer } from "../items/weapons/hammer/WardenHammer";
+import { ShellShot } from "../items/weapons/fort/ShellShot";
+import { BaristaShot } from "../items/weapons/fort/BaristaShot";
+import { ThrowableBoomerang } from "../items/weapons/boomerang/ThrowableBoomerang";
+import { ChocolateCakeBlock } from "../block/ChocolateCakeBlock";
+import { BuddingMithril } from "../block/mithril/BuddingMithril";
+import { checkMithrilGeodeTick, MithrilBlock } from "../block/mithril/MithrilBlock";
+import { MithrilBudGrowth } from "../block/mithril/MithrilBudGrowth";
+import { FortuneDestroy } from "../block/FortuneDestroy";
+import { HoeFarming } from "../items/hoe/HoeFarming";
+import { PlantsGrowth } from "../block/plants/PlantsGrowth";
+import { GrowthMeal } from "../items/meal/GrowthMeal";
+import { PotionEffect } from "../items/potion/PotionEffect";
+import { BakutikuFlint } from "../block/bom/BakutikuFlint";
+import { BakutikuFire } from "../block/bom/BakutikuFire";
+import { TearEnchant } from "../block/TearEnchant";
+import { Bakutiku } from "../items/weapons/bom/Bakutiku";
+import { HandGrenade } from "../items/weapons/bom/HandGrenade";
+import { PowderBall } from "../items/weapons/bom/PowderBall";
+import { SniperSteelBow } from "../items/weapons/bow/SniperSteelBow";
+import { Battleaxe } from "../items/weapons/battleaxe/Battleaxe";
+import { CrossBone } from "../items/weapons/battleaxe/CrossBone";
 
 /**
  * カスタムコンポーネントの登録
@@ -57,16 +84,44 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     // ミスリルスピアー
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:mithril_spear', new MithrilSpear());
 
+    // ハンマースロー
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:thrown_hammer', new ThrowableHammer());
+    // ハンマーアタック
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:hammer_attack', new HammerAttack());
+    // ウォーデンハンマー
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:warden_hammer', new WardenHammer());
+
+    // バリスタ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:barista_shot', new BaristaShot());
+    // 戦車砲弾
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:shell_shot', new ShellShot());
+
+    // ブーメランスロー
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:throwable_boomerang', new ThrowableBoomerang());
+
     // シックル
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:sickle_change', new Sickle());
     // サイス
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:scythe_change', new Scythe());
+
+    // バトルアックス
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:battleaxe_slash', new Battleaxe());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:cross_bone', new CrossBone());
 
     // ナックル
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:charge_knuckle', new ChargeKnuckle());
 
     // ガトリング
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:gatling', new Gatling());
+    // マシンガン
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:machine_gun', new MachineGun());
+    // 火炎放射器
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:flamethrower', new FlametHrower());
+    // スナイパーライフル
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:sniper_rifle', new SniperRifle());
+
+    // スナイパーボウ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:sniper_steel_bow', new SniperSteelBow());
 
     // シャベル
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:shovel_pavement', new ShovelPavement());
@@ -74,15 +129,42 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     // 斧
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:axe_stripped', new AxeStripped());
 
+    // くわ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:hoe_farming', new HoeFarming());
+
     // ファイアブランド
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:fire_brand', new FireBrand());
 
     // 採掘耐久減少
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:mine_durability', new MineDurability());
 
+    // 植物成長
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:growth_meal', new GrowthMeal());
+
+    // ポーション
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:potion_effect', new PotionEffect());
+
+
     // ブロック類
-    // // トーチライトブロック
-    // initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:torchlight_block', new TorchlightBlock());
+    // チョコレートケーキブロック
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:chocolate_cake_eat', new ChocolateCakeBlock());
+    // ミスリルブロック
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:mithril_block', new MithrilBlock());
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:budding_mithril', new BuddingMithril());
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:mithril_bud_growth', new MithrilBudGrowth());
+
+    // 幸運エンチャント
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:fortune_destroy', new FortuneDestroy());
+
+    // 植物成長
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:plants_growth', new PlantsGrowth());
+
+    // 爆竹
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:bakutiku_flint', new BakutikuFlint());
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:bakutiku_fire', new BakutikuFire());
+
+    // エンチャントリリース
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:tear_enchant', new TearEnchant());
 
 }
 
@@ -92,6 +174,7 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
  */
 function initStateChangeMonitor(initEvent:WorldInitializeBeforeEvent) {
     checkPlayerEquTick();
+    checkMithrilGeodeTick();
 }
 
 export {initRegisterCustom, initStateChangeMonitor}

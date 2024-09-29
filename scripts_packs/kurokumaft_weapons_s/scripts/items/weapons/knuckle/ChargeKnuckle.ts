@@ -71,14 +71,15 @@ export class ChargeKnuckle implements ItemCustomComponent {
 
 async function knuckleHit(attackEntity:Entity, hitEntity: Entity, knuckle: KnuckleObject) {
 
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
-    attackEntity.dimension.spawnParticle("kurokumaft:knuckle_shock", {x:xlocation!, y:ylocation!,z:zlocation!}); 
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5
+);
+    attackEntity.dimension.spawnParticle("kurokumaft:knuckle_shock", look); 
 
     hitEntity.applyDamage(knuckle.damage, {
         cause: EntityDamageCause.entityAttack
     });
-    let {rotax, rotaz} = getLookRotaionPoints(attackEntity.getRotation(), knuckle.damage);
-    hitEntity.applyKnockback(rotax!, rotaz!, knuckle.damage, 0);
+    let rota = getLookRotaionPoints(attackEntity.getRotation(), knuckle.damage, 0);
+    hitEntity.applyKnockback(rota.x, rota.z, knuckle.damage, 0);
 
 }
 

@@ -27,7 +27,7 @@ export class EnderEyeSword implements ItemCustomComponent {
 
 async function evilTeleport(attackEntity:Entity, hitEntity:Entity) {
 
-    let {xlocation, ylocation, zlocation} = getLookPoints(attackEntity.getRotation(), attackEntity.location, 6);
+    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 6);
 
     let xraun = getRandomInRange(-5,5);
     let yraun = getRandomInRange(0,5);
@@ -35,7 +35,7 @@ async function evilTeleport(attackEntity:Entity, hitEntity:Entity) {
 
     let tpLoca;
     while (true) {
-        tpLoca = {x:xlocation!+xraun, y:ylocation!+yraun,z:zlocation!+zraun};
+        tpLoca = {x:look.x+xraun, y:look.y+yraun,z:look.z+zraun};
         if (hitEntity.tryTeleport(tpLoca, {
             checkForBlocks: true
         })) {

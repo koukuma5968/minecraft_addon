@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "chicken_helmet"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:chicken_helmet_white.name"
 			},

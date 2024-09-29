@@ -7,7 +7,7 @@
     "tags": [ "brewing_stand" ],
     "input": "minecraft:potion_type:thick",
     "reagent": "minecraft:rabbit_foot",
-    "output": "kurokumaft:himoveSpeed_potion"
+    "output": "kurokumaft:himovespeed_potion"
   }
 
 }

@@ -58,8 +58,10 @@ async function witherSwordEffect(attackEntity:Entity, hitEntity:Entity) {
 }
 
 async function witherSkull(player:Player) {
-    let {rotax, rotaz} = getLookRotaionPoints(player.getRotation(), 2.5);
-    shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_1>", {x:0,y:2,z:0}, 2, undefined);
-    shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_2>", {x:rotax!,y:1,z:rotaz!}, 2, undefined);
-    shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_3>", {x:-rotax!,y:1,z:-rotaz!}, 2, undefined);
+    let center = getLookRotaionPoints(player.getRotation(), 1.5, 0);
+    shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_1>", {x:center.x,y:1,z:center.z}, 0.5, undefined);
+    let left = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
+    shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_2>", {x:left.x,y:0,z:left.z}, 0.5, undefined);
+    let right = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
+    shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_3>", {x:right.x,y:0,z:right.z}, 0.5, undefined);
 }

@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "wolf_helmet"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:wolf_helmet_black.name"
 			},

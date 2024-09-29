@@ -62,7 +62,10 @@
         ],
         "max_draw_duration": 1.0,
         "scale_power_by_draw_duration": true
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:sniper_steel_bow"
+      ]
     }
   }
 }

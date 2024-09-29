@@ -35,7 +35,11 @@
       "minecraft:enchantable": {
         "value": 15,
         "slot": "axe"
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:mine_durability",
+        "kurokumaft:battleaxe_slash"
+      ]
     }
   }
 }

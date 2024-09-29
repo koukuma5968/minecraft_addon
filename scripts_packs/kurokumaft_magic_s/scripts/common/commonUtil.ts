@@ -120,19 +120,19 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
     // 北～東
     } else if (rotation.y >= 0 && rotation.y <= 90) {
 
-        let yRotax = rotation.y / piNum;
+        let yRotax = -rotation.y / piNum;
         let yRotaz = -(rotation.y - 90) / piNum;
         let yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }
@@ -160,19 +160,19 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
 
     // 東～南
     } else if (rotation.y > 90 && rotation.y <= 180) {
-        let yRotax = -(rotation.y - 180) / piNum;
+        let yRotax = (rotation.y - 180) / piNum;
         let yRotaz = -(rotation.y - 90) / piNum;
         let yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }

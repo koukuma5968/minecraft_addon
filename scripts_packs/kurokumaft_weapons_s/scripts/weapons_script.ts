@@ -1,20 +1,30 @@
-import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause } from "@minecraft/server";
-import { guards, silkType } from "./common/commonUtil";
-import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./shieldEvent";
-import { tearEnchantBlock } from "./block/tearEnchantEvent";
-import { stopMachinegun } from "./gun/gunShot";
+import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause, Dimension } from "@minecraft/server";
+import { explodeBedrock, guards } from "./common/commonUtil";
+import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./player/shieldEvent";
 import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
 import { tntBreak } from "./items/weapons/sword/TntSwordBreak";
 import { breakBlock } from "./common/commonUtil";
 import { hitSpear, releaseSpear, removeSpear, spawnSpear, stopSpear } from "./items/weapons/spear/ThrowableSpear";
 import { stopGatling } from "./items/weapons/gun/Gatling";
 import { fireCharcoalBlock } from "./items/axe/FireBrand";
+import { stopMachineGun } from "./items/weapons/gun/MachineGun";
+import { stopFlametHrower } from "./items/weapons/gun/FlametHrower";
+import { stopSniper } from "./items/weapons/gun/SniperRifle";
+import { isThrowHammer, releaseHammer, removeHammer, spawnHammer, stopHammer } from "./items/weapons/hammer/ThrowableHammer";
+import { waveWardenHammer } from "./items/weapons/hammer/WardenHammer";
+import { releaseBoomerang, spawnBoomerang } from "./items/weapons/boomerang/ThrowableBoomerang";
+import { axolotlRegeneration } from "./items/armor/HelmetSurveillance";
+import { playerMithrilset } from "./block/mithril/MithrilBlock";
+import { breackTearEnchant } from "./block/TearEnchant";
+import { stopSniperBow } from "./items/weapons/bow/SniperSteelBow";
+import { explodeBakutikuCancel, explodeBakutikuChain } from "./block/bom/BakutikuFlint";
 
 // ワールド接続時
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
     initRegisterCustom(initEvent);
     initStateChangeMonitor(initEvent);
 });
+
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
     leaveEvent.player.clearDynamicProperties();
 });
@@ -24,10 +34,6 @@ world.beforeEvents.itemUseOn.subscribe(event => {
     let player = event.source as Player;
     let item = event.itemStack as ItemStack;
     let block = event.block as Block;
-    // エンチャントリリース
-    if (block.typeId == "kurokumaft:tear_enchant") {
-        tearEnchantBlock(player, item, block);
-    }
 });
 // アイテムブロック使用後
 world.afterEvents.itemUseOn.subscribe(event => {
@@ -38,6 +44,17 @@ world.afterEvents.itemUseOn.subscribe(event => {
 
     }
 });
+
+world.beforeEvents.explosion.subscribe(event => {
+    let impactBLockList = event.getImpactedBlocks();
+    let filterBlockList = explodeBedrock(impactBLockList);
+    filterBlockList = explodeBakutikuCancel(filterBlockList);
+
+    event.setImpactedBlocks(filterBlockList);
+
+    explodeBakutikuChain(impactBLockList);
+});
+
 // // プレイヤーがブロックをクリック
 // world.afterEvents.playerInteractWithBlock.subscribe(event => {
 //     let block = event.block;
@@ -58,6 +75,7 @@ world.beforeEvents.entityRemove.subscribe(event => {
 
     let removedEntity = event.removedEntity;
     removeSpear(removedEntity);
+    removeHammer(removedEntity);
 
 });
 
@@ -65,14 +83,31 @@ world.beforeEvents.entityRemove.subscribe(event => {
 world.afterEvents.itemReleaseUse.subscribe(event => {
     let player = event.source;
     let item = event.itemStack;
-    world.sendMessage("itemReleaseUse");
     if (item != undefined) {
-        if (player.getDynamicProperty("machinegunShot")) {
-            stopMachinegun(player, item);
+        if (player.getDynamicProperty("gatlingShot")) {
+            stopGatling(player);
+        }
+        if (player.getDynamicProperty("machineGunShot")) {
+            stopMachineGun(player);
+        }
+        if (player.getDynamicProperty("flametHrowerShot")) {
+            stopFlametHrower(player);
+        }
+        if (player.getDynamicProperty("SniperRifleShot")) {
+            stopSniper(player);
+        }
+        if (player.getDynamicProperty("SniperSteelBowShot")) {
+            stopSniperBow(player);
         }
         if (item.typeId.indexOf("spear") != -1) {
             releaseSpear(player, item);
-        } 
+        }
+        if (item.typeId.indexOf("hammer") != -1) {
+            releaseHammer(player, item);
+        }
+        if (item.typeId.indexOf("boomerang") != -1) {
+            releaseBoomerang(player, item);
+        }
     }
 });
 
@@ -80,16 +115,30 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 world.afterEvents.itemStopUse.subscribe(event => {
     let player = event.source;
     let item = event.itemStack;
-    world.sendMessage("itemStopUse");
     if (item != undefined) {
         if (player.getDynamicProperty("gatlingShot")) {
             stopGatling(player);
         }
         if (player.getDynamicProperty("machinegunShot")) {
-            stopMachinegun(player, item);
+            stopMachineGun(player);
+        }
+        if (player.getDynamicProperty("flametHrowerShot")) {
+            stopFlametHrower(player);
+        }
+        if (player.getDynamicProperty("SniperRifleShot")) {
+            stopSniper(player);
+        }
+        if (player.getDynamicProperty("SniperSteelBowShot")) {
+            stopSniperBow(player);
         }
         if (item.typeId.indexOf("spear") != -1) {
             stopSpear(player);
+        }
+        if (item.typeId.indexOf("hammer") != -1) {
+            releaseHammer(player, item);
+        }
+        if (item.typeId.indexOf("boomerang") != -1) {
+            releaseBoomerang(player, item);
         }
     }
 });
@@ -100,6 +149,8 @@ world.afterEvents.entitySpawn.subscribe(event => {
     let entity = event.entity;
     if (EntityInitializationCause.Spawned == cause) {
         spawnSpear(entity);
+        spawnHammer(entity);
+        spawnBoomerang(entity);
     }
 });
 
@@ -110,11 +161,30 @@ world.beforeEvents.itemUse.subscribe(event => {
     if (item != undefined) {
     }
 });
+
 // アイテム使用後
 world.afterEvents.itemUse.subscribe(event => {
     let player = event.source;
     let item = event.itemStack;
 });
+
+// ブロック爆破
+world.afterEvents.blockExplode.subscribe(event => {
+    let dimension = event.dimension as Dimension;
+    let block = event.block as Block;
+
+    if (block.typeId == "kurokumaft:tear_enchant") {
+        breackTearEnchant(dimension, block);
+    }
+});
+
+// ブロック設置
+world.afterEvents.playerPlaceBlock.subscribe(event => {
+    let block = event.block as Block;
+    let dimension = event.dimension as Dimension;
+    playerMithrilset(block);
+});
+
 // ブロック破壊前
 world.beforeEvents.playerBreakBlock.subscribe(event => {
     let player = event.player;
@@ -122,11 +192,14 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
     let block = event.block;
     if (item != undefined) {
     }
-    if (silkType.indexOf(block.typeId) != -1) {
-        event.cancel = true;
-        let commandText =  "execute as @s run setblock " + block.x + " " + block.y + " " + block.z + " air destroy";
-        player.runCommandAsync(commandText);
-    }
+    // if (silkType.indexOf(block.typeId) != -1) {
+    //     event.cancel = true;
+    //     system.runTimeout(() => {
+    //         world.sendMessage(block.typeId);
+    //         block.dimension.setBlockType(block.location, MinecraftBlockTypes.Air);
+    //         block.dimension.spawnItem(new ItemStack(block.typeId, 1), block.location);
+    //     },1);
+    // }
 });
 
 // 近接hit後
@@ -174,6 +247,10 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     if (source != undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
+    if (projectileEn && isThrowHammer(projectileEn)) {
+        waveWardenHammer(source, projectileEn);
+        stopHammer(projectileEn);
+    }
 });
 
 // 遠距離ブロックhit後
@@ -183,6 +260,10 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
     if (source != undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
+    if (projectileEn && isThrowHammer(projectileEn)) {
+        waveWardenHammer(source, projectileEn);
+        stopHammer(projectileEn);
+    }
 });
 
 // ダメージ
@@ -190,64 +271,13 @@ world.afterEvents.entityHurt.subscribe(event => {
     let damage = event.damage;
     let damageSource = event.damageSource;
     let hitEn = event.hurtEntity as Player;
-    // print(hitEn, damageSource.cause + "=" + damage);
-    if (hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
+    if (hitEn instanceof Player && damageSource.cause != "void") {
         if (guards.indexOf(damageSource.cause) != -1) {
             shieldGuard(hitEn, false);
+        }
+        if (hitEn.getDynamicProperty("axolotl_helmet")) {
+            axolotlRegeneration(hitEn);
         }
         resuscitationEquipment(hitEn);
     }
 });
-
-// world.afterEvents.itemDefinitionEvent.subscribe(event => {
-//     var player = event.source;
-//     var item = event.itemStack;
-//     print(player,item.typeId);
-// });
-
-// var players = new Array();
-
-// world.afterEvents.entityDie.subscribe(event => {
-//     let entity = event.deadEntity;
-//     print(entity, entity.typeId);
-    // if (entity.typeId == "minecraft:player") {
-    //     modalForm.show(entity).then((formData) => {
-    //         players[0].sendMessage(`Modal form results: ${JSON.stringify(formData.formValues, undefined, 2)}`);
-    //     });
-        
-    //     form.show(entity).then((response) => {
-    //         if (response.selection === 3) {
-    //             dimension.runCommand("say I like April too!");
-    //         }
-    //     });
-    // }
-// });
-
-// const modalForm = new ModalFormData().title("Example Modal Controls for §o§7ModalFormData§r");
-
-// modalForm.toggle("Toggle w/o default");
-// modalForm.toggle("Toggle w/ default", true);
-
-// modalForm.slider("Slider w/o default", 0, 50, 5);
-// modalForm.slider("Slider w/ default", 0, 50, 5, 30);
-
-// modalForm.dropdown("Dropdown w/o default", ["option 1", "option 2", "option 3"]);
-// modalForm.dropdown("Dropdown w/ default", ["option 1", "option 2", "option 3"], 2);
-
-// modalForm.textField("Input w/o default", "type text here");
-// modalForm.textField("Input w/ default", "type text here", "this is default");
-
-// world.afterEvents.entitySpawn.subscribe(event => {
-//     let entity = event.entity;
-//     print(entity, entity.typeId);
-// });
-
-// const form = new ActionFormData()
-// .title("Months")
-// .body("Choose your favorite month!")
-// .button("January")
-// .button("February")
-// .button("March")
-// .button("April")
-// .button("May");
-

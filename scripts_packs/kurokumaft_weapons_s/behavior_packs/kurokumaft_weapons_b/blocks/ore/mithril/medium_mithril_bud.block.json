@@ -1,0 +1,150 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:medium_mithril_bud",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+                "kurokumaft:rotation": [1, 2, 3, 4, 5, 6],
+                "kurokumaft:place_type": [0, 1]
+            },
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face"]
+			    }
+            }
+		},
+		"components": {
+			"minecraft:loot": "loot_tables/blocks/ore/medium_mithril_bud.json",
+			"minecraft:light_emission": 2,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.3
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 2
+			},
+			"minecraft:selection_box": {
+				"origin": [-4.0, 0.0, -4.0],
+				"size": [8.0, 4.0, 8.0]
+			},
+			"minecraft:collision_box": {
+				"origin": [-4.0, 0.0, -4.0],
+				"size": [8.0, 4.0, 8.0]
+			},
+			"minecraft:tick": {
+				"interval_range": [180, 520]
+			},
+			"minecraft:geometry": "geometry.mithril_bud",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "medium_mithril_bud",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:custom_components": [
+				"kurokumaft:mithril_bud_growth"
+			]
+		},
+		"permutations": [
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 1 && query.block_state('kurokumaft:rotation') == 1",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 0 ]
+					}
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 1 && query.block_state('kurokumaft:rotation') == 2",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 180, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 1 && query.block_state('kurokumaft:rotation') == 3",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 90, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 1 && query.block_state('kurokumaft:rotation') == 4",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 270, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 1 && query.block_state('kurokumaft:rotation') == 5",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 270 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 1 && query.block_state('kurokumaft:rotation') == 6",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 90 ]
+                    }
+                }
+			},
+
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 0 && query.block_state('minecraft:block_face') == 'up'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 0 ]
+					}
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 0 && query.block_state('minecraft:block_face') == 'down'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 180, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 0 && query.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 90, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 0 && query.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 270, 0, 0 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 0 && query.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 270 ]
+                    }
+                }
+			},
+			{
+                "condition": "query.block_state('kurokumaft:place_type') == 0 && query.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [ 0, 0, 90 ]
+                    }
+                }
+			}
+		]
+	}
+}

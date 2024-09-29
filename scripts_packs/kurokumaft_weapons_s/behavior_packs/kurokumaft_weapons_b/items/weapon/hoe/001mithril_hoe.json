@@ -81,6 +81,7 @@
         ]
       },
       "minecraft:custom_components": [
+        "kurokumaft:hoe_farming",
         "kurokumaft:mine_durability"
       ]
     }

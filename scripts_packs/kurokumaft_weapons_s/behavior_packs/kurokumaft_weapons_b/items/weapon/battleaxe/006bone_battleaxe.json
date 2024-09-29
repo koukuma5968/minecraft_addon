@@ -41,7 +41,12 @@
         "destroy_speeds": [
           {"block": "minecraft:bone_block","speed": 50}
         ]
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:mine_durability",
+        "kurokumaft:battleaxe_slash",
+        "kurokumaft:cross_bone"
+      ]
     }
   }
 }

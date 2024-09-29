@@ -1,4 +1,4 @@
-import { ItemStack, Player, Vector2, Vector3, world } from "@minecraft/server";
+import { ItemStack, Player, system, Vector2, Vector3, world } from "@minecraft/server";
 import { print } from "./commonUtil";
 
 /**
@@ -52,7 +52,11 @@ export async function shooting(player:Player, throwItem:string, ranNum:Vector3, 
         bulet.triggerEvent(event);
     }
 
-    bulet.setRotation({x:0,y:player.getRotation().y});
+    // bulet.teleport(bulet.location, {
+    //     rotation: {x:0, y:player.getRotation().y}
+    // });
+
+    // bulet.setRotation(player.getRotation());
     bulet.applyImpulse({x:xapply! * seepd,y:yapply! * seepd,z:zapply! * seepd});
 
     return bulet;

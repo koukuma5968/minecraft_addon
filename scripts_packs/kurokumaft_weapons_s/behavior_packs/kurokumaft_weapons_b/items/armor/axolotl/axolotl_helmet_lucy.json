@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "axolotl_helmet"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:axolotl_helmet_lucy.name"
 			},

@@ -13,7 +13,17 @@
 				"value": "item.kurokumaft:medicinal_plant.name"
 			},
       "minecraft:icon": "medicinal_plant",
-      "minecraft:use_animation":"eat"
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 1
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:potion_effect"
+      ]
     }
   }
 }

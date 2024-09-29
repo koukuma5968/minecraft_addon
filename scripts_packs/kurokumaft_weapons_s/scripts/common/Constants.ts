@@ -84,3 +84,44 @@ export const PavementBlocks = Object.freeze([
     MinecraftBlockTypes.CoarseDirt
 
 ]) as string[];
+
+export const FarmingBlocks = Object.freeze([
+
+    MinecraftBlockTypes.Dirt,
+    MinecraftBlockTypes.GrassBlock,
+    MinecraftBlockTypes.GrassPath,
+    MinecraftBlockTypes.Podzol,
+    MinecraftBlockTypes.DirtWithRoots,
+    MinecraftBlockTypes.CoarseDirt
+
+]) as string[];
+
+export const CraftBlocks = Object.freeze([
+    MinecraftBlockTypes.CraftingTable,
+    MinecraftBlockTypes.Anvil,
+    MinecraftBlockTypes.SmithingTable,
+    MinecraftBlockTypes.CartographyTable,
+    MinecraftBlockTypes.Loom,
+    MinecraftBlockTypes.Barrel,
+    MinecraftBlockTypes.Smoker,
+    MinecraftBlockTypes.BlastFurnace,
+    MinecraftBlockTypes.Furnace,
+    "kurokumaft:kitchen_table",
+    "kurokumaft:millstone",
+    "kurokumaft:tear_enchant"
+]) as string[];
+
+export const PlantsBlocks = Object.freeze([
+
+    MinecraftBlockTypes.Wheat,
+    MinecraftBlockTypes.OakSapling,
+    MinecraftBlockTypes.BirchSapling,
+    MinecraftBlockTypes.SpruceSapling,
+    MinecraftBlockTypes.AcaciaSapling,
+    MinecraftBlockTypes.BambooSapling,
+    MinecraftBlockTypes.CherrySapling,
+    MinecraftBlockTypes.JungleSapling,
+    MinecraftBlockTypes.RedMushroom,
+    MinecraftBlockTypes.BrownMushroom,
+
+]) as string[];

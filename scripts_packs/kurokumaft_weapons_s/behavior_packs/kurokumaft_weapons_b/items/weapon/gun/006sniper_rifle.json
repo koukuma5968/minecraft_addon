@@ -53,7 +53,10 @@
         "max_draw_duration": 10.0,
         "charge_on_draw": false,
         "scale_power_by_draw_duration": false
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:sniper_rifle"
+      ]
     }
   }
 }

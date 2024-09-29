@@ -5,25 +5,8 @@
       "identifier": "minecraft:player",
       "is_spawnable": false,
       "is_summonable": false,
-      "is_experimental": false,
-      "scripts":{
-        "animate":[
-          "main_shield",
-          "off_shield",
-
-          "flamethrower",
-          "scope"
-        ]
-      },
-      "animations":{
-        "main_shield":"controller.animation.armor.main_shield",
-        "off_shield":"controller.animation.armor.off_shield",
-
-        "flamethrower": "controller.animation.flamethrower","flamethrower_shot": "animation.flamethrower.shot",
-        "scope": "controller.animation.scope"
-      }
+      "is_experimental": false
     },
-
     "component_groups": {
       "minecraft:add_bad_omen": {
         "minecraft:spell_effects": {
@@ -80,6 +63,17 @@
             "value": 999
         }
       },
+      "kurokumaft:guard_effect_immunity": {
+        "minecraft:mob_effect_immunity": {
+          "mob_effects": [
+            "wither",
+            "nausea",
+            "blindness",
+            "hunger",
+            "fatal_poison"
+          ]
+        }
+      },
       "kurokumaft:knockback_resist": {
         "minecraft:knockback_resistance": {
           "value": 100
@@ -95,31 +89,6 @@
           "priority": 0,
           "attack_interval": 0.1,
           "attack_radius": 0.1
-        }
-      },
-      "kurokumaft:gatling_shot_1": {
-        "minecraft:shooter": {
-          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot1>"
-        }
-      },
-      "kurokumaft:gatling_shot_2": {
-        "minecraft:shooter": {
-          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot2>"
-        }
-      },
-      "kurokumaft:gatling_shot_3": {
-        "minecraft:shooter": {
-          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot3>"
-        }
-      },
-      "kurokumaft:gatling_shot_4": {
-        "minecraft:shooter": {
-          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot4>"
-        }
-      },
-      "kurokumaft:gatling_shot_5": {
-        "minecraft:shooter": {
-          "def": "kurokumaft:twenty_two_lr_entity<kurokumaft:shot5>"
         }
       }
     },
@@ -241,65 +210,6 @@
           },
           {
             "filters": {
-              "any_of": [
-                { "test": "actor_health", "subject": "self", "operator": "equals", "value": 6 }
-              ]
-            },
-            "event": "kurokumaft:dying_damage"
-          },
-          {
-            "filters": {
-              "any_of": [
-                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:rabbit_helmet_brown"},
-                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:rabbit_helmet_white"}
-              ]
-            },
-            "event": "kurokumaft:rabbit_jump_boost"
-          },
-          {
-            "filters": {
-              "any_of": [
-                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:wolf_helmet_white"},
-                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:wolf_helmet_black"}
-              ]
-            },
-            "event": "kurokumaft:wolf_power_boost"
-          },
-          {
-            "filters": {
-              "any_of": [
-                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:chicken_helmet_white"}
-              ]
-            },
-            "event": "kurokumaft:chicken_slow_falling"
-          },
-          {
-            "filters": {
-              "any_of": [
-                {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:fox_helmet_orange"}
-              ]
-            },
-            "event": "kurokumaft:fox_speed_boost"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "any_of": [
-                    {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:axolotl_helmet_blue"},
-                    {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:axolotl_helmet_cyan"},
-                    {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:axolotl_helmet_gold"},
-                    {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:axolotl_helmet_lucy"},
-                    {"test": "has_equipment","domain": "head", "subject": "self","value": "kurokumaft:axolotl_helmet_wild"}
-                  ]
-                },
-                { "test": "actor_health", "subject": "self", "operator": "<=", "value": 2 }
-              ]
-            },
-            "event": "kurokumaft:axolotl_regeneration"
-          },
-          {
-            "filters": {
               "all_of": [
                 {
                   "any_of" :[
@@ -352,7 +262,8 @@
                     "any_of" :[
                       {"test": "has_damage","operator": "equals","subject": "self","value": "attack"},
                       {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
+                      {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"},
+                      {"test": "has_mob_effect","operator": "equals","subject": "self","value": "sonic_boom"}
                     ]
                   }
                 ]
@@ -420,6 +331,16 @@
           "component_groups": [ "minecraft:raid_trigger" ]
         }
       },
+      "kurokumaft:guard_effect_immunity": {
+        "add": {
+          "component_groups": [ "kurokumaft:guard_effect_immunity" ]
+        }
+      },
+      "kurokumaft:guard_effect_immunity_reset": {
+        "remove": {
+          "component_groups": [ "kurokumaft:guard_effect_immunity" ]
+        }
+      },
       "kurokumaft:knockback_resist": {
         "add": {
           "component_groups": [ "kurokumaft:knockback_resist" ]
@@ -428,12 +349,6 @@
       "kurokumaft:knockback_resist_reset": {
         "add": {
           "component_groups": [ "kurokumaft:knockback_resist_reset" ]
-        }
-      },
-
-      "kurokumaft:dying_damage": {
-        "add": {
-          "component_groups": [ "variant999" ]
         }
       },
       "variant0": {

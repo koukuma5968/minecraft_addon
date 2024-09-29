@@ -6,9 +6,19 @@
   },
   "filler": "minecraft:air",
   "inner_layer": "kurokumaft:mithril_block",
-  "alternate_inner_layer": "kurokumaft:budding_mithril",
+  "alternate_inner_layer": "kurokumaft:mithril_block",
   "middle_layer": "minecraft:calcite",
   "outer_layer": "minecraft:obsidian",
+  "inner_placements": [
+      {
+        "name": "kurokumaft:mithril_block",
+        "states": {
+          "kurokumaft:budding_type": "none",
+          "kurokumaft:budding_set": false,
+          "kurokumaft:budding_pos": 0
+        }
+      }
+    ],
   "min_outer_wall_distance": 4,
   "max_outer_wall_distance": 7,
   "min_distribution_points": 2,

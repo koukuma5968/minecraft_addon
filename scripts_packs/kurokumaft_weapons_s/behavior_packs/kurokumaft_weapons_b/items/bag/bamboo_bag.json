@@ -15,9 +15,6 @@
         "entity": "kurokumaft:bamboo_bag"
       },
       "minecraft:hand_equipped": true,
-      "minecraft:item_storage": {
-        "capacity": 16
-      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:bamboo_bag.name"
       }

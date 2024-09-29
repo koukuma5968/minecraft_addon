@@ -19,7 +19,10 @@
       },
       "minecraft:use_modifiers": {
         "use_duration": 2
-      }
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:potion_effect"
+      ]
     }
   }
 }

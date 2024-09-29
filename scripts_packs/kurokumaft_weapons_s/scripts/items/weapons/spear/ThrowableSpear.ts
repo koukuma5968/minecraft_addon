@@ -1,8 +1,8 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentTypes, EntityDamageCause, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, ItemEnchantableComponent, Enchantment, world } from "@minecraft/server";
-import { getDirectionVector, getLookPoints } from "../../../common/commonUtil";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentTypes, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, ItemEnchantableComponent, Enchantment } from "@minecraft/server";
+import { getDirectionVector } from "../../../common/commonUtil";
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 import { sweepHit } from "../../../common/SweepAttack";
-import { ItemDurabilityDamage, throwItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { throwItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 interface SpearObject {
     itemName: string,
@@ -121,7 +121,7 @@ export async function releaseSpear(player:Player, spear:ItemStack) {
         closest: 1
     }) as Entity[];
 
-    if (throwSpear) {
+    if (throwSpear.length > 0) {
         throwItemDurabilityDamage(throwSpear[0], spear, 0, undefined);
 
         let enchant = spear.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
@@ -200,7 +200,7 @@ export async function hitSpear(throwEntity:Entity, throwSpear:Entity) {
         system.runTimeout(() => {
             let intervalNum = system.runInterval(() => {
                 if (throwSpear != undefined && throwSpear.isValid()) {
-                    let targetLoc = getDirectionVector(throwSpear.location, throwEntity.location);
+                    let targetLoc = getDirectionVector(throwSpear.location, {x:throwEntity.location.x, y:throwEntity.location.y+1, z:throwEntity.location.z});
                     let tpLoc = {
                         x:throwSpear.location.x+targetLoc.x,
                         y:throwSpear.location.y+targetLoc.y,
@@ -210,7 +210,6 @@ export async function hitSpear(throwEntity:Entity, throwSpear:Entity) {
                         checkForBlocks: false,
                         keepVelocity: true
                     });
-                    // throwSpear.applyImpulse({x:(targetLoc.x+1)*level,y:(targetLoc.y+1)*level,z:(targetLoc.z+1)*level});
                 } else {
                     system.clearRun(intervalNum);
                 }

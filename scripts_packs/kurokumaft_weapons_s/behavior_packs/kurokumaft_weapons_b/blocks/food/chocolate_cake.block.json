@@ -53,7 +53,10 @@
 			},
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 5
-			}
+			},
+			"minecraft:custom_components": [
+			  "kurokumaft:chocolate_cake_eat"
+			]
 		},
 		"permutations": [
 			{

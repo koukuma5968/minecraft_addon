@@ -47,8 +47,8 @@ async function shotGatling(player: Player, item: ItemStack) {
 
         shooting(player, "kurokumaft:twenty_two_lr_entity", {x:xran,y:yran,z:zran}, 5, undefined);
         if (count % 4 === 0) {
-            let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 1.5);
-            player.dimension.spawnParticle("minecraft:explosion_manual", {x:xlocation!, y:ylocation!, z:zlocation!});
+            let look = getLookPoints(player.getRotation(), player.location, 1.5);
+            player.dimension.spawnParticle("minecraft:explosion_manual", look);
             subtractionItem(player, reItem, EquipmentSlot.Offhand, 1);
             ItemDurabilityDamage(player, item, EquipmentSlot.Mainhand, undefined);
         }
