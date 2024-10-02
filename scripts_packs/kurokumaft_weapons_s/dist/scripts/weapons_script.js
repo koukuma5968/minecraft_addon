@@ -5228,14 +5228,13 @@ async function checkMithrilGeodeTick() {
     let player = players[i];
     checkMithrilBlock(player);
   }
-  system11.runTimeout(checkMithrilGeodeTick, 60 * TicksPerSecond8);
+  system11.runTimeout(checkMithrilGeodeTick, 5 * TicksPerSecond8);
 }
 async function checkMithrilBlock(player) {
   for (let x = -16; x <= 16; x++) {
     for (let z = -16; z <= 16; z++) {
       for (let y = -16; y <= 16; y++) {
         if (player.location.y + y >= -64) {
-          system11.waitTicks(TicksPerSecond8);
           let block = player.dimension.getBlock({ x: player.location.x + x, y: player.location.y + y, z: player.location.z + z });
           if (block != void 0 && block.matches("kurokumaft:mithril_block", { "kurokumaft:budding_set": false })) {
             if (block.matches("kurokumaft:mithril_block", { "kurokumaft:budding_type": "none" })) {

@@ -79,7 +79,7 @@ export async function checkMithrilGeodeTick() {
         let player = players[i];
         checkMithrilBlock(player);
     }
-    system.runTimeout(checkMithrilGeodeTick,60*TicksPerSecond);
+    system.runTimeout(checkMithrilGeodeTick,5*TicksPerSecond);
 }
 
 async function checkMithrilBlock(player:Player) {
@@ -88,7 +88,6 @@ async function checkMithrilBlock(player:Player) {
         for (let z=-16;z<=16;z++) {
             for (let y=-16;y<=16;y++) {
                 if (player.location.y+y >= -64) {
-                    system.waitTicks(TicksPerSecond);
                     let block = player.dimension.getBlock({x:player.location.x+x,y:player.location.y+y,z:player.location.z+z}) as Block;
                     if (block != undefined && block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_set":false})) {
                         if (block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_type":"none"})) {

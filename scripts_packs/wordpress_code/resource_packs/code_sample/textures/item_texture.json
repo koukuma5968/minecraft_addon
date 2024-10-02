@@ -4,6 +4,13 @@
       "copper_sword" : {
          "textures" : "textures/kurokumaft/items/sword/copper_sword"
       },
+      "tnt_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/tnt_sword"
+      },
+      "echo_sword" : {
+         "textures" : "textures/kurokumaft/items/sword/echo_sword"
+      },
+
       "apple_pie" : {
          "textures" : "textures/kurokumaft/items/food/apple_pie"
       },
@@ -20,8 +27,24 @@
       },
       "cherry_arrow" : {
          "textures" : "textures/kurokumaft/items/arrow/cherry_arrow"
-      }
+      },
 
+      "cherry_chestplate" : {
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_chestplate"
+      },
+      "cherry_helmet": {
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_helmet"
+      },
+      "cherry_leggings": {
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_leggings"
+      },
+      "cherry_boots": {
+         "textures" : "textures/kurokumaft/items/armor/cherry/cherry_boots"
+      },
+
+      "wooden_spear": {
+   		"textures": "textures/kurokumaft/items/spear/wooden_spear"
+      }
    },
    "texture_name" : "atlas.items"
 }

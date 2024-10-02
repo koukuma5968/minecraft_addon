@@ -85,17 +85,17 @@ function getLookPoints(rotation, location, point) {
       zlocation = location.z + yRotaz * xRota * point;
     }
   } else if (rotation.y >= 0 && rotation.y <= 90) {
-    let yRotax = rotation.y / piNum;
+    let yRotax = -rotation.y / piNum;
     let yRotaz = -(rotation.y - 90) / piNum;
     let yRota = -(rotation.x / piNum);
     if (rotation.x >= -90 && rotation.x < 0) {
       let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x - yRotax * xRota * point;
+      xlocation = location.x + yRotax * xRota * point;
       ylocation = location.y + 1.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     } else if (rotation.x >= 0 && rotation.x <= 90) {
       let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x - yRotax * xRota * point;
+      xlocation = location.x + yRotax * xRota * point;
       ylocation = location.y + 1.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     }
@@ -115,17 +115,17 @@ function getLookPoints(rotation, location, point) {
       zlocation = location.z + yRotaz * xRota * point;
     }
   } else if (rotation.y > 90 && rotation.y <= 180) {
-    let yRotax = -(rotation.y - 180) / piNum;
+    let yRotax = (rotation.y - 180) / piNum;
     let yRotaz = -(rotation.y - 90) / piNum;
     let yRota = -(rotation.x / piNum);
     if (rotation.x >= -90 && rotation.x < 0) {
       let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x - yRotax * xRota * point;
+      xlocation = location.x + yRotax * xRota * point;
       ylocation = location.y + 1.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     } else if (rotation.x >= 0 && rotation.x <= 90) {
       let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x - yRotax * xRota * point;
+      xlocation = location.x + yRotax * xRota * point;
       ylocation = location.y + 1.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     }
@@ -4446,7 +4446,7 @@ async function fireAttackUp(player) {
   player.triggerEvent("kurokumaft:attack20_up");
 }
 async function waterHealthUp(player) {
-  player.addEffect(MinecraftPotionEffectTypes.Healing, 10, {
+  player.addEffect(MinecraftPotionEffectTypes.Healing, 10 * TicksPerSecond12, {
     amplifier: 2,
     showParticles: true
   });

@@ -1,5 +1,5 @@
 // scripts/sample_script.ts
-import { ItemStack as ItemStack3, system, world } from "@minecraft/server";
+import { EntityInitializationCause, ItemStack as ItemStack9, Player as Player6, system as system2, world as world2 } from "@minecraft/server";
 
 // scripts/item/ItemDurability.ts
 import { EntityComponentTypes, EquipmentSlot, ItemComponentTypes } from "@minecraft/server";
@@ -2927,25 +2927,623 @@ function getRandomInRange(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
 
+// scripts/item/ThrowableSpear.ts
+import { system, EquipmentSlot as EquipmentSlot4, ItemComponentTypes as ItemComponentTypes4, EntityComponentTypes as EntityComponentTypes4 } from "@minecraft/server";
+
+// scripts/common/commonUtil.ts
+function getRandomInRange2(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
+}
+function normalizeVector(v) {
+  const length = Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+  return {
+    x: v.x / length,
+    y: v.y / length,
+    z: v.z / length
+  };
+}
+function getDirectionVector(thisEn, targetEn) {
+  const direction = {
+    x: targetEn.x - thisEn.x,
+    y: targetEn.y - thisEn.y,
+    z: targetEn.z - thisEn.z
+  };
+  return normalizeVector(direction);
+}
+function getLookPoints(rotation, location, point) {
+  let piNum = 90;
+  let xlocation;
+  let ylocation;
+  let zlocation;
+  if (rotation.y >= -90 && rotation.y < 0) {
+    let yRotax = -rotation.y / piNum;
+    let yRotaz = (rotation.y + 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    }
+  } else if (rotation.y >= 0 && rotation.y <= 90) {
+    let yRotax = -rotation.y / piNum;
+    let yRotaz = -(rotation.y - 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    }
+  } else if (rotation.y < -90 && rotation.y > -180) {
+    let yRotax = (rotation.y + 180) / piNum;
+    let yRotaz = (rotation.y + 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    }
+  } else if (rotation.y > 90 && rotation.y <= 180) {
+    let yRotax = (rotation.y - 180) / piNum;
+    let yRotaz = -(rotation.y - 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * point;
+      ylocation = location.y + 0.5 + yRota;
+      zlocation = location.z + yRotaz * xRota * point;
+    }
+  }
+  return { x: xlocation, y: ylocation, z: zlocation };
+}
+
+// scripts/common/SweepAttack.ts
+import { EntityDamageCause } from "@minecraft/server";
+async function sweepHit(attackEntity, hitEntity, damage) {
+  attackEntity.addTag("sweepHit");
+  let dim = attackEntity.dimension;
+  let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+  dim.spawnParticle("kurokumaft:sweep_particle", look);
+  let targetEn = dim.getEntities({
+    excludeTags: [
+      "sweepHit"
+    ],
+    excludeFamilies: [
+      "inanimate"
+    ],
+    excludeTypes: [
+      "item"
+    ],
+    location: hitEntity.location,
+    maxDistance: 1.75
+  });
+  targetEn.forEach((en) => {
+    en.applyDamage(damage, {
+      cause: EntityDamageCause.ramAttack
+    });
+  });
+  attackEntity.removeTag("sweepHit");
+}
+async function sweepThreeHit(attackEntity, hitEntity, damage) {
+  attackEntity.addTag("sweepHit");
+  let dim = attackEntity.dimension;
+  let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+  dim.spawnParticle("kurokumaft:sweep_particle", { x: look.x, y: look.y - 0.5, z: look.z });
+  dim.spawnParticle("kurokumaft:sweep_particle", look);
+  dim.spawnParticle("kurokumaft:sweep_particle", { x: look.x, y: look.y + 0.5, z: look.z });
+  let targetEn = dim.getEntities({
+    excludeTags: [
+      "sweepHit"
+    ],
+    excludeFamilies: [
+      "inanimate"
+    ],
+    excludeTypes: [
+      "item"
+    ],
+    location: hitEntity.location,
+    maxDistance: 1.75
+  });
+  targetEn.forEach((en) => {
+    en.applyDamage(damage, {
+      cause: EntityDamageCause.ramAttack
+    });
+    en.applyDamage(damage, {
+      cause: EntityDamageCause.ramAttack
+    });
+    en.applyDamage(damage, {
+      cause: EntityDamageCause.ramAttack
+    });
+  });
+  attackEntity.removeTag("sweepHit");
+}
+
+// scripts/common/ItemDurabilityDamage.ts
+import { Player as Player2, ItemComponentTypes as ItemComponentTypes3, EntityComponentTypes as EntityComponentTypes3, GameMode } from "@minecraft/server";
+async function ItemDurabilityDamage(entity, item, slot, damage) {
+  if (entity instanceof Player2 && entity.getGameMode() == GameMode.creative) {
+    return;
+  }
+  let equ = entity.getComponent(EntityComponentTypes3.Equippable);
+  let durability = item.getComponent(ItemComponentTypes3.Durability);
+  let dChange;
+  if (damage) {
+    dChange = damage;
+  } else {
+    dChange = durability.getDamageChance(Math.ceil(getRandomInRange2(0, 3)));
+  }
+  if (durability.damage + dChange >= durability.maxDurability) {
+    equ.setEquipment(slot, void 0);
+  } else {
+    durability.damage = durability.damage + dChange;
+    equ.setEquipment(slot, item);
+  }
+}
+async function throwItemDurabilityDamage(entity, item, slotNum, damage) {
+  if (entity instanceof Player2 && entity.getGameMode() == GameMode.creative) {
+    return;
+  }
+  let invent = entity.getComponent(EntityComponentTypes3.Inventory);
+  let container = invent.container;
+  let durability = item.getComponent(ItemComponentTypes3.Durability);
+  let dChange;
+  if (damage) {
+    dChange = damage;
+  } else {
+    dChange = durability.getDamageChance(Math.ceil(getRandomInRange2(0, 3)));
+  }
+  if (durability.damage + dChange >= durability.maxDurability) {
+    container.setItem(slotNum, void 0);
+  } else {
+    durability.damage = durability.damage + dChange;
+    container.setItem(slotNum, item);
+  }
+}
+
+// scripts/item/ThrowableSpear.ts
+var SpearObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:wooden_spear",
+    throwSpear: "kurokumaft:thrown_wooden_spear",
+    damage: 1
+  }
+]);
+var ThrowableSpear = class {
+  // 通常攻撃
+  onHitEntity(event) {
+    let attackEntity = event.attackingEntity;
+    let hitEntity = event.hitEntity;
+    let itemStack = event.itemStack;
+    let spear = SpearObjects.find((obj) => obj.itemName == itemStack.typeId);
+    sweepHit(attackEntity, hitEntity, spear.damage);
+  }
+  // 右クリック時
+  onUse(event) {
+    let source = event.source;
+    let itemStack = event.itemStack;
+    source.addTag("spearOwner");
+  }
+};
+async function spawnSpear(throwSpear) {
+  let spear = SpearObjects.find((obj) => obj.throwSpear == throwSpear.typeId);
+  if (!spear) {
+    return;
+  }
+  throwSpear.setDynamicProperty("throwSpear", true);
+  throwSpear.addTag("throwSpear");
+}
+async function stopSpear(player) {
+  player.removeTag("spearOwner");
+}
+async function releaseSpear(player, spear) {
+  let spearItem = SpearObjects.find((obj) => obj.itemName == spear.typeId);
+  if (!spearItem) {
+    return;
+  }
+  let throwSpear = player.dimension.getEntities({
+    tags: [
+      "throwSpear"
+    ],
+    families: [
+      "spear"
+    ],
+    location: player.location,
+    closest: 1
+  });
+  if (throwSpear.length > 0) {
+    throwItemDurabilityDamage(throwSpear[0], spear, 0, void 0);
+    let enchant = spear.getComponent(ItemComponentTypes4.Enchantable);
+    if (enchant.hasEnchantment(MinecraftEnchantmentTypes.Loyalty)) {
+      let loyalty = enchant.getEnchantment(MinecraftEnchantmentTypes.Loyalty);
+      throwSpear[0].setDynamicProperty("Loyalty", true);
+      throwSpear[0].setDynamicProperty("LoyaltyLevel", loyalty.level);
+    } else {
+      throwSpear[0].setDynamicProperty("Loyalty", false);
+    }
+  }
+}
+async function removeSpear(throwSpear) {
+  let item = SpearObjects.find((obj) => obj.throwSpear == throwSpear.typeId);
+  if (!item) {
+    return;
+  }
+  if (!throwSpear.getDynamicProperty("throwSpear")) {
+    return;
+  }
+  let invent = throwSpear.getComponent(EntityComponentTypes4.Inventory);
+  let container = invent.container;
+  let spear = container.getItem(0);
+  let player = throwSpear.dimension.getEntities({
+    families: [
+      "player"
+    ],
+    location: throwSpear.location,
+    closest: 1
+  });
+  let emptySlot = true;
+  if (player) {
+    let equ = player[0].getComponent(EntityComponentTypes4.Equippable);
+    let main = equ.getEquipment(EquipmentSlot4.Mainhand);
+    if (main == void 0) {
+      system.runTimeout(() => {
+        equ.setEquipment(EquipmentSlot4.Mainhand, spear);
+      }, 2);
+      emptySlot = false;
+    } else {
+      let invent2 = player[0].getComponent(EntityComponentTypes4.Inventory);
+      let con = invent2.container;
+      if (con.emptySlotsCount > 0) {
+        system.runTimeout(() => {
+          con.addItem(spear);
+        }, 2);
+        emptySlot = false;
+      }
+    }
+  }
+  if (emptySlot) {
+    let dim = throwSpear.dimension;
+    let loca = throwSpear.location;
+    system.runTimeout(() => {
+      dim.spawnItem(spear, loca);
+    }, 2);
+  }
+}
+async function hitSpear(throwEntity, throwSpear) {
+  let item = SpearObjects.find((obj) => obj.throwSpear == throwSpear.typeId);
+  if (!item) {
+    return;
+  }
+  if (throwSpear.getDynamicProperty("Loyalty")) {
+    let level = throwSpear.getDynamicProperty("LoyaltyLevel");
+    system.runTimeout(() => {
+      let intervalNum = system.runInterval(() => {
+        if (throwSpear != void 0 && throwSpear.isValid()) {
+          let targetLoc = getDirectionVector(throwSpear.location, { x: throwEntity.location.x, y: throwEntity.location.y + 1, z: throwEntity.location.z });
+          let tpLoc = {
+            x: throwSpear.location.x + targetLoc.x,
+            y: throwSpear.location.y + targetLoc.y,
+            z: throwSpear.location.z + targetLoc.z
+          };
+          throwSpear.teleport(tpLoc, {
+            checkForBlocks: false,
+            keepVelocity: true
+          });
+        } else {
+          system.clearRun(intervalNum);
+        }
+      }, level == 1 ? 3 : level == 2 ? 2 : 1);
+    }, 5);
+  }
+}
+
+// scripts/common/MineDurability.ts
+import { EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
+var MineDurability = class {
+  onMineBlock(event) {
+    let source = event.source;
+    let itemStack = event.itemStack;
+    ItemDurabilityDamage(source, itemStack, EquipmentSlot5.Mainhand, void 0);
+  }
+};
+
+// scripts/item/TntSwordBreak.ts
+import { EquipmentSlot as EquipmentSlot6 } from "@minecraft/server";
+var TntSwordBreak = class {
+  // 通常攻撃
+  onHitEntity(event) {
+    let attackEntity = event.attackingEntity;
+    let hitEntity = event.hitEntity;
+    let item = event.itemStack;
+    tntBreak(attackEntity, item, hitEntity.location);
+  }
+};
+async function tntBreak(attackEntity, itemStack, location) {
+  attackEntity.dimension.spawnEntity("kurokumaft:tnt_sword_break", location);
+  ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot6.Mainhand, void 0);
+}
+
+// scripts/item/EchoSword.ts
+import { EquipmentSlot as EquipmentSlot7 } from "@minecraft/server";
+
+// scripts/common/ShooterPoints.ts
+async function shooting(player, throwItem, ranNum, seepd, event) {
+  let { xapply, yapply, zapply, xlocation, ylocation, zlocation } = getAdjacentSphericalPoints(player.getRotation(), player.location);
+  let bulet = player.dimension.spawnEntity(
+    throwItem,
+    {
+      x: xlocation + ranNum.x,
+      y: ylocation + ranNum.y,
+      z: zlocation + ranNum.z
+    }
+  );
+  if (event) {
+    bulet.triggerEvent(event);
+  }
+  bulet.applyImpulse({ x: xapply * seepd, y: yapply * seepd, z: zapply * seepd });
+  return bulet;
+}
+function getAdjacentSphericalPoints(rotation, location) {
+  let r = 1.5;
+  let piNum = 75;
+  let xapply;
+  let yapply;
+  let zapply;
+  let xlocation;
+  let ylocation;
+  let zlocation;
+  if (rotation.y >= -90 && rotation.y < 0) {
+    let yRotax = -rotation.y / piNum;
+    let yRotaz = (rotation.y + 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      } else {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      } else {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    }
+  } else if (rotation.y >= 0 && rotation.y <= 90) {
+    let yRotax = rotation.y / piNum;
+    let yRotaz = -(rotation.y - 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      if (rotation.y >= 45) {
+        xlocation = location.x - yRotax * xRota * 1.75;
+      } else {
+        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
+      }
+      xapply = -(yRotax * xRota);
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      if (rotation.y >= 45) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      if (rotation.y >= 45) {
+        xlocation = location.x - yRotax * xRota * 1.75;
+      } else {
+        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
+      }
+      xapply = -(yRotax * xRota);
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      if (rotation.y >= 45) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    }
+  } else if (rotation.y < -90 && rotation.y > -180) {
+    let yRotax = (rotation.y + 180) / piNum;
+    let yRotaz = (rotation.y + 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    }
+  } else if (rotation.y > 90 && rotation.y <= 180) {
+    let yRotax = -(rotation.y - 180) / piNum;
+    let yRotaz = -(rotation.y - 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x - yRotax * xRota * 1.75;
+      xapply = -(yRotax * xRota);
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      } else {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      }
+      yapply = yRota;
+      if (rotation.y <= 135) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x - yRotax * xRota * 1.75;
+      xapply = -(yRotax * xRota);
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      if (rotation.y <= 135) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    }
+  }
+  return { xapply, yapply, zapply, xlocation, ylocation, zlocation };
+}
+
+// scripts/item/EchoSword.ts
+var EchoSword = class {
+  // 通常攻撃
+  onHitEntity(event) {
+    let attackEntity = event.attackingEntity;
+    let hitEntity = event.hitEntity;
+    let itemStack = event.itemStack;
+    sweepThreeHit(attackEntity, hitEntity, 2);
+  }
+  // チャージ完了
+  onCompleteUse(event) {
+    let source = event.source;
+    let itemStack = event.itemStack;
+    sonicBullet(source);
+    ItemDurabilityDamage(source, itemStack, EquipmentSlot7.Mainhand, void 0);
+  }
+};
+async function sonicBullet(player) {
+  shooting(player, "kurokumaft:sonic_bullet", { x: 0, y: 0, z: 0 }, 5, void 0);
+  player.runCommandAsync('/titleraw @s actionbar {"rawtext": [{"translate": "mess.kurokumaft:echo_sword.sonic_bullet"}]}');
+}
+
 // scripts/sample_script.ts
-world.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world2.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:item_durability", new ItemDurability());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:throwable_spear", new ThrowableSpear());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:mine_durability", new MineDurability());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:tnt_sword", new TntSwordBreak());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:echo_sword", new EchoSword());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:fortune_destroy", new FortuneDestroy());
 });
-world.afterEvents.entitySpawn.subscribe((event) => {
+world2.afterEvents.entitySpawn.subscribe((event) => {
   let entity = event.entity;
   let cause = event.cause;
   if (cause == "Born") {
     let mess = { translate: "mess.entity_spawn.Born", with: [entity.typeId] };
-    world.sendMessage(mess);
+    world2.sendMessage(mess);
   } else if (cause == "Transformed") {
     let mess = { translate: "mess.entity_spawn.Transformed", with: [entity.typeId] };
-    world.sendMessage(mess);
+    world2.sendMessage(mess);
   }
 });
-world.beforeEvents.entityRemove.subscribe((event) => {
+world2.beforeEvents.entityRemove.subscribe((event) => {
   let removedEntity = event.removedEntity;
   removeArrow(removedEntity);
+  removeSpear(removedEntity);
+});
+world2.afterEvents.itemReleaseUse.subscribe((event) => {
+  let player = event.source;
+  let item = event.itemStack;
+  if (item != void 0) {
+    if (item.typeId.indexOf("spear") != -1) {
+      releaseSpear(player, item);
+    }
+  }
+});
+world2.afterEvents.itemStopUse.subscribe((event) => {
+  let player = event.source;
+  let item = event.itemStack;
+  if (item != void 0) {
+    if (item.typeId.indexOf("spear") != -1) {
+      stopSpear(player);
+    }
+  }
+});
+world2.afterEvents.entitySpawn.subscribe((event) => {
+  let cause = event.cause;
+  let entity = event.entity;
+  if (EntityInitializationCause.Spawned == cause) {
+    spawnSpear(entity);
+  }
+});
+world2.afterEvents.projectileHitEntity.subscribe((event) => {
+  let projectileEn = event.projectile;
+  let source = event.source;
+  let hitEn = event.getEntityHit().entity;
+  let hitVector = event.hitVector;
+  if (source != void 0 && source instanceof Player6) {
+    hitSpear(source, projectileEn);
+  }
+});
+world2.afterEvents.projectileHitBlock.subscribe((event) => {
+  let projectileEn = event.projectile;
+  let source = event.source;
+  if (source != void 0 && source instanceof Player6) {
+    hitSpear(source, projectileEn);
+  }
 });
 async function removeArrow(removedEntity) {
   if (removedEntity.typeId.indexOf("arrow") == -1) {
@@ -2953,8 +3551,8 @@ async function removeArrow(removedEntity) {
   }
   let dim = removedEntity.dimension;
   let loca = removedEntity.location;
-  system.runTimeout(() => {
-    dim.spawnItem(new ItemStack3(removedEntity.typeId), loca);
+  system2.runTimeout(() => {
+    dim.spawnItem(new ItemStack9(removedEntity.typeId), loca);
   }, 2);
 }
 

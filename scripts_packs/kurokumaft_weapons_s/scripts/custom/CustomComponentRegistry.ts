@@ -1,4 +1,4 @@
-import { system, world, WorldInitializeBeforeEvent } from "@minecraft/server";
+import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { TntSwordBreak } from "../items/weapons/sword/TntSwordBreak";
 import { checkPlayerEquTick } from "../player/armorEquipment";
 import { MagmaSwordFire } from "../items/weapons/sword/MagmaSwordFire";
@@ -42,9 +42,6 @@ import { PotionEffect } from "../items/potion/PotionEffect";
 import { BakutikuFlint } from "../block/bom/BakutikuFlint";
 import { BakutikuFire } from "../block/bom/BakutikuFire";
 import { TearEnchant } from "../block/TearEnchant";
-import { Bakutiku } from "../items/weapons/bom/Bakutiku";
-import { HandGrenade } from "../items/weapons/bom/HandGrenade";
-import { PowderBall } from "../items/weapons/bom/PowderBall";
 import { SniperSteelBow } from "../items/weapons/bow/SniperSteelBow";
 import { Battleaxe } from "../items/weapons/battleaxe/Battleaxe";
 import { CrossBone } from "../items/weapons/battleaxe/CrossBone";

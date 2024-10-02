@@ -364,7 +364,7 @@
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",
-        "texture_index": 15
+        "texture_index": 16
       },
       "enable_attachables": true
     }

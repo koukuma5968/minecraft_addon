@@ -1,0 +1,103 @@
+{
+  "format_version": "1.21.10",
+  "animation_controllers": {
+    "controller.animation.obanai.kokyu": {
+      "states": {
+        "default": {
+          "variables": {
+            "kokyu_obanai": {
+              "input": "variable.kokyu_obanai = (variable.kokyu_obanai ?? 0);"
+            }
+          },
+          "transitions": [
+            { "hebi1": "(query.skin_id == 1) && query.variant == 1 && query.mark_variant == 0" },
+            { "hebi2": "(query.skin_id == 1) && query.variant == 2 && query.mark_variant == 0" },
+            { "hebi3": "(query.skin_id == 1) && query.variant == 3 && query.mark_variant == 0" },
+            { "hebi4": "(query.skin_id == 1) && query.variant == 4 && query.mark_variant == 0" },
+            { "hebi5": "(query.skin_id == 1) && query.variant == 5 && query.mark_variant == 0" }
+          ]
+        },
+        "hebi1":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 99999 10 true"
+          ],
+          "transitions": [
+            {"hebi1_at":"!query.is_using_item"}
+          ]
+        },
+        "hebi1_at":{
+          "on_entry": [
+            "/effect @s speed 0",
+            "/function hebi/hebi1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_obanai = variable.kokyu_obanai < 10 ? variable.kokyu_obanai + 1:0;return variable.kokyu_obanai == 0;"}
+          ]
+        },
+        "hebi2":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hebi/hebi2"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_obanai = variable.kokyu_obanai < 15 ? variable.kokyu_obanai + 1:0;return variable.kokyu_obanai == 0;"}
+          ]
+        },
+        "hebi3":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/function hebi/hebi3"
+          ],
+          "on_exit": [
+            "/function hebi/hebi3",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_obanai = variable.kokyu_obanai < 15 ? variable.kokyu_obanai + 1:0;return variable.kokyu_obanai == 0;"}
+          ]
+        },
+        "hebi4":{
+          "on_entry": [
+            "/event entity @s mark_variant1",
+            "/effect @s speed 99999 10 true"
+          ],
+          "transitions": [
+            {"hebi4_at":"(1.0)"}
+          ]
+        },
+        "hebi4_at":{
+          "animations" : [ "hebi4_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant2"
+          ],
+          "on_exit": [
+            "/effect @s speed 0",
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_obanai = variable.kokyu_obanai < 60 ? variable.kokyu_obanai + 1:0;return variable.kokyu_obanai == 0;"}
+          ]
+        },
+        "hebi5":{
+          "animations" : [ "hebi5_ani" ],
+          "on_entry": [
+            "/event entity @s mark_variant1"
+          ],
+          "on_exit": [
+            "/event entity @s mark_variant0"
+          ],
+          "transitions": [
+            {"default":"variable.kokyu_obanai = variable.kokyu_obanai < 30 ? variable.kokyu_obanai + 1:0;return variable.kokyu_obanai == 0;"}
+          ]
+        }
+      }
+    }
+  }
+}

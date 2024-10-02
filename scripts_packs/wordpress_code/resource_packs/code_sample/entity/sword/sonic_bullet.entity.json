@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:sonic_bullet",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": ""
+      },
+      "geometry": {
+        "default": "geometry.sonic_bullet"
+      },
+      "animations": {
+        "move": "animation.sonic_bullet.move"
+      },
+      "particle_effects": {
+        "sonic_explosion": "minecraft:sonic_explosion"
+      },
+      "scripts": {
+        "animate": [
+          "move"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

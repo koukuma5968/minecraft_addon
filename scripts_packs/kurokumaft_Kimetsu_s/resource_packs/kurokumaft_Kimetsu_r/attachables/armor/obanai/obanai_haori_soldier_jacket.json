@@ -1,0 +1,21 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:obanai_haori_soldier_jacket",
+        "materials": {
+          "default": "armor",
+          "enchanted": "armor_enchanted"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/armor/obanai/obanai_uniform",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.obanai_haori_soldier_jacket"
+        },
+        "render_controllers": ["controller.render.armor"]
+      }
+    }
+  }
+  

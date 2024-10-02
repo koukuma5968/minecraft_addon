@@ -1,4 +1,8 @@
 item.kurokumaft:copper_sword.name=銅の剣v2
+item.kurokumaft:tnt_sword.name=TNTソード
+item.kurokumaft:echo_sword.name=残響の剣
+
+mess.kurokumaft:echo_sword.sonic_bullet=ソニックブレード
 
 item.kurokumaft:apple_pie.name=アップルパイ
 
@@ -14,3 +18,10 @@ item.kurokumaft:cherry_arrow.name=桜の矢
 
 mess.entity_spawn.Born=%1 が生まれた
 mess.entity_spawn.Transformed=%1 に変化した
+
+item.kurokumaft:cherry_helmet.name=桜のヘルメット
+item.kurokumaft:cherry_chestplate.name=桜の胸当て
+item.kurokumaft:cherry_leggings.name=桜のレギンス
+item.kurokumaft:cherry_boots.name=桜のブーツ
+
+item.kurokumaft:wooden_spear.name=木のやり

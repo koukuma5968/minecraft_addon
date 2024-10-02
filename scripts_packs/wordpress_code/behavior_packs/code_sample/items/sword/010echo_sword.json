@@ -1,0 +1,83 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:echo_sword",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.sword"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:echo_sword.name"
+			},
+      "minecraft:icon": "echo_sword",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 2
+        },
+        "max_durability": 1500
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:echo_shard" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:echo_sword" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:damage": 12,
+      "minecraft:enchantable": {
+        "value": 40,
+        "slot": "sword"
+      },
+      "minecraft:shooter":{
+        "max_draw_duration" :1.0,
+        "scale_power_by_draw_duration" :true,
+        "charge_on_draw" :false
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 3
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:sculk",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_sensor",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_vein",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_catalyst",
+            "speed": 5
+          },
+          {
+            "block": "minecraft:sculk_shrieker",
+            "speed": 5
+          }
+        ]
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:mine_durability",
+        "kurokumaft:echo_sword"
+      ]
+    }
+  }
+}
+

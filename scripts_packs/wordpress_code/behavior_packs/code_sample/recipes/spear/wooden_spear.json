@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wooden_spear"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "  F",
+      " # ",
+      "#  "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stick"
+      },
+      "F": {
+        "item": "minecraft:flint"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:wooden_spear",
+      "count": 1
+    }
+  }
+}

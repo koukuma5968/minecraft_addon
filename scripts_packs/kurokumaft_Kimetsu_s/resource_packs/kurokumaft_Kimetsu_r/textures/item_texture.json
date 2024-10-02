@@ -214,6 +214,13 @@
          "textures" : "textures/kurokumaft/items/armor/muitiro/muitiro_hakama"
       },
 
+      "obanai_haori_soldier_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/obanai/obanai_haori_soldier_jacket"
+      },
+      "obanai_mask": {
+         "textures" : "textures/kurokumaft/items/armor/obanai/obanai_mask"
+      },
+
       "soldier_jacket_guy_brown": {
          "textures" : "textures/kurokumaft/items/armor/soldier/guy/soldier_jacket_guy_brown"
       },
@@ -424,6 +431,7 @@
             "textures/kurokumaft/items/spawn_egg/soldier/genya_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/gyoumei_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/muitiro_egg",
+            "textures/kurokumaft/items/spawn_egg/soldier/obanai_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/regimental_girl_egg",
             "textures/kurokumaft/items/spawn_egg/soldier/regimental_guy_egg"
          ]

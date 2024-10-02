@@ -51,6 +51,7 @@ entity.kurokumaft:sanemi.name=不死川 実弥
 entity.kurokumaft:genya.name=不死川 玄弥
 entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
 entity.kurokumaft:muitiro.name=時透 無一郎
+entity.kurokumaft:obanai.name=伊黒 小芭内
 entity.kurokumaft:regimental_guy.name=隊士（男）
 entity.kurokumaft:regimental_girl.name=隊士（女）
 
@@ -68,6 +69,7 @@ item.spawn_egg.entity.kurokumaft:sanemi.name=不死川 実弥
 item.spawn_egg.entity.kurokumaft:genya.name=不死川 玄弥
 item.spawn_egg.entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
 item.spawn_egg.entity.kurokumaft:muitiro.name=時透 無一郎
+item.spawn_egg.entity.kurokumaft:obanai.name=伊黒 小芭内
 item.spawn_egg.entity.kurokumaft:regimental_guy.name=隊士（男）
 item.spawn_egg.entity.kurokumaft:regimental_girl.name=隊士（女）
 
@@ -152,6 +154,9 @@ item.kurokumaft:muitiro_tabi.name=無一郎の足袋
 item.kurokumaft:muitiro_jacket.name=無一郎の隊士服
 item.kurokumaft:muitiro_hakama.name=無一郎の袴
 
+item.kurokumaft:obanai_mask.name=小芭内の手ぬぐい
+item.kurokumaft:obanai_haori_soldier_jacket.name=小芭内の羽織
+
 item.kurokumaft:tanjiro_head.name=炭次郎の頭
 item.kurokumaft:zenitu_head.name=善逸の頭
 item.kurokumaft:inosuke_head.name=伊之助の頭
@@ -166,6 +171,7 @@ item.kurokumaft:sanemi_head.name=実弥の頭
 item.kurokumaft:genya_head.name=玄弥の頭
 item.kurokumaft:gyoumei_head.name=行冥の頭
 item.kurokumaft:muitiro_head.name=無一郎の頭
+item.kurokumaft:obanai_head.name=小芭内の頭
 
 tile.kurokumaft:tanjiro_skull.name=炭次郎の頭
 tile.kurokumaft:zenitu_skull.name=善逸の頭
@@ -181,6 +187,7 @@ tile.kurokumaft:sanemi_skull.name=実弥の頭
 tile.kurokumaft:genya_skull.name=玄弥の頭
 tile.kurokumaft:gyoumei_skull.name=行冥の頭
 tile.kurokumaft:muitiro_skull.name=無一郎の頭
+tile.kurokumaft:obanai_skull.name=小芭内の頭
 
 item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
 item.kurokumaft:koushi.name=血気術 累(鋼糸)

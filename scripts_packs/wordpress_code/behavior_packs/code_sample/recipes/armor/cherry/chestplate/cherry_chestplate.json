@@ -1,0 +1,27 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:cherry_chestplate"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "X X",
+      "XXX",
+      "XXX"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:cherry_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:cherry_log"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:cherry_chestplate"
+    }
+  }
+}
