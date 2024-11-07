@@ -34,6 +34,10 @@
           "move_controller",
           "arm_controller"
         ]
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 23
       }
     }
   }

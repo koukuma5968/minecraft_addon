@@ -20,7 +20,7 @@
 				"direction": [5, 5, 5]
 			},
 			"minecraft:particle_lifetime_expression": {
-				"max_lifetime": 2
+				"max_lifetime": 1
 			},
 			"minecraft:particle_initial_speed": 0,
 			"minecraft:particle_motion_dynamic": {},
@@ -35,7 +35,14 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.95686, 0.03529, 0.03529, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.13": "#FFE50707",
+						"0.43": "#FF690A0A",
+						"0.81": "#FFC41717"
+					}
+				}
 			}
 		}
 	}

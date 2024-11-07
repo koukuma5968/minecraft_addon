@@ -1,6 +1,5 @@
 import { Entity, EntityDamageCause, Player } from "@minecraft/server";
-import { getRandomInRange } from "../../../common/commonUtil";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { shooting } from "../../../common/ShooterMagicEvent";
 
 /**
  * 雷斬(らいきり)
@@ -21,10 +20,6 @@ export async function thunderDesires(entity:Entity) {
  */
 export async function raizinBread(player:Player) {
 
-    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
-    shooting(player, "kurokumaft:raizin_bread", {x:xran,y:yran,z:zran}, 4, undefined);
+    shooting(player, "kurokumaft:raizin_bread", 0.1, 4, undefined);
 
 }

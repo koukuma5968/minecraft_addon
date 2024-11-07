@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:bumrod_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/kurokumaft/particle/fang"
 			}
 		},
@@ -41,7 +41,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.61961, 0.2, 0.2, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF9E3232",
+						"1.0": "#FF3F0A0A"
+					}
+				}
 			}
 		}
 	}

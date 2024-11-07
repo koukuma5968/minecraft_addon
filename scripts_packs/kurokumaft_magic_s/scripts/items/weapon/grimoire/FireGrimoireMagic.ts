@@ -1,4 +1,4 @@
-import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Vector3, system, EntityDamageCause, TicksPerSecond, Player, Dimension, GameMode, BlockTypes } from "@minecraft/server";
+import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Vector3, Player, Dimension, GameMode } from "@minecraft/server";
 import { BlockLocationList, CraftBlocks } from "../../../common/commonUtil";
 import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
 import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
@@ -16,10 +16,8 @@ export async function torchlight(event:ItemComponentUseOnEvent) {
     let blockFace = event.blockFace as Direction;
     let faceLocation = event.faceLocation as Vector3;
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-        if ((block.typeId.indexOf("chest") == -1) && (block.typeId.indexOf("boat") == -1) && (CraftBlocks.indexOf(block.typeId) == -1)) {
-            decrimentGrimoireCount(entity as Player, itemStack);
-       }
+    if ((block.typeId.indexOf("chest") == -1) && (block.typeId.indexOf("boat") == -1) && (CraftBlocks.indexOf(block.typeId) == -1)) {
+        decrimentGrimoireCount(entity as Player, itemStack);
     }
    
 }
@@ -76,10 +74,8 @@ export async function ignited(event:ItemComponentUseOnEvent) {
         });
     }
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-        if (setFireF) {
-            decrimentGrimoireCount(entity as Player, itemStack);
-        }
+    if (setFireF) {
+        decrimentGrimoireCount(entity as Player, itemStack);
     }
 
 };
@@ -92,11 +88,8 @@ export async function ignited(event:ItemComponentUseOnEvent) {
 export async function ignitedTnt(event:ItemComponentUseOnEvent) {
 
     let entity = event.source as Entity;
-    let blockPerm = event.usedOnBlockPermutation as BlockPermutation;
     let itemStack = event.itemStack as ItemStack;
     let block = event.block as Block;
-    let blockFace = event.blockFace as Direction;
-    let faceLocation = event.faceLocation as Vector3;
 
     let bx = block.location.x;
     let by = block.location.y;
@@ -107,13 +100,13 @@ export async function ignitedTnt(event:ItemComponentUseOnEvent) {
     }
 
     if (block.typeId == "minecraft:tnt") {
+        let location = {x:bx,y:by,z:bz};
         // print("tnt spawn");
-        entity.runCommand("setblock " + bx + " " + by + " " + bz + " minecraft:air");
-        entity.runCommand("summon minecraft:tnt " + bx + " " + by + " " + bz + " ~ ~ from_explosion");
+        entity.dimension.setBlockType(location, MinecraftBlockTypes.Air);
+        let tnt = entity.dimension.spawnEntity(MinecraftEntityTypes.Tnt, location) as Entity;
+        tnt.triggerEvent("from_explosion");
 
-        if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-            decrimentGrimoireCount(entity as Player, itemStack);
-        }
+        decrimentGrimoireCount(entity as Player, itemStack);
         
     }
 

@@ -21,8 +21,8 @@
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
         "damage_chance": {
-          "min": 30,
-          "max": 50
+          "min": 3,
+          "max": 5
         },
         "max_durability": 5000
       },
@@ -38,7 +38,7 @@
           }
         ]
       },
-      "minecraft:damage": 50,
+      "minecraft:damage": 20,
       "minecraft:enchantable": {
         "value": 30,
         "slot": "sword"
@@ -64,7 +64,7 @@
       },
       "minecraft:use_animation": "spear",
       "minecraft:use_modifiers": {
-        "use_duration": 6.0
+        "use_duration": 4.0
       },
       "minecraft:custom_components": [
         "kurokumaft:sword_magic"

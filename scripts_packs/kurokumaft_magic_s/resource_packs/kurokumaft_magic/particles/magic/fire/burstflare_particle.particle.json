@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:burstflare_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -16,7 +16,7 @@
 				"active_time": 0.1
 			},
 			"minecraft:emitter_shape_sphere": {
-				"radius": 5,
+				"radius": 3.5,
 				"direction": [5, 5, 5]
 			},
 			"minecraft:particle_lifetime_expression": {

@@ -1,0 +1,40 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magic_brewing.stand_n": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"magic_brewing_stand": {
+					"position": [0, 1, 0]
+				}
+			}
+		},
+		"animation.magic_brewing.stand_s": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"magic_brewing_stand": {
+					"rotation": [0, 180, 0],
+					"position": [0, 1, 0]
+				}
+			}
+		},
+		"animation.magic_brewing.stand_e": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"magic_brewing_stand": {
+					"rotation": [0, 90, 0],
+					"position": [0, 1, 0]
+				}
+			}
+		},
+		"animation.magic_brewing.stand_w": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"magic_brewing_stand": {
+					"rotation": [0, -90, 0],
+					"position": [0, 1, 0]
+				}
+			}
+		}
+	}
+}

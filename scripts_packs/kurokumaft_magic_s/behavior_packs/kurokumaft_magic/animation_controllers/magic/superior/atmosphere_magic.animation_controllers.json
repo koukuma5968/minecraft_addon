@@ -10,7 +10,7 @@
         },
         "aero_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aエアロビット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:aero_bit.translate\"}]}",
             "/function magic/wind/aero_bit"
           ],
           "transitions": [

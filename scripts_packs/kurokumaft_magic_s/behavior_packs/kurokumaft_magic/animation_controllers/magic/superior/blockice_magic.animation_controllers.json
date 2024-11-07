@@ -10,7 +10,7 @@
         },
         "frozen_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fフローズンビット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:frozen_bit.translate\"}]}",
             "/function magic/ice/frozen_bit"
           ],
           "transitions": [

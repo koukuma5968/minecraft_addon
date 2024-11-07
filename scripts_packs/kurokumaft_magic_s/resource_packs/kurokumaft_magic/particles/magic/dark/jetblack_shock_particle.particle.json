@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:jetblack_shock_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -20,7 +20,7 @@
 				"direction": [5, 5, 5]
 			},
 			"minecraft:particle_lifetime_expression": {
-				"max_lifetime": 3
+				"max_lifetime": 1.5
 			},
 			"minecraft:particle_initial_speed": 0,
 			"minecraft:particle_motion_dynamic": {},
@@ -35,7 +35,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.07059, 0.06667, 0.06667, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF602D6C",
+						"0.96": "#FF1E0530"
+					}
+				}
 			}
 		}
 	}

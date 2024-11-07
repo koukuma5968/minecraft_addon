@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:water_sword_slash",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -40,7 +40,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [1, 1, 1, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF79C6E3",
+						"1.0": "#FF122327"
+					}
+				}
 			}
 		}
 	}

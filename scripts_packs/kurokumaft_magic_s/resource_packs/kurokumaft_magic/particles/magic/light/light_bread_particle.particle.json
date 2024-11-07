@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:light_bread_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/kurokumaft/particle/sweep"
 			}
 		},
@@ -12,7 +12,9 @@
 			"minecraft:emitter_rate_instant": {
 				"num_particles": 1
 			},
-			"minecraft:emitter_lifetime_once": {},
+			"minecraft:emitter_lifetime_once": {
+				"active_time": 1
+			},
 			"minecraft:emitter_shape_sphere": {
 				"radius": 0.025,
 				"surface_only": true,
@@ -40,7 +42,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.90588, 0.90588, 0.32941, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFE7E754",
+						"1.0": "#FF4D4D10"
+					}
+				}
 			}
 		}
 	}

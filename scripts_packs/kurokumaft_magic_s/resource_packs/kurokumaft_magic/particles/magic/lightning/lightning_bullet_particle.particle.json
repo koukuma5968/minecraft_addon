@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:lightning_bullet_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/kurokumaft/particle/sonic"
 			}
 		},
@@ -46,7 +46,13 @@
 				"collision_radius": 0.1
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.63529, 0.47843, 0.03529, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF9F7E1D",
+						"1.0": "#FF574511"
+					}
+				}
 			}
 		}
 	}

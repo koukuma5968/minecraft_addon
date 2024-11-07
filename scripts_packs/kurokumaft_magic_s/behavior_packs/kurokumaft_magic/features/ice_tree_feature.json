@@ -1,0 +1,80 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "kurokumaft:ice_tree_feature"
+    },
+    "base_block": [
+      "minecraft:packed_ice",
+      "minecraft:snow",
+      "minecraft:ice",
+      "minecraft:sand",
+      "minecraft:dirt",
+      "minecraft:gravel"
+    ],
+    "may_grow_on": [
+      "minecraft:packed_ice",
+      "minecraft:snow",
+      "minecraft:ice",
+      "minecraft:sand",
+      "minecraft:dirt",
+      "minecraft:gravel"
+    ],
+    "may_replace": [
+      "minecraft:seagrass",
+      "minecraft:kelp",
+      "minecraft:snow",
+      "minecraft:ice",
+      "minecraft:water",
+      "minecraft:air"
+    ],
+    "may_grow_through": [
+      "minecraft:sand",
+      "minecraft:dirt",
+      "minecraft:gravel",
+      "minecraft:packed_ice",
+      "minecraft:snow",
+      "minecraft:ice"
+    ],
+    "mega_trunk": {
+      "trunk_block": {
+        "name": "kurokumaft:ice_log"
+      },
+      "trunk_width": 1,
+      "trunk_height": {
+        "base": 15,
+        "intervals": [10, 25]
+      },
+      "branches": {
+        "branch_length": 6,
+        "branch_slope": 2,
+        "branch_interval": {
+          "range_min": 2,
+          "range_max": 4
+        },
+        "branch_altitude_factor": {
+          "min": 0.6,
+          "max": 1.0
+        },
+        "branch_canopy": {
+          "mega_canopy": {
+            "leaf_block": "kurokumaft:ice_leaves",
+            "canopy_height": {
+              "range_min": 2,
+              "range_max": 4
+            },
+            "base_radius": 4
+          }
+        }     
+      }
+    },
+    "mega_canopy": {
+      "leaf_block": "kurokumaft:ice_leaves",
+      "canopy_height": {
+        "range_min": 2,
+        "range_max": 4
+      },
+      "base_radius": 4
+    }
+  }
+}

@@ -18,8 +18,8 @@
       "minecraft:allow_off_hand": true,
       "minecraft:durability": {
         "damage_chance": {
-          "min": 4,
-          "max": 7
+          "min": 2,
+          "max": 5
         },
         "max_durability": 2500
       },

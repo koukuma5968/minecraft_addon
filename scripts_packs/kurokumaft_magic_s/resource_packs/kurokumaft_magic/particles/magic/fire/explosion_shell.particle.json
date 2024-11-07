@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:explosion_shell",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -39,7 +39,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [1, 1, 1, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFFACDCD",
+						"1.0": "#FF690A0A"
+					}
+				}
 			}
 		}
 	}

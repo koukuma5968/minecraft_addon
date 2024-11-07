@@ -29,5 +29,5 @@ export class EnderDragonSword implements ItemCustomComponent {
 }
 
 async function dragonFireball(player:Player) {
-    shooting(player, "kurokumaft:dragon_fireball_2", {x:0,y:0,z:0}, 2, undefined);
+    shooting(player, "kurokumaft:dragon_fireball_2", 0, 2, undefined);
 }

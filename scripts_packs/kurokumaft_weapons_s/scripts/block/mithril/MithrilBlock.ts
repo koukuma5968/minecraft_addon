@@ -62,6 +62,10 @@ export class MithrilBlock implements BlockCustomComponent {
         }
     }
 
+    onPlayerInteract(event:BlockComponentPlayerInteractEvent) {
+        let block = event.block;
+        checkMithrilBlock(block);
+    }
 }
 
 export async function playerMithrilset(block:Block) {
@@ -71,34 +75,10 @@ export async function playerMithrilset(block:Block) {
     
 }
 
-export async function checkMithrilGeodeTick() {
+async function checkMithrilBlock(block:Block) {
 
-    let players = world.getPlayers() as Player[];
-
-    for (let i = 0; i < players.length; i++) {
-        let player = players[i];
-        checkMithrilBlock(player);
-    }
-    system.runTimeout(checkMithrilGeodeTick,5*TicksPerSecond);
-}
-
-async function checkMithrilBlock(player:Player) {
-
-    for (let x=-16;x<=16;x++) {
-        for (let z=-16;z<=16;z++) {
-            for (let y=-16;y<=16;y++) {
-                if (player.location.y+y >= -64) {
-                    let block = player.dimension.getBlock({x:player.location.x+x,y:player.location.y+y,z:player.location.z+z}) as Block;
-                    if (block != undefined && block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_set":false})) {
-                        if (block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_type":"none"})) {
-                            block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "spawn"));
-                            let set_budding_pos = mithrilChoiceLists.pick() as number;
-                            block.setPermutation(block.permutation.withState("kurokumaft:budding_pos", set_budding_pos));
-                            block.setPermutation(block.permutation.withState("kurokumaft:budding_set", true));
-                        }
-                    }
-                }
-            }
-        }
+    if (block != undefined && block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_type":"geode"})) {
+        block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "spawn"));
+        block.setPermutation(block.permutation.withState("kurokumaft:budding_set", true));
     }
 }

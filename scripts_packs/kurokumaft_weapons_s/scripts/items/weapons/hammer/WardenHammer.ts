@@ -25,7 +25,7 @@ async function hammerHit(attackEntity:Entity, hitEntity: Entity) {
     hitEntity.applyDamage(5, {
         cause: EntityDamageCause.entityAttack
     });
-    shooting(attackEntity as Player, "kurokumaft:sonic_bullet", {x:0,y:0,z:0}, 5, undefined);
+    shooting(attackEntity as Player, "kurokumaft:sonic_bullet", 0, 5, undefined);
 
 }
 

@@ -84,6 +84,8 @@ entity.kurokumaft:ice_skeleton_archer.name=§fアイススケルトン・アー�
 entity.kurokumaft:phoenix.name=§4フェニックス
 entity.kurokumaft:fenrir.name=§3フェンリル
 
+entity.kurokumaft:phoenix_spear.name=§4魔炎鳥
+
 item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:water_zombie.name=ウォーターゾンビをスポーンさせる	#
@@ -120,7 +122,9 @@ tile.kurokumaft:magic_lectern.name=魔導書見台
 magic_lectern.mess.title=魔導書見台
 magic_lectern.mess.body1=魔導書と魔法石をセット後、各属性に対応したアイテムを持って右クリックして使用します。
 magic_lectern.mess.errorInfo=うまくセット出来ない場合はブロックを置きなおしてください。
+magic_lectern.mess.noboobk=このアイテムは対応していません
 magic_lectern.mess.confirm=OK
+tile.kurokumaft:magic_brewing.name=魔法薬錬成炉
 
 tile.kurokumaft:waterwall_block.name=水ブロック
 tile.kurokumaft:lightningwall_block.name=雷ブロック
@@ -129,6 +133,48 @@ tile.kurokumaft:windwall_block.name=風ブロック
 tile.kurokumaft:magma_portal.name=マグマポータル
 
 tile.kurokumaft:magma_portal_gate.name=ゲートブロック（炎）
+
+tile.kurokumaft:fire_log.name=§4魔炎樹の原木
+tile.kurokumaft:fire_leaves.name=§4魔炎樹の葉
+item.kurokumaft:fire_log_nut.name=§4魔炎樹の木の実
+
+tile.kurokumaft:water_log.name=§1魔槐樹の原木
+tile.kurokumaft:water_leaves.name=§1魔槐樹の葉
+item.kurokumaft:water_log_nut.name=§1魔槐樹の木の実
+
+tile.kurokumaft:wind_log.name=§3魔嵐樹の原木
+tile.kurokumaft:wind_leaves.name=§3魔嵐樹の葉
+item.kurokumaft:wind_log_nut.name=§3魔嵐樹の木の実
+
+tile.kurokumaft:stone_log.name=§7魔礫樹の原木
+tile.kurokumaft:stone_leaves.name=§7魔礫樹の葉
+item.kurokumaft:stone_log_nut.name=§7魔礫樹の木の実
+
+tile.kurokumaft:lightning_log.name=§6魔霆樹の原木
+tile.kurokumaft:lightning_leaves.name=§6魔霆樹の葉
+item.kurokumaft:lightning_log_nut.name=§6魔霆樹の木の実
+
+tile.kurokumaft:ice_log.name=§f魔凍樹の原木
+tile.kurokumaft:ice_leaves.name=§f魔凍樹の葉
+item.kurokumaft:ice_log_nut.name=§f魔凍樹の木の実
+
+item.kurokumaft:diamond_bottle.name=ダイヤモンドの瓶
+item.kurokumaft:diamond_bottle_water.name=水入りダイヤモンドの瓶
+item.kurokumaft:magic_potion.name=秘薬
+
+item.kurokumaft:fire_strengt_potion.name=猛火の魔法薬
+item.kurokumaft:water_healthboost_potion.name=水命の魔法薬
+item.kurokumaft:wind_jumpboost_potion.name=風脚の魔法薬
+item.kurokumaft:stone_resistance_potion.name=堅土の魔法薬
+item.kurokumaft:lightning_speedup_potion.name=迅雷の魔法薬
+item.kurokumaft:ice_absorption_potion.name=摂氷の魔法薬
+
+item.kurokumaft:fire_nostrum_potion.name=烈腕炎の秘薬
+item.kurokumaft:water_nostrum_potion.name=魂命水の秘薬
+item.kurokumaft:wind_nostrum_potion.name=嵐天脚の秘薬
+item.kurokumaft:stone_nostrum_potion.name=衝天地の秘薬
+item.kurokumaft:lightning_nostrum_potion.name=雷の秘薬
+item.kurokumaft:ice_nostrum_potion.name=鏡影氷の秘薬
 
 item.kurokumaft:phoenix_feather.name=§4魔炎鳥の羽
 item.kurokumaft:see_serpent_scale.name=§1魔海蛇の鱗
@@ -171,33 +217,33 @@ item.kurokumaft:blockice_stick.name=§f氷塊の杖 上級氷魔法
 item.kurokumaft:sparkle_stick.name=§e煌めきの杖 上級光魔法
 item.kurokumaft:jetblack_stick.name=§5漆黒の杖 上級闇魔法
 
-item.kurokumaft:firestorm_staff.name=§4§l火炎旋風の錫杖 帝級合体魔法 炎風
-item.kurokumaft:explosion_staff.name=§8§l爆炎の錫杖 帝級合体魔法 地炎
-item.kurokumaft:flamespark_staff.name=§6§l火雷神の錫杖 帝級合体魔法 雷炎
-item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 帝級合体魔法 水風
-item.kurokumaft:thundervortex_staff.name=§a§l渦雷の錫杖 帝級合体魔法 水雷
-item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 帝級合体魔法 氷水
+item.kurokumaft:firestorm_staff.name=§4§l火炎旋風の錫杖 帝級 炎風
+item.kurokumaft:explosion_staff.name=§8§l爆炎の錫杖 帝級 地炎
+item.kurokumaft:flamespark_staff.name=§6§l火雷神の錫杖 帝級 雷炎
+item.kurokumaft:mailstrom_staff.name=§9§l渦紋の錫杖 帝級 水風
+item.kurokumaft:thundervortex_staff.name=§a§l渦雷の錫杖 帝級 水雷
+item.kurokumaft:icepellet_staff.name=§1§l凍雨の錫杖 帝級 氷水
 
 item.kurokumaft:fire_magic_sword.name=§4烈火の魔法剣
-item.kurokumaft:ice_magic_sword.name=§f凍刃の魔法剣
 item.kurokumaft:water_magic_sword.name=§1流刃の魔法剣
+item.kurokumaft:wind_magic_sword.name=§3刃風の魔法剣
 item.kurokumaft:stone_magic_sword.name=§7礫岩の魔法剣
 item.kurokumaft:thunder_magic_sword.name=§6雷撃の魔法剣
-item.kurokumaft:wind_magic_sword.name=§3刃風の魔法剣
-item.kurokumaft:holly_magic_sword.name=§e光華の魔法剣
+item.kurokumaft:ice_magic_sword.name=§f凍刃の魔法剣
 item.kurokumaft:dark_magic_sword.name=§5常闇の魔法剣
+item.kurokumaft:holly_magic_sword.name=§e光華の魔法剣
 item.kurokumaft:rainbow_magic_sword.name=虹の魔法剣
 
 item.kurokumaft:phoenix_sword.name=§4魔炎鳥の宝剣
 
 item.kurokumaft:fire_magic_shield.name=§4耐火の魔法盾
-item.kurokumaft:ice_magic_shield.name=§f堅氷の魔法盾
 item.kurokumaft:water_magic_shield.name=§1水明の魔法盾
+item.kurokumaft:wind_magic_shield.name=§3凱風の魔法盾
 item.kurokumaft:stone_magic_shield.name=§7岩壁の魔法盾
 item.kurokumaft:thunder_magic_shield.name=§6雷動の魔法盾
-item.kurokumaft:wind_magic_shield.name=§3凱風の魔法盾
-item.kurokumaft:holly_magic_shield.name=§e光輝の魔法盾
+item.kurokumaft:ice_magic_shield.name=§f堅氷の魔法盾
 item.kurokumaft:dark_magic_shield.name=§5暗影の魔法盾
+item.kurokumaft:holly_magic_shield.name=§e光輝の魔法盾
 
 item.kurokumaft:ice_magic_helmet.name=§fアイスマジックヘルム
 item.kurokumaft:ice_magic_chestplate.name=§fアイスマジックプレート
@@ -260,27 +306,36 @@ item.kurokumaft:nether_stone_magic_leggings.name=§7グランドマジックレ�
 item.kurokumaft:nether_stone_magic_boots.name=§7グランドマジックブーツ
 
 item.kurokumaft:fire_magic_bow.name=§4業火の魔弓
-item.kurokumaft:ice_magic_bow.name=§f六華の魔弓
 item.kurokumaft:water_magic_bow.name=§1流麗の魔弓
+item.kurokumaft:wind_magic_bow.name=§3疾風の魔弓
 item.kurokumaft:stone_magic_bow.name=§7玄武の魔弓
 item.kurokumaft:lightning_magic_bow.name=§6紫電の魔弓
-item.kurokumaft:wind_magic_bow.name=§3疾風の魔弓
-item.kurokumaft:holly_magic_bow.name=§e月華の魔弓
+item.kurokumaft:ice_magic_bow.name=§f六華の魔弓
 item.kurokumaft:dark_magic_bow.name=§5晦冥の魔弓
+item.kurokumaft:holly_magic_bow.name=§e月華の魔弓
+
+entity.kurokumaft:fire_magic_arrow.name=§4フレイムアロー
+entity.kurokumaft:water_magic_arrow.name=§bウォーターアロー
+entity.kurokumaft:wind_magic_arrow.name=§aウィンドアロー
+entity.kurokumaft:stone_magic_arrow.name=§7ロックアロー
+entity.kurokumaft:lightning_magic_arrow.name=§6ライトニングアロー
+entity.kurokumaft:ice_magic_arrow.name=§fアイスアロー
+entity.kurokumaft:dark_magic_arrow.name=§8ダークアロー
+entity.kurokumaft:holly_magic_arrow.name=§eホーリーアロー
 
 item.kurokumaft:fire_magic_gun.name=§4災火の魔法銃
 item.kurokumaft:water_magic_gun.name=§1烈水の魔法銃
 item.kurokumaft:wind_magic_gun.name=§3嵐牙の魔法銃
-item.kurokumaft:lightning_magic_gun.name=§6万雷の魔法銃
 item.kurokumaft:stone_magic_gun.name=§7破岩の魔法銃
+item.kurokumaft:lightning_magic_gun.name=§6万雷の魔法銃
 item.kurokumaft:ice_magic_gun.name=§f氷河の魔法銃
 
 item.kurokumaft:fire_magic_bread.name=§4紅蓮の妖魔刀
 item.kurokumaft:water_magic_bread.name=§1水星の妖魔刀
-item.kurokumaft:ice_magic_bread.name=§f氷結の妖魔刀
+item.kurokumaft:wind_magic_bread.name=§3風刃の妖魔刀
 item.kurokumaft:stone_magic_bread.name=§7岩窟の妖魔刀
 item.kurokumaft:thunder_magic_bread.name=§6雷斬の妖魔刀
-item.kurokumaft:wind_magic_bread.name=§3風刃の妖魔刀
+item.kurokumaft:ice_magic_bread.name=§f氷結の妖魔刀
 
 item.kurokumaft:magma_blow.name=§4マグマブロー
 
@@ -303,20 +358,20 @@ item.kurokumaft:fire_grimoire.name=§4炎の魔導書
 item.kurokumaft:repatriation_fruit.name=帰還の実
 item.kurokumaft:home_gate.name=拠点の石碑
 
-item.kurokumaft:fire_magic_bazooka.name=爆炎の魔導砲
-item.kurokumaft:water_magic_bazooka.name=瀑布の魔導砲
-item.kurokumaft:lightning_magic_bazooka.name=轟雷の魔導砲
-item.kurokumaft:wind_magic_bazooka.name=暴風の魔導砲
-item.kurokumaft:stone_magic_bazooka.name=礫岩の魔導砲
-item.kurokumaft:ice_magic_bazooka.name=凍土の魔導砲
+item.kurokumaft:fire_magic_bazooka.name=§4爆炎の魔導砲
+item.kurokumaft:water_magic_bazooka.name=§b瀑布の魔導砲
+item.kurokumaft:wind_magic_bazooka.name=§a暴風の魔導砲
+item.kurokumaft:stone_magic_bazooka.name=§7礫岩の魔導砲
+item.kurokumaft:lightning_magic_bazooka.name=§6轟雷の魔導砲
+item.kurokumaft:ice_magic_bazooka.name=§f凍土の魔導砲
 
 item.kurokumaft:magic_shell.name=魔弾（空）
-item.kurokumaft:fire_magic_shell.name=爆炎の魔弾
-item.kurokumaft:water_magic_shell.name=瀑布の魔弾
-item.kurokumaft:lightning_magic_shell.name=轟雷の魔弾
-item.kurokumaft:wind_magic_shell.name=暴風の魔弾
-item.kurokumaft:stone_magic_shell.name=礫岩の魔弾
-item.kurokumaft:ice_magic_shell.name=凍土の魔弾
+item.kurokumaft:fire_magic_shell.name=§4爆炎の魔弾
+item.kurokumaft:water_magic_shell.name=§b瀑布の魔弾
+item.kurokumaft:wind_magic_shell.name=§a暴風の魔弾
+item.kurokumaft:stone_magic_shell.name=§7礫岩の魔弾
+item.kurokumaft:lightning_magic_shell.name=§6轟雷の魔弾
+item.kurokumaft:ice_magic_shell.name=§f凍土の魔弾
 
 mess.kurokumaft:musicSound.title=ミュージックレコード再生
 mess.kurokumaft:musicSound.body=再生する音楽を選択
@@ -326,3 +381,146 @@ mess.kurokumaft:homegate.textLabel=拠点名
 mess.kurokumaft:homegate.lore=拠点
 mess.kurokumaft:homegate.commit=拠点を登録しました。
 mess.kurokumaft:homegate.lost=登録した拠点は消失しています。
+
+magic.kurokumaft:burstRondo.translate=§4バーストロンド
+magic.kurokumaft:splash.translate=§bスプラッシュ
+magic.kurokumaft:windEdge.translate=§aウィンドエッジ
+magic.kurokumaft:sandBlast.translate=§7サンドブラスト
+magic.kurokumaft:spark.translate=§6スパーク
+magic.kurokumaft:powderedSnow.translate=§fパウダースノー
+magic.kurokumaft:darkBread.translate=§8ダークブレード
+magic.kurokumaft:lightBread.translate=§eライトブレード
+
+magic.kurokumaft:fireball.translate=§4ファイヤーボール
+magic.kurokumaft:waterball.translate=§bウォーターボール
+magic.kurokumaft:windcutter.translate=§aウィンドカッター
+magic.kurokumaft:stonebarrette.translate=§7ストーンバレット
+magic.kurokumaft:lightningbolt.translate=§6ライトニングボルト
+
+magic.kurokumaft:firewall.translate=§4ファイアウォール
+magic.kurokumaft:waterwall.translate=§bウォーターウォール
+magic.kurokumaft:windwall.translate=§aウィンドウォール
+magic.kurokumaft:stonewall.translate=§7ストーンウォール
+magic.kurokumaft:lightningwall.translate=§6ライトニングウォール
+magic.kurokumaft:icewall.translate=§fアイスウォール
+
+magic.kurokumaft:darkness.translate=§8ダークネス
+magic.kurokumaft:flash.translate=§eフラッシュ
+
+magic.kurokumaft:deepSnow.translate=§fディープスノー
+magic.kurokumaft:absorption.translate=§8アブソープション
+magic.kurokumaft:healing.translate=§eヒーリング
+
+magic.kurokumaft:fireSword.translate=§4フレイムソード
+magic.kurokumaft:waterSword.translate=§bウォーターソード
+magic.kurokumaft:windSword.translate=§aウィンドソード
+magic.kurokumaft:stoneSword.translate=§7ストーンソード
+magic.kurokumaft:thunderSword.translate=§6サンダーソード
+magic.kurokumaft:iceSword.translate=§fアイスソード
+magic.kurokumaft:darkSword.translate=§8ダークソード
+magic.kurokumaft:hollySword.translate=§eホーリーソード
+magic.kurokumaft:rainbowSword.translate=§5レ§1イ§9ン§aボー§eソ§6ー§4ド
+magic.kurokumaft:blazeBurst.translate=§cブレイズバースト
+
+magic.kurokumaft:bumrod.translate=§4バムロッド
+magic.kurokumaft:watercutter.translate=§bウォータカッター
+magic.kurokumaft:stormBread.translate=§aストームブレード
+magic.kurokumaft:stoneBread.translate=§7ストーンブレード
+magic.kurokumaft:lightningBread.translate=§6ライトニングブレード
+magic.kurokumaft:iceBread.translate=§fアイスブレード
+magic.kurokumaft:darkFang.translate=§8ダークファング
+magic.kurokumaft:lightFang.translate=§eライトファング
+
+magic.kurokumaft:flarecircle.translate=§4フレイムサークル
+magic.kurokumaft:waterwave.translate=§bウォーターウェーブ
+magic.kurokumaft:storm.translate=§aストーム
+magic.kurokumaft:rockbreak.translate=§7ロックブレイク
+magic.kurokumaft:thunderclap.translate=§6サンダークラップ
+magic.kurokumaft:ice_barrette.translate=§fアイスバレット
+magic.kurokumaft:brushash.translate=§8ブラストアッシュ
+magic.kurokumaft:areaheel.translate=§eエリアヒール
+
+magic.kurokumaft:burstflare.translate=§4バーストフレア
+magic.kurokumaft:waterjail.translate=§bウォータジェイル
+magic.kurokumaft:aerobomb.translate=§aエアロボム
+magic.kurokumaft:greybomb.translate=§7グレイボム
+magic.kurokumaft:thunderjail.translate=§6サンダージェイル
+magic.kurokumaft:freezConclusion.translate=§fフリーズコフィン
+magic.kurokumaft:summonSkeleton.translate=§8ダークスケルトン召喚
+magic.kurokumaft:summonGolem.translate=§eブライトゴーレム召喚
+
+magic.kurokumaft:flameShock.translate=§4フレイムショック
+magic.kurokumaft:aquaShock.translate=§bアクアショック
+magic.kurokumaft:stormShock.translate=§aストームショック
+magic.kurokumaft:earthShock.translate=§7アースショック
+magic.kurokumaft:sparkShock.translate=§6スパークショック
+magic.kurokumaft:iceShock.translate=§fアイスショック
+magic.kurokumaft:jetblackShock.translate=§8ジェットブラック
+magic.kurokumaft:sparkleShock.translate=§eスパークルライト
+
+magic.kurokumaft:valleleflair.translate=§4ヴァルフレア
+magic.kurokumaft:aquaShot.translate=§bアクアショット
+magic.kurokumaft:storm_cutter.translate=§aストームカッター
+magic.kurokumaft:stone_edge.translate=§7ストーンエッジ
+magic.kurokumaft:thunder_lance.translate=§6サンダーランス
+magic.kurokumaft:ice_lance.translate=§fアイスランス
+magic.kurokumaft:dark_lance.translate=§8ダークランス
+magic.kurokumaft:holly_lance.translate=§eホーリーランス
+
+magic.kurokumaft:blastbomb.translate=§4ブラストボム
+magic.kurokumaft:tidalWave.translate=§bタイダルウェイブ
+magic.kurokumaft:atmosphere.translate=§aアトモスフィア
+magic.kurokumaft:gravityField.translate=§7グラビティフィールド
+magic.kurokumaft:lightningStrike.translate=§6ライトニングストライク
+magic.kurokumaft:iceBlock.translate=§fアイスブロック
+magic.kurokumaft:blackHole.translate=§8ブラックホール
+magic.kurokumaft:hollyField.translate=§eホーリーフィールド
+
+magic.kurokumaft:bramFang.translate=§aブラム・ファング
+magic.kurokumaft:sonicSlicer.translate=§aソニックスライサー
+magic.kurokumaft:megaBrand.translate=§7メガ・ブランド
+magic.kurokumaft:digVault.translate=§6ディグ・ヴォルト
+
+magic.kurokumaft:fireStorm.translate=§4ファイアストーム
+magic.kurokumaft:explosion.translate=§4エクスプロージョン
+magic.kurokumaft:flameSpark.translate=§6フレイムスパーク
+magic.kurokumaft:mailstrom.translate=§bメイルシュトローム
+
+magic.kurokumaft:fire_magic_bullet.translate=§4ヒートハザード
+magic.kurokumaft:water_magic_bullet.translate=§bウォーターバースト
+magic.kurokumaft:wind_magic_bullet.translate=§aテンペストファング
+magic.kurokumaft:stone_magic_bullet.translate=§7クラックロアー
+magic.kurokumaft:lightning_magic_bullet.translate=§6トールハザード
+magic.kurokumaft:ice_magic_bullet.translate=§fグレイシアファング
+
+magic.kurokumaft:flamingDesires.translate=§4焔裂き(ほむらざき)
+magic.kurokumaft:aquaDesires.translate=§b蒼破斬(そうはざん)
+magic.kurokumaft:windDesires.translate=§a烈風刃(れっぷうじん)
+magic.kurokumaft:stoneDesires.translate=§7岩割刃(がんかつじん)
+magic.kurokumaft:thunderDesires.translate=§6雷斬(らいきり)
+magic.kurokumaft:iceDesires.translate=§f斬雪(ざんせつ)
+
+magic.kurokumaft:crimsonBread.translate=§4紅蓮剣(ぐれんけん)
+magic.kurokumaft:mercurySmash.translate=§b水星砕き(すいせいくだき)
+magic.kurokumaft:windBarkSlash.translate=§a風鳴切(かなきり)
+magic.kurokumaft:breakRockSlash.translate=§7破岩衝(はがんしょう)
+magic.kurokumaft:raizinBread.translate=§6雷神剣(らいじんけん)
+magic.kurokumaft:syusetuBread.translate=§f終雪氷晶(しゅうせつひょうしょう)
+
+magic.kurokumaft:ability.translate=§eアビリティアップ
+magic.kurokumaft:hellblast.translate=§8ヘルブラスト
+magic.kurokumaft:framepillar1.translate=§cフレイムピラー
+magic.kurokumaft:ice_needle.translate=§fアイスニードル
+magic.kurokumaft:stone_needle.translate=§7ストーンニードル
+magic.kurokumaft:wind_roar.translate=§aウィンドロアー
+magic.kurokumaft:thunder_cutter.translate=§6サンダーカッター
+magic.kurokumaft:waterpillar.translate=§bウォーターピラー
+
+magic.kurokumaft:aero_bit.translate=§aエアロビット
+magic.kurokumaft:flare_bit.translate=§cフレアビット
+magic.kurokumaft:frozen_bit.translate=§fフローズンビット
+magic.kurokumaft:jewel_bit.translate=§7ジュエルビット
+magic.kurokumaft:night_bit.translate=§8ナイトビット
+magic.kurokumaft:thunder_bit.translate=§6サンダービット
+magic.kurokumaft:flash_bit.translate=§eフラッシュビット
+magic.kurokumaft:aqua_bit.translate=§bアクアビット

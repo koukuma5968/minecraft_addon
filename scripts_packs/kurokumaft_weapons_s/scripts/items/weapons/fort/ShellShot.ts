@@ -19,7 +19,7 @@ async function shotShell(player:Player, hammer:ItemStack) {
 
     let raid = player.getComponent(EntityComponentTypes.Riding) as EntityRidingComponent;
     if (raid && raid.entityRidingOn.typeId == "kurokumaft:tank") {
-        shooting(player, "kurokumaft:shell_entity", {x:0,y:-1,z:0}, 3, undefined);
+        shooting(player, "kurokumaft:shell_entity", 0, 3, undefined);
         subtractionItem(player, hammer, EquipmentSlot.Mainhand, 1);
         itemCoolDown(player, hammer);
     }

@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:lightning_bread_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/kurokumaft/particle/sweep"
 			}
 		},
@@ -39,7 +39,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.89804, 0.88627, 0.08235, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFE5E215",
+						"1.0": "#FF292908"
+					}
+				}
 			}
 		}
 	}

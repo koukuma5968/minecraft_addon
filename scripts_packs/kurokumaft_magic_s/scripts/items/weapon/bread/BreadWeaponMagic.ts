@@ -17,32 +17,32 @@ const BreadHitObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_magic_bread",
         func: flamingDesires,
-        sendMsg: "§c焔裂き(ほむらざき)"
+        sendMsg: "magic.kurokumaft:flamingDesires.translate"
     },
     {
         itemName: "kurokumaft:water_magic_bread",
         func: aquaDesires,
-        sendMsg: "§b蒼破斬(そうはざん)"
+        sendMsg: "magic.kurokumaft:aquaDesires.translate"
     },
     {
         itemName: "kurokumaft:wind_magic_bread",
         func: windDesires,
-        sendMsg: "§a烈風刃(れっぷうじん)"
+        sendMsg: "magic.kurokumaft:windDesires.translate"
     },
     {
         itemName: "kurokumaft:stone_magic_bread",
         func: stoneDesires,
-        sendMsg: "§7岩割刃(がんかつじん)"
+        sendMsg: "magic.kurokumaft:stoneDesires.translate"
     },
     {
         itemName: "kurokumaft:thunder_magic_bread",
         func: thunderDesires,
-        sendMsg: "§6雷斬(らいきり)"
+        sendMsg: "magic.kurokumaft:thunderDesires.translate"
     },
     {
         itemName: "kurokumaft:ice_magic_bread",
         func: iceDesires,
-        sendMsg: "§f斬雪(ざんせつ)"
+        sendMsg: "magic.kurokumaft:iceDesires.translate"
     }
 ]);
 
@@ -50,32 +50,32 @@ const BreadShotObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_magic_bread",
         func: crimsonBread,
-        sendMsg: "§c紅蓮剣(ぐれんけん)"
+        sendMsg: "magic.kurokumaft:crimsonBread.translate"
     },
     {
         itemName: "kurokumaft:water_magic_bread",
         func: mercurySmash,
-        sendMsg: "§b水星砕き(すいせいくだき)"
+        sendMsg: "magic.kurokumaft:mercurySmash.translate"
     },
     {
         itemName: "kurokumaft:wind_magic_bread",
         func: windBarkSlash,
-        sendMsg: "§a風鳴切(かなきり)"
+        sendMsg: "magic.kurokumaft:windBarkSlash.translate"
     },
     {
         itemName: "kurokumaft:stone_magic_bread",
         func: breakRockSlash,
-        sendMsg: "§7破岩衝(はがんしょう)"
+        sendMsg: "magic.kurokumaft:breakRockSlash.translate"
     },
     {
         itemName: "kurokumaft:thunder_magic_bread",
         func: raizinBread,
-        sendMsg: "§6雷神剣(らいじんけん)"
+        sendMsg: "magic.kurokumaft:raizinBread.translate"
     },
     {
         itemName: "kurokumaft:ice_magic_bread",
         func: syusetuBread,
-        sendMsg: "§f終雪氷晶(しゅうせつひょうしょう)"
+        sendMsg: "magic.kurokumaft:syusetuBread.translate"
     }
 
 ]);
@@ -97,17 +97,9 @@ export class BreadWeaponMagic implements ItemCustomComponent {
         }
         let breadMagicObject = BreadHitObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadMagicObject.func(hitEntity);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + breadMagicObject.sendMsg + "\"}]}");
-        if (attackEntity instanceof Player && attackEntity.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
-        }
+        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + breadMagicObject.sendMsg + "\"}]}");
+        ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 
-    }
-
-    // チャージ完了
-    onCompleteUse(event:ItemComponentCompleteUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
     }
 
     // 右クリック
@@ -120,15 +112,10 @@ export class BreadWeaponMagic implements ItemCustomComponent {
         }
         let breadShotObject = BreadShotObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadShotObject.func(player);
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + breadShotObject.sendMsg + "\"}]}");
-        if (player.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + breadShotObject.sendMsg + "\"}]}");
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
     }
 
-    // ブロッククリック
-    onUseOn(event:ItemComponentUseOnEvent) {
-    }
 }

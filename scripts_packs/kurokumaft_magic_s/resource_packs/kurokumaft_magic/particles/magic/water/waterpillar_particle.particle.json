@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:waterpillar_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -38,7 +38,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.40784, 0.65098, 1, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF68A6FF",
+						"1.0": "#FF093068"
+					}
+				}
 			}
 		}
 	}

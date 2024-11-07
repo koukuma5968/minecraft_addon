@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:stone_shell",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -45,9 +45,9 @@
 				"color": {
 					"interpolant": "v.particle_age / v.particle_lifetime",
 					"gradient": {
-						"0.26": "#FF6E7774",
-						"0.62": "#FFAFB6B6",
-						"1.0": "#ff000000"
+						"0.18": "#FFA4C0C0",
+						"0.52": "#FF364E4E",
+						"0.88": "#FF0B1414"
 					}
 				}
 			}

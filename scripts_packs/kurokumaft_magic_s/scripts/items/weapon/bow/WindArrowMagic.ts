@@ -1,12 +1,12 @@
-import { Entity, EntityDamageCause, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { Entity, EntityDamageCause, Player, system, TicksPerSecond, Vector3, world } from "@minecraft/server";
+import { shooting } from "../../../common/ShooterMagicEvent";
 
 /**
  * ウィンドアロー
  */
-export async function windArrowShot(player:Player, arrow:string, loca:Vector3, speed:number) {
+export async function windArrowShot(player:Player, arrow:string, ran:number, speed:number) {
     let intervalNum = system.runInterval(() => {
-        shooting(player, arrow, loca, speed, undefined);
+        shooting(player, arrow, ran, speed, undefined);
     }, 2);
     system.runTimeout(() => {
         system.clearRun(intervalNum);
@@ -19,9 +19,17 @@ export async function windArrowShot(player:Player, arrow:string, loca:Vector3, s
 export async function windArrow(entity:Entity) {
     let intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
-            entity.applyDamage(3, {
-                cause: EntityDamageCause.fall
-            });
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.applyDamage(1, {
+                        cause: EntityDamageCause.fall
+                    });
+                }
+            } else {
+                entity.applyDamage(3, {
+                    cause: EntityDamageCause.fall
+                });
+            }
         }
     }, TicksPerSecond);
     system.runTimeout(() => {

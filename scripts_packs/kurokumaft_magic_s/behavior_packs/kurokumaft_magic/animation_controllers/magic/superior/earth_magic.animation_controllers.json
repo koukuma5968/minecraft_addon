@@ -10,7 +10,7 @@
         },
         "jewel_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ジュエルビット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:jewel_bit.translate\"}]}",
             "/function magic/stone/jewel_bit"
           ],
           "transitions": [

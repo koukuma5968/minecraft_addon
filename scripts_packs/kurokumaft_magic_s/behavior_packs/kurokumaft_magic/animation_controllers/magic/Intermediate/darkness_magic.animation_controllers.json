@@ -10,7 +10,7 @@
         },
         "hellblast": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ヘルブラスト\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:hellblast.translate\"}]}",
             "/tag @s add hellblast_self",
             "/function magic/dark/hellblast"
           ],

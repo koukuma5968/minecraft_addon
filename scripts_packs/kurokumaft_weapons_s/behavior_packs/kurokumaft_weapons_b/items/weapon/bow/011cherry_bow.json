@@ -19,6 +19,10 @@
         "value": "item.kurokumaft:cherry_bow.name"
       },
       "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 3
+        },
         "max_durability": 200
       },
       "minecraft:enchantable": {

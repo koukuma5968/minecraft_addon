@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:stone_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -35,7 +35,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.57647, 0.55686, 0.55686, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF938E8E",
+						"1.0": "#FF3C3838"
+					}
+				}
 			}
 		}
 	}

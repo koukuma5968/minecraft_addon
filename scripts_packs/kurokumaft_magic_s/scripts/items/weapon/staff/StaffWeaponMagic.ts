@@ -1,11 +1,11 @@
 import { Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
-import { shooting, throwing } from "../../../custom/ShooterMagicEvent";
+import { shooting, throwing } from "../../../common/ShooterMagicEvent";
 import { print, getRandomInRange, clamp } from "../../../common/commonUtil";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { bramFang, fireStorm } from "./FirestormMagic";
-import { explosion } from "./ExplosionMagic";
-import { flameSpark } from "./FlameSparkMagic";
-import { mailstrom } from "./MailstromMagic";
+import { explosion, megaBrand } from "./ExplosionMagic";
+import { digVault, flameSpark } from "./FlameSparkMagic";
+import { mailstrom, sonicSlicer } from "./MailstromMagic";
 
 interface StaffMagicObject {
     itemName:string,
@@ -18,23 +18,23 @@ interface StaffMagicObject {
 const StaffHitObjects = Object.freeze([
     {
         itemName: "kurokumaft:explosion_staff",
-        event: "fire/mega_brand",
-        sendMsg: "§7メガ・ブランド"
+        func: megaBrand,
+        sendMsg: "magic.kurokumaft:megaBrand.translate"
     },
     {
         itemName: "kurokumaft:firestorm_staff",
         func: bramFang,
-        sendMsg: "§aブラム・ファング"
+        sendMsg: "magic.kurokumaft:bramFang.translate"
     },
     {
         itemName: "kurokumaft:flamespark_staff",
-        event: "lightning/dig_vault",
-        sendMsg: "§6ディグ・ヴォルト"
+        func: digVault,
+        sendMsg: "magic.kurokumaft:digVault.translate"
     },
     {
         itemName: "kurokumaft:mailstrom_staff",
-        event: "wind/sonic_slicer",
-        sendMsg: "§aソニックスライサー"
+        func: sonicSlicer,
+        sendMsg: "magic.kurokumaft:sonicSlicer.translate"
     }
 
 ]);
@@ -43,22 +43,22 @@ const StaffRightOneMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:firestorm_staff",
         func: fireStorm,
-        sendMsg: "§cファイアストーム"
+        sendMsg: "magic.kurokumaft:fireStorm.translate"
     },
     {
         itemName: "kurokumaft:explosion_staff",
         func: explosion,
-        sendMsg: "§cエクスプロージョン"
+        sendMsg: "magic.kurokumaft:explosion.translate"
     },
     {
         itemName: "kurokumaft:flamespark_staff",
         func: flameSpark,
-        sendMsg: "§6フレイムスパーク"
+        sendMsg: "magic.kurokumaft:flameSpark.translate"
     },
     {
         itemName: "kurokumaft:mailstrom_staff",
         func: mailstrom,
-        sendMsg: "§bメイルシュトローム"
+        sendMsg: "magic.kurokumaft:mailstrom.translate"
     }
 
 ]);
@@ -74,16 +74,12 @@ export class StaffWeaponMagic implements ItemCustomComponent {
         let hitEntity = event.hitEntity as Entity;
         let effect = event.hadEffect as boolean;
 
-        if (!itemStack || (hitEntity instanceof Player && !world.gameRules.pvp)) {
+        if (!itemStack) {
             return;
         }
         let staffMagicObject = StaffHitObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
-        if (staffMagicObject.event) {
-            attackEntity.runCommand("/function magic/" + staffMagicObject.event);
-        } else {
-            staffMagicObject.func(attackEntity);
-        }
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + staffMagicObject.sendMsg + "\"}]}");
+        staffMagicObject.func(attackEntity);
+        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + staffMagicObject.sendMsg + "\"}]}");
 
     }
 
@@ -92,19 +88,13 @@ export class StaffWeaponMagic implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let player = event.source as Player;
 
-        // pvp用
-        if (world.gameRules.pvp) {
-            let staffRightOneMagicObject = StaffRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
-            if (staffRightOneMagicObject) {
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + staffRightOneMagicObject.sendMsg + "\"}]}");
-                staffRightOneMagicObject.func(player);
-            }
-        } else {
+        let staffRightOneMagicObject = StaffRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
+        if (staffRightOneMagicObject) {
+            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + staffRightOneMagicObject.sendMsg + "\"}]}");
+            staffRightOneMagicObject.func(player);
         }
 
-        if (player.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

@@ -1,9 +1,9 @@
-import { BlockCustomComponent, BlockEvent, BlockComponentStepOnEvent, EntityDamageCause, Entity, EffectTypes } from "@minecraft/server";
+import { BlockCustomComponent, BlockEvent, BlockComponentStepOnEvent, EntityDamageCause, Entity, EffectTypes, TicksPerSecond, system, EntityQueryOptions, BlockComponentStepOffEvent, world } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 interface WallMagicObject {
     itemName:string,
-    func:any
+    func:CallableFunction
 }
 
 const WallMagicObjects = Object.freeze([
@@ -28,18 +28,48 @@ const WallMagicObjects = Object.freeze([
 export class WallBlock implements BlockCustomComponent {
 
     onStepOn(blockEvent:BlockComponentStepOnEvent) {
-        WallMagicObjects.find(obj => obj.itemName == blockEvent.block.typeId)?.func(blockEvent);
+        let entity = blockEvent.entity as Entity;
+        if (entity != undefined) {
+            let filterOption = {
+                excludeFamilies: [
+                    "inanimate", "magic", "arrow"
+                ],
+                excludeTypes: [
+                    "item"
+                ],
+                location: entity.location
+            } as EntityQueryOptions;
+    
+            if (entity.matches(filterOption)) {
+                let wallMagicObject = WallMagicObjects.find(obj => obj.itemName == blockEvent.block.typeId) as WallMagicObject;
+                wallMagicObject.func(blockEvent);
+            }
+        }
     }
 
+    onStepOff(blockEvent:BlockComponentStepOffEvent) {
+
+        let entity = blockEvent.entity as Entity;
+        if (entity != undefined) {
+            let wallNum = entity.getDynamicProperty("walllNum");
+            if (wallNum != undefined) {
+                system.clearRun(wallNum as number);
+            }
+        }
+    }
 }
 
 async function lightningwall(blockEvent:BlockComponentStepOnEvent) {
     let block = blockEvent.block;
     let dimension = blockEvent.dimension;
     let entity = blockEvent.entity as Entity;
-    entity.applyDamage(1, {
-        cause: EntityDamageCause.lightning
-    });
+    let intervalnum = system.runInterval(() => {
+        entity.applyDamage(1, {
+            cause: EntityDamageCause.lightning
+        });
+    },4);
+    entity.setDynamicProperty("walllNum", intervalnum);
+
 
 }
 
@@ -47,9 +77,12 @@ async function waterwall(blockEvent:BlockComponentStepOnEvent) {
     let block = blockEvent.block;
     let dimension = blockEvent.dimension;
     let entity = blockEvent.entity as Entity;
-    entity.applyDamage(1, {
-        cause: EntityDamageCause.drowning
-    });
+    let intervalnum = system.runInterval(() => {
+        entity.applyDamage(1, {
+            cause: EntityDamageCause.drowning
+        });
+    },4);
+    entity.setDynamicProperty("walllNum", intervalnum);
 
 }
 
@@ -57,8 +90,8 @@ async function windwall(blockEvent:BlockComponentStepOnEvent) {
     let block = blockEvent.block;
     let dimension = blockEvent.dimension;
     let entity = blockEvent.entity as Entity;
-    entity.addEffect(MinecraftEffectTypes.Levitation, 2, {
-        amplifier: 2
+    entity.addEffect(MinecraftEffectTypes.Levitation, 2*TicksPerSecond, {
+        amplifier: 3
     });
 
 }

@@ -10,8 +10,8 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": 3000,
-				"max_particles": 3000
+				"spawn_rate": 500,
+				"max_particles": 500
 			},
 			"minecraft:emitter_lifetime_once": {
 				"active_time": 0.3
@@ -40,7 +40,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.80392, 0.83137, 0.87451, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFE6DAA1",
+						"1.0": "#FF5C5613"
+					}
+				}
 			}
 		}
 	}

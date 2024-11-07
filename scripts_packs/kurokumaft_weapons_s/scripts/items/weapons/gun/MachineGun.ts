@@ -40,11 +40,7 @@ async function shotMachineGun(player: Player, item: ItemStack) {
             return;
         }
 
-        let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-        let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-        let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
-        shooting(player, "kurokumaft:thirty_eight_special_entity", {x:xran,y:yran,z:zran}, 5, undefined);
+        shooting(player, "kurokumaft:thirty_eight_special_entity", 0.2, 5, undefined);
         if (count % 4 === 0) {
             let loock = getLookPoints(player.getRotation(), player.location, 1.5);
             player.dimension.spawnParticle("minecraft:explosion_manual", {x:loock.x, y:loock.y, z:loock.z});

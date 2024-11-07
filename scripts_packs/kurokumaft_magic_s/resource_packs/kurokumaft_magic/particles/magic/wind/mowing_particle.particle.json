@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:mowing_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -26,7 +26,7 @@
 			},
 			"minecraft:particle_initial_speed": 10,
 			"minecraft:particle_motion_dynamic": {
-				"linear_acceleration": [10, 10, 10]
+				"linear_acceleration": [10, 5, 10]
 			},
 			"minecraft:particle_appearance_billboard": {
 				"size": ["0.75*(variable.emitter_lifetime*1.5)-(variable.particle_age*0.2)", "0.5*(variable.emitter_lifetime*1.5)-(variable.particle_age*0.2)"],
@@ -44,7 +44,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.11765, 0.94118, 0.52549, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF1EF086",
+						"1.0": "#FF1EF086"
+					}
+				}
 			}
 		}
 	}

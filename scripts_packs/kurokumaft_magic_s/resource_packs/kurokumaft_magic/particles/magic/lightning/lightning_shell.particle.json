@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:lightning_shell",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -42,7 +42,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.90196, 0.77255, 0.07451, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFE6C513",
+						"1.0": "#FF3C350A"
+					}
+				}
 			}
 		}
 	}

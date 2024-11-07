@@ -10,7 +10,7 @@
         },
         "thunder_cutter": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダーカッター\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:thunder_cutter.translate\"}]}",
             "/function magic/lightning/thunder_cutter"
           ],
           "transitions": [

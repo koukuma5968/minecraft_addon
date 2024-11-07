@@ -10,7 +10,7 @@
         },
         "night_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ナイトビット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:night_bit.translate\"}]}",
             "/function magic/dark/night_bit"
           ],
           "transitions": [

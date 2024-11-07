@@ -10,7 +10,7 @@
         },
         "wind_roar": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§aウィンドロアー\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:wind_roar.translate\"}]}",
             "/function magic/wind/wind_roar"
           ],
           "transitions": [

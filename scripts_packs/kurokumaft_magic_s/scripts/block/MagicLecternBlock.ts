@@ -25,7 +25,6 @@ export class MagicLecternBlock implements BlockCustomComponent {
         let item = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         let block = blockEvent.block;
         let dimension = blockEvent.dimension;
-        world.sendMessage("onPlayerInteract");
         magic_lectern(player, item, block)
     }
 }
@@ -284,5 +283,5 @@ export async function magic_lectern_break(block: Block, dimension: Dimension) {
 };
 
 function noBookItem() {
-    world.sendMessage("このアイテムは対応していません");
+    world.sendMessage({ translate: "magic_lectern.mess.noboobk" });
 };

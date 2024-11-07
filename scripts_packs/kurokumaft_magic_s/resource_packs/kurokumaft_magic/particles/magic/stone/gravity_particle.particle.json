@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:gravity_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -44,7 +44,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.36078, 0.38431, 0.39216, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF5C6264",
+						"0.48": "#FF051F24"
+					}
+				}
 			}
 		}
 	}

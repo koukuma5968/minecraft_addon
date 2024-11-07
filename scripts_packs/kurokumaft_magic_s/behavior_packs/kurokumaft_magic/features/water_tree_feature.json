@@ -1,0 +1,73 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "kurokumaft:water_tree_feature"
+    },
+    "base_block": [
+      "minecraft:sand",
+      "minecraft:gravel"
+    ],
+    "may_grow_on": [
+      "minecraft:sand",
+      "minecraft:gravel"
+    ],
+    "may_replace": [
+      "minecraft:seagrass",
+      "minecraft:kelp",
+      "minecraft:water",
+      "minecraft:air"
+     ],
+    "may_grow_through": [
+      "minecraft:sand",
+      "minecraft:dirt",
+      "minecraft:gravel",
+      {
+        "name": "minecraft:dirt",
+        "states": {
+          "dirt_type": "coarse"
+        }
+      }
+    ],
+    "mega_trunk": {
+      "trunk_block": {
+        "name": "kurokumaft:water_log"
+      },
+      "trunk_width": 2,
+      "trunk_height": {
+        "base": 10,
+        "intervals": [10, 20]
+      },
+      "branches": {
+        "branch_length": 6,
+        "branch_slope": 2,
+        "branch_interval": {
+          "range_min": 2,
+          "range_max": 5
+        },
+        "branch_altitude_factor": {
+          "min": 0.8,
+          "max": 1.0
+        },
+        "branch_canopy": {
+          "mega_canopy": {
+            "leaf_block": "kurokumaft:water_leaves",
+            "canopy_height": {
+              "range_min": 1,
+              "range_max": 4
+            },
+            "base_radius": 4
+          }
+        }     
+      }
+    },
+    "mega_canopy": {
+      "leaf_block": "kurokumaft:water_leaves",
+      "canopy_height": {
+        "range_min": 4,
+        "range_max": 6
+      },
+      "base_radius": 6
+    }
+  }
+}

@@ -1,62 +1,68 @@
-import { Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
-import { shooting, throwing } from "../../../custom/ShooterMagicEvent";
-import { print, getRandomInRange, clamp } from "../../../common/commonUtil";
+import { Entity, EquipmentSlot, GameMode, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
+import { shooting } from "../../../common/ShooterMagicEvent";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { aquaShot, tidalWave } from "./WaterCurrentMagic";
-import { atmosphere } from "./AtmosphereMagic";
-import { gravityField } from "./EarthMagic";
-import { lightningStrike } from "./LightningStrikeMagic";
-import { blackHole } from "./JetBlackMagic";
-import { hollyField } from "./SparkleMagic";
+import { aquaShock, aquaShot, tidalWave } from "./WaterCurrentMagic";
+import { atmosphere, stormShock } from "./AtmosphereMagic";
+import { earthShock, gravityField } from "./EarthMagic";
+import { lightningStrike, sparkShock } from "./LightningStrikeMagic";
+import { blackHole, jetblackShock } from "./JetBlackMagic";
+import { hollyField, sparkleShock } from "./SparkleMagic";
+import { blastbomb, flameShock } from "./BlazeMagic";
+import { iceBlock, iceShock } from "./BlockiceMagic";
+
+interface StickFuncMagicObject {
+    itemName:string,
+    sendMsg:string,
+    func: CallableFunction
+}
 
 interface StickMagicObject {
     itemName:string,
     event:string
     sendMsg:string,
-    addition:number,
-    func: any
+    addition:number
 }
 
 const StickHitObjects = Object.freeze([
     {
         itemName: "kurokumaft:blaze_stick",
-        event: "fire/flame_shock",
-        sendMsg: "§cフレイムショック"
+        func: flameShock,
+        sendMsg: "magic.kurokumaft:flameShock.translate"
     },
     {
         itemName: "kurokumaft:watercurrent_stick",
-        event: "water/splash",
-        sendMsg: "§bスプラッシュ"
+        func: aquaShock,
+        sendMsg: "magic.kurokumaft:aquaShock.translate"
     },
     {
         itemName: "kurokumaft:atmosphere_stick",
-        event: "wind/storm_shock",
-        sendMsg: "§aストームショック"
+        func: stormShock,
+        sendMsg: "magic.kurokumaft:stormShock.translate"
     },
     {
         itemName: "kurokumaft:earth_stick",
-        event: "stone/earth_shock",
-        sendMsg: "§7アースショック"
+        func: earthShock,
+        sendMsg: "magic.kurokumaft:earthShock.translate"
     },
     {
         itemName: "kurokumaft:lightningstrike_stick",
-        event: "lightning/spark_shock",
-        sendMsg: "§6スパークショック"
+        func: sparkShock,
+        sendMsg: "magic.kurokumaft:sparkShock.translate"
     },
     {
         itemName: "kurokumaft:blockice_stick",
-        event: "ice/powdered_snow",
-        sendMsg: "§fアイスショック"
+        func: iceShock,
+        sendMsg: "magic.kurokumaft:iceShock.translate"
     },
     {
         itemName: "kurokumaft:jetblack_stick",
-        event: "dark/jetblack_shock",
-        sendMsg: "§8ジェットブラック"
+        func: jetblackShock,
+        sendMsg: "magic.kurokumaft:jetblackShock.translate"
     },
     {
         itemName: "kurokumaft:sparkle_stick",
-        event: "light/sparkle_light",
-        sendMsg: "§eスパークルライト"
+        func: sparkleShock,
+        sendMsg: "magic.kurokumaft:sparkleShock.translate"
     }
 
 ]);
@@ -65,44 +71,44 @@ const StickShotMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:blaze_stick",
         event: "kurokumaft:valleleflairmagic",
-        sendMsg: "§cヴァルフレア",
-        addition: 2
+        sendMsg: "magic.kurokumaft:valleleflair.translate",
+        addition: 5
     },
     {
         itemName: "kurokumaft:atmosphere_stick",
         event: "kurokumaft:storm_cutter_magic",
-        sendMsg: "§aストームカッター",
-        addition: 5
+        sendMsg: "magic.kurokumaft:storm_cutter.translate",
+        addition: 6
     },
     {
         itemName: "kurokumaft:earth_stick",
         event: "kurokumaft:stone_edge_magic",
-        sendMsg: "§7ストーンエッジ",
-        addition: 2
+        sendMsg: "magic.kurokumaft:stone_edge.translate",
+        addition: 4
     },
     {
         itemName: "kurokumaft:lightningstrike_stick",
         event: "kurokumaft:thunder_lance_magic",
-        sendMsg: "§6サンダーランス",
-        addition: 6
+        sendMsg: "magic.kurokumaft:thunder_lance.translate",
+        addition: 7
     },
     {
         itemName: "kurokumaft:blockice_stick",
         event: "kurokumaft:ice_lance_magic",
-        sendMsg: "§fアイスランス",
-        addition: 4
+        sendMsg: "magic.kurokumaft:ice_lance.translate",
+        addition: 6
     },
     {
         itemName: "kurokumaft:jetblack_stick",
         event: "kurokumaft:dark_lance_magic",
-        sendMsg: "§8ダークランス",
-        addition: 4
+        sendMsg: "magic.kurokumaft:dark_lance.translate",
+        addition: 5
     },
     {
         itemName: "kurokumaft:sparkle_stick",
         event: "kurokumaft:holly_lance_magic",
-        sendMsg: "§eホーリーランス",
-        addition: 4
+        sendMsg: "magic.kurokumaft:holly_lance.translate",
+        addition: 5
     }
 
 ]);
@@ -111,55 +117,51 @@ const StickRightOneMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:watercurrent_stick",
         func: aquaShot,
-        sendMsg: "§bアクアショット"
-    }
-
-]);
-
-const StickRightEventMagicObjects = Object.freeze([
-    {
-        itemName: "kurokumaft:blaze_stick",
-        event: "fire/blastbomb",
-        sendMsg: "§cブラストボム"
-    },
-    {
-        itemName: "kurokumaft:blockice_stick",
-        event: "ice/ice_block",
-        sendMsg: "§fアイスブロック"
+        sendMsg: "magic.kurokumaft:aquaShot.translate"
     }
 
 ]);
 
 const StickRightFuncMagicObjects = Object.freeze([
     {
+        itemName: "kurokumaft:blaze_stick",
+        func: blastbomb,
+        sendMsg: "magic.kurokumaft:blastbomb.translate"
+    },
+    {
         itemName: "kurokumaft:watercurrent_stick",
         func: tidalWave,
-        sendMsg: "§bタイダルウェイブ"
+        sendMsg: "magic.kurokumaft:tidalWave.translate"
     },
     {
         itemName: "kurokumaft:atmosphere_stick",
         func: atmosphere,
-        sendMsg: "§aアトモスフィア"
+        sendMsg: "magic.kurokumaft:atmosphere.translate"
     },
     {
         itemName: "kurokumaft:earth_stick",
         func: gravityField,
-        sendMsg: "§7グラビティフィールド"
+        sendMsg: "magic.kurokumaft:gravityField.translate"
     },
     {
         itemName: "kurokumaft:lightningstrike_stick",
         func: lightningStrike,
-        sendMsg: "§6ライトニングストライク"
+        sendMsg: "magic.kurokumaft:lightningStrike.translate"
+    },
+    {
+        itemName: "kurokumaft:blockice_stick",
+        func: iceBlock,
+        sendMsg: "magic.kurokumaft:iceBlock.translate"
     },
     {
         itemName: "kurokumaft:jetblack_stick",
         func: blackHole,
-        sendMsg: "§8ブラックホール"
+        sendMsg: "magic.kurokumaft:blackHole.translate"
     },
     {
         itemName: "kurokumaft:sparkle_stick",
         func: hollyField,
-        sendMsg: "§eホーリーフィールド"
+        sendMsg: "magic.kurokumaft:hollyField.translate"
     }
 
 ]);
@@ -179,9 +181,9 @@ export class StickWeaponMagic implements ItemCustomComponent {
         if (!itemStack || (hitEntity instanceof Player && !world.gameRules.pvp)) {
             return;
         }
-        let wandMagicObject = StickHitObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
-        attackEntity.runCommand("/function magic/" + wandMagicObject.event);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + wandMagicObject.sendMsg + "\"}]}");
+        let stickMagicObject = StickHitObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
+        stickMagicObject.func(attackEntity, hitEntity);
+        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickMagicObject.sendMsg + "\"}]}");
 
     }
 
@@ -191,49 +193,35 @@ export class StickWeaponMagic implements ItemCustomComponent {
         let player = event.source as Player;
 
         if (player.isSneaking) {
-            let stickEventMagicObject = StickRightEventMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
-            if (stickEventMagicObject) {
-                player.runCommand("/function magic/" + stickEventMagicObject.event);
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickEventMagicObject.sendMsg + "\"}]}");
-            }
-            let stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
+            let stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
             if (stickFuncMagicObject) {
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickFuncMagicObject.sendMsg + "\"}]}");
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickFuncMagicObject.sendMsg + "\"}]}");
                 stickFuncMagicObject.func(player);
             }
         } else {
             let stickShotMagicObject = StickShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
             if (stickShotMagicObject) {
-                let xran = parseFloat(getRandomInRange(-0.1, 0.5).toFixed(3));
-                let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-                let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
 
                 if (itemStack.typeId == "kurokumaft:atmosphere_stick") {
                     let intervalNum = system.runInterval(() => {
-                        xran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-                        yran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-                        zran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-    
-                        shooting(player, stickShotMagicObject.event, {x:xran,y:yran,z:zran}, stickShotMagicObject.addition, undefined);
+                        shooting(player, stickShotMagicObject.event, 1, stickShotMagicObject.addition, undefined);
                     }, 4);
                     system.runTimeout(() => {
                         system.clearRun(intervalNum);
                     }, 16);
                 } else {
-                    shooting(player, stickShotMagicObject.event, {x:xran,y:yran,z:zran}, stickShotMagicObject.addition, undefined);
+                    shooting(player, stickShotMagicObject.event, 0, stickShotMagicObject.addition, undefined);
                 }
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickShotMagicObject.sendMsg + "\"}]}");
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickShotMagicObject.sendMsg + "\"}]}");
             }
-            let stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
+            let stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
             if (stickRightOneMagicObject) {
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + stickRightOneMagicObject.sendMsg + "\"}]}");
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickRightOneMagicObject.sendMsg + "\"}]}");
                 stickRightOneMagicObject.func(player);
             }
         }
 
-        if (player.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

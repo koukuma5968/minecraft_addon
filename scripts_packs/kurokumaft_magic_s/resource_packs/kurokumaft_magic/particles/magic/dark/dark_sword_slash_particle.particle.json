@@ -2,9 +2,9 @@
 	"format_version": "1.10.0",
 	"particle_effect": {
 		"description": {
-			"identifier": "kurokumaft:dark_sword_slash_particle",
+			"identifier": "kurokumaft:dark_sword_slash",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -31,16 +31,22 @@
 			},
 			"minecraft:particle_appearance_billboard": {
 				"size": ["0.75*(variable.emitter_lifetime*1.5)-(variable.particle_age*0.2)", "0.5*(variable.emitter_lifetime*1.5)-(variable.particle_age*0.2)"],
-				"facing_camera_mode": "rotate_y",
+				"facing_camera_mode": "rotate_xyz",
 				"uv": {
 					"texture_width": 128,
 					"texture_height": 128,
-					"uv": [63, 100],
-					"uv_size": [8, 8]
+					"uv": [17, 97],
+					"uv_size": [7, 7]
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.69412, 0.02353, 0.83922, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFB106D6",
+						"1.0": "#FF470256"
+					}
+				}
 			}
 		}
 	}

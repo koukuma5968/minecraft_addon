@@ -10,7 +10,7 @@
         },
         "ice_needle": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§fアイスニードル\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:ice_needle.translate\"}]}",
             "/tag @s add ice_needle_self",
             "/function magic/ice/ice_needle"
           ],

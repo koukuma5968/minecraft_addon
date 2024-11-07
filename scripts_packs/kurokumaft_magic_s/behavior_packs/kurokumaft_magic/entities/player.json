@@ -6,8 +6,61 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:gun_charge_fire": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:gun_charge_water": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:gun_charge_wind": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:gun_charge_stone": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:gun_charge_lightning": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:gun_charge_ice": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+
+        "kurokumaft:fire_potion_level": {
+          "range": [ 0, 3 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:water_potion_level": {
+          "range": [ 0, 5 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
+          "attack_action",
+          "jump_action",
 
           "light","dark",
 
@@ -22,6 +75,9 @@
         "five_mine": "animation.cooldown.five_mine",
         "ten_mine": "animation.cooldown.ten_mine",
         "twenty_mine": "animation.cooldown.twenty_mine",
+
+        "attack_action": "controller.animation.attack_action",
+        "jump_action": "controller.animation.jump_action",
 
         "light":"controller.animation.light_magic.light",
         "dark":"controller.animation.dark_magic.dark",
@@ -89,14 +145,35 @@
         }
       },
 
+      "kurokumaft:attack10_up": {
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:attack15_up": {
+        "minecraft:attack": {
+          "damage": 15
+        }
+      },
       "kurokumaft:attack20_up": {
-          "minecraft:attack": {
+        "minecraft:attack": {
           "damage": 20
         }
       },
+      "kurokumaft:attack25_up": {
+        "minecraft:attack": {
+          "damage": 25
+        }
+      },
+      "kurokumaft:attack30_up": {
+        "minecraft:attack": {
+          "damage": 30
+        }
+      },
+
       "kurokumaft:attack_down": {
         "minecraft:attack": {
-        "damage": 1
+          "damage": 1
         }
       },
       "kurokumaft:water_speed_walker_up": {
@@ -134,6 +211,11 @@
         "minecraft:health": {
           "value": 20,
           "max": 20
+        }
+      },
+      "kurokumaft:explosion_knockback_add": {
+        "minecraft:knockback_resistance": {
+          "value": 100.0
         }
       },
       "kurokumaft:armor_knockback_add": {
@@ -278,11 +360,12 @@
         "attack": 0.1,
         "damage": 0.1,
         "walk": 0.0,
-        "sprint": 0.01,
+        "sprint": 0.1,
         "swim": 0.01
       },
       "minecraft:player.saturation": {
-        "value": 20
+        "value": 5,
+        "max": 20
       },
       "minecraft:player.exhaustion": {
         "value": 0,
@@ -354,8 +437,6 @@
                   {
                     "any_of" :[
                       {"test": "has_damage","operator": "equals","subject": "self","value": "attack"},
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"},
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"},
                       {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
                       {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
                     ]
@@ -383,11 +464,11 @@
                     ]
                   }
                 ]
-              }
+              },
+              "event": "kurokumaft:explosion_guard_knockback"
             },
-            "cause": "block_explosion",
-            "damage_modifier": -20,
-            "deals_damage": true
+            "cause": "all",
+            "deals_damage": false
           },
           {
             "on_damage": {
@@ -442,16 +523,11 @@
               "filters": {
                 "all_of" : [
                   {"test": "has_damage","operator": "equals","subject": "self","value": "fall"},
-                  {
-                    "any_of" :[
-                      {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:stone_magic_boots"},
-                      {"test": "has_equipment","domain": "feet","operator": "==","subject": "self","value": "kurokumaft:nether_stone_magic_boots"}
-                    ]
-                  }
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "fall_invalid"}
                 ]
               }
             },
-            "cause": "fall",
+            "cause": "all",
             "deals_damage": false
           },
           {
@@ -459,18 +535,28 @@
               "filters": {
                 "all_of" : [
                   {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "projectile_invalid"}
+                ]
+              }
+            },
+            "cause": "all",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "explosion_nullify"},
                   {
-                    "any_of" :[
-                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:wind_magic_helmet"},
-                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_wind_magic_helmet"},
-                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:lightning_magic_helmet"},
-                      {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:nether_lightning_magic_helmet"}
+                    "any_of": [
+                      {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" },
+                      {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
                     ]
                   }
                 ]
               }
             },
-            "cause": "projectile",
+            "cause": "entity_explosion",
             "deals_damage": false
           }
         ]
@@ -522,6 +608,14 @@
         }
       },
 
+      "kurokumaft:attack_event": {
+      },
+      "kurokumaft:jump_event": {
+      },
+      "kurokumaft:two_jump_event": {
+      },
+      "kurokumaft:on_ground_event": {
+      },
       "variant0": {
         "add": {
           "component_groups": [ "variant0" ]
@@ -609,11 +703,32 @@
         }
 			},
 
+      "kurokumaft:attack10_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack10_up" ]
+        }
+      },
+      "kurokumaft:attack15_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack15_up" ]
+        }
+      },
       "kurokumaft:attack20_up": {
 				"add": {
           "component_groups": [ "kurokumaft:attack20_up" ]
         }
       },
+      "kurokumaft:attack25_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack25_up" ]
+        }
+      },
+      "kurokumaft:attack30_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack30_up" ]
+        }
+      },
+
       "kurokumaft:attack_down": {
 				"add": {
           "component_groups": [ "kurokumaft:attack_down" ]
@@ -654,6 +769,13 @@
           "component_groups": [ "kurokumaft:speed_walker_down" ]
         }
 			},
+      "kurokumaft:explosion_guard_knockback" : {
+      },
+      "kurokumaft:explosion_knockback_add" : {
+				"add": {
+          "component_groups": [ "kurokumaft:explosion_knockback_add" ]
+        }
+      },
 			"kurokumaft:armor_knockback_add": {
 				"add": {
           "component_groups": [ "kurokumaft:armor_knockback_add" ]

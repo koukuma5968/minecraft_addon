@@ -29,6 +29,24 @@
       },
       "minecraft:physics": {
       },
+      "minecraft:projectile": {
+        "on_hit": {
+          "affect_projectile": true,
+          "impact_damage": {
+            "damage": 1,
+            "knockback": true,
+            "catch_fire": false,
+            "destroy_on_hit": false,
+            "semi_random_diff_damage": false
+          }
+        },
+        "power": 1,
+        "gravity": 0.01,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "reflect_on_hurt": true,
+        "offset": [ 0, -0.5, 0 ]
+      },
       "minecraft:pushable": {
        "is_pushable": true,
        "is_pushable_by_piston": true

@@ -1,7 +1,4 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentUseOnEvent, system, ItemComponentCompleteUseEvent, Entity } from "@minecraft/server";
-import { getRandomInRange, clamp } from "../../../common/commonUtil";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, ItemComponentCompleteUseEvent, Entity } from "@minecraft/server";
 import { fireShell } from "./FireShellMagic";
 import { iceShell } from "./IceShellMagic";
 import { lightningShell } from "./LightningShellMagic";
@@ -89,10 +86,10 @@ export function checkShellProjectile(projectileName:string) {
     return ShellBomObjects.some(obj => obj.itemName == projectileName);
 }
 
-export function hitShellEvent(projectile:Entity) {
+export function hitShellEvent(projectile: Entity, dameger: Entity) {
     let proje = ShellBomObjects.find(obj => obj.itemName == projectile.typeId) as BazookaMagicObject;
     try {
-        proje.func(projectile);
+        proje.func(projectile, dameger);
     } catch (error) {
     }
 }

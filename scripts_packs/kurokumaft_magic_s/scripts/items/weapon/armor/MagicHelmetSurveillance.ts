@@ -21,6 +21,18 @@ const MagicHelmetObjects = Object.freeze([
         removeFunc: waterBreathingEffectReset
     },
     {
+        itemName: "kurokumaft:wind_magic_helmet",
+        func: projectileInvalid,
+        delay: TicksPerSecond * 1,
+        removeFunc: projectileInvalidReset
+    },
+    {
+        itemName: "kurokumaft:lightning_magic_helmet",
+        func: projectileInvalid,
+        delay: TicksPerSecond * 1,
+        removeFunc: projectileInvalidReset
+    },
+    {
         itemName: "kurokumaft:stone_magic_helmet",
         func: resistanceEffect,
         delay: TicksPerSecond * 10,
@@ -43,6 +55,18 @@ const MagicHelmetObjects = Object.freeze([
         func: waterBreathingEffect,
         delay: TicksPerSecond * 10,
         removeFunc: waterBreathingEffectReset
+    },
+    {
+        itemName: "kurokumaft:nether_wind_magic_helmet",
+        func: projectileInvalid,
+        delay: TicksPerSecond * 1,
+        removeFunc: projectileInvalidReset
+    },
+    {
+        itemName: "kurokumaft:nether_lightning_magic_helmet",
+        func: projectileInvalid,
+        delay: TicksPerSecond * 1,
+        removeFunc: projectileInvalidReset
     },
     {
         itemName: "kurokumaft:nether_stone_magic_helmet",
@@ -81,6 +105,9 @@ export class MagicHelmetSurveillance {
     private async checkJob() {
 
         let equItem = MagicHelmetObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicHelmetObject;
+        if (equItem == undefined) {
+            return;
+        }
         let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let head = equ.getEquipment(EquipmentSlot.Head) as ItemStack;
 
@@ -123,6 +150,14 @@ async function nightVisionEffect(player:Player) {
         amplifier: 10,
         showParticles: false
     });
+}
+
+async function projectileInvalid(player:Player) {
+    player.addTag("projectile_invalid");
+}
+
+async function projectileInvalidReset(player:Player) {
+    player.removeTag("projectile_invalid");
 }
 
 async function fireResistanceEffectReset(player:Player) {

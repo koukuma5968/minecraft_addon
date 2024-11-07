@@ -1,0 +1,167 @@
+
+{
+  "format_version": "1.21.20",
+  "minecraft:biome": {
+    "description": {
+      "identifier": "forest_magic_flame"
+    },
+    "components": {
+      "minecraft:climate": {
+        "temperature" : 0.8,
+        "downfall" : 0.8,
+        "red_spores" : 0.8,
+        "blue_spores" : 0.1,
+        "ash" : 0.8,
+        "white_ash" : 0.0,
+        "snow_accumulation": [
+          0.1, 0.2
+        ]
+      },
+      "minecraft:overworld_height": {
+        "noise_params": [
+          1.0, 5.0
+        ],
+        "noise_type": "default",
+        "minecraft:forced_features": {
+          "identifier": [
+            {
+              "iterations": 1,
+              "scatter_chance": 80.0,
+              "coordinate_eval_order": "yxz",
+              "x": {
+                "distribution": "uniform",
+                "extent": [ 72, 128 ]
+              },
+              "y": {
+                  "distribution": "uniform",
+                  "extent": [ 60, 128 ]
+              },
+              "z": {
+                "distribution": "uniform",
+                "extent": [ 72, 128 ]
+              }
+            }
+          ]
+        },
+        "minecraft:surface_parameters": {
+          "top_material": "minecraft:diamond_block",
+          "mid_material": "minecraft:dirt",
+          "sea_floor_material": "minecraft:lava",
+          "foundation_material": "minecraft:magma",
+          "sea_material": "minecraft:lava",
+          "sea_floor_depth": 12
+        },
+        "minecraft:surface_material_adjustments" : {
+          "adjustments" : [
+            {
+              "materials": {
+                "top_material": "minecraft:diamond_block",
+                "mid_material": "minecraft:dirt",
+                "sea_floor_material": "minecraft:lava",
+                "foundation_material": "minecraft:magma",
+                "sea_material": "minecraft:lava"
+              },
+              "noise_range": [
+                0.1, 1.0
+              ],
+              "height_range": [
+                0.1, 1.0
+              ],
+              "noise_frequency_scale" : 1.0
+            }
+          ]
+        },
+        "minecraft:swamp_surface" : {
+          "top_material": "minecraft:diamond_block",
+          "mid_material": "minecraft:dirt",
+          "sea_floor_material": "minecraft:lava",
+          "foundation_material": "minecraft:magma",
+          "sea_material": "minecraft:lava",
+          "sea_floor_depth": 12
+        },
+        "minecraft:frozen_ocean_surface" : {
+          "top_material": "minecraft:diamond_block",
+          "mid_material": "minecraft:dirt",
+          "sea_floor_material": "minecraft:lava",
+          "foundation_material": "minecraft:magma",
+          "sea_material": "minecraft:lava",
+          "sea_floor_depth": 12
+        },
+        "minecraft:mesa_surface" : {
+          "top_material": "minecraft:diamond_block",
+          "mid_material": "minecraft:dirt",
+          "sea_floor_material": "minecraft:lava",
+          "foundation_material": "minecraft:magma",
+          "sea_material": "minecraft:lava",
+          "sea_floor_depth": 12,
+          "clay_material": "minecraft:magma",
+          "hard_clay_material": "minecraft:magma",
+          "bryce_pillars": true,
+          "has_forest": true
+        },
+        "minecraft:capped_surface" : {
+          "floor_materials": [
+            "minecraft:magma"
+          ],
+          "ceiling_materials": [
+            "minecraft:lava"
+          ],
+          "sea_material": "minecraft:lava",
+          "foundation_material": "minecraft:magma",
+          "beach_material" : "minecraft:magma"
+        },
+        "minecraft:mountain_parameters" : {
+          "peaks_factor" : 1.0,
+          "steep_material_adjustment": {
+            "material" : "minecraft:magma",
+            "north_slopes" : true,
+            "south_slopes" : true,
+            "west_slopes" : false,
+            "east_slopes" : false
+          },
+          "top_slide" : {
+            "enabled" : false
+          }
+        },
+        "minecraft:overworld_generation_rules": {
+          "hills_transformation":  [
+            [ "forest_hills", 1 ],
+            [ "forest", 2 ]
+          ],
+          "mutate_transformation": [
+            [ "forest_hills", 1 ],
+            [ "forest", 2 ]
+          ],
+          "generate_for_climates" : [
+            [ "forest_hills", 1 ],
+            [ "forest", 2 ]
+          ],
+          "river_transformation" : [
+            [ "forest_hills", 1 ],
+            [ "forest", 2 ]
+          ],
+          "shore_transformation" : [
+            [ "forest_hills", 1 ],
+            [ "forest", 2 ]
+          ]
+        },
+        "minecraft:multinoise_generation_rules" : {
+          "target_temperature" : 10,
+          "target_humidity" : 6,
+          "target_altitude" : 2,
+          "target_weirdness" : 10,
+          "weight" : 10
+        },
+        "minecraft:legacy_world_generation_rules": {},
+        "minecraft:tags" : {
+          "tags": [
+            "animal",
+            "monster",
+            "overworld",
+            "forest_magic_flame"
+          ]
+        }
+      }
+    }
+  }
+}

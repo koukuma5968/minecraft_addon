@@ -2,9 +2,9 @@
 	"format_version": "1.10.0",
 	"particle_effect": {
 		"description": {
-			"identifier": "kurokumaft:thunder_sword_slash_particle",
+			"identifier": "kurokumaft:thunder_sword_slash",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -31,7 +31,7 @@
 			},
 			"minecraft:particle_appearance_billboard": {
 				"size": ["0.75*(variable.emitter_lifetime*1.5)-(variable.particle_age*0.2)", "0.5*(variable.emitter_lifetime*1.5)-(variable.particle_age*0.2)"],
-				"facing_camera_mode": "rotate_y",
+				"facing_camera_mode": "rotate_xyz",
 				"uv": {
 					"texture_width": 128,
 					"texture_height": 128,
@@ -40,7 +40,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.98824, 0.99216, 0.00392, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFFCFD01",
+						"0.62": "#FF333305"
+					}
+				}
 			}
 		}
 	}

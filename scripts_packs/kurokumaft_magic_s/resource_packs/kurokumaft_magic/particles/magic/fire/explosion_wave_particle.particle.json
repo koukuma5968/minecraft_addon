@@ -2,9 +2,9 @@
 	"format_version": "1.10.0",
 	"particle_effect": {
 		"description": {
-			"identifier": "kurokumaft:explosion_wave_particle",
+			"identifier": "kurokumaft:explosion_wave",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -26,13 +26,22 @@
 			"minecraft:particle_initial_speed": 10,
 			"minecraft:particle_motion_dynamic": {},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.5, 0.2],
+				"size": [0.6, 0.5],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 128,
 					"texture_height": 128,
 					"uv": [8, 24],
 					"uv_size": [8, 8]
+				}
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFF7C6C6",
+						"1.0": "#FF5A1111"
+					}
 				}
 			}
 		}

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kurokumaft:aqua_frog",
@@ -20,15 +20,23 @@
         "default": "geometry.aqua_frog"
       },
       "spawn_egg": {
-        "base_color": "#d07444",
-        "overlay_color": "#ffc77c"
+        "texture": "spawn_egg",
+        "texture_index": 23
       },
       "scripts": {
         "pre_animation": [
           "variable.moving = query.ground_speed > 0 || query.vertical_speed > 0;"
+        ],
+        "animate": [
+          "general",
+          "croaking",
+          "eat_mob"
         ]
-      },
+     },
       "animations": {
+        "general": "controller.animation.aqua_frog.general",
+        "croaking": "controller.animation.aqua_frog.croaking",
+        "eat_mob": "controller.animation.aqua_frog.eat_mob",
         "croak": "animation.aqua_frog.croak",
         "jump": "animation.aqua_frog.jump",
         "tongue": "animation.aqua_frog.tongue",
@@ -37,17 +45,6 @@
         "idle_water": "animation.aqua_frog.idle.water",
         "look_at_target": "animation.common.look_at_target"
       },
-      "animation_controllers": [
-        {
-          "general": "controller.animation.aqua_frog.general"
-        },
-        {
-          "croaking": "controller.animation.aqua_frog.croaking"
-        },
-        {
-          "eat_mob": "controller.animation.aqua_frog.eat_mob"
-        }
-      ],
       "render_controllers": [
         "controller.render.aqua_frog"
       ]

@@ -10,7 +10,7 @@
         },
         "thunder_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§6サンダービット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:thunder_bit.translate\"}]}",
             "/function magic/lightning/thunder_bit"
           ],
           "transitions": [

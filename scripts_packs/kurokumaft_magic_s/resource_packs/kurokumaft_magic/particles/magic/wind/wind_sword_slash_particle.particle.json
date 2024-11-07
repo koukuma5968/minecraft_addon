@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:wind_sword_slash",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},

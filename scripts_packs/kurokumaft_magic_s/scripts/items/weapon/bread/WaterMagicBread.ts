@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, Player } from "@minecraft/server";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { shooting } from "../../../common/ShooterMagicEvent";
 
 /**
  * 蒼破斬(そうはざん)
@@ -22,12 +22,8 @@ export async function aquaDesires(entity:Entity) {
  */
 export async function mercurySmash(player:Player) {
 
-    let xran = 0;
-    let yran = 0;
-    let zran = 0;
-
-    shooting(player, "kurokumaft:mercury_smash", {x:xran,y:yran,z:zran}, 2,"kurokumaft:projectile_1");
-    shooting(player, "kurokumaft:mercury_smash", {x:xran,y:yran,z:zran}, 2,"kurokumaft:projectile_2");
-    shooting(player, "kurokumaft:mercury_smash", {x:xran,y:yran,z:zran}, 2,"kurokumaft:projectile_3");
+    shooting(player, "kurokumaft:mercury_smash", 0, 2,"kurokumaft:projectile_1");
+    shooting(player, "kurokumaft:mercury_smash", 0, 2,"kurokumaft:projectile_2");
+    shooting(player, "kurokumaft:mercury_smash", 0, 2,"kurokumaft:projectile_3");
 
 }

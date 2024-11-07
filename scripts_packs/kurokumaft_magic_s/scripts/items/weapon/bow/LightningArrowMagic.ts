@@ -1,5 +1,4 @@
-import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/server";
-import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
 
 /**
  * ライトニングアロー
@@ -7,10 +6,19 @@ import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
 export async function lightningArrow(entity:Entity) {
     let intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
-            entity.dimension.spawnParticle("kurokumaft:thunder_desires_particle", entity.location);
-            entity.applyDamage(3, {
-                cause: EntityDamageCause.lightning
-            });
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.dimension.spawnParticle("kurokumaft:thunder_desires_particle", entity.location);
+                    entity.applyDamage(1, {
+                        cause: EntityDamageCause.lightning
+                    });
+                }
+            } else {
+                entity.dimension.spawnParticle("kurokumaft:thunder_desires_particle", entity.location);
+                entity.applyDamage(3, {
+                    cause: EntityDamageCause.lightning
+                });
+            }
         }
     }, TicksPerSecond);
     system.runTimeout(() => {

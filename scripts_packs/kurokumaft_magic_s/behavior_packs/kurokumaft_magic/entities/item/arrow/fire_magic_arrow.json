@@ -28,9 +28,6 @@
             "min_critical_damage": 9,
             "power_multiplier": 0.97
           },
-          "catch_fire": {
-            "fire_affected_by_griefing": true
-          },
           "remove_on_hit": {}
         },
         "on_fire_time": 50,

@@ -1,6 +1,5 @@
-import { system, world, WorldInitializeBeforeEvent } from "@minecraft/server";
+import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { WandWeaponMagic } from "../items/weapon/wand/WandWeaponMagic";
-import { ShieldMagic } from "../items/weapon/shield/ShieldMagic";
 import { SwordWeaponMagic, SwordWeaponMagicMons } from "../items/weapon/sword/SwordWeaponMagic";
 import { BowShotMagic } from "../items/weapon/bow/BowWeaponMagic";
 import { checkPlayerEquTick } from "../player/armorEquipment";
@@ -21,6 +20,10 @@ import { BossSummonBlock } from "../block/BossSummonBlock";
 import { PortalGateBlock } from "../block/PortalGateBlock";
 import { PortalBlock } from "../block/PortalBlock";
 import { RepatriationFruitMagic } from "../items/food/RepatriationFruitMagic";
+import { MagicLogNutEat } from "../items/food/lognut/MagicLogNutEat";
+import { DiamondBottle } from "../items/potion/DiamondBottle";
+import { MagicBrewingStandBlock } from "../block/MagicBrewingStand";
+import { MagicPotionDrink } from "../items/potion/MagicPotionDrink";
 
 /**
  * カスタムコンポーネントの登録
@@ -45,9 +48,6 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     // 刀系
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:bread_magic', new BreadWeaponMagic());
 
-    // シールド
-    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:shield_magic', new ShieldMagic());
-
     // 弓
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:bow_magic', new BowShotMagic());
     // 銃
@@ -66,6 +66,15 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     // 帰還の実
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:repatriation_fruit', new RepatriationFruitMagic());
 
+    // 魔樹の実
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:magic_log_nut', new MagicLogNutEat());
+
+    // ダイヤモンドの瓶
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:diamond_bottle', new DiamondBottle());
+
+    // 魔法薬
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:magic_potion', new MagicPotionDrink());
+
     // 召喚石
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:summon_stone', new SummonStoneMagic());
 
@@ -75,6 +84,9 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
 
     // 魔導書見台ブロック
     initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:magic_lectern', new MagicLecternBlock());
+
+    // 秘薬台ブロック
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:magic_brewing', new MagicBrewingStandBlock());
 
     // ウォールブロック
     initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:wall_block', new WallBlock());

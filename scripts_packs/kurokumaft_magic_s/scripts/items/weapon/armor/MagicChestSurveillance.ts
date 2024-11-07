@@ -70,6 +70,9 @@ export class MagicChestSurveillance {
     private async checkJob() {
 
         let equItem = MagicChestObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicChestObject;
+        if (equItem == undefined) {
+            return;
+        }
         let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let chest = equ.getEquipment(EquipmentSlot.Chest) as ItemStack;
 
@@ -87,7 +90,7 @@ export class MagicChestSurveillance {
 }
 
 async function fireAttackUp(player:Player) {
-    player.triggerEvent("kurokumaft:attack20_up");
+    player.triggerEvent("kurokumaft:attack10_up");
 }
 
 async function waterHealthUp(player:Player) {

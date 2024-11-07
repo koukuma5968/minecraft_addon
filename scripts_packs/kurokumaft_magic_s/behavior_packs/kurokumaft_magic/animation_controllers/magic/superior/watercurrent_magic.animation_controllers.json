@@ -10,7 +10,7 @@
         },
         "aqua_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bアクアビット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:aqua_bit.translate\"}]}",
             "/function magic/water/aqua_bit"
           ],
           "transitions": [

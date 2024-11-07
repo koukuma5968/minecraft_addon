@@ -30,7 +30,7 @@
       },
       "scripts": {
         "pre_animation": [
-          "variable.charge_amount = query.property('kurokumaft:gun_charge_stone') == 1 ? 10 : query.main_hand_item_use_duration > 0.0f ? math.clamp(Math.ceil(20 - query.main_hand_item_use_duration / 10) / 2, 0.0, 10.0f) : 0;"
+          "variable.charge_amount = query.property('kurokumaft:gun_charge_stone') >= 1 ? 10 : query.main_hand_item_use_duration > 0.0f ? math.clamp(Math.ceil(20 - query.main_hand_item_use_duration / 10) / 2, 0.0, 10.0f) : 0;"
         ],
         "animate": [
           "wield",

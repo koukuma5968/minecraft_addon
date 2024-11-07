@@ -108,6 +108,68 @@
             "up" : "fenrir_summon_top"
         }
     },
+
+    "kurokumaft:fire_leaves": {
+        "textures" : {
+            "up" : "fire_leaves_right",
+            "down" : "fire_leaves_left",
+            "east" : "fire_leaves_right",
+            "west" : "fire_leaves_left",
+            "north" : "fire_leaves_right",
+            "south" : "fire_leaves_left"
+        }
+    },
+    "kurokumaft:water_leaves": {
+        "textures" : {
+            "up" : "water_leaves_right",
+            "down" : "water_leaves_left",
+            "east" : "water_leaves_right",
+            "west" : "water_leaves_left",
+            "north" : "water_leaves_right",
+            "south" : "water_leaves_left"
+        }
+    },
+    "kurokumaft:wind_leaves": {
+        "textures" : {
+            "up" : "wind_leaves_right",
+            "down" : "wind_leaves_left",
+            "east" : "wind_leaves_right",
+            "west" : "wind_leaves_left",
+            "north" : "wind_leaves_right",
+            "south" : "wind_leaves_left"
+        }
+    },
+    "kurokumaft:stone_leaves": {
+        "textures" : {
+            "up" : "stone_leaves_right",
+            "down" : "stone_leaves_left",
+            "east" : "stone_leaves_right",
+            "west" : "stone_leaves_left",
+            "north" : "stone_leaves_right",
+            "south" : "stone_leaves_left"
+        }
+    },
+    "kurokumaft:lightning_leaves": {
+        "textures" : {
+            "up" : "lightning_leaves_right",
+            "down" : "lightning_leaves_left",
+            "east" : "lightning_leaves_right",
+            "west" : "lightning_leaves_left",
+            "north" : "lightning_leaves_right",
+            "south" : "lightning_leaves_left"
+        }
+    },
+    "kurokumaft:ice_leaves": {
+        "textures" : {
+            "up" : "ice_leaves_right",
+            "down" : "ice_leaves_left",
+            "east" : "ice_leaves_right",
+            "west" : "ice_leaves_left",
+            "north" : "ice_leaves_right",
+            "south" : "ice_leaves_left"
+        }
+    },
+
     "kurokumaft:magic_lectern": {
 		"sound": "metal"
 	}

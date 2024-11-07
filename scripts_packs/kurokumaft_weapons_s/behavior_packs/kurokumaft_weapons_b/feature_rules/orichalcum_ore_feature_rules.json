@@ -25,8 +25,8 @@
             ]
         },
         "distribution": {
-            "iterations": 1,
-            "scatter_chance": 50.0,
+            "iterations": 6,
+            "scatter_chance": 70.0,
             "coordinate_eval_order": "yxz",
             "x": {
               "distribution": "uniform",

@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:sand_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -30,12 +30,18 @@
 				"uv": {
 					"texture_width": 128,
 					"texture_height": 128,
-					"uv": [30, 70],
-					"uv_size": [8, 8]
+					"uv": [41, 73],
+					"uv_size": [7, 7]
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.72549, 0.47059, 0.06667, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFB97811",
+						"1.0": "#FF422906"
+					}
+				}
 			}
 		}
 	}

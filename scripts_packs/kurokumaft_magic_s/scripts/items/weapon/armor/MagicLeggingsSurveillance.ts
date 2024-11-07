@@ -69,6 +69,9 @@ export class MagicLeggingsSurveillance {
     private async checkJob() {
 
         let equItem = MagicLeggingsObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicLeggingsObject;
+        if (equItem == undefined) {
+            return;
+        }
         let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let leg = equ.getEquipment(EquipmentSlot.Legs) as ItemStack;
 

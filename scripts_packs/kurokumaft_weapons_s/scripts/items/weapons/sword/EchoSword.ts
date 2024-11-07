@@ -28,6 +28,6 @@ export class EchoSword implements ItemCustomComponent {
 }
 
 async function sonicBullet(player:Player) {
-    shooting(player, "kurokumaft:sonic_bullet", {x:0,y:0,z:0}, 5, undefined);
+    shooting(player, "kurokumaft:sonic_bullet", 0, 5, undefined);
     player.runCommandAsync("/titleraw @s actionbar {\"rawtext\": [{\"translate\": \"mess.kurokumaft:echo_sword.sonic_bullet\"}]}");
 }

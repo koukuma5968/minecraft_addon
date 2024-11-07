@@ -10,7 +10,7 @@
         },
         "framepillar": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレイムピラー\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:framepillar1.translate\"}]}",
             "/tag @s add framepillar_self",
             "/function magic/fire/framepillar/framepillar1"
           ],

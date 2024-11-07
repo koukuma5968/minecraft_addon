@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
 
 /**
  * ダークアロー
@@ -6,9 +6,17 @@ import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/se
 export async function darkArrow(entity:Entity) {
     let intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
-            entity.applyDamage(3, {
-                cause: EntityDamageCause.wither
-            });
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.applyDamage(1, {
+                        cause: EntityDamageCause.wither
+                    });
+                }
+            } else {
+                entity.applyDamage(3, {
+                    cause: EntityDamageCause.wither
+                });
+            }
         }
     }, TicksPerSecond);
     system.runTimeout(() => {

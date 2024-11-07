@@ -1,5 +1,5 @@
 // scripts/weapons_script.ts
-import { world as world17, Player as Player40, EquipmentSlot as EquipmentSlot35, EntityComponentTypes as EntityComponentTypes18, EntityInitializationCause } from "@minecraft/server";
+import { world as world17, Player as Player41, EquipmentSlot as EquipmentSlot35, EntityComponentTypes as EntityComponentTypes19, EntityInitializationCause } from "@minecraft/server";
 
 // scripts/common/commonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -3521,173 +3521,25 @@ var MithrilSword = class {
 import { EquipmentSlot as EquipmentSlot9 } from "@minecraft/server";
 
 // scripts/common/ShooterPoints.ts
+import { EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
 async function shooting(player, throwItem, ranNum, seepd, event) {
-  let { xapply, yapply, zapply, xlocation, ylocation, zlocation } = getAdjacentSphericalPoints(player.getRotation(), player.location);
-  let bulet = player.dimension.spawnEntity(
-    throwItem,
-    {
-      x: xlocation + ranNum.x,
-      y: ylocation + ranNum.y,
-      z: zlocation + ranNum.z
-    }
-  );
+  let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
   if (event) {
     bulet.triggerEvent(event);
   }
-  bulet.applyImpulse({ x: xapply * seepd, y: yapply * seepd, z: zapply * seepd });
+  let projectile = bulet.getComponent(EntityComponentTypes6.Projectile);
+  projectile.owner = player;
+  projectile.shoot(
+    {
+      x: player.getViewDirection().x * seepd,
+      y: player.getViewDirection().y * seepd,
+      z: player.getViewDirection().z * seepd
+    },
+    {
+      uncertainty: ranNum
+    }
+  );
   return bulet;
-}
-function getAdjacentSphericalPoints(rotation, location) {
-  let r = 1.5;
-  let piNum = 75;
-  let xapply;
-  let yapply;
-  let zapply;
-  let xlocation;
-  let ylocation;
-  let zlocation;
-  if (rotation.y >= -90 && rotation.y < 0) {
-    let yRotax = -rotation.y / piNum;
-    let yRotaz = (rotation.y + 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y >= 0 && rotation.y <= 90) {
-    let yRotax = rotation.y / piNum;
-    let yRotaz = -(rotation.y - 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      if (rotation.y >= 45) {
-        xlocation = location.x - yRotax * xRota * 1.75;
-      } else {
-        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
-      }
-      xapply = -(yRotax * xRota);
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y >= 45) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      if (rotation.y >= 45) {
-        xlocation = location.x - yRotax * xRota * 1.75;
-      } else {
-        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
-      }
-      xapply = -(yRotax * xRota);
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y >= 45) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y < -90 && rotation.y > -180) {
-    let yRotax = (rotation.y + 180) / piNum;
-    let yRotaz = (rotation.y + 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y > 90 && rotation.y <= 180) {
-    let yRotax = -(rotation.y - 180) / piNum;
-    let yRotaz = -(rotation.y - 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x - yRotax * xRota * 1.75;
-      xapply = -(yRotax * xRota);
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      if (rotation.y <= 135) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x - yRotax * xRota * 1.75;
-      xapply = -(yRotax * xRota);
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y <= 135) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    }
-  }
-  return { xapply, yapply, zapply, xlocation, ylocation, zlocation };
 }
 
 // scripts/items/weapons/sword/EchoSword.ts
@@ -3708,7 +3560,7 @@ var EchoSword = class {
   }
 };
 async function sonicBullet(player) {
-  shooting(player, "kurokumaft:sonic_bullet", { x: 0, y: 0, z: 0 }, 5, void 0);
+  shooting(player, "kurokumaft:sonic_bullet", 0, 5, void 0);
   player.runCommandAsync('/titleraw @s actionbar {"rawtext": [{"translate": "mess.kurokumaft:echo_sword.sonic_bullet"}]}');
 }
 
@@ -3743,7 +3595,7 @@ var EnderDragonSword = class {
   }
 };
 async function dragonFireball(player) {
-  shooting(player, "kurokumaft:dragon_fireball_2", { x: 0, y: 0, z: 0 }, 2, void 0);
+  shooting(player, "kurokumaft:dragon_fireball_2", 0, 2, void 0);
 }
 
 // scripts/items/weapons/sword/WitherSword.ts
@@ -3791,15 +3643,15 @@ async function witherSwordEffect(attackEntity, hitEntity) {
 }
 async function witherSkull(player) {
   let center = getLookRotaionPoints(player.getRotation(), 1.5, 0);
-  shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_1>", { x: center.x, y: 1, z: center.z }, 0.5, void 0);
+  shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_1>", 0, 0.5, void 0);
   let left = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
-  shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_2>", { x: left.x, y: 0, z: left.z }, 0.5, void 0);
+  shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_2>", 0, 0.5, void 0);
   let right = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
-  shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_3>", { x: right.x, y: 0, z: right.z }, 0.5, void 0);
+  shooting(player, "kurokumaft:wither_skull_dangerous_2<kurokumaft:blast_3>", 0, 0.5, void 0);
 }
 
 // scripts/items/weapons/sword/EnderEyeSword.ts
-import { EquipmentSlot as EquipmentSlot12, EntityComponentTypes as EntityComponentTypes6, TicksPerSecond as TicksPerSecond3 } from "@minecraft/server";
+import { EquipmentSlot as EquipmentSlot12, EntityComponentTypes as EntityComponentTypes7, TicksPerSecond as TicksPerSecond3 } from "@minecraft/server";
 var EnderEyeSword = class {
   // 通常攻撃
   onHitEntity(event) {
@@ -3832,7 +3684,7 @@ async function evilTeleport(attackEntity, hitEntity) {
   hitEntity.teleport(tpLoca);
 }
 async function evilEye(player) {
-  let health = player.getComponent(EntityComponentTypes6.Health);
+  let health = player.getComponent(EntityComponentTypes7.Health);
   let zan = health.currentValue / 2;
   if (health.currentValue != 1) {
     health.setCurrentValue(zan);
@@ -3854,7 +3706,7 @@ async function evilEye(player) {
 }
 
 // scripts/items/weapons/spear/ThrowableSpear.ts
-import { system as system4, EquipmentSlot as EquipmentSlot13, ItemComponentTypes as ItemComponentTypes9, EntityComponentTypes as EntityComponentTypes7 } from "@minecraft/server";
+import { system as system4, EquipmentSlot as EquipmentSlot13, ItemComponentTypes as ItemComponentTypes9, EntityComponentTypes as EntityComponentTypes8 } from "@minecraft/server";
 var SpearObjects = Object.freeze([
   {
     itemName: "kurokumaft:wooden_spear",
@@ -3968,7 +3820,7 @@ async function removeSpear(throwSpear) {
   if (!throwSpear.getDynamicProperty("throwSpear")) {
     return;
   }
-  let invent = throwSpear.getComponent(EntityComponentTypes7.Inventory);
+  let invent = throwSpear.getComponent(EntityComponentTypes8.Inventory);
   let container = invent.container;
   let spear = container.getItem(0);
   let player = throwSpear.dimension.getEntities({
@@ -3980,7 +3832,7 @@ async function removeSpear(throwSpear) {
   });
   let emptySlot = true;
   if (player) {
-    let equ = player[0].getComponent(EntityComponentTypes7.Equippable);
+    let equ = player[0].getComponent(EntityComponentTypes8.Equippable);
     let main = equ.getEquipment(EquipmentSlot13.Mainhand);
     if (main == void 0) {
       system4.runTimeout(() => {
@@ -3988,7 +3840,7 @@ async function removeSpear(throwSpear) {
       }, 2);
       emptySlot = false;
     } else {
-      let invent2 = player[0].getComponent(EntityComponentTypes7.Inventory);
+      let invent2 = player[0].getComponent(EntityComponentTypes8.Inventory);
       let con = invent2.container;
       if (con.emptySlotsCount > 0) {
         system4.runTimeout(() => {
@@ -4183,7 +4035,7 @@ var Sickle = class {
   }
 };
 async function spiritSickle(player, scytheItem) {
-  shooting(player, scytheItem.throwEntity, { x: 0, y: 0, z: 0 }, 3, void 0);
+  shooting(player, scytheItem.throwEntity, 0, 3, void 0);
   player.runCommandAsync('/titleraw @s actionbar {"rawtext": [{"translate": "mess.kurokumaft:spirit_sickle.shot"}]}');
 }
 
@@ -4231,7 +4083,7 @@ var Scythe = class {
   }
 };
 async function roarScythe(player, scytheItem) {
-  shooting(player, scytheItem.throwEntity, { x: 0, y: 0, z: 0 }, 1, void 0);
+  shooting(player, scytheItem.throwEntity, 0, 1, void 0);
   player.runCommandAsync('/titleraw @s actionbar {"rawtext": [{"translate": "mess.kurokumaft:roar_scythe.shot"}]}');
 }
 
@@ -4357,7 +4209,7 @@ async function pavement(block) {
 }
 
 // scripts/items/weapons/gun/Gatling.ts
-import { system as system5, EquipmentSlot as EquipmentSlot17, EntityComponentTypes as EntityComponentTypes8 } from "@minecraft/server";
+import { system as system5, EquipmentSlot as EquipmentSlot17, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
 var Gatling = class {
   // 通常攻撃
   onHitEntity(event) {
@@ -4374,17 +4226,19 @@ var Gatling = class {
 async function shotGatling(player, item) {
   player.setDynamicProperty("gatlingShot", true);
   let count = 0;
+  let shot = 1;
   let intervalNum = system5.runInterval(() => {
-    let reEqu = player.getComponent(EntityComponentTypes8.Equippable);
+    let reEqu = player.getComponent(EntityComponentTypes9.Equippable);
     let reItem = reEqu.getEquipment(EquipmentSlot17.Offhand);
     if (reItem == void 0 || reItem.typeId != "kurokumaft:twenty_two_lr") {
       system5.clearRun(intervalNum);
       return;
     }
-    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    shooting(player, "kurokumaft:twenty_two_lr_entity", { x: xran, y: yran, z: zran }, 5, void 0);
+    shooting(player, "kurokumaft:twenty_two_lr_entity<kurokumaft:shot" + shot + ">", 0.2, 5, void 0);
+    shot++;
+    if (shot > 5) {
+      shot = 1;
+    }
     if (count % 4 === 0) {
       let look = getLookPoints(player.getRotation(), player.location, 1.5);
       player.dimension.spawnParticle("minecraft:explosion_manual", look);
@@ -4468,7 +4322,7 @@ async function knuckleHit(attackEntity, hitEntity, knuckle) {
   hitEntity.applyKnockback(rota.x, rota.z, knuckle.damage, 0);
 }
 async function charge_knuckle(player, knuckle) {
-  shooting(player, knuckle.throwSpear, { x: 0, y: 0, z: 0 }, 3, void 0);
+  shooting(player, knuckle.throwSpear, 0, 3, void 0);
 }
 
 // scripts/items/tool/MineDurability.ts
@@ -4609,7 +4463,7 @@ async function stopFlametHrower(player) {
 }
 
 // scripts/items/weapons/gun/MachineGun.ts
-import { system as system7, EquipmentSlot as EquipmentSlot23, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
+import { system as system7, EquipmentSlot as EquipmentSlot23, EntityComponentTypes as EntityComponentTypes10 } from "@minecraft/server";
 var MachineGun = class {
   // 通常攻撃
   onHitEntity(event) {
@@ -4627,16 +4481,13 @@ async function shotMachineGun(player, item) {
   player.setDynamicProperty("machineGunShot", true);
   let count = 0;
   let intervalNum = system7.runInterval(() => {
-    let reEqu = player.getComponent(EntityComponentTypes9.Equippable);
+    let reEqu = player.getComponent(EntityComponentTypes10.Equippable);
     let reItem = reEqu.getEquipment(EquipmentSlot23.Offhand);
     if (reItem == void 0 || reItem.typeId != "kurokumaft:thirty_eight_special") {
       system7.clearRun(intervalNum);
       return;
     }
-    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    shooting(player, "kurokumaft:thirty_eight_special_entity", { x: xran, y: yran, z: zran }, 5, void 0);
+    shooting(player, "kurokumaft:thirty_eight_special_entity", 0.2, 5, void 0);
     if (count % 4 === 0) {
       let loock = getLookPoints(player.getRotation(), player.location, 1.5);
       player.dimension.spawnParticle("minecraft:explosion_manual", { x: loock.x, y: loock.y, z: loock.z });
@@ -4705,7 +4556,7 @@ async function stopSniper(player) {
 }
 
 // scripts/items/weapons/hammer/ThrowableHammer.ts
-import { system as system9, EquipmentSlot as EquipmentSlot24, EntityComponentTypes as EntityComponentTypes10 } from "@minecraft/server";
+import { system as system9, EquipmentSlot as EquipmentSlot24, EntityComponentTypes as EntityComponentTypes11 } from "@minecraft/server";
 var HammerObjects = Object.freeze([
   {
     itemName: "kurokumaft:wooden_hammer",
@@ -4782,7 +4633,7 @@ async function removeHammer(throwHammer) {
   if (!throwHammer.getDynamicProperty("throwHammer")) {
     return;
   }
-  let invent = throwHammer.getComponent(EntityComponentTypes10.Inventory);
+  let invent = throwHammer.getComponent(EntityComponentTypes11.Inventory);
   let container = invent.container;
   let hammer = container.getItem(0);
   let player = throwHammer.dimension.getEntities({
@@ -4794,7 +4645,7 @@ async function removeHammer(throwHammer) {
   });
   let emptySlot = true;
   if (player) {
-    let equ = player[0].getComponent(EntityComponentTypes10.Equippable);
+    let equ = player[0].getComponent(EntityComponentTypes11.Equippable);
     let main = equ.getEquipment(EquipmentSlot24.Mainhand);
     if (main == void 0) {
       system9.runTimeout(() => {
@@ -4802,7 +4653,7 @@ async function removeHammer(throwHammer) {
       }, 2);
       emptySlot = false;
     } else {
-      let invent2 = player[0].getComponent(EntityComponentTypes10.Inventory);
+      let invent2 = player[0].getComponent(EntityComponentTypes11.Inventory);
       let con = invent2.container;
       if (con.emptySlotsCount > 0) {
         system9.runTimeout(() => {
@@ -4895,7 +4746,7 @@ async function hammerHit2(attackEntity, hitEntity) {
   hitEntity.applyDamage(5, {
     cause: EntityDamageCause14.entityAttack
   });
-  shooting(attackEntity, "kurokumaft:sonic_bullet", { x: 0, y: 0, z: 0 }, 5, void 0);
+  shooting(attackEntity, "kurokumaft:sonic_bullet", 0, 5, void 0);
 }
 async function waveWardenHammer(attackEntity, hammer) {
   if (hammer.typeId != "kurokumaft:thrown_warden_hammer") {
@@ -4917,7 +4768,7 @@ async function waveWardenHammer(attackEntity, hammer) {
 }
 
 // scripts/items/weapons/fort/ShellShot.ts
-import { EquipmentSlot as EquipmentSlot25, EntityComponentTypes as EntityComponentTypes11 } from "@minecraft/server";
+import { EquipmentSlot as EquipmentSlot25, EntityComponentTypes as EntityComponentTypes12 } from "@minecraft/server";
 var ShellShot = class {
   onUse(event) {
     let source = event.source;
@@ -4926,16 +4777,16 @@ var ShellShot = class {
   }
 };
 async function shotShell(player, hammer) {
-  let raid = player.getComponent(EntityComponentTypes11.Riding);
+  let raid = player.getComponent(EntityComponentTypes12.Riding);
   if (raid && raid.entityRidingOn.typeId == "kurokumaft:tank") {
-    shooting(player, "kurokumaft:shell_entity", { x: 0, y: -1, z: 0 }, 3, void 0);
+    shooting(player, "kurokumaft:shell_entity", 0, 3, void 0);
     subtractionItem(player, hammer, EquipmentSlot25.Mainhand, 1);
     itemCoolDown(player, hammer);
   }
 }
 
 // scripts/items/weapons/fort/BaristaShot.ts
-import { EquipmentSlot as EquipmentSlot26, EntityComponentTypes as EntityComponentTypes12 } from "@minecraft/server";
+import { EquipmentSlot as EquipmentSlot26, EntityComponentTypes as EntityComponentTypes13 } from "@minecraft/server";
 var BaristaShot = class {
   onUse(event) {
     let source = event.source;
@@ -4944,21 +4795,21 @@ var BaristaShot = class {
   }
 };
 async function baristaArrow(player, hammer) {
-  let raid = player.getComponent(EntityComponentTypes12.Riding);
+  let raid = player.getComponent(EntityComponentTypes13.Riding);
   if (raid && raid.entityRidingOn.typeId == "kurokumaft:barista") {
     let center = getLookRotaionPoints(player.getRotation(), 1.5, 0);
-    shooting(player, "kurokumaft:barista_arrow<kurokumaft:center_arrow>", { x: center.x, y: 1, z: center.z }, 3, void 0);
+    shooting(player, "kurokumaft:barista_arrow<kurokumaft:center_arrow>", 0, 3, void 0);
     let left = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
-    shooting(player, "kurokumaft:barista_arrow<kurokumaft:left_arrow>", { x: left.x, y: 0, z: left.z }, 3, void 0);
+    shooting(player, "kurokumaft:barista_arrow<kurokumaft:left_arrow>", 0, 3, void 0);
     let right = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
-    shooting(player, "kurokumaft:barista_arrow<kurokumaft:right_arrow>", { x: right.x, y: 0, z: right.z }, 3, void 0);
+    shooting(player, "kurokumaft:barista_arrow<kurokumaft:right_arrow>", 0, 3, void 0);
     subtractionItem(player, hammer, EquipmentSlot26.Mainhand, 1);
     itemCoolDown(player, hammer);
   }
 }
 
 // scripts/items/weapons/boomerang/ThrowableBoomerang.ts
-import { system as system10, EquipmentSlot as EquipmentSlot27, EntityComponentTypes as EntityComponentTypes13, TicksPerSecond as TicksPerSecond6 } from "@minecraft/server";
+import { system as system10, EquipmentSlot as EquipmentSlot27, EntityComponentTypes as EntityComponentTypes14, TicksPerSecond as TicksPerSecond6 } from "@minecraft/server";
 var BoomerangObjects = Object.freeze([
   {
     itemName: "kurokumaft:wooden_boomerang",
@@ -5029,11 +4880,11 @@ async function removeBoomerang(player, throwBoomerang) {
   if (!throwBoomerang.getDynamicProperty("throwBoomerang")) {
     return;
   }
-  let invent = throwBoomerang.getComponent(EntityComponentTypes13.Inventory);
+  let invent = throwBoomerang.getComponent(EntityComponentTypes14.Inventory);
   let container = invent.container;
   let boomerang = container.getItem(0);
   let emptySlot = true;
-  let equ = player.getComponent(EntityComponentTypes13.Equippable);
+  let equ = player.getComponent(EntityComponentTypes14.Equippable);
   let main = equ.getEquipment(EquipmentSlot27.Mainhand);
   if (main == void 0) {
     system10.runTimeout(() => {
@@ -5041,7 +4892,7 @@ async function removeBoomerang(player, throwBoomerang) {
     }, 2);
     emptySlot = false;
   } else {
-    let invent2 = player.getComponent(EntityComponentTypes13.Inventory);
+    let invent2 = player.getComponent(EntityComponentTypes14.Inventory);
     let con = invent2.container;
     if (con.emptySlotsCount > 0) {
       system10.runTimeout(() => {
@@ -5161,7 +5012,7 @@ var BuddingMithril = class {
 };
 
 // scripts/block/mithril/MithrilBlock.ts
-import { BlockPermutation as BlockPermutation5, world as world11, system as system11, TicksPerSecond as TicksPerSecond8 } from "@minecraft/server";
+import { BlockPermutation as BlockPermutation5 } from "@minecraft/server";
 var mithrilChoiceLists2 = ProbabilisticChoice([
   { item: 0, weight: 70 },
   { item: 1, weight: 5 },
@@ -5216,37 +5067,20 @@ var MithrilBlock = class {
       }
     }
   }
+  onPlayerInteract(event) {
+    let block = event.block;
+    checkMithrilBlock(block);
+  }
 };
 async function playerMithrilset(block) {
   if (block.typeId == "kurokumaft:mithril_block") {
     block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "player"));
   }
 }
-async function checkMithrilGeodeTick() {
-  let players = world11.getPlayers();
-  for (let i = 0; i < players.length; i++) {
-    let player = players[i];
-    checkMithrilBlock(player);
-  }
-  system11.runTimeout(checkMithrilGeodeTick, 5 * TicksPerSecond8);
-}
-async function checkMithrilBlock(player) {
-  for (let x = -16; x <= 16; x++) {
-    for (let z = -16; z <= 16; z++) {
-      for (let y = -16; y <= 16; y++) {
-        if (player.location.y + y >= -64) {
-          let block = player.dimension.getBlock({ x: player.location.x + x, y: player.location.y + y, z: player.location.z + z });
-          if (block != void 0 && block.matches("kurokumaft:mithril_block", { "kurokumaft:budding_set": false })) {
-            if (block.matches("kurokumaft:mithril_block", { "kurokumaft:budding_type": "none" })) {
-              block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "spawn"));
-              let set_budding_pos = mithrilChoiceLists2.pick();
-              block.setPermutation(block.permutation.withState("kurokumaft:budding_pos", set_budding_pos));
-              block.setPermutation(block.permutation.withState("kurokumaft:budding_set", true));
-            }
-          }
-        }
-      }
-    }
+async function checkMithrilBlock(block) {
+  if (block != void 0 && block.matches("kurokumaft:mithril_block", { "kurokumaft:budding_type": "geode" })) {
+    block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "spawn"));
+    block.setPermutation(block.permutation.withState("kurokumaft:budding_set", true));
   }
 }
 
@@ -5279,7 +5113,7 @@ var MithrilBudGrowth = class {
 };
 
 // scripts/block/FortuneDestroy.ts
-import { EntityComponentTypes as EntityComponentTypes14, EquipmentSlot as EquipmentSlot28, ItemComponentTypes as ItemComponentTypes10, ItemStack as ItemStack34 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot28, ItemComponentTypes as ItemComponentTypes10, ItemStack as ItemStack35 } from "@minecraft/server";
 var CustomBlocks = Object.freeze([
   {
     block: "kurokumaft:chromium_ore",
@@ -5316,7 +5150,7 @@ var FortuneDestroy = class {
   }
 };
 async function fortuneDestroy(player, block, blockPermutation) {
-  let equ = player.getComponent(EntityComponentTypes14.Equippable);
+  let equ = player.getComponent(EntityComponentTypes15.Equippable);
   let itemStack = equ.getEquipment(EquipmentSlot28.Mainhand);
   if (itemStack) {
     let enc = itemStack.getComponent(ItemComponentTypes10.Enchantable);
@@ -5324,15 +5158,15 @@ async function fortuneDestroy(player, block, blockPermutation) {
       if (enc.hasEnchantment(MinecraftEnchantmentTypes.Fortune)) {
         let fortune = enc.getEnchantment(MinecraftEnchantmentTypes.Fortune);
         let customBlock = CustomBlocks.find((obj) => obj.block == blockPermutation.type.id);
-        let count = getRandomInRange4(0, fortune.level);
+        let count = getRandomInRange6(0, fortune.level);
         for (let i = 0; i < count; i++) {
-          block.dimension.spawnItem(new ItemStack34(customBlock.item), block.location);
+          block.dimension.spawnItem(new ItemStack35(customBlock.item), block.location);
         }
       }
     }
   }
 }
-function getRandomInRange4(min, max) {
+function getRandomInRange6(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
 
@@ -5354,7 +5188,7 @@ async function farming(block) {
 }
 
 // scripts/block/plants/PlantsGrowth.ts
-import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot30 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes16, EquipmentSlot as EquipmentSlot30 } from "@minecraft/server";
 var PlantsGrowth = class {
   onTick(event) {
     let block = event.block;
@@ -5365,7 +5199,7 @@ var PlantsGrowth = class {
   }
   onPlayerInteract(event) {
     let player = event.player;
-    let equ = player.getComponent(EntityComponentTypes15.Equippable);
+    let equ = player.getComponent(EntityComponentTypes16.Equippable);
     let itemStack = equ.getEquipment(EquipmentSlot30.Mainhand);
     if (itemStack != void 0 && itemStack.typeId.indexOf("meal") != -1) {
       let block = event.block;
@@ -5591,11 +5425,11 @@ async function addEffectPotion(player, potionItem) {
 }
 
 // scripts/block/bom/BakutikuFlint.ts
-import { EntityComponentTypes as EntityComponentTypes16, EquipmentSlot as EquipmentSlot32, system as system13 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes17, EquipmentSlot as EquipmentSlot32, system as system13 } from "@minecraft/server";
 var BakutikuFlint = class {
   onPlayerInteract(event) {
     let player = event.player;
-    let equ = player.getComponent(EntityComponentTypes16.Equippable);
+    let equ = player.getComponent(EntityComponentTypes17.Equippable);
     let itemStack = equ.getEquipment(EquipmentSlot32.Mainhand);
     if (itemStack != void 0 && itemStack.typeId == "minecraft:flint_and_steel") {
       let block = event.block;
@@ -5648,7 +5482,7 @@ var BakutikuFire = class {
 };
 
 // scripts/block/TearEnchant.ts
-import { system as system14, EntityComponentTypes as EntityComponentTypes17, ItemComponentTypes as ItemComponentTypes12, ItemStack as ItemStack40, EquipmentSlot as EquipmentSlot33, world as world16 } from "@minecraft/server";
+import { system as system14, EntityComponentTypes as EntityComponentTypes18, ItemComponentTypes as ItemComponentTypes12, ItemStack as ItemStack41, EquipmentSlot as EquipmentSlot33, world as world16 } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 var TearEnchant = class {
   onPlayerDestroy(event) {
@@ -5659,7 +5493,7 @@ var TearEnchant = class {
   onPlayerInteract(event) {
     let player = event.player;
     let block = event.block;
-    let equ = player.getComponent(EntityComponentTypes17.Equippable);
+    let equ = player.getComponent(EntityComponentTypes18.Equippable);
     let itemStack = equ.getEquipment(EquipmentSlot33.Mainhand);
     if (block.matches("kurokumaft:tear_enchant", { "kurokumaft:isBook": 1 })) {
       tearEnchantBlock(player, itemStack, block);
@@ -5677,7 +5511,7 @@ async function breackTearEnchant(dimension, block) {
     closest: 1
   });
   if (book_entity.length > 0) {
-    let bookInvent = book_entity[0].getComponent(EntityComponentTypes17.Inventory);
+    let bookInvent = book_entity[0].getComponent(EntityComponentTypes18.Inventory);
     let container = bookInvent.container;
     let setBook = container.getItem(0);
     dimension.spawnItem(setBook, block.location);
@@ -5685,7 +5519,7 @@ async function breackTearEnchant(dimension, block) {
   book_entity[0].remove();
 }
 async function tearEnchantBlock(player, item, block) {
-  let equ = player.getComponent(EntityComponentTypes17.Equippable);
+  let equ = player.getComponent(EntityComponentTypes18.Equippable);
   let mainhand = equ.getEquipment(EquipmentSlot33.Mainhand);
   if (item != void 0) {
     let actionForm = new ActionFormData().title({ translate: "tile.kurokumaft:tear_enchant.name" });
@@ -5709,7 +5543,7 @@ async function tearEnchantBlock(player, item, block) {
               location: { x: block.location.x + 0.5, y: block.location.y + 1, z: block.location.z + 0.5 },
               closest: 1
             });
-            let bookInvent = book_entity[0].getComponent(EntityComponentTypes17.Inventory);
+            let bookInvent = book_entity[0].getComponent(EntityComponentTypes18.Inventory);
             let container = bookInvent.container;
             let setBook = container.getItem(0);
             let setBookEnc = setBook.getComponent(ItemComponentTypes12.Enchantable);
@@ -5737,13 +5571,13 @@ async function tearEnchantBlock(player, item, block) {
             }
             let reenc = mainhand.getComponent(ItemComponentTypes12.Enchantable);
             if (mainhand.typeId == "minecraft:enchanted_book" && (reenc == void 0 || reenc.getEnchantments().length == 0)) {
-              let newmainhand = new ItemStack40("minecraft:book", 1);
+              let newmainhand = new ItemStack41("minecraft:book", 1);
               equ.setEquipment(EquipmentSlot33.Mainhand, newmainhand);
             } else {
               equ.setEquipment(EquipmentSlot33.Mainhand, mainhand);
             }
             if (setBookEnc.getEnchantments().length == 1) {
-              let newBook = new ItemStack40("minecraft:enchanted_book", 1);
+              let newBook = new ItemStack41("minecraft:enchanted_book", 1);
               let newBookEnc = newBook.getComponent(ItemComponentTypes12.Enchantable);
               newBookEnc.addEnchantments(setBookEnc.getEnchantments());
               container.setItem(0, newBook);
@@ -5774,9 +5608,9 @@ async function tearEnchantBlock(player, item, block) {
       location: { x: block.location.x + 0.5, y: block.location.y + 1, z: block.location.z + 0.5 },
       closest: 1
     });
-    let bookInvent = book_entity[0].getComponent(EntityComponentTypes17.Inventory);
+    let bookInvent = book_entity[0].getComponent(EntityComponentTypes18.Inventory);
     let container = bookInvent.container;
-    let equ2 = player.getComponent(EntityComponentTypes17.Equippable);
+    let equ2 = player.getComponent(EntityComponentTypes18.Equippable);
     equ2.setEquipment(EquipmentSlot33.Mainhand, container.getItem(0));
     book_entity[0].remove();
     block.setPermutation(block.permutation.withState("kurokumaft:isBook", 0));
@@ -5787,9 +5621,9 @@ async function setTearEnchantBook(player, item, block) {
     if (item != void 0) {
       if (item.typeId == "minecraft:book" || item.typeId == "minecraft:enchanted_book") {
         let book_entity = block.dimension.spawnEntity("kurokumaft:tear_enchant_book_entity", { x: block.location.x + 0.5, y: block.location.y + 1, z: block.location.z + 0.5 });
-        let bookInvent = book_entity.getComponent(EntityComponentTypes17.Inventory);
+        let bookInvent = book_entity.getComponent(EntityComponentTypes18.Inventory);
         let container = bookInvent.container;
-        let equ = player.getComponent(EntityComponentTypes17.Equippable);
+        let equ = player.getComponent(EntityComponentTypes18.Equippable);
         let mainhand = equ.getEquipment(EquipmentSlot33.Mainhand);
         container.setItem(0, mainhand);
         block.setPermutation(block.permutation.withState("kurokumaft:isBook", 1));
@@ -5894,7 +5728,7 @@ var CrossBone = class {
   }
 };
 async function crossBoneShot(player) {
-  shooting(player, "kurokumaft:cross_bone", { x: 0, y: 0, z: 0 }, 4, void 0);
+  shooting(player, "kurokumaft:cross_bone", 0, 4, void 0);
 }
 
 // scripts/custom/CustomComponentRegistry.ts
@@ -5947,7 +5781,6 @@ function initRegisterCustom(initEvent) {
 }
 function initStateChangeMonitor(initEvent) {
   checkPlayerEquTick();
-  checkMithrilGeodeTick();
 }
 
 // scripts/weapons_script.ts
@@ -5967,8 +5800,6 @@ world17.afterEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
-  if (item != void 0) {
-  }
 });
 world17.beforeEvents.explosion.subscribe((event) => {
   let impactBLockList = event.getImpactedBlocks();
@@ -6087,7 +5918,7 @@ world17.beforeEvents.playerBreakBlock.subscribe((event) => {
 world17.afterEvents.entityHitEntity.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitEn = event.hitEntity;
-  if (hitEn != void 0 && hitEn instanceof Player40) {
+  if (hitEn != void 0 && hitEn instanceof Player41) {
     shieldGuard(hitEn, true);
     shieldCounter(hitEn, damageEn);
   }
@@ -6096,7 +5927,7 @@ world17.afterEvents.entityHitBlock.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitBlock = event.hitBlock;
   if (hitBlock != void 0) {
-    let equ = damageEn.getComponent(EntityComponentTypes18.Equippable);
+    let equ = damageEn.getComponent(EntityComponentTypes19.Equippable);
     let itemStack = equ.getEquipment(EquipmentSlot35.Mainhand);
     if (itemStack != void 0) {
       if (itemStack.typeId == "kurokumaft:fire_brand") {
@@ -6116,11 +5947,11 @@ world17.afterEvents.projectileHitEntity.subscribe((event) => {
   let source = event.source;
   let hitEn = event.getEntityHit().entity;
   let hitVector = event.hitVector;
-  if (hitEn != void 0 && hitEn instanceof Player40) {
+  if (hitEn != void 0 && hitEn instanceof Player41) {
     shieldGuard(hitEn, false);
     glassReflection(hitEn, projectileEn, hitVector);
   }
-  if (source != void 0 && source instanceof Player40) {
+  if (source != void 0 && source instanceof Player41) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn && isThrowHammer(projectileEn)) {
@@ -6131,7 +5962,7 @@ world17.afterEvents.projectileHitEntity.subscribe((event) => {
 world17.afterEvents.projectileHitBlock.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
-  if (source != void 0 && source instanceof Player40) {
+  if (source != void 0 && source instanceof Player41) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn && isThrowHammer(projectileEn)) {
@@ -6143,7 +5974,7 @@ world17.afterEvents.entityHurt.subscribe((event) => {
   let damage = event.damage;
   let damageSource = event.damageSource;
   let hitEn = event.hurtEntity;
-  if (hitEn instanceof Player40 && damageSource.cause != "void") {
+  if (hitEn instanceof Player41 && damageSource.cause != "void") {
     if (guards.indexOf(damageSource.cause) != -1) {
       shieldGuard(hitEn, false);
     }

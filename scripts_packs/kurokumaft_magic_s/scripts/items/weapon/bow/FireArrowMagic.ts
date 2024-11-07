@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
 
 /**
  * ファイアアロー
@@ -6,9 +6,19 @@ import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/se
 export async function fireArrow(entity:Entity) {
     let intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
-            entity.applyDamage(3, {
-                cause: EntityDamageCause.fireTick
-            });
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.applyDamage(1, {
+                        cause: EntityDamageCause.fireTick
+                    });
+                    entity.setOnFire(10, true);
+                }
+            } else {
+                entity.applyDamage(3, {
+                    cause: EntityDamageCause.fireTick
+                });
+                entity.setOnFire(10, true);
+            }
         }
     }, TicksPerSecond);
     system.runTimeout(() => {

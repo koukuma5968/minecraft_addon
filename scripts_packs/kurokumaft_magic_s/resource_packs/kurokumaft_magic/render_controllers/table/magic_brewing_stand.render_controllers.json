@@ -1,0 +1,19 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.magic_brewing_stand": {
+      "part_visibility": [
+        { "magic_bottle": "query.property('kurokumaft:bottle_type') == 'magic'" },
+        { "fire_bottle": "query.property('kurokumaft:bottle_type') == 'fire'" },
+        { "water_bottle": "query.property('kurokumaft:bottle_type') == 'water'" },
+        { "wind_bottle": "query.property('kurokumaft:bottle_type') == 'wind'" },
+        { "stone_bottle": "query.property('kurokumaft:bottle_type') == 'stone'" },
+        { "lightning_bottle": "query.property('kurokumaft:bottle_type') == 'lightning'" },
+        { "ice_bottle": "query.property('kurokumaft:bottle_type') == 'ice'" }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    }
+  }
+}

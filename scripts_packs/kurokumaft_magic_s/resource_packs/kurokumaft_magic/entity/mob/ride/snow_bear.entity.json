@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "kurokumaft:snow_bear",
@@ -13,24 +13,23 @@
         "default": "geometry.snow_bear"
       },
       "animations": {
+        "move_con": "controller.animation.snow_bear.move",
         "walk": "animation.quadruped.walk",
         "move": "animation.snow_bear.move",
         "look_at_target": "animation.common.look_at_target"
       },
       "scripts": {
-        "scale": "1.2"
+        "scale": "1.2",
+        "animate": [
+          "move_con"
+        ]
       },
-      "animation_controllers": [
-        {
-          "move": "controller.animation.snow_bear.move"
-        }
-      ],
       "render_controllers": [
         "controller.render.snow_bear"
       ],
       "spawn_egg": {
-        "base_color": "#eeeede",
-        "overlay_color": "#d5d6cd"
+        "texture": "spawn_egg",
+        "texture_index": 10
       }
     }
   }

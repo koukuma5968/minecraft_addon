@@ -7,7 +7,7 @@
 				"category": "nature"
 			},
 			"states": {
-				"kurokumaft:budding_type": ["none", "player", "spawn"],
+				"kurokumaft:budding_type": ["none", "player", "spawn", "geode"],
 				"kurokumaft:budding_set": [false, true],
 				"kurokumaft:budding_pos": [0, 1, 2, 3, 4, 5, 6]
 			}
@@ -33,6 +33,15 @@
 			]
 		},
 		"permutations": [
+			{
+				"condition": "query.block_state('kurokumaft:budding_type') == 'spawn'",
+				"components": {
+					"minecraft:tick": {
+						"looping": true,
+						"interval_range": [180, 520]
+					}
+				}
+			},
 			{
 				"condition": "query.block_state('kurokumaft:budding_pos') == 1",
 				"components": {
@@ -61,9 +70,6 @@
 							"texture": "mithril_block",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [180, 520]
 					}
 				}
 			},
@@ -95,9 +101,6 @@
 							"texture": "mithril_block",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [180, 520]
 					}
 				}
 			},
@@ -129,9 +132,6 @@
 							"texture": "mithril_block",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [180, 520]
 					}
 				}
 			},
@@ -163,9 +163,6 @@
 							"texture": "mithril_block",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [180, 520]
 					}
 				}
 			},
@@ -197,9 +194,6 @@
 							"texture": "mithril_block",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [180, 520]
 					}
 				}
 			},
@@ -231,9 +225,6 @@
 							"texture": "budding_mithril",
 							"render_method": "opaque"
 						}
-					},
-					"minecraft:tick": {
-						"interval_range": [180, 520]
 					}
 				}
 			}

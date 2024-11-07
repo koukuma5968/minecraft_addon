@@ -62,6 +62,6 @@ export class Sickle implements ItemCustomComponent {
 }
 
 async function spiritSickle(player: Player, scytheItem: SickleObject) {
-    shooting(player, scytheItem.throwEntity, {x:0,y:0,z:0}, 3, undefined);
+    shooting(player, scytheItem.throwEntity, 0, 3, undefined);
     player.runCommandAsync("/titleraw @s actionbar {\"rawtext\": [{\"translate\": \"mess.kurokumaft:spirit_sickle.shot\"}]}");
 }

@@ -18,5 +18,5 @@ export class CrossBone implements ItemCustomComponent {
 }
 
 async function crossBoneShot(player:Player) {
-    shooting(player, "kurokumaft:cross_bone", {x:0,y:0,z:0}, 4, undefined);
+    shooting(player, "kurokumaft:cross_bone", 0, 4, undefined);
 }

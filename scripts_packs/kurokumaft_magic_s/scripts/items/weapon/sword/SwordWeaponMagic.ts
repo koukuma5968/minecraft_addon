@@ -1,107 +1,111 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, world, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentTypes, ItemCooldownComponent, ItemComponentUseOnEvent, ItemComponentCompleteUseEvent } from "@minecraft/server";
-import { getRandomInRange } from "../../../common/commonUtil";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, GameMode, EquipmentSlot, ItemComponentCompleteUseEvent } from "@minecraft/server";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { throwing } from "../../../custom/ShooterMagicEvent";
+import { blazeBurst, fireSword, fireSwordMons } from "./FireSwordMagic";
+import { waterSword, waterSwordMons } from "./WaterSwordMagic";
+import { windSword, windSwordMons } from "./WindSwordMagic";
+import { stoneSword, stoneSwordMons } from "./StoneSwordMagic";
+import { thunderSword, thunderSwordMons } from "./ThunderSwordMagic";
+import { iceSword, iceSwordMons } from "./IceSwordMagic";
+import { darkSword, darkSwordMons } from "./DarkSwordMagic";
+import { hollySword, hollySwordMons } from "./HollySwordMagic";
+import { rainbowSword } from "./RainbowSwordMagic";
 
 interface SwordMagicObject {
     itemName:string,
-    event:string
+    func:CallableFunction,
     sendMsg:string
 }
 
 const SwordHitObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_magic_sword",
-        event: "fire/fire_sword",
-        sendMsg: "§cフレイムソード"
+        func: fireSword,
+        sendMsg: "magic.kurokumaft:fireSword.translate"
     },
     {
         itemName: "kurokumaft:water_magic_sword",
-        event: "water/water_sword",
-        sendMsg: "§bウォーターソード"
+        func: waterSword,
+        sendMsg: "magic.kurokumaft:waterSword.translate"
     },
     {
         itemName: "kurokumaft:wind_magic_sword",
-        event: "wind/wind_sword",
-        sendMsg: "§aウィンドソード"
+        func: windSword,
+        sendMsg: "magic.kurokumaft:windSword.translate"
     },
     {
         itemName: "kurokumaft:stone_magic_sword",
-        event: "stone/stone_sword",
-        sendMsg: "§7ストーンソード"
+        func: stoneSword,
+        sendMsg: "magic.kurokumaft:stoneSword.translate"
     },
     {
         itemName: "kurokumaft:thunder_magic_sword",
-        event: "lightning/thunder_sword",
-        sendMsg: "§6サンダーソード"
+        func: thunderSword,
+        sendMsg: "magic.kurokumaft:thunderSword.translate"
     },
     {
         itemName: "kurokumaft:ice_magic_sword",
-        event: "ice/ice_sword",
-        sendMsg: "§fアイスソード"
+        func: iceSword,
+        sendMsg: "magic.kurokumaft:iceSword.translate"
     },
     {
         itemName: "kurokumaft:dark_magic_sword",
-        event: "dark/dark_sword",
-        sendMsg: "§8ダークソード"
+        func: darkSword,
+        sendMsg: "magic.kurokumaft:darkSword.translate"
     },
     {
         itemName: "kurokumaft:holly_magic_sword",
-        event: "light/holly_sword",
-        sendMsg: "§eホーリーソード"
+        func: hollySword,
+        sendMsg: "magic.kurokumaft:hollySword.translate"
     },
     {
         itemName: "kurokumaft:rainbow_magic_sword",
-        event: "rainbow/rainbow_sword",
-        sendMsg: "§5レ§1イ§9ン§aボー§eソ§6ー§4ド"
+        func: rainbowSword,
+        sendMsg: "magic.kurokumaft:rainbowSword.translate"
     },
     {
         itemName: "kurokumaft:phoenix_sword",
-        event: "fire/fire_sword",
-        sendMsg: "§cフレイムソード"
+        func: fireSword,
+        sendMsg: "magic.kurokumaft:fireSword.translate"
     }
 ]);
+
+interface SwordMagicMonsObject {
+    itemName:string,
+    func:CallableFunction
+}
 
 const SwordHitMonsObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_magic_sword",
-        event: "fire/fire_sword",
-        sendMsg: "§cフレイムソード"
+        func: fireSwordMons
     },
     {
         itemName: "kurokumaft:water_magic_sword",
-        event: "water/water_sword",
-        sendMsg: "§bウォーターソード"
+        func: waterSwordMons
     },
     {
         itemName: "kurokumaft:wind_magic_sword",
-        event: "wind/wind_sword",
-        sendMsg: "§aウィンドソード"
+        func: windSwordMons
     },
     {
         itemName: "kurokumaft:stone_magic_sword",
-        event: "stone/stone_sword",
-        sendMsg: "§7ストーンソード"
+        func: stoneSwordMons
     },
     {
         itemName: "kurokumaft:thunder_magic_sword",
-        event: "lightning/thunder_sword",
-        sendMsg: "§6サンダーソード"
+        func: thunderSwordMons
     },
     {
         itemName: "kurokumaft:ice_magic_sword",
-        event: "ice/ice_sword",
-        sendMsg: "§fアイスソード"
+        func: iceSwordMons
     },
     {
         itemName: "kurokumaft:dark_magic_sword",
-        event: "dark/dark_sword",
-        sendMsg: "§8ダークソード"
+        func: darkSwordMons
     },
     {
         itemName: "kurokumaft:holly_magic_sword",
-        event: "light/holly_sword",
-        sendMsg: "§eホーリーソード"
+        func: hollySwordMons
     }
 
 ]);
@@ -109,8 +113,8 @@ const SwordHitMonsObjects = Object.freeze([
 const SwordChargeObjects = Object.freeze([
     {
         itemName: "kurokumaft:phoenix_sword",
-        event: "fire/blaze_burst",
-        sendMsg: "§cブレイズバースト"
+        func: blazeBurst,
+        sendMsg: "magic.kurokumaft:blazeBurst.translate"
     }
 ]);
 
@@ -130,10 +134,8 @@ export class SwordWeaponMagic implements ItemCustomComponent {
             return;
         }
         let swordMagicObject = SwordHitObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
-        hitEntity.runCommand("/function magic/" + swordMagicObject.event);
-        if (attackEntity instanceof Player && attackEntity.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
-        }
+        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + swordMagicObject.sendMsg + "\"}]}");
+        swordMagicObject.func(attackEntity, hitEntity);
 
     }
 
@@ -145,10 +147,9 @@ export class SwordWeaponMagic implements ItemCustomComponent {
             return;
         }
         let swordChargeMagicObject = SwordChargeObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
-        player.runCommand("/function magic/" + swordChargeMagicObject.event);
-        if (player.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + swordChargeMagicObject.sendMsg + "\"}]}");
+        swordChargeMagicObject.func(player);
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
 }
@@ -168,20 +169,9 @@ export class SwordWeaponMagicMons implements ItemCustomComponent {
         if (!itemStack) {
             return;
         }
-        let swordMagicObject = SwordHitMonsObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
-        hitEntity.runCommand("/function monster/" + swordMagicObject.event);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + swordMagicObject.sendMsg + "\"}]}");
+        let swordMagicObject = SwordHitMonsObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicMonsObject;
+        swordMagicObject.func(attackEntity, hitEntity);
         ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 
-    }
-
-    // 右クリック
-    onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
-    }
-
-    // ブロッククリック
-    onUseOn(event:ItemComponentUseOnEvent) {
     }
 }

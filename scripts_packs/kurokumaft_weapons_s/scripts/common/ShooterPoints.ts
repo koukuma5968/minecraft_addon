@@ -1,27 +1,22 @@
-import { ItemStack, Player, system, Vector2, Vector3, world } from "@minecraft/server";
-import { print } from "./commonUtil";
+import { EntityComponentTypes, EntityProjectileComponent, ItemStack, Player, Vector2, Vector3 } from "@minecraft/server";
 
 /**
  * 投擲系
  * @param {Player} player
  * @param {ItemStack} item
  * @param {string} throwItem
- * @param {Vector3} ranNum
+ * @param {number} ranNum
  */
-export async function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:Vector3) {
+export async function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:number) {
 
-    let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
-
-    let bulet = player.dimension.spawnEntity(throwItem, 
-        {
-            x:xlocation! + ranNum.x,
-            y:ylocation! + ranNum.y,
-            z:zlocation! + ranNum.z
-        }
-    );
+    let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
     item.amount++;
-    bulet.setRotation({x:0,y:player.getRotation().y});
-    bulet.applyImpulse({x:xapply! * 1.5,y:yapply! * 1.5,z:zapply! * 1.5});
+
+    let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    projectile.owner = player;
+    projectile.shoot(player.getViewDirection(), {
+        uncertainty: ranNum
+    });
 
 }
 
@@ -29,35 +24,27 @@ export async function throwing(player:Player, item:ItemStack, throwItem:string, 
  * 投射系
  * @param {Player} player
  * @param {string} throwItem
- * @param {Vector3} ranNum
+ * @param {number} ranNum
  * @param {string} event
  */
-export async function shooting(player:Player, throwItem:string, ranNum:Vector3, seepd:number, event:string | undefined) {
+export async function shooting(player:Player, throwItem:string, ranNum:number, seepd:number, event:string | undefined) {
 
-    let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
-
-    // world.sendMessage("x:"+ xlocation);
-    // world.sendMessage("y:"+ ylocation);
-    // world.sendMessage("z:"+ zlocation);
-
-    let bulet = player.dimension.spawnEntity(throwItem, 
-        {
-            x:xlocation! + ranNum.x,
-            y:ylocation! + ranNum.y,
-            z:zlocation! + ranNum.z
-        }
-    );
-
+    let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
+    
     if (event) {
         bulet.triggerEvent(event);
     }
 
-    // bulet.teleport(bulet.location, {
-    //     rotation: {x:0, y:player.getRotation().y}
-    // });
-
-    // bulet.setRotation(player.getRotation());
-    bulet.applyImpulse({x:xapply! * seepd,y:yapply! * seepd,z:zapply! * seepd});
+    let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    projectile.owner = player;
+    projectile.shoot({
+        x:player.getViewDirection().x * seepd,
+        y:player.getViewDirection().y * seepd,
+        z:player.getViewDirection().z * seepd
+    },
+    {
+        uncertainty: ranNum
+    });
 
     return bulet;
 }

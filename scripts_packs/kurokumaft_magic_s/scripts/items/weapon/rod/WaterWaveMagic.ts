@@ -1,6 +1,42 @@
-import { Player, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { getAdjacentSphericalPoints } from "../../../common/ShooterPoints";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { addTeamsTagFilter } from "../../../common/commonUtil";
+
+/**
+ * ウォーターカッター
+ */
+export async function watercutter(player:Player, hitEntity:Entity) {
+
+    player.addTag("watercutter_self");
+
+    hitEntity.dimension.spawnParticle("kurokumaft:watercutter_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
+
+    let filterOption = {
+        excludeTags: [
+            "watercutter_self",
+        ],
+        location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
+        maxDistance: 4
+    } as EntityQueryOptions;
+
+    addTeamsTagFilter(player, filterOption);
+
+    let targets = player.dimension.getEntities(filterOption);
+    targets.forEach(en => {
+        if (en instanceof Player) {
+            en.applyDamage(1, {
+                cause: EntityDamageCause.drowning
+            });
+        } else {
+            en.applyDamage(3, {
+                cause: EntityDamageCause.drowning
+            });
+        }
+    });
+
+    player.removeTag("watercutter_self");
+}
 
 /**
  * ウォーターウェーブ
@@ -25,25 +61,29 @@ export async function waterwave(player:Player) {
  */
 export async function waterjail(player:Player) {
     player.addTag("waterjail_self");
-    let targets = player.dimension.getEntities({
+
+    let filterOption = {
         excludeTags: [
             "waterjail_self"
-        ],
-        excludeFamilies: [
-            "inanimate", "player", "familiar"
-        ],
-        excludeTypes: [
-            "item"
         ],
         location: player.location,
         maxDistance: 20,
         closest: 2
-    });
+    } as EntityQueryOptions;
+
+    addTeamsTagFilter(player, filterOption);
+    let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        en.runCommand("/particle kurokumaft:waterjail_particle ~~~");
-        en.addEffect(MinecraftEffectTypes.Slowness, 10*TicksPerSecond, {
-            amplifier: 50
-        });
+        en.dimension.spawnParticle("kurokumaft:waterjail_particle", en.location);
+        if (en instanceof Player) {
+            en.addEffect(MinecraftEffectTypes.Slowness, 5*TicksPerSecond, {
+                amplifier: 10
+            });
+        } else {
+            en.addEffect(MinecraftEffectTypes.Slowness, 10*TicksPerSecond, {
+                amplifier: 50
+            });
+        }
     })
     player.removeTag("waterjail_self");
 }

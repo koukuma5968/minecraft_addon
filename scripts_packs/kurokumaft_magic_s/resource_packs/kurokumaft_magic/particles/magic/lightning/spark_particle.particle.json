@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:spark_particle",
 			"basic_render_parameters": {
-				"material": "particles_blend",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -40,7 +40,13 @@
 				"collision_radius": 0.5
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.91765, 0.85098, 0.18431, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFEAD92F",
+						"1.0": "#FF292405"
+					}
+				}
 			}
 		}
 	}

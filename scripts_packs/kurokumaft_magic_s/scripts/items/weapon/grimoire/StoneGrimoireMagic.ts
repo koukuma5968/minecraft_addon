@@ -1,7 +1,6 @@
-import { Entity, ItemStack, Block, system, Player, GameMode, ItemComponentUseEvent, world, ItemComponentUseOnEvent, ItemComponentTypes, BlockPermutation, Direction, ItemCooldownComponent, Vector3 } from "@minecraft/server";
+import { ItemStack, Block, system, Player, GameMode, ItemComponentUseOnEvent, ItemComponentTypes, BlockPermutation, Direction, ItemCooldownComponent, Vector3 } from "@minecraft/server";
 import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
 import { CraftBlocks } from "../../../common/commonUtil";
 
 const FlowerBlockS = Object.freeze([
@@ -234,10 +233,8 @@ export async function flowerGarden(event:ItemComponentUseOnEvent) {
             system.clearRun(intervalNumXM);
             system.clearRun(intervalNumZM);
 
-            if (entity.getGameMode() != GameMode.creative) {
-                if (setFireF) {
-                    decrimentGrimoireCount(entity, itemStack);
-                }
+            if (setFireF) {
+                decrimentGrimoireCount(entity, itemStack);
             }
         }, 15);
     }
@@ -329,10 +326,8 @@ export async function growth(event:ItemComponentUseOnEvent) {
         }
     }
 
-    if (player.getGameMode() != GameMode.creative) {
-        if (setFireF) {
-            decrimentGrimoireCount(player, itemStack);
-        }
+    if (setFireF) {
+        decrimentGrimoireCount(player, itemStack);
     }
 
 };

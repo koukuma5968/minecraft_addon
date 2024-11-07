@@ -1,6 +1,5 @@
 import { Entity, ItemStack, Block, system, Player, GameMode, ItemComponentUseEvent, world } from "@minecraft/server";
 import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
 
 const MowingBlockS = Object.freeze([
@@ -86,7 +85,6 @@ export async function mowing(event:ItemComponentUseEvent) {
                 let vec = {"x":bx+xpcount1,"y":by+y,"z":bz+z};
                 let dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
-                    playerDim.getBlockFromRay
                     playerDim.runCommand("setblock " + (bx+xpcount1) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
                 }
@@ -180,10 +178,8 @@ export async function mowing(event:ItemComponentUseEvent) {
         system.clearRun(intervalNumXM);
         system.clearRun(intervalNumZM);
 
-        if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-            if (setFireF) {
-                decrimentGrimoireCount(entity as Player, itemStack);
-            }
+        if (setFireF) {
+            decrimentGrimoireCount(entity as Player, itemStack);
         }
     }, 15);
 

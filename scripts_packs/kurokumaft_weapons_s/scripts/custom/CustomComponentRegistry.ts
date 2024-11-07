@@ -32,7 +32,7 @@ import { BaristaShot } from "../items/weapons/fort/BaristaShot";
 import { ThrowableBoomerang } from "../items/weapons/boomerang/ThrowableBoomerang";
 import { ChocolateCakeBlock } from "../block/ChocolateCakeBlock";
 import { BuddingMithril } from "../block/mithril/BuddingMithril";
-import { checkMithrilGeodeTick, MithrilBlock } from "../block/mithril/MithrilBlock";
+import { MithrilBlock } from "../block/mithril/MithrilBlock";
 import { MithrilBudGrowth } from "../block/mithril/MithrilBudGrowth";
 import { FortuneDestroy } from "../block/FortuneDestroy";
 import { HoeFarming } from "../items/hoe/HoeFarming";
@@ -45,6 +45,7 @@ import { TearEnchant } from "../block/TearEnchant";
 import { SniperSteelBow } from "../items/weapons/bow/SniperSteelBow";
 import { Battleaxe } from "../items/weapons/battleaxe/Battleaxe";
 import { CrossBone } from "../items/weapons/battleaxe/CrossBone";
+import { CopperBucket } from "../items/bucket/CopperBucket";
 
 /**
  * カスタムコンポーネントの登録
@@ -141,6 +142,8 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     // ポーション
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:potion_effect', new PotionEffect());
 
+    // 銅のバケツ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:copper_bucket', new CopperBucket());
 
     // ブロック類
     // チョコレートケーキブロック
@@ -171,7 +174,6 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
  */
 function initStateChangeMonitor(initEvent:WorldInitializeBeforeEvent) {
     checkPlayerEquTick();
-    checkMithrilGeodeTick();
 }
 
 export {initRegisterCustom, initStateChangeMonitor}

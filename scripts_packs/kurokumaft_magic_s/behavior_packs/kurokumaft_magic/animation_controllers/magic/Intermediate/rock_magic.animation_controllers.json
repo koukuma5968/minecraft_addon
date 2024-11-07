@@ -10,7 +10,7 @@
         },
         "stone_needle": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§7ストーンニードル\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:stone_needle.translate\"}]}",
             "/tag @s add stone_needle_self",
             "/function magic/stone/stone_needle"
           ],

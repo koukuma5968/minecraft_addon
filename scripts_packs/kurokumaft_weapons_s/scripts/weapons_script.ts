@@ -40,9 +40,6 @@ world.afterEvents.itemUseOn.subscribe(event => {
     let player = event.source;
     let item = event.itemStack;
     let block = event.block;
-    if (item != undefined) {
-
-    }
 });
 
 world.beforeEvents.explosion.subscribe(event => {

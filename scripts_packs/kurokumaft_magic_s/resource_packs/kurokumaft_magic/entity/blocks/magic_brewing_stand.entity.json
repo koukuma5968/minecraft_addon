@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "kurokumaft:magic_brewing_stand",
+            "materials": {
+                "default": "armor_stand"
+            },
+            "textures": {
+                "default": "textures/kurokumaft/models/blocks/magic_brewing_stand"
+            },
+            "geometry": {
+                "default": "geometry.magic_brewing_stand"
+            },
+            "animations": {
+                "stand_n": "animation.magic_brewing.stand_n",
+                "stand_s": "animation.magic_brewing.stand_s",
+                "stand_e": "animation.magic_brewing.stand_e",
+                "stand_w": "animation.magic_brewing.stand_w"
+            },
+            "scripts": {
+                "animate": [
+                  {"stand_n": "query.property('kurokumaft:stand_pos') == 'n'"},
+                  {"stand_s": "query.property('kurokumaft:stand_pos') == 's'"},
+                  {"stand_e": "query.property('kurokumaft:stand_pos') == 'e'"},
+                  {"stand_w": "query.property('kurokumaft:stand_pos') == 'w'"}
+                ]
+            },
+            "render_controllers": [ "controller.render.magic_brewing_stand" ]
+        }
+    }
+}
+  

@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:storm2_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},
@@ -36,7 +36,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.84706, 0.98431, 0.84706, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFD8FBD8",
+						"1.0": "#FF2BB52B"
+					}
+				}
 			}
 		}
 	}

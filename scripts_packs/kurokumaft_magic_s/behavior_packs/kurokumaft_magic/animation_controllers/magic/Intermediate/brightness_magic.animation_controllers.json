@@ -10,7 +10,7 @@
         },
         "ability": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eアビリティアップ\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:ability.translate\"}]}",
             "/function magic/light/ability"
           ],
           "transitions": [

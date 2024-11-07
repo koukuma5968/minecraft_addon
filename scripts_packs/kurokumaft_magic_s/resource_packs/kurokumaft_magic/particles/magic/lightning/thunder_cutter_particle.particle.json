@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:thunder_cutter_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/kurokumaft/particle/sweep"
 			}
 		},
@@ -43,7 +43,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.83529, 0.89804, 0.14118, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFD5E524",
+						"1.0": "#FFD5E524"
+					}
+				}
 			}
 		}
 	}

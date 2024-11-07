@@ -1,26 +1,30 @@
-import { Dimension, Entity, EntityDamageCause, Player, system, Vector3 } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
+import { Dimension, Entity, EntityDamageCause, EntityQueryOptions, Player, system, Vector3 } from "@minecraft/server";
+import { addTeamsTagFilter, getLookPoints, getRandomInRange } from "../../../common/commonUtil";
 
 /**
  * ブラム・ファング
  */
 export async function bramFang(player:Player) {
-    let targets = player.dimension.getEntities({
+
+    player.addTag("bram_fang_self");
+
+    let filterOption = {
         excludeTags: [
-            "flamecircle_self"
-        ],
-        excludeFamilies: [
-            "inanimate", "player", "familiar", "arrow"
-        ],
-        excludeTypes: [
-            "item"
+            "bram_fang_self",
         ],
         location: player.location,
         maxDistance: 3
-    });
+    } as EntityQueryOptions;
+    addTeamsTagFilter(player, filterOption);
+
+    let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        en.dimension.spawnParticle("kurokumaft:bram_fang_particle", en.location);
         en.dimension.spawnEntity("kurokumaft:bram_fang_magic", en.location);
-    })
+    });
+
+    player.removeTag("bram_fang_self");
+
 }
 
 /**
@@ -31,29 +35,33 @@ export async function fireStorm(player:Player) {
 
     player.addTag("firestormmagic_self");
 
-    let {xlocation, ylocation, zlocation} = getLookPoints(player.getRotation(), player.location, 15);
+    let look = getLookPoints(player.getRotation(), player.location, 15);
 
     let dim = player.dimension;
     let ploc = player.location
     let intervalNum = system.runInterval(() => {
-        dim.spawnParticle("kurokumaft:firestome5_particle", {x:xlocation!,y:ploc.y,z:zlocation!});
-        let targets = dim.getEntities({
+        dim.spawnParticle("kurokumaft:firestome5_particle", {x:look.x,y:ploc.y,z:look.z});
+
+        let filterOption = {
             excludeTags: [
-                "firestormmagic_self"
+                "firestormmagic_self",
             ],
-            excludeFamilies: [
-                "inanimate", "player", "familiar", "magic", "arrow"
-            ],
-            excludeTypes: [
-                "item"
-            ],
-            location: {x:xlocation!,y:player.location.y,z:zlocation!},
+            location: {x:look.x,y:ploc.y,z:look.z},
             maxDistance: 10
-        });
+        } as EntityQueryOptions;
+        addTeamsTagFilter(player, filterOption);
+    
+        let targets = dim.getEntities(filterOption);
         targets.forEach(en => {
-            en.applyDamage(5, {
-                cause: EntityDamageCause.fire
-            });
+            if (en instanceof Player) {
+                en.applyDamage(3, {
+                    cause: EntityDamageCause.fire
+                });
+            } else {
+                en.applyDamage(6, {
+                    cause: EntityDamageCause.fire
+                });
+            }
         })
     }, 1);
     system.runTimeout(() => {

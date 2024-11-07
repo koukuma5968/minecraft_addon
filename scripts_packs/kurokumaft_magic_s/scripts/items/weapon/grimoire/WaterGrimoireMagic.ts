@@ -36,10 +36,8 @@ export async function water(event:ItemComponentUseOnEvent) {
         }
     });
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-        if (setFireF) {
-            decrimentGrimoireCount(entity as Player, itemStack);
-        }
+    if (setFireF) {
+        decrimentGrimoireCount(entity as Player, itemStack);
     }
 
 };
@@ -65,10 +63,8 @@ export async function waterCauldron(event:ItemUseOnAfterEvent) {
         setFireF = true;
     }
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-        if (setFireF) {
-            decrimentGrimoireCount(entity as Player, itemStack);
-        }
+    if (setFireF) {
+        decrimentGrimoireCount(entity as Player, itemStack);
     }
 
 };

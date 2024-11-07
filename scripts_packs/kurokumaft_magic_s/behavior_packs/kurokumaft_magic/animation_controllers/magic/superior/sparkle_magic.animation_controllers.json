@@ -10,7 +10,7 @@
         },
         "flash_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eフラッシュビット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:flash_bit.translate\"}]}",
             "/function magic/light/flash_bit"
           ],
           "transitions": [

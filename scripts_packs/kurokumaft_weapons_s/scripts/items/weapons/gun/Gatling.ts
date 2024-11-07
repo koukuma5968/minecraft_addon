@@ -32,6 +32,7 @@ async function shotGatling(player: Player, item: ItemStack) {
 
     player.setDynamicProperty("gatlingShot", true);
     let count = 0;
+    let shot = 1;
     let intervalNum = system.runInterval(() => {
 
         let reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
@@ -41,11 +42,11 @@ async function shotGatling(player: Player, item: ItemStack) {
             return;
         }
 
-        let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-        let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-        let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
-        shooting(player, "kurokumaft:twenty_two_lr_entity", {x:xran,y:yran,z:zran}, 5, undefined);
+        shooting(player, "kurokumaft:twenty_two_lr_entity<kurokumaft:shot"+shot+">", 0.2, 5, undefined);
+        shot++;
+        if (shot > 5) {
+            shot=1;
+        }
         if (count % 4 === 0) {
             let look = getLookPoints(player.getRotation(), player.location, 1.5);
             player.dimension.spawnParticle("minecraft:explosion_manual", look);

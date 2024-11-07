@@ -1,0 +1,55 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:feature_rules": {
+        "description": {
+            "identifier": "kurokumaft:lightning_tree_feature_rules",
+            "places_feature": "kurokumaft:lightning_tree_feature"
+        },
+        "conditions": {
+            "placement_pass": "final_pass",
+            "minecraft:biome_filter": [
+                {
+                    "any_of": [
+                        {
+                          "test": "has_biome_tag",
+                          "operator": "==",
+                          "value": "plains"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "savanna"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "savanna_mutated"
+                        },
+                        {
+                            "test": "has_biome_tag",
+                            "operator": "==",
+                            "value": "savanna_plateau"
+                        }
+                    ]
+                }
+            ]
+        },
+        "distribution": {
+            "iterations": 2,
+            "scatter_chance": 20.0,
+            "coordinate_eval_order": "yxz",
+            "x": {
+              "distribution": "uniform",
+              "extent": [ 0, 64 ]
+            },
+            "y": {
+                "distribution": "uniform",
+                "extent": [ 40, 180]
+            },
+            "z": {
+              "distribution": "uniform",
+              "extent": [ 0, 64 ]
+            }
+        }
+    }
+}

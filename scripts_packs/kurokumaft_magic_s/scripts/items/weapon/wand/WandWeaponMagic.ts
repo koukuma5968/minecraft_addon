@@ -1,58 +1,71 @@
 import { Block, Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, RawMessage, world } from "@minecraft/server";
-import { throwing } from "../../../custom/ShooterMagicEvent";
+import { throwing } from "../../../common/ShooterMagicEvent";
 import { print, getRandomInRange } from "../../../common/commonUtil";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { deepSnow } from "./SnowWandMagic";
-import { absorption, invisibility } from "./DarkWandMagic";
-import { healing, recovery } from "./LightWandMagic";
+import { deepSnow, icewall, powderedSnow } from "./SnowWandMagic";
+import { absorption, darkBread, invisibility } from "./DarkWandMagic";
+import { healing, lightBread, recovery } from "./LightWandMagic";
+import { splash, waterball, waterwall } from "./WaterMagic";
+import { burstRondo, fireball, firewall } from "./FireMagic";
+import { windcutter, windEdge, windwall } from "./WindMagic";
+import { sandBlast, stonebarrette, stonewall } from "./StoneMagic";
+import { lightningbolt, lightningwall, spark } from "./LightningMagic";
 
 interface WandMagicObject {
     itemName:string,
     event:string
     sendMsg:string,
-    func:any
+    func:CallableFunction
 }
 
 const WandHitObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_wand",
-        event: "fire/burst_rondo",
-        sendMsg: "§cバーストロンド"
+        event: "",
+        func: burstRondo,
+        sendMsg: "magic.kurokumaft:burstRondo.translate"
     },
     {
         itemName: "kurokumaft:water_wand",
-        event: "water/splash",
-        sendMsg: "§bスプラッシュ"
+        event: "",
+        func: splash,
+        sendMsg: "magic.kurokumaft:splash.translate"
     },
     {
         itemName: "kurokumaft:wind_wand",
-        event: "wind/wind_edge",
-        sendMsg: "§aウィンドエッジ"
+        event: "",
+        func: windEdge,
+        sendMsg: "magic.kurokumaft:windEdge.translate"
     },
     {
         itemName: "kurokumaft:stone_wand",
-        event: "stone/sand_blast",
-        sendMsg: "§7サンドブラスト"
+        event: "",
+        func: sandBlast,
+        sendMsg: "magic.kurokumaft:sandBlast.translate"
     },
     {
         itemName: "kurokumaft:lightning_wand",
-        event: "lightning/spark",
-        sendMsg: "§6スパーク"
+        event: "",
+        func: spark,
+        sendMsg: "magic.kurokumaft:spark.translate"
     },
     {
         itemName: "kurokumaft:snow_wand",
-        event: "ice/powdered_snow",
-        sendMsg: "§fパウダースノー"
+        event: "",
+        func: powderedSnow,
+        sendMsg: "magic.kurokumaft:powderedSnow.translate"
     },
     {
         itemName: "kurokumaft:dark_wand",
-        event: "dark/dark_bread",
-        sendMsg: "§8ダークブレード"
+        event: "",
+        func: darkBread,
+        sendMsg: "magic.kurokumaft:darkBread.translate"
     },
     {
         itemName: "kurokumaft:light_wand",
-        event: "light/light_bread",
-        sendMsg: "§eライトブレード"
+        event: "",
+        func: lightBread,
+        sendMsg: "magic.kurokumaft:lightBread.translate"
     }
 
 ]);
@@ -61,27 +74,27 @@ const BallMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_wand",
         event: "kurokumaft:fireballmagic",
-        sendMsg: "§cファイヤーボール"
+        sendMsg: "magic.kurokumaft:fireball.translate"
     },
     {
         itemName: "kurokumaft:water_wand",
         event: "kurokumaft:waterballmagic",
-        sendMsg: "§bウォーターボール"
+        sendMsg: "magic.kurokumaft:waterball.translate"
     },
     {
         itemName: "kurokumaft:wind_wand",
         event: "kurokumaft:windcuttermagic",
-        sendMsg: "§aウィンドカッター"
+        sendMsg: "magic.kurokumaft:windcutter.translate"
     },
     {
         itemName: "kurokumaft:stone_wand",
         event: "kurokumaft:stonebarrettemagic",
-        sendMsg: "§7ストーンバレット"
+        sendMsg: "magic.kurokumaft:stonebarrette.translate"
     },
     {
         itemName: "kurokumaft:lightning_wand",
         event: "kurokumaft:lightningboltmagic",
-        sendMsg: "§6ライトニングボルト"
+        sendMsg: "magic.kurokumaft:lightningbolt.translate"
     }
 
 ]);
@@ -89,33 +102,39 @@ const BallMagicObjects = Object.freeze([
 const WallMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_wand",
-        event: "fire/firewall",
-        sendMsg: "§cファイアウォール"
+        event: "",
+        func: firewall,
+        sendMsg: "magic.kurokumaft:firewall.translate"
     },
     {
         itemName: "kurokumaft:water_wand",
-        event: "water/waterwall",
-        sendMsg: "§bウォーターウォール"
+        event: "",
+        func: waterwall,
+        sendMsg: "magic.kurokumaft:waterwall.translate"
     },
     {
         itemName: "kurokumaft:wind_wand",
-        event: "wind/windwall",
-        sendMsg: "§aウィンドウォール"
+        event: "",
+        func: windwall,
+        sendMsg: "magic.kurokumaft:windwall.translate"
     },
     {
         itemName: "kurokumaft:stone_wand",
-        event: "stone/stonewall",
-        sendMsg: "§7ストーンウォール"
+        event: "",
+        func: stonewall,
+        sendMsg: "magic.kurokumaft:stonewall.translate"
     },
     {
         itemName: "kurokumaft:lightning_wand",
-        event: "lightning/lightningwall",
-        sendMsg: "§6ライトニングウォール"
+        event: "",
+        func: lightningwall,
+        sendMsg: "magic.kurokumaft:lightningwall.translate"
     },
     {
         itemName: "kurokumaft:snow_wand",
-        event: "ice/icewall",
-        sendMsg: "§fアイスウォール"
+        event: "",
+        func: icewall,
+        sendMsg: "magic.kurokumaft:icewall.translate"
     }
 
 ]);
@@ -123,18 +142,21 @@ const WallMagicObjects = Object.freeze([
 const OtherUpMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:snow_wand",
+        event: "",
         func: deepSnow,
-        sendMsg: "§fディープスノー"
+        sendMsg: "magic.kurokumaft:deepSnow.translate"
     },
     {
         itemName: "kurokumaft:dark_wand",
+        event: "",
         func: absorption,
-        sendMsg: "§8アブソープション"
+        sendMsg: "magic.kurokumaft:absorption.translate"
     },
     {
         itemName: "kurokumaft:light_wand",
+        event: "",
         func: healing,
-        sendMsg: "§eヒーリング"
+        sendMsg: "magic.kurokumaft:healing.translate"
     }
 
 ]);
@@ -142,11 +164,13 @@ const OtherUpMagicObjects = Object.freeze([
 const OtherDownMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:dark_wand",
+        event: "",
         func: invisibility,
         sendMsg: "§8インビジブル"
     },
     {
         itemName: "kurokumaft:light_wand",
+        event: "",
         func: recovery,
         sendMsg: "§eリカバリー"
     }
@@ -165,14 +189,12 @@ export class WandWeaponMagic implements ItemCustomComponent {
         let hitEntity = event.hitEntity as Entity;
         let effect = event.hadEffect as boolean;
 
-        if (!itemStack || (hitEntity instanceof Player && !world.gameRules.pvp)) {
+        if (!itemStack) {
             return;
         }
         let wandMagic = WandHitObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
-        attackEntity.runCommand("/function magic/" + wandMagic.event);
-        attackEntity.runCommand("/titleraw @s actionbar " + JSON.stringify({
-            rawtext: [{ text: wandMagic.sendMsg }]
-        }));
+        wandMagic.func(attackEntity, hitEntity);
+        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + wandMagic.sendMsg + "\"}]}");
     }
 
     // 右クリック
@@ -180,16 +202,11 @@ export class WandWeaponMagic implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let player = event.source as Player;
 
-        let xran = parseFloat(getRandomInRange(-0.1, 0.5).toFixed(3));
-        let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-        let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
         let wandMagic:WandMagicObject;
-        // pvp用
         if (player.isSneaking) {
             wandMagic = WallMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
             if (wandMagic) {
-                player.runCommand("/function magic/" + wandMagic.event);
+                wandMagic.func(player);
             } else {
                 wandMagic = OtherDownMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
                 wandMagic.func(player);
@@ -197,21 +214,16 @@ export class WandWeaponMagic implements ItemCustomComponent {
         } else {
             wandMagic = BallMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
             if (wandMagic) {
-                throwing(player, itemStack, wandMagic.event, {x:xran,y:yran,z:zran});
+                throwing(player, itemStack, wandMagic.event, 2.5);
             } else {
                 wandMagic = OtherUpMagicObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
                 wandMagic.func(player);
             }
         }
 
-        let rawMessage = {
-            rawtext: [{ text: wandMagic.sendMsg }]
-        } as RawMessage;
-        player.runCommand("/titleraw @s actionbar " + JSON.stringify(rawMessage));
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + wandMagic.sendMsg + "\"}]}");
 
-        if (player.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
@@ -222,23 +234,33 @@ export class WandWeaponMagic implements ItemCustomComponent {
 const WandProjectileObjects = Object.freeze([
     {
         itemName: "kurokumaft:fireballmagic",
-        event: "fire/fireball"
-    },
+        func: fireball,
+        event: "",
+        sendMsg: ""
+   },
     {
         itemName: "kurokumaft:waterballmagic",
-        event: "water/waterball"
+        func: waterball,
+        event: "",
+        sendMsg: ""
     },
     {
         itemName: "kurokumaft:windcuttermagic",
-        event: "wind/windcutter"
+        func: windcutter,
+        event: "",
+        sendMsg: ""
     },
     {
         itemName: "kurokumaft:stonebarrettemagic",
-        event: "stone/stonebarrette"
+        func: stonebarrette,
+        event: "",
+        sendMsg: ""
     },
     {
         itemName: "kurokumaft:lightningboltmagic",
-        event: "lightning/lightningbolt"
+        func: lightningbolt,
+        event: "",
+        sendMsg: ""
     }
 
 ]);
@@ -250,7 +272,7 @@ export function checkWandProjectile(projectileName:string) {
 export function hitProjectileEvent(projectile:Entity) {
     let proje = WandProjectileObjects.find(obj => obj.itemName == projectile.typeId) as WandMagicObject;
     try {
-        projectile.runCommand("/function magic/" + proje.event);
+        proje.func(projectile);
         projectile.remove();
     } catch (error) {
     }

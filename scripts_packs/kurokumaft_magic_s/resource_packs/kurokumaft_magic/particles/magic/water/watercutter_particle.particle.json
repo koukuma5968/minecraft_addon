@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:watercutter_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/kurokumaft/particle/sweep"
 			}
 		},
@@ -41,7 +41,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.14118, 0.18824, 0.68627, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF78AFEB",
+						"1.0": "#FF0D3451"
+					}
+				}
 			}
 		}
 	}

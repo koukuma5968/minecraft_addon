@@ -1,6 +1,5 @@
 import { Entity, EntityDamageCause, Player } from "@minecraft/server";
-import { getRandomInRange } from "../../../common/commonUtil";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { shooting } from "../../../common/ShooterMagicEvent";
 
 /**
  * 焔裂き(ほむらざき)
@@ -19,10 +18,6 @@ export async function flamingDesires(entity:Entity) {
  */
 export async function crimsonBread(player:Player) {
 
-    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
-    shooting(player, "kurokumaft:crimson_bread", {x:xran,y:yran,z:zran}, 2, undefined);
+    shooting(player, "kurokumaft:crimson_bread", 0.5, 2, undefined);
 
 }

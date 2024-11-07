@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:wind_desires_particle",
 			"basic_render_parameters": {
-				"material": "particles_blend",
+				"material": "particles_add",
 				"texture": "textures/kurokumaft/particle/moon"
 			}
 		},
@@ -38,7 +38,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.57255, 0.95686, 0.65882, 0.76078]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#C292F4A8",
+						"1.0": "#C20A2D13"
+					}
+				}
 			}
 		}
 	}

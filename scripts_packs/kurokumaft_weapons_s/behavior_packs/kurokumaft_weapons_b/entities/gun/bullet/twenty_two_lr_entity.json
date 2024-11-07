@@ -8,35 +8,151 @@
       "is_experimental": false,
       "runtime_identifier": "minecraft:arrow"
     },
+    "component_groups": {
+      "kurokumaft:shot1": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 2,
+              "catch_fire": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "remove_on_hit": {}
+          },
+          "knockback": false,
+          "destroy_on_hurt": true,
+          "power": 9.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 2,
+          "uncertaintyMultiplier": 1.0,
+          "anchor": 1,
+          "offset": [0, 0, 0.5],
+          "reflect_on_hurt": true,
+          "shoot_target": true,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:shot2": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 2,
+              "catch_fire": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "remove_on_hit": {}
+          },
+          "knockback": false,
+          "destroy_on_hurt": true,
+          "power": 9.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 2,
+          "uncertaintyMultiplier": 1.0,
+          "anchor": 1,
+          "offset": [0.1, 0, 0.5],
+          "reflect_on_hurt": true,
+          "shoot_target": true,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:shot3": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 2,
+              "catch_fire": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "remove_on_hit": {}
+          },
+          "knockback": false,
+          "destroy_on_hurt": true,
+          "power": 9.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 2,
+          "uncertaintyMultiplier": 1.0,
+          "anchor": 1,
+          "offset": [-0.1, 0, 0.5],
+          "reflect_on_hurt": true,
+          "shoot_target": true,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:shot4": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 2,
+              "catch_fire": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "remove_on_hit": {}
+          },
+          "knockback": false,
+          "destroy_on_hurt": true,
+          "power": 9.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 2,
+          "uncertaintyMultiplier": 1.0,
+          "anchor": 1,
+          "offset": [0, 0.1, 0.5],
+          "reflect_on_hurt": true,
+          "shoot_target": true,
+          "catch_fire": false
+        }
+      },
+      "kurokumaft:shot5": {
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true
+            },
+            "impact_damage": {
+              "damage": 2,
+              "catch_fire": false,
+              "semi_random_diff_damage": false,
+              "destroy_on_hit": true
+            },
+            "remove_on_hit": {}
+          },
+          "knockback": false,
+          "destroy_on_hurt": true,
+          "power": 9.0,
+          "gravity": 0.01,
+          "inertia": 1.0,
+          "uncertaintyBase": 2,
+          "uncertaintyMultiplier": 1.0,
+          "anchor": 1,
+          "offset": [0, -0.1, 0.5],
+          "reflect_on_hurt": true,
+          "shoot_target": true,
+          "catch_fire": false
+        }
+      }
+    },
     "components": {
       "minecraft:type_family": {
         "family": [ "inanimate"]
-      },
-      "minecraft:projectile": {
-        "on_hit": {
-          "definition_event": {
-            "affect_projectile": true
-          },
-          "impact_damage": {
-            "damage": 2,
-            "catch_fire": false,
-            "semi_random_diff_damage": false,
-            "destroy_on_hit": true
-          },
-          "remove_on_hit": {}
-        },
-        "knockback": false,
-        "destroy_on_hurt": true,
-        "power": 9.0,
-        "gravity": 0.01,
-        "inertia": 1.0,
-        "uncertaintyBase": 2,
-        "uncertaintyMultiplier": 1.0,
-        "anchor": 1,
-        "offset": [-0.3, -0.5, 0],
-        "reflect_on_hurt": true,
-        "shoot_target": true,
-        "catch_fire": false
       },
       "minecraft:collision_box": {
         "width": 1.0,
@@ -56,6 +172,44 @@
         "is_pushable_by_piston": false
       },
       "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+      "kurokumaft:shot1": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:shot1"
+          ]
+        }
+      },
+      "kurokumaft:shot2": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:shot2"
+          ]
+        }
+      },
+      "kurokumaft:shot3": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:shot3"
+          ]
+        }
+      },
+      "kurokumaft:shot4": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:shot4"
+          ]
+        }
+      },
+      "kurokumaft:shot5": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:shot5"
+          ]
+        }
       }
     }
   }

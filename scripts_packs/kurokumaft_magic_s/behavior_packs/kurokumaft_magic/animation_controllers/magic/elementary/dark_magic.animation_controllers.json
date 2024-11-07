@@ -10,7 +10,7 @@
         },
         "darkness": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§8ダークネス\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:darkness.translate\"}]}",
             "/function magic/dark/darkness"
           ],
           "transitions": [

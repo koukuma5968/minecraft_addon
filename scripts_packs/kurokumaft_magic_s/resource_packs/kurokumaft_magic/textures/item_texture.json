@@ -652,8 +652,52 @@
          "textures" : "textures/kurokumaft/items/food/repatriation_fruit"
       },
 
+      "fire_log_nut": {
+         "textures" : "textures/kurokumaft/items/food/fire_log_nut"
+      },
+      "water_log_nut": {
+         "textures" : "textures/kurokumaft/items/food/water_log_nut"
+      },
+      "wind_log_nut": {
+         "textures" : "textures/kurokumaft/items/food/wind_log_nut"
+      },
+      "stone_log_nut": {
+         "textures" : "textures/kurokumaft/items/food/stone_log_nut"
+      },
+      "lightning_log_nut": {
+         "textures" : "textures/kurokumaft/items/food/lightning_log_nut"
+      },
+      "ice_log_nut": {
+         "textures" : "textures/kurokumaft/items/food/ice_log_nut"
+      },
+
       "home_gate": {
          "textures" : "textures/kurokumaft/blocks/home_gate"
+      },
+
+      "diamond_bottle": {
+         "textures" : "textures/kurokumaft/items/potion/diamond_bottle"
+      },
+      "magic_potion": {
+         "textures" : "textures/kurokumaft/items/potion/magic_potion"
+      },
+      "fire_potion": {
+         "textures" : "textures/kurokumaft/items/potion/fire_potion"
+      },
+      "water_potion": {
+         "textures" : "textures/kurokumaft/items/potion/water_potion"
+      },
+      "wind_potion": {
+         "textures" : "textures/kurokumaft/items/potion/wind_potion"
+      },
+      "stone_potion": {
+         "textures" : "textures/kurokumaft/items/potion/stone_potion"
+      },
+      "lightning_potion": {
+         "textures" : "textures/kurokumaft/items/potion/lightning_potion"
+      },
+      "ice_potion": {
+         "textures" : "textures/kurokumaft/items/potion/ice_potion"
       },
 
       "phoenix_feather": {

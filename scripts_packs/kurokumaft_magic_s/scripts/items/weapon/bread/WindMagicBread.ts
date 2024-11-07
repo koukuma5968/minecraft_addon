@@ -1,6 +1,5 @@
 import { Entity, EntityDamageCause, Player, system } from "@minecraft/server";
-import { getRandomInRange } from "../../../common/commonUtil";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { shooting } from "../../../common/ShooterMagicEvent";
 
 /**
  * 烈風刃(れっぷうじん)
@@ -29,14 +28,10 @@ export function windDesires(entity:Entity) {
  */
 export function windBarkSlash(player:Player) {
 
-    let xran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-    let yran = parseFloat(getRandomInRange(-0.2, 0.5).toFixed(3));
-    let zran = parseFloat(getRandomInRange(-0.5, 0.5).toFixed(3));
-
     let intervalNum = system.runInterval(() => {
-        shooting(player, "kurokumaft:wind_bark_slash", {x:xran,y:yran,z:zran}, 5,"kurokumaft:projectile_1");
-        shooting(player, "kurokumaft:wind_bark_slash", {x:xran,y:yran,z:zran}, 5,"kurokumaft:projectile_2");
-        shooting(player, "kurokumaft:wind_bark_slash", {x:xran,y:yran,z:zran}, 5,"kurokumaft:projectile_3");
+        shooting(player, "kurokumaft:wind_bark_slash", 1, 5,"kurokumaft:projectile_1");
+        shooting(player, "kurokumaft:wind_bark_slash", 1, 5,"kurokumaft:projectile_2");
+        shooting(player, "kurokumaft:wind_bark_slash", 1, 5,"kurokumaft:projectile_3");
     }, 5);
 
     system.runTimeout(() => {

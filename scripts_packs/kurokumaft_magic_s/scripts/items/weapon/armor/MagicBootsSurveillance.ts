@@ -28,6 +28,12 @@ const MagicBootsObjects = Object.freeze([
         removeFunc: windSpeedReset
     },
     {
+        itemName: "kurokumaft:stone_magic_boots",
+        func: stoneFallInvalid,
+        delay: TicksPerSecond * 1,
+        removeFunc: stoneFallInvalidReset
+    },
+    {
         itemName: "kurokumaft:lightning_magic_boots",
         func: lightningSpeedUp,
         delay: TicksPerSecond * 1,
@@ -56,6 +62,12 @@ const MagicBootsObjects = Object.freeze([
         func: windSpeedUp,
         delay: TicksPerSecond * 1,
         removeFunc: windSpeedReset
+    },
+    {
+        itemName: "kurokumaft:nether_stone_magic_boots",
+        func: stoneFallInvalid,
+        delay: TicksPerSecond * 1,
+        removeFunc: stoneFallInvalidReset
     },
     {
         itemName: "kurokumaft:nether_lightning_magic_boots",
@@ -94,6 +106,9 @@ export class MagicBootsSurveillance {
     private async checkJob() {
 
         let equItem = MagicBootsObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicBootsObject;
+        if (equItem == undefined) {
+            return;
+        }
         let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let boot = equ.getEquipment(EquipmentSlot.Feet) as ItemStack;
 
@@ -135,6 +150,14 @@ async function windSpeedUp(player:Player) {
     } else {
         player.triggerEvent("kurokumaft:speed_walker_down");
     }
+}
+
+async function stoneFallInvalid(player:Player) {
+    player.addTag("fall_invalid");
+}
+
+async function stoneFallInvalidReset(player:Player) {
+    player.removeTag("fall_invalid");
 }
 
 async function lightningSpeedUp(player:Player) {

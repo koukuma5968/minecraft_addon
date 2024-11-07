@@ -38,7 +38,13 @@
 				"collision_radius": 0.5
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.98431, 0.91373, 0.52941, 0.14118]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#24FBE987",
+						"1.0": "#24FBE987"
+					}
+				}
 			}
 		}
 	}

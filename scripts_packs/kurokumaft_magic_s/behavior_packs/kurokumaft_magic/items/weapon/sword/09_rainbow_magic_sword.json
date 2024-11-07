@@ -26,8 +26,8 @@
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
         "damage_chance": {
-          "min": 1,
-          "max": 5
+          "min": 20,
+          "max": 40
         },
         "max_durability": 100
       },

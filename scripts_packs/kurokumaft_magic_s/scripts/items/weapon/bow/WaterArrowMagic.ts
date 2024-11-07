@@ -1,29 +1,28 @@
-import { Entity, EntityDamageCause, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
-import { shooting } from "../../../custom/ShooterMagicEvent";
-import { getDirectionVector } from "../../../common/commonUtil";
+import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond, Vector3, world } from "@minecraft/server";
+import { shooting } from "../../../common/ShooterMagicEvent";
+import { addTeamsTagFilter, getDirectionVector } from "../../../common/commonUtil";
 
 /**
  * ウォーターアローホーミング
  */
-export async function waterArrowHoming(player:Player, arrow:string, loca:Vector3, speed:number) {
-    let water = shooting(player, arrow, loca, 1.5, undefined);
+export async function waterArrowHoming(player:Player, arrow:string, ran:number, speed:number) {
+    let water = shooting(player, arrow, ran, speed, undefined);
     water.addTag("waterarrow")
     let intervalNum = system.runInterval(() => {
         if (water != undefined && water.isValid()) {
-            let target = water.dimension.getEntities({
+
+            let filterOption = {
                 excludeTags: [
-                    "waterarrow"
-                ],
-                excludeFamilies: [
-                    "inanimate", "magic", "player", "arrow"
-                ],
-                excludeTypes: [
-                    "item"
+                    "waterarrow",
                 ],
                 location: water.location,
                 maxDistance: 30,
                 closest: 1
-            });
+            } as EntityQueryOptions;
+        
+            addTeamsTagFilter(player, filterOption);
+        
+            let target = water.dimension.getEntities(filterOption);
             if (target != undefined && target.length > 0) {
                 let targetLoc = getDirectionVector(water.location, target[0].location);
                 let tpLoc = {
@@ -57,9 +56,17 @@ export async function waterArrowHoming(player:Player, arrow:string, loca:Vector3
 export async function waterArrow(entity:Entity) {
     let intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
-            entity.applyDamage(3, {
-                cause: EntityDamageCause.drowning
-            });
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.applyDamage(1, {
+                        cause: EntityDamageCause.drowning
+                    });
+                }
+            } else {
+                entity.applyDamage(3, {
+                    cause: EntityDamageCause.drowning
+                });
+            }
         }
     }, TicksPerSecond);
     system.runTimeout(() => {

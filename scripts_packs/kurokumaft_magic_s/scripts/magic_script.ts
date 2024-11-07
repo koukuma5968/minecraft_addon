@@ -1,5 +1,5 @@
-import { world,Entity, Player, EntityDamageSource } from "@minecraft/server";
-import { shieldGuard, shieldCounter } from "./items/weapon/shield/shieldEvent";
+import { world,Entity, Player, EntityDamageSource, ItemComponent, Block, Direction, system } from "@minecraft/server";
+import { shieldGuard, shieldCounter, shieldKnockback } from "./items/weapon/shield/shieldEvent";
 import { hitMagicAmor } from "./items/weapon/armor/magicAmorHitEvent";
 import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
 import { checkArrowProjectile, hitArrowEvent, magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
@@ -9,6 +9,9 @@ import { checkShellProjectile, hitShellEvent } from "./items/weapon/bazooka/Bazo
 import { waterCauldron } from "./items/weapon/grimoire/WaterGrimoireMagic";
 import { magic_lectern_break } from "./block/MagicLecternBlock";
 import { portalGateBreak } from "./block/PortalBlock";
+import { explodeBedrock } from "./common/commonUtil";
+import { isChargeed } from "./items/weapon/gun/GunWeaponMagic";
+import { MagicBrewingStand } from "./block/MagicBrewingStand";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -19,6 +22,22 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
 });
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
     leaveEvent.player.clearDynamicProperties();
+});
+
+world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
+    let entity = event.entity;
+    if (event.eventId == "kurokumaft:explosion_guard_knockback") {
+        shieldKnockback(entity);
+    // } else if (event.eventId == "kurokumaft:attack_event") {
+    //     world.sendMessage(event.eventId);
+    // } else if (event.eventId == "kurokumaft:jump_event") {
+    //     world.sendMessage(event.eventId);
+    // } else if (event.eventId == "kurokumaft:two_jump_event") {
+    //     world.sendMessage(event.eventId);
+    //     entity.applyKnockback(0, 1, 0, 0.8);
+    // } else if (event.eventId == "kurokumaft:on_ground_event") {
+    //     world.sendMessage(event.eventId);
+    }
 });
 
 // 近接hit後
@@ -51,7 +70,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
             hitArrowEvent(projectileEn, hitEn);
         }
         if (checkShellProjectile(projectileEn.typeId)) {
-            hitShellEvent(projectileEn);
+            hitShellEvent(projectileEn, dameger);
         }
     }
 });
@@ -59,12 +78,13 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
 // ブロックhit後
 world.afterEvents.projectileHitBlock.subscribe(event => {
     let projectileEn = event.projectile;
+    let dameger = event.source as Entity;
     if (projectileEn) {
         if (checkWandProjectile(projectileEn.typeId)) {
             hitProjectileEvent(projectileEn);
         }
         if (checkShellProjectile(projectileEn.typeId)) {
-            hitShellEvent(projectileEn);
+            hitShellEvent(projectileEn, dameger);
         }
     }
 });
@@ -92,9 +112,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
         if (player.getDynamicProperty("BowShotMagicCharge")) {
             magicBowShot(player, item, duration);
         }
-        if (player.getDynamicProperty("gunCharge") == "full") {
-            player.setDynamicProperty("gunCharge", "release");
-        }
+        isChargeed(player, item);
     }
 
 });
@@ -118,7 +136,6 @@ world.beforeEvents.itemUseOn.subscribe(event => {
     let item = event.itemStack;
     let block = event.block;
     let blockFace = event.blockFace;
-
 });
 
 // ブロック爆発後
@@ -132,6 +149,14 @@ world.afterEvents.blockExplode.subscribe(event => {
     }
 });
 
+world.beforeEvents.explosion.subscribe(event => {
+    let impactBLockList = event.getImpactedBlocks();
+    let filterBlockList = explodeBedrock(impactBLockList);
+
+    event.setImpactedBlocks(filterBlockList);
+
+});
+
 // ブロック破壊前
 world.beforeEvents.playerBreakBlock.subscribe(event => {
     let player = event.player;
@@ -143,6 +168,10 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
 // エンティティ読み込み
 world.afterEvents.entityLoad.subscribe(event => {
     let entity = event.entity;
+    if (entity.typeId == "kurokumaft:magic_brewing_stand") {
+        let brewing_block = entity.dimension.getBlock(entity.location) as Block;
+        new MagicBrewingStand(entity, brewing_block).checkPosionBrewTick();
+    }
 });
 
 // エンティティスポーン
@@ -150,4 +179,3 @@ world.afterEvents.entitySpawn.subscribe(event => {
     let entity = event.entity;
     let cause = event.cause;
 });
-

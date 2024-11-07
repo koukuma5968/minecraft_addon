@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
 
 /**
  * ホーリーアロー
@@ -6,9 +6,17 @@ import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/se
 export async function hollyArrow(entity:Entity) {
     let intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
-            entity.applyDamage(3, {
-                cause: EntityDamageCause.none
-            });
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.applyDamage(1, {
+                        cause: EntityDamageCause.none
+                    });
+                }
+            } else {
+                entity.applyDamage(3, {
+                    cause: EntityDamageCause.none
+                });
+            }
         }
     }, TicksPerSecond);
     system.runTimeout(() => {

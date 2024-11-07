@@ -63,6 +63,6 @@ export class Scythe implements ItemCustomComponent {
 }
 
 async function roarScythe(player: Player, scytheItem: ScytheObject) {
-    shooting(player, scytheItem.throwEntity, {x:0,y:0,z:0}, 1, undefined);
+    shooting(player, scytheItem.throwEntity, 0, 1, undefined);
     player.runCommandAsync("/titleraw @s actionbar {\"rawtext\": [{\"translate\": \"mess.kurokumaft:roar_scythe.shot\"}]}");
 }

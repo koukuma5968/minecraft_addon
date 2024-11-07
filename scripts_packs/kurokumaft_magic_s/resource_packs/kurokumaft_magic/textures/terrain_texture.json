@@ -96,6 +96,9 @@
 		"home_gate" : {
 			"textures" : "textures/kurokumaft/blocks/home_gate"
 		},
+		"magic_brewing": {
+			"textures": "textures/kurokumaft/blocks/magic_brewing"
+		},
 
 		"phoenix_summon_top": {
 			"textures" : "textures/kurokumaft/blocks/summon/phoenix_summon_top"
@@ -109,6 +112,85 @@
 		},
 		"fenrir_summon_side": {
 			"textures" : "textures/kurokumaft/blocks/summon/fenrir_summon_side"
+		},
+
+		"fire_leaves_left": {
+			"textures": "textures/kurokumaft/blocks/leaves/fire_leaves_left.png"
+		},
+		"fire_leaves_right": {
+			"textures": "textures/kurokumaft/blocks/leaves/fire_leaves_right.png"
+		},
+		"fire_log_side": {
+			"textures": "textures/kurokumaft/blocks/log/fire_log_side.png"
+		},
+		"fire_log_top": {
+			"textures": "textures/kurokumaft/blocks/log/fire_log_top.png"
+		},
+
+		"water_leaves_left": {
+			"textures": "textures/kurokumaft/blocks/leaves/water_leaves_left.png"
+		},
+		"water_leaves_right": {
+			"textures": "textures/kurokumaft/blocks/leaves/water_leaves_right.png"
+		},
+		"water_log_side": {
+			"textures": "textures/kurokumaft/blocks/log/water_log_side.png"
+		},
+		"water_log_top": {
+			"textures": "textures/kurokumaft/blocks/log/water_log_top.png"
+		},
+
+		"wind_leaves_left": {
+			"textures": "textures/kurokumaft/blocks/leaves/wind_leaves_left.png"
+		},
+		"wind_leaves_right": {
+			"textures": "textures/kurokumaft/blocks/leaves/wind_leaves_right.png"
+		},
+		"wind_log_side": {
+			"textures": "textures/kurokumaft/blocks/log/wind_log_side.png"
+		},
+		"wind_log_top": {
+			"textures": "textures/kurokumaft/blocks/log/wind_log_top.png"
+		},
+
+		"stone_leaves_left": {
+			"textures": "textures/kurokumaft/blocks/leaves/stone_leaves_left.png"
+		},
+		"stone_leaves_right": {
+			"textures": "textures/kurokumaft/blocks/leaves/stone_leaves_right.png"
+		},
+		"stone_log_side": {
+			"textures": "textures/kurokumaft/blocks/log/stone_log_side.png"
+		},
+		"stone_log_top": {
+			"textures": "textures/kurokumaft/blocks/log/stone_log_top.png"
+		},
+
+		"lightning_leaves_left": {
+			"textures": "textures/kurokumaft/blocks/leaves/lightning_leaves_left.png"
+		},
+		"lightning_leaves_right": {
+			"textures": "textures/kurokumaft/blocks/leaves/lightning_leaves_right.png"
+		},
+		"lightning_log_side": {
+			"textures": "textures/kurokumaft/blocks/log/lightning_log_side.png"
+		},
+		"lightning_log_top": {
+			"textures": "textures/kurokumaft/blocks/log/lightning_log_top.png"
+		},
+
+		"ice_leaves_left": {
+			"textures": "textures/kurokumaft/blocks/leaves/ice_leaves_left.png"
+		},
+		"ice_leaves_right": {
+			"textures": "textures/kurokumaft/blocks/leaves/ice_leaves_right.png"
+		},
+		"ice_log_side": {
+			"textures": "textures/kurokumaft/blocks/log/ice_log_side.png"
+		},
+		"ice_log_top": {
+			"textures": "textures/kurokumaft/blocks/log/ice_log_top.png"
 		}
-   }
+
+	}
 }

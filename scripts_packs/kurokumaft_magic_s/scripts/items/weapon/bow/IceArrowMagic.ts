@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
 
 /**
  * アイスアロー
@@ -6,9 +6,17 @@ import { Entity, EntityDamageCause, system, TicksPerSecond } from "@minecraft/se
 export async function iceArrow(entity:Entity) {
     let intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
-            entity.applyDamage(3, {
-                cause: EntityDamageCause.freezing
-            });
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.applyDamage(1, {
+                        cause: EntityDamageCause.freezing
+                    });
+                }
+            } else {
+                entity.applyDamage(3, {
+                    cause: EntityDamageCause.freezing
+                });
+            }
         }
     }, TicksPerSecond);
     system.runTimeout(() => {

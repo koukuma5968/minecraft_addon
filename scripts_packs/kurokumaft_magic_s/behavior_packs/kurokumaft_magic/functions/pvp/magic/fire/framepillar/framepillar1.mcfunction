@@ -1,1 +1,0 @@
-tag @e[tag=!framepillar_self,family=!inanimate,family=!familiar,type=!item,c=3,r=10] add framepillar

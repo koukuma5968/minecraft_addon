@@ -1,64 +1,68 @@
-import { Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
-import { shooting, throwing } from "../../../custom/ShooterMagicEvent";
-import { print, getRandomInRange, clamp } from "../../../common/commonUtil";
+import { Entity, EquipmentSlot, GameMode, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
+import { shooting } from "../../../common/ShooterMagicEvent";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { burstflare, flarecircle } from "./FlameMagic";
-import { waterjail, waterwave } from "./WaterWaveMagic";
-import { aerobomb, storm } from "./StormMagic";
-import { greybomb, rockbreak } from "./RockMagic";
-import { thunderclap, thunderjail } from "./ThunderclapMagic";
-import { freezConclusion } from "./FreezeMagic";
-import { brushash, summonSkeleton } from "./DarknessMagic";
-import { areaheel, summonGolem } from "./BrightnessMagic";
+import { bumrod, burstflare, flarecircle } from "./FlameMagic";
+import { watercutter, waterjail, waterwave } from "./WaterWaveMagic";
+import { aerobomb, storm, stormBread } from "./StormMagic";
+import { greybomb, rockbreak, stoneBread } from "./RockMagic";
+import { lightningBread, thunderclap, thunderjail } from "./ThunderclapMagic";
+import { freezConclusion, iceBread } from "./FreezeMagic";
+import { brushash, darkFang, summonSkeleton } from "./DarknessMagic";
+import { areaheel, lightFang, summonGolem } from "./BrightnessMagic";
+
+interface RodFuncMagicObject {
+    itemName:string,
+    sendMsg:string,
+    func: CallableFunction
+}
 
 interface RodMagicObject {
     itemName:string,
     event:string
     sendMsg:string,
-    addition:number,
-    func: any
+    addition:number
 }
 
 const RodHitObjects = Object.freeze([
     {
         itemName: "kurokumaft:flame_rod",
-        event: "fire/bumrod",
-        sendMsg: "§cバムロッド"
+        func: bumrod,
+        sendMsg: "magic.kurokumaft:bumrod.translate"
     },
     {
         itemName: "kurokumaft:waterwave_rod",
-        event: "water/watercutter",
-        sendMsg: "§bウォータカッター"
+        func: watercutter,
+        sendMsg: "magic.kurokumaft:watercutter.translate"
     },
     {
         itemName: "kurokumaft:storm_rod",
-        event: "wind/storm_bread",
-        sendMsg: "§aストームブレード"
+        func: stormBread,
+        sendMsg: "magic.kurokumaft:stormBread.translate"
     },
     {
         itemName: "kurokumaft:rock_rod",
-        event: "stone/stone_bread",
-        sendMsg: "§7ストーンブレード"
+        func: stoneBread,
+        sendMsg: "magic.kurokumaft:stoneBread.translate"
     },
     {
         itemName: "kurokumaft:thunderclap_rod",
-        event: "lightning/lightning_bread",
-        sendMsg: "§6ライトニングブレード"
+        func: lightningBread,
+        sendMsg: "magic.kurokumaft:lightningBread.translate"
     },
     {
         itemName: "kurokumaft:freeze_rod",
-        event: "ice/ice_bread",
-        sendMsg: "§fアイスブレード"
+        func: iceBread,
+        sendMsg: "magic.kurokumaft:iceBread.translate"
     },
     {
         itemName: "kurokumaft:darkness_rod",
-        event: "dark/dark_fang",
-        sendMsg: "§8ダークファング"
+        func: darkFang,
+        sendMsg: "magic.kurokumaft:darkFang.translate"
     },
     {
         itemName: "kurokumaft:brightness_rod",
-        event: "light/light_fang",
-        sendMsg: "§eライトファング"
+        func: lightFang,
+        sendMsg: "magic.kurokumaft:lightFang.translate"
     }
 
 ]);
@@ -67,7 +71,7 @@ const RodShotMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:freeze_rod",
         event: "kurokumaft:ice_barrette_magic",
-        sendMsg: "§fアイスバレット",
+        sendMsg: "magic.kurokumaft:ice_barrette.translate",
         addition: 4
     }
 
@@ -77,37 +81,37 @@ const RodRightOneMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:flame_rod",
         func: flarecircle,
-        sendMsg: "§cフレイムサークル"
+        sendMsg: "magic.kurokumaft:flarecircle.translate"
     },
     {
         itemName: "kurokumaft:waterwave_rod",
         func: waterwave,
-        sendMsg: "§bウォーターウェーブ"
+        sendMsg: "magic.kurokumaft:waterwave.translate"
     },
     {
         itemName: "kurokumaft:storm_rod",
         func: storm,
-        sendMsg: "§aストーム"
+        sendMsg: "magic.kurokumaft:storm.translate"
     },
     {
         itemName: "kurokumaft:rock_rod",
         func: rockbreak,
-        sendMsg: "§7ロックブレイク"
+        sendMsg: "magic.kurokumaft:rockbreak.translate"
     },
     {
         itemName: "kurokumaft:thunderclap_rod",
         func: thunderclap,
-        sendMsg: "§6サンダークラップ"
+        sendMsg: "magic.kurokumaft:thunderclap.translate"
     },
     {
         itemName: "kurokumaft:darkness_rod",
         func: brushash,
-        sendMsg: "§8ブラストアッシュ"
+        sendMsg: "magic.kurokumaft:brushash.translate"
     },
     {
         itemName: "kurokumaft:brightness_rod",
         func: areaheel,
-        sendMsg: "§eエリアヒール"
+        sendMsg: "magic.kurokumaft:areaheel.translate"
     }
 
 ]);
@@ -116,42 +120,42 @@ const RodRightFuncMagicObjects = Object.freeze([
     {
         itemName: "kurokumaft:flame_rod",
         func: burstflare,
-        sendMsg: "§cバーストフレア"
+        sendMsg: "magic.kurokumaft:burstflare.translate"
     },
     {
         itemName: "kurokumaft:waterwave_rod",
         func: waterjail,
-        sendMsg: "§bウォータジェイル"
+        sendMsg: "magic.kurokumaft:waterjail.translate"
     },
     {
         itemName: "kurokumaft:storm_rod",
         func: aerobomb,
-        sendMsg: "§aエアロボム"
+        sendMsg: "magic.kurokumaft:aerobomb.translate"
     },
     {
         itemName: "kurokumaft:rock_rod",
         func: greybomb,
-        sendMsg: "§7グレイボム"
+        sendMsg: "magic.kurokumaft:greybomb.translate"
     },
     {
         itemName: "kurokumaft:thunderclap_rod",
         func: thunderjail,
-        sendMsg: "§6サンダージェイル"
+        sendMsg: "magic.kurokumaft:thunderjail.translate"
     },
     {
         itemName: "kurokumaft:freeze_rod",
         func: freezConclusion,
-        sendMsg: "§fフリーズコフィン"
+        sendMsg: "magic.kurokumaft:freezConclusion.translate"
     },
     {
         itemName: "kurokumaft:darkness_rod",
         func: summonSkeleton,
-        sendMsg: "§8ダークスケルトン召喚"
+        sendMsg: "magic.kurokumaft:summonSkeleton.translate"
     },
     {
         itemName: "kurokumaft:brightness_rod",
         func: summonGolem,
-        sendMsg: "§eブライトゴーレム召喚"
+        sendMsg: "magic.kurokumaft:summonGolem.translate"
     }
 
 ]);
@@ -168,12 +172,12 @@ export class RodWeaponMagic implements ItemCustomComponent {
         let hitEntity = event.hitEntity as Entity;
         let effect = event.hadEffect as boolean;
 
-        if (!itemStack || (hitEntity instanceof Player && !world.gameRules.pvp)) {
+        if (!itemStack) {
             return;
         }
-        let wandMagicObject = RodHitObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
-        attackEntity.runCommand("/function magic/" + wandMagicObject.event);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + wandMagicObject.sendMsg + "\"}]}");
+        let wandMagicObject = RodHitObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
+        wandMagicObject.func(attackEntity, hitEntity);
+        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + wandMagicObject.sendMsg + "\"}]}");
 
     }
 
@@ -182,58 +186,27 @@ export class RodWeaponMagic implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let player = event.source as Player;
 
-        // pvp用
-        if (world.gameRules.pvp) {
-            if (player.isSneaking) {
-                let rodFuncMagicObject = RodRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
-                if (rodFuncMagicObject) {
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodFuncMagicObject.sendMsg + "\"}]}");
-                    rodFuncMagicObject.func(player);
-                }
-            } else {
-                let rodShotMagicObject = RodShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
-                if (rodShotMagicObject) {
-                    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-                    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-                    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
-                    shooting(player, rodShotMagicObject.event, {x:xran,y:yran,z:zran}, rodShotMagicObject.addition, undefined);
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodShotMagicObject.sendMsg + "\"}]}");
-                }
-                let rodRightOneMagicObject = RodRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
-                if (rodRightOneMagicObject) {
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodRightOneMagicObject.sendMsg + "\"}]}");
-                    rodRightOneMagicObject.func(player);
-                }
+        if (player.isSneaking) {
+            let rodFuncMagicObject = RodRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
+            if (rodFuncMagicObject) {
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + rodFuncMagicObject.sendMsg + "\"}]}");
+                rodFuncMagicObject.func(player);
             }
         } else {
-            if (player.isSneaking) {
-                let rodFuncMagicObject = RodRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
-                if (rodFuncMagicObject) {
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodFuncMagicObject.sendMsg + "\"}]}");
-                    rodFuncMagicObject.func(player);
-                }
-            } else {
-                let rodShotMagicObject = RodShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
-                if (rodShotMagicObject) {
-                    let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-                    let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-                    let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
+            let rodShotMagicObject = RodShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
+            if (rodShotMagicObject) {
 
-                    shooting(player, rodShotMagicObject.event, {x:xran,y:yran,z:zran}, rodShotMagicObject.addition, undefined);
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodShotMagicObject.sendMsg + "\"}]}");
-                }
-                let rodRightOneMagicObject = RodRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
-                if (rodRightOneMagicObject) {
-                    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + rodRightOneMagicObject.sendMsg + "\"}]}");
-                    rodRightOneMagicObject.func(player);
-                }
+                shooting(player, rodShotMagicObject.event, 0, rodShotMagicObject.addition, undefined);
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + rodShotMagicObject.sendMsg + "\"}]}");
+            }
+            let rodRightOneMagicObject = RodRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
+            if (rodRightOneMagicObject) {
+                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + rodRightOneMagicObject.sendMsg + "\"}]}");
+                rodRightOneMagicObject.func(player);
             }
         }
 
-        if (player.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

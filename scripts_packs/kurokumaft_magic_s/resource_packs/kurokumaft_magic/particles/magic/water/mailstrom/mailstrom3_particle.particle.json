@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:mailstrom3_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},

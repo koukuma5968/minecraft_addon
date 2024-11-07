@@ -40,9 +40,7 @@ export class FlagStoneMagic implements ItemCustomComponent {
         let magicObject = FlagStoneObjects.find(obj => obj.itemName == itemStack.typeId) as FlagStoneObject;
         if (magicObject) {
             setPortalStand(magicObject, event);
-            if (player.getGameMode() != GameMode.creative) {
-                ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-            }
+            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
         }
     }
 

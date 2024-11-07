@@ -1,0 +1,62 @@
+{
+  "format_version": "1.20.10",
+  "animation_controllers": {
+    "controller.animation.attack_action": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "attack_time": "query.is_sneaking && !query.is_using_item && variable.attack_time" }
+          ]
+        },
+        "attack_time": {
+          "on_entry": [
+            "/event entity @s kurokumaft:attack_event"
+          ],
+          "transitions": [
+            {"default":"1.0"}
+          ]
+        }
+      }
+    },
+    "controller.animation.jump_action": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "jump_time": "query.is_jumping" }
+          ]
+        },
+        "jump_time": {
+          "on_entry": [
+            "/event entity @s kurokumaft:jump_event"
+          ],
+          "transitions": [
+            {"interval":"variable.jump = (variable.jump ?? 0);variable.jump = variable.jump < 3 ? variable.jump + 1:0;return variable.jump == 0;"}
+          ]
+        },
+        "interval": {
+          "transitions": [
+            {"default":"query.is_on_ground"},
+            {"two_jump_time":"query.is_jumping"}
+          ]
+        },
+        "two_jump_time": {
+          "on_entry": [
+            "/event entity @s kurokumaft:two_jump_event",
+            "/tag @s add fall_invalid"
+          ],
+          "transitions": [
+            {"on_ground":"query.is_on_ground"}
+          ]
+        },
+        "on_ground": {
+          "on_entry": [
+            "/tag @s remove fall_invalid"
+          ],
+          "transitions": [
+            {"default":"1.0"}
+          ]
+        }
+      }
+    }
+  }
+}

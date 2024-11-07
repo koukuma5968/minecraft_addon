@@ -10,7 +10,7 @@
         },
         "flash": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§eフラッシュ\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:flash.translate\"}]}",
             "/function magic/light/flash"
           ],
           "transitions": [

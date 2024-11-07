@@ -10,7 +10,7 @@
         },
         "flare_bit": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§cフレアビット\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:flare_bit.translate\"}]}",
             "/function magic/fire/flare_bit"
           ],
           "transitions": [

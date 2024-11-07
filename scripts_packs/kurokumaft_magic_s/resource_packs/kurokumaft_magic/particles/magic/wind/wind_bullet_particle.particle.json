@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:wind_bullet_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/kurokumaft/particle/sonic"
 			}
 		},
@@ -46,7 +46,13 @@
 				"collision_radius": 0.1
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.43137, 0.93333, 0.69412, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FF6EEEB1",
+						"1.0": "#FF0E442A"
+					}
+				}
 			}
 		}
 	}

@@ -1,0 +1,81 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "kurokumaft:wind_tree_feature"
+    },
+    "base_block": [
+      "minecraft:sand",
+      "minecraft:dirt",
+      "minecraft:dirt_with_roots"
+    ],
+    "may_grow_on": [
+      "minecraft:sand",
+      "minecraft:grass",
+      "minecraft:dirt"
+    ],
+    "may_replace": [
+      "minecraft:oak_leaves",
+      "minecraft:spruce_leaves",
+      "minecraft:birch_leaves",
+      "minecraft:acacia_leaves",
+      "minecraft:dark_oak_leaves",
+      "minecraft:azalea",
+      "minecraft:flowering_azalea",
+      "minecraft:azalea_leaves",
+      "minecraft:azalea_leaves_flowered",
+      "minecraft:air"
+     ],
+    "may_grow_through": [
+      "minecraft:sand",
+      "minecraft:dirt",
+      "minecraft:grass",
+      {
+        "name": "minecraft:dirt",
+        "states": {
+          "dirt_type": "coarse"
+        }
+      }
+    ],
+    "mega_trunk": {
+      "trunk_block": {
+        "name": "kurokumaft:wind_log"
+      },
+      "trunk_width": 1,
+      "trunk_height": {
+        "base": 25,
+        "intervals": [30, 40]
+      },
+      "branches": {
+        "branch_length": 8,
+        "branch_slope": 4,
+        "branch_interval": {
+          "range_min": 3,
+          "range_max": 7
+        },
+        "branch_altitude_factor": {
+          "min": 0.8,
+          "max": 1.0
+        },
+        "branch_canopy": {
+          "mega_canopy": {
+            "leaf_block": "kurokumaft:wind_leaves",
+            "canopy_height": {
+              "range_min": 4,
+              "range_max": 8
+            },
+            "base_radius": 4
+          }
+        }     
+      }
+    },
+    "mega_canopy": {
+      "leaf_block": "kurokumaft:wind_leaves",
+      "canopy_height": {
+        "range_min": 4,
+        "range_max": 8
+      },
+      "base_radius": 4
+    }
+  }
+}

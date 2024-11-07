@@ -10,7 +10,7 @@
         },
         "waterpillar": {
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§bウォーターピラー\"}]}",
+            "/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"magic.kurokumaft:waterpillar.translate\"}]}",
             "/tag @s add waterpillar_self",
             "/tag @e[tag=!waterpillar_self,family=!inanimate,type=!item,c=1,ry=-10,rym=10,r=10] add waterpillar"
           ],

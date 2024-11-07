@@ -84,5 +84,5 @@ async function knuckleHit(attackEntity:Entity, hitEntity: Entity, knuckle: Knuck
 }
 
 async function charge_knuckle(player: Player, knuckle: KnuckleObject) {
-    shooting(player, knuckle.throwSpear, {x:0,y:0,z:0}, 3, undefined);
+    shooting(player, knuckle.throwSpear, 0, 3, undefined);
 }

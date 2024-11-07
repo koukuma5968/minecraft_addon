@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:thunder_jail_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/kurokumaft/particle/sonic"
 			}
 		},
@@ -44,7 +44,13 @@
 				"collision_radius": 0.1
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.89412, 0.89412, 0.09412, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFE4E418",
+						"0.78": "#FF62620F"
+					}
+				}
 			}
 		}
 	}

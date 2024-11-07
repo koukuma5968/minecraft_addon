@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentUseOnEvent, system, ItemComponentCompleteUseEvent, Entity } from "@minecraft/server";
 import { getRandomInRange, clamp } from "../../../common/commonUtil";
 import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { shooting } from "../../../common/ShooterMagicEvent";
 import { fireArrow } from "./FireArrowMagic";
 import { waterArrow, waterArrowHoming } from "./WaterArrowMagic";
 import { windArrow, windArrowShot } from "./WindArrowMagic";
@@ -24,56 +24,56 @@ const BowChargeObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_magic_bow",
         event: "kurokumaft:fire_magic_arrow",
-        sendMsg: "§cフレイムアロー",
+        sendMsg: "entity.kurokumaft:fire_magic_arrow.name",
         maxduration: 30,
         addition: 1.5
     },
     {
         itemName: "kurokumaft:water_magic_bow",
         event: "kurokumaft:water_magic_arrow",
-        sendMsg: "§bウォーターアロー",
+        sendMsg: "entity.kurokumaft:water_magic_arrow.name",
         maxduration: 10,
         addition: 1.5
     },
     {
         itemName: "kurokumaft:wind_magic_bow",
         event: "kurokumaft:wind_magic_arrow",
-        sendMsg: "§aウィンドアロー",
+        sendMsg: "entity.kurokumaft:wind_magic_arrow.name",
         maxduration: 1,
         addition: 2.5
     },
     {
         itemName: "kurokumaft:stone_magic_bow",
         event: "kurokumaft:stone_magic_arrow",
-        sendMsg: "§7ロックアロー",
+        sendMsg: "entity.kurokumaft:stone_magic_arrow.name",
         maxduration: 20,
         addition: 0.75
     },
     {
         itemName: "kurokumaft:lightning_magic_bow",
         event: "kurokumaft:lightning_magic_arrow",
-        sendMsg: "§6ライトニングアロー",
+        sendMsg: "entity.kurokumaft:lightning_magic_arrow.name",
         maxduration: 20,
         addition: 2.0
     },
     {
         itemName: "kurokumaft:ice_magic_bow",
         event: "kurokumaft:ice_magic_arrow",
-        sendMsg: "§fアイスアロー",
+        sendMsg: "entity.kurokumaft:ice_magic_arrow.name",
         maxduration: 15,
         addition: 1.5
     },
     {
         itemName: "kurokumaft:dark_magic_bow",
         event: "kurokumaft:dark_magic_arrow",
-        sendMsg: "§8ダークアロー",
+        sendMsg: "entity.kurokumaft:dark_magic_arrow.name",
         maxduration: 10,
         addition: 1.5
     },
     {
         itemName: "kurokumaft:holly_magic_bow",
         event: "kurokumaft:holly_magic_arrow",
-        sendMsg: "§eホーリーアロー",
+        sendMsg: "entity.kurokumaft:holly_magic_arrow.name",
         maxduration: 10,
         addition: 1.5
     }
@@ -110,22 +110,16 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
 
     let bowMagicObject = BowChargeObjects.find(obj => obj.itemName == itemStack.typeId) as BowMagicObject;
     if (bowMagicObject) {
-
-        let xran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-        let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-        let zran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-
         let speed = Math.ceil(clamp((-duration) / bowMagicObject.maxduration, 0.0, 3.0) * bowMagicObject.addition);
         if (itemStack.typeId == "kurokumaft:wind_magic_bow") {
-            windArrowShot(player, bowMagicObject.event, {x:xran,y:yran,z:zran}, speed);
+            windArrowShot(player, bowMagicObject.event, 2, speed);
         } else if (itemStack.typeId == "kurokumaft:water_magic_bow") {
-            waterArrowHoming(player, bowMagicObject.event, {x:xran,y:yran,z:zran}, speed);
+            waterArrowHoming(player, bowMagicObject.event, 0, speed);
         } else {
-            shooting(player, bowMagicObject.event, {x:xran,y:yran,z:zran}, speed, undefined);
+            shooting(player, bowMagicObject.event, 0, speed, undefined);
         }
-        if (player.getGameMode() != GameMode.creative) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + bowMagicObject.sendMsg + "\"}]}");
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
 }

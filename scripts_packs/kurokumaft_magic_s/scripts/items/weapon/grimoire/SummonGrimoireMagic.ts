@@ -1,7 +1,6 @@
-import { Container, Entity, EntityComponentTypes, EntityInventoryComponent, EquipmentSlot, GameMode, ItemComponent, ItemComponentCompleteUseEvent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemDurabilityComponent, ItemStack, Player, system, world } from "@minecraft/server";
-import { shooting, throwing } from "../../../custom/ShooterMagicEvent";
-import { print, getRandomInRange } from "../../../common/commonUtil";
-import { ItemDurabilityDamage, SummonGrimoireDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { EquipmentSlot, GameMode, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
+import { throwing } from "../../../common/ShooterMagicEvent";
+import { SummonGrimoireDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 interface SummonGrimoireMagicObject {
     itemName:string,
@@ -15,7 +14,7 @@ const SummonGrimoireObjects = Object.freeze([
         itemName: "kurokumaft:fire_grimoire",
         particle: "kurokumaft:fire_bread_particle",
         entity: "kurokumaft:phoenix_spear",
-        sendMsg: "§c魔炎鳥"
+        sendMsg: "entity.kurokumaft:phoenix_spear.name"
     }
 
 ]);
@@ -63,12 +62,10 @@ export async function grimoire_summon_Release(player:Player, itemStack:ItemStack
     if (-duration >= 25) {
         let summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
 
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"text\":\"" + summonMagicObject.sendMsg + "\"}]}");
-        throwing(player, itemStack, summonMagicObject.entity, {x:0,y:0,z:0}); 
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + summonMagicObject.sendMsg + "\"}]}");
+        throwing(player, itemStack, summonMagicObject.entity, 0); 
 
-        if (player.getGameMode() != GameMode.creative) {
-            SummonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        }
+        SummonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
 };
