@@ -22,6 +22,7 @@
             "damage": 2,
             "knockback": false,
             "catch_fire": false,
+            "destroy_on_hit": true,
             "semi_random_diff_damage": false,
             "max_critical_damage": 10,
             "min_critical_damage": 9,
@@ -41,8 +42,7 @@
           "stick_in_ground": {
             "shake_time" : 0.35
           },
-          "arrow_effect": {
-          }
+          "remove_on_hit": {}
         },
         "filter": "minecraft:player",
         "hit_sound": "bow.hit",

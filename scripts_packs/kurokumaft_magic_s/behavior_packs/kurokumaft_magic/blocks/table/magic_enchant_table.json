@@ -28,26 +28,26 @@
 			"minecraft:geometry": "geometry.magic_enchant_table",
 			"minecraft:material_instances": {
 				"down": {
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				},
 				"up": {
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				},
 				"east": {
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				},
 				"west": {
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				},
 				"north": {
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				},
 				"south": {
-					"render_method": "blend"
+					"render_method": "alpha_test"
 				},
 				"magic_enchant_table": {
 					"texture": "magic_enchant_table",
-					"render_method": "blend",
+					"render_method": "alpha_test",
 					"ambient_occlusion": false,
 					"face_dimming": false
 				}

@@ -74,7 +74,7 @@ export async function hollyField(player:Player) {
 
         let targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
-            en.addEffect(MinecraftEffectTypes.InstantHealth, 2*TicksPerSecond, {
+            en.addEffect(MinecraftEffectTypes.InstantHealth, 5, {
                 amplifier: 10
             });
         });

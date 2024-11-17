@@ -125,6 +125,7 @@ magic_lectern.mess.errorInfo=うまくセット出来ない場合はブロック
 magic_lectern.mess.noboobk=このアイテムは対応していません
 magic_lectern.mess.confirm=OK
 tile.kurokumaft:magic_brewing.name=魔法薬錬成炉
+entity.kurokumaft:magic_brewing_stand.name=魔法薬錬成炉
 
 tile.kurokumaft:waterwall_block.name=水ブロック
 tile.kurokumaft:lightningwall_block.name=雷ブロック
@@ -524,3 +525,6 @@ magic.kurokumaft:night_bit.translate=§8ナイトビット
 magic.kurokumaft:thunder_bit.translate=§6サンダービット
 magic.kurokumaft:flash_bit.translate=§eフラッシュビット
 magic.kurokumaft:aqua_bit.translate=§bアクアビット
+
+mess.kurokumaft:team_name.add=チーム 「%1」 を設定しました。
+mess.kurokumaft:team_name.remove=チーム 「%1」 を削除しました。

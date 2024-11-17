@@ -1,0 +1,45 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:magic_brewing"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "N c",
+      "bBd",
+      "bnS"
+    ],
+    "key": {
+      "N": {
+        "item": "minecraft:netherbrick"
+      },
+      "c": {
+        "item": "minecraft:prismarine_crystals"
+      },
+      "b": {
+        "item": "minecraft:blackstone"
+      },
+      "B": {
+        "item": "minecraft:blaze_rod"
+      },
+      "d": {
+        "item": "minecraft:dark_prismarine"
+      },
+      "S": {
+        "item": "minecraft:seaLantern"
+      },
+      "n": {
+        "item": "minecraft:netherite_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:blaze_rod"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:magic_brewing"
+    }
+  }
+}

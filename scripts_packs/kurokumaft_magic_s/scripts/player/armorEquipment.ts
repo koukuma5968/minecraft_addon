@@ -10,9 +10,12 @@ async function checkPlayerEquTick() {
 
     for (let i = 0; i < players.length; i++) {
         let player = players[i];
+        if (!player.isValid()) {
+            continue;
+        }
         let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let offHand = equ.getEquipment(EquipmentSlot.Offhand);
-        if (offHand) {
+        if (offHand != undefined) {
             if (offHand.typeId.indexOf("magic_shield") != -1 && player.isSneaking) {
                 if (!player.hasTag("off_shield_guard")) {
                     player.addTag("off_shield_guard");
@@ -29,7 +32,7 @@ async function checkPlayerEquTick() {
         }
 
         let mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
-        if (mainHand) {
+        if (mainHand != undefined) {
             if (mainHand.typeId.indexOf("magic_shield") != -1 && player.isSneaking) {
                 if (!player.hasTag("main_shield_guard")) {
                     player.addTag("main_shield_guard");

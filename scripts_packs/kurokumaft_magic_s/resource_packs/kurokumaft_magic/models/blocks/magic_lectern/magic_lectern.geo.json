@@ -1,21 +1,14 @@
 {
-	"format_version": "1.19.0",
+	"format_version": "1.21.20",
 	"minecraft:geometry": [
 		{
 			"description": {
 				"identifier": "geometry.magic_lectern",
 				"texture_width": 108,
 				"texture_height": 64,
-				"visible_bounds_width": 3,
+				"visible_bounds_width": 5,
 				"visible_bounds_height": 2.5,
 				"visible_bounds_offset": [0, 0.75, 0]
-			},
-			"item_display_transforms" : {
-				"fixed": {
-					"rotation": [0, 180, 0],
-					"translation": [0, 0, 0],
-					"scale": [1, 1, 1]
-				}
 			},
 			"bones": [
 				{
@@ -162,7 +155,65 @@
 						}
 					]
 				}
-			]
+			],
+			"item_display_transforms": {
+				"thirdperson_righthand": {
+					"rotation": [-158.77, -2.73, 178.82],
+					"translation": [0, 0, -1],
+					"scale": [0.35, 0.35, 0.35],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				},
+				"thirdperson_lefthand": {
+					"rotation": [-170.3, 5.09, -177.9],
+					"translation": [0, -0.5, -1.25],
+					"scale": [0.35, 0.35, 0.35],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				},
+				"firstperson_righthand": {
+					"rotation": [-174, 6.5, 180],
+					"translation": [0.5, -1.75, 0],
+					"scale": [0.75, 0.75, 0.75],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				},
+				"firstperson_lefthand": {
+					"rotation": [-159, -1.75, 180],
+					"translation": [0, 0, 0],
+					"scale": [0.75, 0.75, 0.75],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				},
+				"ground": {
+					"rotation": [0, 0, 0],
+					"translation": [0, 1.75, 0],
+					"scale": [0.5, 0.5, 0.5],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				},
+				"gui": {
+					"rotation": [32.95, -47.55, 2.29],
+					"translation": [-1, -1.25, 0],
+					"scale": [0.5, 0.5, 0.5],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				},
+				"head": {
+					"rotation": [0, 0, 0],
+					"translation": [0, 0, 0],
+					"scale": [1, 1, 1],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				},
+				"fixed": {
+					"rotation": [0, 180, 0],
+					"translation": [0, 0, -7.25],
+					"scale": [1, 1, 1],
+					"rotation_pivot": [0, 0, 0],
+					"scale_pivot": [0, 0, 0]
+				}
+			}
 		}
 	]
 }

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:diamond_bottle"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "ggg",
+      "gdg",
+      "ggg"
+    ],
+    "key": {
+      "d": {
+        "item": "minecraft:diamond"
+      },
+      "g": {
+        "item": "minecraft:glass"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:glass"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:diamond_bottle",
+      "count": 1
+    }
+  }
+}

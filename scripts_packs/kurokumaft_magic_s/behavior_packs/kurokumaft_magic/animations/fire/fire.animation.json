@@ -10,44 +10,6 @@
 				]
 			}
 		},
-		"animation.fire.flarecircle": {
-			"animation_length": 0.01,
-			"loop": true,
-			"timeline": {
-				"0.0": [
-					"/function magic/fire/flarecircle/flarecircle2"
-				]
-			}
-		},
-		"animation.fire.flamespark": {
-			"animation_length": 0.4,
-			"loop": true,
-			"timeline": {
-				"0.00": [
-					"/function magic/fire/flamespark/flamespark1"
-				],
-				"0.10": [
-					"/function magic/fire/flamespark/flamespark2"
-				],
-				"0.20": [
-					"/function magic/fire/flamespark/flamespark3"
-				],
-				"0.30": [
-					"/function magic/fire/flamespark/flamespark4"
-				]
-			}
-		},
-		"animation.fire.firestormmagic.damage": {
-			"animation_length": 0.5,
-			"loop": true,
-			"timeline": {
-				"0.0": [
-					"/execute as @s run tag @e[tag=!firestormmagic_self,family=!magic,family=!inanimate,family=!familiar,family=!item,family=!player,r=5] add firestormmagic_target",
-					"/execute as @s run damage @e[tag=firestormmagic_target] 5 fire",
-					"/execute as @s run particle kurokumaft:firestome5_particle ~~~"
-				]
-			}
-		},
 		"animation.fire.phoenix_spear.damage": {
 			"animation_length": 1.0,
 			"loop": true,

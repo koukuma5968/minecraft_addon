@@ -1,4 +1,4 @@
-import { world,Entity, Player, EntityDamageSource, ItemComponent, Block, Direction, system } from "@minecraft/server";
+import { world,Entity, Player, EntityDamageSource, ItemComponent, Block, Direction, system, TicksPerSecond, ScriptEventSource, ObjectiveSortOrder, DisplaySlotId } from "@minecraft/server";
 import { shieldGuard, shieldCounter, shieldKnockback } from "./items/weapon/shield/shieldEvent";
 import { hitMagicAmor } from "./items/weapon/armor/magicAmorHitEvent";
 import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
@@ -12,6 +12,7 @@ import { portalGateBreak } from "./block/PortalBlock";
 import { explodeBedrock } from "./common/commonUtil";
 import { isChargeed } from "./items/weapon/gun/GunWeaponMagic";
 import { MagicBrewingStand } from "./block/MagicBrewingStand";
+import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -178,4 +179,140 @@ world.afterEvents.entityLoad.subscribe(event => {
 world.afterEvents.entitySpawn.subscribe(event => {
     let entity = event.entity;
     let cause = event.cause;
+});
+
+world.afterEvents.buttonPush.subscribe(event => {
+    let entity = event.source;
+    let block = event.block;
+
+    A:
+    for (let y=-1; y<=1; y++) {
+        for (let x=-1; x<=1; x++) {
+            for (let z=-1; z<=1; z++) {
+                let nearLoc = {x:block.location.x+x,y:block.location.y+y,z:block.location.z+z};
+                let nearblock = event.dimension.getBlock(nearLoc) as Block;
+                if (nearblock.typeId == MinecraftBlockTypes.CommandBlock) {
+                    entity.setDynamicProperty("teamCommandSet", true);
+                    system.runTimeout(() => {
+                        entity.setDynamicProperty("teamCommandSet", undefined);
+                    }, TicksPerSecond*2);
+                    break A;
+                }
+            
+            }
+        }
+    }
+});
+
+system.afterEvents.scriptEventReceive.subscribe(event => {
+    let id = event.id;
+    let message = event.message;
+    let initiator = event.initiator;
+    if (initiator != undefined) {
+    }
+    let sourceType = event.sourceType;
+    if (sourceType == ScriptEventSource.Block) {
+        let sourceBlock = event.sourceBlock;
+        if (sourceBlock != undefined && sourceBlock.typeId == MinecraftBlockTypes.CommandBlock) {
+            if (id == "kk:teamtag") {
+                let players = sourceBlock.dimension.getPlayers({
+                    location: sourceBlock.location,
+                    maxDistance: 2
+                });
+                players.forEach(player => {
+                    if(player.getDynamicProperty("teamCommandSet")) {
+                        let params = message.split(" ");
+                        if (params[0] == "add") {
+                            let tags = player.getTags();
+                            tags.forEach(tag => {
+                                if (tag.indexOf("team") != -1) {
+                                    player.removeTag(tag);
+                                    world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                                }
+                            });
+                            player.addTag("team"+params[1]);
+                            world.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]]});
+                            // let scoreObject =  world.scoreboard.getObjective("team"+params[1]);
+                            // if (scoreObject != undefined) {
+                            //     scoreObject.setScore(player.scoreboardIdentity!, 0);
+                            // } else {
+                            //     scoreObject =  world.scoreboard.addObjective("team"+params[1], "team : "+params[1]);
+                            // }
+                            // scoreObject.setScore(player.scoreboardIdentity!, 0);
+                            // world.scoreboard.setObjectiveAtDisplaySlot(DisplaySlotId.Sidebar, {
+                            //     objective: scoreObject,
+                            //     sortOrder: ObjectiveSortOrder.Descending,
+                            // });
+                        } else if (params[0] == "remove") {
+                            let tags = player.getTags();
+                            tags.forEach(tag => {
+                                if (tag.indexOf("team") != -1) {
+                                    player.removeTag(tag);
+                                    world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                                }
+                            });
+                            // let scoreObject =  world.scoreboard.getObjective("team"+params[1]);
+                            // if (scoreObject != undefined) {
+                            //     scoreObject.removeParticipant(player.scoreboardIdentity!);
+                            //     let scoreboardIdentity = world.scoreboard.getParticipants();
+                            //     world.sendMessage(""+scoreboardIdentity.length);
+                            //     if (scoreboardIdentity.length == 0) {
+                            //         world.scoreboard.removeObjective("team"+params[1]);
+                            //     }
+                            // }
+                        }
+                    }
+                });
+            }
+        }
+    } else if (sourceType == ScriptEventSource.Entity) {
+        let sourceEntity = event.sourceEntity;
+        if (sourceEntity != undefined) {
+            if (id == "kk:teamtag") {
+                let params = message.split(" ");
+                if (params[0] == "add") {
+                    let tags = sourceEntity.getTags();
+                    tags.forEach(tag => {
+                        if (tag.indexOf("team") != -1) {
+                            sourceEntity.removeTag(tag);
+                            world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                        }
+                    });
+                    sourceEntity.addTag("team"+params[1]);
+                    world.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]]});
+                    // let scoreObject =  world.scoreboard.getObjective("team"+params[1]);
+                    // if (scoreObject != undefined) {
+                    //     scoreObject.setScore(sourceEntity.scoreboardIdentity!, 0);
+                    // } else {
+                    //     scoreObject =  world.scoreboard.addObjective("team"+params[1], "team : "+params[1]);
+                    // }
+                    // scoreObject.setScore(sourceEntity.scoreboardIdentity!, 0);
+                    // world.scoreboard.setObjectiveAtDisplaySlot(DisplaySlotId.Sidebar, {
+                    //     objective: scoreObject,
+                    //     sortOrder: ObjectiveSortOrder.Descending,
+                    // });
+                } else if (params[0] == "remove") {
+                    let tags = sourceEntity.getTags();
+                    tags.forEach(tag => {
+                        if (tag.indexOf("team") != -1) {
+                            sourceEntity.removeTag(tag);
+                            world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                        }
+                    });
+                    // let scoreObject =  world.scoreboard.getObjective("team"+params[1]);
+                    // if (scoreObject != undefined) {
+                    //     scoreObject.removeParticipant(sourceEntity.scoreboardIdentity!);
+                    //     let scoreboardIdentity = world.scoreboard.getParticipants();
+                    //     if (scoreboardIdentity.length == 0) {
+                    //         world.scoreboard.removeObjective("team"+params[1]);
+                    //     }
+                    // }
+                }
+            }
+        }
+    }
+}, {
+    namespaces: [
+        "kk"
+    ]
 });

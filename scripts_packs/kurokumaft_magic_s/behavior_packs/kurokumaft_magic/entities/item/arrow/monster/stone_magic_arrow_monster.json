@@ -22,11 +22,13 @@
             "damage": 1,
             "knockback": false,
             "catch_fire": false,
+            "destroy_on_hit": true,
             "semi_random_diff_damage": false,
             "max_critical_damage": 10,
             "min_critical_damage": 9,
             "power_multiplier": 0.97
-          }
+          },
+          "remove_on_hit": {}
         },
         "hit_sound": "bow.hit",
         "power": 2.0,

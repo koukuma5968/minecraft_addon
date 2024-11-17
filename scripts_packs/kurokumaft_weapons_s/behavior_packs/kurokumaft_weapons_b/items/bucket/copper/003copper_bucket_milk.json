@@ -15,7 +15,10 @@
       "minecraft:icon": "copper_bucket_milk",
       "minecraft:max_stack_size": 1,
       "minecraft:use_animation":"eat",
-      "minecraft:hand_equipped": true
+      "minecraft:hand_equipped": true,
+      "minecraft:custom_components": [
+        "kurokumaft:copper_bucket_milk"
+      ]
     }
   }
 }

@@ -80,7 +80,6 @@ export async function ignited(event:ItemComponentUseOnEvent) {
 
 };
 
-
 /**
  * 魔導書（イグナイテッド）使用(tnt着火用)
  * @param {ItemComponentUseOnEvent} event

@@ -210,7 +210,7 @@ function addTeamsTagFilter(player:Player, filterOption:EntityQueryOptions) {
     let tags = player.getTags();
     if (tags != undefined && tags.length > 0) {
         for (let index in tags) {
-            if (tags[index].indexOf("teamType") != -1 || tags[index].indexOf("tameChiled") != -1) {
+            if (tags[index].indexOf("team") != -1) {
                 filterOption.excludeTags.push(tags[index]);
             }
         }

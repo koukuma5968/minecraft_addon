@@ -82,13 +82,13 @@ export async function blackHole(player:Player) {
                     cause: EntityDamageCause.wither
                 });
             }
-        })
+        });
 
-    }, 3*TicksPerSecond);
+    }, 10);
 
     system.runTimeout(() => {
         system.clearRun(intervalNum);
         player.removeTag("black_hole_self");
         black_hole.remove();
-    }, 100);
+    }, 80);
 }

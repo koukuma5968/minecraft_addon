@@ -46,6 +46,9 @@ import { SniperSteelBow } from "../items/weapons/bow/SniperSteelBow";
 import { Battleaxe } from "../items/weapons/battleaxe/Battleaxe";
 import { CrossBone } from "../items/weapons/battleaxe/CrossBone";
 import { CopperBucket } from "../items/bucket/CopperBucket";
+import { CopperBucketLava } from "../items/bucket/CopperBucketLava";
+import { CopperBucketMilk } from "../items/bucket/CopperBucketMilk";
+import { CopperBucketWater } from "../items/bucket/CopperBucketWater";
 
 /**
  * カスタムコンポーネントの登録
@@ -144,6 +147,12 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
 
     // 銅のバケツ
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:copper_bucket', new CopperBucket());
+    // 銅の水バケツ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:copper_bucket_water', new CopperBucketWater());
+    // 銅のマグマバケツ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:copper_bucket_lava', new CopperBucketLava());
+    // 銅の牛乳バケツ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:copper_bucket_milk', new CopperBucketMilk());
 
     // ブロック類
     // チョコレートケーキブロック

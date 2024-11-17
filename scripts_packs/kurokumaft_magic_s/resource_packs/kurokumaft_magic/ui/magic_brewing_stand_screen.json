@@ -3,10 +3,10 @@
 
   "magic_brewing_stand_label": {
     "type": "label",
-    "offset": [ 7, -5 ],
+    "offset": [ 50, -3 ],
     "anchor_from": "top_middle",
     "anchor_to": "top_middle",
-    "text": "$container_title",
+    "text": "tile.kurokumaft:magic_brewing.name",
     "size": [ "90%", "default" ],
     "color": "$title_text_color",
     "layer": 2
@@ -49,7 +49,7 @@
     "type": "image",
     "layer": 1,
     "texture": "textures/ui/brewing_arrow_empty",
-    "offset": [ 45, -10 ],
+    "offset": [ 45, -5 ],
     "size": [ 9, 28 ]
   },
 
@@ -101,7 +101,7 @@
 
   "materials_item@common.container_item": {
     "$item_collection_name": "container_items",
-    "offset": [ 93, 20 ],
+    "offset": [ 68, -21 ],
     "bindings": [
         {
             "binding_type": "collection_details",
@@ -122,7 +122,7 @@
 
   "stone_item@common.container_item": {
     "$item_collection_name": "container_items",
-    "offset": [ 120, 2 ],
+    "offset": [ 53, -21 ],
     "$cell_overlay_ref": "magic_brewing_stand.stone_image",
     "bindings": [
         {
@@ -144,7 +144,7 @@
 
   "fuel_item@common.container_item": {
     "$item_collection_name": "container_items",
-    "offset": [ 30, -13 ],
+    "offset": [ -81, -14 ],
     "$cell_overlay_ref": "magic_brewing_stand.fuel_empty_image",
     "bindings": [
         {
@@ -166,7 +166,7 @@
 
   "output_item@common.container_item": {
     "$item_collection_name": "container_items",
-    "offset": [ 105, 5 ],
+    "offset": [ -49, 22 ],
     "$cell_overlay_ref": "magic_brewing_stand.bottle_empty_image",
     "bindings": [
         {
@@ -188,7 +188,6 @@
 
   "magic_brewing_grid_item": {
     "type": "panel",
-    "size": [ 0, 0 ],
     "controls": [
       {
         "materials_item@magic_brewing_stand.materials_item": {
@@ -211,10 +210,10 @@
 
   "magic_brewing_grid": {
     "type": "grid",
-    "size": [ 162, 54 ],
+    "size": [ "100%", "100%" ],
+    "grid_dimensions": [ 4, 1 ],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "grid_dimensions": [ 9, 3 ],
     "collection_name": "container_items",
     "grid_item_template": "magic_brewing_stand.magic_brewing_grid_item"
   },
@@ -289,10 +288,6 @@
         }
       }
     ]
-  },
-  
-  "selected_item_details@common.selected_item_details": {
-    "offset": [ 0, 0 ]
   }
 
 }

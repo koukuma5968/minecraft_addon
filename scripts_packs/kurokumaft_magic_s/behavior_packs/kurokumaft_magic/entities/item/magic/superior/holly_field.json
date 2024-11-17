@@ -5,33 +5,8 @@
       "identifier": "kurokumaft:holly_field",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false,
-      "scripts":{
-        "animate":[
-          {"damage": "query.variant == 0"}
-        ]
-      },
-      "animations":{
-        "damage": "animation.light_magic.holly_field.damage"
-      }
+      "is_experimental": false
     },
-    "component_groups": {
-      "kurokumaft:stop": {
-        "minecraft:timer": {
-          "time": [1.0,1.0],
-          "time_down_event": { 
-            "event": "kurokumaft:kill"
-          }
-        },
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "kurokumaft:kill": {
-       "minecraft:instant_despawn": {
-       }
-      }
-     },
     "components": {
       "minecraft:type_family": {
         "family": [ "armor_stand", "inanimate", "holly_field" ]
@@ -73,22 +48,6 @@
         "is_pushable_by_piston": false
       },
       "minecraft:conditional_bandwidth_optimization": {
-      }
-    },
-    "events": {
-      "kurokumaft:stop": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:stop"
-          ]
-        }
-      },
-      "kurokumaft:kill": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:kill"
-          ]
-        }
       }
     }
   }

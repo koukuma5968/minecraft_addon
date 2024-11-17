@@ -1,5 +1,5 @@
 // scripts/magic_script.ts
-import { world as world61 } from "@minecraft/server";
+import { world as world61, system as system57, TicksPerSecond as TicksPerSecond54, ScriptEventSource } from "@minecraft/server";
 
 // scripts/items/weapon/shield/shieldEvent.ts
 import { system, Player as Player3, EntityComponentTypes as EntityComponentTypes2, EquipmentSlot as EquipmentSlot2 } from "@minecraft/server";
@@ -153,7 +153,7 @@ function addTeamsTagFilter(player, filterOption) {
   let tags = player.getTags();
   if (tags != void 0 && tags.length > 0) {
     for (let index in tags) {
-      if (tags[index].indexOf("teamType") != -1 || tags[index].indexOf("tameChiled") != -1) {
+      if (tags[index].indexOf("team") != -1) {
         filterOption.excludeTags.push(tags[index]);
       }
     }
@@ -5507,9 +5507,12 @@ async function checkPlayerEquTick() {
   let players = world32.getPlayers();
   for (let i = 0; i < players.length; i++) {
     let player = players[i];
+    if (!player.isValid()) {
+      continue;
+    }
     let equ = player.getComponent(EntityComponentTypes9.Equippable);
     let offHand = equ.getEquipment(EquipmentSlot11.Offhand);
-    if (offHand) {
+    if (offHand != void 0) {
       if (offHand.typeId.indexOf("magic_shield") != -1 && player.isSneaking) {
         if (!player.hasTag("off_shield_guard")) {
           player.addTag("off_shield_guard");
@@ -5525,7 +5528,7 @@ async function checkPlayerEquTick() {
       }
     }
     let mainHand = equ.getEquipment(EquipmentSlot11.Mainhand);
-    if (mainHand) {
+    if (mainHand != void 0) {
       if (mainHand.typeId.indexOf("magic_shield") != -1 && player.isSneaking) {
         if (!player.hasTag("main_shield_guard")) {
           player.addTag("main_shield_guard");
@@ -5903,7 +5906,7 @@ async function lightningStrike(player) {
 }
 
 // scripts/items/weapon/stick/JetBlackMagic.ts
-import { EntityDamageCause as EntityDamageCause30, Player as Player43, system as system28, TicksPerSecond as TicksPerSecond25 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause30, Player as Player43, system as system28 } from "@minecraft/server";
 async function jetblackShock(player, entity) {
   player.addTag("jetblack_shock_self");
   let left = getLookRotaionPoints(entity.getRotation(), 0, 2.5);
@@ -5971,16 +5974,16 @@ async function blackHole(player) {
         });
       }
     });
-  }, 3 * TicksPerSecond25);
+  }, 10);
   system28.runTimeout(() => {
     system28.clearRun(intervalNum);
     player.removeTag("black_hole_self");
     black_hole.remove();
-  }, 100);
+  }, 80);
 }
 
 // scripts/items/weapon/stick/SparkleMagic.ts
-import { EntityDamageCause as EntityDamageCause31, Player as Player44, system as system29, TicksPerSecond as TicksPerSecond26 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause31, Player as Player44, system as system29 } from "@minecraft/server";
 async function sparkleShock(player, entity) {
   player.addTag("sparkle_shock_self");
   let left = getLookRotaionPoints(entity.getRotation(), 0, 2.5);
@@ -6041,7 +6044,7 @@ async function hollyField(player) {
     };
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach((en) => {
-      en.addEffect(MinecraftEffectTypes.InstantHealth, 2 * TicksPerSecond26, {
+      en.addEffect(MinecraftEffectTypes.InstantHealth, 5, {
         amplifier: 10
       });
     });
@@ -8357,13 +8360,16 @@ async function magicGunShot(player, itemStack, gunMagicObject) {
 }
 
 // scripts/items/weapon/grimoire/SummonGrimoireMagic.ts
-import { EquipmentSlot as EquipmentSlot17 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause58, EquipmentSlot as EquipmentSlot17, Player as Player76, system as system51 } from "@minecraft/server";
 var SummonGrimoireObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_grimoire",
     particle: "kurokumaft:fire_bread_particle",
     entity: "kurokumaft:phoenix_spear",
-    sendMsg: "entity.kurokumaft:phoenix_spear.name"
+    sendMsg: "entity.kurokumaft:phoenix_spear.name",
+    extag: "phoenix_spear_selt",
+    damageType: EntityDamageCause58.fire,
+    damageParticle: "kurokumaft:phoenix_wall_particle"
   }
 ]);
 var SummonGrimoireMagic = class {
@@ -8386,8 +8392,38 @@ async function grimoire_summon_Release(player, itemStack, duration) {
   if (-duration >= 25) {
     let summonMagicObject = SummonGrimoireObjects.find((obj) => obj.itemName == itemStack.typeId);
     player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + summonMagicObject.sendMsg + '"}]}');
-    throwing(player, itemStack, summonMagicObject.entity, 0);
+    player.addTag(summonMagicObject.extag);
+    let summonMons = player.dimension.spawnEntity(summonMagicObject.entity, { x: player.location.x, y: player.location.y + 10, z: player.location.z });
+    let sommonLoc = summonMons.location;
     SummonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot17.Mainhand);
+    let intervalNum = system51.runInterval(() => {
+      let filterOption = {
+        excludeTags: [
+          summonMagicObject.extag
+        ],
+        location: sommonLoc,
+        maxDistance: 25
+      };
+      addTeamsTagFilter(player, filterOption);
+      let targets = player.dimension.getEntities(filterOption);
+      targets.forEach((en) => {
+        if (en instanceof Player76) {
+          en.applyDamage(5, {
+            cause: summonMagicObject.damageType
+          });
+        } else {
+          en.applyDamage(15, {
+            cause: summonMagicObject.damageType
+          });
+        }
+        en.dimension.spawnParticle(summonMagicObject.damageParticle, en.location);
+      });
+    }, 10);
+    system51.runTimeout(() => {
+      system51.clearRun(intervalNum);
+      player.removeTag(summonMagicObject.extag);
+      summonMons.remove();
+    }, 100);
   }
 }
 
@@ -8514,7 +8550,7 @@ async function waterCauldron(event) {
 }
 
 // scripts/items/weapon/grimoire/WindGrimoireMagic.ts
-import { system as system52, Player as Player79, world as world52 } from "@minecraft/server";
+import { system as system53, Player as Player79, world as world52 } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 var MowingBlockS = Object.freeze([
   "minecraft:bamboo",
@@ -8585,7 +8621,7 @@ async function mowing(event) {
   let bz = entity.location.z;
   let setFireF = false;
   let xpcount1 = 0;
-  let intervalNumXP = system52.runInterval(() => {
+  let intervalNumXP = system53.runInterval(() => {
     for (let z = 0; z < 10; z++) {
       for (let y = 0; y < 10; y++) {
         let vec = { "x": bx + xpcount1, "y": by + y, "z": bz + z };
@@ -8607,7 +8643,7 @@ async function mowing(event) {
     xpcount1++;
   }, 1);
   let xmcount1 = 0;
-  let intervalNumXM = system52.runInterval(() => {
+  let intervalNumXM = system53.runInterval(() => {
     for (let z = 0; z < 10; z++) {
       for (let y = 0; y < 10; y++) {
         let vec = { "x": bx + xmcount1, "y": by + y, "z": bz + z };
@@ -8629,7 +8665,7 @@ async function mowing(event) {
     xmcount1--;
   }, 1);
   let xpcount2 = 0;
-  let intervalNumZP = system52.runInterval(() => {
+  let intervalNumZP = system53.runInterval(() => {
     for (let z = -1; z > -10; z--) {
       for (let y = 0; y < 10; y++) {
         let vec = { "x": bx + xpcount2, "y": by + y, "z": bz + z };
@@ -8651,7 +8687,7 @@ async function mowing(event) {
     xpcount2++;
   }, 1);
   let xmcount2 = 0;
-  let intervalNumZM = system52.runInterval(() => {
+  let intervalNumZM = system53.runInterval(() => {
     for (let z = -1; z > -10; z--) {
       for (let y = 0; y < 10; y++) {
         let vec = { "x": bx + xmcount2, "y": by + y, "z": bz + z };
@@ -8673,11 +8709,11 @@ async function mowing(event) {
     xmcount2--;
   }, 1);
   playerDim.spawnParticle("kurokumaft:mowing_particle", entity.location);
-  system52.runTimeout(() => {
-    system52.clearRun(intervalNumXP);
-    system52.clearRun(intervalNumZP);
-    system52.clearRun(intervalNumXM);
-    system52.clearRun(intervalNumZM);
+  system53.runTimeout(() => {
+    system53.clearRun(intervalNumXP);
+    system53.clearRun(intervalNumZP);
+    system53.clearRun(intervalNumXM);
+    system53.clearRun(intervalNumZM);
     if (setFireF) {
       decrimentGrimoireCount(entity, itemStack);
     }
@@ -8811,7 +8847,7 @@ async function musicSound(event) {
 }
 
 // scripts/items/weapon/grimoire/StoneGrimoireMagic.ts
-import { system as system53, ItemComponentTypes as ItemComponentTypes7, BlockPermutation as BlockPermutation4, Direction as Direction4 } from "@minecraft/server";
+import { system as system54, ItemComponentTypes as ItemComponentTypes7, BlockPermutation as BlockPermutation4, Direction as Direction4 } from "@minecraft/server";
 var FlowerBlockS = Object.freeze([
   "",
   "",
@@ -8883,7 +8919,7 @@ async function flowerGarden(event) {
     blockDim.spawnParticle("kurokumaft:flower_garden_growth_emitter", block.location);
     itemCool.startCooldown(entity);
     let xpcount1 = 0;
-    let intervalNumXP = system53.runInterval(() => {
+    let intervalNumXP = system54.runInterval(() => {
       for (let z = 0; z < 8; z++) {
         let vec = { "x": bx + xpcount1, "y": by, "z": bz + z };
         let upvec = { "x": bx + xpcount1, "y": by + 1, "z": bz + z };
@@ -8915,7 +8951,7 @@ async function flowerGarden(event) {
       xpcount1++;
     }, 1);
     let xmcount1 = 0;
-    let intervalNumXM = system53.runInterval(() => {
+    let intervalNumXM = system54.runInterval(() => {
       for (let z = 0; z < 8; z++) {
         let vec = { "x": bx + xmcount1, "y": by, "z": bz + z };
         let upvec = { "x": bx + xmcount1, "y": by + 1, "z": bz + z };
@@ -8947,7 +8983,7 @@ async function flowerGarden(event) {
       xmcount1--;
     }, 1);
     let xpcount2 = 0;
-    let intervalNumZP = system53.runInterval(() => {
+    let intervalNumZP = system54.runInterval(() => {
       for (let z = -1; z > -8; z--) {
         let vec = { "x": bx + xpcount2, "y": by, "z": bz + z };
         let upvec = { "x": bx + xpcount2, "y": by + 1, "z": bz + z };
@@ -8979,7 +9015,7 @@ async function flowerGarden(event) {
       xpcount2++;
     }, 1);
     let xmcount2 = 0;
-    let intervalNumZM = system53.runInterval(() => {
+    let intervalNumZM = system54.runInterval(() => {
       for (let z = -1; z > -8; z--) {
         let vec = { "x": bx + xmcount2, "y": by, "z": bz + z };
         let upvec = { "x": bx + xmcount2, "y": by + 1, "z": bz + z };
@@ -9010,11 +9046,11 @@ async function flowerGarden(event) {
       }
       xmcount2--;
     }, 1);
-    system53.runTimeout(() => {
-      system53.clearRun(intervalNumXP);
-      system53.clearRun(intervalNumZP);
-      system53.clearRun(intervalNumXM);
-      system53.clearRun(intervalNumZM);
+    system54.runTimeout(() => {
+      system54.clearRun(intervalNumXP);
+      system54.clearRun(intervalNumZP);
+      system54.clearRun(intervalNumXM);
+      system54.clearRun(intervalNumZM);
       if (setFireF) {
         decrimentGrimoireCount(entity, itemStack);
       }
@@ -9599,7 +9635,7 @@ function noBookItem() {
 }
 
 // scripts/block/WallBlock.ts
-import { EntityDamageCause as EntityDamageCause59, TicksPerSecond as TicksPerSecond40, system as system54 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause60, TicksPerSecond as TicksPerSecond40, system as system55 } from "@minecraft/server";
 var WallMagicObjects2 = Object.freeze([
   {
     itemName: "kurokumaft:lightningwall_block",
@@ -9640,7 +9676,7 @@ var WallBlock = class {
     if (entity != void 0) {
       let wallNum = entity.getDynamicProperty("walllNum");
       if (wallNum != void 0) {
-        system54.clearRun(wallNum);
+        system55.clearRun(wallNum);
       }
     }
   }
@@ -9649,9 +9685,9 @@ async function lightningwall2(blockEvent) {
   let block = blockEvent.block;
   let dimension = blockEvent.dimension;
   let entity = blockEvent.entity;
-  let intervalnum = system54.runInterval(() => {
+  let intervalnum = system55.runInterval(() => {
     entity.applyDamage(1, {
-      cause: EntityDamageCause59.lightning
+      cause: EntityDamageCause60.lightning
     });
   }, 4);
   entity.setDynamicProperty("walllNum", intervalnum);
@@ -9660,9 +9696,9 @@ async function waterwall2(blockEvent) {
   let block = blockEvent.block;
   let dimension = blockEvent.dimension;
   let entity = blockEvent.entity;
-  let intervalnum = system54.runInterval(() => {
+  let intervalnum = system55.runInterval(() => {
     entity.applyDamage(1, {
-      cause: EntityDamageCause59.drowning
+      cause: EntityDamageCause60.drowning
     });
   }, 4);
   entity.setDynamicProperty("walllNum", intervalnum);
@@ -10189,7 +10225,7 @@ var DiamondBottle = class {
 };
 
 // scripts/block/MagicBrewingStand.ts
-import { ItemStack as ItemStack24, EntityComponentTypes as EntityComponentTypes16, system as system55, TicksPerSecond as TicksPerSecond47 } from "@minecraft/server";
+import { ItemStack as ItemStack24, EntityComponentTypes as EntityComponentTypes16, system as system56, TicksPerSecond as TicksPerSecond47 } from "@minecraft/server";
 var MagicBrewingItemObjects = Object.freeze([
   {
     materialItem: "kurokumaft:fire_log_nut",
@@ -10204,7 +10240,7 @@ var MagicBrewingItemObjects = Object.freeze([
     stoneItem: "kurokumaft:water_magic_stone",
     outputItem: "kurokumaft:water_healthboost_potion",
     type: "water",
-    lore: "\u4F53\u529B\u5897\u52A0 \u2169 (10:00)",
+    lore: "\u4F53\u529B\u5897\u5F37 \u2169 (10:00)",
     particle: "kurokumaft:brewing_water"
   },
   {
@@ -10228,7 +10264,7 @@ var MagicBrewingItemObjects = Object.freeze([
     stoneItem: "kurokumaft:lightning_magic_stone",
     outputItem: "kurokumaft:lightning_speedup_potion",
     type: "lightning",
-    lore: "\u901F\u5EA6\u4E0A\u6607 \u2169 (10:00)",
+    lore: "\u79FB\u52D5\u901F\u5EA6\u4E0A\u6607 \u2169 (10:00)",
     particle: "kurokumaft:brewing_lightning"
   },
   {
@@ -10236,7 +10272,7 @@ var MagicBrewingItemObjects = Object.freeze([
     stoneItem: "kurokumaft:ice_magic_stone",
     outputItem: "kurokumaft:ice_absorption_potion",
     type: "ice",
-    lore: "\u5438\u53CE \u2169 (10:00)",
+    lore: "\u885D\u6483\u5438\u53CE \u2169 (10:00)",
     particle: "kurokumaft:brewing_ice"
   }
 ]);
@@ -10333,7 +10369,7 @@ var MagicBrewingStand = class {
         this.stand.setProperty("kurokumaft:brewing_fuel", 0);
         this.stand.setProperty("kurokumaft:bottle_type", "empty");
       }
-      system55.runTimeout(this.checkJob.bind(this), TicksPerSecond47);
+      system56.runTimeout(this.checkJob.bind(this), TicksPerSecond47);
     }
   }
 };
@@ -10636,6 +10672,99 @@ world61.afterEvents.entityLoad.subscribe((event) => {
 world61.afterEvents.entitySpawn.subscribe((event) => {
   let entity = event.entity;
   let cause = event.cause;
+});
+world61.afterEvents.buttonPush.subscribe((event) => {
+  let entity = event.source;
+  let block = event.block;
+  A:
+    for (let y = -1; y <= 1; y++) {
+      for (let x = -1; x <= 1; x++) {
+        for (let z = -1; z <= 1; z++) {
+          let nearLoc = { x: block.location.x + x, y: block.location.y + y, z: block.location.z + z };
+          let nearblock = event.dimension.getBlock(nearLoc);
+          if (nearblock.typeId == MinecraftBlockTypes.CommandBlock) {
+            entity.setDynamicProperty("teamCommandSet", true);
+            system57.runTimeout(() => {
+              entity.setDynamicProperty("teamCommandSet", void 0);
+            }, TicksPerSecond54 * 2);
+            break A;
+          }
+        }
+      }
+    }
+});
+system57.afterEvents.scriptEventReceive.subscribe((event) => {
+  let id = event.id;
+  let message = event.message;
+  let initiator = event.initiator;
+  if (initiator != void 0) {
+  }
+  let sourceType = event.sourceType;
+  if (sourceType == ScriptEventSource.Block) {
+    let sourceBlock = event.sourceBlock;
+    if (sourceBlock != void 0 && sourceBlock.typeId == MinecraftBlockTypes.CommandBlock) {
+      if (id == "kk:teamtag") {
+        let players = sourceBlock.dimension.getPlayers({
+          location: sourceBlock.location,
+          maxDistance: 2
+        });
+        players.forEach((player) => {
+          if (player.getDynamicProperty("teamCommandSet")) {
+            let params = message.split(" ");
+            if (params[0] == "add") {
+              let tags = player.getTags();
+              tags.forEach((tag) => {
+                if (tag.indexOf("team") != -1) {
+                  player.removeTag(tag);
+                  world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+                }
+              });
+              player.addTag("team" + params[1]);
+              world61.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]] });
+            } else if (params[0] == "remove") {
+              let tags = player.getTags();
+              tags.forEach((tag) => {
+                if (tag.indexOf("team") != -1) {
+                  player.removeTag(tag);
+                  world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+                }
+              });
+            }
+          }
+        });
+      }
+    }
+  } else if (sourceType == ScriptEventSource.Entity) {
+    let sourceEntity = event.sourceEntity;
+    if (sourceEntity != void 0) {
+      if (id == "kk:teamtag") {
+        let params = message.split(" ");
+        if (params[0] == "add") {
+          let tags = sourceEntity.getTags();
+          tags.forEach((tag) => {
+            if (tag.indexOf("team") != -1) {
+              sourceEntity.removeTag(tag);
+              world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+            }
+          });
+          sourceEntity.addTag("team" + params[1]);
+          world61.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]] });
+        } else if (params[0] == "remove") {
+          let tags = sourceEntity.getTags();
+          tags.forEach((tag) => {
+            if (tag.indexOf("team") != -1) {
+              sourceEntity.removeTag(tag);
+              world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+            }
+          });
+        }
+      }
+    }
+  }
+}, {
+  namespaces: [
+    "kk"
+  ]
 });
 
 //# sourceMappingURL=../debug/magic_script.js.map

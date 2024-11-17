@@ -1,5 +1,5 @@
 // scripts/weapons_script.ts
-import { world as world17, Player as Player41, EquipmentSlot as EquipmentSlot35, EntityComponentTypes as EntityComponentTypes19, EntityInitializationCause } from "@minecraft/server";
+import { world as world18, Player as Player44, EquipmentSlot as EquipmentSlot36, EntityComponentTypes as EntityComponentTypes20, EntityInitializationCause } from "@minecraft/server";
 
 // scripts/common/commonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -123,6 +123,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["AndesiteDoubleSlab"] = "minecraft:andesite_double_slab";
   MinecraftBlockTypes2["AndesiteSlab"] = "minecraft:andesite_slab";
   MinecraftBlockTypes2["AndesiteStairs"] = "minecraft:andesite_stairs";
+  MinecraftBlockTypes2["AndesiteWall"] = "minecraft:andesite_wall";
   MinecraftBlockTypes2["Anvil"] = "minecraft:anvil";
   MinecraftBlockTypes2["Azalea"] = "minecraft:azalea";
   MinecraftBlockTypes2["AzaleaLeaves"] = "minecraft:azalea_leaves";
@@ -218,6 +219,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["BrickDoubleSlab"] = "minecraft:brick_double_slab";
   MinecraftBlockTypes2["BrickSlab"] = "minecraft:brick_slab";
   MinecraftBlockTypes2["BrickStairs"] = "minecraft:brick_stairs";
+  MinecraftBlockTypes2["BrickWall"] = "minecraft:brick_wall";
   MinecraftBlockTypes2["BrownCandle"] = "minecraft:brown_candle";
   MinecraftBlockTypes2["BrownCandleCake"] = "minecraft:brown_candle_cake";
   MinecraftBlockTypes2["BrownCarpet"] = "minecraft:brown_carpet";
@@ -255,7 +257,6 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["Chain"] = "minecraft:chain";
   MinecraftBlockTypes2["ChainCommandBlock"] = "minecraft:chain_command_block";
   MinecraftBlockTypes2["ChemicalHeat"] = "minecraft:chemical_heat";
-  MinecraftBlockTypes2["ChemistryTable"] = "minecraft:chemistry_table";
   MinecraftBlockTypes2["CherryButton"] = "minecraft:cherry_button";
   MinecraftBlockTypes2["CherryDoor"] = "minecraft:cherry_door";
   MinecraftBlockTypes2["CherryDoubleSlab"] = "minecraft:cherry_double_slab";
@@ -303,10 +304,13 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["CobblestoneSlab"] = "minecraft:cobblestone_slab";
   MinecraftBlockTypes2["CobblestoneWall"] = "minecraft:cobblestone_wall";
   MinecraftBlockTypes2["Cocoa"] = "minecraft:cocoa";
-  MinecraftBlockTypes2["ColoredTorchBp"] = "minecraft:colored_torch_bp";
-  MinecraftBlockTypes2["ColoredTorchRg"] = "minecraft:colored_torch_rg";
+  MinecraftBlockTypes2["ColoredTorchBlue"] = "minecraft:colored_torch_blue";
+  MinecraftBlockTypes2["ColoredTorchGreen"] = "minecraft:colored_torch_green";
+  MinecraftBlockTypes2["ColoredTorchPurple"] = "minecraft:colored_torch_purple";
+  MinecraftBlockTypes2["ColoredTorchRed"] = "minecraft:colored_torch_red";
   MinecraftBlockTypes2["CommandBlock"] = "minecraft:command_block";
   MinecraftBlockTypes2["Composter"] = "minecraft:composter";
+  MinecraftBlockTypes2["CompoundCreator"] = "minecraft:compound_creator";
   MinecraftBlockTypes2["Conduit"] = "minecraft:conduit";
   MinecraftBlockTypes2["CopperBlock"] = "minecraft:copper_block";
   MinecraftBlockTypes2["CopperBulb"] = "minecraft:copper_bulb";
@@ -429,6 +433,8 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["DeepslateTiles"] = "minecraft:deepslate_tiles";
   MinecraftBlockTypes2["Deny"] = "minecraft:deny";
   MinecraftBlockTypes2["DeprecatedAnvil"] = "minecraft:deprecated_anvil";
+  MinecraftBlockTypes2["DeprecatedPurpurBlock1"] = "minecraft:deprecated_purpur_block_1";
+  MinecraftBlockTypes2["DeprecatedPurpurBlock2"] = "minecraft:deprecated_purpur_block_2";
   MinecraftBlockTypes2["DetectorRail"] = "minecraft:detector_rail";
   MinecraftBlockTypes2["DiamondBlock"] = "minecraft:diamond_block";
   MinecraftBlockTypes2["DiamondOre"] = "minecraft:diamond_ore";
@@ -436,6 +442,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["DioriteDoubleSlab"] = "minecraft:diorite_double_slab";
   MinecraftBlockTypes2["DioriteSlab"] = "minecraft:diorite_slab";
   MinecraftBlockTypes2["DioriteStairs"] = "minecraft:diorite_stairs";
+  MinecraftBlockTypes2["DioriteWall"] = "minecraft:diorite_wall";
   MinecraftBlockTypes2["Dirt"] = "minecraft:dirt";
   MinecraftBlockTypes2["DirtWithRoots"] = "minecraft:dirt_with_roots";
   MinecraftBlockTypes2["Dispenser"] = "minecraft:dispenser";
@@ -563,6 +570,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["Element97"] = "minecraft:element_97";
   MinecraftBlockTypes2["Element98"] = "minecraft:element_98";
   MinecraftBlockTypes2["Element99"] = "minecraft:element_99";
+  MinecraftBlockTypes2["ElementConstructor"] = "minecraft:element_constructor";
   MinecraftBlockTypes2["EmeraldBlock"] = "minecraft:emerald_block";
   MinecraftBlockTypes2["EmeraldOre"] = "minecraft:emerald_ore";
   MinecraftBlockTypes2["EnchantingTable"] = "minecraft:enchanting_table";
@@ -575,6 +583,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["EndStone"] = "minecraft:end_stone";
   MinecraftBlockTypes2["EndStoneBrickDoubleSlab"] = "minecraft:end_stone_brick_double_slab";
   MinecraftBlockTypes2["EndStoneBrickSlab"] = "minecraft:end_stone_brick_slab";
+  MinecraftBlockTypes2["EndStoneBrickWall"] = "minecraft:end_stone_brick_wall";
   MinecraftBlockTypes2["EnderChest"] = "minecraft:ender_chest";
   MinecraftBlockTypes2["ExposedChiseledCopper"] = "minecraft:exposed_chiseled_copper";
   MinecraftBlockTypes2["ExposedCopper"] = "minecraft:exposed_copper";
@@ -617,6 +626,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["GraniteDoubleSlab"] = "minecraft:granite_double_slab";
   MinecraftBlockTypes2["GraniteSlab"] = "minecraft:granite_slab";
   MinecraftBlockTypes2["GraniteStairs"] = "minecraft:granite_stairs";
+  MinecraftBlockTypes2["GraniteWall"] = "minecraft:granite_wall";
   MinecraftBlockTypes2["GrassBlock"] = "minecraft:grass_block";
   MinecraftBlockTypes2["GrassPath"] = "minecraft:grass_path";
   MinecraftBlockTypes2["Gravel"] = "minecraft:gravel";
@@ -725,6 +735,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["JungleWallSign"] = "minecraft:jungle_wall_sign";
   MinecraftBlockTypes2["JungleWood"] = "minecraft:jungle_wood";
   MinecraftBlockTypes2["Kelp"] = "minecraft:kelp";
+  MinecraftBlockTypes2["LabTable"] = "minecraft:lab_table";
   MinecraftBlockTypes2["Ladder"] = "minecraft:ladder";
   MinecraftBlockTypes2["Lantern"] = "minecraft:lantern";
   MinecraftBlockTypes2["LapisBlock"] = "minecraft:lapis_block";
@@ -825,6 +836,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["MangroveTrapdoor"] = "minecraft:mangrove_trapdoor";
   MinecraftBlockTypes2["MangroveWallSign"] = "minecraft:mangrove_wall_sign";
   MinecraftBlockTypes2["MangroveWood"] = "minecraft:mangrove_wood";
+  MinecraftBlockTypes2["MaterialReducer"] = "minecraft:material_reducer";
   MinecraftBlockTypes2["MediumAmethystBud"] = "minecraft:medium_amethyst_bud";
   MinecraftBlockTypes2["MelonBlock"] = "minecraft:melon_block";
   MinecraftBlockTypes2["MelonStem"] = "minecraft:melon_stem";
@@ -835,9 +847,11 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["MossyCobblestoneDoubleSlab"] = "minecraft:mossy_cobblestone_double_slab";
   MinecraftBlockTypes2["MossyCobblestoneSlab"] = "minecraft:mossy_cobblestone_slab";
   MinecraftBlockTypes2["MossyCobblestoneStairs"] = "minecraft:mossy_cobblestone_stairs";
+  MinecraftBlockTypes2["MossyCobblestoneWall"] = "minecraft:mossy_cobblestone_wall";
   MinecraftBlockTypes2["MossyStoneBrickDoubleSlab"] = "minecraft:mossy_stone_brick_double_slab";
   MinecraftBlockTypes2["MossyStoneBrickSlab"] = "minecraft:mossy_stone_brick_slab";
   MinecraftBlockTypes2["MossyStoneBrickStairs"] = "minecraft:mossy_stone_brick_stairs";
+  MinecraftBlockTypes2["MossyStoneBrickWall"] = "minecraft:mossy_stone_brick_wall";
   MinecraftBlockTypes2["MossyStoneBricks"] = "minecraft:mossy_stone_bricks";
   MinecraftBlockTypes2["MovingBlock"] = "minecraft:moving_block";
   MinecraftBlockTypes2["Mud"] = "minecraft:mud";
@@ -853,6 +867,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["NetherBrickFence"] = "minecraft:nether_brick_fence";
   MinecraftBlockTypes2["NetherBrickSlab"] = "minecraft:nether_brick_slab";
   MinecraftBlockTypes2["NetherBrickStairs"] = "minecraft:nether_brick_stairs";
+  MinecraftBlockTypes2["NetherBrickWall"] = "minecraft:nether_brick_wall";
   MinecraftBlockTypes2["NetherGoldOre"] = "minecraft:nether_gold_ore";
   MinecraftBlockTypes2["NetherSprouts"] = "minecraft:nether_sprouts";
   MinecraftBlockTypes2["NetherWart"] = "minecraft:nether_wart";
@@ -974,6 +989,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["PrismarineDoubleSlab"] = "minecraft:prismarine_double_slab";
   MinecraftBlockTypes2["PrismarineSlab"] = "minecraft:prismarine_slab";
   MinecraftBlockTypes2["PrismarineStairs"] = "minecraft:prismarine_stairs";
+  MinecraftBlockTypes2["PrismarineWall"] = "minecraft:prismarine_wall";
   MinecraftBlockTypes2["Pumpkin"] = "minecraft:pumpkin";
   MinecraftBlockTypes2["PumpkinStem"] = "minecraft:pumpkin_stem";
   MinecraftBlockTypes2["PurpleCandle"] = "minecraft:purple_candle";
@@ -989,6 +1005,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["PurpleWool"] = "minecraft:purple_wool";
   MinecraftBlockTypes2["PurpurBlock"] = "minecraft:purpur_block";
   MinecraftBlockTypes2["PurpurDoubleSlab"] = "minecraft:purpur_double_slab";
+  MinecraftBlockTypes2["PurpurPillar"] = "minecraft:purpur_pillar";
   MinecraftBlockTypes2["PurpurSlab"] = "minecraft:purpur_slab";
   MinecraftBlockTypes2["PurpurStairs"] = "minecraft:purpur_stairs";
   MinecraftBlockTypes2["QuartzBlock"] = "minecraft:quartz_block";
@@ -1014,11 +1031,13 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["RedNetherBrickDoubleSlab"] = "minecraft:red_nether_brick_double_slab";
   MinecraftBlockTypes2["RedNetherBrickSlab"] = "minecraft:red_nether_brick_slab";
   MinecraftBlockTypes2["RedNetherBrickStairs"] = "minecraft:red_nether_brick_stairs";
+  MinecraftBlockTypes2["RedNetherBrickWall"] = "minecraft:red_nether_brick_wall";
   MinecraftBlockTypes2["RedSand"] = "minecraft:red_sand";
   MinecraftBlockTypes2["RedSandstone"] = "minecraft:red_sandstone";
   MinecraftBlockTypes2["RedSandstoneDoubleSlab"] = "minecraft:red_sandstone_double_slab";
   MinecraftBlockTypes2["RedSandstoneSlab"] = "minecraft:red_sandstone_slab";
   MinecraftBlockTypes2["RedSandstoneStairs"] = "minecraft:red_sandstone_stairs";
+  MinecraftBlockTypes2["RedSandstoneWall"] = "minecraft:red_sandstone_wall";
   MinecraftBlockTypes2["RedShulkerBox"] = "minecraft:red_shulker_box";
   MinecraftBlockTypes2["RedStainedGlass"] = "minecraft:red_stained_glass";
   MinecraftBlockTypes2["RedStainedGlassPane"] = "minecraft:red_stained_glass_pane";
@@ -1041,6 +1060,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["SandstoneDoubleSlab"] = "minecraft:sandstone_double_slab";
   MinecraftBlockTypes2["SandstoneSlab"] = "minecraft:sandstone_slab";
   MinecraftBlockTypes2["SandstoneStairs"] = "minecraft:sandstone_stairs";
+  MinecraftBlockTypes2["SandstoneWall"] = "minecraft:sandstone_wall";
   MinecraftBlockTypes2["Scaffolding"] = "minecraft:scaffolding";
   MinecraftBlockTypes2["Sculk"] = "minecraft:sculk";
   MinecraftBlockTypes2["SculkCatalyst"] = "minecraft:sculk_catalyst";
@@ -1111,6 +1131,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["StoneBrickDoubleSlab"] = "minecraft:stone_brick_double_slab";
   MinecraftBlockTypes2["StoneBrickSlab"] = "minecraft:stone_brick_slab";
   MinecraftBlockTypes2["StoneBrickStairs"] = "minecraft:stone_brick_stairs";
+  MinecraftBlockTypes2["StoneBrickWall"] = "minecraft:stone_brick_wall";
   MinecraftBlockTypes2["StoneBricks"] = "minecraft:stone_bricks";
   MinecraftBlockTypes2["StoneButton"] = "minecraft:stone_button";
   MinecraftBlockTypes2["StonePressurePlate"] = "minecraft:stone_pressure_plate";
@@ -1172,6 +1193,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["TuffWall"] = "minecraft:tuff_wall";
   MinecraftBlockTypes2["TurtleEgg"] = "minecraft:turtle_egg";
   MinecraftBlockTypes2["TwistingVines"] = "minecraft:twisting_vines";
+  MinecraftBlockTypes2["UnderwaterTnt"] = "minecraft:underwater_tnt";
   MinecraftBlockTypes2["UnderwaterTorch"] = "minecraft:underwater_torch";
   MinecraftBlockTypes2["UndyedShulkerBox"] = "minecraft:undyed_shulker_box";
   MinecraftBlockTypes2["Unknown"] = "minecraft:unknown";
@@ -1256,6 +1278,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["WeatheredDoubleCutCopperSlab"] = "minecraft:weathered_double_cut_copper_slab";
   MinecraftBlockTypes2["Web"] = "minecraft:web";
   MinecraftBlockTypes2["WeepingVines"] = "minecraft:weeping_vines";
+  MinecraftBlockTypes2["WetSponge"] = "minecraft:wet_sponge";
   MinecraftBlockTypes2["Wheat"] = "minecraft:wheat";
   MinecraftBlockTypes2["WhiteCandle"] = "minecraft:white_candle";
   MinecraftBlockTypes2["WhiteCandleCake"] = "minecraft:white_candle_cake";
@@ -1564,6 +1587,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["Andesite"] = "minecraft:andesite";
   MinecraftItemTypes2["AndesiteSlab"] = "minecraft:andesite_slab";
   MinecraftItemTypes2["AndesiteStairs"] = "minecraft:andesite_stairs";
+  MinecraftItemTypes2["AndesiteWall"] = "minecraft:andesite_wall";
   MinecraftItemTypes2["AnglerPotterySherd"] = "minecraft:angler_pottery_sherd";
   MinecraftItemTypes2["Anvil"] = "minecraft:anvil";
   MinecraftItemTypes2["Apple"] = "minecraft:apple";
@@ -1688,6 +1712,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["BrickBlock"] = "minecraft:brick_block";
   MinecraftItemTypes2["BrickSlab"] = "minecraft:brick_slab";
   MinecraftItemTypes2["BrickStairs"] = "minecraft:brick_stairs";
+  MinecraftItemTypes2["BrickWall"] = "minecraft:brick_wall";
   MinecraftItemTypes2["BrownCandle"] = "minecraft:brown_candle";
   MinecraftItemTypes2["BrownCarpet"] = "minecraft:brown_carpet";
   MinecraftItemTypes2["BrownConcrete"] = "minecraft:brown_concrete";
@@ -1707,6 +1732,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["BubbleCoralFan"] = "minecraft:bubble_coral_fan";
   MinecraftItemTypes2["Bucket"] = "minecraft:bucket";
   MinecraftItemTypes2["BuddingAmethyst"] = "minecraft:budding_amethyst";
+  MinecraftItemTypes2["Bundle"] = "minecraft:bundle";
   MinecraftItemTypes2["BurnPotterySherd"] = "minecraft:burn_pottery_sherd";
   MinecraftItemTypes2["Cactus"] = "minecraft:cactus";
   MinecraftItemTypes2["Cake"] = "minecraft:cake";
@@ -1928,6 +1954,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["Diorite"] = "minecraft:diorite";
   MinecraftItemTypes2["DioriteSlab"] = "minecraft:diorite_slab";
   MinecraftItemTypes2["DioriteStairs"] = "minecraft:diorite_stairs";
+  MinecraftItemTypes2["DioriteWall"] = "minecraft:diorite_wall";
   MinecraftItemTypes2["Dirt"] = "minecraft:dirt";
   MinecraftItemTypes2["DirtWithRoots"] = "minecraft:dirt_with_roots";
   MinecraftItemTypes2["DiscFragment5"] = "minecraft:disc_fragment_5";
@@ -1960,6 +1987,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["EndRod"] = "minecraft:end_rod";
   MinecraftItemTypes2["EndStone"] = "minecraft:end_stone";
   MinecraftItemTypes2["EndStoneBrickSlab"] = "minecraft:end_stone_brick_slab";
+  MinecraftItemTypes2["EndStoneBrickWall"] = "minecraft:end_stone_brick_wall";
   MinecraftItemTypes2["EnderChest"] = "minecraft:ender_chest";
   MinecraftItemTypes2["EnderDragonSpawnEgg"] = "minecraft:ender_dragon_spawn_egg";
   MinecraftItemTypes2["EnderEye"] = "minecraft:ender_eye";
@@ -2046,6 +2074,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["Granite"] = "minecraft:granite";
   MinecraftItemTypes2["GraniteSlab"] = "minecraft:granite_slab";
   MinecraftItemTypes2["GraniteStairs"] = "minecraft:granite_stairs";
+  MinecraftItemTypes2["GraniteWall"] = "minecraft:granite_wall";
   MinecraftItemTypes2["GrassBlock"] = "minecraft:grass_block";
   MinecraftItemTypes2["GrassPath"] = "minecraft:grass_path";
   MinecraftItemTypes2["Gravel"] = "minecraft:gravel";
@@ -2268,8 +2297,10 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["MossyCobblestone"] = "minecraft:mossy_cobblestone";
   MinecraftItemTypes2["MossyCobblestoneSlab"] = "minecraft:mossy_cobblestone_slab";
   MinecraftItemTypes2["MossyCobblestoneStairs"] = "minecraft:mossy_cobblestone_stairs";
+  MinecraftItemTypes2["MossyCobblestoneWall"] = "minecraft:mossy_cobblestone_wall";
   MinecraftItemTypes2["MossyStoneBrickSlab"] = "minecraft:mossy_stone_brick_slab";
   MinecraftItemTypes2["MossyStoneBrickStairs"] = "minecraft:mossy_stone_brick_stairs";
+  MinecraftItemTypes2["MossyStoneBrickWall"] = "minecraft:mossy_stone_brick_wall";
   MinecraftItemTypes2["MossyStoneBricks"] = "minecraft:mossy_stone_bricks";
   MinecraftItemTypes2["MournerPotterySherd"] = "minecraft:mourner_pottery_sherd";
   MinecraftItemTypes2["Mud"] = "minecraft:mud";
@@ -2307,6 +2338,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["NetherBrickFence"] = "minecraft:nether_brick_fence";
   MinecraftItemTypes2["NetherBrickSlab"] = "minecraft:nether_brick_slab";
   MinecraftItemTypes2["NetherBrickStairs"] = "minecraft:nether_brick_stairs";
+  MinecraftItemTypes2["NetherBrickWall"] = "minecraft:nether_brick_wall";
   MinecraftItemTypes2["NetherGoldOre"] = "minecraft:nether_gold_ore";
   MinecraftItemTypes2["NetherSprouts"] = "minecraft:nether_sprouts";
   MinecraftItemTypes2["NetherStar"] = "minecraft:nether_star";
@@ -2449,6 +2481,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["PrismarineShard"] = "minecraft:prismarine_shard";
   MinecraftItemTypes2["PrismarineSlab"] = "minecraft:prismarine_slab";
   MinecraftItemTypes2["PrismarineStairs"] = "minecraft:prismarine_stairs";
+  MinecraftItemTypes2["PrismarineWall"] = "minecraft:prismarine_wall";
   MinecraftItemTypes2["PrizePotterySherd"] = "minecraft:prize_pottery_sherd";
   MinecraftItemTypes2["Pufferfish"] = "minecraft:pufferfish";
   MinecraftItemTypes2["PufferfishBucket"] = "minecraft:pufferfish_bucket";
@@ -2468,6 +2501,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["PurpleTerracotta"] = "minecraft:purple_terracotta";
   MinecraftItemTypes2["PurpleWool"] = "minecraft:purple_wool";
   MinecraftItemTypes2["PurpurBlock"] = "minecraft:purpur_block";
+  MinecraftItemTypes2["PurpurPillar"] = "minecraft:purpur_pillar";
   MinecraftItemTypes2["PurpurSlab"] = "minecraft:purpur_slab";
   MinecraftItemTypes2["PurpurStairs"] = "minecraft:purpur_stairs";
   MinecraftItemTypes2["Quartz"] = "minecraft:quartz";
@@ -2503,10 +2537,12 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["RedNetherBrick"] = "minecraft:red_nether_brick";
   MinecraftItemTypes2["RedNetherBrickSlab"] = "minecraft:red_nether_brick_slab";
   MinecraftItemTypes2["RedNetherBrickStairs"] = "minecraft:red_nether_brick_stairs";
+  MinecraftItemTypes2["RedNetherBrickWall"] = "minecraft:red_nether_brick_wall";
   MinecraftItemTypes2["RedSand"] = "minecraft:red_sand";
   MinecraftItemTypes2["RedSandstone"] = "minecraft:red_sandstone";
   MinecraftItemTypes2["RedSandstoneSlab"] = "minecraft:red_sandstone_slab";
   MinecraftItemTypes2["RedSandstoneStairs"] = "minecraft:red_sandstone_stairs";
+  MinecraftItemTypes2["RedSandstoneWall"] = "minecraft:red_sandstone_wall";
   MinecraftItemTypes2["RedShulkerBox"] = "minecraft:red_shulker_box";
   MinecraftItemTypes2["RedStainedGlass"] = "minecraft:red_stained_glass";
   MinecraftItemTypes2["RedStainedGlassPane"] = "minecraft:red_stained_glass_pane";
@@ -2533,6 +2569,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["Sandstone"] = "minecraft:sandstone";
   MinecraftItemTypes2["SandstoneSlab"] = "minecraft:sandstone_slab";
   MinecraftItemTypes2["SandstoneStairs"] = "minecraft:sandstone_stairs";
+  MinecraftItemTypes2["SandstoneWall"] = "minecraft:sandstone_wall";
   MinecraftItemTypes2["Scaffolding"] = "minecraft:scaffolding";
   MinecraftItemTypes2["ScrapePotterySherd"] = "minecraft:scrape_pottery_sherd";
   MinecraftItemTypes2["Sculk"] = "minecraft:sculk";
@@ -2625,6 +2662,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["StoneAxe"] = "minecraft:stone_axe";
   MinecraftItemTypes2["StoneBrickSlab"] = "minecraft:stone_brick_slab";
   MinecraftItemTypes2["StoneBrickStairs"] = "minecraft:stone_brick_stairs";
+  MinecraftItemTypes2["StoneBrickWall"] = "minecraft:stone_brick_wall";
   MinecraftItemTypes2["StoneBricks"] = "minecraft:stone_bricks";
   MinecraftItemTypes2["StoneButton"] = "minecraft:stone_button";
   MinecraftItemTypes2["StoneHoe"] = "minecraft:stone_hoe";
@@ -2784,6 +2822,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["WeatheredCutCopperStairs"] = "minecraft:weathered_cut_copper_stairs";
   MinecraftItemTypes2["Web"] = "minecraft:web";
   MinecraftItemTypes2["WeepingVines"] = "minecraft:weeping_vines";
+  MinecraftItemTypes2["WetSponge"] = "minecraft:wet_sponge";
   MinecraftItemTypes2["Wheat"] = "minecraft:wheat";
   MinecraftItemTypes2["WheatSeeds"] = "minecraft:wheat_seeds";
   MinecraftItemTypes2["WhiteCandle"] = "minecraft:white_candle";
@@ -5731,6 +5770,145 @@ async function crossBoneShot(player) {
   shooting(player, "kurokumaft:cross_bone", 0, 4, void 0);
 }
 
+// scripts/items/bucket/CopperBucket.ts
+import { ItemStack as ItemStack44, EquipmentSlot as EquipmentSlot35, Direction as Direction3, EntityComponentTypes as EntityComponentTypes19 } from "@minecraft/server";
+var CopperBucket = class {
+  onUseOn(event) {
+    let copper_bucket = event.itemStack;
+    let player = event.source;
+    let block = event.block;
+    let blockFace = event.blockFace;
+    let faceBlock;
+    let blocLocation = block.location;
+    if (block.typeId == MinecraftBlockTypes.Water || block.typeId == MinecraftBlockTypes.Lava) {
+      faceBlock = block;
+    } else if (Direction3.Up == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y + 1, z: blocLocation.z });
+    } else if (Direction3.Down == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y - 1, z: blocLocation.z });
+    } else if (Direction3.East == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x + 1, y: blocLocation.y, z: blocLocation.z });
+    } else if (Direction3.West == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x - 1, y: blocLocation.y, z: blocLocation.z });
+    } else if (Direction3.North == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y, z: blocLocation.z - 1 });
+    } else if (Direction3.South == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y, z: blocLocation.z + 1 });
+    }
+    if (faceBlock == void 0) {
+      return;
+    }
+    let equippable = player.getComponent(EntityComponentTypes19.Equippable);
+    let inventory = player.getComponent(EntityComponentTypes19.Inventory);
+    if (faceBlock.typeId == MinecraftBlockTypes.Water && faceBlock.permutation.getState("liquid_depth") == 0) {
+      let bucketWater = new ItemStack44("kurokumaft:copper_bucket_water", 1);
+      let remaining = copper_bucket.amount - 1;
+      if (remaining <= 0) {
+        equippable.setEquipment(EquipmentSlot35.Mainhand, void 0);
+        equippable.setEquipment(EquipmentSlot35.Mainhand, bucketWater);
+      } else {
+        copper_bucket.amount -= 1;
+        equippable.setEquipment(EquipmentSlot35.Mainhand, copper_bucket);
+        let container = inventory.container;
+        if (container.emptySlotsCount == 0) {
+          let point = getLookPoints(player.getRotation(), player.location, 1);
+          player.dimension.spawnItem(bucketWater, point);
+        } else {
+          container.addItem(bucketWater);
+        }
+      }
+      faceBlock.dimension.setBlockType(faceBlock.location, MinecraftBlockTypes.Air);
+    } else if (faceBlock.typeId == MinecraftBlockTypes.Lava && faceBlock.permutation.getState("liquid_depth") == 0) {
+      let bucketLava = new ItemStack44("kurokumaft:copper_bucket_lava", 1);
+      let remaining = copper_bucket.amount - 1;
+      if (remaining <= 0) {
+        equippable.setEquipment(EquipmentSlot35.Mainhand, void 0);
+        equippable.setEquipment(EquipmentSlot35.Mainhand, bucketLava);
+      } else {
+        copper_bucket.amount -= 1;
+        equippable.setEquipment(EquipmentSlot35.Mainhand, copper_bucket);
+        let container = inventory.container;
+        if (container.emptySlotsCount == 0) {
+          let point = getLookPoints(player.getRotation(), player.location, 1);
+          player.dimension.spawnItem(bucketLava, point);
+        } else {
+          container.addItem(bucketLava);
+        }
+      }
+      faceBlock.dimension.setBlockType(faceBlock.location, MinecraftBlockTypes.Air);
+    }
+  }
+  onUse(event) {
+  }
+};
+
+// scripts/items/bucket/CopperBucketLava.ts
+import { Direction as Direction4, BlockPermutation as BlockPermutation12 } from "@minecraft/server";
+var CopperBucketLava = class {
+  onUseOn(event) {
+    let copper_bucket = event.itemStack;
+    let player = event.source;
+    let block = event.block;
+    let blockFace = event.blockFace;
+    let faceBlock;
+    let blocLocation = block.location;
+    if (Direction4.Up == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y + 1, z: blocLocation.z });
+    } else if (Direction4.Down == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y - 1, z: blocLocation.z });
+    } else if (Direction4.East == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x + 1, y: blocLocation.y, z: blocLocation.z });
+    } else if (Direction4.West == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x - 1, y: blocLocation.y, z: blocLocation.z });
+    } else if (Direction4.North == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y, z: blocLocation.z - 1 });
+    } else if (Direction4.South == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y, z: blocLocation.z + 1 });
+    }
+    if (faceBlock == void 0) {
+      return;
+    }
+    faceBlock.setPermutation(BlockPermutation12.resolve(MinecraftBlockTypes.Lava, { liquid_depth: 0 }));
+  }
+};
+
+// scripts/items/bucket/CopperBucketMilk.ts
+var CopperBucketMilk = class {
+  onConsume(event) {
+    let player = event.source;
+    player.runCommand("/effect " + player.nameTag + " clear");
+  }
+};
+
+// scripts/items/bucket/CopperBucketWater.ts
+import { Direction as Direction5, BlockPermutation as BlockPermutation13 } from "@minecraft/server";
+var CopperBucketWater = class {
+  onUseOn(event) {
+    let player = event.source;
+    let block = event.block;
+    let blockFace = event.blockFace;
+    let faceBlock;
+    let blocLocation = block.location;
+    if (Direction5.Up == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y + 1, z: blocLocation.z });
+    } else if (Direction5.Down == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y - 1, z: blocLocation.z });
+    } else if (Direction5.East == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x + 1, y: blocLocation.y, z: blocLocation.z });
+    } else if (Direction5.West == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x - 1, y: blocLocation.y, z: blocLocation.z });
+    } else if (Direction5.North == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y, z: blocLocation.z - 1 });
+    } else if (Direction5.South == blockFace) {
+      faceBlock = player.dimension.getBlock({ x: blocLocation.x, y: blocLocation.y, z: blocLocation.z + 1 });
+    }
+    if (faceBlock == void 0) {
+      return;
+    }
+    faceBlock.setPermutation(BlockPermutation13.resolve(MinecraftBlockTypes.Water, { liquid_depth: 0 }));
+  }
+};
+
 // scripts/custom/CustomComponentRegistry.ts
 function initRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:tnt_sword", new TntSwordBreak());
@@ -5769,6 +5947,10 @@ function initRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:mine_durability", new MineDurability());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:growth_meal", new GrowthMeal());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:potion_effect", new PotionEffect());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:copper_bucket", new CopperBucket());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:copper_bucket_water", new CopperBucketWater());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:copper_bucket_lava", new CopperBucketLava());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:copper_bucket_milk", new CopperBucketMilk());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:chocolate_cake_eat", new ChocolateCakeBlock());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:mithril_block", new MithrilBlock());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:budding_mithril", new BuddingMithril());
@@ -5784,40 +5966,40 @@ function initStateChangeMonitor(initEvent) {
 }
 
 // scripts/weapons_script.ts
-world17.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world18.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initRegisterCustom(initEvent);
   initStateChangeMonitor(initEvent);
 });
-world17.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world18.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world17.beforeEvents.itemUseOn.subscribe((event) => {
+world18.beforeEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world17.afterEvents.itemUseOn.subscribe((event) => {
+world18.afterEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world17.beforeEvents.explosion.subscribe((event) => {
+world18.beforeEvents.explosion.subscribe((event) => {
   let impactBLockList = event.getImpactedBlocks();
   let filterBlockList = explodeBedrock(impactBLockList);
   filterBlockList = explodeBakutikuCancel(filterBlockList);
   event.setImpactedBlocks(filterBlockList);
   explodeBakutikuChain(impactBLockList);
 });
-world17.afterEvents.itemStartUse.subscribe((event) => {
+world18.afterEvents.itemStartUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world17.beforeEvents.entityRemove.subscribe((event) => {
+world18.beforeEvents.entityRemove.subscribe((event) => {
   let removedEntity = event.removedEntity;
   removeSpear(removedEntity);
   removeHammer(removedEntity);
 });
-world17.afterEvents.itemReleaseUse.subscribe((event) => {
+world18.afterEvents.itemReleaseUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -5847,7 +6029,7 @@ world17.afterEvents.itemReleaseUse.subscribe((event) => {
     }
   }
 });
-world17.afterEvents.itemStopUse.subscribe((event) => {
+world18.afterEvents.itemStopUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -5877,7 +6059,7 @@ world17.afterEvents.itemStopUse.subscribe((event) => {
     }
   }
 });
-world17.afterEvents.entitySpawn.subscribe((event) => {
+world18.afterEvents.entitySpawn.subscribe((event) => {
   let cause = event.cause;
   let entity = event.entity;
   if (EntityInitializationCause.Spawned == cause) {
@@ -5886,49 +6068,49 @@ world17.afterEvents.entitySpawn.subscribe((event) => {
     spawnBoomerang(entity);
   }
 });
-world17.beforeEvents.itemUse.subscribe((event) => {
+world18.beforeEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
   }
 });
-world17.afterEvents.itemUse.subscribe((event) => {
+world18.afterEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world17.afterEvents.blockExplode.subscribe((event) => {
+world18.afterEvents.blockExplode.subscribe((event) => {
   let dimension = event.dimension;
   let block = event.block;
   if (block.typeId == "kurokumaft:tear_enchant") {
     breackTearEnchant(dimension, block);
   }
 });
-world17.afterEvents.playerPlaceBlock.subscribe((event) => {
+world18.afterEvents.playerPlaceBlock.subscribe((event) => {
   let block = event.block;
   let dimension = event.dimension;
   playerMithrilset(block);
 });
-world17.beforeEvents.playerBreakBlock.subscribe((event) => {
+world18.beforeEvents.playerBreakBlock.subscribe((event) => {
   let player = event.player;
   let item = event.itemStack;
   let block = event.block;
   if (item != void 0) {
   }
 });
-world17.afterEvents.entityHitEntity.subscribe((event) => {
+world18.afterEvents.entityHitEntity.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitEn = event.hitEntity;
-  if (hitEn != void 0 && hitEn instanceof Player41) {
+  if (hitEn != void 0 && hitEn instanceof Player44) {
     shieldGuard(hitEn, true);
     shieldCounter(hitEn, damageEn);
   }
 });
-world17.afterEvents.entityHitBlock.subscribe((event) => {
+world18.afterEvents.entityHitBlock.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitBlock = event.hitBlock;
   if (hitBlock != void 0) {
-    let equ = damageEn.getComponent(EntityComponentTypes19.Equippable);
-    let itemStack = equ.getEquipment(EquipmentSlot35.Mainhand);
+    let equ = damageEn.getComponent(EntityComponentTypes20.Equippable);
+    let itemStack = equ.getEquipment(EquipmentSlot36.Mainhand);
     if (itemStack != void 0) {
       if (itemStack.typeId == "kurokumaft:fire_brand") {
         fireCharcoalBlock(damageEn, itemStack, hitBlock);
@@ -5942,16 +6124,16 @@ world17.afterEvents.entityHitBlock.subscribe((event) => {
     }
   }
 });
-world17.afterEvents.projectileHitEntity.subscribe((event) => {
+world18.afterEvents.projectileHitEntity.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   let hitEn = event.getEntityHit().entity;
   let hitVector = event.hitVector;
-  if (hitEn != void 0 && hitEn instanceof Player41) {
+  if (hitEn != void 0 && hitEn instanceof Player44) {
     shieldGuard(hitEn, false);
     glassReflection(hitEn, projectileEn, hitVector);
   }
-  if (source != void 0 && source instanceof Player41) {
+  if (source != void 0 && source instanceof Player44) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn && isThrowHammer(projectileEn)) {
@@ -5959,10 +6141,10 @@ world17.afterEvents.projectileHitEntity.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world17.afterEvents.projectileHitBlock.subscribe((event) => {
+world18.afterEvents.projectileHitBlock.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
-  if (source != void 0 && source instanceof Player41) {
+  if (source != void 0 && source instanceof Player44) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn && isThrowHammer(projectileEn)) {
@@ -5970,11 +6152,11 @@ world17.afterEvents.projectileHitBlock.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world17.afterEvents.entityHurt.subscribe((event) => {
+world18.afterEvents.entityHurt.subscribe((event) => {
   let damage = event.damage;
   let damageSource = event.damageSource;
   let hitEn = event.hurtEntity;
-  if (hitEn instanceof Player41 && damageSource.cause != "void") {
+  if (hitEn instanceof Player44 && damageSource.cause != "void") {
     if (guards.indexOf(damageSource.cause) != -1) {
       shieldGuard(hitEn, false);
     }

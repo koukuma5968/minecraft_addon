@@ -5,17 +5,7 @@
       "identifier": "kurokumaft:black_hole",
       "is_spawnable": false,
       "is_summonable": true,
-      "is_experimental": false,
-      "scripts":{
-        "animate":[
-          "hover",
-          {"damage": "query.variant == 0"}
-        ]
-      },
-      "animations":{
-        "hover": "animation.dark_magic.black_hole.hover",
-        "damage": "animation.dark_magic.black_hole.damage"
-      }
+      "is_experimental": false
     },
     "component_groups": {
       "kurokumaft:stop": {
@@ -75,22 +65,6 @@
         "is_pushable_by_piston": false
       },
       "minecraft:conditional_bandwidth_optimization": {
-      }
-    },
-    "events": {
-      "kurokumaft:stop": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:stop"
-          ]
-        }
-      },
-      "kurokumaft:kill": {
-        "add": {
-          "component_groups": [
-            "kurokumaft:kill"
-          ]
-        }
       }
     }
   }
