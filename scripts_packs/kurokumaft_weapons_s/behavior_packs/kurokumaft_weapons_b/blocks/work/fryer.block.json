@@ -1,0 +1,107 @@
+{
+    "format_version": "1.21.20",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kurokumaft:fryer",
+            "menu_category": {
+                "category": "items"
+            },
+            "states": {
+                "kurokumaft:oil_count": [ 0,1,2,3,4,5,6,7,8,9,10 ],
+                "kurokumaft:oil_type": [ "empty", "olive", "dirty" ]
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:selection_box": {
+                "origin": [-8.0,0.0,-8.0],
+                "size": [16.0,12.0,16.0]
+            },
+            "minecraft:display_name": "tile.kurokumaft:fryer.name",
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 80
+            },
+            "minecraft:geometry": "geometry.fryer",
+			"minecraft:map_color": "#65635e",
+            "minecraft:custom_components": [
+				"kurokumaft:fryer"
+			]
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,180,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,0,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,-90,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,90,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:oil_type') == 'empty'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "fryer_empty",
+                            "render_method": "alpha_test"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:oil_type') == 'olive'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "fryer_olive",
+                            "render_method": "blend"
+                        }
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state('kurokumaft:oil_type') == 'dirty'",
+                "components": {
+                    "minecraft:material_instances": {
+                        "*": {
+                            "texture": "fryer_dirty",
+                            "render_method": "blend"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:wooden_bucket_soy_sauce"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "wooden_bucket",
+    "pattern": [
+      "SKS",
+      "BBB",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:wooden_bucket_empty"
+      },
+      "S": {
+        "item": "kurokumaft:salt"
+      },
+      "K": {
+        "item": "minecraft:wheat"
+      },
+      "B": {
+        "item": "kurokumaft:soybean"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:wooden_bucket_empty"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:wooden_bucket_soy_sauce",
+      "count": 3
+    }
+  }
+}

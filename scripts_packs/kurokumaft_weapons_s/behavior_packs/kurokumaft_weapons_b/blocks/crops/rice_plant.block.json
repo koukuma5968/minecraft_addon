@@ -1,0 +1,186 @@
+{
+	"format_version": "1.21.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:rice_plant",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+				"kurokumaft:growth": [0, 1, 2, 3, 4, 5, 6, 7]
+			}
+		},
+		"components": {
+			"minecraft:collision_box": false,
+			"minecraft:geometry": "geometry.rice_plant",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:liquid_detection": {
+				"can_contain_liquid": true,
+				"liquid_type": "water",
+				"on_liquid_touches": "no_reaction",
+				"detection_rules": [
+					{
+						"up": "no_reaction"
+					},
+					{
+						"down": "no_reaction"
+					},
+					{
+						"north": "no_reaction"
+					}
+				]
+			},
+			"minecraft:tick": {
+				"interval_range": [840, 1680]
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": [
+							{"name": "mud"}
+						]
+					}
+				]
+			},
+			"minecraft:custom_components": [
+			  "kurokumaft:plants_growth"
+			]
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 0",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 1.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_0",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 1",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 1.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_1",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 2",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 10.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_2",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 3",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 10.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_3",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 4",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 12.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_4",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 5",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 12.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_5",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 6",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 12.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_6",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 7",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/crops/rice/rice_growth.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 15.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "rice_plant_stage_7",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,43 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:chicken_egg_rice"
+    },
+    "tags": [ "kitchen_table" ],
+    "pattern": [
+      "sS",
+      "coe",
+      "r"
+    ],
+    "key": {
+      "r": {
+        "item": "kurokumaft:cooked_rice"
+      },
+      "o": {
+        "item": "kurokumaft:onion"
+      },
+      "c": {
+        "item": "minecraft:chicken"
+      },
+      "e": {
+        "item": "minecraft:egg"
+      },
+      "S": {
+        "item": "minecraft:sugar"
+      },
+      "s": {
+        "item": "kurokumaft:wooden_bucket_soy_sauce"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:cooked_rice"
+      }
+    ],
+    "result": [
+      { "item": "kurokumaft:chicken_egg_rice", "count": 1 },
+      { "item": "kurokumaft:wooden_bucket_empty", "count": 1 }
+    ]
+  }
+}

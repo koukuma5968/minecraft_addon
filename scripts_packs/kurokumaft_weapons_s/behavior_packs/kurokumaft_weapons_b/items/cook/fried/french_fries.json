@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:french_fries",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:french_fries.name"
+			},
+      "minecraft:icon": "french_fries",
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "nutrition": 3,
+        "saturation_modifier": 0.2
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
+      }
+    }
+  }
+}

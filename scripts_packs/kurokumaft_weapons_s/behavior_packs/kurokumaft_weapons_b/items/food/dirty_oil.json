@@ -1,0 +1,19 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:dirty_oil",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.oil"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:dirty_oil.name"
+			},
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "dirty_oil"
+    }
+  }
+}

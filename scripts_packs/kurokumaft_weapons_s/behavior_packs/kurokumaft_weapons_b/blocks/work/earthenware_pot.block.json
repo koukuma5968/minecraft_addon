@@ -1,0 +1,81 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:earthenware_pot",
+			"menu_category": {
+				"category": "items"
+			},
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [-5.0, 0.0, -5.0],
+				"size": [10.0, 10.0, 10.0]
+			},
+			"minecraft:selection_box": {
+				"origin": [-5.0, 0.0, -5.0],
+				"size": [10.0, 8.0, 10.0]
+			},
+			"minecraft:display_name": "tile.kurokumaft:earthenware_pot.name",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30
+			},
+			"minecraft:crafting_table": {
+                "table_name": "tile.kurokumaft:earthenware_pot.name",
+				"crafting_tags": ["earthenware_pot"]
+			},
+			"minecraft:geometry": "geometry.earthenware_pot",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "earthenware_pot",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:map_color": "#65635e"
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,180,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,0,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,-90,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,90,0]
+                    }
+                }
+            }
+        ]
+	}
+}

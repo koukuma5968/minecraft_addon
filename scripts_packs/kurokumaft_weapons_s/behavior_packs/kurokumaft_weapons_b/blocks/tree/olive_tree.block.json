@@ -1,0 +1,87 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:olive_tree",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+				"kurokumaft:growth": [0, 1, 2, 3]
+			}
+		},
+		"components": {
+			"minecraft:collision_box": false,
+			"minecraft:geometry": "geometry.olive_tree",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:tick": {
+				"interval_range": [360, 840]
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": [
+							{"name": "dirt"},
+							{"name": "grass"}
+						]
+					}
+				]
+			},
+			"minecraft:custom_components": [
+			  "kurokumaft:olive_growth"
+			]
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 0",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "olive_tree_stage_0",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 1",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "olive_tree_stage_1",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 2",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "olive_tree_stage_2",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 3",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "olive_tree_stage_3",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		]
+	}
+}

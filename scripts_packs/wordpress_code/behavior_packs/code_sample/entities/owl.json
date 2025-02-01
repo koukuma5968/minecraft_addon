@@ -1,0 +1,308 @@
+{
+  "format_version": "1.21.40",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:owl",
+      "spawn_category": "creature",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "minecraft:owl_adult": {
+        "minecraft:experience_reward": {
+          "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
+        }
+      },
+      "minecraft:owl_wild": {
+        "minecraft:type_family": {
+          "family": [ "parrot_wild", "mob" ]
+        },
+        "minecraft:tameable": {
+          "probability": 0.33,
+          "tame_items": [
+            "wheat_seeds",
+            "pumpkin_seeds",
+            "melon_seeds",
+            "beetroot_seeds",
+            "pitcher_pod",
+            "torchflower_seeds"
+          ],
+          "tame_event": {
+            "event": "minecraft:on_tame",
+            "target": "self"
+          }
+        },
+        "minecraft:behavior.random_fly": {
+          "priority": 3,
+          "xz_dist": 15,
+          "y_dist": 1,
+          "y_offset": 0,
+          "speed_multiplier": 1.0,
+          "can_land_on_trees": true,
+          "avoid_damage_blocks": true
+        },
+        "minecraft:behavior.follow_mob": {
+          "priority": 4,
+          "speed_multiplier": 1.0,
+          "stop_distance": 3,
+          "search_range": 20
+        }
+      },
+      "minecraft:owl_tame": {
+
+        "minecraft:attack": {
+          "damage": 4
+        },
+        "minecraft:behavior.owner_hurt_by_target": {
+          "priority": 1
+        },
+        "minecraft:behavior.owner_hurt_target": {
+          "priority": 2
+        },
+
+        "minecraft:type_family": {
+          "family": [ "parrot_tame", "mob" ]
+        },
+        "minecraft:is_tamed": {
+        },
+        "minecraft:sittable": {
+        },
+        "minecraft:behavior.teleport_to_owner": {
+          "priority": 0,
+          "filters": {
+            "all_of": [
+              { "test": "owner_distance", "operator": ">", "value": 12 },
+              { "test": "is_panicking" }
+            ]
+          }
+        },
+        "minecraft:behavior.stay_while_sitting": {
+          "priority": 3
+        },
+        "minecraft:behavior.follow_owner": {
+          "priority": 4,
+          "speed_multiplier": 1.0,
+          "start_distance": 5,
+          "stop_distance": 1
+        },
+        "minecraft:behavior.find_mount": {
+          "priority": 5,
+          "within_radius": 16,
+          "avoid_water": true,
+          "start_delay": 30,
+          "target_needed": false,
+          "mount_distance": 2.0
+        }
+      },
+      "minecraft:owl_not_riding_player": {
+        "minecraft:entity_sensor": {
+          "relative_range": false,
+          "subsensors": [
+            {
+              "range": [ 2.0, 2.0 ],
+              "event_filters": {
+                "all_of": [
+                  { "test": "is_riding", "subject": "self", "operator": "equals", "value": true }
+                ]
+              },
+              "event": "minecraft:on_riding_player"
+            }
+          ]
+        },
+        "minecraft:behavior.look_at_player": {
+          "priority": 2,
+          "look_distance": 8.0
+        }
+      },
+      "minecraft:owl_riding_player": {
+        "minecraft:entity_sensor": {
+          "relative_range": true,
+          "subsensors": [
+            {
+              "range": [ 2.0, 2.0 ],
+              "event_filters": {
+                "all_of": [
+                  { "test": "is_riding", "subject": "self", "operator": "equals", "value": true }
+                ]
+              },
+              "event": "kurokumaft:stop_riding"
+            },
+            {
+              "range": [ 2.0, 2.0 ],
+              "event_filters": {
+                "all_of": [
+                  { "test": "is_riding", "subject": "self", "operator": "equals", "value": false }
+                ]
+              },
+              "event": "minecraft:on_not_riding_player"
+            }
+          ]
+        }
+      }
+    },
+
+    "components": {
+
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.0,
+        "items": [
+          "wheat_seeds",
+          "beetroot_seeds",
+          "melon_seeds",
+          "pumpkin_seeds",
+          "pitcher_pod",
+          "torchflower_seeds"
+        ]
+      },
+
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.5,
+        "height": 1
+      },
+      "minecraft:nameable": {
+        "always_show": false
+      },
+      "minecraft:health": {
+        "value": 6,
+        "max": 6
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava", "subject": "self", "operator": "==", "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.4
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "fall",
+          "deals_damage": "no"
+        }
+      },
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_fly": {
+      },
+      "minecraft:navigation.fly": {
+        "can_path_over_water": true,
+        "can_path_from_air": true
+      },
+      "minecraft:movement.fly": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:game_event_movement_tracking": {
+        "emit_flap": true
+      },
+      "minecraft:healable": {
+        "force_use": true,
+        "filters": {
+          "test": "is_riding",
+          "operator": "!=",
+          "value": true
+        },
+        "items": [
+          {
+            "item": "cookie",
+            "heal_amount": 0,
+            "effects": [
+              {
+                "name": "fatal_poison",
+                "chance": 1.0,
+                "duration": 1000,
+                "amplifier": 0
+              }
+            ]
+          }
+        ]
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0
+      },
+      "minecraft:balloonable": {
+      },
+      "minecraft:behavior.float": {
+        "priority": 2
+      },
+      "minecraft:behavior.panic": {
+        "priority": 2,
+        "speed_multiplier": 1.25
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": [
+            "minecraft:owl_adult",
+            "minecraft:owl_wild",
+            "minecraft:owl_not_riding_player"
+          ]
+        }
+      },
+      "minecraft:on_tame": {
+        "remove": {
+          "component_groups": [
+            "minecraft:owl_wild"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:owl_tame"
+          ]
+        }
+      },
+      "minecraft:on_riding_player": {
+        "remove": {
+          "component_groups": [
+            "minecraft:owl_not_riding_player"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:owl_riding_player"
+          ]
+        }
+      },
+      "minecraft:on_not_riding_player": {
+        "remove": {
+          "component_groups": [
+            "minecraft:owl_riding_player"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "minecraft:owl_not_riding_player"
+          ]
+        }
+      },
+      "kurokumaft:stop_riding": {
+      }
+    }
+  }
+}

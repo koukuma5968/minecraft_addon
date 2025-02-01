@@ -1,0 +1,40 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:beef_rice"
+    },
+    "tags": [ "kitchen_table" ],
+    "pattern": [
+      "sS",
+      "bo",
+      "r"
+    ],
+    "key": {
+      "r": {
+        "item": "kurokumaft:cooked_rice"
+      },
+      "o": {
+        "item": "kurokumaft:onion"
+      },
+      "b": {
+        "item": "minecraft:beef"
+      },
+      "S": {
+        "item": "minecraft:sugar"
+      },
+      "s": {
+        "item": "kurokumaft:wooden_bucket_soy_sauce"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:cooked_rice"
+      }
+    ],
+    "result": [
+      { "item": "kurokumaft:beef_rice", "count": 1 },
+      { "item": "kurokumaft:wooden_bucket_empty", "count": 1 }
+    ]
+  }
+}

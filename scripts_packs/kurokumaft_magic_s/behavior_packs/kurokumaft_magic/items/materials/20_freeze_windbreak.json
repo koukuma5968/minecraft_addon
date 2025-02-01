@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:freeze_windbreak",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.magic_materials"
+      }
+    },
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:max_stack_size": 32,
+      "minecraft:icon": {
+        "textures": {
+          "default": "freeze_windbreak"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:freeze_windbreak.name"
+      }
+    }
+  }
+}

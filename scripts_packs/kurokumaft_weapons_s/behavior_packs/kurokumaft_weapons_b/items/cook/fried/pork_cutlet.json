@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:pork_cutlet",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:pork_cutlet.name"
+			},
+      "minecraft:icon": "pork_cutlet",
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "nutrition": 10,
+        "saturation_modifier": 0.6
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:seeds_rice_plant",
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.seeds"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:seeds_rice_plant.name"
+			},
+      "minecraft:icon": "seeds_rice_plant",
+      "minecraft:block_placer": {
+        "block": "rice_plant",
+        "use_on" : [
+          "mud"
+        ]
+      }
+    }
+  }
+}

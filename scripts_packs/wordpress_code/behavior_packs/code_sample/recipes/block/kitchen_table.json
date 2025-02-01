@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:kitchen_table"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "ddd",
+      "I I",
+      "I I"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:iron_ingot"
+      },
+      "d": {
+        "item": "minecraft:stone_block_slab3",
+        "data": 5
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:kitchen_table"
+    }
+  }
+}

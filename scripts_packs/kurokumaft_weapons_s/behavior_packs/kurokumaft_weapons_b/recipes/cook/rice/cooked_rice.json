@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:cooked_rice"
+    },
+    "tags": ["earthenware_pot"],
+    "priority": 2,
+    "ingredients": [
+      {
+        "item": "kurokumaft:rice"
+      },
+      {
+        "item": "minecraft:bowl"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "kurokumaft:rice"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:cooked_rice",
+      "count": 1
+    }
+  }
+}
