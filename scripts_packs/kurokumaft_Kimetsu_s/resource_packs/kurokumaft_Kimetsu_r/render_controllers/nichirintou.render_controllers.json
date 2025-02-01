@@ -6,8 +6,8 @@
 			"materials": [ { "*": "variable.is_enchanted ? Material.enchanted : Material.default" } ],
 			"textures": [ "Texture.default", "Texture.enchanted" ]
 		},
-		"controller.render.nichirintou_normal": {
-			"geometry": "Geometry.nichirintou",
+		"controller.render.nichirintou_custom": {
+			"geometry": "Geometry.nichirintou_custom",
 			"materials": [ { "*": "Material.default" } ],
 			"textures": [ "Texture.nichirintou"]
 		},

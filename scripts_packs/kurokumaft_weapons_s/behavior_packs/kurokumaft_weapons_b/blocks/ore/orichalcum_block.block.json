@@ -15,6 +15,13 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 30
 			},
+            "minecraft:geometry": "geometry.orichalcum_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "orichalcum_block",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:map_color": "#111a8b"
 		}
 	}

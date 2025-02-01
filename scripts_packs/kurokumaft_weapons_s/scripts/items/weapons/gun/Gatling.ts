@@ -31,6 +31,7 @@ export class Gatling implements ItemCustomComponent {
 async function shotGatling(player: Player, item: ItemStack) {
 
     player.setDynamicProperty("gatlingShot", true);
+    player.setProperty("kurokumaft:gun_shot", true);
     let count = 0;
     let shot = 1;
     let intervalNum = system.runInterval(() => {
@@ -66,6 +67,7 @@ async function shotGatling(player: Player, item: ItemStack) {
 export async function stopGatling(player: Player) {
 
     let eventNum = player.getDynamicProperty("gatlingShotEventNum") as number;
+    player.setProperty("kurokumaft:gun_shot", false);
     player.setDynamicProperty("gatlingShot", undefined);
     player.setDynamicProperty("gatlingShotEventNum", undefined);
     system.clearRun(eventNum);

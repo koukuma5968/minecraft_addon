@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:lightning_sheep",
+      "materials": {
+        "default": "sheep"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/lightning_sheep"
+      },
+      "geometry": {
+        "default": "geometry.lightning_sheep"
+      },
+      "particle_effects": {
+        "sheep_corner": "kurokumaft:sheep_corner"
+      },
+      "animations": {
+        "setup": "animation.lightning_sheep.setup",
+        "grazing": "animation.lightning_sheep.grazing",
+        "walk": "animation.lightning_sheep.walk",
+        "look_at_target": "animation.common.look_at_target",
+        "move": "controller.animation.lightning_sheep.move",
+        "lightning": "animation.lightning_sheep.lightning"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          "look_at_target",
+          "move",
+          "lightning"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.lightning_sheep"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 3
+      }
+    }
+  }
+}

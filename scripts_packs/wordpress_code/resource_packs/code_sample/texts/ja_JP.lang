@@ -10,8 +10,13 @@ item.kurokumaft:chromium_nugget.name=クロム塊
 
 tile.kurokumaft:chromium_ore.name=クロム鉱石
 
+tile.kurokumaft:kitchen_table.name=調理台
+
 entity.kurokumaft:ghoul.name=グール	#
 item.spawn_egg.entity.kurokumaft:ghoul.name=グールをスポーンさせる
+
+entity.kurokumaft:owl.name=フクロウ	#
+item.spawn_egg.entity.kurokumaft:owl.name=フクロウをスポーンさせる
 
 item.kurokumaft:cherry_bow.name=桜の弓
 item.kurokumaft:cherry_arrow.name=桜の矢

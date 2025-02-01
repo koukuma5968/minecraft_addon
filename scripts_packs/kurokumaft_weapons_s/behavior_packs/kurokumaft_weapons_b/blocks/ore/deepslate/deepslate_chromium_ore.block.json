@@ -17,6 +17,13 @@
 				"explosion_resistance": 30
 			},
 			"minecraft:loot": "loot_tables/blocks/ore/chromium_ore.json",
+			"minecraft:geometry": "geometry.chromium_ore",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "deepslate_chromium_ore",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:map_color": "#727578",
 			"minecraft:custom_components": [
 				"kurokumaft:fortune_destroy"

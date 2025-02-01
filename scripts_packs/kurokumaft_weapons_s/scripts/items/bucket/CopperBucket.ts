@@ -1,5 +1,5 @@
-import { ItemCustomComponent, ItemStack, Player, EquipmentSlot, ItemComponentUseOnEvent, Block, Container, Direction, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, world, ItemComponentHitEntityEvent, ItemComponentUseEvent } from "@minecraft/server";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+import { ItemCustomComponent, ItemStack, Player, EquipmentSlot, ItemComponentUseOnEvent, Block, Container, Direction, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, world, ItemComponentHitEntityEvent, ItemComponentUseEvent, Entity, EntityTypeFamilyComponent } from "@minecraft/server";
+import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 import { getLookPoints } from "../../common/commonUtil";
 
 /**
@@ -76,5 +76,37 @@ export class CopperBucket implements ItemCustomComponent {
     }
 
     onUse(event:ItemComponentUseEvent) {
+        let source = event.source as Player;
+        let itemStack = event.itemStack as ItemStack;
+
+        let cow = source.dimension.getEntities({
+            closest: 1,
+            location: source.location,
+            maxDistance: 3.5,
+            type: MinecraftEntityTypes.Cow
+        });
+        if (cow != undefined && cow.length > 0) {
+            let equippable = source.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+            let inventory = source.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+            let bucketMilk = new ItemStack("kurokumaft:copper_bucket_milk", 1);
+    
+            let remaining = itemStack.amount - 1;
+            if (remaining <= 0) {
+                equippable.setEquipment(EquipmentSlot.Mainhand, undefined);
+                equippable.setEquipment(EquipmentSlot.Mainhand, bucketMilk);
+            } else {
+                itemStack.amount -= 1;
+                equippable.setEquipment(EquipmentSlot.Mainhand, itemStack);
+                let container = inventory.container as Container;
+                if (container.emptySlotsCount == 0) {
+                    let point = getLookPoints(source.getRotation(),source.location,1);
+                    source.dimension.spawnItem(bucketMilk, point);
+                } else {
+                    container.addItem(bucketMilk);
+                }
+            }
+    
+        }
     }
+
 }

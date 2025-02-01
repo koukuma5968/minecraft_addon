@@ -1,7 +1,9 @@
 {
 	"format_version": "1.1.0",
 	"chromium_ore": {
-		"textures" : "chromium_ore",
 		"sound": "stone"
+	},
+	"kitchen_table": {
+		"sound": "metal"
 	}
 }

@@ -12,6 +12,11 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_mizu.name"
 			},
+      "minecraft:tags": {
+        "tags": [
+          "regimental_mizu"
+        ]
+      },
       "minecraft:icon": "nichirintou_mizu",
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {

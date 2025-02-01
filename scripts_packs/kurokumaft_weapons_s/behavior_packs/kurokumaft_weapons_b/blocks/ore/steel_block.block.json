@@ -15,6 +15,13 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 20
 			},
+            "minecraft:geometry": "geometry.steel_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "steel_block",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:map_color": "#e1eced"
 		}
 	}

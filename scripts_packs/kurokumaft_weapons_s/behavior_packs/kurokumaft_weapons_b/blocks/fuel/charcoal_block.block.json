@@ -19,6 +19,13 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 30
 			},
+			"minecraft:geometry": "geometry.charcoal_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "charcoal_block",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:loot": "loot_tables/blocks/fuel/charcoal_block.json",
 			"minecraft:map_color": "#727578"
 		}

@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, Direction, BlockPermutation } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, Direction, BlockPermutation, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
@@ -29,6 +29,11 @@ export class CopperBucketLava implements ItemCustomComponent {
         if (faceBlock == undefined) {
             return;
         }
+
+        let bucket = new ItemStack("kurokumaft:copper_bucket", 1);
+        let equippable = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        equippable.setEquipment(EquipmentSlot.Mainhand, bucket);
+
         faceBlock.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Lava, {liquid_depth:0}));
     }
 }

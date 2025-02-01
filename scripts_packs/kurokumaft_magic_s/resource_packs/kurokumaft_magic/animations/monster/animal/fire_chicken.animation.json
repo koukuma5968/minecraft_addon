@@ -1,0 +1,47 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.fire_chicken.general": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["-this", 0, 0]
+				},
+				"wing0": {
+					"rotation": [0, 0, "variable.wing_flap - this"]
+				},
+				"wing1": {
+					"rotation": [0, 0, "-variable.wing_flap - this"]
+				}
+			}
+		},
+		"animation.fire_chicken.move": {
+			"anim_time_update": "query.modified_distance_moved",
+			"loop": true,
+			"bones": {
+				"leg0": {
+					"rotation": ["math.cos(query.anim_time * 38.17) *  80.0", 0, 0]
+				},
+				"leg1": {
+					"rotation": ["math.cos(query.anim_time * 38.17) * -80.0", 0, 0]
+				}
+			}
+		},
+		"animation.fire_chicken.fire": {
+			"loop": true,
+			"animation_length": 0.5,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mobflame",
+						"locator": "body"
+					},
+					{
+						"effect": "flame",
+						"locator": "lead"
+					}
+				]
+			}
+		}
+	}
+}

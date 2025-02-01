@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:water_buffalo",
+      "materials": {
+        "default": "cow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/water_buffalo"
+      },
+      "geometry": {
+        "default": "geometry.water_buffalo"
+      },
+      "particle_effects": {
+        "buffalo_corner": "kurokumaft:buffalo_corner"
+      },
+      "animations": {
+        "walk": "animation.quadruped.walk",
+        "chage": "animation.water_buffalo.ram_attack_chage",
+        "look_at_target": "animation.common.look_at_target",
+        "corner": "animation.water_buffalo.corner"
+      },
+      "scripts": {
+        "animate": [
+          "corner",
+          "look_at_target",
+          {
+            "walk": "query.modified_move_speed"
+          }
+        ]
+      },
+      "render_controllers": [
+        "controller.render.cow"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 1
+      }
+    }
+  }
+}

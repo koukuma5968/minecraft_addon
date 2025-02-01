@@ -36,7 +36,7 @@
 				"default": {
 					"transitions": [
 						{
-							"shot": "query.is_item_name_any('slot.weapon.offhand','kurokumaft:twenty_two_lr') && query.main_hand_item_use_duration > 0.0f"
+							"shot": "query.is_item_name_any('slot.weapon.offhand','kurokumaft:twenty_two_lr') && query.property('kurokumaft:gun_shot')"
 						}
 					]
 				},
@@ -47,7 +47,7 @@
 					],
 					"transitions": [
 						{
-							"default": "query.any_animation_finished || !query.is_item_name_any('slot.weapon.offhand','kurokumaft:twenty_two_lr')"
+							"default": "!query.property('kurokumaft:gun_shot') || !query.is_item_name_any('slot.weapon.offhand','kurokumaft:twenty_two_lr')"
 						}
 					]
 				}

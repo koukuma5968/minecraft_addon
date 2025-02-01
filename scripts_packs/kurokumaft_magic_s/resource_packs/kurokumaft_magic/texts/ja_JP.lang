@@ -81,39 +81,83 @@ entity.kurokumaft:stone_skeleton_archer.name=§7ストーンスケルトン・�
 entity.kurokumaft:wind_skeleton_archer.name=§3ウィンドスケルトン・アーチャー
 entity.kurokumaft:ice_skeleton_archer.name=§fアイススケルトン・アーチャー
 
+item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:water_zombie.name=ウォーターゾンビのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:wind_zombie.name=ウィンドゾンビのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:stone_zombie.name=ストーンゾンビのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:ice_zombie.name=アイスゾンビのスポーンエッグ	#
+
+item.spawn_egg.entity.kurokumaft:fire_skeleton_warrior.name=ファイアスケルトン・ウォリアーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:thunder_skeleton_warrior.name=サンダーケルトン・ウォリアーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:water_skeleton_warrior.name=ウォーターケルトン・ウォリアーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:wind_skeleton_warrior.name=ウィンドケルトン・ウォリアーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:stone_skeleton_warrior.name=ストーンケルトン・ウォリアーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:ice_skeleton_warrior.name=アイスケルトン・ウォリアーのスポーンエッグ	#
+
+item.spawn_egg.entity.kurokumaft:fire_skeleton_archer.name=ファイアスケルトン・アーチャーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:thunder_skeleton_archer.name=サンダーケルトン・アーチャーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:water_skeleton_archer.name=ウォーターケルトン・アーチャーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:wind_skeleton_archer.name=ウィンドケルトン・アーチャーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:stone_skeleton_archer.name=ストーンケルトン・アーチャーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン・アーチャーのスポーンエッグ	#
+
 entity.kurokumaft:phoenix.name=§4フェニックス
 entity.kurokumaft:fenrir.name=§3フェンリル
 
-entity.kurokumaft:phoenix_spear.name=§4魔炎鳥
+item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:fenrir.name=フェンリルのスポーンエッグ	#
 
-item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:water_zombie.name=ウォーターゾンビをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:wind_zombie.name=ウィンドゾンビをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:stone_zombie.name=ストーンゾンビをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:ice_zombie.name=アイスゾンビをスポーンさせる	#
-
-item.spawn_egg.entity.kurokumaft:fire_skeleton_warrior.name=ファイアスケルトン・ウォリアーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:thunder_skeleton_warrior.name=サンダーケルトン・ウォリアーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:water_skeleton_warrior.name=ウォーターケルトン・ウォリアーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:wind_skeleton_warrior.name=ウィンドケルトン・ウォリアーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:stone_skeleton_warrior.name=ストーンケルトン・ウォリアーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:ice_skeleton_warrior.name=アイスケルトン・ウォリアーをスポーンさせる	#
-
-item.spawn_egg.entity.kurokumaft:fire_skeleton_archer.name=ファイアスケルトン・アーチャーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:thunder_skeleton_archer.name=サンダーケルトン・アーチャーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:water_skeleton_archer.name=ウォーターケルトン・アーチャーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:wind_skeleton_archer.name=ウィンドケルトン・アーチャーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:stone_skeleton_archer.name=ストーンケルトン・アーチャーをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン・アーチャーをスポーンさせる	#
-
-item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:fenrir.name=フェンリルをスポーンさせる	#
+item.kurokumaft:phoenix_feather.name=§4魔炎鳥の羽
+item.kurokumaft:fenrir_fang.name=§3魔嵐狼の牙
+item.kurokumaft:see_serpent_scale.name=§1魔海蛇の鱗
+item.kurokumaft:stone_golem_heart.name=§7魔岩像の核
 
 tile.kurokumaft:home_gate.name=拠点の石碑
 
-item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムをスポーンさせる	#
-item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムをスポーンさせる	#
+entity.kurokumaft:phoenix_spear.name=§4魔炎鳥
+
+entity.kurokumaft:fire_chicken.name=§4ファイアバード
+entity.kurokumaft:flame_porcupine.name=§4フレイムポークパイン
+entity.kurokumaft:water_buffalo.name=§1ウォーターバッファロー
+entity.kurokumaft:aqua_jackal.name=§1アクアジャッカル
+entity.kurokumaft:lightning_sheep.name=§6ライトニングシープ
+entity.kurokumaft:thunder_bat.name=§6サンダーバット
+entity.kurokumaft:wind_dolphin.name=§3ウィンドドルフィン
+entity.kurokumaft:breeze_fish.name=§3ブリーズフィッシュ
+entity.kurokumaft:stone_armadillo.name=§7ストーンアルマジロ
+entity.kurokumaft:earth_rhino.name=§7アースライノ
+entity.kurokumaft:snow_wolf.name=§fスノーウルフ
+entity.kurokumaft:frost_owl.name=§fフロストオウル
+
+item.kurokumaft:fire_chicken_crest.name=§4燃える鶏冠
+item.kurokumaft:flame_spine.name=§4熱い山棘
+item.kurokumaft:wet_hunting_horn.name=§1湿った角笛
+item.kurokumaft:muddy_fang.name=§1濁った胡狼牙
+tile.kurokumaft:lightning_wool.name=§6痺れる羊毛
+item.kurokumaft:resound_patagium.name=§6響く翼膜
+item.kurokumaft:swirl_horn.name=§3渦巻く一角
+item.kurokumaft:flutter_tail_fin.name=§3そよぐ尾鰭
+item.kurokumaft:polished_scute.name=§7磨かれた甲羅
+item.kurokumaft:thrust_horn.name=§7突き立つ黒角
+item.kurokumaft:snow_fang.name=§f白銀の狼牙
+item.kurokumaft:freeze_windbreak.name=§f凍える風切
+
+item.spawn_egg.entity.kurokumaft:fire_chicken.name=ファイアバードのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:flame_porcupine.name=フレイムポークパインのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:lightning_sheep.name=ライトニングシープのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:thunder_bat.name=サンダーバットのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:water_buffalo.name=ウォーターバッファローのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:aqua_jackal.name=アクアジャッカルのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:wind_dolphin.name=ウィンドドルフィンのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:breeze_fish.name=ブリーズフィッシュのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:stone_armadillo.name=ストーンアルマジロのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:earth_rhino.name=アースライノのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:snow_wolf.name=スノーウルフのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:frost_owl.name=フロストオウルのスポーンエッグ	#
+
+item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムのスポーンエッグ	#
 
 itemGroup.kurokumaft:magic_shield.name=魔法の盾
 
@@ -176,11 +220,6 @@ item.kurokumaft:wind_nostrum_potion.name=嵐天脚の秘薬
 item.kurokumaft:stone_nostrum_potion.name=衝天地の秘薬
 item.kurokumaft:lightning_nostrum_potion.name=雷の秘薬
 item.kurokumaft:ice_nostrum_potion.name=鏡影氷の秘薬
-
-item.kurokumaft:phoenix_feather.name=§4魔炎鳥の羽
-item.kurokumaft:see_serpent_scale.name=§1魔海蛇の鱗
-item.kurokumaft:stone_golem_heart.name=§7魔岩像の核
-item.kurokumaft:fenrir_fang.name=§3魔嵐狼の牙
 
 item.kurokumaft:fire_magic_stone.name=§4火の魔法石
 item.kurokumaft:water_magic_stone.name=§1水の魔法石

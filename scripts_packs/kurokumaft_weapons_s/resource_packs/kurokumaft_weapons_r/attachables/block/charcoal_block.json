@@ -7,7 +7,7 @@
         "default": "armor_stand"
       },
       "textures": {
-        "default": "textures/kurokumaft/blocks/crops/charcoal_block"
+        "default": "textures/kurokumaft/blocks/fuel/charcoal_block"
       },
       "geometry": {
         "default": "geometry.charcoal_block"

@@ -61,6 +61,7 @@ world.beforeEvents.explosion.subscribe(event => {
 //         setTearEnchantBook(player, item, block);
 //     }
 // });
+
 // アイテム使用開始
 world.afterEvents.itemStartUse.subscribe(event => {
     let player = event.source;
@@ -213,6 +214,9 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 world.afterEvents.entityHitBlock.subscribe(event => {
     let damageEn = event.damagingEntity as Entity;
     let hitBlock = event.hitBlock as Block;
+    Object.entries(hitBlock.permutation.getAllStates()).forEach(value => {
+        world.sendMessage(JSON.stringify(value));
+    });
     if (hitBlock != undefined) {
         let equ = damageEn.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;

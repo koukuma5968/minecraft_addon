@@ -12,6 +12,11 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_kaze.name"
 			},
+      "minecraft:tags": {
+        "tags": [
+          "regimental_kaze"
+        ]
+      },
       "minecraft:icon": "nichirintou_kaze",
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {

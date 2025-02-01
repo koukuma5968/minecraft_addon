@@ -190,6 +190,10 @@
 		},
 		"ice_log_top": {
 			"textures": "textures/kurokumaft/blocks/log/ice_log_top.png"
+		},
+
+		"lightning_wool": {
+			"textures": "textures/kurokumaft/blocks/lightning_wool.png"
 		}
 
 	}

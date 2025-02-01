@@ -16,6 +16,13 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 60
 			},
+            "minecraft:geometry": "geometry.orichalcum_ore",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "orichalcum_ore",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:loot": "loot_tables/blocks/ore/orichalcum_ore.json",
 			"minecraft:map_color": "#727578",
 			"minecraft:custom_components": [

@@ -26,7 +26,7 @@
 			"textures": "textures/kurokumaft/blocks/ore/orichalcum_block"
 		},
 		"charcoal_block": {
-			"textures": "textures/kurokumaft/blocks/crops/charcoal_block"
+			"textures": "textures/kurokumaft/blocks/fuel/charcoal_block"
 		},
 		"bakutiku": {
 			"textures": "textures/kurokumaft/blocks/bom/bakutiku"
@@ -70,6 +70,18 @@
 		"tear_enchant": {
 			"textures": "textures/kurokumaft/blocks/work/tear_enchant"
 		},
+		"fryer_empty": {
+			"textures": "textures/kurokumaft/blocks/work/oil/fryer_empty"
+		},
+		"fryer_olive": {
+			"textures": "textures/kurokumaft/blocks/work/oil/fryer_olive"
+		},
+		"fryer_dirty": {
+			"textures": "textures/kurokumaft/blocks/work/oil/fryer_dirty"
+		},
+		"earthenware_pot": {
+			"textures": "textures/kurokumaft/blocks/work/earthenware_pot"
+		},
 
 		"onion_stage_0": {
 			"textures": "textures/kurokumaft/blocks/crops/onion/onion_stage_0"
@@ -95,6 +107,44 @@
 		},
 		"soybean_stage_3": {
 			"textures": "textures/kurokumaft/blocks/crops/soy/soybean_stage_3"
+		},
+
+		"olive_tree_stage_0": {
+			"textures": "textures/kurokumaft/blocks/tree/olive_tree_stage_0"
+		},
+		"olive_tree_stage_1": {
+			"textures": "textures/kurokumaft/blocks/tree/olive_tree_stage_1"
+		},
+		"olive_tree_stage_2": {
+			"textures": "textures/kurokumaft/blocks/tree/olive_tree_stage_2"
+		},
+		"olive_tree_stage_3": {
+			"textures": "textures/kurokumaft/blocks/tree/olive_tree_stage_3"
+		},
+
+		"rice_plant_stage_0": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_0"
+		},
+		"rice_plant_stage_1": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_1"
+		},
+		"rice_plant_stage_2": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_2"
+		},
+		"rice_plant_stage_3": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_3"
+		},
+		"rice_plant_stage_4": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_4"
+		},
+		"rice_plant_stage_5": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_5"
+		},
+		"rice_plant_stage_6": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_6"
+		},
+		"rice_plant_stage_7": {
+			"textures": "textures/kurokumaft/blocks/crops/rice/rice_plant_stage_7"
 		},
 
 		"chocolate_cake_bottom" : {

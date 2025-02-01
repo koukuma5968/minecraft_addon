@@ -30,8 +30,6 @@
       "minecraft:display_name": {
         "value": "entity.kurokumaft:feather_pikmin.name"
       }
-    },
-    "events": {
     }
   }
 }

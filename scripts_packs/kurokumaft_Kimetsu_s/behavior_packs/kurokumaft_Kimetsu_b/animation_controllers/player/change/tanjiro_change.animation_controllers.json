@@ -5,7 +5,13 @@
       "states": {
         "default": {
           "transitions": [
-            { "mizu1": "query.variant == 22 && query.skin_id == 2 && query.is_sneaking" },
+            { "equipment": "query.property('kurokumaft:nichirintou_type') == 2" }
+          ]
+        },
+        "equipment": {
+          "transitions": [
+            { "default": "query.property('kurokumaft:nichirintou_type') != 2" },
+            { "mizu1": "query.variant == 22 && query.is_sneaking" },
             { "mizu2": "query.variant == 1 && query.skin_id == 2 && query.is_sneaking" },
             { "mizu3": "query.variant == 2 && query.skin_id == 2 && query.is_sneaking" },
             { "mizu4": "query.variant == 3 && query.skin_id == 2 && query.is_sneaking" },
@@ -32,7 +38,7 @@
         "mizu1":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
-            "/event entity @s variant1"
+            "/event entity @s kurokumaft:kokyu_change"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
@@ -41,7 +47,7 @@
         "mizu2":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 弐ノ型\"}]}",
-            "/event entity @s variant2"
+            "/event entity @s kurokumaft:kokyu_change"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
@@ -50,7 +56,7 @@
         "mizu3":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 参ノ型\"}]}",
-            "/event entity @s variant3"
+            "/event entity @s kurokumaft:kokyu_change"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}
@@ -59,7 +65,7 @@
         "mizu4":{
           "on_entry": [
             "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 肆ノ型\"}]}",
-            "/event entity @s variant4"
+            "/event entity @s kurokumaft:kokyu_change"
           ],
           "transitions": [
             {"default":"!query.is_sneaking"}

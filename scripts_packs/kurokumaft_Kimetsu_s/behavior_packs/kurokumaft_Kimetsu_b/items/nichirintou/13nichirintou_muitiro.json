@@ -12,6 +12,11 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_muitiro.name"
 			},
+      "minecraft:tags": {
+        "tags": [
+          "nichirintou_muitiro"
+        ]
+      },
       "minecraft:icon": "nichirintou_muitiro",
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {

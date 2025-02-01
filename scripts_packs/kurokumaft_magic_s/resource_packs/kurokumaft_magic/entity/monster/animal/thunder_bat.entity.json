@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:thunder_bat",
+      "materials": {
+        "default": "bat_v2"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/thunder_bat"
+      },
+      "geometry": {
+        "default": "geometry.thunder_bat"
+      },
+      "scripts": {
+        "scale": "1.5"
+      },
+      "particle_effects": {
+        "bat_spark": "kurokumaft:bat_spark"
+      },
+      "animations": {
+        "resting": "animation.thunder_bat.resting",
+        "flying": "animation.thunder_bat.flying"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.thunder_bat.move"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.thunder_bat"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 18
+      }
+    }
+  }
+}

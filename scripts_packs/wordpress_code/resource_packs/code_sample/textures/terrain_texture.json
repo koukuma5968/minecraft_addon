@@ -6,6 +6,9 @@
 	"texture_data": {
 		"chromium_ore": {
 			"textures": "textures/kurokumaft/blocks/ore/chromium_ore"
+		},
+		"kitchen_table": {
+			"textures": "textures/kurokumaft/blocks/kitchen_table"
 		}
 
 	}

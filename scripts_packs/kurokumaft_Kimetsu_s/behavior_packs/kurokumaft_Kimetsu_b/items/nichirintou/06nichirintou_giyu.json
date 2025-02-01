@@ -12,6 +12,11 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_giyu.name"
 			},
+      "minecraft:tags": {
+        "tags": [
+          "nichirintou_giyu"
+        ]
+      },
       "minecraft:icon": "nichirintou_giyu",
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {

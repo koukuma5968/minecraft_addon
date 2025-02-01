@@ -704,6 +704,40 @@
          "textures" : "textures/kurokumaft/items/materials/phoenix_feather"
       },
 
+      "fire_chicken_crest": {
+         "textures" : "textures/kurokumaft/items/materials/fire_chicken_crest"
+      },
+      "flame_spine": {
+         "textures" : "textures/kurokumaft/items/materials/flame_spine"
+      },
+      "wet_hunting_horn": {
+         "textures" : "textures/kurokumaft/items/materials/wet_hunting_horn"
+      },
+      "muddy_fang": {
+         "textures" : "textures/kurokumaft/items/materials/muddy_fang"
+      },
+      "resound_patagium": {
+         "textures" : "textures/kurokumaft/items/materials/resound_patagium"
+      },
+      "swirl_horn": {
+         "textures" : "textures/kurokumaft/items/materials/swirl_horn"
+      },
+      "flutter_tail_fin": {
+         "textures" : "textures/kurokumaft/items/materials/flutter_tail_fin"
+      },
+      "polished_scute": {
+         "textures" : "textures/kurokumaft/items/materials/polished_scute"
+      },
+      "thrust_horn": {
+         "textures" : "textures/kurokumaft/items/materials/thrust_horn"
+      },
+      "snow_fang": {
+         "textures" : "textures/kurokumaft/items/materials/snow_fang"
+      },
+      "freeze_windbreak": {
+         "textures" : "textures/kurokumaft/items/materials/freeze_windbreak"
+      },
+
       "magic_golem_spawn_egg" : {
          "textures" : [
             "textures/kurokumaft/items/egg/golem/egg_maguma_golem",

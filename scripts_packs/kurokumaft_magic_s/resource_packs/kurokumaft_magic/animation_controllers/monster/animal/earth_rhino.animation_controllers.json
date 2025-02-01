@@ -1,0 +1,41 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.earth_rhino.look_at_target" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [ "look_at_target" ]
+				}
+			}
+		},
+		"controller.animation.earth_rhino.walk" : {
+			"initial_state" : "walking",
+			"states" : {
+				"walking" : {
+					"animations" : [ "walk" ]
+				}
+			}
+		},
+		"controller.animation.earth_rhino.attack" : {
+			"initial_state" : "default",
+			"states" : {
+				"attack" : {
+					"animations" : [ "attack" ],
+					"transitions": [
+						{
+							"default" : "!query.has_target || query.is_ram_attacking"
+						}
+					]
+				},
+				"default" : {
+					"transitions" : [
+						{
+							"attack": "query.has_target && query.is_ram_attacking"
+						}
+					]
+				}
+			}
+		}
+	}
+}

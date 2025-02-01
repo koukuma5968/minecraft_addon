@@ -12,6 +12,11 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_tengen.name"
 			},
+      "minecraft:tags": {
+        "tags": [
+          "nichirintou_tengen"
+        ]
+      },
       "minecraft:icon": "nichirintou_tengen",
       "minecraft:max_stack_size": 1,
       "minecraft:allow_off_hand": true,

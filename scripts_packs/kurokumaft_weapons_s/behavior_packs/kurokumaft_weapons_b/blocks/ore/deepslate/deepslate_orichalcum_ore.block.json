@@ -17,6 +17,13 @@
 				"explosion_resistance": 90
 			},
 			"minecraft:loot": "loot_tables/blocks/ore/orichalcum_ore.json",
+			"minecraft:geometry": "geometry.orichalcum_ore",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "deepslate_orichalcum_ore",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:map_color": "#727578",
 			"minecraft:custom_components": [
 				"kurokumaft:fortune_destroy"

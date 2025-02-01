@@ -484,6 +484,13 @@
          "textures" : "textures/kurokumaft/items/material/black_quartz"
       },
 
+      "wolf_fur" : {
+         "textures" : "textures/kurokumaft/items/material/wolf_fur"
+      },
+      "fox_fur" : {
+         "textures" : "textures/kurokumaft/items/material/fox_fur"
+      },
+
       "black_powder" : {
          "textures" : "textures/kurokumaft/items/material/black_powder"
       },
@@ -598,13 +605,6 @@
          "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_wild"
       },
 
-      "fish_meal" : {
-         "textures" : "textures/kurokumaft/items/fertilizer/fish_meal"
-      },
-      "seeds_medicinal_plant" : {
-         "textures" : "textures/kurokumaft/items/crops/seeds/seeds_medicinal_plant"
-      },
-
       "potion_bottle_hiheal" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_hiheal"
       },
@@ -700,6 +700,19 @@
          "textures" : "textures/kurokumaft/items/bag/bamboo_bag"
       },
 
+      "fish_meal" : {
+         "textures" : "textures/kurokumaft/items/fertilizer/fish_meal"
+      },
+      "seeds_medicinal_plant" : {
+         "textures" : "textures/kurokumaft/items/crops/seeds/seeds_medicinal_plant"
+      },
+      "seeds_rice_plant" : {
+         "textures" : "textures/kurokumaft/items/crops/seeds/seeds_rice_plant"
+      },
+      "rice_plant" : {
+         "textures" : "textures/kurokumaft/items/crops/rice_plant"
+      },
+
       "baked_carrot" : {
          "textures" : "textures/kurokumaft/items/cook/baked/baked_carrot"
       },
@@ -725,11 +738,14 @@
          "textures" : "textures/kurokumaft/items/cook/bread/glow_berries_jam_bread"
       },
 
-      "wolf_fur" : {
-         "textures" : "textures/kurokumaft/items/material/wolf_fur"
+      "fried_chicken" : {
+         "textures" : "textures/kurokumaft/items/cook/fried/fried_chicken"
       },
-      "fox_fur" : {
-         "textures" : "textures/kurokumaft/items/material/fox_fur"
+      "pork_cutlet" : {
+         "textures" : "textures/kurokumaft/items/cook/fried/pork_cutlet"
+      },
+      "french_fries" : {
+         "textures" : "textures/kurokumaft/items/cook/fried/french_fries"
       },
 
       "apple_jam" : {
@@ -758,7 +774,17 @@
       },
 
       "cheese" : {
-         "textures" : "textures/kurokumaft/items/cook/cheese"
+         "textures" : "textures/kurokumaft/items/cook/cheese/cheese"
+      },
+
+      "cooked_rice" : {
+         "textures" : "textures/kurokumaft/items/cook/rice/cooked_rice"
+      },
+      "beef_rice" : {
+         "textures" : "textures/kurokumaft/items/cook/rice/beef_rice"
+      },
+      "chicken_egg_rice" : {
+         "textures" : "textures/kurokumaft/items/cook/rice/chicken_egg_rice"
       },
 
       "onion" : {
@@ -769,6 +795,22 @@
       },
       "green_soybean" : {
          "textures" : "textures/kurokumaft/items/food/green_soybean"
+      },
+      "rice" : {
+         "textures" : "textures/kurokumaft/items/food/rice"
+      },
+
+      "olive" : {
+         "textures" : "textures/kurokumaft/items/food/olive"
+      },
+      "olive_green" : {
+         "textures" : "textures/kurokumaft/items/food/olive_green"
+      },
+      "olive_oil" : {
+         "textures" : "textures/kurokumaft/items/food/olive_oil"
+      },
+      "dirty_oil" : {
+         "textures" : "textures/kurokumaft/items/food/dirty_oil"
       },
 
       "malt" : {
@@ -783,6 +825,9 @@
       },
       "wooden_bucket_miso" : {
          "textures" : "textures/kurokumaft/items/tool/wooden_bucket_miso"
+      },
+      "wooden_bucket_soy_sauce" : {
+         "textures" : "textures/kurokumaft/items/tool/wooden_bucket_soy_sauce"
       },
       "soup_bowl" : {
          "textures" : "textures/kurokumaft/items/tool/soup_bowl"

@@ -1,26 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.tanjiro_first": {
-			"loop": true,
-			"animation_length": 0.70833,
-			"bones": {
-				"tanjiro_nichirinto": {
-					"rotation": [14.93001, 68.69274, -44.97092],
-					"position": [2, -4, 2],
-					"scale": 0.5
-				}
-			}
-		},
-		"animation.tanjiro_third": {
-			"loop": true,
-			"bones": {
-				"tanjiro_nichirinto": {
-					"position": [1, -2, 0],
-					"scale": [0.3, 0.3, 0.3]
-				}
-			}
-		},
 		"animation.tanjiro.attack": {
 			"animation_length": 0.5,
 			"bones": {
@@ -31,17 +11,6 @@
 						"0.3333": [-6.80402, -18.72066, -26.72532]
 					},
 					"position": [0, 0, 0]
-				},
-				"tanjiro_nichirinto": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [0, 12.5, 0],
-						"0.3333": [37.5, 12.5, 0]
-					},
-					"position": {
-						"0.0": [0, 0, 0],
-						"0.3333": [-1, -2, -3]
-					}
 				},
 				"root": {
 					"rotation": {
@@ -159,7 +128,7 @@
 			"particle_effects": {
 				"0.0": {
 					"effect": "mizu_awa_particle",
-					"locator": "tanjiro6"
+					"locator": "nichirintou_hold6"
 				}
 			}
 		},
@@ -178,34 +147,7 @@
 						"0.0": [-115.10814, 14.49974, -90.49648],
 						"0.3": [31.44557, 0.53968, -89.83013]
 					}
-				},
-				"tanjiro_nichirinto": {
-					"rotation": {
-						"0.0": [32.5, 0, 0],
-						"0.3": [20, 0, 0]
-					},
-					"position": [0, -3, 0]
 				}
-			},
-			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "tanjiro3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "tanjiro4"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "tanjiro5"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "tanjiro6"
-					}
-				]
 			}
 		},
 		"animation.nichirintou_kokyu.tanjiro_mizu.ni_1": {

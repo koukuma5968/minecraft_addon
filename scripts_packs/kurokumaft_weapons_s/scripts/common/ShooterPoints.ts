@@ -37,11 +37,7 @@ export async function shooting(player:Player, throwItem:string, ranNum:number, s
 
     let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
     projectile.owner = player;
-    projectile.shoot({
-        x:player.getViewDirection().x * seepd,
-        y:player.getViewDirection().y * seepd,
-        z:player.getViewDirection().z * seepd
-    },
+    projectile.shoot(player.getViewDirection(),
     {
         uncertainty: ranNum
     });

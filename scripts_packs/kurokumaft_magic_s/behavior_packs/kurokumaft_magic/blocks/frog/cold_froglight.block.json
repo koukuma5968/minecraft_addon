@@ -17,6 +17,21 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.2
 			},
+			"minecraft:geometry": "geometry.cold_froglight",
+			"minecraft:material_instances": {
+				"top": {
+					"texture": "cold_froglight_top"
+				},
+				"side": {
+					"texture": "cold_froglight_side"
+				},
+				"up": "top",
+				"down": "top",
+				"north": "side",
+				"south": "side",
+				"east": "side",
+				"west": "side"
+			},
 			"minecraft:map_color": "#1e50a2"
 		}
 	}

@@ -18,6 +18,12 @@
 			"minecraft:loot": "loot_tables/blocks/ore/mithril_block.json",
 			"minecraft:map_color": "#d2f5f6",
 			"minecraft:geometry": "geometry.mithril_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "mithril_block",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0.5
 			},

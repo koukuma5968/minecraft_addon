@@ -4,70 +4,61 @@
 		"sound": "stone"
 	},
 	"chromium_ore": {
-		"sound": "stone",
-		"textures": "chromium_ore"
+		"sound": "stone"
 	},
 	"deepslate_chromium_ore": {
-		"sound": "stone",
-		"textures": "deepslate_chromium_ore"
+		"sound": "stone"
 	},
 	"steel_block": {
-		"sound": "stone",
-		"textures": "steel_block"
+		"sound": "stone"
 	},
 	"orichalcum_ore": {
-		"sound": "stone",
-		"textures": "orichalcum_ore"
+		"sound": "stone"
 	},
 	"deepslate_orichalcum_ore": {
-		"sound": "stone",
-		"textures": "deepslate_orichalcum_ore"
+		"sound": "stone"
 	},
 	"orichalcum_block": {
-		"sound": "stone",
-		"textures": "orichalcum_block"
+		"sound": "stone"
 	},
 	"charcoal_block": {
-		"sound": "stone",
-		"textures": "charcoal_block"
+		"sound": "stone"
 	},
 	"medicinal_plants": {
 		"sound": "grass"
 	},
 	"mithril_block" : {
-		"sound" : "amethyst_block",
-		"textures" : "mithril_block"
+		"sound" : "amethyst_block"
 	 },
 	 "mithril_cluster" : {
-		"sound" : "amethyst_cluster",
-		"textures" : "mithril_cluster"
+		"sound" : "amethyst_cluster"
 	 },
 	 "budding_mithril" : {
-		"sound" : "amethyst_block",
-		"textures" : "budding_mithril"
+		"sound" : "amethyst_block"
 	 },
 	 "large_mithril_bud" : {
-		"sound" : "large_amethyst_bud",
-		"textures" : "large_mithril_bud"
+		"sound" : "large_amethyst_bud"
 	 },
 	 "medium_mithril_bud" : {
-		"sound" : "medium_amethyst_bud",
-		"textures" : "medium_mithril_bud"
+		"sound" : "medium_amethyst_bud"
 	},
 	"small_mithril_bud" : {
-	   "sound" : "small_amethyst_bud",
-	   "textures" : "small_mithril_bud"
+	   "sound" : "small_amethyst_bud"
 	},
 
 	"kitchen_table": {
 		"sound": "metal"
 	},
+	"fryer": {
+		"sound": "metal"
+	},
 	"onions": {
-		"sound": "grass",
-		"textures": "onions"
+		"sound": "grass"
 	},
 	"soybeans": {
-		"sound": "grass",
-		"textures": "soybeans"
+		"sound": "grass"
+	},
+	"olive_tree": {
+		"sound": "grass"
 	}
 }

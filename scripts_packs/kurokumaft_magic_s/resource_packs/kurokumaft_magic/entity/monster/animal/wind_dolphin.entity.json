@@ -1,0 +1,37 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:wind_dolphin",
+      "materials": {
+        "default": "dolphin"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/wind_dolphin"
+      },
+      "geometry": {
+        "default": "geometry.wind_dolphin"
+      },
+      "particle_effects": {
+        "dolphin_ring": "kurokumaft:dolphin_ring"
+      },
+      "animations": {
+        "move": "animation.wind_dolphin.move",
+        "particle": "animation.wind_dolphin.particle"
+      },
+      "scripts": {
+        "animate": [
+          "move",
+          "particle"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.dolphin"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 49
+      }
+    }
+  }
+}

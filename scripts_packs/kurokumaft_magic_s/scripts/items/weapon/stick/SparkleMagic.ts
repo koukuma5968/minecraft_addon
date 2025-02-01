@@ -63,7 +63,7 @@ export async function hollyField(player:Player) {
                 "sparkle_shock_self",
             ],
             excludeFamilies: [
-                "inanimate", "magic", "arrow"
+                "inanimate", "magic", "arrow", "monster"
             ],
             excludeTypes: [
                 "item"

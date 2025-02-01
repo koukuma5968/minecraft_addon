@@ -14,21 +14,17 @@
         "geometry": {
           "default": "geometry.nichirintou_tanjiro"
         },
-        "particle_effects": {
-          "hi_blead_particle": "kurokumaft:hi_blead_particle",
-          "hi_deep_blead_particle": "kurokumaft:hi_deep_blead_particle",
-          "mizu_awa_particle": "kurokumaft:mizu_awa_particle",
-          "mizu_splash_particle": "kurokumaft:mizu_splash_particle"
-        },
         "scripts": {
           "animate": [
-            {"first": "c.is_first_person"},
-            {"third": "!c.is_first_person"}
+            "scale",
+            "person"
           ]
         },
         "animations": {
-          "first": "animation.tanjiro_first",
-          "third": "animation.tanjiro_third"    
+          "scale": "animation.nichirintou_scale",
+          "person": "controller.animation.nichirintou.person",
+          "first": "animation.nichirintou_first",
+          "third": "animation.nichirintou_third"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

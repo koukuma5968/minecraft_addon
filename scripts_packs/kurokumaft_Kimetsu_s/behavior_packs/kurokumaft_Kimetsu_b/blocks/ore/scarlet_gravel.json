@@ -16,6 +16,13 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.2
 			},
+			"minecraft:geometry": "geometry.scarlet_gravel",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scarlet_gravel",
+					"render_method": "alpha_test"
+				}
+			},
 			"minecraft:light_dampening": 10,
 			"minecraft:light_emission": 15,
 			"minecraft:loot": "loot_tables/blocks/ore/scarlet_gravel.json"

@@ -1,4 +1,4 @@
-import { ItemCustomComponent, Player, ItemComponentUseOnEvent, Block, Direction, BlockPermutation } from "@minecraft/server";
+import { ItemCustomComponent, Player, ItemComponentUseOnEvent, Block, Direction, BlockPermutation, ItemStack, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
@@ -28,6 +28,11 @@ export class CopperBucketWater implements ItemCustomComponent {
         if (faceBlock == undefined) {
             return;
         }
+
+        let bucket = new ItemStack("kurokumaft:copper_bucket", 1);
+        let equippable = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        equippable.setEquipment(EquipmentSlot.Mainhand, bucket);
+
         faceBlock.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Water, {liquid_depth:0}));
-}
+    }
 }

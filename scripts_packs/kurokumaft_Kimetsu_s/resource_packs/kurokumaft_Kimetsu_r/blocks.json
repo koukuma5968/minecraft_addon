@@ -1,68 +1,51 @@
 {
-   "format_version": "1.19.30",
    "scarlet_ore" : {
-      "sound" : "stone",
-      "textures" : "scarlet_ore"
+      "sound" : "stone"
    },
    "scarlet_gravel" : {
-      "sound" : "gravel",
-      "textures" : "scarlet_gravel"
+      "sound" : "gravel"
    },
    "tanjiro_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "zenitu_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "inosuke_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "nezuko_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "kanawo_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "giyu_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "kyouzyuro_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "shinobu_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "mituri_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "tengen_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "sanemi_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "genya_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "gyoumei_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    },
    "muitiro_skull" : {
-      "sound" : "stone",
-      "textures" : "skull"
+      "sound" : "stone"
    }
 
 }

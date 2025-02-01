@@ -13,6 +13,8 @@ import { explodeBedrock } from "./common/commonUtil";
 import { isChargeed } from "./items/weapon/gun/GunWeaponMagic";
 import { MagicBrewingStand } from "./block/MagicBrewingStand";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
+import { fireChickenAttack } from "./mob/animal/FireChicken";
+import { flamePorcupineGuard } from "./mob/animal/FlamePorcupine";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -49,6 +51,12 @@ world.afterEvents.entityHitEntity.subscribe(event => {
         shieldGuard(hitEn as Player, true);
         shieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player, dameger, undefined, undefined);
+    } 
+    if (dameger.typeId == "kurokumaft:fire_chicken") {
+        fireChickenAttack(hitEn);
+    }
+    if (hitEn.typeId == "kurokumaft:flame_porcupine") {
+        flamePorcupineGuard(dameger);
     }
 });
 

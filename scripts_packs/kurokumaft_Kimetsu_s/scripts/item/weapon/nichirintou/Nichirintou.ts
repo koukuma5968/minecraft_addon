@@ -36,10 +36,8 @@ export class Nichirintou implements ItemCustomComponent {
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
         let player = event.source as Player;
-        player.setDynamicProperty("nichirintou_change", true);
-        world.sendMessage("change_start");
+        player.setDynamicProperty("kokyu", true);
     }
 
 }
@@ -50,7 +48,6 @@ export class Nichirintou implements ItemCustomComponent {
  * @param {Player} player
  */
 export async function probabilisticChoice(itemStack:ItemStack, player:Player) {
-    world.sendMessage("change");
     let nichirintou = nichirintouLists.pick();
 
     let enchant = itemStack.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
@@ -62,5 +59,4 @@ export async function probabilisticChoice(itemStack:ItemStack, player:Player) {
     let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     equ.setEquipment(EquipmentSlot.Mainhand, changeItem);
 
-    player.setDynamicProperty("nichirintou_change", false);
 }

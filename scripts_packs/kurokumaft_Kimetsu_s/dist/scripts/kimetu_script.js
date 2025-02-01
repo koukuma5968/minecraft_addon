@@ -1,8 +1,8 @@
 // scripts/kimetu_script.ts
-import { world as world3, EquipmentSlot as EquipmentSlot4 } from "@minecraft/server";
+import { world as world5, EquipmentSlot as EquipmentSlot6, Player as Player11 } from "@minecraft/server";
 
 // scripts/item/weapon/nichirintou/Nichirintou.ts
-import { ItemStack, world, EntityComponentTypes, EquipmentSlot, ItemComponentTypes } from "@minecraft/server";
+import { ItemStack, EntityComponentTypes, EquipmentSlot, ItemComponentTypes } from "@minecraft/server";
 var ProbabilisticChoice = (list) => {
   const totalWeight = list.reduce((p, c) => {
     return { weight: p.weight + c.weight };
@@ -34,14 +34,11 @@ var nichirintouLists = ProbabilisticChoice([
 var Nichirintou = class {
   // 右クリック
   onUse(event) {
-    let itemStack = event.itemStack;
     let player = event.source;
-    player.setDynamicProperty("nichirintou_change", true);
-    world.sendMessage("change_start");
+    player.setDynamicProperty("kokyu", true);
   }
 };
 async function probabilisticChoice(itemStack, player) {
-  world.sendMessage("change");
   let nichirintou = nichirintouLists.pick();
   let enchant = itemStack.getComponent(ItemComponentTypes.Enchantable);
   let changeItem = new ItemStack(nichirintou);
@@ -49,18 +46,95 @@ async function probabilisticChoice(itemStack, player) {
   newEnchant.addEnchantments(enchant.getEnchantments());
   let equ = player.getComponent(EntityComponentTypes.Equippable);
   equ.setEquipment(EquipmentSlot.Mainhand, changeItem);
-  player.setDynamicProperty("nichirintou_change", false);
 }
 
 // scripts/item/weapon/nichirintou/NichirintouTanjiro.ts
+import { world as world2 } from "@minecraft/server";
+
+// scripts/item/weapon/NichirintouTypes.ts
+var KokyuObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:nichirintou",
+    type: 1,
+    change: void 0,
+    func: probabilisticChoice
+  },
+  {
+    itemName: "kurokumaft:nichirintou_tanjiro",
+    type: 2,
+    kata: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+    kata_msg: "msg.kurokumaft:tanjiro_kata",
+    change: changeTanjiro,
+    func: kokyuTanjiro
+  },
+  {
+    itemName: "kurokumaft:nichirintou_zenitu",
+    type: 2,
+    kata: [1, 2, 7],
+    kata_msg: "msg.kurokumaft:tanjiro_kata",
+    change: changeTanjiro,
+    func: kokyuTanjiro
+  }
+]);
+
+// scripts/item/weapon/nichirintou/NichirintouTanjiro.ts
+var kokyu = Object.freeze([
+  "msg.kurokumaft:mizu_kokyu1.name",
+  "msg.kurokumaft:mizu_kokyu2.name",
+  "msg.kurokumaft:mizu_kokyu3.name",
+  "msg.kurokumaft:mizu_kokyu4.name",
+  "msg.kurokumaft:mizu_kokyu5.name",
+  "msg.kurokumaft:mizu_kokyu6.name",
+  "msg.kurokumaft:mizu_kokyu7.name",
+  "msg.kurokumaft:mizu_kokyu8.name",
+  "msg.kurokumaft:mizu_kokyu9.name",
+  "msg.kurokumaft:mizu_kokyu10.name",
+  "msg.kurokumaft:hi_kokyu1.name",
+  "msg.kurokumaft:hi_kokyu2.name",
+  "msg.kurokumaft:hi_kokyu3.name",
+  "msg.kurokumaft:hi_kokyu4.name",
+  "msg.kurokumaft:hi_kokyu5.name",
+  "msg.kurokumaft:hi_kokyu6.name",
+  "msg.kurokumaft:hi_kokyu7.name",
+  "msg.kurokumaft:hi_kokyu8.name",
+  "msg.kurokumaft:hi_kokyu9.name",
+  "msg.kurokumaft:hi_kokyu10.name",
+  "msg.kurokumaft:hi_kokyu11.name",
+  "msg.kurokumaft:hi_kokyu12.name"
+]);
 var NichirintouTanjiro = class {
   // 右クリック
   onUse(event) {
-    let itemStack = event.itemStack;
     let player = event.source;
     player.setDynamicProperty("kokyu", true);
+    player.setProperty("kurokumaft:kokyu_use", true);
   }
 };
+async function changeTanjiro(player) {
+  let kata = player.getProperty("kurokumaft:kokyu_kata");
+  let object = KokyuObjects[1];
+  let index = object.kata.findIndex((num) => num == kata);
+  if (index != -1) {
+    if (index < object.kata.length - 1) {
+      player.setProperty("kurokumaft:kokyu_kata", object.kata[index + 1]);
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:tanjiro_kata' + object.kata[index + 1] + '.name"}]}');
+    } else {
+      player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:tanjiro_kata1.name"}]}');
+    }
+  }
+}
+async function kokyuTanjiro(itemStack, player) {
+  let kata = player.getProperty("kurokumaft:kokyu_kata");
+  switch (kata) {
+    case 1:
+      break;
+    case 2:
+      break;
+  }
+  world2.sendMessage(kata + "");
+  player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + kokyu[kata - 1] + '"}]}');
+}
 
 // scripts/item/weapon/nichirintou/NichirintouGenya.ts
 var NichirintouGenya = class {
@@ -113,10 +187,10 @@ var NichirintouHi = class {
 };
 
 // scripts/item/weapon/nichirintou/NichirintouHono.ts
-import { EntityComponentTypes as EntityComponentTypes3 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes4 } from "@minecraft/server";
 
 // scripts/common/commonUtil.ts
-import { world as world2, system, EntityComponentTypes as EntityComponentTypes2, ItemComponentTypes as ItemComponentTypes2, Direction } from "@minecraft/server";
+import { world as world3, system, EntityComponentTypes as EntityComponentTypes3, ItemComponentTypes as ItemComponentTypes2, Direction } from "@minecraft/server";
 function getRandomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -326,7 +400,7 @@ var NichirintouHono = class {
     let itemStack = event.itemStack;
     let player = event.source;
     player.setDynamicProperty("kokyu", true);
-    let variant = player.getComponent(EntityComponentTypes3.Variant);
+    let variant = player.getComponent(EntityComponentTypes4.Variant);
     if (variant && variant.value == 5) {
       let xran = parseFloat(getRandomInRange(-0.3, 0.3).toFixed(3));
       let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
@@ -386,14 +460,14 @@ var NichirintouKoi = class {
 };
 
 // scripts/item/weapon/nichirintou/NichirintouKyouzyuro.ts
-import { EntityComponentTypes as EntityComponentTypes4 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes5 } from "@minecraft/server";
 var NichirintouKyouzyuro = class {
   // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
     player.setDynamicProperty("kokyu", true);
-    let variant = player.getComponent(EntityComponentTypes4.Variant);
+    let variant = player.getComponent(EntityComponentTypes5.Variant);
     if (variant && variant.value == 5) {
       let xran = parseFloat(getRandomInRange(-0.3, 0.3).toFixed(3));
       let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
@@ -512,13 +586,13 @@ var KekkizyutuBakketu = class {
 };
 
 // scripts/item/weapon/kekkizyutu/KekkizyutuHakaisatu.ts
-import { EntityComponentTypes as EntityComponentTypes5 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
 var KekkizyutuHakaisatu = class {
   // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
-    let variant = player.getComponent(EntityComponentTypes5.Variant);
+    let variant = player.getComponent(EntityComponentTypes6.Variant);
     if (variant && variant.value == 2) {
       shooting(player, "kurokumaft:kushiki", { x: 0, y: 0, z: 0 }, 6, void 0);
     }
@@ -526,13 +600,13 @@ var KekkizyutuHakaisatu = class {
 };
 
 // scripts/item/weapon/kekkizyutu/KekkizyutuKoushi.ts
-import { EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes7 } from "@minecraft/server";
 var KekkizyutuKoushi = class {
   // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
-    let variant = player.getComponent(EntityComponentTypes6.Variant);
+    let variant = player.getComponent(EntityComponentTypes7.Variant);
     if (variant && variant.value == 3) {
       shooting(player, "kurokumaft:kokushirinten", { x: 0, y: 0, z: 0 }, 6, void 0);
     }
@@ -540,13 +614,13 @@ var KekkizyutuKoushi = class {
 };
 
 // scripts/item/weapon/kekkizyutu/KekkizyutuTigama.ts
-import { EntityComponentTypes as EntityComponentTypes7 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes8 } from "@minecraft/server";
 var KekkizyutuTigama = class {
   // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
-    let variant = player.getComponent(EntityComponentTypes7.Variant);
+    let variant = player.getComponent(EntityComponentTypes8.Variant);
     if (variant && variant.value == 1) {
       shooting(player, "kurokumaft:tobi_tigama", { x: 0, y: 0, z: 0 }, 4, void 0);
     }
@@ -561,6 +635,41 @@ var KekkizyutuUltrasonic = class {
     let player = event.source;
   }
 };
+
+// scripts/player/EquipmentTick.ts
+import { EntityComponentTypes as EntityComponentTypes9, EquipmentSlot as EquipmentSlot4, system as system2, world as world4 } from "@minecraft/server";
+async function checkPlayerEquTick() {
+  let players = world4.getPlayers();
+  for (let i = 0; i < players.length; i++) {
+    let player = players[i];
+    if (!player.isValid()) {
+      continue;
+    }
+    let equ = player.getComponent(EntityComponentTypes9.Equippable);
+    let mainHand = equ.getEquipment(EquipmentSlot4.Mainhand);
+    if (mainHand != void 0) {
+      let object = KokyuObjects.find((ob) => ob.itemName == mainHand.typeId);
+      if (object != void 0) {
+        if (player.getProperty("kurokumaft:nichirintou_type") != object.type) {
+          player.setProperty("kurokumaft:nichirintou_type", object.type);
+          if (object.kata != void 0) {
+            player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
+            player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + object.kata_msg + '1.name"}]}');
+          }
+        }
+      } else {
+        player.setProperty("kurokumaft:nichirintou_type", 0);
+        player.setProperty("kurokumaft:kokyu_kata", 0);
+      }
+    } else {
+      if (player.getProperty("kurokumaft:nichirintou_type") != 0) {
+        player.setProperty("kurokumaft:nichirintou_type", 0);
+        player.setProperty("kurokumaft:kokyu_kata", 0);
+      }
+    }
+  }
+  system2.run(checkPlayerEquTick);
+}
 
 // scripts/custom/CustomComponentRegistry.ts
 function initRegisterCustom(initEvent) {
@@ -594,11 +703,14 @@ function initRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_koushi", new KekkizyutuKoushi());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_ultrasonic", new KekkizyutuUltrasonic());
 }
+function initStateChangeMonitor(initEvent) {
+  checkPlayerEquTick();
+}
 
 // scripts/common/ItemDurabilityDamage.ts
-import { ItemComponentTypes as ItemComponentTypes3, EntityComponentTypes as EntityComponentTypes8 } from "@minecraft/server";
+import { ItemComponentTypes as ItemComponentTypes3, EntityComponentTypes as EntityComponentTypes10 } from "@minecraft/server";
 async function ItemDurabilityDamage(entity, item, slot) {
-  let equ = entity.getComponent(EntityComponentTypes8.Equippable);
+  let equ = entity.getComponent(EntityComponentTypes10.Equippable);
   let durability = item.getComponent(ItemComponentTypes3.Durability);
   let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
   if (durability.damage + dChange >= durability.maxDurability) {
@@ -610,23 +722,40 @@ async function ItemDurabilityDamage(entity, item, slot) {
 }
 
 // scripts/kimetu_script.ts
-world3.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world5.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initRegisterCustom(initEvent);
+  initStateChangeMonitor(initEvent);
 });
-world3.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world5.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world3.afterEvents.itemReleaseUse.subscribe((event) => {
+world5.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+  let entity = event.entity;
+  if (entity instanceof Player11) {
+    if (event.eventId == "kurokumaft:kokyu_change") {
+      let nichirintou = entity.getProperty("kurokumaft:nichirintou_type");
+      if (nichirintou != 0) {
+        let object = KokyuObjects.find((ob) => ob.type == nichirintou);
+        object.change(entity);
+      }
+    }
+  }
+});
+world5.afterEvents.itemReleaseUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let duration = event.useDuration;
   if (item != void 0) {
-    if (player.getDynamicProperty("nichirintou_change")) {
-      probabilisticChoice(item, player);
-    }
+    world5.sendMessage("itemReleaseUse");
     if (player.getDynamicProperty("kokyu")) {
       player.setDynamicProperty("kokyu", void 0);
-      ItemDurabilityDamage(player, item, EquipmentSlot4.Mainhand);
+      let nichirintou = player.getProperty("kurokumaft:nichirintou_type");
+      if (nichirintou != 0) {
+        let object = KokyuObjects.find((ob) => ob.type == nichirintou);
+        object.func(item, player);
+      }
+      player.setProperty("kurokumaft:kokyu_use", false);
+      ItemDurabilityDamage(player, item, EquipmentSlot6.Mainhand);
     }
   }
 });

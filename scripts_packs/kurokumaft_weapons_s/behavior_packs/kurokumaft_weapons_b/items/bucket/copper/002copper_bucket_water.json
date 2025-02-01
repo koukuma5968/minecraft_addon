@@ -14,7 +14,6 @@
       },
       "minecraft:icon": "copper_bucket_water",
       "minecraft:max_stack_size": 1,
-      "minecraft:hand_equipped": true,
       "minecraft:liquid_clipped": true,
       "minecraft:custom_components": [
         "kurokumaft:copper_bucket_water"

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:breeze_fish",
+      "materials": {
+        "default": "cod"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/breeze_fish"
+      },
+      "geometry": {
+        "default": "geometry.breeze_fish"
+      },
+      "particle_effects": {
+        "dolphin_ring": "kurokumaft:dolphin_ring"
+      },
+      "scripts": {
+        "animate": [
+          "flop"
+        ]
+      },
+      "animations": {
+        "flop": "animation.breeze_fish.flop"
+      },
+      "render_controllers": [
+        "controller.render.breeze_fish"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 45
+      }
+    }
+  }
+}

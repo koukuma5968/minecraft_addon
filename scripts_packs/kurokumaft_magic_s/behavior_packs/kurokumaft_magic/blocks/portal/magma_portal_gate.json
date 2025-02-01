@@ -16,6 +16,15 @@
 				"explosion_resistance": 10.0
 			},
 			"minecraft:flammable": false,
+			"minecraft:geometry": "geometry.magma_portal_gate",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "magma_portal_gate",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
 			"minecraft:custom_components": [
 				"kurokumaft:portal_gate"
 			]

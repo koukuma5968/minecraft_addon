@@ -12,15 +12,13 @@
         "default": "textures/entity/steve",
         "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
 
-        "mizu10_dragon": "textures/kurokumaft/models/mizu10_dragon",
-        "hi_dragon": "textures/kurokumaft/models/hi_dragon",
         "hebi":  "textures/kurokumaft/models/hebi",
 
         "cape": "textures/entity/cape_invisible"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
-        "nichirintou_tanjiro": "geometry.nichirintou_tanjiro",
+        "nichirintou_custom": "geometry.nichirintou_custom",
         "nichirintou_zenitu": "geometry.nichirintou_zenitu",
         "nichirintou_inosuke": "geometry.nichirintou_inosuke",
         "nichirintou_kanawo": "geometry.nichirintou_kanawo",
@@ -45,8 +43,6 @@
         "nichirintou_koi": "geometry.nichirintou_koi",
         "nichirintou_kaze": "geometry.nichirintou_kaze",
 
-        "mizu10_dragon": "geometry.mizu10_dragon",
-        "hi_dragon": "geometry.hi_dragon",
         "hebi": "geometry.hebi",
 
         "cape": "geometry.cape"
@@ -78,7 +74,6 @@
           "variable.hand_bob = 0.0;",
 
           "variable.equipped_nichirintou_normal = 0.0;",
-          "variable.equipped_tanjiro = 0.0;",
           "variable.equipped_zenitu = 0.0;",
           "variable.equipped_genya = 0.0;",
           "variable.equipped_giyu = 0.0;",
@@ -114,7 +109,12 @@
 
           "variable.rui = 0.0;",
           "variable.akaza = 0.0;",
-          "variable.daki = 0.0;"
+          "variable.daki = 0.0;",
+          "variable.gyutaro = 0.0;",
+          "variable.hantengu = 0.0;",
+          "variable.gyokko = 0.0;",
+          "variable.douma = 0.0;",
+          "variable.kokushibou = 0.0;"
 
         ],
         "pre_animation": [
@@ -135,7 +135,6 @@
           "variable.nichirintou_attack_horizontality = (query.skin_id >= 30 && query.skin_id < 40);",
           "variable.zyuu_attack = (query.skin_id >= 40 && query.skin_id < 50);",
           "variable.equipped_nichirintou_normal = query.skin_id == 1;",
-          "variable.equipped_tanjiro = query.skin_id == 2;",
           "variable.equipped_zenitu = query.skin_id == 3;",
           "variable.equipped_genya = query.skin_id == 4;",
           "variable.equipped_giyu = query.skin_id == 5;",
@@ -171,18 +170,19 @@
 
           "variable.rui = query.skin_id == 51;",
           "variable.akaza = query.skin_id == 52;",
-          "variable.daki = query.skin_id == 53;"
+          "variable.daki = query.skin_id == 53;",
+          "variable.gyutaro = query.skin_id == 54;",
+          "variable.hantengu = query.skin_id == 55;",
+          "variable.gyokko = query.skin_id == 56;",
+          "variable.douma = query.skin_id == 57;",
+          "variable.kokushibou = query.skin_id == 58;"
 
         ],
         "animate": [
           "root",
 
-          {"tanjiro.kokyu_con": "variable.equipped_tanjiro"},
-          {"tanjiro_attack_controller": "variable.equipped_tanjiro"},
-          {"tanjiro_first": "variable.equipped_tanjiro && variable.is_first_person"},
-          {"tanjiro_third": "variable.equipped_tanjiro && !variable.is_first_person"},
-          {"tanjiro_attack": "variable.equipped_tanjiro && variable.attack_time"},
-  
+          "tanjiro.kokyu_con",
+
           {"zenitu.kokyu_con": "variable.equipped_zenitu"},
           {"zenitu_attack_controller": "variable.equipped_zenitu"},
           {"zenitu_attack.kokyu_con": "variable.equipped_zenitu && query.variant == 11"},
@@ -321,8 +321,8 @@
 
           {"akaza.kekkizyutu_body": "variable.akaza"},
           {"daki.kekkizyutu_body":  "variable.daki"},
+          {"douma.kekkizyutu_body": "variable.douma"},
 
-          {"mizu10_dragon.con": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
           {"hebi.con": "variable.equipped_obanai"}
 
         ]
@@ -379,11 +379,6 @@
         "shield_block_main_hand": "animation.player.shield_block_main_hand",
         "shield_block_off_hand": "animation.player.shield_block_off_hand",
         "blink": "controller.animation.persona.blink",
-
-        "tanjiro_first": "animation.tanjiro_first",
-        "tanjiro_third": "animation.tanjiro_third",
-        "tanjiro_attack": "animation.tanjiro.attack",
-        "tanjiro_attack_controller": "controller.animation.tanjiro.attack",
 
         "zenitu_first": "animation.zenitu_first",
         "zenitu_third": "animation.zenitu_third",
@@ -495,45 +490,6 @@
         "kaze_attack_controller": "controller.animation.kaze.attack",
 
         "tanjiro.kokyu_con":"controller.animation.tanjiro.kokyu_player",
-        "tanjiro_mizu.ichi_1": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1",
-        "tanjiro_mizu.ichi_2": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_2",
-        "tanjiro_mizu.ichi_1_first": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1_first",
-        "tanjiro_mizu.ichi_2_first": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_2_first",
-        "tanjiro_mizu.ni_1": "animation.nichirintou_kokyu.tanjiro_mizu.ni_1",
-        "tanjiro_mizu.san_1": "animation.nichirintou_kokyu.tanjiro_mizu.san_1",
-        "tanjiro_mizu.san_2": "animation.nichirintou_kokyu.tanjiro_mizu.san_2",
-        "tanjiro_mizu.san_3": "animation.nichirintou_kokyu.tanjiro_mizu.san_3",
-        "tanjiro_mizu.shi_1": "animation.nichirintou_kokyu.tanjiro_mizu.shi_1",
-        "tanjiro_mizu.shi_2": "animation.nichirintou_kokyu.tanjiro_mizu.shi_2",
-        "tanjiro_mizu.go_1": "animation.nichirintou_kokyu.tanjiro_mizu.go_1",
-        "tanjiro_mizu.go_2": "animation.nichirintou_kokyu.tanjiro_mizu.go_2",
-        "tanjiro_mizu.roku_1": "animation.nichirintou_kokyu.tanjiro_mizu.roku_1",
-        "tanjiro_mizu.roku_2": "animation.nichirintou_kokyu.tanjiro_mizu.roku_2",
-        "tanjiro_mizu.shiti_1": "animation.nichirintou_kokyu.tanjiro_mizu.shiti_1",
-        "tanjiro_mizu.shiti_2": "animation.nichirintou_kokyu.tanjiro_mizu.shiti_2",
-        "tanjiro_mizu.hati_1": "animation.nichirintou_kokyu.tanjiro_mizu.hati_1",
-        "tanjiro_mizu.hati_2": "animation.nichirintou_kokyu.tanjiro_mizu.hati_2",
-        "tanjiro_mizu.hati_3": "animation.nichirintou_kokyu.tanjiro_mizu.hati_3",
-        "tanjiro_mizu.ku_1": "animation.nichirintou_kokyu.tanjiro_mizu.ku_1",
-        "tanjiro_mizu.ku_2": "animation.nichirintou_kokyu.tanjiro_mizu.ku_2",
-        "tanjiro_mizu.tou_1": "animation.nichirintou_kokyu.tanjiro_mizu.tou_1",
-        "tanjiro_mizu.tou_2": "animation.nichirintou_kokyu.tanjiro_mizu.tou_2",
-        "hinokami.ichi_1": "animation.nichirintou_kokyu.hinokami.ichi_1",
-        "hinokami.ni_1": "animation.nichirintou_kokyu.hinokami.ni_1",
-        "hinokami.ni_2": "animation.nichirintou_kokyu.hinokami.ni_2",
-        "hinokami.san_1": "animation.nichirintou_kokyu.hinokami.san_1",
-        "hinokami.san_2": "animation.nichirintou_kokyu.hinokami.san_2",
-        "hinokami.shi_1": "animation.nichirintou_kokyu.hinokami.shi_1",
-        "hinokami.go_1": "animation.nichirintou_kokyu.hinokami.go_1",
-        "hinokami.go_2": "animation.nichirintou_kokyu.hinokami.go_2",
-        "hinokami.roku_1": "animation.nichirintou_kokyu.hinokami.roku_1",
-        "hinokami.shiti_1": "animation.nichirintou_kokyu.hinokami.shiti_1",
-        "hinokami.hachi_1": "animation.nichirintou_kokyu.hinokami.hachi_1",
-        "hinokami.ku_1": "animation.nichirintou_kokyu.hinokami.ku_1",
-        "hinokami.tou_1": "animation.nichirintou_kokyu.hinokami.tou_1",
-        "hinokami.zyuichi_1": "animation.nichirintou_kokyu.hinokami.zyuichi_1",
-        "hinokami.zyuni_1": "animation.nichirintou_kokyu.hinokami.zyuni_1",
-        "hinokami.zyuni_2": "animation.nichirintou_kokyu.hinokami.zyuni_2",
 
         "mizu.kokyu_con":"controller.animation.mizu.kokyu",
         "mizu.ichi_1": "animation.nichirintou_kokyu.mizu.ichi_1",
@@ -807,8 +763,17 @@
         "aoginranzankou": "animation.kekkizyutu.hakaisatu.body.aoginranzankou",
 
         "daki.kekkizyutu_body": "controller.animation.kekkizyutu.daki",
-        "yaeobigiri": "animation.kekkizyutu.obi.yaeobigiri_body"
+        "yaeobigiri": "animation.kekkizyutu.obi.yaeobigiri_body",
 
+        "douma.kekkizyutu_body": "controller.animation.kekkizyutu.douma",
+        "konagoori": "animation.kekkizyutu.koori.body.konagoori",
+        "hasugoori": "animation.kekkizyutu.koori.body.hasugoori",
+        "karesonosizuri": "animation.kekkizyutu.koori.body.karesonosizuri",
+        "itegumori": "animation.kekkizyutu.koori.body.itegumori",
+        "tururenge": "animation.kekkizyutu.koori.body.tururenge",
+        "kanretunosirahime": "animation.kekkizyutu.koori.body.kanretunosirahime",
+        "fuyuzareturara": "animation.kekkizyutu.koori.body.fuyuzareturara",
+        "tirirenge": "animation.kekkizyutu.koori.body.tirirenge"
 
       },
       "render_controllers": [
@@ -816,7 +781,7 @@
         { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" },
         { "controller.render.player.map": "variable.map_face_icon" },
 
-        {"controller.render.nichirintou_tanjiro": "variable.equipped_tanjiro"},
+        "controller.render.nichirintou_custom",
         {"controller.render.nichirintou_zenitu": "variable.equipped_zenitu"},
         {"controller.render.nichirintou_inosuke": "variable.equipped_inosuke"},
         {"controller.render.nichirintou_kanawo": "variable.equipped_kanawo"},
@@ -841,8 +806,6 @@
         {"controller.render.nichirintou_koi": "variable.equipped_koi"},
         {"controller.render.nichirintou_kaze": "variable.equipped_kaze"},
 
-        {"controller.render.hi_dragon": "(variable.equipped_tanjiro || variable.equipped_hi) && query.variant == 16 && query.mark_variant == 2"},
-        {"controller.render.mizu10_dragon": "(variable.equipped_tanjiro || variable.equipped_mizu || variable.equipped_giyu) && query.variant == 10 && query.mark_variant == 2"},
         {"controller.render.hebi": "(variable.equipped_obanai) && query.mark_variant >= 1"}
 
       ],

@@ -17,6 +17,13 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0.5
 			},
+			"minecraft:geometry": "geometry.scarlet_ore",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "scarlet_ore",
+					"render_method": "alpha_test"
+				}
+			},
 			"minecraft:light_dampening": 15,
 			"minecraft:light_emission": 5,
 			"minecraft:loot": "loot_tables/blocks/ore/scarlet_ore.json"

@@ -9,6 +9,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "nichirintou_tanjiro"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_tanjiro.name"
 			},

@@ -49,6 +49,8 @@ import { CopperBucket } from "../items/bucket/CopperBucket";
 import { CopperBucketLava } from "../items/bucket/CopperBucketLava";
 import { CopperBucketMilk } from "../items/bucket/CopperBucketMilk";
 import { CopperBucketWater } from "../items/bucket/CopperBucketWater";
+import { OliveGrowth } from "../block/plants/OliveGrowth";
+import { Fryer } from "../block/Fryer";
 
 /**
  * カスタムコンポーネントの登録
@@ -167,6 +169,7 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
 
     // 植物成長
     initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:plants_growth', new PlantsGrowth());
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:olive_growth', new OliveGrowth());
 
     // 爆竹
     initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:bakutiku_flint', new BakutikuFlint());
@@ -174,6 +177,9 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
 
     // エンチャントリリース
     initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:tear_enchant', new TearEnchant());
+
+    // フライヤー
+    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:fryer', new Fryer());
 
 }
 

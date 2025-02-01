@@ -6,6 +6,25 @@
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:nichirintou_type": {
+          "type": "int",
+          "range": [0, 27],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_kata": {
+          "type": "int",
+          "range": [0, 20],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
           "kokyu_change",
@@ -823,6 +842,9 @@
         "add": {
           "component_groups": [ "kurokumaft:nichirintou_remove" ]
         }
+      },
+
+      "kurokumaft:kokyu_change": {
       },
 
       "kurokumaft:nichirintou": {

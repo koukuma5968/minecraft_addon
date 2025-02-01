@@ -10,12 +10,28 @@
 			}
 		},
 		"components": {
+			"minecraft:light_dampening": 0.0,
 			"minecraft:light_emission": 15.0,
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0.5
 			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.2
+			},
+			"minecraft:geometry": "geometry.aero_froglight",
+			"minecraft:material_instances": {
+				"top": {
+					"texture": "aero_froglight_top"
+				},
+				"side": {
+					"texture": "aero_froglight_side"
+				},
+				"up": "top",
+				"down": "top",
+				"north": "side",
+				"south": "side",
+				"east": "side",
+				"west": "side"
 			},
 			"minecraft:map_color": "#38b48b"
 		}

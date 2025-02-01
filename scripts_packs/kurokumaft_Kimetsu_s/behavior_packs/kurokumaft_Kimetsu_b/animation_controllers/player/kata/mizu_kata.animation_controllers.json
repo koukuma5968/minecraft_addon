@@ -34,7 +34,6 @@
         },
         "mizu1_2":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水面切り\"}]}",
             "/function mizu/mizu1"
           ],
           "on_exit": [
@@ -46,7 +45,6 @@
         },
         "mizu2":{
           "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水車\"}]}",
             "/event entity @s mark_variant1",
             "/function mizu/mizu2"
           ],

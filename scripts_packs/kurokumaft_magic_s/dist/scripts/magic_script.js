@@ -1,5 +1,5 @@
 // scripts/magic_script.ts
-import { world as world61, system as system57, TicksPerSecond as TicksPerSecond54, ScriptEventSource } from "@minecraft/server";
+import { world as world62, system as system57, TicksPerSecond as TicksPerSecond54, ScriptEventSource } from "@minecraft/server";
 
 // scripts/items/weapon/shield/shieldEvent.ts
 import { system, Player as Player3, EntityComponentTypes as EntityComponentTypes2, EquipmentSlot as EquipmentSlot2 } from "@minecraft/server";
@@ -6034,7 +6034,8 @@ async function hollyField(player) {
       excludeFamilies: [
         "inanimate",
         "magic",
-        "arrow"
+        "arrow",
+        "monster"
       ],
       excludeTypes: [
         "item"
@@ -9815,6 +9816,7 @@ async function setPortalStand(magicObject, event) {
 }
 
 // scripts/block/BossSummonBlock.ts
+import { world as world56 } from "@minecraft/server";
 var BossSummonObjects = Object.freeze([
   {
     itemName: "kurokumaft:phoenix_summon",
@@ -9830,30 +9832,33 @@ var BossSummonObjects = Object.freeze([
 var BossSummonBlock = class {
   onStepOn(blockEvent) {
     let sumOb = BossSummonObjects.find((obj) => obj.itemName == blockEvent.block.typeId);
+    world56.sendMessage("BossSummonBlock");
     sumOb.func(sumOb, blockEvent);
   }
 };
 async function phoenixSummon(sumOb, blockEvent) {
   let block = blockEvent.block;
-  let state = block.permutation.getState("summon_check");
-  if (state) {
+  let state = block.permutation.getState("kurokumaft:summon_check");
+  world56.sendMessage(state + "");
+  if (state == 0) {
     let dimension = blockEvent.dimension;
+    world56.sendMessage(sumOb.entityName);
     dimension.spawnEntity(sumOb.entityName, { x: block.location.x + 0.5, y: block.location.y + 6, z: block.location.z + 0.5 });
-    block.setPermutation(block.permutation.withState("summon_check", 1));
+    block.setPermutation(block.permutation.withState("kurokumaft:summon_check", 1));
   }
 }
 async function fenrirSummon(sumOb, blockEvent) {
   let block = blockEvent.block;
-  let state = block.permutation.getState("summon_check");
-  if (state) {
+  let state = block.permutation.getState("kurokumaft:summon_check");
+  if (state == 0) {
     let dimension = blockEvent.dimension;
     dimension.spawnEntity(sumOb.entityName, { x: block.location.x + 0.5, y: block.location.y + 1, z: block.location.z + 0.5 });
-    block.setPermutation(block.permutation.withState("summon_check", 1));
+    block.setPermutation(block.permutation.withState("kurokumaft:summon_check", 1));
   }
 }
 
 // scripts/block/PortalGateBlock.ts
-import { world as world56 } from "@minecraft/server";
+import { world as world57 } from "@minecraft/server";
 var PortalGateObjects = Object.freeze([
   {
     itemName: "kurokumaft:magma_portal_gate",
@@ -9889,15 +9894,15 @@ async function portalGateTp(gateObj, blockEvent) {
     if (dimension.id == MinecraftDimensionTypes.Overworld) {
       let portal2 = dimension.getBlock({ x: location.x, y: location.y + 1, z: location.z });
       if (portal2 && (portal2.typeId == gateObj.gate.x || portal2.typeId == gateObj.gate.z)) {
-        if (world56.getDynamicProperty(gateObj.portalState) == 0) {
-          world56.setDynamicProperty(gateObj.portalState, 1);
+        if (world57.getDynamicProperty(gateObj.portalState) == 0) {
+          world57.setDynamicProperty(gateObj.portalState, 1);
           let zloca = gateObj.hellLocate.z;
           for (let x = 1; x <= 8; x++) {
             let xloca = gateObj.hellLocate.x;
             for (let z = 1; z <= 8; z++) {
-              world56.structureManager.place(
+              world57.structureManager.place(
                 gateObj.endName + "_" + x + "_" + z,
-                world56.getDimension(MinecraftDimensionTypes.TheEnd),
+                world57.getDimension(MinecraftDimensionTypes.TheEnd),
                 { x: xloca, y: 100, z: zloca }
               );
               xloca += 16;
@@ -9914,19 +9919,19 @@ async function portalGateTp(gateObj, blockEvent) {
           amplifier: 5
         });
         entity?.teleport({ x: gateObj.tpLocate.x, y: 130, z: gateObj.tpLocate.z }, {
-          dimension: world56.getDimension(MinecraftDimensionTypes.TheEnd)
+          dimension: world57.getDimension(MinecraftDimensionTypes.TheEnd)
         });
       }
     } else {
       let overLoc = entity?.getDynamicProperty("hell_tp_point");
       if (overLoc) {
         entity?.teleport(overLoc, {
-          dimension: world56.getDimension(MinecraftDimensionTypes.Overworld)
+          dimension: world57.getDimension(MinecraftDimensionTypes.Overworld)
         });
       } else {
         let player = entity;
         player?.teleport({ x: player.getSpawnPoint().x, y: player.getSpawnPoint().y, z: player.getSpawnPoint().z }, {
-          dimension: world56.getDimension(MinecraftDimensionTypes.Overworld)
+          dimension: world57.getDimension(MinecraftDimensionTypes.Overworld)
         });
       }
     }
@@ -9934,7 +9939,7 @@ async function portalGateTp(gateObj, blockEvent) {
 }
 
 // scripts/block/PortalBlock.ts
-import { world as world57 } from "@minecraft/server";
+import { world as world58 } from "@minecraft/server";
 var PortalObjects = Object.freeze([
   {
     itemName: "kurokumaft:magma_portal_x",
@@ -9955,7 +9960,7 @@ var PortalBlock = class {
 async function portalGateBreak(block, blockPermutation) {
   let portalObj = PortalObjects.find((obj) => obj.itemName == blockPermutation.type.id);
   if (portalObj) {
-    world57.setDynamicProperty(portalObj.portalState, 0);
+    world58.setDynamicProperty(portalObj.portalState, 0);
     for (let x = -2; x <= 2; x++) {
       for (let y = -2; y <= 2; y++) {
         let portal = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y + y, z: block.location.z });
@@ -9976,7 +9981,7 @@ async function portalGateBreak(block, blockPermutation) {
 }
 
 // scripts/items/food/RepatriationFruitMagic.ts
-import { EntityComponentTypes as EntityComponentTypes14, world as world58 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes14, world as world59 } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 var RepatriationFruitMagic = class {
   onConsume(event) {
@@ -10024,7 +10029,7 @@ async function home_tp(player, item) {
     let blockz = lores[3].substring(2);
     let homeDim;
     try {
-      homeDim = world58.getDimension(lores[4]);
+      homeDim = world59.getDimension(lores[4]);
     } catch (error) {
       homeDim = player.dimension;
     }
@@ -10546,22 +10551,40 @@ function initStateChangeMonitor(initEvent) {
   checkPlayerEquTick();
 }
 
+// scripts/mob/animal/FireChicken.ts
+import { EntityDamageCause as EntityDamageCause61 } from "@minecraft/server";
+async function fireChickenAttack(hitEntity) {
+  hitEntity.applyDamage(1, {
+    cause: EntityDamageCause61.fire
+  });
+  hitEntity.dimension.spawnParticle("kurokumaft:fox_frame", hitEntity.location);
+}
+
+// scripts/mob/animal/FlamePorcupine.ts
+import { EntityDamageCause as EntityDamageCause62 } from "@minecraft/server";
+async function flamePorcupineGuard(dameger) {
+  dameger.applyDamage(3, {
+    cause: EntityDamageCause62.fire
+  });
+  dameger.dimension.spawnParticle("kurokumaft:porcupine_pillar", dameger.location);
+}
+
 // scripts/magic_script.ts
 var guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
-world61.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world62.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initRegisterCustom(initEvent);
   initStateChangeMonitor(initEvent);
 });
-world61.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world62.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world61.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+world62.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   let entity = event.entity;
   if (event.eventId == "kurokumaft:explosion_guard_knockback") {
     shieldKnockback(entity);
   }
 });
-world61.afterEvents.entityHitEntity.subscribe((event) => {
+world62.afterEvents.entityHitEntity.subscribe((event) => {
   let dameger = event.damagingEntity;
   let hitEn = event.hitEntity;
   if (hitEn.typeId == "minecraft:player") {
@@ -10569,8 +10592,14 @@ world61.afterEvents.entityHitEntity.subscribe((event) => {
     shieldCounter(hitEn, dameger);
     hitMagicAmor(hitEn, dameger, void 0, void 0);
   }
+  if (dameger.typeId == "kurokumaft:fire_chicken") {
+    fireChickenAttack(hitEn);
+  }
+  if (hitEn.typeId == "kurokumaft:flame_porcupine") {
+    flamePorcupineGuard(dameger);
+  }
 });
-world61.afterEvents.projectileHitEntity.subscribe((event) => {
+world62.afterEvents.projectileHitEntity.subscribe((event) => {
   let projectileEn = event.projectile;
   let hitEn = event.getEntityHit().entity;
   let dameger = event.source;
@@ -10592,7 +10621,7 @@ world61.afterEvents.projectileHitEntity.subscribe((event) => {
     }
   }
 });
-world61.afterEvents.projectileHitBlock.subscribe((event) => {
+world62.afterEvents.projectileHitBlock.subscribe((event) => {
   let projectileEn = event.projectile;
   let dameger = event.source;
   if (projectileEn) {
@@ -10604,7 +10633,7 @@ world61.afterEvents.projectileHitBlock.subscribe((event) => {
     }
   }
 });
-world61.afterEvents.entityHurt.subscribe((event) => {
+world62.afterEvents.entityHurt.subscribe((event) => {
   let damageSource = event.damageSource;
   let hitEn = event.hurtEntity;
   if (hitEn != void 0 && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
@@ -10613,7 +10642,7 @@ world61.afterEvents.entityHurt.subscribe((event) => {
     }
   }
 });
-world61.afterEvents.itemReleaseUse.subscribe((event) => {
+world62.afterEvents.itemReleaseUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let duration = event.useDuration;
@@ -10627,7 +10656,7 @@ world61.afterEvents.itemReleaseUse.subscribe((event) => {
     isChargeed(player, item);
   }
 });
-world61.afterEvents.itemUseOn.subscribe((event) => {
+world62.afterEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
@@ -10636,13 +10665,13 @@ world61.afterEvents.itemUseOn.subscribe((event) => {
     waterCauldron(event);
   }
 });
-world61.beforeEvents.itemUseOn.subscribe((event) => {
+world62.beforeEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
   let blockFace = event.blockFace;
 });
-world61.afterEvents.blockExplode.subscribe((event) => {
+world62.afterEvents.blockExplode.subscribe((event) => {
   let block = event.block;
   if (block.typeId == "kurokumaft:magic_lectern") {
     magic_lectern_break(block, block.dimension);
@@ -10651,29 +10680,29 @@ world61.afterEvents.blockExplode.subscribe((event) => {
     portalGateBreak(block, event.explodedBlockPermutation);
   }
 });
-world61.beforeEvents.explosion.subscribe((event) => {
+world62.beforeEvents.explosion.subscribe((event) => {
   let impactBLockList = event.getImpactedBlocks();
   let filterBlockList = explodeBedrock(impactBLockList);
   event.setImpactedBlocks(filterBlockList);
 });
-world61.beforeEvents.playerBreakBlock.subscribe((event) => {
+world62.beforeEvents.playerBreakBlock.subscribe((event) => {
   let player = event.player;
   let block = event.block;
   if (player != void 0) {
   }
 });
-world61.afterEvents.entityLoad.subscribe((event) => {
+world62.afterEvents.entityLoad.subscribe((event) => {
   let entity = event.entity;
   if (entity.typeId == "kurokumaft:magic_brewing_stand") {
     let brewing_block = entity.dimension.getBlock(entity.location);
     new MagicBrewingStand(entity, brewing_block).checkPosionBrewTick();
   }
 });
-world61.afterEvents.entitySpawn.subscribe((event) => {
+world62.afterEvents.entitySpawn.subscribe((event) => {
   let entity = event.entity;
   let cause = event.cause;
 });
-world61.afterEvents.buttonPush.subscribe((event) => {
+world62.afterEvents.buttonPush.subscribe((event) => {
   let entity = event.source;
   let block = event.block;
   A:
@@ -10716,17 +10745,17 @@ system57.afterEvents.scriptEventReceive.subscribe((event) => {
               tags.forEach((tag) => {
                 if (tag.indexOf("team") != -1) {
                   player.removeTag(tag);
-                  world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+                  world62.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
                 }
               });
               player.addTag("team" + params[1]);
-              world61.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]] });
+              world62.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]] });
             } else if (params[0] == "remove") {
               let tags = player.getTags();
               tags.forEach((tag) => {
                 if (tag.indexOf("team") != -1) {
                   player.removeTag(tag);
-                  world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+                  world62.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
                 }
               });
             }
@@ -10744,17 +10773,17 @@ system57.afterEvents.scriptEventReceive.subscribe((event) => {
           tags.forEach((tag) => {
             if (tag.indexOf("team") != -1) {
               sourceEntity.removeTag(tag);
-              world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+              world62.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
             }
           });
           sourceEntity.addTag("team" + params[1]);
-          world61.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]] });
+          world62.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]] });
         } else if (params[0] == "remove") {
           let tags = sourceEntity.getTags();
           tags.forEach((tag) => {
             if (tag.indexOf("team") != -1) {
               sourceEntity.removeTag(tag);
-              world61.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
+              world62.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)] });
             }
           });
         }

@@ -1,31 +1,31 @@
 {
-    "format_version": "1.10.0",
-    "minecraft:client_entity": {
-      "description": {
-        "identifier": "kurokumaft:magic_enchant_table",
-        "materials": {
-            "default": "armor_stand"
-          },
-          "textures": {
-            "default": "textures/kurokumaft/blocks/magic_enchant_table"
-          },
-          "geometry": {
-            "default": "geometry.magic_enchant_table"
-          },
-          "animations": {
-            "set_on": "controller.animation.magicenchant.set_on",
-            "set": "animation.model.magic_table.set",
-            "state": "animation.model.magic_table.state"
-          },
-          "scripts": {
-            "animate": [
-              "set_on",
-              "set",
-              "state"
-            ]
-          },
-          "render_controllers": [ "controller.render.armor_stand" ]
-        }
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:magic_enchant_table",
+      "materials": {
+        "default": "armor_stand"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/blocks/magic_enchant_table"
+      },
+      "geometry": {
+        "default": "geometry.magic_enchant_table"
+      },
+      "animations": {
+        "set_on": "controller.animation.magicenchant.set_on",
+        "set": "animation.model.magic_table.set",
+        "state": "animation.model.magic_table.state"
+      },
+      "scripts": {
+        "animate": [
+          "set_on",
+          "set",
+          "state"
+        ]
+      },
+      "render_controllers": [ "controller.render.armor_stand" ]
     }
   }
+}
   

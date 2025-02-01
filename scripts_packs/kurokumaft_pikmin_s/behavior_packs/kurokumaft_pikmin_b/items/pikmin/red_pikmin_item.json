@@ -30,9 +30,6 @@
       "minecraft:display_name": {
         "value": "entity.kurokumaft:red_pikmin.name"
       }
-      
-    },
-    "events": {
     }
   }
 }

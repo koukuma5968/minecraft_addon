@@ -12,6 +12,11 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_kaminari.name"
 			},
+      "minecraft:tags": {
+        "tags": [
+          "regimental_kaminari"
+        ]
+      },
       "minecraft:icon": "nichirintou_kaminari",
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {

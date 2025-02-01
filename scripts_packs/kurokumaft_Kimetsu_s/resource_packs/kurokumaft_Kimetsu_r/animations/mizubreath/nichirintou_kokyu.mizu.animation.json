@@ -120,7 +120,7 @@
 			"particle_effects": {
 				"0.0": {
 					"effect": "mizu_awa_particle",
-					"locator": "mizu6"
+					"locator": "nichirintou_hold6"
 				}
 			}
 		},
@@ -152,19 +152,19 @@
 				"0.0": [
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "mizu3"
+						"locator": "nichirintou_hold3"
 					},
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "mizu4"
+						"locator": "nichirintou_hold4"
 					},
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "mizu5"
+						"locator": "nichirintou_hold5"
 					},
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "mizu6"
+						"locator": "nichirintou_hold6"
 					}
 				]
 			}

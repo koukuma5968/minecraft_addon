@@ -5,8 +5,6 @@
       "states": {
         "default": {
           "transitions": [
-            { "nichirintou_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou')" },
-            { "tanjiro_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tanjiro')" },
             { "zenitu_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_zenitu')" },
             { "inosuke_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_inosuke')" },
             { "kanawo_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kanawo')" },
@@ -32,27 +30,6 @@
             { "koi_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_koi')" },
             { "kaze_add": "query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_kaze')" }
 
-          ]
-        },
-        "nichirintou_add":{
-          "on_entry": [
-            "/event entity @s kurokumaft:nichirintou",
-            "/event entity @s variant0",
-            "/event entity @s mark_variant0"
-          ],
-          "transitions": [
-            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou')"}
-          ]
-        },
-        "tanjiro_add":{
-          "on_entry": [
-            "/titleraw @s actionbar {\"rawtext\":[{\"text\":\"§9水の呼吸 壱ノ型\"}]}",
-            "/event entity @s kurokumaft:nichirintou_tanjiro",
-            "/event entity @s variant1",
-            "/event entity @s mark_variant0"
-          ],
-          "transitions": [
-            {"variant_remove":"!query.is_item_name_any('slot.weapon.mainhand',0,'kurokumaft:nichirintou_tanjiro')"}
           ]
         },
         "zenitu_add":{

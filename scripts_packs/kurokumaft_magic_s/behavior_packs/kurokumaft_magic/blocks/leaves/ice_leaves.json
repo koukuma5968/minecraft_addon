@@ -16,10 +16,23 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1.2
 			},
+			"minecraft:loot": "loot_tables/blocks/leaves/ice_leaves.json",
+			"minecraft:geometry": "geometry.ice_leaves",
 			"minecraft:material_instances": {
-				"*": {
-					"render_method": "alpha_test"
-				}
+				"right": {
+					"texture": "ice_leaves_right",
+					"render_method": "blend"
+				},
+				"left": {
+					"texture": "ice_leaves_left",
+					"render_method": "blend"
+				},
+				"up": "left",
+				"down": "left",
+				"north": "right",
+				"south": "right",
+				"east": "right",
+				"west": "right"
 			},
 			"minecraft:light_dampening": 0
 		}

@@ -306,6 +306,10 @@ item.kurokumaft:apple_pie.name=アップルパイ
 
 item.kurokumaft:carrot_stew.name=ニンジンシチュー
 
+item.kurokumaft:cooked_rice.name=ご飯
+item.kurokumaft:beef_rice.name=牛丼
+item.kurokumaft:chicken_egg_rice.name=親子丼
+
 item.kurokumaft:miso_soup_no_ingredient.name=味噌汁(具なし)
 
 item.kurokumaft:apple_jam.name=リンゴジャム
@@ -314,25 +318,38 @@ item.kurokumaft:glow_berries_jam.name=グロウベリージャム
 
 item.kurokumaft:cheese.name=チーズ
 
-item.kurokumaft:chocolate.name=チョコレート
 tile.kurokumaft:chocolate_cake.name=チョコレートケーキ
-item.kurokumaft:chocolate_cake.name=チョコレートケーキ
 
+item.kurokumaft:chocolate.name=チョコレート
 item.kurokumaft:milk_chocolate.name=ミルクチョコレート
-
-tile.kurokumaft:onions.name=玉ねぎ
+item.kurokumaft:chocolate_cake.name=チョコレートケーキ
 
 item.kurokumaft:onion.name=玉ねぎ
 item.kurokumaft:soybean.name=大豆
 item.kurokumaft:green_soybean.name=枝豆
 item.kurokumaft:malt.name=麹
 item.kurokumaft:salt.name=塩
+item.kurokumaft:olive_green.name=オリーブ（未熟）
+item.kurokumaft:olive.name=オリーブ（完熟）
+item.kurokumaft:olive_oil.name=オリーブオイル
+item.kurokumaft:dirty_oil.name=汚れた油
+item.kurokumaft:rice_plant.name=稲
+item.kurokumaft:seeds_rice_plant.name=稲の種子
+item.kurokumaft:rice.name=米
+item.kurokumaft:Beef_bowl.name=牛丼
+
+item.kurokumaft:fried_chicken.name=フライドチキン
+item.kurokumaft:pork_cutlet.name=とんかつ
+item.kurokumaft:french_fries.name=フライドポテト
 
 tile.kurokumaft:onions.name=玉ねぎ
 tile.kurokumaft:soybean.name=大豆
+tile.kurokumaft:olive_tree.name=オリーブの木
+tile.kurokumaft:rice_plant.name=稲
 
 item.kurokumaft:wooden_bucket_empty.name=木桶
 item.kurokumaft:wooden_bucket_miso.name=味噌入り木桶
+item.kurokumaft:wooden_bucket_soy_sauce.name=醤油入り木桶
 item.kurokumaft:soup_bowl.name=汁椀
 
 tile.kurokumaft:kitchen_table.name=調理台
@@ -350,6 +367,9 @@ tear_enchant.mess.cancelsend=キャンセルしました。
 tear_enchant.mess.ok=エンチャントを取り除く
 tear_enchant.mess.cancel=キャンセル
 tear_enchant.mess.confirm=確認
+
+tile.kurokumaft:fryer.name=フライヤー
+tile.kurokumaft:earthenware_pot.name=土鍋
 
 item.kurokumaft:wolf_fur.name=オオカミの毛皮
 item.kurokumaft:fox_fur.name=キツネの毛皮

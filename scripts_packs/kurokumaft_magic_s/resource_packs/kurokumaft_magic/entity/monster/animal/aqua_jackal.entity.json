@@ -1,0 +1,46 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:aqua_jackal",
+      "materials": {
+        "default": "ocelot"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/aqua_jackal"
+      },
+      "geometry": {
+        "default": "geometry.aqua_jackal"
+      },
+      "particle_effects": {
+        "jackal_tail": "kurokumaft:jackal_tail"
+      },
+      "animations": {
+        "sneak": "animation.aqua_jackal.sneak",
+        "walk": "animation.aqua_jackal.walk",
+        "sprint": "animation.aqua_jackal.sprint",
+        "sit": "animation.aqua_jackal.sit",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.aqua_jackal.baby_transform"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.aqua_jackal.move"
+        },
+        {
+          "baby": "controller.animation.aqua_jackal.baby"
+        },
+        {
+          "look_at_target": "controller.animation.aqua_jackal.look_at_target"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.aqua_jackal"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 16
+      }
+    }
+  }
+}

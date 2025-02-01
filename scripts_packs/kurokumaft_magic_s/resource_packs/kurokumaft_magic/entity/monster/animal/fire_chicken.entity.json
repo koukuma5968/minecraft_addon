@@ -1,0 +1,48 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:fire_chicken",
+      "materials": {
+        "default": "chicken",
+        "legs": "chicken_legs"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/fire_chicken"
+      },
+      "geometry": {
+        "default": "geometry.fire_chicken"
+      },
+      "particle_effects": {
+        "flame": "kurokumaft:fox_frame",
+        "mobflame": "kurokumaft:fox_firing"
+      },
+      "animations": {
+        "move": "animation.fire_chicken.move",
+        "general": "animation.fire_chicken.general",
+        "look_at_target": "animation.common.look_at_target",
+        "flame": "animation.fire_chicken.fire"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.wing_flap = 0;"
+        ],
+        "animate": [
+          "flame",
+          "general",
+          {
+            "move": "query.modified_move_speed"
+          },
+          "look_at_target"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.chicken"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 0
+      }
+    }
+  }
+}

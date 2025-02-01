@@ -28,6 +28,7 @@ import { KekkizyutuHakaisatu } from "../item/weapon/kekkizyutu/KekkizyutuHakaisa
 import { KekkizyutuKoushi } from "../item/weapon/kekkizyutu/KekkizyutuKoushi";
 import { KekkizyutuTigama } from "../item/weapon/kekkizyutu/KekkizyutuTigama";
 import { KekkizyutuUltrasonic } from "../item/weapon/kekkizyutu/KekkizyutuUltrasonic";
+import { checkPlayerEquTick } from "../player/EquipmentTick";
 
 /**
  * カスタムコンポーネントの登録
@@ -70,9 +71,16 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:kekkizyutu_ultrasonic', new KekkizyutuUltrasonic());
 
     // ブロック類
-    // トーチライトブロック
 //    initEvent.blockComponentRegistry.registerCustomComponent('kurokumaft:torchlight_block', new TorchlightBlock());
 
 }
 
-export {initRegisterCustom}
+/**
+ * 監視スレッドの登録
+ * @param {WorldInitializeBeforeEvent} initEvent
+ */
+function initStateChangeMonitor(initEvent:WorldInitializeBeforeEvent) {
+    checkPlayerEquTick();
+}
+
+export {initRegisterCustom, initStateChangeMonitor}

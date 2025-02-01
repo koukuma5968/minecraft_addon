@@ -1,0 +1,49 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:frost_owl",
+      "materials": {
+        "default": "parrot"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/animal/frost_owl"
+      },
+      "geometry": {
+        "default": "geometry.frost_owl"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.state = query.is_dancing ? 3 : (query.is_sitting ? 2 : (!query.is_on_ground && !query.is_jumping && !query.is_riding ? 0 : 1));",
+          "variable.dance.x = Math.cos(query.life_time * 57.3 * 20.0);",
+          "variable.dance.y = -Math.sin(query.life_time * 57.3 * 20.0);",
+          "variable.wing_flap = ((math.sin(query.wing_flap_position * 57.3) + 1) * query.wing_flap_speed);"
+        ]
+      },
+      "animations": {
+        "moving": "animation.frost_owl.moving",
+        "base": "animation.frost_owl.base",
+        "dance": "animation.frost_owl.dance",
+        "sitting": "animation.frost_owl.sitting",
+        "flying": "animation.frost_owl.flying",
+        "standing": "animation.frost_owl.standing",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "animation_controllers": [
+        {
+          "setup": "controller.animation.frost_owl.setup"
+        },
+        {
+          "move": "controller.animation.frost_owl.move"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.frost_owl"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 43
+      }
+    }
+  }
+}

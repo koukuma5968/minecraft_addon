@@ -1,5 +1,5 @@
 // scripts/sample_script.ts
-import { EntityInitializationCause, ItemStack as ItemStack9, Player as Player6, system as system2, world as world2 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes6, EntityInitializationCause, ItemStack as ItemStack9, Player as Player7, system as system2, world as world2 } from "@minecraft/server";
 
 // scripts/item/ItemDurability.ts
 import { EntityComponentTypes, EquipmentSlot, ItemComponentTypes } from "@minecraft/server";
@@ -3327,173 +3327,25 @@ async function tntBreak(attackEntity, itemStack, location) {
 import { EquipmentSlot as EquipmentSlot7 } from "@minecraft/server";
 
 // scripts/common/ShooterPoints.ts
-async function shooting(player, throwItem, ranNum, seepd, event) {
-  let { xapply, yapply, zapply, xlocation, ylocation, zlocation } = getAdjacentSphericalPoints(player.getRotation(), player.location);
-  let bulet = player.dimension.spawnEntity(
-    throwItem,
-    {
-      x: xlocation + ranNum.x,
-      y: ylocation + ranNum.y,
-      z: zlocation + ranNum.z
-    }
-  );
+import { EntityComponentTypes as EntityComponentTypes5 } from "@minecraft/server";
+function shooting(player, throwItem, ranNum, seepd, event) {
+  let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
   if (event) {
     bulet.triggerEvent(event);
   }
-  bulet.applyImpulse({ x: xapply * seepd, y: yapply * seepd, z: zapply * seepd });
+  let projectile = bulet.getComponent(EntityComponentTypes5.Projectile);
+  projectile.owner = player;
+  projectile.shoot(
+    {
+      x: player.getViewDirection().x * seepd,
+      y: player.getViewDirection().y * seepd,
+      z: player.getViewDirection().z * seepd
+    },
+    {
+      uncertainty: ranNum
+    }
+  );
   return bulet;
-}
-function getAdjacentSphericalPoints(rotation, location) {
-  let r = 1.5;
-  let piNum = 75;
-  let xapply;
-  let yapply;
-  let zapply;
-  let xlocation;
-  let ylocation;
-  let zlocation;
-  if (rotation.y >= -90 && rotation.y < 0) {
-    let yRotax = -rotation.y / piNum;
-    let yRotaz = (rotation.y + 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y >= 0 && rotation.y <= 90) {
-    let yRotax = rotation.y / piNum;
-    let yRotaz = -(rotation.y - 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      if (rotation.y >= 45) {
-        xlocation = location.x - yRotax * xRota * 1.75;
-      } else {
-        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
-      }
-      xapply = -(yRotax * xRota);
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y >= 45) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      if (rotation.y >= 45) {
-        xlocation = location.x - yRotax * xRota * 1.75;
-      } else {
-        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
-      }
-      xapply = -(yRotax * xRota);
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y >= 45) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y < -90 && rotation.y > -180) {
-    let yRotax = (rotation.y + 180) / piNum;
-    let yRotaz = (rotation.y + 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y > 90 && rotation.y <= 180) {
-    let yRotax = -(rotation.y - 180) / piNum;
-    let yRotaz = -(rotation.y - 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x - yRotax * xRota * 1.75;
-      xapply = -(yRotax * xRota);
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      if (rotation.y <= 135) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x - yRotax * xRota * 1.75;
-      xapply = -(yRotax * xRota);
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y <= 135) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    }
-  }
-  return { xapply, yapply, zapply, xlocation, ylocation, zlocation };
 }
 
 // scripts/item/EchoSword.ts
@@ -3514,7 +3366,7 @@ var EchoSword = class {
   }
 };
 async function sonicBullet(player) {
-  shooting(player, "kurokumaft:sonic_bullet", { x: 0, y: 0, z: 0 }, 5, void 0);
+  shooting(player, "kurokumaft:sonic_bullet", 0, 5, void 0);
   player.runCommandAsync('/titleraw @s actionbar {"rawtext": [{"translate": "mess.kurokumaft:echo_sword.sonic_bullet"}]}');
 }
 
@@ -3533,71 +3385,60 @@ world2.beforeEvents.worldInitialize.subscribe((initEvent) => {
     }
   });
 });
-world2.afterEvents.blockExplode.subscribe((event) => {
-  world2.sendMessage("blockExplode");
-});
-world2.afterEvents.buttonPush.subscribe((event) => {
-  world2.sendMessage("buttonPush");
-});
 world2.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
-  world2.sendMessage("dataDrivenEntityTrigger");
-  world2.sendMessage(event.eventId);
-});
-world2.afterEvents.effectAdd.subscribe((event) => {
-  world2.sendMessage("effectAdd");
-});
-world2.afterEvents.entityDie.subscribe((event) => {
-  world2.sendMessage("entityDie");
-});
-world2.afterEvents.entityHealthChanged.subscribe((event) => {
-  world2.sendMessage("entityHealthChanged");
-});
-world2.afterEvents.entityHitBlock.subscribe((event) => {
-  world2.sendMessage("entityHitBlock");
-});
-world2.afterEvents.entityHitEntity.subscribe((event) => {
-  world2.sendMessage("entityHitEntity");
-});
-world2.afterEvents.entityHurt.subscribe((event) => {
-  world2.sendMessage("entityHurt");
-});
-world2.afterEvents.entityLoad.subscribe((event) => {
-  world2.sendMessage("entityLoad");
+  if (event.eventId == "kurokumaft:stop_riding") {
+    let entity = event.entity;
+    if (entity.typeId == "kurokumaft:owl") {
+      let ride = entity.getComponent(EntityComponentTypes6.Riding);
+      if (ride != void 0) {
+        let player = ride.entityRidingOn;
+        if (player.isFalling && !entity.getDynamicProperty("fallingOwner")) {
+          entity.setDynamicProperty("fallingOwner", true);
+          system2.runTimeout(() => {
+            if (player.isFalling) {
+              event.entity.runCommand("ride @s stop_riding");
+            }
+            let num = system2.runInterval(() => {
+              if (!entity.isValid()) {
+                system2.clearRun(num);
+              } else if (player.isOnGround) {
+                entity.setDynamicProperty("fallingOwner", false);
+                system2.clearRun(num);
+              }
+            }, 2);
+          }, 10);
+        }
+      }
+    }
+  }
+  if (event.eventId == "minecraft:on_tame") {
+    let entity = event.entity;
+    if (entity.typeId == "kurokumaft:owl") {
+      entity.setDynamicProperty("fallingOwner", false);
+    }
+  }
 });
 world2.beforeEvents.entityRemove.subscribe((event) => {
   let removedEntity = event.removedEntity;
   removeArrow(removedEntity);
   removeSpear(removedEntity);
 });
-world2.afterEvents.entityRemove.subscribe((event) => {
-  world2.sendMessage("entityRemove");
-});
 world2.afterEvents.entitySpawn.subscribe((event) => {
-  world2.sendMessage("entitySpawn");
   let entity = event.entity;
   let cause = event.cause;
   if (cause == "Born") {
     let mess = { translate: "mess.entity_spawn.Born", with: [entity.typeId] };
-    world2.sendMessage(mess);
   } else if (cause == "Transformed") {
     let mess = { translate: "mess.entity_spawn.Transformed", with: [entity.typeId] };
-    world2.sendMessage(mess);
+  }
+  if (entity.typeId == "kurokumaft:owl") {
+    entity.nameTag = "\u30D5\u30AF\u30ED\u30A6";
   }
   if (EntityInitializationCause.Spawned == cause) {
     spawnSpear(entity);
   }
 });
-world2.afterEvents.explosion.subscribe((event) => {
-  world2.sendMessage("explosion");
-});
-world2.afterEvents.gameRuleChange.subscribe((event) => {
-  world2.sendMessage("gameRuleChange");
-});
-world2.afterEvents.itemCompleteUse.subscribe((event) => {
-  world2.sendMessage("itemCompleteUse");
-});
 world2.afterEvents.itemReleaseUse.subscribe((event) => {
-  world2.sendMessage("itemCompleteUse");
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -3606,14 +3447,7 @@ world2.afterEvents.itemReleaseUse.subscribe((event) => {
     }
   }
 });
-world2.afterEvents.itemStartUse.subscribe((event) => {
-  world2.sendMessage("itemStartUse");
-});
-world2.afterEvents.itemStartUseOn.subscribe((event) => {
-  world2.sendMessage("itemStartUseOn");
-});
 world2.afterEvents.itemStopUse.subscribe((event) => {
-  world2.sendMessage("itemStopUse");
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -3622,77 +3456,21 @@ world2.afterEvents.itemStopUse.subscribe((event) => {
     }
   }
 });
-world2.afterEvents.itemStopUseOn.subscribe((event) => {
-  world2.sendMessage("itemStopUseOn");
-});
-world2.afterEvents.itemUse.subscribe((event) => {
-  world2.sendMessage("itemUse");
-});
-world2.afterEvents.itemUseOn.subscribe((event) => {
-  world2.sendMessage("itemUseOn");
-});
-world2.afterEvents.leverAction.subscribe((event) => {
-  world2.sendMessage("leverAction");
-});
-world2.afterEvents.pistonActivate.subscribe((event) => {
-  world2.sendMessage("pistonActivate");
-});
-world2.afterEvents.playerBreakBlock.subscribe((event) => {
-  world2.sendMessage("playerBreakBlock");
-});
-world2.afterEvents.playerDimensionChange.subscribe((event) => {
-  world2.sendMessage("playerDimensionChange");
-});
-world2.afterEvents.playerEmote.subscribe((event) => {
-  world2.sendMessage("playerEmote");
-});
-world2.afterEvents.playerGameModeChange.subscribe((event) => {
-  world2.sendMessage("playerGameModeChange");
-});
-world2.afterEvents.playerInputPermissionCategoryChange.subscribe((event) => {
-  world2.sendMessage("playerInputPermissionCategoryChange");
-});
-world2.afterEvents.playerJoin.subscribe((event) => {
-  world2.sendMessage("playerJoin");
-});
-world2.afterEvents.playerLeave.subscribe((event) => {
-  world2.sendMessage("playerLeave");
-});
-world2.afterEvents.playerPlaceBlock.subscribe((event) => {
-  world2.sendMessage("playerPlaceBlock");
-});
-world2.afterEvents.playerSpawn.subscribe((event) => {
-  world2.sendMessage("playerSpawn");
-});
-world2.afterEvents.pressurePlatePop.subscribe((event) => {
-  world2.sendMessage("pressurePlatePop");
-});
 world2.afterEvents.projectileHitBlock.subscribe((event) => {
-  world2.sendMessage("projectileHitBlock");
   let projectileEn = event.projectile;
   let source = event.source;
-  if (source != void 0 && source instanceof Player6) {
+  if (source != void 0 && source instanceof Player7) {
     hitSpear(source, projectileEn);
   }
 });
 world2.afterEvents.projectileHitEntity.subscribe((event) => {
-  world2.sendMessage("projectileHitEntity");
   let projectileEn = event.projectile;
   let source = event.source;
   let hitEn = event.getEntityHit().entity;
   let hitVector = event.hitVector;
-  if (source != void 0 && source instanceof Player6) {
+  if (source != void 0 && source instanceof Player7) {
     hitSpear(source, projectileEn);
   }
-});
-world2.afterEvents.targetBlockHit.subscribe((event) => {
-  world2.sendMessage("targetBlockHit");
-});
-world2.afterEvents.tripWireTrip.subscribe((event) => {
-  world2.sendMessage("tripWireTrip");
-});
-world2.afterEvents.weatherChange.subscribe((event) => {
-  world2.sendMessage("weatherChange");
 });
 async function removeArrow(removedEntity) {
   if (removedEntity.typeId.indexOf("arrow") == -1) {
@@ -3705,10 +3483,8 @@ async function removeArrow(removedEntity) {
   }, 2);
 }
 world2.afterEvents.playerInteractWithEntity.subscribe((event) => {
-  world2.sendMessage("playerInteractWithEntity");
   let beforeItemStack = event.beforeItemStack;
   let target = event.target;
-  world2.sendMessage(target.typeId);
 });
 
 //# sourceMappingURL=../debug/sample_script.js.map

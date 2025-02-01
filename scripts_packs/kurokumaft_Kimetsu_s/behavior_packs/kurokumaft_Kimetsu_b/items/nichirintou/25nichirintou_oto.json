@@ -12,6 +12,11 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nichirintou_oto.name"
 			},
+      "minecraft:tags": {
+        "tags": [
+          "regimental_oto"
+        ]
+      },
       "minecraft:icon": "nichirintou_oto",
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {

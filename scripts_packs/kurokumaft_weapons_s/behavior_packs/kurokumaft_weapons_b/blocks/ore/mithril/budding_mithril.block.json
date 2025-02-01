@@ -18,6 +18,13 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 10
 			},
+            "minecraft:geometry": "geometry.mithril_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "mithril_block",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:tick": {
 				"interval_range": [180, 520]
 			},

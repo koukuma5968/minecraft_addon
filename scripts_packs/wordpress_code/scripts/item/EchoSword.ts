@@ -27,7 +27,7 @@ export class EchoSword implements ItemCustomComponent {
 
 async function sonicBullet(player:Player) {
     // 自分の目線の方向に射出する（「shooter」eventの代わり）
-    shooting(player, "kurokumaft:sonic_bullet", {x:0,y:0,z:0}, 5, undefined);
+    shooting(player, "kurokumaft:sonic_bullet", 0, 5, undefined);
     // langファイルを利用したメッセージの表示
     player.runCommandAsync("/titleraw @s actionbar {\"rawtext\": [{\"translate\": \"mess.kurokumaft:echo_sword.sonic_bullet\"}]}");
 }

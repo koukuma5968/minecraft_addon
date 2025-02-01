@@ -16,6 +16,13 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 30
 			},
+            "minecraft:geometry": "geometry.chromium_ore",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "chromium_ore",
+                    "render_method": "alpha_test"
+                }
+			},
 			"minecraft:loot": "loot_tables/blocks/ore/chromium_ore.json",
 			"minecraft:map_color": "#727578",
 			"minecraft:custom_components": [

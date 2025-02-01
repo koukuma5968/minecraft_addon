@@ -1,0 +1,93 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.nichirintou.person": {
+			"states": {
+				"default": {
+					"animations": ["first"],
+					"transitions": [
+						{"third": "!c.is_first_person"}
+					]
+				},
+				"third": {
+					"animations": ["third"],
+					"transitions": [
+						{"default": "c.is_first_person"}
+					]
+				}
+			}
+		},
+		"controller.animation.nichirintou.attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack": {
+					"animations": [
+						{"nichirintou_attack": "!variable.is_first_person"}
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.nichirintou.two_attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack": {
+					"animations": [
+						{"nichirintou_two_attack": "!variable.is_first_person"}
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.nichirintou.zyuu_attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack": {
+					"animations": [
+						{"zyuu_attack": "!variable.is_first_person"}
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.nichirintou.attack_horizontality": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack": "variable.attack_time"}
+					]
+				},
+				"attack": {
+					"animations": [
+						{"nichirintou_attack_horizontality": "!variable.is_first_person"}
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				}
+			}
+		}
+	}
+}

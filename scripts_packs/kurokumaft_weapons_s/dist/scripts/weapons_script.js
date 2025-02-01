@@ -1,5 +1,5 @@
 // scripts/weapons_script.ts
-import { world as world18, Player as Player44, EquipmentSlot as EquipmentSlot36, EntityComponentTypes as EntityComponentTypes20, EntityInitializationCause } from "@minecraft/server";
+import { world as world19, Player as Player47, EquipmentSlot as EquipmentSlot41, EntityComponentTypes as EntityComponentTypes25, EntityInitializationCause } from "@minecraft/server";
 
 // scripts/common/commonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -3569,11 +3569,7 @@ async function shooting(player, throwItem, ranNum, seepd, event) {
   let projectile = bulet.getComponent(EntityComponentTypes6.Projectile);
   projectile.owner = player;
   projectile.shoot(
-    {
-      x: player.getViewDirection().x * seepd,
-      y: player.getViewDirection().y * seepd,
-      z: player.getViewDirection().z * seepd
-    },
+    player.getViewDirection(),
     {
       uncertainty: ranNum
     }
@@ -4264,6 +4260,7 @@ var Gatling = class {
 };
 async function shotGatling(player, item) {
   player.setDynamicProperty("gatlingShot", true);
+  player.setProperty("kurokumaft:gun_shot", true);
   let count = 0;
   let shot = 1;
   let intervalNum = system5.runInterval(() => {
@@ -4290,6 +4287,7 @@ async function shotGatling(player, item) {
 }
 async function stopGatling(player) {
   let eventNum = player.getDynamicProperty("gatlingShotEventNum");
+  player.setProperty("kurokumaft:gun_shot", false);
   player.setDynamicProperty("gatlingShot", void 0);
   player.setDynamicProperty("gatlingShotEventNum", void 0);
   system5.clearRun(eventNum);
@@ -5233,7 +5231,29 @@ var PlantsGrowth = class {
     let block = event.block;
     let growth = block.permutation.getState("kurokumaft:growth");
     if (growth < 7) {
-      block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
+      let growthUp = false;
+      if (block.typeId == "kurokumaft:rice_plant") {
+        for (let x = -1; x <= 1; x++) {
+          for (let z = -1; z <= 1; z++) {
+            let side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y, z: block.location.z + z });
+            if (side.typeId == MinecraftBlockTypes.Water) {
+              growthUp = true;
+            }
+          }
+        }
+      } else {
+        for (let x = -4; x <= 4; x++) {
+          for (let z = -4; z <= 4; z++) {
+            let side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y - 1, z: block.location.z + z });
+            if (side.typeId == MinecraftBlockTypes.Water) {
+              growthUp = true;
+            }
+          }
+        }
+      }
+      if (growthUp) {
+        block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
+      }
     }
   }
   onPlayerInteract(event) {
@@ -5244,9 +5264,31 @@ var PlantsGrowth = class {
       let block = event.block;
       let growth = block.permutation.getState("kurokumaft:growth");
       if (growth < 7) {
-        block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
-        event.dimension.spawnParticle("minecraft:crop_growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
-        subtractionItem(player, itemStack, EquipmentSlot30.Mainhand, 1);
+        let growthUp = false;
+        if (block.typeId == "kurokumaft:rice_plant") {
+          for (let x = -1; x <= 1; x++) {
+            for (let z = -1; z <= 1; z++) {
+              let side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y, z: block.location.z + z });
+              if (side.typeId == MinecraftBlockTypes.Water) {
+                growthUp = true;
+              }
+            }
+          }
+        } else {
+          for (let x = -4; x <= 4; x++) {
+            for (let z = -4; z <= 4; z++) {
+              let side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y - 1, z: block.location.z + z });
+              if (side.typeId == MinecraftBlockTypes.Water) {
+                growthUp = true;
+              }
+            }
+          }
+        }
+        if (growthUp) {
+          block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
+          event.dimension.spawnParticle("minecraft:crop_growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
+          subtractionItem(player, itemStack, EquipmentSlot30.Mainhand, 1);
+        }
       }
     }
   }
@@ -5839,11 +5881,39 @@ var CopperBucket = class {
     }
   }
   onUse(event) {
+    let source = event.source;
+    let itemStack = event.itemStack;
+    let cow = source.dimension.getEntities({
+      closest: 1,
+      location: source.location,
+      maxDistance: 3.5,
+      type: MinecraftEntityTypes.Cow
+    });
+    if (cow != void 0 && cow.length > 0) {
+      let equippable = source.getComponent(EntityComponentTypes19.Equippable);
+      let inventory = source.getComponent(EntityComponentTypes19.Inventory);
+      let bucketMilk = new ItemStack44("kurokumaft:copper_bucket_milk", 1);
+      let remaining = itemStack.amount - 1;
+      if (remaining <= 0) {
+        equippable.setEquipment(EquipmentSlot35.Mainhand, void 0);
+        equippable.setEquipment(EquipmentSlot35.Mainhand, bucketMilk);
+      } else {
+        itemStack.amount -= 1;
+        equippable.setEquipment(EquipmentSlot35.Mainhand, itemStack);
+        let container = inventory.container;
+        if (container.emptySlotsCount == 0) {
+          let point = getLookPoints(source.getRotation(), source.location, 1);
+          source.dimension.spawnItem(bucketMilk, point);
+        } else {
+          container.addItem(bucketMilk);
+        }
+      }
+    }
   }
 };
 
 // scripts/items/bucket/CopperBucketLava.ts
-import { Direction as Direction4, BlockPermutation as BlockPermutation12 } from "@minecraft/server";
+import { ItemStack as ItemStack45, Direction as Direction4, BlockPermutation as BlockPermutation12, EntityComponentTypes as EntityComponentTypes20, EquipmentSlot as EquipmentSlot36 } from "@minecraft/server";
 var CopperBucketLava = class {
   onUseOn(event) {
     let copper_bucket = event.itemStack;
@@ -5868,20 +5938,27 @@ var CopperBucketLava = class {
     if (faceBlock == void 0) {
       return;
     }
+    let bucket = new ItemStack45("kurokumaft:copper_bucket", 1);
+    let equippable = player.getComponent(EntityComponentTypes20.Equippable);
+    equippable.setEquipment(EquipmentSlot36.Mainhand, bucket);
     faceBlock.setPermutation(BlockPermutation12.resolve(MinecraftBlockTypes.Lava, { liquid_depth: 0 }));
   }
 };
 
 // scripts/items/bucket/CopperBucketMilk.ts
+import { EntityComponentTypes as EntityComponentTypes21, EquipmentSlot as EquipmentSlot37, ItemStack as ItemStack46 } from "@minecraft/server";
 var CopperBucketMilk = class {
   onConsume(event) {
     let player = event.source;
     player.runCommand("/effect " + player.nameTag + " clear");
+    let bucket = new ItemStack46("kurokumaft:copper_bucket", 1);
+    let equippable = player.getComponent(EntityComponentTypes21.Equippable);
+    equippable.setEquipment(EquipmentSlot37.Mainhand, bucket);
   }
 };
 
 // scripts/items/bucket/CopperBucketWater.ts
-import { Direction as Direction5, BlockPermutation as BlockPermutation13 } from "@minecraft/server";
+import { Direction as Direction5, BlockPermutation as BlockPermutation13, ItemStack as ItemStack47, EntityComponentTypes as EntityComponentTypes22, EquipmentSlot as EquipmentSlot38 } from "@minecraft/server";
 var CopperBucketWater = class {
   onUseOn(event) {
     let player = event.source;
@@ -5905,9 +5982,112 @@ var CopperBucketWater = class {
     if (faceBlock == void 0) {
       return;
     }
+    let bucket = new ItemStack47("kurokumaft:copper_bucket", 1);
+    let equippable = player.getComponent(EntityComponentTypes22.Equippable);
+    equippable.setEquipment(EquipmentSlot38.Mainhand, bucket);
     faceBlock.setPermutation(BlockPermutation13.resolve(MinecraftBlockTypes.Water, { liquid_depth: 0 }));
   }
 };
+
+// scripts/block/plants/OliveGrowth.ts
+import { EntityComponentTypes as EntityComponentTypes23, EquipmentSlot as EquipmentSlot39, ItemStack as ItemStack48 } from "@minecraft/server";
+var OliveGrowth = class {
+  onTick(event) {
+    let block = event.block;
+    let growth = block.permutation.getState("kurokumaft:growth");
+    if (growth < 3) {
+      block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
+    }
+  }
+  onPlayerInteract(event) {
+    let player = event.player;
+    let equ = player.getComponent(EntityComponentTypes23.Equippable);
+    let itemStack = equ.getEquipment(EquipmentSlot39.Mainhand);
+    let block = event.block;
+    let growth = block.permutation.getState("kurokumaft:growth");
+    if (itemStack != void 0 && itemStack.typeId.indexOf("meal") != -1) {
+      if (growth < 3) {
+        block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
+        event.dimension.spawnParticle("minecraft:crop_growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
+        subtractionItem(player, itemStack, EquipmentSlot39.Mainhand, 1);
+      }
+    } else {
+      if (growth == 2) {
+        block.setPermutation(block.permutation.withState("kurokumaft:growth", 1));
+        block.dimension.spawnItem(new ItemStack48("kurokumaft:olive_green", 2), block.location);
+      }
+    }
+    if (growth == 3) {
+      block.setPermutation(block.permutation.withState("kurokumaft:growth", 1));
+      block.dimension.spawnItem(new ItemStack48("kurokumaft:olive", 2), block.location);
+    }
+  }
+};
+
+// scripts/block/Fryer.ts
+import { EntityComponentTypes as EntityComponentTypes24, ItemStack as ItemStack49, EquipmentSlot as EquipmentSlot40 } from "@minecraft/server";
+var FlyItems = Object.freeze([
+  {
+    "item": MinecraftItemTypes.Chicken,
+    "flyItem": "kurokumaft:fried_chicken"
+  },
+  {
+    "item": MinecraftItemTypes.Porkchop,
+    "flyItem": "kurokumaft:pork_cutlet"
+  },
+  {
+    "item": MinecraftItemTypes.Potato,
+    "flyItem": "kurokumaft:french_fries"
+  }
+]);
+var Fryer = class {
+  onPlayerInteract(event) {
+    let player = event.player;
+    let block = event.block;
+    let equ = player.getComponent(EntityComponentTypes24.Equippable);
+    let itemStack = equ.getEquipment(EquipmentSlot40.Mainhand);
+    if (itemStack != void 0) {
+      if (block.matches("kurokumaft:fryer", { "kurokumaft:oil_type": "empty" })) {
+        setOilType(equ, itemStack, block);
+      } else {
+        deepFlyEat(player, equ, itemStack, block);
+      }
+    }
+  }
+};
+async function setOilType(equ, item, block) {
+  if (item.typeId == "kurokumaft:olive_oil") {
+    equ.setEquipment(EquipmentSlot40.Mainhand, new ItemStack49(MinecraftItemTypes.GlassBottle, 1));
+    block.setPermutation(block.permutation.withState("kurokumaft:oil_type", "olive"));
+  }
+}
+async function deepFlyEat(player, equ, item, block) {
+  let count = block.permutation.getState("kurokumaft:oil_count");
+  if (count < 10) {
+    if (block.matches("kurokumaft:fryer", { "kurokumaft:oil_type": "olive" })) {
+      let flyItem = FlyItems.find((obj) => obj.item == item.typeId);
+      if (flyItem != void 0) {
+        let fried = new ItemStack49(flyItem.flyItem, 1);
+        if (item.amount == 1) {
+          equ.setEquipment(EquipmentSlot40.Mainhand, fried);
+        } else {
+          block.dimension.spawnItem(fried, { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
+          subtractionItem(player, item, EquipmentSlot40.Mainhand, 1);
+        }
+      }
+    }
+    block.setPermutation(block.permutation.withState("kurokumaft:oil_count", count + 1));
+    if (count + 1 == 10) {
+      block.setPermutation(block.permutation.withState("kurokumaft:oil_type", "dirty"));
+    }
+  } else {
+    if (item.typeId == MinecraftItemTypes.GlassBottle) {
+      equ.setEquipment(EquipmentSlot40.Mainhand, new ItemStack49("kurokumaft:dirty_oil", 1));
+      block.setPermutation(block.permutation.withState("kurokumaft:oil_count", 0));
+      block.setPermutation(block.permutation.withState("kurokumaft:oil_type", "empty"));
+    }
+  }
+}
 
 // scripts/custom/CustomComponentRegistry.ts
 function initRegisterCustom(initEvent) {
@@ -5957,49 +6137,51 @@ function initRegisterCustom(initEvent) {
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:mithril_bud_growth", new MithrilBudGrowth());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:fortune_destroy", new FortuneDestroy());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:plants_growth", new PlantsGrowth());
+  initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:olive_growth", new OliveGrowth());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:bakutiku_flint", new BakutikuFlint());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:bakutiku_fire", new BakutikuFire());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:tear_enchant", new TearEnchant());
+  initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:fryer", new Fryer());
 }
 function initStateChangeMonitor(initEvent) {
   checkPlayerEquTick();
 }
 
 // scripts/weapons_script.ts
-world18.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world19.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initRegisterCustom(initEvent);
   initStateChangeMonitor(initEvent);
 });
-world18.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world19.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world18.beforeEvents.itemUseOn.subscribe((event) => {
+world19.beforeEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world18.afterEvents.itemUseOn.subscribe((event) => {
+world19.afterEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world18.beforeEvents.explosion.subscribe((event) => {
+world19.beforeEvents.explosion.subscribe((event) => {
   let impactBLockList = event.getImpactedBlocks();
   let filterBlockList = explodeBedrock(impactBLockList);
   filterBlockList = explodeBakutikuCancel(filterBlockList);
   event.setImpactedBlocks(filterBlockList);
   explodeBakutikuChain(impactBLockList);
 });
-world18.afterEvents.itemStartUse.subscribe((event) => {
+world19.afterEvents.itemStartUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world18.beforeEvents.entityRemove.subscribe((event) => {
+world19.beforeEvents.entityRemove.subscribe((event) => {
   let removedEntity = event.removedEntity;
   removeSpear(removedEntity);
   removeHammer(removedEntity);
 });
-world18.afterEvents.itemReleaseUse.subscribe((event) => {
+world19.afterEvents.itemReleaseUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6029,7 +6211,7 @@ world18.afterEvents.itemReleaseUse.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.itemStopUse.subscribe((event) => {
+world19.afterEvents.itemStopUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6059,7 +6241,7 @@ world18.afterEvents.itemStopUse.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.entitySpawn.subscribe((event) => {
+world19.afterEvents.entitySpawn.subscribe((event) => {
   let cause = event.cause;
   let entity = event.entity;
   if (EntityInitializationCause.Spawned == cause) {
@@ -6068,49 +6250,52 @@ world18.afterEvents.entitySpawn.subscribe((event) => {
     spawnBoomerang(entity);
   }
 });
-world18.beforeEvents.itemUse.subscribe((event) => {
+world19.beforeEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
   }
 });
-world18.afterEvents.itemUse.subscribe((event) => {
+world19.afterEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world18.afterEvents.blockExplode.subscribe((event) => {
+world19.afterEvents.blockExplode.subscribe((event) => {
   let dimension = event.dimension;
   let block = event.block;
   if (block.typeId == "kurokumaft:tear_enchant") {
     breackTearEnchant(dimension, block);
   }
 });
-world18.afterEvents.playerPlaceBlock.subscribe((event) => {
+world19.afterEvents.playerPlaceBlock.subscribe((event) => {
   let block = event.block;
   let dimension = event.dimension;
   playerMithrilset(block);
 });
-world18.beforeEvents.playerBreakBlock.subscribe((event) => {
+world19.beforeEvents.playerBreakBlock.subscribe((event) => {
   let player = event.player;
   let item = event.itemStack;
   let block = event.block;
   if (item != void 0) {
   }
 });
-world18.afterEvents.entityHitEntity.subscribe((event) => {
+world19.afterEvents.entityHitEntity.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitEn = event.hitEntity;
-  if (hitEn != void 0 && hitEn instanceof Player44) {
+  if (hitEn != void 0 && hitEn instanceof Player47) {
     shieldGuard(hitEn, true);
     shieldCounter(hitEn, damageEn);
   }
 });
-world18.afterEvents.entityHitBlock.subscribe((event) => {
+world19.afterEvents.entityHitBlock.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitBlock = event.hitBlock;
+  Object.entries(hitBlock.permutation.getAllStates()).forEach((value) => {
+    world19.sendMessage(JSON.stringify(value));
+  });
   if (hitBlock != void 0) {
-    let equ = damageEn.getComponent(EntityComponentTypes20.Equippable);
-    let itemStack = equ.getEquipment(EquipmentSlot36.Mainhand);
+    let equ = damageEn.getComponent(EntityComponentTypes25.Equippable);
+    let itemStack = equ.getEquipment(EquipmentSlot41.Mainhand);
     if (itemStack != void 0) {
       if (itemStack.typeId == "kurokumaft:fire_brand") {
         fireCharcoalBlock(damageEn, itemStack, hitBlock);
@@ -6124,16 +6309,16 @@ world18.afterEvents.entityHitBlock.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.projectileHitEntity.subscribe((event) => {
+world19.afterEvents.projectileHitEntity.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   let hitEn = event.getEntityHit().entity;
   let hitVector = event.hitVector;
-  if (hitEn != void 0 && hitEn instanceof Player44) {
+  if (hitEn != void 0 && hitEn instanceof Player47) {
     shieldGuard(hitEn, false);
     glassReflection(hitEn, projectileEn, hitVector);
   }
-  if (source != void 0 && source instanceof Player44) {
+  if (source != void 0 && source instanceof Player47) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn && isThrowHammer(projectileEn)) {
@@ -6141,10 +6326,10 @@ world18.afterEvents.projectileHitEntity.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world18.afterEvents.projectileHitBlock.subscribe((event) => {
+world19.afterEvents.projectileHitBlock.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
-  if (source != void 0 && source instanceof Player44) {
+  if (source != void 0 && source instanceof Player47) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn && isThrowHammer(projectileEn)) {
@@ -6152,11 +6337,11 @@ world18.afterEvents.projectileHitBlock.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world18.afterEvents.entityHurt.subscribe((event) => {
+world19.afterEvents.entityHurt.subscribe((event) => {
   let damage = event.damage;
   let damageSource = event.damageSource;
   let hitEn = event.hurtEntity;
-  if (hitEn instanceof Player44 && damageSource.cause != "void") {
+  if (hitEn instanceof Player47 && damageSource.cause != "void") {
     if (guards.indexOf(damageSource.cause) != -1) {
       shieldGuard(hitEn, false);
     }
