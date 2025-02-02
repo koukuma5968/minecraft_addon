@@ -653,22 +653,22 @@
       },
 
       "fire_log_nut": {
-         "textures" : "textures/kurokumaft/items/food/fire_log_nut"
+         "textures" : "textures/kurokumaft/items/food/nut/fire_log_nut"
       },
       "water_log_nut": {
-         "textures" : "textures/kurokumaft/items/food/water_log_nut"
+         "textures" : "textures/kurokumaft/items/food/nut/water_log_nut"
       },
       "wind_log_nut": {
-         "textures" : "textures/kurokumaft/items/food/wind_log_nut"
+         "textures" : "textures/kurokumaft/items/food/nut/wind_log_nut"
       },
       "stone_log_nut": {
-         "textures" : "textures/kurokumaft/items/food/stone_log_nut"
+         "textures" : "textures/kurokumaft/items/food/nut/stone_log_nut"
       },
       "lightning_log_nut": {
-         "textures" : "textures/kurokumaft/items/food/lightning_log_nut"
+         "textures" : "textures/kurokumaft/items/food/nut/lightning_log_nut"
       },
       "ice_log_nut": {
-         "textures" : "textures/kurokumaft/items/food/ice_log_nut"
+         "textures" : "textures/kurokumaft/items/food/nut/ice_log_nut"
       },
 
       "home_gate": {

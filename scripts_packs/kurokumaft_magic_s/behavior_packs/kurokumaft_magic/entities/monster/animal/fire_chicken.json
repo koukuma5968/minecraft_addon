@@ -19,21 +19,10 @@
       "minecraft:loot": {
         "table": "loot_tables/entities/animal/fire_chicken.json"
       },
-      "minecraft:spawn_entity": {
-        "entities": {
-          "min_wait_time": 300,
-          "max_wait_time": 600,
-          "spawn_sound": "plop",
-          "spawn_item": "egg",
-          "filters": {
-            "test": "rider_count", "subject": "self", "operator": "==", "value": 0
-          }
-        }
-      },
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:type_family": {
-        "family": [ "chicken", "mob", "magic_animal" ]
+        "family": [ "fire_chicken", "mob", "magic_animal" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -49,10 +38,6 @@
         "value": 18,
         "max": 18
       },
-      "minecraft:behavior.hurt_by_target": {
-        "alert_same_type": true,
-        "priority": 1
-      },
       "minecraft:attack": {
         "damage": 6
       },
@@ -61,6 +46,19 @@
         "cooldown_time": 3,
         "attack_types":"minecraft:chicken",
         "reach_multiplier": 0.5
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "aqua_jackal" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "water_buffalo" }
+              ]
+            }
+          }
+        ]
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -79,7 +77,7 @@
                 { "test": "is_family", "subject": "other", "value": "irongolem" }
               ]
             },
-            "max_dist": 8,
+            "max_dist": 16,
             "must_see": true
           },
           {
@@ -89,8 +87,18 @@
                 { "test": "is_family", "subject": "other", "value": "wandering_trader" }
               ]
             },
-            "max_dist": 3,
+            "max_dist": 8,
             "must_see": true
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "snow_wolf" },
+                { "test": "is_family", "subject": "other", "value": "frost_owl" }
+              ]
+            },
+            "max_dist": 32,
+            "must_see": false
           }
         ]
       },
@@ -175,9 +183,6 @@
     },
 
     "events": {
-      "from_egg": {
-        "add": { "component_groups": [ "minecraft:chicken_baby" ] }
-      }
     }
   }
 }

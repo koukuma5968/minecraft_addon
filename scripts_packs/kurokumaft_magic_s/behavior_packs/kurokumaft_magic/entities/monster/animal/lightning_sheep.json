@@ -5,7 +5,16 @@
       "identifier": "kurokumaft:lightning_sheep",
       "spawn_category": "creature",
       "is_spawnable": true,
-      "is_summonable": true
+      "is_summonable": true,
+      "scripts":{
+        "animate":[
+          "spark_con"
+        ]
+      },
+      "animations":{
+        "spark_con":"controller.animation.lightning_sheep.spark",
+        "spark":"animation.lightning_sheep.spark"
+      }
     },
     "component_groups": {
       "minecraft:loot_sheared": {
@@ -43,6 +52,24 @@
       "minecraft:sheep_sheared": {
         "minecraft:is_sheared": {
         }
+      },
+      "kurokumaft:spark_chaged": {
+        "minecraft:timer":{
+          "looping": true,
+          "randomInterval":true,
+          "time": [30.0, 180.0],
+          "time_down_event": {
+              "event":"kurokumaft:electrical_discharge"
+          }
+        },
+        "minecraft:mark_variant": {
+            "value": 0
+        }
+      },
+      "kurokumaft:spark_discharge": {
+        "minecraft:mark_variant": {
+            "value": 1
+        }
       }
     },
 
@@ -55,7 +82,7 @@
         "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
       },
       "minecraft:type_family": {
-        "family": [ "sheep", "mob", "magic_animal" ]
+        "family": [ "lightning_sheep", "mob", "magic_animal", "lightning" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -71,10 +98,6 @@
         "value": 16,
         "max": 16
       },
-      "minecraft:behavior.hurt_by_target": {
-        "alert_same_type": true,
-        "priority": 1
-      },
       "minecraft:attack": {
         "damage": 6
       },
@@ -82,6 +105,19 @@
         "priority": 3,
         "cooldown_time": 3,
         "reach_multiplier": 0.5
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "stone_armadillo" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "earth_rhino" }
+              ]
+            }
+          }
+        ]
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -100,7 +136,7 @@
                 { "test": "is_family", "subject": "other", "value": "irongolem" }
               ]
             },
-            "max_dist": 8,
+            "max_dist": 16,
             "must_see": true
           },
           {
@@ -110,8 +146,18 @@
                 { "test": "is_family", "subject": "other", "value": "wandering_trader" }
               ]
             },
-            "max_dist": 3,
+            "max_dist": 8,
             "must_see": true
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "aqua_jackal" },
+                { "test": "is_family", "subject": "other", "value": "water_buffalo" }
+              ]
+            },
+            "max_dist": 32,
+            "must_see": false
           }
         ]
       },
@@ -165,11 +211,6 @@
             }
           }
         ]
-      },
-      "minecraft:leashable": {
-        "soft_distance": 4.0,
-        "hard_distance": 6.0,
-        "max_distance": 10.0
       },
       "minecraft:balloonable": {
         "mass": 0.75
@@ -245,31 +286,24 @@
       "minecraft:entity_spawned": {
         "add": {
           "component_groups": [
+            "kurokumaft:spark_chaged",
             "minecraft:sheep_adult",
             "minecraft:rideable_wooly",
             "minecraft:loot_wooly"
           ]
         }
       },
-      "minecraft:entity_born": {
-        "remove": {
-        },
-        "add": {
-          "component_groups": [
-            "minecraft:sheep_dyeable",
-            "minecraft:rideable_sheared"
-          ]
-        }
-      },
       "minecraft:on_sheared": {
         "remove": {
           "component_groups": [
+            "kurokumaft:spark_chaged",
             "minecraft:sheep_dyeable",
             "minecraft:loot_wooly"
           ]
         },
         "add": {
           "component_groups": [
+            "kurokumaft:spark_discharge",
             "minecraft:sheep_sheared",
             "minecraft:rideable_sheared",
             "minecraft:loot_sheared"
@@ -281,33 +315,45 @@
           {
             "remove": {
               "component_groups": [
+                "kurokumaft:spark_discharge",
+                "minecraft:loot_sheared",
                 "minecraft:sheep_sheared"
               ]
             },
             "add": {
               "component_groups": [
-                "minecraft:sheep_dyeable"
-              ]
-            }
-          },
-          {
-            "filters": {
-              "subject": "self",
-              "test": "has_component", "operator": "!=", "value": "minecraft:is_baby"
-            },
-            "add": {
-              "component_groups": [
+                "kurokumaft:spark_chaged",
                 "minecraft:rideable_wooly",
-                "minecraft:loot_wooly"
-              ]
-            },
-            "remove": {
-              "component_groups": [
-                "minecraft:loot_sheared"
+                "minecraft:loot_wooly",
+                "minecraft:sheep_dyeable"
               ]
             }
           }
         ]
+      },
+      "kurokumaft:electrical_discharge": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:spark_chaged"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "kurokumaft:spark_discharge"
+          ]
+        }
+      },
+      "kurokumaft:electrical_discharge_end": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:spark_discharge"
+          ]
+        },
+        "add": {
+          "component_groups": [
+            "kurokumaft:spark_chaged"
+          ]
+        }
       }
     }
   }

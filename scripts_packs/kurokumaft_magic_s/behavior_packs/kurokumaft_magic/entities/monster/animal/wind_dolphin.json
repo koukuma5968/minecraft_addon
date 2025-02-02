@@ -3,21 +3,30 @@
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:wind_dolphin",
+      "spawn_category": "creature",
       "is_spawnable": true,
-      "is_summonable": true,
-      "is_experimental": false
+      "is_summonable": true
     },
     "component_groups": {
     },
     "components": {
       "minecraft:loot": {
-        "table": "loot_tables/entities/bat.json"
+        "table": "loot_tables/entities/animal/wind_dolphin.json"
       },
       "minecraft:experience_reward": {
         "on_death": "q.last_hit_by_player ? 20 : 0"
       },
+      "minecraft:shooter": {
+        "def": "kurokumaft:wind_magic_bullet"
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 1,
+        "attack_radius": 6,
+        "charge_shoot_trigger": 2,
+        "charge_charged_trigger": 1
+      },
       "minecraft:type_family": {
-        "family": [ "dolphin", "magic_animal" ]
+        "family": [ "wind_dolphin", "mob", "magic_animal" ]
       },
       "minecraft:scale": {
         "value": 1.0
@@ -39,21 +48,6 @@
       "minecraft:movement.basic": {},
       "minecraft:jump.static": {},
       "minecraft:can_fly": {},
-      "minecraft:behavior.ram_attack": {
-        "priority": 5,
-        "run_speed": 1.1,
-        "ram_speed": 1.8,
-        "min_ram_distance": 1,
-        "ram_distance": 12,
-        "knockback_force": 1.0,
-        "knockback_height": 0.04,
-        "pre_ram_sound": "pre_ram.screamer",
-        "ram_impact_sound": "ram_impact.screamer",
-        "cooldown_range": [
-          5,
-          15
-        ]
-      },
       "minecraft:follow_range": {
         "value": 12,
         "max": 12
@@ -66,13 +60,16 @@
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 1,
-        "alert_same_type":true,
-        "entity_types": {
-          "filters": {
-            "test": "is_family", "subject": "other", "operator": "!=", "value": "waza"
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "snow_wolf" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "frost_owl" }
+              ]
+            }
           }
-        },
-        "max_dist": 12
+        ]
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -101,8 +98,18 @@
                 { "test": "is_family", "subject": "other", "value": "wandering_trader" }
               ]
             },
-            "max_dist": 12,
+            "max_dist": 8,
             "must_see": true
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "stone_armadillo" },
+                { "test": "is_family", "subject": "other", "value": "earth_rhino" }
+              ]
+            },
+            "max_dist": 32,
+            "must_see": false
           }
         ]
       },

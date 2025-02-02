@@ -10569,6 +10569,30 @@ async function flamePorcupineGuard(dameger) {
   dameger.dimension.spawnParticle("kurokumaft:porcupine_pillar", dameger.location);
 }
 
+// scripts/mob/animal/AquaJackal.ts
+import { EntityDamageCause as EntityDamageCause63 } from "@minecraft/server";
+async function aquaJackalAttack(hitEntity) {
+  hitEntity.applyDamage(1, {
+    cause: EntityDamageCause63.drowning
+  });
+  hitEntity.dimension.spawnParticle("kurokumaft:jackal_desires", hitEntity.location);
+}
+
+// scripts/mob/animal/SnowWolf.ts
+import { EntityDamageCause as EntityDamageCause64 } from "@minecraft/server";
+async function snowWolfAttack(hitEntity) {
+  hitEntity.applyDamage(1, {
+    cause: EntityDamageCause64.freezing
+  });
+  hitEntity.dimension.spawnParticle("kurokumaft:ice_wolf_fang", hitEntity.location);
+}
+
+// scripts/mob/animal/EarthRhino.ts
+async function earthRhinoKnockback(hitEntity) {
+  hitEntity.dimension.spawnParticle("kurokumaft:rhino_knockback", hitEntity.location);
+  hitEntity.applyKnockback(0, 3, 1, 1);
+}
+
 // scripts/magic_script.ts
 var guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 world62.beforeEvents.worldInitialize.subscribe((initEvent) => {
@@ -10594,6 +10618,12 @@ world62.afterEvents.entityHitEntity.subscribe((event) => {
   }
   if (dameger.typeId == "kurokumaft:fire_chicken") {
     fireChickenAttack(hitEn);
+  } else if (dameger.typeId == "kurokumaft:aqua_jackal") {
+    aquaJackalAttack(hitEn);
+  } else if (dameger.typeId == "kurokumaft:snow_wolf") {
+    snowWolfAttack(hitEn);
+  } else if (dameger.typeId == "kurokumaft:earth_rhino") {
+    earthRhinoKnockback(hitEn);
   }
   if (hitEn.typeId == "kurokumaft:flame_porcupine") {
     flamePorcupineGuard(dameger);

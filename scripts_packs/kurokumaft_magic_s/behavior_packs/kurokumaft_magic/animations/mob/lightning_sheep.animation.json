@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.10",
+	"animations": {
+		"animation.lightning_sheep.spark": {
+			"animation_length": 1.00,
+			"loop": false,
+			"timeline": {
+			    "0.0": [
+					"/particle kurokumaft:sheep_shell ~~~",
+					"/damage @e[family=!lightning,r=3] 3 lightning"
+				],
+			    "0.5": [
+					"/particle kurokumaft:sheep_shell ~~~",
+					"/damage @e[family=!lightning,r=3] 3 lightning"
+				],
+			    "1.0": [
+					"/particle kurokumaft:sheep_shell ~~~",
+					"/damage @e[family=!lightning,r=3] 3 lightning"
+				]
+			}
+		}
+	}
+}

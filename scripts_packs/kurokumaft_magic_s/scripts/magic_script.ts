@@ -15,6 +15,9 @@ import { MagicBrewingStand } from "./block/MagicBrewingStand";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { fireChickenAttack } from "./mob/animal/FireChicken";
 import { flamePorcupineGuard } from "./mob/animal/FlamePorcupine";
+import { aquaJackalAttack } from "./mob/animal/AquaJackal";
+import { snowWolfAttack } from "./mob/animal/SnowWolf";
+import { earthRhinoKnockback } from "./mob/animal/EarthRhino";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -54,7 +57,14 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     } 
     if (dameger.typeId == "kurokumaft:fire_chicken") {
         fireChickenAttack(hitEn);
+    } else if (dameger.typeId == "kurokumaft:aqua_jackal") {
+        aquaJackalAttack(hitEn);
+    } else if (dameger.typeId == "kurokumaft:snow_wolf") {
+        snowWolfAttack(hitEn);
+    } else if (dameger.typeId == "kurokumaft:earth_rhino") {
+        earthRhinoKnockback(hitEn);
     }
+
     if (hitEn.typeId == "kurokumaft:flame_porcupine") {
         flamePorcupineGuard(dameger);
     }

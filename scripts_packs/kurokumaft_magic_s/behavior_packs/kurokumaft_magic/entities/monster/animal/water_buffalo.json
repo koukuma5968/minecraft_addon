@@ -13,22 +13,22 @@
         "on_death": "query.last_hit_by_player ? Math.Random(1,3) : 0"
       },
       "minecraft:behavior.ram_attack": {
-        "priority": 5,
+        "priority": 1,
         "run_speed": 0.7,
         "ram_speed": 1.8,
-        "min_ram_distance": 1,
-        "ram_distance": 5,
+        "min_ram_distance": 3,
+        "ram_distance": 8,
         "knockback_force": 2.5,
         "knockback_height": 0.04,
         "pre_ram_sound": "pre_ram.screamer",
         "ram_impact_sound": "ram_impact.screamer",
         "cooldown_range": [
-          15,
-          20
+          5,
+          15
         ]
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/goat.json"
+        "table": "loot_tables/entities/animal/water_buffalo.json"
       },
       "minecraft:attack": {
         "damage": 4
@@ -37,12 +37,25 @@
       },
       "minecraft:type_family": {
         "family": [
-          "buffalo", "magic_animal"
+          "water_buffalo", "mob", "magic_animal"
         ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
         "suffocate_time": 0
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "thunder_bat" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "lightning_sheep" }
+              ]
+            }
+          }
+        ]
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -61,7 +74,7 @@
                 { "test": "is_family", "subject": "other", "value": "irongolem" }
               ]
             },
-            "max_dist": 8,
+            "max_dist": 16,
             "must_see": true
           },
           {
@@ -71,8 +84,18 @@
                 { "test": "is_family", "subject": "other", "value": "wandering_trader" }
               ]
             },
-            "max_dist": 3,
+            "max_dist": 8,
             "must_see": true
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "fire_chicken" },
+                { "test": "is_family", "subject": "other", "value": "flame_porcupine" }
+              ]
+            },
+            "max_dist": 32,
+            "must_see": false
           }
         ]
       },
@@ -119,13 +142,6 @@
         "priority": 1,
         "speed_multiplier": 1
       },
-      "minecraft:damage_sensor": {
-        "triggers": {
-          "cause": "fall",
-          "deals_damage": true,
-          "damage_modifier": -10
-        }
-      },
       "minecraft:behavior.random_stroll": {
         "priority": 9,
         "speed_multiplier": 0.6
@@ -137,11 +153,6 @@
       },
       "minecraft:behavior.random_look_around": {
         "priority": 11
-      },
-      "minecraft:leashable": {
-        "soft_distance": 4,
-        "hard_distance": 6,
-        "max_distance": 10
       },
       "minecraft:balloonable": {
       },

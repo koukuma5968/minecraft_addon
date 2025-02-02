@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.10",
+	"animation_controllers": {
+		"controller.animation.lightning_sheep.spark": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"spark": "query.mark_variant == 1"}
+					]
+				},
+				"spark": {
+					"animations" : [ "spark" ],
+					"on_exit": [
+						"/event entity @s kurokumaft:electrical_discharge_end"
+					],
+					"transitions": [
+						{"default": "variable.spark = (variable.spark ?? 0);variable.spark = variable.spark < 20 ? variable.spark + 1:0;return variable.spark == 0;"}
+					]
+				}
+			}
+		}
+	}
+}

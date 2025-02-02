@@ -86,24 +86,58 @@
         "priority": 1,
         "speed_multiplier": 1.25
       },
-      "minecraft:behavior.nearest_attackable_target": {
+      "minecraft:behavior.hurt_by_target": {
         "priority": 1,
-        "reselect_targets": true,
         "entity_types": [
           {
             "filters": {
-              "test": "is_family", "subject": "other", "value": "chicken"
+              "all_of": [
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "thunder_bat" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "lightning_sheep" }
+              ]
+            }
+          }
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 10.0,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "monster" },
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" },
+                { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" }
+              ]
             },
-            "max_dist": 8
+            "max_dist": 16,
+            "must_see": true
           },
           {
             "filters": {
-              "all_of": [
-                { "test": "is_family", "subject": "other", "value": "baby_turtle" },
-                { "test": "in_water", "subject": "other", "operator": "!=", "value": true }
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "villager" },
+                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
               ]
             },
-            "max_dist": 8
+            "max_dist": 8,
+            "must_see": true
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "fire_chicken" },
+                { "test": "is_family", "subject": "other", "value": "flame_porcupine" }
+              ]
+            },
+            "max_dist": 32,
+            "must_see": false
           }
         ]
       },

@@ -3,7 +3,7 @@
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:breeze_fish",
-      "spawn_category": "monster",
+      "spawn_category": "creature",
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false
@@ -50,7 +50,7 @@
         "def": "kurokumaft:windcuttermagic"
       },
       "minecraft:type_family": {
-        "family": [ "fish", "monster", "mob" ]
+        "family": [ "breeze_fish", "mob", "magic_animal"  ]
       },
       "minecraft:damage_sensor": {
         "triggers": {
@@ -77,21 +77,59 @@
         "max": 6
       },
       "minecraft:behavior.hurt_by_target": {
-        "priority": 1
-      },
-      "minecraft:behavior.nearest_attackable_target": {
-        "priority": 2,
+        "priority": 1,
         "entity_types": [
           {
             "filters": {
-              "test": "is_family",
-              "subject": "other",
-              "value": "player"
-            },
-            "max_dist": 28
+              "all_of": [
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "snow_wolf" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "frost_owl" }
+              ]
+            }
           }
-        ],
-        "must_see": true
+        ]
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 10.0,
+        "must_see_forget_duration": 17.0,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "monster" },
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" },
+                { "test": "is_family", "subject": "other", "value": "snowgolem" },
+                { "test": "is_family", "subject": "other", "value": "irongolem" }
+              ]
+            },
+            "max_dist": 16,
+            "must_see": true
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "villager" },
+                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+              ]
+            },
+            "max_dist": 8,
+            "must_see": true
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "stone_armadillo" },
+                { "test": "is_family", "subject": "other", "value": "earth_rhino" }
+              ]
+            },
+            "max_dist": 32,
+            "must_see": false
+          }
+        ]
       },
       "minecraft:physics": {
       },
