@@ -27,8 +27,8 @@
         "controller.render.breeze_fish"
       ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 45
+        "texture": "magic_animal_spawn_egg",
+        "texture_index": 1
       }
     }
   }

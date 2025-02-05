@@ -1,4 +1,4 @@
-import { Entity, ItemStack, Block, system, Player, GameMode, ItemComponentUseEvent, world } from "@minecraft/server";
+import { Entity, ItemStack, Block, system, Player, ItemComponentUseEvent, world } from "@minecraft/server";
 import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
 import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
 

@@ -38,8 +38,8 @@
         "controller.render.aqua_jackal"
       ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 16
+        "texture": "magic_animal_spawn_egg",
+        "texture_index": 0
       }
     }
   }

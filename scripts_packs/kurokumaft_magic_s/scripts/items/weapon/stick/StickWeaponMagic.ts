@@ -1,6 +1,6 @@
-import { Entity, EquipmentSlot, GameMode, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
+import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
 import { shooting } from "../../../common/ShooterMagicEvent";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { aquaShock, aquaShot, tidalWave } from "./WaterCurrentMagic";
 import { atmosphere, stormShock } from "./AtmosphereMagic";
 import { earthShock, gravityField } from "./EarthMagic";
@@ -221,7 +221,7 @@ export class StickWeaponMagic implements ItemCustomComponent {
             }
         }
 
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

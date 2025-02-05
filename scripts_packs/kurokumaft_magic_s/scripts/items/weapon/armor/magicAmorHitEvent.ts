@@ -1,5 +1,5 @@
 import { system,Player,Entity,EntityComponentTypes,Vector3,EntityEquippableComponent,EquipmentSlot,EntityApplyDamageOptions, EntityProjectileComponent } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 /**
  * 魔法防具反撃効果
@@ -24,12 +24,12 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 damager.applyDamage(5,{"cause":"entityExplosion"} as EntityApplyDamageOptions);
                 damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
                 damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
-                ItemDurabilityDamage(player, chest, EquipmentSlot.Chest);
+                itemDurabilityDamage(player, chest, EquipmentSlot.Chest);
             }
             if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chest") {
                 damager.applyDamage(5,{"cause":"lightning"} as EntityApplyDamageOptions);
                 damager.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", damager.location);
-                ItemDurabilityDamage(player, chest, EquipmentSlot.Chest);
+                itemDurabilityDamage(player, chest, EquipmentSlot.Chest);
             }
         }
     }
@@ -43,7 +43,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 let randomInRange1 = Math.floor(Math.random()*2) == 1 ? -randomNum1 : randomNum1;
                 let randomInRange2 = Math.floor(Math.random()*2) == 1 ? -randomNum2 : randomNum2;
                 damager.teleport({x:location.x + randomInRange1, y:location.y, z:location.z + randomInRange2});
-                ItemDurabilityDamage(player, legs, EquipmentSlot.Legs);
+                itemDurabilityDamage(player, legs, EquipmentSlot.Legs);
             }
         }
     }
@@ -62,7 +62,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 system.runTimeout(() => {
                     system.clearRun(intervalNum);
                 }, 30);
-                ItemDurabilityDamage(player, head, EquipmentSlot.Head);
+                itemDurabilityDamage(player, head, EquipmentSlot.Head);
             } catch (error) {
             }
         }
@@ -77,7 +77,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 });
 
                 // projectile.applyImpulse({x:hitVector!.x,y:hitVector!.y,z:-hitVector!.z});
-                ItemDurabilityDamage(player, head, EquipmentSlot.Head);
+                itemDurabilityDamage(player, head, EquipmentSlot.Head);
             } catch (error) {
             }
         }

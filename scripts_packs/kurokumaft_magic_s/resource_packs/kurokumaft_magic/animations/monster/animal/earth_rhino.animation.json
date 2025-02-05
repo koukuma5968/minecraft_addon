@@ -1,54 +1,54 @@
 {
-	"format_version" : "1.8.0",
-	"animations" : {
+	"format_version": "1.8.0",
+	"animations": {
 		"animation.earth_rhino.baby_scaling": {
-			"loop" : true,
-			"bones" : {
-				"head" : {
-					"position" : [ 0.0, 10.0, 4.0 ],
-					"scale" : 1.4
+			"loop": true,
+			"bones": {
+				"head": {
+					"position": [0, 10, 4],
+					"scale": 1.4
 				}
 			}
 		},
-		"animation.earth_rhino.look_at_target" : {
-			"loop" : true,
-			"bones" : {
-				"head" : {
-					"relative_to" : {
-						"rotation" : "entity"
+		"animation.earth_rhino.look_at_target": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"relative_to": {
+						"rotation": "entity"
 					},
-					"rotation" : [ 0, "query.target_y_rotation - this", 0 ]
+					"rotation": [0, "query.target_y_rotation - this", 0]
 				}
 			}
 		},
-		"animation.earth_rhino.walk" : {
-			"loop" : true,
+		"animation.earth_rhino.walk": {
+			"loop": true,
 			"bones": {
 				"left_ear": {
-					"rotation" : [ 0.0, 0.0, "variable.tcos_left_side * 0.5" ]
+					"rotation": [0, 0, "variable.tcos_left_side * 0.5"]
 				},
 				"right_ear": {
-					"rotation" : [ 0.0, 0.0, "variable.tcos_right_side * 0.5" ]
+					"rotation": [0, 0, "variable.tcos_right_side * 0.5"]
 				},
-				"leg_back_right" : {
-					"rotation" : [ "variable.tcos_right_side", 0.0, 0.0 ]
+				"leg_back_right": {
+					"rotation": ["variable.tcos_right_side", 0, 0]
 				},
-				"leg_back_left" : {
-					"rotation" : [ "variable.tcos_left_side", 0.0, 0.0 ]
+				"leg_back_left": {
+					"rotation": ["variable.tcos_left_side", 0, 0]
 				},
-				"leg_front_right" : {
-					"rotation" : [ "-variable.tcos_right_side", 0.0, 0.0 ]
+				"leg_front_right": {
+					"rotation": ["-variable.tcos_right_side", 0, 0]
 				},
-				"leg_front_left" : {
-					"rotation" : [ "-variable.tcos_left_side", 0.0, 0.0 ]
+				"leg_front_left": {
+					"rotation": ["-variable.tcos_left_side", 0, 0]
 				}
 			}
 		},
 		"animation.earth_rhino.attack": {
-			"loop": true,
+			"loop": "hold_on_last_frame",
 			"bones": {
-				"head" : {
-					"rotation" : [ "variable.attack_head_rot", 0, 0 ]
+				"head": {
+					"rotation": ["variable.attack_head_rot", 0, 0]
 				}
 			}
 		}

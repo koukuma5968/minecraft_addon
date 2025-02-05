@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, EquipmentSlot, EntityDamageCause, ItemComponentCompleteUseEvent } from "@minecraft/server";
 import { getLookPoints, getLookRotaionPoints } from "../../../common/commonUtil";
 import { shooting } from "../../../common/ShooterPoints";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 interface KnuckleObject {
     itemName: string,
@@ -57,7 +57,7 @@ export class ChargeKnuckle implements ItemCustomComponent {
 
         let knuckle = KnuckleObjects.find(obj => obj.itemName == itemStack.typeId) as KnuckleObject;
         knuckleHit(attackEntity, hitEntity, knuckle);
-        ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand, 1);
+        itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
     }
 
     onCompleteUse(event:ItemComponentCompleteUseEvent) {
@@ -65,7 +65,7 @@ export class ChargeKnuckle implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let knuckle = KnuckleObjects.find(obj => obj.itemName == itemStack.typeId) as KnuckleObject;
         charge_knuckle(source, knuckle);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
 }
 

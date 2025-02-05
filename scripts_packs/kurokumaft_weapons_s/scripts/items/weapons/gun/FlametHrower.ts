@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityDamageCause } from "@minecraft/server";
 import { getLookPoints } from "../../../common/commonUtil";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 /**
  * 火炎放射器
@@ -54,7 +54,7 @@ async function shotFlametHrower(player: Player, item: ItemStack) {
                 })
             })
             if (count % 4 === 0) {
-                ItemDurabilityDamage(player, item, EquipmentSlot.Mainhand, undefined);
+                itemDurabilityDamage(player, item, EquipmentSlot.Mainhand);
             }
         }
 

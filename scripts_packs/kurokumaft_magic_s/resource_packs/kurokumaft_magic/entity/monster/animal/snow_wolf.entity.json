@@ -66,8 +66,8 @@
         "controller.render.snow_wolf"
       ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 4
+        "texture": "magic_animal_spawn_egg",
+        "texture_index": 7
       },
       "enable_attachables": true
     }

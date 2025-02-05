@@ -3107,22 +3107,29 @@ import { system, EntityComponentTypes as EntityComponentTypes3, ItemComponentTyp
 
 // scripts/common/ItemDurabilityDamage.ts
 import { Player as Player2, ItemComponentTypes as ItemComponentTypes2, EntityComponentTypes as EntityComponentTypes2, GameMode } from "@minecraft/server";
-async function ItemDurabilityDamage(entity, item, slot, damage) {
+async function itemDurabilityDamage(entity, item, slot) {
+  if (entity instanceof Player2 && entity.getGameMode() != GameMode.creative) {
+    let equ = entity.getComponent(EntityComponentTypes2.Equippable);
+    let durability = item.getComponent(ItemComponentTypes2.Durability);
+    let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
+    if (durability.damage + dChange >= durability.maxDurability) {
+      equ.setEquipment(slot, void 0);
+    } else {
+      durability.damage = durability.damage + dChange;
+      equ.setEquipment(slot, item);
+    }
+  }
+}
+async function itemDurabilityDamageFixed(entity, item, slot, damage) {
   if (entity instanceof Player2 && entity.getGameMode() == GameMode.creative) {
     return;
   }
   let equ = entity.getComponent(EntityComponentTypes2.Equippable);
   let durability = item.getComponent(ItemComponentTypes2.Durability);
-  let dChange;
-  if (damage) {
-    dChange = damage;
-  } else {
-    dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
-  }
-  if (durability.damage + dChange >= durability.maxDurability) {
+  if (durability.damage + damage >= durability.maxDurability) {
     equ.setEquipment(slot, void 0);
   } else {
-    durability.damage = durability.damage + dChange;
+    durability.damage = durability.damage + damage;
     equ.setEquipment(slot, item);
   }
 }
@@ -3165,10 +3172,10 @@ function shieldGuard(player, range) {
   if (player.isSneaking) {
     if (offhand != void 0 && (offhand.typeId.indexOf("_shield") != -1 || offhand.typeId == "kurokumaft:kettle_lid")) {
       if (offhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
-        ItemDurabilityDamage(player, offhand, EquipmentSlot3.Offhand, 10);
+        itemDurabilityDamageFixed(player, offhand, EquipmentSlot3.Offhand, 10);
         playsound(player, "random.glass");
       } else {
-        ItemDurabilityDamage(player, offhand, EquipmentSlot3.Offhand, 1);
+        itemDurabilityDamageFixed(player, offhand, EquipmentSlot3.Offhand, 1);
         if (offhand.typeId == "kurokumaft:tnt_shield" && range) {
           playsound(player, "random.explode");
         } else if (offhand.typeId == "kurokumaft:steel_shield") {
@@ -3179,10 +3186,10 @@ function shieldGuard(player, range) {
       }
     } else if (mainhand != void 0 && (mainhand.typeId.indexOf("_shield") != -1 || mainhand.typeId == "kurokumaft:kettle_lid")) {
       if (mainhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
-        ItemDurabilityDamage(player, mainhand, EquipmentSlot3.Mainhand, 10);
+        itemDurabilityDamageFixed(player, mainhand, EquipmentSlot3.Mainhand, 10);
         playsound(player, "random.glass");
       } else {
-        ItemDurabilityDamage(player, mainhand, EquipmentSlot3.Mainhand, 1);
+        itemDurabilityDamageFixed(player, mainhand, EquipmentSlot3.Mainhand, 1);
         if (mainhand.typeId == "kurokumaft:tnt_shield" && range) {
           playsound(player, "random.explode");
         } else {
@@ -3247,11 +3254,11 @@ function resuscitationEquipment(player) {
     if (offhand != void 0 && offhand.typeId == "kurokumaft:immortal_shield") {
       let dur = offhand.getComponent(ItemComponentTypes3.Durability);
       resuscitation(player);
-      ItemDurabilityDamage(player, offhand, EquipmentSlot3.Offhand, 30 / 100 * dur.maxDurability);
+      itemDurabilityDamageFixed(player, offhand, EquipmentSlot3.Offhand, 30 / 100 * dur.maxDurability);
     } else if (mainhand != void 0 && mainhand.typeId == "kurokumaft:immortal_shield") {
       let dur = mainhand.getComponent(ItemComponentTypes3.Durability);
       resuscitation(player);
-      ItemDurabilityDamage(player, mainhand, EquipmentSlot3.Mainhand, 30 / 100 * dur.maxDurability);
+      itemDurabilityDamageFixed(player, mainhand, EquipmentSlot3.Mainhand, 30 / 100 * dur.maxDurability);
     }
   }
 }
@@ -3287,7 +3294,7 @@ var TntSwordBreak = class {
 };
 async function tntBreak(attackEntity, itemStack, location) {
   attackEntity.dimension.spawnEntity("kurokumaft:tnt_sword_break", location);
-  ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot4.Mainhand, void 0);
+  itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot4.Mainhand);
 }
 
 // scripts/player/armorEquipment.ts
@@ -3345,7 +3352,7 @@ async function axolotlRegeneration(player) {
     let head = equ.getEquipment(EquipmentSlot5.Head);
     let itemDur = head.getComponent(ItemComponentTypes4.Durability);
     playsound(player, "random.totem");
-    ItemDurabilityDamage(player, head, EquipmentSlot5.Head, itemDur.maxDurability / 3);
+    itemDurabilityDamageFixed(player, head, EquipmentSlot5.Head, itemDur.maxDurability / 3);
   }
 }
 async function chickenSlowFalling(player) {
@@ -3446,7 +3453,7 @@ var MagmaSwordFire = class {
     let block = event.block;
     let itemStack = event.itemStack;
     setMagmaBlock(source.dimension, block.location);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot7.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot7.Mainhand);
   }
 };
 async function magmaFire(dimension, location) {
@@ -3471,7 +3478,7 @@ var BuleSwordIce = class {
     let block = event.block;
     let itemStack = event.itemStack;
     setBlueIceBlock(source.dimension, block.location);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot8.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot8.Mainhand);
   }
 };
 async function iceFreez(hitEntity) {
@@ -3591,7 +3598,7 @@ var EchoSword = class {
     let source = event.source;
     let itemStack = event.itemStack;
     sonicBullet(source);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot9.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot9.Mainhand);
   }
 };
 async function sonicBullet(player) {
@@ -3625,7 +3632,7 @@ var EnderDragonSword = class {
     let source = event.source;
     let itemStack = event.itemStack;
     dragonFireball(source);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot10.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot10.Mainhand);
     itemCoolDown(source, itemStack);
   }
 };
@@ -3649,7 +3656,7 @@ var WitherSword = class {
     let source = event.source;
     let itemStack = event.itemStack;
     witherSkull(source);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot11.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot11.Mainhand);
     itemCoolDown(source, itemStack);
   }
 };
@@ -3698,7 +3705,7 @@ var EnderEyeSword = class {
     let source = event.source;
     let itemStack = event.itemStack;
     evilEye(source);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot12.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot12.Mainhand);
     itemCoolDown(source, itemStack);
   }
 };
@@ -4065,7 +4072,7 @@ var Sickle = class {
       itemTans(source, itemStack, scytheItem.changeItem, EquipmentSlot14.Mainhand);
     } else {
       spiritSickle(source, scytheItem);
-      ItemDurabilityDamage(source, itemStack, EquipmentSlot14.Mainhand, void 0);
+      itemDurabilityDamage(source, itemStack, EquipmentSlot14.Mainhand);
     }
   }
 };
@@ -4113,7 +4120,7 @@ var Scythe = class {
       itemTans(source, itemStack, scytheItem.changeItem, EquipmentSlot15.Mainhand);
     } else {
       roarScythe(source, scytheItem);
-      ItemDurabilityDamage(source, itemStack, EquipmentSlot15.Mainhand, void 0);
+      itemDurabilityDamage(source, itemStack, EquipmentSlot15.Mainhand);
     }
   }
 };
@@ -4234,7 +4241,7 @@ var ShovelPavement = class {
     let itemStack = event.itemStack;
     let block = event.block;
     pavement(block);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot16.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot16.Mainhand);
   }
 };
 async function pavement(block) {
@@ -4279,7 +4286,7 @@ async function shotGatling(player, item) {
       let look = getLookPoints(player.getRotation(), player.location, 1.5);
       player.dimension.spawnParticle("minecraft:explosion_manual", look);
       subtractionItem(player, reItem, EquipmentSlot17.Offhand, 1);
-      ItemDurabilityDamage(player, item, EquipmentSlot17.Mainhand, void 0);
+      itemDurabilityDamage(player, item, EquipmentSlot17.Mainhand);
     }
     count = count + 1;
   }, 1);
@@ -4335,14 +4342,14 @@ var ChargeKnuckle = class {
     let itemStack = event.itemStack;
     let knuckle = KnuckleObjects.find((obj) => obj.itemName == itemStack.typeId);
     knuckleHit(attackEntity, hitEntity, knuckle);
-    ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot18.Mainhand, 1);
+    itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot18.Mainhand);
   }
   onCompleteUse(event) {
     let source = event.source;
     let itemStack = event.itemStack;
     let knuckle = KnuckleObjects.find((obj) => obj.itemName == itemStack.typeId);
     charge_knuckle(source, knuckle);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot18.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot18.Mainhand);
   }
 };
 async function knuckleHit(attackEntity, hitEntity, knuckle) {
@@ -4368,7 +4375,7 @@ var MineDurability = class {
   onMineBlock(event) {
     let source = event.source;
     let itemStack = event.itemStack;
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot19.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot19.Mainhand);
   }
 };
 
@@ -4380,7 +4387,7 @@ var FireBrand = class {
     let hitEntity = event.hitEntity;
     let itemStack = event.itemStack;
     mobflameFiring(hitEntity);
-    ItemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot20.Mainhand, void 0);
+    itemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot20.Mainhand);
   }
 };
 async function mobflameFiring(hitEntity) {
@@ -4393,7 +4400,7 @@ async function fireCharcoalBlock(attackingEntity, itemStack, block) {
   if (LogBlocks.find((type) => type == block.typeId) != void 0 || StrippedLogBlocks.find((type) => type == block.typeId) != void 0 || WoodBlocks.find((type) => type == block.typeId) != void 0 || StrippedWoodBlocks.find((type) => type == block.typeId) != void 0) {
     block.dimension.setBlockType(block.location, "kurokumaft:charcoal_block");
     block.dimension.spawnParticle("kurokumaft:mobflame_firing", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
-    ItemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot20.Mainhand, void 0);
+    itemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot20.Mainhand);
   }
 }
 
@@ -4405,7 +4412,7 @@ var AxeStripped = class {
     let itemStack = event.itemStack;
     let block = event.block;
     stripped(block);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot21.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot21.Mainhand);
   }
 };
 async function stripped(block) {
@@ -4484,7 +4491,7 @@ async function shotFlametHrower(player, item) {
         });
       });
       if (count % 4 === 0) {
-        ItemDurabilityDamage(player, item, EquipmentSlot22.Mainhand, void 0);
+        itemDurabilityDamage(player, item, EquipmentSlot22.Mainhand);
       }
     }
     count = count + 1;
@@ -4529,7 +4536,7 @@ async function shotMachineGun(player, item) {
       let loock = getLookPoints(player.getRotation(), player.location, 1.5);
       player.dimension.spawnParticle("minecraft:explosion_manual", { x: loock.x, y: loock.y, z: loock.z });
       subtractionItem(player, reItem, EquipmentSlot23.Offhand, 1);
-      ItemDurabilityDamage(player, item, EquipmentSlot23.Mainhand, void 0);
+      itemDurabilityDamage(player, item, EquipmentSlot23.Mainhand);
     }
     count = count + 1;
   }, 1);
@@ -5195,7 +5202,7 @@ async function fortuneDestroy(player, block, blockPermutation) {
       if (enc.hasEnchantment(MinecraftEnchantmentTypes.Fortune)) {
         let fortune = enc.getEnchantment(MinecraftEnchantmentTypes.Fortune);
         let customBlock = CustomBlocks.find((obj) => obj.block == blockPermutation.type.id);
-        let count = getRandomInRange6(0, fortune.level);
+        let count = getRandomInRange5(0, fortune.level);
         for (let i = 0; i < count; i++) {
           block.dimension.spawnItem(new ItemStack35(customBlock.item), block.location);
         }
@@ -5203,7 +5210,7 @@ async function fortuneDestroy(player, block, blockPermutation) {
     }
   }
 }
-function getRandomInRange6(min, max) {
+function getRandomInRange5(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
 
@@ -5215,7 +5222,7 @@ var HoeFarming = class {
     let itemStack = event.itemStack;
     let block = event.block;
     farming(block);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot29.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot29.Mainhand);
   }
 };
 async function farming(block) {
@@ -5805,7 +5812,7 @@ var CrossBone = class {
     let source = event.source;
     let itemStack = event.itemStack;
     crossBoneShot(source);
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot34.Mainhand, void 0);
+    itemDurabilityDamage(source, itemStack, EquipmentSlot34.Mainhand);
   }
 };
 async function crossBoneShot(player) {

@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, Player, system, TicksPerSecond, Vector3, world } from "@minecraft/server";
+import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { shooting } from "../../../common/ShooterMagicEvent";
 
 /**

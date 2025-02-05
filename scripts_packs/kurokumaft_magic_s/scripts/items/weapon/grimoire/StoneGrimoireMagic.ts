@@ -1,4 +1,4 @@
-import { ItemStack, Block, system, Player, GameMode, ItemComponentUseOnEvent, ItemComponentTypes, BlockPermutation, Direction, ItemCooldownComponent, Vector3 } from "@minecraft/server";
+import { ItemStack, Block, system, Player, ItemComponentUseOnEvent, ItemComponentTypes, BlockPermutation, Direction, ItemCooldownComponent, Vector3 } from "@minecraft/server";
 import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { CraftBlocks } from "../../../common/commonUtil";

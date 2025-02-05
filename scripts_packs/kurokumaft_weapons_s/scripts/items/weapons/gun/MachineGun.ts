@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent } from "@minecraft/server";
 import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
-import { ItemDurabilityDamage, subtractionItem } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage, subtractionItem } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../common/ShooterPoints";
 
 /**
@@ -45,7 +45,7 @@ async function shotMachineGun(player: Player, item: ItemStack) {
             let loock = getLookPoints(player.getRotation(), player.location, 1.5);
             player.dimension.spawnParticle("minecraft:explosion_manual", {x:loock.x, y:loock.y, z:loock.z});
             subtractionItem(player, reItem, EquipmentSlot.Offhand, 1);
-            ItemDurabilityDamage(player, item, EquipmentSlot.Mainhand, undefined);
+            itemDurabilityDamage(player, item, EquipmentSlot.Mainhand);
         }
         count = count + 1;
     }, 1);

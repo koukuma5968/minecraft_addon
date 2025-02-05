@@ -1,7 +1,6 @@
-import { Block, Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, RawMessage, world } from "@minecraft/server";
+import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
 import { throwing } from "../../../common/ShooterMagicEvent";
-import { print, getRandomInRange } from "../../../common/commonUtil";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { deepSnow, icewall, powderedSnow } from "./SnowWandMagic";
 import { absorption, darkBread, invisibility } from "./DarkWandMagic";
 import { healing, lightBread, recovery } from "./LightWandMagic";
@@ -223,7 +222,7 @@ export class WandWeaponMagic implements ItemCustomComponent {
 
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + wandMagic.sendMsg + "\"}]}");
 
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

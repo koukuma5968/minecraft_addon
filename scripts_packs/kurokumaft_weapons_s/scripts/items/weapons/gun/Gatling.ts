@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
-import { ItemDurabilityDamage, subtractionItem } from "../../../common/ItemDurabilityDamage";
+import { getLookPoints } from "../../../common/commonUtil";
+import { itemDurabilityDamage, subtractionItem } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../common/ShooterPoints";
 
 /**
@@ -52,7 +52,7 @@ async function shotGatling(player: Player, item: ItemStack) {
             let look = getLookPoints(player.getRotation(), player.location, 1.5);
             player.dimension.spawnParticle("minecraft:explosion_manual", look);
             subtractionItem(player, reItem, EquipmentSlot.Offhand, 1);
-            ItemDurabilityDamage(player, item, EquipmentSlot.Mainhand, undefined);
+            itemDurabilityDamage(player, item, EquipmentSlot.Mainhand);
         }
         count = count + 1;
     }, 1);

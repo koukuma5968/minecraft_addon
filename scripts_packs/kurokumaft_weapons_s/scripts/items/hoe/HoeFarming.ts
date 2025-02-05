@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { ItemDurabilityDamage } from "../../common/ItemDurabilityDamage";
-import { FarmingBlocks, PavementBlocks } from "../../common/Constants";
+import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
+import { FarmingBlocks } from "../../common/Constants";
 
 /**
  * くわ
@@ -13,7 +13,7 @@ export class HoeFarming implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let block = event.block as Block;
         farming(block);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
 }
 

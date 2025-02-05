@@ -2,7 +2,7 @@ import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, It
 import { itemTans } from "../../../common/commonUtil";
 import { shooting } from "../../../common/ShooterPoints";
 import { slashHit } from "../../../common/SlashAttack";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 interface SickleObject {
     itemName: string,
@@ -56,7 +56,7 @@ export class Sickle implements ItemCustomComponent {
             itemTans(source, itemStack, scytheItem.changeItem, EquipmentSlot.Mainhand);
         } else {
             spiritSickle(source, scytheItem);
-            ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+            itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
         }
     }
 }

@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond, world } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
 import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/commonUtil";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 

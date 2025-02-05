@@ -772,6 +772,23 @@
             "textures/kurokumaft/items/egg/boss/egg_phoenix",
             "textures/kurokumaft/items/egg/boss/egg_fenrir"
          ]
+      },
+
+      "magic_animal_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/egg/animal/egg_aqua_jackal",
+            "textures/kurokumaft/items/egg/animal/egg_breeze_fish",
+            "textures/kurokumaft/items/egg/animal/egg_earth_rhino",
+            "textures/kurokumaft/items/egg/animal/egg_fire_chicken",
+            "textures/kurokumaft/items/egg/animal/egg_flame_porcupine",
+            "textures/kurokumaft/items/egg/animal/egg_frost_owl",
+            "textures/kurokumaft/items/egg/animal/egg_lightning_sheep",
+            "textures/kurokumaft/items/egg/animal/egg_snow_wolf",
+            "textures/kurokumaft/items/egg/animal/egg_stone_armadillo",
+            "textures/kurokumaft/items/egg/animal/egg_thunder_bat",
+            "textures/kurokumaft/items/egg/animal/egg_water_buffalo",
+            "textures/kurokumaft/items/egg/animal/egg_wind_dolphin"
+         ]
       }
 
    },

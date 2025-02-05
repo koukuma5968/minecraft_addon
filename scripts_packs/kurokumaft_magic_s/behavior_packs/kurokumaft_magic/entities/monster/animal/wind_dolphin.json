@@ -17,7 +17,7 @@
         "on_death": "q.last_hit_by_player ? 20 : 0"
       },
       "minecraft:shooter": {
-        "def": "kurokumaft:wind_magic_bullet"
+        "def": "kurokumaft:dolphin_ultrasonic"
       },
       "minecraft:behavior.ranged_attack": {
         "priority": 1,

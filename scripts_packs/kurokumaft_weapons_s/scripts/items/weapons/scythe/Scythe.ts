@@ -2,7 +2,7 @@ import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, It
 import { itemTans } from "../../../common/commonUtil";
 import { shooting } from "../../../common/ShooterPoints";
 import { sweepHit } from "../../../common/SweepAttack";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 interface ScytheObject {
     itemName: string,
@@ -57,7 +57,7 @@ export class Scythe implements ItemCustomComponent {
             itemTans(source, itemStack, scytheItem.changeItem, EquipmentSlot.Mainhand);
         } else {
             roarScythe(source, scytheItem);
-            ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+            itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
         }
     }
 }

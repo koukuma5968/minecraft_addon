@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { ItemDurabilityDamage } from "../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
 import { PavementBlocks } from "../../common/Constants";
 
 /**
@@ -13,7 +13,7 @@ export class ShovelPavement implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let block = event.block as Block;
         pavement(block);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
 }
 

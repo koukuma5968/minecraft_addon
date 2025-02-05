@@ -1,6 +1,6 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentUseOnEvent, system, ItemComponentCompleteUseEvent, Entity } from "@minecraft/server";
-import { getRandomInRange, clamp } from "../../../common/commonUtil";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, Entity } from "@minecraft/server";
+import { clamp } from "../../../common/commonUtil";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../common/ShooterMagicEvent";
 import { fireArrow } from "./FireArrowMagic";
 import { waterArrow, waterArrowHoming } from "./WaterArrowMagic";
@@ -119,7 +119,7 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
             shooting(player, bowMagicObject.event, 0, speed, undefined);
         }
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + bowMagicObject.sendMsg + "\"}]}");
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
 }

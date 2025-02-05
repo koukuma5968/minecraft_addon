@@ -1,6 +1,6 @@
 import { system,Player,Entity,EntityComponentTypes,EntityEquippableComponent,EquipmentSlot,EntityApplyDamageOptions } from "@minecraft/server";
 import { playsound } from "../../../common/commonUtil"
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 // シールドガード
 /**
@@ -14,10 +14,10 @@ function shieldGuard(player:Player, range:Boolean) {
     if (player.isSneaking) {
         // シールド耐久
         if (offhand != undefined && (offhand.typeId.indexOf("_shield") != -1)) {
-            ItemDurabilityDamage(player, offhand, EquipmentSlot.Offhand);
+            itemDurabilityDamage(player, offhand, EquipmentSlot.Offhand);
             playsound(player, "item.shield.block");
         } else if (mainhand != undefined && (mainhand.typeId.indexOf("_shield") != -1)) {
-            ItemDurabilityDamage(player, mainhand, EquipmentSlot.Mainhand);
+            itemDurabilityDamage(player, mainhand, EquipmentSlot.Mainhand);
             playsound(player, "item.shield.block");
         }
     }

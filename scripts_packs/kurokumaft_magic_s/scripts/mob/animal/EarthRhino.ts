@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause } from "@minecraft/server";
+import { Entity } from "@minecraft/server";
 
 /**
  * アースライノノックバック

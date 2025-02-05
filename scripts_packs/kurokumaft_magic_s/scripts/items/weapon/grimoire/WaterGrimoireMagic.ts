@@ -1,7 +1,7 @@
-import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Vector3, system, EntityDamageCause, TicksPerSecond, Player, Dimension, GameMode, BlockTypes, world, ItemUseOnAfterEvent } from "@minecraft/server";
+import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Player, ItemUseOnAfterEvent } from "@minecraft/server";
 import { BlockLocationList, CraftBlocks } from "../../../common/commonUtil";
 import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
-import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
  * 魔導書（ウォーター）使用

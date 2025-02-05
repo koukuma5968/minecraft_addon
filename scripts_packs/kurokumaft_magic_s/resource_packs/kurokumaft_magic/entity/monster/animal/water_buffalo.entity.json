@@ -34,8 +34,8 @@
         "controller.render.cow"
       ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 1
+        "texture": "magic_animal_spawn_egg",
+        "texture_index": 10
       }
     }
   }

@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, world, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentTypes, ItemCooldownComponent, ItemComponentUseOnEvent, ItemComponentCompleteUseEvent, Dimension, Vector3, Block, BlockTypes, EntityDamageCause } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../common/ShooterPoints";
 import { getLookPoints } from "../../../common/commonUtil";
 import { sweepThreeHit } from "../../../common/SweepAttack";
@@ -23,7 +23,7 @@ export class EchoSword implements ItemCustomComponent {
         let source = event.source as Player;
         let itemStack = event.itemStack as ItemStack;
         sonicBullet(source);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
 }
 

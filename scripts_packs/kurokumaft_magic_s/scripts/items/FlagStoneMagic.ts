@@ -1,5 +1,5 @@
-import { EquipmentSlot, GameMode, ItemComponentUseOnEvent, ItemCustomComponent, ItemStack, Player, world } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../common/ItemDurabilityDamage";
+import { EquipmentSlot, ItemComponentUseOnEvent, ItemCustomComponent, ItemStack, Player, world } from "@minecraft/server";
+import { itemDurabilityDamage } from "../common/ItemDurabilityDamage";
 
 interface gateObj { 
     x: string
@@ -40,7 +40,7 @@ export class FlagStoneMagic implements ItemCustomComponent {
         let magicObject = FlagStoneObjects.find(obj => obj.itemName == itemStack.typeId) as FlagStoneObject;
         if (magicObject) {
             setPortalStand(magicObject, event);
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+            itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
         }
     }
 

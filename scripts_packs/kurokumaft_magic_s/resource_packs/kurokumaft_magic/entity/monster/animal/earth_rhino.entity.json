@@ -13,8 +13,8 @@
         "default": "geometry.earth_rhino"
       },
       "spawn_egg": {
-        "base_color": "#C66E55",
-        "overlay_color": "#5f6464"
+        "texture": "magic_animal_spawn_egg",
+        "texture_index": 2
       },
       "scripts": {
         "pre_animation": [

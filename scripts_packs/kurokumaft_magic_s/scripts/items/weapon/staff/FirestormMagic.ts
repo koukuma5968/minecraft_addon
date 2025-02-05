@@ -1,5 +1,5 @@
-import { Dimension, Entity, EntityDamageCause, EntityQueryOptions, Player, system, Vector3 } from "@minecraft/server";
-import { addTeamsTagFilter, getLookPoints, getRandomInRange } from "../../../common/commonUtil";
+import { EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
+import { addTeamsTagFilter, getLookPoints } from "../../../common/commonUtil";
 
 /**
  * ブラム・ファング

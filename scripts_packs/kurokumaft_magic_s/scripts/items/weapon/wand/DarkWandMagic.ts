@@ -1,6 +1,6 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond, world } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { getLookRotaionPoints, addTeamsTagFilter } from "../../../common/commonUtil";
+import { addTeamsTagFilter } from "../../../common/commonUtil";
 
 /**
  * ダークブレード

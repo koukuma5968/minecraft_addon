@@ -35,8 +35,8 @@
         "controller.render.lightning_sheep"
       ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 3
+        "texture": "magic_animal_spawn_egg",
+        "texture_index": 6
       }
     }
   }

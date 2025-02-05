@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, world } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
 import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/commonUtil";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 

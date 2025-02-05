@@ -1,5 +1,5 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, GameMode, EquipmentSlot, ItemComponentCompleteUseEvent } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, EquipmentSlot, ItemComponentCompleteUseEvent } from "@minecraft/server";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { blazeBurst, fireSword, fireSwordMons } from "./FireSwordMagic";
 import { waterSword, waterSwordMons } from "./WaterSwordMagic";
 import { windSword, windSwordMons } from "./WindSwordMagic";
@@ -149,7 +149,7 @@ export class SwordWeaponMagic implements ItemCustomComponent {
         let swordChargeMagicObject = SwordChargeObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + swordChargeMagicObject.sendMsg + "\"}]}");
         swordChargeMagicObject.func(player);
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
 }
@@ -171,7 +171,7 @@ export class SwordWeaponMagicMons implements ItemCustomComponent {
         }
         let swordMagicObject = SwordHitMonsObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicMonsObject;
         swordMagicObject.func(attackEntity, hitEntity);
-        ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 
     }
 }

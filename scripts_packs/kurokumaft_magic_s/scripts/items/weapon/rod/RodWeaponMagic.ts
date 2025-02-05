@@ -1,6 +1,6 @@
-import { Entity, EquipmentSlot, GameMode, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
+import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
 import { shooting } from "../../../common/ShooterMagicEvent";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { bumrod, burstflare, flarecircle } from "./FlameMagic";
 import { watercutter, waterjail, waterwave } from "./WaterWaveMagic";
 import { aerobomb, storm, stormBread } from "./StormMagic";
@@ -206,7 +206,7 @@ export class RodWeaponMagic implements ItemCustomComponent {
             }
         }
 
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

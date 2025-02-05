@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, ItemComponentUseEvent, Player, EquipmentSlot, EntityHealthComponent, EntityComponentTypes, TicksPerSecond } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { getLookPoints, getRandomInRange, itemCoolDown } from "../../../common/commonUtil";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
@@ -20,7 +20,7 @@ export class EnderEyeSword implements ItemCustomComponent {
         let source = event.source as Player;
         let itemStack = event.itemStack as ItemStack;
         evilEye(source);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
         itemCoolDown(source, itemStack);
     }
 }

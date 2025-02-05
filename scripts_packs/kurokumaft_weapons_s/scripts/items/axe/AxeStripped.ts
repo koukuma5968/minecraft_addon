@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
 import { LogBlocks, OtherLogBlocks, OtherStrippedLogBlocks, OtherStrippedWoodBlocks, OtherWoodBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/Constants";
 
 /**
@@ -12,7 +12,7 @@ export class AxeStripped implements ItemCustomComponent {
         let itemStack = event.itemStack as ItemStack;
         let block = event.block as Block;
         stripped(block);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
 }
 

@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, Dimension, Vector3, EquipmentSlot, ItemStack } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 
 
 /**
@@ -19,5 +19,5 @@ export class TntSwordBreak implements ItemCustomComponent {
 
 export async function tntBreak(attackEntity:Entity, itemStack:ItemStack, location:Vector3) {
     attackEntity.dimension.spawnEntity("kurokumaft:tnt_sword_break", location);
-    ItemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand, undefined);
+    itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 }

@@ -1,5 +1,5 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentCompleteUseEvent, Entity } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentCompleteUseEvent } from "@minecraft/server";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../common/ShooterMagicEvent";
 
 interface GunMagicObject {
@@ -119,7 +119,7 @@ async function magicGunShot(player: Player, itemStack: ItemStack, gunMagicObject
     } else {
         shooting(player, gunMagicObject.event, 0, 3, undefined);
     }
-    ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+    itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     player.setProperty(gunMagicObject.property, 0);
     player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + gunMagicObject.sendMsg + "\"}]}");
 

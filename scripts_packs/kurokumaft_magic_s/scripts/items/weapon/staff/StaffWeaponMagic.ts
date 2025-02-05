@@ -1,7 +1,5 @@
-import { Entity, EquipmentSlot, GameMode, ItemComponent, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
-import { shooting, throwing } from "../../../common/ShooterMagicEvent";
-import { print, getRandomInRange, clamp } from "../../../common/commonUtil";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { bramFang, fireStorm } from "./FirestormMagic";
 import { explosion, megaBrand } from "./ExplosionMagic";
 import { digVault, flameSpark } from "./FlameSparkMagic";
@@ -94,7 +92,7 @@ export class StaffWeaponMagic implements ItemCustomComponent {
             staffRightOneMagicObject.func(player);
         }
 
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

@@ -1,5 +1,5 @@
-import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, EntityQueryOptions, Player, system, world } from "@minecraft/server";
-import { addTeamsTagFilter, getLookPoints, getLookRotaionPoints } from "../../../common/commonUtil";
+import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, EntityQueryOptions, Player, system } from "@minecraft/server";
+import { addTeamsTagFilter, getLookPoints } from "../../../common/commonUtil";
 
 /**
  * メガブランド

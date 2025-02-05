@@ -31,8 +31,8 @@
         "controller.render.thunder_bat"
       ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 18
+        "texture": "magic_animal_spawn_egg",
+        "texture_index": 9
       }
     }
   }

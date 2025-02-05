@@ -1,5 +1,4 @@
-import { EntityDamageCause, EntityQueryOptions, EquipmentSlot, GameMode, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player, system } from "@minecraft/server";
-import { throwing } from "../../../common/ShooterMagicEvent";
+import { EntityDamageCause, EntityQueryOptions, EquipmentSlot, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player, system } from "@minecraft/server";
 import { SummonGrimoireDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { addTeamsTagFilter } from "../../../common/commonUtil";
 

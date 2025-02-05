@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, world, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentTypes, ItemCooldownComponent, ItemComponentUseOnEvent, ItemComponentCompleteUseEvent, Dimension, Vector3, Block, BlockTypes, EntityDamageCause, EffectTypes } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../common/ShooterPoints";
 import { getLookPoints, getLookRotaionPoints, itemCoolDown } from "../../../common/commonUtil";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
@@ -25,7 +25,7 @@ export class WitherSword implements ItemCustomComponent {
         let source = event.source as Player;
         let itemStack = event.itemStack as ItemStack;
         witherSkull(source);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
         itemCoolDown(source, itemStack);
     }
 }

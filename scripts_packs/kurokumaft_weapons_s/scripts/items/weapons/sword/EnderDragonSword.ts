@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, EquipmentSlot, ItemComponentUseEvent, ItemStack, Player } from "@minecraft/server";
 import { itemCoolDown } from "../../../common/commonUtil";
-import { ItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
 import { shooting } from "../../../common/ShooterPoints";
 import { sweepHit } from "../../../common/SweepAttack";
 
@@ -22,7 +22,7 @@ export class EnderDragonSword implements ItemCustomComponent {
         let source = event.source as Player;
         let itemStack = event.itemStack as ItemStack;
         dragonFireball(source);
-        ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
         itemCoolDown(source, itemStack);
     }
 

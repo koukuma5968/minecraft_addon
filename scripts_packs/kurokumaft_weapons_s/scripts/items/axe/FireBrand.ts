@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemStack, Block, EquipmentSlot, ItemComponentHitEntityEvent, Entity, EntityDamageCause } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
 import { LogBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/Constants";
 
 /**
@@ -12,7 +12,7 @@ export class FireBrand implements ItemCustomComponent {
         let hitEntity = event.hitEntity as Entity;
         let itemStack = event.itemStack as ItemStack;
         mobflameFiring(hitEntity);
-        ItemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot.Mainhand);
     }
 }
 
@@ -32,6 +32,6 @@ export async function fireCharcoalBlock(attackingEntity:Entity, itemStack:ItemSt
 
         block.dimension.setBlockType(block.location, "kurokumaft:charcoal_block");
         block.dimension.spawnParticle("kurokumaft:mobflame_firing", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
-        ItemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot.Mainhand, undefined);
+        itemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot.Mainhand);
     }
 }

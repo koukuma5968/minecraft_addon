@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { Entity, EntityDamageCause, Player, TicksPerSecond, world } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**

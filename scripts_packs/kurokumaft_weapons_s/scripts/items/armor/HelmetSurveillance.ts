@@ -1,6 +1,6 @@
 import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, TicksPerSecond, EntityHealthComponent, ItemDurabilityComponent, ItemComponentTypes, world} from "@minecraft/server";
 import { playsound } from "../../common/commonUtil";
-import { ItemDurabilityDamage } from "../../common/ItemDurabilityDamage";
+import { itemDurabilityDamageFixed } from "../../common/ItemDurabilityDamage";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
@@ -68,7 +68,7 @@ export async function axolotlRegeneration(player:Player) {
         let itemDur = head.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
         playsound(player, "random.totem");
 
-        ItemDurabilityDamage(player, head, EquipmentSlot.Head, itemDur.maxDurability/3);
+        itemDurabilityDamageFixed(player, head, EquipmentSlot.Head, itemDur.maxDurability/3);
 
     }
 }

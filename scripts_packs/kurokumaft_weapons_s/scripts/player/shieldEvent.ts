@@ -1,6 +1,6 @@
 import { system,EntityComponentTypes,ItemComponentTypes, Entity, Player, EntityEquippableComponent, EquipmentSlot, ItemDurabilityComponent, EntityDamageCause, EntityHealthComponent, Vector3, world } from "@minecraft/server";
 import { playsound,resuscitation } from "../common/commonUtil"
-import { ItemDurabilityDamage } from "../common/ItemDurabilityDamage";
+import { itemDurabilityDamageFixed } from "../common/ItemDurabilityDamage";
 
 /**
  * ガード
@@ -16,10 +16,10 @@ function shieldGuard(player: Player, range: boolean) {
         if (offhand != undefined && (offhand.typeId.indexOf("_shield") != -1 || offhand.typeId == "kurokumaft:kettle_lid")) {
             // ガラスで近接は10減少
             if (offhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
-                ItemDurabilityDamage(player, offhand, EquipmentSlot.Offhand, 10);
+                itemDurabilityDamageFixed(player, offhand, EquipmentSlot.Offhand, 10);
                 playsound(player, "random.glass");
             } else {
-                ItemDurabilityDamage(player, offhand, EquipmentSlot.Offhand, 1);
+                itemDurabilityDamageFixed(player, offhand, EquipmentSlot.Offhand, 1);
                 if (offhand.typeId == "kurokumaft:tnt_shield" && range) {
                     playsound(player, "random.explode");
                 } else if (offhand.typeId == "kurokumaft:steel_shield") {
@@ -31,10 +31,10 @@ function shieldGuard(player: Player, range: boolean) {
         } else if (mainhand != undefined && (mainhand.typeId.indexOf("_shield") != -1 || mainhand.typeId == "kurokumaft:kettle_lid")) {
             // ガラスで近接は10減少
             if (mainhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
-                ItemDurabilityDamage(player, mainhand, EquipmentSlot.Mainhand, 10);
+                itemDurabilityDamageFixed(player, mainhand, EquipmentSlot.Mainhand, 10);
                 playsound(player, "random.glass");
             } else {
-                ItemDurabilityDamage(player, mainhand, EquipmentSlot.Mainhand, 1);
+                itemDurabilityDamageFixed(player, mainhand, EquipmentSlot.Mainhand, 1);
                 if (mainhand.typeId == "kurokumaft:tnt_shield" && range) {
                     playsound(player, "random.explode");
                 } else {
@@ -105,11 +105,11 @@ function resuscitationEquipment(player: Player) {
         if (offhand != undefined && (offhand.typeId == "kurokumaft:immortal_shield")) {
             let dur = offhand.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
             resuscitation(player);
-            ItemDurabilityDamage(player, offhand, EquipmentSlot.Offhand, (30/100)*dur.maxDurability);
+            itemDurabilityDamageFixed(player, offhand, EquipmentSlot.Offhand, (30/100)*dur.maxDurability);
         } else if (mainhand != undefined && (mainhand.typeId == "kurokumaft:immortal_shield")) {
             let dur = mainhand.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
             resuscitation(player);
-            ItemDurabilityDamage(player, mainhand, EquipmentSlot.Mainhand, (30/100)*dur.maxDurability);
+            itemDurabilityDamageFixed(player, mainhand, EquipmentSlot.Mainhand, (30/100)*dur.maxDurability);
         }
     }
 }

@@ -1,0 +1,23 @@
+{
+	"format_version": "1.20.10",
+	"animations": {
+		"animation.mob.dolphin_ultrasonic_frame": {
+			"animation_length": 0.03,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:wind_bullet_particle ~~~"
+				]
+			}
+		},
+		"animation.mob.bat_ultrasonic_frame": {
+			"animation_length": 0.03,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/particle kurokumaft:lightning_bullet_particle ~~~"
+				]
+			}
+		}
+	}
+}

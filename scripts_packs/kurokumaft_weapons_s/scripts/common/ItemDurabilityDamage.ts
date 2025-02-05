@@ -2,13 +2,37 @@ import { ItemStack, Player, ItemComponentTypes, ItemDurabilityComponent, Entity,
 import { getRandomInRange } from "./commonUtil";
 
 /**
+ * アイテムダメージ
+ * @param {Entity} entity
+ * @param {ItemStack} item
+ * @param {EquipmentSlot} slot
+ */
+async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
+
+    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
+        let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+
+        let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+        let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
+    
+        if ((durability.damage + dChange) >= durability.maxDurability) {
+            equ.setEquipment(slot, undefined);
+        } else {
+            durability.damage = durability.damage + dChange;
+            equ.setEquipment(slot, item);
+        }
+    }
+
+}
+
+/**
  * 耐久値減少
  * @param {Entity} entity
  * @param {ItemStack} item
  * @param {EquipmentSlot} slot
  * @param {number} damage
  */
-async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number|undefined) {
+async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number) {
 
     if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
         return;
@@ -17,17 +41,11 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
     let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
     let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-    let dChange;
-    if (damage) {
-        dChange = damage;
-    } else {
-        dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
-    }
 
-    if ((durability.damage + dChange) >= durability.maxDurability) {
+    if ((durability.damage + damage) >= durability.maxDurability) {
         equ.setEquipment(slot, undefined);
     } else {
-        durability.damage = durability.damage + dChange;
+        durability.damage = durability.damage + damage;
         equ.setEquipment(slot, item);
     }
 
@@ -84,4 +102,4 @@ async function subtractionItem(player: Player, item: ItemStack, slot: EquipmentS
     }
 };
 
-export {ItemDurabilityDamage, throwItemDurabilityDamage, subtractionItem};
+export {itemDurabilityDamage, itemDurabilityDamageFixed, throwItemDurabilityDamage, subtractionItem};

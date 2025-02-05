@@ -20,18 +20,18 @@
 		"controller.animation.earth_rhino.attack" : {
 			"initial_state" : "default",
 			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"attack": "query.has_target && query.is_delayed_attacking"
+						}
+					]
+				},
 				"attack" : {
 					"animations" : [ "attack" ],
 					"transitions": [
 						{
-							"default" : "!query.has_target || query.is_ram_attacking"
-						}
-					]
-				},
-				"default" : {
-					"transitions" : [
-						{
-							"attack": "query.has_target && query.is_ram_attacking"
+							"default" : "!query.has_target || query.is_delayed_attacking"
 						}
 					]
 				}

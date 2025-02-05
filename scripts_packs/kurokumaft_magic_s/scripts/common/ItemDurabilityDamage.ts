@@ -7,7 +7,7 @@ import { getRandomInRange } from "./commonUtil";
  * @param {ItemStack} item
  * @param {EquipmentSlot} slot
  */
-async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
+async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
     if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
         let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
@@ -71,4 +71,4 @@ async function decrimentGrimoireCount(player:Player, item:ItemStack) {
     }
 }
 
-export {ItemDurabilityDamage, SummonGrimoireDurabilityDamage, decrimentGrimoireCount};
+export {itemDurabilityDamage, SummonGrimoireDurabilityDamage, decrimentGrimoireCount};
