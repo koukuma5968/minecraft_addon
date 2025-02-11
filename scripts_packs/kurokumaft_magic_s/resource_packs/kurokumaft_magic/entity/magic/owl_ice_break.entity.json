@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:owl_ice_break",
+        "materials": {
+            "default": "fireball"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/magic/owl_ice_break"
+          },
+          "geometry": {
+            "default": "geometry.owl_ice_break"
+          },
+          "animations": {
+            "shooter": "animation.owl_ice_break.shooter"
+          },
+          "particle_effects": {
+            "ice": "kurokumaft:ice_arrow_particle"
+          },
+          "scripts": {
+            "scale": "1.1",
+            "animate": [
+              "shooter"
+            ]
+          },
+          "render_controllers": [ "controller.render.rockbreakmagic" ]
+        }
+    }
+  }
+  

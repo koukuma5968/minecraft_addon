@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:volzas_ingot"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#X#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:volzas_rod"
+      },
+      "X": {
+        "item": "kurokumaft:lightning_magic_stone"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "kurokumaft:volzas_rod"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:volzas_ingot",
+      "count": 1
+    }
+  }
+}

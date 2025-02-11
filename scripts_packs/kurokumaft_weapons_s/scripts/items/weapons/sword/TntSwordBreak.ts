@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, Dimension, Vector3, EquipmentSlot, ItemStack } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 
 /**

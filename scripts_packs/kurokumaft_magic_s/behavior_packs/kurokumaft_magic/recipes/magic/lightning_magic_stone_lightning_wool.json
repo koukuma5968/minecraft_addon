@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:lightning_magic_stone_lightning_wool"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:lightning_wool"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:lightning_magic_stone"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_stone_swirl_horn"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:swirl_horn"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:wind_magic_stone"
+    }
+  }
+}

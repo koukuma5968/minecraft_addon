@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter } from "../../../common/commonUtil";
+import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * アイスブレード

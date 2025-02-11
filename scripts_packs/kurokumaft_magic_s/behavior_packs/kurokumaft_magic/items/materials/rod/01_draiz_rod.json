@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:draiz_rod"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "draiz_rod"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:draiz_rod.name"
+      },
+      "minecraft:hand_equipped": true
+    }
+  }
+}

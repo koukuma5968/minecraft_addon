@@ -1,0 +1,55 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.graiz": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+    "controller.render.graiz_eyes": {
+      "geometry": "Geometry.graiz_eyes",
+      "materials": [ { "*": "Material.graiz_eyes" } ],
+      "textures": [ "Texture.graiz_eyes" ],
+      "ignore_lighting": true
+    },
+    "controller.render.graiz_stone_top": {
+      "geometry": "Geometry.graiz_stone_top",
+      "materials": [ { "*": "Material.graiz_stone" } ],
+      "textures": [ "Texture.graiz_stone" ],
+      "uv_anim": {
+        "offset": [
+          "((Math.floor(query.life_time * 20.0) + query.frame_alpha) * 0.02)",
+          "(0.0)"
+        ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "light_color_multiplier": 1.8
+    },
+    "controller.render.graiz_stone_mid": {
+      "geometry": "Geometry.graiz_stone_mid",
+      "materials": [ { "*": "Material.graiz_stone" } ],
+      "textures": [ "Texture.graiz_stone" ],
+      "uv_anim": {
+        "offset": [
+          "((Math.floor(query.life_time * 20.0) + query.frame_alpha) * 0.025)",
+          "(0.0)"
+        ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "light_color_multiplier": 1.8
+    },
+    "controller.render.graiz_stone_bottom": {
+      "geometry": "Geometry.graiz_stone_bottom",
+      "materials": [ { "*": "Material.graiz_stone" } ],
+      "textures": [ "Texture.graiz_stone" ],
+      "uv_anim": {
+        "offset": [
+          "((Math.floor(query.life_time * 20.0) + query.frame_alpha) * 0.03)",
+          "(0.0)"
+        ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "light_color_multiplier": 1.8
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
-import { shooting } from "../../../common/ShooterMagicEvent";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { shooting } from "../../../common/MagicShooterMagicEvent";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 import { bumrod, burstflare, flarecircle } from "./FlameMagic";
 import { watercutter, waterjail, waterwave } from "./WaterWaveMagic";
 import { aerobomb, storm, stormBread } from "./StormMagic";

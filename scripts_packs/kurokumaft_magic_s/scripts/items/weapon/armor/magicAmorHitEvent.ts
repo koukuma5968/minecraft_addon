@@ -1,5 +1,5 @@
 import { system,Player,Entity,EntityComponentTypes,Vector3,EntityEquippableComponent,EquipmentSlot,EntityApplyDamageOptions, EntityProjectileComponent } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 
 /**
  * 魔法防具反撃効果

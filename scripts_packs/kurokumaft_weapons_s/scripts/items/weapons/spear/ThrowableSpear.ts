@@ -1,8 +1,8 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentTypes, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, ItemEnchantableComponent, Enchantment } from "@minecraft/server";
-import { getDirectionVector } from "../../../common/commonUtil";
+import { getDirectionVector } from "../../../common/WeaponsCommonUtil";
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
-import { sweepHit } from "../../../common/SweepAttack";
-import { throwItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { sweepHit } from "../../../common/WeaponsSweepAttack";
+import { throwItemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 interface SpearObject {
     itemName: string,

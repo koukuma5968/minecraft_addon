@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityRidingComponent } from "@minecraft/server";
-import { subtractionItem } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterPoints";
-import { getLookRotaionPoints, itemCoolDown } from "../../../common/commonUtil";
+import { subtractionItem } from "../../../common/WeaponsItemDurabilityDamage";
+import { shooting } from "../../../common/WeaponsShooterPoints";
+import { getLookRotaionPoints, itemCoolDown } from "../../../common/WeaponsCommonUtil";
 
 /**
  * 戦車砲弾

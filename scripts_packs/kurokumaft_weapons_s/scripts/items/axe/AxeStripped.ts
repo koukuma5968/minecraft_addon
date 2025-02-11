@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
-import { LogBlocks, OtherLogBlocks, OtherStrippedLogBlocks, OtherStrippedWoodBlocks, OtherWoodBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/Constants";
+import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
+import { LogBlocks, OtherLogBlocks, OtherStrippedLogBlocks, OtherStrippedWoodBlocks, OtherWoodBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/WeaponsConstants";
 
 /**
  * 斧

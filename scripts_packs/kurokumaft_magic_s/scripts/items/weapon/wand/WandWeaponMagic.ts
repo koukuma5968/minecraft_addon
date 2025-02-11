@@ -1,6 +1,6 @@
 import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
-import { throwing } from "../../../common/ShooterMagicEvent";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { throwing } from "../../../common/MagicShooterMagicEvent";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 import { deepSnow, icewall, powderedSnow } from "./SnowWandMagic";
 import { absorption, darkBread, invisibility } from "./DarkWandMagic";
 import { healing, lightBread, recovery } from "./LightWandMagic";

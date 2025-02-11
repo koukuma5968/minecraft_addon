@@ -5,15 +5,7 @@
       "identifier": "kurokumaft:frost_owl",
       "spawn_category": "creature",
       "is_spawnable": true,
-      "is_summonable": true,
-      "properties": {
-        "kurokumaft:flame_porcupine_state": {
-          "type": "enum",
-          "values": [ "unrolled", "rolled_up", "rolled_up_peeking", "rolled_up_relaxing", "rolled_up_unrolling" ],
-          "default": "unrolled",
-          "client_sync": true
-        }
-      }
+      "is_summonable": true
     },
 
     "component_groups": {
@@ -29,11 +21,22 @@
       "minecraft:type_family": {
         "family": [ "frost_owl", "mob", "magic_animal" ]
       },
+      "minecraft:shooter": {
+        "def": "kurokumaft:owl_ice_break"
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 1,
+        "attack_radius": 6,
+        "burst_shots": 3,
+        "burst_interval": 0.3,
+        "charge_shoot_trigger": 2,
+        "charge_charged_trigger": 1
+      },
       "minecraft:behavior.random_fly": {
         "priority": 3,
         "xz_dist": 15,
-        "y_dist": 1,
-        "y_offset": 0,
+        "y_dist": 2,
+        "y_offset": -1.0,
         "speed_multiplier": 1.0,
         "can_land_on_trees": true,
         "avoid_damage_blocks": true

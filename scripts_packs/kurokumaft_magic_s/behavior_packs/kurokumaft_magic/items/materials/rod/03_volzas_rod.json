@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:volzas_rod"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "volzas_rod"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:volzas_rod.name"
+      },
+      "minecraft:hand_equipped": true
+    }
+  }
+}

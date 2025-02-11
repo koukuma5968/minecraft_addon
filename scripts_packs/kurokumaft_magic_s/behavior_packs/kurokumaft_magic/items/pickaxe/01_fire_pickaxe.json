@@ -1,0 +1,62 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item" : {
+    "description": {
+      "identifier": "kurokumaft:fire_pickaxe",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.pickaxe"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:fire_pickaxe.name"
+      },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:transformable_items"
+        ]
+      },
+      "minecraft:icon": "fire_pickaxe",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 2,
+          "max": 5
+        },
+        "max_durability": 1000
+      },
+      "minecraft:allow_off_hand": true,
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:fire_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:fire_pickaxe" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:damage": 5,
+      "minecraft:enchantable": {
+        "value": 50,
+        "slot": "pickaxe"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {"block": {"tags": "query.any_tag('minecraft:is_pickaxe_item_destructible')"},"speed": 15}
+        ]
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:mine_durability",
+        "kurokumaft:pic_attack"
+      ]
+    }
+  }
+}
+

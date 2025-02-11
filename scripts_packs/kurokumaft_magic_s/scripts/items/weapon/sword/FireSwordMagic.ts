@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, world } from "@minecraft/server";
-import { addTeamsTagFilter } from "../../../common/commonUtil";
+import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * フレイムソード

@@ -1,5 +1,5 @@
 import { BlockCustomComponent, Block, BlockComponentTickEvent, BlockPermutation, BlockComponentPlayerInteractEvent, Player, EntityComponentTypes, EquipmentSlot, EntityEquippableComponent, ItemStack, world } from "@minecraft/server";
-import { subtractionItem } from "../../common/ItemDurabilityDamage";
+import { subtractionItem } from "../../common/WeaponsItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**

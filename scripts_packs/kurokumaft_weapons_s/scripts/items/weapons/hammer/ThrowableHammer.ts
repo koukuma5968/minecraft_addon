@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, EntityDamageCause, world } from "@minecraft/server";
-import { getLookPoints } from "../../../common/commonUtil";
-import { throwItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterPoints";
+import { getLookPoints } from "../../../common/WeaponsCommonUtil";
+import { throwItemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
+import { shooting } from "../../../common/WeaponsShooterPoints";
 
 interface HammerObject {
     itemName: string,

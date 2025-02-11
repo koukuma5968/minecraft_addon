@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_stone_flutter_tail_fin"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:flutter_tail_fin"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:wind_magic_stone"
+    }
+  }
+}

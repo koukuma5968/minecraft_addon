@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, ItemStack } from "@minecraft/server";
-import { sweepHit } from "../../../common/SweepAttack";
+import { sweepHit } from "../../../common/WeaponsSweepAttack";
 
 
 /**

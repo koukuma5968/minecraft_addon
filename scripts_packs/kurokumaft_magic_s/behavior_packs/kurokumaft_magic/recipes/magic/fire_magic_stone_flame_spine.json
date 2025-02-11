@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:fire_magic_stone_flame_spine"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:flame_spine"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:fire_magic_stone"
+    }
+  }
+}

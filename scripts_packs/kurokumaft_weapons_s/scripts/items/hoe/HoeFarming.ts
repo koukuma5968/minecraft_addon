@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
-import { FarmingBlocks } from "../../common/Constants";
+import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
+import { FarmingBlocks } from "../../common/WeaponsConstants";
 
 /**
  * くわ

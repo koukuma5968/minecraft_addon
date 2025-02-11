@@ -1,6 +1,6 @@
 import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, TicksPerSecond, EntityHealthComponent, ItemDurabilityComponent, ItemComponentTypes, world} from "@minecraft/server";
-import { playsound } from "../../common/commonUtil";
-import { itemDurabilityDamageFixed } from "../../common/ItemDurabilityDamage";
+import { playsound } from "../../common/WeaponsCommonUtil";
+import { itemDurabilityDamageFixed } from "../../common/WeaponsItemDurabilityDamage";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**

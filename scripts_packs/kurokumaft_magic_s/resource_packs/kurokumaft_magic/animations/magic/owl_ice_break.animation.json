@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.owl_ice_break.shooter": {
+			"loop": true,
+			"bones": {
+				"owl_ice_break": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [1, 1, 1]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "ice",
+					"locator": "owl_ice_break"
+				}
+			}
+		}
+	}
+}

@@ -1,6 +1,6 @@
 import { EntityComponentTypes,ItemStack,Block, Player, EntityEquippableComponent, EquipmentSlot, BlockCustomComponent, BlockComponentPlayerInteractEvent } from "@minecraft/server";
 import { MinecraftItemTypes } from "@minecraft/vanilla-data";
-import { subtractionItem } from "../common/ItemDurabilityDamage";
+import { subtractionItem } from "../common/WeaponsItemDurabilityDamage";
 
 interface FlyItems {
     item: string,

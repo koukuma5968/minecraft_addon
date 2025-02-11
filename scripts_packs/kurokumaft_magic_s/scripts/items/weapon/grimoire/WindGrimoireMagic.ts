@@ -1,5 +1,5 @@
 import { Entity, ItemStack, Block, system, Player, ItemComponentUseEvent, world } from "@minecraft/server";
-import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
+import { decrimentGrimoireCount } from "../../../common/MagicItemDurabilityDamage";
 import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
 
 const MowingBlockS = Object.freeze([

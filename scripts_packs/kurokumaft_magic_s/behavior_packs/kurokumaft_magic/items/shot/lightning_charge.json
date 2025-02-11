@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:lightning_charge",
+      "category": "Items"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "lightning_charge"
+      },
+      "minecraft:projectile": {
+        "projectile_entity": "kurokumaft:lightningball"
+      },
+      "minecraft:throwable": {
+        "do_swing_animation": true,
+        "launch_power_scale": 1.5,
+        "max_launch_power": 1.5
+      },
+      "minecraft:cooldown": {
+        "category": "lightningball",
+        "duration": 0.5
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:lightning_charge.name"
+      }
+    }
+  }
+}

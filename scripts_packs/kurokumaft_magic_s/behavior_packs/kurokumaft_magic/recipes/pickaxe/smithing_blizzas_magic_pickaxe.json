@@ -1,0 +1,13 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "kurokumaft:smithing_blizzas_magic_pickaxe"
+    },
+    "tags": [ "smithing_table" ],
+    "template": "kurokumaft:blizzas_upgrade_smithing_template",
+    "base": "kurokumaft:ice_pickaxe",
+    "addition": "minecraft:netherite_ingot",
+    "result": "kurokumaft:blizzas_magic_pickaxe"
+  }
+}

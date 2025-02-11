@@ -1,0 +1,67 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:owl_ice_break",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:arrow"
+    },
+    "component_groups": {
+      "breaking": {
+        "minecraft:instant_despawn": {
+        }
+      }
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.31,
+        "height": 0.31
+      },
+      "minecraft:type_family": {
+        "family": [
+          "magic"
+        ]
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "affect_projectile": false,
+          "impact_damage": {
+            "damage": 2,
+            "knockback": false,
+            "catch_fire": false,
+            "destroy_on_hit": true,
+            "semi_random_diff_damage": false
+          },
+          "remove_on_hit": { }
+        },
+        "power": 0.5,
+        "gravity": 0.0,
+        "inertia": 1,
+        "liquid_inertia": 1,
+        "reflect_on_hurt": true
+      },
+      "minecraft:timer": {
+        "time": [2.0,2.0],
+        "time_down_event": { 
+          "event": "on_breaking"
+        }
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "on_breaking": {
+        "add": {
+          "component_groups": [
+            "breaking"
+          ]
+        }
+      }
+    }
+  }
+}

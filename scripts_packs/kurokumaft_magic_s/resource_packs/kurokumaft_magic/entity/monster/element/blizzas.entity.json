@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:blizzas",
+      "materials": {
+        "body": "blaze_body",
+        "head": "blaze_head"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/element/blizzas"
+      },
+      "geometry": {
+        "default": "geometry.blizzas"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "move": "animation.blizzas.move"
+      },
+      "particle_effects": {
+        "snow": "kurokumaft:blizzas_snow",
+        "charged_flames": "kurokumaft:blizzas_freez"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.blizzas.move"
+        },
+        {
+          "flame": "controller.animation.blizzas.flame"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.blizzas"
+      ],
+      "spawn_egg": {
+        "base_color": "#c28c01",
+        "overlay_color": "#000080"
+      }
+    }
+  }
+}

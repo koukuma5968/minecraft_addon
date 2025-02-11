@@ -1,0 +1,17 @@
+{
+  "format_version": "1.20.50",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:blizzas_rod"
+    },
+    "components": {
+      "minecraft:icon": {
+        "texture": "blizzas_rod"
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:blizzas_rod.name"
+      },
+      "minecraft:hand_equipped": true
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { world,Entity, Player, EntityDamageSource, ItemComponent, Block, Direction, system, TicksPerSecond, ScriptEventSource, ObjectiveSortOrder, DisplaySlotId } from "@minecraft/server";
 import { shieldGuard, shieldCounter, shieldKnockback } from "./items/weapon/shield/shieldEvent";
-import { hitMagicAmor } from "./items/weapon/armor/magicAmorHitEvent";
-import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
+import { hitMagicAmor } from "./items/weapon/armor/MagicAmorHitEvent";
+import { initRegisterMagicCustom, initMagicStateChangeMonitor } from "./custom/MagicCustomComponentRegistry";
 import { checkArrowProjectile, hitArrowEvent, magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
 import { grimoire_summon_Release } from "./items/weapon/grimoire/SummonGrimoireMagic";
 import { checkWandProjectile, hitProjectileEvent } from "./items/weapon/wand/WandWeaponMagic";
@@ -9,7 +9,7 @@ import { checkShellProjectile, hitShellEvent } from "./items/weapon/bazooka/Bazo
 import { waterCauldron } from "./items/weapon/grimoire/WaterGrimoireMagic";
 import { magic_lectern_break } from "./block/MagicLecternBlock";
 import { portalGateBreak } from "./block/PortalBlock";
-import { explodeBedrock } from "./common/commonUtil";
+import { explodeBedrock } from "./common/MagicCommonUtil";
 import { isChargeed } from "./items/weapon/gun/GunWeaponMagic";
 import { MagicBrewingStand } from "./block/MagicBrewingStand";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
@@ -23,8 +23,8 @@ const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "s
 
 // ワールド接続時
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
-    initRegisterCustom(initEvent);
-    initStateChangeMonitor(initEvent);
+    initRegisterMagicCustom(initEvent);
+    initMagicStateChangeMonitor(initEvent);
 });
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
     leaveEvent.player.clearDynamicProperties();
@@ -81,7 +81,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
         shieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player,dameger,projectileEn, hitVector);
     }
-    if (projectileEn) {
+    if (projectileEn != undefined) {
         if (checkWandProjectile(projectileEn.typeId)) {
             hitProjectileEvent(projectileEn);
         }
@@ -95,10 +95,17 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
 });
 
 // ブロックhit後
+world.afterEvents.entityHitBlock.subscribe(event => {
+    let block = event.hitBlock as Block;
+    let entity = event.damagingEntity as Entity;
+
+});
+
+// 遠距離ブロックhit後
 world.afterEvents.projectileHitBlock.subscribe(event => {
     let projectileEn = event.projectile;
     let dameger = event.source as Entity;
-    if (projectileEn) {
+    if (projectileEn != undefined) {
         if (checkWandProjectile(projectileEn.typeId)) {
             hitProjectileEvent(projectileEn);
         }
@@ -172,7 +179,9 @@ world.beforeEvents.explosion.subscribe(event => {
     let impactBLockList = event.getImpactedBlocks();
     let filterBlockList = explodeBedrock(impactBLockList);
 
-    event.setImpactedBlocks(filterBlockList);
+    if (filterBlockList != undefined) {
+        event.setImpactedBlocks(filterBlockList);
+    }
 
 });
 

@@ -1,7 +1,7 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
-import { getAdjacentSphericalPoints } from "../../../common/ShooterPoints";
+import { getAdjacentSphericalPoints } from "../../../common/MagicShooterPoints";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter } from "../../../common/commonUtil";
+import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * ウォーターカッター

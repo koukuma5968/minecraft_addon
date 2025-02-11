@@ -1,0 +1,75 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:draiz",
+      "materials": {
+        "default": "breeze",
+        "draiz_eyes": "breeze_eyes",
+        "draiz_water": "breeze_wind"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/element/draiz/draiz",
+        "draiz_water": "textures/kurokumaft/entity/element/draiz/draiz_water",
+        "draiz_eyes": "textures/kurokumaft/entity/element/draiz/draiz_eyes"
+      },
+      "geometry": {
+        "default": "geometry.draiz",
+        "draiz_eyes": "geometry.draiz_eyes",
+        "draiz_water_top": "geometry.draiz_water_top",
+        "draiz_water_mid": "geometry.draiz_water_mid",
+        "draiz_water_bottom": "geometry.draiz_water_bottom"
+      },
+      "spawn_egg": {
+        "base_color": "#af94df",
+        "overlay_color": "#00bfff"
+      },
+      "scripts": {
+        "animate": [
+          "look_at_controller",
+          "idle_controller",
+          "move_controller",
+          "ground_particles_controller",
+          "shoot_controller",
+          "jump_controller"
+        ],
+        "should_update_effects_offscreen": "1.0"
+      },
+      "animations": {
+        "look_at": "animation.common.look_at_target",
+        "idle": "animation.draiz.idle",
+        "jump": "animation.draiz.jump",
+        "shoot": "animation.draiz.shoot",
+        "slide": "animation.draiz.slide",
+        "idle_ground_particles": "animation.draiz.idle_ground_particles",
+        "slide_ground_particles": "animation.draiz.slide_ground_particles",
+        "whirl_sound": "animation.draiz.whirl_sound",
+        "idle_ground_sound": "animation.draiz.idle_ground_sound",
+        "look_at_controller": "controller.animation.draiz.look_at",
+        "idle_controller": "controller.animation.draiz.idle",
+        "move_controller": "controller.animation.draiz.move",
+        "ground_particles_controller": "controller.animation.draiz.ground_particles",
+        "shoot_controller": "controller.animation.draiz.shoot",
+        "jump_controller": "controller.animation.draiz.jump",
+        "idle_ground_sound_controller": "controller.animation.draiz.idle_ground_sound"
+      },
+      "render_controllers": [
+        "controller.render.draiz",
+        "controller.render.draiz_eyes",
+        "controller.render.draiz_water_top",
+        "controller.render.draiz_water_mid",
+        "controller.render.draiz_water_bottom"
+      ],
+      "sound_effects": {
+        "charge": "mob.breeze.charge",
+        "inhale": "mob.breeze.inhale",
+        "slide": "mob.breeze.slide",
+        "whirl": "mob.breeze.whirl",
+        "idle_ground_sound": "mob.breeze.idle_ground"
+      },
+      "particle_effects": {
+        "ground_particles": "kurokumaft:draiz_ground_particle"
+      }
+    }
+  }
+}

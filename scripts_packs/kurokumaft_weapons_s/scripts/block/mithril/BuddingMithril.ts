@@ -1,5 +1,5 @@
 import { BlockCustomComponent, Block, BlockComponentTickEvent, Vector3, Dimension, BlockPermutation } from "@minecraft/server";
-import { getRandomInRange, ProbabilisticChoice } from "../../common/commonUtil";
+import { getRandomInRange, ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
 
 const mithrilChoiceLists = ProbabilisticChoice([
     { item: 1 , weight: 20 },

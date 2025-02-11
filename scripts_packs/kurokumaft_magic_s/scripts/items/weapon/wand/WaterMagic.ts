@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/commonUtil";
+import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
 
 /**
  * スプラッシュ

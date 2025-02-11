@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentCompleteUseEvent } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterMagicEvent";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { shooting } from "../../../common/MagicShooterMagicEvent";
 
 interface GunMagicObject {
     itemName:string,

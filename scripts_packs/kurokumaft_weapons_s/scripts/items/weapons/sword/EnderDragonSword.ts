@@ -1,8 +1,8 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, EquipmentSlot, ItemComponentUseEvent, ItemStack, Player } from "@minecraft/server";
-import { itemCoolDown } from "../../../common/commonUtil";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterPoints";
-import { sweepHit } from "../../../common/SweepAttack";
+import { itemCoolDown } from "../../../common/WeaponsCommonUtil";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
+import { shooting } from "../../../common/WeaponsShooterPoints";
+import { sweepHit } from "../../../common/WeaponsSweepAttack";
 
 
 /**

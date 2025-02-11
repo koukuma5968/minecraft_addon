@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
-import { PavementBlocks } from "../../common/Constants";
+import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
+import { PavementBlocks } from "../../common/WeaponsConstants";
 
 /**
  * シャベル

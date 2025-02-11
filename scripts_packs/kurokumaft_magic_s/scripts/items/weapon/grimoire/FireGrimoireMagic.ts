@@ -1,6 +1,6 @@
 import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Vector3, Player, Dimension } from "@minecraft/server";
-import { BlockLocationList, CraftBlocks } from "../../../common/commonUtil";
-import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
+import { BlockLocationList, CraftBlocks } from "../../../common/MagicCommonUtil";
+import { decrimentGrimoireCount } from "../../../common/MagicItemDurabilityDamage";
 import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 
 /**

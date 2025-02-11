@@ -1,5 +1,5 @@
 import { EntityDamageCause, EntityQueryOptions, Player, system, Vector3 } from "@minecraft/server";
-import { addTeamsTagFilter, getLookPoints, getLookRotaionPoints } from "../../../common/commonUtil";
+import { addTeamsTagFilter, getLookPoints, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
 
 /**
  * ソニックスライサー

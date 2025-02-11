@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:draiz_upgrade_smithing_template",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.smithing_template"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:transform_templates"
+        ]
+      },
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:draiz_upgrade_smithing_template.name"
+			},
+      "minecraft:icon": "draiz_upgrade_smithing_template"
+    }
+  }
+}

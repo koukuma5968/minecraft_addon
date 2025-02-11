@@ -1,8 +1,8 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, ItemComponentUseEvent, Player, EquipmentSlot } from "@minecraft/server";
-import { itemTans } from "../../../common/commonUtil";
-import { shooting } from "../../../common/ShooterPoints";
-import { slashHit } from "../../../common/SlashAttack";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemTans } from "../../../common/WeaponsCommonUtil";
+import { shooting } from "../../../common/WeaponsShooterPoints";
+import { slashHit } from "../../../common/WeaponsSlashAttack";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 interface SickleObject {
     itemName: string,

@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
-import { getLookRotaionPoints, addTeamsTagFilter } from "../../../common/commonUtil";
+import { getLookRotaionPoints, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * ジェットブラック

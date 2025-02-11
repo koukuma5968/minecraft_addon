@@ -1,5 +1,5 @@
 import { BlockCustomComponent, Block, BlockComponentTickEvent, BlockPermutation } from "@minecraft/server";
-import { getRandomInRange } from "../../common/commonUtil";
+import { getRandomInRange } from "../../common/WeaponsCommonUtil";
 
 /**
  * 芽吹きミスリル成長

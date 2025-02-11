@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { getLookRotaionPoints, addTeamsTagFilter } from "../../../common/commonUtil";
+import { getLookRotaionPoints, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * スパークルライト

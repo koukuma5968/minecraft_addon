@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:blizzas_ingot"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#X#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:blizzas_rod"
+      },
+      "X": {
+        "item": "kurokumaft:ice_magic_stone"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "kurokumaft:blizzas_rod"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:blizzas_ingot",
+      "count": 1
+    }
+  }
+}

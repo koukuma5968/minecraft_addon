@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:water_magic_stone_wet_hunting_horn"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:wet_hunting_horn"
+      },
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:diamond"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:water_magic_stone"
+    }
+  }
+}

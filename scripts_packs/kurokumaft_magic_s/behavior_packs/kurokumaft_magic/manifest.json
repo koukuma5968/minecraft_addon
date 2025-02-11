@@ -18,7 +18,7 @@
 			"description": "魔法アドオンscripting",
 			"type": "script",
 			"language": "javascript",
-			"uuid": "6e2c0627-c64d-414a-8bcc-94c249c6f89e",
+			"uuid": "d2250de9-03ae-4db6-8afe-a6c3459bd6d0",
 			"version": [1,0,0],
 			"entry": "scripts/magic_script.js"
 		}
@@ -34,7 +34,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.14.0"
+			"version": "1.16.0"
 		}
 	]
 }

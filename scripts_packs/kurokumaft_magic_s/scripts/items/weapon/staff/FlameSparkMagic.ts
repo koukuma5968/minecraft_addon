@@ -1,6 +1,6 @@
 import { EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
 import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/commonUtil";
+import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
 
 /**
  * ディグ・ヴォルト

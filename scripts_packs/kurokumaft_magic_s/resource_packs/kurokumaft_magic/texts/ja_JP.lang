@@ -567,3 +567,57 @@ magic.kurokumaft:aqua_bit.translate=§bアクアビット
 
 mess.kurokumaft:team_name.add=チーム 「%1」 を設定しました。
 mess.kurokumaft:team_name.remove=チーム 「%1」 を削除しました。
+
+item.kurokumaft:fire_pickaxe.name=§4火のピッケル
+item.kurokumaft:water_pickaxe.name=§1水のピッケル
+item.kurokumaft:wind_pickaxe.name=§3風のピッケル
+item.kurokumaft:stone_pickaxe.name=§7石のピッケル
+item.kurokumaft:lightning_pickaxe.name=§6雷のピッケル
+item.kurokumaft:ice_pickaxe.name=§f氷のピッケル
+
+item.kurokumaft:blaze_magic_pickaxe.name=§4火焔のピッケル
+item.kurokumaft:draiz_magic_pickaxe.name=§1霧雨のピッケル
+item.kurokumaft:breeze_magic_pickaxe.name=§3突風のピッケル
+item.kurokumaft:graiz_magic_pickaxe.name=§7砂塵のピッケル
+item.kurokumaft:volzas_magic_pickaxe.name=§6電撃のピッケル
+item.kurokumaft:blizzas_magic_pickaxe.name=§f吹雪のピッケル
+
+entity.kurokumaft:draiz.name=ドレイズ
+entity.kurokumaft:graiz.name=グライズ
+entity.kurokumaft:volzas.name=ボルザス
+entity.kurokumaft:blizzas.name=ブリザス
+
+item.spawn_egg.entity.kurokumaft:draiz.name=ドレイズのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:graiz.name=グライズのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:volzas.name=ボルザスのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:blizzas.name=ブリザスのスポーンエッグ	#
+
+item.kurokumaft:draiz_rod.name=ドレイズロッド
+item.kurokumaft:graiz_rod.name=グライズロッド
+item.kurokumaft:blizzas_rod.name=ブリザスロッド
+item.kurokumaft:volzas_rod.name=ボルザスロッド
+
+item.kurokumaft:draiz_powder.name=ドレイズパウダー
+item.kurokumaft:breeze_powder.name=ブリーズパウダー
+item.kurokumaft:graiz_powder.name=グライズパウダー
+item.kurokumaft:blizzas_powder.name=ブリザスパウダー
+item.kurokumaft:volzas_powder.name=ボルザスパウダー
+
+item.kurokumaft:blaze_ingot.name=火焔のインゴット
+item.kurokumaft:draiz_ingot.name=霧雨のインゴット
+item.kurokumaft:breeze_ingot.name=突風のインゴット
+item.kurokumaft:graiz_ingot.name=砂塵のインゴット
+item.kurokumaft:volzas_ingot.name=電撃のインゴット
+item.kurokumaft:blizzas_ingot.name=吹雪のインゴット
+
+item.kurokumaft:water_charge.name=ウォーターチャージ
+item.kurokumaft:stone_charge.name=ストーンチャージ
+item.kurokumaft:lightning_charge.name=ライトニングチャージ
+item.kurokumaft:ice_charge.name=アイスチャージ
+
+item.kurokumaft:blaze_upgrade_smithing_template.name=火焔の魔鍛型	#
+item.kurokumaft:draiz_upgrade_smithing_template.name=霧雨の魔鍛型	#
+item.kurokumaft:breeze_upgrade_smithing_template.name=突風の魔鍛型	#
+item.kurokumaft:graiz_upgrade_smithing_template.name=砂塵の魔鍛型	#
+item.kurokumaft:volzas_upgrade_smithing_template.name=電撃の魔鍛型	#
+item.kurokumaft:blizzas_upgrade_smithing_template.name=吹雪の魔鍛型	#

@@ -1,5 +1,5 @@
 import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 import { bramFang, fireStorm } from "./FirestormMagic";
 import { explosion, megaBrand } from "./ExplosionMagic";
 import { digVault, flameSpark } from "./FlameSparkMagic";

@@ -1,6 +1,6 @@
 import { EntityDamageCause, EntityQueryOptions, EquipmentSlot, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player, system } from "@minecraft/server";
-import { SummonGrimoireDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { addTeamsTagFilter } from "../../../common/commonUtil";
+import { SummonGrimoireDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 interface SummonGrimoireMagicObject {
     itemName:string,

@@ -22,6 +22,7 @@
         },
         "minecraft:biome_filter": {
           "any_of": [
+            { "test": "has_biome_tag", "value": "animal" },
             { "test": "has_biome_tag", "value": "taiga" },
             { "test": "has_biome_tag", "value": "cold" },
             { "test": "has_biome_tag", "value": "mutated" }

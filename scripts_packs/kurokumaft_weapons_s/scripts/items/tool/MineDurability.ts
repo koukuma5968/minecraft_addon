@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemStack, Player, EquipmentSlot, ItemComponentMineBlockEvent } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
 
 /**
  * 採掘耐久減少

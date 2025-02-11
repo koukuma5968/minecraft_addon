@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, EquipmentSlot, EntityDamageCause, ItemComponentCompleteUseEvent } from "@minecraft/server";
-import { getLookPoints, getLookRotaionPoints } from "../../../common/commonUtil";
-import { shooting } from "../../../common/ShooterPoints";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { getLookPoints, getLookRotaionPoints } from "../../../common/WeaponsCommonUtil";
+import { shooting } from "../../../common/WeaponsShooterPoints";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 interface KnuckleObject {
     itemName: string,

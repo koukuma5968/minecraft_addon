@@ -1,7 +1,7 @@
 // scripts/weapons_script.ts
 import { world as world19, Player as Player47, EquipmentSlot as EquipmentSlot41, EntityComponentTypes as EntityComponentTypes25, EntityInitializationCause } from "@minecraft/server";
 
-// scripts/common/commonUtil.ts
+// scripts/common/WeaponsCommonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
 
 // node_modules/@minecraft/vanilla-data/lib/index.js
@@ -2908,7 +2908,7 @@ var MinecraftPotionModifierTypes = ((MinecraftPotionModifierTypes2) => {
   return MinecraftPotionModifierTypes2;
 })(MinecraftPotionModifierTypes || {});
 
-// scripts/common/commonUtil.ts
+// scripts/common/WeaponsCommonUtil.ts
 var guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 async function itemTans(player, item, replaceitem, slot) {
   let eqc = player.getComponent(EntityComponentTypes.Equippable);
@@ -3102,10 +3102,10 @@ var BlockLocationList = Object.freeze([
   }
 ]);
 
-// scripts/player/shieldEvent.ts
+// scripts/player/WeaponsShieldEvent.ts
 import { system, EntityComponentTypes as EntityComponentTypes3, ItemComponentTypes as ItemComponentTypes3, EquipmentSlot as EquipmentSlot3, EntityDamageCause } from "@minecraft/server";
 
-// scripts/common/ItemDurabilityDamage.ts
+// scripts/common/WeaponsItemDurabilityDamage.ts
 import { Player as Player2, ItemComponentTypes as ItemComponentTypes2, EntityComponentTypes as EntityComponentTypes2, GameMode } from "@minecraft/server";
 async function itemDurabilityDamage(entity, item, slot) {
   if (entity instanceof Player2 && entity.getGameMode() != GameMode.creative) {
@@ -3164,7 +3164,7 @@ async function subtractionItem(player, item, slot, decNum) {
   }
 }
 
-// scripts/player/shieldEvent.ts
+// scripts/player/WeaponsShieldEvent.ts
 function shieldGuard(player, range) {
   let equ = player.getComponent(EntityComponentTypes3.Equippable);
   let offhand = equ.getEquipment(EquipmentSlot3.Offhand);
@@ -3297,7 +3297,7 @@ async function tntBreak(attackEntity, itemStack, location) {
   itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot4.Mainhand);
 }
 
-// scripts/player/armorEquipment.ts
+// scripts/player/WeaponsArmorEquipment.ts
 import { EntityComponentTypes as EntityComponentTypes5, EquipmentSlot as EquipmentSlot6, system as system3, world as world4 } from "@minecraft/server";
 
 // scripts/items/armor/HelmetSurveillance.ts
@@ -3392,8 +3392,8 @@ async function resetPowerBoost(player) {
   player.removeEffect(MinecraftEffectTypes.Strength);
 }
 
-// scripts/player/armorEquipment.ts
-async function checkPlayerEquTick() {
+// scripts/player/WeaponsArmorEquipment.ts
+async function checkWeaponsPlayerEquTick() {
   let players = world4.getPlayers();
   for (let i = 0; i < players.length; i++) {
     let player = players[i];
@@ -3435,7 +3435,7 @@ async function checkPlayerEquTick() {
       player.setDynamicProperty("helmet_equ", void 0);
     }
   }
-  system3.run(checkPlayerEquTick);
+  system3.run(checkWeaponsPlayerEquTick);
 }
 
 // scripts/items/weapons/sword/MagmaSwordFire.ts
@@ -3491,7 +3491,7 @@ async function setBlueIceBlock(dimension, location) {
   dimension.setBlockType(location, MinecraftBlockTypes.BlueIce);
 }
 
-// scripts/common/SweepAttack.ts
+// scripts/common/WeaponsSweepAttack.ts
 import { EntityDamageCause as EntityDamageCause3 } from "@minecraft/server";
 async function sweepHit(attackEntity, hitEntity, damage) {
   attackEntity.addTag("sweepHit");
@@ -3566,7 +3566,7 @@ var MithrilSword = class {
 // scripts/items/weapons/sword/EchoSword.ts
 import { EquipmentSlot as EquipmentSlot9 } from "@minecraft/server";
 
-// scripts/common/ShooterPoints.ts
+// scripts/common/WeaponsShooterPoints.ts
 import { EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
 async function shooting(player, throwItem, ranNum, seepd, event) {
   let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
@@ -4023,7 +4023,7 @@ async function mithrilHit(attackEntity, hitEntity, itemStack) {
 // scripts/items/weapons/sickle/Sickle.ts
 import { EquipmentSlot as EquipmentSlot14 } from "@minecraft/server";
 
-// scripts/common/SlashAttack.ts
+// scripts/common/WeaponsSlashAttack.ts
 import { EntityDamageCause as EntityDamageCause8 } from "@minecraft/server";
 async function slashHit(attackEntity, hitEntity, damage) {
   let dim = attackEntity.dimension;
@@ -4132,7 +4132,7 @@ async function roarScythe(player, scytheItem) {
 // scripts/items/shovel/ShovelPavement.ts
 import { BlockPermutation, EquipmentSlot as EquipmentSlot16 } from "@minecraft/server";
 
-// scripts/common/Constants.ts
+// scripts/common/WeaponsConstants.ts
 var LogBlocks = Object.freeze([
   MinecraftBlockTypes.AcaciaLog,
   MinecraftBlockTypes.BirchLog,
@@ -4552,7 +4552,7 @@ async function stopMachineGun(player) {
 // scripts/items/weapons/gun/SniperRifle.ts
 import { system as system8, TicksPerSecond as TicksPerSecond5 } from "@minecraft/server";
 
-// scripts/common/SniperScope.ts
+// scripts/common/WeaponsSniperScope.ts
 import { TicksPerSecond as TicksPerSecond4 } from "@minecraft/server";
 async function lageScope(player) {
   player.addEffect(MinecraftEffectTypes.Slowness, 1e3 * TicksPerSecond4, {
@@ -6096,8 +6096,8 @@ async function deepFlyEat(player, equ, item, block) {
   }
 }
 
-// scripts/custom/CustomComponentRegistry.ts
-function initRegisterCustom(initEvent) {
+// scripts/custom/WeaponsCustomComponentRegistry.ts
+function initWeaponsRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:tnt_sword", new TntSwordBreak());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:magma_sword", new MagmaSwordFire());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:blue_ice_sword", new BuleSwordIce());
@@ -6150,14 +6150,14 @@ function initRegisterCustom(initEvent) {
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:tear_enchant", new TearEnchant());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:fryer", new Fryer());
 }
-function initStateChangeMonitor(initEvent) {
-  checkPlayerEquTick();
+function initWeaponsStateChangeMonitor(initEvent) {
+  checkWeaponsPlayerEquTick();
 }
 
 // scripts/weapons_script.ts
 world19.beforeEvents.worldInitialize.subscribe((initEvent) => {
-  initRegisterCustom(initEvent);
-  initStateChangeMonitor(initEvent);
+  initWeaponsRegisterCustom(initEvent);
+  initWeaponsStateChangeMonitor(initEvent);
 });
 world19.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
@@ -6297,9 +6297,6 @@ world19.afterEvents.entityHitEntity.subscribe((event) => {
 world19.afterEvents.entityHitBlock.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitBlock = event.hitBlock;
-  Object.entries(hitBlock.permutation.getAllStates()).forEach((value) => {
-    world19.sendMessage(JSON.stringify(value));
-  });
   if (hitBlock != void 0) {
     let equ = damageEn.getComponent(EntityComponentTypes25.Equippable);
     let itemStack = equ.getEquipment(EquipmentSlot41.Mainhand);

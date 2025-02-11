@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, Block, EquipmentSlot, ItemComponentHitEntityEvent, Entity, EntityDamageCause } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../common/ItemDurabilityDamage";
-import { LogBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/Constants";
+import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
+import { LogBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/WeaponsConstants";
 
 /**
  * ファイアブランド

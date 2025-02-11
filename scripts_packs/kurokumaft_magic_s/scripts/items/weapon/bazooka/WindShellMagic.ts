@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, Player, system, TicksPerSecond } from "@minecraft/server";
-import { addTeamsTagFilter } from "../../../common/commonUtil";
+import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * ウィンドシェル

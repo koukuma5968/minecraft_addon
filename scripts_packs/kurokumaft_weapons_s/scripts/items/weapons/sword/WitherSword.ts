@@ -1,9 +1,9 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, world, ItemComponentUseEvent, Player, GameMode, EquipmentSlot, ItemComponentTypes, ItemCooldownComponent, ItemComponentUseOnEvent, ItemComponentCompleteUseEvent, Dimension, Vector3, Block, BlockTypes, EntityDamageCause, EffectTypes } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterPoints";
-import { getLookPoints, getLookRotaionPoints, itemCoolDown } from "../../../common/commonUtil";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
+import { shooting } from "../../../common/WeaponsShooterPoints";
+import { getLookPoints, getLookRotaionPoints, itemCoolDown } from "../../../common/WeaponsCommonUtil";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { sweepThreeHit } from "../../../common/SweepAttack";
+import { sweepThreeHit } from "../../../common/WeaponsSweepAttack";
 
 
 /**

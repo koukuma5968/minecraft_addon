@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, Entity } from "@minecraft/server";
-import { clamp } from "../../../common/commonUtil";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterMagicEvent";
+import { clamp } from "../../../common/MagicCommonUtil";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { shooting } from "../../../common/MagicShooterMagicEvent";
 import { fireArrow } from "./FireArrowMagic";
 import { waterArrow, waterArrowHoming } from "./WaterArrowMagic";
 import { windArrow, windArrowShot } from "./WindArrowMagic";

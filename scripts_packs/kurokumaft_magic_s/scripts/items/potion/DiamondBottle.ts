@@ -1,6 +1,6 @@
 import { Block, Container, Direction, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, EquipmentSlot, ItemComponentUseOnEvent, ItemCustomComponent, ItemStack, Player, world } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { getLookPoints } from "../../common/commonUtil";
+import { getLookPoints } from "../../common/MagicCommonUtil";
 
 /**
  * ダイヤモンドの瓶

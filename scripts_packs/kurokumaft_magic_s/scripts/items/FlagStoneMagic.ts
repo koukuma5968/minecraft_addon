@@ -1,5 +1,5 @@
 import { EquipmentSlot, ItemComponentUseOnEvent, ItemCustomComponent, ItemStack, Player, world } from "@minecraft/server";
-import { itemDurabilityDamage } from "../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../common/MagicItemDurabilityDamage";
 
 interface gateObj { 
     x: string

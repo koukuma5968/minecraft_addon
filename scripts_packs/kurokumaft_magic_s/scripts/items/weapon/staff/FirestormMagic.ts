@@ -1,5 +1,5 @@
 import { EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
-import { addTeamsTagFilter, getLookPoints } from "../../../common/commonUtil";
+import { addTeamsTagFilter, getLookPoints } from "../../../common/MagicCommonUtil";
 
 /**
  * ブラム・ファング

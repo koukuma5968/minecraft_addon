@@ -1,7 +1,7 @@
 import { ItemStack, Block, system, Player, ItemComponentUseOnEvent, ItemComponentTypes, BlockPermutation, Direction, ItemCooldownComponent, Vector3 } from "@minecraft/server";
-import { decrimentGrimoireCount } from "../../../common/ItemDurabilityDamage";
+import { decrimentGrimoireCount } from "../../../common/MagicItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { CraftBlocks } from "../../../common/commonUtil";
+import { CraftBlocks } from "../../../common/MagicCommonUtil";
 
 const FlowerBlockS = Object.freeze([
     "",

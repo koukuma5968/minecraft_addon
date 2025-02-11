@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:graiz_ingot"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#X#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:graiz_rod"
+      },
+      "X": {
+        "item": "kurokumaft:stone_magic_stone"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "kurokumaft:graiz_rod"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:graiz_ingot",
+      "count": 1
+    }
+  }
+}

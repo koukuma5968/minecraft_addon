@@ -1,0 +1,23 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "kurokumaft:water_charge"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:draiz_rod"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "kurokumaft:draiz_rod"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:water_charge",
+      "count": 4
+    }
+  }
+}

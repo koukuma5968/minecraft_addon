@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, EquipmentSlot, ItemComponentCompleteUseEvent } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 import { blazeBurst, fireSword, fireSwordMons } from "./FireSwordMagic";
 import { waterSword, waterSwordMons } from "./WaterSwordMagic";
 import { windSword, windSwordMons } from "./WindSwordMagic";

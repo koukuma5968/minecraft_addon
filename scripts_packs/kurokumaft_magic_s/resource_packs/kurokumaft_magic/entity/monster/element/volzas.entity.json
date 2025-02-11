@@ -1,0 +1,41 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:volzas",
+      "materials": {
+        "body": "blaze_body",
+        "head": "blaze_head"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/element/volzas"
+      },
+      "geometry": {
+        "default": "geometry.volzas"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "move": "animation.volzas.move"
+      },
+      "particle_effects": {
+        "lightning": "kurokumaft:volzas_lightning",
+        "charged_flames": "kurokumaft:volzas_thunder"
+      },
+      "animation_controllers": [
+        {
+          "move": "controller.animation.volzas.move"
+        },
+        {
+          "flame": "controller.animation.volzas.flame"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.volzas"
+      ],
+      "spawn_egg": {
+        "base_color": "#e9967a",
+        "overlay_color": "#ffd700"
+      }
+    }
+  }
+}

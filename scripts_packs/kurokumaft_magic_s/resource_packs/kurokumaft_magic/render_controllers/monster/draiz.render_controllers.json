@@ -1,0 +1,55 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.draiz": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+    "controller.render.draiz_eyes": {
+      "geometry": "Geometry.draiz_eyes",
+      "materials": [ { "*": "Material.draiz_eyes" } ],
+      "textures": [ "Texture.draiz_eyes" ],
+      "ignore_lighting": true
+    },
+    "controller.render.draiz_water_top": {
+      "geometry": "Geometry.draiz_water_top",
+      "materials": [ { "*": "Material.draiz_water" } ],
+      "textures": [ "Texture.draiz_water" ],
+      "uv_anim": {
+        "offset": [
+          "((Math.floor(query.life_time * 20.0) + query.frame_alpha) * 0.02)",
+          "(0.0)"
+        ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "light_color_multiplier": 1.8
+    },
+    "controller.render.draiz_water_mid": {
+      "geometry": "Geometry.draiz_water_mid",
+      "materials": [ { "*": "Material.draiz_water" } ],
+      "textures": [ "Texture.draiz_water" ],
+      "uv_anim": {
+        "offset": [
+          "((Math.floor(query.life_time * 20.0) + query.frame_alpha) * 0.025)",
+          "(0.0)"
+        ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "light_color_multiplier": 1.8
+    },
+    "controller.render.draiz_water_bottom": {
+      "geometry": "Geometry.draiz_water_bottom",
+      "materials": [ { "*": "Material.draiz_water" } ],
+      "textures": [ "Texture.draiz_water" ],
+      "uv_anim": {
+        "offset": [
+          "((Math.floor(query.life_time * 20.0) + query.frame_alpha) * 0.03)",
+          "(0.0)"
+        ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "light_color_multiplier": 1.8
+    }
+  }
+}

@@ -54,16 +54,10 @@
         "use_efficiency": true,
         "destroy_speeds": [
           {
-            "block": "minecraft:web",
-            "speed": 15
-          },
-          {
-            "block": "minecraft:blue_ice",
-            "speed": 10
-          },
-          {
-            "block": "minecraft:ice",
-            "speed": 10
+            "block": {
+              "tags": "query.any_tag('minecraft:is_sword_item_destructible')"
+            },
+            "speed": 25
           }
         ]
       },

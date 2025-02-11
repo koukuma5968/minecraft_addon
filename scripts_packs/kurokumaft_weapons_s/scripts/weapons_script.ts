@@ -1,9 +1,9 @@
 import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause, Dimension } from "@minecraft/server";
-import { explodeBedrock, guards } from "./common/commonUtil";
-import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./player/shieldEvent";
-import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
+import { explodeBedrock, guards } from "./common/WeaponsCommonUtil";
+import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./player/WeaponsShieldEvent";
+import { initWeaponsRegisterCustom, initWeaponsStateChangeMonitor } from "./custom/WeaponsCustomComponentRegistry";
 import { tntBreak } from "./items/weapons/sword/TntSwordBreak";
-import { breakBlock } from "./common/commonUtil";
+import { breakBlock } from "./common/WeaponsCommonUtil";
 import { hitSpear, releaseSpear, removeSpear, spawnSpear, stopSpear } from "./items/weapons/spear/ThrowableSpear";
 import { stopGatling } from "./items/weapons/gun/Gatling";
 import { fireCharcoalBlock } from "./items/axe/FireBrand";
@@ -21,8 +21,8 @@ import { explodeBakutikuCancel, explodeBakutikuChain } from "./block/bom/Bakutik
 
 // ワールド接続時
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
-    initRegisterCustom(initEvent);
-    initStateChangeMonitor(initEvent);
+    initWeaponsRegisterCustom(initEvent);
+    initWeaponsStateChangeMonitor(initEvent);
 });
 
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
@@ -214,9 +214,9 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 world.afterEvents.entityHitBlock.subscribe(event => {
     let damageEn = event.damagingEntity as Entity;
     let hitBlock = event.hitBlock as Block;
-    Object.entries(hitBlock.permutation.getAllStates()).forEach(value => {
-        world.sendMessage(JSON.stringify(value));
-    });
+    // Object.entries(hitBlock.permutation.getAllStates()).forEach(value => {
+    //     world.sendMessage(JSON.stringify(value));
+    // });
     if (hitBlock != undefined) {
         let equ = damageEn.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;

@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, TicksPerSecond } from "@minecraft/server";
-import { getDirectionVector } from "../../../common/commonUtil";
-import { throwItemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { getDirectionVector } from "../../../common/WeaponsCommonUtil";
+import { throwItemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 interface BoomerangObject {
     itemName: string,

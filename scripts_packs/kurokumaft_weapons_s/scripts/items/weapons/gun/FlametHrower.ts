@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityDamageCause } from "@minecraft/server";
-import { getLookPoints } from "../../../common/commonUtil";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { getLookPoints } from "../../../common/WeaponsCommonUtil";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 /**
  * 火炎放射器

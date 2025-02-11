@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, ItemComponentUseEvent, Player, EquipmentSlot, EntityHealthComponent, EntityComponentTypes, TicksPerSecond } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { getLookPoints, getRandomInRange, itemCoolDown } from "../../../common/commonUtil";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
+import { getLookPoints, getRandomInRange, itemCoolDown } from "../../../common/WeaponsCommonUtil";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 

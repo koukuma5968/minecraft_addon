@@ -70,7 +70,7 @@ export class MagicBrewingStandBlock implements BlockCustomComponent {
         let block = blockEvent.block;
         let dimension = blockEvent.dimension;
         let magic_brewing_stand = dimension.spawnEntity("kurokumaft:magic_brewing_stand", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5}) as Entity;
-        magic_brewing_stand.nameTag = "kurokumaft:magic_brewing_stand";
+        magic_brewing_stand.nameTag = "magic_brewing_stand";
 
         let direction = block.permutation.getState("minecraft:cardinal_direction");
 

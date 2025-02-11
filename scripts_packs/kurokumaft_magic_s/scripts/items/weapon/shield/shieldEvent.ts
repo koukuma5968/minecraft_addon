@@ -1,6 +1,6 @@
 import { system,Player,Entity,EntityComponentTypes,EntityEquippableComponent,EquipmentSlot,EntityApplyDamageOptions } from "@minecraft/server";
-import { playsound } from "../../../common/commonUtil"
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { playsound } from "../../../common/MagicCommonUtil"
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 
 // シールドガード
 /**

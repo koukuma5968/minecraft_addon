@@ -1,8 +1,8 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, ItemComponentUseEvent, Player, EquipmentSlot } from "@minecraft/server";
-import { itemTans } from "../../../common/commonUtil";
-import { shooting } from "../../../common/ShooterPoints";
-import { sweepHit } from "../../../common/SweepAttack";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { itemTans } from "../../../common/WeaponsCommonUtil";
+import { shooting } from "../../../common/WeaponsShooterPoints";
+import { sweepHit } from "../../../common/WeaponsSweepAttack";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 interface ScytheObject {
     itemName: string,

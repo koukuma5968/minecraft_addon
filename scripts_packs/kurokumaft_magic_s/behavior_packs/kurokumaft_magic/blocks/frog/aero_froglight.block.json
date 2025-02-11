@@ -10,6 +10,7 @@
 			}
 		},
 		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:light_dampening": 0.0,
 			"minecraft:light_emission": 15.0,
 			"minecraft:destructible_by_explosion": {

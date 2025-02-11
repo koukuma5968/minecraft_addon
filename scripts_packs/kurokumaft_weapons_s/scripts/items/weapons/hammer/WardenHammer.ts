@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, ItemComponentUseEvent, Player, EntityDamageCause, world } from "@minecraft/server";
-import { getLookPoints } from "../../../common/commonUtil";
-import { shooting } from "../../../common/ShooterPoints";
+import { getLookPoints } from "../../../common/WeaponsCommonUtil";
+import { shooting } from "../../../common/WeaponsShooterPoints";
 
 /**
  * ウォーデンハンマー

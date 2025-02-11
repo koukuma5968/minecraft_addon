@@ -1,8 +1,8 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot, world, Direction, GameMode, Vector3, ItemComponentTypes, ItemCooldownComponent, system } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { subtractionItem } from "../../common/ItemDurabilityDamage";
-import { CraftBlocks, PlantsBlocks } from "../../common/Constants";
-import { ProbabilisticChoice } from "../../common/commonUtil";
+import { subtractionItem } from "../../common/WeaponsItemDurabilityDamage";
+import { CraftBlocks, PlantsBlocks } from "../../common/WeaponsConstants";
+import { ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
 
 /**
  * 植物成長

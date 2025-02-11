@@ -1,0 +1,13 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_smithing_transform": {
+    "description": {
+      "identifier": "kurokumaft:smithing_graiz_magic_pickaxe"
+    },
+    "tags": [ "smithing_table" ],
+    "template": "kurokumaft:graiz_upgrade_smithing_template",
+    "base": "kurokumaft:stone_pickaxe",
+    "addition": "minecraft:netherite_ingot",
+    "result": "kurokumaft:graiz_magic_pickaxe"
+  }
+}

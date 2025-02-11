@@ -9,6 +9,8 @@
 			}
 		},
 		"components": {
+			"tag:minecraft:is_hoe_item_destructible": {},
+			"tag:minecraft:is_shears_item_destructible": {},
 			"minecraft:light_emission": 1.0,
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0.5

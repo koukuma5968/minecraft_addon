@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, system, TicksPerSecond } from "@minecraft/server";
-import { clearScope, middleScope } from "../../../common/SniperScope";
+import { clearScope, middleScope } from "../../../common/WeaponsSniperScope";
 
 /**
  * スナイパーボウ

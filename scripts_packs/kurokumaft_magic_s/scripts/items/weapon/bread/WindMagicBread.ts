@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, Player, system } from "@minecraft/server";
-import { shooting } from "../../../common/ShooterMagicEvent";
+import { shooting } from "../../../common/MagicShooterMagicEvent";
 
 /**
  * 烈風刃(れっぷうじん)

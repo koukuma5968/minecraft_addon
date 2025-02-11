@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterPoints";
+import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
+import { shooting } from "../../../common/WeaponsShooterPoints";
 
 
 /**

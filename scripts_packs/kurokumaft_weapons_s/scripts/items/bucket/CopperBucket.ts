@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, Player, EquipmentSlot, ItemComponentUseOnEvent, Block, Container, Direction, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, world, ItemComponentHitEntityEvent, ItemComponentUseEvent, Entity, EntityTypeFamilyComponent } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
-import { getLookPoints } from "../../common/commonUtil";
+import { getLookPoints } from "../../common/WeaponsCommonUtil";
 
 /**
  * 銅のバケツ

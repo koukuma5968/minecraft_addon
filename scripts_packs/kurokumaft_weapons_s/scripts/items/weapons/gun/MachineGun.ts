@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/commonUtil";
-import { itemDurabilityDamage, subtractionItem } from "../../../common/ItemDurabilityDamage";
-import { shooting } from "../../../common/ShooterPoints";
+import { getLookPoints, getRandomInRange } from "../../../common/WeaponsCommonUtil";
+import { itemDurabilityDamage, subtractionItem } from "../../../common/WeaponsItemDurabilityDamage";
+import { shooting } from "../../../common/WeaponsShooterPoints";
 
 /**
  * マシンガン

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:draiz_ingot"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#X#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:draiz_rod"
+      },
+      "X": {
+        "item": "kurokumaft:water_magic_stone"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "kurokumaft:draiz_rod"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:draiz_ingot",
+      "count": 1
+    }
+  }
+}

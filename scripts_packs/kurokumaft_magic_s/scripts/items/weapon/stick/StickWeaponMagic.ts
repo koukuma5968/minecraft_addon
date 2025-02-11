@@ -1,6 +1,6 @@
 import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
-import { shooting } from "../../../common/ShooterMagicEvent";
-import { itemDurabilityDamage } from "../../../common/ItemDurabilityDamage";
+import { shooting } from "../../../common/MagicShooterMagicEvent";
+import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 import { aquaShock, aquaShot, tidalWave } from "./WaterCurrentMagic";
 import { atmosphere, stormShock } from "./AtmosphereMagic";
 import { earthShock, gravityField } from "./EarthMagic";

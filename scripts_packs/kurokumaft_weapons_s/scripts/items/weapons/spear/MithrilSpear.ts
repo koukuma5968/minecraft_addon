@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, EntityDamageCause } from "@minecraft/server";
-import { getLookPoints } from "../../../common/commonUtil";
+import { getLookPoints } from "../../../common/WeaponsCommonUtil";
 
 /**
  * ミスリルスピアー

@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:blaze_ingot"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "#X#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:blaze_rod"
+      },
+      "X": {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    },
+  	"unlock": [
+      {
+        "item": "minecraft:blaze_rod"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:blaze_ingot",
+      "count": 1
+    }
+  }
+}

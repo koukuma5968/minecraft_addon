@@ -1,0 +1,75 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:graiz",
+      "materials": {
+        "default": "breeze",
+        "graiz_eyes": "breeze_eyes",
+        "graiz_stone": "breeze_wind"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/entity/element/graiz/graiz",
+        "graiz_stone": "textures/kurokumaft/entity/element/graiz/graiz_stone",
+        "graiz_eyes": "textures/kurokumaft/entity/element/graiz/graiz_eyes"
+      },
+      "geometry": {
+        "default": "geometry.graiz",
+        "graiz_eyes": "geometry.graiz_eyes",
+        "graiz_stone_top": "geometry.graiz_stone_top",
+        "graiz_stone_mid": "geometry.graiz_stone_mid",
+        "graiz_stone_bottom": "geometry.graiz_stone_bottom"
+      },
+      "spawn_egg": {
+        "base_color": "#af94df",
+        "overlay_color": "#f4a460"
+      },
+      "scripts": {
+        "animate": [
+          "look_at_controller",
+          "idle_controller",
+          "move_controller",
+          "ground_particles_controller",
+          "shoot_controller",
+          "jump_controller"
+        ],
+        "should_update_effects_offscreen": "1.0"
+      },
+      "animations": {
+        "look_at": "animation.common.look_at_target",
+        "idle": "animation.graiz.idle",
+        "jump": "animation.graiz.jump",
+        "shoot": "animation.graiz.shoot",
+        "slide": "animation.graiz.slide",
+        "idle_ground_particles": "animation.graiz.idle_ground_particles",
+        "slide_ground_particles": "animation.graiz.slide_ground_particles",
+        "whirl_sound": "animation.graiz.whirl_sound",
+        "idle_ground_sound": "animation.graiz.idle_ground_sound",
+        "look_at_controller": "controller.animation.graiz.look_at",
+        "idle_controller": "controller.animation.graiz.idle",
+        "move_controller": "controller.animation.graiz.move",
+        "ground_particles_controller": "controller.animation.graiz.ground_particles",
+        "shoot_controller": "controller.animation.graiz.shoot",
+        "jump_controller": "controller.animation.graiz.jump",
+        "idle_ground_sound_controller": "controller.animation.graiz.idle_ground_sound"
+      },
+      "render_controllers": [
+        "controller.render.graiz",
+        "controller.render.graiz_eyes",
+        "controller.render.graiz_stone_top",
+        "controller.render.graiz_stone_mid",
+        "controller.render.graiz_stone_bottom"
+      ],
+      "sound_effects": {
+        "charge": "mob.breeze.charge",
+        "inhale": "mob.breeze.inhale",
+        "slide": "mob.breeze.slide",
+        "whirl": "mob.breeze.whirl",
+        "idle_ground_sound": "mob.breeze.idle_ground"
+      },
+      "particle_effects": {
+        "ground_particles": "kurokumaft:graiz_ground_particle"
+      }
+    }
+  }
+}

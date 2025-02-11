@@ -27,7 +27,6 @@ export class BossSummonBlock implements BlockCustomComponent {
 
     onStepOn(blockEvent:BlockComponentStepOnEvent) {
         let sumOb = BossSummonObjects.find(obj => obj.itemName == blockEvent.block.typeId) as BossSummonObject;
-        world.sendMessage("BossSummonBlock");
         sumOb.func(sumOb, blockEvent);
     }
 
@@ -36,10 +35,8 @@ export class BossSummonBlock implements BlockCustomComponent {
 async function phoenixSummon(sumOb:BossSummonObject ,blockEvent:BlockComponentStepOnEvent) {
     let block = blockEvent.block;
     let state = block.permutation.getState("kurokumaft:summon_check");
-    world.sendMessage(state+"");
     if (state == 0) {
         let dimension = blockEvent.dimension;
-        world.sendMessage(sumOb.entityName);
         dimension.spawnEntity(sumOb.entityName, {x:block.location.x+0.5,y:block.location.y+6,z:block.location.z+0.5})
         block.setPermutation(block.permutation.withState("kurokumaft:summon_check", 1));
     }

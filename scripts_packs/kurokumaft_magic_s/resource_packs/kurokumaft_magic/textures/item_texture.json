@@ -738,6 +738,124 @@
          "textures" : "textures/kurokumaft/items/materials/freeze_windbreak"
       },
 
+      "fire_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/fire_pickaxe"
+      },
+      "water_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/water_pickaxe"
+      },
+      "wind_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/wind_pickaxe"
+      },
+      "stone_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/stone_pickaxe"
+      },
+      "lightning_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/lightning_pickaxe"
+      },
+      "ice_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/ice_pickaxe"
+      },
+
+      "blaze_magic_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/blaze_magic_pickaxe"
+      },
+      "draiz_magic_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/draiz_magic_pickaxe"
+      },
+      "breeze_magic_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/breeze_magic_pickaxe"
+      },
+      "graiz_magic_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/graiz_magic_pickaxe"
+      },
+      "volzas_magic_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/volzas_magic_pickaxe"
+      },
+      "blizzas_magic_pickaxe": {
+         "textures" : "textures/kurokumaft/items/pickaxe/blizzas_magic_pickaxe"
+      },
+
+      "draiz_rod": {
+         "textures" : "textures/kurokumaft/items/materials/draiz_rod"
+      },
+      "graiz_rod": {
+         "textures" : "textures/kurokumaft/items/materials/graiz_rod"
+      },
+      "volzas_rod": {
+         "textures" : "textures/kurokumaft/items/materials/volzas_rod"
+      },
+      "blizzas_rod": {
+         "textures" : "textures/kurokumaft/items/materials/blizzas_rod"
+      },
+
+      "draiz_powder": {
+         "textures" : "textures/kurokumaft/items/materials/draiz_powder"
+      },
+      "breeze_powder": {
+         "textures" : "textures/kurokumaft/items/materials/breeze_powder"
+      },
+      "graiz_powder": {
+         "textures" : "textures/kurokumaft/items/materials/graiz_powder"
+      },
+      "volzas_powder": {
+         "textures" : "textures/kurokumaft/items/materials/volzas_powder"
+      },
+      "blizzas_powder": {
+         "textures" : "textures/kurokumaft/items/materials/blizzas_powder"
+      },
+
+      "blaze_ingot": {
+         "textures" : "textures/kurokumaft/items/materials/blaze_ingot"
+      },
+      "draiz_ingot": {
+         "textures" : "textures/kurokumaft/items/materials/draiz_ingot"
+      },
+      "breeze_ingot": {
+         "textures" : "textures/kurokumaft/items/materials/breeze_ingot"
+      },
+      "graiz_ingot": {
+         "textures" : "textures/kurokumaft/items/materials/graiz_ingot"
+      },
+      "volzas_ingot": {
+         "textures" : "textures/kurokumaft/items/materials/volzas_ingot"
+      },
+      "blizzas_ingot": {
+         "textures" : "textures/kurokumaft/items/materials/blizzas_ingot"
+      },
+
+      "water_charge": {
+         "textures" : "textures/kurokumaft/items/shot/water_charge"
+      },
+      "stone_charge": {
+         "textures" : "textures/kurokumaft/items/shot/stone_charge"
+      },
+      "lightning_charge": {
+         "textures" : "textures/kurokumaft/items/shot/lightning_charge"
+      },
+      "ice_charge": {
+         "textures" : "textures/kurokumaft/items/shot/ice_charge"
+      },
+
+      "blaze_upgrade_smithing_template": {
+         "textures" : "textures/kurokumaft/items/template/blaze_upgrade_smithing_template"
+      },
+      "draiz_upgrade_smithing_template": {
+         "textures" : "textures/kurokumaft/items/template/draiz_upgrade_smithing_template"
+      },
+      "breeze_upgrade_smithing_template": {
+         "textures" : "textures/kurokumaft/items/template/breeze_upgrade_smithing_template"
+      },
+      "graiz_upgrade_smithing_template": {
+         "textures" : "textures/kurokumaft/items/template/graiz_upgrade_smithing_template"
+      },
+      "volzas_upgrade_smithing_template": {
+         "textures" : "textures/kurokumaft/items/template/volzas_upgrade_smithing_template"
+      },
+      "blizzas_upgrade_smithing_template": {
+         "textures" : "textures/kurokumaft/items/template/blizzas_upgrade_smithing_template"
+      },
+
       "magic_golem_spawn_egg" : {
          "textures" : [
             "textures/kurokumaft/items/egg/golem/egg_maguma_golem",

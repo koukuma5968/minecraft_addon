@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/commonUtil";
+import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
 
 /**
  * ストームショック

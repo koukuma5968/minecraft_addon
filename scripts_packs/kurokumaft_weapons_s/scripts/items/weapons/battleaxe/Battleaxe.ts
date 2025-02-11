@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, EquipmentSlot } from "@minecraft/server";
-import { slashHit } from "../../../common/SlashAttack";
+import { slashHit } from "../../../common/WeaponsSlashAttack";
 
 interface BattleaxeObject {
     itemName: string,

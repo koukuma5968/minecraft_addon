@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "kurokumaft:ice_charge"
+    },
+    "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:blizzas_powder"
+      },
+      {
+        "item": "minecraft:snowball"
+      },
+      {
+        "item": "minecraft:gunpowder"
+      }
+    ],
+	"unlock": [
+      {
+        "item": "kurokumaft:blizzas_powder"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:ice_charge",
+      "count": 3
+    },
+    "priority": -1
+  }
+}
