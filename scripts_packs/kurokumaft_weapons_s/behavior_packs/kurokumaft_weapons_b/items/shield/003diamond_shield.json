@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:diamond_shield",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.shield"
-      }
+      "identifier": "kurokumaft:diamond_shield"
     },
     "components": {
       "minecraft:tags": {

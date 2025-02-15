@@ -22,6 +22,10 @@ export async function bumrod(player:Player, hitEntity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.fire
@@ -56,6 +60,10 @@ export async function flarecircle(player:Player) {
 
         let targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
+
             en.dimension.spawnParticle("kurokumaft:firestome1_particle",en.location);
             if (en instanceof Player) {
                 en.applyDamage(2, {
@@ -94,6 +102,10 @@ export async function burstflare(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.dimension.spawnParticle("kurokumaft:burstflare_particle", en.location);
         en.dimension.spawnEntity("kurokumaft:burstflaremagic<minecraft:explode>", en.location);
         if (en instanceof Player) {

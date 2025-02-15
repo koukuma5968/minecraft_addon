@@ -28,6 +28,9 @@ export async function sparkShock(player:Player, entity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.lightning
@@ -62,6 +65,9 @@ export async function lightningStrike(player:Player) {
 
         let targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
             en.dimension.spawnParticle("kurokumaft:spark_particle", en.location);
             if (en instanceof Player) {
                 en.addEffect(MinecraftEffectTypes.Slowness, 2*TicksPerSecond, {

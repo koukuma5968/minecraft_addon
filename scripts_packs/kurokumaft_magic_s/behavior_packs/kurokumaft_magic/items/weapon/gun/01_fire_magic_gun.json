@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:fire_magic_gun",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_gun"
-      }
+      "identifier": "kurokumaft:fire_magic_gun"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bow"
+        ]
+      },
       "minecraft:damage": 2,
       "minecraft:durability": {
         "damage_chance": {
@@ -51,7 +52,7 @@
       },
       "minecraft:use_modifiers": {
         "movement_modifier": 0.25,
-        "use_duration": 15
+        "use_duration": 8
       },
       "minecraft:custom_components": [
         "kurokumaft:gun_magic"

@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, Block, EquipmentSlot, ItemComponentHitEntityEvent, Entity, EntityDamageCause } from "@minecraft/server";
 import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
-import { LogBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/WeaponsConstants";
+import { WeaponLogBlocks, WeaponStrippedLogBlocks, WeaponStrippedWoodBlocks, WeaponWoodBlocks } from "../../common/WeaponsConstants";
 
 /**
  * ファイアブランド
@@ -25,10 +25,10 @@ async function mobflameFiring(hitEntity:Entity) {
 
 export async function fireCharcoalBlock(attackingEntity:Entity, itemStack:ItemStack, block:Block) {
 
-    if (LogBlocks.find(type => type == block.typeId) != undefined 
-    || StrippedLogBlocks.find(type => type == block.typeId) != undefined 
-    || WoodBlocks.find(type => type == block.typeId) != undefined
-    || StrippedWoodBlocks.find(type => type == block.typeId) != undefined) {
+    if (WeaponLogBlocks.find(type => type == block.typeId) != undefined 
+    || WeaponStrippedLogBlocks.find(type => type == block.typeId) != undefined 
+    || WeaponWoodBlocks.find(type => type == block.typeId) != undefined
+    || WeaponStrippedWoodBlocks.find(type => type == block.typeId) != undefined) {
 
         block.dimension.setBlockType(block.location, "kurokumaft:charcoal_block");
         block.dimension.spawnParticle("kurokumaft:mobflame_firing", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});

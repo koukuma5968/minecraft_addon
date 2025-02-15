@@ -2,16 +2,13 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:nether_ice_magic_leggings",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
-      }
+      "identifier": "kurokumaft:nether_ice_magic_leggings"
     },
     "components": {
       "minecraft:tags": {
         "tags": [
-          "kurokumaft:magic_leggings"
+          "kurokumaft:magic_leggings",
+          "kurokumaft:nether_magic_armor"
         ]
       },
       "minecraft:display_name": {

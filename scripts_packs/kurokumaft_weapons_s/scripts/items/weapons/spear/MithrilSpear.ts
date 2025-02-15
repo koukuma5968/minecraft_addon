@@ -36,6 +36,9 @@ async function mithrilHit(attackEntity: Entity, hitEntity: Entity, itemStack: It
     })
 
     targetEn.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
         en.applyDamage(5, {
             cause: EntityDamageCause.ramAttack
         });

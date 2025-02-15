@@ -1,4 +1,4 @@
-import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond, Block, EffectTypes} from "@minecraft/server";
+import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond, Block, EffectTypes, BlockVolume, BlockPermutation} from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEffectTypes, MinecraftPotionEffectTypes } from "@minecraft/vanilla-data";
 
 interface MagicChestObject {
@@ -83,7 +83,7 @@ export class MagicChestSurveillance {
                 system.run(this.checkJob.bind(this));
             }, equItem.delay);
         } else {
-            equItem.removeFunc(this.player);
+            // equItem.removeFunc(this.player);
             this.player.setDynamicProperty("magic_Chest_equ", false);
         }
     };
@@ -94,23 +94,36 @@ async function fireAttackUp(player:Player) {
 }
 
 async function waterHealthUp(player:Player) {
-    player.addEffect(MinecraftPotionEffectTypes.Healing, 10*TicksPerSecond, {
+    player.addEffect(MinecraftEffectTypes.HealthBoost, 60*TicksPerSecond, {
         amplifier: 2,
         showParticles: true
-    })
+    });
 }
 
 async function lavaFreeze(player:Player) {
-    for (let x=-2;x<=2;x++) {
-        for (let z=-2;x<=2;x++) {
-            for (let y=-2;y<=2;y++) {
-                let underBlock = player.dimension.getBlock({x:player.location.x+x,y:player.location.y+y,z:player.location.z+z}) as Block;
-                if (underBlock.typeId == MinecraftBlockTypes.Lava || underBlock.typeId == MinecraftBlockTypes.Magma) {
-                    player.dimension.setBlockType({x:player.location.x+x,y:player.location.y+y,z:player.location.z+z}, MinecraftBlockTypes.Ice);
-                }
-            }
+    let blockVol = new BlockVolume(
+        {
+            x:player.location.x-2,
+            y:player.location.y-2,
+            z:player.location.z-2
+        },
+        {
+            x:player.location.x+2,
+            y:player.location.y+2,
+            z:player.location.z+2
         }
-    }
+    );
+
+    player.dimension.fillBlocks(blockVol, MinecraftBlockTypes.Ice, {
+        blockFilter: {
+            includePermutations: [
+                BlockPermutation.resolve(MinecraftBlockTypes.Lava),
+                BlockPermutation.resolve(MinecraftBlockTypes.Magma),
+            ]
+        },
+        ignoreChunkBoundErrors: true
+    });
+
 }
 
 async function fireAttackReset(player:Player) {

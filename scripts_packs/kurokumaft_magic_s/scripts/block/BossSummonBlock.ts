@@ -1,4 +1,4 @@
-import { BlockCustomComponent, BlockComponentStepOnEvent, world } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentStepOnEvent } from "@minecraft/server";
 
 interface BossSummonObject {
     itemName:string,

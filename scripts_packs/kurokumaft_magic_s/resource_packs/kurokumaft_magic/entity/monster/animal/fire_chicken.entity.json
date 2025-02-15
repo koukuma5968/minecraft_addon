@@ -14,8 +14,8 @@
         "default": "geometry.fire_chicken"
       },
       "particle_effects": {
-        "flame": "kurokumaft:fox_frame",
-        "mobflame": "kurokumaft:fox_firing"
+        "flame": "kurokumaft:chicken_frame",
+        "mobflame": "kurokumaft:chicken_firing"
       },
       "animations": {
         "move": "animation.fire_chicken.move",

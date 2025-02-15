@@ -1,5 +1,5 @@
 // scripts/weapons_script.ts
-import { world as world19, Player as Player47, EquipmentSlot as EquipmentSlot41, EntityComponentTypes as EntityComponentTypes25, EntityInitializationCause } from "@minecraft/server";
+import { world as world18, Player as Player47, EquipmentSlot as EquipmentSlot41, EntityComponentTypes as EntityComponentTypes25, EntityInitializationCause } from "@minecraft/server";
 
 // scripts/common/WeaponsCommonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -2909,7 +2909,7 @@ var MinecraftPotionModifierTypes = ((MinecraftPotionModifierTypes2) => {
 })(MinecraftPotionModifierTypes || {});
 
 // scripts/common/WeaponsCommonUtil.ts
-var guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
+var WeaponGuards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 async function itemTans(player, item, replaceitem, slot) {
   let eqc = player.getComponent(EntityComponentTypes.Equippable);
   let newItem = new ItemStack(replaceitem, 1);
@@ -3333,14 +3333,10 @@ var HelmetSurveillance = class {
       });
       system2.runTimeout(() => {
         system2.run(this.checkJob.bind(this));
-      }, TicksPerSecond2 * 10);
+      }, TicksPerSecond2 * 5);
     } else {
       this.player.setDynamicProperty("helmet_equ", void 0);
       this.player.setDynamicProperty("axolotl_helmet", false);
-      resetSlowFalling(this.player);
-      resetSpeedBoost(this.player);
-      resetJumpBoost(this.player);
-      resetPowerBoost(this.player);
     }
   }
 };
@@ -3356,40 +3352,28 @@ async function axolotlRegeneration(player) {
   }
 }
 async function chickenSlowFalling(player) {
-  player.addEffect(MinecraftEffectTypes.SlowFalling, TicksPerSecond2 * 60, {
+  player.addEffect(MinecraftEffectTypes.SlowFalling, TicksPerSecond2 * 30, {
     amplifier: 2,
     showParticles: false
   });
-}
-async function resetSlowFalling(player) {
-  player.removeEffect(MinecraftEffectTypes.SlowFalling);
 }
 async function foxSpeedBoost(player) {
-  player.addEffect(MinecraftEffectTypes.Speed, TicksPerSecond2 * 60, {
+  player.addEffect(MinecraftEffectTypes.Speed, TicksPerSecond2 * 30, {
     amplifier: 2,
     showParticles: false
   });
-}
-async function resetSpeedBoost(player) {
-  player.removeEffect(MinecraftEffectTypes.Speed);
 }
 async function rabbitJumpBoost(player) {
-  player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond2 * 60, {
+  player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond2 * 30, {
     amplifier: 2,
     showParticles: false
   });
-}
-async function resetJumpBoost(player) {
-  player.removeEffect(MinecraftEffectTypes.JumpBoost);
 }
 async function wolfPowerBoost(player) {
-  player.addEffect(MinecraftEffectTypes.Strength, TicksPerSecond2 * 60, {
+  player.addEffect(MinecraftEffectTypes.Strength, TicksPerSecond2 * 30, {
     amplifier: 2,
     showParticles: false
   });
-}
-async function resetPowerBoost(player) {
-  player.removeEffect(MinecraftEffectTypes.Strength);
 }
 
 // scripts/player/WeaponsArmorEquipment.ts
@@ -3399,35 +3383,59 @@ async function checkWeaponsPlayerEquTick() {
     let player = players[i];
     let equ = player.getComponent(EntityComponentTypes5.Equippable);
     let offHand = equ.getEquipment(EquipmentSlot6.Offhand);
-    if (offHand) {
+    if (offHand != void 0) {
       if (offHand.hasTag("kurokumaft:shield") && player.isSneaking) {
         if (!player.hasTag("off_shield_guard")) {
           player.addTag("off_shield_guard");
           player.triggerEvent("kurokumaft:guard_effect_immunity");
+          if (offHand.typeId == "kurokumaft:steel_shield") {
+            player.triggerEvent("kurokumaft:knockback_resist");
+          }
         }
       } else {
         if (player.hasTag("off_shield_guard")) {
           player.removeTag("off_shield_guard");
           player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+          if (offHand.typeId == "kurokumaft:steel_shield") {
+            player.triggerEvent("kurokumaft:knockback_resist_reset");
+          }
         }
+      }
+    } else {
+      if (player.hasTag("off_shield_guard")) {
+        player.removeTag("off_shield_guard");
+        player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+        player.triggerEvent("kurokumaft:knockback_resist_reset");
       }
     }
     let mainHand = equ.getEquipment(EquipmentSlot6.Mainhand);
-    if (mainHand) {
+    if (mainHand != void 0) {
       if (mainHand.hasTag("kurokumaft:shield") && player.isSneaking) {
         if (!player.hasTag("main_shield_guard")) {
           player.addTag("main_shield_guard");
           player.triggerEvent("kurokumaft:guard_effect_immunity");
+          if (mainHand.typeId == "kurokumaft:steel_shield") {
+            player.triggerEvent("kurokumaft:knockback_resist");
+          }
         }
       } else {
         if (player.hasTag("main_shield_guard")) {
           player.removeTag("main_shield_guard");
           player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+          if (mainHand.typeId == "kurokumaft:steel_shield") {
+            player.triggerEvent("kurokumaft:knockback_resist_reset");
+          }
         }
+      }
+    } else {
+      if (player.hasTag("main_shield_guard")) {
+        player.removeTag("main_shield_guard");
+        player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+        player.triggerEvent("kurokumaft:knockback_resist_reset");
       }
     }
     let head = equ.getEquipment(EquipmentSlot6.Head);
-    if (head) {
+    if (head != void 0) {
       if (player.getDynamicProperty("helmet_equ") != head.typeId) {
         new HelmetSurveillance(player, head).checkHelmetTick();
       }
@@ -3570,7 +3578,7 @@ import { EquipmentSlot as EquipmentSlot9 } from "@minecraft/server";
 import { EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
 async function shooting(player, throwItem, ranNum, seepd, event) {
   let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
-  if (event) {
+  if (event != void 0) {
     bulet.triggerEvent(event);
   }
   let projectile = bulet.getComponent(EntityComponentTypes6.Projectile);
@@ -3748,7 +3756,7 @@ async function evilEye(player) {
 }
 
 // scripts/items/weapons/spear/ThrowableSpear.ts
-import { system as system4, EquipmentSlot as EquipmentSlot13, ItemComponentTypes as ItemComponentTypes9, EntityComponentTypes as EntityComponentTypes8 } from "@minecraft/server";
+import { system as system4, EquipmentSlot as EquipmentSlot13, ItemComponentTypes as ItemComponentTypes8, EntityComponentTypes as EntityComponentTypes8 } from "@minecraft/server";
 var SpearObjects = Object.freeze([
   {
     itemName: "kurokumaft:wooden_spear",
@@ -3818,7 +3826,7 @@ var ThrowableSpear = class {
 };
 async function spawnSpear(throwSpear) {
   let spear = SpearObjects.find((obj) => obj.throwSpear == throwSpear.typeId);
-  if (!spear) {
+  if (spear == void 0) {
     return;
   }
   throwSpear.setDynamicProperty("throwSpear", true);
@@ -3829,7 +3837,7 @@ async function stopSpear(player) {
 }
 async function releaseSpear(player, spear) {
   let spearItem = SpearObjects.find((obj) => obj.itemName == spear.typeId);
-  if (!spearItem) {
+  if (spearItem == void 0) {
     return;
   }
   let throwSpear = player.dimension.getEntities({
@@ -3844,7 +3852,7 @@ async function releaseSpear(player, spear) {
   });
   if (throwSpear.length > 0) {
     throwItemDurabilityDamage(throwSpear[0], spear, 0, void 0);
-    let enchant = spear.getComponent(ItemComponentTypes9.Enchantable);
+    let enchant = spear.getComponent(ItemComponentTypes8.Enchantable);
     if (enchant.hasEnchantment(MinecraftEnchantmentTypes.Loyalty)) {
       let loyalty = enchant.getEnchantment(MinecraftEnchantmentTypes.Loyalty);
       throwSpear[0].setDynamicProperty("Loyalty", true);
@@ -3873,7 +3881,7 @@ async function removeSpear(throwSpear) {
     closest: 1
   });
   let emptySlot = true;
-  if (player) {
+  if (player != void 0 && player.length > 0 && player[0].isValid()) {
     let equ = player[0].getComponent(EntityComponentTypes8.Equippable);
     let main = equ.getEquipment(EquipmentSlot13.Mainhand);
     if (main == void 0) {
@@ -3929,7 +3937,7 @@ async function hitSpear(throwEntity, throwSpear) {
 }
 
 // scripts/items/weapons/spear/BlazeSpear.ts
-import { EntityDamageCause as EntityDamageCause6 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause5 } from "@minecraft/server";
 var BlazeSpear = class {
   // 通常攻撃
   onHitEntity(event) {
@@ -3959,7 +3967,7 @@ async function blazeHit(attackEntity, hitEntity, itemStack) {
   targetEn.forEach((en) => {
     dim.spawnParticle("kurokumaft:mobflame_firing", look);
     en.applyDamage(6, {
-      cause: EntityDamageCause6.fire
+      cause: EntityDamageCause5.fire
     });
   });
   attackEntity.removeTag("blazeHit");
@@ -3980,7 +3988,7 @@ async function cherrySlash2(attackEntity, hitEntity) {
 }
 
 // scripts/items/weapons/spear/MithrilSpear.ts
-import { EntityDamageCause as EntityDamageCause7 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause6 } from "@minecraft/server";
 var MithrilSpear = class {
   // 通常攻撃
   onHitEntity(event) {
@@ -4011,10 +4019,10 @@ async function mithrilHit(attackEntity, hitEntity, itemStack) {
   });
   targetEn.forEach((en) => {
     en.applyDamage(5, {
-      cause: EntityDamageCause7.ramAttack
+      cause: EntityDamageCause6.ramAttack
     });
     en.applyDamage(5, {
-      cause: EntityDamageCause7.ramAttack
+      cause: EntityDamageCause6.ramAttack
     });
   });
   attackEntity.removeTag("mithrilHit");
@@ -4024,13 +4032,13 @@ async function mithrilHit(attackEntity, hitEntity, itemStack) {
 import { EquipmentSlot as EquipmentSlot14 } from "@minecraft/server";
 
 // scripts/common/WeaponsSlashAttack.ts
-import { EntityDamageCause as EntityDamageCause8 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause7 } from "@minecraft/server";
 async function slashHit(attackEntity, hitEntity, damage) {
   let dim = attackEntity.dimension;
   let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
   dim.spawnParticle("kurokumaft:slash_particle", look);
   hitEntity.applyDamage(damage, {
-    cause: EntityDamageCause8.entityAttack
+    cause: EntityDamageCause7.entityAttack
   });
 }
 
@@ -4133,7 +4141,7 @@ async function roarScythe(player, scytheItem) {
 import { BlockPermutation, EquipmentSlot as EquipmentSlot16 } from "@minecraft/server";
 
 // scripts/common/WeaponsConstants.ts
-var LogBlocks = Object.freeze([
+var WeaponLogBlocks = Object.freeze([
   MinecraftBlockTypes.AcaciaLog,
   MinecraftBlockTypes.BirchLog,
   MinecraftBlockTypes.CherryLog,
@@ -4142,12 +4150,12 @@ var LogBlocks = Object.freeze([
   MinecraftBlockTypes.MangroveLog,
   MinecraftBlockTypes.OakLog
 ]);
-var OtherLogBlocks = Object.freeze([
+var WeaponOtherLogBlocks = Object.freeze([
   MinecraftBlockTypes.BambooBlock,
   MinecraftBlockTypes.WarpedStem,
   MinecraftBlockTypes.CrimsonStem
 ]);
-var StrippedLogBlocks = Object.freeze([
+var WeaponStrippedLogBlocks = Object.freeze([
   MinecraftBlockTypes.StrippedAcaciaLog,
   MinecraftBlockTypes.StrippedBirchLog,
   MinecraftBlockTypes.StrippedCherryLog,
@@ -4157,12 +4165,12 @@ var StrippedLogBlocks = Object.freeze([
   MinecraftBlockTypes.StrippedOakLog,
   MinecraftBlockTypes.StrippedSpruceLog
 ]);
-var OtherStrippedLogBlocks = Object.freeze([
+var WeaponOtherStrippedLogBlocks = Object.freeze([
   MinecraftBlockTypes.StrippedBambooBlock,
   MinecraftBlockTypes.StrippedWarpedStem,
   MinecraftBlockTypes.StrippedCrimsonStem
 ]);
-var WoodBlocks = Object.freeze([
+var WeaponWoodBlocks = Object.freeze([
   MinecraftBlockTypes.AcaciaWood,
   MinecraftBlockTypes.BirchWood,
   MinecraftBlockTypes.CherryWood,
@@ -4172,11 +4180,11 @@ var WoodBlocks = Object.freeze([
   MinecraftBlockTypes.OakWood,
   MinecraftBlockTypes.SpruceWood
 ]);
-var OtherWoodBlocks = Object.freeze([
+var WeaponOtherWoodBlocks = Object.freeze([
   MinecraftBlockTypes.WarpedHyphae,
   MinecraftBlockTypes.CrimsonHyphae
 ]);
-var StrippedWoodBlocks = Object.freeze([
+var WeaponStrippedWoodBlocks = Object.freeze([
   MinecraftBlockTypes.SpruceWood,
   MinecraftBlockTypes.StrippedAcaciaWood,
   MinecraftBlockTypes.StrippedBirchWood,
@@ -4187,11 +4195,11 @@ var StrippedWoodBlocks = Object.freeze([
   MinecraftBlockTypes.StrippedOakWood,
   MinecraftBlockTypes.StrippedSpruceWood
 ]);
-var OtherStrippedWoodBlocks = Object.freeze([
+var WeaponOtherStrippedWoodBlocks = Object.freeze([
   MinecraftBlockTypes.StrippedWarpedHyphae,
   MinecraftBlockTypes.StrippedCrimsonHyphae
 ]);
-var PavementBlocks = Object.freeze([
+var WeaponPavementBlocks = Object.freeze([
   MinecraftBlockTypes.Dirt,
   MinecraftBlockTypes.GrassBlock,
   MinecraftBlockTypes.Farmland,
@@ -4199,7 +4207,7 @@ var PavementBlocks = Object.freeze([
   MinecraftBlockTypes.DirtWithRoots,
   MinecraftBlockTypes.CoarseDirt
 ]);
-var FarmingBlocks = Object.freeze([
+var WeaponFarmingBlocks = Object.freeze([
   MinecraftBlockTypes.Dirt,
   MinecraftBlockTypes.GrassBlock,
   MinecraftBlockTypes.GrassPath,
@@ -4207,7 +4215,7 @@ var FarmingBlocks = Object.freeze([
   MinecraftBlockTypes.DirtWithRoots,
   MinecraftBlockTypes.CoarseDirt
 ]);
-var CraftBlocks = Object.freeze([
+var WeaponCraftBlocks = Object.freeze([
   MinecraftBlockTypes.CraftingTable,
   MinecraftBlockTypes.Anvil,
   MinecraftBlockTypes.SmithingTable,
@@ -4221,7 +4229,7 @@ var CraftBlocks = Object.freeze([
   "kurokumaft:millstone",
   "kurokumaft:tear_enchant"
 ]);
-var PlantsBlocks = Object.freeze([
+var WeaponPlantsBlocks = Object.freeze([
   MinecraftBlockTypes.Wheat,
   MinecraftBlockTypes.OakSapling,
   MinecraftBlockTypes.BirchSapling,
@@ -4245,7 +4253,7 @@ var ShovelPavement = class {
   }
 };
 async function pavement(block) {
-  if (PavementBlocks.find((type) => type == block.typeId) != void 0) {
+  if (WeaponPavementBlocks.find((type) => type == block.typeId) != void 0) {
     block.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.GrassPath));
   }
 }
@@ -4301,7 +4309,7 @@ async function stopGatling(player) {
 }
 
 // scripts/items/weapons/knuckle/ChargeKnuckle.ts
-import { EquipmentSlot as EquipmentSlot18, EntityDamageCause as EntityDamageCause9 } from "@minecraft/server";
+import { EquipmentSlot as EquipmentSlot18, EntityDamageCause as EntityDamageCause8 } from "@minecraft/server";
 var KnuckleObjects = Object.freeze([
   {
     itemName: "kurokumaft:leather_knuckle",
@@ -4360,7 +4368,7 @@ async function knuckleHit(attackEntity, hitEntity, knuckle) {
   );
   attackEntity.dimension.spawnParticle("kurokumaft:knuckle_shock", look);
   hitEntity.applyDamage(knuckle.damage, {
-    cause: EntityDamageCause9.entityAttack
+    cause: EntityDamageCause8.entityAttack
   });
   let rota = getLookRotaionPoints(attackEntity.getRotation(), knuckle.damage, 0);
   hitEntity.applyKnockback(rota.x, rota.z, knuckle.damage, 0);
@@ -4369,9 +4377,9 @@ async function charge_knuckle(player, knuckle) {
   shooting(player, knuckle.throwSpear, 0, 3, void 0);
 }
 
-// scripts/items/tool/MineDurability.ts
+// scripts/items/tool/WeaponMineDurability.ts
 import { EquipmentSlot as EquipmentSlot19 } from "@minecraft/server";
-var MineDurability = class {
+var WeaponMineDurability = class {
   onMineBlock(event) {
     let source = event.source;
     let itemStack = event.itemStack;
@@ -4380,7 +4388,7 @@ var MineDurability = class {
 };
 
 // scripts/items/axe/FireBrand.ts
-import { EquipmentSlot as EquipmentSlot20, EntityDamageCause as EntityDamageCause10 } from "@minecraft/server";
+import { EquipmentSlot as EquipmentSlot20, EntityDamageCause as EntityDamageCause9 } from "@minecraft/server";
 var FireBrand = class {
   onHitEntity(event) {
     let attackingEntity = event.attackingEntity;
@@ -4392,12 +4400,12 @@ var FireBrand = class {
 };
 async function mobflameFiring(hitEntity) {
   hitEntity.applyDamage(15, {
-    cause: EntityDamageCause10.fire
+    cause: EntityDamageCause9.fire
   });
   hitEntity.dimension.spawnParticle("kurokumaft:mobflame_firing", hitEntity.location);
 }
 async function fireCharcoalBlock(attackingEntity, itemStack, block) {
-  if (LogBlocks.find((type) => type == block.typeId) != void 0 || StrippedLogBlocks.find((type) => type == block.typeId) != void 0 || WoodBlocks.find((type) => type == block.typeId) != void 0 || StrippedWoodBlocks.find((type) => type == block.typeId) != void 0) {
+  if (WeaponLogBlocks.find((type) => type == block.typeId) != void 0 || WeaponStrippedLogBlocks.find((type) => type == block.typeId) != void 0 || WeaponWoodBlocks.find((type) => type == block.typeId) != void 0 || WeaponStrippedWoodBlocks.find((type) => type == block.typeId) != void 0) {
     block.dimension.setBlockType(block.location, "kurokumaft:charcoal_block");
     block.dimension.spawnParticle("kurokumaft:mobflame_firing", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
     itemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot20.Mainhand);
@@ -4416,8 +4424,8 @@ var AxeStripped = class {
   }
 };
 async function stripped(block) {
-  if (LogBlocks.find((type) => type == block.typeId) != void 0 || WoodBlocks.find((type) => type == block.typeId) != void 0 || OtherLogBlocks.find((type) => type == block.typeId) != void 0 || OtherWoodBlocks.find((type) => type == block.typeId) != void 0) {
-    let log = StrippedLogBlocks.find((type) => {
+  if (WeaponLogBlocks.find((type) => type == block.typeId) != void 0 || WeaponWoodBlocks.find((type) => type == block.typeId) != void 0 || WeaponOtherLogBlocks.find((type) => type == block.typeId) != void 0 || WeaponOtherWoodBlocks.find((type) => type == block.typeId) != void 0) {
+    let log = WeaponStrippedLogBlocks.find((type) => {
       let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
@@ -4425,7 +4433,7 @@ async function stripped(block) {
       block.setPermutation(BlockPermutation2.resolve(log));
       return;
     }
-    let otlog = OtherStrippedLogBlocks.find((type) => {
+    let otlog = WeaponOtherStrippedLogBlocks.find((type) => {
       let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
@@ -4433,7 +4441,7 @@ async function stripped(block) {
       block.setPermutation(BlockPermutation2.resolve(otlog));
       return;
     }
-    let wood = StrippedWoodBlocks.find((type) => {
+    let wood = WeaponStrippedWoodBlocks.find((type) => {
       let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
@@ -4441,7 +4449,7 @@ async function stripped(block) {
       block.setPermutation(BlockPermutation2.resolve(wood));
       return;
     }
-    let otwood = OtherStrippedWoodBlocks.find((type) => {
+    let otwood = WeaponOtherStrippedWoodBlocks.find((type) => {
       let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
@@ -4453,7 +4461,7 @@ async function stripped(block) {
 }
 
 // scripts/items/weapons/gun/FlametHrower.ts
-import { system as system6, EquipmentSlot as EquipmentSlot22, EntityDamageCause as EntityDamageCause11 } from "@minecraft/server";
+import { system as system6, EquipmentSlot as EquipmentSlot22, EntityDamageCause as EntityDamageCause10 } from "@minecraft/server";
 var FlametHrower = class {
   // 通常攻撃
   onHitEntity(event) {
@@ -4487,7 +4495,7 @@ async function shotFlametHrower(player, item) {
       });
       target.forEach((en) => {
         en.applyDamage(2, {
-          cause: EntityDamageCause11.fire
+          cause: EntityDamageCause10.fire
         });
       });
       if (count % 4 === 0) {
@@ -4721,7 +4729,7 @@ function isThrowHammer(throwHammer) {
 }
 
 // scripts/items/weapons/hammer/HammerAttack.ts
-import { EntityDamageCause as EntityDamageCause13 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause12 } from "@minecraft/server";
 var HammerObjects2 = Object.freeze([
   {
     itemName: "kurokumaft:wooden_hammer",
@@ -4768,13 +4776,13 @@ async function hammerHit(attackEntity, hitEntity, hammer) {
   let loock = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
   attackEntity.dimension.spawnParticle("kurokumaft:shock_particle", loock);
   hitEntity.applyDamage(hammer.damage, {
-    cause: EntityDamageCause13.entityAttack
+    cause: EntityDamageCause12.entityAttack
   });
   hitEntity.dimension.spawnEntity(hammer.roarHammer, hitEntity.location);
 }
 
 // scripts/items/weapons/hammer/WardenHammer.ts
-import { EntityDamageCause as EntityDamageCause14 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause13 } from "@minecraft/server";
 var WardenHammer = class {
   // 通常攻撃
   onHitEntity(event) {
@@ -4788,7 +4796,7 @@ async function hammerHit2(attackEntity, hitEntity) {
   let loock = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
   attackEntity.dimension.spawnParticle("kurokumaft:shock_particle", loock);
   hitEntity.applyDamage(5, {
-    cause: EntityDamageCause14.entityAttack
+    cause: EntityDamageCause13.entityAttack
   });
   shooting(attackEntity, "kurokumaft:sonic_bullet", 0, 5, void 0);
 }
@@ -4806,7 +4814,7 @@ async function waveWardenHammer(attackEntity, hammer) {
   });
   hitEntitys.forEach((en) => {
     en.applyDamage(5, {
-      cause: EntityDamageCause14.magic
+      cause: EntityDamageCause13.magic
     });
   });
 }
@@ -5157,7 +5165,7 @@ var MithrilBudGrowth = class {
 };
 
 // scripts/block/FortuneDestroy.ts
-import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot28, ItemComponentTypes as ItemComponentTypes10, ItemStack as ItemStack35 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot28, ItemComponentTypes as ItemComponentTypes9, ItemStack as ItemStack35 } from "@minecraft/server";
 var CustomBlocks = Object.freeze([
   {
     block: "kurokumaft:chromium_ore",
@@ -5197,7 +5205,7 @@ async function fortuneDestroy(player, block, blockPermutation) {
   let equ = player.getComponent(EntityComponentTypes15.Equippable);
   let itemStack = equ.getEquipment(EquipmentSlot28.Mainhand);
   if (itemStack) {
-    let enc = itemStack.getComponent(ItemComponentTypes10.Enchantable);
+    let enc = itemStack.getComponent(ItemComponentTypes9.Enchantable);
     if (enc) {
       if (enc.hasEnchantment(MinecraftEnchantmentTypes.Fortune)) {
         let fortune = enc.getEnchantment(MinecraftEnchantmentTypes.Fortune);
@@ -5226,7 +5234,7 @@ var HoeFarming = class {
   }
 };
 async function farming(block) {
-  if (FarmingBlocks.find((type) => type == block.typeId) != void 0) {
+  if (WeaponFarmingBlocks.find((type) => type == block.typeId) != void 0) {
     block.setPermutation(BlockPermutation8.resolve(MinecraftBlockTypes.Farmland));
   }
 }
@@ -5348,7 +5356,7 @@ async function grassPlant(event) {
   let itemStack = event.itemStack;
   let block = event.block;
   let blockFace = event.blockFace;
-  if (CraftBlocks.indexOf(block.typeId) != -1 || block.typeId != MinecraftBlockTypes.GrassBlock && block.typeId != MinecraftBlockTypes.Dirt) {
+  if (WeaponCraftBlocks.indexOf(block.typeId) != -1 || block.typeId != MinecraftBlockTypes.GrassBlock && block.typeId != MinecraftBlockTypes.Dirt) {
     return;
   }
   if (blockFace == Direction2.Up) {
@@ -5570,7 +5578,7 @@ var BakutikuFire = class {
 };
 
 // scripts/block/TearEnchant.ts
-import { system as system14, EntityComponentTypes as EntityComponentTypes18, ItemComponentTypes as ItemComponentTypes12, ItemStack as ItemStack41, EquipmentSlot as EquipmentSlot33, world as world16 } from "@minecraft/server";
+import { system as system14, EntityComponentTypes as EntityComponentTypes18, ItemComponentTypes as ItemComponentTypes11, ItemStack as ItemStack41, EquipmentSlot as EquipmentSlot33, world as world15 } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 var TearEnchant = class {
   onPlayerDestroy(event) {
@@ -5611,7 +5619,7 @@ async function tearEnchantBlock(player, item, block) {
   let mainhand = equ.getEquipment(EquipmentSlot33.Mainhand);
   if (item != void 0) {
     let actionForm = new ActionFormData().title({ translate: "tile.kurokumaft:tear_enchant.name" });
-    let enc = mainhand.getComponent(ItemComponentTypes12.Enchantable);
+    let enc = mainhand.getComponent(ItemComponentTypes11.Enchantable);
     if (enc != void 0) {
       let encs = enc.getEnchantments();
       if (encs != void 0 && encs.length > 0) {
@@ -5634,7 +5642,7 @@ async function tearEnchantBlock(player, item, block) {
             let bookInvent = book_entity[0].getComponent(EntityComponentTypes18.Inventory);
             let container = bookInvent.container;
             let setBook = container.getItem(0);
-            let setBookEnc = setBook.getComponent(ItemComponentTypes12.Enchantable);
+            let setBookEnc = setBook.getComponent(ItemComponentTypes11.Enchantable);
             for (let i = 0; i < encs.length; i++) {
               let repEnc = encs[i];
               try {
@@ -5654,10 +5662,10 @@ async function tearEnchantBlock(player, item, block) {
                   enc.removeEnchantment(repEnc.type);
                 }
               } catch (error) {
-                world16.sendMessage({ translate: "tear_enchant.mess.notenchant", with: [repEnc.type.id] });
+                world15.sendMessage({ translate: "tear_enchant.mess.notenchant", with: [repEnc.type.id] });
               }
             }
-            let reenc = mainhand.getComponent(ItemComponentTypes12.Enchantable);
+            let reenc = mainhand.getComponent(ItemComponentTypes11.Enchantable);
             if (mainhand.typeId == "minecraft:enchanted_book" && (reenc == void 0 || reenc.getEnchantments().length == 0)) {
               let newmainhand = new ItemStack41("minecraft:book", 1);
               equ.setEquipment(EquipmentSlot33.Mainhand, newmainhand);
@@ -5666,7 +5674,7 @@ async function tearEnchantBlock(player, item, block) {
             }
             if (setBookEnc.getEnchantments().length == 1) {
               let newBook = new ItemStack41("minecraft:enchanted_book", 1);
-              let newBookEnc = newBook.getComponent(ItemComponentTypes12.Enchantable);
+              let newBookEnc = newBook.getComponent(ItemComponentTypes11.Enchantable);
               newBookEnc.addEnchantments(setBookEnc.getEnchantments());
               container.setItem(0, newBook);
             } else {
@@ -5713,10 +5721,17 @@ async function setTearEnchantBook(player, item, block) {
         let container = bookInvent.container;
         let equ = player.getComponent(EntityComponentTypes18.Equippable);
         let mainhand = equ.getEquipment(EquipmentSlot33.Mainhand);
-        container.setItem(0, mainhand);
+        let clone = mainhand.clone();
+        clone.amount = clone.amount - (clone.amount - 1);
+        container.setItem(0, clone);
         block.setPermutation(block.permutation.withState("kurokumaft:isBook", 1));
         system14.runTimeout(() => {
-          equ.setEquipment(EquipmentSlot33.Mainhand, void 0);
+          if (mainhand.amount == 1) {
+            equ.setEquipment(EquipmentSlot33.Mainhand, void 0);
+          } else {
+            mainhand.amount--;
+            equ.setEquipment(EquipmentSlot33.Mainhand, mainhand);
+          }
         }, 1);
       }
     } else {
@@ -6131,7 +6146,7 @@ function initWeaponsRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:axe_stripped", new AxeStripped());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:hoe_farming", new HoeFarming());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:fire_brand", new FireBrand());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:mine_durability", new MineDurability());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:weapon_mine_durability", new WeaponMineDurability());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:growth_meal", new GrowthMeal());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:potion_effect", new PotionEffect());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:copper_bucket", new CopperBucket());
@@ -6155,40 +6170,40 @@ function initWeaponsStateChangeMonitor(initEvent) {
 }
 
 // scripts/weapons_script.ts
-world19.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world18.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initWeaponsRegisterCustom(initEvent);
   initWeaponsStateChangeMonitor(initEvent);
 });
-world19.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world18.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world19.beforeEvents.itemUseOn.subscribe((event) => {
+world18.beforeEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world19.afterEvents.itemUseOn.subscribe((event) => {
+world18.afterEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world19.beforeEvents.explosion.subscribe((event) => {
+world18.beforeEvents.explosion.subscribe((event) => {
   let impactBLockList = event.getImpactedBlocks();
   let filterBlockList = explodeBedrock(impactBLockList);
   filterBlockList = explodeBakutikuCancel(filterBlockList);
   event.setImpactedBlocks(filterBlockList);
   explodeBakutikuChain(impactBLockList);
 });
-world19.afterEvents.itemStartUse.subscribe((event) => {
+world18.afterEvents.itemStartUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world19.beforeEvents.entityRemove.subscribe((event) => {
+world18.beforeEvents.entityRemove.subscribe((event) => {
   let removedEntity = event.removedEntity;
   removeSpear(removedEntity);
   removeHammer(removedEntity);
 });
-world19.afterEvents.itemReleaseUse.subscribe((event) => {
+world18.afterEvents.itemReleaseUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6218,7 +6233,7 @@ world19.afterEvents.itemReleaseUse.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.itemStopUse.subscribe((event) => {
+world18.afterEvents.itemStopUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6248,7 +6263,7 @@ world19.afterEvents.itemStopUse.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.entitySpawn.subscribe((event) => {
+world18.afterEvents.entitySpawn.subscribe((event) => {
   let cause = event.cause;
   let entity = event.entity;
   if (EntityInitializationCause.Spawned == cause) {
@@ -6257,36 +6272,36 @@ world19.afterEvents.entitySpawn.subscribe((event) => {
     spawnBoomerang(entity);
   }
 });
-world19.beforeEvents.itemUse.subscribe((event) => {
+world18.beforeEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
   }
 });
-world19.afterEvents.itemUse.subscribe((event) => {
+world18.afterEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world19.afterEvents.blockExplode.subscribe((event) => {
+world18.afterEvents.blockExplode.subscribe((event) => {
   let dimension = event.dimension;
   let block = event.block;
   if (block.typeId == "kurokumaft:tear_enchant") {
     breackTearEnchant(dimension, block);
   }
 });
-world19.afterEvents.playerPlaceBlock.subscribe((event) => {
+world18.afterEvents.playerPlaceBlock.subscribe((event) => {
   let block = event.block;
   let dimension = event.dimension;
   playerMithrilset(block);
 });
-world19.beforeEvents.playerBreakBlock.subscribe((event) => {
+world18.beforeEvents.playerBreakBlock.subscribe((event) => {
   let player = event.player;
   let item = event.itemStack;
   let block = event.block;
   if (item != void 0) {
   }
 });
-world19.afterEvents.entityHitEntity.subscribe((event) => {
+world18.afterEvents.entityHitEntity.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitEn = event.hitEntity;
   if (hitEn != void 0 && hitEn instanceof Player47) {
@@ -6294,7 +6309,7 @@ world19.afterEvents.entityHitEntity.subscribe((event) => {
     shieldCounter(hitEn, damageEn);
   }
 });
-world19.afterEvents.entityHitBlock.subscribe((event) => {
+world18.afterEvents.entityHitBlock.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitBlock = event.hitBlock;
   if (hitBlock != void 0) {
@@ -6313,7 +6328,7 @@ world19.afterEvents.entityHitBlock.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.projectileHitEntity.subscribe((event) => {
+world18.afterEvents.projectileHitEntity.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   let hitEn = event.getEntityHit().entity;
@@ -6330,7 +6345,7 @@ world19.afterEvents.projectileHitEntity.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world19.afterEvents.projectileHitBlock.subscribe((event) => {
+world18.afterEvents.projectileHitBlock.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   if (source != void 0 && source instanceof Player47) {
@@ -6341,12 +6356,12 @@ world19.afterEvents.projectileHitBlock.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world19.afterEvents.entityHurt.subscribe((event) => {
+world18.afterEvents.entityHurt.subscribe((event) => {
   let damage = event.damage;
   let damageSource = event.damageSource;
   let hitEn = event.hurtEntity;
   if (hitEn instanceof Player47 && damageSource.cause != "void") {
-    if (guards.indexOf(damageSource.cause) != -1) {
+    if (WeaponGuards.indexOf(damageSource.cause) != -1) {
       shieldGuard(hitEn, false);
     }
     if (hitEn.getDynamicProperty("axolotl_helmet")) {

@@ -23,6 +23,10 @@ export async function iceBread(player:Player, hitEntity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.freezing
@@ -56,6 +60,10 @@ export async function freezConclusion(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.dimension.spawnParticle("kurokumaft:freezingconclusion_particle", en.location);
         en.dimension.setBlockType({x:en.location.x-1,y:en.location.y,z:en.location.z}, MinecraftBlockTypes.PackedIce);
         en.dimension.setBlockType({x:en.location.x-1,y:en.location.y,z:en.location.z+1}, MinecraftBlockTypes.PackedIce);

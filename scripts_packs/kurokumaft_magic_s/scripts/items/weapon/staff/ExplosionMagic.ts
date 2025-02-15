@@ -26,6 +26,10 @@ export async function megaBrand(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.applyDamage(3, {
                 cause: EntityDamageCause.fire

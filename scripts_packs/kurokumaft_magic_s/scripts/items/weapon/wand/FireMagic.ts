@@ -9,7 +9,7 @@ export async function burstRondo(player:Player, hitEntity:Entity) {
 
     player.addTag("burstRondo_self");
 
-    hitEntity.dimension.spawnParticle("kurokumaft:fire_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
+    hitEntity.dimension.spawnParticle("kurokumaft:fire_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
     let filterOption = {
         excludeTags: [

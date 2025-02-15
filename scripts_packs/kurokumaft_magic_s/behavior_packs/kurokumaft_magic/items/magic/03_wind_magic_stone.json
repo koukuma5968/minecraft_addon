@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:wind_magic_stone",
-      "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.magic_stone"
-      }
+      "identifier": "kurokumaft:wind_magic_stone"
     },
     "components": {
       "minecraft:hand_equipped": false,

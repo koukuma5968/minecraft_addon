@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot, world, Direction, GameMode, Vector3, ItemComponentTypes, ItemCooldownComponent, system } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { subtractionItem } from "../../common/WeaponsItemDurabilityDamage";
-import { CraftBlocks, PlantsBlocks } from "../../common/WeaponsConstants";
+import { WeaponCraftBlocks, } from "../../common/WeaponsConstants";
 import { ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
 
 /**
@@ -128,7 +128,7 @@ async function grassPlant(event:ItemComponentUseOnEvent) {
     let block = event.block as Block;
     let blockFace = event.blockFace as Direction;
 
-    if ((CraftBlocks.indexOf(block.typeId) != -1) || (block.typeId != MinecraftBlockTypes.GrassBlock && block.typeId != MinecraftBlockTypes.Dirt)) {
+    if ((WeaponCraftBlocks.indexOf(block.typeId) != -1) || (block.typeId != MinecraftBlockTypes.GrassBlock && block.typeId != MinecraftBlockTypes.Dirt)) {
         return;
     }
     if (blockFace == Direction.Up) {

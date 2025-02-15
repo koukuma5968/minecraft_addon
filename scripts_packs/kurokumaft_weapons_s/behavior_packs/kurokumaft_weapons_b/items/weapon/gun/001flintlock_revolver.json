@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:revolver",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.gun"
-      }
+      "identifier": "kurokumaft:revolver"
     },
     "components": {
       "minecraft:display_name": {

@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
 import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
-import { LogBlocks, OtherLogBlocks, OtherStrippedLogBlocks, OtherStrippedWoodBlocks, OtherWoodBlocks, StrippedLogBlocks, StrippedWoodBlocks, WoodBlocks } from "../../common/WeaponsConstants";
+import { WeaponLogBlocks, WeaponOtherLogBlocks, WeaponOtherStrippedLogBlocks, WeaponOtherStrippedWoodBlocks, WeaponOtherWoodBlocks, WeaponStrippedLogBlocks, WeaponStrippedWoodBlocks, WeaponWoodBlocks } from "../../common/WeaponsConstants";
 
 /**
  * 斧
@@ -18,12 +18,12 @@ export class AxeStripped implements ItemCustomComponent {
 
 async function stripped(block:Block) {
 
-    if (LogBlocks.find(type => type == block.typeId) != undefined 
-    || WoodBlocks.find(type => type == block.typeId) != undefined
-    || OtherLogBlocks.find(type => type == block.typeId) != undefined
-    || OtherWoodBlocks.find(type => type == block.typeId) != undefined) {
+    if (WeaponLogBlocks.find(type => type == block.typeId) != undefined 
+    || WeaponWoodBlocks.find(type => type == block.typeId) != undefined
+    || WeaponOtherLogBlocks.find(type => type == block.typeId) != undefined
+    || WeaponOtherWoodBlocks.find(type => type == block.typeId) != undefined) {
 
-        let log = StrippedLogBlocks.find(type => {
+        let log = WeaponStrippedLogBlocks.find(type => {
             let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });
@@ -32,7 +32,7 @@ async function stripped(block:Block) {
             return;
         }
 
-        let otlog = OtherStrippedLogBlocks.find(type => {
+        let otlog = WeaponOtherStrippedLogBlocks.find(type => {
             let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });
@@ -41,7 +41,7 @@ async function stripped(block:Block) {
             return;
         }
 
-        let wood = StrippedWoodBlocks.find(type => {
+        let wood = WeaponStrippedWoodBlocks.find(type => {
             let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });
@@ -50,7 +50,7 @@ async function stripped(block:Block) {
             return;
         }
 
-        let otwood = OtherStrippedWoodBlocks.find(type => {
+        let otwood = WeaponOtherStrippedWoodBlocks.find(type => {
             let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });

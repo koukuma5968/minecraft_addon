@@ -24,6 +24,10 @@ export async function watercutter(player:Player, hitEntity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.applyDamage(1, {
                 cause: EntityDamageCause.drowning
@@ -74,6 +78,10 @@ export async function waterjail(player:Player) {
     addTeamsTagFilter(player, filterOption);
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.dimension.spawnParticle("kurokumaft:waterjail_particle", en.location);
         if (en instanceof Player) {
             en.addEffect(MinecraftEffectTypes.Slowness, 5*TicksPerSecond, {

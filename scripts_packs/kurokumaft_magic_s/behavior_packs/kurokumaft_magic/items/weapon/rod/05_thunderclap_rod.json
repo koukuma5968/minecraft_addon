@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:thunderclap_rod",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_rod"
-      }
+      "identifier": "kurokumaft:thunderclap_rod"
     },
     "components": {
       "minecraft:icon": {

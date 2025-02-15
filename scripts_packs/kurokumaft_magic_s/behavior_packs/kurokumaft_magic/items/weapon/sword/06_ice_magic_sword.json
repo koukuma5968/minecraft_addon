@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:ice_magic_sword",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.sword"
-      }
+      "identifier": "kurokumaft:ice_magic_sword"
     },
     "components": {
       "minecraft:tags": {

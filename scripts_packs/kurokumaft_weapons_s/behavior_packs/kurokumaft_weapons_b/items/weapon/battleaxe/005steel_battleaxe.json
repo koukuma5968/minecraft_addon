@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:steel_battleaxe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.battleaxe"
-      }
+      "identifier": "kurokumaft:steel_battleaxe"
     },
     "components": {
       "minecraft:display_name": {
@@ -41,7 +37,7 @@
         "slot": "axe"
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
+        "kurokumaft:weapon_mine_durability",
         "kurokumaft:battleaxe_slash"
       ]
     }

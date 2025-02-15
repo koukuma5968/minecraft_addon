@@ -29,10 +29,12 @@ function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:number
  */
 function shooting(player:Player, throwItem:string, ranNum:number, seepd:number, event:string | undefined) {
 
-    let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
-    
-    if (event) {
-        bulet.triggerEvent(event);
+    let bulet;
+
+    if (event != undefined) {
+        bulet = player.dimension.spawnEntity(throwItem+"<"+event+">", player.getHeadLocation());
+    } else {
+        bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
     }
 
     let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;

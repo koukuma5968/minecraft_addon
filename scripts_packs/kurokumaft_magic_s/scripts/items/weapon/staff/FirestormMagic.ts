@@ -13,12 +13,16 @@ export async function bramFang(player:Player) {
             "bram_fang_self",
         ],
         location: player.location,
-        maxDistance: 3
+        maxDistance: 6.5
     } as EntityQueryOptions;
     addTeamsTagFilter(player, filterOption);
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.dimension.spawnParticle("kurokumaft:bram_fang_particle", en.location);
         en.dimension.spawnEntity("kurokumaft:bram_fang_magic", en.location);
     });
@@ -53,6 +57,10 @@ export async function fireStorm(player:Player) {
     
         let targets = dim.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
+
             if (en instanceof Player) {
                 en.applyDamage(3, {
                     cause: EntityDamageCause.fire

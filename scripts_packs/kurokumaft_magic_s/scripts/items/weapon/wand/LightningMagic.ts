@@ -8,7 +8,7 @@ export async function spark(player:Player, hitEntity:Entity) {
 
     player.addTag("spark_self");
 
-    player.dimension.spawnParticle("kurokumaft:spark_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
+    player.dimension.spawnParticle("kurokumaft:spark_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
     let filterOption = {
         excludeTags: [

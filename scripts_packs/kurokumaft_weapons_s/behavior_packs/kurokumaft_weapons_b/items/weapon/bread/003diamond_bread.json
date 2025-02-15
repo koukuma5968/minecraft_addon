@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:diamond_bread",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bread"
-      }
+      "identifier": "kurokumaft:diamond_bread"
     },
     "components": {
       "minecraft:display_name": {
@@ -50,7 +46,7 @@
         ]
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability"
+        "kurokumaft:weapon_mine_durability"
       ]
     }
   }

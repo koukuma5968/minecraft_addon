@@ -53,7 +53,7 @@
         "slot": "sword"
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
+        "kurokumaft:weapon_mine_durability",
         "kurokumaft:charge_knuckle"
       ]
     }

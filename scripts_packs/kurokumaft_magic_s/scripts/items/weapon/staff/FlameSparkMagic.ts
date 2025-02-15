@@ -46,6 +46,9 @@ export async function digVault(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
 
         if (en instanceof Player) {
             en.applyDamage(3, {
@@ -87,6 +90,10 @@ export async function flameSpark(player:Player) {
 
         let targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
+
             en.dimension.spawnParticle("kurokumaft:firewall_particle", en.location);
             en.applyDamage(3, {
                 cause: EntityDamageCause.fire

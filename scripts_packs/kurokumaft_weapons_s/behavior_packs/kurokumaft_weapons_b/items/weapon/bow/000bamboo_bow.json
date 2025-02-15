@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:bamboo_bow",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bow"
-      }
+      "identifier": "kurokumaft:bamboo_bow"
     },
     "components": {
       "minecraft:tags": {
@@ -39,7 +35,6 @@
         ]
       },
       "minecraft:interact_button": true,
-      "minecraft:frame_count": 4,
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
       "minecraft:use_modifiers": {

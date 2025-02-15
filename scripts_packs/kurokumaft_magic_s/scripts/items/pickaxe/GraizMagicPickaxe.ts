@@ -1,6 +1,6 @@
 import { Block, BlockVolume, Entity, EquipmentSlot, ItemComponentUseOnEvent, ItemStack } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { itemDurabilityDamage } from "../../common/MagicItemDurabilityDamage";
+import { itemDurabilityDamageFixed } from "../../common/MagicItemDurabilityDamage";
 
 /**
  * グライズマジックピッケル
@@ -43,7 +43,7 @@ export async function breakRangeBlock(event:ItemComponentUseOnEvent) {
             },
             ignoreChunkBoundErrors: true
         });
-        itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
         block.dimension.spawnParticle("kurokumaft:stone_charge_burst", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
     } catch(error) {
     }

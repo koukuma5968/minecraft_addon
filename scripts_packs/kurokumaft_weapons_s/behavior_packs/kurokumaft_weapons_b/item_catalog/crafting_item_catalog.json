@@ -1,0 +1,298 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:crafting_items_catalog": {
+        "categories": [
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:axolotl_helmet_blue",
+                            "name": "kurokumaft:itemGroup.name.animal_helmet"
+                        },
+                        "items": [
+                            "kurokumaft:axolotl_helmet_blue",
+                            "kurokumaft:axolotl_helmet_cyan",
+                            "kurokumaft:axolotl_helmet_gold",
+                            "kurokumaft:axolotl_helmet_lucy",
+                            "kurokumaft:axolotl_helmet_wild",
+                            "kurokumaft:chicken_helmet_white",
+                            "kurokumaft:fox_helmet_orange",
+                            "kurokumaft:rabbit_helmet_brown",
+                            "kurokumaft:rabbit_helmet_white",
+                            "kurokumaft:wolf_helmet_black",
+                            "kurokumaft:wolf_helmet_white"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                  {
+                    "group_identifier": {
+                      "name": "minecraft:itemGroup.name.helmet"
+                    },
+                    "items": [
+                      "kurokumaft:cherry_helmet",
+                      "kurokumaft:copper_helmet",
+                      "kurokumaft:steel_helmet",
+                      "kurokumaft:blackstone_helmet",
+                      "kurokumaft:orichalcum_helmet"
+                    ]
+                  }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                  {
+                    "group_identifier": {
+                      "name": "minecraft:itemGroup.name.chestplate"
+                    },
+                    "items": [
+                      "kurokumaft:cherry_chestplate",
+                      "kurokumaft:copper_chestplate",
+                      "kurokumaft:steel_chestplate",
+                      "kurokumaft:blackstone_chestplate",
+                      "kurokumaft:orichalcum_chestplate"
+                    ]
+                  }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                  {
+                    "group_identifier": {
+                      "name": "minecraft:itemGroup.name.leggings"
+                    },
+                    "items": [
+                      "kurokumaft:cherry_leggings",
+                      "kurokumaft:copper_leggings",
+                      "kurokumaft:steel_leggings",
+                      "kurokumaft:blackstone_leggings",
+                      "kurokumaft:orichalcum_leggings"
+                    ]
+                  }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.boots"
+                        },
+                        "items": [
+                            "kurokumaft:cherry_boots",
+                            "kurokumaft:copper_boots",
+                            "kurokumaft:steel_boots",
+                            "kurokumaft:blackstone_boots",
+                            "kurokumaft:orichalcum_boots"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:copper_shield",
+                            "name": "kurokumaft:itemGroup.name.weapons_shield"
+                        },
+                        "items": [
+                            "kurokumaft:kettle_lid",
+                            "kurokumaft:copper_shield",
+                            "kurokumaft:cherry_shield",
+                            "kurokumaft:diamond_shield",
+                            "kurokumaft:netherite_shield",
+                            "kurokumaft:magma_shield",
+                            "kurokumaft:blueice_shield",
+                            "kurokumaft:steel_shield",
+                            "kurokumaft:tnt_shield",
+                            "kurokumaft:immortal_shield",
+                            "kurokumaft:glass_shield_clear",
+                            "kurokumaft:glass_shield_black",
+                            "kurokumaft:glass_shield_blue",
+                            "kurokumaft:glass_shield_brown",
+                            "kurokumaft:glass_shield_cyan",
+                            "kurokumaft:glass_shield_yellow",
+                            "kurokumaft:glass_shield_gray",
+                            "kurokumaft:glass_shield_green",
+                            "kurokumaft:glass_shield_light_blue",
+                            "kurokumaft:glass_shield_lime",
+                            "kurokumaft:glass_shield_magenta",
+                            "kurokumaft:glass_shield_orange",
+                            "kurokumaft:glass_shield_pink",
+                            "kurokumaft:glass_shield_purple",
+                            "kurokumaft:glass_shield_red",
+                            "kurokumaft:glass_shield_light_gray",
+                            "kurokumaft:glass_shield_white"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:bamboo_battleaxe",
+                            "name": "kurokumaft:itemGroup.name.weapons_battleaxe"
+                        },
+                        "items": [
+                            "kurokumaft:bamboo_battleaxe",
+                            "kurokumaft:wooden_battleaxe",
+                            "kurokumaft:iron_battleaxe",
+                            "kurokumaft:steel_battleaxe",
+                            "kurokumaft:bone_battleaxe"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:wooden_hammer",
+                            "name": "kurokumaft:itemGroup.name.weapons_hammer"
+                        },
+                        "items": [
+                            "kurokumaft:wooden_hammer",
+                            "kurokumaft:stone_hammer",
+                            "kurokumaft:iron_hammer",
+                            "kurokumaft:golden_hammer",
+                            "kurokumaft:diamond_hammer",
+                            "kurokumaft:netherite_hammer",
+                            "kurokumaft:warden_hammer"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:bamboo_bow",
+                            "name": "kurokumaft:itemGroup.name.weapons_bow"
+                        },
+                        "items": [
+                            "kurokumaft:bamboo_bow",
+                            "kurokumaft:iron_bow",
+                            "kurokumaft:cherry_bow",
+                            "kurokumaft:steel_bow",
+                            "kurokumaft:sniper_steel_bow",
+                            "kurokumaft:diamond_bow"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:wooden_bread",
+                            "name": "kurokumaft:itemGroup.name.weapons_bread"
+                        },
+                        "items": [
+                            "kurokumaft:wooden_bread",
+                            "kurokumaft:stone_bread",
+                            "kurokumaft:iron_bread",
+                            "kurokumaft:diamond_bread"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:arquebus",
+                            "name": "kurokumaft:itemGroup.name.weapons_gun"
+                        },
+                        "items": [
+                            "kurokumaft:arquebus",
+                            "kurokumaft:revolver",
+                            "kurokumaft:gatling",
+                            "kurokumaft:machine_gun",
+                            "kurokumaft:sniper_rifle",
+                            "kurokumaft:flamethrower",
+                            "kurokumaft:railgun",
+                            "kurokumaft:hyper_bazooka",
+                            "kurokumaft:ghast_bazooka"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:lead_ball",
+                            "name": "kurokumaft:itemGroup.name.weapons_bullet"
+                        },
+                        "items": [
+                            "kurokumaft:lead_ball",
+                            "kurokumaft:forty_four_magnum",
+                            "kurokumaft:twenty_two_lr",
+                            "kurokumaft:thirty_eight_special",
+                            "kurokumaft:thr_hund_e_winchester",
+                            "kurokumaft:railgun_energy_bottle",
+                            "kurokumaft:hyper_shell",
+                            "kurokumaft:blue_fire_charge"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:wooden_spear",
+                            "name": "kurokumaft:itemGroup.name.weapons_spear"
+                        },
+                        "items": [
+                            "kurokumaft:wooden_spear",
+                            "kurokumaft:stone_spear",
+                            "kurokumaft:bamboo_spear",
+                            "kurokumaft:iron_spear",
+                            "kurokumaft:cherry_spear",
+                            "kurokumaft:steel_spear",
+                            "kurokumaft:blaze_spear",
+                            "kurokumaft:mithril_spear",
+                            "kurokumaft:diamond_spear",
+                            "kurokumaft:netherite_spear"
+                        ]
+                    }
+                ]
+            },
+
+            {
+                "category_name": "nature",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:chromium_ore",
+                            "name": "minecraft:itemGroup.name.ore"
+                        },
+                        "items": [
+                            "kurokumaft:chromium_ore",
+                            "kurokumaft:orichalcum_ore",
+                            "kurokumaft:deepslate_chromium_ore",
+                            "kurokumaft:deepslate_orichalcum_ore"
+                        ]
+                    }
+                ]
+            }
+
+        ]
+    }
+}

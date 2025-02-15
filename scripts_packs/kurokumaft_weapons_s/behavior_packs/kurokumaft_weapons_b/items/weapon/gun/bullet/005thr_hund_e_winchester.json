@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:thr_hund_e_winchester",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bullet"
-      }
+      "identifier": "kurokumaft:thr_hund_e_winchester"
     },
     "components": {
       "minecraft:tags": {

@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:water_magic_bazooka",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_bazooka"
-      }
+      "identifier": "kurokumaft:water_magic_bazooka"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bow"
+        ]
+      },
       "minecraft:durability": {
         "damage_chance": {
           "min": 4,

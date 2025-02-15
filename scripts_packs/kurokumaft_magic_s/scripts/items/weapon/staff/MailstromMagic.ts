@@ -7,50 +7,50 @@ import { addTeamsTagFilter, getLookPoints, getLookRotaionPoints } from "../../..
 export async function sonicSlicer(player:Player) {
     player.addTag("sonicSlicer_self");
 
-    let slicer1 = getLookRotaionPoints(player.getRotation(), 3, 0);
+    let slicer1 = getLookRotaionPoints(player.getRotation(), 5, 0);
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer1.x, 
-            y:player.location.y+1.0,
+            y:player.location.y+0.2,
             z:player.location.z+slicer1.z
         }
     );
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer1.x, 
-            y:player.location.y+1.5,
+            y:player.location.y+0.5,
             z:player.location.z+slicer1.z
         }
     );
 
-    let slicer2 = getLookRotaionPoints(player.getRotation(), 3, -2);
+    let slicer2 = getLookRotaionPoints(player.getRotation(), 5, -2);
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer2.x, 
-            y:player.location.y+1.5,
+            y:player.location.y+0.5,
             z:player.location.z+slicer2.z
         }
     );
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer2.x, 
-            y:player.location.y+2,
+            y:player.location.y+0.8,
             z:player.location.z+slicer2.z
         }
     );
 
-    let slicer3 = getLookRotaionPoints(player.getRotation(), 3, 2);
+    let slicer3 = getLookRotaionPoints(player.getRotation(), 5, 2);
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer3.x, 
-            y:player.location.y+1.5,
+            y:player.location.y+0.8,
             z:player.location.z+slicer3.z
         }
     );
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer3.x, 
-            y:player.location.y+2,
+            y:player.location.y+1.0,
             z:player.location.z+slicer3.z
         }
     );
@@ -59,13 +59,17 @@ export async function sonicSlicer(player:Player) {
         excludeTags: [
             "sonicSlicer_self",
         ],
-        location: {x:player.location.x+slicer1.x, y:player.location.y+1.8, z:player.location.z+slicer1.z},
+        location: {x:player.location.x+slicer1.x, y:player.location.y+0.8, z:player.location.z+slicer1.z},
         maxDistance: 6.5
     } as EntityQueryOptions;
     addTeamsTagFilter(player, filterOption);
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.applyDamage(3, {
                 cause: EntityDamageCause.fall
@@ -116,6 +120,10 @@ export async function mailstrom(player:Player) {
 
         let targets = dim.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
+
             en.teleport(mailLo);
             if (en instanceof Player) {
                 en.applyDamage(3, {

@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:fire_magic_leggings",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
-      }
+      "identifier": "kurokumaft:fire_magic_leggings"
     },
     "components": {
       "minecraft:display_name": {

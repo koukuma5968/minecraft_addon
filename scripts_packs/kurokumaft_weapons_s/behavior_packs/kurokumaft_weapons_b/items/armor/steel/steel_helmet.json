@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:steel_helmet",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.helmet"
-      }
+      "identifier": "kurokumaft:steel_helmet"
     },
     "components": {
       "minecraft:display_name": {

@@ -31,7 +31,7 @@ export async function shooting(player:Player, throwItem:string, ranNum:number, s
 
     let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
     
-    if (event) {
+    if (event != undefined) {
         bulet.triggerEvent(event);
     }
 

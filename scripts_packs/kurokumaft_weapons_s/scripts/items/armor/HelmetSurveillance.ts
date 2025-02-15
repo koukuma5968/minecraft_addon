@@ -45,14 +45,14 @@ export class HelmetSurveillance {
 
             system.runTimeout(() => {
                 system.run(this.checkJob.bind(this));
-            }, TicksPerSecond * 10);
+            }, TicksPerSecond * 5);
         } else {
             this.player.setDynamicProperty("helmet_equ", undefined);
             this.player.setDynamicProperty("axolotl_helmet", false);
-            resetSlowFalling(this.player);
-            resetSpeedBoost(this.player);
-            resetJumpBoost(this.player);
-            resetPowerBoost(this.player);
+            // resetSlowFalling(this.player);
+            // resetSpeedBoost(this.player);
+            // resetJumpBoost(this.player);
+            // resetPowerBoost(this.player);
         }
     };
 }
@@ -74,7 +74,7 @@ export async function axolotlRegeneration(player:Player) {
 }
 
 async function chickenSlowFalling(player:Player) {
-    player.addEffect(MinecraftEffectTypes.SlowFalling, TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.SlowFalling, TicksPerSecond * 30, {
         amplifier: 2,
         showParticles: false
     });
@@ -85,7 +85,7 @@ async function resetSlowFalling(player:Player) {
 }
 
 async function foxSpeedBoost(player:Player) {
-    player.addEffect(MinecraftEffectTypes.Speed, TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.Speed, TicksPerSecond * 30, {
         amplifier: 2,
         showParticles: false
     });
@@ -96,7 +96,7 @@ async function resetSpeedBoost(player:Player) {
 }
 
 async function rabbitJumpBoost(player:Player) {
-    player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond * 30, {
         amplifier: 2,
         showParticles: false
     });
@@ -107,7 +107,7 @@ async function resetJumpBoost(player:Player) {
 }
 
 async function wolfPowerBoost(player:Player) {
-    player.addEffect(MinecraftEffectTypes.Strength, TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.Strength, TicksPerSecond * 30, {
         amplifier: 2,
         showParticles: false
     });

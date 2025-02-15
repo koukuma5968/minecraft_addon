@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:bone_battleaxe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.battleaxe"
-      }
+      "identifier": "kurokumaft:bone_battleaxe"
     },
     "components": {
       "minecraft:display_name": {
@@ -47,7 +43,7 @@
         ]
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
+        "kurokumaft:weapon_mine_durability",
         "kurokumaft:battleaxe_slash",
         "kurokumaft:cross_bone"
       ]

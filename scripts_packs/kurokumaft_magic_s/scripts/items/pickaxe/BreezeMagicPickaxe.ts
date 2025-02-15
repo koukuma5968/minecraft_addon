@@ -1,6 +1,5 @@
-import { Block, BlockVolume, Direction, Entity, EquipmentSlot, ItemComponentUseOnEvent, ItemStack, world } from "@minecraft/server";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { itemDurabilityDamage } from "../../common/MagicItemDurabilityDamage";
+import { Block, BlockVolume, Entity, EquipmentSlot, ItemComponentUseOnEvent, ItemStack, world } from "@minecraft/server";
+import { itemDurabilityDamageFixed } from "../../common/MagicItemDurabilityDamage";
 
 const polishedStone = [
     "basalt",
@@ -57,20 +56,18 @@ export async function polishBlock(event:ItemComponentUseOnEvent) {
             if (value.y >= -64) {
                 let breakBlock = block.dimension.getBlock(value);
                 if (breakBlock != undefined) {
-                    world.sendMessage(breakBlock.typeId);
                     if (breakBlock.typeId.startsWith("minecraft:weathered_")) {
                         breakBlock.dimension.setBlockType(breakBlock.location, breakBlock.typeId.split("weathered_").join(""));
                     } else if (breakBlock.typeId.startsWith("minecraft:oxidized_")) {
                         breakBlock.dimension.setBlockType(breakBlock.location, breakBlock.typeId.split("oxidized_").join(""));
                     } else if (polishedStone.indexOf(breakBlock.typeId) != -1) {
-                        world.sendMessage("polished_" + polishedStone.filter(stone => stone == breakBlock.typeId)[0]);
                         breakBlock.dimension.setBlockType(breakBlock.location, "polished_" + polishedStone.filter(stone => stone == breakBlock.typeId)[0]);
                     }
                 }
             }
             nextValue = blockIt.next();
         }
-        itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
         block.dimension.spawnParticle("kurokumaft:mowing_particle", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
     } catch(error) {
     }

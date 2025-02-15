@@ -1,6 +1,6 @@
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
-export const LogBlocks = Object.freeze([
+export const WeaponLogBlocks = Object.freeze([
 
     MinecraftBlockTypes.AcaciaLog,
     MinecraftBlockTypes.BirchLog,
@@ -12,13 +12,13 @@ export const LogBlocks = Object.freeze([
 
 ]) as string[];
 
-export const OtherLogBlocks = Object.freeze([
+export const WeaponOtherLogBlocks = Object.freeze([
     MinecraftBlockTypes.BambooBlock,
     MinecraftBlockTypes.WarpedStem,
     MinecraftBlockTypes.CrimsonStem
 ]) as string[];
 
-export const StrippedLogBlocks = Object.freeze([
+export const WeaponStrippedLogBlocks = Object.freeze([
 
     MinecraftBlockTypes.StrippedAcaciaLog,
     MinecraftBlockTypes.StrippedBirchLog,
@@ -31,13 +31,13 @@ export const StrippedLogBlocks = Object.freeze([
 
 ]) as string[];
 
-export const OtherStrippedLogBlocks = Object.freeze([
+export const WeaponOtherStrippedLogBlocks = Object.freeze([
     MinecraftBlockTypes.StrippedBambooBlock,
     MinecraftBlockTypes.StrippedWarpedStem,
     MinecraftBlockTypes.StrippedCrimsonStem
 ]) as string[];
 
-export const WoodBlocks = Object.freeze([
+export const WeaponWoodBlocks = Object.freeze([
 
     MinecraftBlockTypes.AcaciaWood,
     MinecraftBlockTypes.BirchWood,
@@ -50,12 +50,12 @@ export const WoodBlocks = Object.freeze([
 
 ]) as string[];
 
-export const OtherWoodBlocks = Object.freeze([
+export const WeaponOtherWoodBlocks = Object.freeze([
     MinecraftBlockTypes.WarpedHyphae,
     MinecraftBlockTypes.CrimsonHyphae
 ]) as string[];
 
-export const StrippedWoodBlocks = Object.freeze([
+export const WeaponStrippedWoodBlocks = Object.freeze([
 
     MinecraftBlockTypes.SpruceWood,
     MinecraftBlockTypes.StrippedAcaciaWood,
@@ -69,12 +69,12 @@ export const StrippedWoodBlocks = Object.freeze([
 
 ]) as string[];
 
-export const OtherStrippedWoodBlocks = Object.freeze([
+export const WeaponOtherStrippedWoodBlocks = Object.freeze([
     MinecraftBlockTypes.StrippedWarpedHyphae,
     MinecraftBlockTypes.StrippedCrimsonHyphae
 ]) as string[];
 
-export const PavementBlocks = Object.freeze([
+export const WeaponPavementBlocks = Object.freeze([
 
     MinecraftBlockTypes.Dirt,
     MinecraftBlockTypes.GrassBlock,
@@ -85,7 +85,7 @@ export const PavementBlocks = Object.freeze([
 
 ]) as string[];
 
-export const FarmingBlocks = Object.freeze([
+export const WeaponFarmingBlocks = Object.freeze([
 
     MinecraftBlockTypes.Dirt,
     MinecraftBlockTypes.GrassBlock,
@@ -96,7 +96,7 @@ export const FarmingBlocks = Object.freeze([
 
 ]) as string[];
 
-export const CraftBlocks = Object.freeze([
+export const WeaponCraftBlocks = Object.freeze([
     MinecraftBlockTypes.CraftingTable,
     MinecraftBlockTypes.Anvil,
     MinecraftBlockTypes.SmithingTable,
@@ -111,7 +111,7 @@ export const CraftBlocks = Object.freeze([
     "kurokumaft:tear_enchant"
 ]) as string[];
 
-export const PlantsBlocks = Object.freeze([
+export const WeaponPlantsBlocks = Object.freeze([
 
     MinecraftBlockTypes.Wheat,
     MinecraftBlockTypes.OakSapling,

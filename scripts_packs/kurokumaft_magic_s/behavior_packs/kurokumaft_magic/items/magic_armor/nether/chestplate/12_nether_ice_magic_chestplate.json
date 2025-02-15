@@ -2,16 +2,13 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:nether_ice_magic_chestplate",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.chestplate"
-      }
+      "identifier": "kurokumaft:nether_ice_magic_chestplate"
     },
     "components": {
       "minecraft:tags": {
         "tags": [
-          "kurokumaft:magic_chestplate"
+          "kurokumaft:magic_chestplate",
+          "kurokumaft:nether_magic_armor"
         ]
       },
       "minecraft:display_name": {

@@ -2,16 +2,13 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:nether_lightning_magic_helmet",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.helmet"
-      }
+      "identifier": "kurokumaft:nether_lightning_magic_helmet"
     },
     "components": {
       "minecraft:tags": {
         "tags": [
-          "kurokumaft:magic_helmet"
+          "kurokumaft:magic_helmet",
+          "kurokumaft:nether_magic_armor"
         ]
       },
       "minecraft:display_name": {

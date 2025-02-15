@@ -9,7 +9,6 @@ export async function darkFang(player:Player, hitEntity:Entity) {
     player.addTag("dark_fang_self");
 
     let look = getLookRotaionPoints(player.getRotation(), 3.5, 0);
-    player.dimension.spawnParticle("kurokumaft:dark_fang_particle", {x:player.location.x+look.x, y:player.location.y+1.8, z:player.location.z+look.z});
 
     let filterOption = {
         excludeTags: [
@@ -23,6 +22,11 @@ export async function darkFang(player:Player, hitEntity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
+        en.dimension.spawnParticle("kurokumaft:dark_fang_particle", {x:player.location.x+look.x, y:player.location.y+0.8, z:player.location.z+look.z});
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.wither

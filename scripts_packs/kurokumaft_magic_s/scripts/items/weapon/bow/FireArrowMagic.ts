@@ -23,5 +23,5 @@ export async function fireArrow(entity:Entity) {
     }, TicksPerSecond);
     system.runTimeout(() => {
         system.clearRun(intervalNum);
-    }, TicksPerSecond * 4);
+    }, TicksPerSecond * 2);
 }

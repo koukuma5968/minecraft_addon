@@ -48,28 +48,12 @@
       "minecraft:digger": {
         "use_efficiency": true,
         "destroy_speeds": [
-          {"block": "minecraft:clay","speed": 6},
-          {"block": "minecraft:concrete_powder","speed": 6},
-          {"block": "minecraft:dirt","speed": 6},
-          {"block": "minecraft:dirt_with_roots","speed": 6},
-          {"block": "minecraft:farmland","speed": 6},
-          {"block": "minecraft:grass","speed": 6},
-          {"block": "minecraft:grass_path","speed": 6},
-          {"block": "minecraft:gravel","speed": 6},
-          {"block": "minecraft:podzol","speed": 6},
-          {"block": "minecraft:powder_snow","speed": 6},
-          {"block": "minecraft:sand","speed": 6},
-          {"block": "minecraft:snow","speed": 6},
-          {"block": "minecraft:snow_layer","speed": 6},
-          {"block": "minecraft:soul_sand","speed": 6},
-          {"block": "minecraft:soul_soil","speed": 6},
-          {"block": "minecraft:suspicious_gravel","speed": 6},
-          {"block": "minecraft:suspicious_sand","speed": 6}          
-        ]
+          {"block": {"tags": "query.any_tag('minecraft:is_shovel_item_destructible')"},"speed": 6}
+       ]
       },
       "minecraft:custom_components": [
         "kurokumaft:shovel_pavement",
-        "kurokumaft:mine_durability"
+        "kurokumaft:weapon_mine_durability"
       ]
     }
   }

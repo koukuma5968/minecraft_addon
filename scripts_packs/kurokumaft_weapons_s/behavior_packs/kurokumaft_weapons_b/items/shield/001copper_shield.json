@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:copper_shield",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.shield"
-      }
+      "identifier": "kurokumaft:copper_shield"
     },
     "components": {
       "minecraft:tags": {

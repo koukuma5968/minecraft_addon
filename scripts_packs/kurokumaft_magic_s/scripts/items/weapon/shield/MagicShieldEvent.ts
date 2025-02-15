@@ -7,7 +7,7 @@ import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage"
  * @param {Player} player
  * @param {Boolean} range
  */
-function shieldGuard(player:Player, range:Boolean) {
+function magicShieldGuard(player:Player, range:Boolean) {
     let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     let offhand = equ.getEquipment(EquipmentSlot.Offhand);
     let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
@@ -28,7 +28,7 @@ function shieldGuard(player:Player, range:Boolean) {
  * @param {Player} player
  * @param {Entity} damager
  */
-function shieldCounter(player:Player, damager:Entity) {
+function magicShieldCounter(player:Player, damager:Entity) {
     let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     let offhand = equ.getEquipment(EquipmentSlot.Offhand);
     let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
@@ -144,11 +144,11 @@ function shieldCounter(player:Player, damager:Entity) {
     }
 };
 
-async function shieldKnockback(entity:Entity) {
+async function MagicShieldKnockback(entity:Entity) {
     entity.applyKnockback(1, 1, 0.2, 0.2);
     if (entity instanceof Player) {
-        shieldGuard(entity, false);
+        magicShieldGuard(entity, false);
     }
 }
 
-export { shieldGuard, shieldCounter, shieldKnockback };
+export { magicShieldGuard, magicShieldCounter, MagicShieldKnockback };

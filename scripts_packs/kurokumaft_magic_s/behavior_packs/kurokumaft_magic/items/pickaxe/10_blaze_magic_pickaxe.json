@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:blaze_magic_pickaxe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.pickaxe"
-      }
+      "identifier": "kurokumaft:blaze_magic_pickaxe"
     },
     "components": {
       "minecraft:display_name": {
@@ -48,9 +44,9 @@
         ]
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
-        "kurokumaft:pic_attack",
-        "kurokumaft:pic_magic"
+        "kurokumaft:weapon_mine_durability",
+        "kurokumaft:pic_magic_attack",
+        "kurokumaft:pic_magic_tool"
       ]
     }
   }

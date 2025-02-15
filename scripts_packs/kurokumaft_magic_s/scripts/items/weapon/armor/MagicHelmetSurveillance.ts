@@ -1,4 +1,5 @@
 import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, BlockPermutation, ButtonPushAfterEvent, DimensionLocation, TicksPerSecond} from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 interface MagicHelmetObject {
     itemName:string,
@@ -118,35 +119,35 @@ export class MagicHelmetSurveillance {
                 system.run(this.checkJob.bind(this));
             }, equItem.delay);
         } else {
-            equItem.removeFunc(this.player);
+            // equItem.removeFunc(this.player);
             this.player.setDynamicProperty("magic_helmet_equ", false);
         }
     };
 }
 
 async function fireResistanceEffect(player:Player) {
-    player.addEffect("fire_resistance", TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond * 60, {
         amplifier: 5,
         showParticles: false
     });
 }
 
 async function waterBreathingEffect(player:Player) {
-    player.addEffect("water_breathing", TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.WaterBreathing, TicksPerSecond * 60, {
         amplifier: 5,
         showParticles: false
     });
 }
 
 async function resistanceEffect(player:Player) {
-    player.addEffect("resistance", TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.Resistance, TicksPerSecond * 60, {
         amplifier: 3,
         showParticles: false
     });
 }
 
 async function nightVisionEffect(player:Player) {
-    player.addEffect("night_vision", TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.NightVision, TicksPerSecond * 60, {
         amplifier: 10,
         showParticles: false
     });
@@ -161,17 +162,17 @@ async function projectileInvalidReset(player:Player) {
 }
 
 async function fireResistanceEffectReset(player:Player) {
-    player.removeEffect("fire_resistance");
+    player.removeEffect(MinecraftEffectTypes.FireResistance);
 }
 
 async function waterBreathingEffectReset(player:Player) {
-    player.removeEffect("water_breathing");
+    player.removeEffect(MinecraftEffectTypes.WaterBreathing);
 }
 
 async function resistanceEffectReset(player:Player) {
-    player.removeEffect("resistance");
+    player.removeEffect(MinecraftEffectTypes.Resistance);
 }
 
 async function nightVisionEffectReset(player:Player) {
-    player.removeEffect("night_vision");
+    player.removeEffect(MinecraftEffectTypes.NightVision);
 }

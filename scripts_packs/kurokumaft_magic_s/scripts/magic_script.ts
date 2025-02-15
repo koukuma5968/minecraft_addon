@@ -1,5 +1,5 @@
-import { world,Entity, Player, EntityDamageSource, ItemComponent, Block, Direction, system, TicksPerSecond, ScriptEventSource, ObjectiveSortOrder, DisplaySlotId } from "@minecraft/server";
-import { shieldGuard, shieldCounter, shieldKnockback } from "./items/weapon/shield/shieldEvent";
+import { world,Entity, Player, EntityDamageSource, ItemComponent, Block, Direction, system, TicksPerSecond, ScriptEventSource, ObjectiveSortOrder, DisplaySlotId, EntityDamageCause } from "@minecraft/server";
+import { magicShieldGuard, magicShieldCounter, MagicShieldKnockback } from "./items/weapon/shield/MagicShieldEvent";
 import { hitMagicAmor } from "./items/weapon/armor/MagicAmorHitEvent";
 import { initRegisterMagicCustom, initMagicStateChangeMonitor } from "./custom/MagicCustomComponentRegistry";
 import { checkArrowProjectile, hitArrowEvent, magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
@@ -33,7 +33,7 @@ world.beforeEvents.playerLeave.subscribe(leaveEvent => {
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     let entity = event.entity;
     if (event.eventId == "kurokumaft:explosion_guard_knockback") {
-        shieldKnockback(entity);
+        MagicShieldKnockback(entity);
     // } else if (event.eventId == "kurokumaft:attack_event") {
     //     world.sendMessage(event.eventId);
     // } else if (event.eventId == "kurokumaft:jump_event") {
@@ -51,8 +51,8 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     let dameger = event.damagingEntity as Entity;
     let hitEn = event.hitEntity as Entity;
     if (hitEn.typeId == "minecraft:player") {
-        shieldGuard(hitEn as Player, true);
-        shieldCounter(hitEn as Player, dameger);
+        magicShieldGuard(hitEn as Player, true);
+        magicShieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player, dameger, undefined, undefined);
     } 
     if (dameger.typeId == "kurokumaft:fire_chicken") {
@@ -77,8 +77,8 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     let dameger = event.source as Entity;
     let hitVector = event.hitVector;
     if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
-        shieldGuard(hitEn as Player, false);
-        shieldCounter(hitEn as Player, dameger);
+        magicShieldGuard(hitEn as Player, false);
+        magicShieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player,dameger,projectileEn, hitVector);
     }
     if (projectileEn != undefined) {
@@ -121,7 +121,7 @@ world.afterEvents.entityHurt.subscribe(event => {
     let hitEn = event.hurtEntity as Entity;
     if (hitEn != undefined && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
         if (guards.indexOf(damageSource.cause) != -1) {
-            shieldGuard(hitEn as Player, false);
+            magicShieldGuard(hitEn as Player, false);
         }
     }
 });
@@ -132,9 +132,6 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     let item = event.itemStack;
     let duration = event.useDuration;
     if (item != undefined) {
-        if (player.getDynamicProperty("summon_grimoire")) {
-            grimoire_summon_Release(player, item, duration);
-        }
         if (player.getDynamicProperty("BowShotMagicCharge")) {
             magicBowShot(player, item, duration);
         }

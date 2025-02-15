@@ -1,7 +1,7 @@
-import { Block, BlockPermutation, BlockVolume, Entity, EquipmentSlot, ItemComponentUseOnEvent, ItemStack } from "@minecraft/server";
+import { Block, BlockVolume, Entity, EquipmentSlot, ItemComponentUseOnEvent, ItemStack } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { getRandomInRange } from "../../common/MagicCommonUtil";
-import { itemDurabilityDamage } from "../../common/MagicItemDurabilityDamage";
+import { itemDurabilityDamageFixed } from "../../common/MagicItemDurabilityDamage";
 
 interface FiringOreBlockObject {
     block:string,
@@ -54,7 +54,7 @@ export async function firingOreBlock(event:ItemComponentUseOnEvent) {
             block.dimension.setBlockType(block.location, MinecraftBlockTypes.Air);
             block.dimension.spawnItem(new ItemStack(oreBlock.item, getRandomInRange(1,3)), {x:block.location.x,y:block.location.y+1,z:block.location.z});
             block.dimension.spawnParticle("kurokumaft:mobflame_firing", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
-            itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
+            itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
         }
 
         let blockVol = new BlockVolume(
@@ -79,7 +79,7 @@ export async function firingOreBlock(event:ItemComponentUseOnEvent) {
                     if (breakBlock.typeId.indexOf("_terracotta") != -1 && breakBlock.typeId.indexOf("_glazed_") == -1) {
                         breakBlock.dimension.setBlockType(breakBlock.location, breakBlock.typeId.split("_").join("_glazed_"));
                         breakBlock.dimension.spawnParticle("kurokumaft:mobflame_firing", {x:breakBlock.location.x+0.5,y:breakBlock.location.y,z:breakBlock.location.z+0.5});
-                        itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
+                        itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 1);
                     }
                 }
             }

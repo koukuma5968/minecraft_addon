@@ -35,6 +35,9 @@ async function blazeHit(attackEntity: Entity, hitEntity: Entity, itemStack: Item
     })
 
     targetEn.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
         dim.spawnParticle("kurokumaft:mobflame_firing", look);
         en.applyDamage(6, {
             cause: EntityDamageCause.fire

@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:grimoire_torchlight",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.grimoire"
-      }
+      "identifier": "kurokumaft:grimoire_torchlight"
     },
     "components": {
       "minecraft:damage": 0,

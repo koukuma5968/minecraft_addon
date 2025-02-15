@@ -2,7 +2,7 @@ import { world,Player,Entity,Vector2, Vector3, Direction, EntityQueryOptions, Bl
 import { HorizonVector2 } from "./MagicHorizonVector2";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
-const CraftBlocks = [
+const MagicCraftBlocks = [
     MinecraftBlockTypes.CraftingTable,
     MinecraftBlockTypes.Anvil,
     MinecraftBlockTypes.SmithingTable,
@@ -273,4 +273,4 @@ const BlockLocationList = Object.freeze([
 
 ]);
 
-export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, getDirectionVector, addTeamsTagFilter, CraftBlocks, BlockLocationList };
+export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, getDirectionVector, addTeamsTagFilter, MagicCraftBlocks, BlockLocationList };

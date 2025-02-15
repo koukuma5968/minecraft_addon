@@ -17,6 +17,7 @@
             }
 		},
 		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:loot": "loot_tables/blocks/ore/mithril_cluster.json",
 			"minecraft:light_emission": 6,
 			"minecraft:destructible_by_mining": {

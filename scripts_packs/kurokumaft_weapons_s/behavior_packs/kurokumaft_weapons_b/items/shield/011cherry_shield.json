@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:cherry_shield",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.shield"
-      }
+      "identifier": "kurokumaft:cherry_shield"
     },
     "components": {
       "minecraft:tags": {

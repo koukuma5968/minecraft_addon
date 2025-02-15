@@ -90,7 +90,7 @@ export class ThrowableSpear implements ItemCustomComponent {
 export async function spawnSpear(throwSpear:Entity) {
 
     let spear = SpearObjects.find(obj => obj.throwSpear == throwSpear.typeId) as SpearObject;
-    if (!spear) {
+    if (spear == undefined) {
         return;
     }
     throwSpear.setDynamicProperty("throwSpear", true);
@@ -106,7 +106,7 @@ export async function releaseSpear(player:Player, spear:ItemStack) {
 
     let spearItem = SpearObjects.find(obj => obj.itemName == spear.typeId) as SpearObject;
 
-    if (!spearItem) {
+    if (spearItem == undefined) {
         return;
     }
 
@@ -160,7 +160,7 @@ export async function removeSpear(throwSpear:Entity) {
     }) as Player[];
 
     let emptySlot = true;
-    if (player) {
+    if (player != undefined && player.length > 0 && player[0].isValid()) {
         let equ = player[0].getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         if (main == undefined) {

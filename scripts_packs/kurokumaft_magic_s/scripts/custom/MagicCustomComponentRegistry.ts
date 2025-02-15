@@ -24,8 +24,8 @@ import { MagicLogNutEat } from "../items/food/lognut/MagicLogNutEat";
 import { DiamondBottle } from "../items/potion/DiamondBottle";
 import { MagicBrewingStandBlock } from "../block/MagicBrewingStand";
 import { MagicPotionDrink } from "../items/potion/MagicPotionDrink";
-import { MineDurability } from "../items/tool/MineDurability";
-import { PicAttack, PicMagic } from "../items/pickaxe/PicAttack";
+import { MagicMineDurability } from "../items/tool/MagicMineDurability";
+import { PicMagicAttack, PicMagicTool } from "../items/pickaxe/MagicPickaxe";
 
 /**
  * カスタムコンポーネントの登録
@@ -81,11 +81,11 @@ function initRegisterMagicCustom(initEvent:WorldInitializeBeforeEvent) {
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:summon_stone', new SummonStoneMagic());
 
     // 採掘耐久減少
-    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:mine_durability', new MineDurability());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:mine_durability', new MagicMineDurability());
 
     // 魔法のピッケル
-    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:pic_attack', new PicAttack());
-    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:pic_magic', new PicMagic());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:pic_magic_attack', new PicMagicAttack());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:pic_magic_tool', new PicMagicTool());
 
     // ブロック類
     // トーチライトブロック

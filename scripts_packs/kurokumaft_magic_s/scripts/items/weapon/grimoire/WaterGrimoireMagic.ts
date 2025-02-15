@@ -1,5 +1,5 @@
 import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Player, ItemUseOnAfterEvent } from "@minecraft/server";
-import { BlockLocationList, CraftBlocks } from "../../../common/MagicCommonUtil";
+import { BlockLocationList, MagicCraftBlocks } from "../../../common/MagicCommonUtil";
 import { decrimentGrimoireCount } from "../../../common/MagicItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
@@ -16,7 +16,7 @@ export async function water(event:ItemComponentUseOnEvent) {
 
     let setFireF = false;
 
-    if ((CraftBlocks.indexOf(block.typeId) != -1)) {
+    if ((MagicCraftBlocks.indexOf(block.typeId) != -1)) {
         return;
     }
     BlockLocationList.forEach(obj => {

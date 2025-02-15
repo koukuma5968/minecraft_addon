@@ -27,6 +27,9 @@ export async function jetblackShock(player:Player, entity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.wither
@@ -72,6 +75,9 @@ export async function blackHole(player:Player) {
 
         let targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
             en.teleport(holeLo);
             if (en instanceof Player) {
                 en.applyDamage(3, {

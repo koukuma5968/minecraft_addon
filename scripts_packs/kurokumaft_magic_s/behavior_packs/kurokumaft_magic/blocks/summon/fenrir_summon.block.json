@@ -22,21 +22,6 @@
 				"seconds_to_destroy": 15.0
 			},
 			"minecraft:geometry": "geometry.fenrir_summon",
-			"minecraft:material_instances": {
-				"sides": {
-					"texture": "fenrir_summon_side"
-				},
-				"down": {
-					"texture": "fenrir_summon_top"
-				},
-				"up": {
-					"texture": "fenrir_summon_top"
-				},
-				"north": "sides",
-				"south": "sides",
-				"east": "sides",
-				"west": "sides"
-			},
 			"minecraft:custom_components": [
 				"kurokumaft:boss_summon_block"
 			]

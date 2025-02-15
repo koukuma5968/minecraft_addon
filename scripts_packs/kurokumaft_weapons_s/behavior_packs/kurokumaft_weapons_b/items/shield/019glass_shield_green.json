@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:glass_shield_green",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.shield"
-      }
+      "identifier": "kurokumaft:glass_shield_green"
     },
     "components": {
       "minecraft:tags": {

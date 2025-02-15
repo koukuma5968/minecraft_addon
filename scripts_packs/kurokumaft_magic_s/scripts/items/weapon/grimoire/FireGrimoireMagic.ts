@@ -1,5 +1,5 @@
 import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Vector3, Player, Dimension } from "@minecraft/server";
-import { BlockLocationList, CraftBlocks } from "../../../common/MagicCommonUtil";
+import { BlockLocationList, MagicCraftBlocks } from "../../../common/MagicCommonUtil";
 import { decrimentGrimoireCount } from "../../../common/MagicItemDurabilityDamage";
 import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-data";
 
@@ -16,7 +16,7 @@ export async function torchlight(event:ItemComponentUseOnEvent) {
     let blockFace = event.blockFace as Direction;
     let faceLocation = event.faceLocation as Vector3;
 
-    if ((block.typeId.indexOf("chest") == -1) && (block.typeId.indexOf("boat") == -1) && (CraftBlocks.indexOf(block.typeId) == -1)) {
+    if ((block.typeId.indexOf("chest") == -1) && (block.typeId.indexOf("boat") == -1) && (MagicCraftBlocks.indexOf(block.typeId) == -1)) {
         decrimentGrimoireCount(entity as Player, itemStack);
     }
    
@@ -41,7 +41,7 @@ export async function ignited(event:ItemComponentUseOnEvent) {
 
     let setFireF = false;
 
-    if ((CraftBlocks.indexOf(block.typeId) != -1)) {
+    if ((MagicCraftBlocks.indexOf(block.typeId) != -1)) {
         return;
     }
     if (extinguished) {
@@ -94,7 +94,7 @@ export async function ignitedTnt(event:ItemComponentUseOnEvent) {
     let by = block.location.y;
     let bz = block.location.z;
 
-    if ((CraftBlocks.indexOf(block.typeId) != -1)) {
+    if ((MagicCraftBlocks.indexOf(block.typeId) != -1)) {
         return;
     }
 

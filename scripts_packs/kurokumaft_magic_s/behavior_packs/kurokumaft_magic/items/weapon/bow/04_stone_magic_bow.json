@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:stone_magic_bow",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_bow"
-      }
+      "identifier": "kurokumaft:stone_magic_bow"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bow"
+        ]
+      },
       "minecraft:damage": 2,
       "minecraft:durability": {
         "damage_chance": {
@@ -45,7 +46,8 @@
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
       "minecraft:use_modifiers": {
-        "movement_modifier": 0.25
+        "movement_modifier": 0.25,
+        "use_duration": 1000
       },
       "minecraft:custom_components": [
         "kurokumaft:bow_magic"

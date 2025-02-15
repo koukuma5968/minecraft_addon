@@ -17,6 +17,7 @@
 			}
 		},
 		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:loot": "loot_tables/blocks/ore/small_mithril_bud.json",
 			"minecraft:light_emission": 1,
 			"minecraft:destructible_by_mining": {

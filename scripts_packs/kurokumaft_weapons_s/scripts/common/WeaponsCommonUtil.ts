@@ -2,10 +2,10 @@ import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,E
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { HorizonVector2 } from "./WeaponsHorizonVector2";
 
-export const silkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
+export const WeaponSilkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
 , "kurokumaft:mithril_cluster","kurokumaft:budding_mithril","kurokumaft:medicinal_plants", "kurokumaft:onions","kurokumaft:soybeans"];
 
-export const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
+export const WeaponGuards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
 /**
  * アイテム変換

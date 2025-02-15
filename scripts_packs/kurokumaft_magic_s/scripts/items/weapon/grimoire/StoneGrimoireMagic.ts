@@ -1,7 +1,7 @@
 import { ItemStack, Block, system, Player, ItemComponentUseOnEvent, ItemComponentTypes, BlockPermutation, Direction, ItemCooldownComponent, Vector3 } from "@minecraft/server";
 import { decrimentGrimoireCount } from "../../../common/MagicItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { CraftBlocks } from "../../../common/MagicCommonUtil";
+import { MagicCraftBlocks } from "../../../common/MagicCommonUtil";
 
 const FlowerBlockS = Object.freeze([
     "",
@@ -78,7 +78,7 @@ export async function flowerGarden(event:ItemComponentUseOnEvent) {
     if (itemCool.getCooldownTicksRemaining(entity) != 0) {
         return;
     }
-    if ((CraftBlocks.indexOf(block.typeId) != -1)) {
+    if ((MagicCraftBlocks.indexOf(block.typeId) != -1)) {
         return;
     }
     if (blockFace == Direction.Up) {
@@ -272,7 +272,7 @@ export async function growth(event:ItemComponentUseOnEvent) {
 
     let setFireF = false;
 
-    if ((CraftBlocks.indexOf(block.typeId) != -1)) {
+    if ((MagicCraftBlocks.indexOf(block.typeId) != -1)) {
         return;
     } else if (block.typeId == MinecraftBlockTypes.Bamboo || block.typeId == MinecraftBlockTypes.BambooSapling) {
         if (block.typeId == MinecraftBlockTypes.BambooSapling) {
@@ -297,6 +297,7 @@ export async function growth(event:ItemComponentUseOnEvent) {
                 });
             }
             blockDim.setBlockPermutation({"x":bx,"y":by+count,"z":bz}, blockCom);
+            setFireF = true;
             count++;
             demBlock = blockDim.getBlock({"x":bx,"y":by+count,"z":bz}) as Block;
         }
@@ -306,6 +307,7 @@ export async function growth(event:ItemComponentUseOnEvent) {
         let airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
         while (air_count <= 15 && airBlock.isAir) {
             blockDim.setBlockType({"x":bx,"y":by+air_count,"z":bz}, MinecraftBlockTypes.TwistingVines);
+            setFireF = true;
             air_count++;
             airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
         }
@@ -315,6 +317,7 @@ export async function growth(event:ItemComponentUseOnEvent) {
         let airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
         while (air_count <= 15 && airBlock.isAir) {
             blockDim.setBlockType({"x":bx,"y":by+air_count,"z":bz}, MinecraftBlockTypes.Reeds);
+            setFireF = true;
             air_count++;
             airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
         }

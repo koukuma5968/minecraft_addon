@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:blaze_spear",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.spear"
-      }
+      "identifier": "kurokumaft:blaze_spear"
     },
     "components": {
       "minecraft:display_name": {
@@ -48,12 +44,14 @@
       "minecraft:digger": {
         "use_efficiency": true,
         "destroy_speeds": [
-          {"block": "minecraft:web","speed": 15},
-          {"block": "minecraft:bamboo","speed": 10},
+          {"block": {"tags": "query.any_tag('minecraft:is_sword_item_destructible')"},"speed": 15},
           {"block": "minecraft:magma","speed": 10}
         ]
       },
       "minecraft:use_animation": "spear",
+      "minecraft:use_modifiers": {
+        "use_duration": 500
+      },
       "minecraft:throwable": {
         "do_swing_animation": true,
         "min_draw_duration": 0.2,
@@ -67,7 +65,7 @@
       "minecraft:fire_immune": {
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
+        "kurokumaft:weapon_mine_durability",
         "kurokumaft:blaze_spear",
         "kurokumaft:throwable_spear"
       ]

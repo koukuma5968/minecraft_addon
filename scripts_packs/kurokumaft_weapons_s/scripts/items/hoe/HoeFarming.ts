@@ -1,7 +1,7 @@
 import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
-import { FarmingBlocks } from "../../common/WeaponsConstants";
+import { WeaponFarmingBlocks } from "../../common/WeaponsConstants";
 
 /**
  * くわ
@@ -19,7 +19,7 @@ export class HoeFarming implements ItemCustomComponent {
 
 async function farming(block:Block) {
 
-    if (FarmingBlocks.find(type => type == block.typeId) != undefined) {
+    if (WeaponFarmingBlocks.find(type => type == block.typeId) != undefined) {
         block.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Farmland));
     }
 }

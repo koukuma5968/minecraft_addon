@@ -4,11 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:lightning_wool",
 			"is_experimental": false,
-            "register_to_creative_menu": false,
-			"menu_category": {
-				"category": "items",
-				"group": "itemGroup.name.magic_materials"
-			}
+            "register_to_creative_menu": false
 		},
 		"components": {
 			"minecraft:light_emission": 1.0,
@@ -19,13 +15,7 @@
 				"seconds_to_destroy": 1.2
 			},
 			"minecraft:light_dampening": 0,
-			"minecraft:geometry": "geometry.lightning_wool",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "lightning_wool",
-					"render_method": "alpha_test"
-				}
-			}
+			"minecraft:geometry": "geometry.lightning_wool"
 		}
 	}
 }

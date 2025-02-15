@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:diamond_bottle_water",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bottle"
-      }
+      "identifier": "kurokumaft:diamond_bottle_water"
     },
     "components": {
       "minecraft:display_name": {

@@ -8,12 +8,14 @@ import { addTeamsTagFilter, getDirectionVector } from "../../../common/MagicComm
 export async function waterArrowHoming(player:Player, arrow:string, ran:number, speed:number) {
     let water = shooting(player, arrow, ran, speed, undefined);
     water.addTag("waterarrow")
+    player.addTag("waterarrow_self");
     let intervalNum = system.runInterval(() => {
         if (water != undefined && water.isValid()) {
 
             let filterOption = {
                 excludeTags: [
                     "waterarrow",
+                    "waterarrow_self",
                 ],
                 location: water.location,
                 maxDistance: 30,
@@ -23,7 +25,7 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
             addTeamsTagFilter(player, filterOption);
         
             let target = water.dimension.getEntities(filterOption);
-            if (target != undefined && target.length > 0) {
+            if (target != undefined && target.length > 0 && target[0].isValid()) {
                 let targetLoc = getDirectionVector(water.location, target[0].location);
                 let tpLoc = {
                     x:water.location.x+targetLoc.x,
@@ -37,6 +39,8 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
                 });
                 water.applyImpulse(targetLoc);
             }
+            player.setDynamicProperty(player.id, undefined);
+
         } else {
             system.clearRun(intervalNum);
         }
@@ -44,6 +48,7 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
     system.runTimeout(() => {
         if (water != undefined && water.isValid()) {
             water.removeTag("waterarrow")
+            water.removeTag("waterarrow_self")
             water.remove();
         }
         system.clearRun(intervalNum);
@@ -71,5 +76,5 @@ export async function waterArrow(entity:Entity) {
     }, TicksPerSecond);
     system.runTimeout(() => {
         system.clearRun(intervalNum);
-    }, TicksPerSecond * 4);
+    }, TicksPerSecond * 2);
 }

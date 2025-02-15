@@ -28,6 +28,10 @@ export async function iceShock(player:Player, entity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         let damage = 6 as number;
         if (en instanceof Player) {
             damage = 2;
@@ -60,6 +64,10 @@ export async function iceBlock(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         let damage = 10;
         if (en instanceof Player) {
             damage = 2;

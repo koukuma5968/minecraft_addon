@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:fire_magic_bow",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_bow"
-      }
+      "identifier": "kurokumaft:fire_magic_bow"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bow"
+        ]
+      },
       "minecraft:damage": 2,
       "minecraft:durability": {
         "damage_chance": {
@@ -25,12 +26,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:fire_magic_bow.name"
       },
-      "minecraft:icon": {
-        "textures": {
-          "default": "fire_magic_bow",
-          "pulling": "fire_magic_bow_pulling"
-        }
-      },
+      "minecraft:icon": "fire_magic_bow",
       "minecraft:repairable": {
         "repair_items": [
           {
@@ -44,9 +40,9 @@
         ]
       },
       "minecraft:hand_equipped": true,
-      "minecraft:use_animation": "bow",
       "minecraft:use_modifiers": {
-        "movement_modifier": 0.5
+        "movement_modifier": 0.5,
+        "use_duration": 1000
       },
       "minecraft:custom_components": [
         "kurokumaft:bow_magic"

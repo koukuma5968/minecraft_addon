@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:stone_magic_shield",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_shield"
-      }
+      "identifier": "kurokumaft:stone_magic_shield"
     },
     "components": {
       "minecraft:tags": {

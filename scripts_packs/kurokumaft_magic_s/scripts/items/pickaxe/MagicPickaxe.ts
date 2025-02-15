@@ -1,5 +1,4 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, Entity, EntityDamageCause, ItemComponentHitEntityEvent, ItemComponentMineBlockEvent, Block, world, EntityEquippableComponent, EntityComponentTypes, Container, ContainerSlot, ItemComponentUseOnEvent } from "@minecraft/server";
-import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { ItemCustomComponent, ItemStack, Entity, EntityDamageCause, ItemComponentHitEntityEvent, ItemComponentUseOnEvent, Player, world } from "@minecraft/server";
 import { firingOreBlock } from "./BlazeMagicPickaxe";
 import { breakRangeBlock } from "./GraizMagicPickaxe";
 import { breakLineBlock } from "./VolzasMagicPickaxe";
@@ -92,7 +91,7 @@ const PicAttackObjects = Object.freeze([
 /**
  * ピッケル
  */
-export class PicAttack implements ItemCustomComponent {
+export class PicMagicAttack implements ItemCustomComponent {
 
     onHitEntity(event:ItemComponentHitEntityEvent) {
         let itemStack = event.itemStack as ItemStack;
@@ -103,17 +102,26 @@ export class PicAttack implements ItemCustomComponent {
         }
         let pic = PicAttackObjects.find(obj => obj.itemName == itemStack.typeId) as PicAttackObject;
         try {
-            entity.applyDamage(pic.damage, {
-                cause: pic.cause
-            })
-            entity.dimension.spawnParticle(pic.particle, entity.location);
+            if (entity instanceof Player) {
+                if (world.gameRules.pvp) {
+                    entity.applyDamage(pic.damage, {
+                        cause: pic.cause
+                    });
+                    entity.dimension.spawnParticle(pic.particle, entity.location);
+                }
+            } else {
+                entity.applyDamage(pic.damage, {
+                    cause: pic.cause
+                });
+                entity.dimension.spawnParticle(pic.particle, entity.location);
+            }
         } catch (error) {
         }
     }
 
 }
 
-interface MagicPicOObject {
+interface MagicPicObject {
     itemName:string,
     func:Function
 }
@@ -148,7 +156,7 @@ const MagicPicObjects = Object.freeze([
 /**
  * 魔法ピッケル
  */
-export class PicMagic implements ItemCustomComponent {
+export class PicMagicTool implements ItemCustomComponent {
 
     onUseOn(event:ItemComponentUseOnEvent) {
         magicPickaxe(event);
@@ -160,7 +168,7 @@ export function magicPickaxe(event:ItemComponentUseOnEvent) {
 
     let itemStack = event.itemStack as ItemStack;
     if (itemStack != undefined) {
-        let magicPic = MagicPicObjects.find(pic => pic.itemName == itemStack.typeId) as MagicPicOObject;
+        let magicPic = MagicPicObjects.find(pic => pic.itemName == itemStack.typeId) as MagicPicObject;
         magicPic.func(event);
     }
 }

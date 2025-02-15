@@ -61,7 +61,7 @@
 				"value": 1.0
 			},
 			"minecraft:type_family": {
-				"family": ["parrot_tame", "shield"]
+				"family": ["parrot_tame", "kurokumaft:shield"]
 			},
 			"minecraft:damage_sensor": {
 				"triggers": [

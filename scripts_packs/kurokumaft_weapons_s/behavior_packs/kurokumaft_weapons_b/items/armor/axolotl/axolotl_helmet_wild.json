@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:axolotl_helmet_wild",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.helmet"
-      }
+      "identifier": "kurokumaft:axolotl_helmet_wild"
     },
     "components": {
       "minecraft:tags": {

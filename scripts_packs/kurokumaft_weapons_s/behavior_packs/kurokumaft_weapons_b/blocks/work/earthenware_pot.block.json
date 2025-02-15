@@ -15,6 +15,7 @@
             }
 		},
 		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:collision_box": {
 				"origin": [-5.0, 0.0, -5.0],
 				"size": [10.0, 10.0, 10.0]

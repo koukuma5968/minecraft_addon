@@ -386,3 +386,12 @@ item.kurokumaft:axolotl_helmet_gold.name=ウーパールーパー(ゴールド)
 item.kurokumaft:axolotl_helmet_lucy.name=ウーパールーパー(リューシ)
 item.kurokumaft:axolotl_helmet_wild.name=ウーパールーパー(茶)
 
+kurokumaft:itemGroup.name.animal_helmet=動物の帽子
+kurokumaft:itemGroup.name.weapons_shield=盾
+kurokumaft:itemGroup.name.weapons_battleaxe=バトルアックス
+kurokumaft:itemGroup.name.weapons_bow=弓
+kurokumaft:itemGroup.name.weapons_bread=刀
+kurokumaft:itemGroup.name.weapons_gun=銃
+kurokumaft:itemGroup.name.weapons_bullet=弾丸
+kurokumaft:itemGroup.name.weapons_hammer=ハンマー
+kurokumaft:itemGroup.name.weapons_spear=槍

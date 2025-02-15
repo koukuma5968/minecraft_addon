@@ -23,6 +23,10 @@ export async function stoneBread(player:Player, hitEntity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.fallingBlock
@@ -56,6 +60,10 @@ export async function rockbreak(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.addEffect(MinecraftEffectTypes.Nausea, 5*TicksPerSecond, {
                 amplifier: 2
@@ -90,6 +98,10 @@ export async function greybomb(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.dimension.spawnParticle("kurokumaft:grey_bomb_particle", en.location);
         if (en instanceof Player) {
             en.applyDamage(3, {
@@ -100,8 +112,13 @@ export async function greybomb(player:Player) {
                 cause: EntityDamageCause.fallingBlock
             });
         }
-        let bust = en.dimension.spawnEntity("kurokumaft:burstflaremagic", en.location);
-        bust.triggerEvent("minecraft:explode");
+        en.dimension.createExplosion(en.location, 2, {
+            allowUnderwater: true,
+            breaksBlocks: false,
+            causesFire: false,
+            source: player
+        })
+
     });
 
     player.removeTag("grey_bomb_self");

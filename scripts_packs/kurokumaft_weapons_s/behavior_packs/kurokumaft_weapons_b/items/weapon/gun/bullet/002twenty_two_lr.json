@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:twenty_two_lr",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bullet"
-      }
+      "identifier": "kurokumaft:twenty_two_lr"
     },
     "components": {
       "minecraft:tags": {

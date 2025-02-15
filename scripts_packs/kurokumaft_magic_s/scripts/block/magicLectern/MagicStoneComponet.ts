@@ -1,4 +1,3 @@
-import {print} from "../../common/MagicCommonUtil"
 
 interface MagicStoneOjects {
     name: string,

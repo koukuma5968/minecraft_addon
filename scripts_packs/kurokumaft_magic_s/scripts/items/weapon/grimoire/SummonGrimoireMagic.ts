@@ -1,6 +1,6 @@
-import { EntityDamageCause, EntityQueryOptions, EquipmentSlot, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player, system } from "@minecraft/server";
-import { SummonGrimoireDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
-import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
+import { EntityDamageCause, EntityQueryOptions, EquipmentSlot, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond } from "@minecraft/server";
+import { summonGrimoireDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
 
 interface SummonGrimoireMagicObject {
     itemName:string,
@@ -37,23 +37,23 @@ export class SummonGrimoireMagic implements ItemCustomComponent {
 
         let summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
         if (summonMagicObject) {
-            grimoire_summon_use(player, itemStack, summonMagicObject);
+            grimoire_summon_Release(player, itemStack);
         }
     }
 
 }
 
-// 魔導書（召喚）使用開始
-/**
- * @param {Player} player
- * @param {ItemStack} item
- */
-async function grimoire_summon_use(player: Player, item: ItemStack, summonMagicObject: SummonGrimoireMagicObject) {
+// // 魔導書（召喚）使用開始
+// /**
+//  * @param {Player} player
+//  * @param {ItemStack} item
+//  */
+// async function grimoire_summon_use(player: Player, item: ItemStack, summonMagicObject: SummonGrimoireMagicObject) {
 
-    player.setDynamicProperty("summon_grimoire", true);
-    player.dimension.spawnParticle(summonMagicObject.particle, {x:player.location.x,y:player.location.y+0.75,z:player.location.z});
+//     player.setDynamicProperty("summon_grimoire", true);
+//     player.dimension.spawnParticle(summonMagicObject.particle, {x:player.location.x,y:player.location.y+0.75,z:player.location.z});
 
-};
+// };
 
 // 魔導書（召喚）使用解放
 /**
@@ -61,53 +61,55 @@ async function grimoire_summon_use(player: Player, item: ItemStack, summonMagicO
  * @param {ItemStack} itemStack
  * @param {number} duration
  */
-export async function grimoire_summon_Release(player:Player, itemStack:ItemStack, duration:number) {
+export async function grimoire_summon_Release(player:Player, itemStack:ItemStack) {
 
-    player.setDynamicProperty("summon_grimoire", undefined);
+    let summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
 
-    if (-duration >= 25) {
-        let summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
+    player.dimension.spawnParticle(summonMagicObject.particle, {x:player.location.x,y:player.location.y+0.75,z:player.location.z});
+    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + summonMagicObject.sendMsg + "\"}]}");
+    player.addTag(summonMagicObject.extag);
 
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + summonMagicObject.sendMsg + "\"}]}");
-        player.addTag(summonMagicObject.extag);
-        let summonMons = player.dimension.spawnEntity(summonMagicObject.entity, {x:player.location.x, y:player.location.y+10, z:player.location.z});
-        let sommonLoc = summonMons.location;
+    let point = getLookRotaionPoints(player.getRotation(), 8, 0);
+    let summonMons = player.dimension.spawnEntity(summonMagicObject.entity, {x:player.location.x+point.x, y:player.location.y+4, z:player.location.z+point.z});
+    let sommonLoc = summonMons.location;
 
-        SummonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+    summonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
-        let intervalNum = system.runInterval(() => {
-            let filterOption = {
-                excludeTags: [
-                    summonMagicObject.extag,
-                ],
-                location: sommonLoc,
-                maxDistance: 25
-            } as EntityQueryOptions;
-    
-            addTeamsTagFilter(player, filterOption);
-    
-            let targets = player.dimension.getEntities(filterOption);
-            targets.forEach(en => {
-                if (en instanceof Player) {
-                    en.applyDamage(5, {
-                        cause: summonMagicObject.damageType
-                    });
-                } else {
-                    en.applyDamage(15, {
-                        cause: summonMagicObject.damageType
-                    });
-                }
-                en.dimension.spawnParticle(summonMagicObject.damageParticle,en.location);
-            });
-    
-        }, 10);
-    
-        system.runTimeout(() => {
-            system.clearRun(intervalNum);
-            player.removeTag(summonMagicObject.extag);
-            summonMons.remove();
-        }, 100);
-    
-    }
+    let intervalNum = system.runInterval(() => {
+        let filterOption = {
+            excludeTags: [
+                summonMagicObject.extag,
+            ],
+            location: sommonLoc,
+            maxDistance: 25
+        } as EntityQueryOptions;
+
+        addTeamsTagFilter(player, filterOption);
+
+        let targets = player.dimension.getEntities(filterOption);
+        targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
+            if (en instanceof Player) {
+                en.applyDamage(5, {
+                    cause: summonMagicObject.damageType
+                });
+            } else {
+                en.applyDamage(15, {
+                    cause: summonMagicObject.damageType
+                });
+            }
+            en.dimension.spawnParticle(summonMagicObject.damageParticle,en.location);
+        });
+
+    }, 10);
+
+    system.runTimeout(() => {
+        system.clearRun(intervalNum);
+        player.removeTag(summonMagicObject.extag);
+        summonMons.remove();
+    }, 100);
+
 
 };

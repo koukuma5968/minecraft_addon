@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:grimoire_music_sound",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.grimoire"
-      }
+      "identifier": "kurokumaft:grimoire_music_sound"
     },
     "components": {
       "minecraft:damage": 0,

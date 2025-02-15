@@ -28,6 +28,9 @@ export async function sparkleShock(player:Player, entity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.soulCampfire
@@ -74,6 +77,9 @@ export async function hollyField(player:Player) {
 
         let targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
             en.addEffect(MinecraftEffectTypes.InstantHealth, 5, {
                 amplifier: 10
             });

@@ -2,16 +2,13 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:nether_stone_magic_boots",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.boots"
-      }
+      "identifier": "kurokumaft:nether_stone_magic_boots"
     },
     "components": {
       "minecraft:tags": {
         "tags": [
-          "kurokumaft:magic_boots"
+          "kurokumaft:magic_boots",
+          "kurokumaft:nether_magic_armor"
         ]
       },
       "minecraft:display_name": {

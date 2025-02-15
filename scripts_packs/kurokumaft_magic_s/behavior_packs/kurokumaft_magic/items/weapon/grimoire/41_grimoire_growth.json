@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:grimoire_growth",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.grimoire"
-      }
+      "identifier": "kurokumaft:grimoire_growth"
     },
     "components": {
       "minecraft:damage": 0,

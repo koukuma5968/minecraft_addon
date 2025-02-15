@@ -10,7 +10,6 @@ export async function lightFang(player:Player, hitEntity:Entity) {
     player.addTag("light_fang_self");
 
     let look = getLookRotaionPoints(player.getRotation(), 3.5, 0);
-    player.dimension.spawnParticle("kurokumaft:light_fang_particle", {x:player.location.x+look.x, y:player.location.y+1.8, z:player.location.z+look.z});
 
     let filterOption = {
         excludeTags: [
@@ -24,6 +23,11 @@ export async function lightFang(player:Player, hitEntity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
+        en.dimension.spawnParticle("kurokumaft:light_fang_particle", {x:player.location.x+look.x, y:player.location.y+0.8, z:player.location.z+look.z});
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.soulCampfire
@@ -82,18 +86,30 @@ export async function areaheel(player:Player) {
         maxDistance: 10
     });
     p.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.addEffect(MinecraftEffectTypes.InstantHealth, 5*TicksPerSecond, {
             amplifier: 5,
             showParticles: true
         });
     });
     f.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.addEffect(MinecraftEffectTypes.InstantHealth, 5*TicksPerSecond, {
             amplifier: 5,
             showParticles: true
         });
     });
     u.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.addEffect(MinecraftEffectTypes.InstantHealth, 5*TicksPerSecond, {
             amplifier: 5,
             showParticles: true

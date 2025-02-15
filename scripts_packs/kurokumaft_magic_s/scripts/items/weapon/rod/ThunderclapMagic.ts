@@ -23,6 +23,10 @@ export async function lightningBread(player:Player, hitEntity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.lightning
@@ -56,6 +60,10 @@ export async function thunderclap(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.dimension.spawnParticle("kurokumaft:lightningbolt_particle", en.location);
         en.dimension.spawnEntity(MinecraftEntityTypes.LightningBolt, en.location);
         if (en instanceof Player) {
@@ -90,6 +98,10 @@ export async function thunderjail(player:Player) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         en.dimension.spawnParticle("kurokumaft:thunder_jail_particle", en.location);
         if (en instanceof Player) {
             en.addEffect("slowness", 5*TicksPerSecond, {

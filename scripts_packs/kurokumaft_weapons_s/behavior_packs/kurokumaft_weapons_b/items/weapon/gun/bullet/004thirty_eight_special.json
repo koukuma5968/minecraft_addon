@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:thirty_eight_special",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bullet"
-      }
+      "identifier": "kurokumaft:thirty_eight_special"
     },
     "components": {
       "minecraft:tags": {

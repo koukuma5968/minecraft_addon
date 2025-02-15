@@ -1,12 +1,17 @@
 {
-  "format_version": "1.20.50",
+  "format_version": "1.21.60",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:volzas_powder"
+      "identifier": "kurokumaft:volzas_powder",
+      "menu_category": {
+        "category": "items"
+      }
     },
     "components": {
       "minecraft:icon": {
-        "texture": "volzas_powder"
+        "textures": {
+          "default": "volzas_powder"
+        }
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:volzas_powder.name"

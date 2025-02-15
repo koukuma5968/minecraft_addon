@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:warden_hammer",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.hammer"
-      }
+      "identifier": "kurokumaft:warden_hammer"
     },
     "components": {
       "minecraft:tags": {
@@ -28,6 +24,9 @@
         "max_draw_duration": 1.0,
         "scale_power_by_draw_duration": true
       },
+      "minecraft:use_modifiers": {
+        "use_duration": 500
+      },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:thrown_warden_hammer",
         "minimum_critical_power": 1.0
@@ -44,7 +43,7 @@
         "max_durability": 2561
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
+        "kurokumaft:weapon_mine_durability",
         "kurokumaft:warden_hammer",
         "kurokumaft:thrown_hammer"
       ]

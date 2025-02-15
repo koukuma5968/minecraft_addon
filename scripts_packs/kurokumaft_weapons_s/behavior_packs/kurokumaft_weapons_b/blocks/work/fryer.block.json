@@ -19,6 +19,7 @@
             }
         },
         "components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
             "minecraft:selection_box": {
                 "origin": [-8.0,0.0,-8.0],
                 "size": [16.0,12.0,16.0]

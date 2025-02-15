@@ -91,11 +91,36 @@
           "value": 0
         }
       },
-      "kurokumaft:ranged_type": {
-        "minecraft:behavior.ranged_attack": {
-          "priority": 0,
-          "attack_interval": 0.1,
-          "attack_radius": 0.1
+
+      "kurokumaft:attack10_up": {
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:attack15_up": {
+        "minecraft:attack": {
+          "damage": 15
+        }
+      },
+      "kurokumaft:attack20_up": {
+        "minecraft:attack": {
+          "damage": 20
+        }
+      },
+      "kurokumaft:attack25_up": {
+        "minecraft:attack": {
+          "damage": 25
+        }
+      },
+      "kurokumaft:attack30_up": {
+        "minecraft:attack": {
+          "damage": 30
+        }
+      },
+
+      "kurokumaft:attack_down": {
+        "minecraft:attack": {
+          "damage": 1
         }
       }
     },
@@ -214,42 +239,6 @@
               ]
             },
             "event": "minecraft:trigger_raid"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {
-                  "any_of" :[
-                    {"test": "has_tag","operator": "equals","subject": "self","value": "main_shield_guard"},
-                    {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
-                  ]
-                },
-                {
-                  "any_of": [
-                    {"test": "has_equipment","domain": "hand", "subject": "self","value": "kurokumaft:steel_shield"}
-                  ]
-                }
-              ]
-            },
-            "event": "kurokumaft:knockback_resist"
-          },
-          {
-            "filters": {
-              "any_of": [
-                {
-                  "all_of" :[
-                    {"test": "has_tag","operator": "not","subject": "self","value": "main_shield_guard"},
-                    {"test": "has_tag","operator": "not","subject": "self","value": "off_shield_guard"}
-                  ]
-                },
-                {
-                  "all_of": [
-                    {"test": "has_equipment","domain": "hand","operator": "not","subject": "self","value": "kurokumaft:steel_shield"}
-                  ]
-                }
-              ]
-            },
-            "event": "kurokumaft:knockback_resist_reset"
           }
         ]
       },
@@ -265,18 +254,11 @@
                       {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
                     ]
                   },
-                  {
-                    "any_of" :[
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "attack"},
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"},
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"},
-                      {"test": "has_mob_effect","operator": "equals","subject": "self","value": "sonic_boom"}
-                    ]
-                  }
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "attack"}
                 ]
               }
             },
-            "cause": "all",
+            "cause": "entity_attack",
             "deals_damage": false
           },
           {
@@ -289,19 +271,176 @@
                       {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
                     ]
                   },
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"}
+                ]
+              }
+            },
+            "cause": "projectile",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
                   {
                     "any_of" :[
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"},
-                      {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"}
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "main_shield_guard"},
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
                     ]
-                  }
+                  },
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
+                ]
+              }
+            },
+            "cause": "sonic_boom",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {
+                    "any_of" :[
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "main_shield_guard"},
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
+                    ]
+                  },
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"}
                 ]
               }
             },
             "cause": "block_explosion",
-            "damage_modifier": -10,
-            "damage_multiplier": 2.0,
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {
+                    "any_of" :[
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "main_shield_guard"},
+                      {"test": "has_tag","operator": "equals","subject": "self","value": "off_shield_guard"}
+                    ]
+                  },
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"}
+                ]
+              }
+            },
+            "cause": "entity_explosion",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "attack_protection"},
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "attack"}
+                ]
+              }
+            },
+            "cause": "entity_attack",
+            "damage_modifier": -5.0,
             "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "attack_protection"},
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"}
+                ]
+              }
+            },
+            "cause": "block_explosion",
+            "damage_modifier": -5.0,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "attack_protection"},
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"}
+                ]
+              }
+            },
+            "cause": "entity_explosion",
+            "damage_modifier": -5.0,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "attack_protection"},
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"}
+                ]
+              }
+            },
+            "cause": "projectile",
+            "damage_modifier": -5.0,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "attack_protection"},
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
+                ]
+              }
+            },
+            "cause": "sonic_boom",
+            "damage_modifier": -5.0,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "fall_invalid"},
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "fall"}
+                ]
+              }
+            },
+            "cause": "all",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "projectile_invalid"},
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "projectile"}
+                ]
+              }
+            },
+            "cause": "projectile",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "explosion_nullify"},
+                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" }
+                ]
+              }
+            },
+            "cause": "block_explosion",
+            "deals_damage": false
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_tag","operator": "equals","subject": "self","value": "explosion_nullify"},
+                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
+                ]
+              }
+            },
+            "cause": "entity_explosion",
+            "deals_damage": false
           }
         ]
       }
@@ -358,6 +497,39 @@
           "component_groups": [ "kurokumaft:knockback_resist_reset" ]
         }
       },
+
+      "kurokumaft:attack10_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack10_up" ]
+        }
+      },
+      "kurokumaft:attack15_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack15_up" ]
+        }
+      },
+      "kurokumaft:attack20_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack20_up" ]
+        }
+      },
+      "kurokumaft:attack25_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack25_up" ]
+        }
+      },
+      "kurokumaft:attack30_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack30_up" ]
+        }
+      },
+
+      "kurokumaft:attack_down": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack_down" ]
+        }
+      },
+
       "variant0": {
         "add": {
           "component_groups": [ "variant0" ]

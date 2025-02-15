@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:stone_resistance_potion",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_potion"
-      }
+      "identifier": "kurokumaft:stone_resistance_potion"
     },
     "components": {
       "minecraft:display_name": {

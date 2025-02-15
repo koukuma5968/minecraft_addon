@@ -13,6 +13,7 @@
 			}
 		},
 		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:collision_box": true,
 			"minecraft:light_emission": 5,
 			"minecraft:loot": "loot_tables/blocks/ore/mithril_block.json",

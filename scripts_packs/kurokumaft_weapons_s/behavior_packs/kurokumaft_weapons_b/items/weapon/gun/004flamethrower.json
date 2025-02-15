@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:flamethrower",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.gun"
-      }
+      "identifier": "kurokumaft:flamethrower"
     },
     "components": {
       "minecraft:tags": {

@@ -14,12 +14,24 @@ async function checkWeaponsPlayerEquTick() {
                 if (!player.hasTag("off_shield_guard")) {
                     player.addTag("off_shield_guard");
                     player.triggerEvent("kurokumaft:guard_effect_immunity");
+                    if (offHand.typeId == "kurokumaft:steel_shield") {
+                        player.triggerEvent("kurokumaft:knockback_resist");
+                    }
                 }
             } else {
                 if (player.hasTag("off_shield_guard")) {
                     player.removeTag("off_shield_guard");
                     player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+                    if (offHand.typeId == "kurokumaft:steel_shield") {
+                        player.triggerEvent("kurokumaft:knockback_resist_reset");
+                    }
                 }
+            }
+        } else {
+            if (player.hasTag("off_shield_guard")) {
+                player.removeTag("off_shield_guard");
+                player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+                player.triggerEvent("kurokumaft:knockback_resist_reset");
             }
         }
         let mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
@@ -28,12 +40,24 @@ async function checkWeaponsPlayerEquTick() {
                 if (!player.hasTag("main_shield_guard")) {
                     player.addTag("main_shield_guard");
                     player.triggerEvent("kurokumaft:guard_effect_immunity");
+                    if (mainHand.typeId == "kurokumaft:steel_shield") {
+                        player.triggerEvent("kurokumaft:knockback_resist");
+                    }
                 }
             } else {
                 if (player.hasTag("main_shield_guard")) {
                     player.removeTag("main_shield_guard");
                     player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+                    if (mainHand.typeId == "kurokumaft:steel_shield") {
+                        player.triggerEvent("kurokumaft:knockback_resist_reset");
+                    }
                 }
+            }
+        } else {
+            if (player.hasTag("main_shield_guard")) {
+                player.removeTag("main_shield_guard");
+                player.triggerEvent("kurokumaft:guard_effect_immunity_reset");
+                player.triggerEvent("kurokumaft:knockback_resist_reset");
             }
         }
         let head = equ.getEquipment(EquipmentSlot.Head);

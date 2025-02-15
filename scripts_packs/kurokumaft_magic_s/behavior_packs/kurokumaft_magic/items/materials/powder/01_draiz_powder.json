@@ -1,12 +1,17 @@
 {
-  "format_version": "1.20.50",
+  "format_version": "1.21.60",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:draiz_powder"
+      "identifier": "kurokumaft:draiz_powder",
+      "menu_category": {
+        "category": "items"
+      }
     },
     "components": {
       "minecraft:icon": {
-        "texture": "draiz_powder"
+        "textures": {
+          "default": "draiz_powder"
+        }
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:draiz_powder.name"

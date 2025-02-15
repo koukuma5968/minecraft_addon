@@ -177,7 +177,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
                         let event = getGrimoireAllItemsEvent(bookId);
                         grimoire_entity.triggerEvent(event);
                     }
-                    if (new_grimoire_book.typeId == "kurokumaft:grimoire_music_sound") {
+                    if (new_grimoire_book.typeId != "kurokumaft:grimoire_music_sound") {
                         new_grimoire_book.setLore(["残数：" + remainingNum]);
                     }
 

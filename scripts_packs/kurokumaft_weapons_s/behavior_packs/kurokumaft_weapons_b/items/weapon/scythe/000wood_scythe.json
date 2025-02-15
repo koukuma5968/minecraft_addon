@@ -40,7 +40,7 @@
         "max_durability": 60
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
+        "kurokumaft:weapon_mine_durability",
         "kurokumaft:scythe_change"
       ]
     }

@@ -18,7 +18,7 @@ import { Scythe } from "../items/weapons/scythe/Scythe";
 import { ShovelPavement } from "../items/shovel/ShovelPavement";
 import { Gatling } from "../items/weapons/gun/Gatling";
 import { ChargeKnuckle } from "../items/weapons/knuckle/ChargeKnuckle";
-import { MineDurability } from "../items/tool/MineDurability";
+import { WeaponMineDurability } from "../items/tool/WeaponMineDurability";
 import { FireBrand } from "../items/axe/FireBrand";
 import { AxeStripped } from "../items/axe/AxeStripped";
 import { FlametHrower } from "../items/weapons/gun/FlametHrower";
@@ -139,7 +139,7 @@ function initWeaponsRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:fire_brand', new FireBrand());
 
     // 採掘耐久減少
-    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:mine_durability', new MineDurability());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:weapon_mine_durability', new WeaponMineDurability());
 
     // 植物成長
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:growth_meal', new GrowthMeal());

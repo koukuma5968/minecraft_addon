@@ -1,4 +1,4 @@
-import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond, Block} from "@minecraft/server";
+import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond, Block, EntityUnderwaterMovementComponent, EntityMovementComponent, BlockPermutation, BlockVolume} from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 interface MagicBootsObject {
@@ -119,36 +119,54 @@ export class MagicBootsSurveillance {
                 system.run(this.checkJob.bind(this));
             }, equItem.delay);
         } else {
-            equItem.removeFunc(this.player);
+            // equItem.removeFunc(this.player);
             this.player.setDynamicProperty("magic_boot_equ", false);
         }
     };
 }
 
 async function lavaWalker(player:Player) {
-    for (let x=-1;x<=1;x++) {
-        for (let z=-1;x<=1;x++) {
-            let underBlock = player.dimension.getBlock({x:player.location.x+x,y:player.location.y-1,z:player.location.z+z}) as Block;
-            if (underBlock.typeId == MinecraftBlockTypes.Lava || underBlock.typeId == MinecraftBlockTypes.FlowingLava) {
-                player.dimension.setBlockType({x:player.location.x+x,y:player.location.y-1,z:player.location.z+z}, MinecraftBlockTypes.Magma);
-            }
+
+    let blockVol = new BlockVolume(
+        {
+            x:player.location.x-1,
+            y:player.location.y-1,
+            z:player.location.z-1
+        },
+        {
+            x:player.location.x+1,
+            y:player.location.y-1,
+            z:player.location.z+1
         }
-    }
+    );
+
+    player.dimension.fillBlocks(blockVol, MinecraftBlockTypes.Magma, {
+        blockFilter: {
+            includePermutations: [
+                BlockPermutation.resolve(MinecraftBlockTypes.Lava),
+                BlockPermutation.resolve(MinecraftBlockTypes.FlowingLava),
+            ]
+        },
+        ignoreChunkBoundErrors: true
+    });
+
 }
 
 async function waterSpeedUp(player:Player) {
+    let move = player.getComponent(EntityComponentTypes.UnderwaterMovement) as EntityUnderwaterMovementComponent;
     if (player.isInWater) {
-        player.triggerEvent("kurokumaft:water_speed_walker_up");
+        move.setCurrentValue(0.15);
     } else {
-        player.triggerEvent("kurokumaft:water_speed_walker_down");
+        move.setCurrentValue(0.02);
     }
 }
 
 async function windSpeedUp(player:Player) {
+    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
     if (!player.isInWater) {
-        player.triggerEvent("kurokumaft:speed_walker_up");
+        move.setCurrentValue(0.2);
     } else {
-        player.triggerEvent("kurokumaft:speed_walker_down");
+        move.setCurrentValue(0.1);
     }
 }
 
@@ -161,33 +179,61 @@ async function stoneFallInvalidReset(player:Player) {
 }
 
 async function lightningSpeedUp(player:Player) {
-    player.triggerEvent("kurokumaft:speed_walker_up4");
+    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
+    if (move.currentValue != 0.4) {
+        move.setCurrentValue(0.4);
+    }
 }
 
 async function iceWalker(player:Player) {
-    for (let x=-1;x<=1;x++) {
-        for (let z=-1;x<=1;x++) {
-            let underBlock = player.dimension.getBlock({x:player.location.x+x,y:player.location.y-1,z:player.location.z+z}) as Block;
-            if (underBlock.typeId == MinecraftBlockTypes.Water || underBlock.typeId == MinecraftBlockTypes.FlowingWater) {
-                player.dimension.setBlockType({x:player.location.x+x,y:player.location.y-1,z:player.location.z+z}, MinecraftBlockTypes.PackedIce);
-            }
+    let blockVol = new BlockVolume(
+        {
+            x:player.location.x-1,
+            y:player.location.y-1,
+            z:player.location.z-1
+        },
+        {
+            x:player.location.x+1,
+            y:player.location.y-1,
+            z:player.location.z+1
         }
-    }
+    );
+
+    player.dimension.fillBlocks(blockVol, MinecraftBlockTypes.PackedIce, {
+        blockFilter: {
+            includePermutations: [
+                BlockPermutation.resolve(MinecraftBlockTypes.Water),
+                BlockPermutation.resolve(MinecraftBlockTypes.FlowingWater),
+            ]
+        },
+        ignoreChunkBoundErrors: true
+    });
+
 }
 
 async function lavaWalkerReset(player:Player) {
 }
 
 async function waterSpeedReset(player:Player) {
-    player.triggerEvent("kurokumaft:water_speed_walker_down");
+    let move = player.getComponent(EntityComponentTypes.UnderwaterMovement) as EntityUnderwaterMovementComponent;
+    if (move.currentValue != 0.02) {
+        move.setCurrentValue(0.02);
+    }
 }
 
 async function windSpeedReset(player:Player) {
-    player.triggerEvent("kurokumaft:speed_walker_down");
+    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
+    if (move.currentValue != 0.1) {
+        move.setCurrentValue(0.1);
+    }
+
 }
 
 async function lightningSpeedReset(player:Player) {
-    player.triggerEvent("kurokumaft:speed_walker_down");
+    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
+    if (move.currentValue != 0.1) {
+        move.setCurrentValue(0.1);
+    }
 }
 
 async function iceWalkerReset(player:Player) {

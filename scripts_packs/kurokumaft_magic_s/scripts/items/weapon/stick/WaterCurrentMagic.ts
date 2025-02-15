@@ -28,6 +28,9 @@ export async function aquaShock(player:Player, entity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
         if (en instanceof Player) {
             en.applyDamage(2, {
                 cause: EntityDamageCause.drowning
@@ -65,6 +68,9 @@ export async function aquaShot(player:Player) {
 
     let intervalNum = system.runInterval(() => {
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
             en.dimension.spawnParticle("kurokumaft:aqua_shot_particle", en.location);
             en.addEffect("slowness", 5, {
                 amplifier: 5

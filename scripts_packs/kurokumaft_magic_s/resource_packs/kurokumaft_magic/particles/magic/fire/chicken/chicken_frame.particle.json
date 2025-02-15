@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"particle_effect": {
 		"description": {
-			"identifier": "kurokumaft:fox_frame",
+			"identifier": "kurokumaft:chicken_frame",
 			"basic_render_parameters": {
 				"material": "particles_alpha",
 				"texture": "textures/particle/particles"
@@ -14,7 +14,7 @@
 				"max_particles": 3
 			},
 			"minecraft:emitter_lifetime_once": {
-				"active_time": 1
+				"active_time": 0.3
 			},
 			"minecraft:emitter_shape_disc": {
 				"offset": ["math.random(-0.05, 0.05)", 0, "math.random(-0.05, 0.05)"],

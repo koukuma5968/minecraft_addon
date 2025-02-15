@@ -8,6 +8,11 @@
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bow"
+        ]
+      },
       "minecraft:damage": 2,
       "minecraft:durability": {
         "damage_chance": {

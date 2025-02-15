@@ -1,4 +1,3 @@
-import {print} from "../../common/MagicCommonUtil"
 
 interface GrimoireBook extends Map<string, Object> {
     typeId: string,

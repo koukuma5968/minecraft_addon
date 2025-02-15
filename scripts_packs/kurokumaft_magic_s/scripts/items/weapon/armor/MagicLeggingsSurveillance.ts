@@ -1,4 +1,5 @@
 import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond} from "@minecraft/server";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 interface MagicLeggingsObject {
     itemName:string,
@@ -82,40 +83,40 @@ export class MagicLeggingsSurveillance {
                 system.run(this.checkJob.bind(this));
             }, equItem.delay);
         } else {
-            equItem.removeFunc(this.player);
+            // equItem.removeFunc(this.player);
             this.player.setDynamicProperty("magic_leg_equ", false);
         }
     };
 }
 
 async function jumpBoostEffect(player:Player) {
-    player.addEffect("jump_boost", TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond * 60, {
         amplifier: 1,
         showParticles: false
     });
 }
 
 async function waterRegenerationEffect(player:Player) {
-    player.addEffect("regeneration", TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.Regeneration, TicksPerSecond * 60, {
         amplifier: 2,
         showParticles: false
     });
 }
 
 async function iceResistanceEffect(player:Player) {
-    player.addEffect("fire_resistance", TicksPerSecond * 60, {
+    player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond * 60, {
         amplifier: 5,
         showParticles: false
     });
 }
 
 async function jumpBoostEffectReset(player:Player) {
-    player.removeEffect("jump_boost");
+    player.removeEffect(MinecraftEffectTypes.JumpBoost);
 }
 
 async function waterRegenerationEffectReset(player:Player) {
-    player.removeEffect("regeneration");
+    player.removeEffect(MinecraftEffectTypes.Regeneration);
 }
 async function iceResistanceEffectReset(player:Player) {
-    player.removeEffect("fire_resistance");
+    player.removeEffect(MinecraftEffectTypes.FireResistance);
 }

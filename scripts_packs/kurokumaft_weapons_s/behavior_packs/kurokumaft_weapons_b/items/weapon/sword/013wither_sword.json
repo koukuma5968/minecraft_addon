@@ -54,7 +54,7 @@
         ]
       },
       "minecraft:custom_components": [
-        "kurokumaft:mine_durability",
+        "kurokumaft:weapon_mine_durability",
         "kurokumaft:wither_sword"
       ]
     }

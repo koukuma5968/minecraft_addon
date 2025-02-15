@@ -621,3 +621,33 @@ item.kurokumaft:breeze_upgrade_smithing_template.name=突風の魔鍛型	#
 item.kurokumaft:graiz_upgrade_smithing_template.name=砂塵の魔鍛型	#
 item.kurokumaft:volzas_upgrade_smithing_template.name=電撃の魔鍛型	#
 item.kurokumaft:blizzas_upgrade_smithing_template.name=吹雪の魔鍛型	#
+
+kurokumaft:itemGroup.name.magic_helmet=マジックヘルム
+kurokumaft:itemGroup.name.magic_chestplate=マジックチェストプレート
+kurokumaft:itemGroup.name.magic_leggings=マジックレギンス
+kurokumaft:itemGroup.name.magic_boots=マジックブーツ
+kurokumaft:itemGroup.name.magic_sword=魔法剣
+kurokumaft:itemGroup.name.magic_treasured_sword=宝剣
+kurokumaft:itemGroup.name.magic_pickaxe=マジックピッケル
+kurokumaft:itemGroup.name.magic_shield=魔法盾
+kurokumaft:itemGroup.name.magic_wand=杖（初級）
+kurokumaft:itemGroup.name.magic_rod=杖（中級）
+kurokumaft:itemGroup.name.magic_stick=杖（上級）
+kurokumaft:itemGroup.name.magic_staff=錫杖（帝級）
+kurokumaft:itemGroup.name.magic_bow=魔弓
+kurokumaft:itemGroup.name.magic_bread=妖魔刀
+kurokumaft:itemGroup.name.magic_gun=魔法銃
+kurokumaft:itemGroup.name.magic_bazooka=魔導砲
+kurokumaft:itemGroup.name.magic_shell=魔弾
+kurokumaft:itemGroup.name.grimoire=魔導書
+kurokumaft:itemGroup.name.magic_bottle=魔法薬
+kurokumaft:itemGroup.name.magic_smithing_template=魔鍛型
+kurokumaft:itemGroup.name.summon_stone=召喚石
+kurokumaft:itemGroup.name.magic_stone=魔法石
+kurokumaft:itemGroup.name.magic_ingot=魔法生物の鋳塊
+
+kurokumaft:itemGroup.name.magic_nut=魔樹の実
+
+kurokumaft:itemGroup.name.magic_log=魔樹の原木
+kurokumaft:itemGroup.name.magic_leaves=魔樹の葉
+kurokumaft:itemGroup.name.magic_froglight=アクアフロッグライト

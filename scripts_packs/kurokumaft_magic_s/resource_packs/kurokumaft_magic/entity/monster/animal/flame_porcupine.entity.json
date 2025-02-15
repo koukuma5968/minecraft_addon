@@ -13,7 +13,7 @@
         "default": "textures/kurokumaft/entity/animal/flame_porcupine"
       },
       "particle_effects": {
-        "mobflame": "kurokumaft:fox_firing"
+        "mobflame": "kurokumaft:chicken_firing"
       },
       "render_controllers": [
         "controller.render.flame_porcupine"

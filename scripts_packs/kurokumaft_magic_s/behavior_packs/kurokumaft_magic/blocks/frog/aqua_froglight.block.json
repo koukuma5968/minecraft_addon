@@ -4,10 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:aqua_froglight",
 			"is_experimental": false,
-            "register_to_creative_menu": false,
-			"menu_category": {
-				"category": "nature"
-			}
+            "register_to_creative_menu": false
 		},
 		"components": {
 			"tag:minecraft:is_pickaxe_item_destructible": {},
@@ -20,20 +17,6 @@
 				"seconds_to_destroy": 2.2
 			},
 			"minecraft:geometry": "geometry.aqua_froglight",
-			"minecraft:material_instances": {
-				"top": {
-					"texture": "aqua_froglight_top"
-				},
-				"side": {
-					"texture": "aqua_froglight_side"
-				},
-				"up": "top",
-				"down": "top",
-				"north": "side",
-				"south": "side",
-				"east": "side",
-				"west": "side"
-			},
 			"minecraft:map_color": "#38a1db"
 		}
 	}

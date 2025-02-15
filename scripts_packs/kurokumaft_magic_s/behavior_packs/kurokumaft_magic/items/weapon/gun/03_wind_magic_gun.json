@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:wind_magic_gun",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_gun"
-      }
+      "identifier": "kurokumaft:wind_magic_gun"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:bow"
+        ]
+      },
       "minecraft:damage": 2,
       "minecraft:durability": {
         "damage_chance": {

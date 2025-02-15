@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:fire_strengt_potion",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_potion"
-      }
+      "identifier": "kurokumaft:fire_strengt_potion"
     },
     "components": {
       "minecraft:display_name": {

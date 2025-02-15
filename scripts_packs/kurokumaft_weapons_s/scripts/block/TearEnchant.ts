@@ -202,12 +202,19 @@ async function setTearEnchantBook(player: Player, item: ItemStack, block: Block)
                 // world.sendMessage("本");
                 let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
                 let mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+                let clone = mainhand.clone();
+                clone.amount = clone.amount-(clone.amount-1);
 
-                container.setItem(0, mainhand);
+                container.setItem(0, clone);
 
                 block.setPermutation(block.permutation.withState("kurokumaft:isBook", 1));
                 system.runTimeout(() => {
-                    equ.setEquipment(EquipmentSlot.Mainhand, undefined);
+                    if (mainhand.amount == 1) {
+                        equ.setEquipment(EquipmentSlot.Mainhand, undefined);
+                    } else {
+                        mainhand.amount--;
+                        equ.setEquipment(EquipmentSlot.Mainhand, mainhand);
+                    }
                 }, 1);
             }
         } else {

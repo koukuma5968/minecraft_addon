@@ -1,5 +1,5 @@
 import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause, Dimension } from "@minecraft/server";
-import { explodeBedrock, guards } from "./common/WeaponsCommonUtil";
+import { explodeBedrock, WeaponGuards } from "./common/WeaponsCommonUtil";
 import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./player/WeaponsShieldEvent";
 import { initWeaponsRegisterCustom, initWeaponsStateChangeMonitor } from "./custom/WeaponsCustomComponentRegistry";
 import { tntBreak } from "./items/weapons/sword/TntSwordBreak";
@@ -273,7 +273,7 @@ world.afterEvents.entityHurt.subscribe(event => {
     let damageSource = event.damageSource;
     let hitEn = event.hurtEntity as Player;
     if (hitEn instanceof Player && damageSource.cause != "void") {
-        if (guards.indexOf(damageSource.cause) != -1) {
+        if (WeaponGuards.indexOf(damageSource.cause) != -1) {
             shieldGuard(hitEn, false);
         }
         if (hitEn.getDynamicProperty("axolotl_helmet")) {

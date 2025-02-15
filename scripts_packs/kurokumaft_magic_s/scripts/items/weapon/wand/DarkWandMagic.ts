@@ -9,11 +9,14 @@ export async function darkBread(player:Player, hitEntity:Entity) {
 
     player.addTag("darkBread_self");
 
-    hitEntity.dimension.spawnParticle("kurokumaft:dark_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
+    hitEntity.dimension.spawnParticle("kurokumaft:dark_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
     let filterOption = {
-        excludeTags: [
-            "darkBread_self",
+        propertyOption: [
+            {
+                propertyId : player.id,
+                exclude: true
+            }
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3

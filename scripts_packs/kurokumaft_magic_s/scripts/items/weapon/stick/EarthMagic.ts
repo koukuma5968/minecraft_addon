@@ -28,6 +28,10 @@ export async function earthShock(player:Player, entity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         let damage = 6;
         if (en instanceof Player) {
             damage = 2
@@ -60,6 +64,10 @@ export async function gravityField(player:Player) {
 
         let targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
+
             en.dimension.spawnParticle("kurokumaft:gravity_particle", en.location);
             if (en instanceof Player) {
                 en.addEffect(MinecraftEffectTypes.Slowness, 2*TicksPerSecond, {

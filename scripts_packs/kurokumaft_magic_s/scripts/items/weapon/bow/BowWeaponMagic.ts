@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, Entity } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, Entity, world, TicksPerSecond } from "@minecraft/server";
 import { clamp } from "../../../common/MagicCommonUtil";
 import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 import { shooting } from "../../../common/MagicShooterMagicEvent";
@@ -25,56 +25,56 @@ const BowChargeObjects = Object.freeze([
         itemName: "kurokumaft:fire_magic_bow",
         event: "kurokumaft:fire_magic_arrow",
         sendMsg: "entity.kurokumaft:fire_magic_arrow.name",
-        maxduration: 30,
-        addition: 1.5
+        maxduration: 1000,
+        addition: 1.0
     },
     {
         itemName: "kurokumaft:water_magic_bow",
         event: "kurokumaft:water_magic_arrow",
         sendMsg: "entity.kurokumaft:water_magic_arrow.name",
-        maxduration: 10,
+        maxduration: 1000,
         addition: 1.5
     },
     {
         itemName: "kurokumaft:wind_magic_bow",
         event: "kurokumaft:wind_magic_arrow",
         sendMsg: "entity.kurokumaft:wind_magic_arrow.name",
-        maxduration: 1,
-        addition: 2.5
+        maxduration: 5000,
+        addition: 2.0
     },
     {
         itemName: "kurokumaft:stone_magic_bow",
         event: "kurokumaft:stone_magic_arrow",
         sendMsg: "entity.kurokumaft:stone_magic_arrow.name",
-        maxduration: 20,
+        maxduration: 1000,
         addition: 0.75
     },
     {
         itemName: "kurokumaft:lightning_magic_bow",
         event: "kurokumaft:lightning_magic_arrow",
         sendMsg: "entity.kurokumaft:lightning_magic_arrow.name",
-        maxduration: 20,
+        maxduration: 1000,
         addition: 2.0
     },
     {
         itemName: "kurokumaft:ice_magic_bow",
         event: "kurokumaft:ice_magic_arrow",
         sendMsg: "entity.kurokumaft:ice_magic_arrow.name",
-        maxduration: 15,
+        maxduration: 1000,
         addition: 1.5
     },
     {
         itemName: "kurokumaft:dark_magic_bow",
         event: "kurokumaft:dark_magic_arrow",
         sendMsg: "entity.kurokumaft:dark_magic_arrow.name",
-        maxduration: 10,
+        maxduration: 1000,
         addition: 1.5
     },
     {
         itemName: "kurokumaft:holly_magic_bow",
         event: "kurokumaft:holly_magic_arrow",
         sendMsg: "entity.kurokumaft:holly_magic_arrow.name",
-        maxduration: 10,
+        maxduration: 1000,
         addition: 1.5
     }
 ]);
@@ -110,7 +110,7 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
 
     let bowMagicObject = BowChargeObjects.find(obj => obj.itemName == itemStack.typeId) as BowMagicObject;
     if (bowMagicObject) {
-        let speed = Math.ceil(clamp((-duration) / bowMagicObject.maxduration, 0.0, 3.0) * bowMagicObject.addition);
+        let speed = Math.ceil(clamp((bowMagicObject.maxduration - duration/TicksPerSecond), 0.0, 5.0) * bowMagicObject.addition);
         if (itemStack.typeId == "kurokumaft:wind_magic_bow") {
             windArrowShot(player, bowMagicObject.event, 2, speed);
         } else if (itemStack.typeId == "kurokumaft:water_magic_bow") {

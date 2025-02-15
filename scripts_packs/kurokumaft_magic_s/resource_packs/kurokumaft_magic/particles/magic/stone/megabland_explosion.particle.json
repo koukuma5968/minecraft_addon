@@ -5,7 +5,7 @@
 			"identifier": "kurokumaft:megabland_explosion",
 			"basic_render_parameters": {
 				"material": "particles_blend",
-				"texture": "textures/kurokumaft/particle/gust"
+				"texture": "textures/particle/gust"
 			}
 		},
 		"components": {

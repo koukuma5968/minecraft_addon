@@ -27,6 +27,10 @@ export async function stormShock(player:Player, entity:Entity) {
 
     let targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
+        if (!en.isValid()) {
+            return;
+        }
+
         let damage = 6 as number;
         if (en instanceof Player) {
             damage = 2;
@@ -61,6 +65,10 @@ export async function atmosphere(player:Player) {
 
         let targets = dimen.getEntities(filterOption);
         targets.forEach(en => {
+            if (!en.isValid()) {
+                return;
+            }
+
             let enloca = en.location;
             dimen.spawnParticle("kurokumaft:wind_particle", {x:enloca.x,y:enloca.y,z:enloca.z});
             dimen.spawnParticle("kurokumaft:storm1_particle", {x:enloca.x,y:enloca.y+1,z:enloca.z});
