@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:bakutiku",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bom"
-      }
+      "identifier": "kurokumaft:bakutiku"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:spear"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:bakutiku.name"
 			},
@@ -16,6 +17,9 @@
       "minecraft:projectile": {
         "minimum_critical_power": 1.0,
         "projectile_entity": "kurokumaft:bakutiku_entity<throwable_bakutiku>"
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 500
       },
       "minecraft:throwable": {
         "do_swing_animation": true,

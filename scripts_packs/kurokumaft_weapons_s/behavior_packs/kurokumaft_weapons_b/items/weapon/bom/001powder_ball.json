@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:powder_ball",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bom"
-      }
+      "identifier": "kurokumaft:powder_ball"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:spear"
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:powder_ball.name"
       },
@@ -18,6 +19,9 @@
       "minecraft:projectile": {
         "minimum_critical_power": 1.0,
         "projectile_entity": "kurokumaft:powder_ball"
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 500
       },
       "minecraft:throwable": {
         "do_swing_animation": true,

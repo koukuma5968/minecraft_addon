@@ -2,22 +2,18 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:wooden_knife",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.knife"
-      }
+      "identifier": "kurokumaft:wooden_knife"
     },
     "components": {
-      "minecraft:display_name": {
-        "value": "item.kurokumaft:wooden_knife.name"
-      },
-      "minecraft:icon": "wooden_knife",
       "minecraft:tags": {
         "tags": [
           "kurokumaft:spear"
         ]
       },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:wooden_knife.name"
+      },
+      "minecraft:icon": "wooden_knife",
       "minecraft:max_stack_size": 64,
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "spear",

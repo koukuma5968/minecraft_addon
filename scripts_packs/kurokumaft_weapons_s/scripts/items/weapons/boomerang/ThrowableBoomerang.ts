@@ -63,7 +63,7 @@ export async function releaseBoomerang(player:Player, boomerang:ItemStack) {
 
     let boomerangItem = BoomerangObjects.find(obj => obj.itemName == boomerang.typeId) as BoomerangObject;
 
-    if (!boomerangItem) {
+    if (boomerangItem == undefined) {
         return;
     }
 
@@ -91,7 +91,7 @@ export async function releaseBoomerang(player:Player, boomerang:ItemStack) {
 async function removeBoomerang(player: Player, throwBoomerang:Entity) {
 
     let item = BoomerangObjects.find(obj => obj.throwBoomerang == throwBoomerang.typeId) as BoomerangObject;
-    if (!item) {
+    if (item == undefined) {
         return;
     }
 
@@ -133,7 +133,7 @@ async function removeBoomerang(player: Player, throwBoomerang:Entity) {
 async function hitBoomerang(throwEntity:Entity, throwBoomerang:Entity) {
 
     let item = BoomerangObjects.find(obj => obj.throwBoomerang == throwBoomerang.typeId) as BoomerangObject;
-    if (!item) {
+    if (item == undefined) {
         return;
     }
 

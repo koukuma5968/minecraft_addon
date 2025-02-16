@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:bamboo_knife",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.knife"
-      }
+      "identifier": "kurokumaft:bamboo_knife"
     },
     "components": {
       "minecraft:display_name": {

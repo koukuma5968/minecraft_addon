@@ -43,7 +43,7 @@ async function shotGatling(player: Player, item: ItemStack) {
             return;
         }
 
-        shooting(player, "kurokumaft:twenty_two_lr_entity<kurokumaft:shot"+shot+">", 0.2, 5, undefined);
+        shooting(player, "kurokumaft:twenty_two_lr_entity", 0.2, 5, "kurokumaft:shot"+shot);
         shot++;
         if (shot > 5) {
             shot=1;

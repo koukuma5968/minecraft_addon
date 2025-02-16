@@ -1,4 +1,4 @@
-import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause, Dimension } from "@minecraft/server";
+import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause, Dimension, EntityTypeFamilyComponent, EntityInventoryComponent, system, TicksPerSecond } from "@minecraft/server";
 import { explodeBedrock, WeaponGuards } from "./common/WeaponsCommonUtil";
 import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./player/WeaponsShieldEvent";
 import { initWeaponsRegisterCustom, initWeaponsStateChangeMonitor } from "./custom/WeaponsCustomComponentRegistry";
@@ -50,6 +50,34 @@ world.beforeEvents.explosion.subscribe(event => {
     event.setImpactedBlocks(filterBlockList);
 
     explodeBakutikuChain(impactBLockList);
+});
+
+world.afterEvents.playerInteractWithEntity.subscribe(event => {
+
+    let player = event.player;
+    let target = event.target;
+
+    if (target.typeId == "kurokumaft:bamboo_bag") {
+        if (player.isSneaking) {
+            let command = "ride @e[family=bamboo_bag,c=1] start_riding " + player.name;
+            player.runCommand(command);
+        } else {
+//            target.nameTag = "entity.kurokumaft:bamboo_bag.name";
+        }
+    }
+});
+
+world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
+    let eventId = event.eventId;
+    let entity = event.entity;
+    let family = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+    if (family != undefined && family.hasTypeFamily("bag")) {
+        if (eventId == "kurokumaft:stay") {
+            entity.runCommand("ride @s stop_riding")
+        } else if (eventId == "kurokumaft:on_breaking") {
+            entity.kill();
+        }
+    }
 });
 
 // // プレイヤーがブロックをクリック
@@ -146,6 +174,15 @@ world.afterEvents.entitySpawn.subscribe(event => {
     let cause = event.cause;
     let entity = event.entity;
     if (EntityInitializationCause.Spawned == cause) {
+        let family = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+        if (family != undefined && family.hasTypeFamily("energy_bullet")) {
+            system.runTimeout(() => {
+                if (entity.isValid()) {
+                    entity.remove;
+                }
+            }, 2*TicksPerSecond);
+            return;
+        }
         spawnSpear(entity);
         spawnHammer(entity);
         spawnBoomerang(entity);

@@ -31,6 +31,67 @@
                 "groups": [
                   {
                     "group_identifier": {
+                      "name": "minecraft:itemGroup.name.axe"
+                    },
+                    "items": [
+                      "kurokumaft:bamboo_axe",
+                      "kurokumaft:copper_axe",
+                      "kurokumaft:steel_axe",
+                      "kurokumaft:mithril_axe",
+                      "kurokumaft:orichalcum_axe",
+                      "kurokumaft:fire_brand"
+                    ]
+                  }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                  {
+                    "group_identifier": {
+                      "name": "minecraft:itemGroup.name.pickaxe"
+                    },
+                    "items": [
+                      "kurokumaft:steel_pickaxe",
+                      "kurokumaft:mithril_pickaxe",
+                      "kurokumaft:orichalcum_pickaxe"
+                    ]
+                  }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                  {
+                    "group_identifier": {
+                      "name": "minecraft:itemGroup.name.shovel"
+                    },
+                    "items": [
+                      "kurokumaft:steel_shovel",
+                      "kurokumaft:mithril_shovel"
+                    ]
+                  }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                  {
+                    "group_identifier": {
+                      "name": "minecraft:itemGroup.name.hoe"
+                    },
+                    "items": [
+                      "kurokumaft:steel_hoe",
+                      "kurokumaft:mithril_hoe"
+                    ]
+                  }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                  {
+                    "group_identifier": {
                       "name": "minecraft:itemGroup.name.helmet"
                     },
                     "items": [
@@ -90,6 +151,23 @@
                             "kurokumaft:steel_boots",
                             "kurokumaft:blackstone_boots",
                             "kurokumaft:orichalcum_boots"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.arrow"
+                        },
+                        "items": [
+                            "kurokumaft:bamboo_arrow",
+                            "kurokumaft:iron_arrow",
+                            "kurokumaft:diamond_arrow",
+                            "kurokumaft:steel_arrow",
+                            "kurokumaft:cherry_arrow"
                         ]
                     }
                 ]
@@ -270,6 +348,96 @@
                             "kurokumaft:mithril_spear",
                             "kurokumaft:diamond_spear",
                             "kurokumaft:netherite_spear"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:wooden_boomerang",
+                            "name": "kurokumaft:itemGroup.name.weapons_boomerang"
+                        },
+                        "items": [
+                            "kurokumaft:wooden_boomerang",
+                            "kurokumaft:stone_boomerang",
+                            "kurokumaft:iron_boomerang",
+                            "kurokumaft:diamond_boomerang"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:wooden_knife",
+                            "name": "kurokumaft:itemGroup.name.weapons_knife"
+                        },
+                        "items": [
+                            "kurokumaft:wooden_knife",
+                            "kurokumaft:stone_knife",
+                            "kurokumaft:bamboo_knife",
+                            "kurokumaft:scissors_knife",
+                            "kurokumaft:tnt_knife",
+                            "kurokumaft:phantom_knife"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:leather_knuckle",
+                            "name": "kurokumaft:itemGroup.name.weapons_knuckle"
+                        },
+                        "items": [
+                            "kurokumaft:leather_knuckle",
+                            "kurokumaft:stone_knuckle",
+                            "kurokumaft:iron_knuckle",
+                            "kurokumaft:golden_knuckle",
+                            "kurokumaft:diamond_knuckle",
+                            "kurokumaft:netherite_knuckle"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:wood_scythe",
+                            "name": "kurokumaft:itemGroup.name.weapons_scythe"
+                        },
+                        "items": [
+                            "kurokumaft:wood_scythe",
+                            "kurokumaft:wood_sickle",
+                            "kurokumaft:stone_scythe",
+                            "kurokumaft:stone_sickle",
+                            "kurokumaft:iron_scythe",
+                            "kurokumaft:iron_sickle"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:bakutiku",
+                            "name": "kurokumaft:itemGroup.name.weapons_bom"
+                        },
+                        "items": [
+                            "kurokumaft:bakutiku",
+                            "kurokumaft:powder_ball",
+                            "kurokumaft:hand_grenade"
                         ]
                     }
                 ]

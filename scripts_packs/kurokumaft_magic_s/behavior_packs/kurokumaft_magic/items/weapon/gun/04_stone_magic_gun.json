@@ -7,7 +7,7 @@
     "components": {
       "minecraft:tags": {
         "tags": [
-          "kurokumaft:bow"
+          "kurokumaft:gun"
         ]
       },
       "minecraft:damage": 2,

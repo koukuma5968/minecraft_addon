@@ -8,6 +8,14 @@
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_on_block_filter": [
+          "minecraft:grass_block",
+          "minecraft:ice",
+          "minecraft:snow",
+          "minecraft:powder_snow",
+          "minecraft:dirt",
+          "minecraft:sand"
+        ],
         "minecraft:brightness_filter": {
           "min": 7,
           "max": 15,

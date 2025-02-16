@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:leather_knuckle",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.knuckle"
-      }
+      "identifier": "kurokumaft:leather_knuckle"
     },
     "components": {
       "minecraft:tags": {

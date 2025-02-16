@@ -5,6 +5,11 @@
       "identifier": "kurokumaft:hyper_bazooka"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:gun"
+        ]
+      },
       "minecraft:durability": {
         "damage_chance": {
           "min": 1,
@@ -32,7 +37,7 @@
       "minecraft:use_animation": "crossbow",
       "minecraft:hand_equipped": true,
       "minecraft:use_modifiers": {
-        "use_duration": 10
+        "use_duration": 4
       },
       "minecraft:shooter": {
         "ammunition": [

@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:steel_pickaxe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.pickaxe"
-      }
+      "identifier": "kurokumaft:steel_pickaxe"
     },
     "components": {
       "minecraft:display_name": {

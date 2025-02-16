@@ -5,7 +5,7 @@
 		"description": "魔法アドオンBv3.3\n魔法の武器/防具が追加されるアドオン ビヘイビアーパック",
 		"uuid": "cb00a6d3-381e-470a-87ea-5876cbf7ab09",
 		"version": [3,0,3],
-		"min_engine_version": [1,20,30]
+		"min_engine_version": [1,21,10]
 	},
 	"modules": [
 		{

@@ -18,7 +18,7 @@
 						{"test": "is_moving", "subject": "self", "operator": "not", "value": true}
 					  ]
 					},
-					"sensor_range": 1.1
+					"sensor_range": 1.5
 				}
 			},
 			"kurokumaft:entity_kill": {

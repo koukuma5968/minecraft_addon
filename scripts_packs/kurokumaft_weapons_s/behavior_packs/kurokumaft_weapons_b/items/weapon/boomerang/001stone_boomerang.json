@@ -2,13 +2,14 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:stone_boomerang",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.boomerang"
-      }
+      "identifier": "kurokumaft:stone_boomerang"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:spear"
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_boomerang.name"
       },
@@ -22,6 +23,9 @@
           "max": 2
         },
         "max_durability": 150
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 500
       },
       "minecraft:enchantable": {
         "value": 15,

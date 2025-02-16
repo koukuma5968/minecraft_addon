@@ -2,15 +2,16 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:hand_grenade",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bom"
-      }
+      "identifier": "kurokumaft:hand_grenade"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:spear"
+        ]
+      },
       "minecraft:display_name": {
-      "value": "item.kurokumaft:hand_grenade.name"
+        "value": "item.kurokumaft:hand_grenade.name"
       },
       "minecraft:icon": "hand_grenade",
       "minecraft:max_stack_size": 16,
@@ -18,6 +19,9 @@
       "minecraft:projectile": {
         "minimum_critical_power": 1.0,
         "projectile_entity": "kurokumaft:theown_hand_grenade"
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 500
       },
       "minecraft:throwable": {
         "do_swing_animation": true,

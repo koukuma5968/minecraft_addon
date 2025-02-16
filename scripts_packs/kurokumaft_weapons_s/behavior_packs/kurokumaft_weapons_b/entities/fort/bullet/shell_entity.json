@@ -51,13 +51,13 @@
         },
         "angle_offset": -25,
         "hit_sound": "bow.hit",
-        "power": 2.0,
-        "gravity": 0.14,
+        "power": 4.0,
+        "gravity": 0.04,
         "uncertainty_base": 1,
         "uncertainty_multiplier": 0,
         "anchor": 1,
         "should_bounce": true,
-        "offset": [ 0, 1.0, 1.5 ]
+        "offset": [ 0, 0.5, 0.5 ]
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [

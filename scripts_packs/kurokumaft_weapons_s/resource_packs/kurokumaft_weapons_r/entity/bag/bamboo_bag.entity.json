@@ -14,13 +14,17 @@
 			},
 			"scripts": {
 				"animate": [
-					"bag"
+					"bag",
+					"hit"
 				]
 			},
 			"animations": {
 				"bag": "controller.animation.bamboo_bag",
+				"hit": "controller.animation.bamboo_bag.hit",
 				"stay": "animation.bamboo_bag.stay",
-				"burdened": "animation.bamboo_bag.burdened"
+				"burdened": "animation.bamboo_bag.burdened",
+				"hit_1": "animation.bamboo_bag.hit_1",
+				"hit_2": "animation.bamboo_bag.hit_2"
 			},
 			"render_controllers": ["controller.render.default"]
 		}

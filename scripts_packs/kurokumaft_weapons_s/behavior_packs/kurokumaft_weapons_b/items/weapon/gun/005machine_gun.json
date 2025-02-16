@@ -37,7 +37,8 @@
         ]
       },
       "minecraft:use_modifiers": {
-        "movement_modifier": 1
+        "movement_modifier": 1,
+        "use_duration": 9999
       },
       "minecraft:throwable": {
         "min_draw_duration": 0.2,

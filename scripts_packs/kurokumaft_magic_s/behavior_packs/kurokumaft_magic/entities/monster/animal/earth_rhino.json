@@ -25,9 +25,9 @@
       "minecraft:custom_hit_test": {
         "hitboxes": [
           {
-            "width": 2.0,
-            "height": 1.75,
-            "pivot": [ 0, 1, 0 ]
+            "width": 1.5,
+            "height": 1.5,
+            "pivot": [ 0, 0.5, 0 ]
           }
         ]
       },

@@ -5,7 +5,7 @@
         "description": "魔法アドオンBv3.3\n魔法の武器/防具が追加されるアドオン リソースパック",
         "uuid": "f93bea78-77fd-4ce9-8a18-6eb10a2bd5bd",
         "version": [3, 0, 3],
-        "min_engine_version": [1,20,30]
+        "min_engine_version": [1,21,10]
     },
     "modules": [
         {

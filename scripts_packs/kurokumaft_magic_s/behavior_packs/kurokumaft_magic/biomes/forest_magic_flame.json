@@ -1,6 +1,6 @@
 
 {
-  "format_version": "1.20.60",
+  "format_version": "1.21.60",
   "minecraft:biome": {
     "description": {
       "identifier": "kurokumaft:forest_magic_flame"

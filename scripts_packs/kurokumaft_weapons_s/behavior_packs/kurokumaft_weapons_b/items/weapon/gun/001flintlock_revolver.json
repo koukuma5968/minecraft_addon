@@ -5,6 +5,11 @@
       "identifier": "kurokumaft:revolver"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:gun"
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:revolver.name"
       },

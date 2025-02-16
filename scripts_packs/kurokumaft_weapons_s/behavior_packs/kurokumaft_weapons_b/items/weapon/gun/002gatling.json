@@ -5,6 +5,11 @@
       "identifier": "kurokumaft:gatling"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:gun"
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:gatling.name"
       },
@@ -32,7 +37,8 @@
         ]
       },
       "minecraft:use_modifiers": {
-        "movement_modifier": 1
+        "movement_modifier": 1,
+        "use_duration": 9999
       },
       "minecraft:throwable": {
         "min_draw_duration": 0.2,

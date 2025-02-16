@@ -53,7 +53,7 @@
         "uncertaintyBase": 8,
         "uncertaintyMultiplier": 2.5,
         "anchor": 1,
-        "offset": [-0.3, -0.5, 0],
+        "offset": [-0.3, 0, 0],
         "reflect_on_hurt": true,
         "shoot_target": true,
         "catch_fire": false

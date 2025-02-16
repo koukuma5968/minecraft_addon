@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:netherite_knuckle",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.knuckle"
-      }
+      "identifier": "kurokumaft:netherite_knuckle"
     },
     "components": {
       "minecraft:tags": {

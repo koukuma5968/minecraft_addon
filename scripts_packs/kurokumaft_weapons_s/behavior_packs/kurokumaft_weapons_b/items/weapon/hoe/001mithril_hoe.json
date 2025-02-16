@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:mithril_hoe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.hoe"
-      }
+      "identifier": "kurokumaft:mithril_hoe"
     },
     "components": {
       "minecraft:display_name": {

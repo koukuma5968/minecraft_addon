@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:wood_scythe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.scythe"
-      }
+      "identifier": "kurokumaft:wood_scythe"
     },
     "components": {
       "minecraft:icon": "wood_scythe",

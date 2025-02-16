@@ -5,6 +5,11 @@
       "identifier": "kurokumaft:arquebus"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:gun"
+        ]
+      },
       "minecraft:display_name": {
         "value": "item.kurokumaft:arquebus.name"
       },

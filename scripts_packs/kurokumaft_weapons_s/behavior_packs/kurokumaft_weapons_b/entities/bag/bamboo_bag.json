@@ -19,7 +19,7 @@
 				},
 				"minecraft:timer": {
 					"looping": false,
-					"time": [0.5,0.5],
+					"time": [1.0,1.0],
 					"time_down_event": { 
 						"event": "kurokumaft:hit_out"
 					}
@@ -31,7 +31,7 @@
 				},
 				"minecraft:timer": {
 					"looping": false,
-					"time": [0.5,0.5],
+					"time": [1.0,1.0],
 					"time_down_event": { 
 						"event": "kurokumaft:hit_out"
 					}
@@ -39,12 +39,8 @@
 			},
 			"kurokumaft:variant_3": {
 				"minecraft:collision_box": {
-					"width": 0.0,
-					"height": 0.0
-				},
-				"minecraft:physics": {
-					"has_gravity": true,
-					"has_collision": false
+					"width": 0,
+					"height": 0
 				},
 				"minecraft:variant": {
 					"value": 3
@@ -54,10 +50,6 @@
 				"minecraft:collision_box": {
 					"width": 0.75,
 					"height": 0.5
-				},
-				"minecraft:physics": {
-					"has_gravity": true,
-					"has_collision": true
 				}
 			},
 			"kurokumaft:burdened": {
@@ -110,7 +102,7 @@
 				"table": "loot_tables/entities/bamboo_bag.json"
 			},
 			"minecraft:type_family": {
-				"family": ["parrot_tame", "inanimate"]
+				"family": ["parrot_tame", "inanimate", "bag", "bamboo_bag"]
 			},
 			"minecraft:health": {
 				"value": 99999999,
@@ -219,7 +211,15 @@
 			},
 			"kurokumaft:hit_out": {
 				"remove": {
-					"component_groups": ["kurokumaft:variant_1","kurokumaft:variant_1"]
+					"component_groups": ["kurokumaft:variant_1","kurokumaft:variant_2"]
+				},
+				"add": {
+					"component_groups": ["kurokumaft:variant_0"]
+				}
+			},
+			"kurokumaft:on_breaking": {
+				"remove": {
+					"component_groups": ["kurokumaft:variant_1","kurokumaft:variant_2"]
 				},
 				"add": {
 					"component_groups": ["kurokumaft:variant_0"]

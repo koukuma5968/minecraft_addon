@@ -1,18 +1,18 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "WeaKuroRv3.6",
-		"description": "武器アドオンRv3.6\n色々な武器や防具を追加するアドオン リソースパック",
+		"name": "WeaKuroRv3.7",
+		"description": "武器アドオンRv3.7\n色々な武器や防具を追加するアドオン リソースパック",
 		"uuid": "73c6da0a-0ae1-4d2e-8b75-000428e43aae",
-		"version": [3, 0, 6],
-		"min_engine_version": [1, 20, 30]
+		"version": [3, 0, 7],
+		"min_engine_version": [1, 21, 10]
 	},
 	"modules": [
 		{
-			"description": "武器アドオンRv3.6",
+			"description": "武器アドオンRv3.7",
 			"type": "resources",
 			"uuid": "878ab913-c67c-48f0-8ba6-22b91e9a9902",
-			"version": [3, 0, 6]
+			"version": [3, 0, 7]
 		}
 	]
 }

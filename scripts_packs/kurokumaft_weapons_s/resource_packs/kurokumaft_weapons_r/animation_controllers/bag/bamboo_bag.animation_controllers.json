@@ -2,22 +2,41 @@
 	"format_version": "1.19.0",
 	"animation_controllers": {
 		"controller.animation.bamboo_bag": {
-			"initial_state" : "stay",
+			"initial_state": "stay",
 			"states": {
 				"stay": {
 					"animations": ["stay"],
 					"transitions": [
-						{
-							"burdened": "query.has_rider == 1"
-						}
+						{"burdened": "query.has_rider == 1"}
 					]
 				},
 				"burdened": {
 					"animations": ["burdened"],
 					"transitions": [
-						{
-							"stay": "query.has_rider == 0"
-						}
+						{"stay": "query.has_rider == 0"}
+					]
+				}
+			}
+		},
+		"controller.animation.bamboo_bag.hit": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{"hit1": "query.variant == 1"}
+					]
+				},
+				"hit1": {
+					"animations": ["hit_1"],
+					"transitions": [
+						{"hit2": "query.variant == 2"},
+						{"default": "query.variant == 0"}
+					]
+				},
+				"hit2": {
+					"animations": ["hit_2"],
+					"transitions": [
+						{"default": "query.variant == 0"}
 					]
 				}
 			}

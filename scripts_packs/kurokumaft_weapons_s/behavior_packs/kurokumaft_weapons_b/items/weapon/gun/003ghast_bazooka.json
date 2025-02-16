@@ -5,6 +5,11 @@
       "identifier": "kurokumaft:ghast_bazooka"
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:gun"
+        ]
+      },
       "minecraft:icon": "ghast_bazooka",
       "minecraft:display_name": {
         "value": "item.kurokumaft:ghast_bazooka.name"

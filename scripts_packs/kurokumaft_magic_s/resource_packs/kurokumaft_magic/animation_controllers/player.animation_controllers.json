@@ -193,7 +193,7 @@
 							"brandish_spear" : "variable.is_brandishing_spear"
 						},
 						{
-							"brandish_spear" : "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:spear') && query.main_hand_item_use_duration < 0.0f"
+							"brandish_spear" : "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:spear') && query.main_hand_item_use_duration > 0.0f"
 						},
 						{
 							"holding_spyglass": "variable.is_holding_spyglass"
@@ -229,10 +229,16 @@
 							"attack.rotations" : "variable.attack_time >= 0.0"
 						},
 						{
-							"shield_block_main_hand" : "query.blocking && (query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield') || query.equipped_item_any_tag('slot.weapon.mainhand', 'kurokumaft:shield')"
+							"shield_block_main_hand" : "query.blocking && (query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield')"
+						},
+						{
+							"shield_block_main_hand" : "query.blocking && query.equipped_item_any_tag('slot.weapon.mainhand', 'kurokumaft:shield')"
 						},
 						{
 							"shield_block_off_hand" : "query.blocking && (query.get_equipped_item_name('off_hand') == 'shield') || query.equipped_item_any_tag('slot.weapon.offhand', 'kurokumaft:shield')"
+						},
+						{
+							"shield_block_off_hand" : "query.blocking && query.equipped_item_any_tag('slot.weapon.offhand', 'kurokumaft:shield')"
 						},
 						{
 							"crossbow_controller" : "query.get_equipped_item_name == 'crossbow'"
@@ -244,13 +250,7 @@
 							"third_person_bow_equipped" : "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:bow') && query.main_hand_item_use_duration > 0.0f"
 						},
 						{
-							"third_person_bow_equipped" : "query.is_item_name_any('slot.weapon.mainhand','kurokumaft:gatling') && query.is_item_name_any('slot.weapon.offhand','kurokumaft:twenty_two_lr')"
-						},
-						{
-							"third_person_bow_equipped" : "query.is_item_name_any('slot.weapon.mainhand','kurokumaft:machine_gun') && query.is_item_name_any('slot.weapon.offhand','kurokumaft:thirty_eight_special')"
-						},
-						{
-							"third_person_bow_equipped" : "query.equipped_item_any_tag('slot.weapon.mainhand','gun') && query.main_hand_item_use_duration"
+							"third_person_bow_equipped" : "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:gun') && query.main_hand_item_use_duration > 0.0f"
 						},
 						{
 							"tooting_goat_horn": "variable.is_tooting_goat_horn"

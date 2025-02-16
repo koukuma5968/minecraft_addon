@@ -899,7 +899,7 @@
         ]
       },
       "minecraft:type_family": {
-        "family": [ "inanimate"  ]
+        "family": [ "inanimate", "energy_bullet" ]
       },
       "minecraft:collision_box": {
         "width": 5.0,
@@ -923,12 +923,6 @@
         "offset": [-0.3, -0.5, 0],
         "reflectOnHurt": true,
         "catch_fire": false
-      },
-      "minecraft:timer": {
-        "time": [1.0,1.0],
-        "time_down_event": { 
-          "event": "kurokumaft:despawn"
-        }
       },
       "minecraft:physics": {
       },

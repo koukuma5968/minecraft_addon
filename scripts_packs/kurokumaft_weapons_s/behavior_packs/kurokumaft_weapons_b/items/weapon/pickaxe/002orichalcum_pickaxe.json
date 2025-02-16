@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:orichalcum_pickaxe",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.pickaxe"
-      }
+      "identifier": "kurokumaft:orichalcum_pickaxe"
     },
     "components": {
       "minecraft:display_name": {

@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:stone_sickle",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.sickle"
-      }
+      "identifier": "kurokumaft:stone_sickle"
     },
     "components": {
       "minecraft:icon": "stone_sickle",

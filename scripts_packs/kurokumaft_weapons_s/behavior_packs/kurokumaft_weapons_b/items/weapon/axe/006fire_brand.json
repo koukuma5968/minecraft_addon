@@ -2,11 +2,7 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:fire_brand",
-      "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.axe"
-      }
+      "identifier": "kurokumaft:fire_brand"
     },
     "components": {
       "minecraft:display_name": {
