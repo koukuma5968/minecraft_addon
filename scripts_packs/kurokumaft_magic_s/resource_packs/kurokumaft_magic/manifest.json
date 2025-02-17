@@ -1,10 +1,10 @@
 {
     "format_version": 2,
     "header": {
-        "name": "MagicKuroRv3.3",
-        "description": "魔法アドオンBv3.3\n魔法の武器/防具が追加されるアドオン リソースパック",
+        "name": "MagicKuroRv4.0",
+        "description": "魔法アドオンBv4.0\n魔法の武器/防具が追加されるアドオン リソースパック",
         "uuid": "f93bea78-77fd-4ce9-8a18-6eb10a2bd5bd",
-        "version": [3, 0, 3],
+        "version": [4, 0, 0],
         "min_engine_version": [1,21,10]
     },
     "modules": [
@@ -12,7 +12,7 @@
             "description": "kurokumaft_magic_r",
             "type": "resources",
             "uuid": "cb00a6d3-381e-470a-87ea-5876cbf7ab09",
-            "version": [3, 0, 3]
+            "version": [4, 0, 0]
         }
     ]
 }

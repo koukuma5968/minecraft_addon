@@ -65,10 +65,10 @@
 				"default" : {
 					"transitions" : [
 						{
-							"one_hand" : "query.get_equipped_item_name('off_hand') != ''"
+							"one_hand" : "query.get_equipped_item_name('off_hand') == 'filled_map' || query.get_equipped_item_name('off_hand') == 'shield' || query.equipped_item_any_tag('slot.weapon.offhand','kurokumaft:shield')"
 						},
 						{
-							"two_hand" : "query.get_equipped_item_name('off_hand') == ''"
+							"two_hand" : "query.get_equipped_item_name('off_hand') != 'filled_map' && query.get_equipped_item_name('off_hand') != 'shield' && !query.equipped_item_any_tag('slot.weapon.offhand','kurokumaft:shield')"
 						}
 					]
 				},
@@ -86,7 +86,7 @@
 							"default" : "query.get_equipped_item_name(0, 1) != 'filled_map' && query.get_equipped_item_name('off_hand') != 'filled_map'"
 						},
 						{
-							"two_hand" : "query.get_equipped_item_name('off_hand') != 'filled_map' && query.get_equipped_item_name('off_hand') != 'shield'"
+							"two_hand" : "query.get_equipped_item_name('off_hand') != 'filled_map' && query.get_equipped_item_name('off_hand') != 'shield' && !query.equipped_item_any_tag('slot.weapon.offhand','kurokumaft:shield')"
 						}
 					]
 				},
@@ -97,7 +97,7 @@
 							"default" : "query.get_equipped_item_name(0, 1) != 'filled_map' && query.get_equipped_item_name('off_hand') != 'filled_map'"
 						},
 						{
-							"one_hand" : "query.get_equipped_item_name('off_hand') == 'filled_map' || query.get_equipped_item_name('off_hand') == 'shield'"
+							"one_hand" : "query.get_equipped_item_name('off_hand') == 'filled_map' || query.get_equipped_item_name('off_hand') == 'shield' || query.equipped_item_any_tag('slot.weapon.offhand','kurokumaft:shield')"
 						}
 					]
 				}
@@ -235,7 +235,7 @@
 							"shield_block_main_hand" : "query.blocking && query.equipped_item_any_tag('slot.weapon.mainhand', 'kurokumaft:shield')"
 						},
 						{
-							"shield_block_off_hand" : "query.blocking && (query.get_equipped_item_name('off_hand') == 'shield') || query.equipped_item_any_tag('slot.weapon.offhand', 'kurokumaft:shield')"
+							"shield_block_off_hand" : "query.blocking && (query.get_equipped_item_name('off_hand') == 'shield')"
 						},
 						{
 							"shield_block_off_hand" : "query.blocking && query.equipped_item_any_tag('slot.weapon.offhand', 'kurokumaft:shield')"

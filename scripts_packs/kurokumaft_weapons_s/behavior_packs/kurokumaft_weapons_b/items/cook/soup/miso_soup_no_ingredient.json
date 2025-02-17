@@ -12,6 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:miso_soup_no_ingredient.name"
 			},
+      "minecraft:max_stack_size": 1,
       "minecraft:icon": "miso_soup_no_ingredient",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
