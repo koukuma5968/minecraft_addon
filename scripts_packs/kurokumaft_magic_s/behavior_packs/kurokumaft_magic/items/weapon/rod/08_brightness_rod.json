@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:brightness_rod"
+      "identifier": "kurokumaft:brightness_rod",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:icon": {

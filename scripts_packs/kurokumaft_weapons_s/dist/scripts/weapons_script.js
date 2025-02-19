@@ -6466,7 +6466,7 @@ world18.afterEvents.projectileHitEntity.subscribe((event) => {
   if (source != void 0 && source instanceof Player47) {
     hitSpear(source, projectileEn);
   }
-  if (projectileEn && isThrowHammer(projectileEn)) {
+  if (projectileEn != void 0 && isThrowHammer(projectileEn)) {
     waveWardenHammer(source, projectileEn);
     stopHammer(projectileEn);
   }
@@ -6477,7 +6477,7 @@ world18.afterEvents.projectileHitBlock.subscribe((event) => {
   if (source != void 0 && source instanceof Player47) {
     hitSpear(source, projectileEn);
   }
-  if (projectileEn && isThrowHammer(projectileEn)) {
+  if (projectileEn != void 0 && isThrowHammer(projectileEn)) {
     waveWardenHammer(source, projectileEn);
     stopHammer(projectileEn);
   }

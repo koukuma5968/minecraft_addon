@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:stone_knuckle"
+      "identifier": "kurokumaft:stone_knuckle",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:tags": {

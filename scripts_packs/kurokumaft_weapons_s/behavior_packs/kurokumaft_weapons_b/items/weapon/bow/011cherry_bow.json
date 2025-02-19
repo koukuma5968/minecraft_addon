@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:cherry_bow"
+      "identifier": "kurokumaft:cherry_bow",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:tags": {

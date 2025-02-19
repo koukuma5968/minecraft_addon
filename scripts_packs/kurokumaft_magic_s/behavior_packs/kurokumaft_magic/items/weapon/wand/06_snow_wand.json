@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:snow_wand"
+      "identifier": "kurokumaft:snow_wand",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:cooldown": {

@@ -1,5 +1,5 @@
 // scripts/kimetu_script.ts
-import { world as world5, EquipmentSlot as EquipmentSlot6, Player as Player11 } from "@minecraft/server";
+import { world as world5, EquipmentSlot as EquipmentSlot5, Player as Player12 } from "@minecraft/server";
 
 // scripts/item/weapon/nichirintou/Nichirintou.ts
 import { ItemStack, EntityComponentTypes, EquipmentSlot, ItemComponentTypes } from "@minecraft/server";
@@ -189,207 +189,27 @@ var NichirintouHi = class {
 // scripts/item/weapon/nichirintou/NichirintouHono.ts
 import { EntityComponentTypes as EntityComponentTypes4 } from "@minecraft/server";
 
-// scripts/common/commonUtil.ts
-import { world as world3, system, EntityComponentTypes as EntityComponentTypes3, ItemComponentTypes as ItemComponentTypes2, Direction } from "@minecraft/server";
-function getRandomInRange(min, max) {
-  return Math.random() * (max - min) + min;
-}
-var BlockLocationList = Object.freeze([
-  {
-    direction: Direction.Up,
-    location: { x: 0, y: 1, z: 0 }
-  },
-  {
-    direction: Direction.Down,
-    location: { x: 0, y: -1, z: 0 }
-  },
-  {
-    direction: Direction.South,
-    location: { x: 0, y: 0, z: 1 }
-  },
-  {
-    direction: Direction.North,
-    location: { x: 0, y: 0, z: -1 }
-  },
-  {
-    direction: Direction.East,
-    location: { x: 1, y: 0, z: 0 }
-  },
-  {
-    direction: Direction.West,
-    location: { x: -1, y: 0, z: 0 }
-  }
-]);
-
-// scripts/common/ShooterPoints.ts
-function getAdjacentSphericalPoints(rotation, location) {
-  let r = 1;
-  let piNum = 75;
-  let xapply;
-  let yapply;
-  let zapply;
-  let xlocation;
-  let ylocation;
-  let zlocation;
-  if (rotation.y >= -90 && rotation.y < 0) {
-    let yRotax = -rotation.y / piNum;
-    let yRotaz = (rotation.y + 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y >= 0 && rotation.y <= 90) {
-    let yRotax = rotation.y / piNum;
-    let yRotaz = -(rotation.y - 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      if (rotation.y >= 45) {
-        xlocation = location.x - yRotax * xRota * 1.75;
-      } else {
-        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
-      }
-      xapply = -(yRotax * xRota);
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y >= 45) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      if (rotation.y >= 45) {
-        xlocation = location.x - yRotax * xRota * 1.75;
-      } else {
-        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
-      }
-      xapply = -(yRotax * xRota);
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y >= 45) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y < -90 && rotation.y > -180) {
-    let yRotax = (rotation.y + 180) / piNum;
-    let yRotaz = (rotation.y + 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x + yRotax * xRota * 1.75;
-      xapply = yRotax * xRota;
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      zlocation = location.z + yRotaz * xRota * 1.75;
-      zapply = yRotaz * xRota;
-    }
-  } else if (rotation.y > 90 && rotation.y <= 180) {
-    let yRotax = -(rotation.y - 180) / piNum;
-    let yRotaz = -(rotation.y - 90) / piNum;
-    let yRota = -(rotation.x / piNum);
-    if (rotation.x >= -90 && rotation.x < 0) {
-      let xRota = (rotation.x + 90) / piNum;
-      xlocation = location.x - yRotax * xRota * 1.75;
-      xapply = -(yRotax * xRota);
-      if (rotation.x <= -45) {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      } else {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      }
-      yapply = yRota;
-      if (rotation.y <= 135) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    } else if (rotation.x >= 0 && rotation.x <= 90) {
-      let xRota = -(rotation.x - 90) / piNum;
-      xlocation = location.x - yRotax * xRota * 1.75;
-      xapply = -(yRotax * xRota);
-      if (rotation.x >= 45) {
-        ylocation = location.y + 1.75 + yRota * 1.5;
-      } else {
-        ylocation = location.y + 1.5 + yRota * 1.75;
-      }
-      yapply = yRota;
-      if (rotation.y <= 135) {
-        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
-      } else {
-        zlocation = location.z + yRotaz * xRota * 1.75;
-      }
-      zapply = yRotaz * xRota;
-    }
-  }
-  return { xapply, yapply, zapply, xlocation, ylocation, zlocation };
-}
-
-// scripts/custom/ShooterMagicEvent.ts
+// scripts/common/ShooterEvent.ts
+import { EntityComponentTypes as EntityComponentTypes3 } from "@minecraft/server";
 function shooting(player, throwItem, ranNum, seepd, event) {
-  let { xapply, yapply, zapply, xlocation, ylocation, zlocation } = getAdjacentSphericalPoints(player.getRotation(), player.location);
-  let bulet = player.dimension.spawnEntity(
-    throwItem,
+  let bulet;
+  if (event != void 0) {
+    bulet = player.dimension.spawnEntity(throwItem + "<" + event + ">", player.getHeadLocation());
+  } else {
+    bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
+  }
+  let projectile = bulet.getComponent(EntityComponentTypes3.Projectile);
+  projectile.owner = player;
+  projectile.shoot(
     {
-      x: xlocation + ranNum.x,
-      y: ylocation + ranNum.y,
-      z: zlocation + ranNum.z
+      x: player.getViewDirection().x * seepd,
+      y: player.getViewDirection().y * seepd,
+      z: player.getViewDirection().z * seepd
+    },
+    {
+      uncertainty: ranNum
     }
   );
-  if (event) {
-    bulet.triggerEvent(event);
-  }
-  bulet.applyImpulse({ x: xapply * seepd, y: yapply * seepd, z: zapply * seepd });
   return bulet;
 }
 
@@ -401,10 +221,8 @@ var NichirintouHono = class {
     let player = event.source;
     player.setDynamicProperty("kokyu", true);
     let variant = player.getComponent(EntityComponentTypes4.Variant);
-    if (variant && variant.value == 5) {
-      let xran = parseFloat(getRandomInRange(-0.3, 0.3).toFixed(3));
-      let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-      shooting(player, "kurokumaft:hono_tiger", { x: xran, y: yran, z: 0 }, 2, void 0);
+    if (variant != void 0 && variant.value == 5) {
+      shooting(player, "kurokumaft:hono_tiger", 0, 2, void 0);
     }
   }
 };
@@ -469,9 +287,7 @@ var NichirintouKyouzyuro = class {
     player.setDynamicProperty("kokyu", true);
     let variant = player.getComponent(EntityComponentTypes5.Variant);
     if (variant && variant.value == 5) {
-      let xran = parseFloat(getRandomInRange(-0.3, 0.3).toFixed(3));
-      let yran = parseFloat(getRandomInRange(-0.1, 0.1).toFixed(3));
-      shooting(player, "kurokumaft:hono_tiger", { x: xran, y: yran, z: 0 }, 2, void 0);
+      shooting(player, "kurokumaft:hono_tiger", 0, 2, void 0);
     }
   }
 };
@@ -594,7 +410,7 @@ var KekkizyutuHakaisatu = class {
     let player = event.source;
     let variant = player.getComponent(EntityComponentTypes6.Variant);
     if (variant && variant.value == 2) {
-      shooting(player, "kurokumaft:kushiki", { x: 0, y: 0, z: 0 }, 6, void 0);
+      shooting(player, "kurokumaft:kushiki", 0, 6, void 0);
     }
   }
 };
@@ -608,7 +424,7 @@ var KekkizyutuKoushi = class {
     let player = event.source;
     let variant = player.getComponent(EntityComponentTypes7.Variant);
     if (variant && variant.value == 3) {
-      shooting(player, "kurokumaft:kokushirinten", { x: 0, y: 0, z: 0 }, 6, void 0);
+      shooting(player, "kurokumaft:kokushirinten", 0, 6, void 0);
     }
   }
 };
@@ -622,7 +438,7 @@ var KekkizyutuTigama = class {
     let player = event.source;
     let variant = player.getComponent(EntityComponentTypes8.Variant);
     if (variant && variant.value == 1) {
-      shooting(player, "kurokumaft:tobi_tigama", { x: 0, y: 0, z: 0 }, 4, void 0);
+      shooting(player, "kurokumaft:tobi_tigama", 0, 4, void 0);
     }
   }
 };
@@ -636,43 +452,43 @@ var KekkizyutuUltrasonic = class {
   }
 };
 
-// scripts/player/EquipmentTick.ts
-import { EntityComponentTypes as EntityComponentTypes9, EquipmentSlot as EquipmentSlot4, system as system2, world as world4 } from "@minecraft/server";
-async function checkPlayerEquTick() {
-  let players = world4.getPlayers();
+// scripts/player/KimetuEquipmentTick.ts
+import { EntityComponentTypes as EntityComponentTypes9, EquipmentSlot as EquipmentSlot3, system, world as world3 } from "@minecraft/server";
+async function checkPlayerKimetuEquTick() {
+  let players = world3.getPlayers();
   for (let i = 0; i < players.length; i++) {
     let player = players[i];
     if (!player.isValid()) {
       continue;
     }
     let equ = player.getComponent(EntityComponentTypes9.Equippable);
-    let mainHand = equ.getEquipment(EquipmentSlot4.Mainhand);
+    let mainHand = equ.getEquipment(EquipmentSlot3.Mainhand);
     if (mainHand != void 0) {
       let object = KokyuObjects.find((ob) => ob.itemName == mainHand.typeId);
       if (object != void 0) {
-        if (player.getProperty("kurokumaft:nichirintou_type") != object.type) {
-          player.setProperty("kurokumaft:nichirintou_type", object.type);
+        if (player.getDynamicProperty("kurokumaft:nichirintou_type") != object.type) {
+          player.setDynamicProperty("kurokumaft:nichirintou_type", object.type);
           if (object.kata != void 0) {
-            player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
+            player.setDynamicProperty("kurokumaft:kokyu_kata", object.kata[0]);
             player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + object.kata_msg + '1.name"}]}');
           }
         }
       } else {
-        player.setProperty("kurokumaft:nichirintou_type", 0);
-        player.setProperty("kurokumaft:kokyu_kata", 0);
+        player.setDynamicProperty("kurokumaft:nichirintou_type", 0);
+        player.setDynamicProperty("kurokumaft:kokyu_kata", 0);
       }
     } else {
-      if (player.getProperty("kurokumaft:nichirintou_type") != 0) {
-        player.setProperty("kurokumaft:nichirintou_type", 0);
-        player.setProperty("kurokumaft:kokyu_kata", 0);
+      if (player.getDynamicProperty("kurokumaft:nichirintou_type") != 0) {
+        player.setDynamicProperty("kurokumaft:nichirintou_type", 0);
+        player.setDynamicProperty("kurokumaft:kokyu_kata", 0);
       }
     }
   }
-  system2.run(checkPlayerEquTick);
+  system.run(checkPlayerKimetuEquTick);
 }
 
-// scripts/custom/CustomComponentRegistry.ts
-function initRegisterCustom(initEvent) {
+// scripts/custom/KimetuCustomComponentRegistry.ts
+function initRegisterKimetuCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou", new Nichirintou());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_tanjiro", new NichirintouTanjiro());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_zenitu", new NichirintouZenitu());
@@ -703,15 +519,49 @@ function initRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_koushi", new KekkizyutuKoushi());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_ultrasonic", new KekkizyutuUltrasonic());
 }
-function initStateChangeMonitor(initEvent) {
-  checkPlayerEquTick();
+function initStateChangeKimetuMonitor(initEvent) {
+  checkPlayerKimetuEquTick();
 }
 
 // scripts/common/ItemDurabilityDamage.ts
-import { ItemComponentTypes as ItemComponentTypes3, EntityComponentTypes as EntityComponentTypes10 } from "@minecraft/server";
+import { ItemComponentTypes as ItemComponentTypes2, EntityComponentTypes as EntityComponentTypes10 } from "@minecraft/server";
+
+// scripts/common/CommonUtil.ts
+import { world as world4, Direction } from "@minecraft/server";
+function getRandomInRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+var BlockLocationList = Object.freeze([
+  {
+    direction: Direction.Up,
+    location: { x: 0, y: 1, z: 0 }
+  },
+  {
+    direction: Direction.Down,
+    location: { x: 0, y: -1, z: 0 }
+  },
+  {
+    direction: Direction.South,
+    location: { x: 0, y: 0, z: 1 }
+  },
+  {
+    direction: Direction.North,
+    location: { x: 0, y: 0, z: -1 }
+  },
+  {
+    direction: Direction.East,
+    location: { x: 1, y: 0, z: 0 }
+  },
+  {
+    direction: Direction.West,
+    location: { x: -1, y: 0, z: 0 }
+  }
+]);
+
+// scripts/common/ItemDurabilityDamage.ts
 async function ItemDurabilityDamage(entity, item, slot) {
   let equ = entity.getComponent(EntityComponentTypes10.Equippable);
-  let durability = item.getComponent(ItemComponentTypes3.Durability);
+  let durability = item.getComponent(ItemComponentTypes2.Durability);
   let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
   if (durability.damage + dChange >= durability.maxDurability) {
     equ.setEquipment(slot, void 0);
@@ -723,15 +573,15 @@ async function ItemDurabilityDamage(entity, item, slot) {
 
 // scripts/kimetu_script.ts
 world5.beforeEvents.worldInitialize.subscribe((initEvent) => {
-  initRegisterCustom(initEvent);
-  initStateChangeMonitor(initEvent);
+  initRegisterKimetuCustom(initEvent);
+  initStateChangeKimetuMonitor(initEvent);
 });
 world5.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
 world5.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   let entity = event.entity;
-  if (entity instanceof Player11) {
+  if (entity instanceof Player12) {
     if (event.eventId == "kurokumaft:kokyu_change") {
       let nichirintou = entity.getProperty("kurokumaft:nichirintou_type");
       if (nichirintou != 0) {
@@ -755,7 +605,7 @@ world5.afterEvents.itemReleaseUse.subscribe((event) => {
         object.func(item, player);
       }
       player.setProperty("kurokumaft:kokyu_use", false);
-      ItemDurabilityDamage(player, item, EquipmentSlot6.Mainhand);
+      ItemDurabilityDamage(player, item, EquipmentSlot5.Mainhand);
     }
   }
 });

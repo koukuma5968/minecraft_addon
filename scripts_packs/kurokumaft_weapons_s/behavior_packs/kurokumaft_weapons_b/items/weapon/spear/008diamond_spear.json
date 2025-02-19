@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:diamond_spear"
+      "identifier": "kurokumaft:diamond_spear",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:tags": {

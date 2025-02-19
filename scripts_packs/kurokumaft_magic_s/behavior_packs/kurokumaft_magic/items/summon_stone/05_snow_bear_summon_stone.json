@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:snow_bear_summon_stone",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.summon_stone"
+        "category": "items"
       }
     },
     "components": {

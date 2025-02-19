@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:lightning_hornet_summon_stone",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.summon_stone"
+        "category": "items"
       }
     },
     "components": {

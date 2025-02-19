@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:machine_gun"
+      "identifier": "kurokumaft:machine_gun",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:tags": {

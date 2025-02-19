@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:immortal_shield"
+      "identifier": "kurokumaft:immortal_shield",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:tags": {

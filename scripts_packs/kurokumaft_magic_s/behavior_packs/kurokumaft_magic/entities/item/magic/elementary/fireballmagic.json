@@ -16,22 +16,17 @@
       "minecraft:projectile": {
        "on_hit": {
           "affect_projectile": true,
-         "impact_damage": {
-           "damage": 5,
-           "knockback": false,
-           "catch_fire": false,
-           "destroy_on_hit": true,
-           "semi_random_diff_damage": false
-         },
-         "catch_fire": {
+          "impact_damage": {
+            "damage": 5,
+            "knockback": false,
+            "catch_fire": false,
+            "destroy_on_hit": true,
+            "semi_random_diff_damage": false
+          },
+          "catch_fire": {
            "fire_affected_by_griefing": true
          },
-         "particle_on_hit": {
-          "particle_type": "kurokumaft:fire_particle",
-          "num_particle": 6,
-          "on_entity_hit": true,
-          "on_other_hit": true
-          }
+         "remove_on_hit": { }
        },
        "hit_sound": "fire",
        "power": 2.5,

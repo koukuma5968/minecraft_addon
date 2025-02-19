@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:phoenix_sword"
+      "identifier": "kurokumaft:phoenix_sword",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:display_name": {

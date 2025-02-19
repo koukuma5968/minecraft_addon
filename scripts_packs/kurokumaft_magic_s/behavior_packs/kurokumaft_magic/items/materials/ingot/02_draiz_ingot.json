@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:draiz_ingot"
+      "identifier": "kurokumaft:draiz_ingot",
+      "menu_category": {
+        "category": "items"
+      }
     },
     "components": {
       "minecraft:tags": {

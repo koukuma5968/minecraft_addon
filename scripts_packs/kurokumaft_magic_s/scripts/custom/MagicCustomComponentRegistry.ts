@@ -81,7 +81,7 @@ function initRegisterMagicCustom(initEvent:WorldInitializeBeforeEvent) {
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:summon_stone', new SummonStoneMagic());
 
     // 採掘耐久減少
-    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:mine_durability', new MagicMineDurability());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:magic_mine_durability', new MagicMineDurability());
 
     // 魔法のピッケル
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:pic_magic_attack', new PicMagicAttack());

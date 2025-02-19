@@ -7,12 +7,12 @@
     "tags": [ "crafting_table" ],
     "ingredients": [
       {
-        "item": "kurokumaft:draiz_rod"
+        "item": "kurokumaft:breeze_powder"
       }
     ],
     "unlock": [
       {
-        "item": "kurokumaft:draiz_rod"
+        "item": "kurokumaft:breeze_powder"
       }
     ],
     "result": {

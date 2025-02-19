@@ -2,7 +2,10 @@
   "format_version": "1.21.30",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:lightning_log_nut"
+      "identifier": "kurokumaft:lightning_log_nut",
+      "menu_category": {
+        "category": "nature"
+      }
     },
     "components": {
       "minecraft:display_name": {

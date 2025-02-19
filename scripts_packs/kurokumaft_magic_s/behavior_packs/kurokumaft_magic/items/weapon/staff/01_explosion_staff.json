@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:explosion_staff"
+      "identifier": "kurokumaft:explosion_staff",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:cooldown": {

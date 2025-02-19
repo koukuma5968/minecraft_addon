@@ -2,7 +2,10 @@
   "format_version": "1.21.50",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:blizzas_magic_pickaxe"
+      "identifier": "kurokumaft:blizzas_magic_pickaxe",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -45,7 +48,7 @@
         ]
       },
       "minecraft:custom_components": [
-        "kurokumaft:weapon_mine_durability",
+        "kurokumaft:magic_mine_durability",
         "kurokumaft:pic_magic_attack",
         "kurokumaft:pic_magic_tool"
       ]

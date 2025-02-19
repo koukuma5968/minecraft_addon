@@ -12,33 +12,9 @@
 			},
 			"bones": [
 				{
-					"name": "root",
-					"pivot": [0, 0, 0]
-				},
-				{
-					"name": "waist",
-					"parent": "root",
-					"pivot": [0, 12.50092, -0.23811]
-				},
-				{
-					"name": "body",
-					"parent": "waist",
-					"pivot": [0, 24.50092, -0.23811]
-				},
-				{
-					"name": "head",
-					"parent": "body",
-					"pivot": [0, 24.50092, -0.23811]
-				},
-				{
-					"name": "leftArm",
-					"parent": "body",
-					"pivot": [6, 22.50092, -0.23811]
-				},
-				{
-					"name": "oto_nichirinto_left",
-					"parent": "leftArm",
+					"name": "nichirinto_left",
 					"pivot": [6, 15.50092, -0.33811],
+					"binding": "'leftitem'",
 					"locators": {
 						"oto5": [6, 15, -12],
 						"oto6": [6, 15, -24],
@@ -48,7 +24,7 @@
 				},
 				{
 					"name": "oto_blade23",
-					"parent": "oto_nichirinto_left",
+					"parent": "nichirinto_left",
 					"pivot": [-5, 15.50092, -62.13811]
 				},
 				{
@@ -744,7 +720,7 @@
 				},
 				{
 					"name": "oto_handle2",
-					"parent": "oto_nichirinto_left",
+					"parent": "nichirinto_left",
 					"pivot": [-5, 15.50092, -6.33811],
 					"cubes": [
 						{
@@ -872,14 +848,9 @@
 					]
 				},
 				{
-					"name": "rightArm",
-					"parent": "body",
-					"pivot": [-5, 22.50092, -0.23811]
-				},
-				{
-					"name": "oto_nichirinto_right",
-					"parent": "rightArm",
+					"name": "nichirinto_right",
 					"pivot": [-6, 15.50092, -0.33811],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
 					"locators": {
 						"oto1": [-7, 15, -12],
 						"oto2": [-7, 15, -24],
@@ -889,7 +860,7 @@
 				},
 				{
 					"name": "oto_blade",
-					"parent": "oto_nichirinto_right",
+					"parent": "nichirinto_right",
 					"pivot": [-6, 15.50092, -62.13811]
 				},
 				{
@@ -1585,7 +1556,7 @@
 				},
 				{
 					"name": "oto_handle",
-					"parent": "oto_nichirinto_right",
+					"parent": "nichirinto_right",
 					"pivot": [-6, 15.50092, -6.33811],
 					"cubes": [
 						{
@@ -1711,16 +1682,6 @@
 							}
 						}
 					]
-				},
-				{
-					"name": "leftLeg",
-					"parent": "root",
-					"pivot": [1.9, 12.50092, -0.23811]
-				},
-				{
-					"name": "rightLeg",
-					"parent": "root",
-					"pivot": [-1.9, 12.50092, -0.23811]
 				}
 			]
 		}

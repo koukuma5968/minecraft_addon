@@ -12,38 +12,9 @@
 			},
 			"bones": [
 				{
-					"name": "root",
-					"pivot": [0, 0, 0]
-				},
-				{
-					"name": "waist",
-					"parent": "root",
-					"pivot": [0, 12.50092, -0.23811]
-				},
-				{
-					"name": "body",
-					"parent": "waist",
-					"pivot": [0, 24.50092, -0.23811]
-				},
-				{
-					"name": "head",
-					"parent": "body",
-					"pivot": [0, 24.50092, -0.23811]
-				},
-				{
-					"name": "leftArm",
-					"parent": "body",
-					"pivot": [6, 22.50092, -0.23811]
-				},
-				{
-					"name": "rightArm",
-					"parent": "body",
-					"pivot": [-5, 22.50092, -0.23811]
-				},
-				{
-					"name": "sanemi_nichirinto",
-					"parent": "rightArm",
+					"name": "nichirinto",
 					"pivot": [-6, 15.50092, -2.33811],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
 					"locators": {
 						"sanemi1": [-6.5, 15, -10],
 						"sanemi2": [-6.5, 15, -18],
@@ -55,7 +26,7 @@
 				},
 				{
 					"name": "sanemi_blade",
-					"parent": "sanemi_nichirinto",
+					"parent": "nichirinto",
 					"pivot": [-6, 15.50092, -58.13811]
 				},
 				{
@@ -751,7 +722,7 @@
 				},
 				{
 					"name": "sanemi_handle",
-					"parent": "sanemi_nichirinto",
+					"parent": "nichirinto",
 					"pivot": [-6, 15.50092, -2.33811],
 					"cubes": [
 						{
@@ -903,16 +874,6 @@
 							}
 						}
 					]
-				},
-				{
-					"name": "leftLeg",
-					"parent": "root",
-					"pivot": [1.9, 12.50092, -0.23811]
-				},
-				{
-					"name": "rightLeg",
-					"parent": "root",
-					"pivot": [-1.9, 12.50092, -0.23811]
 				}
 			]
 		}

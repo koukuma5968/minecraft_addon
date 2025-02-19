@@ -11351,7 +11351,7 @@ function initRegisterMagicCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:diamond_bottle", new DiamondBottle());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:magic_potion", new MagicPotionDrink());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:summon_stone", new SummonStoneMagic());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:mine_durability", new MagicMineDurability());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:magic_mine_durability", new MagicMineDurability());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:pic_magic_attack", new PicMagicAttack());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:pic_magic_tool", new PicMagicTool());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:torchlight_block", new TorchlightBlock());

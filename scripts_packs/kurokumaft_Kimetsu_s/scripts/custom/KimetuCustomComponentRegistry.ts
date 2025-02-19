@@ -28,13 +28,13 @@ import { KekkizyutuHakaisatu } from "../item/weapon/kekkizyutu/KekkizyutuHakaisa
 import { KekkizyutuKoushi } from "../item/weapon/kekkizyutu/KekkizyutuKoushi";
 import { KekkizyutuTigama } from "../item/weapon/kekkizyutu/KekkizyutuTigama";
 import { KekkizyutuUltrasonic } from "../item/weapon/kekkizyutu/KekkizyutuUltrasonic";
-import { checkPlayerEquTick } from "../player/EquipmentTick";
+import { checkPlayerKimetuEquTick } from "../player/KimetuEquipmentTick";
 
 /**
  * カスタムコンポーネントの登録
  * @param {WorldInitializeBeforeEvent} initEvent
  */
-function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
+function initRegisterKimetuCustom(initEvent:WorldInitializeBeforeEvent) {
 
     // アイテム類
     // 日輪刀
@@ -79,8 +79,8 @@ function initRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
  * 監視スレッドの登録
  * @param {WorldInitializeBeforeEvent} initEvent
  */
-function initStateChangeMonitor(initEvent:WorldInitializeBeforeEvent) {
-    checkPlayerEquTick();
+function initStateChangeKimetuMonitor(initEvent:WorldInitializeBeforeEvent) {
+    checkPlayerKimetuEquTick();
 }
 
-export {initRegisterCustom, initStateChangeMonitor}
+export {initRegisterKimetuCustom, initStateChangeKimetuMonitor}

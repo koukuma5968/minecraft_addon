@@ -12,37 +12,7 @@
 			},
 			"bones": [
 				{
-					"name": "root",
-					"pivot": [0, 0, 0]
-				},
-				{
-					"name": "waist",
-					"parent": "root",
-					"pivot": [0, 12.50092, -0.23811]
-				},
-				{
-					"name": "body",
-					"parent": "waist",
-					"pivot": [0, 24.50092, -0.23811]
-				},
-				{
-					"name": "head",
-					"parent": "body",
-					"pivot": [0, 24.50092, -0.23811]
-				},
-				{
-					"name": "leftArm",
-					"parent": "body",
-					"pivot": [6, 22.50092, -0.23811]
-				},
-				{
-					"name": "rightArm",
-					"parent": "body",
-					"pivot": [-5, 22.50092, -0.23811]
-				},
-				{
-					"name": "kyouzyuro_nichirinto",
-					"parent": "rightArm",
+					"name": "nichirinto",
 					"pivot": [-6, 15.50092, -2.33811],
 					"locators": {
 						"kyouzyuro1": [-7, 15, -7],
@@ -55,7 +25,7 @@
 				},
 				{
 					"name": "kyouyzyuro_blade",
-					"parent": "kyouzyuro_nichirinto",
+					"parent": "nichirinto",
 					"pivot": [-6, 15.50092, -58.13811]
 				},
 				{
@@ -751,7 +721,7 @@
 				},
 				{
 					"name": "kyouyzyuro_handle",
-					"parent": "kyouzyuro_nichirinto",
+					"parent": "nichirinto",
 					"pivot": [-6, 15.50092, -2.33811],
 					"cubes": [
 						{
@@ -887,16 +857,6 @@
 							}
 						}
 					]
-				},
-				{
-					"name": "leftLeg",
-					"parent": "root",
-					"pivot": [1.9, 12.50092, -0.23811]
-				},
-				{
-					"name": "rightLeg",
-					"parent": "root",
-					"pivot": [-1.9, 12.50092, -0.23811]
 				}
 			]
 		}

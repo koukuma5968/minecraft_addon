@@ -16,14 +16,16 @@
         },
         "scripts": {
           "animate": [
-            {"first": "c.is_first_person"},
-            {"third": "!c.is_first_person"},
+            "scale",
+            "person",
             "mituri.kokyu_con"
           ]
         },
         "animations": {
-          "first": "animation.mituri_first",
-          "third": "animation.mituri_third",
+          "scale": "animation.nichirintou_scale",
+          "person": "controller.animation.nichirintou.person",
+          "first": "animation.nichirintou_first",
+          "third": "animation.nichirintou_third",
 
           "mituri.kokyu_con":"controller.animation.mituri.kokyu",
           "mituri.ichi_1": "animation.nichirintou_kokyu.mituri.ichi_1",
@@ -33,7 +35,7 @@
           "mituri.san": "animation.nichirintou_kokyu.mituri.san",
           "mituri.go": "animation.nichirintou_kokyu.mituri.go",
           "mituri.roku": "animation.nichirintou_kokyu.mituri.roku"
-  
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

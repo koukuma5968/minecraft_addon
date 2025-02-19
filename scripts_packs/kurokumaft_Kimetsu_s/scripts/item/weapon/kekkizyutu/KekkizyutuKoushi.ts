@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EntityComponentTypes, EntityVariantComponent } from "@minecraft/server";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { shooting } from "../../../common/ShooterEvent";
 
 /**
  * 血気術
@@ -13,7 +13,7 @@ export class KekkizyutuKoushi implements ItemCustomComponent {
 
         let variant = player.getComponent(EntityComponentTypes.Variant) as EntityVariantComponent;
         if (variant && variant.value == 3) {
-            shooting(player, "kurokumaft:kokushirinten", {x:0,y:0,z:0}, 6, undefined);
+            shooting(player, "kurokumaft:kokushirinten", 0, 6, undefined);
         }
 
     }

@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:wood_sickle"
+      "identifier": "kurokumaft:wood_sickle",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:icon": "wood_sickle",

@@ -16,13 +16,14 @@
         },
         "scripts": {
           "animate": [
-            {"first": "c.is_first_person"},
-            {"third": "!c.is_first_person"}
+            "scale",
+            "person"
           ]
         },
         "animations": {
-          "first": "animation.inosuke_first",
-          "third": "animation.inosuke_third"
+          "person": "controller.animation.nichirintou.person",
+          "first": "animation.nichirintou_first",
+          "third": "animation.nichirintou_third"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

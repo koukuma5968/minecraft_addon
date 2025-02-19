@@ -23,18 +23,13 @@
             "damage": 5,
             "knockback": false,
             "catch_fire": false,
-            "destroy_on_hit": false,
+            "destroy_on_hit": true,
             "semi_random_diff_damage": false
           },
-          "particle_on_hit": {
-            "particle_type": "kurokumaft:lightning_particle",
-            "num_particle": 6,
-            "on_entity_hit": true,
-            "on_other_hit": true
-          }
+          "remove_on_hit": { }
         },
-        "power": 2,
-        "gravity": 0.05,
+        "power": 2.5,
+        "gravity": 0.02,
         "inertia": 1,
         "liquid_inertia": 1,
         "reflect_on_hurt": true

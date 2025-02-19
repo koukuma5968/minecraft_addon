@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item" : {
     "description": {
-      "identifier": "kurokumaft:wind_pickaxe"
+      "identifier": "kurokumaft:wind_pickaxe",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:display_name": {
@@ -49,7 +52,7 @@
         ]
       },
       "minecraft:custom_components": [
-        "kurokumaft:weapon_mine_durability",
+        "kurokumaft:magic_mine_durability",
         "kurokumaft:pic_magic_attack"
       ]
     }

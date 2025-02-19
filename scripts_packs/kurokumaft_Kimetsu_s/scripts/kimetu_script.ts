@@ -1,13 +1,13 @@
 import { world,system, EquipmentSlot, Player } from "@minecraft/server";
-import { initRegisterCustom, initStateChangeMonitor } from "./custom/CustomComponentRegistry";
+import { initRegisterKimetuCustom, initStateChangeKimetuMonitor } from "./custom/KimetuCustomComponentRegistry";
 import { probabilisticChoice } from "./item/weapon/nichirintou/Nichirintou";
 import { ItemDurabilityDamage } from "./common/ItemDurabilityDamage";
 import { KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 
 // ワールド接続時
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
-  initRegisterCustom(initEvent);
-  initStateChangeMonitor(initEvent);
+  initRegisterKimetuCustom(initEvent);
+  initStateChangeKimetuMonitor(initEvent);
 });
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
   leaveEvent.player.clearDynamicProperties();

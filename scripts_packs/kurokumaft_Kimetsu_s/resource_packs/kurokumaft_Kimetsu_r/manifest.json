@@ -1,18 +1,18 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "KimetuKuroRv3.2",
-		"description": "鬼滅の刃version3 日輪刀/キャラクターアドオン リソースパック",
+		"name": "KimetuKuroRv4.0",
+		"description": "鬼滅の刃Rv4.0 日輪刀/キャラクターアドオン リソースパック",
 		"uuid": "7d00f465-dd97-4d70-a72b-df79443c2a6c",
-		"version": [3, 0, 2],
-		"min_engine_version": [1, 20, 30]
+		"version": [4, 0, 0],
+		"min_engine_version": [1, 21, 60]
 	},
 	"modules": [
 		{
-			"description": "鬼滅の刃アドオン",
+			"description": "鬼滅の刃アドオンRv4.0",
 			"type": "resources",
 			"uuid": "1d0be23a-facf-4053-aa3b-83cb9d115c25",
-			"version": [3, 0, 2]
+			"version": [4, 0, 0]
 		}
 	]
 }

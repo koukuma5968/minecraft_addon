@@ -1,13 +1,17 @@
 {
-  "format_version": "1.20.50",
+  "format_version": "1.20.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:lightning_charge",
-      "category": "Items"
+      "menu_category": {
+        "category": "items"
+      }
     },
     "components": {
       "minecraft:icon": {
-        "texture": "lightning_charge"
+        "textures": {
+          "default": "lightning_charge"
+        }
       },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:lightningball"

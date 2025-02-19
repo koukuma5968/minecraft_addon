@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:polished_scute",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.magic_materials"
+        "category": "items"
       }
     },
     "components": {

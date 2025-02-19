@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:wet_hunting_horn",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.magic_materials"
+        "category": "items"
       }
     },
     "components": {

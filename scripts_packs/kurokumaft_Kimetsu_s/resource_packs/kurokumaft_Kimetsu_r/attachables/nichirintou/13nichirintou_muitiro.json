@@ -16,13 +16,15 @@
         },
         "scripts": {
           "animate": [
-            {"first": "c.is_first_person"},
-            {"third": "!c.is_first_person"}
+            "scale",
+            "person"
           ]
         },
         "animations": {
-          "first": "animation.muitiro_first",
-          "third": "animation.muitiro_third"
+          "scale": "animation.nichirintou_scale",
+          "person": "controller.animation.nichirintou.person",
+          "first": "animation.nichirintou_first",
+          "third": "animation.nichirintou_third"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

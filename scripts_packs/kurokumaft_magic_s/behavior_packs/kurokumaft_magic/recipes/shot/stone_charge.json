@@ -7,12 +7,18 @@
     "tags": [ "crafting_table" ],
     "ingredients": [
       {
-        "item": "kurokumaft:graiz_rod"
+        "item": "kurokumaft:graiz_powder"
+      },
+      {
+        "item": "minecraft:glowstone_dust"
+      },
+      {
+        "item": "minecraft:gunpowder"
       }
     ],
     "unlock": [
       {
-        "item": "kurokumaft:graiz_rod"
+        "item": "kurokumaft:graiz_powder"
       }
     ],
     "result": {

@@ -19,9 +19,6 @@
       "geometry": {
         "default": "geometry.humanoid.custom",
         "nichirintou_custom": "geometry.nichirintou_custom",
-        "nichirintou_zenitu": "geometry.nichirintou_zenitu",
-        "nichirintou_inosuke": "geometry.nichirintou_inosuke",
-        "nichirintou_kanawo": "geometry.nichirintou_kanawo",
         "nichirintou_genya": "geometry.nichirintou_genya",
         "nichirintou_giyu": "geometry.nichirintou_giyu",
         "nichirintou_kyouzyuro": "geometry.nichirintou_kyouzyuro",
@@ -782,30 +779,6 @@
         { "controller.render.player.map": "variable.map_face_icon" },
 
         "controller.render.nichirintou_custom",
-        {"controller.render.nichirintou_zenitu": "variable.equipped_zenitu"},
-        {"controller.render.nichirintou_inosuke": "variable.equipped_inosuke"},
-        {"controller.render.nichirintou_kanawo": "variable.equipped_kanawo"},
-        {"controller.render.nichirintou_genya": "variable.equipped_genya"},
-        {"controller.render.nichirintou_giyu": "variable.equipped_giyu"},
-        {"controller.render.nichirintou_kyouzyuro": "variable.equipped_kyouzyuro"},
-        {"controller.render.nichirintou_shinobu": "variable.equipped_shinobu"},
-        {"controller.render.nichirintou_tengen": "variable.equipped_tengen"},
-        {"controller.render.nichirintou_mituri": "variable.equipped_mituri"},
-        {"controller.render.nichirintou_sanemi": "variable.equipped_sanemi"},
-        {"controller.render.nichirintou_gyoumei": "variable.equipped_gyoumei"},
-        {"controller.render.nichirintou_muitiro": "variable.equipped_muitiro"},
-        {"controller.render.nichirintou_obanai": "variable.equipped_obanai"},
-
-        {"controller.render.nichirintou_mizu": "variable.equipped_mizu"},
-        {"controller.render.nichirintou_hi": "variable.equipped_hi"},
-        {"controller.render.nichirintou_kaminari": "variable.equipped_kaminari"},
-        {"controller.render.nichirintou_hono": "variable.equipped_hono"},
-        {"controller.render.nichirintou_mushi": "variable.equipped_mushi"},
-        {"controller.render.nichirintou_oto": "variable.equipped_oto"},
-        {"controller.render.nichirintou_hana": "variable.equipped_hana"},
-        {"controller.render.nichirintou_koi": "variable.equipped_koi"},
-        {"controller.render.nichirintou_kaze": "variable.equipped_kaze"},
-
         {"controller.render.hebi": "(variable.equipped_obanai) && query.mark_variant >= 1"}
 
       ],

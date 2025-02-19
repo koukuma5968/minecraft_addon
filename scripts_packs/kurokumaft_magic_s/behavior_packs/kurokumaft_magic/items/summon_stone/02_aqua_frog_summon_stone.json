@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:aqua_frog_summon_stone",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.summon_stone"
+        "category": "items"
       }
     },
     "components": {

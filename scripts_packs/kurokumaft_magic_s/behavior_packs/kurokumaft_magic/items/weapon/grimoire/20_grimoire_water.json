@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:grimoire_water"
+      "identifier": "kurokumaft:grimoire_water",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:damage": 0,

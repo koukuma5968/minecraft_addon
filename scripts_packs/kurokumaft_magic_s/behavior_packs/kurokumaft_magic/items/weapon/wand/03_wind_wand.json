@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:wind_wand"
+      "identifier": "kurokumaft:wind_wand",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:cooldown": {

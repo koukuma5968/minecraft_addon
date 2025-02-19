@@ -16,11 +16,13 @@
         },
         "scripts": {
           "animate": [
-            {"first": "c.is_first_person"},
-            {"third": "!c.is_first_person"}
+            "scale",
+            "person"
           ]
         },
         "animations": {
+          "scale": "animation.nichirintou_scale",
+          "person": "controller.animation.nichirintou.person",
           "first": "animation.nichirintou_first",
           "third": "animation.nichirintou_third"
         },

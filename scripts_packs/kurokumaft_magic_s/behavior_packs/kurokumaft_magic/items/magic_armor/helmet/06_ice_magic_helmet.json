@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:ice_magic_helmet"
+      "identifier": "kurokumaft:ice_magic_helmet",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:display_name": {

@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:freeze_windbreak",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.magic_materials"
+        "category": "items"
       }
     },
     "components": {

@@ -48,17 +48,16 @@
         "use_efficiency": true,
         "destroy_speeds": [
           {
-            "block": "minecraft:web",
+            "block": {
+              "tags": "query.any_tag('minecraft:is_sword_item_destructible')"
+            },
             "speed": 15
-          },
-          {
-            "block": "minecraft:bamboo",
-            "speed": 10
           }
         ]
       },
       "minecraft:use_modifiers": {
-        "movement_modifier": 1
+        "movement_modifier": 1,
+        "use_duration": 1000
       },
       "minecraft:custom_components": [
         "kurokumaft:nichirintou_koi"

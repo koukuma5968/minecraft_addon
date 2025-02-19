@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:stone_knife"
+      "identifier": "kurokumaft:stone_knife",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:display_name": {

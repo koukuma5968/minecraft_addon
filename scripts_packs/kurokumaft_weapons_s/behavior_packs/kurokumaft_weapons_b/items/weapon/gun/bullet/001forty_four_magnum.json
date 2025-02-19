@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:forty_four_magnum"
+      "identifier": "kurokumaft:forty_four_magnum",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:max_stack_size": 64,

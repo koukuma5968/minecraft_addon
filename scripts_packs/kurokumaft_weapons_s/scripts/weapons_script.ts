@@ -285,7 +285,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     if (source != undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
-    if (projectileEn && isThrowHammer(projectileEn)) {
+    if (projectileEn != undefined && isThrowHammer(projectileEn)) {
         waveWardenHammer(source, projectileEn);
         stopHammer(projectileEn);
     }
@@ -298,7 +298,7 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
     if (source != undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
-    if (projectileEn && isThrowHammer(projectileEn)) {
+    if (projectileEn != undefined && isThrowHammer(projectileEn)) {
         waveWardenHammer(source, projectileEn);
         stopHammer(projectileEn);
     }

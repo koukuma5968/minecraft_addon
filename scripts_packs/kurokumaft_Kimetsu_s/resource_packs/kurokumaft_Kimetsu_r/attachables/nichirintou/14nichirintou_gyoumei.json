@@ -16,14 +16,16 @@
         },
         "scripts": {
           "animate": [
-            {"first": "c.is_first_person"},
-            {"third": "!c.is_first_person"},
+            "scale",
+            "person",
             "gyoumei.kokyu_con"
           ]
         },
         "animations": {
-          "first": "animation.gyoumei_first",
-          "third": "animation.gyoumei_third",
+          "scale": "animation.nichirintou_scale",
+          "person": "controller.animation.nichirintou.person",
+          "first": "animation.nichirintou_first",
+          "third": "animation.nichirintou_third",
 
           "gyoumei.kokyu_con":"controller.animation.gyoumei.kokyu",
           "gyoumei.ichi_1": "animation.nichirintou_kokyu.gyoumei.ichi_1",
@@ -34,7 +36,6 @@
           "gyoumei.shi_2": "animation.nichirintou_kokyu.gyoumei.shi_2",
           "gyoumei.go_1": "animation.nichirintou_kokyu.gyoumei.go_1",
           "gyoumei.go_2": "animation.nichirintou_kokyu.gyoumei.go_2"
-  
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

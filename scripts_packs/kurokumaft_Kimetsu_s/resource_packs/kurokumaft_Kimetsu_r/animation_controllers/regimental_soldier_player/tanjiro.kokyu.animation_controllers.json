@@ -6,12 +6,12 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"equipment": "query.property('kurokumaft:nichirintou_type') == 2"}
+						{"equipment": "query.is_item_equipped('main_hand', 'kurokumaft:nichirintou_tanjiro')"}
 					]
 				},
 				"equipment": {
 					"transitions" : [
-						{"default": "query.property('kurokumaft:nichirintou_type') != 2"},
+						{"default": "!query.is_item_equipped('main_hand', 'kurokumaft:nichirintou_tanjiro')"},
 						{"mizu1_1": "query.property('kurokumaft:kokyu_kata') == 1 && query.property('kurokumaft:kokyu_use')"},
 						{"mizu2_1": "query.property('kurokumaft:kokyu_kata') == 2 && query.property('kurokumaft:kokyu_use')"},
 						{"mizu3_1": "query.property('kurokumaft:kokyu_kata') == 3 && query.property('kurokumaft:kokyu_use')"},

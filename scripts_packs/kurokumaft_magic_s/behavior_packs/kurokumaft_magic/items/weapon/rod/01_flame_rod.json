@@ -2,7 +2,10 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:flame_rod"
+      "identifier": "kurokumaft:flame_rod",
+      "menu_category": {
+        "category": "equipment"
+      }
     },
     "components": {
       "minecraft:icon": {

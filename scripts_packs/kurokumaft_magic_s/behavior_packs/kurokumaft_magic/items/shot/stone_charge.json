@@ -1,13 +1,17 @@
 {
-  "format_version": "1.20.50",
+  "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:stone_charge",
-      "category": "Items"
+      "menu_category": {
+        "category": "items"
+      }
     },
     "components": {
       "minecraft:icon": {
-        "texture": "stone_charge"
+        "textures": {
+          "default": "stone_charge"
+        }
       },
       "minecraft:projectile": {
         "projectile_entity": "kurokumaft:stone_charge_projectile"

@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:blaze_stick",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.magic_stick"
+        "category": "equipment"
       }
     },
     "components": {

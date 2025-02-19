@@ -1,6 +1,5 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EntityComponentTypes, EntityVariantComponent } from "@minecraft/server";
-import { getRandomInRange } from "../../../common/commonUtil";
-import { shooting } from "../../../custom/ShooterMagicEvent";
+import { shooting } from "../../../common/ShooterEvent";
 
 /**
  * 血気術
@@ -15,7 +14,7 @@ export class KekkizyutuHakaisatu implements ItemCustomComponent {
         let variant = player.getComponent(EntityComponentTypes.Variant) as EntityVariantComponent;
 
         if (variant && variant.value == 2) {
-            shooting(player, "kurokumaft:kushiki", {x:0,y:0,z:0}, 6, undefined);
+            shooting(player, "kurokumaft:kushiki", 0, 6, undefined);
         }
 
     }

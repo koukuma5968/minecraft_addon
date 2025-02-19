@@ -1,7 +1,5 @@
-import { world,system,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Vector2, Vector3, Direction} from "@minecraft/server";
-
-const CraftBlocks = ["minecraft:crafting_table","minecraft:anvil","minecraft:smithing_table","minecraft:cartography_table","minecraft:loom","minecraft:barrel"
-                    ,"minecraft:smoker","minecraft:blast_furnace","minecraft:furnace","kurokumaft:magic_lectern"];
+import { world,Player,Entity,Vector2, Vector3, Direction, EntityQueryOptions, Block} from "@minecraft/server";
+import { HorizonVector2 } from "./HorizonVector2";
 
 // デバッグ用
 /**
@@ -39,59 +37,13 @@ function playsound(entity:Entity, sound:String) {
     entity.runCommandAsync(commandText);
 };
 
-// 耐久値減少
-/**
- * @param {Player} player
- * @param {ItemStack} item
- * @param {String} slotName
- * @param {EquipmentSlot} slot
- * @param {number} damage
- */
-function durabilityDamage(player:Player, item:ItemStack, slotName:String, slot:EquipmentSlot, damage:number) {
-    let dur = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-    let enc = item.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
-    let encs = null;
-    if (enc) {
-        encs = enc.getEnchantments();
-    }
-    let commandText =  "replaceitem entity @s " + slotName + " 0 " + item.typeId + " 1 " + (dur.damage + damage);
-    player.runCommand(commandText);
-
-    if (encs) {
-        let intervalNum = system.runInterval(() => {
-            let reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-            let reItem = reEqu.getEquipment(slot) as ItemStack ;
-            let reEnc = reItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
-            for (let i=0;i<encs.length;i++) {
-                reEnc.addEnchantment(encs[i]);
-            }
-        
-            reEqu.setEquipment(slot, reItem);
-        
-        }, 2);
-        system.runTimeout(() => {
-            system.clearRun(intervalNum);
-        }, 3);
-    }
-};
-
-// アイテム破壊
-/**
- * @param {Player} player
- * @param {String} slotName
- */
-function breakItem(player:Player, slotName:String) {
-    let commandText =  "replaceitem entity @s " + slotName + " 0 destroy air";
-    player.runCommand(commandText);
-};
-
 /**
  * 視線位置
  * @param {Vector2} rotation
  * @param {Vector3} location
  * @param {number} point
  */
-function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
+function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector3 {
     let piNum = 90;
     let xlocation;
     let ylocation;
@@ -120,19 +72,19 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
     // 北～東
     } else if (rotation.y >= 0 && rotation.y <= 90) {
 
-        let yRotax = rotation.y / piNum;
+        let yRotax = -rotation.y / piNum;
         let yRotaz = -(rotation.y - 90) / piNum;
         let yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }
@@ -160,25 +112,56 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) {
 
     // 東～南
     } else if (rotation.y > 90 && rotation.y <= 180) {
-        let yRotax = -(rotation.y - 180) / piNum;
+        let yRotax = (rotation.y - 180) / piNum;
         let yRotaz = -(rotation.y - 90) / piNum;
         let yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x - (yRotax * xRota) * point;
+            xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }
 
     }
-    return { xlocation, ylocation, zlocation };
+    return { x:xlocation!, y:ylocation!, z:zlocation! };
+}
+
+/**
+ * 視線方向
+ * @param {Vector2} rotation
+ * @param {number} point
+ * @param {number} side
+ */
+function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : HorizonVector2 {
+    let piNum = 90;
+    let rotax;
+    let rotaz;
+
+    // 西～北
+    if (rotation.y >= -90 && rotation.y < 0) {
+        rotax = (-rotation.y / piNum) * point + (side * ((rotation.y + 90) / piNum));
+        rotaz = ((rotation.y + 90) / piNum) * point + (side * (-rotation.y / piNum));
+    // 北～東
+    } else if (rotation.y >= 0 && rotation.y <= 90) {
+        rotax = (-rotation.y / piNum) * point + (side * (-(rotation.y + 90) / piNum));
+        rotaz = (-(rotation.y - 90) / piNum) * point + (side * (-rotation.y / piNum));
+    // 西～南
+    } else if (rotation.y < -90 && rotation.y > -180) {
+        rotax = ((rotation.y + 180) / piNum) * point + (side * ((rotation.y + 90) / piNum));
+        rotaz = ((rotation.y + 90) / piNum) * point + (side * ((rotation.y + 180) / piNum));
+    // 東～南
+    } else if (rotation.y > 90 && rotation.y <= 180) {
+        rotax = ((rotation.y - 180) / piNum) * point + (side * (-(rotation.y - 90) / piNum));
+        rotaz = (-(rotation.y - 90) / piNum) * point + (side * ((rotation.y - 180) / piNum));
+    }
+    return { x:rotax!, z:rotaz! };
 }
 
 function normalizeVector(v: Vector3): Vector3 {
@@ -197,6 +180,55 @@ function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
         z: targetEn.z - thisEn.z
     };
     return normalizeVector(direction);
+}
+
+function addTeamsTagFilter(player:Player, filterOption:EntityQueryOptions) {
+
+    if (filterOption.excludeFamilies == undefined) {
+        filterOption.excludeFamilies = ["inanimate", "magic", "arrow"];
+    } else {
+        filterOption.excludeFamilies.push("inanimate", "magic", "arrow");
+    }
+    if (!world.gameRules.pvp) {
+        filterOption.excludeFamilies.push("player");
+    }
+
+    if (filterOption.excludeTypes == undefined) {
+        filterOption.excludeTypes = ["item"];
+    } else {
+        filterOption.excludeTypes.push("item");
+    }
+
+    if (filterOption.excludeTags == undefined) {
+        filterOption.excludeTags = ["main_shield_guard", "off_shield_guard"];
+    } else {
+        filterOption.excludeTags.push("main_shield_guard", "off_shield_guard");
+    }
+    let tags = player.getTags();
+    if (tags != undefined && tags.length > 0) {
+        for (let index in tags) {
+            if (tags[index].indexOf("team") != -1) {
+                filterOption.excludeTags.push(tags[index]);
+            }
+        }
+    }
+
+};
+
+// 岩盤破壊キャンセル
+export function explodeBedrock(impactBLockList:Block[]): Block[] | undefined {
+    try {
+        let filterBlockList = impactBLockList.filter(block => {
+            if (block.location.y >= -64) {
+                if (!block.matches("minecraft:bedrock")) {
+                    return block;
+                }
+            }
+        });
+        return filterBlockList;
+    } catch (error) {
+    }
+
 }
 
 const BlockLocationList = Object.freeze([
@@ -227,4 +259,4 @@ const BlockLocationList = Object.freeze([
 
 ]);
 
-export { print, clamp, getRandomInRange, playsound, durabilityDamage, breakItem, getLookPoints, getDirectionVector, CraftBlocks, BlockLocationList };
+export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, getDirectionVector, addTeamsTagFilter, BlockLocationList };
