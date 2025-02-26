@@ -19,14 +19,14 @@ const ScytheObjects = Object.freeze([
         damage: 1
     },
     {
-        itemName: "kurokumaft:stone_sickle",
-        changeItem: "kurokumaft:stone_scythe",
+        itemName: "kurokumaft:stone_scythe",
+        changeItem: "kurokumaft:stone_sickle",
         throwEntity: "kurokumaft:roar_scythe<kurokumaft:stone_scythe_roar>",
         damage: 2
     },
     {
-        itemName: "kurokumaft:iron_sickle",
-        changeItem: "kurokumaft:iron_scythe",
+        itemName: "kurokumaft:iron_scythe",
+        changeItem: "kurokumaft:iron_sickle",
         throwEntity: "kurokumaft:roar_scythe<kurokumaft:iron_scythe_roar>",
         damage: 3
     }
@@ -63,6 +63,6 @@ export class Scythe implements ItemCustomComponent {
 }
 
 async function roarScythe(player: Player, scytheItem: ScytheObject) {
-    shooting(player, scytheItem.throwEntity, 0, 1, undefined);
+    let roar = player.dimension.spawnEntity(scytheItem.throwEntity, player.getHeadLocation());
     player.runCommandAsync("/titleraw @s actionbar {\"rawtext\": [{\"translate\": \"mess.kurokumaft:roar_scythe.shot\"}]}");
 }

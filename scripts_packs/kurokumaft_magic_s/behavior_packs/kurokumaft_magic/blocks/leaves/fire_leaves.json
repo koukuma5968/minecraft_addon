@@ -16,6 +16,22 @@
 			},
 			"minecraft:loot": "loot_tables/blocks/leaves/fire_leaves.json",
 			"minecraft:geometry": "geometry.fire_leaves",
+			"minecraft:material_instances": {
+				"right" : {
+					"texture": "fire_leaves_right",
+					"render_method": "alpha_test"
+				},
+				"left" : {
+					"texture": "fire_leaves_left",
+					"render_method": "alpha_test"
+				},
+				"up" : "right",
+				"down" : "right",
+				"east" : "right",
+				"north" : "right",
+				"west" : "left",
+				"south" : "left"
+			},
 			"minecraft:light_dampening": 0
 		}
 	}

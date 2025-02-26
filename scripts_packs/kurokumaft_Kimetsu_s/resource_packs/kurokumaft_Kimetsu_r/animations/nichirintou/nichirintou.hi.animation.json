@@ -1,0 +1,226 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nichirintou.hi.go_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [-32.5, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.go_2_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-40, 0, 0],
+						"0.0833": [95, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -4, 0]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.ichi_1_first": {
+			"loop": "hold_on_last_frame"
+		},
+		"animation.nichirintou.hi.ni_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-11.22726, -119.16896, 40.14134],
+						"0.1667": [93.77274, -119.16896, 40.14134]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou.hi.san_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, 35, 0],
+						"0.2083": [-85, 7.61452, -180]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou.hi.san_2_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, -40, 0],
+						"0.1667": [85, -40, 0]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou.hi.shi_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, 35, 0],
+						"0.2083": [-85, 7.61452, -180]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou.hi.go_1_first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"nichirintou": {
+					"rotation": [70, 0, 0],
+					"position": [-2, -1, -3]
+				}
+			}
+		},
+		"animation.nichirintou.hi.go_2_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": [70, 0, 0],
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.125": [10, -14, -4]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.roku_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [31.76182, -87.50073, 20.87214],
+						"0.2083": [106.76182, -87.50073, 20.87214]
+					},
+					"position": {
+						"0.0": [1, 8, -13],
+						"0.2083": [-4, 0, 4]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.shiti_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [31.76182, -87.50073, 20.87214],
+						"0.2083": [106.76182, -87.50073, 20.87214]
+					},
+					"position": {
+						"0.0": [1, 8, -13],
+						"0.2083": [-4, 0, 4]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.hachi_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, 35, 0],
+						"0.2083": [-85, 7.61452, -180]
+					},
+					"position": [0, 0, 0]
+				},
+				"tanjiro_blade": {
+					"position": [0, 0, 8],
+					"scale": [1, 1, 1.7]
+				}
+			}
+		},
+		"animation.nichirintou.hi.ku_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-11.22726, -119.16896, 40.14134],
+						"0.1667": [93.77274, -119.16896, 40.14134]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou.hi.tou_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [110, -7.5, 0]
+					},
+					"position": {
+						"0.0": [-2, -2, -3],
+						"0.2083": [0, -1, -3]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.zyuichi_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [15.4874, -27.53759, -44.29501],
+						"0.2083": [127.85119, -17.76565, 84.04672]
+					},
+					"position": {
+						"0.0": [1, 8, -13],
+						"0.2083": [-4, 0, 4]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.zyuni_1_first": {
+			"animation_length": 0.2083,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-67.62873, -5.1541, -35.561],
+						"0.2083": [37.37127, -5.1541, -35.561]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.zyuni_2_first": {
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-55.42741, -137.69522, -228.43169],
+						"0.1667": [27.07259, -137.69522, -228.43169]
+					}
+				}
+			}
+		}
+	}
+}

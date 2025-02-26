@@ -18,22 +18,22 @@ async function checkPlayerKimetuEquTick() {
             let object = KokyuObjects.find(ob => ob.itemName == mainHand.typeId) as KokyuObject;
             // 日輪刀を持っている
             if (object != undefined) {
-                if (player.getDynamicProperty("kurokumaft:nichirintou_type") != object.type) {
-                    player.setDynamicProperty("kurokumaft:nichirintou_type", object.type);
+                if (player.getProperty("kurokumaft:nichirintou_type") != object.type) {
+                    player.setProperty("kurokumaft:nichirintou_type", object.type);
                     if (object.kata != undefined) {
-                        player.setDynamicProperty("kurokumaft:kokyu_kata", object.kata[0]);
-                        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + object.kata_msg + "1.name\"}]}");
+                        player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
+                        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + object.kata_msg + "1.value\"}]}");
                     }
                 }
             // 日輪刀を持っていない
             } else {
-                player.setDynamicProperty("kurokumaft:nichirintou_type", 0);
-                player.setDynamicProperty("kurokumaft:kokyu_kata", 0);
+                player.setProperty("kurokumaft:nichirintou_type", 0);
+                player.setProperty("kurokumaft:kokyu_kata", 0);
             }
         } else {
-            if (player.getDynamicProperty("kurokumaft:nichirintou_type") != 0) {
-                player.setDynamicProperty("kurokumaft:nichirintou_type", 0);
-                player.setDynamicProperty("kurokumaft:kokyu_kata", 0);
+            if (player.getProperty("kurokumaft:nichirintou_type") != 0) {
+                player.setProperty("kurokumaft:nichirintou_type", 0);
+                player.setProperty("kurokumaft:kokyu_kata", 0);
             }
         }
     }

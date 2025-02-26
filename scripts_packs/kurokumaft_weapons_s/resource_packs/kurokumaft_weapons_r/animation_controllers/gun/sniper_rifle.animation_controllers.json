@@ -20,7 +20,7 @@
 							"default": "!c.is_first_person"
 						},
 						{
-							"shot_first_person": "query.variant == 1"
+							"shot_first_person": "query.main_hand_item_use_duration > 0.0f"
 						}
 					]
 				},
@@ -31,7 +31,7 @@
 							"default": "!c.is_first_person"
 						},
 						{
-							"hold_first_person": "query.variant == 0"
+							"hold_first_person": "query.main_hand_item_use_duration == 0.0f"
 						}
 					]
 				},
@@ -42,7 +42,7 @@
 							"default": "c.is_first_person"
 						},
 						{
-							"shot_therd_person": "query.variant == 1"
+							"shot_therd_person": "query.main_hand_item_use_duration > 0.0f"
 						}
 					]
 				},
@@ -53,7 +53,7 @@
 							"default": "c.is_first_person"
 						},
 						{
-							"hold_therd_person": "query.variant == 0"
+							"hold_therd_person": "query.main_hand_item_use_duration == 0.0f"
 						}
 					]
 				}

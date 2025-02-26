@@ -4,8 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:lightning_log",
 			"menu_category": {
-				"category": "nature",
-				"group": "itemGroup.name.log"
+				"category": "nature"
             },
 			"traits": {
 				"minecraft:placement_position": {

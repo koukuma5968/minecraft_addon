@@ -29,12 +29,6 @@
           "catch_fire": {
             "fire_affected_by_griefing": true
           },
-          "particle_on_hit": {
-            "particle_type": "kurokumaft:lightning_particle",
-            "num_particle": 6,
-            "on_entity_hit": true,
-            "on_other_hit": true
-          },
           "remove_on_hit": { }
        },
        "power": 2,

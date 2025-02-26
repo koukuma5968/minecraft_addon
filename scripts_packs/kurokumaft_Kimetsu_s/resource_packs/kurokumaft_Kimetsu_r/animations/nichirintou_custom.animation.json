@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nichirintou_custom.first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"nichirintou_hold_left": {
+					"rotation": [55.16243, 19.20748, 29.83757],
+					"position": [-5, 7, -16]
+				},
+				"nichirintou_hold_right": {
+					"rotation": [14.93001, 68.69274, -44.97092],
+					"position": [2, 2, -1]
+				}
+			}
+		}
+	}
+}

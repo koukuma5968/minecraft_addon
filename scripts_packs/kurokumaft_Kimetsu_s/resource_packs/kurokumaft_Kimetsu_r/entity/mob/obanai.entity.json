@@ -7,12 +7,10 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/obanai",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
+        "default": "textures/kurokumaft/models/mob/obanai"
       },
       "geometry": {
-        "default": "geometry.obanai",
-        "nichirintou_obanai": "geometry.nichirintou_obanai"
+        "default": "geometry.obanai"
       },
       "scripts": {
         "scaleX": "0.96",
@@ -76,8 +74,7 @@
 
       },
       "render_controllers": [
-        "controller.render.soldier.obanai",
-        {"controller.render.nichirintou_obanai": "variable.equipped_nichirintou"}
+        "controller.render.soldier.obanai"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

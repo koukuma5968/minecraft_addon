@@ -1,18 +1,18 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "MagicKuroBv4.0",
-		"description": "魔法アドオンBv4.0\n魔法の武器/防具が追加されるアドオン ビヘイビアーパック",
+		"name": "MagicKuroBv4.2",
+		"description": "魔法アドオンBv4.2\n魔法の武器/防具が追加されるアドオン ビヘイビアーパック",
 		"uuid": "cb00a6d3-381e-470a-87ea-5876cbf7ab09",
-		"version": [4,0,0],
+		"version": [4,0,2],
 		"min_engine_version": [1,21,10]
 	},
 	"modules": [
 		{
-			"description": "魔法アドオンBv4.0",
+			"description": "魔法アドオンBv4.2",
 			"type": "data",
 			"uuid": "b69567a1-4526-458f-a255-e7dda1a488fd",
-			"version": [4,0,0]
+			"version": [4,0,2]
 		},
 		{
 			"description": "魔法アドオンscripting",
@@ -26,7 +26,7 @@
 	"dependencies": [
 		{
 			"uuid": "f93bea78-77fd-4ce9-8a18-6eb10a2bd5bd",
-			"version": [4,0,0]
+			"version": [4,0,2]
 		},
 		{
 			"module_name": "@minecraft/server-ui",
@@ -34,7 +34,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.16.0"
+			"version": "1.17.0"
 		}
 	]
 }

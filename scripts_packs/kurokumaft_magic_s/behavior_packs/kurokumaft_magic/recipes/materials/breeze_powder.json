@@ -4,13 +4,13 @@
     "description": {
     "identifier": "kurokumaft:breeze_powder"
     },
-    "tags": [ "crafting_table" ],
+    "tags": [ "magic_enchant" ],
     "ingredients": [
       {
         "item": "minecraft:breeze_rod"
       }
     ],
-	"unlock": [
+  	"unlock": [
       {
         "item": "minecraft:breeze_rod"
       }

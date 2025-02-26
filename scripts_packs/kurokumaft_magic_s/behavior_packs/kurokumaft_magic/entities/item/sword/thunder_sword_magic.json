@@ -27,12 +27,6 @@
            "destroy_on_hit": true,
            "semi_random_diff_damage": false
          },
-         "particle_on_hit": {
-          "particle_type": "kurokumaft:lightning_particle",
-          "num_particle": 6,
-          "on_entity_hit": true,
-          "on_other_hit": true
-          },
          "remove_on_hit": { }
        },
        "hit_sound": "lightning",

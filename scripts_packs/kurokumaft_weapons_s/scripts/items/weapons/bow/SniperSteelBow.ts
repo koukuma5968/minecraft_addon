@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, system, TicksPerSecond } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, system, TicksPerSecond, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot } from "@minecraft/server";
 import { clearScope, middleScope } from "../../../common/WeaponsSniperScope";
 
 /**
@@ -26,8 +26,13 @@ async function shotSniperBow(player: Player, item: ItemStack) {
         } else {
             clearScope(player);
         }
+        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        let main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        if (main == undefined || main.typeId != item.typeId) {
+            clearScope(player);
+            system.clearRun(intervalNum);
+        }
     }, 1);
-    player.setDynamicProperty("SniperSteelBowShotIntervalNum", intervalNum);
 }
 
 /**
@@ -35,12 +40,9 @@ async function shotSniperBow(player: Player, item: ItemStack) {
  * @param {Player} player
  */
 export async function stopSniperBow(player: Player) {
-    let num = player.getDynamicProperty("SniperSteelBowShotIntervalNum") as number;
-    system.clearRun(num);
     player.setDynamicProperty("SniperSteelBowShot", undefined);
-    player.setDynamicProperty("SniperSteelBowShotIntervalNum", undefined);
-    system.runTimeout(() => {
-        clearScope(player);
-    }, TicksPerSecond*1);
+    // system.runTimeout(() => {
+    //     clearScope(player);
+    // }, TicksPerSecond*1);
 }
 

@@ -4,7 +4,7 @@
     "description": {
     "identifier": "kurokumaft:blizzas_powder"
     },
-    "tags": [ "crafting_table" ],
+    "tags": [ "magic_enchant" ],
     "ingredients": [
       {
         "item": "kurokumaft:blizzas_rod"

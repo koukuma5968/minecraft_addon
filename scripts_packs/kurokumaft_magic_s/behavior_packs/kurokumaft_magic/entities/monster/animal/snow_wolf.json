@@ -36,7 +36,7 @@
       "minecraft:nameable": {
       },
       "minecraft:type_family": {
-        "family": [ "snow_wolf", "mob", "magic_animal" ]
+        "family": [ "snow_wolf", "mob", "magic_animal", "monster" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -72,12 +72,11 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
+              "all_of": [
                 { "test": "is_family", "subject": "other", "value": "monster" },
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "familiar" },
-                { "test": "is_family", "subject": "other", "value": "snowgolem" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" }
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "snow_wolf" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "fire_chicken" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "flame_porcupine" }
               ]
             },
             "max_dist": 16,
@@ -86,11 +85,11 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" }
               ]
             },
-            "max_dist": 8,
+            "max_dist": 16,
             "must_see": true
           },
           {

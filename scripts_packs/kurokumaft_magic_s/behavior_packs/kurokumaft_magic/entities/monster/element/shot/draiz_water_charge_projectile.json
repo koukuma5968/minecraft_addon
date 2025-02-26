@@ -42,12 +42,6 @@
               "event": "minecraft:explod",
               "target": "self"
             }
-          },
-          "particle_on_hit": {
-            "particle_type": "kurokumaft:draiz_water_burst",
-            "num_particle": 1,
-            "on_entity_hit": true,
-            "on_other_hit": true
           }
         },
         "power": 0.7,

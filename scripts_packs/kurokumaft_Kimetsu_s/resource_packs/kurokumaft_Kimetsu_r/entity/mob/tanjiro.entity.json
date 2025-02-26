@@ -7,12 +7,10 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/tanjiro",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
+        "default": "textures/kurokumaft/models/mob/tanjiro"
       },
       "geometry": {
-        "default": "geometry.tanjiro",
-        "nichirintou_tanjiro": "geometry.nichirintou_tanjiro"
+        "default": "geometry.tanjiro"
       },
       "particle_effects": {
         "hi_blead_particle": "kurokumaft:hi_blead_particle",
@@ -23,8 +21,7 @@
       "scripts": {
         "scale": "0.9375",
         "pre_animation": [
-          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
-          "variable.equipped_nichirintou = query.skin_id == 1;"
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
         ],
         "animate": [
           "look_at_target",
@@ -111,8 +108,7 @@
 
       },
       "render_controllers": [
-        "controller.render.soldier.tanjiro",
-        {"controller.render.nichirintou_tanjiro": "variable.equipped_nichirintou"}
+        "controller.render.soldier.tanjiro"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

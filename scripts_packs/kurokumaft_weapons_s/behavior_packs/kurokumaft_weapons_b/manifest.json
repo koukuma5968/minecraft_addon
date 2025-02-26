@@ -1,18 +1,18 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "WeaKuroBv3.8",
-		"description": "武器アドオンBv3.8\n色々な武器や防具を追加するアドオン ビヘイビアーパック",
+		"name": "WeaKuroBv3.9",
+		"description": "武器アドオンBv3.9\n色々な武器や防具を追加するアドオン ビヘイビアーパック",
 		"uuid": "b539920e-87a3-46a2-9da4-25d9d7c0a074",
-		"version": [3, 0, 8],
+		"version": [3, 0, 9],
 		"min_engine_version": [1, 21, 10]
 	},
 	"modules": [
 		{
-			"description": "武器アドオンBv3.8",
+			"description": "武器アドオンBv3.9",
 			"type": "data",
 			"uuid": "750a5261-b7e3-4daa-99f5-d6ec017ff76e",
-			"version": [3, 0, 8]
+			"version": [3, 0, 9]
 		},
 		{
 			"description": "武器アドオンscripting",
@@ -26,7 +26,7 @@
 	"dependencies": [
 		{
 			"uuid": "73c6da0a-0ae1-4d2e-8b75-000428e43aae",
-			"version": [3, 0, 8]
+			"version": [3, 0, 9]
 		},
 		{
 			"module_name": "@minecraft/server-ui",

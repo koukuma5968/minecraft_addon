@@ -10,7 +10,7 @@
         "item": "kurokumaft:graiz_powder"
       },
       {
-        "item": "minecraft:glowstone_dust"
+        "item": "minecraft:coarse_dirt"
       },
       {
         "item": "minecraft:gunpowder"
@@ -23,7 +23,7 @@
     ],
     "result": {
       "item": "kurokumaft:stone_charge",
-      "count": 4
+      "count": 3
     }
   }
 }

@@ -38,7 +38,14 @@ export async function waveWardenHammer(attackEntity:Entity, hammer: Entity) {
     hammer.dimension.spawnParticle("kurokumaft:warden_shock", hammer.location); 
 
     let hitEntitys = hammer.dimension.getEntities({
-        tags: [
+        excludeFamilies: [
+            "inanimate",
+            "player",
+        ],
+        excludeTypes: [
+            "item"
+        ],
+        excludeTags: [
             "throwHammer"
         ],
         location: hammer.location,

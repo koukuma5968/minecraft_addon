@@ -45,7 +45,6 @@
         "inertia": 1,
         "liquid_inertia": 1,
         "anchor": 2,
-        "particle": "kurokumaft:ice_charge",
         "offset": [ 0, 0.5, 0 ],
         "semi_random_diff_damage": true,
         "uncertainty_base": 10.0,

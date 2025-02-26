@@ -14,7 +14,7 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:type_family": {
-        "family": [ "thunder_bat", "mob", "magic_animal" ]
+        "family": [ "thunder_bat", "mob", "magic_animal", "monster" ]
       },
       "minecraft:loot": {
         "table": "loot_tables/entities/animal/thunder_bat.json"
@@ -54,12 +54,11 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
+              "all_of": [
                 { "test": "is_family", "subject": "other", "value": "monster" },
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "familiar" },
-                { "test": "is_family", "subject": "other", "value": "snowgolem" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" }
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "thunder_bat" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "stone_armadillo" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "earth_rhino" }
               ]
             },
             "max_dist": 16,
@@ -68,11 +67,11 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" }
               ]
             },
-            "max_dist": 12,
+            "max_dist": 16,
             "must_see": true
           },
           {

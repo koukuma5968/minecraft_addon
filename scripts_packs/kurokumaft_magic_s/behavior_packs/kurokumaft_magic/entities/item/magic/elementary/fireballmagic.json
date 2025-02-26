@@ -20,13 +20,12 @@
             "damage": 5,
             "knockback": false,
             "catch_fire": false,
-            "destroy_on_hit": true,
+            "destroy_on_hit": false,
             "semi_random_diff_damage": false
           },
           "catch_fire": {
            "fire_affected_by_griefing": true
-         },
-         "remove_on_hit": { }
+         }
        },
        "hit_sound": "fire",
        "power": 2.5,

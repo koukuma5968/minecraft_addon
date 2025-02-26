@@ -1,5 +1,5 @@
 // scripts/magic_script.ts
-import { world as world38, system as system42, TicksPerSecond as TicksPerSecond53, ScriptEventSource } from "@minecraft/server";
+import { world as world38, system as system42, TicksPerSecond as TicksPerSecond53, ScriptEventSource, EntityInitializationCause } from "@minecraft/server";
 
 // scripts/items/weapon/shield/MagicShieldEvent.ts
 import { system, Player as Player3, EntityComponentTypes as EntityComponentTypes2, EquipmentSlot as EquipmentSlot2 } from "@minecraft/server";
@@ -4032,7 +4032,7 @@ var WandProjectileObjects = Object.freeze([
 function checkWandProjectile(projectileName) {
   return WandProjectileObjects.some((obj) => obj.itemName == projectileName);
 }
-function hitProjectileEvent(projectile) {
+function hitWandProjectileEvent(projectile) {
   let proje = WandProjectileObjects.find((obj) => obj.itemName == projectile.typeId);
   try {
     proje.func(projectile);
@@ -11459,7 +11459,7 @@ world38.afterEvents.projectileHitEntity.subscribe((event) => {
   }
   if (projectileEn != void 0) {
     if (checkWandProjectile(projectileEn.typeId)) {
-      hitProjectileEvent(projectileEn);
+      hitWandProjectileEvent(projectileEn);
     }
     if (checkArrowProjectile(projectileEn.typeId)) {
       hitArrowEvent(projectileEn, hitEn);
@@ -11478,7 +11478,7 @@ world38.afterEvents.projectileHitBlock.subscribe((event) => {
   let dameger = event.source;
   if (projectileEn != void 0) {
     if (checkWandProjectile(projectileEn.typeId)) {
-      hitProjectileEvent(projectileEn);
+      hitWandProjectileEvent(projectileEn);
     }
     if (checkShellProjectile(projectileEn.typeId)) {
       hitShellEvent(projectileEn, dameger);
@@ -11552,6 +11552,17 @@ world38.afterEvents.entityLoad.subscribe((event) => {
 world38.afterEvents.entitySpawn.subscribe((event) => {
   let entity = event.entity;
   let cause = event.cause;
+  if (cause == EntityInitializationCause.Spawned && entity.typeId == "kurokumaft:dolphin_ultrasonic") {
+    world38.playSound("mob.dolphin.death", entity.location, {
+      pitch: 1,
+      volume: 2
+    });
+  } else if (cause == EntityInitializationCause.Spawned && entity.typeId == "kurokumaft:bat_ultrasonic") {
+    world38.playSound("mob.bat.death", entity.location, {
+      pitch: 1,
+      volume: 2
+    });
+  }
 });
 world38.afterEvents.buttonPush.subscribe((event) => {
   let entity = event.source;

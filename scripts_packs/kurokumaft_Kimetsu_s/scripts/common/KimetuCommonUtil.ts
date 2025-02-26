@@ -1,5 +1,4 @@
-import { world,Player,Entity,Vector2, Vector3, Direction, EntityQueryOptions, Block} from "@minecraft/server";
-import { HorizonVector2 } from "./HorizonVector2";
+import { world,Player,Entity,Vector2, Vector3, Direction, EntityQueryOptions, Block, VectorXZ} from "@minecraft/server";
 
 // デバッグ用
 /**
@@ -139,7 +138,7 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
  * @param {number} point
  * @param {number} side
  */
-function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : HorizonVector2 {
+function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : VectorXZ {
     let piNum = 90;
     let rotax;
     let rotaz;
@@ -182,36 +181,34 @@ function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
     return normalizeVector(direction);
 }
 
-function addTeamsTagFilter(player:Player, filterOption:EntityQueryOptions) {
+function addRegimentalFilter(closest:number, location:Vector3, maxDis:number): EntityQueryOptions {
 
-    if (filterOption.excludeFamilies == undefined) {
-        filterOption.excludeFamilies = ["inanimate", "magic", "arrow"];
-    } else {
-        filterOption.excludeFamilies.push("inanimate", "magic", "arrow");
-    }
-    if (!world.gameRules.pvp) {
-        filterOption.excludeFamilies.push("player");
-    }
-
-    if (filterOption.excludeTypes == undefined) {
-        filterOption.excludeTypes = ["item"];
-    } else {
-        filterOption.excludeTypes.push("item");
-    }
-
-    if (filterOption.excludeTags == undefined) {
-        filterOption.excludeTags = ["main_shield_guard", "off_shield_guard"];
-    } else {
-        filterOption.excludeTags.push("main_shield_guard", "off_shield_guard");
-    }
-    let tags = player.getTags();
-    if (tags != undefined && tags.length > 0) {
-        for (let index in tags) {
-            if (tags[index].indexOf("team") != -1) {
-                filterOption.excludeTags.push(tags[index]);
+    let filterOption = {
+        excludeFamilies: [
+            "inanimate", "regimental_soldier", "villager", "animal"
+        ],
+        excludeTypes: [
+            "item"
+        ],
+        propertyOption: [
+            {
+                propertyId : "kurokumaft:kokyu_use",
+                exclude: true,
+                value: false
             }
-        }
+        ],
+        location: location,
+        maxDistance: maxDis
+    } as EntityQueryOptions;
+
+    if (!world.gameRules.pvp) {
+        filterOption.excludeFamilies?.push("player");
     }
+    if (closest != 0) {
+        filterOption.closest = closest;
+    }
+
+    return filterOption;
 
 };
 
@@ -259,4 +256,21 @@ const BlockLocationList = Object.freeze([
 
 ]);
 
-export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, getDirectionVector, addTeamsTagFilter, BlockLocationList };
+const weightChoice = (list: any[]) => {
+    const totalWeight = list.reduce((p, c) => {
+        return { weight: p.weight + c.weight }
+    }).weight
+
+    return {
+        pick () {
+        const r = Math.random() * totalWeight;
+        let s = 0.0;
+        for (const l of list) {
+            s += l.weight
+            if (r < s) { return l.item }
+        }
+        }
+    }
+};
+
+export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, getDirectionVector, addRegimentalFilter, BlockLocationList, weightChoice };

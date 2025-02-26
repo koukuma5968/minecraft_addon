@@ -10,7 +10,6 @@
         "girl_1": "textures/kurokumaft/models/mob/regimental/girl_1",
         "girl_2": "textures/kurokumaft/models/mob/regimental/girl_2",
         "girl_3": "textures/kurokumaft/models/mob/regimental/girl_3",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
 
         "mizu10_dragon": "textures/kurokumaft/models/mizu10_dragon",
         "hi_dragon": "textures/kurokumaft/models/hi_dragon"
@@ -20,16 +19,6 @@
         "girl_1": "geometry.girl_1",
         "girl_2": "geometry.girl_2",
         "girl_3": "geometry.girl_3",
-
-        "nichirintou_mizu": "geometry.nichirintou_mizu",
-        "nichirintou_kaminari": "geometry.nichirintou_kaminari",
-        "nichirintou_hono": "geometry.nichirintou_hono",
-        "nichirintou_mushi": "geometry.nichirintou_mushi",
-        "nichirintou_hana": "geometry.nichirintou_hana",
-        "nichirintou_koi": "geometry.nichirintou_koi",
-        "nichirintou_oto": "geometry.nichirintou_oto",
-        "nichirintou_kaze": "geometry.nichirintou_kaze",
-        "nichirintou_hi": "geometry.nichirintou_hi",
 
         "mizu10_dragon": "geometry.mizu10_dragon",
         "hi_dragon": "geometry.hi_dragon"
@@ -351,15 +340,6 @@
       },
       "render_controllers": [
         "controller.render.soldier.regimental_girl",
-        {"controller.render.nichirintou_mizu": "variable.equipped_mizu"},
-        {"controller.render.nichirintou_hi": "variable.equipped_hi"},
-        {"controller.render.nichirintou_kaminari": "variable.equipped_kaminari"},
-        {"controller.render.nichirintou_hono": "variable.equipped_hono"},
-        {"controller.render.nichirintou_mushi": "variable.equipped_mushi"},
-        {"controller.render.nichirintou_oto": "variable.equipped_oto"},
-        {"controller.render.nichirintou_hana": "variable.equipped_hana"},
-        {"controller.render.nichirintou_koi": "variable.equipped_koi"},
-        {"controller.render.nichirintou_kaze": "variable.equipped_kaze"},
 
         {"controller.render.hi_dragon": "(variable.equipped_hi) && query.variant == 16 && query.mark_variant == 2"},
         {"controller.render.mizu10_dragon": "(variable.equipped_mizu) && query.variant == 10 && query.mark_variant == 2"}

@@ -10,11 +10,11 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": 20,
+				"spawn_rate": 50,
 				"max_particles": 60
 			},
 			"minecraft:emitter_lifetime_once": {
-				"active_time": 0.5
+				"active_time": 0.1
 			},
 			"minecraft:emitter_shape_box": {
 				"offset": [0, 0.25, 0],
@@ -27,7 +27,7 @@
 			"minecraft:particle_initial_speed": 0,
 			"minecraft:particle_motion_dynamic": {},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.2, 0.2],
+				"size": [0.2, 0.1],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 128,

@@ -13,7 +13,7 @@
 
     "components": {
       "minecraft:type_family": {
-        "family": [ "earth_rhino", "mob", "magic_animal" ]
+        "family": [ "earth_rhino", "mob", "magic_animal", "monster" ]
       },
       "minecraft:collision_box": {
         "width": 1.4,
@@ -53,12 +53,11 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
+              "all_of": [
                 { "test": "is_family", "subject": "other", "value": "monster" },
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "familiar" },
-                { "test": "is_family", "subject": "other", "value": "snowgolem" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" }
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "earth_rhino" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "breeze_fish" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "wind_dolphin" }
               ]
             },
             "max_dist": 16,
@@ -67,8 +66,8 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" }
               ]
             },
             "max_dist": 16,

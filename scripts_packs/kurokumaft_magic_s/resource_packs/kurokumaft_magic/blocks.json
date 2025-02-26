@@ -1,15 +1,5 @@
 {
-    "format_version": "1.21.60",
-    "kurokumaft:magic_enchant_table" : {
-        "textures" : {
-            "down" : "magic_enchant_table_bottom",
-            "east" : "magic_enchant_table_east",
-            "north" : "magic_enchant_table_north",
-            "south" : "magic_enchant_table_south",
-            "up" : "magic_enchant_table_top",
-            "west" : "magic_enchant_table_west"
-        }
-    },
+    "format_version": "1.21.40",
     "kurokumaft:waterwall_block" : {
         "textures" : {
             "down" : "waterwall_block",
@@ -29,13 +19,6 @@
             "down" : "windwall_block",
             "side" : "windwall_block",
             "up" : "windwall_block"
-        }
-    },
-    "kurokumaft:magma_portal_gate": {
-        "textures" : {
-            "down" : "magma_portal_gate",
-            "side" : "magma_portal_gate",
-            "up" : "magma_portal_gate"
         }
     },
     "kurokumaft:aqua_froglight": {
@@ -106,67 +89,6 @@
             "down" : "fenrir_summon_top",
             "side" : "fenrir_summon_side",
             "up" : "fenrir_summon_top"
-        }
-    },
-
-    "kurokumaft:fire_leaves": {
-        "textures" : {
-            "up" : "fire_leaves_right",
-            "down" : "fire_leaves_left",
-            "east" : "fire_leaves_right",
-            "west" : "fire_leaves_left",
-            "north" : "fire_leaves_right",
-            "south" : "fire_leaves_left"
-        }
-    },
-    "kurokumaft:water_leaves": {
-        "textures" : {
-            "up" : "water_leaves_right",
-            "down" : "water_leaves_left",
-            "east" : "water_leaves_right",
-            "west" : "water_leaves_left",
-            "north" : "water_leaves_right",
-            "south" : "water_leaves_left"
-        }
-    },
-    "kurokumaft:wind_leaves": {
-        "textures" : {
-            "up" : "wind_leaves_right",
-            "down" : "wind_leaves_left",
-            "east" : "wind_leaves_right",
-            "west" : "wind_leaves_left",
-            "north" : "wind_leaves_right",
-            "south" : "wind_leaves_left"
-        }
-    },
-    "kurokumaft:stone_leaves": {
-        "textures" : {
-            "up" : "stone_leaves_right",
-            "down" : "stone_leaves_left",
-            "east" : "stone_leaves_right",
-            "west" : "stone_leaves_left",
-            "north" : "stone_leaves_right",
-            "south" : "stone_leaves_left"
-        }
-    },
-    "kurokumaft:lightning_leaves": {
-        "textures" : {
-            "up" : "lightning_leaves_right",
-            "down" : "lightning_leaves_left",
-            "east" : "lightning_leaves_right",
-            "west" : "lightning_leaves_left",
-            "north" : "lightning_leaves_right",
-            "south" : "lightning_leaves_left"
-        }
-    },
-    "kurokumaft:ice_leaves": {
-        "textures" : {
-            "up" : "ice_leaves_right",
-            "down" : "ice_leaves_left",
-            "east" : "ice_leaves_right",
-            "west" : "ice_leaves_left",
-            "north" : "ice_leaves_right",
-            "south" : "ice_leaves_left"
         }
     },
 

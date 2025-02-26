@@ -7,12 +7,10 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/zenitu",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
+        "default": "textures/kurokumaft/models/mob/zenitu"
       },
       "geometry": {
-        "default": "geometry.zenitu",
-        "nichirintou_zenitu": "geometry.nichirintou_zenitu"
+        "default": "geometry.zenitu"
       },
       "particle_effects": {
         "kaminari_blead_particle": "kurokumaft:kaminari_blead_particle",
@@ -24,8 +22,7 @@
         "scaleY": "0.92",
         "scaleZ": "0.9375",
         "pre_animation": [
-          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
-          "variable.equipped_nichirintou = query.skin_id == 1;"
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
         ],
         "animate": [
           "look_at_target",
@@ -41,8 +38,7 @@
 
           {"attack": "variable.attack_time"},
           "third",
-          "zenitu.kokyu_con",
-          "zenitu_attack.kokyu_con"
+          "zenitu.kokyu_con"
 
         ]
       },
@@ -82,8 +78,7 @@
 
       },
       "render_controllers": [
-        "controller.render.soldier.zenitu",
-        {"controller.render.nichirintou_zenitu": "variable.equipped_nichirintou"}
+        "controller.render.soldier.zenitu"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

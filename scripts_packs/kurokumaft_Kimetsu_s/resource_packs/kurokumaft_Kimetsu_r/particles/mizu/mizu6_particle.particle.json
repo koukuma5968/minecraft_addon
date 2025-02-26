@@ -30,7 +30,7 @@
 				"linear_acceleration": [0, 5, 0]
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.75, 0.5],
+				"size": [0.5, 0.25],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 128,

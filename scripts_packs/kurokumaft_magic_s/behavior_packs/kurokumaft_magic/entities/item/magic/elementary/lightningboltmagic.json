@@ -23,10 +23,9 @@
             "damage": 5,
             "knockback": false,
             "catch_fire": false,
-            "destroy_on_hit": true,
+            "destroy_on_hit": false,
             "semi_random_diff_damage": false
-          },
-          "remove_on_hit": { }
+          }
         },
         "power": 2.5,
         "gravity": 0.02,

@@ -1,6 +1,6 @@
 import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { Nichirintou } from "../item/weapon/nichirintou/Nichirintou";
-import { NichirintouTanjiro } from "../item/weapon/nichirintou/NichirintouTanjiro";
+import { NichirintouComponent } from "../item/weapon/nichirintou/NichirintouComponent";
 import { NichirintouGenya } from "../item/weapon/nichirintou/NichirintouGenya";
 import { NichirintouGiyu } from "../item/weapon/nichirintou/NichirintouGiyu";
 import { NichirintouGyoumei } from "../item/weapon/nichirintou/NichirintouGyoumei";
@@ -39,7 +39,7 @@ function initRegisterKimetuCustom(initEvent:WorldInitializeBeforeEvent) {
     // アイテム類
     // 日輪刀
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:nichirintou', new Nichirintou());
-    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:nichirintou_tanjiro', new NichirintouTanjiro());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:nichirintou_tanjiro', new NichirintouComponent());
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:nichirintou_zenitu', new NichirintouZenitu());
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:nichirintou_inosuke', new NichirintouInosuke());
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:nichirintou_kanawo', new NichirintouKanawo());

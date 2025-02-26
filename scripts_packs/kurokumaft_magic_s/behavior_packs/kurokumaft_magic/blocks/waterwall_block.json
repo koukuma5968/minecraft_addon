@@ -21,12 +21,6 @@
 			"minecraft:light_dampening": 3,
 			"minecraft:friction": 0.3,
 			"minecraft:geometry": "geometry.waterwall_block",
-			"minecraft:material_instances": {
-				"*": {
-					"texture": "waterwall_block",
-					"render_method": "alpha_test"
-				}
-			},
 			"minecraft:custom_components": [
 				"kurokumaft:wall_block"
 			]

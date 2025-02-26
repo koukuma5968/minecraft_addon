@@ -7,20 +7,17 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/genya",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
+        "default": "textures/kurokumaft/models/mob/genya"
       },
       "geometry": {
-        "default": "geometry.genya",
-        "nichirintou_genya": "geometry.nichirintou_genya"
+        "default": "geometry.genya"
       },
       "scripts": {
         "scaleX": "1.00",
         "scaleY": "1.06",
         "scaleZ": "1.00",
         "pre_animation": [
-          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
-          "variable.equipped_nichirintou = query.skin_id == 1;"
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
         ],
         "animate": [
           "look_at_target",
@@ -66,8 +63,7 @@
         "third": "animation.genya_third"
       },
       "render_controllers": [
-        "controller.render.soldier.genya",
-        {"controller.render.nichirintou_genya": "variable.equipped_nichirintou"}
+        "controller.render.soldier.genya"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

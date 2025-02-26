@@ -17,7 +17,7 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "stone_armadillo", "mob", "magic_animal" ]
+        "family": [ "stone_armadillo", "mob", "magic_animal", "monster" ]
       },
       "minecraft:loot": {
         "table": "loot_tables/entities/animal/stone_armadillo.json"
@@ -128,12 +128,11 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
+              "all_of": [
                 { "test": "is_family", "subject": "other", "value": "monster" },
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "familiar" },
-                { "test": "is_family", "subject": "other", "value": "snowgolem" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" }
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "stone_armadillo" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "breeze_fish" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "wind_dolphin" }
               ]
             },
             "max_dist": 16,
@@ -142,11 +141,11 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" }
               ]
             },
-            "max_dist": 8,
+            "max_dist": 16,
             "must_see": true
           },
           {

@@ -22,7 +22,7 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:type_family": {
-        "family": [ "fire_chicken", "mob", "magic_animal" ]
+        "family": [ "fire_chicken", "mob", "magic_animal", "monster" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -69,12 +69,11 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
+              "all_of": [
                 { "test": "is_family", "subject": "other", "value": "monster" },
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "familiar" },
-                { "test": "is_family", "subject": "other", "value": "snowgolem" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" }
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "fire_chicken" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "aqua_jackal" },
+                { "test": "is_family", "subject": "other", "operator": "not", "value": "water_buffalo" }
               ]
             },
             "max_dist": 16,
@@ -83,11 +82,11 @@
           {
             "filters": {
               "any_of": [
-                { "test": "is_family", "subject": "other", "value": "villager" },
-                { "test": "is_family", "subject": "other", "value": "wandering_trader" }
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "familiar" }
               ]
             },
-            "max_dist": 8,
+            "max_dist": 16,
             "must_see": true
           },
           {

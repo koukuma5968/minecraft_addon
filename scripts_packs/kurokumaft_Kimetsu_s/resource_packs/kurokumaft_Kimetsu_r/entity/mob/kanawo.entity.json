@@ -7,12 +7,10 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/kanawo",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
+        "default": "textures/kurokumaft/models/mob/kanawo"
       },
       "geometry": {
-        "default": "geometry.kanawo",
-        "nichirintou_kanawo": "geometry.nichirintou_kanawo"
+        "default": "geometry.kanawo"
       },
       "particle_effects": {
         "hana_bread_particle": "kurokumaft:hana_bread_particle",
@@ -23,8 +21,7 @@
         "scaleY": "0.905",
         "scaleZ": "0.90",
         "pre_animation": [
-          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
-          "variable.equipped_nichirintou = query.skin_id == 1;"
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
         ],
         "animate": [
           "look_at_target",
@@ -77,8 +74,7 @@
 
       },
       "render_controllers": [
-        "controller.render.soldier.kanawo",
-        {"controller.render.nichirintou_kanawo": "variable.equipped_nichirintou"}
+        "controller.render.soldier.kanawo"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

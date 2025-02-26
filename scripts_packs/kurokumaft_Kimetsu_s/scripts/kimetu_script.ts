@@ -1,8 +1,7 @@
 import { world,system, EquipmentSlot, Player } from "@minecraft/server";
 import { initRegisterKimetuCustom, initStateChangeKimetuMonitor } from "./custom/KimetuCustomComponentRegistry";
-import { probabilisticChoice } from "./item/weapon/nichirintou/Nichirintou";
 import { ItemDurabilityDamage } from "./common/ItemDurabilityDamage";
-import { KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
+import { kokyuClassRecord, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 
 // ワールド接続時
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
@@ -16,11 +15,18 @@ world.beforeEvents.playerLeave.subscribe(leaveEvent => {
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   let entity = event.entity;
   if (entity instanceof Player) {
-    if (event.eventId == "kurokumaft:kokyu_change") {
-      let nichirintou = entity.getProperty("kurokumaft:nichirintou_type");
-      if (nichirintou != 0) {
+    let nichirintou = entity.getProperty("kurokumaft:nichirintou_type") as number;
+    if (nichirintou > 1) {
+      if (event.eventId == "kurokumaft:kokyu_change") {
         let object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
-        object.change(entity);
+        let kokyuClass = kokyuClassRecord[object.className];
+        let kokyuObject = new kokyuClass();
+        kokyuObject.changeKata(entity);
+      } else if (event.eventId == "kurokumaft:attack_time") {
+        let object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
+        let kokyuClass = kokyuClassRecord[object.className];
+        let kokyuObject = new kokyuClass();
+        kokyuObject.hitAttackKata(entity);
       }
     }
   }
@@ -31,17 +37,16 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
   let player = event.source;
   let item = event.itemStack;
   let duration = event.useDuration;
-  if (item != undefined) {
-    world.sendMessage("itemReleaseUse");
-    if (player.getDynamicProperty("kokyu")) {
-      player.setDynamicProperty("kokyu", undefined);
-      let nichirintou = player.getProperty("kurokumaft:nichirintou_type");
-      if (nichirintou != 0) {
-        let object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
-        object.func(item, player);
-      }
-      player.setProperty("kurokumaft:kokyu_use", false);
+  let nichirintou = player.getProperty("kurokumaft:nichirintou_type");
+  if (item != undefined && nichirintou != undefined && nichirintou != 0) {
+    if (player.getProperty("kurokumaft:kokyu_use")) {
+      let object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
+      let kokyuClass = kokyuClassRecord[object.className];
+      let kokyuObject = new kokyuClass();
+      kokyuObject.releaseAttackKata(player, item);
+
       ItemDurabilityDamage(player, item, EquipmentSlot.Mainhand);
+      player.setProperty("kurokumaft:kokyu_use", false);
     }
   }
 });

@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, EntityDamageCause, world } from "@minecraft/server";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, EntityDamageCause, world, EntityProjectileComponent } from "@minecraft/server";
 import { getLookPoints } from "../../../common/WeaponsCommonUtil";
 import { throwItemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 import { shooting } from "../../../common/WeaponsShooterPoints";
@@ -81,6 +81,8 @@ export async function releaseHammer(player:Player, hammer:ItemStack) {
     }) as Entity[];
 
     if (throwHammer.length > 0) {
+        let projectile = throwHammer[0].getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+        projectile.owner = player;
         throwItemDurabilityDamage(throwHammer[0], hammer, 0, undefined);
     }
 
@@ -95,7 +97,7 @@ export async function stopHammer(throwHammer:Entity) {
 export async function removeHammer(throwHammer:Entity) {
 
     let item = HammerObjects.find(obj => obj.throwHammer == throwHammer.typeId) as HammerObject;
-    if (!item) {
+    if (item == undefined) {
         return;
     }
 
@@ -116,7 +118,7 @@ export async function removeHammer(throwHammer:Entity) {
     }) as Player[];
 
     let emptySlot = true;
-    if (player) {
+    if (player.length > 0) {
         let equ = player[0].getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         let main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         if (main == undefined) {

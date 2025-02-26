@@ -1,0 +1,20 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.nichirintou_custom.person": {
+			"states": {
+				"default": {
+					"animations": ["nichirintou_custom.first"],
+					"transitions": [
+						{"third": "!variable.is_first_person"}
+					]
+				},
+				"third": {
+					"transitions": [
+						{"default": "variable.is_first_person"}
+					]
+				}
+			}
+		}
+	}
+}

@@ -7,12 +7,10 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/mituri",
-        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
+        "default": "textures/kurokumaft/models/mob/mituri"
       },
       "geometry": {
-        "default": "geometry.mituri",
-        "nichirintou_mituri": "geometry.nichirintou_mituri"
+        "default": "geometry.mituri"
       },
       "scripts": {
         "scaleX": "0.91",
@@ -75,8 +73,7 @@
 
       },
       "render_controllers": [
-        "controller.render.soldier.mituri",
-        {"controller.render.nichirintou_mituri": "query.skin_id == 1"}
+        "controller.render.soldier.mituri"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

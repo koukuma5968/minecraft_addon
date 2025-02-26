@@ -1,10 +1,9 @@
-import { world,Entity, Player, EntityDamageSource, ItemComponent, Block, Direction, system, TicksPerSecond, ScriptEventSource, ObjectiveSortOrder, DisplaySlotId, EntityDamageCause } from "@minecraft/server";
+import { world,Entity, Player, EntityDamageSource, Block, system, TicksPerSecond, ScriptEventSource, EntityInitializationCause } from "@minecraft/server";
 import { magicShieldGuard, magicShieldCounter, MagicShieldKnockback } from "./items/weapon/shield/MagicShieldEvent";
 import { hitMagicAmor } from "./items/weapon/armor/MagicAmorHitEvent";
 import { initRegisterMagicCustom, initMagicStateChangeMonitor } from "./custom/MagicCustomComponentRegistry";
 import { checkArrowProjectile, hitArrowEvent, magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
-import { grimoire_summon_Release } from "./items/weapon/grimoire/SummonGrimoireMagic";
-import { checkWandProjectile, hitProjectileEvent } from "./items/weapon/wand/WandWeaponMagic";
+import { checkWandProjectile, hitWandProjectileEvent } from "./items/weapon/wand/WandWeaponMagic";
 import { checkShellProjectile, hitShellEvent } from "./items/weapon/bazooka/BazookaWeaponMagic";
 import { waterCauldron } from "./items/weapon/grimoire/WaterGrimoireMagic";
 import { magic_lectern_break } from "./block/MagicLecternBlock";
@@ -83,7 +82,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     }
     if (projectileEn != undefined) {
         if (checkWandProjectile(projectileEn.typeId)) {
-            hitProjectileEvent(projectileEn);
+            hitWandProjectileEvent(projectileEn);
         }
         if (checkArrowProjectile(projectileEn.typeId)) {
             hitArrowEvent(projectileEn, hitEn);
@@ -107,7 +106,7 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
     let dameger = event.source as Entity;
     if (projectileEn != undefined) {
         if (checkWandProjectile(projectileEn.typeId)) {
-            hitProjectileEvent(projectileEn);
+            hitWandProjectileEvent(projectileEn);
         }
         if (checkShellProjectile(projectileEn.typeId)) {
             hitShellEvent(projectileEn, dameger);
@@ -203,6 +202,18 @@ world.afterEvents.entityLoad.subscribe(event => {
 world.afterEvents.entitySpawn.subscribe(event => {
     let entity = event.entity;
     let cause = event.cause;
+
+    if (cause == EntityInitializationCause.Spawned && entity.typeId == "kurokumaft:dolphin_ultrasonic") {
+        world.playSound("mob.dolphin.death", entity.location, {
+            pitch:1,
+            volume:2
+        });
+    } else if (cause == EntityInitializationCause.Spawned && entity.typeId == "kurokumaft:bat_ultrasonic") {
+        world.playSound("mob.bat.death", entity.location, {
+            pitch:1,
+            volume:2
+        });
+    }
 });
 
 world.afterEvents.buttonPush.subscribe(event => {

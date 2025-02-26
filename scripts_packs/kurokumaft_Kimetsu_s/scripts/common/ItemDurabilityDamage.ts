@@ -1,5 +1,5 @@
-import { ItemStack, Player, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, EntityInventoryComponent, Container } from "@minecraft/server";
-import { getRandomInRange } from "./CommonUtil";
+import { ItemStack, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot } from "@minecraft/server";
+import { getRandomInRange } from "./KimetuCommonUtil";
 
 /**
  * アイテムダメージ

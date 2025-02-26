@@ -20,10 +20,9 @@
             "damage": 5,
             "knockback": true,
             "catch_fire": false,
-            "destroy_on_hit": true,
+            "destroy_on_hit": false,
             "semi_random_diff_damage": false
-          },
-          "remove_on_hit": { }
+          }
        },
        "hit_sound": "tripod",
        "power": 2,

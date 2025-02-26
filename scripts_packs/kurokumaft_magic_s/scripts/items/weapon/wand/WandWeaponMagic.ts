@@ -268,7 +268,7 @@ export function checkWandProjectile(projectileName:string) {
    return WandProjectileObjects.some(obj => obj.itemName == projectileName);
 }
 
-export function hitProjectileEvent(projectile:Entity) {
+export function hitWandProjectileEvent(projectile:Entity) {
     let proje = WandProjectileObjects.find(obj => obj.itemName == projectile.typeId) as WandMagicObject;
     try {
         proje.func(projectile);
