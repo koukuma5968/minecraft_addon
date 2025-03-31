@@ -1,5 +1,6 @@
 import { system,EntityComponentTypes,ItemComponentTypes,ItemStack,Block, Player, EntityEquippableComponent, EquipmentSlot, ItemEnchantableComponent, Enchantment, BlockCustomComponent, BlockComponentPlayerInteractEvent, BlockPermutation, world, EntityInventoryComponent, Container, Entity, BlockComponentPlayerDestroyEvent, Dimension } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
+import { MinecraftItemTypes } from "@minecraft/vanilla-data";
 
 export class TearEnchant implements BlockCustomComponent {
 
@@ -125,8 +126,8 @@ async function tearEnchantBlock(player: Player, item: ItemStack | undefined, blo
                         } else {
                             equ.setEquipment(EquipmentSlot.Mainhand, mainhand);
                         }
-                        if (setBookEnc.getEnchantments().length == 1) {
-                            let newBook = new ItemStack("minecraft:enchanted_book",1);
+                        if (setBook.typeId != MinecraftItemTypes.EnchantedBook) {
+                            let newBook = new ItemStack(MinecraftItemTypes.EnchantedBook,1);
                             let newBookEnc = newBook.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                             newBookEnc.addEnchantments(setBookEnc.getEnchantments());
                             container.setItem(0, newBook);

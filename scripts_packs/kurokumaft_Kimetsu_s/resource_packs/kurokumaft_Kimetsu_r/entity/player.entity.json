@@ -11,20 +11,32 @@
       "textures": {
         "default": "textures/entity/steve",
         "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
+        "mizu_dragon": "textures/kurokumaft/models/mizu_dragon",
+        "hi_dragon": "textures/kurokumaft/models/hi_dragon",
+        "kaminari_dragon": "textures/kurokumaft/models/kaminari_dragon",
         "cape": "textures/entity/cape_invisible"
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
         "nichirintou_custom": "geometry.nichirintou_custom",
+        "mizu_dragon": "geometry.mizu_dragon",
+        "hi_dragon": "geometry.hi_dragon",
+        "kaminari_dragon": "geometry.kaminari_dragon",
         "cape": "geometry.cape"
       },
       "particle_effects": {
         "hi_blead_particle": "kurokumaft:hi_blead_particle",
         "hi_deep_blead_particle": "kurokumaft:hi_deep_blead_particle",
+        "hi_flame_particle": "kurokumaft:hi_flame_particle",
+        "hi_heat_haze_particle": "kurokumaft:hi_heat_haze_particle",
         "mizu_awa_particle": "kurokumaft:mizu_awa_particle",
         "mizu_splash_particle": "kurokumaft:mizu_splash_particle",
+        "mizu_running_particle": "kurokumaft:mizu_running_particle",
+        "mizu_move_particle": "kurokumaft:mizu_move_particle",
         "kaminari_blead_particle": "kurokumaft:kaminari_blead_particle",
         "kaminari_point_particle": "kurokumaft:kaminari_point_particle",
+        "kaminari_spark_particle": "kurokumaft:kaminari_spark_particle",
+        "kaminari7_spark_particle": "kurokumaft:kaminari7_spark_particle",
         "kaminari2_particle": "kurokumaft:kaminari2_particle",
         "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
         "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle",
@@ -42,7 +54,10 @@
           "variable.is_holding_right = 0.0;",
           "variable.is_blinking = 0.0;",
           "variable.last_blink_time = 0.0;",
-          "variable.hand_bob = 0.0;"
+          "variable.hand_bob = 0.0;",
+
+          "variable.nichirintou_equipment = 0.0;"
+
 
         ],
         "pre_animation": [
@@ -56,14 +71,25 @@
           "variable.hand_bob = query.life_time < 0.01 ? 0.0 : variable.hand_bob + ((query.is_on_ground && query.is_alive ? math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) : 0.0) - variable.hand_bob) * 0.02;",
 
           "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
-          "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;"
+          "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
+
+          "variable.nichirintou_equipment = query.property('kurokumaft:nichirintou_type');"
 
         ],
         "animate": [
           "root",
 
-          "tanjiro.acton",
-          "nichirintou_custom"
+          "nichirintou_custom",
+
+          "tanjiro.action",
+          "tanjiro.attack",
+          "zenitu.action",
+          "inosuke.action",
+          "kanawo.action",
+          "giyu.action",
+          "giyu.attack",
+          "shinobu.action",
+          "kyouzyuro.action"
 
         ]
       },
@@ -122,52 +148,79 @@
 
         "nichirintou_custom": "controller.animation.nichirintou_custom.person",
         "nichirintou_custom.first": "animation.nichirintou_custom.first",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+        "nichirintou_custom.two_attack_third": "animation.nichirintou_custom.two_attack_third",
+        "nichirintou_custom.attack_horizontality_third": "animation.nichirintou_custom.attack_horizontality_third",
 
-        "tanjiro.acton":"controller.animation.tanjiro.acton.player",
+        "mizu_dragon": "animation.mizu_dragon.attack",
+        "hi_dragon": "animation.hi_dragon.attack",
+        "kaminari_dragon": "animation.kaminari_dragon.attack",
 
-        "mizu.ichi_1_first": "animation.acton.mizu.ichi_1_first",
-        "mizu.ichi_2_first": "animation.acton.mizu.ichi_2_first",
-        "mizu.ni_1_first": "animation.acton.mizu.ni_1_first",
-        "mizu.san_1_first": "animation.acton.mizu.san_1_first",
-        "mizu.san_2_first": "animation.acton.mizu.san_2_first",
-        "mizu.san_3_first": "animation.acton.mizu.san_3_first",
-        "mizu.shi_1_first": "animation.acton.mizu.shi_1_first",
-        "mizu.shi_2_first": "animation.acton.mizu.shi_2_first",
-        "mizu.go_1_first": "animation.acton.mizu.go_1_first",
-        "mizu.go_2_first": "animation.acton.mizu.go_2_first",
-        "mizu.roku_1_first": "animation.acton.mizu.roku_1_first",
-        "mizu.roku_2_first": "animation.acton.mizu.roku_2_first",
-        "mizu.shiti_1_first": "animation.acton.mizu.shiti_1_first",
-        "mizu.shiti_2_first": "animation.acton.mizu.shiti_2_first",
-        "mizu.hati_1_first": "animation.acton.mizu.hati_1_first",
-        "mizu.hati_2_first": "animation.acton.mizu.hati_2_first",
-        "mizu.hati_3_first": "animation.acton.mizu.hati_3_first",
-        "mizu.ku_1_first": "animation.acton.mizu.ku_1_first",
-        "mizu.ku_2_first": "animation.acton.mizu.ku_2_first",
-        "mizu.tou_1_first": "animation.acton.mizu.tou_1_first",
-        "mizu.tou_2_first": "animation.acton.mizu.tou_2_first",
+        "tanjiro.action":"controller.animation.tanjiro.action.player",
+        "tanjiro.attack":"controller.animation.tanjiro.attack.player",
 
-        "mizu.ichi_1_third": "animation.acton.mizu.ichi_1_third",
-        "mizu.ichi_2_third": "animation.acton.mizu.ichi_2_third",
-        "mizu.ni_1_third": "animation.acton.mizu.ni_1_third",
-        "mizu.san_1_third": "animation.acton.mizu.san_1_third",
-        "mizu.san_2_third": "animation.acton.mizu.san_2_third",
-        "mizu.san_3_third": "animation.acton.mizu.san_3_third",
-        "mizu.shi_1_third": "animation.acton.mizu.shi_1_third",
-        "mizu.shi_2_third": "animation.acton.mizu.shi_2_third",
-        "mizu.go_1_third": "animation.acton.mizu.go_1_third",
-        "mizu.go_2_third": "animation.acton.mizu.go_2_third",
-        "mizu.roku_1_third": "animation.acton.mizu.roku_1_third",
-        "mizu.roku_2_third": "animation.acton.mizu.roku_2_third",
-        "mizu.shiti_1_third": "animation.acton.mizu.shiti_1_third",
-        "mizu.shiti_2_third": "animation.acton.mizu.shiti_2_third",
-        "mizu.hati_1_third": "animation.acton.mizu.hati_1_third",
-        "mizu.hati_2_third": "animation.acton.mizu.hati_2_third",
-        "mizu.hati_3_third": "animation.acton.mizu.hati_3_third",
-        "mizu.ku_1_third": "animation.acton.mizu.ku_1_third",
-        "mizu.ku_2_third": "animation.acton.mizu.ku_2_third",
-        "mizu.tou_1_third": "animation.acton.mizu.tou_1_third",
-        "mizu.tou_2_third": "animation.acton.mizu.tou_2_third",
+        "zenitu.action": "controller.animation.zenitu.action.player",
+
+        "inosuke.action":"controller.animation.inosuke.action.player",
+
+        "kanawo.action":"controller.animation.kanawo.action.player",
+
+        "giyu.action":"controller.animation.giyu.action.player",
+        "giyu.attack":"controller.animation.giyu.attack.player",
+
+        "shinobu.action": "controller.animation.shinobu.action.player",
+
+        "kyouzyuro.action": "controller.animation.kyouzyuro.action.player",
+
+        "mizu.ichi_1_first": "animation.action.mizu.ichi_1_first",
+        "mizu.ichi_2_first": "animation.action.mizu.ichi_2_first",
+        "mizu.ni_1_first": "animation.action.mizu.ni_1_first",
+        "mizu.san_1_first": "animation.action.mizu.san_1_first",
+        "mizu.san_2_first": "animation.action.mizu.san_2_first",
+        "mizu.san_3_first": "animation.action.mizu.san_3_first",
+        "mizu.shi_1_first": "animation.action.mizu.shi_1_first",
+        "mizu.shi_2_first": "animation.action.mizu.shi_2_first",
+        "mizu.go_1_first": "animation.action.mizu.go_1_first",
+        "mizu.go_2_first": "animation.action.mizu.go_2_first",
+        "mizu.roku_1_first": "animation.action.mizu.roku_1_first",
+        "mizu.roku_2_first": "animation.action.mizu.roku_2_first",
+        "mizu.shiti_1_first": "animation.action.mizu.shiti_1_first",
+        "mizu.shiti_2_first": "animation.action.mizu.shiti_2_first",
+        "mizu.hati_1_first": "animation.action.mizu.hati_1_first",
+        "mizu.hati_2_first": "animation.action.mizu.hati_2_first",
+        "mizu.hati_3_first": "animation.action.mizu.hati_3_first",
+        "mizu.ku_1_first": "animation.action.mizu.ku_1_first",
+        "mizu.ku_2_first": "animation.action.mizu.ku_2_first",
+        "mizu.tou_1_first": "animation.action.mizu.tou_1_first",
+        "mizu.tou_2_first": "animation.action.mizu.tou_2_first",
+        "mizu.zyuichi_1_first": "animation.action.mizu.zyuichi_1_first",
+        "mizu.ku":  "animation.action.mizu.ku",
+
+        "mizu.ichi_1_third": "animation.action.mizu.ichi_1_third",
+        "mizu.ichi_2_third": "animation.action.mizu.ichi_2_third",
+        "mizu.ni_1_third": "animation.action.mizu.ni_1_third",
+        "mizu.san_1_third": "animation.action.mizu.san_1_third",
+        "mizu.san_2_third": "animation.action.mizu.san_2_third",
+        "mizu.san_3_third": "animation.action.mizu.san_3_third",
+        "mizu.shi_1_third": "animation.action.mizu.shi_1_third",
+        "mizu.shi_2_third": "animation.action.mizu.shi_2_third",
+        "mizu.go_1_third": "animation.action.mizu.go_1_third",
+        "mizu.go_2_third": "animation.action.mizu.go_2_third",
+        "mizu.roku_1_third": "animation.action.mizu.roku_1_third",
+        "mizu.roku_2_third": "animation.action.mizu.roku_2_third",
+        "mizu.shiti_1_third": "animation.action.mizu.shiti_1_third",
+        "mizu.shiti_2_third": "animation.action.mizu.shiti_2_third",
+        "mizu.hati_1_third": "animation.action.mizu.hati_1_third",
+        "mizu.hati_2_third": "animation.action.mizu.hati_2_third",
+        "mizu.hati_3_third": "animation.action.mizu.hati_3_third",
+        "mizu.ku_1_third": "animation.action.mizu.ku_1_third",
+        "mizu.ku_2_third": "animation.action.mizu.ku_2_third",
+        "mizu.tou_1_third": "animation.action.mizu.tou_1_third",
+        "mizu.tou_2_third": "animation.action.mizu.tou_2_third",
+        "mizu.zyuichi_1_third": "animation.action.mizu.zyuichi_1_third",
+
+        "mizu.tou": "animation.action.mizu.tou",
+        "mizu.zyuichi": "animation.action.mizu.zyuichi",
 
         "hi.ichi_1_first": "animation.action.hi.ichi_1_first",
         "hi.ni_1_first": "animation.action.hi.ni_1_first",
@@ -186,6 +239,8 @@
         "hi.zyuni_2_first": "animation.action.hi.zyuni_2_first",
 
         "hi.ichi_1_third": "animation.action.hi.ichi_1_third",
+        "hi.ichi_1_issen_third": "animation.action.hi.ichi_1_issen_third",
+        "hi.ichi_2_third": "animation.action.hi.ichi_2_third",
         "hi.ni_1_third": "animation.action.hi.ni_1_third",
         "hi.san_1_third": "animation.action.hi.san_1_third",
         "hi.san_2_third": "animation.action.hi.san_2_third",
@@ -199,7 +254,84 @@
         "hi.tou_1_third": "animation.action.hi.tou_1_third",
         "hi.zyuichi_1_third": "animation.action.hi.zyuichi_1_third",
         "hi.zyuni_1_third": "animation.action.hi.zyuni_1_third",
-        "hi.zyuni_2_third": "animation.action.hi.zyuni_2_third"
+        "hi.zyuni_2_third": "animation.action.hi.zyuni_2_third",
+
+        "kaminari.ichi_1_first": "animation.action.kaminari.ichi_1_first",
+        "kaminari.ichi_2_first": "animation.action.kaminari.ichi_2_first",
+        "kaminari.ichi_shinshoku_first": "animation.action.kaminari.ichi_shinshoku_first",
+        "kaminari.ni_1_third": "animation.action.kaminari.ni_1_third",
+        "kaminari.san_1_third": "animation.action.kaminari.san_1_third",
+        "kaminari.shi_1_third": "animation.action.kaminari.shi_1_third",
+        "kaminari.shi_2_third": "animation.action.kaminari.shi_2_third",
+        "kaminari.go_1_third": "animation.action.kaminari.go_1_third",
+        "kaminari.roku_1_third": "animation.action.kaminari.roku_1_third",
+
+        "kaminari.shiti_1_first": "animation.action.kaminari.shiti_1_first",
+        "kaminari.shiti_2_first": "animation.action.kaminari.shiti_2_first",
+
+        "kaminari.ichi_1_third": "animation.action.kaminari.ichi_1_third",
+        "kaminari.ichi_2_third": "animation.action.kaminari.ichi_2_third",
+        "kaminari.ichi_shinshoku_third": "animation.action.kaminari.ichi_shinshoku_third",
+        "kaminari.shiti_1_third": "animation.action.kaminari.shiti_1_third",
+        "kaminari.shiti_2_third": "animation.action.kaminari.shiti_2_third",
+
+        "hana.ni_1_first": "animation.action.hana.ni_1_first",
+        "hana.shi_1_first": "animation.action.hana.shi_1_first",
+        "hana.go_1_first": "animation.action.hana.go_1_first",
+        "hana.roku_1_first": "animation.action.hana.roku_1_first",
+
+        "hana.ni_1_third": "animation.action.hana.ni_1_third",
+        "hana.shi_1_third": "animation.action.hana.shi_1_third",
+        "hana.go_1_third": "animation.action.hana.go_1_third",
+        "hana.roku_1_third": "animation.action.hana.roku_1_third",
+
+        "kedamono.ichi_1_first": "animation.action.kedamono.ichi_1_first",
+        "kedamono.ni_1_first": "animation.action.kedamono.ni_1_first",
+        "kedamono.san_1_first": "animation.action.kedamono.san_1_first",
+        "kedamono.shi_1_first": "animation.action.kedamono.shi_1_first",
+        "kedamono.go_1_first": "animation.action.kedamono.go_1_first",
+        "kedamono.roku_1_first": "animation.action.kedamono.roku_1_first",
+        "kedamono.roku_2_first": "animation.action.kedamono.roku_2_first",
+        "kedamono.shiti_1_first": "animation.action.kedamono.shiti_1_first",
+        "kedamono.hati_1_first": "animation.action.kedamono.hati_1_first",
+        "kedamono.ku_1_first": "animation.action.kedamono.ku_1_first",
+        "kedamono.tou_1_first": "animation.action.kedamono.tou_1_first",
+
+        "kedamono.ichi_1_third": "animation.action.kedamono.ichi_1_third",
+        "kedamono.ni_1_third": "animation.action.kedamono.ni_1_third",
+        "kedamono.san_1_third": "animation.action.kedamono.san_1_third",
+        "kedamono.shi_1_third": "animation.action.kedamono.shi_1_third",
+        "kedamono.go_1_third": "animation.action.kedamono.go_1_third",
+        "kedamono.roku_1_third": "animation.action.kedamono.roku_1_third",
+        "kedamono.roku_2_third": "animation.action.kedamono.roku_2_third",
+        "kedamono.shiti_1_third": "animation.action.kedamono.shiti_1_third",
+        "kedamono.hati_1_third": "animation.action.kedamono.hati_1_third",
+        "kedamono.ku_1_third": "animation.action.kedamono.ku_1_third",
+        "kedamono.tou_1_third": "animation.action.kedamono.tou_1_third",
+
+        "mushi.chou_1_first": "animation.action.mushi.chou_1_first",
+        "mushi.houga_1_first": "animation.action.mushi.houga_1_first",
+        "mushi.seirei_1_first": "animation.action.mushi.seirei_1_first",
+        "mushi.gokou_1_first": "animation.action.mushi.gokou_1_first",
+
+        "mushi.chou_1_third": "animation.action.mushi.chou_1_third",
+        "mushi.houga_1_third": "animation.action.mushi.houga_1_third",
+        "mushi.seirei_1_third": "animation.action.mushi.seirei_1_third",
+        "mushi.gokou_1_third": "animation.action.mushi.gokou_1_third",
+
+        "hono.ichi_1_first": "animation.action.hono.ichi_1_first",
+        "hono.ni_1_first": "animation.action.hono.ni_1_first",
+        "hono.san_1_first": "animation.action.hono.san_1_first",
+        "hono.shi_1_first": "animation.action.hono.shi_1_first",
+        "hono.go_1_first": "animation.action.hono.go_1_first",
+        "hono.ku_1_first": "animation.action.hono.ku_1_first",
+
+        "hono.ichi_1_third": "animation.action.hono.ichi_1_third",
+        "hono.ni_1_third": "animation.action.hono.ni_1_third",
+        "hono.san_1_third": "animation.action.hono.san_1_third",
+        "hono.shi_1_third": "animation.action.hono.shi_1_third",
+        "hono.go_1_third": "animation.action.hono.go_1_third",
+        "hono.ku_1_third": "animation.action.hono.ku_1_third"
 
       },
       "render_controllers": [
@@ -207,7 +339,10 @@
         { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" },
         { "controller.render.player.map": "variable.map_face_icon" },
 
-        "controller.render.nichirintou_custom"
+        "controller.render.nichirintou_custom",
+        { "controller.render.mizu_dragon": "(variable.nichirintou_equipment == 2 || variable.nichirintou_equipment == 6) && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 10 && query.property('kurokumaft:kokyu_attack')" },
+        { "controller.render.hi_dragon": "(variable.nichirintou_equipment == 2 || variable.nichirintou_equipment == 6) && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 16 && query.property('kurokumaft:kokyu_chage') == 1 && query.property('kurokumaft:kokyu_attack')" },
+        { "controller.render.kaminari_dragon": "variable.nichirintou_equipment == 3 && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 7 && query.property('kurokumaft:kokyu_chage') == 10" }
 
       ],
       "enable_attachables": true

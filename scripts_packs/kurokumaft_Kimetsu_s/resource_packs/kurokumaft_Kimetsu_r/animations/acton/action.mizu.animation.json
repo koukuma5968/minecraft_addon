@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.acton.mizu.ichi_1_third": {
+		"animation.action.mizu.ichi_1_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -27,7 +27,7 @@
 				}
 			}
 		},
-		"animation.acton.mizu.ichi_2_third": {
+		"animation.action.mizu.ichi_2_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.7,
 			"bones": {
@@ -41,6 +41,12 @@
 					"rotation": {
 						"0.0": [-115.10814, 14.49974, -90.49648],
 						"0.3": [31.44557, 0.53968, -89.83013]
+					}
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [35, 0, 0]
 					}
 				}
 			},
@@ -65,7 +71,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.ni_1_third": {
+		"animation.action.mizu.ni_1_third": {
 			"animation_length": 1.25,
 			"bones": {
 				"rightArm": {
@@ -122,7 +128,7 @@
 						"1.0": [0, 0, 0]
 					}
 				},
-				"nichirinto": {
+				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.0833": [-15.12353, 7.24305, -1.95155],
@@ -156,43 +162,21 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
+						"effect": "mizu_running_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "mizu_running_particle",
 						"locator": "nichirintou_hold6"
-					}
-				],
-				"0.5": [
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "mizu_running_particle",
 						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold6"
 					}
 				]
 			}
 		},
-		"animation.acton.mizu.san_1_third": {
+		"animation.action.mizu.san_1_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -241,7 +225,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.san_2_third": {
+		"animation.action.mizu.san_2_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -275,7 +259,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.san_3_third": {
+		"animation.action.mizu.san_3_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -311,7 +295,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.shi_1_third": {
+		"animation.action.mizu.shi_1_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -348,7 +332,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.shi_2_third": {
+		"animation.action.mizu.shi_2_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -390,7 +374,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.go_1_third": {
+		"animation.action.mizu.go_1_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -430,19 +414,13 @@
 				}
 			},
 			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "mizu_awa_particle",
-						"locator": "nichirintou_hold6"
-					}
-				]
+				"0.0": {
+					"effect": "mizu_awa_particle",
+					"locator": "nichirintou_hold6"
+				}
 			}
 		},
-		"animation.acton.mizu.go_2_third": {
+		"animation.action.mizu.go_2_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -487,7 +465,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.roku_1_third": {
+		"animation.action.mizu.roku_1_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -524,15 +502,7 @@
 				}
 			},
 			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
+				"0.5": [
 					{
 						"effect": "mizu_splash_particle",
 						"locator": "nichirintou_hold5"
@@ -544,7 +514,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.roku_2_third": {
+		"animation.action.mizu.roku_2_third": {
 			"animation_length": 1.4,
 			"bones": {
 				"rightArm": {
@@ -619,10 +589,150 @@
 						"effect": "mizu_splash_particle",
 						"locator": "nichirintou_hold6"
 					}
+				],
+				"0.1": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.2": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.3": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.4": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.5": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.6": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.7": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.8": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.9": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"1.0": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
 				]
 			}
 		},
-		"animation.acton.mizu.shiti_1_third": {
+		"animation.action.mizu.shiti_1_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -685,7 +795,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.shiti_2_third": {
+		"animation.action.mizu.shiti_2_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -745,7 +855,7 @@
 				}
 			}
 		},
-		"animation.acton.mizu.hati_1_third": {
+		"animation.action.mizu.hati_1_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -810,7 +920,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.hati_2_third": {
+		"animation.action.mizu.hati_2_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -848,7 +958,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.hati_3_third": {
+		"animation.action.mizu.hati_3_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 1,
 			"bones": {
@@ -914,7 +1024,46 @@
 				]
 			}
 		},
-		"animation.acton.mizu.ku_2_third": {
+		"animation.action.mizu.ku_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.7083,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [-100, 0, 0],
+						"0.5": [-17.06384, -69.73215, -21.29456]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [-92.51375, -21.31743, 49.09355],
+						"0.5": [7.48625, -21.31743, 49.09355]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirinto": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [25, 0, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mizu.ku_2_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.7083,
 			"bones": {
@@ -960,46 +1109,16 @@
 				]
 			}
 		},
-		"animation.acton.mizu.ku_1_third": {
-			"loop": "hold_on_last_frame",
-			"animation_length": 0.7083,
-			"bones": {
-				"leftArm": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.2083": [-100, 0, 0],
-						"0.5": [-17.06384, -69.73215, -21.29456]
-					}
-				},
-				"rightArm": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.2083": [-92.51375, -21.31743, 49.09355],
-						"0.5": [7.48625, -21.31743, 49.09355]
-					},
-					"position": [0, 0, 0]
-				},
-				"nichirinto": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.5": [25, 0, 0]
-					}
-				}
-			},
+		"animation.action.mizu.tou": {
+			"loop": true,
 			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold6"
-					}
-				]
+				"0.0": {
+					"effect": "mizu_splash_particle",
+					"locator": "nichirintou_hold6"
+				}
 			}
 		},
-		"animation.acton.mizu.tou_1_third": {
+		"animation.action.mizu.tou_1_third": {
 			"animation_length": 0.5,
 			"bones": {
 				"rightArm": {
@@ -1060,14 +1179,6 @@
 				"0.0": [
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
@@ -1077,8 +1188,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.tou_2_third": {
-			"loop": "hold_on_last_frame",
+		"animation.action.mizu.tou_2_third": {
 			"animation_length": 1.2,
 			"bones": {
 				"rightArm": {
@@ -1129,14 +1239,6 @@
 				"0.0": [
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
@@ -1146,18 +1248,54 @@
 				]
 			}
 		},
-		"animation.acton.mizu.ichi_1_first": {
+		"animation.action.mizu.zyuichi_1_third": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-83.32219, -41.9621, 65.24011],
+						"0.0833": [-35.82219, -41.9621, 65.24011],
+						"0.125": [-118.91744, -32.41483, 131.11773],
+						"0.1667": [-43.92, -32.41, 131.12],
+						"0.2083": [-140.47244, 23.05723, -58.27088],
+						"0.25": [-20.4943, 6.75377, -62.16694],
+						"0.2917": [-142.72643, -10.83696, 94.26882],
+						"0.3333": [-27.73, -10.84, 94.27],
+						"0.375": [-94.82024, -17.0255, 13.61183],
+						"0.4167": [20.18, -17.03, 13.61],
+						"0.4583": [-113.43807, -31.45025, 119.48967],
+						"0.5": [-15.93807, -31.45025, 119.48967]
+					},
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_awa_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mizu.ichi_1_first": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.3,
+			"animation_length": 0.1,
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [0, 0, 0],
-						"0.3": [15.4874, -27.53759, -44.29501]
+						"0.1": [15.4874, -27.53759, -44.29501]
 					},
 					"position": {
 						"0.0": [0, 0, 0],
-						"0.3": [1, 8, -13]
+						"0.1": [1, 8, -13]
 					}
 				}
 			},
@@ -1168,7 +1306,7 @@
 				}
 			}
 		},
-		"animation.acton.mizu.ichi_2_first": {
+		"animation.action.mizu.ichi_2_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1201,20 +1339,56 @@
 						"effect": "mizu_splash_particle",
 						"locator": "nichirintou_hold6"
 					}
+				],
+				"0.1": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold3"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.2": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold3"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
 				]
 			}
 		},
-		"animation.acton.mizu.ni_1_first": {
+		"animation.action.mizu.ni_1_first": {
 			"animation_length": 0.5,
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.2083": [110, -7.5, 0]
+						"0.0": [0, -7.5, 0],
+						"0.125": [110, -7.5, 0]
 					},
 					"position": {
-						"0.0": [-2, -2, -3],
-						"0.2083": [0, -1, -3]
+						"0.0": [-2, -2, -8],
+						"0.125": [2, -1, -8]
 					}
 				}
 			},
@@ -1235,13 +1409,13 @@
 				]
 			}
 		},
-		"animation.acton.mizu.san_1_first": {
-			"animation_length": 0.5,
+		"animation.action.mizu.san_1_first": {
+			"animation_length": 0.1667,
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [-9.79999, -86.38793, 37.11511],
-						"0.25": [80.20001, -86.38793, 37.11511]
+						"0.1667": [80.20001, -86.38793, 37.11511]
 					},
 					"position": [0, 0, 0]
 				}
@@ -1259,13 +1433,13 @@
 				]
 			}
 		},
-		"animation.acton.mizu.san_2_first": {
-			"animation_length": 0.5,
+		"animation.action.mizu.san_2_first": {
+			"animation_length": 0.1667,
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [80.20001, -86.38793, 37.11511],
-						"0.2083": [-8.36328, -54.81596, 62.79931]
+						"0.1667": [-8.36328, -54.81596, 62.79931]
 					}
 				}
 			},
@@ -1282,13 +1456,13 @@
 				]
 			}
 		},
-		"animation.acton.mizu.san_3_first": {
-			"animation_length": 0.5,
+		"animation.action.mizu.san_3_first": {
+			"animation_length": 0.2917,
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [-67.62873, -5.1541, -35.561],
-						"0.2083": [37.37127, -5.1541, -35.561]
+						"0.125": [37.37127, -5.1541, -35.561]
 					}
 				}
 			},
@@ -1305,8 +1479,8 @@
 				]
 			}
 		},
-		"animation.acton.mizu.shi_1_first": {
-			"animation_length": 0.5,
+		"animation.action.mizu.shi_1_first": {
+			"animation_length": 0.25,
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
@@ -1329,13 +1503,13 @@
 				]
 			}
 		},
-		"animation.acton.mizu.shi_2_first": {
-			"animation_length": 0.5,
+		"animation.action.mizu.shi_2_first": {
+			"animation_length": 0.2083,
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [0, 35, 0],
-						"0.2083": [-85, 7.61452, -180]
+						"0.1667": [-85, 7.61452, -180]
 					},
 					"position": [0, 0, 0]
 				}
@@ -1353,7 +1527,57 @@
 				]
 			}
 		},
-		"animation.acton.mizu.go_1_first": {
+		"animation.action.mizu.go_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [21.14378, -89.3108, 22.70403]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.25": [1, 8, -13]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "mizu_awa_particle",
+					"locator": "nichirintou_hold6"
+				}
+			}
+		},
+		"animation.action.mizu.go_2_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [21.14378, -89.3108, 22.70403],
+						"0.2083": [108.64378, -89.3108, 22.70403]
+					},
+					"position": {
+						"0.0": [1, 8, -13],
+						"0.2083": [-4, 0, 4]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_splash_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mizu.roku_1_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1375,7 +1599,7 @@
 				}
 			}
 		},
-		"animation.acton.mizu.go_2_first": {
+		"animation.action.mizu.roku_2_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1403,63 +1627,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.roku_1_first": {
-			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
-			"bones": {
-				"nichirintou_hold_right": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.25": [15.4874, -27.53759, -44.29501]
-					},
-					"position": {
-						"0.0": [0, 0, 0],
-						"0.25": [1, 8, -13]
-					}
-				}
-			},
-			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold6"
-					}
-				]
-			}
-		},
-		"animation.acton.mizu.roku_2_first": {
-			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
-			"bones": {
-				"nichirintou_hold_right": {
-					"rotation": {
-						"0.0": [15.4874, -27.53759, -44.29501],
-						"0.2083": [127.85119, -17.76565, 84.04672]
-					},
-					"position": {
-						"0.0": [1, 8, -13],
-						"0.2083": [-4, 0, 4]
-					}
-				}
-			},
-			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold6"
-					}
-				]
-			}
-		},
-		"animation.acton.mizu.shiti_1_first": {
+		"animation.action.mizu.shiti_1_first": {
 			"loop": "hold_on_last_frame",
 			"bones": {
 				"nichirintou_hold_right": {
@@ -1488,7 +1656,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.shiti_2_first": {
+		"animation.action.mizu.shiti_2_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1521,7 +1689,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.hati_1_first": {
+		"animation.action.mizu.hati_1_first": {
 			"loop": true,
 			"bones": {
 				"nichirintou_hold_right": {
@@ -1550,7 +1718,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.hati_2_first": {
+		"animation.action.mizu.hati_2_first": {
 			"loop": true,
 			"animation_length": 0.2083,
 			"bones": {
@@ -1583,7 +1751,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.hati_3_first": {
+		"animation.action.mizu.hati_3_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1619,7 +1787,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.ku_1_first": {
+		"animation.action.mizu.ku_1_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1655,7 +1823,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.ku_2_first": {
+		"animation.action.mizu.ku_2_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1691,7 +1859,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.tou_1_first": {
+		"animation.action.mizu.tou_1_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1710,14 +1878,6 @@
 				"0.0": [
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
@@ -1727,7 +1887,7 @@
 				]
 			}
 		},
-		"animation.acton.mizu.tou_2_first": {
+		"animation.action.mizu.tou_2_first": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
@@ -1742,12 +1902,41 @@
 				"0.0": [
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
+						"locator": "nichirintou_hold5"
 					},
 					{
 						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mizu.ku": {
+			"loop": true,
+			"particle_effects": {
+				"0.0": {
+					"effect": "mizu_move_particle",
+					"locator": "body_particle"
+				}
+			}
+		},
+		"animation.action.mizu.zyuichi_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [15.4874, -27.53759, -44.29501],
+						"0.2083": [127.85119, -17.76565, 84.04672]
 					},
+					"position": {
+						"0.0": [1, 8, -13],
+						"0.2083": [-4, 0, 4]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
 					{
 						"effect": "mizu_splash_particle",
 						"locator": "nichirintou_hold5"
@@ -1757,6 +1946,15 @@
 						"locator": "nichirintou_hold6"
 					}
 				]
+			}
+		},
+		"animation.action.mizu.zyuichi": {
+			"loop": true,
+			"particle_effects": {
+				"0.0": {
+					"effect": "mizu_awa_particle",
+					"locator": "nichirintou_hold6"
+				}
 			}
 		}
 	}

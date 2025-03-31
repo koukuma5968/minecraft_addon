@@ -29,11 +29,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "gyoumei.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -58,21 +54,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.gyoumei.attack",
-        "third": "animation.gyoumei_third",
-
-        "gyoumei.kokyu_con":"controller.animation.gyoumei_body.kokyu",
-        "gyoumei.ichi_1": "animation.nichirintou_kokyu.gyoumei_body.ichi_1",
-        "gyoumei.ni_1": "animation.nichirintou_kokyu.gyoumei_body.ni_1",
-        "gyoumei.ni_2": "animation.nichirintou_kokyu.gyoumei_body.ni_2",
-        "gyoumei.san_1": "animation.nichirintou_kokyu.gyoumei_body.san_1",
-        "gyoumei.shi_1": "animation.nichirintou_kokyu.gyoumei_body.shi_1",
-        "gyoumei.shi_2": "animation.nichirintou_kokyu.gyoumei_body.shi_2",
-        "gyoumei.go_1": "animation.nichirintou_kokyu.gyoumei_body.go_1",
-        "gyoumei.go_2": "animation.nichirintou_kokyu.gyoumei_body.go_2"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.gyoumei"

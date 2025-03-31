@@ -1,6 +1,7 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityDamageCause } from "@minecraft/server";
 import { getLookPoints } from "../../../common/WeaponsCommonUtil";
 import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
+import { getAdjacentSphericalPoints } from "../../../common/WeaponsShooterPoints";
 
 /**
  * 火炎放射器
@@ -36,7 +37,8 @@ async function shotFlametHrower(player: Player, item: ItemStack) {
 
         for (let i=1;i<=5;i++) {
             let loock = getLookPoints(player.getRotation(), player.location, i);
-            player.dimension.spawnParticle("kurokumaft:flamethrower_fire", {x:loock.x, y:loock.y-0.5, z:loock.z});
+            let loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
+            player.dimension.spawnParticle("kurokumaft:flamethrower_fire", {x:loockpoint.xlocation!, y:loockpoint.ylocation!-1, z:loockpoint.zlocation!});
 
             let target = dimension.getEntities({
                 excludeTags: [
@@ -45,11 +47,12 @@ async function shotFlametHrower(player: Player, item: ItemStack) {
                 excludeTypes: [
                     "item"
                 ],
-                location: loock
+                location: {x:loockpoint.xlocation!, y:loockpoint.ylocation!-0.5, z:loockpoint.zlocation!},
+                maxDistance: 2
             }) as Entity[];
         
             target.forEach(en => {
-                en.applyDamage(2, {
+                en.applyDamage(4, {
                     cause: EntityDamageCause.fire
                 })
             })

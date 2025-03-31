@@ -17,14 +17,22 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "inosuke"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
           "first": "animation.nichirintou_first",
-          "third": "animation.nichirintou_third"
+
+          "inosuke": "controller.animation.nichirintou.inosuke",
+
+          "ichi_1_first": "animation.nichirintou.kedamono.ichi_1_first",
+          "ichi_1_third": "animation.nichirintou.kedamono.ichi_1_third",
+          "zyu_1_first": "animation.nichirintou.kedamono.zyu_1_first",
+          "zyu_1_third": "animation.nichirintou.kedamono.zyu_1_third"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

@@ -33,11 +33,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "giyu.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -62,37 +58,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.giyu.attack",
-        "third": "animation.giyu_third",
-
-        "giyu.kokyu_con":"controller.animation.giyu.kokyu",
-        "giyu.ichi_1": "animation.nichirintou_kokyu.giyu.ichi_1",
-        "giyu.ichi_2": "animation.nichirintou_kokyu.giyu.ichi_2",
-        "giyu.ichi_1_first": "animation.nichirintou_kokyu.giyu.ichi_1_first",
-        "giyu.ichi_2_first": "animation.nichirintou_kokyu.giyu.ichi_2_first",
-        "giyu.ni_1": "animation.nichirintou_kokyu.giyu.ni_1",
-        "giyu.san_1": "animation.nichirintou_kokyu.giyu.san_1",
-        "giyu.san_2": "animation.nichirintou_kokyu.giyu.san_2",
-        "giyu.san_3": "animation.nichirintou_kokyu.giyu.san_3",
-        "giyu.shi_1": "animation.nichirintou_kokyu.giyu.shi_1",
-        "giyu.shi_2": "animation.nichirintou_kokyu.giyu.shi_2",
-        "giyu.go_1": "animation.nichirintou_kokyu.giyu.go_1",
-        "giyu.go_2": "animation.nichirintou_kokyu.giyu.go_2",
-        "giyu.roku_1": "animation.nichirintou_kokyu.giyu.roku_1",
-        "giyu.roku_2": "animation.nichirintou_kokyu.giyu.roku_2",
-        "giyu.shiti_1": "animation.nichirintou_kokyu.giyu.shiti_1",
-        "giyu.shiti_2": "animation.nichirintou_kokyu.giyu.shiti_2",
-        "giyu.hati_1": "animation.nichirintou_kokyu.giyu.hati_1",
-        "giyu.hati_2": "animation.nichirintou_kokyu.giyu.hati_2",
-        "giyu.hati_3": "animation.nichirintou_kokyu.giyu.hati_3",
-        "giyu.ku_1": "animation.nichirintou_kokyu.giyu.ku_1",
-        "giyu.ku_2": "animation.nichirintou_kokyu.giyu.ku_2",
-        "giyu.tou_1": "animation.nichirintou_kokyu.giyu.tou_1",
-        "giyu.tou_2": "animation.nichirintou_kokyu.giyu.tou_2",
-        "giyu.zyuichi_1": "animation.nichirintou_kokyu.giyu.zyuichi_1"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.giyu"

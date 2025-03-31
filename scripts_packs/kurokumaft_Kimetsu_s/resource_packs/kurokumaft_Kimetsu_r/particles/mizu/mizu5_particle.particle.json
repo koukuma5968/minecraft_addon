@@ -10,7 +10,7 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_instant": {
-				"num_particles": 50
+				"num_particles": "variable.kaikyu*2"
 			},
 			"minecraft:emitter_lifetime_looping": {
 				"active_time": 0.5

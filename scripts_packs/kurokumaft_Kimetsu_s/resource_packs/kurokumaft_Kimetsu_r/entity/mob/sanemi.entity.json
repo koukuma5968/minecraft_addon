@@ -33,11 +33,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "sanemi.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -62,27 +58,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.sanemi.attack",
-        "third": "animation.sanemi_third",
-
-        "sanemi.kokyu_con":"controller.animation.sanemi.kokyu",
-        "sanemi_attack.kokyu_con":"controller.animation.sanemi_attack.kokyu",
-        "sanemi.ichi_1": "animation.nichirintou_kokyu.sanemi.ichi_1",
-        "sanemi.ichi_2": "animation.nichirintou_kokyu.sanemi.ichi_2",
-        "sanemi.ichi_3": "animation.nichirintou_kokyu.sanemi.ichi_3",
-        "sanemi.ni_1": "animation.nichirintou_kokyu.sanemi.ni_1",
-        "sanemi.san_1": "animation.nichirintou_kokyu.sanemi.san_1",
-        "sanemi.shi_1": "animation.nichirintou_kokyu.sanemi.shi_1",
-        "sanemi.go_1": "animation.nichirintou_kokyu.sanemi.go_1",
-        "sanemi.go_2": "animation.nichirintou_kokyu.sanemi.go_2",
-        "sanemi.roku_1": "animation.nichirintou_kokyu.sanemi.roku_1",
-        "sanemi.shiti_1": "animation.nichirintou_kokyu.sanemi.shiti_1",
-        "sanemi.hati_1": "animation.nichirintou_kokyu.sanemi.hati_1",
-        "sanemi.ku_1": "animation.nichirintou_kokyu.sanemi.ku_1",
-        "sanemi.ku_2": "animation.nichirintou_kokyu.sanemi.ku_2"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.sanemi"

@@ -33,11 +33,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "inosuke.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
         ]
       },
       "animations": {
@@ -61,23 +57,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.inosuke.attack",
-        "third": "animation.inosuke_third",
-
-        "inosuke.kokyu_con":"controller.animation.inosuke.kokyu",
-        "inosuke.ichi_1": "animation.nichirintou_kokyu.inosuke.ichi_1",
-        "inosuke.ni_1": "animation.nichirintou_kokyu.inosuke.ni_1",
-        "inosuke.san_1": "animation.nichirintou_kokyu.inosuke.san_1",
-        "inosuke.shi_1": "animation.nichirintou_kokyu.inosuke.shi_1",
-        "inosuke.go_1": "animation.nichirintou_kokyu.inosuke.go_1",
-        "inosuke.roku_1": "animation.nichirintou_kokyu.inosuke.roku_1",
-        "inosuke.roku_2": "animation.nichirintou_kokyu.inosuke.roku_2",
-        "inosuke.shiti_1": "animation.nichirintou_kokyu.inosuke.shiti_1",
-        "inosuke.hati_1": "animation.nichirintou_kokyu.inosuke.hati_1",
-        "inosuke.ku_1": "animation.nichirintou_kokyu.inosuke.ku_1",
-        "inosuke.tou_1": "animation.nichirintou_kokyu.inosuke.tou_1"
+        "use_item_progress":"animation.humanoid.use_item_progress"
 
       },
       "render_controllers": [

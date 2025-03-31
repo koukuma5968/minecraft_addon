@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:kaminari_dragon",
+        "materials": {
+          "default": "dragon"
+        },
+        "textures": {
+          "kaminari_dragon": "textures/kurokumaft/models/kaminari_dragon"
+        },
+        "geometry": {
+          "kaminari_dragon": "geometry.kaminari_dragon"
+        },
+        "render_controllers": ["controller.render.kaminari_dragon"]
+      }
+    }
+  }
+  

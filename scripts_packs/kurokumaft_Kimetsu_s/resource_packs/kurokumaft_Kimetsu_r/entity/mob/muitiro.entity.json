@@ -33,12 +33,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "muitiro.kokyu_con"
-
+          { "swimming": "variable.swim_amount > 0.0" }
         ]
       },
       "animations": {
@@ -62,25 +57,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.muitiro.attack",
-        "third": "animation.muitiro_third",
-
-        "muitiro.kokyu_con":"controller.animation.muitiro.kokyu",
-        "muitiro_attack.kokyu_con":"controller.animation.muitiro_attack.kokyu",
-        "muitiro.ichi_1": "animation.nichirintou_kokyu.muitiro.ichi_1",
-        "muitiro.ichi_2": "animation.nichirintou_kokyu.muitiro.ichi_2",
-        "muitiro.ni_1": "animation.nichirintou_kokyu.muitiro.ni_1",
-        "muitiro.san_1": "animation.nichirintou_kokyu.muitiro.san_1",
-        "muitiro.san_2": "animation.nichirintou_kokyu.muitiro.san_2",
-        "muitiro.shi_1": "animation.nichirintou_kokyu.muitiro.shi_1",
-        "muitiro.shi_2": "animation.nichirintou_kokyu.muitiro.shi_2",
-        "muitiro.go_1": "animation.nichirintou_kokyu.muitiro.go_1",
-        "muitiro.roku_1": "animation.nichirintou_kokyu.muitiro.roku_1",
-        "muitiro.shiti_1": "animation.nichirintou_kokyu.muitiro.shiti_1",
-        "muitiro.shiti_attack": "animation.nichirintou_kokyu.muitiro.shiti_attack"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.muitiro"

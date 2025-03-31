@@ -1,20 +1,8 @@
 // scripts/kimetu_script.ts
-import { world as world6, EquipmentSlot as EquipmentSlot4, Player as Player12 } from "@minecraft/server";
+import { world as world10, system as system17, EquipmentSlot as EquipmentSlot5, Player as Player26, EntityComponentTypes as EntityComponentTypes11, ScriptEventSource } from "@minecraft/server";
 
-// scripts/item/weapon/nichirintou/Nichirintou.ts
-var Nichirintou = class {
-  // 右クリック
-  onUse(event) {
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouComponent.ts
-import { world as world4 } from "@minecraft/server";
-
-// scripts/kokyu/kata/MizunoKata.ts
-import { EntityDamageCause as EntityDamageCause2, Player as Player3, system, TicksPerSecond } from "@minecraft/server";
+// scripts/kokyu/kata/MizuNoKata.ts
+import { EntityComponentTypes as EntityComponentTypes4, EntityDamageCause as EntityDamageCause2, MolangVariableMap, Player as Player5, system, TicksPerSecond } from "@minecraft/server";
 
 // scripts/common/KimetuCommonUtil.ts
 import { world, Direction } from "@minecraft/server";
@@ -33,12 +21,12 @@ function getLookPoints(rotation, location, point) {
     if (rotation.x >= -90 && rotation.x < 0) {
       let xRota = (rotation.x + 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     } else if (rotation.x >= 0 && rotation.x <= 90) {
       let xRota = -(rotation.x - 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     }
   } else if (rotation.y >= 0 && rotation.y <= 90) {
@@ -48,12 +36,12 @@ function getLookPoints(rotation, location, point) {
     if (rotation.x >= -90 && rotation.x < 0) {
       let xRota = (rotation.x + 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     } else if (rotation.x >= 0 && rotation.x <= 90) {
       let xRota = -(rotation.x - 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     }
   } else if (rotation.y < -90 && rotation.y > -180) {
@@ -63,12 +51,12 @@ function getLookPoints(rotation, location, point) {
     if (rotation.x >= -90 && rotation.x < 0) {
       let xRota = (rotation.x + 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     } else if (rotation.x >= 0 && rotation.x <= 90) {
       let xRota = -(rotation.x - 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     }
   } else if (rotation.y > 90 && rotation.y <= 180) {
@@ -78,12 +66,12 @@ function getLookPoints(rotation, location, point) {
     if (rotation.x >= -90 && rotation.x < 0) {
       let xRota = (rotation.x + 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     } else if (rotation.x >= 0 && rotation.x <= 90) {
       let xRota = -(rotation.x - 90) / piNum;
       xlocation = location.x + yRotax * xRota * point;
-      ylocation = location.y + 1.5 + yRota * point;
+      ylocation = location.y - 0.5 + yRota * point;
       zlocation = location.z + yRotaz * xRota * point;
     }
   }
@@ -108,7 +96,7 @@ function getLookRotaionPoints(rotation, point, side) {
   }
   return { x: rotax, z: rotaz };
 }
-function addRegimentalFilter(closest, location, maxDis) {
+function addRegimentalFilter(closest, location, maxDis, exeTag) {
   let filterOption = {
     excludeFamilies: [
       "inanimate",
@@ -119,12 +107,8 @@ function addRegimentalFilter(closest, location, maxDis) {
     excludeTypes: [
       "item"
     ],
-    propertyOption: [
-      {
-        propertyId: "kurokumaft:kokyu_use",
-        exclude: true,
-        value: false
-      }
+    excludeTags: [
+      exeTag
     ],
     location,
     maxDistance: maxDis
@@ -132,6 +116,19 @@ function addRegimentalFilter(closest, location, maxDis) {
   if (!world.gameRules.pvp) {
     filterOption.excludeFamilies?.push("player");
   }
+  if (closest != 0) {
+    filterOption.closest = closest;
+  }
+  return filterOption;
+}
+function addProjectionFilter(closest, location, maxDis) {
+  let filterOption = {
+    families: [
+      "inanimate"
+    ],
+    location,
+    maxDistance: maxDis
+  };
   if (closest != 0) {
     filterOption.closest = closest;
   }
@@ -182,12 +179,30 @@ var weightChoice = (list) => {
 };
 
 // scripts/kokyu/kata/KataComonClass.ts
-import { EntityComponentTypes, EntityDamageCause, EquipmentSlot, Player as Player2, world as world2 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes2, EntityDamageCause, EquipmentSlot as EquipmentSlot2, Player as Player3, world as world2 } from "@minecraft/server";
+
+// scripts/common/KimetuItemDurabilityDamage.ts
+import { ItemComponentTypes, EntityComponentTypes, GameMode, Player as Player2 } from "@minecraft/server";
+async function ItemDurabilityDamage(entity, item, slot) {
+  if (entity instanceof Player2 && entity.getGameMode() != GameMode.creative) {
+    let equ = entity.getComponent(EntityComponentTypes.Equippable);
+    let durability = item.getComponent(ItemComponentTypes.Durability);
+    let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
+    if (durability.damage + dChange >= durability.maxDurability) {
+      equ.setEquipment(slot, void 0);
+    } else {
+      durability.damage = durability.damage + dChange;
+      equ.setEquipment(slot, item);
+    }
+  }
+}
+
+// scripts/kokyu/kata/KataComonClass.ts
 var KataComonClass = class {
   gardCheck(en) {
-    let equ = en.getComponent(EntityComponentTypes.Equippable);
-    let main = equ.getEquipment(EquipmentSlot.Mainhand);
-    let off = equ.getEquipment(EquipmentSlot.Offhand);
+    let equ = en.getComponent(EntityComponentTypes2.Equippable);
+    let main = equ.getEquipment(EquipmentSlot2.Mainhand);
+    let off = equ.getEquipment(EquipmentSlot2.Offhand);
     if (en.isSneaking && (main != void 0 && main.typeId.indexOf("shield") != -1 || off != void 0 && off.typeId.indexOf("shield") != -1)) {
       world2.playSound("item.shield.block", en.location, {
         pitch: 1,
@@ -197,23 +212,48 @@ var KataComonClass = class {
     }
     return true;
   }
-  kokyuApplyDamage(player, filter, enDamage, pDamage) {
-    let targets = player.dimension.getEntities(filter);
+  kokyuApplyDamage(player, filter, enDamage, pDamage, itemStack) {
+    player.addTag(player.id);
+    const targets = player.dimension.getEntities(filter);
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
     targets.forEach((en) => {
-      if (en instanceof Player2) {
+      if (en instanceof Player3) {
         if (this.gardCheck(en)) {
-          en.applyDamage(pDamage, {
+          en.applyDamage(pDamage * kaikyuNum, {
             cause: EntityDamageCause.entityAttack,
             damagingEntity: player
           });
         }
       } else {
-        en.applyDamage(enDamage, {
+        en.applyDamage(enDamage * kaikyuNum, {
           cause: EntityDamageCause.entityAttack,
           damagingEntity: player
         });
       }
     });
+    ItemDurabilityDamage(player, itemStack, EquipmentSlot2.Mainhand);
+    player.removeTag(player.id);
+  }
+  kokyuApplyEffect(player, filter, duration, damage, effect) {
+    player.addTag(player.id);
+    const targets = player.dimension.getEntities(filter);
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    targets.forEach((en) => {
+      if (en instanceof Player3) {
+        if (this.gardCheck(en)) {
+          en.addEffect(effect, Math.round(duration * kaikyuNum * 0.25), {
+            amplifier: Math.round(damage * kaikyuNum * 0.25),
+            showParticles: true
+          });
+        }
+      } else {
+        en.addEffect(effect, Math.round(duration * kaikyuNum * 0.75), {
+          amplifier: Math.round(damage * kaikyuNum),
+          showParticles: true
+        });
+      }
+    });
+    player.removeTag(player.id);
   }
 };
 
@@ -3207,82 +3247,139 @@ var MinecraftPotionModifierTypes = ((MinecraftPotionModifierTypes2) => {
   return MinecraftPotionModifierTypes2;
 })(MinecraftPotionModifierTypes || {});
 
-// scripts/kokyu/kata/MizunoKata.ts
-var MizunoKata = class extends KataComonClass {
+// scripts/common/ShooterEvent.ts
+import { EntityComponentTypes as EntityComponentTypes3 } from "@minecraft/server";
+function shooting(player, throwItem, ranNum, seepd, event) {
+  let bulet;
+  if (event != void 0) {
+    bulet = player.dimension.spawnEntity(throwItem + "<" + event + ">", player.getHeadLocation());
+  } else {
+    bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
+  }
+  let projectile = bulet.getComponent(EntityComponentTypes3.Projectile);
+  projectile.owner = player;
+  projectile.shoot(
+    {
+      x: player.getViewDirection().x * seepd,
+      y: player.getViewDirection().y * seepd,
+      z: player.getViewDirection().z * seepd
+    },
+    {
+      uncertainty: ranNum
+    }
+  );
+  return bulet;
+}
+
+// scripts/kokyu/kata/MizuNoKata.ts
+var MizuNoKata = class extends KataComonClass {
+  constructor() {
+    super(...arguments);
+    this.nagiIntervalId = 0;
+  }
   /**
    * 壱ノ型 水面切り
    */
-  ichinokata(player) {
-    let location = getLookPoints(player.getRotation(), player.location, 1.5);
-    let filter = addRegimentalFilter(0, location, 2.5);
-    this.kokyuApplyDamage(player, filter, 5, 2);
+  ichiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:mizu_kokyu1.value" }] });
+    system.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+    const location = getLookPoints(player.getRotation(), player.location, 1.5);
+    const filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 4, 2, itemStack);
   }
   /**
    * 弐ノ型 水車
    */
-  ninokata(player) {
+  niNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu2.value"}]}');
+    system.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, TicksPerSecond);
     let location = getLookPoints(player.getRotation(), player.location, 2.5);
-    let filter = addRegimentalFilter(0, location, 1.5);
-    this.kokyuApplyDamage(player, filter, 3, 1);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
     location = getLookPoints(player.getRotation(), player.location, -2.5);
-    filter = addRegimentalFilter(0, location, 1.5);
-    this.kokyuApplyDamage(player, filter, 3, 1);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
     location = getLookPoints(player.getRotation(), { x: player.location.x, y: player.location.y + 2.5, z: player.location.z }, 0);
-    filter = addRegimentalFilter(0, location, 1.5);
-    this.kokyuApplyDamage(player, filter, 3, 1);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
     location = getLookPoints(player.getRotation(), { x: player.location.x, y: player.location.y - 2.5, z: player.location.z }, 0);
-    filter = addRegimentalFilter(0, location, 1.5);
-    this.kokyuApplyDamage(player, filter, 3, 1);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
   }
   /**
    * 参ノ型 流流舞い
    */
-  sannokata(player) {
-    let right = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
-    let rvolume = getLookPoints(player.getRotation(), { x: right.x, y: player.location.y, z: right.z }, 0);
-    let rfilter = addRegimentalFilter(0, rvolume, 1.5);
-    this.kokyuApplyDamage(player, rfilter, 2, 1);
-    let center = getLookRotaionPoints(player.getRotation(), 1.5, 0);
-    let cvolume = getLookPoints(player.getRotation(), { x: center.x, y: player.location.y, z: center.z }, 0);
-    let cfilter = addRegimentalFilter(0, cvolume, 1.5);
-    this.kokyuApplyDamage(player, cfilter, 2, 1);
-    let left = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
-    let lvolume = getLookPoints(player.getRotation(), { x: left.x, y: player.location.y, z: left.z }, 0);
-    let lfilter = addRegimentalFilter(0, lvolume, 1.5);
-    this.kokyuApplyDamage(player, lfilter, 2, 1);
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu3.value"}]}');
+    system.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 30);
+    const left = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
+    const lvolume = getLookPoints(player.getRotation(), { x: player.location.x + left.x, y: player.location.y, z: player.location.z + left.z }, 0);
+    const lfilter = addRegimentalFilter(0, lvolume, 3, player.id);
+    this.kokyuApplyDamage(player, lfilter, 2, 1, itemStack);
+    system.runTimeout(() => {
+      const right = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
+      const rvolume = getLookPoints(player.getRotation(), { x: player.location.x + right.x, y: player.location.y, z: player.location.z + right.z }, 0);
+      const rfilter = addRegimentalFilter(0, rvolume, 3, player.id);
+      this.kokyuApplyDamage(player, rfilter, 2, 1, itemStack);
+    }, 10);
+    system.runTimeout(() => {
+      const cvolume = getLookPoints(player.getRotation(), player.location, 1.5);
+      const cfilter = addRegimentalFilter(0, cvolume, 3, player.id);
+      this.kokyuApplyDamage(player, cfilter, 2, 1, itemStack);
+    }, 20);
   }
   /**
    * 肆ノ型 打ち潮
    */
-  shinokata(player) {
-    let right = getLookRotaionPoints(player.getRotation(), 1.5, 2);
-    let rvolume = getLookPoints(player.getRotation(), { x: right.x, y: player.location.y, z: right.z }, 0);
-    let rfilter = addRegimentalFilter(0, rvolume, 1.5);
-    player.dimension.spawnParticle("kurokumaft:mizu2_particle", rvolume);
-    this.kokyuApplyDamage(player, rfilter, 3, 1);
-    let left = getLookRotaionPoints(player.getRotation(), 1.5, -2);
-    let lvolume = getLookPoints(player.getRotation(), { x: left.x, y: player.location.y, z: left.z }, 0);
-    let lfilter = addRegimentalFilter(0, lvolume, 1.5);
+  shiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu4.value"}]}');
+    system.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+    }, 20);
+    const left = getLookRotaionPoints(player.getRotation(), 1.5, -2);
+    const lvolume = getLookPoints(player.getRotation(), { x: player.location.x + left.x, y: player.location.y + 1, z: player.location.z + left.z }, 0);
+    const lfilter = addRegimentalFilter(0, lvolume, 3.5, player.id);
     player.dimension.spawnParticle("kurokumaft:mizu2_particle", lvolume);
-    this.kokyuApplyDamage(player, lfilter, 3, 1);
+    this.kokyuApplyDamage(player, lfilter, 3, 1, itemStack);
+    system.waitTicks(20);
+    const right = getLookRotaionPoints(player.getRotation(), 1.5, 2);
+    const rvolume = getLookPoints(player.getRotation(), { x: player.location.x + right.x, y: player.location.y + 1, z: player.location.z + right.z }, 0);
+    const rfilter = addRegimentalFilter(0, rvolume, 3.5, player.id);
+    player.dimension.spawnParticle("kurokumaft:mizu2_particle", rvolume);
+    this.kokyuApplyDamage(player, rfilter, 3, 1, itemStack);
   }
   /**
    * 伍ノ型 干天の慈雨
    */
-  gonokata(player) {
-    let goKataLists = weightChoice([
-      { item: "small", weight: 50 },
-      { item: "lage", weight: 30 },
-      { item: "kill", weight: 1 }
+  goNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu5.value"}]}');
+    system.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+    }, 4);
+    const goKataLists = weightChoice([
+      { item: "small", weight: 55 },
+      { item: "lage", weight: 40 },
+      { item: "kill", weight: 5 }
     ]);
-    let volume = getLookPoints(player.getRotation(), player.location, 1.5);
-    let filter = addRegimentalFilter(1, volume, 1.5);
-    let targets = player.dimension.getEntities(filter);
+    const volume = getLookPoints(player.getRotation(), player.location, 1.5);
+    const filter = addRegimentalFilter(1, volume, 3, player.id);
+    const targets = player.dimension.getEntities(filter);
     targets.forEach((en) => {
-      let choice = goKataLists.pick();
-      switch (choice.item) {
+      const choice = goKataLists.pick();
+      switch (choice) {
         case "small":
-          if (en instanceof Player3) {
+          if (en instanceof Player5) {
             if (this.gardCheck(en)) {
               en.applyDamage(2, {
                 cause: EntityDamageCause2.entityAttack,
@@ -3297,7 +3394,7 @@ var MizunoKata = class extends KataComonClass {
           }
           break;
         case "lage":
-          if (en instanceof Player3) {
+          if (en instanceof Player5) {
             if (this.gardCheck(en)) {
               en.applyDamage(3, {
                 cause: EntityDamageCause2.entityAttack,
@@ -3316,121 +3413,260 @@ var MizunoKata = class extends KataComonClass {
           break;
       }
     });
-    player.dimension.spawnParticle("kurokumaft:mizu5_particle", player.location);
-    player.dimension.spawnParticle("kurokumaft:mizu5_particle", player.location);
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    player.dimension.spawnParticle("kurokumaft:mizu5_particle", player.location, molang);
+    player.dimension.spawnParticle("kurokumaft:mizu5_particle", player.location, molang);
   }
   /**
    * 陸ノ型 ねじれ渦
    */
-  rokunokata(player) {
-    let volume = getLookPoints(player.getRotation(), player.location, 0);
-    player.dimension.spawnParticle("kurokumaft:mizu6_particle", player.location);
+  rokuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu6.value"}]}');
+    const volume = getLookPoints(player.getRotation(), player.location, 0);
     if (player.isInWater) {
-      let filter = addRegimentalFilter(0, volume, 5);
-      this.kokyuApplyDamage(player, filter, 10, 4);
+      const filter = addRegimentalFilter(0, volume, 5, player.id);
+      this.kokyuApplyDamage(player, filter, 10, 4, itemStack);
     } else {
-      let filter = addRegimentalFilter(0, volume, 3.5);
-      this.kokyuApplyDamage(player, filter, 5, 2);
+      const filter = addRegimentalFilter(0, volume, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
     }
+    const num = system.runInterval(() => {
+      if (player.isInWater) {
+        const filter = addRegimentalFilter(0, volume, 5, player.id);
+        this.kokyuApplyDamage(player, filter, 10, 4, itemStack);
+      } else {
+        const filter = addRegimentalFilter(0, volume, 3.5, player.id);
+        this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+      }
+    }, 4);
+    system.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system.clearRun(num);
+    }, 25);
   }
   /**
    * 漆ノ型 雫波紋突き
    */
-  shitinokata(player) {
-    let volume = getLookPoints(player.getRotation(), player.location, 3.5);
-    player.dimension.spawnParticle("kurokumaft:mizu7_1_particle", volume);
-    player.dimension.spawnParticle("kurokumaft:mizu7_2_particle", volume);
-    let filter = addRegimentalFilter(0, volume, 2);
-    this.kokyuApplyDamage(player, filter, 6, 3);
+  shitiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu7.value"}]}');
+    system.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 5);
+    const volume = getLookPoints(player.getRotation(), player.location, 3.5);
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    player.dimension.spawnParticle("kurokumaft:mizu7_1_particle", volume, molang);
+    player.dimension.spawnParticle("kurokumaft:mizu7_2_particle", volume, molang);
+    const filter = addRegimentalFilter(0, volume, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
   }
   /**
    * 捌ノ型 滝壺
    */
-  hachinokata(player) {
-    let num = system.runInterval(() => {
-      player.teleport({ x: player.location.x, y: player.location.y + 0.5, z: player.location.z }, {
-        checkForBlocks: true
-      });
-    }, 2);
-    system.runTimeout(() => {
-      system.clearRun(num);
-      let volume = getLookPoints(player.getRotation(), player.location, 2.5);
-      player.dimension.spawnParticle("kurokumaft:mizu8_particle", { x: player.location.x, y: player.location.y - 1.5, z: player.location.z });
-      let filter = addRegimentalFilter(0, volume, 2);
-      this.kokyuApplyDamage(player, filter, 4, 2);
-      system.waitTicks(2);
-      this.kokyuApplyDamage(player, filter, 4, 2);
-      system.waitTicks(2);
-      this.kokyuApplyDamage(player, filter, 4, 2);
-    }, 10);
+  hachiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    if (!player.getDynamicProperty("kurokumaft:mizuhati")) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu8.value"}]}');
+      player.setDynamicProperty("kurokumaft:mizuhati", true);
+      let oLocate = player.location;
+      let volume = getLookPoints(player.getRotation(), player.location, 0);
+      let num = system.runInterval(() => {
+        player.teleport({ x: player.location.x, y: player.location.y + 0.5, z: player.location.z }, {
+          checkForBlocks: true
+        });
+      }, 2);
+      let parnum = 0;
+      system.runTimeout(() => {
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        system.clearRun(num);
+        let filter = addRegimentalFilter(0, volume, 6, player.id);
+        const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+        const molang = new MolangVariableMap();
+        molang.setFloat("variable.kaikyu", kaikyuNum);
+        parnum = system.runInterval(() => {
+          player.dimension.spawnParticle("kurokumaft:mizu8_particle", { x: oLocate.x, y: oLocate.y + 0.5, z: oLocate.z }, molang);
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x + 0.5, y: player.location.y - 0.5, z: player.location.z + 0.5 }, molang);
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x + 0.5, y: player.location.y - 0.5, z: player.location.z - 0.5 }, molang);
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x - 0.5, y: player.location.y - 0.5, z: player.location.z + 0.5 }, molang);
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x - 0.5, y: player.location.y - 0.5, z: player.location.z - 0.5 }, molang);
+          this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+        }, 1);
+      }, 25);
+      system.runTimeout(() => {
+        player.setDynamicProperty("kurokumaft:mizuhati", false);
+        system.clearRun(parnum);
+      }, 40);
+    }
   }
   /**
    * 玖ノ型 水流飛沫・乱
    */
-  kunokata(player) {
-    let num = system.runInterval(() => {
-      player.dimension.spawnParticle("kurokumaft:mizu_splash_particle", player.location);
-    }, 2);
-    player.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond, {
-      amplifier: 5,
-      showParticles: false
-    });
-    player.addEffect(MinecraftEffectTypes.JumpBoost, 10 * TicksPerSecond, {
-      amplifier: 3,
-      showParticles: false
-    });
-    system.runTimeout(() => {
-      system.clearRun(num);
-    }, 10 * TicksPerSecond);
+  kuNoKata(player, itemStack) {
+    if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu9.value"}]}');
+      player.setDynamicProperty("kurokumaft:chage_type", true);
+      player.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond, {
+        amplifier: 5,
+        showParticles: false
+      });
+      player.addEffect(MinecraftEffectTypes.JumpBoost, 10 * TicksPerSecond, {
+        amplifier: 3,
+        showParticles: false
+      });
+      system.runTimeout(() => {
+        player.setProperty("kurokumaft:kokyu_use", false);
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      }, 10 * TicksPerSecond);
+    }
+  }
+  /**
+   * 拾ノ型 生生流転　発射
+   */
+  zyuNoKataShot(player, itemStack) {
+    let chage = player.getProperty("kurokumaft:kokyu_chage");
+    player.setProperty("kurokumaft:kokyu_use", false);
+    if (chage == 4) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu10.value"}]}');
+      player.setProperty("kurokumaft:kokyu_chage", 10);
+      system.runTimeout(() => {
+        let dragon = shooting(player, "kurokumaft:mizu_dragon", 0, 3, void 0);
+        player.setProperty("kurokumaft:kokyu_chage", 0);
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        system.runTimeout(() => {
+          dragon.remove();
+        }, 2 * TicksPerSecond);
+      }, 10);
+    }
   }
   /**
    * 拾ノ型 生生流転
    */
-  zyunokata(player) {
+  zyuNoKata(player, itemStack) {
+    let chage = player.getProperty("kurokumaft:kokyu_chage");
+    if (chage < 4) {
+      player.setProperty("kurokumaft:kokyu_particle", true);
+      if (chage + 1 < 4) {
+        system.runTimeout(() => {
+          chage = player.getProperty("kurokumaft:kokyu_chage");
+          if (chage < 4) {
+            player.setProperty("kurokumaft:kokyu_particle", false);
+          }
+        }, 14);
+      }
+      player.setProperty("kurokumaft:kokyu_chage", chage + 1);
+    }
     let volume = getLookPoints(player.getRotation(), player.location, 0);
-    let filter = addRegimentalFilter(0, volume, 3.5);
-    this.kokyuApplyDamage(player, filter, 6, 3);
-    player.dimension.spawnParticle("kurokumaft:mizu10_particle", player.location);
+    let filter = addRegimentalFilter(0, volume, 4.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 拾壱ノ型 凪
+   */
+  zyuichiNoKata(player, itemStack) {
+    if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kokyu11.value"}]}');
+      player.setDynamicProperty("kurokumaft:chage_type", true);
+      this.nagiIntervalId = system.runInterval(() => {
+        player.setProperty("kurokumaft:kokyu_attack", false);
+        this.checkNagiReflection(player, itemStack);
+      }, 2);
+      const parnum = system.runInterval(() => {
+        const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+        const molang = new MolangVariableMap();
+        molang.setFloat("variable.kaikyu", kaikyuNum);
+        player.dimension.spawnParticle("kurokumaft:mizu11_particle", player.location, molang);
+      }, TicksPerSecond);
+      system.runTimeout(() => {
+        player.setProperty("kurokumaft:kokyu_attack", false);
+        player.setProperty("kurokumaft:kokyu_use", false);
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        player.setDynamicProperty("kurokumaft:chage_type", void 0);
+        system.clearRun(this.nagiIntervalId);
+        system.clearRun(parnum);
+      }, 10 * TicksPerSecond);
+    }
+  }
+  checkNagiReflection(player, itemStack) {
+    if (player.isValid()) {
+      const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+      const volume = getLookPoints(player.getRotation(), player.location, 0);
+      const projfilter = addProjectionFilter(0, volume, 4.5);
+      const projectiles = player.dimension.getEntities(projfilter);
+      projectiles.forEach((projectile) => {
+        projectile.clearVelocity();
+        const projComp = projectile.getComponent(EntityComponentTypes4.Projectile);
+        if (projComp != void 0) {
+          projComp.shoot(projectile.getViewDirection(), {
+            uncertainty: 0
+          });
+          player.setProperty("kurokumaft:kokyu_attack", true);
+        }
+      });
+      player.addTag(player.id);
+      const filter = addRegimentalFilter(0, volume, 4.5, player.id);
+      const targets = player.dimension.getEntities(filter);
+      targets.forEach((en) => {
+        const view = en.getViewDirection();
+        en.applyKnockback(-Math.round(view.x) * 3, -Math.round(view.z) * 3, 3, 0);
+        if (en instanceof Player5) {
+          if (this.gardCheck(en)) {
+            en.applyDamage(2 * kaikyuNum, {
+              cause: EntityDamageCause2.entityAttack,
+              damagingEntity: player
+            });
+          }
+        } else {
+          en.applyDamage(6 * kaikyuNum, {
+            cause: EntityDamageCause2.entityAttack,
+            damagingEntity: player
+          });
+        }
+        player.setProperty("kurokumaft:kokyu_attack", true);
+      });
+      player.removeTag(player.id);
+    } else {
+      system.clearRun(this.nagiIntervalId);
+    }
   }
 };
 
-// scripts/kokyu/KokyuTanjiroComponent.ts
-var KokyuTanjiroComponent = class {
+// scripts/kokyu/KokyuGiyuComponent.ts
+var KokyuGiyuComponent = class {
   /**
    * 呼吸型変更
    * @param {Player} player
    */
   changeKata(player) {
     let kata = player.getProperty("kurokumaft:kokyu_kata");
-    let tanjiroObject = KokyuObjects[1];
+    let kokyuObject = KokyuObjects[5];
     switch (kata) {
-      case tanjiroObject.kata[tanjiroObject.kata.length - 1]:
-        player.setProperty("kurokumaft:kokyu_kata", 1);
-        kata = 1;
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
         break;
       default:
-        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
-        kata = kata + 1;
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
     }
-    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + tanjiroObject.kata_msg + kata + '.value"}]}');
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kata' + kata + '.value"}]}');
   }
   /**
-   * 炭治郎 呼吸
    * @param {Player} player
    */
-  hitAttackKata(player) {
+  hitAttackKata(player, itemStack) {
     let kata = player.getProperty("kurokumaft:kokyu_kata");
-    let tanjiroObject = KokyuObjects[1];
-    let mizu = new MizunoKata();
-    let usef = false;
-    usef = true;
+    let mizu = new MizuNoKata();
     switch (kata) {
       case 10:
-        mizu.zyunokata(player);
+        mizu.zyuNoKata(player, itemStack);
         break;
-    }
-    if (usef) {
-      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + tanjiroObject.kata_msg + kata + '.value"}]}');
     }
   }
   /**
@@ -3439,86 +3675,3366 @@ var KokyuTanjiroComponent = class {
    */
   useAttackKata(player, itemStack) {
     let kata = player.getProperty("kurokumaft:kokyu_kata");
-    let tanjiroObject = KokyuObjects[1];
-    let mizu = new MizunoKata();
-    let usef = false;
+    let mizu = new MizuNoKata();
     switch (kata) {
       case 2:
-        mizu.ninokata(player);
-        usef = true;
+        mizu.niNoKata(player, itemStack);
         break;
       case 3:
-        mizu.sannokata(player);
-        usef = true;
+        mizu.sanNoKata(player, itemStack);
         break;
       case 4:
-        mizu.shinokata(player);
-        usef = true;
+        mizu.shiNoKata(player, itemStack);
         break;
       case 9:
-        mizu.kunokata(player);
-        usef = true;
+        mizu.kuNoKata(player, itemStack);
         break;
-    }
-    if (usef) {
-      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + tanjiroObject.kata_msg + kata + '.value"}]}');
+      case 10:
+        mizu.zyuNoKataShot(player, itemStack);
+        break;
+      case 11:
+        mizu.zyuichiNoKata(player, itemStack);
+        break;
     }
   }
-  releaseAttackKata(player, itemStack) {
+  releaseAttackKata(player, itemStack, duration) {
     let kata = player.getProperty("kurokumaft:kokyu_kata");
-    let tanjiroObject = KokyuObjects[1];
-    let mizu = new MizunoKata();
-    let usef = false;
+    let mizu = new MizuNoKata();
     switch (kata) {
       case 1:
-        mizu.ichinokata(player);
-        usef = true;
+        mizu.ichiNoKata(player, itemStack);
         break;
       case 5:
-        mizu.gonokata(player);
-        usef = true;
+        mizu.goNoKata(player, itemStack);
         break;
       case 6:
-        mizu.rokunokata(player);
-        usef = true;
+        mizu.rokuNoKata(player, itemStack);
         break;
       case 7:
-        mizu.shitinokata(player);
-        usef = true;
+        mizu.shitiNoKata(player, itemStack);
         break;
       case 8:
-        mizu.hachinokata(player);
-        usef = true;
+        mizu.hachiNoKata(player, itemStack);
         break;
     }
-    if (usef) {
-      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + tanjiroObject.kata_msg + kata + '.value"}]}');
+  }
+};
+
+// scripts/kokyu/kata/IwaNoKata.ts
+import { system as system2, TicksPerSecond as TicksPerSecond2 } from "@minecraft/server";
+var IwaNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 蛇紋岩・双極
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:iwa_kokyu1.value"}]}');
+    system2.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+    let location = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+  }
+  /**
+   * 弐ノ型 天面砕き
+   */
+  niNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:iwa_kokyu2.value"}]}');
+    let num = system2.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system2.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system2.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 参ノ型 岩軀の膚
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:iwa_kokyu3.value"}]}');
+    let num = system2.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(1, location, 6, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 2);
+    system2.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system2.clearRun(num);
+    }, 30);
+  }
+  /**
+   * 肆ノ型 流紋岩・速征
+   */
+  shiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:iwa_kokyu4.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 10, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system2.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+  }
+  /**
+   * 伍ノ型 瓦輪刑部
+   */
+  goNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:iwa_kokyu5.value"}]}');
+    let nowloc = player.location;
+    let num = system2.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari5_particle", nowloc);
+    }, 1);
+    let dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
+    system2.runTimeout(() => {
+      dragon.remove();
+    }, 2 * TicksPerSecond2);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system2.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system2.clearRun(num);
+    }, 10);
+  }
+};
+
+// scripts/kokyu/KokyuGyoumeiComponent.ts
+var KokyuGyoumeiComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[9];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
     }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:iwa_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let iwa = new IwaNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        iwa.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        iwa.niNoKata(player, itemStack);
+        break;
+      case 3:
+        iwa.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        iwa.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        iwa.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+  }
+};
+
+// scripts/kokyu/kata/KedamonoNoKata.ts
+import { system as system3, TicksPerSecond as TicksPerSecond3 } from "@minecraft/server";
+var KedamonoNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ牙 穿ち抜き
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu1.value"}]}');
+    system3.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 15);
+    let volume = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, volume, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 4, 2, itemStack);
+  }
+  /**
+   * 弐ノ牙 切り裂き
+   */
+  niNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu2.value"}]}');
+    system3.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 15);
+    let left = getLookRotaionPoints(player.getRotation(), 1.5, -0.5);
+    let lvolume = getLookPoints(player.getRotation(), { x: player.location.x + left.x, y: player.location.y, z: player.location.z + left.z }, 0);
+    let lfilter = addRegimentalFilter(0, lvolume, 3, player.id);
+    this.kokyuApplyDamage(player, lfilter, 2, 1, itemStack);
+    system3.runTimeout(() => {
+      let right = getLookRotaionPoints(player.getRotation(), 1.5, 0.5);
+      let rvolume = getLookPoints(player.getRotation(), { x: player.location.x + right.x, y: player.location.y, z: player.location.z + right.z }, 0);
+      let rfilter = addRegimentalFilter(0, rvolume, 3, player.id);
+      this.kokyuApplyDamage(player, rfilter, 2, 1, itemStack);
+    }, 10);
+  }
+  /**
+   * 参ノ牙 喰い裂き
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu3.value"}]}');
+    system3.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+    let volume = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, volume, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 4, 2, itemStack);
+  }
+  /**
+   * 肆ノ牙 切細裂き
+   */
+  shiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu4.value"}]}');
+    let num = system3.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(0, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system3.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system3.clearRun(num);
+    }, 40);
+  }
+  /**
+   * 伍ノ牙 狂い裂き
+   */
+  goNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu5.value"}]}');
+    let num = system3.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(0, location, 4, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system3.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system3.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 陸ノ牙 乱杭咬み
+   */
+  rokuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu6.value"}]}');
+    let num = system3.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1);
+      let filter = addRegimentalFilter(0, location, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 4, 2, itemStack);
+    }, 4);
+    system3.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system3.clearRun(num);
+    }, 40);
+  }
+  /**
+   * 漆ノ型 空間識覚
+   */
+  shitiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.setProperty("kurokumaft:kokyu_particle", false);
+    if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu7.value"}]}');
+      player.setDynamicProperty("kurokumaft:chage_type", true);
+      player.addEffect(MinecraftEffectTypes.NightVision, 30 * TicksPerSecond3, {
+        amplifier: 5,
+        showParticles: false
+      });
+      const location = getLookPoints(player.getRotation(), player.location, 0);
+      const filter = addRegimentalFilter(0, location, 16, player.id);
+      const targets = player.dimension.getEntities(filter);
+      const num = system3.runInterval(() => {
+        targets.forEach((en) => {
+          en.dimension.spawnParticle("kurokumaft:kedamono7_particle", en.location);
+        });
+      }, 2);
+      system3.runTimeout(() => {
+        player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      }, 10);
+      system3.runTimeout(() => {
+        system3.clearRun(num);
+      }, 10 * TicksPerSecond3);
+    }
+  }
+  /**
+   * 捌ノ型 爆裂猛進
+   */
+  hachiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.setProperty("kurokumaft:kokyu_particle", false);
+    if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu8.value"}]}');
+      player.setDynamicProperty("kurokumaft:chage_type", true);
+      player.setProperty("kurokumaft:kokyu_chage", 10);
+      player.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond3, {
+        amplifier: 5,
+        showParticles: false
+      });
+      system3.runTimeout(() => {
+        player.setDynamicProperty("kurokumaft:chage_type", void 0);
+        player.setProperty("kurokumaft:kokyu_chage", 0);
+      }, 10 * TicksPerSecond3);
+    }
+  }
+  /**
+   * 玖ノ牙 伸・うねり裂き
+   */
+  kuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu9.value"}]}');
+    system3.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+    const volume = getLookPoints(player.getRotation(), player.location, 3.5);
+    const filter = addRegimentalFilter(0, volume, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 拾ノ牙 円転旋牙
+   */
+  zyuNoKata(player, itemStack) {
+    if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+      player.setDynamicProperty("kurokumaft:chage_type", true);
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kokyu10.value"}]}');
+      const num = system3.runInterval(() => {
+        let left = getLookRotaionPoints(player.getRotation(), 0.5, -1.5);
+        let lvolume = getLookPoints(player.getRotation(), { x: player.location.x + left.x, y: player.location.y, z: player.location.z + left.z }, 0);
+        let lfilter = addRegimentalFilter(0, lvolume, 4, player.id);
+        this.kokyuApplyDamage(player, lfilter, 2, 1, itemStack);
+        let right = getLookRotaionPoints(player.getRotation(), 0.5, 1.5);
+        let rvolume = getLookPoints(player.getRotation(), { x: player.location.x + right.x, y: player.location.y, z: player.location.z + right.z }, 0);
+        let rfilter = addRegimentalFilter(0, rvolume, 4, player.id);
+        this.kokyuApplyDamage(player, rfilter, 2, 1, itemStack);
+      }, 4);
+      system3.runTimeout(() => {
+        player.setProperty("kurokumaft:kokyu_use", false);
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        player.setDynamicProperty("kurokumaft:chage_type", void 0);
+        system3.clearRun(num);
+      }, 3 * TicksPerSecond3);
+    }
+  }
+};
+
+// scripts/kokyu/KokyuInosukeComponent.ts
+var KokyuInosukeComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[3];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kedamono_kata' + kata + '.value"}]}');
+  }
+  /**
+   * 伊之助 呼吸
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    player.addTag(player.id);
+    switch (kata) {
+    }
+    player.removeTag(player.id);
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kedamono = new KedamonoNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        kedamono.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        kedamono.niNoKata(player, itemStack);
+        break;
+      case 3:
+        kedamono.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        kedamono.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        kedamono.goNoKata(player, itemStack);
+        break;
+      case 6:
+        kedamono.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        kedamono.shitiNoKata(player, itemStack);
+        break;
+      case 8:
+        kedamono.hachiNoKata(player, itemStack);
+        break;
+      case 9:
+        kedamono.kuNoKata(player, itemStack);
+        break;
+      case 10:
+        kedamono.zyuNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    player.addTag(player.id);
+    switch (kata) {
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/kata/HanaNoKata.ts
+import { MolangVariableMap as MolangVariableMap2, system as system4, TicksPerSecond as TicksPerSecond4 } from "@minecraft/server";
+var HanaNoKata = class extends KataComonClass {
+  /**
+   * 弐ノ型 御影梅
+   */
+  niNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hana_kokyu2.value"}]}');
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap2();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    let num = system4.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 2);
+      let filter = addRegimentalFilter(0, location, 2.5, player.id);
+      player.dimension.spawnParticle("kurokumaft:hana_ni_particle", location, molang);
+      this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
+    }, 4);
+    system4.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+      system4.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 肆ノ型 紅花衣
+   */
+  shiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hana_kokyu4.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 2);
+    let filter = addRegimentalFilter(0, location, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap2();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    player.dimension.spawnParticle("kurokumaft:hana_shi_particle", location, molang);
+    system4.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+    }, 20);
+  }
+  /**
+   * 伍ノ型 徒の芍薬
+   */
+  goNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hana_kokyu5.value"}]}');
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap2();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    let count = 1;
+    const num = system4.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 2);
+      let filter = addRegimentalFilter(0, location, 2.5, player.id);
+      this.kokyuApplyDamage(player, filter, 4, 2, itemStack);
+      if (count <= 9) {
+        player.dimension.spawnParticle("kurokumaft:hana_go_" + count + "_particle", location, molang);
+        count++;
+      }
+    }, 2);
+    system4.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+      system4.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 陸ノ型 渦桃
+   */
+  rokuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hana_kokyu6.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, location, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap2();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    player.dimension.spawnParticle("kurokumaft:hana_roku_particle", location, molang);
+    system4.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+    }, 30);
+  }
+  /**
+   * 終ノ型 彼岸朱眼
+   */
+  shitiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.setProperty("kurokumaft:kokyu_particle", false);
+    if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hana_kokyu7.value"}]}');
+      player.setDynamicProperty("kurokumaft:chage_type", true);
+      player.addEffect(MinecraftEffectTypes.Speed, 200 * TicksPerSecond4, {
+        amplifier: 5,
+        showParticles: false
+      });
+      player.addEffect(MinecraftEffectTypes.JumpBoost, 200 * TicksPerSecond4, {
+        amplifier: 3,
+        showParticles: false
+      });
+      player.addEffect(MinecraftEffectTypes.NightVision, 200 * TicksPerSecond4, {
+        amplifier: 10,
+        showParticles: false
+      });
+      system4.runTimeout(() => {
+        player.setDynamicProperty("kurokumaft:chage_type", void 0);
+        player.removeEffect(MinecraftEffectTypes.Speed);
+        player.removeEffect(MinecraftEffectTypes.JumpBoost);
+        player.removeEffect(MinecraftEffectTypes.NightVision);
+        let higanLists = weightChoice([
+          { item: "minor", weight: 50 },
+          { item: "serious", weight: 35 },
+          { item: "blindness", weight: 15 }
+        ]);
+        let choice = higanLists.pick();
+        switch (choice) {
+          case "blindness":
+            player.addEffect(MinecraftEffectTypes.Blindness, 600 * TicksPerSecond4, {
+              amplifier: 3,
+              showParticles: false
+            });
+          case "serious":
+            player.addEffect(MinecraftEffectTypes.Weakness, 10 * TicksPerSecond4, {
+              amplifier: 1,
+              showParticles: false
+            });
+          case "minor":
+            player.addEffect(MinecraftEffectTypes.Slowness, 10 * TicksPerSecond4, {
+              amplifier: 1,
+              showParticles: false
+            });
+            break;
+        }
+      }, 180 * TicksPerSecond4);
+    }
+  }
+};
+
+// scripts/kokyu/KokyuKanawoComponent.ts
+var KokyuKanawoComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[4];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hana_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hana = new HanaNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        hana.niNoKata(player, itemStack);
+        break;
+      case 4:
+        hana.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        hana.goNoKata(player, itemStack);
+        break;
+      case 6:
+        hana.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        hana.shitiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+  }
+};
+
+// scripts/kokyu/kata/KoiNoKata.ts
+import { system as system5, TicksPerSecond as TicksPerSecond5 } from "@minecraft/server";
+var KoiNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 初恋のわななき
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:koi_kokyu1.value"}]}');
+    system5.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+    let location = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+  }
+  /**
+   * 弐ノ型 懊悩巡る恋
+   */
+  niNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:koi_kokyu2.value"}]}');
+    let num = system5.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system5.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system5.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 参ノ型 恋猫しぐれ
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:koi_kokyu3.value"}]}');
+    let num = system5.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(1, location, 6, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 2);
+    system5.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system5.clearRun(num);
+    }, 30);
+  }
+  /**
+   * 伍ノ型 揺らめく恋情・乱れ爪
+   */
+  goNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:koi_kokyu5.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 10, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system5.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+  }
+  /**
+   * 陸ノ型 猫足恋風
+   */
+  rokuNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:koi_kokyu6.value"}]}');
+    let nowloc = player.location;
+    let num = system5.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari5_particle", nowloc);
+    }, 1);
+    let dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
+    system5.runTimeout(() => {
+      dragon.remove();
+    }, 2 * TicksPerSecond5);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system5.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system5.clearRun(num);
+    }, 10);
+  }
+};
+
+// scripts/kokyu/KokyuMituriComponent.ts
+var KokyuMituriComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[13];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:koi_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let koi = new KoiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        koi.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        koi.niNoKata(player, itemStack);
+        break;
+      case 3:
+        koi.sanNoKata(player, itemStack);
+        break;
+      case 5:
+        koi.goNoKata(player, itemStack);
+        break;
+      case 6:
+        koi.rokuNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+  }
+};
+
+// scripts/kokyu/kata/HonoNoKata.ts
+import { system as system6, TicksPerSecond as TicksPerSecond6 } from "@minecraft/server";
+var HonoNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 不知火
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kokyu1.value"}]}');
+    player.setProperty("kurokumaft:kokyu_use", false);
+    let location = getLookRotaionPoints(player.getRotation(), 1, 0);
+    player.applyKnockback(location.x, location.z, 20, 0);
+    let num = system6.runInterval(() => {
+      let filter = addRegimentalFilter(0, player.location, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    }, 1);
+    system6.runTimeout(() => {
+      player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system6.clearRun(num);
+    }, 12);
+  }
+  /**
+   * 弐ノ型 昇り炎天
+   */
+  niNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kokyu2.value"}]}');
+    let num = system6.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system6.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system6.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 参ノ型 気炎万象
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kokyu3.value"}]}');
+    let num = system6.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(1, location, 6, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 2);
+    system6.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system6.clearRun(num);
+    }, 30);
+  }
+  /**
+   * 肆ノ型 盛炎のうねり
+   */
+  shiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kokyu4.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 10, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system6.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+  }
+  /**
+   * 伍ノ型 炎虎
+   */
+  goNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kokyu5.value"}]}');
+    let nowloc = player.location;
+    let num = system6.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari5_particle", nowloc);
+    }, 1);
+    let dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
+    system6.runTimeout(() => {
+      dragon.remove();
+    }, 2 * TicksPerSecond6);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system6.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system6.clearRun(num);
+    }, 10);
+  }
+  /**
+   * 玖ノ型 煉獄
+   */
+  kuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kokyu9.value"}]}');
+    player.setProperty("kurokumaft:kokyu_use", false);
+    let location = getLookRotaionPoints(player.getRotation(), 1, 0);
+    player.applyKnockback(location.x, location.z, 20, 0);
+    let num = system6.runInterval(() => {
+      let filter = addRegimentalFilter(0, player.location, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    }, 1);
+    system6.runTimeout(() => {
+      player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system6.clearRun(num);
+    }, 12);
+  }
+};
+
+// scripts/kokyu/KokyuRengokuComponent.ts
+var KokyuRengokuComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[7];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hono = new HonoNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        hono.niNoKata(player, itemStack);
+        break;
+      case 3:
+        hono.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        hono.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        hono.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hono = new HonoNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        hono.ichiNoKata(player, itemStack);
+        break;
+      case 9:
+        hono.kuNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/kata/KazeNoKata.ts
+import { EntityDamageCause as EntityDamageCause5, Player as Player11, system as system7, TicksPerSecond as TicksPerSecond7 } from "@minecraft/server";
+var KazeNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 塵旋風・削ぎ
+   */
+  ichiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu1.value"}]}');
+    system7.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+    let location = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 4, 2, itemStack);
+  }
+  /**
+   * 弐ノ型 爪々・科戸風
+   */
+  niNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu2.value"}]}');
+    system7.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, TicksPerSecond7);
+    let location = getLookPoints(player.getRotation(), player.location, 2.5);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    location = getLookPoints(player.getRotation(), player.location, -2.5);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    location = getLookPoints(player.getRotation(), { x: player.location.x, y: player.location.y + 2.5, z: player.location.z }, 0);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    location = getLookPoints(player.getRotation(), { x: player.location.x, y: player.location.y - 2.5, z: player.location.z }, 0);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+  }
+  /**
+   * 参ノ型 晴嵐風樹
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu3.value"}]}');
+    system7.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 30);
+    let left = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
+    let lvolume = getLookPoints(player.getRotation(), { x: player.location.x + left.x, y: player.location.y, z: player.location.z + left.z }, 0);
+    let lfilter = addRegimentalFilter(0, lvolume, 3, player.id);
+    this.kokyuApplyDamage(player, lfilter, 2, 1, itemStack);
+    system7.runTimeout(() => {
+      let right = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
+      let rvolume = getLookPoints(player.getRotation(), { x: player.location.x + right.x, y: player.location.y, z: player.location.z + right.z }, 0);
+      let rfilter = addRegimentalFilter(0, rvolume, 3, player.id);
+      this.kokyuApplyDamage(player, rfilter, 2, 1, itemStack);
+    }, 10);
+    system7.runTimeout(() => {
+      let cvolume = getLookPoints(player.getRotation(), player.location, 1.5);
+      let cfilter = addRegimentalFilter(0, cvolume, 3, player.id);
+      this.kokyuApplyDamage(player, cfilter, 2, 1, itemStack);
+    }, 20);
+  }
+  /**
+   * 肆ノ型 昇上砂塵嵐
+   */
+  shiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu4.value"}]}');
+    system7.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+    }, 20);
+    let left = getLookRotaionPoints(player.getRotation(), 1.5, -2);
+    let lvolume = getLookPoints(player.getRotation(), { x: player.location.x + left.x, y: player.location.y + 1, z: player.location.z + left.z }, 0);
+    let lfilter = addRegimentalFilter(0, lvolume, 3.5, player.id);
+    player.dimension.spawnParticle("kurokumaft:mizu2_particle", lvolume);
+    this.kokyuApplyDamage(player, lfilter, 3, 1, itemStack);
+    system7.waitTicks(20);
+    let right = getLookRotaionPoints(player.getRotation(), 1.5, 2);
+    let rvolume = getLookPoints(player.getRotation(), { x: player.location.x + right.x, y: player.location.y + 1, z: player.location.z + right.z }, 0);
+    let rfilter = addRegimentalFilter(0, rvolume, 3.5, player.id);
+    player.dimension.spawnParticle("kurokumaft:mizu2_particle", rvolume);
+    this.kokyuApplyDamage(player, rfilter, 3, 1, itemStack);
+  }
+  /**
+   * 伍ノ型 木枯らし颪
+   */
+  goNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu5.value"}]}');
+    system7.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+    }, 4);
+    let goKataLists = weightChoice([
+      { item: "small", weight: 55 },
+      { item: "lage", weight: 40 },
+      { item: "kill", weight: 5 }
+    ]);
+    let volume = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(1, volume, 3, player.id);
+    let targets = player.dimension.getEntities(filter);
+    targets.forEach((en) => {
+      let choice = goKataLists.pick();
+      switch (choice) {
+        case "small":
+          if (en instanceof Player11) {
+            if (this.gardCheck(en)) {
+              en.applyDamage(2, {
+                cause: EntityDamageCause5.entityAttack,
+                damagingEntity: player
+              });
+            }
+          } else {
+            en.applyDamage(3, {
+              cause: EntityDamageCause5.entityAttack,
+              damagingEntity: player
+            });
+          }
+          break;
+        case "lage":
+          if (en instanceof Player11) {
+            if (this.gardCheck(en)) {
+              en.applyDamage(3, {
+                cause: EntityDamageCause5.entityAttack,
+                damagingEntity: player
+              });
+            }
+          } else {
+            en.applyDamage(8, {
+              cause: EntityDamageCause5.entityAttack,
+              damagingEntity: player
+            });
+          }
+          break;
+        case "kill":
+          en.kill();
+          break;
+      }
+    });
+    player.dimension.spawnParticle("kurokumaft:mizu5_particle", player.location);
+    player.dimension.spawnParticle("kurokumaft:mizu5_particle", player.location);
+  }
+  /**
+   * 陸ノ型 黒風烟嵐
+   */
+  rokuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu6.value"}]}');
+    let volume = getLookPoints(player.getRotation(), player.location, 0);
+    if (player.isInWater) {
+      let filter = addRegimentalFilter(0, volume, 5, player.id);
+      this.kokyuApplyDamage(player, filter, 10, 4, itemStack);
+    } else {
+      let filter = addRegimentalFilter(0, volume, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    }
+    let num = system7.runInterval(() => {
+      if (player.isInWater) {
+        let filter = addRegimentalFilter(0, volume, 5, player.id);
+        this.kokyuApplyDamage(player, filter, 10, 4, itemStack);
+      } else {
+        let filter = addRegimentalFilter(0, volume, 3.5, player.id);
+        this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+      }
+    }, 4);
+    system7.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system7.clearRun(num);
+    }, 25);
+  }
+  /**
+   * 漆ノ型 勁風・天狗風
+   */
+  shitiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu7.value"}]}');
+    system7.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 5);
+    let volume = getLookPoints(player.getRotation(), player.location, 3.5);
+    player.dimension.spawnParticle("kurokumaft:mizu7_1_particle", volume);
+    player.dimension.spawnParticle("kurokumaft:mizu7_2_particle", volume);
+    let filter = addRegimentalFilter(0, volume, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 捌ノ型 初烈風斬り
+   */
+  hachiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    if (!player.getDynamicProperty("kurokumaft:mizuhati")) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu8.value"}]}');
+      player.setDynamicProperty("kurokumaft:mizuhati", true);
+      let oLocate = player.location;
+      let volume = getLookPoints(player.getRotation(), player.location, 0);
+      let num = system7.runInterval(() => {
+        player.teleport({ x: player.location.x, y: player.location.y + 0.5, z: player.location.z }, {
+          checkForBlocks: true
+        });
+      }, 2);
+      let parnum = 0;
+      system7.runTimeout(() => {
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        system7.clearRun(num);
+        let filter = addRegimentalFilter(0, volume, 6, player.id);
+        parnum = system7.runInterval(() => {
+          player.dimension.spawnParticle("kurokumaft:mizu8_particle", { x: oLocate.x, y: oLocate.y + 0.5, z: oLocate.z });
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x + 0.5, y: player.location.y - 0.5, z: player.location.z + 0.5 });
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x + 0.5, y: player.location.y - 0.5, z: player.location.z - 0.5 });
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x - 0.5, y: player.location.y - 0.5, z: player.location.z + 0.5 });
+          player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: player.location.x - 0.5, y: player.location.y - 0.5, z: player.location.z - 0.5 });
+          this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+        }, 1);
+      }, 25);
+      system7.runTimeout(() => {
+        player.setDynamicProperty("kurokumaft:mizuhati", false);
+        system7.clearRun(parnum);
+      }, 40);
+    }
+  }
+  /**
+   * 玖ノ型 韋駄天台風
+   */
+  kuNoKata(player, itemStack) {
+    if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kokyu9.value"}]}');
+      player.setDynamicProperty("kurokumaft:chage_type", true);
+      player.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond7, {
+        amplifier: 5,
+        showParticles: false
+      });
+      player.addEffect(MinecraftEffectTypes.JumpBoost, 10 * TicksPerSecond7, {
+        amplifier: 3,
+        showParticles: false
+      });
+      system7.runTimeout(() => {
+        player.setProperty("kurokumaft:kokyu_use", false);
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      }, 10 * TicksPerSecond7);
+    }
+  }
+};
+
+// scripts/kokyu/KokyuSanemiComponent.ts
+var KokyuSanemiComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[8];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaze = new KazeNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        kaze.niNoKata(player, itemStack);
+        break;
+      case 3:
+        kaze.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        kaze.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        kaze.goNoKata(player, itemStack);
+        break;
+      case 6:
+        kaze.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        kaze.shitiNoKata(player, itemStack);
+        break;
+      case 8:
+        kaze.hachiNoKata(player, itemStack);
+        break;
+      case 9:
+        kaze.kuNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaze = new KazeNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        kaze.ichiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/kata/MushiNoKata.ts
+import { system as system8 } from "@minecraft/server";
+var MushiNoKata = class extends KataComonClass {
+  /**
+   * 蝶ノ舞 戯れ
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mushi_kokyu1.value"}]}');
+    const num = system8.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(0, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
+      this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+    }, 2);
+    const point = getLookRotaionPoints(player.getRotation(), 1, 0);
+    player.applyKnockback(point.x, point.z, 10, 0.4);
+    player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", player.location);
+    system8.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system8.clearRun(num);
+    }, 8);
+  }
+  /**
+   * 蜂牙ノ舞 真靡き
+   */
+  niNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mushi_kokyu2.value"}]}');
+    const location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 12, player.id);
+    const point = getLookRotaionPoints(player.getRotation(), 1, 0);
+    player.applyKnockback(point.x, point.z, 15, 0);
+    player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", player.location);
+    filter = addRegimentalFilter(0, player.location, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
+    this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+    system8.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+  }
+  /**
+   * 蜻蛉ノ舞 複眼六角
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mushi_kokyu3.value"}]}');
+    const num = system8.runInterval(() => {
+      const location = getLookPoints(player.getRotation(), player.location, 2);
+      const filter = addRegimentalFilter(0, location, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
+      this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+    }, 4);
+    system8.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system8.clearRun(num);
+    }, 16);
+  }
+  /**
+   * 蜈蚣ノ舞 百蟲の呼吸
+   */
+  shiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mushi_kokyu4.value"}]}');
+    let point = getLookRotaionPoints(player.getRotation(), 2, -1.1);
+    player.applyKnockback(point.x, point.z, 3, 0);
+    player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", player.location);
+    player.setProperty("kurokumaft:kokyu_attack", true);
+    let side = 1.2;
+    const num = system8.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(0, location, 4, player.id);
+      this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
+      this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+      point = getLookRotaionPoints(player.getRotation(), 2, side);
+      player.applyKnockback(point.x, point.z, 10, 0);
+      player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", player.location);
+      side = -side;
+    }, 4);
+    system8.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_attack", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system8.clearRun(num);
+    }, 40);
+  }
+};
+
+// scripts/kokyu/KokyuShinobuComponent.ts
+var KokyuShinobuComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[6];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mushi_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    player.addTag(player.id);
+    switch (kata) {
+    }
+    player.removeTag(player.id);
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mushi = new MushiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        mushi.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        mushi.niNoKata(player, itemStack);
+        break;
+      case 3:
+        mushi.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        mushi.shiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    player.addTag(player.id);
+    switch (kata) {
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/KokyuTanjiroComponent.ts
+import { system as system10, TicksPerSecond as TicksPerSecond9 } from "@minecraft/server";
+
+// scripts/kokyu/kata/HiNoKata.ts
+import { MolangVariableMap as MolangVariableMap3, system as system9, TicksPerSecond as TicksPerSecond8 } from "@minecraft/server";
+var HiNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 円舞
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu1.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+    let location = getLookPoints(player.getRotation(), player.location, 2.5);
+    let filter = addRegimentalFilter(0, { x: location.x, y: location.y + 0.5, z: location.z }, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 壱ノ型 円舞一閃
+   */
+  ichiNoKataIssen(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu1_issen.value"}]}');
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.setProperty("kurokumaft:kokyu_chage", 0);
+    let location = getLookRotaionPoints(player.getRotation(), 1, 0);
+    player.applyKnockback(location.x, location.z, 30, 0);
+    let num = system9.runInterval(() => {
+      let filter = addRegimentalFilter(0, player.location, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    }, 1);
+    system9.runTimeout(() => {
+      player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system9.clearRun(num);
+    }, 12);
+  }
+  /**
+   * 弐ノ型 碧羅の天
+   */
+  niNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu2.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 7);
+    let location = getLookPoints(player.getRotation(), player.location, 2.5);
+    let filter = addRegimentalFilter(0, { x: location.x, y: location.y + 0.5, z: location.z }, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 参ノ型 烈日紅鏡
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu3.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 25);
+    let left = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
+    let lvolume = getLookPoints(player.getRotation(), { x: player.location.x + left.x, y: player.location.y + 1, z: player.location.z + left.z }, 0);
+    let lfilter = addRegimentalFilter(0, lvolume, 3, player.id);
+    this.kokyuApplyDamage(player, lfilter, 3, 1, itemStack);
+    system9.runTimeout(() => {
+      let right = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
+      let rvolume = getLookPoints(player.getRotation(), { x: player.location.x + right.x, y: player.location.y + 1, z: player.location.z + right.z }, 0);
+      let rfilter = addRegimentalFilter(0, rvolume, 3, player.id);
+      this.kokyuApplyDamage(player, rfilter, 3, 1, itemStack);
+    }, 15);
+  }
+  /**
+   * 肆ノ型 灼骨炎陽
+   */
+  shiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu4.value"}]}');
+    let z = 0;
+    let num = system9.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, z);
+      let filter = addRegimentalFilter(0, { x: location.x, y: location.y + 0.5, z: location.z }, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+      z++;
+    }, 4);
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system9.clearRun(num);
+    }, 30);
+  }
+  /**
+   * 伍ノ型 陽華突
+   */
+  goNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu5.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 5);
+    let volume = getLookPoints(player.getRotation(), player.location, 3.5);
+    let filter = addRegimentalFilter(0, volume, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 陸ノ型 日暈の龍 頭舞い
+   */
+  rokuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu6.value"}]}');
+    player.setDynamicProperty("kurokumaft:chage_type", true);
+    player.setProperty("kurokumaft:kokyu_chage", 1);
+    player.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond8, {
+      amplifier: 6,
+      showParticles: false
+    });
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_chage", 0);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setDynamicProperty("kurokumaft:chage_type", void 0);
+    }, 10 * TicksPerSecond8);
+  }
+  /**
+   * 陸ノ型 日暈の龍 頭舞い
+   */
+  rokuNoKataAttack(player, itemStack) {
+    if (player.getProperty("kurokumaft:kokyu_chage") == 1) {
+      let volume = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(0, volume, 4.5, player.id);
+      this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+    }
+  }
+  /**
+   * 漆ノ型 斜陽転身
+   */
+  shitiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu7.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 15);
+    let volume = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, volume, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 捌ノ型 飛輪陽炎
+   */
+  hachiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu8.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 15);
+    let volume = getLookPoints(player.getRotation(), player.location, 3.5);
+    let filter = addRegimentalFilter(0, volume, 4, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 玖ノ型 輝輝恩光
+   */
+  kuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu9.value"}]}');
+    let nowloc = player.location;
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap3();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    let num = system9.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:hi9_particle", nowloc, molang);
+    }, 1);
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system9.clearRun(num);
+    }, 20);
+    let volume = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, volume, 2, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+    let uvolume = getLookPoints(player.getRotation(), { x: player.location.x, y: player.location.y + 3, z: player.location.z }, 1.5);
+    let ufilter = addRegimentalFilter(0, uvolume, 3, player.id);
+    this.kokyuApplyDamage(player, ufilter, 6, 3, itemStack);
+  }
+  /**
+   * 拾ノ型 火車
+   */
+  zyuNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu10.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 15);
+    let location = getLookPoints(player.getRotation(), player.location, 2.5);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+    location = getLookPoints(player.getRotation(), player.location, -2.5);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+    location = getLookPoints(player.getRotation(), { x: player.location.x, y: player.location.y + 2.5, z: player.location.z }, 0);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+    location = getLookPoints(player.getRotation(), { x: player.location.x, y: player.location.y - 2.5, z: player.location.z }, 0);
+    filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+  }
+  /**
+   * 拾壱ノ型 幻日虹
+   */
+  zyuichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu11.value"}]}');
+    player.setDynamicProperty("kurokumaft:chage_type", true);
+    player.setProperty("kurokumaft:kokyu_chage", 1);
+    player.addEffect(MinecraftEffectTypes.Invisibility, 10 * TicksPerSecond8, {
+      amplifier: 10,
+      showParticles: false
+    });
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_chage", 0);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setDynamicProperty("kurokumaft:chage_type", void 0);
+    }, 10 * TicksPerSecond8);
+  }
+  /**
+   * 拾弐ノ型 炎舞
+   */
+  zyuniNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kokyu12.value"}]}');
+    system9.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+    let location = getLookPoints(player.getRotation(), player.location, 2.5);
+    let filter = addRegimentalFilter(0, { x: location.x, y: location.y + 0.5, z: location.z }, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+    system9.runTimeout(() => {
+      this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+    }, 10);
+  }
+};
+
+// scripts/kokyu/KokyuTanjiroComponent.ts
+var KokyuTanjiroComponent = class {
+  constructor() {
+    this.enbuIntervalId = 0;
+  }
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[1];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:mizu_kata" + kata + ".value" }] });
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+        if (kata < 11) {
+          player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:mizu_kata" + kata + ".value" }] });
+        } else {
+          player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:hinokami_kata" + kata + ".value" }] });
+        }
+    }
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mizu = new MizuNoKata();
+    let hi = new HiNoKata();
+    switch (kata) {
+      case 10:
+        mizu.zyuNoKata(player, itemStack);
+        break;
+      case 16:
+        hi.rokuNoKataAttack(player, itemStack);
+        break;
+    }
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mizu = new MizuNoKata();
+    let hi = new HiNoKata();
+    switch (kata) {
+      case 2:
+        mizu.niNoKata(player, itemStack);
+        break;
+      case 3:
+        mizu.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        mizu.shiNoKata(player, itemStack);
+        break;
+      case 9:
+        mizu.kuNoKata(player, itemStack);
+        break;
+      case 10:
+        mizu.zyuNoKataShot(player, itemStack);
+        break;
+      case 11:
+        if (player.getProperty("kurokumaft:kokyu_chage") == 0) {
+          player.setProperty("kurokumaft:kokyu_chage", 1);
+          this.enbuIntervalId = system10.runTimeout(() => {
+            if (player.getProperty("kurokumaft:kokyu_use")) {
+              player.setProperty("kurokumaft:kokyu_chage", 5);
+            }
+          }, 3 * TicksPerSecond9);
+        }
+        break;
+      case 12:
+        hi.niNoKata(player, itemStack);
+        break;
+      case 13:
+        hi.sanNoKata(player, itemStack);
+        break;
+      case 14:
+        hi.shiNoKata(player, itemStack);
+        break;
+      case 16:
+        hi.rokuNoKata(player, itemStack);
+        break;
+      case 17:
+        hi.shitiNoKata(player, itemStack);
+        break;
+      case 18:
+        hi.hachiNoKata(player, itemStack);
+        break;
+      case 19:
+        hi.kuNoKata(player, itemStack);
+        break;
+      case 20:
+        hi.zyuNoKata(player, itemStack);
+        break;
+      case 21:
+        hi.zyuichiNoKata(player, itemStack);
+        break;
+      case 22:
+        hi.zyuniNoKata(player, itemStack);
+        break;
+    }
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mizu = new MizuNoKata();
+    let hi = new HiNoKata();
+    switch (kata) {
+      case 1:
+        mizu.ichiNoKata(player, itemStack);
+        break;
+      case 5:
+        mizu.goNoKata(player, itemStack);
+        break;
+      case 6:
+        mizu.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        mizu.shitiNoKata(player, itemStack);
+        break;
+      case 8:
+        mizu.hachiNoKata(player, itemStack);
+        break;
+      case 11:
+        if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+          player.setDynamicProperty("kurokumaft:chage_type", true);
+          if (player.getProperty("kurokumaft:kokyu_chage") == 5) {
+            hi.ichiNoKataIssen(player, itemStack);
+          } else {
+            player.setProperty("kurokumaft:kokyu_use", false);
+            player.setProperty("kurokumaft:kokyu_chage", 0);
+            player.setDynamicProperty("kurokumaft:chage_type", void 0);
+            system10.clearRun(this.enbuIntervalId);
+            hi.ichiNoKata(player, itemStack);
+          }
+        }
+        break;
+      case 15:
+        hi.goNoKata(player, itemStack);
+        break;
+    }
+  }
+};
+
+// scripts/kokyu/kata/OtoNoKata.ts
+import { system as system11, TicksPerSecond as TicksPerSecond10 } from "@minecraft/server";
+var OtoNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 轟
+   */
+  ichiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:oto_kokyu1.value"}]}');
+    let num = system11.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system11.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system11.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 弐ノ型 爆弾なげ
+   */
+  niNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    let num = system11.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system11.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system11.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 参ノ型 音速
+   */
+  sanNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    let num = system11.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system11.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system11.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 肆ノ型 鳴弦奏々
+   */
+  shiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:oto_kokyu4.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 10, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system11.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+  }
+  /**
+   * 伍ノ型 響斬無間
+   */
+  goNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:oto_kokyu5.value"}]}');
+    let nowloc = player.location;
+    let num = system11.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari5_particle", nowloc);
+    }, 1);
+    let dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
+    system11.runTimeout(() => {
+      dragon.remove();
+    }, 2 * TicksPerSecond10);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system11.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system11.clearRun(num);
+    }, 10);
+  }
+};
+
+// scripts/kokyu/KokyuTengenComponent.ts
+var KokyuTengenComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[11];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        kata = kokyuObject.kata[0];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+        break;
+      default:
+        let index = kokyuObject.kata.findIndex((el) => el == kata);
+        kata = kokyuObject.kata[index + 1];
+        player.setProperty("kurokumaft:kokyu_kata", kata);
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:oto_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let oto = new OtoNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        oto.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        oto.niNoKata(player, itemStack);
+        break;
+      case 3:
+        oto.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        oto.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        oto.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+  }
+};
+
+// scripts/kokyu/KokyuZenituComponent.ts
+import { system as system13, TicksPerSecond as TicksPerSecond12 } from "@minecraft/server";
+
+// scripts/kokyu/kata/KaminariNoKata.ts
+import { MolangVariableMap as MolangVariableMap4, system as system12, TicksPerSecond as TicksPerSecond11 } from "@minecraft/server";
+var KaminariNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 霹靂一閃
+   */
+  ichiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu1.value"}]}');
+    const point = getLookRotaionPoints(player.getRotation(), 1, 0);
+    player.applyKnockback(point.x, point.z, 10, 0);
+    const num = system12.runInterval(() => {
+      const filter = addRegimentalFilter(0, player.location, 2.5, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 1);
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system12.clearRun(num);
+    }, 6);
+  }
+  /**
+   * 壱ノ型 霹靂一閃 連
+   */
+  ichiNoKataRen(player, itemStack) {
+    player.setDynamicProperty("kurokumaft:attack_count", 0);
+    player.addEffect(MinecraftEffectTypes.Speed, 5 * TicksPerSecond11, {
+      amplifier: 10,
+      showParticles: false
+    });
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_chage", 0);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      let chage = player.getDynamicProperty("kurokumaft:attack_count");
+      player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu1_rengeki.value", "with":["' + chage + '"]}]}');
+    }, 5 * TicksPerSecond11);
+  }
+  /**
+   * 壱ノ型 霹靂一閃 連撃
+   */
+  ichiAttack(player, itemStack) {
+    const location = getLookPoints(player.getRotation(), player.location, 1.5);
+    const filter = addRegimentalFilter(0, location, 3, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+  }
+  /**
+   * 壱ノ型 霹靂一閃 神速
+   */
+  ichiNoKataShinsoku(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu1_shinsoku.value"}]}');
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.setProperty("kurokumaft:kokyu_chage", 0);
+    const location = getLookRotaionPoints(player.getRotation(), 1, 0);
+    player.applyKnockback(location.x, location.z, 50, 0);
+    const num = system12.runInterval(() => {
+      const filter = addRegimentalFilter(0, player.location, 3.5, player.id);
+      this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    }, 1);
+    system12.runTimeout(() => {
+      player.setDynamicProperty("kurokumaft:chage_type", void 0);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system12.clearRun(num);
+    }, 12);
+  }
+  /**
+   * 弐ノ型 稲魂
+   */
+  niNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu2.value"}]}');
+    const num = system12.runInterval(() => {
+      const location = getLookPoints(player.getRotation(), player.location, 1.5);
+      const filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system12.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 参ノ型 聚蚊成雷
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu3.value"}]}');
+    const num = system12.runInterval(() => {
+      const location = getLookPoints(player.getRotation(), player.location, 0);
+      const filter = addRegimentalFilter(1, location, 6, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 2);
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system12.clearRun(num);
+    }, 30);
+  }
+  /**
+   * 肆ノ型 遠雷
+   */
+  shiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu4.value"}]}');
+    const location = getLookPoints(player.getRotation(), player.location, 0);
+    const filter = addRegimentalFilter(1, location, 10, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+  }
+  /**
+   * 伍ノ型 熱界雷
+   */
+  goNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu5.value"}]}');
+    const nowloc = player.location;
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap4();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    let num = system12.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari5_particle", nowloc, molang);
+    }, 1);
+    const dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
+    system12.runTimeout(() => {
+      dragon.remove();
+    }, 1 * TicksPerSecond11);
+    const location = getLookPoints(player.getRotation(), player.location, 0);
+    const filter = addRegimentalFilter(1, location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system12.clearRun(num);
+    }, 10);
+  }
+  /**
+   * 陸ノ型 電轟雷轟
+   */
+  rokuNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu6.value"}]}');
+    const nowloc = player.location;
+    const kaikyuNum = player.getProperty("kurokumaft:kaikyu");
+    const molang = new MolangVariableMap4();
+    molang.setFloat("variable.kaikyu", kaikyuNum);
+    const num = system12.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari6_particle", nowloc, molang);
+    }, 1);
+    const location = getLookPoints(player.getRotation(), player.location, 0);
+    const filter = addRegimentalFilter(1, location, 15, player.id);
+    this.kokyuApplyDamage(player, filter, 8, 4, itemStack);
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system12.clearRun(num);
+    }, 10);
+  }
+  /**
+   * 漆ノ型 火雷神
+   */
+  shitiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kokyu7.value"}]}');
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.setProperty("kurokumaft:kokyu_chage", 0);
+    player.setDynamicProperty("kurokumaft:chage_type", void 0);
+    system12.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 20);
+    const location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 30, player.id);
+    const targets = player.dimension.getEntities(filter);
+    if (targets.length > 0) {
+      player.teleport(targets[0].location, {
+        facingLocation: targets[0].location
+      });
+    }
+    filter = addRegimentalFilter(0, player.location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 20, 6, itemStack);
+  }
+};
+
+// scripts/kokyu/KokyuZenituComponent.ts
+var KokyuZenituComponent = class {
+  constructor() {
+    this.shinsokuIntervalId = 0;
+    this.ikazutiIntervalId = 0;
+  }
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[2];
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaminari = new KaminariNoKata();
+    switch (kata) {
+      case 1:
+        if (player.getDynamicProperty("kurokumaft:attack_count") != void 0) {
+          let chage = player.getDynamicProperty("kurokumaft:attack_count");
+          player.setDynamicProperty("kurokumaft:attack_count", chage + 1);
+          kaminari.ichiAttack(player, itemStack);
+        }
+        break;
+    }
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaminari = new KaminariNoKata();
+    switch (kata) {
+      case 1:
+        player.setProperty("kurokumaft:kokyu_chage", 1);
+        this.shinsokuIntervalId = system13.runTimeout(() => {
+          if (player.getProperty("kurokumaft:kokyu_use")) {
+            player.setProperty("kurokumaft:kokyu_chage", 5);
+            this.ikazutiIntervalId = system13.runTimeout(() => {
+              if (player.getProperty("kurokumaft:kokyu_chage") == 5 && player.getProperty("kurokumaft:kokyu_use")) {
+                player.setProperty("kurokumaft:kokyu_chage", 10);
+                player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kata7.value"}]}');
+              }
+            }, 5 * TicksPerSecond12);
+          }
+        }, 3 * TicksPerSecond12);
+        break;
+    }
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaminari = new KaminariNoKata();
+    switch (kata) {
+      case 1:
+        if (player.getDynamicProperty("kurokumaft:chage_type") == void 0) {
+          player.setDynamicProperty("kurokumaft:chage_type", true);
+          if (player.getProperty("kurokumaft:kokyu_chage") == 5) {
+            kaminari.ichiNoKataShinsoku(player, itemStack);
+            system13.clearRun(this.shinsokuIntervalId);
+            system13.clearRun(this.ikazutiIntervalId);
+          } else if (player.getProperty("kurokumaft:kokyu_chage") == 10) {
+            kaminari.shitiNoKata(player, itemStack);
+            system13.clearRun(this.shinsokuIntervalId);
+            system13.clearRun(this.ikazutiIntervalId);
+          } else {
+            system13.clearRun(this.shinsokuIntervalId);
+            system13.clearRun(this.ikazutiIntervalId);
+            player.setProperty("kurokumaft:kokyu_use", false);
+            player.setProperty("kurokumaft:kokyu_chage", 2);
+            kaminari.ichiNoKataRen(player, itemStack);
+          }
+        }
+        break;
+    }
+  }
+};
+
+// scripts/kokyu/NichirintouChoiceComponent.ts
+import { ItemStack as ItemStack17, ItemComponentTypes as ItemComponentTypes2, EntityComponentTypes as EntityComponentTypes5, EquipmentSlot as EquipmentSlot3 } from "@minecraft/server";
+var nichirintouLists = weightChoice([
+  { item: "kurokumaft:nichirintou_mizu", weight: 50 },
+  { item: "kurokumaft:nichirintou_hono", weight: 30 },
+  { item: "kurokumaft:nichirintou_kaze", weight: 20 },
+  { item: "kurokumaft:nichirintou_hana", weight: 20 },
+  { item: "kurokumaft:nichirintou_kaminari", weight: 15 },
+  { item: "kurokumaft:nichirintou_koi", weight: 5 },
+  { item: "kurokumaft:nichirintou_mushi", weight: 5 },
+  { item: "kurokumaft:nichirintou_oto", weight: 5 },
+  { item: "kurokumaft:nichirintou_hi", weight: 1 }
+]);
+var NichirintouChoiceComponent = class {
+  changeKata(player) {
+  }
+  hitAttackKata(player, itemStack) {
+  }
+  useAttackKata(player, itemStack) {
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    this.probabilisticChoice(itemStack, player);
+  }
+  /**
+   * 日輪刀色変わり
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  probabilisticChoice(itemStack, player) {
+    let nichirintou = nichirintouLists.pick();
+    let enchant = itemStack.getComponent(ItemComponentTypes2.Enchantable);
+    let changeItem = new ItemStack17(nichirintou);
+    let newEnchant = changeItem.getComponent(ItemComponentTypes2.Enchantable);
+    newEnchant.addEnchantments(enchant.getEnchantments());
+    let equ = player.getComponent(EntityComponentTypes5.Equippable);
+    equ.setEquipment(EquipmentSlot3.Mainhand, changeItem);
+  }
+};
+
+// scripts/kokyu/kata/HebiNoKata.ts
+import { system as system14, TicksPerSecond as TicksPerSecond13 } from "@minecraft/server";
+var HebiNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 委蛇斬り
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hebi_kokyu1.value"}]}');
+    system14.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+    let location = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+  }
+  /**
+   * 弐ノ型 狭頭の毒牙
+   */
+  niNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hebi_kokyu2.value"}]}');
+    let num = system14.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system14.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system14.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 参ノ型 塒締め
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hebi_kokyu3.value"}]}');
+    let num = system14.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(1, location, 6, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 2);
+    system14.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system14.clearRun(num);
+    }, 30);
+  }
+  /**
+   * 肆ノ型 頸蛇双生
+   */
+  shiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hebi_kokyu4.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 10, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system14.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+  }
+  /**
+   * 伍ノ型 蜿蜿長蛇
+   */
+  goNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hebi_kokyu5.value"}]}');
+    let nowloc = player.location;
+    let num = system14.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari5_particle", nowloc);
+    }, 1);
+    let dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
+    system14.runTimeout(() => {
+      dragon.remove();
+    }, 2 * TicksPerSecond13);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system14.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system14.clearRun(num);
+    }, 10);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuHebiComponent.ts
+var KokyuHebiComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[21];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hebi_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hebi = new HebiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        hebi.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        hebi.niNoKata(player, itemStack);
+        break;
+      case 3:
+        hebi.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        hebi.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        hebi.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+  }
+};
+
+// scripts/kokyu/regimental/KokyuHiComponent.ts
+var KokyuHiComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[16];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hi_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hi = new HiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 6:
+        hi.rokuNoKataAttack(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hi = new HiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        hi.niNoKata(player, itemStack);
+        break;
+      case 3:
+        hi.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        hi.shiNoKata(player, itemStack);
+        break;
+      case 6:
+        hi.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        hi.shitiNoKata(player, itemStack);
+        break;
+      case 8:
+        hi.hachiNoKata(player, itemStack);
+        break;
+      case 9:
+        hi.kuNoKata(player, itemStack);
+        break;
+      case 10:
+        hi.zyuNoKata(player, itemStack);
+        break;
+      case 11:
+        hi.zyuichiNoKata(player, itemStack);
+        break;
+      case 12:
+        hi.zyuniNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hi = new HiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 5:
+        hi.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuHonoComponent.ts
+var KokyuHonoComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[17];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:hono_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hono = new HonoNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        hono.niNoKata(player, itemStack);
+        break;
+      case 3:
+        hono.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        hono.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        hono.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let hono = new HonoNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        hono.ichiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuIwaComponent.ts
+var KokyuIwaComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[18];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:iwa_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let iwa = new IwaNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        iwa.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        iwa.niNoKata(player, itemStack);
+        break;
+      case 3:
+        iwa.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        iwa.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        iwa.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+  }
+};
+
+// scripts/kokyu/regimental/KokyuKaminariComponent.ts
+var KokyuKaminariComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[15];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaminari_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaminari = new KaminariNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        kaminari.niNoKata(player, itemStack);
+        break;
+      case 3:
+        kaminari.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        kaminari.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        kaminari.goNoKata(player, itemStack);
+        break;
+      case 6:
+        kaminari.rokuNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaminari = new KaminariNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        kaminari.ichiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/kata/KasumiNoKata.ts
+import { system as system15, TicksPerSecond as TicksPerSecond14 } from "@minecraft/server";
+var KasumiNoKata = class extends KataComonClass {
+  /**
+   * 壱ノ型 垂天遠霞
+   */
+  ichiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kokyu1.value"}]}');
+    system15.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 6);
+    let location = getLookPoints(player.getRotation(), player.location, 1.5);
+    let filter = addRegimentalFilter(0, location, 2.5, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+  }
+  /**
+   * 弐ノ型 八重霞
+   */
+  niNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kokyu2.value"}]}');
+    let num = system15.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 1.5);
+      let filter = addRegimentalFilter(1, location, 3, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 4);
+    system15.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system15.clearRun(num);
+    }, 20);
+  }
+  /**
+   * 参ノ型 霞散の飛沫
+   */
+  sanNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kokyu3.value"}]}');
+    let num = system15.runInterval(() => {
+      let location = getLookPoints(player.getRotation(), player.location, 0);
+      let filter = addRegimentalFilter(1, location, 6, player.id);
+      this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+    }, 2);
+    system15.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_use", false);
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system15.clearRun(num);
+    }, 30);
+  }
+  /**
+   * 肆ノ型 移流斬り
+   */
+  shiNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kokyu4.value"}]}');
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 10, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system15.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 10);
+  }
+  /**
+   * 伍ノ型 霞雲の海
+   */
+  goNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kokyu5.value"}]}');
+    let nowloc = player.location;
+    let num = system15.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari5_particle", nowloc);
+    }, 1);
+    let dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
+    system15.runTimeout(() => {
+      dragon.remove();
+    }, 2 * TicksPerSecond14);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    system15.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system15.clearRun(num);
+    }, 10);
+  }
+  /**
+   * 陸ノ型 月の霞消
+   */
+  rokuNoKata(player, itemStack) {
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kokyu6.value"}]}');
+    let nowloc = player.location;
+    let num = system15.runInterval(() => {
+      player.dimension.spawnParticle("kurokumaft:kaminari6_particle", nowloc);
+    }, 1);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(1, location, 15, player.id);
+    this.kokyuApplyDamage(player, filter, 8, 4, itemStack);
+    system15.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+      system15.clearRun(num);
+    }, 10);
+  }
+  /**
+   * 漆ノ型 朧
+   */
+  shitiNoKata(player, itemStack) {
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kokyu7.value"}]}');
+    player.setProperty("kurokumaft:kokyu_use", false);
+    player.setProperty("kurokumaft:kokyu_chage", 0);
+    player.setDynamicProperty("kurokumaft:chage_type", void 0);
+    system15.runTimeout(() => {
+      player.setProperty("kurokumaft:kokyu_particle", false);
+    }, 20);
+    let location = getLookPoints(player.getRotation(), player.location, 0);
+    let filter = addRegimentalFilter(0, location, 30, player.id);
+    let targets = player.dimension.getEntities(filter);
+    if (targets.length > 0) {
+      player.teleport(targets[0].location, {
+        facingLocation: targets[0].location
+      });
+    }
+    filter = addRegimentalFilter(0, player.location, 6, player.id);
+    this.kokyuApplyDamage(player, filter, 20, 6, itemStack);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuKasumiComponent.ts
+var KokyuKasumiComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[19];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kasumi_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kasumi = new KasumiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        kasumi.niNoKata(player, itemStack);
+        break;
+      case 3:
+        kasumi.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        kasumi.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        kasumi.goNoKata(player, itemStack);
+        break;
+      case 6:
+        kasumi.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        kasumi.shitiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kasumi = new KasumiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        kasumi.ichiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuKazeComponent.ts
+var KokyuKazeComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[18];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:kaze_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaze = new KazeNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        kaze.niNoKata(player, itemStack);
+        break;
+      case 3:
+        kaze.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        kaze.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        kaze.goNoKata(player, itemStack);
+        break;
+      case 6:
+        kaze.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        kaze.shitiNoKata(player, itemStack);
+        break;
+      case 8:
+        kaze.hachiNoKata(player, itemStack);
+        break;
+      case 9:
+        kaze.kuNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kaze = new KazeNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        kaze.ichiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuMizuComponent.ts
+var KokyuMizuComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[14];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mizu_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mizu = new MizuNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 10:
+        mizu.zyuNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mizu = new MizuNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 2:
+        mizu.niNoKata(player, itemStack);
+        break;
+      case 3:
+        mizu.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        mizu.shiNoKata(player, itemStack);
+        break;
+      case 9:
+        mizu.kuNoKata(player, itemStack);
+        break;
+      case 10:
+        mizu.zyuNoKataShot(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mizu = new MizuNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        mizu.ichiNoKata(player, itemStack);
+        break;
+      case 5:
+        mizu.goNoKata(player, itemStack);
+        break;
+      case 6:
+        mizu.rokuNoKata(player, itemStack);
+        break;
+      case 7:
+        mizu.shitiNoKata(player, itemStack);
+        break;
+      case 8:
+        mizu.hachiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuMushiComponent.ts
+var KokyuMushiComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[22];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:mushi_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    player.addTag(player.id);
+    switch (kata) {
+    }
+    player.removeTag(player.id);
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let mushi = new MushiNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        mushi.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        mushi.niNoKata(player, itemStack);
+        break;
+      case 3:
+        mushi.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        mushi.shiNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    player.addTag(player.id);
+    switch (kata) {
+    }
+    player.removeTag(player.id);
+  }
+};
+
+// scripts/kokyu/regimental/KokyuOtoComponent.ts
+var KokyuOtoComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeKata(player) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let kokyuObject = KokyuObjects[20];
+    switch (kata) {
+      case kokyuObject.kata[kokyuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kokyu_kata", 1);
+        kata = kokyuObject.kata[0];
+        break;
+      default:
+        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
+        kata = kata + 1;
+    }
+    player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:oto_kata' + kata + '.value"}]}');
+  }
+  /**
+   * @param {Player} player
+   */
+  hitAttackKata(player, itemStack) {
+  }
+  /**
+   * @param {ItemStack} itemStack
+   * @param {Player} player
+   */
+  useAttackKata(player, itemStack) {
+    let kata = player.getProperty("kurokumaft:kokyu_kata");
+    let oto = new OtoNoKata();
+    player.addTag(player.id);
+    switch (kata) {
+      case 1:
+        oto.ichiNoKata(player, itemStack);
+        break;
+      case 2:
+        oto.niNoKata(player, itemStack);
+        break;
+      case 3:
+        oto.sanNoKata(player, itemStack);
+        break;
+      case 4:
+        oto.shiNoKata(player, itemStack);
+        break;
+      case 5:
+        oto.goNoKata(player, itemStack);
+        break;
+    }
+    player.removeTag(player.id);
+  }
+  releaseAttackKata(player, itemStack, duration) {
   }
 };
 
 // scripts/item/weapon/NichirintouTypes.ts
 var kokyuClassRecord = {
-  tanjiro: KokyuTanjiroComponent
+  nichirintou: NichirintouChoiceComponent,
+  tanjiro: KokyuTanjiroComponent,
+  zenitu: KokyuZenituComponent,
+  inosuke: KokyuInosukeComponent,
+  kanawo: KokyuKanawoComponent,
+  giyu: KokyuGiyuComponent,
+  shinobu: KokyuShinobuComponent,
+  rengoku: KokyuRengokuComponent,
+  sanemi: KokyuSanemiComponent,
+  gyoumei: KokyuGyoumeiComponent,
+  muitiro: KokyuTanjiroComponent,
+  tengen: KokyuTengenComponent,
+  obanai: KokyuKanawoComponent,
+  mituri: KokyuMituriComponent,
+  mizu: KokyuMizuComponent,
+  kaminari: KokyuKaminariComponent,
+  hi: KokyuHiComponent,
+  hono: KokyuHonoComponent,
+  kaze: KokyuKazeComponent,
+  iwa: KokyuIwaComponent,
+  kasumi: KokyuKasumiComponent,
+  oto: KokyuOtoComponent,
+  hebi: KokyuHebiComponent,
+  koi: KokyuHiComponent,
+  mushi: KokyuMushiComponent
 };
 var KokyuObjects = Object.freeze([
   {
     itemName: "kurokumaft:nichirintou",
-    type: 1
+    type: 1,
+    className: "nichirintou"
   },
   {
     itemName: "kurokumaft:nichirintou_tanjiro",
     type: 2,
     kata: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
-    kata_msg: "msg.kurokumaft:tanjiro_kata",
+    kata_msg: "mizu_kata",
     className: "tanjiro"
   },
   {
     itemName: "kurokumaft:nichirintou_zenitu",
-    type: 2,
-    kata: [1, 2, 7],
-    kata_msg: "msg.kurokumaft:zenitu_kata",
+    type: 3,
+    kata: [1],
+    kata_msg: "kaminari_kata",
     className: "zenitu"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_inosuke",
+    type: 4,
+    kata: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    kata_msg: "kedamono_kata",
+    className: "inosuke"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_kanawo",
+    type: 5,
+    kata: [2, 4, 5, 6, 7],
+    kata_msg: "hana_kata",
+    className: "kanawo"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_giyu",
+    type: 6,
+    kata: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    kata_msg: "mizu_kata",
+    className: "giyu"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_shinobu",
+    type: 7,
+    kata: [1, 2, 3, 4],
+    kata_msg: "mushi_kata",
+    className: "shinobu"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_rengoku",
+    type: 8,
+    kata: [1, 2, 3, 4, 5, 9],
+    kata_msg: "hono_kata",
+    className: "rengoku"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_sanemi",
+    type: 9,
+    kata: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    kata_msg: "kaze_kata",
+    className: "sanemi"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_gyoumei",
+    type: 10,
+    kata: [1, 2, 3, 4, 5],
+    kata_msg: "iwa_kata",
+    className: "gyoumei"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_muitiro",
+    type: 11,
+    kata: [1, 2, 3, 4, 5, 6, 7],
+    kata_msg: "kasumi_kata",
+    className: "muitiro"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_tengen",
+    type: 12,
+    kata: [1, 4, 5],
+    kata_msg: "oto_kata",
+    className: "tengen"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_obanai",
+    type: 13,
+    kata: [1, 2, 3, 4, 5],
+    kata_msg: "hebi_kata",
+    className: "obanai"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_mituri",
+    type: 14,
+    kata: [1, 2, 3, 5, 6],
+    kata_msg: "koi_kata",
+    className: "mituri"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_mizu",
+    type: 15,
+    kata: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    kata_msg: "mizu_kata",
+    className: "mizu"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_kaminari",
+    type: 16,
+    kata: [1, 2, 3, 4, 5, 6],
+    kata_msg: "kaminari_kata",
+    className: "kaminari"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_hi",
+    type: 17,
+    kata: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    kata_msg: "hi_kata",
+    className: "hi"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_hono",
+    type: 18,
+    kata: [1, 2, 3, 4, 5],
+    kata_msg: "hono_kata",
+    className: "hono"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_kaze",
+    type: 19,
+    kata: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    kata_msg: "kaze_kata",
+    className: "kaze"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_iwa",
+    type: 19,
+    kata: [1, 2, 3, 4, 5],
+    kata_msg: "iwa_kata",
+    className: "iwa"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_kasumi",
+    type: 20,
+    kata: [1, 2, 3, 4, 5, 6, 7],
+    kata_msg: "kasumi_kata",
+    className: "kasumi"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_oto",
+    type: 21,
+    kata: [1, 2, 3, 4, 5],
+    kata_msg: "oto_kata",
+    className: "oto"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_hebi",
+    type: 22,
+    kata: [1, 2, 3, 4, 5],
+    kata_msg: "hebi_kata",
+    className: "hebi"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_koi",
+    type: 23,
+    kata: [1, 2, 3, 5, 6],
+    kata_msg: "koi_kata",
+    className: "koi"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_mushi",
+    type: 24,
+    kata: [1, 2, 3, 4],
+    kata_msg: "mushi_kata",
+    className: "mushi"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_tuki",
+    type: 25,
+    kata: [1, 2, 3, 5, 6, 7, 8, 9, 10, 14, 16],
+    kata_msg: "tuki_kata",
+    className: "tuki"
   }
 ]);
 
@@ -3526,271 +7042,17 @@ var KokyuObjects = Object.freeze([
 var NichirintouComponent = class {
   // 右クリック
   onUse(event) {
-    world4.sendMessage("kokyu_use");
     let player = event.source;
     let itemStack = event.itemStack;
-    player.setProperty("kurokumaft:kokyu_use", true);
-    let nichirintou = player.getProperty("kurokumaft:nichirintou_type");
-    let object = KokyuObjects.find((ob) => ob.type == nichirintou);
-    let kokyuClass = kokyuClassRecord[object.className];
-    let kokyuObject = new kokyuClass();
-    kokyuObject.useAttackKata(player, itemStack);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouGenya.ts
-var NichirintouGenya = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouGiyu.ts
-var NichirintouGiyu = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouGyoumei.ts
-var NichirintouGyoumei = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouHana.ts
-var NichirintouHana = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouHi.ts
-var NichirintouHi = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouHono.ts
-import { EntityComponentTypes as EntityComponentTypes3 } from "@minecraft/server";
-
-// scripts/common/ShooterEvent.ts
-import { EntityComponentTypes as EntityComponentTypes2 } from "@minecraft/server";
-function shooting(player, throwItem, ranNum, seepd, event) {
-  let bulet;
-  if (event != void 0) {
-    bulet = player.dimension.spawnEntity(throwItem + "<" + event + ">", player.getHeadLocation());
-  } else {
-    bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
-  }
-  let projectile = bulet.getComponent(EntityComponentTypes2.Projectile);
-  projectile.owner = player;
-  projectile.shoot(
-    {
-      x: player.getViewDirection().x * seepd,
-      y: player.getViewDirection().y * seepd,
-      z: player.getViewDirection().z * seepd
-    },
-    {
-      uncertainty: ranNum
+    if (!player.getProperty("kurokumaft:kokyu_use")) {
+      let nichirintou = player.getProperty("kurokumaft:nichirintou_type");
+      let object = KokyuObjects.find((ob) => ob.type == nichirintou);
+      let kokyuClass = kokyuClassRecord[object.className];
+      let kokyuObject = new kokyuClass();
+      player.setProperty("kurokumaft:kokyu_use", true);
+      player.setProperty("kurokumaft:kokyu_particle", true);
+      kokyuObject.useAttackKata(player, itemStack);
     }
-  );
-  return bulet;
-}
-
-// scripts/item/weapon/nichirintou/NichirintouHono.ts
-var NichirintouHono = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-    let variant = player.getComponent(EntityComponentTypes3.Variant);
-    if (variant != void 0 && variant.value == 5) {
-      shooting(player, "kurokumaft:hono_tiger", 0, 2, void 0);
-    }
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouInosuke.ts
-var NichirintouInosuke = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouKaminari.ts
-var NichirintouKaminari = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouKanawo.ts
-var NichirintouKanawo = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouKaze.ts
-var NichirintouKaze = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouKoi.ts
-var NichirintouKoi = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouKyouzyuro.ts
-import { EntityComponentTypes as EntityComponentTypes4 } from "@minecraft/server";
-var NichirintouKyouzyuro = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-    let variant = player.getComponent(EntityComponentTypes4.Variant);
-    if (variant && variant.value == 5) {
-      shooting(player, "kurokumaft:hono_tiger", 0, 2, void 0);
-    }
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouMituri.ts
-var NichirintouMituri = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouMizu.ts
-var NichirintouMizu = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouMuitiro.ts
-var NichirintouMuitiro = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouMushi.ts
-var NichirintouMushi = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouObanai.ts
-var NichirintouObanai = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouOto.ts
-var NichirintouOto = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouSanemi.ts
-var NichirintouSanemi = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouShinobu.ts
-var NichirintouShinobu = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouTengen.ts
-var NichirintouTengen = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
-  }
-};
-
-// scripts/item/weapon/nichirintou/NichirintouZenitu.ts
-var NichirintouZenitu = class {
-  // 右クリック
-  onUse(event) {
-    let itemStack = event.itemStack;
-    let player = event.source;
-    player.setDynamicProperty("kokyu", true);
   }
 };
 
@@ -3804,13 +7066,13 @@ var KekkizyutuBakketu = class {
 };
 
 // scripts/item/weapon/kekkizyutu/KekkizyutuHakaisatu.ts
-import { EntityComponentTypes as EntityComponentTypes5 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
 var KekkizyutuHakaisatu = class {
   // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
-    let variant = player.getComponent(EntityComponentTypes5.Variant);
+    let variant = player.getComponent(EntityComponentTypes6.Variant);
     if (variant && variant.value == 2) {
       shooting(player, "kurokumaft:kushiki", 0, 6, void 0);
     }
@@ -3818,13 +7080,13 @@ var KekkizyutuHakaisatu = class {
 };
 
 // scripts/item/weapon/kekkizyutu/KekkizyutuKoushi.ts
-import { EntityComponentTypes as EntityComponentTypes6 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes7 } from "@minecraft/server";
 var KekkizyutuKoushi = class {
   // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
-    let variant = player.getComponent(EntityComponentTypes6.Variant);
+    let variant = player.getComponent(EntityComponentTypes7.Variant);
     if (variant && variant.value == 3) {
       shooting(player, "kurokumaft:kokushirinten", 0, 6, void 0);
     }
@@ -3832,13 +7094,13 @@ var KekkizyutuKoushi = class {
 };
 
 // scripts/item/weapon/kekkizyutu/KekkizyutuTigama.ts
-import { EntityComponentTypes as EntityComponentTypes7 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes8 } from "@minecraft/server";
 var KekkizyutuTigama = class {
   // 右クリック
   onUse(event) {
     let itemStack = event.itemStack;
     let player = event.source;
-    let variant = player.getComponent(EntityComponentTypes7.Variant);
+    let variant = player.getComponent(EntityComponentTypes8.Variant);
     if (variant && variant.value == 1) {
       shooting(player, "kurokumaft:tobi_tigama", 0, 4, void 0);
     }
@@ -3854,131 +7116,319 @@ var KekkizyutuUltrasonic = class {
   }
 };
 
-// scripts/player/KimetuEquipmentTick.ts
-import { EntityComponentTypes as EntityComponentTypes8, EquipmentSlot as EquipmentSlot2, system as system2, world as world5 } from "@minecraft/server";
-async function checkPlayerKimetuEquTick() {
-  let players = world5.getPlayers();
-  for (let i = 0; i < players.length; i++) {
-    let player = players[i];
-    if (!player.isValid()) {
-      continue;
-    }
-    let equ = player.getComponent(EntityComponentTypes8.Equippable);
-    let mainHand = equ.getEquipment(EquipmentSlot2.Mainhand);
-    if (mainHand != void 0) {
-      let object = KokyuObjects.find((ob) => ob.itemName == mainHand.typeId);
-      if (object != void 0) {
-        if (player.getProperty("kurokumaft:nichirintou_type") != object.type) {
-          player.setProperty("kurokumaft:nichirintou_type", object.type);
-          if (object.kata != void 0) {
-            player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
-            player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"' + object.kata_msg + '1.value"}]}');
-          }
-        }
-      } else {
-        player.setProperty("kurokumaft:nichirintou_type", 0);
-        player.setProperty("kurokumaft:kokyu_kata", 0);
-      }
-    } else {
-      if (player.getProperty("kurokumaft:nichirintou_type") != 0) {
-        player.setProperty("kurokumaft:nichirintou_type", 0);
-        player.setProperty("kurokumaft:kokyu_kata", 0);
-      }
-    }
-  }
-  system2.run(checkPlayerKimetuEquTick);
-}
-
 // scripts/custom/KimetuCustomComponentRegistry.ts
 function initRegisterKimetuCustom(initEvent) {
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou", new Nichirintou());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_tanjiro", new NichirintouComponent());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_zenitu", new NichirintouZenitu());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_inosuke", new NichirintouInosuke());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_kanawo", new NichirintouKanawo());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_genya", new NichirintouGenya());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_giyu", new NichirintouGiyu());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_shinobu", new NichirintouShinobu());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_kyouzyuro", new NichirintouKyouzyuro());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_tengen", new NichirintouTengen());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_obanai", new NichirintouObanai());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_sanemi", new NichirintouSanemi());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_mituri", new NichirintouMituri());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_muitiro", new NichirintouMuitiro());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_gyoumei", new NichirintouGyoumei());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_mizu", new NichirintouMizu());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_hi", new NichirintouHi());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_kaminari", new NichirintouKaminari());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_hono", new NichirintouHono());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_mushi", new NichirintouMushi());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_hana", new NichirintouHana());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_koi", new NichirintouKoi());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_oto", new NichirintouOto());
-  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_kaze", new NichirintouKaze());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_component", new NichirintouComponent());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_bakketu", new KekkizyutuBakketu());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_tigama", new KekkizyutuTigama());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_hakaisatu", new KekkizyutuHakaisatu());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_koushi", new KekkizyutuKoushi());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_ultrasonic", new KekkizyutuUltrasonic());
 }
-function initStateChangeKimetuMonitor(initEvent) {
-  checkPlayerKimetuEquTick();
-}
 
-// scripts/common/ItemDurabilityDamage.ts
-import { ItemComponentTypes, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
-async function ItemDurabilityDamage(entity, item, slot) {
-  let equ = entity.getComponent(EntityComponentTypes9.Equippable);
-  let durability = item.getComponent(ItemComponentTypes.Durability);
-  let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
-  if (durability.damage + dChange >= durability.maxDurability) {
-    equ.setEquipment(slot, void 0);
-  } else {
-    durability.damage = durability.damage + dChange;
-    equ.setEquipment(slot, item);
+// scripts/player/KimetuEquipmentTick.ts
+import { EntityComponentTypes as EntityComponentTypes9, EquipmentSlot as EquipmentSlot4, system as system16, TicksPerSecond as TicksPerSecond15 } from "@minecraft/server";
+var KimetuEquipmentTick = class {
+  constructor(player) {
+    this.player = player;
   }
-}
+  checkPlayerKaikyuTick() {
+    if (this.player.isValid()) {
+      const kaikyuNum = this.player.getProperty("kurokumaft:kaikyu");
+      const kaikyu = "msg.kurokumaft:kaikyu" + kaikyuNum + ".value";
+      this.player.onScreenDisplay.setTitle(
+        {
+          rawtext: [
+            { translate: kaikyu }
+          ]
+        },
+        {
+          stayDuration: 100,
+          fadeInDuration: 0,
+          fadeOutDuration: 1,
+          subtitle: ""
+        }
+      );
+      system16.waitTicks(TicksPerSecond15 * 5);
+      system16.run(this.checkPlayerKaikyuTick.bind(this));
+    }
+  }
+  checkPlayerKimetuEquTick() {
+    if (this.player.isValid()) {
+      const equ = this.player.getComponent(EntityComponentTypes9.Equippable);
+      const mainHand = equ.getEquipment(EquipmentSlot4.Mainhand);
+      if (mainHand != void 0) {
+        const object = KokyuObjects.find((ob) => ob.itemName == mainHand.typeId);
+        if (object != void 0) {
+          if (this.player.getProperty("kurokumaft:nichirintou_type") != object.type) {
+            this.player.setProperty("kurokumaft:nichirintou_type", object.type);
+            this.player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
+            this.player.runCommand('/titleraw @s actionbar {"rawtext":[{"translate":"msg.kurokumaft:' + object.kata_msg + object.kata[0] + '.value"}]}');
+          }
+        } else {
+          this.player.setProperty("kurokumaft:nichirintou_type", 0);
+          this.player.setProperty("kurokumaft:kokyu_kata", 0);
+        }
+      } else {
+        if (this.player.getProperty("kurokumaft:nichirintou_type") != 0) {
+          this.player.setProperty("kurokumaft:nichirintou_type", 0);
+          this.player.setProperty("kurokumaft:kokyu_kata", 0);
+        }
+      }
+      system16.waitTicks(TicksPerSecond15);
+      system16.run(this.checkPlayerKimetuEquTick.bind(this));
+    }
+  }
+};
+
+// scripts/player/RaisingStatusCheckClass.ts
+import { EntityComponentTypes as EntityComponentTypes10 } from "@minecraft/server";
+var RaisingStatusCheckClass = class {
+  statusCheck(player, orge) {
+    const kaikyu = player.getProperty("kurokumaft:kaikyu");
+    const count = player.getProperty("kurokumaft:orge_kill");
+    const point = orge.getProperty("kurokumaft:orge_point");
+    let upPoint = count + point;
+    let killtarget = 0;
+    let healthValue = 10;
+    switch (kaikyu) {
+      case 0:
+        killtarget = 1;
+        break;
+      case 10:
+        const orgeKaikyu = orge.getProperty("kurokumaft:orge_kaikyu");
+        if (orgeKaikyu >= 9) {
+          killtarget = killtarget + 300;
+        } else {
+          upPoint = 0;
+        }
+      case 9:
+        killtarget = killtarget + 90;
+      case 8:
+        killtarget = killtarget + 80;
+      case 7:
+        killtarget = killtarget + 70;
+      case 6:
+        killtarget = killtarget + 60;
+      case 5:
+        killtarget = killtarget + 50;
+      case 4:
+        killtarget = killtarget + 40;
+      case 3:
+        killtarget = killtarget + 30;
+      case 2:
+        killtarget = killtarget + 20;
+      case 1:
+        killtarget = killtarget + 10;
+        if (upPoint >= killtarget) {
+          player.setProperty("kurokumaft:kaikyu", kaikyu + 1);
+          player.setProperty("kurokumaft:orge_kill", 0);
+          const health = player.getComponent(EntityComponentTypes10.Health);
+          health.setCurrentValue(20 + healthValue * (kaikyu + 1));
+        } else {
+          player.setProperty("kurokumaft:orge_kill", upPoint);
+        }
+    }
+  }
+};
 
 // scripts/kimetu_script.ts
-world6.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world10.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initRegisterKimetuCustom(initEvent);
-  initStateChangeKimetuMonitor(initEvent);
 });
-world6.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world10.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world6.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
-  let entity = event.entity;
-  if (entity instanceof Player12) {
-    let nichirintou = entity.getProperty("kurokumaft:nichirintou_type");
+world10.afterEvents.playerSpawn.subscribe((event) => {
+  if (event.initialSpawn) {
+    event.player.setProperty("kurokumaft:kokyu_use", false);
+    event.player.setProperty("kurokumaft:kokyu_particle", false);
+    event.player.setProperty("kurokumaft:kokyu_attack", false);
+    event.player.setProperty("kurokumaft:kokyu_chage", 0);
+    event.player.setProperty("kurokumaft:kokyu_ran", 0);
+  }
+  const playerTick = new KimetuEquipmentTick(event.player);
+  playerTick.checkPlayerKimetuEquTick();
+  playerTick.checkPlayerKaikyuTick();
+});
+world10.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+  const entity = event.entity;
+  if (entity instanceof Player26) {
+    const nichirintou = entity.getProperty("kurokumaft:nichirintou_type");
     if (nichirintou > 1) {
       if (event.eventId == "kurokumaft:kokyu_change") {
-        let object = KokyuObjects.find((ob) => ob.type == nichirintou);
-        let kokyuClass = kokyuClassRecord[object.className];
-        let kokyuObject = new kokyuClass();
+        const object = KokyuObjects.find((ob) => ob.type == nichirintou);
+        const kokyuClass = kokyuClassRecord[object.className];
+        const kokyuObject = new kokyuClass();
         kokyuObject.changeKata(entity);
-      } else if (event.eventId == "kurokumaft:attack_time") {
-        let object = KokyuObjects.find((ob) => ob.type == nichirintou);
-        let kokyuClass = kokyuClassRecord[object.className];
-        let kokyuObject = new kokyuClass();
-        kokyuObject.hitAttackKata(entity);
+      } else if (event.eventId == "kurokumaft:attack_time" && !entity.getProperty("kurokumaft:kokyu_attack")) {
+        entity.setProperty("kurokumaft:kokyu_attack", true);
+        system17.runTimeout(() => {
+          entity.setProperty("kurokumaft:kokyu_attack", false);
+        }, 10);
+        const object = KokyuObjects.find((ob) => ob.type == nichirintou);
+        const kokyuClass = kokyuClassRecord[object.className];
+        const kokyuObject = new kokyuClass();
+        const equ = entity.getComponent(EntityComponentTypes11.Equippable);
+        const itemStack = equ.getEquipment(EquipmentSlot5.Mainhand);
+        kokyuObject.hitAttackKata(entity, itemStack);
       }
     }
   }
 });
-world6.afterEvents.itemReleaseUse.subscribe((event) => {
-  let player = event.source;
-  let item = event.itemStack;
-  let duration = event.useDuration;
-  let nichirintou = player.getProperty("kurokumaft:nichirintou_type");
+world10.afterEvents.itemReleaseUse.subscribe((event) => {
+  const player = event.source;
+  const item = event.itemStack;
+  const duration = event.useDuration;
+  const nichirintou = player.getProperty("kurokumaft:nichirintou_type");
   if (item != void 0 && nichirintou != void 0 && nichirintou != 0) {
     if (player.getProperty("kurokumaft:kokyu_use")) {
-      let object = KokyuObjects.find((ob) => ob.type == nichirintou);
-      let kokyuClass = kokyuClassRecord[object.className];
-      let kokyuObject = new kokyuClass();
-      kokyuObject.releaseAttackKata(player, item);
-      ItemDurabilityDamage(player, item, EquipmentSlot4.Mainhand);
-      player.setProperty("kurokumaft:kokyu_use", false);
+      const object = KokyuObjects.find((ob) => ob.type == nichirintou);
+      const kokyuClass = kokyuClassRecord[object.className];
+      const kokyuObject = new kokyuClass();
+      kokyuObject.releaseAttackKata(player, item, duration);
+    }
+  }
+});
+world10.afterEvents.entityDie.subscribe((event) => {
+  const deadEntity = event.deadEntity;
+  const familyTypes = deadEntity.getComponent(EntityComponentTypes11.TypeFamily);
+  if (familyTypes.hasTypeFamily("ogre")) {
+    const damager = event.damageSource.damagingEntity;
+    if (damager != void 0) {
+      const dfamilyTypes = damager.getComponent(EntityComponentTypes11.TypeFamily);
+      if (dfamilyTypes.hasTypeFamily("player")) {
+        new RaisingStatusCheckClass().statusCheck(damager, deadEntity);
+      }
+    }
+  }
+});
+system17.afterEvents.scriptEventReceive.subscribe((event) => {
+  const id = event.id;
+  const message = event.message;
+  const initiator = event.initiator;
+  const sourceEntity = event.sourceEntity;
+  const sourceType = event.sourceType;
+  if (initiator != void 0) {
+  }
+  if (id == "kk:kaikyuchange" && sourceType == ScriptEventSource.Entity && sourceEntity instanceof Player26) {
+    const params = message.split(" ");
+    if (params[0] != "set" && params[0] != "add") {
+      world10.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_method" });
+      return;
+    }
+    if (params[0] == "add") {
+      if (params.length != 3) {
+        world10.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_argument" });
+        return;
+      }
+      if (params[1] != "promotion" && params[1] != "demotion") {
+        world10.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_type" });
+        return;
+      }
+      if (!(typeof params[2] === "number" && Number.isFinite(params[2]))) {
+        world10.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_num" });
+        return;
+      }
+    } else if (params[0] == "set") {
+      world10.sendMessage(params[0]);
+      if (params.length != 2) {
+        world10.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_argument" });
+        return;
+      }
+      world10.sendMessage(params[1]);
+      const num = Number(params[1]);
+      if (!(!isNaN(num) && Number.isFinite(num))) {
+        world10.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_num" });
+        return;
+      }
+    }
+    const kaikyu = sourceEntity.getProperty("kurokumaft:kaikyu");
+    const kill = sourceEntity.getProperty("kurokumaft:orge_kill");
+    const health = sourceEntity.getComponent(EntityComponentTypes11.Health);
+    const healthValue = 10;
+    if (params[0] == "add") {
+      const num = Number(params[2]);
+      if (params[1] == "promotion") {
+        let upPoint = kill + num;
+        let killtarget = 0;
+        switch (kaikyu) {
+          case 0:
+            killtarget = 1;
+            break;
+          case 10:
+            killtarget = killtarget + 150;
+          case 9:
+            killtarget = killtarget + 90;
+          case 8:
+            killtarget = killtarget + 80;
+          case 7:
+            killtarget = killtarget + 70;
+          case 6:
+            killtarget = killtarget + 60;
+          case 5:
+            killtarget = killtarget + 50;
+          case 4:
+            killtarget = killtarget + 40;
+          case 3:
+            killtarget = killtarget + 30;
+          case 2:
+            killtarget = killtarget + 20;
+          case 1:
+            killtarget = killtarget + 10;
+            if (upPoint >= killtarget) {
+              sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu + 1);
+              sourceEntity.setProperty("kurokumaft:orge_kill", 0);
+            } else {
+              sourceEntity.setProperty("kurokumaft:orge_kill", upPoint);
+            }
+        }
+      } else if (params[1] == "demotion") {
+        let upPoint = kill - num;
+        let killtarget = 0;
+        switch (kaikyu) {
+          case 0:
+            break;
+          case 10:
+            killtarget = killtarget + 150;
+          case 9:
+            killtarget = killtarget + 90;
+          case 8:
+            killtarget = killtarget + 80;
+          case 7:
+            killtarget = killtarget + 70;
+          case 6:
+            killtarget = killtarget + 60;
+          case 5:
+            killtarget = killtarget + 50;
+          case 4:
+            killtarget = killtarget + 40;
+          case 3:
+            killtarget = killtarget + 30;
+          case 2:
+            killtarget = killtarget + 20;
+          case 1:
+            killtarget = killtarget + 10;
+            if (upPoint <= 0) {
+              sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu - 1);
+              sourceEntity.setProperty("kurokumaft:orge_kill", killtarget);
+              health.setCurrentValue(20 + healthValue * (kaikyu - 1));
+            } else {
+              sourceEntity.setProperty("kurokumaft:orge_kill", upPoint);
+            }
+            break;
+          case 11:
+            sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu - 1);
+            sourceEntity.setProperty("kurokumaft:orge_kill", 300);
+            health.setCurrentValue(20 + healthValue * (kaikyu - 1));
+        }
+      }
+    } else if (params[0] == "set") {
+      const num = Number(params[1]);
+      if (num > 0 && num < 12) {
+        sourceEntity.setProperty("kurokumaft:kaikyu", num);
+        health.setCurrentValue(20 + healthValue * num);
+      }
     }
   }
 });

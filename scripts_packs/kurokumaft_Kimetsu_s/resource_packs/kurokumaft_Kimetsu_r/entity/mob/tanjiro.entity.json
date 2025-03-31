@@ -33,11 +33,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "tanjiro.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -62,50 +58,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.tanjiro.attack",
-        "third": "animation.tanjiro_third",
-
-        "tanjiro.kokyu_con":"controller.animation.tanjiro.kokyu",
-        "tanjiro_mizu.ichi_1": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_1",
-        "tanjiro_mizu.ichi_2": "animation.nichirintou_kokyu.tanjiro_mizu.ichi_2",
-        "tanjiro_mizu.ni_1": "animation.nichirintou_kokyu.tanjiro_mizu.ni_1",
-        "tanjiro_mizu.san_1": "animation.nichirintou_kokyu.tanjiro_mizu.san_1",
-        "tanjiro_mizu.san_2": "animation.nichirintou_kokyu.tanjiro_mizu.san_2",
-        "tanjiro_mizu.san_3": "animation.nichirintou_kokyu.tanjiro_mizu.san_3",
-        "tanjiro_mizu.shi_1": "animation.nichirintou_kokyu.tanjiro_mizu.shi_1",
-        "tanjiro_mizu.shi_2": "animation.nichirintou_kokyu.tanjiro_mizu.shi_2",
-        "tanjiro_mizu.go_1": "animation.nichirintou_kokyu.tanjiro_mizu.go_1",
-        "tanjiro_mizu.go_2": "animation.nichirintou_kokyu.tanjiro_mizu.go_2",
-        "tanjiro_mizu.roku_1": "animation.nichirintou_kokyu.tanjiro_mizu.roku_1",
-        "tanjiro_mizu.roku_2": "animation.nichirintou_kokyu.tanjiro_mizu.roku_2",
-        "tanjiro_mizu.shiti_1": "animation.nichirintou_kokyu.tanjiro_mizu.shiti_1",
-        "tanjiro_mizu.shiti_2": "animation.nichirintou_kokyu.tanjiro_mizu.shiti_2",
-        "tanjiro_mizu.hati_1": "animation.nichirintou_kokyu.tanjiro_mizu.hati_1",
-        "tanjiro_mizu.hati_2": "animation.nichirintou_kokyu.tanjiro_mizu.hati_2",
-        "tanjiro_mizu.hati_3": "animation.nichirintou_kokyu.tanjiro_mizu.hati_3",
-        "tanjiro_mizu.ku_1": "animation.nichirintou_kokyu.tanjiro_mizu.ku_1",
-        "tanjiro_mizu.ku_2": "animation.nichirintou_kokyu.tanjiro_mizu.ku_2",
-        "tanjiro_mizu.tou_1": "animation.nichirintou_kokyu.tanjiro_mizu.tou_1",
-        "tanjiro_mizu.tou_2": "animation.nichirintou_kokyu.tanjiro_mizu.tou_2",
-        "hinokami.ichi_1": "animation.nichirintou_kokyu.hinokami.ichi_1",
-        "hinokami.ni_1": "animation.nichirintou_kokyu.hinokami.ni_1",
-        "hinokami.ni_2": "animation.nichirintou_kokyu.hinokami.ni_2",
-        "hinokami.san_1": "animation.nichirintou_kokyu.hinokami.san_1",
-        "hinokami.san_2": "animation.nichirintou_kokyu.hinokami.san_2",
-        "hinokami.shi_1": "animation.nichirintou_kokyu.hinokami.shi_1",
-        "hinokami.go_1": "animation.nichirintou_kokyu.hinokami.go_1",
-        "hinokami.go_2": "animation.nichirintou_kokyu.hinokami.go_2",
-        "hinokami.roku_1": "animation.nichirintou_kokyu.hinokami.roku_1",
-        "hinokami.shiti_1": "animation.nichirintou_kokyu.hinokami.shiti_1",
-        "hinokami.hachi_1": "animation.nichirintou_kokyu.hinokami.hachi_1",
-        "hinokami.ku_1": "animation.nichirintou_kokyu.hinokami.ku_1",
-        "hinokami.tou_1": "animation.nichirintou_kokyu.hinokami.tou_1",
-        "hinokami.zyuichi_1": "animation.nichirintou_kokyu.hinokami.zyuichi_1",
-        "hinokami.zyuni_1": "animation.nichirintou_kokyu.hinokami.zyuni_1",
-        "hinokami.zyuni_2": "animation.nichirintou_kokyu.hinokami.zyuni_2"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.tanjiro"

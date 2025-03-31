@@ -1,25 +1,129 @@
-msg.kurokumaft:tanjiro_kata1.value=§9水の呼吸 壱ノ型
-msg.kurokumaft:tanjiro_kata2.value=§9水の呼吸 弐ノ型
-msg.kurokumaft:tanjiro_kata3.value=§9水の呼吸 参ノ型
-msg.kurokumaft:tanjiro_kata4.value=§9水の呼吸 肆ノ型
-msg.kurokumaft:tanjiro_kata5.value=§9水の呼吸 伍ノ型
-msg.kurokumaft:tanjiro_kata6.value=§9水の呼吸 陸ノ型
-msg.kurokumaft:tanjiro_kata7.value=§9水の呼吸 漆ノ型
-msg.kurokumaft:tanjiro_kata8.value=§9水の呼吸 捌ノ型
-msg.kurokumaft:tanjiro_kata9.value=§9水の呼吸 玖ノ型
-msg.kurokumaft:tanjiro_kata10.value=§9水の呼吸 拾ノ型
-msg.kurokumaft:tanjiro_kata11.value=§cヒノカミ神楽 円舞
-msg.kurokumaft:tanjiro_kata12.value=§cヒノカミ神楽 碧羅の天
-msg.kurokumaft:tanjiro_kata13.value=§cヒノカミ神楽 烈日紅鏡
-msg.kurokumaft:tanjiro_kata14.value=§cヒノカミ神楽 灼骨炎陽
-msg.kurokumaft:tanjiro_kata15.value=§cヒノカミ神楽 陽華突
-msg.kurokumaft:tanjiro_kata16.value=§cヒノカミ神楽 日暈の龍 頭舞い
-msg.kurokumaft:tanjiro_kata17.value=§cヒノカミ神楽 斜陽転身
-msg.kurokumaft:tanjiro_kata18.value=§cヒノカミ神楽 飛輪陽炎
-msg.kurokumaft:tanjiro_kata19.value=§cヒノカミ神楽 輝輝恩光
-msg.kurokumaft:tanjiro_kata20.value=§cヒノカミ神楽 火車
-msg.kurokumaft:tanjiro_kata21.value=§cヒノカミ神楽 幻日虹
-msg.kurokumaft:tanjiro_kata22.value=§cヒノカミ神楽 炎舞
+msg.kurokumaft:mizu_kata1.value=§9水の呼吸 壱ノ型
+msg.kurokumaft:mizu_kata2.value=§9水の呼吸 弐ノ型
+msg.kurokumaft:mizu_kata3.value=§9水の呼吸 参ノ型
+msg.kurokumaft:mizu_kata4.value=§9水の呼吸 肆ノ型
+msg.kurokumaft:mizu_kata5.value=§9水の呼吸 伍ノ型
+msg.kurokumaft:mizu_kata6.value=§9水の呼吸 陸ノ型
+msg.kurokumaft:mizu_kata7.value=§9水の呼吸 漆ノ型
+msg.kurokumaft:mizu_kata8.value=§9水の呼吸 捌ノ型
+msg.kurokumaft:mizu_kata9.value=§9水の呼吸 玖ノ型
+msg.kurokumaft:mizu_kata10.value=§9水の呼吸 拾ノ型
+msg.kurokumaft:mizu_kata11.value=§9水の呼吸 拾壱ノ型
+
+msg.kurokumaft:hinokami_kata11.value=§cヒノカミ神楽 壱ノ型
+msg.kurokumaft:hinokami_kata12.value=§cヒノカミ神楽 弐ノ型
+msg.kurokumaft:hinokami_kata13.value=§cヒノカミ神楽 参ノ型
+msg.kurokumaft:hinokami_kata14.value=§cヒノカミ神楽 肆ノ型
+msg.kurokumaft:hinokami_kata15.value=§cヒノカミ神楽 伍ノ型
+msg.kurokumaft:hinokami_kata16.value=§cヒノカミ神楽 陸ノ型
+msg.kurokumaft:hinokami_kata17.value=§cヒノカミ神楽 漆ノ型
+msg.kurokumaft:hinokami_kata18.value=§cヒノカミ神楽 捌ノ型
+msg.kurokumaft:hinokami_kata19.value=§cヒノカミ神楽 玖ノ型
+msg.kurokumaft:hinokami_kata20.value=§cヒノカミ神楽 拾ノ型
+msg.kurokumaft:hinokami_kata21.value=§cヒノカミ神楽 拾壱ノ型
+msg.kurokumaft:hinokami_kata22.value=§cヒノカミ神楽 拾弐ノ型
+
+msg.kurokumaft:hi_kata1.value=§c日の呼吸 壱ノ型
+msg.kurokumaft:hi_kata2.value=§c日の呼吸 弐ノ型
+msg.kurokumaft:hi_kata3.value=§c日の呼吸 参ノ型
+msg.kurokumaft:hi_kata4.value=§c日の呼吸 肆ノ型
+msg.kurokumaft:hi_kata5.value=§c日の呼吸 伍ノ型
+msg.kurokumaft:hi_kata6.value=§c日の呼吸 陸ノ型
+msg.kurokumaft:hi_kata7.value=§c日の呼吸 漆ノ型
+msg.kurokumaft:hi_kata8.value=§c日の呼吸 捌ノ型
+msg.kurokumaft:hi_kata9.value=§c日の呼吸 玖ノ型
+msg.kurokumaft:hi_kata10.value=§c日の呼吸 拾ノ型
+msg.kurokumaft:hi_kata11.value=§c日の呼吸 拾壱ノ型
+msg.kurokumaft:hi_kata12.value=§c日の呼吸 拾弐ノ型
+
+msg.kurokumaft:kaminari_kata1.value=§6雷の呼吸 壱ノ型
+msg.kurokumaft:kaminari_kata2.value=§6雷の呼吸 弐ノ型
+msg.kurokumaft:kaminari_kata3.value=§6雷の呼吸 参ノ型
+msg.kurokumaft:kaminari_kata4.value=§6雷の呼吸 肆ノ型
+msg.kurokumaft:kaminari_kata5.value=§6雷の呼吸 伍ノ型
+msg.kurokumaft:kaminari_kata6.value=§6雷の呼吸 陸ノ型
+msg.kurokumaft:kaminari_kata7.value=§6雷の呼吸 漆ノ型
+
+msg.kurokumaft:kedamono_kata1.value=§7獣の呼吸 壱ノ牙
+msg.kurokumaft:kedamono_kata2.value=§7獣の呼吸 弐ノ牙
+msg.kurokumaft:kedamono_kata3.value=§7獣の呼吸 参ノ牙
+msg.kurokumaft:kedamono_kata4.value=§7獣の呼吸 肆ノ牙
+msg.kurokumaft:kedamono_kata5.value=§7獣の呼吸 伍ノ牙
+msg.kurokumaft:kedamono_kata6.value=§7獣の呼吸 陸ノ牙
+msg.kurokumaft:kedamono_kata7.value=§7獣の呼吸 漆ノ型
+msg.kurokumaft:kedamono_kata8.value=§7獣の呼吸 捌ノ型
+msg.kurokumaft:kedamono_kata9.value=§7獣の呼吸 玖ノ牙
+msg.kurokumaft:kedamono_kata10.value=§7獣の呼吸 捨ノ型
+
+msg.kurokumaft:hana_kata2.value=§d花の呼吸 弐ノ型
+msg.kurokumaft:hana_kata4.value=§d花の呼吸 肆ノ型
+msg.kurokumaft:hana_kata5.value=§d花の呼吸 伍ノ型
+msg.kurokumaft:hana_kata6.value=§d花の呼吸 陸ノ型
+msg.kurokumaft:hana_kata7.value=§d花の呼吸 終ノ型
+
+msg.kurokumaft:mushi_kata1.value=§5蟲の呼吸 蝶ノ舞
+msg.kurokumaft:mushi_kata2.value=§5蟲の呼吸 蜂牙ノ舞
+msg.kurokumaft:mushi_kata3.value=§5蟲の呼吸 蜻蛉ノ舞
+msg.kurokumaft:mushi_kata4.value=§5蟲の呼吸 蜈蚣ノ舞
+
+msg.kurokumaft:hono_kata1.value=§4炎の呼吸 壱ノ型
+msg.kurokumaft:hono_kata2.value=§4炎の呼吸 弐ノ型
+msg.kurokumaft:hono_kata3.value=§4炎の呼吸 参ノ型
+msg.kurokumaft:hono_kata4.value=§4炎の呼吸 肆ノ型
+msg.kurokumaft:hono_kata5.value=§4炎の呼吸 伍ノ型
+msg.kurokumaft:hono_kata9.value=§4炎の呼吸 玖ノ型
+
+msg.kurokumaft:kaze_kata1.value=§2風の呼吸 壱ノ型
+msg.kurokumaft:kaze_kata2.value=§2風の呼吸 弐ノ型
+msg.kurokumaft:kaze_kata3.value=§2風の呼吸 参ノ型
+msg.kurokumaft:kaze_kata4.value=§2風の呼吸 肆ノ型
+msg.kurokumaft:kaze_kata5.value=§2風の呼吸 伍ノ型
+msg.kurokumaft:kaze_kata6.value=§2風の呼吸 陸ノ型
+msg.kurokumaft:kaze_kata7.value=§2風の呼吸 漆ノ型
+msg.kurokumaft:kaze_kata8.value=§2風の呼吸 捌ノ型
+msg.kurokumaft:kaze_kata9.value=§2風の呼吸 玖ノ型
+
+msg.kurokumaft:iwa_kata1.value=§7岩の呼吸 壱ノ型
+msg.kurokumaft:iwa_kata2.value=§7岩の呼吸 弐ノ型
+msg.kurokumaft:iwa_kata3.value=§7岩の呼吸 参ノ型
+msg.kurokumaft:iwa_kata4.value=§7岩の呼吸 肆ノ型
+msg.kurokumaft:iwa_kata5.value=§7岩の呼吸 伍ノ型
+
+msg.kurokumaft:kasumi_kata1.value=§b霞の呼吸 壱ノ型
+msg.kurokumaft:kasumi_kata2.value=§b霞の呼吸 弐ノ型
+msg.kurokumaft:kasumi_kata3.value=§b霞の呼吸 参ノ型
+msg.kurokumaft:kasumi_kata4.value=§b霞の呼吸 肆ノ型
+msg.kurokumaft:kasumi_kata5.value=§b霞の呼吸 伍ノ型
+msg.kurokumaft:kasumi_kata6.value=§b霞の呼吸 陸ノ型
+msg.kurokumaft:kasumi_kata7.value=§b霞の呼吸 漆ノ型
+
+msg.kurokumaft:oto_kata1.value=§e音の呼吸 壱ノ型
+msg.kurokumaft:oto_kata4.value=§e音の呼吸 肆ノ型
+msg.kurokumaft:oto_kata5.value=§e音の呼吸 伍ノ型
+
+msg.kurokumaft:hebi_kata1.value=§3蛇の呼吸 壱ノ型
+msg.kurokumaft:hebi_kata2.value=§3蛇の呼吸 弐ノ型
+msg.kurokumaft:hebi_kata3.value=§3蛇の呼吸 参ノ型
+msg.kurokumaft:hebi_kata4.value=§3蛇の呼吸 肆ノ型
+msg.kurokumaft:hebi_kata5.value=§3蛇の呼吸 伍ノ型
+
+msg.kurokumaft:koi_kata1.value=§d恋の呼吸 壱ノ型
+msg.kurokumaft:koi_kata2.value=§d恋の呼吸 弐ノ型
+msg.kurokumaft:koi_kata3.value=§d恋の呼吸 参ノ型
+msg.kurokumaft:koi_kata5.value=§d恋の呼吸 伍ノ型
+msg.kurokumaft:koi_kata6.value=§d恋の呼吸 陸ノ型
+
+msg.kurokumaft:tuki_kata1.value=§e月の呼吸 壱ノ型
+msg.kurokumaft:tuki_kata2.value=§e月の呼吸 弐ノ型
+msg.kurokumaft:tuki_kata3.value=§e月の呼吸 参ノ型
+msg.kurokumaft:tuki_kata5.value=§e月の呼吸 伍ノ型
+msg.kurokumaft:tuki_kata6.value=§e月の呼吸 陸ノ型
+msg.kurokumaft:tuki_kata7.value=§e月の呼吸 漆ノ型
+msg.kurokumaft:tuki_kata8.value=§e月の呼吸 捌ノ型
+msg.kurokumaft:tuki_kata9.value=§e月の呼吸 玖ノ型
+msg.kurokumaft:tuki_kata10.value=§e月の呼吸 拾ノ型
+msg.kurokumaft:tuki_kata11.value=§e月の呼吸 拾肆ノ型
+msg.kurokumaft:tuki_kata12.value=§e月の呼吸 拾陸ノ型
 
 msg.kurokumaft:mizu_kokyu1.value=§9水面切り
 msg.kurokumaft:mizu_kokyu2.value=§9水車
@@ -34,6 +138,7 @@ msg.kurokumaft:mizu_kokyu10.value=§9生生流転
 msg.kurokumaft:mizu_kokyu11.value=§9凪
 
 msg.kurokumaft:hi_kokyu1.value=§c円舞
+msg.kurokumaft:hi_kokyu1_issen.value=§c円舞一閃
 msg.kurokumaft:hi_kokyu2.value=§c碧羅の天
 msg.kurokumaft:hi_kokyu3.value=§c烈日紅鏡
 msg.kurokumaft:hi_kokyu4.value=§c灼骨炎陽
@@ -45,6 +150,156 @@ msg.kurokumaft:hi_kokyu9.value=§c輝輝恩光
 msg.kurokumaft:hi_kokyu10.value=§c火車
 msg.kurokumaft:hi_kokyu11.value=§c幻日虹
 msg.kurokumaft:hi_kokyu12.value=§c炎舞
+
+msg.kurokumaft:kaminari_kokyu1.value=§6霹靂一閃
+msg.kurokumaft:kaminari_kokyu1_rengeki.value=§6霹靂一閃 %1連
+msg.kurokumaft:kaminari_kokyu1_shinsoku.value=§6霹靂一閃 神速
+msg.kurokumaft:kaminari_kokyu2.value=§6稲魂
+msg.kurokumaft:kaminari_kokyu3.value=§6聚蚊成雷
+msg.kurokumaft:kaminari_kokyu4.value=§6遠雷
+msg.kurokumaft:kaminari_kokyu5.value=§6熱界雷
+msg.kurokumaft:kaminari_kokyu6.value=§6電轟雷轟
+msg.kurokumaft:kaminari_kokyu7.value=§6火雷神
+
+msg.kurokumaft:kedamono_kokyu1.value=§7穿ち抜き
+msg.kurokumaft:kedamono_kokyu2.value=§7切り裂き
+msg.kurokumaft:kedamono_kokyu3.value=§7喰い裂き
+msg.kurokumaft:kedamono_kokyu4.value=§7切細裂き
+msg.kurokumaft:kedamono_kokyu5.value=§7狂い裂き
+msg.kurokumaft:kedamono_kokyu6.value=§7乱杭咬み
+msg.kurokumaft:kedamono_kokyu7.value=§7空間識覚
+msg.kurokumaft:kedamono_kokyu8.value=§7爆裂猛進
+msg.kurokumaft:kedamono_kokyu9.value=§7伸・うねり裂き
+msg.kurokumaft:kedamono_kokyu10.value=§7円転旋牙
+
+msg.kurokumaft:hana_kokyu2.value=§d御影梅
+msg.kurokumaft:hana_kokyu4.value=§d紅花衣
+msg.kurokumaft:hana_kokyu5.value=§d徒の芍薬
+msg.kurokumaft:hana_kokyu6.value=§d渦桃
+msg.kurokumaft:hana_kokyu7.value=§d彼岸朱眼
+
+msg.kurokumaft:mushi_kokyu1.value=§5戯れ
+msg.kurokumaft:mushi_kokyu2.value=§5真靡き
+msg.kurokumaft:mushi_kokyu3.value=§5複眼六角
+msg.kurokumaft:mushi_kokyu4.value=§5百足蛇腹
+
+msg.kurokumaft:hono_kokyu1.value=§4不知火
+msg.kurokumaft:hono_kokyu2.value=§4昇り炎天
+msg.kurokumaft:hono_kokyu3.value=§4気炎万象
+msg.kurokumaft:hono_kokyu4.value=§4盛炎のうねり
+msg.kurokumaft:hono_kokyu5.value=§4炎虎
+msg.kurokumaft:hono_kokyu9.value=§4奥義 煉獄
+
+msg.kurokumaft:kaze_kokyu1.value=§2塵旋風・削ぎ
+msg.kurokumaft:kaze_kokyu2.value=§2爪々・科戸風
+msg.kurokumaft:kaze_kokyu3.value=§2晴嵐風樹
+msg.kurokumaft:kaze_kokyu4.value=§2昇上砂塵嵐
+msg.kurokumaft:kaze_kokyu5.value=§2木枯らし颪
+msg.kurokumaft:kaze_kokyu6.value=§2黒風烟嵐
+msg.kurokumaft:kaze_kokyu7.value=§2勁風・天狗風
+msg.kurokumaft:kaze_kokyu8.value=§2初烈風斬り
+msg.kurokumaft:kaze_kokyu9.value=§2韋駄天台風
+
+msg.kurokumaft:iwa_kokyu1.value=§7蛇紋岩・双極
+msg.kurokumaft:iwa_kokyu2.value=§7天面砕き
+msg.kurokumaft:iwa_kokyu3.value=§7岩軀の膚
+msg.kurokumaft:iwa_kokyu4.value=§7流紋岩・速征
+msg.kurokumaft:iwa_kokyu5.value=§7瓦輪刑部
+
+msg.kurokumaft:kasumi_kokyu1.value=§b垂天遠霞
+msg.kurokumaft:kasumi_kokyu2.value=§b八重霞
+msg.kurokumaft:kasumi_kokyu3.value=§b霞散の飛沫
+msg.kurokumaft:kasumi_kokyu4.value=§b移流斬り
+msg.kurokumaft:kasumi_kokyu5.value=§b霞雲の海
+msg.kurokumaft:kasumi_kokyu6.value=§b月の霞消
+msg.kurokumaft:kasumi_kokyu7.value=§b朧
+
+msg.kurokumaft:oto_kokyu1.value=§e轟
+msg.kurokumaft:oto_kokyu4.value=§e鳴弦奏々
+msg.kurokumaft:oto_kokyu5.value=§e響斬無間
+
+msg.kurokumaft:hebi_kokyu1.value=§3委蛇斬り
+msg.kurokumaft:hebi_kokyu2.value=§3狭頭の毒牙
+msg.kurokumaft:hebi_kokyu3.value=§3塒締め
+msg.kurokumaft:hebi_kokyu4.value=§3頸蛇双生
+msg.kurokumaft:hebi_kokyu5.value=§3蜿蜿長蛇
+
+msg.kurokumaft:koi_kokyu1.value=§d初恋のわななき
+msg.kurokumaft:koi_kokyu2.value=§d懊悩巡る恋
+msg.kurokumaft:koi_kokyu3.value=§d恋猫しぐれ
+msg.kurokumaft:koi_kokyu5.value=§d揺らめく恋情・乱れ爪
+msg.kurokumaft:koi_kokyu6.value=§d猫足恋風
+
+msg.kurokumaft:tuki_kokyu1.value=§e闇月・宵の宮
+msg.kurokumaft:tuki_kokyu2.value=§e珠華ノ弄月
+msg.kurokumaft:tuki_kokyu3.value=§e厭忌月・銷り
+msg.kurokumaft:tuki_kokyu5.value=§e月魄災渦
+msg.kurokumaft:tuki_kokyu6.value=§e常夜孤月・無間
+msg.kurokumaft:tuki_kokyu7.value=§e厄鏡・月映え
+msg.kurokumaft:tuki_kokyu8.value=§e月龍輪尾
+msg.kurokumaft:tuki_kokyu9.value=§e降り月・連面
+msg.kurokumaft:tuki_kokyu10.value=§e穿面斬・蘿月
+msg.kurokumaft:tuki_kokyu14.value=§e兇変・天満繊月
+msg.kurokumaft:tuki_kokyu16.value=§e月虹・片割れ月
+
+msg.kurokumaft:kekkizyutu_kouri1.value=粉凍り
+msg.kurokumaft:kekkizyutu_kouri2.value=蓮葉氷
+msg.kurokumaft:kekkizyutu_kouri3.value=枯園垂り
+msg.kurokumaft:kekkizyutu_kouri4.value=凍て曇
+msg.kurokumaft:kekkizyutu_kouri5.value=蔓蓮華
+msg.kurokumaft:kekkizyutu_kouri6.value=寒烈の白姫
+msg.kurokumaft:kekkizyutu_kouri7.value=冬ざれ氷柱
+msg.kurokumaft:kekkizyutu_kouri8.value=散り蓮華
+msg.kurokumaft:kekkizyutu_kouri9.value=結晶ノ御子
+msg.kurokumaft:kekkizyutu_kouri10.value=霧氷・睡蓮菩薩
+
+msg.kurokumaft:kekkizyutu_hakai1.value=破壊殺・羅針
+msg.kurokumaft:kekkizyutu_hakai2.value=破壊殺・空式
+msg.kurokumaft:kekkizyutu_hakai3.value=破壊殺・乱式
+msg.kurokumaft:kekkizyutu_hakai4.value=破壊殺・滅式
+msg.kurokumaft:kekkizyutu_hakai5.value=破壊殺・脚式 冠先割
+msg.kurokumaft:kekkizyutu_hakai6.value=破壊殺・脚式 流閃群光
+msg.kurokumaft:kekkizyutu_hakai7.value=破壊殺・脚式 飛遊星千輪
+msg.kurokumaft:kekkizyutu_hakai8.value=破壊殺・砕式 万葉閃柳
+msg.kurokumaft:kekkizyutu_hakai9.value=破壊殺・鬼芯八重芯
+msg.kurokumaft:kekkizyutu_hakai10.value=終式・青銀乱残光
+
+msg.kurokumaft:kekkizyutu_tigama1.value=飛び血鎌
+msg.kurokumaft:kekkizyutu_tigama2.value=跋扈跳梁
+msg.kurokumaft:kekkizyutu_tigama3.value=円斬旋回・飛び血鎌
+
+msg.kurokumaft:kekkizyutu_obi1.value=八重帯斬り
+
+msg.kurokumaft:kekkizyutu_zouhakuten1.value=狂圧鳴波
+msg.kurokumaft:kekkizyutu_zouhakuten2.value=無間業樹
+msg.kurokumaft:kekkizyutu_zouhakuten3.value=狂鳴雷殺
+
+msg.kurokumaft:kekkizyutu_tubo1.value=水獄鉢
+msg.kurokumaft:kekkizyutu_tubo2.value=千本針魚殺
+msg.kurokumaft:kekkizyutu_tubo3.value=蛸壺地獄
+msg.kurokumaft:kekkizyutu_tubo4.value=一万滑空粘魚
+msg.kurokumaft:kekkizyutu_tubo5.value=神の手
+msg.kurokumaft:kekkizyutu_tubo6.value=陣殺魚鱗
+
+msg.kurokumaft:kekkizyutu_akumu1.value=強制昏倒 催眠の囁
+msg.kurokumaft:kekkizyutu_akumu2.value=強制昏倒 睡眠眼
+
+msg.kurokumaft:kekkizyutu_ito1.value=刻糸牢
+msg.kurokumaft:kekkizyutu_ito2.value=刻糸輪転
+msg.kurokumaft:kekkizyutu_ito3.value=殺目篭
+
+msg.kurokumaft:kaikyu0.value=#
+msg.kurokumaft:kaikyu1.value=§b§l癸
+msg.kurokumaft:kaikyu2.value=§9§l壬
+msg.kurokumaft:kaikyu3.value=§d§l辛
+msg.kurokumaft:kaikyu4.value=§5§l庚
+msg.kurokumaft:kaikyu5.value=§a§l己
+msg.kurokumaft:kaikyu6.value=§2§l戊
+msg.kurokumaft:kaikyu7.value=§c§l丁
+msg.kurokumaft:kaikyu8.value=§4§l丙
+msg.kurokumaft:kaikyu9.value=§e§l乙
+msg.kurokumaft:kaikyu10.value=§6§l甲
+msg.kurokumaft:kaikyu11.value=§0§l§o柱
 
 item.kurokumaft:nichirintou_tanjiro.name=日輪刀 竈門 炭治郎
 item.kurokumaft:nichirintou_zenitu.name=日輪刀 我妻 善逸
@@ -62,7 +317,6 @@ item.kurokumaft:nichirintou_sanemi.name=日輪刀 不死川 実弥
 item.kurokumaft:nichirintou_mituri.name=日輪刀 甘露寺 蜜璃
 item.kurokumaft:nichirintou_muitiro.name=日輪刀 時透 無一郎
 item.kurokumaft:nichirintou_gyoumei.name=日輪刀 悲鳴嶼 行冥
-item.kurokumaft:nichirintou_kokushibou.name=日輪刀 黒死牟
 item.kurokumaft:nichirintou.name=日輪刀
 item.kurokumaft:nichirintou_hi.name=日輪刀 日
 item.kurokumaft:nichirintou_mizu.name=日輪刀 水
@@ -79,6 +333,12 @@ item.kurokumaft:nichirintou_iwa.name=日輪刀 岩
 item.kurokumaft:nichirintou_hebi.name=日輪刀 蛇
 item.kurokumaft:nichirintou_tuki.name=日輪刀 月
 
+item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
+item.kurokumaft:koushi.name=血気術 累(鋼糸)
+item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
+item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
+item.kurokumaft:kouri.name=血気術 童磨(氷)
+
 tile.kurokumaft:scarlet_gravel.name=緋の砂利
 tile.kurokumaft:scarlet_ore.name=緋の鉱石
 
@@ -90,7 +350,7 @@ entity.kurokumaft:zenitu.name=我妻 善逸
 entity.kurokumaft:inosuke.name=嘴平 伊之助
 entity.kurokumaft:kanawo.name=栗花落 カナヲ
 entity.kurokumaft:nezuko.name=竈門 禰豆子
-entity.kurokumaft:giyu.name=富岡 義勇
+entity.kurokumaft:giyu.name=冨岡 義勇
 entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
 entity.kurokumaft:shinobu.name=胡蝶 しのぶ
 entity.kurokumaft:tengen.name=宇髄 天元
@@ -108,7 +368,7 @@ item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
 item.spawn_egg.entity.kurokumaft:inosuke.name=嘴平 伊之助
 item.spawn_egg.entity.kurokumaft:kanawo.name=栗花落 カナヲ
 item.spawn_egg.entity.kurokumaft:nezuko.name=竈門 禰豆子
-item.spawn_egg.entity.kurokumaft:giyu.name=富岡 義勇
+item.spawn_egg.entity.kurokumaft:giyu.name=冨岡 義勇
 item.spawn_egg.entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
 item.spawn_egg.entity.kurokumaft:shinobu.name=胡蝶 しのぶ
 item.spawn_egg.entity.kurokumaft:tengen.name=宇髄 天元
@@ -237,12 +497,6 @@ tile.kurokumaft:gyoumei_skull.name=行冥の頭
 tile.kurokumaft:muitiro_skull.name=無一郎の頭
 tile.kurokumaft:obanai_skull.name=小芭内の頭
 
-item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
-item.kurokumaft:koushi.name=血気術 累(鋼糸)
-item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
-item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
-item.kurokumaft:koori.name=血気術 童磨(氷)
-
 entity.kurokumaft:rui.name=累
 entity.kurokumaft:akaza.name=猗窩座
 entity.kurokumaft:daki.name=堕姫
@@ -253,6 +507,7 @@ entity.kurokumaft:karaku.name=可楽
 entity.kurokumaft:aizetu.name=哀絶
 entity.kurokumaft:urogi.name=空喜
 entity.kurokumaft:douma.name=童磨
+entity.kurokumaft:kokushibou.name=黒死牟
 
 item.spawn_egg.entity.kurokumaft:ogre.name=鬼（下級）
 item.spawn_egg.entity.kurokumaft:rui.name=累
@@ -265,6 +520,7 @@ item.spawn_egg.entity.kurokumaft:karaku.name=可楽
 item.spawn_egg.entity.kurokumaft:aizetu.name=哀絶
 item.spawn_egg.entity.kurokumaft:urogi.name=空喜
 item.spawn_egg.entity.kurokumaft:douma.name=童磨
+item.spawn_egg.entity.kurokumaft:kokushibou.name=黒死牟
 
 item.kurokumaft:rui_kimono.name=累の着物
 
@@ -296,3 +552,14 @@ item.kurokumaft:aizetu_hakama.name=哀絶のズボン
 
 item.kurokumaft:urogi_hakama.name=空喜のズボン
 item.kurokumaft:urogi_zyuzu.name=空喜の数珠
+
+item.kurokumaft:kaigaku_katana.name=獪岳の刀
+
+item.kurokumaft:kokushibou_katana.name=虚哭神去
+
+msg.kurokumaft:kaikyuChange.missing_method=第一引数は「set」(変更)、「add」(加算)で指定してください。
+msg.kurokumaft:kaikyuChange.missing_add_argument=コマンド引数は3つ指定してください。例：「add promotion 100」(鬼撃破数を加算)
+msg.kurokumaft:kaikyuChange.missing_add_type=第二引数は「promotion」(昇格)、「demotion」(降格)で指定してください。
+msg.kurokumaft:kaikyuChange.missing_add_num=第三引数は数値で指定してください。最小最大を超える値は無視されます
+msg.kurokumaft:kaikyuChange.missing_set_argument=コマンド引数は2つ指定してください。例：「set 1」(指定の階級に変更)
+msg.kurokumaft:kaikyuChange.missing_set_num=第二引数は数値で指定してください。階級値(0~11)(一般人~柱)以外は無視されます

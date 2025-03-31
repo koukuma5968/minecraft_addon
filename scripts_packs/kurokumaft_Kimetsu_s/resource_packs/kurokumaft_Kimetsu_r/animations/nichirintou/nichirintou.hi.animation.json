@@ -15,7 +15,7 @@
 		},
 		"animation.nichirintou.hi.go_2_third": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
+			"animation_length": 1,
 			"bones": {
 				"nichirintou": {
 					"rotation": {
@@ -30,7 +30,20 @@
 			}
 		},
 		"animation.nichirintou.hi.ichi_1_first": {
-			"loop": "hold_on_last_frame"
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.2083,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, -7.5, 0],
+						"0.2083": [112.5, -7.5, 0]
+					},
+					"position": {
+						"0.0": [0, 0, -5],
+						"0.2083": [3, 2, -3]
+					}
+				}
+			}
 		},
 		"animation.nichirintou.hi.ni_1_first": {
 			"loop": "hold_on_last_frame",
@@ -219,6 +232,21 @@
 						"0.0": [-55.42741, -137.69522, -228.43169],
 						"0.1667": [27.07259, -137.69522, -228.43169]
 					}
+				}
+			}
+		},
+		"animation.nichirintou.hi.zyuni_1_third": {
+			"animation_length": 0.5
+		},
+		"animation.nichirintou.hi.zyuni_2_third": {
+			"animation_length": 0.75,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-20, 0, 182.5],
+						"0.1667": [0, 0, 182.5]
+					},
+					"position": [0, 4, 0]
 				}
 			}
 		}

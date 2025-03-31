@@ -11,7 +11,16 @@
 				},
 				"third": {
 					"transitions": [
-						{"default": "variable.is_first_person"}
+						{"default": "variable.is_first_person"},
+						{"attack_third": "variable.attack_time > 0.0 && query.property('kurokumaft:nichirintou_type') != 0 && query.property('kurokumaft:kokyu_chage') == 0"}
+					]
+				},
+				"attack_third": {
+					"animations": [
+						"nichirintou_custom.attack_third"
+					],
+					"transitions": [
+						{"third": "query.any_animation_finished"}
 					]
 				}
 			}

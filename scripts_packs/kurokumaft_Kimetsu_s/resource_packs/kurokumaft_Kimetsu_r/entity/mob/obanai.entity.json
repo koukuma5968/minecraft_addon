@@ -30,11 +30,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "obanai.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -59,19 +55,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.obanai.attack",
-        "third": "animation.obanai_third",
-
-        "obanai.kokyu_con":"controller.animation.obanai.kokyu",
-        "obanai.ichi_1": "animation.nichirintou_kokyu.obanai.ichi_1",
-        "obanai.ichi_2": "animation.nichirintou_kokyu.obanai.ichi_2",
-        "obanai.ni": "animation.nichirintou_kokyu.obanai.ni",
-        "obanai.san": "animation.nichirintou_kokyu.obanai.san",
-        "obanai.shi": "animation.nichirintou_kokyu.obanai.shi",
-        "obanai.go": "animation.nichirintou_kokyu.obanai.go"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.obanai"

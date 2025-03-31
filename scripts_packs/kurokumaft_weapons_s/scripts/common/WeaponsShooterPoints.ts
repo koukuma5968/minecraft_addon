@@ -51,7 +51,7 @@ export async function shooting(player:Player, throwItem:string, ranNum:number, s
  * @param {Vector2} rotation
  * @param {Vector3} location
  */
-function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
+export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
     let r = 1.5;  // 半径
 
     let piNum = 75;

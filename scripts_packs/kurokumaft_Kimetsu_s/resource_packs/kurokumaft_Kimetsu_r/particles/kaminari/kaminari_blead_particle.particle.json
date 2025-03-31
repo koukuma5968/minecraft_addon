@@ -10,11 +10,12 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": 20,
-				"max_particles": 50
+				"spawn_rate": "query.property('kurokumaft:kaikyu')*2",
+				"max_particles": "query.property('kurokumaft:kaikyu')*2"
 			},
-			"minecraft:emitter_lifetime_once": {
-				"active_time": 0.5
+			"minecraft:emitter_lifetime_expression": {
+				"activation_expression": "query.property('kurokumaft:kokyu_particle')",
+				"expiration_expression": "!query.property('kurokumaft:kokyu_particle')"
 			},
 			"minecraft:emitter_shape_sphere": {
 				"radius": 0.5,

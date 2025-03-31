@@ -3679,6 +3679,158 @@ async function shooting(player, throwItem, ranNum, seepd, event) {
   );
   return bulet;
 }
+function getAdjacentSphericalPoints(rotation, location) {
+  let r = 1.5;
+  let piNum = 75;
+  let xapply;
+  let yapply;
+  let zapply;
+  let xlocation;
+  let ylocation;
+  let zlocation;
+  if (rotation.y >= -90 && rotation.y < 0) {
+    let yRotax = -rotation.y / piNum;
+    let yRotaz = (rotation.y + 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      } else {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      } else {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    }
+  } else if (rotation.y >= 0 && rotation.y <= 90) {
+    let yRotax = rotation.y / piNum;
+    let yRotaz = -(rotation.y - 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      if (rotation.y >= 45) {
+        xlocation = location.x - yRotax * xRota * 1.75;
+      } else {
+        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
+      }
+      xapply = -(yRotax * xRota);
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      if (rotation.y >= 45) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      if (rotation.y >= 45) {
+        xlocation = location.x - yRotax * xRota * 1.75;
+      } else {
+        xlocation = location.x - (yRotax * xRota + 0.5) * 1.75;
+      }
+      xapply = -(yRotax * xRota);
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      if (rotation.y >= 45) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    }
+  } else if (rotation.y < -90 && rotation.y > -180) {
+    let yRotax = (rotation.y + 180) / piNum;
+    let yRotaz = (rotation.y + 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x + yRotax * xRota * 1.75;
+      xapply = yRotax * xRota;
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      zlocation = location.z + yRotaz * xRota * 1.75;
+      zapply = yRotaz * xRota;
+    }
+  } else if (rotation.y > 90 && rotation.y <= 180) {
+    let yRotax = -(rotation.y - 180) / piNum;
+    let yRotaz = -(rotation.y - 90) / piNum;
+    let yRota = -(rotation.x / piNum);
+    if (rotation.x >= -90 && rotation.x < 0) {
+      let xRota = (rotation.x + 90) / piNum;
+      xlocation = location.x - yRotax * xRota * 1.75;
+      xapply = -(yRotax * xRota);
+      if (rotation.x <= -45) {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      } else {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      }
+      yapply = yRota;
+      if (rotation.y <= 135) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    } else if (rotation.x >= 0 && rotation.x <= 90) {
+      let xRota = -(rotation.x - 90) / piNum;
+      xlocation = location.x - yRotax * xRota * 1.75;
+      xapply = -(yRotax * xRota);
+      if (rotation.x >= 45) {
+        ylocation = location.y + 1.75 + yRota * 1.5;
+      } else {
+        ylocation = location.y + 1.5 + yRota * 1.75;
+      }
+      yapply = yRota;
+      if (rotation.y <= 135) {
+        zlocation = location.z + (yRotaz * xRota - 0.5) * 1.75;
+      } else {
+        zlocation = location.z + yRotaz * xRota * 1.75;
+      }
+      zapply = yRotaz * xRota;
+    }
+  }
+  return { xapply, yapply, zapply, xlocation, ylocation, zlocation };
+}
 
 // scripts/items/weapons/sword/EchoSword.ts
 var EchoSword = class {
@@ -4577,7 +4729,8 @@ async function shotFlametHrower(player, item) {
   let intervalNum = system6.runInterval(() => {
     for (let i = 1; i <= 5; i++) {
       let loock = getLookPoints(player.getRotation(), player.location, i);
-      player.dimension.spawnParticle("kurokumaft:flamethrower_fire", { x: loock.x, y: loock.y - 0.5, z: loock.z });
+      let loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
+      player.dimension.spawnParticle("kurokumaft:flamethrower_fire", { x: loockpoint.xlocation, y: loockpoint.ylocation - 1, z: loockpoint.zlocation });
       let target = dimension.getEntities({
         excludeTags: [
           "flametHrowerSelf"
@@ -4585,10 +4738,11 @@ async function shotFlametHrower(player, item) {
         excludeTypes: [
           "item"
         ],
-        location: loock
+        location: { x: loockpoint.xlocation, y: loockpoint.ylocation - 0.5, z: loockpoint.zlocation },
+        maxDistance: 2
       });
       target.forEach((en) => {
-        en.applyDamage(2, {
+        en.applyDamage(4, {
           cause: EntityDamageCause10.fire
         });
       });
@@ -5774,8 +5928,8 @@ async function tearEnchantBlock(player, item, block) {
             } else {
               equ.setEquipment(EquipmentSlot34.Mainhand, mainhand);
             }
-            if (setBookEnc.getEnchantments().length == 1) {
-              let newBook = new ItemStack41("minecraft:enchanted_book", 1);
+            if (setBook.typeId != MinecraftItemTypes.EnchantedBook) {
+              let newBook = new ItemStack41(MinecraftItemTypes.EnchantedBook, 1);
               let newBookEnc = newBook.getComponent(ItemComponentTypes11.Enchantable);
               newBookEnc.addEnchantments(setBookEnc.getEnchantments());
               container.setItem(0, newBook);

@@ -56,7 +56,7 @@
         "use_duration": 1000
       },
       "minecraft:custom_components": [
-        "kurokumaft:nichirintou"
+        "kurokumaft:nichirintou_component"
       ]
     }
   }

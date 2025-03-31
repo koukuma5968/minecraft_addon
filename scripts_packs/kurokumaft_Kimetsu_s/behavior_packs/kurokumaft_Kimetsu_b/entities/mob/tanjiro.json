@@ -44,7 +44,7 @@
             {
               "min_wait_time": 0,
               "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:mizu10_dragon",
+              "spawn_entity": "kurokumaft:mizu_dragon",
               "single_use": true,
               "num_to_spawn": 1,
               "should_leash": false

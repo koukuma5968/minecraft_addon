@@ -33,11 +33,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "kanawo.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
         ]
       },
       "animations": {
@@ -61,17 +57,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.kanawo.attack",
-        "third": "animation.kanawo_third",
-
-        "kanawo.kokyu_con":"controller.animation.kanawo.kokyu",
-        "kanawo.ni_1": "animation.nichirintou_kokyu.kanawo.ni_1",
-        "kanawo.shi_1": "animation.nichirintou_kokyu.kanawo.shi_1",
-        "kanawo.go_1": "animation.nichirintou_kokyu.kanawo.go_1",
-        "kanawo.roku_1": "animation.nichirintou_kokyu.kanawo.roku_1"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.kanawo"

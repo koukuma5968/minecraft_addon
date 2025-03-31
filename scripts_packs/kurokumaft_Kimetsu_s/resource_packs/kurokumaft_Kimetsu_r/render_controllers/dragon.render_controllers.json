@@ -1,10 +1,10 @@
 {
 	"format_version": "1.8.0",
 	"render_controllers": {
-	  "controller.render.mizu10_dragon": {
-		"geometry": "Geometry.mizu10_dragon",
+	  "controller.render.mizu_dragon": {
+		"geometry": "Geometry.mizu_dragon",
 		"materials": [ { "*": "Material.default" } ],
-		"textures": ["Texture.mizu10_dragon"]
+		"textures": ["Texture.mizu_dragon"]
 	  },
 	  "controller.render.hi_dragon": {
 		"geometry": "Geometry.hi_dragon",
@@ -15,6 +15,11 @@
 		"geometry": "Geometry.hono_tiger",
 		"materials": [ { "*": "Material.default" } ],
 		"textures": ["Texture.hono_tiger"]
+	  },
+	  "controller.render.kaminari_dragon": {
+		"geometry": "Geometry.kaminari_dragon",
+		"materials": [ { "*": "Material.default" } ],
+		"textures": ["Texture.kaminari_dragon"]
 	  },
 	  "controller.render.hebi": {
 		"geometry": "Geometry.hebi",

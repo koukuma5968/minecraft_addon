@@ -32,11 +32,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "kyouzyuro.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -61,24 +57,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.kyouzyuro.attack",
-        "third": "animation.kyouzyuro_third",
-
-        "kyouzyuro.kokyu_con":"controller.animation.kyouzyuro.kokyu",
-        "kyouzyuro_attack.kokyu_con":"controller.animation.kyouzyuro_attack.kokyu",
-        "kyouzyuro.ichi_1": "animation.nichirintou_kokyu.kyouzyuro.ichi_1",
-        "kyouzyuro.ichi_2": "animation.nichirintou_kokyu.kyouzyuro.ichi_2",
-        "kyouzyuro.ichi_3": "animation.nichirintou_kokyu.kyouzyuro.ichi_3",
-        "kyouzyuro.ni_1": "animation.nichirintou_kokyu.kyouzyuro.ni_1",
-        "kyouzyuro.san_1": "animation.nichirintou_kokyu.kyouzyuro.san_1",
-        "kyouzyuro.shi_1": "animation.nichirintou_kokyu.kyouzyuro.shi_1",
-        "kyouzyuro.go_1": "animation.nichirintou_kokyu.kyouzyuro.go_1",
-        "kyouzyuro.ku_1": "animation.nichirintou_kokyu.kyouzyuro.ku_1",
-        "kyouzyuro.ku_2": "animation.nichirintou_kokyu.kyouzyuro.ku_2",
-        "kyouzyuro.ku_3": "animation.nichirintou_kokyu.kyouzyuro.ku_3"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.kyouzyuro"

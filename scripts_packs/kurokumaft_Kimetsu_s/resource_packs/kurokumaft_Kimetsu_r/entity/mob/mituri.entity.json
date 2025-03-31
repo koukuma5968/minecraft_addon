@@ -29,11 +29,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "mituri.body_con"
+          { "swimming": "variable.swim_amount > 0.0" }
         ]
       },
       "animations": {
@@ -57,20 +53,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.mituri.attack",
-        "third": "animation.mituri_third",
-
-        "mituri.body_con":"controller.animation.mituri.body",
-        "mituri_body.ichi_1": "animation.nichirintou_kokyu.mituri_body.ichi_1",
-        "mituri_body.ichi_2": "animation.nichirintou_kokyu.mituri_body.ichi_2",
-        "mituri_body.ni_1": "animation.nichirintou_kokyu.mituri_body.ni_1",
-        "mituri_body.ni_2": "animation.nichirintou_kokyu.mituri_body.ni_2",
-        "mituri_body.san": "animation.nichirintou_kokyu.mituri_body.san",
-        "mituri_body.go": "animation.nichirintou_kokyu.mituri_body.go",
-        "mituri_body.roku": "animation.nichirintou_kokyu.mituri_body.roku"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.mituri"

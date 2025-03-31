@@ -1,0 +1,68 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.mizu_dragon.attack": {
+			"animation_length": 0.5,
+			"bones": {
+				"dragon": {
+					"position": [37, 0, 0]
+				},
+				"beast": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 360, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "mizu_awa_particle",
+					"locator": "head"
+				}
+			}
+		},
+		"animation.hi_dragon.attack": {
+			"animation_length": 0.5,
+			"bones": {
+				"dragon": {
+					"rotation": [0, 0, 0],
+					"position": [36, 0, 0]
+				},
+				"beast": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 360, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "hi_flame_particle",
+					"locator": "head"
+				}
+			}
+		},
+		"animation.kaminari_dragon.attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1.5,
+			"bones": {
+				"dragon": {
+					"position": [58, 0, 0]
+				},
+				"beast": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2": [0, 180, 0]
+					},
+					"scale": 0.8
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "kaminari_spark_particle",
+					"locator": "head"
+				}
+			}
+		}
+	}
+}

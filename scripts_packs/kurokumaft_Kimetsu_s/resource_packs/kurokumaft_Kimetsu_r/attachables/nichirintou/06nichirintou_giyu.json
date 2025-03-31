@@ -17,14 +17,43 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "giyu"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
           "first": "animation.nichirintou_first",
-          "third": "animation.nichirintou_third"
+
+          "giyu": "controller.animation.nichirintou.giyu",
+
+          "mizu.shiti_1_third": "animation.nichirintou.mizu.shiti_1_third",
+          "mizu.shiti_2_third": "animation.nichirintou.mizu.shiti_2_third",
+
+          "mizu.ichi_1_first": "animation.nichirintou.mizu.ichi_1_first",
+          "mizu.ichi_2_first": "animation.nichirintou.mizu.ichi_2_first",
+          "mizu.ni_1_first": "animation.nichirintou.mizu.ni_1_first",
+          "mizu.san_1_first": "animation.nichirintou.mizu.san_1_first",
+          "mizu.san_2_first": "animation.nichirintou.mizu.san_2_first",
+          "mizu.san_3_first": "animation.nichirintou.mizu.san_3_first",
+          "mizu.shi_1_first": "animation.nichirintou.mizu.shi_1_first",
+          "mizu.shi_2_first": "animation.nichirintou.mizu.shi_2_first",
+          "mizu.go_1_first": "animation.nichirintou.mizu.go_1_first",
+          "mizu.go_2_first": "animation.nichirintou.mizu.go_2_first",
+          "mizu.roku_1_first": "animation.nichirintou.mizu.roku_1_first",
+          "mizu.roku_2_first": "animation.nichirintou.mizu.roku_2_first",
+          "mizu.shiti_1_first": "animation.nichirintou.mizu.shiti_1_first",
+          "mizu.shiti_2_first": "animation.nichirintou.mizu.shiti_2_first",
+          "mizu.hati_1_first": "animation.nichirintou.mizu.hati_1_first",
+          "mizu.hati_2_first": "animation.nichirintou.mizu.hati_2_first",
+          "mizu.hati_3_first": "animation.nichirintou.mizu.hati_3_first",
+          "mizu.ku_1_first": "animation.nichirintou.mizu.ku_1_first",
+          "mizu.ku_2_first": "animation.nichirintou.mizu.ku_2_first",
+          "mizu.tou_1_first": "animation.nichirintou.mizu.tou_1_first",
+          "mizu.tou_2_first": "animation.nichirintou.mizu.tou_2_first",
+          "mizu.zyuichi_1_first": "animation.nichirintou.mizu.zyuichi_1_first"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

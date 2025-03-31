@@ -1,4 +1,6 @@
-import { EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityQueryOptions, EquipmentSlot, Player, world } from "@minecraft/server";
+import { EffectTypes, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityQueryOptions, EquipmentSlot, ItemStack, Player, world } from "@minecraft/server";
+import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export class KataComonClass {
 
@@ -18,24 +20,53 @@ export class KataComonClass {
         return true;
     }
 
-    kokyuApplyDamage(player:Player, filter:EntityQueryOptions, enDamage:number, pDamage:number): void {
+    kokyuApplyDamage(player:Player, filter:EntityQueryOptions, enDamage:number, pDamage:number, itemStack:ItemStack): void {
 
-        let targets = player.dimension.getEntities(filter);
+        player.addTag(player.id);
+        const targets = player.dimension.getEntities(filter);
+        const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
         targets.forEach(en => {
             if (en instanceof Player) {
                 if (this.gardCheck(en)) {
-                    en.applyDamage(pDamage, {
+                    en.applyDamage(pDamage*kaikyuNum, {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: player
                     });
                 }
             } else {
-                en.applyDamage(enDamage, {
+                en.applyDamage(enDamage*kaikyuNum, {
                     cause: EntityDamageCause.entityAttack,
                     damagingEntity: player
                 });
             }
         });
+        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        player.removeTag(player.id);
 
     }
+
+    kokyuApplyEffect(player:Player, filter:EntityQueryOptions, duration:number, damage:number, effect:MinecraftEffectTypes): void {
+
+        player.addTag(player.id);
+        const targets = player.dimension.getEntities(filter);
+        const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
+        targets.forEach(en => {
+            if (en instanceof Player) {
+                if (this.gardCheck(en)) {
+                    en.addEffect(effect, Math.round(duration*kaikyuNum*0.25), {
+                        amplifier: Math.round(damage*kaikyuNum*0.25),
+                        showParticles: true
+                    });
+                }
+            } else {
+                en.addEffect(effect, Math.round(duration*kaikyuNum*0.75), {
+                    amplifier: Math.round(damage*kaikyuNum),
+                    showParticles: true
+                });
+            }
+        });
+        player.removeTag(player.id);
+
+    }
+
 }

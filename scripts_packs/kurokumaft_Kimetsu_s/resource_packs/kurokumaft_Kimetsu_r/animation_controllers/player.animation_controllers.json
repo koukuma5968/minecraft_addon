@@ -42,7 +42,9 @@
 			"initial_state" : "default",
 			"states" : {
 				"default" : {
-					"animations" : [ "first_person_attack_rotation" ],
+					"animations" : [ 
+						{"first_person_attack_rotation": "query.property('kurokumaft:nichirintou_type') == 0"}
+					],
 					"transitions" : [
 						{
 							"vr_attack" : "variable.is_using_vr"
@@ -226,10 +228,10 @@
 							"sleeping" : "query.is_sleeping && query.is_alive"
 						},
 						{
-							"attack.positions" : "variable.attack_time >= 0.0"
+							"attack.positions" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0"
 						},
 						{
-							"attack.rotations" : "variable.attack_time >= 0.0"
+							"attack.rotations" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0"
 						},
 						{
 							"shield_block_main_hand" : "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"

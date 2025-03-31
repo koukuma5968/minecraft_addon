@@ -4,21 +4,20 @@
 		"description": {
 			"identifier": "kurokumaft:mizu6_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_add",
 				"texture": "textures/particle/particles"
 			}
 		},
 		"components": {
 			"minecraft:emitter_rate_instant": {
-				"num_particles": 30
+				"num_particles": 50
 			},
 			"minecraft:emitter_lifetime_once": {
-				"active_time": 0.2
+				"active_time": 0.1
 			},
 			"minecraft:emitter_shape_disc": {
-				"offset": [0, 1.25, 0],
+				"offset": [0, 0.25, 0],
 				"radius": 2,
-				"plane_normal": ["math.random(-1, 1)  ", 0, "math.random(-1, 1)  "],
 				"surface_only": true,
 				"direction": [0, 5, 0]
 			},
@@ -35,12 +34,18 @@
 				"uv": {
 					"texture_width": 128,
 					"texture_height": 128,
-					"uv": [35, 60],
+					"uv": [37, 60],
 					"uv_size": [8, 8]
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.35294, 0.58431, 0.94118, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.42": "#FF5994EF",
+						"0.81": "#FFD8D9DA"
+					}
+				}
 			}
 		}
 	}

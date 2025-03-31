@@ -34,11 +34,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "zenitu.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -63,19 +59,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.zenitu.attack",
-        "third": "animation.zenitu_third",
-
-        "zenitu.kokyu_con":"controller.animation.zenitu.kokyu",
-        "zenitu_attack.kokyu_con":"controller.animation.zenitu_attack.kokyu",
-        "zenitu.ichi_1": "animation.nichirintou_kokyu.zenitu.ichi_1",
-        "zenitu.ichi_2": "animation.nichirintou_kokyu.zenitu.ichi_2",
-        "zenitu.ichi_3": "animation.nichirintou_kokyu.zenitu.ichi_3",
-        "zenitu.shiti_1": "animation.nichirintou_kokyu.zenitu.shiti_1",
-        "zenitu.shiti_2": "animation.nichirintou_kokyu.zenitu.shiti_2"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.zenitu"

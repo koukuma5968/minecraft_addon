@@ -1,7 +1,7 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "KimetuKuroBv4.0",
+		"name": "DemonSlayerBv4.0",
 		"description": "鬼滅の刃Bv4.0 日輪刀/キャラクターアドオン ビヘイビアーパック",
 		"uuid": "d174c416-a595-4bfc-86d3-0d993dd8b45c",
 		"version": [4, 0, 0],
@@ -24,6 +24,9 @@
 		}
 
 	],
+	"metadata": {
+		"authors": ["koukumakuraft"]
+	},
 	"dependencies": [
 		{
 			"uuid": "7d00f465-dd97-4d70-a72b-df79443c2a6c",
@@ -35,7 +38,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.17.0"
+			"version": "1.18.0"
 		}
 	]
 }

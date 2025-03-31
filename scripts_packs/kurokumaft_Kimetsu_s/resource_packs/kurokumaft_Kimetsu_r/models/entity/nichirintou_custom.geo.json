@@ -6,11 +6,18 @@
 				"identifier": "geometry.nichirintou_custom",
 				"texture_width": 64,
 				"texture_height": 64,
-				"visible_bounds_width": 8,
-				"visible_bounds_height": 5,
-				"visible_bounds_offset": [0, 1.5, 0]
+				"visible_bounds_width": 19,
+				"visible_bounds_height": 10,
+				"visible_bounds_offset": [0, 0, 0]
 			},
 			"bones": [
+				{
+					"name": "bb_main",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"body_particle": [0, 0, 0]
+					}
+				},
 				{
 					"name": "root",
 					"pivot": [0, 0, 0]
@@ -88,8 +95,8 @@
 					"pivot": [6, 15, 1],
 					"cubes": [
 						{
-							"origin": [5, 12, -30],
-							"size": [2, 2, 35],
+							"origin": [5, 12, -35],
+							"size": [2, 2, 40],
 							"uv": {
 								"north": {"uv": [0, 0], "uv_size": [26, 6]},
 								"east": {"uv": [0, 0], "uv_size": [32, 6]},
@@ -101,12 +108,12 @@
 						}
 					],
 					"locators": {
-						"nichirintou_hold7": [6, 13, -30],
-						"nichirintou_hold8": [6, 13, -5],
-						"nichirintou_hold9": [6, 13, -10],
-						"nichirintou_hold10": [6, 13, -15],
-						"nichirintou_hold11": [6, 13, -20],
-						"nichirintou_hold12": [6, 13, -25]
+						"nichirintou_hold7": [6, 13, -12],
+						"nichirintou_hold8": [6, 13, -17],
+						"nichirintou_hold9": [6, 13, -22],
+						"nichirintou_hold10": [6, 13, -26],
+						"nichirintou_hold11": [6, 13, -30],
+						"nichirintou_hold12": [6, 13, -33]
 					}
 				},
 				{
@@ -139,8 +146,8 @@
 					"pivot": [-6, 15, 1],
 					"cubes": [
 						{
-							"origin": [-7, 12, -30],
-							"size": [2, 2, 35],
+							"origin": [-7, 12, -36],
+							"size": [2, 2, 41],
 							"uv": {
 								"north": {"uv": [0, 4], "uv_size": [26, 6], "uv_rotation": 90},
 								"east": {"uv": [0, 0], "uv_size": [24, 6]},
@@ -152,12 +159,12 @@
 						}
 					],
 					"locators": {
-						"nichirintou_hold1": [-6, 13, -5],
-						"nichirintou_hold2": [-6, 13, -10],
-						"nichirintou_hold3": [-6, 13, -15],
-						"nichirintou_hold4": [-6, 13, -20],
-						"nichirintou_hold5": [-6, 13, -25],
-						"nichirintou_hold6": [-6, 13, -30]
+						"nichirintou_hold1": [-6, 13, -11],
+						"nichirintou_hold2": [-6, 13, -17],
+						"nichirintou_hold3": [-6, 13, -22],
+						"nichirintou_hold4": [-6, 13, -27],
+						"nichirintou_hold5": [-6, 13, -31],
+						"nichirintou_hold6": [-6, 13, -34]
 					}
 				},
 				{
@@ -257,6 +264,34 @@
 							}
 						}
 					]
+				},
+				{
+					"name": "particle",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "particle1",
+					"parent": "particle",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"move_particle1": [0, 0, 0]
+					}
+				},
+				{
+					"name": "particle2",
+					"parent": "particle",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"move_particle2": [0, 0, -9]
+					}
+				},
+				{
+					"name": "particle3",
+					"parent": "particle",
+					"pivot": [0, 0, 0],
+					"locators": {
+						"move_particle3": [0, 0, 9]
+					}
 				}
 			]
 		}

@@ -5,7 +5,21 @@
       "identifier": "kurokumaft:ogre",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "properties": {
+        "kurokumaft:orge_kaikyu": {
+          "type": "int",
+          "range": [0, 13],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:orge_point": {
+          "type": "int",
+          "range": [10, 60],
+          "default": 10,
+          "client_sync": true
+        }
+      }
     },
 
     "component_groups": {
@@ -50,7 +64,7 @@
 
     "components": {
       "minecraft:experience_reward": {
-        "on_death": "Math.Min(7, 100)"
+        "on_death": "Math.Min(10, 60)"
       },
       "minecraft:type_family": {
         "family": [ "mob", "ogre", "undead", "monster" ]
@@ -65,8 +79,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": "math.random(150, 300)",
-        "max": 300
+        "value": "math.random(5, 40)",
+        "max": 40
       },
       "minecraft:behavior.flee_sun": {
         "priority": 2,
@@ -94,18 +108,18 @@
       "minecraft:target_nearby_sensor": {
         "must_see": false,
         "inside_range": 0,
-        "outside_range": 64
+        "outside_range": 16
       },
       "minecraft:follow_range": {
-        "value": 64,
-        "max": 64
+        "value": "math.random(8, 16)",
+        "max": 16
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
         "alert_same_type": true,
         "entity_types": [
           {
-            "max_dist": 64
+            "max_dist": 16
           }
         ]
       },
@@ -120,7 +134,7 @@
                 {"test": "is_family","subject": "other","operator": "!=","value": "ogre"}
               ]
             },
-            "max_dist": 64,
+            "max_dist": 16,
             "must_see": false
           }
         ]
@@ -254,6 +268,9 @@
 
     "events": {
       "minecraft:entity_spawned": {
+        "set_property": {
+          "kurokumaft:orge_point": "math.random_integer(10, 60);"
+        },
         "randomize": [
           {
             "weight": 10,

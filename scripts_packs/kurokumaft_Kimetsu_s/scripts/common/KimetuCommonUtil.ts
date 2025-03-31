@@ -57,14 +57,14 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }
 
@@ -78,13 +78,13 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }
 
@@ -98,14 +98,14 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }
 
@@ -118,13 +118,13 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
         if (rotation.x >= -90 && rotation.x < 0) {
             let xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
             let xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y + 1.5) + (yRota) * point;
+            ylocation = (location.y-0.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         }
 
@@ -181,7 +181,7 @@ function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
     return normalizeVector(direction);
 }
 
-function addRegimentalFilter(closest:number, location:Vector3, maxDis:number): EntityQueryOptions {
+function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, exeTag:string): EntityQueryOptions {
 
     let filterOption = {
         excludeFamilies: [
@@ -190,12 +190,8 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number): E
         excludeTypes: [
             "item"
         ],
-        propertyOption: [
-            {
-                propertyId : "kurokumaft:kokyu_use",
-                exclude: true,
-                value: false
-            }
+        excludeTags: [
+            exeTag
         ],
         location: location,
         maxDistance: maxDis
@@ -204,6 +200,24 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number): E
     if (!world.gameRules.pvp) {
         filterOption.excludeFamilies?.push("player");
     }
+    if (closest != 0) {
+        filterOption.closest = closest;
+    }
+
+    return filterOption;
+
+};
+
+function addProjectionFilter(closest:number, location:Vector3, maxDis:number): EntityQueryOptions {
+
+    let filterOption = {
+        families: [
+            "inanimate"
+        ],
+        location: location,
+        maxDistance: maxDis
+    } as EntityQueryOptions;
+
     if (closest != 0) {
         filterOption.closest = closest;
     }
@@ -263,14 +277,15 @@ const weightChoice = (list: any[]) => {
 
     return {
         pick () {
-        const r = Math.random() * totalWeight;
-        let s = 0.0;
-        for (const l of list) {
-            s += l.weight
-            if (r < s) { return l.item }
-        }
+            const r = Math.random() * totalWeight;
+            let s = 0.0;
+            for (const l of list) {
+                s += l.weight
+                if (r < s) { return l.item }
+            }
         }
     }
 };
 
-export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, getDirectionVector, addRegimentalFilter, BlockLocationList, weightChoice };
+export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, 
+    getDirectionVector, addRegimentalFilter, addProjectionFilter, BlockLocationList, weightChoice };

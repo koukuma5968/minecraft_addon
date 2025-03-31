@@ -7,6 +7,18 @@
       "is_summonable": false,
       "is_experimental": false,
       "properties": {
+        "kurokumaft:kaikyu": {
+          "type": "int",
+          "range": [0, 11],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:orge_kill": {
+          "type": "int",
+          "range": [0, 600],
+          "default": 0,
+          "client_sync": true
+        },
         "kurokumaft:nichirintou_type": {
           "type": "int",
           "range": [0, 27],
@@ -23,6 +35,28 @@
           "type": "bool",
           "default": "false",
           "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_attack": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_chage": {
+          "type": "int",
+          "range": [0, 10],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_ran": {
+          "type": "int",
+          "range": [-160, 160],
+          "default": 0,
+          "client_sync": true
         }
       },
       "scripts":{
@@ -33,8 +67,7 @@
       },
       "animations":{
         "attack": "controller.animation.kokyu.attack",
-        "change": "controller.animation.kokyu.change",
-        "kokyu_charge_hi": "animation.kokyu.charge.hi"
+        "change": "controller.animation.kokyu.change"
       }
     },
 
@@ -101,42 +134,6 @@
         }
       },
 
-      "kurokumaft:mizu10_doragon": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:mizu10_dragon",
-              "single_use": true,
-              "num_to_spawn": 1,
-              "should_leash": false
-            }
-          ]
-        }
-      },
-      "kurokumaft:iwa1_throw": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:iwa_iron_ball",
-              "single_use": true,
-              "num_to_spawn": 1,
-              "should_leash": false
-            },
-            {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:iwa_axe",
-              "single_use": true,
-              "num_to_spawn": 1,
-              "should_leash": false
-            }
-          ]
-        }
-      },
       "kurokumaft:knockback_max": {
         "minecraft:knockback_resistance": {
           "value": 100
@@ -347,17 +344,6 @@
 
       "kurokumaft:attack_time": {},
       "kurokumaft:kokyu_change": {},
-
-      "kurokumaft:mizu10_doragon": {
-        "add": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
-        }
-      },
-      "kurokumaft:mizu10_doragon_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
-        }
-      },
 
       "kurokumaft:iwa1_throw": {
         "add": {

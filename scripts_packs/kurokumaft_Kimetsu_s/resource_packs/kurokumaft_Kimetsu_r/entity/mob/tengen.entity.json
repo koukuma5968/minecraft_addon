@@ -33,11 +33,7 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" },
-
-          {"attack": "variable.attack_time"},
-          "third",
-          "tengen.kokyu_con"
+          { "swimming": "variable.swim_amount > 0.0" }
 
         ]
       },
@@ -62,17 +58,7 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress",
-
-        "attack": "animation.tengen.attack",
-        "third": "animation.tengen_third",
-
-        "tengen.kokyu_con":"controller.animation.tengen.kokyu",
-        "tengen.ichi_1": "animation.nichirintou_kokyu.tengen.ichi_1",
-        "tengen.shi_1": "animation.nichirintou_kokyu.tengen.shi_1",
-        "tengen.go_1": "animation.nichirintou_kokyu.tengen.go_1",
-        "tengen.go_2": "animation.nichirintou_kokyu.tengen.go_2"
-
+        "use_item_progress":"animation.humanoid.use_item_progress"
       },
       "render_controllers": [
         "controller.render.soldier.tengen"

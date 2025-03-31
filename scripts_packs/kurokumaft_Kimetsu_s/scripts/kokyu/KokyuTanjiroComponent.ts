@@ -1,7 +1,8 @@
-import { ItemStack, Player } from "@minecraft/server";
+import { ItemStack, Player, system, TicksPerSecond } from "@minecraft/server";
 import { NichirintouUseComponent } from "./NichirintouUseComponent";
-import { MizunoKata } from "./kata/MizunoKata";
+import { MizuNoKata } from "./kata/MizuNoKata";
 import { KokyuObjects, KokyuObject } from "../item/weapon/NichirintouTypes";
+import { HiNoKata } from "./kata/HiNoKata";
 
 /**
  * 呼吸（炭治郎）
@@ -14,42 +15,46 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let tanjiroObject = KokyuObjects[1] as KokyuObject;
+        let kokyuObject = KokyuObjects[1] as KokyuObject;
 
         switch (kata) {
-            case tanjiroObject.kata[tanjiroObject.kata.length-1] :
+            case kokyuObject.kata[kokyuObject.kata.length-1] :
                 player.setProperty("kurokumaft:kokyu_kata", 1);
-                kata = 1;
+                kata = kokyuObject.kata[0];
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kata" + kata + ".value"}]});
                 break;
             default :
                 player.setProperty("kurokumaft:kokyu_kata", kata+1);
                 kata = kata+1;
-        }
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + tanjiroObject.kata_msg + kata + ".value\"}]}");
+                if (kata < 11) {
+                    player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kata" + kata + ".value"}]});
+                } else {
+                    player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hinokami_kata" + kata + ".value"}]});
+                }
+            }
 
     }
 
     /**
-     * 炭治郎 呼吸
      * @param {Player} player
      */
-    hitAttackKata(player: Player): void {
+    hitAttackKata(player: Player, itemStack:ItemStack): void {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let tanjiroObject = KokyuObjects[1] as KokyuObject;
-        let mizu = new MizunoKata();
-        let usef = false;
-        usef = true;
+        let mizu = new MizuNoKata();
+        let hi = new HiNoKata();
 
         switch (kata) {
             case 10 :
-                mizu.zyunokata(player);
+                mizu.zyuNoKata(player, itemStack);
             break;
-        }
-        if (usef) {
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + tanjiroObject.kata_msg + kata + ".value\"}]}");
+            case 16 :
+                hi.rokuNoKataAttack(player, itemStack);
+            break;
         }
 
     }
+
+    private enbuIntervalId: number =0;
 
     /**
      * @param {ItemStack} itemStack
@@ -58,64 +63,109 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let tanjiroObject = KokyuObjects[1] as KokyuObject;
-        let mizu = new MizunoKata();
-        let usef = false;
+        let mizu = new MizuNoKata();
+        let hi = new HiNoKata();
 
         switch (kata) {
             case 2 :
-                mizu.ninokata(player);
-                usef = true;
+                mizu.niNoKata(player, itemStack);
             break;
             case 3 :
-                mizu.sannokata(player);
-                usef = true;
+                mizu.sanNoKata(player, itemStack);
             break;
             case 4 :
-                mizu.shinokata(player);
-                usef = true;
+                mizu.shiNoKata(player, itemStack);
             break;
             case 9 :
-                mizu.kunokata(player);
-                usef = true;
+                mizu.kuNoKata(player, itemStack);
+            break;
+            case 10 :
+                mizu.zyuNoKataShot(player, itemStack);
+            break;
+            case 11 :
+                if (player.getProperty("kurokumaft:kokyu_chage") == 0) {
+                    player.setProperty("kurokumaft:kokyu_chage", 1);
+                    this.enbuIntervalId = system.runTimeout(() => {
+                        if (player.getProperty("kurokumaft:kokyu_use")) {
+                            player.setProperty("kurokumaft:kokyu_chage", 5);
+                        }
+                    },3*TicksPerSecond);
+                }
+            break;
+            case 12 :
+                hi.niNoKata(player, itemStack);
+            break;
+            case 13 :
+                hi.sanNoKata(player, itemStack);
+            break;
+            case 14 :
+                hi.shiNoKata(player, itemStack);
+            break;
+            case 16 :
+                hi.rokuNoKata(player, itemStack);
+            break;
+            case 17 :
+                hi.shitiNoKata(player, itemStack);
+            break;
+            case 18 :
+                hi.hachiNoKata(player, itemStack);
+            break;
+            case 19 :
+                hi.kuNoKata(player, itemStack);
+            break;
+            case 20 :
+                hi.zyuNoKata(player, itemStack);
+            break;
+            case 21 :
+                hi.zyuichiNoKata(player, itemStack);
+            break;
+            case 22 :
+                hi.zyuniNoKata(player, itemStack);
             break;
         }
-        if (usef) {
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + tanjiroObject.kata_msg + kata + ".value\"}]}");
-        }
+
     }
 
-    releaseAttackKata(player: Player, itemStack: ItemStack): void {
+    releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let tanjiroObject = KokyuObjects[1] as KokyuObject;
-        let mizu = new MizunoKata();
-        let usef = false;
+        let mizu = new MizuNoKata();
+        let hi = new HiNoKata();
 
         switch (kata) {
             case 1 :
-                mizu.ichinokata(player);
-                usef = true;
+                mizu.ichiNoKata(player, itemStack);
             break;
             case 5 :
-                mizu.gonokata(player);
-                usef = true;
+                mizu.goNoKata(player, itemStack);
             break;
             case 6 :
-                mizu.rokunokata(player);
-                usef = true;
+                mizu.rokuNoKata(player, itemStack);
             break;
             case 7 :
-                mizu.shitinokata(player);
-                usef = true;
+                mizu.shitiNoKata(player, itemStack);
             break;
             case 8 :
-                mizu.hachinokata(player);
-                usef = true;
+                mizu.hachiNoKata(player, itemStack);
             break;
-        }
-        if (usef) {
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + tanjiroObject.kata_msg + kata + ".value\"}]}");
-        }
+            case 11 :
+                if (player.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+                    player.setDynamicProperty("kurokumaft:chage_type", true);
+                    if (player.getProperty("kurokumaft:kokyu_chage") == 5) {
+                        hi.ichiNoKataIssen(player, itemStack);
+                    } else {
+                        player.setProperty("kurokumaft:kokyu_use", false);
+                        player.setProperty("kurokumaft:kokyu_chage", 0);
+                        player.setDynamicProperty("kurokumaft:chage_type", undefined);
+                        system.clearRun(this.enbuIntervalId);
+                        hi.ichiNoKata(player, itemStack);
+                    }
+                }
+
+            break;
+            case 15 :
+                hi.goNoKata(player, itemStack);
+            break;
+       }
     }
 
 }
