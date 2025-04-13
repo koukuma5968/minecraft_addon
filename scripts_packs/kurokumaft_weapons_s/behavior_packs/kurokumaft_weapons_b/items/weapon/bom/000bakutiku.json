@@ -31,7 +31,7 @@
         "scale_power_by_draw_duration": true
       },
       "minecraft:block_placer": {
-        "block": "bakutiku_block"
+        "block": "kurokumaft:bakutiku_block"
       }
     }
   }

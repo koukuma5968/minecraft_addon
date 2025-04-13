@@ -9,7 +9,7 @@
         },
         "textures": {
           "default": "textures/kurokumaft/models/nichirintou/nichirintou_tanjiro",
-          "enchanted": "textures/misc/enchanted_item_glint"
+          "enchanted": "textures/kurokumaft/misc/enchanted_item_shiner"
         },
         "geometry": {
           "default": "geometry.nichirintou_tanjiro"
@@ -28,6 +28,7 @@
 
           "tanjiro": "controller.animation.nichirintou.tanjiro",
 
+          "mizu.shi_1_third": "animation.nichirintou.mizu.shi_1_third",
           "mizu.shiti_1_third": "animation.nichirintou.mizu.shiti_1_third",
           "mizu.shiti_2_third": "animation.nichirintou.mizu.shiti_2_third",
 
@@ -38,7 +39,6 @@
           "mizu.san_2_first": "animation.nichirintou.mizu.san_2_first",
           "mizu.san_3_first": "animation.nichirintou.mizu.san_3_first",
           "mizu.shi_1_first": "animation.nichirintou.mizu.shi_1_first",
-          "mizu.shi_2_first": "animation.nichirintou.mizu.shi_2_first",
           "mizu.go_1_first": "animation.nichirintou.mizu.go_1_first",
           "mizu.go_2_first": "animation.nichirintou.mizu.go_2_first",
           "mizu.roku_1_first": "animation.nichirintou.mizu.roku_1_first",

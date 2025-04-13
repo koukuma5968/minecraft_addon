@@ -25,7 +25,7 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:echo_shard" ],
+            "items": [ "minecraft:echo_shard" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {

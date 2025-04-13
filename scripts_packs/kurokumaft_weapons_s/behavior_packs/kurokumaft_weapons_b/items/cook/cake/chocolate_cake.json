@@ -14,7 +14,7 @@
 			},
       "minecraft:icon": "chocolate_cake",
       "minecraft:block_placer": {
-        "block": "chocolate_cake_block"
+        "block": "kurokumaft:chocolate_cake_block"
       }
     }
   }

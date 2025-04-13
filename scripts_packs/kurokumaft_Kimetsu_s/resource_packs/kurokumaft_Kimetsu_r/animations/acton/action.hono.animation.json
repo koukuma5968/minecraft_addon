@@ -67,8 +67,8 @@
 				},
 				"rightArm": {
 					"rotation": {
-						"0.0": [-112.93939, -18.36852, 79.48752],
-						"0.1667": [17.06061, -18.36852, 79.48752]
+						"0.0": [-112.98456, 18.68664, 64.15189],
+						"0.1667": [16.44514, 10.41255, 88.06506]
 					}
 				},
 				"leftLeg": {
@@ -80,8 +80,21 @@
 				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [0, 0, 0],
-						"0.1667": [85, 0, 0]
+						"0.4583": [85, 0, 0]
 					}
+				},
+				"particle": {
+					"rotation": {
+						"0.0": [-92.5, 0, 0],
+						"0.0833": [-90, -2.5, -90],
+						"0.1667": [-87.50238, -0.10901, -177.50238],
+						"0.25": [-90.10912, 2.49762, -272.50238],
+						"0.3333": [-92.05722, -0.09941, -362.53695],
+						"0.4167": [-89.90052, -2.05722, -452.54053],
+						"0.5": [-87.9404, 0.0096, -540.03857]
+					},
+					"position": [0, 15, -23],
+					"scale": [1, 1, 1.6]
 				}
 			},
 			"particle_effects": {
@@ -93,6 +106,18 @@
 					{
 						"effect": "hono_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "hono_flame_particle",
+						"locator": "move_particle1"
+					},
+					{
+						"effect": "hono_flame_particle",
+						"locator": "move_particle2"
+					},
+					{
+						"effect": "hono_flame_particle",
+						"locator": "move_particle3"
 					}
 				]
 			}
@@ -155,6 +180,10 @@
 					{
 						"effect": "hono_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold4"
 					}
 				]
 			}
@@ -218,6 +247,10 @@
 					{
 						"effect": "hono_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold4"
 					}
 				]
 			}
@@ -283,9 +316,9 @@
 					},
 					"scale": {
 						"0.0": [1, 1, 1],
-						"0.25": [1.6, 1.6, 1.6],
-						"0.5": [2.2, 2.2, 2.2],
-						"0.75": [2.8, 2.8, 2.8]
+						"0.25": [2.2, 2.2, 2.2],
+						"0.5": [3.4, 3.4, 3.4],
+						"0.75": [4.2, 4.2, 4.2]
 					}
 				}
 			},
@@ -298,6 +331,10 @@
 					{
 						"effect": "hono_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "hono4_flame_particle",
+						"locator": "move_particle2"
 					}
 				]
 			}
@@ -415,6 +452,22 @@
 					{
 						"effect": "hono_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "hono9_particle",
+						"locator": "body_particle"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold2"
 					}
 				]
 			}
@@ -474,6 +527,22 @@
 					{
 						"effect": "hono_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "hono9_particle",
+						"locator": "body_particle"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold3"
+					},
+					{
+						"effect": "hono_blead_particle",
+						"locator": "nichirintou_hold2"
 					}
 				]
 			}
@@ -501,6 +570,72 @@
 		},
 		"animation.action.hono.ku_2_first": {
 			"loop": true
+		},
+		"animation.action.hono.ku_hono_1": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"particle": {
+					"rotation": {
+						"0.0": [-90, 0, 0],
+						"0.125": [-89.94656, 0.34723, -90.0244],
+						"0.25": [-90.34723, 0.05344, -180.02472],
+						"0.375": [-90.05344, -0.34723, -270.0244],
+						"0.5": [-89.65277, -0.05344, -360.02472]
+					},
+					"position": [0, 16, 12],
+					"scale": [1, 1, 4]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hono_flame_particle",
+						"locator": "move_particle2"
+					},
+					{
+						"effect": "hono_flame_particle",
+						"locator": "move_particle3"
+					},
+					{
+						"effect": "hono9_move_particle",
+						"locator": "move_particle1"
+					}
+				]
+			}
+		},
+		"animation.action.hono.ku_hono_2": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"particle": {
+					"rotation": {
+						"0.0": [-90, 0, 0],
+						"0.125": [-89.94656, 0.34723, -90.0244],
+						"0.25": [-90.34723, 0.05344, -180.02472],
+						"0.375": [-90.05344, -0.34723, -270.0244],
+						"0.5": [-89.65277, -0.05344, -360.02472]
+					},
+					"position": [0, 16, -24],
+					"scale": [1, 1, 4]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hono_flame_particle",
+						"locator": "move_particle2"
+					},
+					{
+						"effect": "hono_flame_particle",
+						"locator": "move_particle3"
+					},
+					{
+						"effect": "hono9_move_particle",
+						"locator": "move_particle1"
+					}
+				]
+			}
 		}
 	}
 }

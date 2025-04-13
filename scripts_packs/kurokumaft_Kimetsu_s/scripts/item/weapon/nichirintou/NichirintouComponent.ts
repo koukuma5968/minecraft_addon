@@ -8,6 +8,14 @@ export class NichirintouComponent implements ItemCustomComponent {
         let player = event.source as Player;
         let itemStack = event.itemStack as ItemStack;
 
+        if (player.isSneaking) {
+            const nichirintou = player.getProperty("kurokumaft:nichirintou_type") as number;
+            const object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
+            const kokyuClass = kokyuClassRecord[object.className];
+            const kokyuObject = new kokyuClass();
+            kokyuObject.changeKata(player);
+            return;
+        }
         if (!player.getProperty("kurokumaft:kokyu_use")) {
             let nichirintou = player.getProperty("kurokumaft:nichirintou_type");
             let object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;

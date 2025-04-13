@@ -14,7 +14,7 @@ export class KokyuIwaComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[18] as KokyuObject;
+        let kokyuObject = KokyuObjects[20] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
@@ -24,8 +24,8 @@ export class KokyuIwaComponent implements NichirintouUseComponent {
             default :
                 player.setProperty("kurokumaft:kokyu_kata", kata+1);
                 kata = kata+1;
-            }
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:iwa_kata" + kata + ".value\"}]}");
+        }
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:iwa_kata" + kata + ".value\"}]}");
 
     }
 
@@ -44,7 +44,6 @@ export class KokyuIwaComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let iwa = new IwaNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 iwa.ichiNoKata(player, itemStack);
@@ -62,7 +61,6 @@ export class KokyuIwaComponent implements NichirintouUseComponent {
                 iwa.goNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 

@@ -17,13 +17,31 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "mituri"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+
+          "mituri": "controller.animation.nichirintou.mituri",
+
+          "koi.ichi_1_third": "animation.nichirintou.koi.ichi_1_third",
+          "koi.ichi_2_third": "animation.nichirintou.koi.ichi_2_third",
+          "koi.ni_1_third": "animation.nichirintou.koi.ni_1_third",
+          "koi.san_1_third": "animation.nichirintou.koi.san_1_third",
+          "koi.go_1_third": "animation.nichirintou.koi.go_1_third",
+          "koi.roku_1_third": "animation.nichirintou.koi.roku_1_third",
+
+          "koi.ichi_1_first": "animation.nichirintou.koi.ichi_1_first",
+          "koi.ichi_2_first": "animation.nichirintou.koi.ichi_2_first",
+          "koi.ni_1_first": "animation.nichirintou.koi.ni_1_first",
+          "koi.san_1_first": "animation.nichirintou.koi.san_1_first",
+          "koi.go_1_first": "animation.nichirintou.koi.go_1_first",
+          "koi.roku_1_first": "animation.nichirintou.koi.roku_1_first"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

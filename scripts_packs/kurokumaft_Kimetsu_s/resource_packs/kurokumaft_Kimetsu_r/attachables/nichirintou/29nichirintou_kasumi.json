@@ -17,13 +17,21 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "kasumi"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+
+          "kasumi": "controller.animation.nichirintou.kasumi",
+          "ichi_1_third": "animation.nichirintou.kasumi.ichi_1_third",
+          "ichi_2_third": "animation.nichirintou.kasumi.ichi_2_third",
+          "ichi_1_first": "animation.nichirintou.kasumi.ichi_1_first",
+          "ichi_2_first": "animation.nichirintou.kasumi.ichi_2_first"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

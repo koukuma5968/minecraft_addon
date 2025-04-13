@@ -1,0 +1,73 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.nichirintou.kaminari" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"first_person": "c.is_first_person"},
+						{"third_person": "!c.is_first_person"}
+					]
+				},
+				"first_person":{
+					"transitions" : [
+						{"default": "!c.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use":{
+					"transitions" : [
+						{"kaminari4_first": "query.property('kurokumaft:kokyu_kata') == 4"}
+					]
+				},
+
+				"kaminari4_first" : {
+					"animations" : [
+						"shi_1_first"
+					],
+					"transitions" : [
+						{"kaminari4_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari4_2_first" : {
+					"animations" : [
+						"shi_2_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+
+				"third_person":{
+					"transitions" : [
+						{"default": "c.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use":{
+					"transitions" : [
+						{"kaminari4_third": "query.property('kurokumaft:kokyu_kata') == 4"}
+					]
+				},
+
+				"kaminari4_third" : {
+					"animations" : [
+						"shi_1_third"
+					],
+					"transitions" : [
+						{"kaminari4_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari4_2_third" : {
+					"animations" : [
+						"shi_2_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

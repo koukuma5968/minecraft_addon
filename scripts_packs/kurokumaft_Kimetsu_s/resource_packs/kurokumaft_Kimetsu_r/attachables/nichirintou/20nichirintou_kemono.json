@@ -17,13 +17,22 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "kedamono"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+
+          "kedamono": "controller.animation.nichirintou.kedamono",
+
+          "ichi_1_first": "animation.nichirintou.kedamono.ichi_1_first",
+          "ichi_1_third": "animation.nichirintou.kedamono.ichi_1_third",
+          "zyu_1_first": "animation.nichirintou.kedamono.zyu_1_first",
+          "zyu_1_third": "animation.nichirintou.kedamono.zyu_1_third"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

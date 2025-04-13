@@ -17,13 +17,24 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "oto"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+
+          "oto": "controller.animation.nichirintou.oto",
+
+          "ichi_1_third": "animation.nichirintou.oto.ichi_1_third",
+          "ni_1_third": "animation.nichirintou.oto.ni_1_third",
+          "san_1_third": "animation.nichirintou.oto.san_1_third",
+          "san_2_third": "animation.nichirintou.oto.san_2_third",
+          "shi_1_third": "animation.nichirintou.oto.shi_1_third",
+          "go_1_third": "animation.nichirintou.oto.go_1_third"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

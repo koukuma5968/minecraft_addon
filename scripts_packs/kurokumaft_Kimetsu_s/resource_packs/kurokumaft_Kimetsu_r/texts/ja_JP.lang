@@ -98,6 +98,8 @@ msg.kurokumaft:kasumi_kata6.value=§b霞の呼吸 陸ノ型
 msg.kurokumaft:kasumi_kata7.value=§b霞の呼吸 漆ノ型
 
 msg.kurokumaft:oto_kata1.value=§e音の呼吸 壱ノ型
+msg.kurokumaft:oto_kata2.value=§e薙ぎ払い
+msg.kurokumaft:oto_kata3.value=§e突進突き
 msg.kurokumaft:oto_kata4.value=§e音の呼吸 肆ノ型
 msg.kurokumaft:oto_kata5.value=§e音の呼吸 伍ノ型
 
@@ -215,6 +217,8 @@ msg.kurokumaft:kasumi_kokyu6.value=§b月の霞消
 msg.kurokumaft:kasumi_kokyu7.value=§b朧
 
 msg.kurokumaft:oto_kokyu1.value=§e轟
+msg.kurokumaft:oto_kokyu2.value=
+msg.kurokumaft:oto_kokyu3.value=
 msg.kurokumaft:oto_kokyu4.value=§e鳴弦奏々
 msg.kurokumaft:oto_kokyu5.value=§e響斬無間
 

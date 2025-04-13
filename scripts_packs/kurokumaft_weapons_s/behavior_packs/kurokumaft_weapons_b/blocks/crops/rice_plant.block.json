@@ -6,12 +6,34 @@
 			"menu_category": {
 				"category": "none"
 			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:vertical_half"
+					]
+				}
+			},
 			"states": {
 				"kurokumaft:growth": [0, 1, 2, 3, 4, 5, 6, 7]
 			}
 		},
 		"components": {
-			"minecraft:collision_box": false,
+			"minecraft:collision_box": {
+				"origin": [-8,0,-8],
+				"size": [16,8,16]
+			},
+			"minecraft:selection_box": {
+				"origin": [-8,0,-8],
+				"size": [16,8,16]
+			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+					"liquid_type": "water",
+					"on_liquid_touches": "no_reaction"
+					}
+				]
+			},
 			"minecraft:geometry": "geometry.rice_plant",
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0

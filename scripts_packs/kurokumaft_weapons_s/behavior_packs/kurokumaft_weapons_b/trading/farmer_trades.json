@@ -78,6 +78,22 @@
               }
             }
           ]
+        },
+        {
+          "wants": [
+            {
+              "item": "kurokumaft:seeds_rice_plant",
+              "quantity": {
+                "min": 18,
+                "max": 22
+              }
+            }
+          ],
+          "gives": [
+           {
+              "item": "minecraft:emerald"
+           }
+          ]
         }
       ]
     },

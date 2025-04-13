@@ -14,7 +14,7 @@ export class KaminariNoKata extends KataComonClass {
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kaminari_kokyu1.value\"}]}");
 
         const point = getLookRotaionPoints(player.getRotation(), 1, 0);
-        player.applyKnockback(point.x,point.z,10,0);
+        player.applyKnockback(point.x,point.z,15,0);
 
         const num = system.runInterval(() => {
             const filter = addRegimentalFilter(0, player.location, 2.5, player.id);
@@ -88,15 +88,15 @@ export class KaminariNoKata extends KataComonClass {
      * 弐ノ型 稲魂
      */
     niNoKata(player:Player, itemStack:ItemStack) {
-        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kaminari_kokyu2.value\"}]}");
 
         const num = system.runInterval(() => {
             const location = getLookPoints(player.getRotation(), player.location, 1.5)
-            const filter = addRegimentalFilter(1, location, 3, player.id);
+            const filter = addRegimentalFilter(0, location, 3, player.id);
             this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
         },4);
         system.runTimeout(() => {
+            player.setProperty("kurokumaft:kokyu_use", false);
             player.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },20);
@@ -111,7 +111,7 @@ export class KaminariNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             const location = getLookPoints(player.getRotation(), player.location, 0);
-            const filter = addRegimentalFilter(1, location, 6, player.id);
+            const filter = addRegimentalFilter(0, location, 6, player.id);
             this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
         },2);
         system.runTimeout(() => {
@@ -129,13 +129,21 @@ export class KaminariNoKata extends KataComonClass {
         player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kaminari_kokyu4.value\"}]}");
 
-        const location = getLookPoints(player.getRotation(), player.location, 0);
-        const filter = addRegimentalFilter(1, location, 10, player.id);
-        this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+        const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
+        const molang = new MolangVariableMap();
+        molang.setFloat("variable.kaikyu", kaikyuNum);
+        const num = system.runInterval(() => {
+            const location = getLookPoints(player.getRotation(), player.location, 0);
+            const filter = addRegimentalFilter(1, location, 10, player.id);
+            this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
+    
+            player.dimension.spawnParticle("kurokumaft:kaminari4_particle",player.location,molang);
+        },2);
 
         system.runTimeout(() => {
             player.setProperty("kurokumaft:kokyu_particle", false);
-        },10);
+            system.clearRun(num);
+        },20);
 
     }
 
@@ -143,27 +151,24 @@ export class KaminariNoKata extends KataComonClass {
      * 伍ノ型 熱界雷
      */
     goNoKata(player:Player, itemStack:ItemStack) {
-        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kaminari_kokyu5.value\"}]}");
 
         const nowloc = player.location;
         const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
         const molang = new MolangVariableMap();
         molang.setFloat("variable.kaikyu", kaikyuNum);
-        let num = system.runInterval(() => {
+        const num = system.runInterval(() => {
             player.dimension.spawnParticle("kurokumaft:kaminari5_particle",nowloc,molang);
         },1);
 
-        const dragon = shooting(player, "kurokumaft:kaminari_dragon", 0, 3, "small");
-        system.runTimeout(() => {
-            dragon.remove();
-        }, 1*TicksPerSecond);
+        shooting(player, "kurokumaft:kaminari_dragon_small", 0, 3, undefined);
 
         const location = getLookPoints(player.getRotation(), player.location, 0);
         const filter = addRegimentalFilter(1, location, 6, player.id);
         this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
 
         system.runTimeout(() => {
+            player.setProperty("kurokumaft:kokyu_use", false);
             player.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },10);
@@ -174,8 +179,15 @@ export class KaminariNoKata extends KataComonClass {
      * 陸ノ型 電轟雷轟
      */
     rokuNoKata(player:Player, itemStack:ItemStack) {
-        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kaminari_kokyu6.value\"}]}");
+
+        const point = getLookRotaionPoints(player.getRotation(), 1, 0);
+        player.applyKnockback(point.x,point.z,0,0.8);
+
+        player.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+            amplifier: 1,
+            showParticles: false
+        });
 
         const nowloc = player.location;
         const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
@@ -190,6 +202,7 @@ export class KaminariNoKata extends KataComonClass {
         this.kokyuApplyDamage(player, filter, 8, 4, itemStack);
 
         system.runTimeout(() => {
+            player.setProperty("kurokumaft:kokyu_use", false);
             player.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },10);
@@ -217,7 +230,6 @@ export class KaminariNoKata extends KataComonClass {
             player.teleport(targets[0].location, {
                 facingLocation: targets[0].location,
             });
-   
         }
 
         filter = addRegimentalFilter(0, player.location, 6, player.id);

@@ -10,7 +10,7 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "inanimate"]
+        "family": [ "inanimate", "arrow"]
       },
       "minecraft:collision_box": {
         "width": 5.0,
@@ -27,7 +27,8 @@
             "knockback": true,
             "semirandomdiffdamage": false,
             "destroyonhit": false
-          }
+          },
+          "remove_on_hit": { }
         },
         "power": 3.0,
         "gravity": 0.00,
@@ -37,7 +38,8 @@
         "anchor": 1,
         "offset": [0, 0, 0],
         "reflectOnHurt": true,
-        "catch_fire": false
+        "catch_fire": false,
+        "destroyOnHurt": true
       },
       "minecraft:nameable": {
       },

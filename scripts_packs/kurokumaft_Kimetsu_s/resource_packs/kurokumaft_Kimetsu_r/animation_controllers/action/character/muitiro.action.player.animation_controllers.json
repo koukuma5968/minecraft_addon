@@ -1,0 +1,229 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.muitiro.action.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"equipment": "variable.nichirintou_equipment == 11"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"first_person": {
+					"transitions" : [
+						{"default": "variable.nichirintou_equipment != 11"},
+						{"equipment": "!variable.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use": {
+					"transitions" : [
+						{"kasumi1_first": "query.property('kurokumaft:kokyu_kata') == 1"},
+						{"kasumi2_first": "query.property('kurokumaft:kokyu_kata') == 2"},
+						{"kasumi3_first": "query.property('kurokumaft:kokyu_kata') == 3"},
+						{"kasumi4_first": "query.property('kurokumaft:kokyu_kata') == 4"},
+						{"kasumi5_first": "query.property('kurokumaft:kokyu_kata') == 5"},
+						{"kasumi6_first": "query.property('kurokumaft:kokyu_kata') == 6"},
+						{"kasumi7_first": "query.property('kurokumaft:kokyu_kata') == 7"}
+					]
+				},
+				"kasumi1_first" : {
+					"animations" : [
+						"kasumi.ichi_1_first"
+					],
+					"transitions" : [
+						{"kasumi1_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi1_2_first" : {
+					"animations" : [
+						"kasumi.ichi_2_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi2_first" : {
+					"animations" : [
+						"kasumi.ni_1_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi3_first" : {
+					"animations" : [
+						"kasumi.san_1_first"
+					],
+					"transitions" : [
+						{"kasumi3_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi3_2_first" : {
+					"animations" : [
+						"kasumi.san_2_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi4_first" : {
+					"animations" : [
+						"kasumi.shi_1_first"
+					],
+					"transitions" : [
+						{"kasumi4_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi4_2_first" : {
+					"animations" : [
+						"kasumi.shi_2_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi5_first" : {
+					"animations" : [
+						"kasumi.go_1_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi6_first" : {
+					"animations" : [
+						"kasumi.roku_1_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi7_first" : {
+					"animations" : [
+						"kasumi.shiti_1"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+
+				"third_person": {
+					"transitions" : [
+						{"default": "variable.nichirintou_equipment != 11"},
+						{"equipment": "variable.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"kasumi1_third": "query.property('kurokumaft:kokyu_kata') == 1"},
+						{"kasumi2_third": "query.property('kurokumaft:kokyu_kata') == 2"},
+						{"kasumi3_third": "query.property('kurokumaft:kokyu_kata') == 3"},
+						{"kasumi4_third": "query.property('kurokumaft:kokyu_kata') == 4"},
+						{"kasumi5_third": "query.property('kurokumaft:kokyu_kata') == 5"},
+						{"kasumi6_third": "query.property('kurokumaft:kokyu_kata') == 6"},
+						{"kasumi7_third": "query.property('kurokumaft:kokyu_kata') == 7"}
+					]
+				},
+				"kasumi1_third" : {
+					"animations" : [
+						"kasumi.ichi_1_third"
+					],
+					"transitions" : [
+						{"kasumi1_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi1_2_third" : {
+					"animations" : [
+						"kasumi.ichi_2_third"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi2_third" : {
+					"animations" : [
+						"kasumi.ni_1_third"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi3_third" : {
+					"animations" : [
+						"kasumi.san_1_third"
+					],
+					"transitions" : [
+						{"kasumi3_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi3_2_third" : {
+					"animations" : [
+						"kasumi.san_2_third"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi4_third" : {
+					"animations" : [
+						"kasumi.shi_1_third"
+					],
+					"transitions" : [
+						{"kasumi4_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi4_2_third" : {
+					"animations" : [
+						"kasumi.shi_2_third"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"kasumi5_third" : {
+					"animations" : [
+						"kasumi.go_1_third"
+					],
+					"transitions" : [
+						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi6_third" : {
+					"animations" : [
+						"kasumi.roku_1_third"
+					],
+					"transitions" : [
+						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kasumi7_third" : {
+					"animations" : [
+						"kasumi.shiti_1"
+					],
+					"transitions" : [
+						{"kasumi7_2_third":"query.property('kurokumaft:kokyu_chage') == 2"},
+						{"equipment":"query.property('kurokumaft:kokyu_chage') == 0"}
+					]
+				},
+				"kasumi7_2_third" : {
+					"animations" : [
+						"kasumi.shiti_2"
+					],
+					"transitions" : [
+						{"kasumi7_third":"query.property('kurokumaft:kokyu_chage') == 1"},
+						{"equipment":"query.property('kurokumaft:kokyu_chage') == 0"}
+					]
+				}
+
+			}
+		}
+	}
+}

@@ -14,7 +14,7 @@ export class KokyuMushiComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[22] as KokyuObject;
+        let kokyuObject = KokyuObjects[25] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
@@ -33,13 +33,6 @@ export class KokyuMushiComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-
-        player.addTag(player.id);
-        switch (kata) {
-        }
-        player.removeTag(player.id);
-
     }
 
     /**
@@ -51,7 +44,6 @@ export class KokyuMushiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let mushi = new MushiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 mushi.ichiNoKata(player, itemStack);
@@ -66,17 +58,10 @@ export class KokyuMushiComponent implements NichirintouUseComponent {
                 mushi.shiNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-
-        player.addTag(player.id);
-        switch (kata) {
-       }
-       player.removeTag(player.id);
     }
 
 }

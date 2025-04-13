@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot, world } from "@minecraft/server";
 import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
 import { WeaponLogBlocks, WeaponOtherLogBlocks, WeaponOtherStrippedLogBlocks, WeaponOtherStrippedWoodBlocks, WeaponOtherWoodBlocks, WeaponStrippedLogBlocks, WeaponStrippedWoodBlocks, WeaponWoodBlocks } from "../../common/WeaponsConstants";
 
@@ -29,6 +29,10 @@ async function stripped(block:Block) {
         });
         if (log) {
             block.setPermutation(BlockPermutation.resolve(log));
+            world.playSound("use.wood", block.location, {
+                pitch:2,
+                volume:3
+            });
             return;
         }
 
@@ -38,6 +42,10 @@ async function stripped(block:Block) {
         });
         if (otlog) {
             block.setPermutation(BlockPermutation.resolve(otlog));
+            world.playSound("use.wood", block.location, {
+                pitch:2,
+                volume:3
+            });
             return;
         }
 
@@ -47,6 +55,10 @@ async function stripped(block:Block) {
         });
         if (wood) {
             block.setPermutation(BlockPermutation.resolve(wood));
+            world.playSound("use.wood", block.location, {
+                pitch:2,
+                volume:3
+            });
             return;
         }
 
@@ -56,6 +68,10 @@ async function stripped(block:Block) {
         });
         if (otwood) {
             block.setPermutation(BlockPermutation.resolve(otwood));
+            world.playSound("use.wood", block.location, {
+                pitch:2,
+                volume:3
+            });
             return;
         }
 

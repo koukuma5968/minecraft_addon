@@ -18,6 +18,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
     event.player.setProperty("kurokumaft:kokyu_attack", false);
     event.player.setProperty("kurokumaft:kokyu_chage", 0);
     event.player.setProperty("kurokumaft:kokyu_ran", 0);
+    event.player.setDynamicProperty("kurokumaft:chage_type", undefined);
   }
   const playerTick = new KimetuEquipmentTick(event.player);
   playerTick.checkPlayerKimetuEquTick();
@@ -29,12 +30,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   if (entity instanceof Player) {
     const nichirintou = entity.getProperty("kurokumaft:nichirintou_type") as number;
     if (nichirintou > 1) {
-      if (event.eventId == "kurokumaft:kokyu_change") {
-        const object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
-        const kokyuClass = kokyuClassRecord[object.className];
-        const kokyuObject = new kokyuClass();
-        kokyuObject.changeKata(entity);
-      } else if (event.eventId == "kurokumaft:attack_time" && !entity.getProperty("kurokumaft:kokyu_attack")) {
+      if (event.eventId == "kurokumaft:attack_time" && !entity.getProperty("kurokumaft:kokyu_attack")) {
         entity.setProperty("kurokumaft:kokyu_attack", true);
         system.runTimeout(() => {
           entity.setProperty("kurokumaft:kokyu_attack", false);
@@ -73,7 +69,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 world.afterEvents.entityDie.subscribe(event => {
   const deadEntity = event.deadEntity;
   const familyTypes = deadEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-  if (familyTypes.hasTypeFamily("ogre")) {
+  if (familyTypes != undefined && familyTypes.hasTypeFamily("ogre")) {
     const damager = event.damageSource.damagingEntity;
     if (damager != undefined) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;

@@ -1,8 +1,9 @@
-import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
+import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, EquipmentSlot, ItemStack, MolangVariableMap, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
 import { addProjectionFilter, addRegimentalFilter, getLookPoints, getLookRotaionPoints, weightChoice } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { shooting } from "../../common/ShooterEvent";
+import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class MizuNoKata extends KataComonClass {
 
@@ -55,29 +56,23 @@ export class MizuNoKata extends KataComonClass {
      */
     sanNoKata(player:Player, itemStack:ItemStack) {
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mizu_kokyu3.value\"}]}");
+
+        const num = system.runInterval(() => {
+            const point = getLookRotaionPoints(player.getRotation(), 1, 0);
+            player.applyKnockback(point.x,point.z,2,0);
+
+            const left = getLookRotaionPoints(player.getRotation(), 1, 0);
+            const lvolume = getLookPoints(player.getRotation(), {x:player.location.x+left.x, y:player.location.y,z:player.location.z+left.z}, 0);
+            const lfilter = addRegimentalFilter(0, lvolume, 4, player.id);
+            this.kokyuApplyDamage(player, lfilter, 2, 1, itemStack);
+
+        },6);
+
         system.runTimeout(() => {
             player.setProperty("kurokumaft:kokyu_use", false);
             player.setProperty("kurokumaft:kokyu_particle", false);
+            system.clearRun(num);
         },30);
-
-        // 左
-        const left = getLookRotaionPoints(player.getRotation(), 1.5, -1.5);
-        const lvolume = getLookPoints(player.getRotation(), {x:player.location.x+left.x, y:player.location.y,z:player.location.z+left.z}, 0);
-        const lfilter = addRegimentalFilter(0, lvolume, 3, player.id);
-        this.kokyuApplyDamage(player, lfilter, 2, 1, itemStack);
-        system.runTimeout(() => {
-            // 右
-            const right = getLookRotaionPoints(player.getRotation(), 1.5, 1.5);
-            const rvolume = getLookPoints(player.getRotation(), {x:player.location.x+right.x, y:player.location.y,z:player.location.z+right.z}, 0);
-            const rfilter = addRegimentalFilter(0, rvolume, 3, player.id);
-            this.kokyuApplyDamage(player, rfilter, 2, 1, itemStack);
-        }, 10);
-        system.runTimeout(() => {
-            // 中央
-            const cvolume = getLookPoints(player.getRotation(), player.location, 1.5);
-            const cfilter = addRegimentalFilter(0, cvolume, 3, player.id);
-            this.kokyuApplyDamage(player, cfilter, 2, 1, itemStack);
-        }, 20);
 
     }
 
@@ -86,26 +81,22 @@ export class MizuNoKata extends KataComonClass {
      */
     shiNoKata(player:Player, itemStack:ItemStack) {
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mizu_kokyu4.value\"}]}");
+
+        let side = -2;
+        const num = system.runInterval(() => {
+            const left = getLookRotaionPoints(player.getRotation(), 1.5, side);
+            const lvolume = getLookPoints(player.getRotation(), {x:player.location.x+left.x, y:player.location.y+1,z:player.location.z+left.z}, 0);
+            const lfilter = addRegimentalFilter(0, lvolume, 3.5, player.id);
+            player.dimension.spawnParticle("kurokumaft:mizu2_particle",lvolume)
+            this.kokyuApplyDamage(player, lfilter, 3, 1, itemStack);
+            side=-side
+        },8);
+
         system.runTimeout(() => {
             player.setProperty("kurokumaft:kokyu_particle", false);
             player.setProperty("kurokumaft:kokyu_use", false);
-        },20);
-
-        // 左
-        const left = getLookRotaionPoints(player.getRotation(), 1.5, -2);
-        const lvolume = getLookPoints(player.getRotation(), {x:player.location.x+left.x, y:player.location.y+1,z:player.location.z+left.z}, 0);
-        const lfilter = addRegimentalFilter(0, lvolume, 3.5, player.id);
-        player.dimension.spawnParticle("kurokumaft:mizu2_particle",lvolume)
-        this.kokyuApplyDamage(player, lfilter, 3, 1, itemStack);
-
-        system.waitTicks(20);
-
-       // 右
-       const right = getLookRotaionPoints(player.getRotation(), 1.5, 2);
-        const rvolume = getLookPoints(player.getRotation(), {x:player.location.x+right.x, y:player.location.y+1,z:player.location.z+right.z}, 0);
-        const rfilter = addRegimentalFilter(0, rvolume, 3.5, player.id);
-        player.dimension.spawnParticle("kurokumaft:mizu2_particle",rvolume)
-        this.kokyuApplyDamage(player, rfilter, 3, 1, itemStack);
+            system.clearRun(num);
+        },30);
 
     }
 
@@ -126,6 +117,7 @@ export class MizuNoKata extends KataComonClass {
             { item: 'kill' , weight: 5 },
         ]);
 
+        player.addTag(player.id);
         const volume = getLookPoints(player.getRotation(), player.location, 1.5)
         const filter = addRegimentalFilter(1, volume, 3, player.id);
 
@@ -176,7 +168,7 @@ export class MizuNoKata extends KataComonClass {
         molang.setFloat("variable.kaikyu", kaikyuNum);
         player.dimension.spawnParticle("kurokumaft:mizu5_particle",player.location,molang);
         player.dimension.spawnParticle("kurokumaft:mizu5_particle",player.location,molang);
-
+        player.removeTag(player.id);
     }
 
     /**
@@ -184,6 +176,7 @@ export class MizuNoKata extends KataComonClass {
      */
     rokuNoKata(player:Player, itemStack:ItemStack) {
 
+        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mizu_kokyu6.value\"}]}");
 
         const volume = getLookPoints(player.getRotation(), player.location, 0);
@@ -194,7 +187,10 @@ export class MizuNoKata extends KataComonClass {
             const filter = addRegimentalFilter(0, volume, 3.5, player.id);
             this.kokyuApplyDamage(player, filter, 5, 2, itemStack);
         }
+        const point = getLookRotaionPoints(player.getRotation(), 1, 0);
+        player.applyKnockback(point.x,point.z,0,1);
         const num = system.runInterval(() => {
+    
             if (player.isInWater) {
                 const filter = addRegimentalFilter(0, volume, 5, player.id);
                 this.kokyuApplyDamage(player, filter, 10, 4, itemStack);
@@ -205,7 +201,14 @@ export class MizuNoKata extends KataComonClass {
         },4);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
+            player.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+                amplifier: 1,
+                showParticles: false
+            });
+        },20);
+
+        system.runTimeout(() => {
+            player.removeEffect(MinecraftEffectTypes.SlowFalling);
             player.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },25);
@@ -217,9 +220,9 @@ export class MizuNoKata extends KataComonClass {
      */
     shitiNoKata(player:Player, itemStack:ItemStack) {
 
+        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mizu_kokyu7.value\"}]}");
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
             player.setProperty("kurokumaft:kokyu_particle", false);
         },5);
 
@@ -244,34 +247,39 @@ export class MizuNoKata extends KataComonClass {
             player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mizu_kokyu8.value\"}]}");
             player.setDynamicProperty("kurokumaft:mizuhati", true);
 
-            let oLocate = player.location;
-            let volume = getLookPoints(player.getRotation(), player.location, 0);
-            let num = system.runInterval(() => {
-                player.teleport({x:player.location.x, y:player.location.y+0.5,z:player.location.z}, {
-                    checkForBlocks: true
-                });
-            },2);
+            const oLocate = player.location;
+            const volume = getLookPoints(player.getRotation(), player.location, 0);
+            const point = getLookRotaionPoints(player.getRotation(), 1, 0);
+            player.applyKnockback(point.x,point.z,0,1.5);
             let parnum = 0;
 
             system.runTimeout(() => {
                 player.setProperty("kurokumaft:kokyu_particle", false);
-                system.clearRun(num);
-                let filter = addRegimentalFilter(0, volume, 6, player.id);
+                const filter = addRegimentalFilter(0, volume, 6, player.id);
 
                 const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
                 const molang = new MolangVariableMap();
                 molang.setFloat("variable.kaikyu", kaikyuNum);
                 parnum = system.runInterval(() => {
                     player.dimension.spawnParticle("kurokumaft:mizu8_particle",{x:oLocate.x, y:oLocate.y+0.5,z:oLocate.z}, molang);
-                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x+0.5, y:player.location.y-0.5,z:player.location.z+0.5}, molang);
-                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x+0.5, y:player.location.y-0.5,z:player.location.z-0.5}, molang);
-                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x-0.5, y:player.location.y-0.5,z:player.location.z+0.5}, molang);
-                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x-0.5, y:player.location.y-0.5,z:player.location.z-0.5}, molang);
+                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x+1, y:player.location.y-0.5,z:player.location.z+1}, molang);
+                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x+1, y:player.location.y-0.5,z:player.location.z-1}, molang);
+                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x-1, y:player.location.y-0.5,z:player.location.z+1}, molang);
+                    player.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:player.location.x-1, y:player.location.y-0.5,z:player.location.z-1}, molang);
                     this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
                 },1);
     
             },25);
+
             system.runTimeout(() => {
+                player.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+                    amplifier: 1,
+                    showParticles: false
+                });
+            },30);
+    
+            system.runTimeout(() => {
+                player.removeEffect(MinecraftEffectTypes.SlowFalling);
                 player.setDynamicProperty("kurokumaft:mizuhati", false);
                 system.clearRun(parnum);
             },40);
@@ -287,7 +295,7 @@ export class MizuNoKata extends KataComonClass {
         if (player.getDynamicProperty("kurokumaft:chage_type") == undefined) {
             player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mizu_kokyu9.value\"}]}");
             player.setDynamicProperty("kurokumaft:chage_type", true);
-    
+
             player.addEffect(MinecraftEffectTypes.Speed, 10*TicksPerSecond,{
                 amplifier: 5,
                 showParticles: false
@@ -386,23 +394,13 @@ export class MizuNoKata extends KataComonClass {
     private checkNagiReflection(player: Player, itemStack:ItemStack): void {
         if (player.isValid()) {
 
-            const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
             const volume = getLookPoints(player.getRotation(), player.location, 0);
-            const projfilter = addProjectionFilter(0, volume, 4.5);
-
-            const projectiles = player.dimension.getEntities(projfilter);
-            projectiles.forEach(projectile => {
-                projectile.clearVelocity();
-                const projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
-                if (projComp != undefined) {
-                    projComp.shoot(projectile.getViewDirection(), {
-                        uncertainty: 0
-                    });
-                    player.setProperty("kurokumaft:kokyu_attack", true);
-                }
-            });
+            if (this.projectRefrect(player, volume)) {
+                player.setProperty("kurokumaft:kokyu_attack", true);
+            }
 
             player.addTag(player.id);
+            const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
             const filter = addRegimentalFilter(0, volume, 4.5, player.id);
             const targets = player.dimension.getEntities(filter);
             targets.forEach(en => {
@@ -422,6 +420,7 @@ export class MizuNoKata extends KataComonClass {
                     });
                 }
                 player.setProperty("kurokumaft:kokyu_attack", true);
+                ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
             });
             player.removeTag(player.id);
 

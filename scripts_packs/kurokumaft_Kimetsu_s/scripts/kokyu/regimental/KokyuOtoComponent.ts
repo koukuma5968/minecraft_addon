@@ -14,7 +14,7 @@ export class KokyuOtoComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[20] as KokyuObject;
+        let kokyuObject = KokyuObjects[22] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
@@ -44,7 +44,6 @@ export class KokyuOtoComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let oto = new OtoNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 oto.ichiNoKata(player, itemStack);
@@ -62,7 +61,6 @@ export class KokyuOtoComponent implements NichirintouUseComponent {
                 oto.goNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 

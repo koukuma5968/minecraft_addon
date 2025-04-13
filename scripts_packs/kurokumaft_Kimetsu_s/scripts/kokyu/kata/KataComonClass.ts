@@ -1,6 +1,7 @@
-import { EffectTypes, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityQueryOptions, EquipmentSlot, ItemStack, Player, world } from "@minecraft/server";
+import { EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, Player, Vector3, world } from "@minecraft/server";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { addProjectionFilter } from "../../common/KimetuCommonUtil";
 
 export class KataComonClass {
 
@@ -69,4 +70,23 @@ export class KataComonClass {
 
     }
 
+    projectRefrect(player:Player, volume:Vector3): boolean {
+
+        let hit = false;
+        const projfilter = addProjectionFilter(0, volume, 4.5);
+
+        const projectiles = player.dimension.getEntities(projfilter);
+        projectiles.forEach(projectile => {
+            projectile.clearVelocity();
+            const projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+            if (projComp != undefined) {
+                projComp.shoot(projectile.getViewDirection(), {
+                    uncertainty: 0
+                });
+                hit = true;
+            }
+        });
+
+        return hit;
+    }
 }

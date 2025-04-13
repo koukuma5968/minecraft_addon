@@ -1,5 +1,5 @@
 // scripts/weapons_script.ts
-import { world as world18, Player as Player47, EquipmentSlot as EquipmentSlot43, EntityComponentTypes as EntityComponentTypes27, EntityInitializationCause, system as system16, TicksPerSecond as TicksPerSecond11 } from "@minecraft/server";
+import { world as world19, Player as Player47, EquipmentSlot as EquipmentSlot43, EntityComponentTypes as EntityComponentTypes27, EntityInitializationCause, system as system16, TicksPerSecond as TicksPerSecond11 } from "@minecraft/server";
 
 // scripts/common/WeaponsCommonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -4659,7 +4659,7 @@ async function fireCharcoalBlock(attackingEntity, itemStack, block) {
 }
 
 // scripts/items/axe/AxeStripped.ts
-import { BlockPermutation as BlockPermutation2, EquipmentSlot as EquipmentSlot21 } from "@minecraft/server";
+import { BlockPermutation as BlockPermutation2, EquipmentSlot as EquipmentSlot21, world as world8 } from "@minecraft/server";
 var AxeStripped = class {
   onUseOn(event) {
     let source = event.source;
@@ -4677,6 +4677,10 @@ async function stripped(block) {
     });
     if (log) {
       block.setPermutation(BlockPermutation2.resolve(log));
+      world8.playSound("use.wood", block.location, {
+        pitch: 2,
+        volume: 3
+      });
       return;
     }
     let otlog = WeaponOtherStrippedLogBlocks.find((type) => {
@@ -4685,6 +4689,10 @@ async function stripped(block) {
     });
     if (otlog) {
       block.setPermutation(BlockPermutation2.resolve(otlog));
+      world8.playSound("use.wood", block.location, {
+        pitch: 2,
+        volume: 3
+      });
       return;
     }
     let wood = WeaponStrippedWoodBlocks.find((type) => {
@@ -4693,6 +4701,10 @@ async function stripped(block) {
     });
     if (wood) {
       block.setPermutation(BlockPermutation2.resolve(wood));
+      world8.playSound("use.wood", block.location, {
+        pitch: 2,
+        volume: 3
+      });
       return;
     }
     let otwood = WeaponOtherStrippedWoodBlocks.find((type) => {
@@ -4701,6 +4713,10 @@ async function stripped(block) {
     });
     if (otwood) {
       block.setPermutation(BlockPermutation2.resolve(otwood));
+      world8.playSound("use.wood", block.location, {
+        pitch: 2,
+        volume: 3
+      });
       return;
     }
   }
@@ -5834,7 +5850,7 @@ var BakutikuFire = class {
 };
 
 // scripts/block/TearEnchant.ts
-import { system as system14, EntityComponentTypes as EntityComponentTypes19, ItemComponentTypes as ItemComponentTypes11, ItemStack as ItemStack41, EquipmentSlot as EquipmentSlot34, world as world15 } from "@minecraft/server";
+import { system as system14, EntityComponentTypes as EntityComponentTypes19, ItemComponentTypes as ItemComponentTypes11, ItemStack as ItemStack41, EquipmentSlot as EquipmentSlot34, world as world16 } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 var TearEnchant = class {
   onPlayerDestroy(event) {
@@ -5918,7 +5934,7 @@ async function tearEnchantBlock(player, item, block) {
                   enc.removeEnchantment(repEnc.type);
                 }
               } catch (error) {
-                world15.sendMessage({ translate: "tear_enchant.mess.notenchant", with: [repEnc.type.id] });
+                world16.sendMessage({ translate: "tear_enchant.mess.notenchant", with: [repEnc.type.id] });
               }
             }
             let reenc = mainhand.getComponent(ItemComponentTypes11.Enchantable);
@@ -6425,31 +6441,31 @@ function initWeaponsStateChangeMonitor(initEvent) {
 }
 
 // scripts/weapons_script.ts
-world18.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world19.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initWeaponsRegisterCustom(initEvent);
   initWeaponsStateChangeMonitor(initEvent);
 });
-world18.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world19.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world18.beforeEvents.itemUseOn.subscribe((event) => {
+world19.beforeEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world18.afterEvents.itemUseOn.subscribe((event) => {
+world19.afterEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world18.beforeEvents.explosion.subscribe((event) => {
+world19.beforeEvents.explosion.subscribe((event) => {
   let impactBLockList = event.getImpactedBlocks();
   let filterBlockList = explodeBedrock(impactBLockList);
   filterBlockList = explodeBakutikuCancel(filterBlockList);
   event.setImpactedBlocks(filterBlockList);
   explodeBakutikuChain(impactBLockList);
 });
-world18.afterEvents.playerInteractWithEntity.subscribe((event) => {
+world19.afterEvents.playerInteractWithEntity.subscribe((event) => {
   let player = event.player;
   let target = event.target;
   if (target.typeId == "kurokumaft:bamboo_bag") {
@@ -6460,7 +6476,7 @@ world18.afterEvents.playerInteractWithEntity.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+world19.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   let eventId = event.eventId;
   let entity = event.entity;
   let family = entity.getComponent(EntityComponentTypes27.TypeFamily);
@@ -6472,16 +6488,16 @@ world18.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.itemStartUse.subscribe((event) => {
+world19.afterEvents.itemStartUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world18.beforeEvents.entityRemove.subscribe((event) => {
+world19.beforeEvents.entityRemove.subscribe((event) => {
   let removedEntity = event.removedEntity;
   removeSpear(removedEntity);
   removeHammer(removedEntity);
 });
-world18.afterEvents.itemReleaseUse.subscribe((event) => {
+world19.afterEvents.itemReleaseUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6511,7 +6527,7 @@ world18.afterEvents.itemReleaseUse.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.itemStopUse.subscribe((event) => {
+world19.afterEvents.itemStopUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6541,7 +6557,7 @@ world18.afterEvents.itemStopUse.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.entitySpawn.subscribe((event) => {
+world19.afterEvents.entitySpawn.subscribe((event) => {
   let cause = event.cause;
   let entity = event.entity;
   if (EntityInitializationCause.Spawned == cause) {
@@ -6559,36 +6575,36 @@ world18.afterEvents.entitySpawn.subscribe((event) => {
     spawnBoomerang(entity);
   }
 });
-world18.beforeEvents.itemUse.subscribe((event) => {
+world19.beforeEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
   }
 });
-world18.afterEvents.itemUse.subscribe((event) => {
+world19.afterEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world18.afterEvents.blockExplode.subscribe((event) => {
+world19.afterEvents.blockExplode.subscribe((event) => {
   let dimension = event.dimension;
   let block = event.block;
   if (block.typeId == "kurokumaft:tear_enchant") {
     breackTearEnchant(dimension, block);
   }
 });
-world18.afterEvents.playerPlaceBlock.subscribe((event) => {
+world19.afterEvents.playerPlaceBlock.subscribe((event) => {
   let block = event.block;
   let dimension = event.dimension;
   playerMithrilset(block);
 });
-world18.beforeEvents.playerBreakBlock.subscribe((event) => {
+world19.beforeEvents.playerBreakBlock.subscribe((event) => {
   let player = event.player;
   let item = event.itemStack;
   let block = event.block;
   if (item != void 0) {
   }
 });
-world18.afterEvents.entityHitEntity.subscribe((event) => {
+world19.afterEvents.entityHitEntity.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitEn = event.hitEntity;
   if (hitEn != void 0 && hitEn instanceof Player47) {
@@ -6596,7 +6612,7 @@ world18.afterEvents.entityHitEntity.subscribe((event) => {
     shieldCounter(hitEn, damageEn);
   }
 });
-world18.afterEvents.entityHitBlock.subscribe((event) => {
+world19.afterEvents.entityHitBlock.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitBlock = event.hitBlock;
   if (hitBlock != void 0) {
@@ -6615,7 +6631,7 @@ world18.afterEvents.entityHitBlock.subscribe((event) => {
     }
   }
 });
-world18.afterEvents.projectileHitEntity.subscribe((event) => {
+world19.afterEvents.projectileHitEntity.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   let hitEn = event.getEntityHit().entity;
@@ -6632,7 +6648,7 @@ world18.afterEvents.projectileHitEntity.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world18.afterEvents.projectileHitBlock.subscribe((event) => {
+world19.afterEvents.projectileHitBlock.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   if (source != void 0 && source instanceof Player47) {
@@ -6643,7 +6659,7 @@ world18.afterEvents.projectileHitBlock.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world18.afterEvents.entityHurt.subscribe((event) => {
+world19.afterEvents.entityHurt.subscribe((event) => {
   let damage = event.damage;
   let damageSource = event.damageSource;
   let hitEn = event.hurtEntity;

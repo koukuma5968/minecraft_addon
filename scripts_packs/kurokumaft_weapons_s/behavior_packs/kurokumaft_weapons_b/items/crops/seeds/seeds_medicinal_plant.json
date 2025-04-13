@@ -14,7 +14,7 @@
 			},
       "minecraft:icon": "seeds_medicinal_plant",
       "minecraft:block_placer": {
-        "block": "medicinal_plants",
+        "block": "kurokumaft:medicinal_plants",
         "use_on" : [
           "farmland"
         ]

@@ -1,0 +1,187 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kyouzyuro.action.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"equipment": "variable.nichirintou_equipment == 8"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"first_person": {
+					"transitions" : [
+						{"default": "variable.nichirintou_equipment != 8"},
+						{"equipment": "!variable.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use": {
+					"transitions" : [
+						{"hono1_first": "query.property('kurokumaft:kokyu_kata') == 1"},
+						{"hono2_first": "query.property('kurokumaft:kokyu_kata') == 2"},
+						{"hono3_first": "query.property('kurokumaft:kokyu_kata') == 3"},
+						{"hono4_first": "query.property('kurokumaft:kokyu_kata') == 4"},
+						{"hono5_first": "query.property('kurokumaft:kokyu_kata') == 5"},
+						{"hono9_first": "query.property('kurokumaft:kokyu_kata') == 9"}
+					]
+				},
+				"hono1_first" : {
+					"animations" : [
+						"hono.ichi_1_first"
+					],
+					"transitions" : [
+						{"hono1_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hono1_2_first" : {
+					"animations" : [
+						"hono.ichi_2_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono2_first" : {
+					"animations" : [
+						"hono.ni_1_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono3_first" : {
+					"animations" : [
+						"hono.san_1_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono4_first" : {
+					"animations" : [
+						"hono.shi_1_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono5_first" : {
+					"animations" : [
+						"hono.go_1_first"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono9_first" : {
+					"animations" : [
+						"hono.ku_1_first"
+					],
+					"transitions" : [
+						{"hono9_2_first": "!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hono9_2_first" : {
+					"animations" : [
+						"hono.ku_2_first"
+					],
+					"transitions" : [
+						{"equipment": "query.any_animation_finished"}
+					]
+				},
+
+				"third_person": {
+					"transitions" : [
+						{"default": "variable.nichirintou_equipment != 8"},
+						{"equipment": "variable.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"hono1_third": "query.property('kurokumaft:kokyu_kata') == 1"},
+						{"hono2_third": "query.property('kurokumaft:kokyu_kata') == 2"},
+						{"hono3_third": "query.property('kurokumaft:kokyu_kata') == 3"},
+						{"hono4_third": "query.property('kurokumaft:kokyu_kata') == 4"},
+						{"hono5_third": "query.property('kurokumaft:kokyu_kata') == 5"},
+						{"hono9_third": "query.property('kurokumaft:kokyu_kata') == 9"}
+					]
+				},
+				"hono1_third" : {
+					"animations" : [
+						"hono.ichi_1_third"
+					],
+					"transitions" : [
+						{"hono1_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hono1_2_third" : {
+					"animations" : [
+						"hono.ichi_2_third"
+					],
+					"transitions" : [
+						{"equipment":"!query.property('kurokumaft:kokyu_particle')"}
+					]
+				},
+				"hono2_third" : {
+					"animations" : [
+						"hono.ni_1_third"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono3_third" : {
+					"animations" : [
+						"hono.san_1_third"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono4_third" : {
+					"animations" : [
+						"hono.shi_1_third"
+					],
+					"transitions" : [
+						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hono5_third" : {
+					"animations" : [
+						"hono.go_1_third"
+					],
+					"transitions" : [
+						{"equipment":"query.any_animation_finished"}
+					]
+				},
+				"hono9_third" : {
+					"animations" : [
+						"hono.ku_hono_1",
+						"hono.ku_1_third"
+					],
+					"transitions" : [
+						{"hono9_2_third": "!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hono9_2_third" : {
+					"animations" : [
+						"hono.ku_hono_2",
+						"hono.ku_2_third"
+					],
+					"transitions" : [
+						{"equipment": "!query.property('kurokumaft:kokyu_particle')"}
+					]
+				}
+
+			}
+		}
+	}
+}

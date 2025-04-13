@@ -10,11 +10,12 @@
         "default": "textures/kurokumaft/models/mob/sanemi"
       },
       "geometry": {
-        "default": "geometry.sanemi"      },
+        "default": "geometry.sanemi"
+      },
       "particle_effects": {
         "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
         "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle",
-        "kaze_blead2_particle": "kurokumaft:kaze_blead2_particle"
+        "kaze_circle_particle": "kurokumaft:kaze_circle_particle"
       },
       "scripts": {
         "scaleX": "1.00",

@@ -36,13 +36,11 @@ export class KokyuHiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let hi = new HiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 6 :
                 hi.rokuNoKataAttack(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
@@ -55,8 +53,10 @@ export class KokyuHiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let hi = new HiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
+            case 1 :
+                hi.ichiNoKata(player, itemStack);
+            break;
             case 2 :
                 hi.niNoKata(player, itemStack);
             break;
@@ -88,7 +88,6 @@ export class KokyuHiComponent implements NichirintouUseComponent {
                 hi.zyuniNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
@@ -96,13 +95,11 @@ export class KokyuHiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let hi = new HiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 5 :
                 hi.goNoKata(player, itemStack);
             break;
        }
-       player.removeTag(player.id);
     }
 
 }

@@ -17,13 +17,27 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "mushi"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+
+          "mushi": "controller.animation.nichirintou.mushi",
+
+          "chou_1_third": "animation.nichirintou.mushi.chou_1_third",
+          "houga_1_third": "animation.nichirintou.mushi.houga_1_third",
+          "seirei_1_third": "animation.nichirintou.mushi.seirei_1_third",
+          "gokou_1_third": "animation.nichirintou.mushi.gokou_1_third",
+
+          "chou_1_first": "animation.nichirintou.mushi.chou_1_first",
+          "houga_1_first": "animation.nichirintou.mushi.houga_1_first",
+          "seirei_1_first": "animation.nichirintou.mushi.seirei_1_first",
+          "gokou_1_first": "animation.nichirintou.mushi.gokou_1_first"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

@@ -10,7 +10,7 @@
         },
         "components": {
             "minecraft:type_family": {
-                "family": [ "hono_tiger" ]
+                "family": [ "inanimate", "hono_tiger", "arrow" ]
             },
             "minecraft:collision_box": {
                 "width": 5.0,
@@ -37,7 +37,9 @@
                 "anchor": 1,
                 "offset": [0, 0, 0],
                 "reflectOnHurt": true,
-                "catch_fire": false
+                "catch_fire": false,
+                "destroyOnHurt": true
+
             },
             "minecraft:nameable": {
             },

@@ -6,7 +6,7 @@ import { KoiNoKata } from "../kata/KoiNoKata";
 /**
  * 呼吸（恋）
  */
-export class KokyuHebiComponent implements NichirintouUseComponent {
+export class KokyuKoiComponent implements NichirintouUseComponent {
     /**
      * 呼吸型変更
      * @param {Player} player
@@ -14,7 +14,7 @@ export class KokyuHebiComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[22] as KokyuObject;
+        let kokyuObject = KokyuObjects[24] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
@@ -44,7 +44,6 @@ export class KokyuHebiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let koi = new KoiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 koi.ichiNoKata(player, itemStack);
@@ -62,7 +61,6 @@ export class KokyuHebiComponent implements NichirintouUseComponent {
                 koi.rokuNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 

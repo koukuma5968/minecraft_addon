@@ -20,7 +20,7 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:steel_ingot" ],
+            "items": [ "kurokumaft:steel_ingot" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           }
         ]

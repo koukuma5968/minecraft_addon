@@ -16,7 +16,7 @@
       },
       "minecraft:icon":  "charcoal_block_item",
       "minecraft:block_placer": {
-        "block": "charcoal_block"
+        "block": "kurokumaft:charcoal_block"
       }
     }
   }

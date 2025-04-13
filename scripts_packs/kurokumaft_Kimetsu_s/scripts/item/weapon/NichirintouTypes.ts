@@ -1,14 +1,11 @@
-import { KokyuGiyuComponent } from "../../kokyu/KokyuGiyuComponent";
-import { KokyuGyoumeiComponent } from "../../kokyu/KokyuGyoumeiComponent";
-import { KokyuInosukeComponent } from "../../kokyu/KokyuInosukeComponent";
-import { KokyuKanawoComponent } from "../../kokyu/KokyuKanawoComponent";
-import { KokyuMituriComponent } from "../../kokyu/KokyuMituriComponent";
-import { KokyuKyouzyuroComponent } from "../../kokyu/KokyuKyouzyuroComponent";
-import { KokyuSanemiComponent } from "../../kokyu/KokyuSanemiComponent";
-import { KokyuShinobuComponent } from "../../kokyu/KokyuShinobuComponent";
-import { KokyuTanjiroComponent } from "../../kokyu/KokyuTanjiroComponent";
-import { KokyuTengenComponent } from "../../kokyu/KokyuTengenComponent";
-import { KokyuZenituComponent } from "../../kokyu/KokyuZenituComponent";
+import { KokyuGiyuComponent } from "../../kokyu/character/KokyuGiyuComponent";
+import { KokyuKanawoComponent } from "../../kokyu/character/KokyuKanawoComponent";
+import { KokyuMituriComponent } from "../../kokyu/character/KokyuMituriComponent";
+import { KokyuKyouzyuroComponent } from "../../kokyu/character/KokyuKyouzyuroComponent";
+import { KokyuSanemiComponent } from "../../kokyu/character/KokyuSanemiComponent";
+import { KokyuShinobuComponent } from "../../kokyu/character/KokyuShinobuComponent";
+import { KokyuTanjiroComponent } from "../../kokyu/character/KokyuTanjiroComponent";
+import { KokyuZenituComponent } from "../../kokyu/character/KokyuZenituComponent";
 import { NichirintouChoiceComponent } from "../../kokyu/NichirintouChoiceComponent";
 import { NichirintouUseComponent } from "../../kokyu/NichirintouUseComponent";
 import { KokyuHebiComponent } from "../../kokyu/regimental/KokyuHebiComponent";
@@ -21,6 +18,15 @@ import { KokyuKazeComponent } from "../../kokyu/regimental/KokyuKazeComponent";
 import { KokyuMizuComponent } from "../../kokyu/regimental/KokyuMizuComponent";
 import { KokyuMushiComponent } from "../../kokyu/regimental/KokyuMushiComponent";
 import { KokyuOtoComponent } from "../../kokyu/regimental/KokyuOtoComponent";
+import { KokyuMuitiroComponent } from "../../kokyu/character/KokyuMuitiroComponent";
+import { KokyuObanaiComponent } from "../../kokyu/character/KokyuObanaiComponent";
+import { KokyuKoiComponent } from "../../kokyu/regimental/KokyuKoiComponent";
+import { KokyuKedamonoComponent } from "../../kokyu/regimental/KokyuKedamonoComponent";
+import { KokyuGyoumeiComponent } from "../../kokyu/character/KokyuGyoumeiComponent";
+import { KokyuInosukeComponent } from "../../kokyu/character/KokyuInosukeComponent";
+import { KokyuTengenComponent } from "../../kokyu/character/KokyuTengenComponent";
+import { KokyuHanaComponent } from "../../kokyu/regimental/KokyuHanaComponent";
+import { KokyuTukiComponent } from "../../kokyu/regimental/KokyuTukiComponent";
 
 export interface KokyuObject {
     itemName:string,
@@ -41,21 +47,24 @@ export const kokyuClassRecord: Record<string, new () => NichirintouUseComponent>
     kyouzyuro: KokyuKyouzyuroComponent,
     sanemi: KokyuSanemiComponent,
     gyoumei: KokyuGyoumeiComponent,
-    muitiro: KokyuTanjiroComponent,
+    muitiro: KokyuMuitiroComponent,
     tengen: KokyuTengenComponent,
-    obanai: KokyuKanawoComponent,
+    obanai: KokyuObanaiComponent,
     mituri: KokyuMituriComponent,
     mizu: KokyuMizuComponent,
     kaminari: KokyuKaminariComponent,
     hi: KokyuHiComponent,
+    kedamono: KokyuKedamonoComponent,
     hono: KokyuHonoComponent,
     kaze: KokyuKazeComponent,
     iwa: KokyuIwaComponent,
     kasumi: KokyuKasumiComponent,
     oto: KokyuOtoComponent,
     hebi: KokyuHebiComponent,
-    koi: KokyuHiComponent,
+    koi: KokyuKoiComponent,
     mushi: KokyuMushiComponent,
+    hana: KokyuHanaComponent,
+    tuki: KokyuTukiComponent
 };
 
 export const KokyuObjects = Object.freeze([
@@ -137,7 +146,7 @@ export const KokyuObjects = Object.freeze([
     {
         itemName: "kurokumaft:nichirintou_tengen",
         type: 12,
-        kata: [1,4,5],
+        kata: [1,2,3,4,5],
         kata_msg: "oto_kata",
         className: "tengen"
     },
@@ -184,57 +193,71 @@ export const KokyuObjects = Object.freeze([
         className: "hono"
     },
     {
-        itemName: "kurokumaft:nichirintou_kaze",
+        itemName: "kurokumaft:nichirintou_kedamono",
         type: 19,
+        kata: [1,2,3,4,5,6,7,8,9,10],
+        kata_msg: "kedamono_kata",
+        className: "kedamono"
+    },
+    {
+        itemName: "kurokumaft:nichirintou_kaze",
+        type: 20,
         kata: [1,2,3,4,5,6,7,8,9],
         kata_msg: "kaze_kata",
         className: "kaze"
     },
     {
         itemName: "kurokumaft:nichirintou_iwa",
-        type: 19,
+        type: 21,
         kata: [1,2,3,4,5],
         kata_msg: "iwa_kata",
         className: "iwa"
     },
     {
         itemName: "kurokumaft:nichirintou_kasumi",
-        type: 20,
+        type: 22,
         kata: [1,2,3,4,5,6,7],
         kata_msg: "kasumi_kata",
         className: "kasumi"
     },
     {
         itemName: "kurokumaft:nichirintou_oto",
-        type: 21,
+        type: 23,
         kata: [1,2,3,4,5],
         kata_msg: "oto_kata",
         className: "oto"
     },
     {
         itemName: "kurokumaft:nichirintou_hebi",
-        type: 22,
+        type: 24,
         kata: [1,2,3,4,5],
         kata_msg: "hebi_kata",
         className: "hebi"
     },
     {
         itemName: "kurokumaft:nichirintou_koi",
-        type: 23,
+        type: 25,
         kata: [1,2,3,5,6],
         kata_msg: "koi_kata",
         className: "koi"
     },
     {
         itemName: "kurokumaft:nichirintou_mushi",
-        type: 24,
+        type: 26,
         kata: [1,2,3,4],
         kata_msg: "mushi_kata",
         className: "mushi"
     },
     {
+        itemName: "kurokumaft:nichirintou_hana",
+        type: 27,
+        kata: [2,4,5,6],
+        kata_msg: "hana_kata",
+        className: "hana"
+    },
+    {
         itemName: "kurokumaft:nichirintou_tuki",
-        type: 25,
+        type: 28,
         kata: [1,2,3,5,6,7,8,9,10,14,16],
         kata_msg: "tuki_kata",
         className: "tuki"

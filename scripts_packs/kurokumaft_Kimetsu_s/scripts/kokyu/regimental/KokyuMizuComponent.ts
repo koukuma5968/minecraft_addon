@@ -36,13 +36,11 @@ export class KokyuMizuComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let mizu = new MizuNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 10 :
                 mizu.zyuNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
@@ -55,7 +53,6 @@ export class KokyuMizuComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let mizu = new MizuNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 2 :
                 mizu.niNoKata(player, itemStack);
@@ -73,7 +70,6 @@ export class KokyuMizuComponent implements NichirintouUseComponent {
                 mizu.zyuNoKataShot(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
@@ -81,7 +77,6 @@ export class KokyuMizuComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let mizu = new MizuNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 mizu.ichiNoKata(player, itemStack);
@@ -99,7 +94,6 @@ export class KokyuMizuComponent implements NichirintouUseComponent {
                 mizu.hachiNoKata(player, itemStack);
             break;
        }
-       player.removeTag(player.id);
     }
 
 }

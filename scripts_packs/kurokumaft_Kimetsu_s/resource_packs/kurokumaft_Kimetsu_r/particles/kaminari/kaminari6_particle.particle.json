@@ -13,10 +13,10 @@
 				"num_particles": "variable.kaikyu*0.5"
 			},
 			"minecraft:emitter_lifetime_once": {
-				"active_time": 3
+				"active_time": 0.1
 			},
 			"minecraft:emitter_shape_box": {
-				"offset": ["math.random(-2, 2)", "math.random(0, 8)", "math.random(-2, 2)"],
+				"offset": ["math.random(-6, 6)", "math.random(-4, 4)", "math.random(-6, 6)"],
 				"half_dimensions": [0, 8, 0],
 				"direction": "outwards"
 			},

@@ -77,6 +77,24 @@
               "trader_exp": 2,
               "max_uses": 16,
               "reward_exp": true
+            },
+            {
+              "wants": [
+                {
+                  "item": "kurokumaft:seeds_rice_plant",
+                  "quantity": 20,
+                  "price_multiplier": 0.05
+                }
+              ],
+              "gives": [
+                {
+                  "item": "minecraft:emerald",
+                  "quantity": 1
+                }
+              ],
+              "trader_exp": 2,
+              "max_uses": 16,
+              "reward_exp": true
             }
           ]
         },

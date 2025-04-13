@@ -22,7 +22,7 @@
         "use_duration": 2
       },
       "minecraft:block_placer": {
-        "block": "olive_tree",
+        "block": "kurokumaft:olive_tree",
         "use_on" : [
           "dirt",
           "grass"

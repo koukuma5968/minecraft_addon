@@ -21,7 +21,7 @@
         "use_duration": 2
       },
       "minecraft:block_placer": {
-        "block": "soybeans",
+        "block": "kurokumaft:soybeans",
         "use_on" : [
           "farmland"
         ]

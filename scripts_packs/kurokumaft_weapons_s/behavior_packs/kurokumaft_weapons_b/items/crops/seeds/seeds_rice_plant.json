@@ -14,7 +14,7 @@
 			},
       "minecraft:icon": "seeds_rice_plant",
       "minecraft:block_placer": {
-        "block": "rice_plant",
+        "block": "kurokumaft:rice_plant",
         "use_on" : [
           "mud"
         ]

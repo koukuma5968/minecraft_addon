@@ -10,8 +10,8 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": 50,
-				"max_particles": 100
+				"spawn_rate": "variable.kaikyu*5",
+				"max_particles": "variable.kaikyu*10"
 			},
 			"minecraft:emitter_lifetime_once": {
 				"active_time": 1
@@ -35,7 +35,7 @@
 				"linear_drag_coefficient": 1
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.5, 0.5],
+				"size": ["variable.kaikyu*0.05", "variable.kaikyu*0.05"],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 128,

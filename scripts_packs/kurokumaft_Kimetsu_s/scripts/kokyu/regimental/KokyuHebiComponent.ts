@@ -14,7 +14,7 @@ export class KokyuHebiComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[21] as KokyuObject;
+        let kokyuObject = KokyuObjects[23] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
@@ -44,7 +44,6 @@ export class KokyuHebiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let hebi = new HebiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 hebi.ichiNoKata(player, itemStack);
@@ -62,7 +61,6 @@ export class KokyuHebiComponent implements NichirintouUseComponent {
                 hebi.goNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 

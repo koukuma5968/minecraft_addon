@@ -16,8 +16,31 @@
 					]
 				},
 				"attack_third": {
+					"transitions": [
+						{"one_third": "query.equipped_item_any_tag('slot.weapon.mainhand', 'attack_one')"},
+						{"two_third": "query.equipped_item_any_tag('slot.weapon.mainhand', 'attack_two')"},
+						{"horizontality_third": "query.equipped_item_any_tag('slot.weapon.mainhand', 'attack_horizontality')"}
+					]
+				},
+				"one_third": {
 					"animations": [
 						"nichirintou_custom.attack_third"
+					],
+					"transitions": [
+						{"third": "query.any_animation_finished"}
+					]
+				},
+				"two_third": {
+					"animations": [
+						"nichirintou_custom.two_attack_third"
+					],
+					"transitions": [
+						{"third": "query.any_animation_finished"}
+					]
+				},
+				"horizontality_third": {
+					"animations": [
+						"nichirintou_custom.attack_horizontality_third"
 					],
 					"transitions": [
 						{"third": "query.any_animation_finished"}

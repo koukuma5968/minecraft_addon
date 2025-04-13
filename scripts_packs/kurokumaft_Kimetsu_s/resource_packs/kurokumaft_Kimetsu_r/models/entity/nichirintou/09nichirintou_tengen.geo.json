@@ -970,7 +970,7 @@
 					"name": "chaingroup2",
 					"parent": "nichirinto_left",
 					"pivot": [4.3, 0, 24],
-					"rotation": [90, 0, 0]
+					"rotation": [17.5, 0, 0]
 				},
 				{
 					"name": "chain16",
@@ -2821,7 +2821,7 @@
 					"name": "chaingroup",
 					"parent": "nichirinto_right",
 					"pivot": [-5.7, 1.00092, 24.76189],
-					"rotation": [90, 0, 0]
+					"rotation": [15, 0, 0]
 				},
 				{
 					"name": "chain",

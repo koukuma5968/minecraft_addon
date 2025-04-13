@@ -1,17 +1,14 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.nichirintou_scale": {
+		"animation.nichirintou_scale_twin": {
 			"loop": true,
 			"bones": {
-				"nichirintou": {
-					"scale": "c.is_first_person ? 0.5 : 0.3"
-				},
 				"nichirinto_right": {
-					"scale": "c.is_first_person ? 0.5 : 0.3"
+					"scale": "c.is_first_person ? 0.4 : 0.3"
 				},
 				"nichirinto_left": {
-					"scale": "c.is_first_person ? 0.5 : 0.3"
+					"scale": "c.is_first_person ? 0.4 : 0.3"
 				},
 				"nichirinto_hanmar_right": {
 					"scale": "c.is_first_person ? 0.7 : 0.5"
@@ -21,14 +18,38 @@
 				}
 			}
 		},
-		"animation.nichirintou_third": {
+		"animation.nichirintou_first_twin": {
 			"loop": true,
 			"bones": {
-				"nichirintou_hold_right": {
-					"position": [6, -2, -2]
+				"nichirinto_left": {
+					"rotation": [104.53588, -22.73475, 165.86002],
+					"position": [-24, -10, 25]
 				},
-				"nichirintou_hold_left": {
-					"position": [-6, -2, -2]
+				"nichirinto_right": {
+					"rotation": [-31.62237, 65.14418, -89.77431],
+					"position": [13, 0, 10]
+				},
+				"nichirinto_hanmar_right": {
+					"rotation": [-342.60019, 67.86137, -379.80591],
+					"position": [4, 25, 1]
+				},
+				"nichirinto_ono_left": {
+					"rotation": [198.80656, -17.36022, 161.01152],
+					"position": [-11, 25, -22]
+				}
+			}
+		},
+		"animation.nichirintou_scale": {
+			"loop": true,
+			"bones": {
+				"nichirintou": {
+					"scale": "c.is_first_person ? 0.5 : 0.3"
+				},
+				"nichirinto_right": {
+					"scale": "c.is_first_person ? 0.7 : 0.5"
+				},
+				"nichirinto_left": {
+					"scale": "c.is_first_person ? 0.7 : 0.5"
 				}
 			}
 		},
@@ -40,20 +61,46 @@
 					"position": [9, 8, 2]
 				},
 				"nichirinto_left": {
-					"rotation": [4.69738, 51.87419, -56.06057],
-					"position": [-8, 4, -10]
-				},
-				"nichirinto_right": {
-					"rotation": [14.93001, 68.69274, -44.97092],
-					"position": [2, -4, 2]
-				},
-				"nichirinto_hanmar_right": {
-					"rotation": [-342.60019, 67.86137, -379.80591],
-					"position": [4, 25, 1]
-				},
-				"nichirinto_ono_left": {
 					"rotation": [198.80656, -17.36022, 161.01152],
 					"position": [-11, 25, -22]
+				},
+				"nichirinto_right": {
+					"rotation": [-342.60019, 67.86137, -379.80591],
+					"position": [4, 25, 1]
+				}
+			}
+		},
+		"animation.nichirintou_scale_gyoumei": {
+			"loop": true,
+			"bones": {
+				"nichirinto_right": {
+					"scale": "c.is_first_person ? 0.8 : 0.6"
+				},
+				"nichirinto_left": {
+					"scale": "c.is_first_person ? 0.8 : 0.6"
+				},
+				"nichirinto_hanmar_right": {
+					"scale": "c.is_first_person ? 0.7 : 0.5"
+				},
+				"nichirinto_ono_left": {
+					"scale": "c.is_first_person ? 0.7 : 0.5"
+				}
+			}
+		},
+		"animation.nichirintou_scale_tengen": {
+			"loop": true,
+			"bones": {
+				"nichirinto_right": {
+					"scale": "c.is_first_person ? 0.7 : 0.4"
+				},
+				"nichirinto_left": {
+					"scale": "c.is_first_person ? 0.7 : 0.4"
+				},
+				"nichirinto_hanmar_right": {
+					"scale": "c.is_first_person ? 0.7 : 0.5"
+				},
+				"nichirinto_ono_left": {
+					"scale": "c.is_first_person ? 0.7 : 0.5"
 				}
 			}
 		}

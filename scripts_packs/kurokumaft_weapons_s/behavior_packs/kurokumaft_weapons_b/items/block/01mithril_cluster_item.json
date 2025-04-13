@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": "mithril_cluster",
       "minecraft:block_placer": {
-        "block": "mithril_cluster"
+        "block": "kurokumaft:mithril_cluster"
       }
     }
   }

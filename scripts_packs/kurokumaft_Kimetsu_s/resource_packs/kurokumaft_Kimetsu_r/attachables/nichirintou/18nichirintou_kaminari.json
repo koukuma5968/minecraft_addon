@@ -17,13 +17,23 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "kaminari"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+
+          "kaminari": "controller.animation.nichirintou.kaminari",
+
+          "shi_1_third": "animation.nichirintou.kaminari.shi_1_third",
+          "shi_2_third": "animation.nichirintou.kaminari.shi_2_third",
+
+          "shi_1_first": "animation.nichirintou.kaminari.shi_1_first",
+          "shi_2_first": "animation.nichirintou.kaminari.shi_2_first"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

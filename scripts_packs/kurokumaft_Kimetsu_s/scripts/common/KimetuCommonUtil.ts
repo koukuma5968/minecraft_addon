@@ -212,7 +212,7 @@ function addProjectionFilter(closest:number, location:Vector3, maxDis:number): E
 
     let filterOption = {
         families: [
-            "inanimate"
+            "arrow"
         ],
         location: location,
         maxDistance: maxDis

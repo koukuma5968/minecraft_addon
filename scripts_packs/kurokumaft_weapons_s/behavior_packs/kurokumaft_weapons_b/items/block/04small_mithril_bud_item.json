@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": "small_mithril_bud",
       "minecraft:block_placer": {
-        "block": "small_mithril_bud"
+        "block": "kurokumaft:small_mithril_bud"
       }
     }
   }

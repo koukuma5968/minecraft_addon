@@ -44,16 +44,12 @@ export class KokyuKaminariComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let kaminari = new KaminariNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 2 :
                 kaminari.niNoKata(player, itemStack);
             break;
             case 3 :
                 kaminari.sanNoKata(player, itemStack);
-            break;
-            case 4 :
-                kaminari.shiNoKata(player, itemStack);
             break;
             case 5 :
                 kaminari.goNoKata(player, itemStack);
@@ -62,7 +58,6 @@ export class KokyuKaminariComponent implements NichirintouUseComponent {
                 kaminari.rokuNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
@@ -70,13 +65,14 @@ export class KokyuKaminariComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let kaminari = new KaminariNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 kaminari.ichiNoKata(player, itemStack);
             break;
+            case 4 :
+                kaminari.shiNoKata(player, itemStack);
+            break;
        }
-       player.removeTag(player.id);
     }
 
 }

@@ -15,27 +15,27 @@
 						"locator": "hono_tiger"
 					},
 					{
-						"effect": "hono_blead_particle",
+						"effect": "hono_tiger_fang_particle",
 						"locator": "hono_righttangle"
 					},
 					{
-						"effect": "hono_blead_particle",
+						"effect": "hono_tiger_fang_particle",
 						"locator": "hono_leftangle"
 					},
 					{
-						"effect": "hono_blead_particle",
+						"effect": "hono_tiger_fang_particle",
 						"locator": "hono_up_fang"
 					},
 					{
-						"effect": "hono_blead_particle",
+						"effect": "hono_tiger_fang_particle",
 						"locator": "hono_up_fang2"
 					},
 					{
-						"effect": "hono_blead_particle",
+						"effect": "hono_tiger_fang_particle",
 						"locator": "hono_low_fang"
 					},
 					{
-						"effect": "hono_blead_particle",
+						"effect": "hono_tiger_fang_particle",
 						"locator": "hono_low_fang2"
 					}
 				]

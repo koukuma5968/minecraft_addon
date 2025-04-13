@@ -9,15 +9,18 @@ export class TukiNoKata extends KataComonClass {
      * 壱ノ型 闇月・宵の宮
      */
     ichiNoKata(player:Player, itemStack:ItemStack) {
+
+        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:tuki_kokyu1.value\"}]}");
-        system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_particle", false);
-        },6);
 
         let location = getLookPoints(player.getRotation(), player.location, 2.5);
         let filter = addRegimentalFilter(0, {x:location.x, y:location.y+0.5,z:location.z}, 3, player.id);
         this.kokyuApplyDamage(player, filter, 6, 3, itemStack);
+
+        system.runTimeout(() => {
+            player.setProperty("kurokumaft:kokyu_particle", false);
+        },6);
+
     }
 
     /**

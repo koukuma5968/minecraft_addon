@@ -17,13 +17,31 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "gyoumei"
           ]
         },
         "animations": {
-          "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "scale": "animation.nichirintou_scale_gyoumei",
+          "first": "animation.nichirintou_first_twin",
+
+          "gyoumei": "controller.animation.nichirintou.gyoumei",
+
+          "iwa.ichi_1_third": "animation.nichirintou.iwa.ichi_1_third",
+          "iwa.ni_1_third": "animation.nichirintou.iwa.ni_1_third",
+          "iwa.san_1_third": "animation.nichirintou.iwa.san_1_third",
+          "iwa.shi_1_third": "animation.nichirintou.iwa.shi_1_third",
+          "iwa.go_1_third": "animation.nichirintou.iwa.go_1_third",
+          "iwa.go_2_third": "animation.nichirintou.iwa.go_2_third",
+
+          "iwa.ichi_1_first": "animation.nichirintou.iwa.ichi_1_first",
+          "iwa.ni_1_first": "animation.nichirintou.iwa.ni_1_first",
+          "iwa.san_1_first": "animation.nichirintou.iwa.san_1_first",
+          "iwa.shi_1_first": "animation.nichirintou.iwa.shi_1_first",
+          "iwa.go_1_first": "animation.nichirintou.iwa.go_1_first",
+          "iwa.go_2_first": "animation.nichirintou.iwa.go_2_first"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

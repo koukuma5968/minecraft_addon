@@ -1,12 +1,12 @@
-import { ItemStack, Player, system, TicksPerSecond } from "@minecraft/server";
+import { ItemStack, Player } from "@minecraft/server";
 import { NichirintouUseComponent } from "../NichirintouUseComponent";
 import { KokyuObjects, KokyuObject } from "../../item/weapon/NichirintouTypes";
-import { KedamonoNoKata } from "../kata/KedamonoNoKata";
+import { HanaNoKata } from "../kata/HanaNoKata";
 
 /**
  * 呼吸（花）
  */
-export class KokyuKanawoComponent implements NichirintouUseComponent {
+export class KokyuHanaComponent implements NichirintouUseComponent {
     /**
      * 呼吸型変更
      * @param {Player} player
@@ -14,16 +14,17 @@ export class KokyuKanawoComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[4] as KokyuObject;
+        const kokyuObject = KokyuObjects[26] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                player.setProperty("kurokumaft:kokyu_kata", 1);
                 kata = kokyuObject.kata[0];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
                 break;
             default :
-                player.setProperty("kurokumaft:kokyu_kata", kata+1);
-                kata = kata+1;
+                const index = kokyuObject.kata.findIndex((el) => el == kata);
+                kata = kokyuObject.kata[index+1];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
         }
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:hana_kata" + kata + ".value\"}]}");
 
@@ -33,13 +34,6 @@ export class KokyuKanawoComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-
-        player.addTag(player.id);
-        switch (kata) {
-        }
-        player.removeTag(player.id);
-
     }
 
     /**
@@ -48,38 +42,27 @@ export class KokyuKanawoComponent implements NichirintouUseComponent {
      */
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kedamono = new KedamonoNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const hana = new HanaNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 2 :
-                kedamono.niNoKata(player, itemStack);
+                hana.niNoKata(player, itemStack);
             break;
             case 4 :
-                kedamono.shiNoKata(player, itemStack);
+                hana.shiNoKata(player, itemStack);
             break;
             case 5 :
-                kedamono.goNoKata(player, itemStack);
+                hana.goNoKata(player, itemStack);
             break;
             case 6 :
-                kedamono.rokuNoKata(player, itemStack);
-            break;
-            case 7 :
-                kedamono.shitiNoKata(player, itemStack);
+                hana.rokuNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-
-        player.addTag(player.id);
-        switch (kata) {
-       }
-       player.removeTag(player.id);
     }
 
 }

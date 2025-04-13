@@ -80,12 +80,12 @@ export class MushiNoKata extends KataComonClass {
     shiNoKata(player:Player, itemStack:ItemStack) {
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mushi_kokyu4.value\"}]}");
 
-        let point = getLookRotaionPoints(player.getRotation(), 2, -1.1);
-        player.applyKnockback(point.x,point.z,3,0);
+        let point = getLookRotaionPoints(player.getRotation(), 2, -2);
+        player.applyKnockback(point.x,point.z,10,0);
         player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",player.location);
         player.setProperty("kurokumaft:kokyu_attack", true);
 
-        let side = 1.2;
+        let side = 2;
         const num = system.runInterval(() => {
             let location = getLookPoints(player.getRotation(), player.location, 0)
             let filter = addRegimentalFilter(0, location, 4, player.id);

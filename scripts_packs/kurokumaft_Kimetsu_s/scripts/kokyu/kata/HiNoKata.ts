@@ -9,9 +9,9 @@ export class HiNoKata extends KataComonClass {
      * 壱ノ型 円舞
      */
     ichiNoKata(player:Player, itemStack:ItemStack) {
+        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:hi_kokyu1.value\"}]}");
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
             player.setProperty("kurokumaft:kokyu_particle", false);
         },6);
 
@@ -111,9 +111,9 @@ export class HiNoKata extends KataComonClass {
      */
     goNoKata(player:Player, itemStack:ItemStack) {
 
+        player.setProperty("kurokumaft:kokyu_use", false);
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:hi_kokyu5.value\"}]}");
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
             player.setProperty("kurokumaft:kokyu_particle", false);
         },5);
 
@@ -251,20 +251,22 @@ export class HiNoKata extends KataComonClass {
      */
     zyuichiNoKata(player:Player, itemStack:ItemStack) {
 
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:hi_kokyu11.value\"}]}");
-        player.setDynamicProperty("kurokumaft:chage_type", true);
-        player.setProperty("kurokumaft:kokyu_chage", 1);
-
-        player.addEffect(MinecraftEffectTypes.Invisibility, 10*TicksPerSecond,{
-            amplifier: 10,
-            showParticles: false
-        });
-        system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_chage", 0);
-            player.setProperty("kurokumaft:kokyu_particle", false);
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setDynamicProperty("kurokumaft:chage_type", undefined);
-        },10*TicksPerSecond);
+        player.setProperty("kurokumaft:kokyu_use", false);
+        if (player.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:hi_kokyu11.value\"}]}");
+            player.setDynamicProperty("kurokumaft:chage_type", true);
+            player.setProperty("kurokumaft:kokyu_chage", 10);
+    
+            player.addEffect(MinecraftEffectTypes.Invisibility, 10*TicksPerSecond,{
+                amplifier: 10,
+                showParticles: false
+            });
+            system.runTimeout(() => {
+                player.setProperty("kurokumaft:kokyu_chage", 0);
+                player.setProperty("kurokumaft:kokyu_particle", false);
+                player.setDynamicProperty("kurokumaft:chage_type", undefined);
+            },10*TicksPerSecond);
+        }
 
     }
 

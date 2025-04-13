@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:kaminari_dragon_small",
+        "materials": {
+          "default": "dragon"
+        },
+        "textures": {
+          "kaminari_dragon": "textures/kurokumaft/models/kaminari_dragon"
+        },
+        "geometry": {
+          "kaminari_dragon": "geometry.kaminari_dragon"
+        },
+        "particle_effects": {
+          "kaminari_dragon_particle": "kurokumaft:kaminari_dragon_particle"
+        },
+        "animations": {
+          "attack": "animation.kaminari_dragon.attack"
+        },
+        "scripts": {
+          "scaleX": "0.20",
+          "scaleY": "0.16",
+          "scaleZ": "0.20",
+          "animate": [
+            "attack"
+          ]
+        },
+        "render_controllers": ["controller.render.kaminari_dragon"]
+      }
+    }
+  }
+  

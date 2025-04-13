@@ -1,0 +1,52 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nichirintou.kaminari.shi_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.0833,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -30, -90]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.nichirintou.kaminari.shi_2_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [0, 5, -90],
+						"0.0833": [0, 80, -90]
+					}
+				}
+			}
+		},
+		"animation.nichirintou.kaminari.shi_1_first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"nichirintou": {
+					"rotation": [70, 0, 0],
+					"position": [-2, -1, -3]
+				}
+			}
+		},
+		"animation.nichirintou.kaminari.shi_2_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"nichirintou": {
+					"rotation": [70, 0, 0],
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.125": [10, -14, -4]
+					}
+				}
+			}
+		}
+	}
+}
