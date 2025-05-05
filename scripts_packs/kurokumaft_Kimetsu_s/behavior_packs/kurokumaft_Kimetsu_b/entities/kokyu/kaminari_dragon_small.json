@@ -8,6 +8,90 @@
             "is_experimental": false,
             "runtime_identifier": "minecraft:arrow"
         },
+        "component_groups": {
+            "kurokumaft:small_damage": {
+                "minecraft:projectile": {
+                    "on_hit": {
+                        "definition_event": {
+                          "affect_projectile": true
+                        },
+                        "impact_damage": {
+                            "damage": 4,
+                            "knockback": true,
+                            "semirandomdiffdamage": false,
+                            "destroyonhit": false
+                        },
+                        "remove_on_hit": { }
+                    },
+                    "power": 3.0,
+                    "gravity": 0.00,
+                    "inertia": 1.0,
+                    "uncertaintyBase": 8,
+                    "uncertaintyMultiplier": 2.5,
+                    "anchor": 1,
+                    "offset": [0, 0, 0],
+                    "reflectOnHurt": true,
+                    "catch_fire": false,
+                    "destroyOnHurt": true,
+                    "destroyOnProjectileHurt": true
+                }
+            },
+            "kurokumaft:middle_damage": {
+                "minecraft:projectile": {
+                    "on_hit": {
+                        "definition_event": {
+                          "affect_projectile": true
+                        },
+                        "impact_damage": {
+                            "damage": 16,
+                            "knockback": true,
+                            "semirandomdiffdamage": false,
+                            "destroyonhit": false
+                        },
+                        "remove_on_hit": { }
+                    },
+                    "power": 4.0,
+                    "gravity": 0.00,
+                    "inertia": 1.0,
+                    "uncertaintyBase": 8,
+                    "uncertaintyMultiplier": 2.5,
+                    "anchor": 1,
+                    "offset": [0, 0, 0],
+                    "reflectOnHurt": true,
+                    "catch_fire": false,
+                    "destroyOnHurt": true,
+                    "destroyOnProjectileHurt": true
+                }
+            },
+            "kurokumaft:lage_damage": {
+                "minecraft:projectile": {
+                    "on_hit": {
+                        "definition_event": {
+                          "affect_projectile": true
+                        },
+                        "impact_damage": {
+                            "damage": 32,
+                            "knockback": true,
+                            "semirandomdiffdamage": false,
+                            "destroyonhit": false
+                        },
+                        "remove_on_hit": { }
+                    },
+                    "power": 5.0,
+                    "gravity": 0.00,
+                    "inertia": 1.0,
+                    "uncertaintyBase": 8,
+                    "uncertaintyMultiplier": 2.5,
+                    "anchor": 1,
+                    "offset": [0, 0, 0],
+                    "reflectOnHurt": true,
+                    "catch_fire": false,
+                    "destroyOnHurt": true,
+                    "destroyOnProjectileHurt": true
+                }
+            }
+        },
+      
         "components": {
             "minecraft:type_family": {
                 "family": [ "inanimate", "kaminari_dragon", "arrow" ]
@@ -38,7 +122,8 @@
                 "offset": [0, 0, 0],
                 "reflectOnHurt": true,
                 "catch_fire": false,
-                "destroyOnHurt": true
+                "destroyOnHurt": true,
+                "destroyOnProjectileHurt": true
             },
             "minecraft:nameable": {
             },
@@ -56,6 +141,29 @@
                     "use_motion_prediction_hints": true
                   }
             }
+        },
+        "events": {
+          "kurokumaft:small_damage": {
+            "add": {
+              "component_groups": [
+                "kurokumaft:small_damage"
+              ]
+            }
+          },
+          "kurokumaft:middle_damage": {
+            "add": {
+              "component_groups": [
+                "kurokumaft:middle_damage"
+              ]
+            }
+          },
+          "kurokumaft:lage_damage": {
+            "add": {
+              "component_groups": [
+                "kurokumaft:lage_damage"
+              ]
+            }
+          }
         }
     }
 }

@@ -12,23 +12,47 @@ export class KimetuEquipmentTick {
     checkPlayerKaikyuTick() {
         if (this.player.isValid()) {
 
-            const kaikyuNum = this.player.getProperty("kurokumaft:kaikyu") as number;
-            const kaikyu = "msg.kurokumaft:kaikyu"+ kaikyuNum +".value";
-            this.player.onScreenDisplay.setTitle(
-                {
-                    rawtext:[
-                        {translate:kaikyu}
-                    ]
-                },
-                {
-                    stayDuration: 100,
-                    fadeInDuration: 0,
-                    fadeOutDuration: 1,
-                    subtitle: ""
+            const orgeRank = this.player.getProperty("kurokumaft:orge_rank");
+            if ("none" == orgeRank) {
+                const kaikyuNum = this.player.getProperty("kurokumaft:kaikyu") as number;
+                if (kaikyuNum > 0) {
+                    const kaikyu = "msg.kurokumaft:kaikyu"+ kaikyuNum +".value";
+                    this.player.onScreenDisplay.setTitle(
+                        {
+                            rawtext:[
+                                {translate:kaikyu}
+                            ]
+                        },
+                        {
+                            stayDuration: 100,
+                            fadeInDuration: 0,
+                            fadeOutDuration: 1,
+                            subtitle: ""
+                        }
+                    );
+        
                 }
-            );
-            system.waitTicks(TicksPerSecond*5);
-            system.run(this.checkPlayerKaikyuTick.bind(this));
+            } else {
+                const orgeMoon = this.player.getProperty("kurokumaft:orge_moon") as number;
+                const rank = "msg.kurokumaft:orgerank_" + orgeRank + (("quarter" == orgeRank || "crescent" == orgeRank) ? orgeMoon : "") + ".value";
+                this.player.onScreenDisplay.setTitle(
+                    {
+                        rawtext:[
+                            {translate:rank}
+                        ]
+                    },
+                    {
+                        stayDuration: 100,
+                        fadeInDuration: 0,
+                        fadeOutDuration: 1,
+                        subtitle: ""
+                    }
+                );
+
+            }
+            system.runTimeout(() => {
+                system.run(this.checkPlayerKaikyuTick.bind(this));
+            }, 20);
         }
     };
 
@@ -46,8 +70,10 @@ export class KimetuEquipmentTick {
                 if (object != undefined) {
                     if (this.player.getProperty("kurokumaft:nichirintou_type") != object.type) {
                         this.player.setProperty("kurokumaft:nichirintou_type", object.type);
-                        this.player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
-                        this.player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:" + object.kata_msg + object.kata[0]+ ".value\"}]}");
+                        if (object.type > 1) {
+                            this.player.setProperty("kurokumaft:kokyu_kata", object.kata[0]);
+                            this.player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:" + object.kata_msg + object.kata[0]+ ".value\"}]}");
+                        }
                     }
                 // 日輪刀を持っていない
                 } else {

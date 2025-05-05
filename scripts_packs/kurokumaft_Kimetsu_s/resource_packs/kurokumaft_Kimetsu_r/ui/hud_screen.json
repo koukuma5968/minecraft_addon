@@ -81,7 +81,7 @@
             "type": "panel",
             "anchor_from": "bottom_right",
             "anchor_to": "bottom_right",
-            "size": [ 150, 30 ],
+            "size": [ 100, 30 ],
             "factory": {
               "name": "hud_title_text_factory",
               "control_ids": {

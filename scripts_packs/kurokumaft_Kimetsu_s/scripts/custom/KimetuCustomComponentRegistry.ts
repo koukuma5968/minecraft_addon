@@ -5,6 +5,7 @@ import { KekkizyutuHakaisatu } from "../item/weapon/kekkizyutu/KekkizyutuHakaisa
 import { KekkizyutuKoushi } from "../item/weapon/kekkizyutu/KekkizyutuKoushi";
 import { KekkizyutuTigama } from "../item/weapon/kekkizyutu/KekkizyutuTigama";
 import { KekkizyutuUltrasonic } from "../item/weapon/kekkizyutu/KekkizyutuUltrasonic";
+import { BloodDrinking } from "../item/tool/BloodDrinking";
 
 /**
  * カスタムコンポーネントの登録
@@ -15,7 +16,9 @@ function initRegisterKimetuCustom(initEvent:WorldInitializeBeforeEvent) {
     // アイテム類
     // 日輪刀
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:nichirintou_component', new NichirintouComponent());
-    
+    // 血飲み
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:blood_drinking', new BloodDrinking());
+
     // 血気術
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:kekkizyutu_bakketu', new KekkizyutuBakketu());
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:kekkizyutu_tigama', new KekkizyutuTigama());

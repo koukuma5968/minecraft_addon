@@ -9,7 +9,7 @@
         },
         "textures": {
           "default": "textures/kurokumaft/models/nichirintou/nichirintou_kemono",
-          "enchanted": "textures/misc/enchanted_item_glint"
+          "enchanted": "textures/kurokumaft/misc/enchanted_item_shiner"
         },
         "geometry": {
           "default": "geometry.nichirintou_kemono"
@@ -22,9 +22,9 @@
           ]
         },
         "animations": {
-          "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first",
+          "scale": "animation.nichirintou_scale_twin",
+          "first": "animation.nichirintou_first_twin",
 
           "kedamono": "controller.animation.nichirintou.kedamono",
 

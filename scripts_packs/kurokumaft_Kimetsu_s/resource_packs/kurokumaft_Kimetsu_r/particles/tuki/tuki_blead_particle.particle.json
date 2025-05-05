@@ -9,22 +9,28 @@
 			}
 		},
 		"components": {
-			"minecraft:emitter_rate_instant": {
-				"num_particles": 1
+			"minecraft:emitter_initialization": {
+				"creation_expression": "variable.tuki_size = math.random_integer(0.4, 0.8);"
 			},
-			"minecraft:emitter_lifetime_once": {
-				"active_time": 0.1
+			"minecraft:emitter_rate_steady": {
+				"spawn_rate": "query.property('kurokumaft:kaikyu')*2",
+				"max_particles": "query.property('kurokumaft:kaikyu')*10"
+			},
+			"minecraft:emitter_lifetime_expression": {
+				"activation_expression": 1,
+				"expiration_expression": "!query.property('kurokumaft:kokyu_particle')"
 			},
 			"minecraft:emitter_shape_box": {
-				"half_dimensions": [0.5, 0.5, 0.5],
-				"direction": "outwards"
+				"half_dimensions": [1, 1, 1],
+				"direction": [0, 0, -2]
 			},
 			"minecraft:particle_lifetime_expression": {
-				"max_lifetime": 1
+				"max_lifetime": 0.5
 			},
+			"minecraft:particle_initial_speed": 2,
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.5, 0.5],
-				"facing_camera_mode": "direction_y",
+				"size": ["variable.tuki_size", "variable.tuki_size"],
+				"facing_camera_mode": "lookat_y",
 				"uv": {
 					"texture_width": 8,
 					"texture_height": 32,

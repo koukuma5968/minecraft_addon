@@ -4,14 +4,14 @@
     "description": {
       "identifier": "kurokumaft:nichirintou_tanjiro",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.nichirintou"
+        "category": "equipment"
       }
     },
     "components": {
       "minecraft:tags": {
         "tags": [
-          "attack_one"
+          "attack_one",
+          "nichirintou"
         ]
       },
       "minecraft:display_name": {

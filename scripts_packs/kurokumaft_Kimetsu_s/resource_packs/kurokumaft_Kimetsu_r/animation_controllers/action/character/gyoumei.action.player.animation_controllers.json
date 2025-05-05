@@ -100,7 +100,7 @@
 						"iwa.ichi_1_third"
 					],
 					"transitions" : [
-						{"equipment":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"iwa2_third" : {
@@ -108,7 +108,7 @@
 						"iwa.ni_1_third"
 					],
 					"transitions" : [
-						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"iwa3_third" : {
@@ -116,7 +116,7 @@
 						"iwa.san_1_third"
 					],
 					"transitions" : [
-						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"iwa4_third" : {
@@ -124,7 +124,7 @@
 						"iwa.shi_1_third"
 					],
 					"transitions" : [
-						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"iwa5_third" : {
@@ -140,7 +140,7 @@
 						"iwa.go_2_third"
 					],
 					"transitions" : [
-						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				}
 

@@ -431,14 +431,6 @@
 						"0.0833": [0, 0, 0]
 					}
 				},
-				"nichirintou_right": {
-					"rotation": [0, 0, 0],
-					"position": {
-						"0.0": [0, 0, 0],
-						"0.0833": [0, 0, 0],
-						"0.1667": [1, 0, 0]
-					}
-				},
 				"rightArm": {
 					"rotation": {
 						"0.0": [0, 0, 0],
@@ -446,17 +438,6 @@
 						"0.1667": [-135.76043, -86.45466, -129.7328]
 					},
 					"position": [0, 0, 0]
-				},
-				"nichirintou_left": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [0, 0, 0]
-					},
-					"position": {
-						"0.0": [0, 0, 0],
-						"0.0833": [8, 0, 0],
-						"0.1667": [-1, 0, 0]
-					}
 				},
 				"leftLeg": {
 					"rotation": [50, 0, 0],
@@ -478,16 +459,8 @@
 				"leftArm": {
 					"rotation": [46.99279, 16.11844, -100.55378]
 				},
-				"nichirintou_right": {
-					"rotation": [52.5, 0, 0],
-					"position": [0, -4, 0]
-				},
 				"rightArm": {
 					"rotation": [45, 0, 105]
-				},
-				"nichirintou_left": {
-					"rotation": [55, 0, 0],
-					"position": [-1, -4, 0]
 				}
 			},
 			"particle_effects": {

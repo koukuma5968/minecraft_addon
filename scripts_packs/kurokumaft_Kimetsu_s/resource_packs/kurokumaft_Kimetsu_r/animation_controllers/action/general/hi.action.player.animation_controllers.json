@@ -183,7 +183,7 @@
 						"hi.ichi_1_third"
 					],
 					"transitions" : [
-						{"hi1_2_third":"!query.property('kurokumaft:kokyu_particle')"}
+						{"hi1_2_third":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"hi1_2_third" : {
@@ -318,16 +318,14 @@
 				"equipment":{
 					"transitions" : [
 						{"default": "variable.nichirintou_equipment != 17"},
-						{"hi6": "query.property('kurokumaft:kokyu_kata') == 16"}
+						{"hi6": "query.property('kurokumaft:kokyu_kata') == 6"}
 					]
 				},
 
 				"hi6" : {
 					"transitions" : [
-						{"equipment": "query.property('kurokumaft:kokyu_kata') != 16"},
-
+						{"equipment": "query.property('kurokumaft:kokyu_kata') != 6"},
 						{"hi6_1_first": "variable.is_first_person && query.property('kurokumaft:kokyu_chage') == 1 && query.property('kurokumaft:kokyu_attack')"},
-
 						{"hi6_1_third": "!variable.is_first_person && query.property('kurokumaft:kokyu_chage') == 1 && query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
@@ -337,7 +335,7 @@
 						"hi.roku_1_first"
 					],
 					"transitions" : [
-						{"hi6":"!query.property('kurokumaft:kokyu_attack')"}
+						{"hi6":"query.any_animation_finished"}
 					]
 				},
 
@@ -347,7 +345,7 @@
 						"hi.roku_1_third"
 					],
 					"transitions" : [
-						{"hi6":"!query.property('kurokumaft:kokyu_attack')"}
+						{"hi6":"query.any_animation_finished"}
 					]
 				}
 

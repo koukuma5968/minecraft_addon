@@ -193,7 +193,7 @@ export const KokyuObjects = Object.freeze([
         className: "hono"
     },
     {
-        itemName: "kurokumaft:nichirintou_kedamono",
+        itemName: "kurokumaft:nichirintou_kemono",
         type: 19,
         kata: [1,2,3,4,5,6,7,8,9,10],
         kata_msg: "kedamono_kata",

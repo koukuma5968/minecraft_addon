@@ -159,8 +159,6 @@ item.spawn_egg.entity.kurokumaft:frost_owl.name=フロストオウルのスポ�
 item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムのスポーンエッグ	#
 item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムのスポーンエッグ	#
 
-itemGroup.kurokumaft:magic_shield.name=魔法の盾
-
 tile.kurokumaft:magic_enchant_table.name=魔法エンチャントテーブル
 tile.kurokumaft:magic_lectern.name=魔導書見台
 magic_lectern.mess.title=魔導書見台

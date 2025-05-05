@@ -47,9 +47,6 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
             case 10 :
                 mizu.zyuNoKata(player, itemStack);
             break;
-            case 16 :
-                hi.rokuNoKataAttack(player, itemStack);
-            break;
         }
 
     }

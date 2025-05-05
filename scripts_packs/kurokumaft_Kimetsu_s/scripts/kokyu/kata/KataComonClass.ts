@@ -21,7 +21,7 @@ export class KataComonClass {
         return true;
     }
 
-    kokyuApplyDamage(player:Player, filter:EntityQueryOptions, enDamage:number, pDamage:number, itemStack:ItemStack): void {
+    kokyuApplyDamage(player:Player, filter:EntityQueryOptions, enDamage:number, pDamage:number, itemStack:ItemStack | undefined): void {
 
         player.addTag(player.id);
         const targets = player.dimension.getEntities(filter);
@@ -41,7 +41,9 @@ export class KataComonClass {
                 });
             }
         });
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        if (itemStack != undefined) {
+            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        }
         player.removeTag(player.id);
 
     }

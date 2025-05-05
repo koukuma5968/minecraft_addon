@@ -1,32 +1,32 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "ピクミンBv1",
-		"description": "ピクミン version1 キャラクターアドオン ビヘイビアーパック",
+		"name": "pikumin_KBv2",
+		"description": "ピクミン version2 キャラクターアドオン ビヘイビアーパック",
 		"uuid": "44dba80e-2235-497a-a7b9-96ef24a63ef6",
-		"version": [1,0,0],
-		"min_engine_version": [1,20,30]
+		"version": [2,0,0],
+		"min_engine_version": [1,21,10]
 	},
 	"modules": [
 		{
 			"description": "ピクミンアドオン",
 			"type": "data",
 			"uuid": "8a5dec51-8941-4c4b-a2fb-cdbe7cff99c0",
-			"version": [1,0,0]
+			"version": [2,0,0]
 		},
 		{
 			"description": "ピクミンアドオンscripting",
 			"type": "script",
 			"language": "javascript",
-			"uuid": "6e2c0627-c64d-414a-8bcc-94c249c6f89e",
+			"uuid": "662fc854-967c-467d-995f-1a6f610f995a",
 			"version": [1,0,0],
-			"entry": "scripts/magic_script.js"
+			"entry": "scripts/pikumin_script.js"
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "8a4a74c5-3a0e-4f9a-ac5a-17fa88a749dd",
-			"version": [1,0,0]
+			"version": [2,0,0]
 		},
 		{
 			"module_name": "@minecraft/server-ui",
@@ -34,7 +34,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.14.0"
+			"version": "1.18.0"
 		}
 	]
 }

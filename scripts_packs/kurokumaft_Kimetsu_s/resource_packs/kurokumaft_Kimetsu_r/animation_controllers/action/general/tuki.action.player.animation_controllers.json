@@ -66,7 +66,7 @@
 						"tuki.san_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki5_1_first" : {
@@ -74,7 +74,7 @@
 						"tuki.go_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki6_1_first" : {
@@ -82,7 +82,7 @@
 						"tuki.roku_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki7_1_first" : {
@@ -90,7 +90,7 @@
 						"tuki.shiti_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki8_1_first" : {
@@ -98,7 +98,7 @@
 						"tuki.hachi_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki9_1_first" : {
@@ -106,7 +106,7 @@
 						"tuki.ku_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki10_1_first" : {
@@ -114,7 +114,7 @@
 						"tuki.zyu_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki14_1_first" : {
@@ -122,7 +122,7 @@
 						"tuki.zyushi_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki16_1_first" : {
@@ -130,7 +130,7 @@
 						"tuki.zyuroku_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"third_person": {
@@ -184,7 +184,7 @@
 						"tuki.san_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki5_1_third" : {
@@ -192,7 +192,7 @@
 						"tuki.go_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki6_1_third" : {
@@ -200,7 +200,7 @@
 						"tuki.roku_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki7_1_third" : {
@@ -208,7 +208,7 @@
 						"tuki.shiti_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki8_1_third" : {
@@ -216,7 +216,7 @@
 						"tuki.hachi_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki9_1_third" : {
@@ -224,7 +224,7 @@
 						"tuki.ku_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki10_1_third" : {
@@ -232,7 +232,7 @@
 						"tuki.zyu_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki14_1_third" : {
@@ -240,7 +240,7 @@
 						"tuki.zyushi_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"tuki16_1_third" : {
@@ -248,7 +248,7 @@
 						"tuki.zyuroku_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				}
 

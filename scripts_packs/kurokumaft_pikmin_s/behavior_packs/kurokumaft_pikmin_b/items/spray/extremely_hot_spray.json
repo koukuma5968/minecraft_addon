@@ -1,11 +1,10 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:extremely_hot_spray",
       "menu_category": {
-        "category": "equipment",
-        "group": "spray"
+        "category": "equipment"
       }
     },
     "components": {
@@ -15,28 +14,14 @@
       "minecraft:icon": {
         "texture": "extremely_hot_spray"
       },
-      "minecraft:use_duration": 9999,
-      "minecraft:chargeable": {
-      },
       "minecraft:max_stack_size": 16,
-      "minecraft:hand_equipped": true,
-      "minecraft:on_use": {
-        "on_use": {
-          "event": "kurokumaft:spray_on"
-        }
-      }
-    },
-    "events": {
-      "kurokumaft:spray_on": {
-        "run_command": {
-          "command": [
-            "particle kurokumaft:extremely_hot_spray ~~~",
-            "execute as @e[family=pikmin,r=16] run event entity @s kurokumaft:extremely_hot_up"
-          ],
-          "target": "self"
-        },
-        "decrement_stack": {}
-      }
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.5,
+        "use_duration": 1000
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:extremely_hot_spray"
+      ]
     }
   }
 }

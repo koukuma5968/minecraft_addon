@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:yellow_oniyons",
@@ -7,6 +7,7 @@
 				"category": "none"
 			},
 			"states": {
+				"color": ["yellow"],
 				"kurokumaft:growth": [0, 1, 2, 3]
 			}
 		},
@@ -36,10 +37,9 @@
 					}
 				]
 			},
-			"minecraft:on_interact": {
-				"condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bone_meal')",
-				"event": "meal_growth"
-			}
+			"minecraft:custom_components": [
+				"kurokumaft:oniyon_block"
+			]
 		},
 		"permutations": [
 			{
@@ -100,33 +100,9 @@
 							"texture": "yellow_oniyon_stage_3",
 							"render_method": "alpha_test"
 						}
-					},
-					"minecraft:on_interact": {
-						"condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bone_meal')",
-						"event": "tame_oniyon"
 					}
 				}
 			}
-		],
-		"events": {
-			"meal_growth": {
-				"run_command": {
-					"command":  "particle minecraft:crop_growth_emitter ~~~"
-				},
-				"set_block_state": {
-				  "kurokumaft:growth": "query.block_state('kurokumaft:growth') < 3 ? query.block_state('kurokumaft:growth') + 1 : 3"
-				}
-			},
-			"tame_oniyon": {
-				"die": {
-					"target": "self"
-				},
-				"run_command": {
-					"command":  [
-						"summon kurokumaft:yellow_oniyon_base"
-					]
-				}
-		 	}
-		}
+		]
 	}
 }

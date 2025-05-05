@@ -9,7 +9,7 @@
         },
         "textures": {
           "default": "textures/kurokumaft/models/nichirintou/nichirintou_tengen",
-          "enchanted": "textures/misc/enchanted_item_glint"
+          "enchanted": "textures/kurokumaft/misc/enchanted_item_shiner"
         },
         "geometry": {
           "default": "geometry.nichirintou_tengen"

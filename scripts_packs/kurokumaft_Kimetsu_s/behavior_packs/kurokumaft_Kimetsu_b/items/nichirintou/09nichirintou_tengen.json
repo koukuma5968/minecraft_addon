@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:nichirintou_tengen",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.nichirintou"
+        "category": "equipment"
       }
     },
     "components": {
@@ -14,7 +13,8 @@
 			},
       "minecraft:tags": {
         "tags": [
-          "attack_two"
+          "attack_two",
+          "nichirintou"
         ]
       },
       "minecraft:icon": "nichirintou_tengen",

@@ -36,7 +36,7 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "minecraft:dart","minecraft:stone","kurokumaft:stone_magic_stone" ],
+            "items": [ "minecraft:stone","kurokumaft:stone_magic_stone" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {

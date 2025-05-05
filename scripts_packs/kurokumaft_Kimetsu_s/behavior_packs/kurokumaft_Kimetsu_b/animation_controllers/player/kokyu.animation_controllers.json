@@ -17,23 +17,6 @@
           ]
         }
       }
-    },
-    "controller.animation.kokyu.change": {
-      "states": {
-        "default": {
-          "transitions": [
-            { "change": "query.is_sneaking" }
-          ]
-        },
-        "change":{
-          "on_exit": [
-            "/event entity @s kurokumaft:kokyu_change"
-          ],
-          "transitions": [
-            {"default":"!query.is_sneaking"}
-          ]
-        }
-      }
     }
   }
 }

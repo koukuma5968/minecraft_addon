@@ -124,8 +124,8 @@ msg.kurokumaft:tuki_kata7.value=§e月の呼吸 漆ノ型
 msg.kurokumaft:tuki_kata8.value=§e月の呼吸 捌ノ型
 msg.kurokumaft:tuki_kata9.value=§e月の呼吸 玖ノ型
 msg.kurokumaft:tuki_kata10.value=§e月の呼吸 拾ノ型
-msg.kurokumaft:tuki_kata11.value=§e月の呼吸 拾肆ノ型
-msg.kurokumaft:tuki_kata12.value=§e月の呼吸 拾陸ノ型
+msg.kurokumaft:tuki_kata14.value=§e月の呼吸 拾肆ノ型
+msg.kurokumaft:tuki_kata16.value=§e月の呼吸 拾陸ノ型
 
 msg.kurokumaft:mizu_kokyu1.value=§9水面切り
 msg.kurokumaft:mizu_kokyu2.value=§9水車
@@ -292,7 +292,6 @@ msg.kurokumaft:kekkizyutu_ito1.value=刻糸牢
 msg.kurokumaft:kekkizyutu_ito2.value=刻糸輪転
 msg.kurokumaft:kekkizyutu_ito3.value=殺目篭
 
-msg.kurokumaft:kaikyu0.value=#
 msg.kurokumaft:kaikyu1.value=§b§l癸
 msg.kurokumaft:kaikyu2.value=§9§l壬
 msg.kurokumaft:kaikyu3.value=§d§l辛
@@ -304,6 +303,8 @@ msg.kurokumaft:kaikyu8.value=§4§l丙
 msg.kurokumaft:kaikyu9.value=§e§l乙
 msg.kurokumaft:kaikyu10.value=§6§l甲
 msg.kurokumaft:kaikyu11.value=§0§l§o柱
+
+kurokumaft:itemGroup.name.nichirintou=日輪刀
 
 item.kurokumaft:nichirintou_tanjiro.name=日輪刀 竈門 炭治郎
 item.kurokumaft:nichirintou_zenitu.name=日輪刀 我妻 善逸
@@ -336,6 +337,8 @@ item.kurokumaft:nichirintou_kaze.name=日輪刀 風
 item.kurokumaft:nichirintou_iwa.name=日輪刀 岩
 item.kurokumaft:nichirintou_hebi.name=日輪刀 蛇
 item.kurokumaft:nichirintou_tuki.name=日輪刀 月
+
+kurokumaft:itemGroup.name.kekkizyutu=血気術
 
 item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
 item.kurokumaft:koushi.name=血気術 累(鋼糸)
@@ -561,9 +564,35 @@ item.kurokumaft:kaigaku_katana.name=獪岳の刀
 
 item.kurokumaft:kokushibou_katana.name=虚哭神去
 
+msg.kurokumaft:orgerank_low.value=§f§l鬼(下)
+msg.kurokumaft:orgerank_unusual.value=§7§l鬼(異)
+msg.kurokumaft:orgerank_quarter1.value=§9§l下弦(壱)
+msg.kurokumaft:orgerank_quarter2.value=§a§l下弦(弐)
+msg.kurokumaft:orgerank_quarter3.value=§b§l下弦(参)
+msg.kurokumaft:orgerank_quarter4.value=§c§l下弦(肆)
+msg.kurokumaft:orgerank_quarter5.value=§d§l下弦(伍)
+msg.kurokumaft:orgerank_quarter6.value=§e§l下弦(陸)
+msg.kurokumaft:orgerank_crescent1.value=§1§l上弦(壱)
+msg.kurokumaft:orgerank_crescent2.value=§2§l上弦(弐)
+msg.kurokumaft:orgerank_crescent3.value=§3§l上弦(参)
+msg.kurokumaft:orgerank_crescent4.value=§4§l上弦(肆)
+msg.kurokumaft:orgerank_crescent5.value=§5§l上弦(伍)
+msg.kurokumaft:orgerank_crescent6.value=§6§l上弦(陸)
+msg.kurokumaft:orgerank_king.value=§0§l鬼の王
+
 msg.kurokumaft:kaikyuChange.missing_method=第一引数は「set」(変更)、「add」(加算)で指定してください。
 msg.kurokumaft:kaikyuChange.missing_add_argument=コマンド引数は3つ指定してください。例：「add promotion 100」(鬼撃破数を加算)
 msg.kurokumaft:kaikyuChange.missing_add_type=第二引数は「promotion」(昇格)、「demotion」(降格)で指定してください。
 msg.kurokumaft:kaikyuChange.missing_add_num=第三引数は数値で指定してください。最小最大を超える値は無視されます
 msg.kurokumaft:kaikyuChange.missing_set_argument=コマンド引数は2つ指定してください。例：「set 1」(指定の階級に変更)
 msg.kurokumaft:kaikyuChange.missing_set_num=第二引数は数値で指定してください。階級値(0~11)(一般人~柱)以外は無視されます
+
+msg.kurokumaft:orgeRankChange.missing_method=第一引数は「set」(変更)、「add」(加算)で指定してください。
+msg.kurokumaft:orgeRankChange.missing_add_argument=コマンド引数は3つ指定してください。例：「add promotion 100」(血の摂取量を加算)
+msg.kurokumaft:orgeRankChange.missing_add_type=第二引数は「promotion」(昇格)、「demotion」(降格)で指定してください。
+msg.kurokumaft:orgeRankChange.missing_add_num=第三引数は数値で指定してください。最小最大を超える値は無視されます
+msg.kurokumaft:orgeRankChange.missing_set_argument=コマンド引数は2つ指定してください。例：「set 1」(指定の階級に変更)
+msg.kurokumaft:orgeRankChange.missing_set_num=第二引数は数値で指定してください。階級値(0~15)(一般人~鬼の王)以外は無視されます
+
+item.kurokumaft:syringe_dagger.name=短刀
+item.kurokumaft:syringe_dagger_full.name=短刀（採血済）

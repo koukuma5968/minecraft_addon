@@ -124,18 +124,6 @@
               },
               "use_item": false,
               "interact_text": "action.interact.barter"
-            },
-            {
-              "on_interact": {
-                "filters": {
-                  "all_of": [
-                    {"test": "all_slots_empty","subject": "other","value": "hand"},
-                    {"test": "is_family","subject": "other","value": "player"}
-                  ]
-                },
-                "event": "kurokumaft:take_ride"
-              },
-              "use_item": false
             }
           ]
         },
@@ -364,77 +352,14 @@
                 "kurokumaft:pikmin_leaf"
               ]
             }
-          },
-          {
-  					"filters": {"test": "is_family", "subject": "other", "value": "oniyon_base"},
-	          "add": {
-              "component_groups": [
-                "kurokumaft:pikmin_plant",
-                "kurokumaft:leaf_skin"
-              ]
-            },
-            "trigger": "kurokumaft:oniyon_spawned"
           }
         ]
       },
       "kurokumaft:oniyon_spawned": {
-        "randomize": [
-          {"weight":2,"run_command":{"command":["tp @s ~5~~0"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~1"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~2"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~3"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~4"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~-1"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~-2"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~-3"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~-4"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~0"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~1"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~2"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~3"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~4"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~-1"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~-2"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~-3"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~-4"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~0~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~1~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~2~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~3~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~4~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-1~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-2~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-3~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-4~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~0~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~1~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~2~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~3~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~4~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~5~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-1~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-2~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-3~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-4~~-5"],"target":"self"}},
-          {"weight":2,"run_command":{"command":["tp @s ~-5~~-5"],"target":"self"}}
-        ]
-      },
-      "kurokumaft:take_ride": {
-        "run_command": {
-					"command": [
-            "give @p kurokumaft:rock_pikmin_item"
-					],
-          "target":"self"
-				},
         "add": {
           "component_groups": [
-            "kurokumaft:thrown_despawn"
+            "kurokumaft:pikmin_plant",
+            "kurokumaft:leaf_skin"
           ]
         }
       },

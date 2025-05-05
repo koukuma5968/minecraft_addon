@@ -18,14 +18,15 @@ export class KokyuKoiComponent implements NichirintouUseComponent {
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                player.setProperty("kurokumaft:kokyu_kata", 1);
                 kata = kokyuObject.kata[0];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
                 break;
             default :
-                player.setProperty("kurokumaft:kokyu_kata", kata+1);
-                kata = kata+1;
-            }
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:koi_kata" + kata + ".value\"}]}");
+                const index = kokyuObject.kata.findIndex((el) => el == kata);
+                kata = kokyuObject.kata[index+1];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
+        }
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:koi_kata" + kata + ".value\"}]}");
 
     }
 
@@ -45,9 +46,6 @@ export class KokyuKoiComponent implements NichirintouUseComponent {
         let koi = new KoiNoKata();
 
         switch (kata) {
-            case 1 :
-                koi.ichiNoKata(player, itemStack);
-            break;
             case 2 :
                 koi.niNoKata(player, itemStack);
             break;
@@ -65,6 +63,16 @@ export class KokyuKoiComponent implements NichirintouUseComponent {
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
+
+        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        let koi = new KoiNoKata();
+
+        switch (kata) {
+            case 1 :
+                koi.ichiNoKata(player, itemStack);
+            break;
+        }
+
     }
 
 }

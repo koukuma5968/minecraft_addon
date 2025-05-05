@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:red_pellet",
@@ -16,8 +16,6 @@
         "texture": "red_pellet"
       
       }
-    },
-    "events": {
     }
   }
 }

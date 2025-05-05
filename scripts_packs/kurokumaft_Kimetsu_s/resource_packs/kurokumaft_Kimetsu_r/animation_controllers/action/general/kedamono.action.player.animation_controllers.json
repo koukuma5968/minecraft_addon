@@ -139,7 +139,7 @@
 						{"kedamono4_1_third": "query.property('kurokumaft:kokyu_kata') == 4"},
 						{"kedamono5_1_third": "query.property('kurokumaft:kokyu_kata') == 5"},
 						{"kedamono6_1_third": "query.property('kurokumaft:kokyu_kata') == 6"},
-						{"kedamono7_1_third": "query.property('kurokumaft:kokyu_kata') == 7"},
+						{"kedamono7_1_third": "query.property('kurokumaft:kokyu_kata') == 7 && query.property('kurokumaft:kokyu_chage') == 10"},
 						{"kedamono8_1_third": "query.property('kurokumaft:kokyu_kata') == 8 && query.property('kurokumaft:kokyu_chage') == 10"},
 						{"kedamono9_1_third": "query.property('kurokumaft:kokyu_kata') == 9"},
 						{"kedamono10_1_third": "query.property('kurokumaft:kokyu_kata') == 10"}
@@ -206,7 +206,7 @@
 						"kedamono.shiti_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"query.property('kurokumaft:kokyu_chage') == 0"}
 					]
 				},
 				"kedamono8_1_third" : {
@@ -214,7 +214,7 @@
 						"kedamono.hati_1_third"
 					],
 					"transitions" : [
-						{"third_person":"!query.property('kurokumaft:kokyu_chage') == 0"}
+						{"third_person":"query.property('kurokumaft:kokyu_chage') == 0"}
 					]
 				},
 				"kedamono9_1_third" : {

@@ -81,6 +81,21 @@
       "nichirintou_kaze": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kaze"
       },
+      "nichirintou_kemono": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kemono"
+      },
+      "nichirintou_kasumi": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kasumi"
+      },
+      "nichirintou_iwa": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_iwa"
+      },
+      "nichirintou_hebi": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hebi"
+      },
+      "nichirintou_tuki": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_tuki"
+      },
 
       "scarlet_ironfish": {
          "textures" : "textures/kurokumaft/items/ore/scarlet_ironfish"
@@ -413,6 +428,13 @@
       },
       "muitiro_head": {
          "textures" : "textures/kurokumaft/items/head/muitiro_head"
+      },
+
+      "syringe_dagger": {
+         "textures" : "textures/kurokumaft/items/syringe_dagger"
+      },
+      "syringe_dagger_full": {
+         "textures" : "textures/kurokumaft/items/syringe_dagger_full"
       },
 
       "soldier_spawn_egg" : {

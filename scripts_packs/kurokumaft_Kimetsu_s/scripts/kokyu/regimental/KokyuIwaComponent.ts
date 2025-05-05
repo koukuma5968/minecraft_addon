@@ -18,12 +18,13 @@ export class KokyuIwaComponent implements NichirintouUseComponent {
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                player.setProperty("kurokumaft:kokyu_kata", 1);
                 kata = kokyuObject.kata[0];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
                 break;
             default :
-                player.setProperty("kurokumaft:kokyu_kata", kata+1);
-                kata = kata+1;
+                const index = kokyuObject.kata.findIndex((el) => el == kata);
+                kata = kokyuObject.kata[index+1];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
         }
         player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:iwa_kata" + kata + ".value\"}]}");
 

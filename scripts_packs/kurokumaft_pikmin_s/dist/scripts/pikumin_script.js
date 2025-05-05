@@ -4,7 +4,7 @@ import { world as world2 } from "@minecraft/server";
 // scripts/items/ExtremelyHotSpray.ts
 import { EquipmentSlot as EquipmentSlot3 } from "@minecraft/server";
 
-// scripts/common/commonUtil.ts
+// scripts/common/PikuminCommonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
 
 // node_modules/@minecraft/vanilla-data/lib/index.js
@@ -243,7 +243,9 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["BubbleCoralFan"] = "minecraft:bubble_coral_fan";
   MinecraftBlockTypes2["BubbleCoralWallFan"] = "minecraft:bubble_coral_wall_fan";
   MinecraftBlockTypes2["BuddingAmethyst"] = "minecraft:budding_amethyst";
+  MinecraftBlockTypes2["Bush"] = "minecraft:bush";
   MinecraftBlockTypes2["Cactus"] = "minecraft:cactus";
+  MinecraftBlockTypes2["CactusFlower"] = "minecraft:cactus_flower";
   MinecraftBlockTypes2["Cake"] = "minecraft:cake";
   MinecraftBlockTypes2["Calcite"] = "minecraft:calcite";
   MinecraftBlockTypes2["CalibratedSculkSensor"] = "minecraft:calibrated_sculk_sensor";
@@ -607,6 +609,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["FireCoralBlock"] = "minecraft:fire_coral_block";
   MinecraftBlockTypes2["FireCoralFan"] = "minecraft:fire_coral_fan";
   MinecraftBlockTypes2["FireCoralWallFan"] = "minecraft:fire_coral_wall_fan";
+  MinecraftBlockTypes2["FireflyBush"] = "minecraft:firefly_bush";
   MinecraftBlockTypes2["FletchingTable"] = "minecraft:fletching_table";
   MinecraftBlockTypes2["FlowerPot"] = "minecraft:flower_pot";
   MinecraftBlockTypes2["FloweringAzalea"] = "minecraft:flowering_azalea";
@@ -743,6 +746,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["LargeAmethystBud"] = "minecraft:large_amethyst_bud";
   MinecraftBlockTypes2["LargeFern"] = "minecraft:large_fern";
   MinecraftBlockTypes2["Lava"] = "minecraft:lava";
+  MinecraftBlockTypes2["LeafLitter"] = "minecraft:leaf_litter";
   MinecraftBlockTypes2["Lectern"] = "minecraft:lectern";
   MinecraftBlockTypes2["Lever"] = "minecraft:lever";
   MinecraftBlockTypes2["LightBlock0"] = "minecraft:light_block_0";
@@ -1098,6 +1102,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["SeaLantern"] = "minecraft:sea_lantern";
   MinecraftBlockTypes2["SeaPickle"] = "minecraft:sea_pickle";
   MinecraftBlockTypes2["Seagrass"] = "minecraft:seagrass";
+  MinecraftBlockTypes2["ShortDryGrass"] = "minecraft:short_dry_grass";
   MinecraftBlockTypes2["ShortGrass"] = "minecraft:short_grass";
   MinecraftBlockTypes2["Shroomlight"] = "minecraft:shroomlight";
   MinecraftBlockTypes2["SilverGlazedTerracotta"] = "minecraft:silver_glazed_terracotta";
@@ -1194,6 +1199,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["SuspiciousGravel"] = "minecraft:suspicious_gravel";
   MinecraftBlockTypes2["SuspiciousSand"] = "minecraft:suspicious_sand";
   MinecraftBlockTypes2["SweetBerryBush"] = "minecraft:sweet_berry_bush";
+  MinecraftBlockTypes2["TallDryGrass"] = "minecraft:tall_dry_grass";
   MinecraftBlockTypes2["TallGrass"] = "minecraft:tall_grass";
   MinecraftBlockTypes2["Target"] = "minecraft:target";
   MinecraftBlockTypes2["TintedGlass"] = "minecraft:tinted_glass";
@@ -1321,6 +1327,7 @@ var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
   MinecraftBlockTypes2["WhiteTerracotta"] = "minecraft:white_terracotta";
   MinecraftBlockTypes2["WhiteTulip"] = "minecraft:white_tulip";
   MinecraftBlockTypes2["WhiteWool"] = "minecraft:white_wool";
+  MinecraftBlockTypes2["Wildflowers"] = "minecraft:wildflowers";
   MinecraftBlockTypes2["WitherRose"] = "minecraft:wither_rose";
   MinecraftBlockTypes2["WitherSkeletonSkull"] = "minecraft:wither_skeleton_skull";
   MinecraftBlockTypes2["WoodenButton"] = "minecraft:wooden_button";
@@ -1609,7 +1616,6 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["AcaciaTrapdoor"] = "minecraft:acacia_trapdoor";
   MinecraftItemTypes2["AcaciaWood"] = "minecraft:acacia_wood";
   MinecraftItemTypes2["ActivatorRail"] = "minecraft:activator_rail";
-  MinecraftItemTypes2["Air"] = "minecraft:air";
   MinecraftItemTypes2["AllaySpawnEgg"] = "minecraft:allay_spawn_egg";
   MinecraftItemTypes2["Allium"] = "minecraft:allium";
   MinecraftItemTypes2["Allow"] = "minecraft:allow";
@@ -1716,6 +1722,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["BlueConcrete"] = "minecraft:blue_concrete";
   MinecraftItemTypes2["BlueConcretePowder"] = "minecraft:blue_concrete_powder";
   MinecraftItemTypes2["BlueDye"] = "minecraft:blue_dye";
+  MinecraftItemTypes2["BlueEgg"] = "minecraft:blue_egg";
   MinecraftItemTypes2["BlueGlazedTerracotta"] = "minecraft:blue_glazed_terracotta";
   MinecraftItemTypes2["BlueIce"] = "minecraft:blue_ice";
   MinecraftItemTypes2["BlueOrchid"] = "minecraft:blue_orchid";
@@ -1754,6 +1761,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["BrownConcrete"] = "minecraft:brown_concrete";
   MinecraftItemTypes2["BrownConcretePowder"] = "minecraft:brown_concrete_powder";
   MinecraftItemTypes2["BrownDye"] = "minecraft:brown_dye";
+  MinecraftItemTypes2["BrownEgg"] = "minecraft:brown_egg";
   MinecraftItemTypes2["BrownGlazedTerracotta"] = "minecraft:brown_glazed_terracotta";
   MinecraftItemTypes2["BrownMushroom"] = "minecraft:brown_mushroom";
   MinecraftItemTypes2["BrownMushroomBlock"] = "minecraft:brown_mushroom_block";
@@ -1770,7 +1778,9 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["BuddingAmethyst"] = "minecraft:budding_amethyst";
   MinecraftItemTypes2["Bundle"] = "minecraft:bundle";
   MinecraftItemTypes2["BurnPotterySherd"] = "minecraft:burn_pottery_sherd";
+  MinecraftItemTypes2["Bush"] = "minecraft:bush";
   MinecraftItemTypes2["Cactus"] = "minecraft:cactus";
+  MinecraftItemTypes2["CactusFlower"] = "minecraft:cactus_flower";
   MinecraftItemTypes2["Cake"] = "minecraft:cake";
   MinecraftItemTypes2["Calcite"] = "minecraft:calcite";
   MinecraftItemTypes2["CalibratedSculkSensor"] = "minecraft:calibrated_sculk_sensor";
@@ -2061,6 +2071,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["FireCoral"] = "minecraft:fire_coral";
   MinecraftItemTypes2["FireCoralBlock"] = "minecraft:fire_coral_block";
   MinecraftItemTypes2["FireCoralFan"] = "minecraft:fire_coral_fan";
+  MinecraftItemTypes2["FireflyBush"] = "minecraft:firefly_bush";
   MinecraftItemTypes2["FireworkRocket"] = "minecraft:firework_rocket";
   MinecraftItemTypes2["FireworkStar"] = "minecraft:firework_star";
   MinecraftItemTypes2["FishingRod"] = "minecraft:fishing_rod";
@@ -2228,6 +2239,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["LargeFern"] = "minecraft:large_fern";
   MinecraftItemTypes2["LavaBucket"] = "minecraft:lava_bucket";
   MinecraftItemTypes2["Lead"] = "minecraft:lead";
+  MinecraftItemTypes2["LeafLitter"] = "minecraft:leaf_litter";
   MinecraftItemTypes2["Leather"] = "minecraft:leather";
   MinecraftItemTypes2["LeatherBoots"] = "minecraft:leather_boots";
   MinecraftItemTypes2["LeatherChestplate"] = "minecraft:leather_chestplate";
@@ -2671,6 +2683,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["SheepSpawnEgg"] = "minecraft:sheep_spawn_egg";
   MinecraftItemTypes2["ShelterPotterySherd"] = "minecraft:shelter_pottery_sherd";
   MinecraftItemTypes2["Shield"] = "minecraft:shield";
+  MinecraftItemTypes2["ShortDryGrass"] = "minecraft:short_dry_grass";
   MinecraftItemTypes2["ShortGrass"] = "minecraft:short_grass";
   MinecraftItemTypes2["Shroomlight"] = "minecraft:shroomlight";
   MinecraftItemTypes2["ShulkerShell"] = "minecraft:shulker_shell";
@@ -2793,6 +2806,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["SweetBerries"] = "minecraft:sweet_berries";
   MinecraftItemTypes2["TadpoleBucket"] = "minecraft:tadpole_bucket";
   MinecraftItemTypes2["TadpoleSpawnEgg"] = "minecraft:tadpole_spawn_egg";
+  MinecraftItemTypes2["TallDryGrass"] = "minecraft:tall_dry_grass";
   MinecraftItemTypes2["TallGrass"] = "minecraft:tall_grass";
   MinecraftItemTypes2["Target"] = "minecraft:target";
   MinecraftItemTypes2["TideArmorTrimSmithingTemplate"] = "minecraft:tide_armor_trim_smithing_template";
@@ -2925,6 +2939,7 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["WhiteTulip"] = "minecraft:white_tulip";
   MinecraftItemTypes2["WhiteWool"] = "minecraft:white_wool";
   MinecraftItemTypes2["WildArmorTrimSmithingTemplate"] = "minecraft:wild_armor_trim_smithing_template";
+  MinecraftItemTypes2["Wildflowers"] = "minecraft:wildflowers";
   MinecraftItemTypes2["WindCharge"] = "minecraft:wind_charge";
   MinecraftItemTypes2["WitchSpawnEgg"] = "minecraft:witch_spawn_egg";
   MinecraftItemTypes2["WitherRose"] = "minecraft:wither_rose";
@@ -2998,7 +3013,7 @@ var MinecraftPotionModifierTypes = ((MinecraftPotionModifierTypes2) => {
   return MinecraftPotionModifierTypes2;
 })(MinecraftPotionModifierTypes || {});
 
-// scripts/common/commonUtil.ts
+// scripts/common/PikuminCommonUtil.ts
 function getRandomInRange(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
@@ -3032,8 +3047,25 @@ var BlockLocationList = Object.freeze([
     location: { x: -1, y: 0, z: 0 }
   }
 ]);
+var weightChoice = (list) => {
+  const totalWeight = list.reduce((p, c) => {
+    return { weight: p.weight + c.weight };
+  }).weight;
+  return {
+    pick() {
+      const r = Math.random() * totalWeight;
+      let s = 0;
+      for (const l of list) {
+        s += l.weight;
+        if (r < s) {
+          return l.item;
+        }
+      }
+    }
+  };
+};
 
-// scripts/common/ItemDurabilityDamage.ts
+// scripts/common/PikuminItemDurabilityDamage.ts
 import { Player as Player2, ItemComponentTypes as ItemComponentTypes2, EntityComponentTypes as EntityComponentTypes2, GameMode } from "@minecraft/server";
 async function ItemDurabilityDamage(entity, item, slot, damage) {
   if (entity instanceof Player2 && entity.getGameMode() == GameMode.creative) {
@@ -3054,37 +3086,296 @@ async function ItemDurabilityDamage(entity, item, slot, damage) {
     equ.setEquipment(slot, item);
   }
 }
+async function subtractionItem(player, item, slot, decNum) {
+  let remaining = item.amount - decNum;
+  let equ = player.getComponent(EntityComponentTypes2.Equippable);
+  if (remaining <= 0) {
+    equ.setEquipment(slot, void 0);
+  } else {
+    item.amount -= decNum;
+    equ.setEquipment(slot, item);
+  }
+}
 
 // scripts/items/ExtremelyHotSpray.ts
 var ExtremelyHotSpray = class {
   onUse(event) {
-    let source = event.source;
-    let itemStack = event.itemStack;
+    const source = event.source;
+    const itemStack = event.itemStack;
+    source.dimension.spawnParticle("kurokumaft:extremely_hot_spray", source.location);
+    const filterOption = {
+      families: [
+        "pikmin"
+      ],
+      location: source.location,
+      maxDistance: 6
+    };
+    const targets = source.dimension.getEntities(filterOption);
+    targets.forEach((en) => {
+      en.triggerEvent("kurokumaft:extremely_hot_up");
+    });
     ItemDurabilityDamage(source, itemStack, EquipmentSlot3.Mainhand, void 0);
     itemCoolDown(source, itemStack);
   }
 };
 
 // scripts/block/PelletGrass.ts
+import { EntityComponentTypes as EntityComponentTypes3, EquipmentSlot as EquipmentSlot4 } from "@minecraft/server";
 var PelletGrassBlock = class {
+  onTick(event) {
+    const block = event.block;
+    const kurokumaft:growth = block.permutation.getState("kurokumaft:growth");
+    if (kurokumaft:growth < 2) {
+      block.setPermutation(block.permutation.withState("kurokumaft:growth", kurokumaft:growth + 1));
+    }
+  }
   onPlayerInteract(event) {
-    let block = event.block;
-    let player = event.player;
+    const player = event.player;
+    const equ = player.getComponent(EntityComponentTypes3.Equippable);
+    const itemStack = equ.getEquipment(EquipmentSlot4.Mainhand);
+    if (itemStack != void 0 && itemStack.typeId.indexOf("meal") != -1) {
+      const block = event.block;
+      const kurokumaft:growth = block.permutation.getState("kurokumaft:growth");
+      if (kurokumaft:growth < 2) {
+        block.setPermutation(block.permutation.withState("kurokumaft:growth", kurokumaft:growth + 1));
+        event.dimension.spawnParticle("minecraft:crop_kurokumaft:growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
+        subtractionItem(player, itemStack, EquipmentSlot4.Mainhand, 1);
+      } else if (kurokumaft:growth == 2) {
+        const dimension = block.dimension;
+        const location = block.location;
+        const pekketLists = weightChoice([
+          { item: "red", weight: 20 },
+          { item: "blue", weight: 20 },
+          { item: "yellow", weight: 20 },
+          { item: "purple", weight: 15 },
+          { item: "white", weight: 15 },
+          { item: "rock", weight: 5 },
+          { item: "feather", weight: 5 }
+        ]);
+        dimension.setBlockType(location, MinecraftBlockTypes.Air);
+        const choice = pekketLists.pick();
+        switch (choice) {
+          case "red":
+            dimension.spawnEntity("kurokumaft:red_pellet_grass", location);
+            break;
+          case "blue":
+            dimension.spawnEntity("kurokumaft:blue_pellet_grass", location);
+            break;
+          case "yellow":
+            dimension.spawnEntity("kurokumaft:yellow_pellet_grass", location);
+            break;
+          case "purple":
+            dimension.spawnEntity("kurokumaft:purple_pellet_grass", location);
+            break;
+          case "white":
+            dimension.spawnEntity("kurokumaft:white_pellet_grass", location);
+            break;
+          case "rock":
+            dimension.spawnEntity("kurokumaft:rock_pellet_grass", location);
+            break;
+          case "feather":
+            dimension.spawnEntity("kurokumaft:feather_pellet_grass", location);
+            break;
+        }
+      }
+    }
   }
 };
 
-// scripts/custom/CustomComponentRegistry.ts
-function initRegisterCustom(initEvent) {
+// scripts/block/Oniyons.ts
+import { EntityComponentTypes as EntityComponentTypes4, EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
+var OniyonsBlock = class {
+  onTick(event) {
+    const block = event.block;
+    const kurokumaft:growth = block.permutation.getState("kurokumaft:growth");
+    if (kurokumaft:growth < 3) {
+      block.setPermutation(block.permutation.withState("kurokumaft:growth", kurokumaft:growth + 1));
+    }
+  }
+  onPlayerInteract(event) {
+    const player = event.player;
+    const equ = player.getComponent(EntityComponentTypes4.Equippable);
+    const itemStack = equ.getEquipment(EquipmentSlot5.Mainhand);
+    if (itemStack != void 0 && itemStack.typeId.indexOf("meal") != -1) {
+      const block = event.block;
+      const kurokumaft:growth = block.permutation.getState("kurokumaft:growth");
+      if (kurokumaft:growth < 3) {
+        block.setPermutation(block.permutation.withState("kurokumaft:growth", kurokumaft:growth + 1));
+        event.dimension.spawnParticle("minecraft:crop_kurokumaft:growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
+        subtractionItem(player, itemStack, EquipmentSlot5.Mainhand, 1);
+      } else if (kurokumaft:growth == 3) {
+        const oniyonType = block.permutation.getState("color");
+        const dimension = block.dimension;
+        const location = block.location;
+        dimension.setBlockType(location, MinecraftBlockTypes.Air);
+        switch (oniyonType) {
+          case "red":
+            dimension.spawnEntity("kurokumaft:red_oniyon_base", location);
+            break;
+          case "blue":
+            dimension.spawnEntity("kurokumaft:blue_oniyon_base", location);
+            break;
+          case "yellow":
+            dimension.spawnEntity("kurokumaft:yellow_oniyon_base", location);
+            break;
+          case "purple":
+            dimension.spawnEntity("kurokumaft:purple_oniyon_base", location);
+            break;
+          case "white":
+            dimension.spawnEntity("kurokumaft:white_oniyon_base", location);
+            break;
+          case "rock":
+            dimension.spawnEntity("kurokumaft:rock_oniyon_base", location);
+            break;
+          case "feather":
+            dimension.spawnEntity("kurokumaft:feather_oniyon_base", location);
+            break;
+        }
+      }
+    }
+  }
+};
+
+// scripts/custom/PikuminCustomComponentRegistry.ts
+function initPikuminRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:extremely_hot_spray", new ExtremelyHotSpray());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:pellet_grass", new PelletGrassBlock());
+  initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:oniyon_block", new OniyonsBlock());
 }
+
+// scripts/entity/OniyonBase.ts
+import { EquipmentSlot as EquipmentSlot6 } from "@minecraft/server";
+var OniyonBase = class {
+  pikuminSpawn(target, itemStack, player) {
+    const oniyon = target.typeId.split("_");
+    const pellet = itemStack.typeId.split("_");
+    const location = target.location;
+    switch (oniyon[0]) {
+      case "red":
+        if (pellet[0] == "red") {
+          target.dimension.spawnEntity("kurokumaft:red_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:red_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:red_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        } else {
+          target.dimension.spawnEntity("kurokumaft:red_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        }
+        break;
+      case "blue":
+        if (pellet[0] == "blue") {
+          target.dimension.spawnEntity("kurokumaft:blue_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:blue_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:blue_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        } else {
+          target.dimension.spawnEntity("kurokumaft:blue_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        }
+        break;
+      case "yellow":
+        if (pellet[0] == "yellow") {
+          target.dimension.spawnEntity("kurokumaft:yellow_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:yellow_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:yellow_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        } else {
+          target.dimension.spawnEntity("kurokumaft:yellow_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        }
+        break;
+      case "purple":
+        if (pellet[0] == "purple") {
+          target.dimension.spawnEntity("kurokumaft:purple_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:purple_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:purple_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        } else {
+          target.dimension.spawnEntity("kurokumaft:purple_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        }
+        break;
+      case "white":
+        if (pellet[0] == "white") {
+          target.dimension.spawnEntity("kurokumaft:white_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:white_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:white_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        } else {
+          target.dimension.spawnEntity("kurokumaft:white_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        }
+        break;
+      case "rock":
+        if (pellet[0] == "rock") {
+          target.dimension.spawnEntity("kurokumaft:rock_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:rock_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:rock_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        } else {
+          target.dimension.spawnEntity("kurokumaft:rock_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        }
+        break;
+      case "feather":
+        if (pellet[0] == "feather") {
+          target.dimension.spawnEntity("kurokumaft:feather_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:feather_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+          target.dimension.spawnEntity("kurokumaft:feather_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        } else {
+          target.dimension.spawnEntity("kurokumaft:feather_pikmin", { x: location.x + getRandomInRange(-5, 5), y: location.y, z: location.z + getRandomInRange(-5, 5) }).triggerEvent("kurokumaft:oniyon_spawned");
+        }
+        break;
+    }
+    subtractionItem(player, itemStack, EquipmentSlot6.Mainhand, 1);
+  }
+};
+
+// scripts/entity/Pikumin.ts
+import { EntityComponentTypes as EntityComponentTypes5, EquipmentSlot as EquipmentSlot7, ItemStack as ItemStack7 } from "@minecraft/server";
+var Pikumin = class {
+  pikuminGrasp(target, player) {
+    const pikumin = target.typeId.split("_");
+    const equ = player.getComponent(EntityComponentTypes5.Equippable);
+    switch (pikumin[0]) {
+      case "red":
+        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:red_pikmin_item", 1));
+        break;
+      case "blue":
+        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:blue_pikmin_item", 1));
+        break;
+      case "yellow":
+        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:yellow_pikmin_item", 1));
+        break;
+      case "purple":
+        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:purple_pikmin_item", 1));
+      case "white":
+        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:white_pikmin_item", 1));
+        break;
+      case "rock":
+        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:white_pikmin_item", 1));
+        break;
+      case "feather":
+        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:feather_pikmin_item", 1));
+        break;
+    }
+    target.remove();
+  }
+};
 
 // scripts/pikumin_script.ts
 world2.beforeEvents.worldInitialize.subscribe((initEvent) => {
-  initRegisterCustom(initEvent);
+  initPikuminRegisterCustom(initEvent);
 });
 world2.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
+});
+world2.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+  const entity = event.entity;
+  if (event.eventId == "kurokumaft:this_kill") {
+    entity.kill();
+  }
+});
+world2.afterEvents.playerInteractWithEntity.subscribe((event) => {
+  const target = event.target;
+  const itemStack = event.itemStack;
+  if (target.typeId.lastIndexOf("oniyon_base")) {
+    if (itemStack != void 0 && itemStack.typeId.lastIndexOf("pellet")) {
+      new OniyonBase().pikuminSpawn(target, itemStack, event.player);
+    }
+  } else if (target.typeId.lastIndexOf("pikmin")) {
+    if (itemStack == void 0) {
+      new Pikumin().pikuminGrasp(target, event.player);
+    }
+  }
 });
 
 //# sourceMappingURL=../debug/pikumin_script.js.map

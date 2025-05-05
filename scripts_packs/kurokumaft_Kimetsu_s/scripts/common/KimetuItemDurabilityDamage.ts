@@ -26,5 +26,22 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
 
 }
 
+/**
+ * アイテムスタック減少
+ * @param {Player} player
+ * @param {ItemStack} item
+ * @param {EquipmentSlot} slot
+ * @param {number} decNum
+ */
+async function subtractionItem(player: Player, item: ItemStack, slot: EquipmentSlot, decNum: number) {
+    let remaining = item.amount - decNum;
+    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    if (remaining <= 0) {
+        equ.setEquipment(slot, undefined);
+    } else {
+        item.amount -= decNum;
+        equ.setEquipment(slot, item);
+    }
+};
 
-export {ItemDurabilityDamage};
+export {ItemDurabilityDamage, subtractionItem};

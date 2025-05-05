@@ -6,6 +6,26 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:orge_moon": {
+          "type": "int",
+          "range": [0, 5],
+          "default": 5,
+          "client_sync": true
+        },
+        "kurokumaft:orge_rank": {
+          "type": "enum",
+          "values": ["none", "quarter"],
+          "default": "quarter",
+          "client_sync": true
+        },
+        "kurokumaft:orge_point": {
+          "type": "int",
+          "range": [0, 200],
+          "default": 200,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
           "kekkizyutu"

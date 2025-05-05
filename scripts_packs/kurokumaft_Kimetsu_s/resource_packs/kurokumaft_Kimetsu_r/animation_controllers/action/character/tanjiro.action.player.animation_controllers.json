@@ -740,7 +740,7 @@
 						"hi.roku_1_first"
 					],
 					"transitions" : [
-						{"hi6":"!query.property('kurokumaft:kokyu_attack')"}
+						{"hi6":"query.any_animation_finished"}
 					]
 				},
 
@@ -750,7 +750,7 @@
 						"hi.roku_1_third"
 					],
 					"transitions" : [
-						{"hi6":"!query.property('kurokumaft:kokyu_attack')"}
+						{"hi6":"query.any_animation_finished"}
 					]
 				}
 

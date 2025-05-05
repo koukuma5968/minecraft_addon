@@ -9,7 +9,7 @@
         },
         "textures": {
           "default": "textures/kurokumaft/models/nichirintou/nichirintou_tuki",
-          "enchanted": "textures/misc/enchanted_item_glint"
+          "enchanted": "textures/kurokumaft/misc/enchanted_item_shiner"
         },
         "geometry": {
           "default": "geometry.nichirintou_tuki"
@@ -17,13 +17,43 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "tuki"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+
+          "tuki": "controller.animation.nichirintou.tuki",
+
+          "tuki.ichi_1_first": "animation.nichirintou.tuki.ichi_1_first",
+          "tuki.ichi_2_first": "animation.nichirintou.tuki.ichi_2_first",
+          "tuki.ni_1_first": "animation.nichirintou.tuki.ni_1_first",
+          "tuki.san_1_first": "animation.nichirintou.tuki.san_1_first",
+          "tuki.go_1_first": "animation.nichirintou.tuki.go_1_first",
+          "tuki.roku_1_first": "animation.nichirintou.tuki.roku_1_first",
+          "tuki.shiti_1_first": "animation.nichirintou.tuki.shiti_1_first",
+          "tuki.hachi_1_first": "animation.nichirintou.tuki.hachi_1_first",
+          "tuki.ku_1_first": "animation.nichirintou.tuki.ku_1_first",
+          "tuki.zyu_1_first": "animation.nichirintou.tuki.zyu_1_first",
+          "tuki.zyushi_1_first": "animation.nichirintou.tuki.zyushi_1_first",
+          "tuki.zyuroku_1_first": "animation.nichirintou.tuki.zyuroku_1_first",
+
+          "tuki.ichi_1_third": "animation.nichirintou.tuki.ichi_1_third",
+          "tuki.ichi_2_third": "animation.nichirintou.tuki.ichi_2_third",
+          "tuki.ni_1_third": "animation.nichirintou.tuki.ni_1_third",
+          "tuki.san_1_third": "animation.nichirintou.tuki.san_1_third",
+          "tuki.go_1_third": "animation.nichirintou.tuki.go_1_third",
+          "tuki.roku_1_third": "animation.nichirintou.tuki.roku_1_third",
+          "tuki.shiti_1_third": "animation.nichirintou.tuki.shiti_1_third",
+          "tuki.hachi_1_third": "animation.nichirintou.tuki.hachi_1_third",
+          "tuki.ku_1_third": "animation.nichirintou.tuki.ku_1_third",
+          "tuki.zyu_1_third": "animation.nichirintou.tuki.zyu_1_third",
+          "tuki.zyushi_1_third": "animation.nichirintou.tuki.zyushi_1_third",
+          "tuki.zyuroku_1_third": "animation.nichirintou.tuki.zyuroku_1_third"
+
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

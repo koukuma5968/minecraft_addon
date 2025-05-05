@@ -37,7 +37,7 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:holly_magic_stone" ],
+            "items": [ "kurokumaft:light_magic_stone" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
           },
           {

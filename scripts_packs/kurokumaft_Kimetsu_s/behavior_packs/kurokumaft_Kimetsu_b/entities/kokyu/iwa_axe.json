@@ -39,7 +39,8 @@
         "offset": [0.5, 0, 0],
         "reflectOnHurt": true,
         "catch_fire": false,
-        "destroyOnHurt": true
+        "destroyOnHurt": true,
+        "destroyOnProjectileHurt": true
 
       },
       "minecraft:nameable": {

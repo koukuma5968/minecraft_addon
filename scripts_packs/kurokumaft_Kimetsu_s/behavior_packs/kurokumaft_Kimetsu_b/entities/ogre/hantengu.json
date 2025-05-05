@@ -5,7 +5,28 @@
       "identifier": "kurokumaft:hantengu",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "properties": {
+        "kurokumaft:orge_moon": {
+          "type": "int",
+          "range": [0, 4],
+          "default": 4,
+          "client_sync": true
+        },
+        "kurokumaft:orge_rank": {
+          "type": "enum",
+          "values": ["none", "crescent"],
+          "default": "crescent",
+          "client_sync": true
+        },
+        "kurokumaft:orge_point": {
+          "type": "int",
+          "range": [0, 300],
+          "default": 300,
+          "client_sync": true
+        }
+      }
+
     },
 
     "component_groups": {

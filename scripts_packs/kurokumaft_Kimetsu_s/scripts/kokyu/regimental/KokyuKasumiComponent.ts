@@ -18,14 +18,15 @@ export class KokyuKasumiComponent implements NichirintouUseComponent {
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                player.setProperty("kurokumaft:kokyu_kata", 1);
                 kata = kokyuObject.kata[0];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
                 break;
             default :
-                player.setProperty("kurokumaft:kokyu_kata", kata+1);
-                kata = kata+1;
-            }
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kasumi_kata" + kata + ".value\"}]}");
+                const index = kokyuObject.kata.findIndex((el) => el == kata);
+                kata = kokyuObject.kata[index+1];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
+        }
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kasumi_kata" + kata + ".value\"}]}");
 
     }
 
@@ -44,15 +45,10 @@ export class KokyuKasumiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let kasumi = new KasumiNoKata();
 
+        player.addTag(player.id);
         switch (kata) {
             case 2 :
                 kasumi.niNoKata(player, itemStack);
-            break;
-            case 3 :
-                kasumi.sanNoKata(player, itemStack);
-            break;
-            case 4 :
-                kasumi.shiNoKata(player, itemStack);
             break;
             case 5 :
                 kasumi.goNoKata(player, itemStack);
@@ -64,6 +60,7 @@ export class KokyuKasumiComponent implements NichirintouUseComponent {
                 kasumi.shitiNoKata(player, itemStack);
             break;
         }
+        player.removeTag(player.id);
 
     }
 
@@ -71,10 +68,18 @@ export class KokyuKasumiComponent implements NichirintouUseComponent {
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         let kasumi = new KasumiNoKata();
 
+        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 kasumi.ichiNoKata(player, itemStack);
             break;
+            case 3 :
+                kasumi.sanNoKata(player, itemStack);
+            break;
+            case 4 :
+                kasumi.shiNoKata(player, itemStack);
+            break;
         }
+        player.removeTag(player.id);
     }
 }

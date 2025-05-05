@@ -308,7 +308,7 @@
 		},
 		"animation.nichirintou.iwa.go_2_third": {
 			"loop": true,
-			"animation_length": 0.5,
+			"animation_length": 0.1667,
 			"bones": {
 				"iwa_chaingroup4": {
 					"rotation": {
@@ -389,6 +389,16 @@
 					"scale": {
 						"0.0": [1, 1, 1],
 						"0.0833": [1, 1, 1]
+					}
+				},
+				"iwa_blade_left": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [40, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [1, -97, -40]
 					}
 				}
 			}

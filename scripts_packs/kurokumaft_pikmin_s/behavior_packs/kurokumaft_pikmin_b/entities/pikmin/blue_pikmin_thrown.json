@@ -1,5 +1,5 @@
 {
- "format_version": "1.20.10",
+ "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:blue_pikmin_thrown",
@@ -19,13 +19,6 @@
               "damage": 4,
               "catch_fire": false,
               "semi_random_diff_damage": true
-            },
-            "definition_event": {
-              "affect_projectile": true,
-              "event_trigger": {
-                "event": "kurokumaft:blue_water",
-                "target": "self"
-              }
             }
           },
           "angle_offset": -50,

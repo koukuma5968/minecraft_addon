@@ -1,4 +1,4 @@
-import { Entity, EntityComponentTypes, EntityHealableComponent, EntityHealthComponent, Player, world } from "@minecraft/server";
+import { Entity, Player, system } from "@minecraft/server";
 
 export class RaisingStatusCheckClass {
 
@@ -8,7 +8,6 @@ export class RaisingStatusCheckClass {
         const point = orge.getProperty("kurokumaft:orge_point") as number;
         let upPoint = count+point;
         let killtarget=0;
-        let healthValue = 10;
         switch(kaikyu) {
             case 0:
                 killtarget=1;
@@ -41,8 +40,9 @@ export class RaisingStatusCheckClass {
                 if (upPoint >= killtarget) {
                     player.setProperty("kurokumaft:kaikyu", kaikyu+1);
                     player.setProperty("kurokumaft:orge_kill", 0);
-                    const health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
-                    health.setCurrentValue(20+healthValue*(kaikyu+1));
+                    system.runTimeout(() => {
+                        player.triggerEvent("kurokumaft:kakyu_change");
+                    }, 2);
                 } else {
                     player.setProperty("kurokumaft:orge_kill", upPoint);
                 }

@@ -1,11 +1,8 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:pellet_grass_bud",
-			"menu_category": {
-				"category": "none"
-			},
 			"states": {
 				"kurokumaft:growth": [0, 1, 2]
 			}
@@ -33,18 +30,13 @@
 					}
 				]
 			},
-			"minecraft:queued_ticking": {
-				"interval_range": [100, 1000],
-				"looping": true,
-				"on_tick": {
-					"condition": "query.block_state('kurokumaft:growth') < 2",
-					"event": "growth"
-				}
+			"minecraft:tick": {
+				"interval_range": [600, 1000],
+				"looping": true
 			},
-			"minecraft:on_interact": {
-				"condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bone_meal')",
-				"event": "meal_growth"
-			}
+			"minecraft:custom_components": [
+				"kurokumaft:pellet_grass"
+			]
 		},
 		"permutations": [
 			{
@@ -90,103 +82,12 @@
 							"render_method": "alpha_test"
 						}
 					},
-					"minecraft:queued_ticking": {
+					"minecraft:tick": {
 						"interval_range": [500, 1000],
-						"looping": false,
-						"on_tick": {
-							"event": "blooming"
-						}
-					},
-					"minecraft:on_interact": {
-						"condition": "query.is_item_name_any('slot.weapon.mainhand',0,'minecraft:bone_meal')",
-						"event": "blooming"
+						"looping": false
 					}		
 				}
 			}
-		],
-		"events": {
-			"growth": {
-			  "set_block_state": {
-				"kurokumaft:growth": "query.block_state('kurokumaft:growth') < 2 ? query.block_state('kurokumaft:growth') + 1 : 2"
-			  }
-			},
-			"meal_growth": {
-				"run_command": {
-					"command":  "particle minecraft:crop_growth_emitter ~~~"
-				},
-				"set_block_state": {
-				  "kurokumaft:growth": "query.block_state('kurokumaft:growth') < 2 ? query.block_state('kurokumaft:growth') + 1 : 2"
-				}
-			},
-			"blooming": {
-				"sequence": [
-					{
-						"die": {
-						"target": "self"
-						}
-					},
-					{
-						"randomize": [
-							{
-								"weight": 25,
-								"run_command": {
-									"command":  [
-										"summon kurokumaft:red_pellet_grass"
-									]
-								}
-							},
-							{
-								"weight": 25,
-								"run_command": {
-									"command":  [
-										"summon kurokumaft:blue_pellet_grass"
-									]
-								}
-							},
-							{
-								"weight": 25,
-								"run_command": {
-									"command":  [
-										"summon kurokumaft:yellow_pellet_grass"
-									]
-								}
-							},
-							{
-								"weight": 5,
-								"run_command": {
-									"command":  [
-										"summon kurokumaft:white_pellet_grass"
-									]
-								}
-							},
-							{
-								"weight": 5,
-								"run_command": {
-									"command":  [
-										"summon kurokumaft:purple_pellet_grass"
-									]
-								}
-							},
-							{
-								"weight": 5,
-								"run_command": {
-									"command":  [
-										"summon kurokumaft:rock_pellet_grass"
-									]
-								}
-							},
-							{
-								"weight": 5,
-								"run_command": {
-									"command":  [
-										"summon kurokumaft:feather_pellet_grass"
-									]
-								}
-							}
-						]
-					}
-				]
-		 	}
-		}
+		]
 	}
 }

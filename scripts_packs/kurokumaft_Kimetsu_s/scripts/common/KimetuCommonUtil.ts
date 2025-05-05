@@ -37,130 +37,133 @@ function playsound(entity:Entity, sound:String) {
 };
 
 /**
- * 視線位置
- * @param {Vector2} rotation
- * @param {Vector3} location
- * @param {number} point
+ * 水平視線位置取得
+ * @param {number} angle
+ * @param {number} forwardPoint
+ * @param {number} sidePoint
+ * @param {number} udFixed
  */
-function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector3 {
-    let piNum = 90;
-    let xlocation;
-    let ylocation;
-    let zlocation;
+function getLookLocationDistance(angle: number, forwardPoint:number, sidePoint:number, udFixed:number) : Vector3 {
 
-    // 西～北
-    if (rotation.y >= -90 && rotation.y < 0) {
-        let yRotax = -rotation.y / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
-        // 上～正面
-        if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
+    const forwardRad = degToRad(angle);
 
-        // 正面～下
-        } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
-        }
-
-    // 北～東
-    } else if (rotation.y >= 0 && rotation.y <= 90) {
-
-        let yRotax = -rotation.y / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
-        // 上～正面
-        if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
-        // 正面～下
-        } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
-        }
-
-    // 西～南
-    } else if (rotation.y < -90 && rotation.y > -180) {
-
-        let yRotax = (rotation.y + 180) / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
-        // 上～正面
-        if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
-
-        // 正面～下
-        } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
-        }
-
-    // 東～南
-    } else if (rotation.y > 90 && rotation.y <= 180) {
-        let yRotax = (rotation.y - 180) / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
-        // 上～正面
-        if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
-        // 正面～下
-        } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
-            xlocation = location.x + (yRotax * xRota) * point;
-            ylocation = (location.y-0.5) + (yRota) * point;
-            zlocation = location.z + (yRotaz * xRota) * point;
-        }
-
+    const forntDisPoint = {
+        x: -(Math.sin(forwardRad)) * forwardPoint,
+        z: (Math.cos(forwardRad)) * forwardPoint,
     }
-    return { x:xlocation!, y:ylocation!, z:zlocation! };
+
+    if (sidePoint < 0) {
+        const leftRad = degToRad(angle + 90);
+        forntDisPoint.x = forntDisPoint.x + Math.sin(leftRad) * -sidePoint;
+        forntDisPoint.z = forntDisPoint.z + Math.cos(leftRad) * -sidePoint;
+    } else if (sidePoint > 0) {
+        const rightRad = degToRad(angle - 90);
+        forntDisPoint.x = forntDisPoint.x + Math.sin(rightRad) * sidePoint;
+        forntDisPoint.z = forntDisPoint.z + Math.cos(rightRad) * sidePoint;
+    }
+
+    const angleDisPoint = {
+        x: Number(forntDisPoint.x.toFixed(3)),
+        y: udFixed,
+        z: Number(forntDisPoint.z.toFixed(3))
+    };
+
+    return angleDisPoint;
 }
 
 /**
- * 視線方向
- * @param {Vector2} rotation
- * @param {number} point
- * @param {number} side
+ * 空間視線位置取得
+ * @param {Vector2} angle
+ * @param {number} forwardPoint
+ * @param {number} sidePoint
  */
-function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : VectorXZ {
-    let piNum = 90;
-    let rotax;
-    let rotaz;
+function getLookLocationDistancePitch(angle: Vector2, forwardPoint:number, sidePoint:number) : Vector3 {
 
-    // 西～北
-    if (rotation.y >= -90 && rotation.y < 0) {
-        rotax = (-rotation.y / piNum) * point + (side * ((rotation.y + 90) / piNum));
-        rotaz = ((rotation.y + 90) / piNum) * point + (side * (-rotation.y / piNum));
-    // 北～東
-    } else if (rotation.y >= 0 && rotation.y <= 90) {
-        rotax = (-rotation.y / piNum) * point + (side * (-(rotation.y + 90) / piNum));
-        rotaz = (-(rotation.y - 90) / piNum) * point + (side * (-rotation.y / piNum));
-    // 西～南
-    } else if (rotation.y < -90 && rotation.y > -180) {
-        rotax = ((rotation.y + 180) / piNum) * point + (side * ((rotation.y + 90) / piNum));
-        rotaz = ((rotation.y + 90) / piNum) * point + (side * ((rotation.y + 180) / piNum));
-    // 東～南
-    } else if (rotation.y > 90 && rotation.y <= 180) {
-        rotax = ((rotation.y - 180) / piNum) * point + (side * (-(rotation.y - 90) / piNum));
-        rotaz = (-(rotation.y - 90) / piNum) * point + (side * ((rotation.y - 180) / piNum));
+    const forwardRad = degToRad(angle.y);
+    const pitchRad = degToRad(angle.x);
+
+    let angleDisPoint = {
+        x: -(Math.cos(pitchRad) * Math.sin(forwardRad)) * forwardPoint,
+        y: Math.sin(pitchRad) * forwardPoint,
+        z: (Math.cos(pitchRad) * Math.cos(forwardRad)) * forwardPoint,
+    };
+
+    if (sidePoint < 0) {
+        const leftRad = degToRad(angle.y + 90);
+        angleDisPoint = crossProduct(angleDisPoint, {
+            x: Math.sin(leftRad) * -sidePoint,
+            y: 0,
+            z: Math.cos(leftRad) * -sidePoint
+        });
+    } else if (sidePoint > 0) {
+        const rightRad = degToRad(angle.y - 90);
+        angleDisPoint = crossProduct(angleDisPoint, {
+            x: Math.sin(rightRad) * sidePoint,
+            y: 0,
+            z: Math.cos(rightRad) * sidePoint
+        });
     }
-    return { x:rotax!, z:rotaz! };
+
+    const retDisPoint = {
+        x: Number(angleDisPoint.x.toFixed(3)),
+        y: -Number(angleDisPoint.y.toFixed(3)),
+        z: Number(angleDisPoint.z.toFixed(3))
+    };
+    return retDisPoint;
+}
+
+/**
+ * 空間視線位置取得
+ * @param {Vector3} origin
+ * @param {Vector3} distance
+ */
+function getDistanceLocation(origin: Vector3, distance:Vector3) : Vector3 {
+    const angleDisPoint = {
+        x: Number((origin.x + distance.x).toFixed(3)),
+        y: Number((origin.y + distance.y).toFixed(3)),
+        z: Number((origin.z + distance.z).toFixed(3))
+    };
+
+    return angleDisPoint;
+}
+
+function crossProduct(front: Vector3, side: Vector3): Vector3 {
+    return {
+      x: Number((front.x * + side.x).toFixed(3)),
+      y: Number(front.y.toFixed(3)),
+      z: Number((front.z + side.z).toFixed(3)),
+    };
+}
+
+function degToRad(deg: number): number {
+  return deg * Math.PI / 180;
+}
+
+function getForwardPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
+  const rad = degToRad(angleZ);
+  return {
+    x: origin.x + Math.sin(rad) * distance,
+    y: origin.y,
+    z: origin.z + Math.cos(rad) * distance
+  };
+}
+
+function getRightPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
+  const rad = degToRad(angleZ + 90);
+  return {
+    x: origin.x + Math.sin(rad) * distance,
+    y: origin.y,
+    z: origin.z + Math.cos(rad) * distance
+  };
+}
+
+function getLeftPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
+  const rad = degToRad(angleZ - 90);
+  return {
+    x: origin.x + Math.sin(rad) * distance,
+    y: origin.y,
+    z: origin.z + Math.cos(rad) * distance
+  };
 }
 
 function normalizeVector(v: Vector3): Vector3 {
@@ -287,5 +290,52 @@ const weightChoice = (list: any[]) => {
     }
 };
 
-export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, 
-    getDirectionVector, addRegimentalFilter, addProjectionFilter, BlockLocationList, weightChoice };
+function getForwardVector(angleZ: number): Vector3 {
+    const rad = degToRad(angleZ);
+    return {
+      x: Math.cos(rad),
+      y: 0,
+      z: Math.sin(rad),
+    };
+}
+  
+function normalize(v: Vector3): Vector3 {
+    const length = Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    return { x: v.x / length, y: v.y / length, z: v.z / length };
+}
+
+function dot(v1: Vector3, v2: Vector3): number {
+    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+}
+
+function distance(v1: Vector3, v2: Vector3): number {
+    const dx = v1.x - v2.x;
+    const dy = v1.y - v2.y;
+    const dz = v1.z - v2.z;
+    return Math.sqrt(dx * dx + dy * dy + dz * dz);
+}
+
+function isTargetInFront(myPos: Vector3, yawDeg: number, targetPos: Vector3, maxHalfAngleDeg: number, maxDistance: number): boolean {
+
+    const forward = normalize(getForwardVector(yawDeg));
+
+    // ターゲットへのXZ方向ベクトルだけ作る（水平のみ）
+    const toTarget = normalize({
+      x: targetPos.x - myPos.x,
+      y: 0,
+      z: targetPos.z - myPos.z,
+    });
+  
+    const dist = distance(myPos, targetPos);
+  
+    // 内積（cosθ）を取る
+    const cosTheta = dot(forward, toTarget);
+    const thetaDeg = Math.acos(cosTheta) * (180 / Math.PI);
+  
+    return thetaDeg <= maxHalfAngleDeg && dist <= maxDistance;
+}
+
+export { print, clamp, getRandomInRange, playsound, getDistanceLocation, 
+    getDirectionVector, addRegimentalFilter, addProjectionFilter, BlockLocationList, weightChoice,
+    getForwardPosition, getRightPosition, getLeftPosition, getLookLocationDistance, getLookLocationDistancePitch, isTargetInFront,
+    getForwardVector };

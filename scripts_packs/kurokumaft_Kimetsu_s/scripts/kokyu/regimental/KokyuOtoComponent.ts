@@ -18,14 +18,15 @@ export class KokyuOtoComponent implements NichirintouUseComponent {
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                player.setProperty("kurokumaft:kokyu_kata", 1);
                 kata = kokyuObject.kata[0];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
                 break;
             default :
-                player.setProperty("kurokumaft:kokyu_kata", kata+1);
-                kata = kata+1;
-            }
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:oto_kata" + kata + ".value\"}]}");
+                const index = kokyuObject.kata.findIndex((el) => el == kata);
+                kata = kokyuObject.kata[index+1];
+                player.setProperty("kurokumaft:kokyu_kata", kata);
+        }
+        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:oto_kata" + kata + ".value\"}]}");
 
     }
 
@@ -51,9 +52,6 @@ export class KokyuOtoComponent implements NichirintouUseComponent {
             case 2 :
                 oto.niNoKata(player, itemStack);
             break;
-            case 3 :
-                oto.sanNoKata(player, itemStack);
-            break;
             case 4 :
                 oto.shiNoKata(player, itemStack);
             break;
@@ -65,6 +63,15 @@ export class KokyuOtoComponent implements NichirintouUseComponent {
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
+        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        let oto = new OtoNoKata();
+
+        switch (kata) {
+            case 3 :
+                oto.sanNoKata(player, itemStack);
+            break;
+        }
+
     }
 
 }

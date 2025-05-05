@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:zyuu_genya",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.nichirintou"
+        "category": "equipment"
       }
     },
     "components": {

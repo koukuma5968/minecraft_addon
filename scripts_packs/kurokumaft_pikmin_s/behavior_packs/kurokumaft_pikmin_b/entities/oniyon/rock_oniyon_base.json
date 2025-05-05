@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:rock_oniyon_base",
@@ -21,53 +21,6 @@
       "minecraft:health": {
         "value": 500,
         "max": 500
-      },
-      "minecraft:interact": {
-        "interactions": [
-          {
-            "on_interact": {
-              "filters": {
-                "all_of": [
-                  {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:rock_pellet"},
-                  {"test": "is_family","subject": "other","value": "player"}
-                ]
-              }
-            },
-            "spawn_entities": [
-              "kurokumaft:rock_pikmin","kurokumaft:rock_pikmin","kurokumaft:rock_pikmin"
-            ],
-            "barter": true,
-            "admire": true,
-            "use_item": true,
-            "interact_text": "action.interact.barter"
-          },
-          {
-            "on_interact": {
-              "filters": {
-                "all_of": [
-                  {
-                    "any_of": [
-                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:white_pellet"},
-                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:red_pellet"},
-                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:blue_pellet"},
-                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:yellow_pellet"},
-                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:feather_pellet"},
-                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:purple_pellet"}
-                    ]
-                  },
-                  {"test": "is_family","subject": "other","value": "player"}
-                ]
-              }
-            },
-            "spawn_entities": [
-              "kurokumaft:rock_pikmin"
-            ],
-            "barter": true,
-            "admire": true,
-            "use_item": true,
-            "interact_text": "action.interact.barter"
-          }
-        ]
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
@@ -96,9 +49,6 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       }
-    },
-
-    "events": {
     }
   }
 }
