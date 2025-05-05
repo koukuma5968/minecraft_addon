@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:tuki_blead",
+        "materials": {
+          "default": "arrow"
+        },
+        "geometry": {
+          "default": "geometry.tuki_blead"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/tuki_blead"
+        },
+        "particle_effects": {
+          "tuki_particle": "kurokumaft:tuki_locus_particle"
+        },
+        "scripts": {
+          "animate": [
+            "shot"
+          ]
+        },
+        "animations": {
+          "shot": "animation.tuki_blead.shot"
+        },
+        "render_controllers": ["controller.render.bullet"]
+      }
+    }
+  }
+  

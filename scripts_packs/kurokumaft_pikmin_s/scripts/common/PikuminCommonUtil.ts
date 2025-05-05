@@ -1,4 +1,4 @@
-import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Direction, Block, EntityHealthComponent, ItemCooldownComponent, TicksPerSecond} from "@minecraft/server";
+import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Direction, Block, EntityHealthComponent, ItemCooldownComponent, TicksPerSecond, EntityQueryOptions, Vector3} from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export const silkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
@@ -160,5 +160,22 @@ const BlockLocationList = Object.freeze([
 
 ]);
 
+const weightChoice = (list: any[]) => {
+    const totalWeight = list.reduce((p, c) => {
+        return { weight: p.weight + c.weight }
+    }).weight
+
+    return {
+        pick () {
+            const r = Math.random() * totalWeight;
+            let s = 0.0;
+            for (const l of list) {
+                s += l.weight
+                if (r < s) { return l.item }
+            }
+        }
+    }
+};
+
 export { print, clamp, itemTans, getRandomInRange, playsound, breakBlock, resuscitation,
-    itemCoolDown, BlockLocationList };
+    itemCoolDown, BlockLocationList, weightChoice };

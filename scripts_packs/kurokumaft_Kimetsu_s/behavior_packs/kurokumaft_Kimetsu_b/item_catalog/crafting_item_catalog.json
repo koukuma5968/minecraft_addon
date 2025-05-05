@@ -1,0 +1,50 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:crafting_items_catalog": {
+        "categories": [
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:nichirintou",
+                            "name": "kurokumaft:itemGroup.name.nichirintou"
+                        },
+                        "items": [
+                            "kurokumaft:nichirintou",
+                            "kurokumaft:nichirintou_tanjiro",
+                            "kurokumaft:nichirintou_zenitu",
+                            "kurokumaft:nichirintou_inosuke",
+                            "kurokumaft:nichirintou_kanawo",
+                            "kurokumaft:nichirintou_genya",
+                            "kurokumaft:zyuu_genya",
+                            "kurokumaft:nichirintou_giyu",
+                            "kurokumaft:nichirintou_shinobu",
+                            "kurokumaft:nichirintou_kyouzyuro",
+                            "kurokumaft:nichirintou_tengen",
+                            "kurokumaft:nichirintou_obanai",
+                            "kurokumaft:nichirintou_sanemi",
+                            "kurokumaft:nichirintou_mituri",
+                            "kurokumaft:nichirintou_muitiro",
+                            "kurokumaft:nichirintou_gyoumei",
+                            "kurokumaft:nichirintou_mizu",
+                            "kurokumaft:nichirintou_hi",
+                            "kurokumaft:nichirintou_kaminari",
+                            "kurokumaft:nichirintou_hono",
+                            "kurokumaft:nichirintou_kemono",
+                            "kurokumaft:nichirintou_mushi",
+                            "kurokumaft:nichirintou_hana",
+                            "kurokumaft:nichirintou_koi",
+                            "kurokumaft:nichirintou_oto",
+                            "kurokumaft:nichirintou_kaze",
+                            "kurokumaft:nichirintou_iwa",
+                            "kurokumaft:nichirintou_hebi",
+                            "kurokumaft:nichirintou_kasumi",
+                            "kurokumaft:nichirintou_tuki"
+                        ]
+                    }
+                ]
+           }
+        ]
+    }
+}

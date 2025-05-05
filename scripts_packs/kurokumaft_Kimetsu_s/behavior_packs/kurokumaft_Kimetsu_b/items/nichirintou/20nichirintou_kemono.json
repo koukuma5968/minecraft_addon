@@ -1,0 +1,68 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:nichirintou_kemono",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:nichirintou_kemono.name"
+			},
+      "minecraft:tags": {
+        "tags": [
+          "attack_two",
+          "nichirintou"
+        ]
+      },
+      "minecraft:icon": "nichirintou_kemono",
+      "minecraft:max_stack_size": 1,
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 3
+        },
+        "max_durability": 1200
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:scarlet_nugget" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:nichirintou_kemono" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:damage": 8,
+      "minecraft:enchantable": {
+        "value": 50,
+        "slot": "sword"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": {
+              "tags": "query.any_tag('minecraft:is_sword_item_destructible')"
+            },
+            "speed": 15
+          }
+        ]
+      },
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1,
+        "use_duration": 1000
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:nichirintou_component"
+      ]
+    }
+  }
+}
+

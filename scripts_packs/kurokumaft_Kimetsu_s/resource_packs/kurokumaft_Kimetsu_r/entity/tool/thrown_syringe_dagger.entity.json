@@ -1,0 +1,26 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:thrown_syringe_dagger",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/tool/syringe_dagger"
+      },
+      "geometry": {
+        "default": "geometry.syringe_dagger"
+      },
+      "scripts": {
+        "animate": [
+          "thrown"
+        ]
+      },
+      "animations": {
+        "thrown": "animation.dagger.throw"
+      },
+      "render_controllers": [ "controller.render.thrown_default" ]
+    }
+  }
+}

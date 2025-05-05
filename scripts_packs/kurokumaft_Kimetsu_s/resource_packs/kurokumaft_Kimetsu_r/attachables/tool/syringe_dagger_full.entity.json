@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:syringe_dagger_full",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/tool/syringe_dagger_full"
+      },
+      "geometry": {
+        "default": "geometry.syringe_dagger"
+      },
+      "animations": {
+        "wield": "controller.animation.dagger_full.wield",
+        "wield_first_person": "animation.dagger.wield_first_person",
+        "wield_first_person_eat": "animation.dagger.wield_first_person_eat",
+        "wield_third_person": "animation.dagger.wield_third_person"
+      },
+      "scripts": {
+        "animate": [
+          "wield"
+        ]
+      },
+      "render_controllers": [ "controller.render.thrown_default" ]
+    }
+  }
+}

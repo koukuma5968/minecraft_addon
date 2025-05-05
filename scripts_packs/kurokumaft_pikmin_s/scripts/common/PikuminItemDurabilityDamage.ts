@@ -1,5 +1,5 @@
 import { ItemStack, Player, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, EntityInventoryComponent, Container } from "@minecraft/server";
-import { getRandomInRange } from "./commonUtil";
+import { getRandomInRange } from "./PikuminCommonUtil";
 
 /**
  * 耐久値減少

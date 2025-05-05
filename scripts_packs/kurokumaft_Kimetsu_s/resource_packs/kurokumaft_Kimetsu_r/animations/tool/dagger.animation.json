@@ -1,0 +1,99 @@
+{
+	"format_version": "1.10.0",
+	"animations": {
+		"animation.dagger.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"dagger": {
+					"rotation": [18.58991, -64.90081, 104.97605],
+					"position": [-8, 28, -5]
+				}
+			}
+		},
+		"animation.dagger.wield_first_person_eat": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"dagger": {
+					"rotation": {
+						"0.0": [-122.08138, 3.51326, 9.26125],
+						"0.25": [-122.08138, 3.51326, 9.26125]
+					},
+					"position": {
+						"0.0": [10, 2, 5],
+						"0.25": [9, -3, 5]
+					}
+				}
+			}
+		},
+		"animation.dagger.wield_first_person_raise": {
+			"loop": true,
+			"bones": {
+				"dagger": {
+					"rotation": [-82.08138, 3.51326, 9.26125],
+					"position": [
+						"4 + (variable.charge_amount <= 0.25 ? math.lerp(0.0, -6.5, variable.charge_amount * 4.0) : -6.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, -4.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)",
+						"6+(variable.charge_amount <= 0.25 ? math.lerp(0.0, -3.0, variable.charge_amount * 4.0) : -3.0) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 3.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)",
+						"10 + (variable.charge_amount <= 0.25 ? math.lerp(0.0, -16.5, variable.charge_amount * 4.0) : -16.5) + (variable.charge_amount > 0.25 ? math.lerp(0.0, 0.0, (variable.charge_amount - 0.25) * 1.33) : 0.0)"
+					]
+				}
+			}
+		},
+		"animation.dagger.wield_first_person_raise_shake": {
+			"loop": true,
+			"bones": {
+				"dagger": {
+					"rotation": [0, 0, 0],
+					"position": [0, "variable.charge_amount >= 1.0 ? math.sin(q.life_time * 1000.0 * 1.3) * 0.1 - math.sin(q.life_time * 45.0) * 0.5 : 0.0", 0]
+				}
+			}
+		},
+		"animation.dagger.wield_first_person_riptide": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"dagger": {
+					"rotation": [180, 60, -36],
+					"position": [18, 17, -9]
+				}
+			}
+		},
+		"animation.dagger.wield_third_person": {
+			"loop": true,
+			"animation_length": 0.125,
+			"bones": {
+				"dagger": {
+					"rotation": [-4.40429, -2.21331, 2.85694],
+					"position": [0.5, 22.5, -5.5]
+				}
+			}
+		},
+		"animation.dagger.wield_third_person_raise": {
+			"loop": true,
+			"bones": {
+				"dagger": {
+					"rotation": [-172.66151, 4.39976, -177.66262],
+					"position": [-0.7, -2, 11.5]
+				}
+			}
+		},
+		"animation.dagger.throw": {
+			"loop": true,
+			"bones": {
+				"dagger": {
+					"rotation": ["- query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [0, 1, -2]
+				}
+			}
+		},
+		"animation.dagger.prick": {
+			"loop": true,
+			"bones": {
+				"dagger": {
+					"rotation": [0, 0, "-162.5 - query.target_y_rotation"],
+					"position": [-2, 2, 0]
+				}
+			}
+		}
+	}
+}
