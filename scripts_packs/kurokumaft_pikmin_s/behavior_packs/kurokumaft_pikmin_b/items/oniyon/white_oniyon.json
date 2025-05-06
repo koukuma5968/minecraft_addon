@@ -1,28 +1,23 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:white_oniyon",
       "menu_category": {
-        "category": "nature",
-        "group": "oniyon"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:white_oniyon.name"
 			},
-      "minecraft:icon": {
-        "texture": "white_oniyon"
-      },
+      "minecraft:icon": "white_oniyon",
       "minecraft:block_placer": {
-        "block": "white_oniyons",
+        "block": "kurokumaft:white_oniyons",
         "use_on" : [
           "farmland","grass","dirt"
         ]
       }
-    },
-    "events": {
     }
   }
 }

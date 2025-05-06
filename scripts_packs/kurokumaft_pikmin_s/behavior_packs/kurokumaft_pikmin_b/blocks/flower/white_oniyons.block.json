@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:white_oniyons",
@@ -7,7 +7,6 @@
 				"category": "none"
 			},
 			"states": {
-				"color": ["white"],
 				"kurokumaft:growth": [0, 1, 2, 3]
 			}
 		},

@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.10",
+	"format_version": "1.21.20",
 	"animations": {
 		"animation.cooldown.one": {
 			"animation_length": 1.0,
@@ -8,7 +8,7 @@
 			}
 		},
 		"animation.cooldown.two": {
-			"animation_length": 2.0,
+			"animation_length": 4.0,
 			"timeline": {
 				"0.0": []
 			}

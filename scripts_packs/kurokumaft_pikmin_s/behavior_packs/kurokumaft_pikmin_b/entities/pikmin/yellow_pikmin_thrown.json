@@ -1,5 +1,5 @@
 {
- "format_version": "1.20.10",
+ "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:yellow_pikmin_thrown",
@@ -19,13 +19,6 @@
               "damage": 2,
               "catch_fire": false,
               "semi_random_diff_damage": true
-            },
-            "definition_event": {
-              "affect_projectile": true,
-              "event_trigger": {
-                "event": "kurokumaft:yellow_lightning",
-                "target": "self"
-              }
             }
           },
           "angle_offset": -50,
@@ -91,27 +84,6 @@
             "kurokumaft:pikmin_projectile"
           ]
         }
-      },
-      "kurokumaft:yellow_lightning": {
-        "sequence": [
-          {
-            "run_command": {
-              "command": [
-                "execute at @e[family=!player,family=!inanimate,type=!item,r=6] run particle kurokumaft:yellow_lightning ~~~",
-                "damage @e[family=!player,family=!inanimate,type=!item,r=6] 8 lightning"
-              ],
-              "target":"self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "kill @s"
-              ],
-              "target":"self"
-            }
-          }
-        ]
       }
     }
   }

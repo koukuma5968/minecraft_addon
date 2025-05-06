@@ -7,7 +7,6 @@
 				"category": "none"
 			},
 			"states": {
-				"color": ["yellow"],
 				"kurokumaft:growth": [0, 1, 2, 3]
 			}
 		},

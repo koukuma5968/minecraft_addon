@@ -1,28 +1,23 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:feather_oniyon",
       "menu_category": {
-        "category": "nature",
-        "group": "oniyon"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:feather_oniyon.name"
 			},
-      "minecraft:icon": {
-        "texture": "feather_oniyon"
-      },
+      "minecraft:icon": "feather_oniyon",
       "minecraft:block_placer": {
-        "block": "feather_oniyons",
+        "block": "kurokumaft:feather_oniyons",
         "use_on" : [
           "farmland","grass","dirt"
         ]
       }
-    },
-    "events": {
     }
   }
 }

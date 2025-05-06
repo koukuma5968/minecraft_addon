@@ -1,5 +1,5 @@
 {
- "format_version": "1.21.20",
+ "format_version": "1.21.30",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:blue_pikmin_thrown",
@@ -85,28 +85,6 @@
             "kurokumaft:pikmin_projectile"
           ]
         }
-      },
-      "kurokumaft:blue_water": {
-        "sequence": [
-          {
-            "run_command": {
-              "command": [
-                "execute at @e[family=!player,family=!inanimate,type=!item,r=6] run particle minecraft:bubble_column_up_particle ~~~",
-                "effect @e[family=!player,family=!inanimate,type=!item,r=6] weakness 50 10 false",
-                "damage @e[family=!player,family=!inanimate,type=!item,r=6] 2 drowning"
-              ],
-              "target":"self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "kill @s"
-              ],
-              "target":"self"
-            }
-          }
-        ]
       }
     }
   }

@@ -1,12 +1,12 @@
-import { Entity, EquipmentSlot, ItemStack, Player } from "@minecraft/server";
+import { EnchantmentSlot, Entity, EquipmentSlot, ItemStack, Player } from "@minecraft/server";
 import { getRandomInRange } from "../common/PikuminCommonUtil";
 import { subtractionItem } from "../common/PikuminItemDurabilityDamage";
 
 export class OniyonBase {
 
     pikuminSpawn(target: Entity, itemStack: ItemStack, player:Player) {
-        const oniyon = target.typeId.split("_");
-        const pellet = itemStack.typeId.split("_");
+        const oniyon = target.typeId.split(":")[1].split("_");
+        const pellet = itemStack.typeId.split(":")[1].split("_");
         const location = target.location;
         switch(oniyon[0]) {
             case "red":

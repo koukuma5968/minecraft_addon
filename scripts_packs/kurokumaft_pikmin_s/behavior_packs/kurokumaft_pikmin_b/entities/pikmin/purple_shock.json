@@ -1,5 +1,5 @@
 {
- "format_version": "1.20.10",
+ "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:purple_shock",
@@ -15,26 +15,49 @@
     },
 
     "components": {
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 0,
+            "catch_fire": false,
+            "semi_random_diff_damage": true
+          }
+        },
+        "knockback": false,
+        "power": 1.5,
+        "gravity": 0.15,
+        "inertia": 1.0,
+        "uncertaintyBase": 8,
+        "uncertaintyMultiplier": 2.5,
+        "anchor": 1,
+        "offset": [0, 0.75, 0],
+        "reflect_on_hurt": true,
+        "shoot_target": true,
+        "catch_fire": false
+      },
       "minecraft:behavior.knockback_roar": {
         "attack_time": 0.1,
         "knockback_damage": 5,
-        "duration": 0.2,
+        "duration": 0.5,
         "damage_filters": {
           "all_of": [
             {"test": "is_family","operator": "not","subject": "other","value": "pikmin"},
-            {"test": "is_family","operator": "not","subject": "other","value": "player"}
+            {"test": "is_owner", "operator": "==","subject": "other","value": false}
           ]
         },
         "knockback_filters": {
           "all_of": [
             {"test": "is_family","operator": "not","subject": "other","value": "pikmin"},
-            {"test": "is_family","operator": "not","subject": "other","value": "player"}
+            {"test": "is_owner", "operator": "==","subject": "other","value": false}
           ]
         },
         "knockback_height_cap": 2,
         "knockback_range": 6,
         "knockback_horizontal_strength": 5,
         "knockback_vertical_strength": 2
+      },
+      "minecraft:tameable": {
+        "probability": 1
       },
       "minecraft:is_hidden_when_invisible": {
       },

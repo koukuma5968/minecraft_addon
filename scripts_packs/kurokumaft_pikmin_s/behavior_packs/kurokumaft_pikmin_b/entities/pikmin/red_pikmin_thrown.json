@@ -1,5 +1,5 @@
 {
- "format_version": "1.20.10",
+ "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:red_pikmin_thrown",
@@ -19,13 +19,6 @@
               "damage": 5,
               "catch_fire": true,
               "semi_random_diff_damage": true
-            },
-            "definition_event": {
-              "affect_projectile": true,
-              "event_trigger": {
-                "event": "kurokumaft:red_fire",
-                "target": "self"
-              }
             }
           },
           "angle_offset": -50,
@@ -94,27 +87,6 @@
             "kurokumaft:pikmin_projectile"
           ]
         }
-      },
-      "kurokumaft:red_fire": {
-        "sequence": [
-          {
-            "run_command": {
-              "command": [
-                "execute at @e[family=!player,family=!inanimate,type=!item,r=6] run particle minecraft:mobflame_single ~~~",
-                "damage @e[family=!player,family=!inanimate,type=!item,r=6] 8 fire"
-              ],
-              "target":"self"
-            }
-          },
-          {
-            "run_command": {
-              "command": [
-                "kill @s"
-              ],
-              "target":"self"
-            }
-          }
-        ]
       }
     }
   }

@@ -9,6 +9,9 @@
 					"transitions" : [
 						{
 							"sleep" : "query.variant == 1"
+						},
+						{
+							"attack": "variable.attack_time"
 						}
 					]
 				},
@@ -17,6 +20,14 @@
 					"transitions" : [
 						{
 							"move" : "query.variant == 0"
+						}
+					]
+				},
+				"attack" : {
+					"animations" : [ "attack" ],
+					"transitions" : [
+						{
+							"move" : "query.any_animation_finished"
 						}
 					]
 				}

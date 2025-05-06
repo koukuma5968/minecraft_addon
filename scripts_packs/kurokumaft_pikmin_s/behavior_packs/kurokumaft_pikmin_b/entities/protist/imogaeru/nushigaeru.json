@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:nushigaeru",
@@ -8,13 +8,13 @@
       "is_experimental": false
     },
     "component_groups": {
-      "minecraft:imogaeru_calm": {
+      "kurokumaft:imogaeru_calm": {
         "minecraft:movement.jump": {
           "jump_delay": [ 8.0, 10.5 ],
           "max_turn": 30
         }
       },
-      "minecraft:imogaeru_aggressive": {
+      "kurokumaft:imogaeru_aggressive": {
         "minecraft:movement.jump": {
           "jump_delay": [ 2.0, 3.0 ],
           "max_turn": 30
@@ -163,14 +163,14 @@
       "minecraft:become_calm": {
         "add": {
           "component_groups": [
-            "minecraft:imogaeru_calm"
+            "kurokumaft:imogaeru_calm"
           ]
         }
       },
       "minecraft:become_aggressive": {
         "add": {
           "component_groups": [
-            "minecraft:imogaeru_aggressive"
+            "kurokumaft:imogaeru_aggressive"
           ]
         }
       }

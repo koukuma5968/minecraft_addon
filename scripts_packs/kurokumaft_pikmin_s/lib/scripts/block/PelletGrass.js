@@ -8,9 +8,9 @@ import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 export class PelletGrassBlock {
     onTick(event) {
         const block = event.block;
-        const kurokumaft:growth = block.permutation.getState("kurokumaft:growth");
-        if (kurokumaft:growth < 2) {
-            block.setPermutation(block.permutation.withState("kurokumaft:growth", kurokumaft:growth + 1));
+        const growth = block.permutation.getState("kurokumaft:growth");
+        if (growth < 2) {
+            block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
         }
     }
     onPlayerInteract(event) {
@@ -19,13 +19,13 @@ export class PelletGrassBlock {
         const itemStack = equ.getEquipment(EquipmentSlot.Mainhand);
         if (itemStack != undefined && itemStack.typeId.indexOf("meal") != -1) {
             const block = event.block;
-            const kurokumaft:growth = block.permutation.getState("kurokumaft:growth");
-            if (kurokumaft:growth < 2) {
-                block.setPermutation(block.permutation.withState("kurokumaft:growth", kurokumaft:growth + 1));
-                event.dimension.spawnParticle("minecraft:crop_kurokumaft:growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
+            const growth = block.permutation.getState("kurokumaft:growth");
+            if (growth < 2) {
+                block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
+                event.dimension.spawnParticle("minecraft:crop_growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
                 subtractionItem(player, itemStack, EquipmentSlot.Mainhand, 1);
             }
-            else if (kurokumaft:growth == 2) {
+            else if (growth == 2) {
                 const dimension = block.dimension;
                 const location = block.location;
                 const pekketLists = weightChoice([

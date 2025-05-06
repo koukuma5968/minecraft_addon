@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:zoubutadokkuri",
@@ -13,18 +13,16 @@
       },
       "animations":{
         "breath_con": "controller.animation.butadokkuri.breath",
-        "cooldown_one": "animation.cooldown.one",
-        "cooldown_two": "animation.cooldown.two",
-        "breath": "animation.zoubutadokkuri.fire"
+        "cooldown_two": "animation.cooldown.two"
       }
     },
     "component_groups": {
-      "minecraft:butadokkuri_calm": {
+      "kurokumaft:butadokkuri_calm": {
         "minecraft:mark_variant": {
           "value": 0
         }
       },
-      "minecraft:butadokkuri_aggressive": {
+      "kurokumaft:butadokkuri_aggressive": {
         "minecraft:mark_variant": {
           "value": 1
         }
@@ -62,7 +60,7 @@
       "minecraft:nameable": {
       },
       "minecraft:type_family": {
-        "family": [ "protist", "monster", "butadokkuri" ]
+        "family": [ "protist", "monster", "dokkuri_fire" ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -166,16 +164,18 @@
       "minecraft:become_calm": {
         "add": {
           "component_groups": [
-            "minecraft:butadokkuri_calm"
+            "kurokumaft:butadokkuri_calm"
           ]
         }
       },
       "minecraft:become_aggressive": {
         "add": {
           "component_groups": [
-            "minecraft:butadokkuri_aggressive"
+            "kurokumaft:butadokkuri_aggressive"
           ]
         }
+      },
+      "kurokumaft:dokkuri_breath": {
       }
 
     }

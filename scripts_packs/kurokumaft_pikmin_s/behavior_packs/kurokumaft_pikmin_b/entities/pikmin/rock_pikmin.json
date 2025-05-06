@@ -1,5 +1,5 @@
 {
- "format_version": "1.20.10",
+ "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:rock_pikmin",
@@ -39,13 +39,23 @@
         "minecraft:variant": {
           "value": 0
         },
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {"test": "all_slots_empty","subject": "other","value": "hand"},
+                    {"test": "is_family","subject": "other","value": "player"}
+                  ]
+                }
+              },
+              "use_item": false
+            }
+          ]
+        },
         "minecraft:tameable": {
-          "probability": 1,
-          "tame_items": "bone_meal",
-          "tame_event": {
-            "event": "minecraft:on_tame",
-            "target": "self"
-          }
+          "probability": 1
         }
       },
 
@@ -76,10 +86,11 @@
         "minecraft:movement.basic": {
         },
         "minecraft:navigation.walk": {
-          "is_amphibious": true,
+          "is_amphibious": false,
           "can_pass_doors": true,
           "can_walk": true,
-          "can_break_doors": true
+          "can_open_doors": true,
+          "avoid_water": true
         },
         "minecraft:annotation.break_door": {
         },
@@ -122,8 +133,18 @@
                 },
                 "event": "kurokumaft:grow_up"
               },
-              "use_item": false,
-              "interact_text": "action.interact.barter"
+              "use_item": false
+            },
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    {"test": "all_slots_empty","subject": "other","value": "hand"},
+                    {"test": "is_family","subject": "other","value": "player"}
+                  ]
+                }
+              },
+              "use_item": false
             }
           ]
         },
@@ -356,6 +377,13 @@
         ]
       },
       "kurokumaft:oniyon_spawned": {
+        "remove": {
+          "component_groups": [
+            "kurokumaft:pikmin_unplug",
+            "kurokumaft:leaf_skin",
+            "kurokumaft:pikmin_leaf"
+          ]
+        },
         "add": {
           "component_groups": [
             "kurokumaft:pikmin_plant",
@@ -397,7 +425,7 @@
 					}
 				]
       },
-      "minecraft:on_tame": {
+      "kurokumaft:pikmin_pull_up": {
         "remove": {
           "component_groups": [
             "kurokumaft:pikmin_plant"

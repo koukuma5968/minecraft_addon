@@ -4,17 +4,14 @@
     "description": {
       "identifier": "kurokumaft:yellow_pellet",
       "menu_category": {
-        "category": "nature",
-        "group": "pellet"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:yellow_pellet.name"
 			},
-      "minecraft:icon": {
-        "texture": "yellow_pellet"
-      }
+      "minecraft:icon": "yellow_pellet"
     }
   }
 }

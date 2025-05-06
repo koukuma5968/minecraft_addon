@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:purple_oniyons",
@@ -7,7 +7,6 @@
 				"category": "none"
 			},
 			"states": {
-				"color": ["purple"],
 				"kurokumaft:growth": [0, 1, 2, 3]
 			}
 		},
@@ -22,15 +21,11 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0
 			},
-			"minecraft:placement_filter": {
-				"conditions": [
+			"minecraft:liquid_detection": {
+				"detection_rules": [
 					{
-						"allowed_faces": ["up"],
-						"block_filter": [
-							{"name": "farmland"},
-							{"name": "grass"},
-							{"name": "dirt"}
-						]
+					"liquid_type": "water",
+					"on_liquid_touches": "no_reaction"
 					}
 				]
 			},

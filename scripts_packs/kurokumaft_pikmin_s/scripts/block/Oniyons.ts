@@ -1,4 +1,4 @@
-import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockComponentTickEvent, EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockComponentTickEvent, EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot, world } from "@minecraft/server";
 import { subtractionItem } from "../common/PikuminItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
@@ -6,14 +6,6 @@ import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
  * オニヨンブロック
  */
 export class OniyonsBlock implements BlockCustomComponent {
-
-    onTick(event:BlockComponentTickEvent) {
-        const block = event.block as Block;
-        const growth = block.permutation.getState("kurokumaft:growth") as number;
-        if (growth < 3) {
-            block.setPermutation(block.permutation.withState("kurokumaft:growth", growth+1));
-        }
-    }
 
     onPlayerInteract(event:BlockComponentPlayerInteractEvent) {
         const player = event.player as Player;
@@ -24,15 +16,15 @@ export class OniyonsBlock implements BlockCustomComponent {
             const growth = block.permutation.getState("kurokumaft:growth") as number;
             if (growth < 3) {
                 block.setPermutation(block.permutation.withState("kurokumaft:growth", growth+1));
-                event.dimension.spawnParticle("minecraft:crop_kurokumaft:growth_emitter", {x:block.location.x+0.5, y:block.location.y, z:block.location.z+0.5});
+                event.dimension.spawnParticle("minecraft:crop_growth_emitter", {x:block.location.x+0.5, y:block.location.y, z:block.location.z+0.5});
                 subtractionItem(player, itemStack, EquipmentSlot.Mainhand, 1);
             } else if (growth == 3) {
-                const  oniyonType = block.permutation.getState("color");
+                const oniyonType = block.typeId.split(":")[1].split("_");
                 const dimension = block.dimension;
                 const location = block.location;
 
                 dimension.setBlockType(location, MinecraftBlockTypes.Air);
-                switch (oniyonType as string) {
+                switch (oniyonType[0]) {
                     case 'red': 
                         dimension.spawnEntity("kurokumaft:red_oniyon_base", location);
                     break;

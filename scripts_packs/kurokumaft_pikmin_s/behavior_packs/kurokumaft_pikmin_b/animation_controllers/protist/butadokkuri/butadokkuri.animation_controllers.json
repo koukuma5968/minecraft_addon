@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "animation_controllers": {
     "controller.animation.butadokkuri.breath": {
       "states": {
@@ -9,10 +9,11 @@
           ]
         },
         "breath": {
-          "animations" : [ "breath"],
+          "on_entry": [
+            "/event entity @s kurokumaft:dokkuri_breath"
+          ],
           "transitions": [
-            {"cooldown":"query.any_animation_finished"},
-            {"default":"query.mark_variant == 0"}
+            {"cooldown":"(1.0)"}
           ]
         },
         "cooldown": {

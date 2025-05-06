@@ -1,4 +1,4 @@
-import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Direction, Block, EntityHealthComponent, ItemCooldownComponent, TicksPerSecond, EntityQueryOptions, Vector3} from "@minecraft/server";
+import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Direction, Block, EntityHealthComponent, ItemCooldownComponent, TicksPerSecond, EntityQueryOptions, Vector3, Vector2} from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export const silkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
@@ -177,5 +177,216 @@ const weightChoice = (list: any[]) => {
     }
 };
 
+function addTargetFilter(closest:number, location:Vector3, maxDis:number, exeTag:string): EntityQueryOptions {
+
+    let filterOption = {
+        excludeFamilies: [
+            "inanimate", "pikmin", "villager", "animal"
+        ],
+        excludeTypes: [
+            "item"
+        ],
+        excludeTags: [
+            exeTag
+        ],
+        location: location,
+        maxDistance: maxDis
+    } as EntityQueryOptions;
+
+    if (!world.gameRules.pvp) {
+        filterOption.excludeFamilies?.push("player");
+    }
+    if (closest != 0) {
+        filterOption.closest = closest;
+    }
+
+    return filterOption;
+
+};
+
+function addDokkuriFireFilter(location:Vector3, maxDis:number): EntityQueryOptions {
+
+    let filterOption = {
+        excludeFamilies: [
+            "inanimate", "dokkuri_fire"
+        ],
+        excludeTypes: [
+            "item"
+        ],
+        location: location,
+        maxDistance: maxDis
+    } as EntityQueryOptions;
+
+    return filterOption;
+
+};
+
+function addDokkuriMizuFilter(location:Vector3, maxDis:number): EntityQueryOptions {
+
+    let filterOption = {
+        excludeFamilies: [
+            "inanimate", "dokkuri_water"
+        ],
+        excludeTypes: [
+            "item"
+        ],
+        location: location,
+        maxDistance: maxDis
+    } as EntityQueryOptions;
+
+    return filterOption;
+
+};
+
+/**
+ * 水平視線位置取得
+ * @param {number} angle
+ * @param {number} forwardPoint
+ * @param {number} sidePoint
+ * @param {number} udFixed
+ */
+function getLookLocationDistance(angle: number, forwardPoint:number, sidePoint:number, udFixed:number) : Vector3 {
+
+    const forwardRad = degToRad(angle);
+
+    const forntDisPoint = {
+        x: -(Math.sin(forwardRad)) * forwardPoint,
+        z: (Math.cos(forwardRad)) * forwardPoint,
+    }
+
+    if (sidePoint < 0) {
+        const leftRad = degToRad(angle + 90);
+        forntDisPoint.x = forntDisPoint.x + Math.sin(leftRad) * -sidePoint;
+        forntDisPoint.z = forntDisPoint.z + Math.cos(leftRad) * -sidePoint;
+    } else if (sidePoint > 0) {
+        const rightRad = degToRad(angle - 90);
+        forntDisPoint.x = forntDisPoint.x + Math.sin(rightRad) * sidePoint;
+        forntDisPoint.z = forntDisPoint.z + Math.cos(rightRad) * sidePoint;
+    }
+
+    const angleDisPoint = {
+        x: Number(forntDisPoint.x.toFixed(3)),
+        y: udFixed,
+        z: Number(forntDisPoint.z.toFixed(3))
+    };
+
+    return angleDisPoint;
+}
+
+/**
+ * 空間視線位置取得
+ * @param {Vector2} angle
+ * @param {number} forwardPoint
+ * @param {number} sidePoint
+ */
+function getLookLocationDistancePitch(angle: Vector2, forwardPoint:number, sidePoint:number) : Vector3 {
+
+    const forwardRad = degToRad(angle.y);
+    const pitchRad = degToRad(angle.x);
+
+    let angleDisPoint = {
+        x: -(Math.cos(pitchRad) * Math.sin(forwardRad)) * forwardPoint,
+        y: Math.sin(pitchRad) * forwardPoint,
+        z: (Math.cos(pitchRad) * Math.cos(forwardRad)) * forwardPoint,
+    };
+
+    if (sidePoint < 0) {
+        const leftRad = degToRad(angle.y + 90);
+        angleDisPoint = crossProduct(angleDisPoint, {
+            x: Math.sin(leftRad) * -sidePoint,
+            y: 0,
+            z: Math.cos(leftRad) * -sidePoint
+        });
+    } else if (sidePoint > 0) {
+        const rightRad = degToRad(angle.y - 90);
+        angleDisPoint = crossProduct(angleDisPoint, {
+            x: Math.sin(rightRad) * sidePoint,
+            y: 0,
+            z: Math.cos(rightRad) * sidePoint
+        });
+    }
+
+    const retDisPoint = {
+        x: Number(angleDisPoint.x.toFixed(3)),
+        y: -Number(angleDisPoint.y.toFixed(3)),
+        z: Number(angleDisPoint.z.toFixed(3))
+    };
+    return retDisPoint;
+}
+
+/**
+ * 空間視線位置取得
+ * @param {Vector3} origin
+ * @param {Vector3} distance
+ */
+function getDistanceLocation(origin: Vector3, distance:Vector3) : Vector3 {
+    const angleDisPoint = {
+        x: Number((origin.x + distance.x).toFixed(3)),
+        y: Number((origin.y + distance.y).toFixed(3)),
+        z: Number((origin.z + distance.z).toFixed(3))
+    };
+
+    return angleDisPoint;
+}
+
+function crossProduct(front: Vector3, side: Vector3): Vector3 {
+    return {
+      x: Number((front.x * + side.x).toFixed(3)),
+      y: Number(front.y.toFixed(3)),
+      z: Number((front.z + side.z).toFixed(3)),
+    };
+}
+
+function degToRad(deg: number): number {
+  return deg * Math.PI / 180;
+}
+
+function getForwardPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
+  const rad = degToRad(angleZ);
+  return {
+    x: origin.x + Math.sin(rad) * distance,
+    y: origin.y,
+    z: origin.z + Math.cos(rad) * distance
+  };
+}
+
+function getRightPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
+  const rad = degToRad(angleZ + 90);
+  return {
+    x: origin.x + Math.sin(rad) * distance,
+    y: origin.y,
+    z: origin.z + Math.cos(rad) * distance
+  };
+}
+
+function getLeftPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
+  const rad = degToRad(angleZ - 90);
+  return {
+    x: origin.x + Math.sin(rad) * distance,
+    y: origin.y,
+    z: origin.z + Math.cos(rad) * distance
+  };
+}
+
+function normalizeVector(v: Vector3): Vector3 {
+    const length = Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    return {
+        x: v.x / length,
+        y: v.y / length,
+        z: v.z / length
+    };
+}
+
+function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
+    const direction = {
+        x: targetEn.x - thisEn.x,
+        y: targetEn.y - thisEn.y,
+        z: targetEn.z - thisEn.z
+    };
+    return normalizeVector(direction);
+}
+
 export { print, clamp, itemTans, getRandomInRange, playsound, breakBlock, resuscitation,
-    itemCoolDown, BlockLocationList, weightChoice };
+    itemCoolDown, BlockLocationList, weightChoice, addTargetFilter,
+    getLookLocationDistance, getLookLocationDistancePitch, getDistanceLocation,
+    addDokkuriFireFilter, addDokkuriMizuFilter };

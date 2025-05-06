@@ -1,28 +1,23 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:yellow_oniyon",
       "menu_category": {
-        "category": "nature",
-        "group": "oniyon"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:yellow_oniyon.name"
 			},
-      "minecraft:icon": {
-        "texture": "yellow_oniyon"
-      },
+      "minecraft:icon": "yellow_oniyon",
       "minecraft:block_placer": {
-        "block": "yellow_oniyons",
+        "block": "kurokumaft:yellow_oniyons",
         "use_on" : [
           "farmland","grass","dirt"
         ]
       }
-    },
-    "events": {
     }
   }
 }

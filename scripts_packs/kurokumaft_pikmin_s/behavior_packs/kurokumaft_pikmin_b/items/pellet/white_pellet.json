@@ -4,17 +4,14 @@
     "description": {
       "identifier": "kurokumaft:white_pellet",
       "menu_category": {
-        "category": "nature",
-        "group": "pellet"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:white_pellet.name"
 			},
-      "minecraft:icon": {
-        "texture": "white_pellet"
-      }
+      "minecraft:icon": "white_pellet"
     }
   }
 }

@@ -25,7 +25,7 @@ export class PelletGrassBlock implements BlockCustomComponent {
             const growth = block.permutation.getState("kurokumaft:growth") as number;
             if (growth < 2) {
                 block.setPermutation(block.permutation.withState("kurokumaft:growth", growth+1));
-                event.dimension.spawnParticle("minecraft:crop_kurokumaft:growth_emitter", {x:block.location.x+0.5, y:block.location.y, z:block.location.z+0.5});
+                event.dimension.spawnParticle("minecraft:crop_growth_emitter", {x:block.location.x+0.5, y:block.location.y, z:block.location.z+0.5});
                 subtractionItem(player, itemStack, EquipmentSlot.Mainhand, 1);
             } else if (growth == 2) {
                 const dimension = block.dimension;

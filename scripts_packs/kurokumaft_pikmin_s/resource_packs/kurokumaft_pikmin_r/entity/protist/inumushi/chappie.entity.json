@@ -27,7 +27,8 @@
       "animations": {
         "con": "controller.animation.chappie.move",
         "move": "animation.chappie.move",
-        "sleep": "animation.chappie.sleep"
+        "sleep": "animation.chappie.sleep",
+        "attack": "animation.chappie.attack"
       },
       "render_controllers": [ "controller.render.chappie" ],
       "enable_attachables": true

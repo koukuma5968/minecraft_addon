@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:pellet_grass_bud",
@@ -14,6 +14,14 @@
 			"minecraft:loot": "loot_tables/blocks/pellet/pellet_grass_bud.json",
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0
+			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+					"liquid_type": "water",
+					"on_liquid_touches": "no_reaction"
+					}
+				]
 			},
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0

@@ -1,5 +1,5 @@
 {
- "format_version": "1.20.10",
+ "format_version": "1.21.20",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:purple_pikmin_thrown",
@@ -23,13 +23,6 @@
               "damage": 2,
               "catch_fire": false,
               "semi_random_diff_damage": true
-            },
-            "definition_event": {
-              "affect_projectile": true,
-              "event_trigger": {
-                "event": "kurokumaft:purple_shock",
-                "target": "self"
-              }
             }
           },
           "angle_offset": -50,
@@ -95,19 +88,6 @@
             "kurokumaft:pikmin_projectile"
           ]
         }
-      },
-      "kurokumaft:purple_shock": {
-        "run_command": {
-					"command": [
-            "summon kurokumaft:purple_shock ~~~"
-					],
-          "target":"self"
-				},
-        "add": {
-          "component_groups": [
-            "kurokumaft:despawn"
-          ]
-				}
       }
     }
   }

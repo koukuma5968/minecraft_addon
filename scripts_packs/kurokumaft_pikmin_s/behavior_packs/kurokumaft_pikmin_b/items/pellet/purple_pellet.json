@@ -4,17 +4,14 @@
     "description": {
       "identifier": "kurokumaft:purple_pellet",
       "menu_category": {
-        "category": "nature",
-        "group": "pellet"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:purple_pellet.name"
 			},
-      "minecraft:icon": {
-        "texture": "purple_pellet"
-      }
+      "minecraft:icon": "purple_pellet"
     }
   }
 }

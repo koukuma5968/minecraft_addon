@@ -1,28 +1,23 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:rock_oniyon",
       "menu_category": {
-        "category": "nature",
-        "group": "oniyon"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:rock_oniyon.name"
 			},
-      "minecraft:icon": {
-        "texture": "rock_oniyon"
-      },
+      "minecraft:icon": "rock_oniyon",
       "minecraft:block_placer": {
-        "block": "rock_oniyons",
+        "block": "kurokumaft:rock_oniyons",
         "use_on" : [
           "farmland","grass","dirt"
         ]
       }
-    },
-    "events": {
     }
   }
 }

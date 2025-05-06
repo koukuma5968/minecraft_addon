@@ -1,28 +1,23 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.20",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:seeds_pellet_grass",
       "menu_category": {
-        "category": "nature",
-        "group": "seeds"
+        "category": "nature"
       }
     },
     "components": {
       "minecraft:display_name": {
 				"value": "item.kurokumaft:seeds_pellet_grass.name"
 			},
-      "minecraft:icon": {
-        "texture": "seeds_pellet_grass"
-      },
+      "minecraft:icon": "seeds_pellet_grass",
       "minecraft:block_placer": {
-        "block": "pellet_grass_bud",
+        "block": "kurokumaft:pellet_grass_bud",
         "use_on" : [
           "farmland","grass","dirt"
         ]
       }
-    },
-    "events": {
     }
   }
 }
