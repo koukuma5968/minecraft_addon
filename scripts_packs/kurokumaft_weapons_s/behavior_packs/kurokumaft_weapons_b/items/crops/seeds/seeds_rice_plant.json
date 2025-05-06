@@ -16,7 +16,7 @@
       "minecraft:block_placer": {
         "block": "kurokumaft:rice_plant",
         "use_on" : [
-          "mud"
+          "farmland"
         ]
       }
     }

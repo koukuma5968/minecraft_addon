@@ -2,7 +2,7 @@
 import { EntityComponentTypes as EntityComponentTypes6, system as system3, TicksPerSecond as TicksPerSecond4, world as world3 } from "@minecraft/server";
 
 // scripts/items/ExtremelyHotSpray.ts
-import { EquipmentSlot as EquipmentSlot3 } from "@minecraft/server";
+import { EquipmentSlot as EquipmentSlot4 } from "@minecraft/server";
 
 // scripts/common/PikuminCommonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -3168,6 +3168,239 @@ async function subtractionItem(player, item, slot, decNum) {
   }
 }
 
+// scripts/entity/Pikmin.ts
+import { EntityComponentTypes as EntityComponentTypes3, EntityDamageCause, EquipmentSlot as EquipmentSlot3, ItemStack as ItemStack3, system, TicksPerSecond as TicksPerSecond2 } from "@minecraft/server";
+var Pikumin = class {
+  checkExtremelyHotTime(pikmin) {
+    if (pikmin.isValid()) {
+      const mode = pikmin.getProperty("kurokumaft:mode");
+      if (mode == "nomal") {
+        return;
+      }
+      pikmin.triggerEvent("kurokumaft:extremely_hot_up");
+      pikmin.dimension.spawnParticle("kurokumaft:extremely_hot_emitter", pikmin.location);
+      const num = system.runInterval(() => {
+        if (pikmin.isValid()) {
+          const splay_timer2 = pikmin.getProperty("kurokumaft:splay_timer");
+          if (splay_timer2 != 0) {
+            pikmin.setProperty("kurokumaft:splay_timer", splay_timer2 - 1);
+            pikmin.dimension.spawnParticle("kurokumaft:extremely_hot_emitter", pikmin.location);
+          }
+        }
+      }, TicksPerSecond2);
+      const splay_timer = pikmin.getProperty("kurokumaft:splay_timer");
+      system.runTimeout(() => {
+        if (pikmin.isValid()) {
+          pikmin.setProperty("kurokumaft:mode", "nomal");
+          pikmin.setProperty("kurokumaft:splay_timer", 60);
+          pikmin.triggerEvent("kurokumaft:extremely_hot_down");
+        }
+        system.clearRun(num);
+      }, splay_timer * TicksPerSecond2);
+    }
+  }
+  pikminGrasp(target, player) {
+    const pikumin = target.typeId.split(":")[1].split("_");
+    const equ = player.getComponent(EntityComponentTypes3.Equippable);
+    switch (pikumin[0]) {
+      case "red":
+        equ.setEquipment(EquipmentSlot3.Mainhand, new ItemStack3("kurokumaft:red_pikmin_item", 1));
+        break;
+      case "blue":
+        equ.setEquipment(EquipmentSlot3.Mainhand, new ItemStack3("kurokumaft:blue_pikmin_item", 1));
+        break;
+      case "yellow":
+        equ.setEquipment(EquipmentSlot3.Mainhand, new ItemStack3("kurokumaft:yellow_pikmin_item", 1));
+        break;
+      case "purple":
+        equ.setEquipment(EquipmentSlot3.Mainhand, new ItemStack3("kurokumaft:purple_pikmin_item", 1));
+        break;
+      case "white":
+        equ.setEquipment(EquipmentSlot3.Mainhand, new ItemStack3("kurokumaft:white_pikmin_item", 1));
+        break;
+      case "rock":
+        equ.setEquipment(EquipmentSlot3.Mainhand, new ItemStack3("kurokumaft:rock_pikmin_item", 1));
+        break;
+      case "feather":
+        equ.setEquipment(EquipmentSlot3.Mainhand, new ItemStack3("kurokumaft:feather_pikmin_item", 1));
+        break;
+    }
+    target.remove();
+  }
+  pikmintame(player, pikmin) {
+    const tameable = pikmin.getComponent(EntityComponentTypes3.Tameable);
+    if (!tameable.isTamed) {
+      tameable.tame(player);
+      pikmin.triggerEvent("kurokumaft:pikmin_pull_up");
+    }
+  }
+  pikminThrownhit(projectile, target, source, location, dimension) {
+    const pikumin = projectile.typeId.split(":")[1].split("_");
+    source.addTag(source.id);
+    switch (pikumin[0]) {
+      case "red":
+        const redTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
+        redTargets.forEach((en) => {
+          dimension.spawnParticle("minecraft:mobflame_single", en.location);
+          en.applyDamage(6, {
+            cause: EntityDamageCause.fire,
+            damagingEntity: source
+          });
+        });
+        if (projectile.isValid()) {
+          projectile.remove();
+        }
+        break;
+      case "blue":
+        const blueTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
+        blueTargets.forEach((en) => {
+          dimension.spawnParticle("minecraft:bubble_column_up_particle", en.location);
+          en.addEffect(MinecraftEffectTypes.Weakness, 10 * TicksPerSecond2, {
+            amplifier: 10,
+            showParticles: false
+          });
+          en.applyDamage(6, {
+            cause: EntityDamageCause.drowning,
+            damagingEntity: source
+          });
+        });
+        if (projectile.isValid()) {
+          projectile.remove();
+        }
+        break;
+      case "yellow":
+        const yellowTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
+        yellowTargets.forEach((en) => {
+          dimension.spawnParticle("minecraft:yellow_lightning", en.location);
+          en.applyDamage(6, {
+            cause: EntityDamageCause.lightning,
+            damagingEntity: source
+          });
+        });
+        if (projectile.isValid()) {
+          projectile.remove();
+        }
+        break;
+      case "purple":
+        if (projectile.isValid()) {
+          const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
+          const projeComp = shock.getComponent(EntityComponentTypes3.Projectile);
+          projeComp.owner = source;
+          projectile.remove();
+        }
+        break;
+      case "white":
+        if (target != void 0) {
+          target.addEffect(MinecraftEffectTypes.Poison, 10 * TicksPerSecond2, {
+            amplifier: 10,
+            showParticles: false
+          });
+        }
+        if (projectile.isValid()) {
+          projectile.remove();
+        }
+        break;
+      case "rock":
+        if (target != void 0) {
+          target.applyKnockback(-Math.round(location.x - target.getViewDirection().x), -Math.round(location.z - target.getViewDirection().z), 6, 1);
+          target.addEffect(MinecraftEffectTypes.Nausea, 5 * TicksPerSecond2, {
+            amplifier: 5,
+            showParticles: false
+          });
+        }
+        if (projectile.isValid()) {
+          projectile.remove();
+        }
+        break;
+      case "feather":
+        if (target != void 0) {
+          target.addEffect(MinecraftEffectTypes.Levitation, 5 * TicksPerSecond2, {
+            amplifier: 5,
+            showParticles: false
+          });
+        }
+        break;
+    }
+    source.addTag(source.id);
+  }
+  pikminThrownhitBlock(projectile, block, source, location, dimension) {
+    const pikumin = projectile.typeId.split(":")[1].split("_");
+    source.addTag(source.id);
+    switch (pikumin[0]) {
+      case "red":
+        if (projectile.isValid()) {
+          const red = dimension.spawnEntity("kurokumaft:red_pikmin", location);
+          red.triggerEvent("kurokumaft:oniyon_spawned");
+          red.triggerEvent("kurokumaft:pikmin_pull_up");
+          projectile.remove();
+        }
+        break;
+      case "blue":
+        if (projectile.isValid()) {
+          const blue = dimension.spawnEntity("kurokumaft:blue_pikmin", location);
+          blue.triggerEvent("kurokumaft:oniyon_spawned");
+          blue.triggerEvent("kurokumaft:pikmin_pull_up");
+          projectile.remove();
+        }
+        break;
+      case "yellow":
+        if (projectile.isValid()) {
+          const yellow = dimension.spawnEntity("kurokumaft:yellow_pikmin", location);
+          yellow.triggerEvent("kurokumaft:oniyon_spawned");
+          yellow.triggerEvent("kurokumaft:pikmin_pull_up");
+          projectile.remove();
+        }
+        break;
+      case "purple":
+        if (projectile.isValid()) {
+          const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
+          const projeComp = shock.getComponent(EntityComponentTypes3.Projectile);
+          projeComp.owner = source;
+          const purple = dimension.spawnEntity("kurokumaft:purple_pikmin", location);
+          purple.triggerEvent("kurokumaft:oniyon_spawned");
+          purple.triggerEvent("kurokumaft:pikmin_pull_up");
+          projectile.remove();
+        }
+        break;
+      case "white":
+        if (projectile.isValid()) {
+          const white = dimension.spawnEntity("kurokumaft:white_pikmin", location);
+          white.triggerEvent("kurokumaft:oniyon_spawned");
+          white.triggerEvent("kurokumaft:pikmin_pull_up");
+          projectile.remove();
+        }
+        break;
+      case "rock":
+        if (block != void 0) {
+          dimension.setBlockType(location, MinecraftBlockTypes.Air);
+          dimension.spawnItem(new ItemStack3(block.typeId, 1), { x: location.x, y: location.y + 1, z: location.z });
+        }
+        if (projectile.isValid()) {
+          const rock = dimension.spawnEntity("kurokumaft:rock_pikmin", location);
+          rock.triggerEvent("kurokumaft:oniyon_spawned");
+          rock.triggerEvent("kurokumaft:pikmin_pull_up");
+          projectile.remove();
+        }
+        break;
+      case "feather":
+        if (projectile.isValid()) {
+          const feather = dimension.spawnEntity("kurokumaft:feather_pikmin", location);
+          feather.triggerEvent("kurokumaft:oniyon_spawned");
+          feather.triggerEvent("kurokumaft:pikmin_pull_up");
+          projectile.remove();
+        }
+        break;
+    }
+    source.addTag(source.id);
+  }
+  whitePoison(target) {
+    target.addEffect(MinecraftEffectTypes.Poison, 10 * TicksPerSecond2, {
+      amplifier: 5,
+      showParticles: false
+    });
+  }
+};
+
 // scripts/items/ExtremelyHotSpray.ts
 var ExtremelyHotSpray = class {
   onUse(event) {
@@ -3179,19 +3412,20 @@ var ExtremelyHotSpray = class {
         "pikmin"
       ],
       location: source.location,
-      maxDistance: 6
+      maxDistance: 8
     };
     const targets = source.dimension.getEntities(filterOption);
     targets.forEach((en) => {
-      en.triggerEvent("kurokumaft:extremely_hot_up");
+      en.setProperty("kurokumaft:mode", "hot");
+      new Pikumin().checkExtremelyHotTime(en);
     });
-    ItemDurabilityDamage(source, itemStack, EquipmentSlot3.Mainhand, void 0);
+    ItemDurabilityDamage(source, itemStack, EquipmentSlot4.Mainhand, void 0);
     itemCoolDown(source, itemStack);
   }
 };
 
 // scripts/block/PelletGrass.ts
-import { EntityComponentTypes as EntityComponentTypes3, EquipmentSlot as EquipmentSlot4 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes4, EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
 var PelletGrassBlock = class {
   onTick(event) {
     const block = event.block;
@@ -3202,15 +3436,15 @@ var PelletGrassBlock = class {
   }
   onPlayerInteract(event) {
     const player = event.player;
-    const equ = player.getComponent(EntityComponentTypes3.Equippable);
-    const itemStack = equ.getEquipment(EquipmentSlot4.Mainhand);
+    const equ = player.getComponent(EntityComponentTypes4.Equippable);
+    const itemStack = equ.getEquipment(EquipmentSlot5.Mainhand);
     if (itemStack != void 0 && itemStack.typeId.indexOf("meal") != -1) {
       const block = event.block;
       const growth = block.permutation.getState("kurokumaft:growth");
       if (growth < 2) {
         block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
         event.dimension.spawnParticle("minecraft:crop_growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
-        subtractionItem(player, itemStack, EquipmentSlot4.Mainhand, 1);
+        subtractionItem(player, itemStack, EquipmentSlot5.Mainhand, 1);
       } else if (growth == 2) {
         const dimension = block.dimension;
         const location = block.location;
@@ -3254,19 +3488,19 @@ var PelletGrassBlock = class {
 };
 
 // scripts/block/Oniyons.ts
-import { EntityComponentTypes as EntityComponentTypes4, EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes5, EquipmentSlot as EquipmentSlot6 } from "@minecraft/server";
 var OniyonsBlock = class {
   onPlayerInteract(event) {
     const player = event.player;
-    const equ = player.getComponent(EntityComponentTypes4.Equippable);
-    const itemStack = equ.getEquipment(EquipmentSlot5.Mainhand);
+    const equ = player.getComponent(EntityComponentTypes5.Equippable);
+    const itemStack = equ.getEquipment(EquipmentSlot6.Mainhand);
     if (itemStack != void 0 && itemStack.typeId.indexOf("meal") != -1) {
       const block = event.block;
       const growth = block.permutation.getState("kurokumaft:growth");
       if (growth < 3) {
         block.setPermutation(block.permutation.withState("kurokumaft:growth", growth + 1));
         event.dimension.spawnParticle("minecraft:crop_growth_emitter", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
-        subtractionItem(player, itemStack, EquipmentSlot5.Mainhand, 1);
+        subtractionItem(player, itemStack, EquipmentSlot6.Mainhand, 1);
       } else if (growth == 3) {
         const oniyonType = block.typeId.split(":")[1].split("_");
         const dimension = block.dimension;
@@ -3308,7 +3542,7 @@ function initPikuminRegisterCustom(initEvent) {
 }
 
 // scripts/entity/OniyonBase.ts
-import { EquipmentSlot as EquipmentSlot6 } from "@minecraft/server";
+import { EquipmentSlot as EquipmentSlot7 } from "@minecraft/server";
 var OniyonBase = class {
   pikuminSpawn(target, itemStack, player) {
     const oniyon = target.typeId.split(":")[1].split("_");
@@ -3379,212 +3613,7 @@ var OniyonBase = class {
         }
         break;
     }
-    subtractionItem(player, itemStack, EquipmentSlot6.Mainhand, 1);
-  }
-};
-
-// scripts/entity/Pikmin.ts
-import { EntityComponentTypes as EntityComponentTypes5, EntityDamageCause, EquipmentSlot as EquipmentSlot7, ItemStack as ItemStack7, TicksPerSecond as TicksPerSecond2 } from "@minecraft/server";
-var Pikumin = class {
-  pikminGrasp(target, player) {
-    const pikumin = target.typeId.split(":")[1].split("_");
-    const equ = player.getComponent(EntityComponentTypes5.Equippable);
-    switch (pikumin[0]) {
-      case "red":
-        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:red_pikmin_item", 1));
-        break;
-      case "blue":
-        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:blue_pikmin_item", 1));
-        break;
-      case "yellow":
-        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:yellow_pikmin_item", 1));
-        break;
-      case "purple":
-        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:purple_pikmin_item", 1));
-        break;
-      case "white":
-        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:white_pikmin_item", 1));
-        break;
-      case "rock":
-        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:rock_pikmin_item", 1));
-        break;
-      case "feather":
-        equ.setEquipment(EquipmentSlot7.Mainhand, new ItemStack7("kurokumaft:feather_pikmin_item", 1));
-        break;
-    }
-    target.remove();
-  }
-  pikmintame(player, pikmin) {
-    const tameable = pikmin.getComponent(EntityComponentTypes5.Tameable);
-    if (!tameable.isTamed) {
-      tameable.tame(player);
-      pikmin.triggerEvent("kurokumaft:pikmin_pull_up");
-    }
-  }
-  pikminThrownhit(projectile, target, source, location, dimension) {
-    const pikumin = projectile.typeId.split(":")[1].split("_");
-    source.addTag(source.id);
-    switch (pikumin[0]) {
-      case "red":
-        const redTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
-        redTargets.forEach((en) => {
-          dimension.spawnParticle("minecraft:mobflame_single", en.location);
-          en.applyDamage(6, {
-            cause: EntityDamageCause.fire,
-            damagingEntity: source
-          });
-        });
-        if (projectile.isValid()) {
-          projectile.remove();
-        }
-        break;
-      case "blue":
-        const blueTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
-        blueTargets.forEach((en) => {
-          dimension.spawnParticle("minecraft:bubble_column_up_particle", en.location);
-          en.addEffect(MinecraftEffectTypes.Weakness, 10 * TicksPerSecond2, {
-            amplifier: 10,
-            showParticles: false
-          });
-          en.applyDamage(6, {
-            cause: EntityDamageCause.drowning,
-            damagingEntity: source
-          });
-        });
-        if (projectile.isValid()) {
-          projectile.remove();
-        }
-        break;
-      case "yellow":
-        const yellowTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
-        yellowTargets.forEach((en) => {
-          dimension.spawnParticle("minecraft:yellow_lightning", en.location);
-          en.applyDamage(6, {
-            cause: EntityDamageCause.lightning,
-            damagingEntity: source
-          });
-        });
-        if (projectile.isValid()) {
-          projectile.remove();
-        }
-        break;
-      case "purple":
-        if (projectile.isValid()) {
-          const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
-          const projeComp = shock.getComponent(EntityComponentTypes5.Projectile);
-          projeComp.owner = source;
-          projectile.remove();
-        }
-        break;
-      case "white":
-        if (target != void 0) {
-          target.addEffect(MinecraftEffectTypes.Poison, 10 * TicksPerSecond2, {
-            amplifier: 10,
-            showParticles: false
-          });
-        }
-        if (projectile.isValid()) {
-          projectile.remove();
-        }
-        break;
-      case "rock":
-        if (target != void 0) {
-          target.applyKnockback(-Math.round(location.x - target.getViewDirection().x), -Math.round(location.z - target.getViewDirection().z), 6, 1);
-          target.addEffect(MinecraftEffectTypes.Nausea, 5 * TicksPerSecond2, {
-            amplifier: 5,
-            showParticles: false
-          });
-        }
-        if (projectile.isValid()) {
-          projectile.remove();
-        }
-        break;
-      case "feather":
-        if (target != void 0) {
-          target.addEffect(MinecraftEffectTypes.Levitation, 5 * TicksPerSecond2, {
-            amplifier: 5,
-            showParticles: false
-          });
-        }
-        break;
-    }
-    source.addTag(source.id);
-  }
-  pikminThrownhitBlock(projectile, block, source, location, dimension) {
-    const pikumin = projectile.typeId.split(":")[1].split("_");
-    source.addTag(source.id);
-    switch (pikumin[0]) {
-      case "red":
-        if (projectile.isValid()) {
-          const red = dimension.spawnEntity("kurokumaft:red_pikmin", location);
-          red.triggerEvent("kurokumaft:oniyon_spawned");
-          red.triggerEvent("kurokumaft:pikmin_pull_up");
-          projectile.remove();
-        }
-        break;
-      case "blue":
-        if (projectile.isValid()) {
-          const blue = dimension.spawnEntity("kurokumaft:blue_pikmin", location);
-          blue.triggerEvent("kurokumaft:oniyon_spawned");
-          blue.triggerEvent("kurokumaft:pikmin_pull_up");
-          projectile.remove();
-        }
-        break;
-      case "yellow":
-        if (projectile.isValid()) {
-          const yellow = dimension.spawnEntity("kurokumaft:yellow_pikmin", location);
-          yellow.triggerEvent("kurokumaft:oniyon_spawned");
-          yellow.triggerEvent("kurokumaft:pikmin_pull_up");
-          projectile.remove();
-        }
-        break;
-      case "purple":
-        if (projectile.isValid()) {
-          const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
-          const projeComp = shock.getComponent(EntityComponentTypes5.Projectile);
-          projeComp.owner = source;
-          const purple = dimension.spawnEntity("kurokumaft:purple_pikmin", location);
-          purple.triggerEvent("kurokumaft:oniyon_spawned");
-          purple.triggerEvent("kurokumaft:pikmin_pull_up");
-          projectile.remove();
-        }
-        break;
-      case "white":
-        if (projectile.isValid()) {
-          const white = dimension.spawnEntity("kurokumaft:white_pikmin", location);
-          white.triggerEvent("kurokumaft:oniyon_spawned");
-          white.triggerEvent("kurokumaft:pikmin_pull_up");
-          projectile.remove();
-        }
-        break;
-      case "rock":
-        if (block != void 0) {
-          dimension.setBlockType(location, MinecraftBlockTypes.Air);
-          dimension.spawnItem(new ItemStack7(block.typeId, 1), { x: location.x, y: location.y + 1, z: location.z });
-        }
-        if (projectile.isValid()) {
-          const rock = dimension.spawnEntity("kurokumaft:rock_pikmin", location);
-          rock.triggerEvent("kurokumaft:oniyon_spawned");
-          rock.triggerEvent("kurokumaft:pikmin_pull_up");
-          projectile.remove();
-        }
-        break;
-      case "feather":
-        if (projectile.isValid()) {
-          const feather = dimension.spawnEntity("kurokumaft:feather_pikmin", location);
-          feather.triggerEvent("kurokumaft:oniyon_spawned");
-          feather.triggerEvent("kurokumaft:pikmin_pull_up");
-          projectile.remove();
-        }
-        break;
-    }
-    source.addTag(source.id);
-  }
-  whitePoison(target) {
-    target.addEffect(MinecraftEffectTypes.Poison, 10 * TicksPerSecond2, {
-      amplifier: 5,
-      showParticles: false
-    });
+    subtractionItem(player, itemStack, EquipmentSlot7.Mainhand, 1);
   }
 };
 
@@ -3593,42 +3622,44 @@ import { EntityDamageCause as EntityDamageCause2, system as system2, TicksPerSec
 var ButaDokkuri = class {
   dokkuriFire(dokkuri) {
     const num = system2.runInterval(() => {
-      const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
-      const target1 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
-      target1.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+      if (dokkuri.isValid()) {
+        const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
+        const target1 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
+        target1.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 2, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance2));
-      const target2 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance2), 1.5));
-      target2.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 2, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance2));
+        const target2 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance2), 1.5));
+        target2.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 3, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance3));
-      const target3 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance3), 1.5));
-      target3.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 3, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance3));
+        const target3 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance3), 1.5));
+        target3.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 4, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance4));
-      const target4 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance4), 1.5));
-      target4.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 4, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance4));
+        const target4 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance4), 1.5));
+        target4.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
+      }
     }, 5);
     system2.runTimeout(() => {
       system2.clearRun(num);
@@ -3636,42 +3667,44 @@ var ButaDokkuri = class {
   }
   kodokkuriFire(dokkuri) {
     const num = system2.runInterval(() => {
-      const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
-      const target1 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
-      target1.forEach((en) => {
-        en.applyDamage(1, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+      if (dokkuri.isValid()) {
+        const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
+        const target1 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
+        target1.forEach((en) => {
+          en.applyDamage(1, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 2, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance2));
-      const target2 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance2), 1.5));
-      target2.forEach((en) => {
-        en.applyDamage(1, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 2, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance2));
+        const target2 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance2), 1.5));
+        target2.forEach((en) => {
+          en.applyDamage(1, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 3, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance3));
-      const target3 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance3), 1.5));
-      target3.forEach((en) => {
-        en.applyDamage(1, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 3, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance3));
+        const target3 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance3), 1.5));
+        target3.forEach((en) => {
+          en.applyDamage(1, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 4, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance4));
-      const target4 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance4), 1.5));
-      target4.forEach((en) => {
-        en.applyDamage(1, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 4, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance4));
+        const target4 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance4), 1.5));
+        target4.forEach((en) => {
+          en.applyDamage(1, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
+      }
     }, 5);
     system2.runTimeout(() => {
       system2.clearRun(num);
@@ -3679,42 +3712,44 @@ var ButaDokkuri = class {
   }
   mizudokkuriFire(dokkuri) {
     const num = system2.runInterval(() => {
-      const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance1));
-      const target1 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
-      target1.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.drowning,
-          damagingEntity: dokkuri
+      if (dokkuri.isValid()) {
+        const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance1));
+        const target1 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
+        target1.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.drowning,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 2, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance2));
-      const target2 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance2), 1.5));
-      target2.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.drowning,
-          damagingEntity: dokkuri
+        const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 2, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance2));
+        const target2 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance2), 1.5));
+        target2.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.drowning,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 3, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance3));
-      const target3 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance3), 1.5));
-      target3.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.drowning,
-          damagingEntity: dokkuri
+        const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 3, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance3));
+        const target3 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance3), 1.5));
+        target3.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.drowning,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 4, 0, 0.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance4));
-      const target4 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance4), 1.5));
-      target4.forEach((en) => {
-        en.applyDamage(2, {
-          cause: EntityDamageCause2.drowning,
-          damagingEntity: dokkuri
+        const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 4, 0, 0.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance4));
+        const target4 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance4), 1.5));
+        target4.forEach((en) => {
+          en.applyDamage(2, {
+            cause: EntityDamageCause2.drowning,
+            damagingEntity: dokkuri
+          });
         });
-      });
+      }
     }, 5);
     system2.runTimeout(() => {
       system2.clearRun(num);
@@ -3722,42 +3757,44 @@ var ButaDokkuri = class {
   }
   zoudokkuriFire(dokkuri) {
     const num = system2.runInterval(() => {
-      const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 10, 0, 2.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
-      const target1 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance1), 4));
-      target1.forEach((en) => {
-        en.applyDamage(3, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+      if (dokkuri.isValid()) {
+        const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 10, 0, 2.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
+        const target1 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance1), 4));
+        target1.forEach((en) => {
+          en.applyDamage(3, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 12, 0, 2.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance2));
-      const target2 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance2), 4));
-      target2.forEach((en) => {
-        en.applyDamage(3, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance2 = getLookLocationDistance(dokkuri.getRotation().y, 12, 0, 2.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance2));
+        const target2 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance2), 4));
+        target2.forEach((en) => {
+          en.applyDamage(3, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 14, 0, 2.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance3));
-      const target3 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance3), 4));
-      target3.forEach((en) => {
-        en.applyDamage(3, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance3 = getLookLocationDistance(dokkuri.getRotation().y, 14, 0, 2.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance3));
+        const target3 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance3), 4));
+        target3.forEach((en) => {
+          en.applyDamage(3, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
-      const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 16, 0, 2.5);
-      dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance4));
-      const target4 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance4), 4));
-      target4.forEach((en) => {
-        en.applyDamage(3, {
-          cause: EntityDamageCause2.fire,
-          damagingEntity: dokkuri
+        const distance4 = getLookLocationDistance(dokkuri.getRotation().y, 16, 0, 2.5);
+        dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance4));
+        const target4 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance4), 4));
+        target4.forEach((en) => {
+          en.applyDamage(3, {
+            cause: EntityDamageCause2.fire,
+            damagingEntity: dokkuri
+          });
         });
-      });
+      }
     }, 5);
     system2.runTimeout(() => {
       system2.clearRun(num);
@@ -3771,6 +3808,12 @@ world3.beforeEvents.worldInitialize.subscribe((initEvent) => {
 });
 world3.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
+});
+world3.afterEvents.entityLoad.subscribe((event) => {
+  const entity = event.entity;
+  if (entity.typeId.lastIndexOf("pikmin") != -1) {
+    new Pikumin().checkExtremelyHotTime(entity);
+  }
 });
 world3.afterEvents.entityHitEntity.subscribe((event) => {
   const damagingEntity = event.damagingEntity;

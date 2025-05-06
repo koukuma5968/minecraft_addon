@@ -1,8 +1,40 @@
-import { Block, Dimension, Entity, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EntityTameableComponent, EquipmentSlot, ItemStack, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
+import { Block, Dimension, Entity, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityTameableComponent, EquipmentSlot, ItemStack, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
 import { addTargetFilter } from "../common/PikuminCommonUtil";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export class Pikumin {
+
+    checkExtremelyHotTime(pikmin: Entity) {
+        if (pikmin.isValid()) {
+            const mode = pikmin.getProperty("kurokumaft:mode") as string;
+            if (mode == "nomal") {
+                return;
+            }
+
+            pikmin.triggerEvent("kurokumaft:extremely_hot_up");
+
+            pikmin.dimension.spawnParticle("kurokumaft:extremely_hot_emitter", pikmin.location);
+            const num = system.runInterval(() => {
+                if (pikmin.isValid()) {
+                    const splay_timer = pikmin.getProperty("kurokumaft:splay_timer") as number;
+                    if (splay_timer != 0) {
+                        pikmin.setProperty("kurokumaft:splay_timer", splay_timer-1);
+                        pikmin.dimension.spawnParticle("kurokumaft:extremely_hot_emitter", pikmin.location);
+                    }
+                }
+            }, TicksPerSecond);
+
+            const splay_timer = pikmin.getProperty("kurokumaft:splay_timer") as number;
+            system.runTimeout(() => {
+                if (pikmin.isValid()) {
+                    pikmin.setProperty("kurokumaft:mode", "nomal");
+                    pikmin.setProperty("kurokumaft:splay_timer", 60);
+                    pikmin.triggerEvent("kurokumaft:extremely_hot_down");
+                }
+                system.clearRun(num);
+            }, splay_timer*TicksPerSecond);
+        }
+    };
 
     pikminGrasp(target: Entity, player:Player) {
         const pikumin = target.typeId.split(":")[1].split("_");

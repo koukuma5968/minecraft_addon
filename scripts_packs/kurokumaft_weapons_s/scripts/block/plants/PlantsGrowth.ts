@@ -8,23 +8,18 @@ import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 export class PlantsGrowth implements BlockCustomComponent {
 
     onTick(event:BlockComponentTickEvent) {
-        let block = event.block as Block;
-        let growth = block.permutation.getState("kurokumaft:growth") as number;
+        const block = event.block as Block;
+        const growth = block.permutation.getState("kurokumaft:growth") as number;
         if (growth < 7) {
             let growthUp = false;
             if (block.typeId == "kurokumaft:rice_plant") {
-                for (let x=-1; x<=1; x++) {
-                    for (let z=-1; z<=1; z++) {
-                        let side = block.dimension.getBlock({x:block.location.x+x, y:block.location.y, z:block.location.z+z}) as Block;
-                        if (side.typeId == MinecraftBlockTypes.Water) {
-                            growthUp = true;
-                        }
-                    }
+                if (block.isWaterlogged) {
+                    growthUp = true;
                 }
             } else {
                 for (let x=-4; x<=4; x++) {
                     for (let z=-4; z<=4; z++) {
-                        let side = block.dimension.getBlock({x:block.location.x+x, y:block.location.y-1, z:block.location.z+z}) as Block;
+                        const side = block.dimension.getBlock({x:block.location.x+x, y:block.location.y-1, z:block.location.z+z}) as Block;
                         if (side.typeId == MinecraftBlockTypes.Water) {
                             growthUp = true;
                         }
@@ -48,13 +43,8 @@ export class PlantsGrowth implements BlockCustomComponent {
                 let growthUp = false;
 
                 if (block.typeId == "kurokumaft:rice_plant") {
-                    for (let x=-1; x<=1; x++) {
-                        for (let z=-1; z<=1; z++) {
-                            let side = block.dimension.getBlock({x:block.location.x+x, y:block.location.y, z:block.location.z+z}) as Block;
-                            if (side.typeId == MinecraftBlockTypes.Water) {
-                                growthUp = true;
-                            }
-                        }
+                    if (block.isWaterlogged) {
+                        growthUp = true;
                     }
                 } else {
                     for (let x=-4; x<=4; x++) {

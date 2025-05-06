@@ -1,6 +1,7 @@
 import { ItemCustomComponent, EquipmentSlot, ItemComponentUseEvent, ItemStack, Player, EntityQueryOptions } from "@minecraft/server";
 import { itemCoolDown } from "../common/PikuminCommonUtil";
 import { ItemDurabilityDamage } from "../common/PikuminItemDurabilityDamage";
+import { Pikumin } from "../entity/Pikmin";
 
 /**
  * 唐辛子スプレー
@@ -17,11 +18,12 @@ export class ExtremelyHotSpray implements ItemCustomComponent {
                 "pikmin"
             ],
             location: source.location,
-            maxDistance: 6
+            maxDistance: 8
         } as EntityQueryOptions;
         const targets = source.dimension.getEntities(filterOption);
         targets.forEach(en => {
-            en.triggerEvent("kurokumaft:extremely_hot_up");
+            en.setProperty("kurokumaft:mode", "hot");
+            new Pikumin().checkExtremelyHotTime(en);
         });
 
         ItemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand, undefined);

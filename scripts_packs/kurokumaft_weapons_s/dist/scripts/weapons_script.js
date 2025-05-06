@@ -5515,23 +5515,18 @@ async function farming(block) {
 import { EntityComponentTypes as EntityComponentTypes17, EquipmentSlot as EquipmentSlot31 } from "@minecraft/server";
 var PlantsGrowth = class {
   onTick(event) {
-    let block = event.block;
-    let growth = block.permutation.getState("kurokumaft:growth");
+    const block = event.block;
+    const growth = block.permutation.getState("kurokumaft:growth");
     if (growth < 7) {
       let growthUp = false;
       if (block.typeId == "kurokumaft:rice_plant") {
-        for (let x = -1; x <= 1; x++) {
-          for (let z = -1; z <= 1; z++) {
-            let side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y, z: block.location.z + z });
-            if (side.typeId == MinecraftBlockTypes.Water) {
-              growthUp = true;
-            }
-          }
+        if (block.isWaterlogged) {
+          growthUp = true;
         }
       } else {
         for (let x = -4; x <= 4; x++) {
           for (let z = -4; z <= 4; z++) {
-            let side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y - 1, z: block.location.z + z });
+            const side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y - 1, z: block.location.z + z });
             if (side.typeId == MinecraftBlockTypes.Water) {
               growthUp = true;
             }
@@ -5553,13 +5548,8 @@ var PlantsGrowth = class {
       if (growth < 7) {
         let growthUp = false;
         if (block.typeId == "kurokumaft:rice_plant") {
-          for (let x = -1; x <= 1; x++) {
-            for (let z = -1; z <= 1; z++) {
-              let side = block.dimension.getBlock({ x: block.location.x + x, y: block.location.y, z: block.location.z + z });
-              if (side.typeId == MinecraftBlockTypes.Water) {
-                growthUp = true;
-              }
-            }
+          if (block.isWaterlogged) {
+            growthUp = true;
           }
         } else {
           for (let x = -4; x <= 4; x++) {

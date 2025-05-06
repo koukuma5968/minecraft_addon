@@ -13,6 +13,13 @@ world.beforeEvents.playerLeave.subscribe(leaveEvent => {
     leaveEvent.player.clearDynamicProperties();
 });
 
+world.afterEvents.entityLoad.subscribe(event => {
+    const entity = event.entity;
+    if (entity.typeId.lastIndexOf("pikmin") != -1) {
+        new Pikumin().checkExtremelyHotTime(entity);
+    }
+});
+
 world.afterEvents.entityHitEntity.subscribe(event => {
     const damagingEntity = event.damagingEntity;
     const hitEntity = event.hitEntity;

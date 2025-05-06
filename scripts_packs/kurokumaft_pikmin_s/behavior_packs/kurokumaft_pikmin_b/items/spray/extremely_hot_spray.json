@@ -11,6 +11,10 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:extremely_hot_spray.name"
 			},
+      "minecraft:cooldown": {
+        "category": "spray",
+        "duration": 10
+      },
       "minecraft:icon": "extremely_hot_spray",
       "minecraft:max_stack_size": 16,
       "minecraft:use_modifiers": {

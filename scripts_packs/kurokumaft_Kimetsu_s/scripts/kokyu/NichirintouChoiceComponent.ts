@@ -32,6 +32,10 @@ export class NichirintouChoiceComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     probabilisticChoice(itemStack:ItemStack, player:Player) {
+
+        player.setProperty("kurokumaft:kokyu_particle", false);
+        player.setProperty("kurokumaft:kokyu_use", false);
+
         let nichirintou = nichirintouLists.pick();
 
         let enchant = itemStack.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;

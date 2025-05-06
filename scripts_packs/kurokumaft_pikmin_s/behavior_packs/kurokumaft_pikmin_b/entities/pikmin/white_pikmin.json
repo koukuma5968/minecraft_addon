@@ -6,14 +6,19 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
-      "scripts":{
-        "animate":[
-          "spray"
-        ]
-      },
-      "animations":{
-        "spray": "controller.animation.pikmin.spray",
-        "extremely_hot": "animation.pikmin.extremely_hot"
+      "properties": {
+        "kurokumaft:mode": {
+          "type": "enum",
+          "values": ["nomal", "hot"],
+          "default": "nomal",
+          "client_sync": false
+        },
+        "kurokumaft:splay_timer": {
+          "type": "int",
+          "range": [0, 60],
+          "default": 0,
+          "client_sync": false
+        }
       }
     },
     "component_groups": {
@@ -96,19 +101,27 @@
         },
         "minecraft:behavior.owner_hurt_by_target": {
           "priority": 1,
-          "filters": {
-            "all_of": [
-              { "test": "is_family", "operator": "!=", "subject": "other", "value": "oniyon_base" }
-            ]
-          }
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "operator": "!=", "subject": "target", "value": "oniyon_base" }
+                ]
+              }
+            }
+          ]
         },
         "minecraft:behavior.owner_hurt_target": {
           "priority": 2,
-          "filters": {
-            "all_of": [
-              { "test": "is_family", "operator": "!=", "subject": "other", "value": "oniyon_base" }
-            ]
-          }
+          "entity_types": [
+            {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "operator": "!=", "subject": "target", "value": "oniyon_base" }
+                ]
+              }
+            }
+          ]
         },
         "minecraft:variant": {
           "value": 1
@@ -249,13 +262,6 @@
         },
         "minecraft:movement": {
           "value": 0.8
-        },
-        "minecraft:timer": {
-          "looping": false,
-          "time": [30.0,30.0],
-          "time_down_event": {
-            "event": "kurokumaft:extremely_hot_down"
-          }
         }
       },
       "mark_variant1": {
@@ -469,8 +475,7 @@
       "kurokumaft:extremely_hot_up": {
         "add": {
           "component_groups": [
-            "kurokumaft:extremely_hot_up",
-            "mark_variant1"
+            "kurokumaft:extremely_hot_up"
           ]
         }
       },
@@ -479,13 +484,7 @@
           {
             "remove": {
               "component_groups": [
-                "kurokumaft:extremely_hot_up",
-                "mark_variant1"
-              ]
-            },
-            "add": {
-              "component_groups": [
-                "mark_variant0"
+                "kurokumaft:extremely_hot_up"
               ]
             }
           },
