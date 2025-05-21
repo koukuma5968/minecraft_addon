@@ -1,18 +1,18 @@
-import { EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, Player, Vector3, world } from "@minecraft/server";
+import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player } from "@minecraft/server";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addProjectionFilter } from "../../common/KimetuCommonUtil";
 
 export class KataComonClass {
 
     gardCheck(en: Player): boolean {
 
-        let equ = en.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let main = equ.getEquipment(EquipmentSlot.Mainhand);
-        let off = equ.getEquipment(EquipmentSlot.Offhand);
+        const equ = en.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const main = equ.getEquipment(EquipmentSlot.Mainhand);
+        const off = equ.getEquipment(EquipmentSlot.Offhand);
 
         if (en.isSneaking && ((main != undefined && main.typeId.indexOf("shield") != -1) || (off != undefined && off.typeId.indexOf("shield") != -1))) {
-            world.playSound("item.shield.block", en.location, {
+            en.playSound("item.shield.block", {
                 pitch: 1,
                 volume: 2
             });
@@ -21,38 +21,51 @@ export class KataComonClass {
         return true;
     }
 
-    kokyuApplyDamage(player:Player, filter:EntityQueryOptions, enDamage:number, pDamage:number, itemStack:ItemStack | undefined): void {
+    kokyuApplyDamage(entity:Entity, filter:EntityQueryOptions, enDamage:number, pDamage:number, itemStack:ItemStack | undefined): void {
 
-        player.addTag(player.id);
-        const targets = player.dimension.getEntities(filter);
-        const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
+        entity.addTag(entity.id);
+        const targets = entity.dimension.getEntities(filter);
+        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         targets.forEach(en => {
-            if (en instanceof Player) {
-                if (this.gardCheck(en)) {
-                    en.applyDamage(pDamage*kaikyuNum, {
+            if (en != undefined) {
+                if (en instanceof Player) {
+                    if (this.gardCheck(en)) {
+                        en.applyDamage(pDamage*kaikyuNum, {
+                            cause: EntityDamageCause.entityAttack,
+                            damagingEntity: entity
+                        });
+                    }
+                } else {
+                    en.applyDamage(enDamage*kaikyuNum, {
                         cause: EntityDamageCause.entityAttack,
-                        damagingEntity: player
+                        damagingEntity: entity
                     });
                 }
-            } else {
-                en.applyDamage(enDamage*kaikyuNum, {
-                    cause: EntityDamageCause.entityAttack,
-                    damagingEntity: player
-                });
             }
         });
         if (itemStack != undefined) {
-            ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+            ItemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
         }
-        player.removeTag(player.id);
+        entity.removeTag(entity.id);
 
     }
 
-    kokyuApplyEffect(player:Player, filter:EntityQueryOptions, duration:number, damage:number, effect:MinecraftEffectTypes): void {
+    kokyuApplyKnockback(entity:Entity, filter:EntityQueryOptions, distance:Vector3, hNum:number, vNum:number): void {
 
-        player.addTag(player.id);
-        const targets = player.dimension.getEntities(filter);
-        const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
+        entity.addTag(entity.id);
+        const targets = entity.dimension.getEntities(filter);
+        targets.forEach(en => {
+            en.applyKnockback(distance.x,distance.z,hNum,vNum);
+        });
+        entity.removeTag(entity.id);
+
+    }
+
+    kokyuApplyEffect(entity:Entity, filter:EntityQueryOptions, duration:number, damage:number, effect:MinecraftEffectTypes): void {
+
+        entity.addTag(entity.id);
+        const targets = entity.dimension.getEntities(filter);
+        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         targets.forEach(en => {
             if (en instanceof Player) {
                 if (this.gardCheck(en)) {
@@ -68,16 +81,16 @@ export class KataComonClass {
                 });
             }
         });
-        player.removeTag(player.id);
+        entity.removeTag(entity.id);
 
     }
 
-    projectRefrect(player:Player, volume:Vector3): boolean {
+    projectRefrect(entity:Entity, volume:Vector3): boolean {
 
         let hit = false;
         const projfilter = addProjectionFilter(0, volume, 4.5);
 
-        const projectiles = player.dimension.getEntities(projfilter);
+        const projectiles = entity.dimension.getEntities(projfilter);
         projectiles.forEach(projectile => {
             projectile.clearVelocity();
             const projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
@@ -91,4 +104,17 @@ export class KataComonClass {
 
         return hit;
     }
+
+    nitirintouFillBlock(dimension:Dimension, from:Vector3, to:Vector3) {
+
+        const volume = new BlockVolume(from, to);
+        dimension.fillBlocks(volume, MinecraftBlockTypes.Air, {
+            ignoreChunkBoundErrors: true,
+            blockFilter: {
+                includeTags: ['minecraft:is_sword_item_destructible']
+            }
+        }) as ListBlockVolume;
+    
+    };
+
 }

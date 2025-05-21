@@ -15,7 +15,7 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
     changeKata(player:Player): void {
 
         let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[1] as KokyuObject;
+        const kokyuObject = KokyuObjects[1] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
@@ -39,9 +39,8 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let mizu = new MizuNoKata();
-        let hi = new HiNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const mizu = new MizuNoKata();
 
         switch (kata) {
             case 10 :
@@ -59,9 +58,9 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
      */
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let mizu = new MizuNoKata();
-        let hi = new HiNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const mizu = new MizuNoKata();
+        const hi = new HiNoKata();
 
         switch (kata) {
             case 2 :
@@ -124,9 +123,9 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let mizu = new MizuNoKata();
-        let hi = new HiNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const mizu = new MizuNoKata();
+        const hi = new HiNoKata();
 
         switch (kata) {
             case 1 :

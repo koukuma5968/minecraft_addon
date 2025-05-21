@@ -1,4 +1,4 @@
-import { ItemStack, Player, system } from "@minecraft/server";
+import { ItemStack, Entity, system, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getForwardPosition, getLookLocationDistance} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
@@ -8,22 +8,24 @@ export class MushiNoKata extends KataComonClass {
     /**
      * 蝶ノ舞 戯れ
      */
-    ichiNoKata(player:Player, itemStack:ItemStack) {
-        player.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu1.value"}]});
+    ichiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
+        if (entity instanceof Player) {
+            entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu1.value"}]});
+        }
 
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, player.location, 3, player.id);
-            this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+            const filter = addRegimentalFilter(0, entity.location, 3, entity.id);
+            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
         },2);
 
-        const distance = getLookLocationDistance(player.getRotation().y, 1, 0, 0.5);
-        player.applyKnockback(distance.x,distance.z,10,0.4);
-        player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", player.location);
+        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
+        entity.applyKnockback(distance.x,distance.z,10,0.4);
+        entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },8);
 
@@ -32,24 +34,26 @@ export class MushiNoKata extends KataComonClass {
     /**
      * 蜂牙ノ舞 真靡き
      */
-    niNoKata(player:Player, itemStack:ItemStack) {
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mushi_kokyu2.value\"}]}");
+    niNoKata(entity:Entity, itemStack:ItemStack | undefined) {
+        if (entity instanceof Player) {
+            entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu2.value"}]});
+        }
 
-        const point = getLookLocationDistance(player.getRotation().y, 1, 0, 0);
-        player.applyKnockback(point.x,point.z,15,0.0);
+        const point = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+        entity.applyKnockback(point.x,point.z,15,0.0);
 
         system.runTimeout(() => {
-            player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",player.location);
+            entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
-            const filter = addRegimentalFilter(0, player.location, 3, player.id);
-            this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+            const filter = addRegimentalFilter(0, entity.location, 3, entity.id);
+            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
     
         },2);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
         },8);
 
     }
@@ -57,18 +61,20 @@ export class MushiNoKata extends KataComonClass {
     /**
      * 蜻蛉ノ舞 複眼六角
      */
-    sanNoKata(player:Player, itemStack:ItemStack) {
+    sanNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mushi_kokyu3.value\"}]}");
+        if (entity instanceof Player) {
+            entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu3.value"}]});
+        }
         const num = system.runInterval(() => {
-            const distance = getLookLocationDistance(player.getRotation().y, 2, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(player.location, distance), 3.5, player.id);
-            this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+            const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity.id);
+            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
         },4);
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },16);
 
@@ -77,31 +83,33 @@ export class MushiNoKata extends KataComonClass {
     /**
      * 蜈蚣ノ舞 百蟲の呼吸
      */
-    shiNoKata(player:Player, itemStack:ItemStack) {
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:mushi_kokyu4.value\"}]}");
+    shiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
+        if (entity instanceof Player) {
+            entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu4.value"}]});
+        }
 
-        const distance = getLookLocationDistance(player.getRotation().y, 2, -2, 0);
-        player.applyKnockback(distance.x,distance.z,10,0);
-        player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", player.location);
-        player.setProperty("kurokumaft:kokyu_attack", true);
+        const distance = getLookLocationDistance(entity.getRotation().y, 2, -2, 0);
+        entity.applyKnockback(distance.x,distance.z,10,0);
+        entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
+        entity.setProperty("kurokumaft:kokyu_attack", true);
 
         let side = 2;
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, player.location, 4, player.id);
-            this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(player, filter, 2, 1, MinecraftEffectTypes.Poison);
+            const filter = addRegimentalFilter(0, entity.location, 4, entity.id);
+            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
  
-            const distance = getLookLocationDistance(player.getRotation().y, 2, side, 0);
-            player.applyKnockback(distance.x,distance.z,10,0);
-            player.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",player.location);
+            const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0);
+            entity.applyKnockback(distance.x,distance.z,10,0);
+            entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
             side = -side;
         },4);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_attack", false);
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_attack", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },40);
 

@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.zouhakuten_bati.first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"zouhakuten_bati": {
+					"rotation": [0, 67.5, -70],
+					"position": [0, -2, -2]
+				}
+			}
+		},
+		"animation.zouhakuten_bati.third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"zouhakuten_bati": {
+					"rotation": [30, 0, 0],
+					"position": [-1, -8, 4]
+				}
+			}
+		}
+	}
+}

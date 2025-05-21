@@ -5,15 +5,15 @@
 			"identifier": "kurokumaft:kushiki",
 			"basic_render_parameters": {
 				"material": "particles_alpha",
-				"texture": "textures/kurokumaft/particle/hakaisatu/kushiki"
+				"texture": "textures/kurokumaft/particle/whole"
 			}
 		},
 		"components": {
 			"minecraft:emitter_rate_instant": {
 				"num_particles": 1
 			},
-			"minecraft:emitter_lifetime_once": {
-				"active_time": 1
+			"minecraft:emitter_lifetime_expression": {
+				"activation_expression": 1
 			},
 			"minecraft:emitter_shape_point": {},
 			"minecraft:particle_lifetime_expression": {
@@ -21,18 +21,18 @@
 			},
 			"minecraft:particle_initial_speed": 5,
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.25, 0.25],
+				"size": [0.5, 0.5],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 32,
-					"texture_height": 96,
+					"texture_height": 64,
 					"flipbook": {
 						"base_UV": [0, 0],
 						"size_UV": [32, 32],
 						"step_UV": [0, 32],
-						"frames_per_second": 3,
-						"max_frame": 3,
-						"stretch_to_lifetime": true
+						"frames_per_second": 23,
+						"max_frame": 2,
+						"loop": true
 					}
 				}
 			},

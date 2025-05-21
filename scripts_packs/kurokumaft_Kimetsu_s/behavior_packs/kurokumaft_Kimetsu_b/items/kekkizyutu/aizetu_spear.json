@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:aizetu_spear",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.kekkizyutu"
+        "category": "equipment"
       }
     },
     "components": {
@@ -30,7 +29,8 @@
       "minecraft:allow_off_hand": true,
       "minecraft:can_destroy_in_creative": false,
       "minecraft:use_modifiers": {
-        "movement_modifier": 1
+        "movement_modifier": 1,
+        "use_duration": 1000
       }
     }
   }

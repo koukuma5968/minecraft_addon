@@ -1,0 +1,21 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.karaku_ougi.wield": {
+			"states": {
+				"default": {
+					"animations": ["first"],
+					"transitions": [
+						{"third": "!c.is_first_person"}
+					]
+				},
+				"third": {
+					"animations": ["third"],
+					"transitions": [
+						{"default": "c.is_first_person"}
+					]
+				}
+			}
+		}
+	}
+}

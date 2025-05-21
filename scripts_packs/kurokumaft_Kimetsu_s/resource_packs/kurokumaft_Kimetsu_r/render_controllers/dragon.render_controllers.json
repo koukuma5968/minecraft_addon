@@ -1,31 +1,36 @@
 {
 	"format_version": "1.8.0",
 	"render_controllers": {
-	  "controller.render.mizu_dragon": {
-		"geometry": "Geometry.mizu_dragon",
-		"materials": [ { "*": "Material.default" } ],
-		"textures": ["Texture.mizu_dragon"]
-	  },
-	  "controller.render.hi_dragon": {
-		"geometry": "Geometry.hi_dragon",
-		"materials": [ { "*": "Material.default" } ],
-		"textures": ["Texture.hi_dragon"]
-	  },
-	  "controller.render.hono_tiger": {
-		"geometry": "Geometry.hono_tiger",
-		"materials": [ { "*": "Material.default" } ],
-		"textures": ["Texture.hono_tiger"]
-	  },
-	  "controller.render.kaminari_dragon": {
-		"geometry": "Geometry.kaminari_dragon",
-		"materials": [ { "*": "Material.default" } ],
-		"textures": ["Texture.kaminari_dragon"]
-	  },
-	  "controller.render.hebi": {
-		"geometry": "Geometry.hebi",
-		"materials": [ { "*": "Material.default" } ],
-		"textures": ["Texture.hebi"]
-	  }
+		"controller.render.mizu_dragon": {
+			"geometry": "Geometry.mizu_dragon",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": ["Texture.mizu_dragon"]
+		},
+		"controller.render.hi_dragon": {
+			"geometry": "Geometry.hi_dragon",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": ["Texture.hi_dragon"]
+		},
+		"controller.render.hono_tiger": {
+			"geometry": "Geometry.hono_tiger",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": ["Texture.hono_tiger"]
+		},
+		"controller.render.kaminari_dragon": {
+			"geometry": "Geometry.kaminari_dragon",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": ["Texture.kaminari_dragon"]
+		},
+		"controller.render.hebi": {
+			"geometry": "Geometry.hebi",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": ["Texture.hebi"]
+		},
+		"controller.render.tuti_dragon": {
+			"geometry": "Geometry.tuti_dragon",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": ["Texture.tuti_dragon"]
+		}
 	}
   }
   

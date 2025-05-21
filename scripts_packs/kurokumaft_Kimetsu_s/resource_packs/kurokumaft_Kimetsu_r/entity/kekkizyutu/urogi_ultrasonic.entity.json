@@ -7,7 +7,7 @@
             "default": "arrow"
           },
           "textures": {
-            "default": "textures/kurokumaft/models/kekkizyutu/hantengu/urogi_ultrasonic"
+            "default": "textures/kurokumaft/models/kekkizyutu/hantengu/ultrasonic"
           },
           "geometry": {
             "default": "geometry.urogi_ultrasonic"

@@ -10,10 +10,10 @@ import { getRandomInRange } from "./KimetuCommonUtil";
 async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
     if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-        let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
-        let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-        let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
+        const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+        const dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
 
         if ((durability.damage + dChange) >= durability.maxDurability) {
             equ.setEquipment(slot, undefined);
@@ -34,8 +34,8 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
  * @param {number} decNum
  */
 async function subtractionItem(player: Player, item: ItemStack, slot: EquipmentSlot, decNum: number) {
-    let remaining = item.amount - decNum;
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const remaining = item.amount - decNum;
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     if (remaining <= 0) {
         equ.setEquipment(slot, undefined);
     } else {

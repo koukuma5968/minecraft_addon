@@ -317,7 +317,21 @@
       "ogre_1_kimono": {
          "textures" : "textures/kurokumaft/items/armor/ogre/ogre_1_kimono"
       },
-
+      "ogre_1_koshi": {
+         "textures" : "textures/kurokumaft/items/armor/ogre/ogre_1_koshi"
+      },
+      "ogre_2_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/ogre/ogre_2_hakama"
+      },
+      "ogre_2_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/ogre/ogre_2_kimono"
+      },
+      "ogre_3_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/ogre/ogre_3_hakama"
+      },
+      "ogre_3_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/ogre/ogre_3_kimono"
+      },
 
       "bakketu": {
          "textures" : "textures/kurokumaft/items/kekkizyutu/bakketu"
@@ -325,11 +339,30 @@
       "koushi": {
          "textures" : "textures/kurokumaft/items/kekkizyutu/koushi"
       },
+      "obi": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/obi"
+      },
+      "sekido_syakuzyou": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/sekido_syakuzyou"
+      },
+      "karaku_ougi": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/karaku_ougi"
+      },
+      "aizetu_spear": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/aizetu_spear"
+      },
+      "urogi_ultrasonic": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/urogi_ultrasonic"
+      },
+      "zouhakuten_bati": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/zouhakuten_bati"
+      },
+
       "hakaisatu": {
          "textures" : "textures/kurokumaft/models/kekkizyutu/akaza/rashin"
       },
-      "urogi_ultrasonic": {
-         "textures" : "textures/kurokumaft/models/kekkizyutu/hantengu/urogi_ultrasonic"
+      "ultrasonic": {
+         "textures" : "textures/kurokumaft/models/kekkizyutu/hantengu/ultrasonic"
       },
 
       "rui_kimono": {
@@ -376,15 +409,29 @@
       "sekido_kimono": {
          "textures" : "textures/kurokumaft/items/armor/hantengu/sekido/sekido_kimono"
       },
-      "sekido_syakuzyou": {
-         "textures" : "textures/kurokumaft/items/kekkizyutu/sekido_syakuzyou"
+      "aizetu_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/aizetu/aizetu_hakama"
       },
-      "karaku_ougi": {
-         "textures" : "textures/kurokumaft/items/kekkizyutu/karaku_ougi"
+      "aizetu_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/aizetu/aizetu_jacket"
       },
-
-      "aizetu_spear": {
-         "textures" : "textures/kurokumaft/items/kekkizyutu/aizetu_spear"
+      "karaku_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/karaku/karaku_hakama"
+      },
+      "karaku_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/karaku/karaku_jacket"
+      },
+      "urogi_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/urogi/urogi_hakama"
+      },
+      "urogi_zyuzu": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/urogi/urogi_zyuzu"
+      },
+      "zouhakuten_taiko": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/zouhakuten/zouhakuten_taiko"
+      },
+      "zouhakuten_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/hantengu/zouhakuten/zouhakuten_hakama"
       },
 
       "tanjiro_head": {

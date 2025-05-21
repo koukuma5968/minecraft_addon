@@ -1,0 +1,38 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.obi",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "obi",
+					"pivot": [0, 0, 0],
+					"rotation": [0, 0, -90],
+					"cubes": [
+						{
+							"origin": [0, -6, 6],
+							"size": [0, 37, 5],
+							"pivot": [0, 2, 10],
+							"rotation": [90, 0, 0],
+							"uv": {
+								"north": {"uv": [12, 2], "uv_size": [0, 3]},
+								"east": {"uv": [0, 0], "uv_size": [8, 39]},
+								"south": {"uv": [24, 2], "uv_size": [0, 3]},
+								"west": {"uv": [21, 0], "uv_size": [9, 0]},
+								"up": {"uv": [22, 0], "uv_size": [-4, 0]},
+								"down": {"uv": [21, 0], "uv_size": [-5, 0]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

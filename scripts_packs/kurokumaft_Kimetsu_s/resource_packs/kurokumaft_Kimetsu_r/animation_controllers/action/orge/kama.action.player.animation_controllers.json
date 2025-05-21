@@ -1,0 +1,107 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.kama.action.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"equipment": "variable.kekkizyutu_type == 5"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"first_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 5"},
+						{"equipment": "!variable.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use": {
+					"transitions" : [
+						{"tobi_tibama_first": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"bakkotyouryou_first": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"enzansenkai_first": "query.property('kurokumaft:kekkizyutu_kata') == 3"}
+					]
+				},
+				"tobi_tibama_first" : {
+					"transitions" : [
+						{"first_person":"(1.0)"}
+					]
+				},
+				"bakkotyouryou_first" : {
+					"animations" : [
+						"kama.bakkotyouryou_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"enzansenkai_first" : {
+					"animations" : [
+						"kama.enzansenkai_first"
+					],
+					"transitions" : [
+						{"enzansenkai_at_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"enzansenkai_at_first" : {
+					"animations" : [
+						"kama.enzansenkai_attack_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"third_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 5"},
+						{"equipment": "variable.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"tobi_tibama_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"bakkotyouryou_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"enzansenkai_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"}
+					]
+				},
+				"tobi_tibama_third" : {
+					"transitions" : [
+						{"third_person":"(1.0)"}
+					]
+				},
+				"bakkotyouryou_third" : {
+					"animations" : [
+						"kama.bakkotyouryou_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"enzansenkai_third" : {
+					"animations" : [
+						"kama.enzansenkai_third"
+					],
+					"transitions" : [
+						{"enzansenkai_at_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"enzansenkai_at_third" : {
+					"animations" : [
+						"kama.enzansenkai_attack_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

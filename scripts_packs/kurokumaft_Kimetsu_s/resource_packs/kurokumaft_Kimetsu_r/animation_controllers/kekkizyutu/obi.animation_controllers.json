@@ -1,0 +1,113 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.kekkizyutu.obi.attack": {
+			"states": {
+				"default":{
+					"transitions" : [
+						{"equipment": "query.is_item_name_any('slot.weapon.mainhand','kurokumaft:obi')"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "c.is_first_person && query.property('kurokumaft:kokyu_attack')"},
+						{"third_person": "!c.is_first_person && query.property('kurokumaft:kokyu_attack')"},
+						{"default": "!query.is_item_name_any('slot.weapon.mainhand','kurokumaft:obi')"}
+					]
+				},
+				"first_person":{
+					"animations": ["attack_first"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				},
+				"third_person":{
+					"animations": ["attack_third"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.kekkizyutu.obi": {
+			"states": {
+				"default":{
+					"transitions" : [
+						{"equipment": "query.is_item_name_any('slot.weapon.mainhand','kurokumaft:obi')"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "c.is_first_person && query.property('kurokumaft:kokyu_use')"},
+						{"third_person": "!c.is_first_person && query.property('kurokumaft:kokyu_use')"},
+						{"default": "!query.is_item_name_any('slot.weapon.mainhand','kurokumaft:obi')"}
+					]
+				},
+				"first_person":{
+					"transitions" : [
+						{"yokonagi_first": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"barrage_attack_first": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"shot_first": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"yaeobigiri_first": "query.property('kurokumaft:kekkizyutu_kata') == 4"}
+					]
+				},
+				"yokonagi_first": {
+					"animations": ["yokonagi_first"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				},
+				"barrage_attack_first": {
+					"animations": ["barrage_attack_first"],
+					"transitions": [
+						{"equipment": "!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"shot_first": {
+					"animations": ["shot_first"],
+					"transitions": [
+						{"equipment": "!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"yaeobigiri_first": {
+					"animations": ["yaeobigiri_first"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				},
+				"third_person":{
+					"transitions" : [
+						{"yokonagi_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"barrage_attack_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"shot_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"yaeobigiri_third": "query.property('kurokumaft:kekkizyutu_kata') == 4"}
+					]
+				},
+				"yokonagi_third": {
+					"animations": ["yokonagi_third"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				},
+				"barrage_attack_third": {
+					"animations": ["barrage_attack_third"],
+					"transitions": [
+						{"equipment": "!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"shot_third": {
+					"animations": ["shot_third"],
+					"transitions": [
+						{"equipment": "!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"yaeobigiri_third": {
+					"animations": ["yaeobigiri_third"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				}
+			}
+		}
+	}
+}

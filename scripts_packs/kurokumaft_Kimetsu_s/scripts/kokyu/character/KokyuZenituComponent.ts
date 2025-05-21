@@ -13,9 +13,6 @@ export class KokyuZenituComponent implements NichirintouUseComponent {
      */
     changeKata(player:Player): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[2] as KokyuObject;
-
     }
 
     /**

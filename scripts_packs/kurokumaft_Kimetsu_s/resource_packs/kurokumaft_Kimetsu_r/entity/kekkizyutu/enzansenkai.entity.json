@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:enzansenkai",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kekkizyutu/gyutaro/tobi_tigama"
+      },
+      "geometry": {
+        "default": "geometry.tobi_tigama"
+      },
+      "animations": {
+        "enzansenkai": "animation.tobi_tigama.enzansenkai"
+      },
+      "particle_effects": {
+        "tigama_blead": "kurokumaft:tigama_blead"
+      },
+      "scripts": {
+        "animate": [
+          "enzansenkai"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

@@ -7,7 +7,7 @@ import { KokyuShinobuComponent } from "../../kokyu/character/KokyuShinobuCompone
 import { KokyuTanjiroComponent } from "../../kokyu/character/KokyuTanjiroComponent";
 import { KokyuZenituComponent } from "../../kokyu/character/KokyuZenituComponent";
 import { NichirintouChoiceComponent } from "../../kokyu/NichirintouChoiceComponent";
-import { NichirintouUseComponent } from "../../kokyu/NichirintouUseComponent";
+import { KokyuMobUseComponent, NichirintouUseComponent } from "../../kokyu/NichirintouUseComponent";
 import { KokyuHebiComponent } from "../../kokyu/regimental/KokyuHebiComponent";
 import { KokyuHiComponent } from "../../kokyu/regimental/KokyuHiComponent";
 import { KokyuHonoComponent } from "../../kokyu/regimental/KokyuHonoComponent";
@@ -27,6 +27,10 @@ import { KokyuInosukeComponent } from "../../kokyu/character/KokyuInosukeCompone
 import { KokyuTengenComponent } from "../../kokyu/character/KokyuTengenComponent";
 import { KokyuHanaComponent } from "../../kokyu/regimental/KokyuHanaComponent";
 import { KokyuTukiComponent } from "../../kokyu/regimental/KokyuTukiComponent";
+import { Entity } from "@minecraft/server";
+import { TanjiroComponent } from "../../kokyu/mob/TanjiroComponent";
+import { GiyuComponent } from "../../kokyu/mob/GiyuComponent";
+import { ZenituComponent } from "../../kokyu/mob/ZenituComponent";
 
 export interface KokyuObject {
     itemName:string,
@@ -263,3 +267,29 @@ export const KokyuObjects = Object.freeze([
         className: "tuki"
     },
 ])
+
+export interface KokyuMobObject {
+    entityName:string,
+    className: string
+}
+
+export const KokyuMobClassRecord: Record<string, new () => KokyuMobUseComponent> = {
+    tanjiro: TanjiroComponent,
+    zenitu: ZenituComponent,
+    giyu: GiyuComponent
+};
+
+export const KokyuMobObjects = Object.freeze([
+    {
+        entityName: "kurokumaft:tanjiro",
+        className: "tanjiro"
+    },
+    {
+        entityName: "kurokumaft:zenitu",
+        className: "zenitu"
+    },
+    {
+        entityName: "kurokumaft:giyu",
+        className: "giyu"
+    },
+]);

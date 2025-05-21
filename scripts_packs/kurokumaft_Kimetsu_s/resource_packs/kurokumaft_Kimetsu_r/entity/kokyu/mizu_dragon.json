@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:mizu_dragon",
+        "materials": {
+          "default": "dragon"
+        },
+        "textures": {
+          "mizu_dragon": "textures/kurokumaft/models/mizu_dragon"
+        },
+        "geometry": {
+          "mizu_dragon": "geometry.mizu_dragon"
+        },
+        "animations": {
+          "attack": "animation.mizu_dragon.attack"
+        },
+        "scripts": {
+          "animate": [
+            "attack"
+          ]
+        },
+        "render_controllers": ["controller.render.mizu_dragon"]
+      }
+    }
+  }
+  

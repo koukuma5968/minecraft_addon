@@ -1,0 +1,115 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.obi.action.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"equipment": "variable.kekkizyutu_type == 4"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"first_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 4"},
+						{"equipment": "!variable.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use": {
+					"transitions" : [
+						{"yokonagi_first": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"barrage_attack_first": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"shot_first": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"yaeobigiri_first": "query.property('kurokumaft:kekkizyutu_kata') == 4"}
+					]
+				},
+				"yokonagi_first" : {
+					"animations" : [
+						"obi.yokonagi_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"barrage_attack_first" : {
+					"animations" : [
+						"obi.barrage_attack_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"shot_first" : {
+					"animations" : [
+						"obi.shot_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"yaeobigiri_first" : {
+					"animations" : [
+						"obi.yaeobigiri_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"third_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 4"},
+						{"equipment": "variable.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"yokonagi_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"barrage_attack_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"shot_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"yaeobigiri_third": "query.property('kurokumaft:kekkizyutu_kata') == 4"}
+					]
+				},
+				"yokonagi_third" : {
+					"animations" : [
+						"obi.yokonagi_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"barrage_attack_third" : {
+					"animations" : [
+						"obi.barrage_attack_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"shot_third" : {
+					"animations" : [
+						"obi.shot_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"yaeobigiri_third" : {
+					"animations" : [
+						"obi.yaeobigiri_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

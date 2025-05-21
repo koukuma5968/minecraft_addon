@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:hi_dragon",
+        "materials": {
+          "default": "dragon"
+        },
+        "textures": {
+          "hi_dragon": "textures/kurokumaft/models/hi_dragon"
+        },
+        "geometry": {
+          "hi_dragon": "geometry.hi_dragon"
+        },
+        "animations": {
+          "attack": "animation.hi_dragon.attack"
+        },
+        "scripts": {
+          "animate": [
+            "attack"
+          ]
+        },
+        "render_controllers": ["controller.render.hi_dragon"]
+      }
+    }
+  }
+  

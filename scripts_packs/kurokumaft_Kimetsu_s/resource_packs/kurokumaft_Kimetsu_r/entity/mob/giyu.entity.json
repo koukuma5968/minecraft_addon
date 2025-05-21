@@ -7,14 +7,20 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/giyu"
+        "default": "textures/kurokumaft/models/mob/giyu",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
+        "mizu_dragon": "textures/kurokumaft/models/mizu_dragon"
       },
       "geometry": {
-        "default": "geometry.giyu"
+        "default": "geometry.giyu",
+        "nichirintou_custom": "geometry.nichirintou_custom",
+        "mizu_dragon": "geometry.mizu_dragon"
       },
       "particle_effects": {
         "mizu_awa_particle": "kurokumaft:mizu_awa_particle",
-        "mizu_splash_particle": "kurokumaft:mizu_splash_particle"
+        "mizu_splash_particle": "kurokumaft:mizu_splash_particle",
+        "mizu_running_particle": "kurokumaft:mizu_running_particle",
+        "mizu_move_particle": "kurokumaft:mizu_move_particle"
       },
       "scripts": {
         "scaleX": "1.00",
@@ -33,7 +39,10 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "giyu.action",
+          "giyu.attack"
 
         ]
       },
@@ -58,10 +67,48 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
+        "nichirintou_custom.first": "animation.nichirintou_custom.first",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+
+        "giyu.action":"controller.animation.giyu.action",
+        "giyu.attack":"controller.animation.giyu.attack",
+
+        "mizu_dragon": "animation.mizu_dragon.attack",
+
+        "mizu.ichi_1_third": "animation.action.mizu.ichi_1_third",
+        "mizu.ichi_2_third": "animation.action.mizu.ichi_2_third",
+        "mizu.ni_1_third": "animation.action.mizu.ni_1_third",
+        "mizu.san_1_third": "animation.action.mizu.san_1_third",
+        "mizu.san_2_third": "animation.action.mizu.san_2_third",
+        "mizu.san_3_third": "animation.action.mizu.san_3_third",
+        "mizu.shi_1_third": "animation.action.mizu.shi_1_third",
+        "mizu.go_1_third": "animation.action.mizu.go_1_third",
+        "mizu.go_2_third": "animation.action.mizu.go_2_third",
+        "mizu.roku_1_third": "animation.action.mizu.roku_1_third",
+        "mizu.roku_2_third": "animation.action.mizu.roku_2_third",
+        "mizu.shiti_1_third": "animation.action.mizu.shiti_1_third",
+        "mizu.shiti_2_third": "animation.action.mizu.shiti_2_third",
+        "mizu.hati_1_third": "animation.action.mizu.hati_1_third",
+        "mizu.hati_2_third": "animation.action.mizu.hati_2_third",
+        "mizu.hati_3_third": "animation.action.mizu.hati_3_third",
+        "mizu.ku_1_third": "animation.action.mizu.ku_1_third",
+        "mizu.ku_2_third": "animation.action.mizu.ku_2_third",
+        "mizu.tou_1_third": "animation.action.mizu.tou_1_third",
+        "mizu.tou_2_third": "animation.action.mizu.tou_2_third",
+        "mizu.zyuichi_1_third": "animation.action.mizu.zyuichi_1_third",
+
+        "mizu.ku":  "animation.action.mizu.ku",
+        "mizu.tou": "animation.action.mizu.tou",
+        "mizu.zyuichi": "animation.action.mizu.zyuichi"
+
       },
       "render_controllers": [
-        "controller.render.soldier.giyu"
+        "controller.render.soldier.giyu",
+        "controller.render.nichirintou_custom",
+        { "controller.render.mizu_dragon": "query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 10 && query.property('kurokumaft:kokyu_attack')" }
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

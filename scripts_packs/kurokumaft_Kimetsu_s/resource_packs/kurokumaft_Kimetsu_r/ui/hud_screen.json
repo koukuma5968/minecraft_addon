@@ -12,12 +12,12 @@
       {
         "kaikyu_frame": {
           "type": "panel",
-          "size": [ "30%", "30%cm" ],
+          "size": [ "90%", "80%cm" ],
           "controls": [
             {
               "title_background": {
                 "type": "image",
-                "size": [ "50%sm", "50%sm + 6px" ],
+                "size": [ "100%sm", "90%sm + 6px" ],
                 "texture": "textures/ui/hud_tip_text_background",
                 "alpha": "@hud.anim_title_background_alpha_in"
               }
@@ -30,8 +30,8 @@
                 "color": "$title_command_text_color",
                 "text": "#text",
                 "layer": 15,
-                "localize": false,
-                "font_size": "large",
+                "localize": true,
+                "font_size": "normal",
                 "variables": [
                   {
                     "requires": "(not $title_shadow)",
@@ -79,9 +79,9 @@
         "value": {
           "hud_title_text_area": {
             "type": "panel",
-            "anchor_from": "bottom_right",
-            "anchor_to": "bottom_right",
-            "size": [ 100, 30 ],
+            "anchor_from": "bottom_left",
+            "anchor_to": "bottom_left",
+            "size": [ 100, 50 ],
             "factory": {
               "name": "hud_title_text_factory",
               "control_ids": {

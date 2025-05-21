@@ -54,7 +54,8 @@
         "koi_blead2_particle": "kurokumaft:koi_blead2_particle",
         "kasumi_slash_particle": "kurokumaft:kasumi_slash_particle",
         "tuki_blead_particle": "kurokumaft:tuki_blead_particle",
-        "tuki_box_particle": "kurokumaft:tuki_box_particle"
+        "tuki_box_particle": "kurokumaft:tuki_box_particle",
+        "enzansenkai": "kurokumaft:enzansenkai"
       },
       "scripts": {
         "scale": "0.9375",
@@ -64,7 +65,8 @@
           "variable.last_blink_time = 0.0;",
           "variable.hand_bob = 0.0;",
 
-          "variable.nichirintou_equipment = 0.0;"
+          "variable.nichirintou_equipment = 0.0;",
+          "variable.kekkizyutu_type = 0.0;"
 
         ],
         "pre_animation": [
@@ -80,7 +82,8 @@
           "variable.map_angle = math.clamp(1 - variable.player_x_rotation / 45.1, 0.0, 1.0);",
           "variable.item_use_normalized = query.main_hand_item_use_duration / query.main_hand_item_max_duration;",
 
-          "variable.nichirintou_equipment = query.property('kurokumaft:nichirintou_type');"
+          "variable.nichirintou_equipment = query.property('kurokumaft:nichirintou_type');",
+          "variable.kekkizyutu_type = query.property('kurokumaft:kekkizyutu_type');"
 
         ],
         "animate": [
@@ -119,7 +122,11 @@
           "oto.action",
           "hebi.action",
           "kasumi.action",
-          "tuki.action"
+          "tuki.action",
+
+          "obi.action",
+          "hakaisatu.action",
+          "kama.action"
 
         ]
       },
@@ -223,6 +230,10 @@
         "hebi.action": "controller.animation.hebi.action.player",
         "kasumi.action": "controller.animation.kasumi.action.player",
         "tuki.action": "controller.animation.tuki.action.player",
+
+        "obi.action": "controller.animation.obi.action.player",
+        "hakaisatu.action": "controller.animation.hakaisatu.action.player",
+        "kama.action": "controller.animation.kama.action.player",
 
         "mizu.ichi_1_first": "animation.action.mizu.ichi_1_first",
         "mizu.ichi_2_first": "animation.action.mizu.ichi_2_first",
@@ -523,7 +534,49 @@
         "tuki.zyu_1_third": "animation.action.tuki.zyu_1_third",
         "tuki.zyuichi_1_third": "animation.action.tuki.zyuichi_1_third",
         "tuki.zyushi_1_third": "animation.action.tuki.zyushi_1_third",
-        "tuki.zyuroku_1_third": "animation.action.tuki.zyuroku_1_third"
+        "tuki.zyuroku_1_third": "animation.action.tuki.zyuroku_1_third",
+
+        "obi.yokonagi_first": "animation.action.obi.yokonagi_first",
+        "obi.shot_first": "animation.action.obi.shot_first",
+        "obi.yaeobigiri_first": "animation.action.obi.yaeobigiri_first",
+        "obi.barrage_attack_first": "animation.action.obi.barrage_attack_first",
+        "obi.yokonagi_third": "animation.action.obi.yokonagi_third",
+        "obi.shot_third": "animation.action.obi.shot_third",
+        "obi.yaeobigiri_third": "animation.action.obi.yaeobigiri_third",
+        "obi.barrage_attack_third": "animation.action.obi.barrage_attack_third",
+
+        "kama.bakkotyouryou_first": "animation.action.kama.bakkotyouryou_first",
+        "kama.enzansenkai_first": "animation.action.kama.enzansenkai_first",
+        "kama.enzansenkai_attack_first": "animation.action.kama.enzansenkai_attack_first",
+        "kama.bakkotyouryou_third": "animation.action.kama.bakkotyouryou_third",
+        "kama.enzansenkai_third": "animation.action.kama.enzansenkai_third",
+        "kama.enzansenkai_attack_third": "animation.action.kama.enzansenkai_attack_third",
+
+        "hakaisatu.rashin_first": "animation.action.hakaisatu.rashin_first",
+        "hakaisatu.kushiki_first": "animation.action.hakaisatu.kushiki_first",
+        "hakaisatu.ranshiki_first": "animation.action.hakaisatu.ranshiki_first",
+        "hakaisatu.meshiki_first": "animation.action.hakaisatu.meshiki_first",
+        "hakaisatu.meshiki_attack_first": "animation.action.hakaisatu.meshiki_attack_first",
+        "hakaisatu.kamurosakiwari_first": "animation.action.hakaisatu.kamurosakiwari_first",
+        "hakaisatu.ryuseigunkou_first": "animation.action.hakaisatu.ryuseigunkou_first",
+        "hakaisatu.hiyuseisenrin_first": "animation.action.hakaisatu.hiyuseisenrin_first",
+        "hakaisatu.manyousenyanagi_first": "animation.action.hakaisatu.manyousenyanagi_first",
+        "hakaisatu.manyousenyanagi_attack_first": "animation.action.hakaisatu.manyousenyanagi_attack_first",
+        "hakaisatu.kishinyaenshin_first": "animation.action.hakaisatu.kishinyaenshin_first",
+        "hakaisatu.aoginranzankou_first": "animation.action.hakaisatu.aoginranzankou_first",
+
+        "hakaisatu.rashin_third": "animation.action.hakaisatu.rashin_third",
+        "hakaisatu.kushiki_third": "animation.action.hakaisatu.kushiki_third",
+        "hakaisatu.ranshiki_third": "animation.action.hakaisatu.ranshiki_third",
+        "hakaisatu.meshiki_third": "animation.action.hakaisatu.meshiki_third",
+        "hakaisatu.meshiki_attack_third": "animation.action.hakaisatu.meshiki_attack_third",
+        "hakaisatu.kamurosakiwari_third": "animation.action.hakaisatu.kamurosakiwari_third",
+        "hakaisatu.ryuseigunkou_third": "animation.action.hakaisatu.ryuseigunkou_third",
+        "hakaisatu.hiyuseisenrin_third": "animation.action.hakaisatu.hiyuseisenrin_third",
+        "hakaisatu.manyousenyanagi_third": "animation.action.hakaisatu.manyousenyanagi_third",
+        "hakaisatu.manyousenyanagi_attack_third": "animation.action.hakaisatu.manyousenyanagi_attack_third",
+        "hakaisatu.kishinyaenshin_third": "animation.action.hakaisatu.kishinyaenshin_third",
+        "hakaisatu.aoginranzankou_third": "animation.action.hakaisatu.aoginranzankou_third"
 
       },
       "render_controllers": [

@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.karaku_ougi.first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"karaku_ougi": {
+					"rotation": [7.51657, 67.17503, -79.84542],
+					"position": [3, 21, 0],
+					"scale": 0.7
+				}
+			}
+		},
+		"animation.karaku_ougi.third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"karaku_ougi": {
+					"rotation": [41.89482, 10.88493, 89.16759],
+					"position": [-1, 23, -4],
+					"scale": 0.45
+				}
+			}
+		}
+	}
+}

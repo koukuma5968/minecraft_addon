@@ -1,4 +1,4 @@
-import { world,Player,Entity,Vector2, Vector3, Direction, EntityQueryOptions, Block, VectorXZ} from "@minecraft/server";
+import { world,Player,Vector2, Vector3, Direction, EntityQueryOptions, Block} from "@minecraft/server";
 
 // デバッグ用
 /**
@@ -28,12 +28,11 @@ function getRandomInRange(min:number, max:number) {
 
 // サウンド再生
 /**
- * @param {Entity} entity
- * @param {String} sound
+ * @param {Player} entity
+ * @param {string} sound
  */
-function playsound(entity:Entity, sound:String) {
-    let commandText =  "playsound " + sound + " @s";
-    entity.runCommandAsync(commandText);
+function playsound(entity:Player, sound:string) {
+    entity.playSound(sound);
 };
 
 /**
@@ -211,6 +210,33 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, ex
 
 };
 
+function addOrgeFilter(closest:number, location:Vector3, maxDis:number, exeTag:string): EntityQueryOptions {
+
+    const filterOption = {
+        excludeFamilies: [
+            "inanimate", "animal"
+        ],
+        excludeTypes: [
+            "item"
+        ],
+        excludeTags: [
+            exeTag
+        ],
+        location: location,
+        maxDistance: maxDis
+    } as EntityQueryOptions;
+
+    if (!world.gameRules.pvp) {
+        filterOption.excludeFamilies?.push("player");
+    }
+    if (closest != 0) {
+        filterOption.closest = closest;
+    }
+
+    return filterOption;
+
+};
+
 function addProjectionFilter(closest:number, location:Vector3, maxDis:number): EntityQueryOptions {
 
     let filterOption = {
@@ -336,6 +362,6 @@ function isTargetInFront(myPos: Vector3, yawDeg: number, targetPos: Vector3, max
 }
 
 export { print, clamp, getRandomInRange, playsound, getDistanceLocation, 
-    getDirectionVector, addRegimentalFilter, addProjectionFilter, BlockLocationList, weightChoice,
+    getDirectionVector, addRegimentalFilter, addOrgeFilter, addProjectionFilter, BlockLocationList, weightChoice,
     getForwardPosition, getRightPosition, getLeftPosition, getLookLocationDistance, getLookLocationDistancePitch, isTargetInFront,
     getForwardVector };

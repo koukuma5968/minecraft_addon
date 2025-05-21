@@ -6,60 +6,62 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:kaikyu": {
+          "type": "int",
+          "range": [1, 10],
+          "default": 1,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_kata": {
+          "type": "int",
+          "range": [0, 22],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:nitirintou_equip": {
+          "type": "bool",
+          "default": "true",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_attack": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_chage": {
+          "type": "int",
+          "range": [0, 10],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_ran": {
+          "type": "int",
+          "range": [-160, 160],
+          "default": 0,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
-          {"mizu": "query.skin_id == 11"},
-          {"mizu10_attack": "query.skin_id == 11"},
-
-          {"hi": "query.skin_id == 12"},
-          {"hi_dragon_attack": "query.skin_id == 12"},
-
-          {"kaminari": "query.skin_id == 13"},
-          {"hono": "query.skin_id == 14"},
-          {"kaze": "query.skin_id == 15"},
-
-          {"oto": "query.skin_id == 24"},
-
-          {"hana": "query.skin_id == 33"},
-          {"mushi": "query.skin_id == 34"},
-          {"koi": "query.skin_id == 35"}
+          "kokyu"
         ]
       },
       "animations":{
-        "mizu":"controller.animation.regimental.mizu",
-        "mizu10_attack": "controller.animation.regimental.mizu10_attack",
-        "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9",
-        "mizu10_ani": "animation.kata.mizu10","mizu11_ani": "animation.kata.mizu11",
-
-        "hi":"controller.animation.regimental.hi",
-        "hi_dragon_attack": "controller.animation.regimental.hi_dragon_attack",
-        "hi2_ani": "animation.kata.hi2","hi2_2_ani": "animation.kata.hi2_2","hi4_ani": "animation.kata.hi4","hi5_ani": "animation.kata.hi5",
-        "hi6_ani": "animation.kata.hi6","hi9_ani": "animation.kata.hi9","hi11_ani": "animation.kata.hi11",
-
-        "kaminari": "controller.animation.regimental.kaminari",
-        "kaminari_attack": "controller.animation.regimental.kaminari_attack",
-        "kaminari3_ani": "animation.kata.kaminari3","kaminari4_ani": "animation.kata.kaminari4","kaminari5_ani": "animation.kata.kaminari5","kaminari6_ani": "animation.kata.kaminari6","kaminari6_2_ani": "animation.kata.kaminari6_2",
-        "kaminari7_ani": "animation.kata.kaminari7",
-
-        "hana": "controller.animation.regimental.hana",
-        "hana2_ani": "animation.kata.hana2","hana4_ani": "animation.kata.hana4","hana6_ani": "animation.kata.hana6","hana7_ani": "animation.kata.hana7",
-
-        "hono": "controller.animation.regimental.hono",
-        "hono4_ani": "animation.kata.hono4","hono9_ani": "animation.kata.hono9","hono9_2_ani": "animation.kata.hono9_2",
-
-        "oto": "controller.animation.regimental.oto",
-        "oto4_ani": "animation.kata.oto4","oto5_ani": "animation.kata.oto5",
-
-        "mushi": "controller.animation.regimental.mushi",
-
-        "koi": "controller.animation.regimental.koi",
-        "koi2_ani": "animation.kata.koi2","koi3_ani": "animation.kata.koi3",
-
-        "kaze": "controller.animation.regimental.kaze",
-        "kaze1_ani": "animation.kata.kaze1","kaze3_ani": "animation.kata.kaze3","kaze4_ani": "animation.kata.kaze4","kaze5_ani": "animation.kata.kaze5",
-        "kaze8_ani": "animation.kata.kaze8","kaze9_ani": "animation.kata.kaze9","kaze9_2_ani": "animation.kata.kaze9_2"
-
+        "kokyu":"controller.animation.kokyu.monitor",
+        "cooldown": "animation.cooldown.twenty_sec"
       }
+
     },
 
     "component_groups": {

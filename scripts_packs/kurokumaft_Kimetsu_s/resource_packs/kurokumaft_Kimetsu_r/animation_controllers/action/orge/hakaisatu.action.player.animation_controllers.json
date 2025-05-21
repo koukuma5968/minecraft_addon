@@ -1,0 +1,255 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.hakaisatu.action.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"equipment": "variable.kekkizyutu_type == 3"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"first_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 3"},
+						{"equipment": "!variable.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use": {
+					"transitions" : [
+						{"rashin_first": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"kushiki_first": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"ranshiki_first": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"meshiki_first": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
+						{"kamurosakiwari_first": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"ryuseigunkou_first": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
+						{"hiyuseisenrin_first": "query.property('kurokumaft:kekkizyutu_kata') == 7"},
+						{"manyousenyanagi_first": "query.property('kurokumaft:kekkizyutu_kata') == 8"},
+						{"kishinyaenshin_first": "query.property('kurokumaft:kekkizyutu_kata') == 9"},
+						{"aoginranzankou_first": "query.property('kurokumaft:kekkizyutu_kata') == 10"}
+					]
+				},
+				"rashin_first" : {
+					"animations" : [
+						"hakaisatu.rashin_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kushiki_first" : {
+					"animations" : [
+						"hakaisatu.kushiki_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"ranshiki_first" : {
+					"animations" : [
+						"hakaisatu.ranshiki_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"meshiki_first" : {
+					"animations" : [
+						"hakaisatu.meshiki_first"
+					],
+					"transitions" : [
+						{"meshiki_at_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"meshiki_at_first" : {
+					"animations" : [
+						"hakaisatu.meshiki_attack_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"kamurosakiwari_first" : {
+					"animations" : [
+						"hakaisatu.kamurosakiwari_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"ryuseigunkou_first" : {
+					"animations" : [
+						"hakaisatu.ryuseigunkou_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hiyuseisenrin_first" : {
+					"animations" : [
+						"hakaisatu.hiyuseisenrin_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"manyousenyanagi_first" : {
+					"animations" : [
+						"hakaisatu.manyousenyanagi_first"
+					],
+					"transitions" : [
+						{"manyousenyanagi_at_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"manyousenyanagi_at_first" : {
+					"animations" : [
+						"hakaisatu.manyousenyanagi_attack_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"kishinyaenshin_first" : {
+					"animations" : [
+						"hakaisatu.kishinyaenshin_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"aoginranzankou_first" : {
+					"animations" : [
+						"hakaisatu.aoginranzankou_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 3"},
+						{"equipment": "variable.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"rashin_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"kushiki_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"ranshiki_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"meshiki_third": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
+						{"kamurosakiwari_third": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"ryuseigunkou_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
+						{"hiyuseisenrin_third": "query.property('kurokumaft:kekkizyutu_kata') == 7"},
+						{"manyousenyanagi_third": "query.property('kurokumaft:kekkizyutu_kata') == 8"},
+						{"kishinyaenshin_third": "query.property('kurokumaft:kekkizyutu_kata') == 9"},
+						{"aoginranzankou_third": "query.property('kurokumaft:kekkizyutu_kata') == 10"}
+					]
+				},
+				"rashin_third" : {
+					"animations" : [
+						"hakaisatu.rashin_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kushiki_third" : {
+					"animations" : [
+						"hakaisatu.kushiki_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"ranshiki_third" : {
+					"animations" : [
+						"hakaisatu.ranshiki_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"meshiki_third" : {
+					"animations" : [
+						"hakaisatu.meshiki_third"
+					],
+					"transitions" : [
+						{"meshiki_at_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"meshiki_at_third" : {
+					"animations" : [
+						"hakaisatu.meshiki_attack_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"kamurosakiwari_third" : {
+					"animations" : [
+						"hakaisatu.kamurosakiwari_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"ryuseigunkou_third" : {
+					"animations" : [
+						"hakaisatu.ryuseigunkou_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hiyuseisenrin_third" : {
+					"animations" : [
+						"hakaisatu.hiyuseisenrin_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"manyousenyanagi_third" : {
+					"animations" : [
+						"hakaisatu.manyousenyanagi_third"
+					],
+					"transitions" : [
+						{"manyousenyanagi_at_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"manyousenyanagi_at_third" : {
+					"animations" : [
+						"hakaisatu.manyousenyanagi_attack_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"kishinyaenshin_third" : {
+					"animations" : [
+						"hakaisatu.kishinyaenshin_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"aoginranzankou_third" : {
+					"animations" : [
+						"hakaisatu.aoginranzankou_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				}
+			}
+		}
+    }
+}

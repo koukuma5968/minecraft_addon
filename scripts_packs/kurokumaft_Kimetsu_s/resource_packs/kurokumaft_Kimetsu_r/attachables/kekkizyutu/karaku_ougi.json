@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:karaku_ougi",
+        "materials": {
+          "default": "entity_alphatest",
+          "enchanted": "entity_alphatest_glint"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/items/kekkizyutu/karaku_ougi",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.karaku_ougi"
+        },
+        "animations": {
+          "wield": "controller.animation.karaku_ougi.wield",
+          "first": "animation.karaku_ougi.first",
+          "third": "animation.karaku_ougi.third"
+        },
+        "scripts": {
+          "animate": [
+            "wield"
+          ]
+        },
+        "render_controllers": [ "controller.render.item_default" ]
+      }
+    }
+  }
+  

@@ -1,0 +1,142 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.action.obi.yokonagi_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, -25, 0],
+						"0.25": [0, 47.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [10.20587, -4.56139, -44.96982],
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-123.89356, -3.18037, 87.45402],
+						"0.25": [-8.89356, -3.18037, 87.45402]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [25, 2.5, -20],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-27.5, 0, 15],
+					"position": [0, 0, 0],
+					"scale": 1
+				}
+			}
+		},
+		"animation.action.obi.shot_third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": [0, -25, 0],
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -25]
+				},
+				"rightArm": {
+					"rotation": [-90, 32.5, 0]
+				},
+				"leftLeg": {
+					"rotation": [11.32587, 7.64343, -15.69447]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 25]
+				}
+			}
+		},
+		"animation.action.obi.yaeobigiri_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"body": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-80, -5, -42.5],
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [-67.5, -7.5, 45],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-27.5, 0, 15],
+					"position": [0, 0, 0],
+					"scale": 1
+				},
+				"leftLeg": {
+					"rotation": [25, 2.5, -20],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.action.obi.barrage_attack_third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": [10, 0, 0],
+					"position": [0, 0, -2]
+				},
+				"leftArm": {
+					"rotation": [-9.27023, -6.25707, -49.92993],
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": [-10, -7.5, 45],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 15],
+					"position": [0, 0, 0],
+					"scale": 1
+				},
+				"leftLeg": {
+					"rotation": [0, 2.5, -20],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.action.obi.yokonagi_first": {
+			"loop": "hold_on_last_frame"
+		},
+		"animation.action.obi.yaeobigiri_first": {
+			"loop": "hold_on_last_frame"
+		},
+		"animation.action.obi.barrage_attack_first": {
+			"loop": true
+		},
+		"animation.action.obi.shot_first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"body": {
+					"rotation": [0, -25, 0],
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [0, 0, -25]
+				},
+				"rightArm": {
+					"rotation": [-90, 32.5, 0]
+				},
+				"leftLeg": {
+					"rotation": [11.32587, 7.64343, -15.69447]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 25]
+				}
+			}
+		}
+	}
+}

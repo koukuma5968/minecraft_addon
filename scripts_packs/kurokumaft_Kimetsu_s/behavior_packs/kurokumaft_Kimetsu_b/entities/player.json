@@ -58,6 +58,18 @@
           "default": 0,
           "client_sync": true
         },
+        "kurokumaft:kekkizyutu_type": {
+          "type": "int",
+          "range": [0, 30],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:kekkizyutu_kata": {
+          "type": "int",
+          "range": [0, 20],
+          "default": 0,
+          "client_sync": true
+        },
         "kurokumaft:orge_becoming": {
           "type": "int",
           "range": [0, 100],
@@ -146,19 +158,7 @@
         }
       },
       "kurokumaft:orge_hurt_on_condition": {
-        "minecraft:hurt_on_condition": {
-          "damage_conditions": [
-            {
-              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
-              "cause": "lava",
-              "damage_per_tick": 4
-            },
-            {
-              "filters": { "test": "light_level", "subject": "self", "operator": ">", "value": 5 },
-              "cause": "fire",
-              "damage_per_tick": 8
-            }
-          ]
+        "minecraft:burns_in_daylight": {
         }
       },
       "kurokumaft:orge_damage_sensor": {
@@ -516,6 +516,7 @@
             },
             "event": "minecraft:trigger_raid"
           }
+
         ]
       }
     },

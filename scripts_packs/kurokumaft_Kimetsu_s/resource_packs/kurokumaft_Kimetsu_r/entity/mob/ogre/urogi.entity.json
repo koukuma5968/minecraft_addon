@@ -47,13 +47,14 @@
         "look_at_target_default":"animation.humanoid.look_at_target.default",
         "look_at_target_gliding":"animation.humanoid.look_at_target.gliding",
         "look_at_target_swimming":"animation.humanoid.look_at_target.swimming",
-        "move":"animation.urogi.move",
         "riding":"controller.animation.humanoid.riding",
         "riding.arms":"animation.humanoid.riding.arms",
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "move":"animation.action.urogi.move"
 
       },
       "render_controllers": [

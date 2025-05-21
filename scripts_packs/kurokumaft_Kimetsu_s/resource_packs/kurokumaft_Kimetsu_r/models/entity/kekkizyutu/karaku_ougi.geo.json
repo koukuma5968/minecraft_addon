@@ -1,0 +1,29 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.karaku_ougi",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 1,
+				"visible_bounds_height": 1,
+				"visible_bounds_offset": [0, 0, 0]
+			},
+			"bones": [
+				{
+					"name": "karaku_ougi",
+					"pivot": [0, 0, 0],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
+					"texture_meshes": [
+						{
+							"texture": "default",
+							"position": [0, 6, -24],
+							"rotation": [0, 0, -90]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,43 +1,29 @@
-import { EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityQueryOptions, EquipmentSlot, ItemStack, Player, world } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
+import { EntityDamageCause, EntityQueryOptions, Entity, Player } from "@minecraft/server";
+import { KataComonClass } from "../../kokyu/kata/KataComonClass";
 
-export class ZytuComonClass {
+export class ZytuComonClass extends KataComonClass {
 
-    gardCheck(en: Player): boolean {
+    kokyuApplyDamage(entity:Entity, filter:EntityQueryOptions, enDamage:number, pDamage:number): void {
 
-        let equ = en.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let main = equ.getEquipment(EquipmentSlot.Mainhand);
-        let off = equ.getEquipment(EquipmentSlot.Offhand);
-
-        if (en.isSneaking && ((main != undefined && main.typeId.indexOf("shield") != -1) || (off != undefined && off.typeId.indexOf("shield") != -1))) {
-            world.playSound("item.shield.block", en.location, {
-                pitch: 1,
-                volume: 2
-            });
-            return false;
-        }
-        return true;
-    }
-
-    kokyuApplyDamage(player:Player, filter:EntityQueryOptions, enDamage:number, pDamage:number, itemStack:ItemStack): void {
-
-        let targets = player.dimension.getEntities(filter);
+        entity.addTag(entity.id);
+        const targets = entity.dimension.getEntities(filter);
+        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         targets.forEach(en => {
             if (en instanceof Player) {
                 if (this.gardCheck(en)) {
-                    en.applyDamage(pDamage, {
+                    en.applyDamage(pDamage*kaikyuNum, {
                         cause: EntityDamageCause.entityAttack,
-                        damagingEntity: player
+                        damagingEntity: entity
                     });
                 }
             } else {
-                en.applyDamage(enDamage, {
+                en.applyDamage(enDamage*kaikyuNum, {
                     cause: EntityDamageCause.entityAttack,
-                    damagingEntity: player
+                    damagingEntity: entity
                 });
             }
         });
-        ItemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        entity.removeTag(entity.id);
 
     }
 }

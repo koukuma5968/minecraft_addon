@@ -6,18 +6,62 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:kaikyu": {
+          "type": "int",
+          "range": [10, 11],
+          "default": 11,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_kata": {
+          "type": "int",
+          "range": [0, 11],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:nitirintou_equip": {
+          "type": "bool",
+          "default": "true",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_attack": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_chage": {
+          "type": "int",
+          "range": [0, 10],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_ran": {
+          "type": "int",
+          "range": [-160, 160],
+          "default": 0,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
-          "giyu",
-          "mizu10_attack"
+          "kokyu"
         ]
       },
       "animations":{
-        "giyu":"controller.animation.giyu.kokyu",
-        "mizu8_ani": "animation.kata.mizu8","mizu8_2_ani": "animation.kata.mizu8_2","mizu9_ani": "animation.kata.mizu9","mizu10_ani": "animation.kata.mizu10",
-        "mizu10_attack": "controller.animation.kokyu.mizu10_attack","mizu11_ani": "animation.kata.mizu11"
-
+        "kokyu":"controller.animation.kokyu.monitor",
+        "cooldown": "animation.cooldown.twenty_sec"
       }
+
     },
 
     "component_groups": {
@@ -32,123 +76,32 @@
           "remove_effects": "bad_omen"
         }
       },
-      "kurokumaft:mizu10_doragon": {
-        "minecraft:spawn_entity": {
-          "entities": [
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
+        }
+      },
+      "kurokumaft:damage_clear": {
+        "minecraft:damage_sensor": {
+          "triggers": [
             {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:mizu_dragon",
-              "single_use": true,
-              "num_to_spawn": 1,
-              "should_leash": false
+              "deals_damage": "no"
             }
           ]
         }
       },
-
       "kurokumaft:nichirintou_remove": {
         "minecraft:skin_id": {
           "value": 0
-        }
-      },
-
-      "kurokumaft:nichirintou": {
-        "minecraft:skin_id": {
-          "value": 1
-        }
-      },
-      "mark_variant0": {
-        "minecraft:mark_variant": {
-            "value": 0
-        }
-      },
-      "mark_variant1": {
-        "minecraft:mark_variant": {
-            "value": 1
-        }
-      },
-      "mark_variant2": {
-        "minecraft:mark_variant": {
-            "value": 2
-        }
-      },
-      "mark_variant3": {
-        "minecraft:mark_variant": {
-            "value": 3
-        }
-      },
-
-      "variant0": {
-        "minecraft:variant": {
-            "value": 0
-        }
-      },
-      "variant1": {
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "variant2": {
-        "minecraft:variant": {
-            "value": 2
-        }
-      },
-      "variant3": {
-        "minecraft:variant": {
-            "value": 3
-        }
-      },
-      "variant4": {
-        "minecraft:variant": {
-            "value": 4
-        }
-      },
-      "variant5": {
-        "minecraft:variant": {
-            "value": 5
-        }
-      },
-      "variant6": {
-        "minecraft:variant": {
-            "value": 6
-        }
-      },
-      "variant7": {
-        "minecraft:variant": {
-            "value": 7
-        }
-      },
-      "variant8": {
-        "minecraft:variant": {
-            "value": 8
-        }
-      },
-      "variant9": {
-        "minecraft:variant": {
-            "value": 9
-        }
-      },
-      "variant10": {
-        "minecraft:variant": {
-            "value": 10
-        }
-      },
-      "variant101": {
-        "minecraft:variant": {
-            "value": 101
-        }
-      },
-      "variant11": {
-        "minecraft:variant": {
-            "value": 11
         }
       }
     },
 
     "components": {
       "minecraft:experience_reward": {
-        "on_death": "Math.Min(7, 100)"
+        "on_death": "Math.Min(50, 200)"
       },
       "minecraft:type_family": {
         "family": [ "mob", "regimental_soldier", "villager" ]
@@ -163,8 +116,11 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 500,
-        "max": 500
+        "value": 150,
+        "max": 150
+      },
+      "minecraft:attack": {
+        "damage": 12
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/giyu_gear.json"
@@ -203,10 +159,12 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
-            "max_dist": 64
+            "max_dist": 24
           }
         ]
       },
@@ -218,25 +176,14 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
-            "max_dist": 64
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
-              ]
-            },
-            "max_dist": 128
+            "max_dist": 24
           }
         ]
-      },
-      "minecraft:behavior.melee_attack": {
-        "priority": 4,
-        "track_target": true,
-        "speed_multiplier": 1.25
       },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -256,9 +203,6 @@
             "damage_per_tick": 4
           }
         ]
-      },
-      "minecraft:attack": {
-        "damage": 8
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -299,15 +243,6 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
-      "minecraft:timer": {
-        "time": [10.0, 15.0],
-        "randomInterval": true,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kokyu",
-          "target": "self"
-        }
-      },
       "minecraft:block_climber": {},
       "minecraft:environment_sensor": {
         "triggers": [
@@ -338,23 +273,18 @@
           }
 
         ]
-      },
-      "minecraft:attack_cooldown": {
-        "attack_cooldown_complete_event": {
-          "triggers": [
-            {
-              "event": "variant0"
-            }
-          ]
-        },
-        "attack_cooldown_time": [1.0, 2.0]
       }
     },
 
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:attack_normal"
+          ]
+        },
+        "set_property": {
+          "kurokumaft:kaikyu": 11
         }
       },
       "minecraft:trigger_raid": {
@@ -367,205 +297,49 @@
           "component_groups": [ "minecraft:raid_trigger" ]
         }
       },
-      "kurokumaft:mizu10_doragon": {
-        "add": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
+      "kurokumaft:nichirintou_remove": {
+        "set_property": {
+          "kurokumaft:nitirintou_equip": false
         }
       },
-      "kurokumaft:mizu10_doragon_remove": {
+      "kurokumaft:nichirintou": {
+        "set_property": {
+          "kurokumaft:nitirintou_equip": true
+        }
+      },
+      "kurokumaft:kokyu_start":{},
+      "kurokumaft:attack_stop":{
         "remove": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
-      "kurokumaft:random_kokyu": {
+      "kurokumaft:kokyu_end":{
+        "add": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+
+      "kurokumaft:add_damage_clear": {
         "sequence": [
           {
             "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
             }
-          },
-          {
-            "filters": {
-              "test": "has_target"
-            },
-            "randomize": [
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant6" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant7" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant8" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant9" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant10" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant11" ]
-                }
-              }
-            ]
           }
         ]
       },
-      "kurokumaft:random_kokyu_off": {
-        "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
-        }
-      },
-
-      "kurokumaft:nichirintou_remove": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_remove" ]
-        }
-      },
-
-      "kurokumaft:nichirintou": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou" ]
-        }
-      },
-      "mark_variant0": {
-        "add": {
-          "component_groups": [ "mark_variant0" ]
-        }
-      },
-      "mark_variant1": {
-        "add": {
-          "component_groups": [ "mark_variant1" ]
-        }
-      },
-      "mark_variant2": {
-        "add": {
-          "component_groups": [ "mark_variant2" ]
-        }
-      },
-      "mark_variant3": {
-        "add": {
-          "component_groups": [ "mark_variant3" ]
-        }
-      },
-
-      "variant0": {
-        "add": {
-          "component_groups": [ "variant0" ]
-        }
-      },
-      "variant1": {
-        "add": {
-          "component_groups": [ "variant1" ]
-        }
-      },
-      "variant2": {
-        "add": {
-          "component_groups": [ "variant2" ]
-        }
-      },
-      "variant3": {
-        "add": {
-          "component_groups": [ "variant3" ]
-        }
-      },
-      "variant4": {
-        "add": {
-          "component_groups": [ "variant4" ]
-        }
-      },
-      "variant5": {
-        "add": {
-          "component_groups": [ "variant5" ]
-        }
-      },
-      "variant6": {
-        "add": {
-          "component_groups": [ "variant6" ]
-        }
-      },
-      "variant7": {
-        "add": {
-          "component_groups": [ "variant7" ]
-        }
-      },
-      "variant8": {
-        "add": {
-          "component_groups": [ "variant8" ]
-        }
-      },
-      "variant9": {
-        "add": {
-          "component_groups": [ "variant9" ]
-        }
-      },
-      "variant10": {
-        "add": {
-          "component_groups": [ "variant10" ]
-        }
-      },
-      "variant101": {
-        "add": {
-          "component_groups": [ "variant101" ]
-        }
-      },
-      "variant11": {
-        "add": {
-          "component_groups": [ "variant11" ]
-        }
-      },
-      "variant201": {
-        "add": {
-          "component_groups": [ "variant201" ]
-        }
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       }
     }
   }

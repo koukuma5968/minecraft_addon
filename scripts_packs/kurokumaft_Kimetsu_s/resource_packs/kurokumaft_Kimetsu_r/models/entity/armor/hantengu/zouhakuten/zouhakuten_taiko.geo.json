@@ -1,0 +1,53 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.zouhakuten_taiko",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 5,
+				"visible_bounds_offset": [0, 1.5, 0]
+			},
+			"bones": [
+				{
+					"name": "body",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-4.1, 18.5, -2.5], "size": [8.2, 6, 5], "uv": [1, 0]}
+					]
+				},
+				{
+					"name": "taiko",
+					"parent": "body",
+					"pivot": [0, 24, 4],
+					"cubes": [
+						{"origin": [-9, 21, 4], "size": [18, 14, 0], "uv": [0, 32]},
+						{"origin": [-12, 26, 0.5], "size": [11, 11, 7], "inflate": -4, "uv": [0, 14]},
+						{"origin": [-5.5, 29, 0.5], "size": [11, 11, 7], "inflate": -4, "uv": [0, 14]},
+						{"origin": [1, 26, 0.5], "size": [11, 11, 7], "inflate": -4, "uv": [0, 14]},
+						{"origin": [2, 20, 0.5], "size": [11, 11, 7], "inflate": -4, "uv": [0, 14]},
+						{"origin": [-13, 20, 0.5], "size": [11, 11, 7], "inflate": -4, "uv": [0, 14]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "body",
+					"pivot": [-5, 22, 0],
+					"cubes": [
+						{"origin": [-8.1, 15.5, -2.5], "size": [4.2, 9, 5], "uv": [46, 0]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "body",
+					"pivot": [5, 22, 0],
+					"cubes": [
+						{"origin": [3.9, 15.5, -2.5], "size": [4.2, 9, 5], "uv": [28, 0]}
+					]
+				}
+			]
+		}
+	]
+}

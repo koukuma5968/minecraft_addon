@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.10",
+  "animation_controllers": {
+    "controller.animation.kokyu.monitor": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "start": "query.has_target" }
+          ]
+        },
+        "start":{
+          "animations" : [ "cooldown" ],
+          "on_entry": [
+            "/event entity @s kurokumaft:kokyu_start"
+          ],
+          "transitions": [
+            {"default": "query.any_animation_finished"}
+          ]
+        }
+      }
+    }
+  }
+}

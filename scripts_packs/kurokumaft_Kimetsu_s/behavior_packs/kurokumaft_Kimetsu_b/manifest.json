@@ -19,7 +19,7 @@
 			"type": "script",
 			"language": "javascript",
 			"uuid": "7b62273c-c9e2-41f3-bf99-025c5828a0a4",
-			"version": [1,0,0],
+			"version": [4,0,0],
 			"entry": "scripts/kimetu_script.js"
 		}
 
@@ -38,7 +38,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "1.18.0"
+			"version": "1.19.0"
 		}
 	]
 }

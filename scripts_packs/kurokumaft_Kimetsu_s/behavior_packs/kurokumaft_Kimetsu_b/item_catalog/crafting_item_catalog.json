@@ -42,6 +42,42 @@
                             "kurokumaft:nichirintou_kasumi",
                             "kurokumaft:nichirintou_tuki"
                         ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:bakketu",
+                            "name": "kurokumaft:itemGroup.name.kekkizyutu"
+                        },
+                        "items": [
+                            "kurokumaft:bakketu",
+                            "kurokumaft:koushi",
+                            "kurokumaft:obi",
+                            "kurokumaft:gyutaro_kama",
+                            "kurokumaft:sekido_syakuzyou",
+                            "kurokumaft:karaku_ougi",
+                            "kurokumaft:aizetu_spear",
+                            "kurokumaft:urogi_ultrasonic",
+                            "kurokumaft:zouhakuten_bati",
+                            "kurokumaft:hakaisatu"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:tanjiro_haori_soldier_jacket",
+                            "name": "kurokumaft:itemGroup.name.soldier_chestplate"
+                        },
+                        "items": [
+                            "kurokumaft:tanjiro_haori_soldier_jacket"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:tanjiro_haori_soldier_jacket",
+                            "name": "kurokumaft:itemGroup.name.soldier_boots"
+                        },
+                        "items": [
+                            "kurokumaft:tanjiro_tabi"
+                        ]
                     }
                 ]
            }

@@ -1,4 +1,4 @@
-import { ExplosionOptions, ItemStack, MolangVariableMap, Player, system, TicksPerSecond } from "@minecraft/server";
+import { ExplosionOptions, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getForwardPosition, getLeftPosition, getLookLocationDistance, getRightPosition } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
@@ -8,25 +8,27 @@ export class OtoNoKata extends KataComonClass {
     /**
      * 壱ノ型 轟
      */
-    ichiNoKata(player:Player, itemStack:ItemStack) {
-        player.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu1.value"}]});
+    ichiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
+        if (entity instanceof Player) {
+            entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu1.value"}]});
+        }
 
-        const distance = getLookLocationDistance(player.getRotation().y, 1.5, 0, 0.5);
-        const disLocation = getDistanceLocation(player.location, distance);
-        const filter = addRegimentalFilter(0, disLocation, 3, player.id);
-        this.kokyuApplyDamage(player, filter, 3, 1, itemStack);
+        const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0.5);
+        const disLocation = getDistanceLocation(entity.location, distance);
+        const filter = addRegimentalFilter(0, disLocation, 3, entity.id);
+        this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
 
         const option = {
             allowUnderwater: true,
             breaksBlocks: true,
             causesFire: false,
-            source: player
+            source: entity
         };
-        player.dimension.createExplosion(disLocation, 1, option);
+        entity.dimension.createExplosion(disLocation, 1, option);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
         },5);
 
     }
@@ -34,28 +36,28 @@ export class OtoNoKata extends KataComonClass {
     /**
      * 弐ノ型 薙ぎ払い
      */
-    niNoKata(player:Player, itemStack:ItemStack) {
+    niNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
         const option = {
             allowUnderwater: true,
             breaksBlocks: false,
             causesFire: false,
-            source: player
+            source: entity
         };
 
         let side = -2;
         const num = system.runInterval(() => {
-            const distance = getLookLocationDistance(player.getRotation().y, 2, side, 0.5);
-            const disLocation = getDistanceLocation(player.location, distance);
-            const filter = addRegimentalFilter(0, disLocation, 4, player.id);
-            this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
-            player.dimension.createExplosion(disLocation, 1, option);
+            const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0.5);
+            const disLocation = getDistanceLocation(entity.location, distance);
+            const filter = addRegimentalFilter(0, disLocation, 4, entity.id);
+            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            entity.dimension.createExplosion(disLocation, 1, option);
             side=side+2;
         },5);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },16);
 
@@ -64,28 +66,28 @@ export class OtoNoKata extends KataComonClass {
     /**
      * 参ノ型 突進突き
      */
-    sanNoKata(player:Player, itemStack:ItemStack) {
-        player.setProperty("kurokumaft:kokyu_use", false);
+    sanNoKata(entity:Entity, itemStack:ItemStack | undefined) {
+        entity.setProperty("kurokumaft:kokyu_use", false);
 
         const option = {
             allowUnderwater: true,
             breaksBlocks: false,
             causesFire: false,
-            source: player
+            source: entity
         };
 
-        const distance = getLookLocationDistance(player.getRotation().y, 1, 0, 0.5);
-        player.applyKnockback(distance.x,distance.z,30,0);
+        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
+        entity.applyKnockback(distance.x,distance.z,30,0);
 
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, player.location, 3.5, player.id);
-            this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
-            const front = getForwardPosition(player.location, player.getRotation().y, 1);
-            player.dimension.createExplosion(front, 2, option);
+            const filter = addRegimentalFilter(0, entity.location, 3.5, entity.id);
+            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            const front = getForwardPosition(entity.location, entity.getRotation().y, 1);
+            entity.dimension.createExplosion(front, 2, option);
         },2);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
             system.clearRun(num);
         },12);
 
@@ -94,10 +96,12 @@ export class OtoNoKata extends KataComonClass {
     /**
      * 肆ノ型 鳴弦奏々
      */
-    shiNoKata(player:Player, itemStack:ItemStack) {
-        player.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu4.value"}]});
+    shiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
+        if (entity instanceof Player) {
+            entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu4.value"}]});
+        }
 
-        const kaikyuNum = player.getProperty("kurokumaft:kaikyu") as number;
+        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         const molang = new MolangVariableMap();
         molang.setFloat("variable.kaikyu", kaikyuNum);
 
@@ -105,48 +109,48 @@ export class OtoNoKata extends KataComonClass {
             allowUnderwater: true,
             breaksBlocks: false,
             causesFire: false,
-            source: player
+            source: entity
         };
 
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, player.location, 5, player.id);
-            this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
-            this.checkSousouReflection(player, option);
+            const filter = addRegimentalFilter(0, entity.location, 5, entity.id);
+            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            this.checkSousouReflection(entity, option);
         },2);
 
         system.runTimeout(() => {
-            player.setProperty("kurokumaft:kokyu_particle", false);
-            player.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
             system.clearRun(this.sousouIntervalId);
             system.clearRun(num);
         },20);
 
     }
     private sousouIntervalId: number =0;
-    private checkSousouReflection(player: Player, option: ExplosionOptions): void {
-        if (player.isValid()) {
+    private checkSousouReflection(entity: Entity, option: ExplosionOptions): void {
+        if (entity.isValid()) {
 
-            this.projectRefrect(player, player.location);
+            this.projectRefrect(entity, entity.location);
 
-            player.addTag(player.id);
+            entity.addTag(entity.id);
 
-            let distance = getLookLocationDistance(player.getRotation().y, 2, 2, 0);
-            let disLocation = getDistanceLocation(player.location, distance);
-            player.dimension.createExplosion(disLocation, 2, option);
+            let distance = getLookLocationDistance(entity.getRotation().y, 2, 2, 0);
+            let disLocation = getDistanceLocation(entity.location, distance);
+            entity.dimension.createExplosion(disLocation, 2, option);
 
-            distance = getLookLocationDistance(player.getRotation().y, -2, 2, 0);
-            disLocation = getDistanceLocation(player.location, distance);
-            player.dimension.createExplosion(disLocation, 2, option);
+            distance = getLookLocationDistance(entity.getRotation().y, -2, 2, 0);
+            disLocation = getDistanceLocation(entity.location, distance);
+            entity.dimension.createExplosion(disLocation, 2, option);
 
-            distance = getLookLocationDistance(player.getRotation().y, 2, -2, 0);
-            disLocation = getDistanceLocation(player.location, distance);
-            player.dimension.createExplosion(disLocation, 2, option);
+            distance = getLookLocationDistance(entity.getRotation().y, 2, -2, 0);
+            disLocation = getDistanceLocation(entity.location, distance);
+            entity.dimension.createExplosion(disLocation, 2, option);
 
-            distance = getLookLocationDistance(player.getRotation().y, -2, -2, 0);
-            disLocation = getDistanceLocation(player.location, distance);
-            player.dimension.createExplosion(disLocation, 2, option);
+            distance = getLookLocationDistance(entity.getRotation().y, -2, -2, 0);
+            disLocation = getDistanceLocation(entity.location, distance);
+            entity.dimension.createExplosion(disLocation, 2, option);
 
-            player.removeTag(player.id);
+            entity.removeTag(entity.id);
 
         } else {
             system.clearRun(this.sousouIntervalId);
@@ -156,14 +160,16 @@ export class OtoNoKata extends KataComonClass {
     /**
      * 伍ノ型 響斬無間
      */
-    goNoKata(player:Player, itemStack:ItemStack) {
+    goNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (player.getDynamicProperty("kurokumaft:chage_type") == undefined) {
-            player.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu5.value"}]});
+        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu5.value"}]});
+            }
 
-            player.setDynamicProperty("kurokumaft:chage_type", true);
+            entity.setDynamicProperty("kurokumaft:chage_type", true);
 
-            player.addEffect(MinecraftEffectTypes.Speed, 3*TicksPerSecond,{
+            entity.addEffect(MinecraftEffectTypes.Speed, 3*TicksPerSecond,{
                 amplifier: 5,
                 showParticles: false
             });
@@ -172,28 +178,28 @@ export class OtoNoKata extends KataComonClass {
                 allowUnderwater: true,
                 breaksBlocks: false,
                 causesFire: false,
-                source: player
+                source: entity
             };
     
             const num = system.runInterval(() => {
-                const distance = getLookLocationDistance(player.getRotation().y, 1, 0, 0.5);
+                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
     
-                player.applyKnockback(distance.x,distance.z,3,0);
+                entity.applyKnockback(distance.x,distance.z,3,0);
 
-                const filter = addRegimentalFilter(0, player.location, 3.5, player.id);
-                this.kokyuApplyDamage(player, filter, 2, 1, itemStack);
+                const filter = addRegimentalFilter(0, entity.location, 3.5, entity.id);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
 
-                const right = getRightPosition(player.location, player.getRotation().y, 3);
-                player.dimension.createExplosion(right, 2.5, option);
+                const right = getRightPosition(entity.location, entity.getRotation().y, 3);
+                entity.dimension.createExplosion(right, 2.5, option);
     
-                const left = getLeftPosition(player.location, player.getRotation().y, 3);
-                player.dimension.createExplosion(left, 2.5, option);
+                const left = getLeftPosition(entity.location, entity.getRotation().y, 3);
+                entity.dimension.createExplosion(left, 2.5, option);
             },2);
     
             system.runTimeout(() => {
-                player.setProperty("kurokumaft:kokyu_use", false);
-                player.setProperty("kurokumaft:kokyu_particle", false);
-                player.setDynamicProperty("kurokumaft:chage_type", undefined);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setDynamicProperty("kurokumaft:chage_type", undefined);
                 system.clearRun(num);
             },3*TicksPerSecond);
     

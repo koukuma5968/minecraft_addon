@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:tuti_dragon",
+        "materials": {
+          "default": "dragon"
+        },
+        "textures": {
+          "tuti_dragon": "textures/kurokumaft/models/tuti_dragon"
+        },
+        "geometry": {
+          "tuti_dragon": "geometry.tuti_dragon"
+        },
+        "animations": {
+          "attack": "animation.tuti_dragon.attack"
+        },
+        "scripts": {
+          "animate": [
+            "attack"
+          ]
+        },
+        "render_controllers": ["controller.render.tuti_dragon"]
+      }
+    }
+  }
+  

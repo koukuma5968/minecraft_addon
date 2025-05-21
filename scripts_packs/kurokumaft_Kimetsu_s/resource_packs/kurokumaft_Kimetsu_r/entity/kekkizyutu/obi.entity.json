@@ -1,0 +1,28 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:obi",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/armor/daki/daki_uniform"
+          },
+          "geometry": {
+            "default": "geometry.obi"
+          },
+          "animations": {
+            "shot": "animation.obi.shot"
+          },
+          "scripts": {
+            "scale": "1.2",
+            "animate": [
+              "shot"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

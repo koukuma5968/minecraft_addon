@@ -13,7 +13,7 @@
             "default": "geometry.kokushirinten"
           },
           "animations": {
-            "kokushirinten": "animation.kekkizyutu.rui.kokushirinten"
+            "kokushirinten": "animation.kekkizyutu.ito.kokushirinten"
           },
           "scripts": {
             "scale": "3.0",

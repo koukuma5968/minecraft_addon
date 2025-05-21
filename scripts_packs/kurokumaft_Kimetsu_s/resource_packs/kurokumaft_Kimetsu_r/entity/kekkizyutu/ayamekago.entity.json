@@ -13,7 +13,7 @@
             "default": "geometry.ayamekago"
           },
           "animations": {
-            "ayamekago": "animation.kekkizyutu.rui.ayamekago"
+            "ayamekago": "animation.kekkizyutu.ito.ayamekago"
           },
           "scripts": {
             "scale": "1.0",

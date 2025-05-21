@@ -16,12 +16,12 @@
             "kushiki": "kurokumaft:kushiki"
           },
           "animations": {
-            "kushiki": "animation.kekkizyutu.hakaisatu.kushiki"
+            "shot": "animation.kushiki.shot"
           },
           "scripts": {
             "scale": "2.5",
             "animate": [
-              "kushiki"
+              "shot"
             ]
           },
           "render_controllers": [ "controller.render.arrow" ]

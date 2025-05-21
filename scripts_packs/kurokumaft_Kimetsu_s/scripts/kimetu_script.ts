@@ -1,10 +1,14 @@
-import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, EntityHealthComponent, Entity } from "@minecraft/server";
+import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, EntityHealthComponent, Entity, SystemAfterEvents, EntitySpawnAfterEvent, EntityInitializationCause } from "@minecraft/server";
 import { initRegisterKimetuCustom } from "./custom/KimetuCustomComponentRegistry";
-import { kokyuClassRecord, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
+import { kokyuClassRecord, KokyuMobClassRecord, KokyuMobObject, KokyuMobObjects, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 import { KimetuEquipmentTick } from "./player/KimetuEquipmentTick";
 import { RaisingStatusCheckClass } from "./player/RaisingStatusCheckClass";
+import { KekkizyutuClassRecord, KekkizyutuMobClassRecord, KekkizyutuMobObject, KekkizyutuMobObjects, KekkizyutuObject, KekkizyutuObjects } from "./item/weapon/KekkizyutuTypes";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { getRandomInRange } from "./common/KimetuCommonUtil";
 
 // ワールド接続時
+//system.SystemBeforeEvents.subscribe(initEvent => {
 world.beforeEvents.worldInitialize.subscribe(initEvent => {
   initRegisterKimetuCustom(initEvent);
 });
@@ -21,30 +25,48 @@ world.afterEvents.playerSpawn.subscribe(event => {
     event.player.setDynamicProperty("kurokumaft:chage_type", undefined);
   }
   const playerTick = new KimetuEquipmentTick(event.player);
-  playerTick.checkPlayerKimetuEquTick();
-  playerTick.checkPlayerKaikyuTick();
+  playerTick.startMonitoring();
+
 });
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   const entity = event.entity;
   if (entity instanceof Player) {
-    const nichirintou = entity.getProperty("kurokumaft:nichirintou_type") as number;
-    if (nichirintou > 1) {
-      if (event.eventId == "kurokumaft:attack_time" && !entity.getProperty("kurokumaft:kokyu_attack")) {
-        entity.setProperty("kurokumaft:kokyu_attack", true);
-        system.runTimeout(() => {
-          entity.setProperty("kurokumaft:kokyu_attack", false);
-        },10);
+    if (event.eventId == "kurokumaft:attack_time") {
+      const nichirintou = entity.getProperty("kurokumaft:nichirintou_type") as number;
+      if (nichirintou > 1) {
+        if (!entity.getProperty("kurokumaft:kokyu_attack")) {
+          entity.setProperty("kurokumaft:kokyu_attack", true);
+          system.runTimeout(() => {
+            entity.setProperty("kurokumaft:kokyu_attack", false);
+          },10);
 
-        const object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
-        const kokyuClass = kokyuClassRecord[object.className];
-        const kokyuObject = new kokyuClass();
+          const object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
+          const kokyuClass = kokyuClassRecord[object.className];
+          const kokyuObject = new kokyuClass();
 
-        const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-        kokyuObject.hitAttackKata(entity, itemStack);
+          const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+          const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+          kokyuObject.hitAttackKata(entity, itemStack);
 
-
+        }
+      }
+    }
+  } else {
+    if (event.eventId == "kurokumaft:kokyu_start") {
+      const taishi = KokyuMobObjects.find(ob => ob.entityName == entity.typeId) as KokyuMobObject;
+      if (taishi != undefined) {
+        world.sendMessage(taishi.entityName);
+        const KokyuClass = KokyuMobClassRecord[taishi.className];
+        const KokyuObject = new KokyuClass();
+        KokyuObject.startMonitoring(entity);
+      }
+    } else if (event.eventId == "kurokumaft:kekkizyutu_start") {
+      const orge = KekkizyutuMobObjects.find(ob => ob.entityName == entity.typeId) as KekkizyutuMobObject;
+      if (orge != undefined) {
+        const kekkizyutuClass = KekkizyutuMobClassRecord[orge.className];
+        const kekkizyutuObject = new kekkizyutuClass(entity);
+        kekkizyutuObject.startMonitoring();
       }
     }
   }
@@ -64,7 +86,45 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
       kokyuObject.releaseAttackKata(player, item, duration);
     }
   }
+  const kekkizyutu = player.getProperty("kurokumaft:kekkizyutu_type");
+  if (item != undefined && kekkizyutu != undefined && kekkizyutu != 0) {
+    if (player.getProperty("kurokumaft:kokyu_use")) {
+      const object = KekkizyutuObjects.find(ob => ob.type == kekkizyutu) as KekkizyutuObject;
+      const kekkizyutuClass = KekkizyutuClassRecord[object.className];
+      const kekkizyutuObject = new kekkizyutuClass();
+      kekkizyutuObject.releaseAttackZyutu(player);
+    }
+  }
+
 });
+
+// world.afterEvents.entityLoad.subscribe(event => {
+// });
+
+world.afterEvents.entitySpawn.subscribe(event => {
+  const entity = event.entity as Entity;
+  const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
+  if (kaikyuNum != undefined && kaikyuNum != 11 && event.cause == EntityInitializationCause.Spawned) {
+    const kaikyuRan = getRandomInRange(1, 10);
+    entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
+    system.runTimeout(() => {
+      entity.triggerEvent("kurokumaft:kakyu_change");
+    }, 4);
+  }
+});
+
+// world.afterEvents.entityRemove.subscribe(event => {
+
+//   const entityId = event.typeId;
+
+//   const object = KekkizyutuMobObjects.find(ob => ob.entityName == entityId) as KekkizyutuMobObject;
+//   if (object != undefined) {
+//     const kekkizyutuClass = KekkizyutuMobClassRecord[object.className];
+//     const kekkizyutuObject = new kekkizyutuClass(entity);
+//     kekkizyutuObject.startMonitoring();
+//   }
+
+// });
 
 world.afterEvents.entityDie.subscribe(event => {
   const deadEntity = event.deadEntity;
@@ -110,7 +170,29 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
         event.dimension.spawnItem(daggerFull, event.location);
       }
     }
+  } else if (projectile.isValid() && "kurokumaft:obi" == projectile.typeId) {
+
+    const hitCount = projectile.getDynamicProperty("hitCount") as number;
+
+    if (hitEntity != undefined && hitEntity.isValid() && hitCount < 5) {
+      projectile.setDynamicProperty("hitCount", hitCount + 1);
+    } else {
+      const num = projectile.getDynamicProperty("hormingNum") as number;
+      if (num != undefined) {
+        system.clearRun(num);
+        projectile.remove();
+      }
+    }
+  } else if (projectile.isValid() && "kurokumaft:tobi_tigama" == projectile.typeId) {
+
+    if (hitEntity != undefined && hitEntity.isValid()) {
+      hitEntity.addEffect(MinecraftEffectTypes.Poison, 10, {
+          showParticles: false,
+          amplifier: 5
+      });
+    }
   }
+
 });
 
 world.afterEvents.projectileHitBlock.subscribe(event => {

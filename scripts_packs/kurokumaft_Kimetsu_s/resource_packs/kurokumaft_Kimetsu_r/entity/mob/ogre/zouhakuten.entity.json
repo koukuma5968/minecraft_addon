@@ -47,7 +47,7 @@
         "look_at_target_default":"animation.humanoid.look_at_target.default",
         "look_at_target_gliding":"animation.humanoid.look_at_target.gliding",
         "look_at_target_swimming":"animation.humanoid.look_at_target.swimming",
-        "move":"animation.urogi.move",
+        "move":"animation.humanoid.move",
         "riding":"controller.animation.humanoid.riding",
         "riding.arms":"animation.humanoid.riding.arms",
         "riding.legs":"animation.humanoid.riding.legs",
@@ -61,7 +61,7 @@
       ],
       "spawn_egg": {
         "texture": "ogre_spawn_egg",
-        "texture_index": 9
+        "texture_index": 10
       },
       "enable_attachables": true
     }

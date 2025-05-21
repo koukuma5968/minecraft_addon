@@ -1,0 +1,87 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.tobi_tigama.shot": {
+			"loop": true,
+			"animation_length": 0.125,
+			"bones": {
+				"tobi_tigama": {
+					"rotation": {
+						"0.0": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+						"0.0417": ["90 - query.target_x_rotation", "-query.target_y_rotation", 0],
+						"0.0833": ["177.5 - query.target_x_rotation", "0-query.target_y_rotation", 0],
+						"0.125": ["270 - query.target_x_rotation", "-query.target_y_rotation", 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 23, 0],
+						"0.0833": [0, 23, -17],
+						"0.125": [0, 0, -17]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				},
+				"0.0417": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				},
+				"0.0833": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				},
+				"0.125": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				}
+			}
+		},
+		"animation.tobi_tigama.enzansenkai": {
+			"loop": true,
+			"animation_length": 0.1667,
+			"bones": {
+				"tobi_tigama": {
+					"rotation": {
+						"0.0": ["1.0 - query.target_x_rotation", "-query.target_y_rotation+90", 0],
+						"0.0417": ["90 - query.target_x_rotation", "-query.target_y_rotation+90", 0],
+						"0.0833": ["177.5 - query.target_x_rotation", "0-query.target_y_rotation+90", 0],
+						"0.125": ["270 - query.target_x_rotation", "-query.target_y_rotation+90", 0],
+						"0.1667": ["360 - query.target_x_rotation", "-query.target_y_rotation+90", 0]
+					},
+					"position": {
+						"0.0": [-24, 0, 0],
+						"0.0417": [0, -24, 0],
+						"0.0833": [24, 0, 0],
+						"0.125": [0, 24, 0],
+						"0.1667": [-24, 0, 0]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				},
+				"0.0417": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				},
+				"0.0833": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				},
+				"0.125": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				},
+				"0.1667": {
+					"effect": "tigama_blead",
+					"locator": "tigama_blead"
+				}
+			}
+		}
+	}
+}

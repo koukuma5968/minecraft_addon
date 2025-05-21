@@ -246,6 +246,8 @@ msg.kurokumaft:tuki_kokyu10.value=§e穿面斬・蘿月
 msg.kurokumaft:tuki_kokyu14.value=§e兇変・天満繊月
 msg.kurokumaft:tuki_kokyu16.value=§e月虹・片割れ月
 
+msg.kurokumaft:kekkizyutu_bakketu1.value=爆血
+
 msg.kurokumaft:kekkizyutu_kouri1.value=粉凍り
 msg.kurokumaft:kekkizyutu_kouri2.value=蓮葉氷
 msg.kurokumaft:kekkizyutu_kouri3.value=枯園垂り
@@ -272,11 +274,20 @@ msg.kurokumaft:kekkizyutu_tigama1.value=飛び血鎌
 msg.kurokumaft:kekkizyutu_tigama2.value=跋扈跳梁
 msg.kurokumaft:kekkizyutu_tigama3.value=円斬旋回・飛び血鎌
 
-msg.kurokumaft:kekkizyutu_obi1.value=八重帯斬り
+msg.kurokumaft:kekkizyutu_obi1.value=横払い
+msg.kurokumaft:kekkizyutu_obi2.value=連撃
+msg.kurokumaft:kekkizyutu_obi3.value=帯（遠距離）
+msg.kurokumaft:kekkizyutu_obi4.value=八重帯斬り
 
-msg.kurokumaft:kekkizyutu_zouhakuten1.value=狂圧鳴波
-msg.kurokumaft:kekkizyutu_zouhakuten2.value=無間業樹
-msg.kurokumaft:kekkizyutu_zouhakuten3.value=狂鳴雷殺
+msg.kurokumaft:kekkizyutu_ikazuti1.value=雷
+msg.kurokumaft:kekkizyutu_toppu1.value=爆風
+msg.kurokumaft:kekkizyutu_kyoumei1.value=狂鳴
+msg.kurokumaft:kekkizyutu_shitotu1.value=刺突
+
+msg.kurokumaft:kekkizyutu_zouhakuten1.value=石竜子
+msg.kurokumaft:kekkizyutu_zouhakuten2.value=狂鳴雷殺
+msg.kurokumaft:kekkizyutu_zouhakuten3.value=狂圧鳴波
+msg.kurokumaft:kekkizyutu_zouhakuten4.value=無間業樹
 
 msg.kurokumaft:kekkizyutu_tubo1.value=水獄鉢
 msg.kurokumaft:kekkizyutu_tubo2.value=千本針魚殺
@@ -342,6 +353,7 @@ kurokumaft:itemGroup.name.kekkizyutu=血気術
 
 item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
 item.kurokumaft:koushi.name=血気術 累(鋼糸)
+item.kurokumaft:obi.name=血気術 堕姫(帯)
 item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
 item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
 item.kurokumaft:kouri.name=血気術 童磨(氷)
@@ -526,6 +538,7 @@ item.spawn_egg.entity.kurokumaft:sekido.name=積怒
 item.spawn_egg.entity.kurokumaft:karaku.name=可楽
 item.spawn_egg.entity.kurokumaft:aizetu.name=哀絶
 item.spawn_egg.entity.kurokumaft:urogi.name=空喜
+item.spawn_egg.entity.kurokumaft:zouhakuten.name=憎珀天
 item.spawn_egg.entity.kurokumaft:douma.name=童磨
 item.spawn_egg.entity.kurokumaft:kokushibou.name=黒死牟
 
@@ -559,6 +572,10 @@ item.kurokumaft:aizetu_hakama.name=哀絶のズボン
 
 item.kurokumaft:urogi_hakama.name=空喜のズボン
 item.kurokumaft:urogi_zyuzu.name=空喜の数珠
+
+item.kurokumaft:zouhakuten_bati.name=憎珀天の桴
+item.kurokumaft:zouhakuten_hakama.name=憎珀天のズボン
+item.kurokumaft:zouhakuten_taiko.name=憎珀天の太鼓
 
 item.kurokumaft:kaigaku_katana.name=獪岳の刀
 
