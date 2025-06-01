@@ -1,15 +1,15 @@
 import { Entity } from "@minecraft/server";
 import { KekkizyutuMobUseComponent, KekkizyutuUseComponent } from "../../kekkizyutu/KekkizyutuUseComponent";
-import { ZyutuAizetuComponent } from "../../kekkizyutu/character/ZyutuAizetuComponent";
-import { ZyutuAkazaComponent } from "../../kekkizyutu/character/ZyutuAkazaComponent";
-import { ZyutuDakiComponent } from "../../kekkizyutu/character/ZyutuDakiComponent";
-import { ZyutuGyutaroComponent } from "../../kekkizyutu/character/ZyutuGyutaroComponent";
-import { ZyutuKarakuComponent } from "../../kekkizyutu/character/ZyutuKarakuComponent";
-import { ZyutuNezukoComponent } from "../../kekkizyutu/character/ZyutuNezukoComponent";
-import { ZyutuRuiComponent } from "../../kekkizyutu/character/ZyutuRuiComponent";
-import { ZyutuSekidoComponent } from "../../kekkizyutu/character/ZyutuSekidoComponent";
-import { ZyutuUrogiComponent } from "../../kekkizyutu/character/ZyutuUrogiComponent";
-import { ZyutuZouhakutenComponent } from "../../kekkizyutu/character/ZyutuZouhakutenComponent";
+import { ZyutuAizetuComponent } from "../../kekkizyutu/player/character/ZyutuAizetuComponent";
+import { ZyutuAkazaComponent } from "../../kekkizyutu/player/character/ZyutuAkazaComponent";
+import { ZyutuDakiComponent } from "../../kekkizyutu/player/character/ZyutuDakiComponent";
+import { ZyutuGyutaroComponent } from "../../kekkizyutu/player/character/ZyutuGyutaroComponent";
+import { ZyutuKarakuComponent } from "../../kekkizyutu/player/character/ZyutuKarakuComponent";
+import { ZyutuNezukoComponent } from "../../kekkizyutu/player/character/ZyutuNezukoComponent";
+import { ZyutuRuiComponent } from "../../kekkizyutu/player/character/ZyutuRuiComponent";
+import { ZyutuSekidoComponent } from "../../kekkizyutu/player/character/ZyutuSekidoComponent";
+import { ZyutuUrogiComponent } from "../../kekkizyutu/player/character/ZyutuUrogiComponent";
+import { ZyutuZouhakutenComponent } from "../../kekkizyutu/player/character/ZyutuZouhakutenComponent";
 import { TokageComponent } from "../../kekkizyutu/mob/TokageComponent";
 
 export interface KekkizyutuObject {

@@ -7,15 +7,20 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/zenitu"
+        "default": "textures/kurokumaft/models/mob/zenitu",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
+        "kaminari_dragon": "textures/kurokumaft/models/kaminari_dragon"
       },
       "geometry": {
-        "default": "geometry.zenitu"
+        "default": "geometry.zenitu",
+        "nichirintou_custom": "geometry.nichirintou_custom",
+        "kaminari_dragon": "geometry.kaminari_dragon"
       },
       "particle_effects": {
         "kaminari_blead_particle": "kurokumaft:kaminari_blead_particle",
         "kaminari_point_particle": "kurokumaft:kaminari_point_particle",
-        "kaminari2_particle": "kurokumaft:kaminari2_particle"
+        "kaminari_spark_particle": "kurokumaft:kaminari_spark_particle",
+        "kaminari7_spark_particle": "kurokumaft:kaminari7_spark_particle"
       },
       "scripts": {
         "scaleX": "0.9375",
@@ -34,8 +39,11 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
 
+          "nichirintou_custom",
+
+          "zenitu.action"
         ]
       },
       "animations": {
@@ -59,10 +67,26 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+
+        "zenitu.action": "controller.animation.zenitu.action",
+
+        "kaminari.ichi_1_third": "animation.action.kaminari.ichi_1_third",
+        "kaminari.ichi_2_third": "animation.action.kaminari.ichi_2_third",
+        "kaminari.ichi_shinshoku_third": "animation.action.kaminari.ichi_shinshoku_third",
+        "kaminari.shiti_1_third": "animation.action.kaminari.shiti_1_third",
+        "kaminari.shiti_2_third": "animation.action.kaminari.shiti_2_third",
+
+        "kaminari_dragon": "animation.kaminari_dragon.attack"
+
       },
       "render_controllers": [
-        "controller.render.soldier.zenitu"
+        "controller.render.soldier.zenitu",
+        "controller.render.nichirintou_custom",
+        { "controller.render.kaminari_dragon": "query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 7 && query.property('kurokumaft:kokyu_chage') == 10" }
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

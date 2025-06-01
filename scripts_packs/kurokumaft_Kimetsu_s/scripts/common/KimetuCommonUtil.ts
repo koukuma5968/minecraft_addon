@@ -1,4 +1,4 @@
-import { world,Player,Vector2, Vector3, Direction, EntityQueryOptions, Block} from "@minecraft/server";
+import { world,Player,Vector2, Vector3, Direction, EntityQueryOptions, Block, Entity, EntityComponentTypes, EntityTypeFamilyComponent} from "@minecraft/server";
 
 // デバッグ用
 /**
@@ -183,7 +183,7 @@ function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
     return normalizeVector(direction);
 }
 
-function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, exeTag:string): EntityQueryOptions {
+function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, entity:Entity): EntityQueryOptions {
 
     let filterOption = {
         excludeFamilies: [
@@ -193,11 +193,18 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, ex
             "item"
         ],
         excludeTags: [
-            exeTag
+            entity.id
         ],
         location: location,
         maxDistance: maxDis
     } as EntityQueryOptions;
+
+    const familyTypes = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+    if (familyTypes != undefined && familyTypes.hasTypeFamily("ogre")) {
+        filterOption.excludeFamilies = [
+            "inanimate", "animal"
+        ];
+    }
 
     if (!world.gameRules.pvp) {
         filterOption.excludeFamilies?.push("player");

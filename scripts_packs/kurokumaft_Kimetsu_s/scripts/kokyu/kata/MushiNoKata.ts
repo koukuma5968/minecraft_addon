@@ -14,9 +14,14 @@ export class MushiNoKata extends KataComonClass {
         }
 
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, entity.location, 3, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+
+            try {
+                const filter = addRegimentalFilter(0, entity.location, 3, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
@@ -24,9 +29,13 @@ export class MushiNoKata extends KataComonClass {
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },8);
 
     }
@@ -45,7 +54,7 @@ export class MushiNoKata extends KataComonClass {
         system.runTimeout(() => {
             entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
-            const filter = addRegimentalFilter(0, entity.location, 3, entity.id);
+            const filter = addRegimentalFilter(0, entity.location, 3, entity);
             this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
             this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
     
@@ -67,15 +76,24 @@ export class MushiNoKata extends KataComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu3.value"}]});
         }
         const num = system.runInterval(() => {
-            const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+
+            try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },4);
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },16);
 
     }
@@ -95,22 +113,31 @@ export class MushiNoKata extends KataComonClass {
 
         let side = 2;
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, entity.location, 4, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
- 
-            const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0);
-            entity.applyKnockback(distance.x,distance.z,10,0);
-            entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
-            side = -side;
+            try {
+                const filter = addRegimentalFilter(0, entity.location, 4, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+    
+                const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0);
+                entity.applyKnockback(distance.x,distance.z,10,0);
+                entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
+
+                side = -side;
+            } catch (error) {
+                system.clearRun(num);
+            }
         },4);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_attack", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_attack", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },40);
 
     }

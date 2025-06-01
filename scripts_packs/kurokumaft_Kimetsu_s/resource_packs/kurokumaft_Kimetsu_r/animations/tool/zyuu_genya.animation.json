@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.zyuu_genya.first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"zyuu": {
+					"rotation": [-34.88594, 68.40578, -69.78882],
+					"position": [2, 12, -4]
+				}
+			}
+		},
+		"animation.zyuu_genya.third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"zyuu": {
+					"position": [6, 7, 0]
+				}
+			}
+		}
+	}
+}

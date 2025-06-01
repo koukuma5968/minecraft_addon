@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/nezuko"
+        "default": "textures/kurokumaft/models/mob/nezuko",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.nezuko"
+        "default": "geometry.nezuko",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "scripts": {
         "scaleX": "0.90",

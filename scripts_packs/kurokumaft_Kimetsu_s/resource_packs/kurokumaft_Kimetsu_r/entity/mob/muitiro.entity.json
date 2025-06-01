@@ -7,14 +7,15 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/muitiro"
+        "default": "textures/kurokumaft/models/mob/muitiro",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
         "default": "geometry.muitiro",
-        "nichirintou_muitiro": "geometry.nichirintou_muitiro"
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
-        "kasumi1_particle": "kurokumaft:kasumi_slash_particle"
+        "kasumi_slash_particle": "kurokumaft:kasumi_slash_particle"
       },
       "scripts": {
         "scaleX": "0.9375",
@@ -33,7 +34,11 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+          "muitiro.action"
+
         ]
       },
       "animations": {
@@ -57,10 +62,30 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+
+        "muitiro.action": "controller.animation.muitiro.action",
+
+        "kasumi.ichi_1_third": "animation.action.kasumi.ichi_1_third",
+        "kasumi.ichi_2_third": "animation.action.kasumi.ichi_2_third",
+        "kasumi.ni_1_third": "animation.action.kasumi.ni_1_third",
+        "kasumi.san_1_third": "animation.action.kasumi.san_1_third",
+        "kasumi.san_2_third": "animation.action.kasumi.san_2_third",
+        "kasumi.shi_1_third": "animation.action.kasumi.shi_1_third",
+        "kasumi.shi_2_third": "animation.action.kasumi.shi_2_third",
+        "kasumi.go_1_third": "animation.action.kasumi.go_1_third",
+        "kasumi.roku_1_third": "animation.action.kasumi.roku_1_third",
+
+        "kasumi.shiti_1": "animation.action.kasumi.shiti_1",
+        "kasumi.shiti_2": "animation.action.kasumi.shiti_2"
+
       },
       "render_controllers": [
-        "controller.render.soldier.muitiro"
+        "controller.render.soldier.muitiro",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

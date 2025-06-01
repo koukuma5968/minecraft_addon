@@ -24,18 +24,6 @@
 				"0.0": {
 					"effect": "tigama_blead",
 					"locator": "tigama_blead"
-				},
-				"0.0417": {
-					"effect": "tigama_blead",
-					"locator": "tigama_blead"
-				},
-				"0.0833": {
-					"effect": "tigama_blead",
-					"locator": "tigama_blead"
-				},
-				"0.125": {
-					"effect": "tigama_blead",
-					"locator": "tigama_blead"
 				}
 			}
 		},

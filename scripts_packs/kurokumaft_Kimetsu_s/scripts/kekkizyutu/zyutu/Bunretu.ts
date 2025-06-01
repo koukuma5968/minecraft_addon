@@ -1,4 +1,4 @@
-import { ItemStack, Entity, system, Player, EntityComponentTypes, EntityTameableComponent } from "@minecraft/server";
+import { Entity, system, Player, EntityComponentTypes, EntityTameableComponent } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
 import { getLookLocationDistancePitch, addOrgeFilter, getDistanceLocation, getLookLocationDistance, getRandomInRange, addRegimentalFilter } from "../../common/KimetuCommonUtil";
 import { shooting } from "../../common/ShooterEvent";
@@ -38,10 +38,12 @@ export class Bunretu extends ZytuComonClass {
         }
 
         const num = system.runInterval(() => {
+
             const filter = addOrgeFilter(0, entity.location, 10, entity.id);
             this.kokyuApplyDamage(entity, filter, 2, 1);
 
-            entity.dimension.spawnParticle("kurokumaft:ikazuti_particle", entity.location);
+            const distance = getLookLocationDistance(entity.getRotation().y, 0, getRandomInRange(-3, 3), 0);
+            entity.dimension.spawnParticle("kurokumaft:ikazuti_particle", getDistanceLocation(entity.location, distance));
 
         },2);
 

@@ -2,10 +2,10 @@ import { Entity, Player, system } from "@minecraft/server";
 
 export class RaisingStatusCheckClass {
 
-    statusCheck(player: Player, orge: Entity) {
+    statusCheck(player: Player, ogre: Entity) {
         const kaikyu = player.getProperty("kurokumaft:kaikyu") as number;
-        const count = player.getProperty("kurokumaft:orge_kill") as number;
-        const point = orge.getProperty("kurokumaft:orge_point") as number;
+        const count = player.getProperty("kurokumaft:ogre_kill") as number;
+        const point = ogre.getProperty("kurokumaft:ogre_point") as number;
         let upPoint = count+point;
         let killtarget=0;
         switch(kaikyu) {
@@ -13,8 +13,8 @@ export class RaisingStatusCheckClass {
                 killtarget=1;
                 break;
             case 10:
-                const orgeKaikyu = orge.getProperty("kurokumaft:orge_kaikyu") as number;
-                if (orgeKaikyu >= 9) {
+                const ogreKaikyu = ogre.getProperty("kurokumaft:ogre_kaikyu") as number;
+                if (ogreKaikyu >= 9) {
                     killtarget=killtarget+300;
                 } else {
                     upPoint = 0;
@@ -39,12 +39,12 @@ export class RaisingStatusCheckClass {
                 killtarget=killtarget+10;
                 if (upPoint >= killtarget) {
                     player.setProperty("kurokumaft:kaikyu", kaikyu+1);
-                    player.setProperty("kurokumaft:orge_kill", 0);
+                    player.setProperty("kurokumaft:ogre_kill", 0);
                     system.runTimeout(() => {
                         player.triggerEvent("kurokumaft:kakyu_change");
                     }, 2);
                 } else {
-                    player.setProperty("kurokumaft:orge_kill", upPoint);
+                    player.setProperty("kurokumaft:ogre_kill", upPoint);
                 }
         }
 

@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/gyoumei"
+        "default": "textures/kurokumaft/models/mob/gyoumei",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.gyoumei"
+        "default": "geometry.gyoumei",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "scripts": {
         "scaleX": "1.15",
@@ -29,7 +31,10 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+          "gyoumei.action"
 
         ]
       },
@@ -54,10 +59,24 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_two",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.two_attack_third",
+
+        "gyoumei.action": "controller.animation.gyoumei.action",
+
+        "iwa.ichi_1_third": "animation.action.iwa.ichi_1_third",
+        "iwa.ni_1_third": "animation.action.iwa.ni_1_third",
+        "iwa.san_1_third": "animation.action.iwa.san_1_third",
+        "iwa.shi_1_third": "animation.action.iwa.shi_1_third",
+        "iwa.go_1_third": "animation.action.iwa.go_1_third",
+        "iwa.go_2_third": "animation.action.iwa.go_2_third"
+
       },
       "render_controllers": [
-        "controller.render.soldier.gyoumei"
+        "controller.render.soldier.gyoumei",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

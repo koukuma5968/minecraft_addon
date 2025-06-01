@@ -41,6 +41,8 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
+          "nichirintou_custom",
+
           "giyu.action",
           "giyu.attack"
 
@@ -70,7 +72,6 @@
         "use_item_progress":"animation.humanoid.use_item_progress",
 
         "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
-        "nichirintou_custom.first": "animation.nichirintou_custom.first",
         "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
 
         "giyu.action":"controller.animation.giyu.action",
@@ -108,7 +109,7 @@
       "render_controllers": [
         "controller.render.soldier.giyu",
         "controller.render.nichirintou_custom",
-        { "controller.render.mizu_dragon": "query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 10 && query.property('kurokumaft:kokyu_attack')" }
+        { "controller.render.mizu_dragon": "query.property('kurokumaft:kokyu_kata') == 10 && query.property('kurokumaft:kokyu_attack')" }
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

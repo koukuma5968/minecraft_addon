@@ -7,14 +7,18 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/inosuke"
+        "default": "textures/kurokumaft/models/mob/inosuke",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.inosuke"
+        "default": "geometry.inosuke",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
         "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
-        "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle"
+        "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle",
+        "kaze_circle_particle": "kurokumaft:kaze_circle_particle",
+        "kaze_uzu_particle": "kurokumaft:kaze_uzu_particle"
       },
       "scripts": {
         "scaleX": "0.9375",
@@ -33,7 +37,11 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+
+          "inosuke.action"
         ]
       },
       "animations": {
@@ -57,11 +65,29 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_two",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.two_attack_third",
+
+        "inosuke.action":"controller.animation.inosuke.action",
+
+        "kedamono.ichi_1_third": "animation.action.kedamono.ichi_1_third",
+        "kedamono.ni_1_third": "animation.action.kedamono.ni_1_third",
+        "kedamono.san_1_third": "animation.action.kedamono.san_1_third",
+        "kedamono.shi_1_third": "animation.action.kedamono.shi_1_third",
+        "kedamono.go_1_third": "animation.action.kedamono.go_1_third",
+        "kedamono.roku_1_third": "animation.action.kedamono.roku_1_third",
+        "kedamono.roku_2_third": "animation.action.kedamono.roku_2_third",
+        "kedamono.shiti_1_third": "animation.action.kedamono.shiti_1_third",
+        "kedamono.hati_1_third": "animation.action.kedamono.hati_1_third",
+        "kedamono.ku_1_third": "animation.action.kedamono.ku_1_third",
+        "kedamono.tou_1_third": "animation.action.kedamono.tou_1_third"
 
       },
       "render_controllers": [
-        "controller.render.soldier.inosuke"
+        "controller.render.soldier.inosuke",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

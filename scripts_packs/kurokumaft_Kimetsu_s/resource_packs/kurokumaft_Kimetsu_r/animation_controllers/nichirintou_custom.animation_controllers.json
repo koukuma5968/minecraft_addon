@@ -48,10 +48,83 @@
 				}
 			}
 		},
+		"controller.animation.nichirintou_custom.mob.attack_regimental": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack_third": "variable.attack_time > 0.0 && query.property('kurokumaft:nichirintou_type') != 0"}
+					]
+				},
+				"attack_third": {
+					"transitions": [
+						{"one_third": "query.equipped_item_any_tag('slot.weapon.mainhand', 'attack_one')"},
+						{"two_third": "query.equipped_item_any_tag('slot.weapon.mainhand', 'attack_two')"},
+						{"horizontality_third": "query.equipped_item_any_tag('slot.weapon.mainhand', 'attack_horizontality')"}
+					]
+				},
+				"one_third": {
+					"animations": [
+						"nichirintou_custom.attack_third"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"two_third": {
+					"animations": [
+						"nichirintou_custom.two_attack_third"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"horizontality_third": {
+					"animations": [
+						"nichirintou_custom.attack_horizontality_third"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
 		"controller.animation.nichirintou_custom.mob.attack_one": {
 			"states": {
 				"default": {
-					"animations": ["nichirintou_custom.first"],
+					"transitions": [
+						{"attack_third": "variable.attack_time > 0.0"}
+					]
+				},
+				"attack_third": {
+					"animations": [
+						"nichirintou_custom.attack_third"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.nichirintou_custom.mob.attack_two": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack_third": "variable.attack_time > 0.0"}
+					]
+				},
+				"attack_third": {
+					"animations": [
+						"nichirintou_custom.attack_third"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.nichirintou_custom.mob.attack_horizontality": {
+			"states": {
+				"default": {
 					"transitions": [
 						{"attack_third": "variable.attack_time > 0.0"}
 					]

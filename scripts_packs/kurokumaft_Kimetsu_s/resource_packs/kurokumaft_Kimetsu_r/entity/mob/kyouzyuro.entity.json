@@ -7,13 +7,19 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/kyouzyuro"
+        "default": "textures/kurokumaft/models/mob/kyouzyuro",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.kyouzyuro"
+        "default": "geometry.kyouzyuro",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
-        "hono_blead_particle": "kurokumaft:hono_blead_particle"
+        "hono_blead_particle": "kurokumaft:hono_blead_particle",
+        "hono_flame_particle": "kurokumaft:hono_flame_particle",
+        "hono4_flame_particle": "kurokumaft:hono4_flame_particle",
+        "hono9_particle": "kurokumaft:hono9_particle",
+        "hono9_move_particle": "kurokumaft:hono9_move_particle"
       },
       "scripts": {
         "scaleX": "1.00",
@@ -32,8 +38,11 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
 
+          "nichirintou_custom",
+
+          "kyouzyuro.action"
         ]
       },
       "animations": {
@@ -57,10 +66,29 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+
+        "kyouzyuro.action": "controller.animation.kyouzyuro.action",
+
+        "hono.ichi_1_third": "animation.action.hono.ichi_1_third",
+        "hono.ichi_2_third": "animation.action.hono.ichi_2_third",
+        "hono.ni_1_third": "animation.action.hono.ni_1_third",
+        "hono.san_1_third": "animation.action.hono.san_1_third",
+        "hono.shi_1_third": "animation.action.hono.shi_1_third",
+        "hono.go_1_third": "animation.action.hono.go_1_third",
+        "hono.ku_1_third": "animation.action.hono.ku_1_third",
+        "hono.ku_2_third": "animation.action.hono.ku_2_third",
+
+        "hono.ku_hono_1": "animation.action.hono.ku_hono_1",
+        "hono.ku_hono_2": "animation.action.hono.ku_hono_2"
+
       },
       "render_controllers": [
-        "controller.render.soldier.kyouzyuro"
+        "controller.render.soldier.kyouzyuro",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

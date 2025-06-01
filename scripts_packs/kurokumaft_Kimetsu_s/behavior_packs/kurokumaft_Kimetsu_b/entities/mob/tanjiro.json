@@ -51,7 +51,7 @@
           "default": 0,
           "client_sync": true
         },
-        "kurokumaft:orge_rank": {
+        "kurokumaft:ogre_rank": {
           "type": "enum",
           "values": ["none", "king"],
           "default": "none",
@@ -65,7 +65,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.twenty_sec"
+        "cooldown": "animation.cooldown.two_sec"
       }
     },
     "component_groups": {
@@ -85,9 +85,9 @@
           "family": [ "mob", "regimental_soldier", "villager" ]
         }
       },
-      "kurokumaft:orge_family": {
+      "kurokumaft:ogre_family": {
         "minecraft:type_family": {
-          "family": [ "mob", "orge", "undead", "monster" ]
+          "family": [ "mob", "ogre", "undead", "monster" ]
         }
       },
       "kurokumaft:attack_normal": {
@@ -226,7 +226,7 @@
           "damage": 10
         }
       },
-      "kurokumaft:orge_damage_sensor": {
+      "kurokumaft:ogre_damage_sensor": {
         "minecraft:damage_sensor": {
           "triggers": [
             {
@@ -242,8 +242,53 @@
             }
           ]
         }
+      },
+      "kurokumaft:nichirintou_equ": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            }
+          ]
+        }
+      },
+      "kurokumaft:nichirintou_set_sensor": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_tanjiro"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_tanjiro"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_remove"
+            }
+          ]
+        }
       }
-
     },
     "components": {
       "minecraft:experience_reward": {
@@ -289,7 +334,7 @@
       },
       "minecraft:target_nearby_sensor": {
         "must_see": false,
-        "outside_range": 24
+        "outside_range": 64
       },
       "minecraft:follow_range": {
         "value": 24,
@@ -307,7 +352,7 @@
                 {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
-            "max_dist": 24
+            "max_dist": 64
           }
         ]
       },
@@ -324,7 +369,7 @@
                 {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
-            "max_dist": 24
+            "max_dist": 64
           }
         ]
       },
@@ -386,21 +431,7 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
-      "minecraft:block_climber": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          }
-
-        ]
-      }
+      "minecraft:block_climber": {}
     },
 
     "events": {
@@ -408,7 +439,8 @@
         "add": {
           "component_groups": [
             "kurokumaft:soldier_family",
-            "kurokumaft:attack_normal"
+            "kurokumaft:attack_normal",
+            "kurokumaft:nichirintou_set_sensor"
           ]
         }
       },
@@ -428,6 +460,12 @@
         }
       },
       "kurokumaft:nichirintou": {
+        "remove": {
+          "component_groups": [ "kurokumaft:nichirintou_set_sensor" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_equ" ]
+        },
         "set_property": {
           "kurokumaft:nitirintou_equip": true
         }
@@ -544,10 +582,10 @@
             }
           },
           {
-            "filters": { "test": "enum_property", "domain": "kurokumaft:orge_rank", "operator": "!=", "value": "none" },
+            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "!=", "value": "none" },
             "add": {
               "component_groups": [
-                "kurokumaft:orge_damage_sensor"
+                "kurokumaft:ogre_damage_sensor"
               ]
             }
           }

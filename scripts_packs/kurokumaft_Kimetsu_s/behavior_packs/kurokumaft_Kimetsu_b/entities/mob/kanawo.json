@@ -20,7 +20,7 @@
         },
         "kurokumaft:kokyu_kata": {
           "type": "int",
-          "range": [0, 22],
+          "range": [0, 7],
           "default": 0,
           "client_sync": true
         },
@@ -59,7 +59,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.twenty_sec"
+        "cooldown": "animation.cooldown.two_sec"
       }
 
     },
@@ -76,75 +76,187 @@
           "remove_effects": "bad_omen"
         }
       },
-      "damage_clear": {
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
+        }
+      },
+      "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
-          "triggers": {
-            "cause": "entity_attack",
-            "deals_damage": false
-          }
+          "triggers": [
+            {
+              "deals_damage": "no"
+            }
+          ]
         }
       },
+      "kurokumaft:soldier_kaikyu1": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(5, 10)"
+        },
+        "minecraft:health": {
+          "value": 30,
+          "max": 30
+        },
+        "minecraft:attack": {
+          "damage": 2
+        }
+      },
+      "kurokumaft:soldier_kaikyu2": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 20)"
+        },
+        "minecraft:health": {
+          "value": 40,
+          "max": 40
+        },
+        "minecraft:attack": {
+          "damage": 3
+        }
+      },
+      "kurokumaft:soldier_kaikyu3": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 30)"
+        },
+        "minecraft:health": {
+          "value": 50,
+          "max": 50
+        },
+        "minecraft:attack": {
+          "damage": 4
+        }
+      },
+      "kurokumaft:soldier_kaikyu4": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 40)"
+        },
+        "minecraft:health": {
+          "value": 60,
+          "max": 60
+        },
+        "minecraft:attack": {
+          "damage": 5
+        }
+      },
+      "kurokumaft:soldier_kaikyu5": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 50)"
+        },
+        "minecraft:health": {
+          "value": 70,
+          "max": 70
+        },
+        "minecraft:attack": {
+          "damage": 6
+        }
+      },
+      "kurokumaft:soldier_kaikyu6": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 70)"
+        },
+        "minecraft:health": {
+          "value": 70,
+          "max": 70
+        },
+        "minecraft:attack": {
+          "damage": 7
+        }
+      },
+      "kurokumaft:soldier_kaikyu7": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(20, 80)"
+        },
+        "minecraft:health": {
+          "value": 80,
+          "max": 80
+        },
+        "minecraft:attack": {
+          "damage": 8
+        }
+      },
+      "kurokumaft:soldier_kaikyu8": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(30, 90)"
+        },
+        "minecraft:health": {
+          "value": 90,
+          "max": 90
+        },
+        "minecraft:attack": {
+          "damage": 9
+        }
+      },
+      "kurokumaft:soldier_kaikyu9": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(40, 100)"
+        },
+        "minecraft:health": {
+          "value": 100,
+          "max": 100
+        },
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:soldier_kaikyu10": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(50, 120)"
+        },
+        "minecraft:health": {
+          "value": 120,
+          "max": 120
+        },
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:nichirintou_equ": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            }
+          ]
+        }
+      },
+      "kurokumaft:nichirintou_set_sensor": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kanawo"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kanawo"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_remove"
+            }
 
-      "kurokumaft:nichirintou_remove": {
-        "minecraft:skin_id": {
-          "value": 0
-        }
-      },
-
-      "kurokumaft:nichirintou": {
-        "minecraft:skin_id": {
-          "value": 1
-        }
-      },
-      "mark_variant0": {
-        "minecraft:mark_variant": {
-            "value": 0
-        }
-      },
-      "mark_variant1": {
-        "minecraft:mark_variant": {
-            "value": 1
-        }
-      },
-      "mark_variant2": {
-        "minecraft:mark_variant": {
-            "value": 2
-        }
-      },
-      "mark_variant3": {
-        "minecraft:mark_variant": {
-            "value": 3
-        }
-      },
-
-      "variant0": {
-        "minecraft:variant": {
-            "value": 0
-        }
-      },
-      "variant2": {
-        "minecraft:variant": {
-            "value": 2
-        }
-      },
-      "variant4": {
-        "minecraft:variant": {
-            "value": 4
-        }
-      },
-      "variant5": {
-        "minecraft:variant": {
-            "value": 5
-        }
-      },
-      "variant6": {
-        "minecraft:variant": {
-            "value": 6
-        }
-      },
-      "variant7": {
-        "minecraft:variant": {
-            "value": 7
+          ]
         }
       }
     },
@@ -164,10 +276,6 @@
       "minecraft:collision_box": {
         "width": 0.6,
         "height": 1.8
-      },
-      "minecraft:health": {
-        "value": 250,
-        "max": 250
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/kanawo_gear.json"
@@ -196,8 +304,8 @@
         "outside_range": 64
       },
       "minecraft:follow_range": {
-        "value": 64,
-        "max": 64
+        "value": 24,
+        "max": 24
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
@@ -206,7 +314,9 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
@@ -221,25 +331,14 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
-              ]
-            },
-            "max_dist": 128
           }
         ]
-      },
-      "minecraft:behavior.melee_attack": {
-        "priority": 4,
-        "track_target": true,
-        "speed_multiplier": 1.25
       },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -259,9 +358,6 @@
             "damage_per_tick": 4
           }
         ]
-      },
-      "minecraft:attack": {
-        "damage": 2
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -302,52 +398,16 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
-      "minecraft:timer": {
-        "time": [10.0, 15.0],
-        "randomInterval": true,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kokyu",
-          "target": "self"
-        }
-      },
-      "minecraft:block_climber": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kanawo"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kanawo"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_remove"
-          }
-
-        ]
-      }
+      "minecraft:block_climber": {}
     },
 
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:attack_normal",
+            "kurokumaft:nichirintou_set_sensor"
+          ]
         }
       },
       "minecraft:trigger_raid": {
@@ -360,132 +420,134 @@
           "component_groups": [ "minecraft:raid_trigger" ]
         }
       },
-      "add_damage_clear": {
-        "add": {
-          "component_groups": [ "damage_clear" ]
+      "kurokumaft:nichirintou_remove": {
+        "set_property": {
+          "kurokumaft:nitirintou_equip": false
         }
       },
-      "remove_damage_clear": {
+      "kurokumaft:nichirintou": {
         "remove": {
-          "component_groups": [ "damage_clear" ]
+          "component_groups": [ "kurokumaft:nichirintou_set_sensor" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_equ" ]
+        },
+        "set_property": {
+          "kurokumaft:nitirintou_equip": true
+        }
+      },
+      "kurokumaft:kokyu_start":{},
+      "kurokumaft:attack_stop":{
+        "remove": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+      "kurokumaft:kokyu_end":{
+        "add": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
 
-      "kurokumaft:random_kokyu": {
+      "kurokumaft:kakyu_change": {
         "sequence": [
           {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 0 },
             "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
+              "component_groups": [
+                "kurokumaft:nomal_damage",
+                "kurokumaft:ordinary_person"
+              ]
             }
           },
           {
-            "filters": {
-              "test": "has_target"
-            },
-            "randomize": [
-              {
-                "weight": 15,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 25,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 25,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              },
-              {
-                "weight": 30,
-                "add": {
-                  "component_groups": [ "variant6" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant7" ]
-                }
-              }
-            ]
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 1 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu1" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 2 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu2" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 3 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu3" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 4 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu4" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 5 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu5" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 6 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu6" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 7 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu7" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 8 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu8" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 9 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu9" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 10 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu10" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 11 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu11" ]
+            }
           }
- 
         ]
       },
-      "kurokumaft:random_kokyu_off": {
-        "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
-        }
+      "kurokumaft:add_damage_clear": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       },
-
-      "kurokumaft:nichirintou_remove": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_remove" ]
-        }
-      },
-
-      "kurokumaft:nichirintou": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou" ]
-        }
-      },
-
-      "mark_variant0": {
-        "add": {
-          "component_groups": [ "mark_variant0" ]
-        }
-      },
-      "mark_variant1": {
-        "add": {
-          "component_groups": [ "mark_variant1" ]
-        }
-      },
-      "mark_variant2": {
-        "add": {
-          "component_groups": [ "mark_variant2" ]
-        }
-      },
-      "mark_variant3": {
-        "add": {
-          "component_groups": [ "mark_variant3" ]
-        }
-      },
-
-      "variant0": {
-        "add": {
-          "component_groups": [ "variant0" ]
-        }
-      },
-      "variant2": {
-        "add": {
-          "component_groups": [ "variant2" ]
-        }
-      },
-      "variant4": {
-        "add": {
-          "component_groups": [ "variant4" ]
-        }
-      },
-      "variant5": {
-        "add": {
-          "component_groups": [ "variant5" ]
-        }
-      },
-      "variant6": {
-        "add": {
-          "component_groups": [ "variant6" ]
-        }
-      },
-      "variant7": {
-        "add": {
-          "component_groups": [ "variant7" ]
-        }
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       }
     }
   }

@@ -112,7 +112,7 @@
 		},
 		"animation.action.kaminari.ichi_2_third": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
+			"animation_length": 0.25,
 			"bones": {
 				"root": {
 					"rotation": [0, 0, 0],
@@ -129,7 +129,7 @@
 				"rightArm": {
 					"rotation": {
 						"0.0": [-67.14566, 45.13384, 148.51799],
-						"0.1667": [107.53657, 50.62276, 124.18238]
+						"0.0833": [107.53657, 50.62276, 124.18238]
 					},
 					"position": [0, 0, 0]
 				},
@@ -706,56 +706,44 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "kaminari_point_particle",
+						"locator": "body_particle"
 					}
 				],
 				"0.1": [
 					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "kaminari_point_particle",
+						"locator": "body_particle"
 					}
 				],
 				"0.2": [
 					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "kaminari_point_particle",
+						"locator": "body_particle"
 					}
 				]
 			}
@@ -1165,56 +1153,44 @@
 			"particle_effects": {
 				"0.0": [
 					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "kaminari_point_particle",
+						"locator": "body_particle"
 					}
 				],
 				"0.1": [
 					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "kaminari_point_particle",
+						"locator": "body_particle"
 					}
 				],
 				"0.2": [
 					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "mizu_splash_particle",
-						"locator": "nichirintou_hold4"
-					},
-					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold5"
 					},
 					{
-						"effect": "mizu_splash_particle",
+						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "kaminari_point_particle",
+						"locator": "body_particle"
 					}
 				]
 			}

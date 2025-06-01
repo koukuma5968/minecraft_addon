@@ -74,6 +74,11 @@
 					]
 				},
 				{
+					"name": "leftItem",
+					"parent": "leftArm",
+					"pivot": [6, 15, 1]
+				},
+				{
 					"name": "rightLeg",
 					"parent": "root",
 					"pivot": [-1.9, 12, 0],

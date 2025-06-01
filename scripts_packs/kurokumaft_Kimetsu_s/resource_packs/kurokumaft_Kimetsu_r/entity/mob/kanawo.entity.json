@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/kanawo"
+        "default": "textures/kurokumaft/models/mob/kanawo",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.kanawo"
+        "default": "geometry.kanawo",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
         "hana_bread_particle": "kurokumaft:hana_bread_particle",
@@ -33,7 +35,11 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+
+          "kanawo.action"
         ]
       },
       "animations": {
@@ -57,10 +63,22 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_horizontality",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_horizontality_third",
+
+        "kanawo.action":"controller.animation.kanawo.action",
+
+        "hana.ni_1_third": "animation.action.hana.ni_1_third",
+        "hana.shi_1_third": "animation.action.hana.shi_1_third",
+        "hana.go_1_third": "animation.action.hana.go_1_third",
+        "hana.roku_1_third": "animation.action.hana.roku_1_third"
+
       },
       "render_controllers": [
-        "controller.render.soldier.kanawo"
+        "controller.render.soldier.kanawo",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

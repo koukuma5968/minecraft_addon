@@ -24,6 +24,12 @@
           "default": 0,
           "client_sync": true
         },
+        "kurokumaft:nichirintou_type": {
+          "type": "int",
+          "range": [0, 30],
+          "default": 0,
+          "client_sync": true
+        },
         "kurokumaft:nitirintou_equip": {
           "type": "bool",
           "default": "true",
@@ -59,377 +65,350 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.twenty_sec"
+        "cooldown": "animation.cooldown.two_sec"
       }
 
     },
 
     "component_groups": {
-
-      "damage_clear": {
-        "minecraft:damage_sensor": {
-          "triggers": {
-            "cause": "entity_attack",
-            "deals_damage": false
+      "minecraft:raid_trigger": {
+        "minecraft:raid_trigger": {
+          "triggered_event": {
+            "event": "minecraft:remove_raid_trigger",
+            "target": "self"
           }
-        }
-      },
-      "random_move": {
-        "minecraft:behavior.random_stroll": {
-          "interval": 5,
-          "speed_multiplier": 0.1,
-          "xz_dist": 5,
-          "y_dist": 5
-        }
-      },
-      "change_family": {
-        "minecraft:type_family": {
-          "family": [ "mob" ]
-        }
-      },
-      "return_family": {
-        "minecraft:type_family": {
-          "family": [ "player" ]
-        }
-      },
-
-      "kurokumaft:mizu10_doragon": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:mizu_dragon",
-              "single_use": true,
-              "num_to_spawn": 1,
-              "should_leash": false
-            }
-          ]
-        }
-      },
-      "kurokumaft:iwa1_throw": {
-        "minecraft:spawn_entity": {
-          "entities": [
-            {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:iwa_iron_ball",
-              "single_use": true,
-              "num_to_spawn": 1,
-              "should_leash": false
-            },
-            {
-              "min_wait_time": 0,
-              "max_wait_time": 0,
-              "spawn_entity": "kurokumaft:iwa_axe",
-              "single_use": true,
-              "num_to_spawn": 1,
-              "should_leash": false
-            }
-          ]
-        }
-      },
-
-      "kurokumaft:enko": {
-        "minecraft:follow_range": {
-          "value": 32,
-          "max": 32
         },
-        "minecraft:behavior.ranged_attack": {
-          "priority": 0,
-          "swing": true
-        },
-        "minecraft:shooter": {
-          "def": "kurokumaft:hono_tiger",
-          "aux_val": -1
+        "minecraft:spell_effects": {
+          "remove_effects": "bad_omen"
         }
       },
-
-      "kurokumaft:knockback_max": {
-        "minecraft:knockback_resistance": {
-          "value": 100
+      "kurokumaft:soldier_family": {
+        "minecraft:type_family": {
+          "family": [ "mob", "regimental_soldier", "villager" ]
         }
       },
-      "kurokumaft:knockback_zero": {
-        "minecraft:knockback_resistance": {
-          "value": 0
+      "kurokumaft:ogre_family": {
+        "minecraft:type_family": {
+          "family": [ "mob", "ogre", "undead", "monster" ]
         }
       },
-
-      "kurokumaft:falling_nullify": {
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
+        }
+      },
+      "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "on_damage": {
-                "filters": { "test": "has_damage", "subject": "self", "operator": "==", "value": "fall" }
-              },
-              "cause": "fall",
-              "deals_damage": false
+              "deals_damage": "no"
             }
           ]
         }
       },
-      "kurokumaft:explosion_nullify": {
+      "kurokumaft:soldier_kaikyu1": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(5, 10)"
+        },
+        "minecraft:health": {
+          "value": 30,
+          "max": 30
+        },
+        "minecraft:attack": {
+          "damage": 2
+        }
+      },
+      "kurokumaft:soldier_kaikyu2": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 20)"
+        },
+        "minecraft:health": {
+          "value": 40,
+          "max": 40
+        },
+        "minecraft:attack": {
+          "damage": 3
+        }
+      },
+      "kurokumaft:soldier_kaikyu3": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 30)"
+        },
+        "minecraft:health": {
+          "value": 50,
+          "max": 50
+        },
+        "minecraft:attack": {
+          "damage": 4
+        }
+      },
+      "kurokumaft:soldier_kaikyu4": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 40)"
+        },
+        "minecraft:health": {
+          "value": 60,
+          "max": 60
+        },
+        "minecraft:attack": {
+          "damage": 5
+        }
+      },
+      "kurokumaft:soldier_kaikyu5": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 50)"
+        },
+        "minecraft:health": {
+          "value": 70,
+          "max": 70
+        },
+        "minecraft:attack": {
+          "damage": 6
+        }
+      },
+      "kurokumaft:soldier_kaikyu6": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(10, 70)"
+        },
+        "minecraft:health": {
+          "value": 70,
+          "max": 70
+        },
+        "minecraft:attack": {
+          "damage": 7
+        }
+      },
+      "kurokumaft:soldier_kaikyu7": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(20, 80)"
+        },
+        "minecraft:health": {
+          "value": 80,
+          "max": 80
+        },
+        "minecraft:attack": {
+          "damage": 8
+        }
+      },
+      "kurokumaft:soldier_kaikyu8": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(30, 90)"
+        },
+        "minecraft:health": {
+          "value": 90,
+          "max": 90
+        },
+        "minecraft:attack": {
+          "damage": 9
+        }
+      },
+      "kurokumaft:soldier_kaikyu9": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(40, 100)"
+        },
+        "minecraft:health": {
+          "value": 100,
+          "max": 100
+        },
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:soldier_kaikyu10": {
+        "minecraft:experience_reward": {
+          "on_death": "Math.Min(50, 120)"
+        },
+        "minecraft:health": {
+          "value": 120,
+          "max": 120
+        },
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:ogre_damage_sensor": {
         "minecraft:damage_sensor": {
           "triggers": [
             {
               "on_damage": {
                 "filters": {
-                  "any_of": [
-                    {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" },
-                    {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
+                  "all_of": [
+                    { "test": "int_property", "domain": "kurokumaft:nichirintou_type", "operator": "==", "value": 0 }
                   ]
                 }
               },
-              "cause": "entity_explosion",
-              "deals_damage": false
+              "cause": "entity_attack",
+              "deals_damage": "no_but_side_effects_apply"
             }
           ]
         }
       },
+      "kurokumaft:nichirintou_equ": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            }
+          ]
+        }
+      },
+      "kurokumaft:nichirintou_set_sensor": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_mizu"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_mizu"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_hi"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_hi"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kaminari"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_kaminari"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_hono"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_hono"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kemono"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_kemono"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_mushi"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_mushi"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_hana"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_hana"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_koi"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_koi"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_oto"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_oto"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kaze"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_kaze"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_iwa"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_iwa"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_hebi"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_hebi"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kasumi"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_kasumi"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_tuki"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_tuki"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_mizu"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_hi"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kaminari"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kemono"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_hono"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_koi"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kaze"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_hana"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_oto"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_iwa"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kasumi"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_mushi"},
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_tuki"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_remove"
+            }
 
-      "kurokumaft:nichirintou_remove": {
-        "minecraft:skin_id": {
-          "value": 0
-        }
-      },
-
-      "kurokumaft:nichirintou": {
-        "minecraft:skin_id": {
-          "value": 1
-        }
-      },
-
-      "kurokumaft:nichirintou_mizu": {
-        "minecraft:skin_id": {
-          "value": 11
-        }
-      },
-      "kurokumaft:nichirintou_hi": {
-        "minecraft:skin_id": {
-          "value": 12
-        }
-      },
-      "kurokumaft:nichirintou_kaminari": {
-        "minecraft:skin_id": {
-          "value": 13
-        }
-      },
-      "kurokumaft:nichirintou_hono": {
-        "minecraft:skin_id": {
-          "value": 14
-        }
-      },
-      "kurokumaft:nichirintou_kaze": {
-        "minecraft:skin_id": {
-          "value": 15
-        }
-      },
-      "kurokumaft:nichirintou_kasumi": {
-        "minecraft:skin_id": {
-          "value": 16
-        }
-      },
-      "kurokumaft:nichirintou_hebi": {
-        "minecraft:skin_id": {
-          "value": 17
-        }
-      },
-
-      "kurokumaft:nichirintou_kemono": {
-        "minecraft:skin_id": {
-          "value": 23
-        }
-      },
-      "kurokumaft:nichirintou_oto": {
-        "minecraft:skin_id": {
-          "value": 24
-        }
-      },
-      "kurokumaft:nichirintou_iwa": {
-        "minecraft:skin_id": {
-          "value": 25
-        }
-      },
-
-      "kurokumaft:nichirintou_mushi": {
-        "minecraft:skin_id": {
-          "value": 33
-        }
-      },
-      "kurokumaft:nichirintou_hana": {
-        "minecraft:skin_id": {
-          "value": 34
-        }
-      },
-      "kurokumaft:nichirintou_koi": {
-        "minecraft:skin_id": {
-          "value": 35
-        }
-      },
-
-      "kurokumaft:nichirintou_zyuu_genya": {
-        "minecraft:skin_id": {
-          "value": 40
-        }
-      },
-
-      "mark_variant0": {
-        "minecraft:mark_variant": {
-            "value": 0
-        }
-      },
-      "mark_variant1": {
-        "minecraft:mark_variant": {
-            "value": 1
-        }
-      },
-      "mark_variant2": {
-        "minecraft:mark_variant": {
-            "value": 2
-        }
-      },
-      "mark_variant3": {
-        "minecraft:mark_variant": {
-            "value": 3
-        }
-      },
-      "mark_variant100": {
-        "minecraft:mark_variant": {
-            "value": 100
-        }
-      },
-      "mark_variant201": {
-        "minecraft:mark_variant": {
-            "value": 201
-        }
-      },
-
-      "variant0": {
-        "minecraft:variant": {
-            "value": 0
-        }
-      },
-      "variant1": {
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "variant2": {
-        "minecraft:variant": {
-            "value": 2
-        }
-      },
-      "variant3": {
-        "minecraft:variant": {
-            "value": 3
-        }
-      },
-      "variant4": {
-        "minecraft:variant": {
-            "value": 4
-        }
-      },
-      "variant5": {
-        "minecraft:variant": {
-            "value": 5
-        }
-      },
-      "variant6": {
-        "minecraft:variant": {
-            "value": 6
-        }
-      },
-      "variant7": {
-        "minecraft:variant": {
-            "value": 7
-        }
-      },
-      "variant8": {
-        "minecraft:variant": {
-            "value": 8
-        }
-      },
-      "variant9": {
-        "minecraft:variant": {
-            "value": 9
-        }
-      },
-      "variant10": {
-        "minecraft:variant": {
-            "value": 10
-        }
-      },
-      "variant101": {
-        "minecraft:variant": {
-            "value": 101
-        }
-      },
-      "variant11": {
-        "minecraft:variant": {
-            "value": 11
-        }
-      },
-      "variant12": {
-        "minecraft:variant": {
-            "value": 12
-        }
-      },
-      "variant13": {
-        "minecraft:variant": {
-            "value": 13
-        }
-      },
-      "variant14": {
-        "minecraft:variant": {
-            "value": 14
-        }
-      },
-      "variant15": {
-        "minecraft:variant": {
-            "value": 15
-        }
-      },
-      "variant16": {
-        "minecraft:variant": {
-            "value": 16
-        }
-      },
-      "variant17": {
-        "minecraft:variant": {
-            "value": 17
-        }
-      },
-      "variant18": {
-        "minecraft:variant": {
-            "value": 18
-        }
-      },
-      "variant19": {
-        "minecraft:variant": {
-            "value": 19
-        }
-      },
-      "variant20": {
-        "minecraft:variant": {
-            "value": 20
-        }
-      },
-      "variant21": {
-        "minecraft:variant": {
-            "value": 21
-        }
-      },
-      "variant22": {
-        "minecraft:variant": {
-            "value": 22
-        }
-      },
-      "variant201": {
-        "minecraft:variant": {
-            "value": 201
+          ]
         }
       }
+
     },
 
     "components": {
@@ -449,7 +428,7 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": "math.random(150, 200)",
+        "value": "math.random(50, 200)",
         "max": 200
       },
       "minecraft:equipment": {
@@ -490,7 +469,8 @@
             "filters": {
               "all_of": [
                 {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "villager"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
@@ -505,25 +485,14 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
-              ]
-            },
-            "max_dist": 128
           }
         ]
-      },
-      "minecraft:behavior.melee_attack": {
-        "priority": 4,
-        "track_target": true,
-        "speed_multiplier": 1.25
       },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -543,9 +512,6 @@
             "damage_per_tick": 4
           }
         ]
-      },
-      "minecraft:attack": {
-        "damage": 3
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -586,890 +552,249 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
-      "minecraft:timer": {
-        "time": [10.0, 15.0],
-        "randomInterval": true,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kokyu",
-          "target": "self"
-        }
-      },
-      "minecraft:block_climber": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_mizu"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_mizu"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_hi"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_hi"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kaminari"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_kaminari"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_hono"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_hono"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_kaze"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_kaze"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_hana"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_hana"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_oto"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_oto"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_mushi"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_mushi"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_mizu"},
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_hi"},
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kaminari"},
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_hono"},
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_kaze"},
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_hana"},
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_oto"},
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_mushi"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_remove"
-          }
-
-        ]
-      },
-      "minecraft:attack_cooldown": {
-        "attack_cooldown_complete_event": {
-          "triggers": [
-            {
-              "event": "variant0"
-            }
-          ]
-        },
-        "attack_cooldown_time": [1.0, 2.0]
-      }
+      "minecraft:block_climber": {}
     },
 
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:soldier_family",
+            "kurokumaft:attack_normal",
+            "kurokumaft:nichirintou_set_sensor"
+          ]
         }
       },
-
-      "kurokumaft:random_kokyu": {
-        "sequence": [
-          {
-            "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
-            }
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 11 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant6" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant7" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant8" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant9" ]
-                }
-              },
-              {
-                "weight": 3,
-                "add": {
-                  "component_groups": [ "variant10" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 12 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant11" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant12" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant13" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant14" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant15" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant16" ]
-                }
-              },
-              {
-                "weight": 3,
-                "add": {
-                  "component_groups": [ "variant17" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant18" ]
-                }
-              },
-              {
-                "weight": 2,
-                "add": {
-                  "component_groups": [ "variant19" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant20" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant21" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant22" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 13 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 2,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant6" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 14 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 25,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 25,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 15 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 15,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              },
-              {
-                "weight": 15,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant6" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant7" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 24 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 60,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 33 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 30,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 30,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 34 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 15,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 25,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 25,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              },
-              {
-                "weight": 30,
-                "add": {
-                  "component_groups": [ "variant6" ]
-                }
-              },
-              {
-                "weight": 5,
-                "add": {
-                  "component_groups": [ "variant7" ]
-                }
-              }
-            ]
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_target"},
-                {"test": "is_skin_id", "value": 35 }
-              ]
-            },
-            "randomize": [
-              {
-                "weight": 30,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 30,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant6" ]
-                }
-              }
-            ]
-          }
-
-        ]
-      },
-      "kurokumaft:random_kokyu_off": {
+      "minecraft:trigger_raid": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [ "minecraft:raid_trigger" ]
         }
       },
-
-      "add_random_move": {
-        "add": {
-          "component_groups": [ "random_move" ]
-        }
-      },
-      "remove_random_move": {
+      "minecraft:remove_raid_trigger": {
         "remove": {
-          "component_groups": [ "random_move" ]
+          "component_groups": [ "minecraft:raid_trigger" ]
         }
       },
-      "add_damage_clear": {
-        "add": {
-          "component_groups": [ "damage_clear" ]
-        }
-      },
-      "remove_damage_clear": {
-        "remove": {
-          "component_groups": [ "damage_clear" ]
-        }
-      },
-
-      "kurokumaft:mizu10_doragon": {
-        "add": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
-        }
-      },
-      "kurokumaft:mizu10_doragon_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:mizu10_doragon" ]
-        }
-      },
-
-      "kurokumaft:enko_add": {
-        "add": {
-          "component_groups": [ "kurokumaft:enko" ]
-        }
-      },
-      "kurokumaft:enko_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:enko" ]
-        }
-      },
-
-      "kurokumaft:iwa1_throw": {
-        "add": {
-          "component_groups": [ "kurokumaft:iwa1_throw" ]
-        }
-      },
-      "kurokumaft:iwa1_throw_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:iwa1_throw" ]
-        }
-      },
-
-      "kurokumaft:knockback_add": {
-        "remove": {
-          "component_groups": [ "kurokumaft:knockback_zero" ]
-        },
-        "add": {
-          "component_groups": [ "kurokumaft:knockback_max" ]
-        }
-      },
-      "kurokumaft:knockback_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:knockback_max" ]
-        },
-        "add": {
-          "component_groups": [ "kurokumaft:knockback_zero" ]
-        }
-      },
-
-      "kurokumaft:falling_nullify": {
-        "add": {
-          "component_groups": [ "kurokumaft:falling_nullify" ]
-        }
-      },
-      "kurokumaft:falling_nullify_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:falling_nullify" ]
-        }
-      },
-      "kurokumaft:explosion_nullify": {
-        "add": {
-          "component_groups": [ "kurokumaft:explosion_nullify" ]
-        }
-      },
-      "kurokumaft:explosion_nullify_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:explosion_nullify" ]
-        }
-      },
-
       "kurokumaft:nichirintou_remove": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_remove" ]
+        "set_property": {
+          "kurokumaft:nitirintou_equip": false
         }
       },
-
-      "kurokumaft:nichirintou": {
+      "kurokumaft:nichirintou_equ": {
+        "remove": {
+          "component_groups": [ "kurokumaft:nichirintou_set_sensor" ]
+        },
         "add": {
-          "component_groups": [ "kurokumaft:nichirintou" ]
+          "component_groups": [ "kurokumaft:nichirintou_equ" ]
+        },
+        "set_property": {
+          "kurokumaft:nitirintou_equip": true
         }
       },
-
       "kurokumaft:nichirintou_mizu": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_mizu" ]
-        }
-      },
-      "kurokumaft:nichirintou_hi": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_hi" ]
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 15
         }
       },
       "kurokumaft:nichirintou_kaminari": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_kaminari" ]
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 16
+        }
+      },
+      "kurokumaft:nichirintou_hi": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 17
         }
       },
       "kurokumaft:nichirintou_hono": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_hono" ]
-        }
-      },
-      "kurokumaft:nichirintou_mushi": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_mushi" ]
-        }
-      },
-      "kurokumaft:nichirintou_oto": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_oto" ]
-        }
-      },
-      "kurokumaft:nichirintou_hana": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_hana" ]
-        }
-      },
-      "kurokumaft:nichirintou_kaze": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_kaze" ]
-        }
-      },
-      "kurokumaft:nichirintou_iwa": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_iwa" ]
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 18
         }
       },
       "kurokumaft:nichirintou_kemono": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_kemono" ]
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 19
+        }
+      },
+      "kurokumaft:nichirintou_kaze": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 20
+        }
+      },
+      "kurokumaft:nichirintou_iwa": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 21
         }
       },
       "kurokumaft:nichirintou_kasumi": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_kasumi" ]
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 22
+        }
+      },
+      "kurokumaft:nichirintou_oto": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 23
         }
       },
       "kurokumaft:nichirintou_hebi": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 24
+        }
+      },
+      "kurokumaft:nichirintou_koi": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 25
+        }
+      },
+      "kurokumaft:nichirintou_mushi": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 26
+        }
+      },
+      "kurokumaft:nichirintou_hana": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 27
+        }
+      },
+      "kurokumaft:nichirintou_tuki": {
+        "trigger": "kurokumaft:nichirintou_equ",
+        "set_property": {
+          "kurokumaft:nichirintou_type": 28
+        }
+      },
+      "kurokumaft:kokyu_start":{},
+      "kurokumaft:attack_stop":{
+        "remove": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+      "kurokumaft:kokyu_end":{
         "add": {
-          "component_groups": [ "kurokumaft:nichirintou_hebi" ]
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
 
-      "mark_variant0": {
-        "add": {
-          "component_groups": [ "mark_variant0" ]
-        }
+      "kurokumaft:kakyu_change": {
+        "sequence": [
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 0 },
+            "add": {
+              "component_groups": [
+                "kurokumaft:nomal_damage",
+                "kurokumaft:ordinary_person"
+              ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 1 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu1" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 2 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu2" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 3 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu3" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 4 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu4" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 5 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu5" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 6 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu6" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 7 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu7" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 8 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu8" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 9 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu9" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 10 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu10" ]
+            }
+          },
+          {
+            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 11 },
+            "add": {
+              "component_groups": [ "kurokumaft:soldier_kaikyu11" ]
+            }
+          }
+        ]
       },
-      "mark_variant1": {
-        "add": {
-          "component_groups": [ "mark_variant1" ]
-        }
+      "kurokumaft:add_damage_clear": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       },
-      "mark_variant2": {
-        "add": {
-          "component_groups": [ "mark_variant2" ]
-        }
-      },
-      "mark_variant3": {
-        "add": {
-          "component_groups": [ "mark_variant3" ]
-        }
-      },
-      "mark_variant100": {
-        "add": {
-          "component_groups": [ "mark_variant100" ]
-        }
-      },
-      "mark_variant201": {
-        "add": {
-          "component_groups": [ "mark_variant201" ]
-        }
-      },
-
-      "variant0": {
-        "add": {
-          "component_groups": [ "variant0" ]
-        }
-      },
-      "variant1": {
-        "add": {
-          "component_groups": [ "variant1" ]
-        }
-      },
-      "variant2": {
-        "add": {
-          "component_groups": [ "variant2" ]
-        }
-      },
-      "variant3": {
-        "add": {
-          "component_groups": [ "variant3" ]
-        }
-      },
-      "variant4": {
-        "add": {
-          "component_groups": [ "variant4" ]
-        }
-      },
-      "variant5": {
-        "add": {
-          "component_groups": [ "variant5" ]
-        }
-      },
-      "variant6": {
-        "add": {
-          "component_groups": [ "variant6" ]
-        }
-      },
-      "variant7": {
-        "add": {
-          "component_groups": [ "variant7" ]
-        }
-      },
-      "variant8": {
-        "add": {
-          "component_groups": [ "variant8" ]
-        }
-      },
-      "variant9": {
-        "add": {
-          "component_groups": [ "variant9" ]
-        }
-      },
-      "variant10": {
-        "add": {
-          "component_groups": [ "variant10" ]
-        }
-      },
-      "variant101": {
-        "add": {
-          "component_groups": [ "variant101" ]
-        }
-      },
-      "variant11": {
-        "add": {
-          "component_groups": [ "variant11" ]
-        }
-      },
-      "variant12": {
-        "add": {
-          "component_groups": [ "variant12" ]
-        }
-      },
-      "variant13": {
-        "add": {
-          "component_groups": [ "variant13" ]
-        }
-      },
-      "variant14": {
-        "add": {
-          "component_groups": [ "variant14" ]
-        }
-      },
-      "variant15": {
-        "add": {
-          "component_groups": [ "variant15" ]
-        }
-      },
-      "variant16": {
-        "add": {
-          "component_groups": [ "variant16" ]
-        }
-      },
-      "variant17": {
-        "add": {
-          "component_groups": [ "variant17" ]
-        }
-      },
-      "variant18": {
-        "add": {
-          "component_groups": [ "variant18" ]
-        }
-      },
-      "variant19": {
-        "add": {
-          "component_groups": [ "variant19" ]
-        }
-      },
-      "variant20": {
-        "add": {
-          "component_groups": [ "variant20" ]
-        }
-      },
-      "variant21": {
-        "add": {
-          "component_groups": [ "variant21" ]
-        }
-      },
-      "variant22": {
-        "add": {
-          "component_groups": [ "variant22" ]
-        }
-      },
-      "variant201": {
-        "add": {
-          "component_groups": [ "variant201" ]
-        }
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          },
+          {
+            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "!=", "value": "none" },
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_damage_sensor"
+              ]
+            }
+          }
+        ]
       }
     }
   }

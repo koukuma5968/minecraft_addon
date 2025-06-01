@@ -7,19 +7,19 @@
       "is_summonable": true,
       "is_experimental": false,
       "properties": {
-        "kurokumaft:orge_moon": {
+        "kurokumaft:ogre_moon": {
           "type": "int",
           "range": [0, 6],
           "default": 6,
           "client_sync": true
         },
-        "kurokumaft:orge_rank": {
+        "kurokumaft:ogre_rank": {
           "type": "enum",
           "values": ["none", "crescent"],
           "default": "crescent",
           "client_sync": true
         },
-        "kurokumaft:orge_point": {
+        "kurokumaft:ogre_point": {
           "type": "int",
           "range": [0, 250],
           "default": 250,

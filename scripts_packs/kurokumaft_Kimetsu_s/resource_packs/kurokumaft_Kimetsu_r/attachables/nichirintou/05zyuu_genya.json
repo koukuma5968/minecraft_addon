@@ -21,8 +21,8 @@
           ]
         },
         "animations": {
-          "first": "animation.zyuu_first",
-          "third": "animation.zyuu_third"
+          "first": "animation.zyuu_genya.first",
+          "third": "animation.zyuu_genya.third"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

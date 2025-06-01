@@ -17,13 +17,22 @@ export class KoiNoKata extends KataComonClass {
         entity.applyKnockback(distance.x,distance.z,30,0);
 
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, entity.location, 5, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
+            try {
+                const filter = addRegimentalFilter(0, entity.location, 5, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },10);
 
     }
@@ -36,21 +45,30 @@ export class KoiNoKata extends KataComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:koi_kokyu2.value"}]});
         }
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, entity.location, 6, entity.id);
-            this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+
+            try {
+                const filter = addRegimentalFilter(0, entity.location, 6, entity);
+                this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },4);
 
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
         entity.applyKnockback(distance.x,distance.z,10,1);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
-            entity.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
-                amplifier: 1,
-                showParticles: false
-            });
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+                    amplifier: 1,
+                    showParticles: false
+                });
+            } finally {
+                system.clearRun(num);
+            }
         },20);
 
     }
@@ -70,21 +88,30 @@ export class KoiNoKata extends KataComonClass {
 
         let side = 5;
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, entity.location, 4, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
- 
-            const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0);
-            entity.applyKnockback(distance.x,distance.z,10,0.4);
-            entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
-            side = -side;
+            try {
+                const filter = addRegimentalFilter(0, entity.location, 4, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+    
+                const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0);
+                entity.applyKnockback(distance.x,distance.z,10,0.4);
+                entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
+
+                side = -side;
+            } catch (error) {
+                system.clearRun(num);
+            }
         },10);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_attack", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_attack", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },60);
 
     }
@@ -107,10 +134,16 @@ export class KoiNoKata extends KataComonClass {
         system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, -2);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
+            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
 
             const parnum = system.runInterval(() => {
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+
+                try {
+                    this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                } catch (error) {
+                    system.clearRun(parnum);
+                }
+
             },1);
             entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
                 amplifier: 1,
@@ -118,15 +151,18 @@ export class KoiNoKata extends KataComonClass {
             });
 
             system.runTimeout(() => {
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-                system.clearRun(parnum);
-                entity.removeEffect(MinecraftEffectTypes.SlowFalling);
-                system.runTimeout(() => {
-                    entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
-                        amplifier: 1,
-                        showParticles: false
-                    });
-                },5);
+                try {
+                    entity.setProperty("kurokumaft:kokyu_particle", false);
+                    entity.removeEffect(MinecraftEffectTypes.SlowFalling);
+                    system.runTimeout(() => {
+                        entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+                            amplifier: 1,
+                            showParticles: false
+                        });
+                    },5);
+                } finally {
+                    system.clearRun(parnum);
+                }
             },10);
         },10);
 
@@ -150,19 +186,28 @@ export class KoiNoKata extends KataComonClass {
             entity.setProperty("kurokumaft:kokyu_use", false);
 
             const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, -1.0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
+            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
 
             const parnum = system.runInterval(() => {
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+
+                try {
+                    this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                } catch (error) {
+                    system.clearRun(parnum);
+                }
             },1);
 
             system.runTimeout(() => {
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-                system.clearRun(parnum);
-                entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
-                    amplifier: 1,
-                    showParticles: false
-                });
+
+                try {
+                    entity.setProperty("kurokumaft:kokyu_particle", false);
+                    entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+                        amplifier: 1,
+                        showParticles: false
+                    });
+                } finally {
+                    system.clearRun(parnum);
+                }
     
             },10);
 

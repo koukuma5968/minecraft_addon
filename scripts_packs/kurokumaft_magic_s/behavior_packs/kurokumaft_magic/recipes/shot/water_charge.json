@@ -7,7 +7,7 @@
     "tags": [ "crafting_table" ],
     "ingredients": [
       {
-        "item": "kurokumaft:breeze_powder"
+        "item": "kurokumaft:draiz_powder"
       },
       {
         "item": "minecraft:prismarine"
@@ -18,7 +18,7 @@
     ],
     "unlock": [
       {
-        "item": "kurokumaft:breeze_powder"
+        "item": "kurokumaft:draiz_powder"
       }
     ],
     "result": {

@@ -17,16 +17,23 @@ export class HanaNoKata extends KataComonClass {
         const molang = new MolangVariableMap();
         molang.setFloat("variable.kaikyu", kaikyuNum);
         const num = system.runInterval(() => {
-            const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity.id);
-            entity.dimension.spawnParticle("kurokumaft:hana_ni_particle", getDistanceLocation(entity.location, distance), molang);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
+                entity.dimension.spawnParticle("kurokumaft:hana_ni_particle", getDistanceLocation(entity.location, distance), molang);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },4);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            system.clearRun(num);
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            } finally {
+                system.clearRun(num);
+            }
         },20);
 
     }
@@ -39,7 +46,7 @@ export class HanaNoKata extends KataComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hana_kokyu4.value"}]});
         }
         const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
+        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         const molang = new MolangVariableMap();
@@ -66,19 +73,26 @@ export class HanaNoKata extends KataComonClass {
 
         let count = 1;
         const num = system.runInterval(() => {
-            const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity.id);
-            this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-            if (count <= 9) {
-                entity.dimension.spawnParticle("kurokumaft:hana_go_"+ count +"_particle",getDistanceLocation(entity.location, distance),molang);
-                count++;
+            try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
+                this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+                if (count <= 9) {
+                    entity.dimension.spawnParticle("kurokumaft:hana_go_"+ count +"_particle",getDistanceLocation(entity.location, distance),molang);
+                    count++;
+                }
+            } catch (error) {
+                system.clearRun(num);
             }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            system.clearRun(num);
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            } finally {
+                system.clearRun(num);
+            }
         },20);
 
     }
@@ -98,18 +112,25 @@ export class HanaNoKata extends KataComonClass {
         entity.applyKnockback(distance.x,distance.z,5,0.6);
 
         const num = system.runInterval(() => {
-            const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-            this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-    
-            entity.dimension.spawnParticle("kurokumaft:hana_roku_particle", getDistanceLocation(entity.location, distance), molang);
+            try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
+                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+        
+                entity.dimension.spawnParticle("kurokumaft:hana_roku_particle", getDistanceLocation(entity.location, distance), molang);
+            } catch (error) {
+                system.clearRun(num);
+            }
    
         },5);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            system.clearRun(num);
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            } finally {
+                system.clearRun(num);
+            }
         },10);
 
     }

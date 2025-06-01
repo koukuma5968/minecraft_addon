@@ -19,14 +19,22 @@ export class HonoNoKata extends KataComonClass {
         entity.applyKnockback(distance.x,distance.z,20,0);
 
         const num = system.runInterval(() => {
-            let filter = addRegimentalFilter(0, entity.location, 3.5, entity.id);
-            this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+            try {
+                let filter = addRegimentalFilter(0, entity.location, 3.5, entity);
+                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },1);
 
         system.runTimeout(() => {
-            entity.setDynamicProperty("kurokumaft:chage_type", undefined);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setDynamicProperty("kurokumaft:chage_type", undefined);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },12);
 
     }
@@ -39,7 +47,7 @@ export class HonoNoKata extends KataComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hono_kokyu2.value"}]});
         }
         const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
-        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
+        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
 
         system.runTimeout(() => {
@@ -57,7 +65,7 @@ export class HonoNoKata extends KataComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hono_kokyu3.value"}]});
         }
         const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
-        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
+        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
 
         system.runTimeout(() => {
@@ -75,7 +83,7 @@ export class HonoNoKata extends KataComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hono_kokyu4.value"}]});
         }
         const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
-        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
+        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
         this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
 
         system.runTimeout(() => {
@@ -124,14 +132,22 @@ export class HonoNoKata extends KataComonClass {
         entity.applyKnockback(distance.x,distance.z,50,0);
 
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, entity.location, 3.5, entity.id);
-            this.kokyuApplyDamage(entity, filter, 10, 3, itemStack);
+            try {
+                const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
+                this.kokyuApplyDamage(entity, filter, 10, 3, itemStack);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },1);
 
         system.runTimeout(() => {
-            entity.setDynamicProperty("kurokumaft:chage_type", undefined);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setDynamicProperty("kurokumaft:chage_type", undefined);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },12);
     }
 

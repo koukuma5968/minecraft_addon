@@ -7,15 +7,18 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/sanemi"
+        "default": "textures/kurokumaft/models/mob/sanemi",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.sanemi"
+        "default": "geometry.sanemi",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
         "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
         "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle",
-        "kaze_circle_particle": "kurokumaft:kaze_circle_particle"
+        "kaze_circle_particle": "kurokumaft:kaze_circle_particle",
+        "kaze_uzu_particle": "kurokumaft:kaze_uzu_particle"
       },
       "scripts": {
         "scaleX": "1.00",
@@ -34,7 +37,10 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+          "sanemi.action"
 
         ]
       },
@@ -59,10 +65,31 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+
+        "sanemi.action": "controller.animation.sanemi.action",
+
+        "kaze.ichi_1_third": "animation.action.kaze.ichi_1_third",
+        "kaze.ichi_2_third": "animation.action.kaze.ichi_2_third",
+        "kaze.ni_1_third": "animation.action.kaze.ni_1_third",
+        "kaze.san_1_third": "animation.action.kaze.san_1_third",
+        "kaze.shi_1_third": "animation.action.kaze.shi_1_third",
+        "kaze.go_1_third": "animation.action.kaze.go_1_third",
+        "kaze.roku_1_third": "animation.action.kaze.roku_1_third",
+        "kaze.shiti_1_third": "animation.action.kaze.shiti_1_third",
+        "kaze.hati_1_third": "animation.action.kaze.hati_1_third",
+        "kaze.ku_1_third": "animation.action.kaze.ku_1_third",
+
+        "kaze.go_uzu": "animation.action.kaze.go_uzu",
+        "kaze.hati_uzu": "animation.action.kaze.hati_uzu"
+
       },
       "render_controllers": [
-        "controller.render.soldier.sanemi"
+        "controller.render.soldier.sanemi",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

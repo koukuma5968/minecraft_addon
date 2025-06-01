@@ -1,4 +1,4 @@
-import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, EntityHealthComponent, Entity, SystemAfterEvents, EntitySpawnAfterEvent, EntityInitializationCause } from "@minecraft/server";
+import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause } from "@minecraft/server";
 import { initRegisterKimetuCustom } from "./custom/KimetuCustomComponentRegistry";
 import { kokyuClassRecord, KokyuMobClassRecord, KokyuMobObject, KokyuMobObjects, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 import { KimetuEquipmentTick } from "./player/KimetuEquipmentTick";
@@ -54,17 +54,31 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     }
   } else {
     if (event.eventId == "kurokumaft:kokyu_start") {
-      const taishi = KokyuMobObjects.find(ob => ob.entityName == entity.typeId) as KokyuMobObject;
-      if (taishi != undefined) {
-        world.sendMessage(taishi.entityName);
-        const KokyuClass = KokyuMobClassRecord[taishi.className];
-        const KokyuObject = new KokyuClass();
-        KokyuObject.startMonitoring(entity);
+      if (entity.typeId.indexOf("kurokumaft:regimental") != -1) {
+        const nichirintoutype = entity.getProperty("kurokumaft:nichirintou_type") as number;
+        if (nichirintoutype != undefined) {
+          const kokyuObject = KokyuObjects.find(ob => ob.type == nichirintoutype) as KokyuObject;
+          const katana = KokyuMobObjects.find(ob => ob.entityName == kokyuObject.itemName) as KokyuMobObject;
+          if (katana != undefined) {
+            const KokyuClass = KokyuMobClassRecord[katana.className];
+            const KokyuObject = new KokyuClass();
+            KokyuObject.startMonitoring(entity);
+          }
+        }
+
+      } else {
+        const taishi = KokyuMobObjects.find(ob => ob.entityName == entity.typeId) as KokyuMobObject;
+        if (taishi != undefined) {
+          const kokyu_kata = entity.getProperty("kurokumaft:kokyu_kata");
+          const KokyuClass = KokyuMobClassRecord[taishi.className];
+          const KokyuObject = new KokyuClass();
+          KokyuObject.startMonitoring(entity);
+        }
       }
     } else if (event.eventId == "kurokumaft:kekkizyutu_start") {
-      const orge = KekkizyutuMobObjects.find(ob => ob.entityName == entity.typeId) as KekkizyutuMobObject;
-      if (orge != undefined) {
-        const kekkizyutuClass = KekkizyutuMobClassRecord[orge.className];
+      const ogre = KekkizyutuMobObjects.find(ob => ob.entityName == entity.typeId) as KekkizyutuMobObject;
+      if (ogre != undefined) {
+        const kekkizyutuClass = KekkizyutuMobClassRecord[ogre.className];
         const kekkizyutuObject = new kekkizyutuClass(entity);
         kekkizyutuObject.startMonitoring();
       }
@@ -148,7 +162,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     if (hitEntity != undefined) {
       const familyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
       if (familyTypes.hasTypeFamily("ogre")) {
-        const rank = hitEntity.getProperty("kurokumaft:orge_rank");
+        const rank = hitEntity.getProperty("kurokumaft:ogre_rank");
         const daggerFull = new ItemStack("kurokumaft:syringe_dagger_full", 1);
         switch (rank) {
           case "low" :
@@ -241,12 +255,12 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
       }
     }
 
-    sourceEntity.setProperty("kurokumaft:orge_rank", "none");
-    sourceEntity.setProperty("kurokumaft:orge_moon", 6);
-    sourceEntity.setProperty("kurokumaft:orge_becoming", 0);
+    sourceEntity.setProperty("kurokumaft:ogre_rank", "none");
+    sourceEntity.setProperty("kurokumaft:ogre_moon", 6);
+    sourceEntity.setProperty("kurokumaft:ogre_becoming", 0);
 
     const kaikyu = sourceEntity.getProperty("kurokumaft:kaikyu") as number;
-    const kill = sourceEntity.getProperty("kurokumaft:orge_kill") as number;
+    const kill = sourceEntity.getProperty("kurokumaft:ogre_kill") as number;
 
     if (params[0] == "add") {
       const num = Number(params[2]);
@@ -279,9 +293,9 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
             killtarget=killtarget+10;
             if (upPoint >= killtarget) {
               sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu+1);
-              sourceEntity.setProperty("kurokumaft:orge_kill", 0);
+              sourceEntity.setProperty("kurokumaft:ogre_kill", 0);
             } else {
-              sourceEntity.setProperty("kurokumaft:orge_kill", upPoint);
+              sourceEntity.setProperty("kurokumaft:ogre_kill", upPoint);
             }
         }
       } else if (params[1] == "demotion") {
@@ -312,15 +326,15 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
             killtarget=killtarget+10;
             if (upPoint < 0) {
               sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu-1);
-              sourceEntity.setProperty("kurokumaft:orge_kill", killtarget);
+              sourceEntity.setProperty("kurokumaft:ogre_kill", killtarget);
               sourceEntity.triggerEvent("kurokumaft:kakyu_change");
             } else {
-              sourceEntity.setProperty("kurokumaft:orge_kill", upPoint);
+              sourceEntity.setProperty("kurokumaft:ogre_kill", upPoint);
             }
             break;
           case 11:
             sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu-1);
-            sourceEntity.setProperty("kurokumaft:orge_kill", 300);
+            sourceEntity.setProperty("kurokumaft:ogre_kill", 300);
             sourceEntity.triggerEvent("kurokumaft:kakyu_change");
           }
       }
@@ -340,117 +354,117 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
     }
   }
 
-  if (id == "kk:orgerankchange" && sourceType == ScriptEventSource.Entity && sourceEntity instanceof Player) {
+  if (id == "kk:ogrerankchange" && sourceType == ScriptEventSource.Entity && sourceEntity instanceof Player) {
     const params = message.split(" ");
     if (params[0] != "set" && params[0] != "add") {
-      world.sendMessage({ translate: "msg.kurokumaft:orgeRankChange.missing_method"});
+      world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_method"});
       return;
     }
     if (params[0] == "add") {
       if (params.length != 3) {
-        world.sendMessage({ translate: "msg.kurokumaft:orgeRankChange.missing_add_argument"});
+        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_argument"});
         return;
       }
       if (params[1] != "promotion" && params[1] != "demotion") {
-        world.sendMessage({ translate: "msg.kurokumaft:orgeRankChange.missing_add_type"});
+        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_type"});
         return;
       }
       if (!(typeof params[2] === "number" && Number.isFinite(params[2]))) {
-        world.sendMessage({ translate: "msg.kurokumaft:orgeRankChange.missing_add_num"});
+        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_num"});
         return;
       }
     } else if (params[0] == "set") {
       if (params.length != 2) {
-        world.sendMessage({ translate: "msg.kurokumaft:orgeRankChange.missing_set_argument"});
+        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_argument"});
         return;
       }
       const num = Number(params[1]);
       if (!(!isNaN(num) && Number.isFinite(num))) {
-        world.sendMessage({ translate: "msg.kurokumaft:orgeRankChange.missing_set_num"});
+        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_num"});
         return;
       }
     }
 
     sourceEntity.setProperty("kurokumaft:kaikyu", 0);
-    sourceEntity.setProperty("kurokumaft:orge_kill", 0);
+    sourceEntity.setProperty("kurokumaft:ogre_kill", 0);
 
-    const rank = sourceEntity.getProperty("kurokumaft:orge_rank");
+    const rank = sourceEntity.getProperty("kurokumaft:ogre_rank");
 
     if (params[0] == "add") {
-      let becoming = sourceEntity.getProperty("kurokumaft:orge_becoming") as number;
+      let becoming = sourceEntity.getProperty("kurokumaft:ogre_becoming") as number;
       const num = Number(params[2]);
       if (params[1] == "promotion") {
         becoming = becoming+num;
         if (becoming >= 100) {
           switch (rank) {
             case "low" :
-              sourceEntity.setProperty("kurokumaft:orge_rank", "unusual");
+              sourceEntity.setProperty("kurokumaft:ogre_rank", "unusual");
             break;
             case "unusual" :
-              sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
+              sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
             break;
             case "quarter" :
-              const moon1 = sourceEntity.getProperty("kurokumaft:orge_moon") as number;
+              const moon1 = sourceEntity.getProperty("kurokumaft:ogre_moon") as number;
               if (moon1 == 1) {
-                sourceEntity.setProperty("kurokumaft:orge_moon", 6);
-                sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
+                sourceEntity.setProperty("kurokumaft:ogre_moon", 6);
+                sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
               } else {
-                sourceEntity.setProperty("kurokumaft:orge_moon", moon1-1);
+                sourceEntity.setProperty("kurokumaft:ogre_moon", moon1-1);
               }
             break;
             case "crescent" :
-              const moon2 = sourceEntity.getProperty("kurokumaft:orge_moon") as number;
+              const moon2 = sourceEntity.getProperty("kurokumaft:ogre_moon") as number;
               if (moon2 == 1) {
-                sourceEntity.setProperty("kurokumaft:orge_rank", "king");
+                sourceEntity.setProperty("kurokumaft:ogre_rank", "king");
               } else {
-                sourceEntity.setProperty("kurokumaft:orge_moon", moon2-1);
+                sourceEntity.setProperty("kurokumaft:ogre_moon", moon2-1);
               }
             break;
           }
-          sourceEntity.setProperty("kurokumaft:orge_becoming", 0);
+          sourceEntity.setProperty("kurokumaft:ogre_becoming", 0);
           system.runTimeout(() => {
-            sourceEntity.triggerEvent("kurokumaft:orge_rank_change");
+            sourceEntity.triggerEvent("kurokumaft:ogre_rank_change");
           }, 2);
         } else {
-          sourceEntity.setProperty("kurokumaft:orge_becoming", becoming);
+          sourceEntity.setProperty("kurokumaft:ogre_becoming", becoming);
         }
       } else if (params[1] == "demotion") {
         becoming = becoming-num;
         if (becoming > 0) {
           switch (rank) {
             case "low" :
-              sourceEntity.setProperty("kurokumaft:orge_rank", "none");
+              sourceEntity.setProperty("kurokumaft:ogre_rank", "none");
             break;
             case "unusual" :
-              sourceEntity.setProperty("kurokumaft:orge_rank", "low");
+              sourceEntity.setProperty("kurokumaft:ogre_rank", "low");
             break;
             case "quarter" :
-              const moon1 = sourceEntity.getProperty("kurokumaft:orge_moon") as number;
+              const moon1 = sourceEntity.getProperty("kurokumaft:ogre_moon") as number;
               if (moon1 == 6) {
-                sourceEntity.setProperty("kurokumaft:orge_rank", "unusual");
+                sourceEntity.setProperty("kurokumaft:ogre_rank", "unusual");
               } else {
-                sourceEntity.setProperty("kurokumaft:orge_moon", moon1+1);
+                sourceEntity.setProperty("kurokumaft:ogre_moon", moon1+1);
               }
             break;
             case "crescent" :
-              const moon2 = sourceEntity.getProperty("kurokumaft:orge_moon") as number;
+              const moon2 = sourceEntity.getProperty("kurokumaft:ogre_moon") as number;
               if (moon2 == 6) {
-                sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
+                sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
               } else {
-                sourceEntity.setProperty("kurokumaft:orge_moon", moon2+1);
+                sourceEntity.setProperty("kurokumaft:ogre_moon", moon2+1);
               }
             break;
             case "king" :
-              sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
-              sourceEntity.setProperty("kurokumaft:orge_moon", 1);
+              sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
+              sourceEntity.setProperty("kurokumaft:ogre_moon", 1);
               break;
           }
-          sourceEntity.setProperty("kurokumaft:orge_becoming", 0);
+          sourceEntity.setProperty("kurokumaft:ogre_becoming", 0);
           system.runTimeout(() => {
-            sourceEntity.triggerEvent("kurokumaft:orge_rank_change");
+            sourceEntity.triggerEvent("kurokumaft:ogre_rank_change");
           }, 2);
         } else {
-          sourceEntity.setProperty("kurokumaft:orge_becoming", becoming);
+          sourceEntity.setProperty("kurokumaft:ogre_becoming", becoming);
         }
       }
     } else if (params[0] == "set") {
@@ -458,68 +472,68 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
       if (num >= 0 && num <= 15) {
         switch (num) {
           case 0:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "none");
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "none");
           break;
           case 1:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "low");
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "low");
           break;
           case 2:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "unusual");
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "unusual");
           break;
           case 3:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 6);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 6);
             break;
           case 4:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 5);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 5);
           break;
           case 5:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 4);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 4);
           break;
           case 6:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 3);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 3);
           break;
           case 7:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 2);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 2);
           break;
           case 8:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "quarter");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 1);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "quarter");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 1);
           break;
           case 9:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 6);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 6);
             break;
           case 10:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 5);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 5);
           break;
           case 11:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 4);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 4);
           break;
           case 12:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 3);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 3);
           break;
           case 13:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 2);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 2);
           break;
           case 14:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "crescent");
-            sourceEntity.setProperty("kurokumaft:orge_moon", 1);
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "crescent");
+            sourceEntity.setProperty("kurokumaft:ogre_moon", 1);
           break;
           case 15:
-            sourceEntity.setProperty("kurokumaft:orge_rank", "king");
+            sourceEntity.setProperty("kurokumaft:ogre_rank", "king");
           break;
         }
         system.runTimeout(() => {
-          sourceEntity.triggerEvent("kurokumaft:kakyu_change");
+          sourceEntity.triggerEvent("kurokumaft:ogre_rank_change");
         }, 2);
       }
     }

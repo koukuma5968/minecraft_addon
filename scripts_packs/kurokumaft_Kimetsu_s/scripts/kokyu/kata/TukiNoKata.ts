@@ -16,7 +16,7 @@ export class TukiNoKata extends KataComonClass {
         }
 
         const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 0, 0.5);
-        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
+        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
 
         const molang = new MolangVariableMap();
@@ -48,23 +48,32 @@ export class TukiNoKata extends KataComonClass {
         let side = -3;
         let tuki_rotaion = 90;
         const num = system.runInterval(() => {
-            molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
-    
-            const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0.5);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-    
-            const pdistance = getLookLocationDistance(entity.getRotation().y, 2.5, side, 1);
-            entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
-    
-            side=side+3;
-            tuki_rotaion=tuki_rotaion-90;
+
+            try {
+                molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
+        
+                const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0.5);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+        
+                const pdistance = getLookLocationDistance(entity.getRotation().y, 2.5, side, 1);
+                entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
+        
+                side=side+3;
+                tuki_rotaion=tuki_rotaion-90;
+            } catch (error) {
+                system.clearRun(num);
+            }
         },5);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },15);
 
     }
@@ -83,7 +92,7 @@ export class TukiNoKata extends KataComonClass {
 
         // 左
         const distance = getLookLocationDistance(entity.getRotation().y, 2.5, -1.5, 1);
-        const lfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity.id);
+        const lfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
         this.kokyuApplyDamage(entity, lfilter, 3, 1, itemStack);
 
         molang.setFloat("variable.tuki_rotaion", 0);
@@ -92,7 +101,7 @@ export class TukiNoKata extends KataComonClass {
         system.runTimeout(() => {
             // 右
             const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 1.5, 1);
-            const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity.id);
+            const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
             this.kokyuApplyDamage(entity, rfilter, 3, 1, itemStack);
 
             molang.setFloat("variable.tuki_rotaion", 180);
@@ -118,22 +127,31 @@ export class TukiNoKata extends KataComonClass {
         const molang = new MolangVariableMap();
 
         const num = system.runInterval(() => {
-            const y = getRandomInRange(0.1, 2.5);
-            const distance = getLookLocationDistance(entity.getRotation().y, 3.5, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
 
-            const pdistance = getLookLocationDistance(entity.getRotation().y, 6.5, 0, y);
-            molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
-            molang.setFloat("variable.tuki_size_x", getRandomInRange(8, 12));
-            molang.setFloat("variable.tuki_size_y", getRandomInRange(4, 8));
-            entity.dimension.spawnParticle("kurokumaft:tuki5_particle", getDistanceLocation(entity.location, pdistance), molang);
+            try {
+                const y = getRandomInRange(0.1, 2.5);
+                const distance = getLookLocationDistance(entity.getRotation().y, 3.5, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
+                const pdistance = getLookLocationDistance(entity.getRotation().y, 6.5, 0, y);
+                molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
+                molang.setFloat("variable.tuki_size_x", getRandomInRange(8, 12));
+                molang.setFloat("variable.tuki_size_y", getRandomInRange(4, 8));
+                entity.dimension.spawnParticle("kurokumaft:tuki5_particle", getDistanceLocation(entity.location, pdistance), molang);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },20);
 
     }
@@ -157,23 +175,32 @@ export class TukiNoKata extends KataComonClass {
         entity.dimension.spawnParticle("kurokumaft:tuki_box_particle", parlo, molang);
 
         const num = system.runInterval(() => {
-            const side = getRandomInRange(-5, 5);
-            const tuki_rotaion = getRandomInRange(-90, 90);
-            molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
 
-            const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            try {
+                const side = getRandomInRange(-5, 5);
+                const tuki_rotaion = getRandomInRange(-90, 90);
+                molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
 
-            const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
-            entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
-    
+                const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
+                const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
+                entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
+
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            } finally {
+                system.clearRun(num);
+            }
         },20);
     }
 
@@ -198,16 +225,24 @@ export class TukiNoKata extends KataComonClass {
         this.tukibae(entity,entity.location, left2);
 
         const num = system.runInterval(() => {
-            const distance = getLookLocationDistancePitch(entity.getRotation(), 6, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
+            try {
+                const distance = getLookLocationDistancePitch(entity.getRotation(), 6, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            system.clearRun(num);
 
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            } finally {
+                system.clearRun(num);
+            }
         },10);
     }
 
@@ -231,20 +266,28 @@ export class TukiNoKata extends KataComonClass {
         });
     
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, location, 2, entity.id);
-            const exes = filter.excludeFamilies;
-            if (exes != undefined) {
-                exes.push("tuki_blead");
-            }
-            this.kokyuApplyDamage(entity, filter, 2, 1, undefined);
 
+            try {
+                const filter = addRegimentalFilter(0, location, 2, entity);
+                const exes = filter.excludeFamilies;
+                if (exes != undefined) {
+                    exes.push("tuki_blead");
+                }
+                this.kokyuApplyDamage(entity, filter, 2, 1, undefined);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            if (tuki.isValid()) {
-                tuki.remove();
+
+            try {
+                if (tuki.isValid()) {
+                    tuki.remove();
+                }
+            } finally {
+                system.clearRun(num);
             }
-            system.clearRun(num);
         },20);
 
     }
@@ -270,7 +313,7 @@ export class TukiNoKata extends KataComonClass {
         molang.setFloat("variable.tuki_size_y", getRandomInRange(4, 8));
         entity.dimension.spawnParticle("kurokumaft:tuki8_particle", disLotation, molang);
 
-        const filter = addRegimentalFilter(0, disLotation, 4, entity.id);
+        const filter = addRegimentalFilter(0, disLotation, 4, entity);
         this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
 
         system.runTimeout(() => {
@@ -297,23 +340,32 @@ export class TukiNoKata extends KataComonClass {
 
         let tuki_rotaion = 75;
         const num = system.runInterval(() => {
-            const side = getRandomInRange(-5, 5);
-            molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
 
-            const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            try {
+                const side = getRandomInRange(-5, 5);
+                molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
 
-            const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
-            entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
-    
-            tuki_rotaion=-tuki_rotaion;
+                const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
+                const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
+                entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
+        
+                tuki_rotaion=-tuki_rotaion;
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            } finally {
+                system.clearRun(num);
+            }
         },20);
     }
 
@@ -359,20 +411,29 @@ export class TukiNoKata extends KataComonClass {
         });
     
         const num = system.runInterval(() => {
-            const filter = addRegimentalFilter(0, location, 2, entity.id);
-            const exes = filter.excludeFamilies;
-            if (exes != undefined) {
-                exes.push("tuki_blead");
+
+            try {
+                const filter = addRegimentalFilter(0, location, 2, entity);
+                const exes = filter.excludeFamilies;
+                if (exes != undefined) {
+                    exes.push("tuki_blead");
+                }
+                this.kokyuApplyDamage(entity, filter, 2, 1, undefined);
+            } catch (error) {
+                system.clearRun(num);
             }
-            this.kokyuApplyDamage(entity, filter, 2, 1, undefined);
 
         },2);
 
         system.runTimeout(() => {
-            if (tuki.isValid()) {
-                tuki.remove();
+
+            try {
+                if (tuki.isValid()) {
+                    tuki.remove();
+                }
+            } finally {
+                system.clearRun(num);
             }
-            system.clearRun(num);
         },20);
 
     }
@@ -388,22 +449,31 @@ export class TukiNoKata extends KataComonClass {
         const molang = new MolangVariableMap();
 
         const num = system.runInterval(() => {
-            const y = getRandomInRange(0.1, 2.5);
-            const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
 
-            const pdistance = getLookLocationDistance(entity.getRotation().y, 8, 0, y);
-            molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
-            molang.setFloat("variable.tuki_size_x", getRandomInRange(12, 16));
-            molang.setFloat("variable.tuki_size_y", getRandomInRange(8, 12));
-            entity.dimension.spawnParticle("kurokumaft:tuki5_particle", getDistanceLocation(entity.location, pdistance), molang);
+            try {
+                const y = getRandomInRange(0.1, 2.5);
+                const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
+                const pdistance = getLookLocationDistance(entity.getRotation().y, 8, 0, y);
+                molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
+                molang.setFloat("variable.tuki_size_x", getRandomInRange(12, 16));
+                molang.setFloat("variable.tuki_size_y", getRandomInRange(8, 12));
+                entity.dimension.spawnParticle("kurokumaft:tuki5_particle", getDistanceLocation(entity.location, pdistance), molang);
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } finally {
+                system.clearRun(num);
+            }
         },40);
 
 
@@ -425,23 +495,32 @@ export class TukiNoKata extends KataComonClass {
 
         let tuki_rotaion = 90;
         const num = system.runInterval(() => {
-            const side = getRandomInRange(-5, 5);
-            molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
 
-            const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+            try {
+                const side = getRandomInRange(-5, 5);
+                molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
 
-            const pdistance = getLookLocationDistance(entity.getRotation().y, 8, side, 1);
-            entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
-    
-            tuki_rotaion=-tuki_rotaion;
+                const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
+                const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
+                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
+                const pdistance = getLookLocationDistance(entity.getRotation().y, 8, side, 1);
+                entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
+        
+                tuki_rotaion=-tuki_rotaion;
+            } catch (error) {
+                system.clearRun(num);
+            }
         },2);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            system.clearRun(num);
+
+            try {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            } finally {
+                system.clearRun(num);
+            }
         },40);
 
     }

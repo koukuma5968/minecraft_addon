@@ -7,14 +7,17 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/tengen"
+        "default": "textures/kurokumaft/models/mob/tengen",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.tengen"
+        "default": "geometry.tengen",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
-        "kaze_blead_particle": "kurokumaft:kaze_blead_particle",
-        "kaze_kiba_particle": "kurokumaft:kaze_kiba_particle"
+        "kaminari_blead_particle": "kurokumaft:kaminari_blead_particle",
+        "kaminari_point_particle": "kurokumaft:kaminari_point_particle",
+        "kaminari_spark_particle": "kurokumaft:kaminari_spark_particle"
       },
       "scripts": {
         "scaleX": "1.05",
@@ -33,7 +36,10 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+          "tengen.action"
 
         ]
       },
@@ -58,10 +64,24 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_two",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.two_attack_third",
+
+        "tengen.action": "controller.animation.tengen.action",
+
+        "oto.ichi_1_third": "animation.action.oto.ichi_1_third",
+        "oto.ni_1_third": "animation.action.oto.ni_1_third",
+        "oto.san_1_third": "animation.action.oto.san_1_third",
+        "oto.san_2_third": "animation.action.oto.san_2_third",
+        "oto.shi_1_third": "animation.action.oto.shi_1_third",
+        "oto.go_1_third": "animation.action.oto.go_1_third"
+
       },
       "render_controllers": [
-        "controller.render.soldier.tengen"
+        "controller.render.soldier.tengen",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

@@ -1,6 +1,6 @@
 import { Entity, Player, system } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
-import { getLookLocationDistancePitch, addRegimentalFilter, getDistanceLocation, addOrgeFilter, getLookLocationDistance, getDirectionVector } from "../../common/KimetuCommonUtil";
+import { getLookLocationDistancePitch, getDistanceLocation, addOrgeFilter, getLookLocationDistance, getDirectionVector } from "../../common/KimetuCommonUtil";
 import { shooting } from "../../common/ShooterEvent";
 
 export class Obi extends ZytuComonClass {
@@ -11,7 +11,7 @@ export class Obi extends ZytuComonClass {
     yokonagi(entity:Entity) {
 
         const distance = getLookLocationDistancePitch(entity.getRotation(), 5, 0);
-        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
+        const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
         this.kokyuApplyDamage(entity, filter, 4, 2);
 
         system.runTimeout(() => {
@@ -57,7 +57,7 @@ export class Obi extends ZytuComonClass {
 
         const serchNum = system.runInterval(() => {
 
-            if (!targethoming) {
+            if (obi != undefined && !targethoming) {
                 obi.addTag(obi.id);
                 entity.addTag(entity.id);
                 const targets = entity.dimension.getEntities({
@@ -141,7 +141,7 @@ export class Obi extends ZytuComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_obi4.value"}]});
         }
         const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 2);
-        const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 10, entity.id);
+        const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 10, entity.id);
         this.kokyuApplyDamage(entity, filter, 6, 3);
 
         system.runTimeout(() => {

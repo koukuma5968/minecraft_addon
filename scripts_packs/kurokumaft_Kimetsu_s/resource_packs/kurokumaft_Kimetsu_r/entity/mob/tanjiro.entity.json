@@ -44,6 +44,8 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
+          "nichirintou_custom",
+
           "tanjiro.action",
           "tanjiro.attack"
 
@@ -73,7 +75,6 @@
         "use_item_progress":"animation.humanoid.use_item_progress",
 
         "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
-        "nichirintou_custom.first": "animation.nichirintou_custom.first",
         "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
 
         "tanjiro.action":"controller.animation.tanjiro.action",

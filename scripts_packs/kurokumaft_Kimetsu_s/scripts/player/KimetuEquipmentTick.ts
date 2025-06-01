@@ -20,14 +20,14 @@ export class KimetuEquipmentTick {
             } else {
                 system.clearRun(this.num);
             }
-        }, 1*TicksPerSecond);
+        }, 0.5*TicksPerSecond);
     }
 
     async checkPlayerKaikyuTick() {
         if (this.player.isValid()) {
 
-            const orgeRank = this.player.getProperty("kurokumaft:orge_rank");
-            if ("none" == orgeRank) {
+            const ogreRank = this.player.getProperty("kurokumaft:ogre_rank");
+            if ("none" == ogreRank) {
                 const kaikyuNum = this.player.getProperty("kurokumaft:kaikyu") as number;
                 if (kaikyuNum > 0) {
                     let kataMess = "";
@@ -66,12 +66,29 @@ export class KimetuEquipmentTick {
         
                 }
             } else {
-                const orgeMoon = this.player.getProperty("kurokumaft:orge_moon") as number;
-                const rank = "msg.kurokumaft:orgerank_" + orgeRank + (("quarter" == orgeRank || "crescent" == orgeRank) ? orgeMoon : "") + ".value";
+                const ogreMoon = this.player.getProperty("kurokumaft:ogre_moon") as number;
+                const rank = "msg.kurokumaft:ogrerank_" + ogreRank + (("quarter" == ogreRank || "crescent" == ogreRank) ? ogreMoon : "") + ".value";
+                let kataMess = "";
+
+                const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+                const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
+                if (mainHand != undefined) {
+                    const kekkizyutuObject = KekkizyutuObjects.find(ob => ob.itemName == mainHand.typeId) as KekkizyutuObject;
+                    // 血気術を持っている
+                    if (kekkizyutuObject != undefined) {
+                        const kataNum = this.player.getProperty("kurokumaft:kekkizyutu_kata") as number;
+                        if (kekkizyutuObject.kata[kataNum-1] != undefined) {
+                            kataMess = "msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[kataNum-1]+ ".value";
+                        }
+                    }
+                }
                 this.player.onScreenDisplay.setTitle(
                     {
                         rawtext:[
-                            {translate:rank}
+                            {text:"階級："},
+                            {translate:rank},
+                            {text:"\n"},
+                            {translate:kataMess}
                         ]
                     },
                     {

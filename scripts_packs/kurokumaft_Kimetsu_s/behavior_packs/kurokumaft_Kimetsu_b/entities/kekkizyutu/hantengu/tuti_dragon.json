@@ -17,19 +17,19 @@
           "default": "false",
           "client_sync": true
         },
-        "kurokumaft:orge_moon": {
+        "kurokumaft:ogre_moon": {
           "type": "int",
           "range": [0, 4],
           "default": 4,
           "client_sync": true
         },
-        "kurokumaft:orge_rank": {
+        "kurokumaft:ogre_rank": {
           "type": "enum",
           "values": ["none", "crescent"],
           "default": "crescent",
           "client_sync": true
         },
-        "kurokumaft:orge_point": {
+        "kurokumaft:ogre_point": {
           "type": "int",
           "range": [0, 10],
           "default": 10,

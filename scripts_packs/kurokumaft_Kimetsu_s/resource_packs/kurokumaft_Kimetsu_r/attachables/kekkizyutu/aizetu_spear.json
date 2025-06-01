@@ -22,7 +22,9 @@
           "wield_first_person_riptide": "animation.aizetu_spear.wield_first_person_riptide",
           "wield_third_person": "animation.aizetu_spear.wield_third_person",
           "wield_third_person2": "animation.aizetu_spear.wield_third_person2",
-          "wield_third_person_raise": "animation.aizetu_spear.wield_third_person_raise"
+          "wield_third_person_raise": "animation.aizetu_spear.wield_third_person_raise",
+          "": "controller.animation.spear.action.player",
+          "shitotu_third": "animation.aizetu_spear.shitotu_third"
         },
         "scripts": {
           "pre_animation": [

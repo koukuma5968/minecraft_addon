@@ -7,13 +7,13 @@
       "is_summonable": true,
       "is_experimental": false,
       "properties": {
-        "kurokumaft:orge_rank": {
+        "kurokumaft:ogre_rank": {
           "type": "enum",
           "values": ["none", "low"],
           "default": "low",
           "client_sync": true
         },
-        "kurokumaft:orge_point": {
+        "kurokumaft:ogre_point": {
           "type": "int",
           "range": [10, 60],
           "default": 10,
@@ -239,7 +239,7 @@
     "events": {
       "minecraft:entity_spawned": {
         "set_property": {
-          "kurokumaft:orge_point": "math.random_integer(10, 60);"
+          "kurokumaft:ogre_point": "math.random_integer(10, 60);"
         },
         "randomize": [
           {

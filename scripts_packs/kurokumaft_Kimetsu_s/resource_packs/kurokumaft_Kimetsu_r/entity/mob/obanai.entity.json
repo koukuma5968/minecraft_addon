@@ -7,10 +7,14 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/obanai"
+        "default": "textures/kurokumaft/models/mob/obanai",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image",
+        "hebi": "textures/kurokumaft/models/hebi"
       },
       "geometry": {
-        "default": "geometry.obanai"
+        "default": "geometry.obanai",
+        "nichirintou_custom": "geometry.nichirintou_custom",
+        "hebi": "geometry.hebi"
       },
       "scripts": {
         "scaleX": "0.96",
@@ -30,8 +34,10 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
 
+          "nichirintou_custom",
+          "obanai.action"
         ]
       },
       "animations": {
@@ -55,10 +61,29 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+
+        "obanai.action": "controller.animation.obanai.action",
+
+        "hebi_ichi": "animation.hebi.ichi",
+        "hebi_ni": "animation.hebi.ni",
+        "hebi_san": "animation.hebi.san",
+        "hebi_shi": "animation.hebi.shi",
+        "hebi_go": "animation.hebi.go",
+
+        "hebi.ichi_1_third": "animation.action.hebi.ichi_1_third",
+        "hebi.ni_1_third": "animation.action.hebi.ni_1_third",
+        "hebi.san_1_third": "animation.action.hebi.san_1_third",
+        "hebi.shi_1_third": "animation.action.hebi.shi_1_third",
+        "hebi.go_1_third": "animation.action.hebi.go_1_third"
       },
       "render_controllers": [
-        "controller.render.soldier.obanai"
+        "controller.render.soldier.obanai",
+        "controller.render.nichirintou_custom",
+        { "controller.render.hebi": "query.property('kurokumaft:kokyu_kata') != 0 && query.property('kurokumaft:kokyu_use')" }
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

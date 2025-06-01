@@ -1,0 +1,61 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.mushi.action" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"third_use": "variable.nichirintou_equipment == 26 && query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"chou_third": "query.property('kurokumaft:kokyu_kata') == 1"},
+						{"houga_third": "query.property('kurokumaft:kokyu_kata') == 2"},
+						{"seirei_third": "query.property('kurokumaft:kokyu_kata') == 3"},
+						{"gokou_third": "query.property('kurokumaft:kokyu_kata') == 4"}
+					]
+				},
+				"chou_third" : {
+					"animations" : [
+						"mushi.chou_1_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"houga_third" : {
+					"animations" : [
+						"mushi.houga_1_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"seirei_third" : {
+					"animations" : [
+						"mushi.seirei_1_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"gokou_third" : {
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"},
+						{"gokou_third_attack":"query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"gokou_third_attack" : {
+					"animations" : [
+						"mushi.gokou_1_third"
+					],
+					"transitions" : [
+						{"gokou_third":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

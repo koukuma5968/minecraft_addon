@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/shinobu"
+        "default": "textures/kurokumaft/models/mob/shinobu",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.shinobu"
+        "default": "geometry.shinobu",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
         "mushi_chou_particle": "kurokumaft:mushi_chou_particle"
@@ -32,7 +34,11 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+          "shinobu.action"
+
         ]
       },
       "animations": {
@@ -56,10 +62,22 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_horizontality",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_horizontality_third",
+
+        "shinobu.action": "controller.animation.shinobu.action",
+
+        "mushi.chou_1_third": "animation.action.mushi.chou_1_third",
+        "mushi.houga_1_third": "animation.action.mushi.houga_1_third",
+        "mushi.seirei_1_third": "animation.action.mushi.seirei_1_third",
+        "mushi.gokou_1_third": "animation.action.mushi.gokou_1_third"
+
       },
       "render_controllers": [
-        "controller.render.soldier.shinobu"
+        "controller.render.soldier.shinobu",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

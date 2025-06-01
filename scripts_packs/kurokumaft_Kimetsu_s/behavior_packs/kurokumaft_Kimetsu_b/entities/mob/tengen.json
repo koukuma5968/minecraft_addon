@@ -9,8 +9,8 @@
       "properties": {
         "kurokumaft:kaikyu": {
           "type": "int",
-          "range": [1, 10],
-          "default": 1,
+          "range": [10, 11],
+          "default": 11,
           "client_sync": true
         },
         "kurokumaft:kokyu_use": {
@@ -20,7 +20,7 @@
         },
         "kurokumaft:kokyu_kata": {
           "type": "int",
-          "range": [0, 22],
+          "range": [0, 5],
           "default": 0,
           "client_sync": true
         },
@@ -59,7 +59,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.twenty_sec"
+        "cooldown": "animation.cooldown.two_sec"
       }
 
     },
@@ -76,82 +76,106 @@
           "remove_effects": "bad_omen"
         }
       },
-      "kurokumaft:nichirintou_remove": {
-        "minecraft:skin_id": {
-          "value": 0
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
         }
       },
-
+      "kurokumaft:damage_clear": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "deals_damage": "no"
+            }
+          ]
+        }
+      },
       "is_headdress": {
         "minecraft:is_saddled": {
         }
       },
-
-      "kurokumaft:nichirintou": {
-        "minecraft:skin_id": {
-          "value": 1
-        }
-      },
-
-      "mark_variant0": {
-        "minecraft:mark_variant": {
-            "value": 0
-        }
-      },
-      "mark_variant1": {
-        "minecraft:mark_variant": {
-            "value": 1
-        }
-      },
-
-      "variant0": {
-        "minecraft:variant": {
-            "value": 0
-        }
-      },
-      "variant1": {
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "variant4": {
-        "minecraft:variant": {
-            "value": 4
-        }
-      },
-      "variant5": {
-        "minecraft:variant": {
-            "value": 5
-        }
-      },
-
-      "kurokumaft:knockback_max": {
-        "minecraft:knockback_resistance": {
-          "value": 100
-        }
-      },
-      "kurokumaft:knockback_zero": {
-        "minecraft:knockback_resistance": {
-          "value": 0
-        }
-      },
-
-      "kurokumaft:explosion_nullify": {
-        "minecraft:hurt_on_condition": {
-          "damage_conditions": [
+      "kurokumaft:nichirintou_equ": {
+        "minecraft:environment_sensor": {
+          "triggers": [
             {
-              "filters": { 
-                "any_of": [
-                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" },
-                  {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
                 ]
               },
-              "damage_per_tick": 0
+              "event": "minecraft:trigger_raid"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:tengen_headgear"}
+                ]
+              },
+              "event": "is_headdress"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "head","operator": "!=","subject": "self","value": "kurokumaft:tengen_headgear"}
+                ]
+              },
+              "event": "not_headdress"
             }
           ]
         }
-      }
+      },
+      "kurokumaft:nichirintou_set_sensor": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:tengen_headgear"}
+                ]
+              },
+              "event": "is_headdress"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "head","operator": "!=","subject": "self","value": "kurokumaft:tengen_headgear"}
+                ]
+              },
+              "event": "not_headdress"
+            },
 
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_tengen"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_tengen"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_remove"
+            }
+
+          ]
+        }
+      }
     },
 
     "components": {
@@ -171,8 +195,11 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 650,
-        "max": 650
+        "value": 190,
+        "max": 190
+      },
+      "minecraft:attack": {
+        "damage": 16
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/tengen_gear.json"
@@ -201,8 +228,8 @@
         "outside_range": 64
       },
       "minecraft:follow_range": {
-        "value": 64,
-        "max": 64
+        "value": 24,
+        "max": 24
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
@@ -212,7 +239,8 @@
             "filters": {
               "all_of": [
                 {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "villager"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
@@ -227,25 +255,14 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
-              ]
-            },
-            "max_dist": 128
           }
         ]
-      },
-      "minecraft:behavior.melee_attack": {
-        "priority": 4,
-        "track_target": true,
-        "speed_multiplier": 1.25
       },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -266,8 +283,45 @@
           }
         ]
       },
-      "minecraft:attack": {
-        "damage": 8
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
+                ]
+              }
+            },
+            "cause": "sonic_boom",
+            "damage_modifier": -2.0,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"}
+                ]
+              }
+            },
+            "cause": "block_explosion",
+            "damage_modifier": -5.0,
+            "deals_damage": true
+          },
+          {
+            "on_damage": {
+              "filters": {
+                "all_of" : [
+                  {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"}
+                ]
+              }
+            },
+            "cause": "entity_explosion",
+            "damage_modifier": -5.0,
+            "deals_damage": true
+          }
+        ]
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -308,69 +362,19 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
-      "minecraft:timer": {
-        "time": [10.0, 15.0],
-        "randomInterval": true,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kokyu",
-          "target": "self"
-        }
-      },
-      "minecraft:block_climber": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "head","operator": "==","subject": "self","value": "kurokumaft:tengen_headgear"}
-              ]
-            },
-            "event": "is_headdress"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "head","operator": "!=","subject": "self","value": "kurokumaft:tengen_headgear"}
-              ]
-            },
-            "event": "not_headdress"
-          },
-
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_tengen"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_tengen"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_remove"
-          }
-
-        ]
-      }
+      "minecraft:block_climber": {}
     },
 
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:attack_normal",
+            "kurokumaft:nichirintou_set_sensor"
+          ]
+        },
+        "set_property": {
+          "kurokumaft:kaikyu": 11
         }
       },
       "minecraft:trigger_raid": {
@@ -383,71 +387,55 @@
           "component_groups": [ "minecraft:raid_trigger" ]
         }
       },
-      "kurokumaft:explosion_nullify": {
-        "add": {
-          "component_groups": [ "kurokumaft:explosion_nullify" ]
+      "kurokumaft:nichirintou_remove": {
+        "set_property": {
+          "kurokumaft:nitirintou_equip": false
         }
       },
-      "kurokumaft:explosion_nullify_remove": {
+      "kurokumaft:nichirintou": {
         "remove": {
-          "component_groups": [ "kurokumaft:explosion_nullify" ]
-        }
-      },
-      "kurokumaft:knockback_add": {
-        "remove": {
-          "component_groups": [ "kurokumaft:knockback_zero" ]
+          "component_groups": [ "kurokumaft:nichirintou_set_sensor" ]
         },
         "add": {
-          "component_groups": [ "kurokumaft:knockback_max" ]
+          "component_groups": [ "kurokumaft:nichirintou_equ" ]
+        },
+        "set_property": {
+          "kurokumaft:nitirintou_equip": true
         }
       },
-      "kurokumaft:knockback_remove": {
+      "kurokumaft:kokyu_start":{},
+      "kurokumaft:attack_stop":{
         "remove": {
-          "component_groups": [ "kurokumaft:knockback_max" ]
-        },
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+      "kurokumaft:kokyu_end":{
         "add": {
-          "component_groups": [ "kurokumaft:knockback_zero" ]
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
 
-      "kurokumaft:random_kokyu": {
+      "kurokumaft:add_damage_clear": {
         "sequence": [
           {
             "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
             }
-          },
-          {
-            "filters": {
-              "test": "has_target"
-            },
-            "randomize": [
-              {
-                "weight": 60,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant4" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant5" ]
-                }
-              }
-            ]
           }
         ]
       },
-      "kurokumaft:random_kokyu_off": {
-        "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
-        }
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       },
       "is_headdress": {
         "add": {
@@ -457,50 +445,6 @@
       "not_headdress": {
         "remove": {
           "component_groups": [ "is_headdress" ]
-        }
-      },
-
-      "kurokumaft:nichirintou_remove": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou_remove" ]
-        }
-      },
-
-      "kurokumaft:nichirintou": {
-        "add": {
-          "component_groups": [ "kurokumaft:nichirintou" ]
-        }
-      },
-
-      "mark_variant0": {
-        "add": {
-          "component_groups": [ "mark_variant0" ]
-        }
-      },
-      "mark_variant1": {
-        "add": {
-          "component_groups": [ "mark_variant1" ]
-        }
-      },
-
-      "variant0": {
-        "add": {
-          "component_groups": [ "variant0" ]
-        }
-      },
-      "variant1": {
-        "add": {
-          "component_groups": [ "variant1" ]
-        }
-      },
-      "variant4": {
-        "add": {
-          "component_groups": [ "variant4" ]
-        }
-      },
-      "variant5": {
-        "add": {
-          "component_groups": [ "variant5" ]
         }
       }
     }

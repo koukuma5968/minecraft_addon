@@ -1,4 +1,4 @@
-import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player } from "@minecraft/server";
+import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent } from "@minecraft/server";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addProjectionFilter } from "../../common/KimetuCommonUtil";
@@ -25,18 +25,20 @@ export class KataComonClass {
 
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
+
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
+        const damageNum = kaikyuNum == 0 ? 0.5 : kaikyuNum;
         targets.forEach(en => {
             if (en != undefined) {
                 if (en instanceof Player) {
                     if (this.gardCheck(en)) {
-                        en.applyDamage(pDamage*kaikyuNum, {
+                        en.applyDamage(pDamage*damageNum, {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
                     }
                 } else {
-                    en.applyDamage(enDamage*kaikyuNum, {
+                    en.applyDamage(enDamage*damageNum, {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: entity
                     });
@@ -66,17 +68,18 @@ export class KataComonClass {
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
+        const damageNum = kaikyuNum == 0 ? 0.5 : kaikyuNum;
         targets.forEach(en => {
             if (en instanceof Player) {
                 if (this.gardCheck(en)) {
-                    en.addEffect(effect, Math.round(duration*kaikyuNum*0.25), {
-                        amplifier: Math.round(damage*kaikyuNum*0.25),
+                    en.addEffect(effect, Math.round(duration*damageNum*0.25), {
+                        amplifier: Math.round(damage*damageNum*0.25),
                         showParticles: true
                     });
                 }
             } else {
-                en.addEffect(effect, Math.round(duration*kaikyuNum*0.75), {
-                    amplifier: Math.round(damage*kaikyuNum),
+                en.addEffect(effect, Math.round(duration*damageNum*0.75), {
+                    amplifier: Math.round(damage*damageNum),
                     showParticles: true
                 });
             }

@@ -126,7 +126,8 @@
 
           "obi.action",
           "hakaisatu.action",
-          "kama.action"
+          "kama.action",
+          "spear.action"
 
         ]
       },
@@ -234,6 +235,7 @@
         "obi.action": "controller.animation.obi.action.player",
         "hakaisatu.action": "controller.animation.hakaisatu.action.player",
         "kama.action": "controller.animation.kama.action.player",
+        "spear.action": "controller.animation.spear.action.player",
 
         "mizu.ichi_1_first": "animation.action.mizu.ichi_1_first",
         "mizu.ichi_2_first": "animation.action.mizu.ichi_2_first",

@@ -59,7 +59,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.twenty_sec"
+        "cooldown": "animation.cooldown.two_sec"
       }
 
     },
@@ -211,7 +211,55 @@
         "minecraft:attack": {
           "damage": 10
         }
+      },
+      "kurokumaft:nichirintou_equ": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            }
+          ]
+        }
+      },
+      "kurokumaft:nichirintou_set_sensor": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
+                  {"test": "is_in_village","subject": "self","value": true}
+                ]
+              },
+              "event": "minecraft:trigger_raid"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_zenitu"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou"
+            },
+            {
+              "filters": {
+                "all_of": [
+                  {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_zenitu"}
+                ]
+              },
+              "event": "kurokumaft:nichirintou_remove"
+            }
+
+          ]
+        }
       }
+
     },
 
     "components": {
@@ -257,8 +305,8 @@
         "outside_range": 64
       },
       "minecraft:follow_range": {
-        "value": 64,
-        "max": 64
+        "value": 24,
+        "max": 24
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
@@ -272,7 +320,7 @@
                 {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
-            "max_dist": 24
+            "max_dist": 64
           }
         ]
       },
@@ -289,7 +337,7 @@
                 {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
-            "max_dist": 24
+            "max_dist": 64
           }
         ]
       },
@@ -351,44 +399,15 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
-      "minecraft:block_climber": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "==","subject": "self","value": "kurokumaft:nichirintou_zenitu"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou"
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_equipment","domain": "hand","operator": "!=","subject": "self","value": "kurokumaft:nichirintou_zenitu"}
-              ]
-            },
-            "event": "kurokumaft:nichirintou_remove"
-          }
-
-        ]
-      }
+      "minecraft:block_climber": {}
     },
 
     "events": {
       "minecraft:entity_spawned": {
         "add": {
           "component_groups": [
-            "kurokumaft:attack_normal"
+            "kurokumaft:attack_normal",
+            "kurokumaft:nichirintou_set_sensor"
           ]
         }
       },
@@ -408,6 +427,12 @@
         }
       },
       "kurokumaft:nichirintou": {
+        "remove": {
+          "component_groups": [ "kurokumaft:nichirintou_set_sensor" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:nichirintou_equ" ]
+        },
         "set_property": {
           "kurokumaft:nitirintou_equip": true
         }

@@ -7,10 +7,15 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/mituri"
+        "default": "textures/kurokumaft/models/mob/mituri",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.mituri"
+        "default": "geometry.mituri",
+        "nichirintou_custom": "geometry.nichirintou_custom"
+      },
+      "particle_effects": {
+        "koi_blead2_particle": "kurokumaft:koi_blead2_particle"
       },
       "scripts": {
         "scaleX": "0.91",
@@ -29,7 +34,10 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "nichirintou_custom",
+          "mituri.action"
         ]
       },
       "animations": {
@@ -53,10 +61,24 @@
         "riding.legs":"animation.humanoid.riding.legs",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_horizontality",
+        "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_horizontality_third",
+
+        "mituri.action": "controller.animation.mituri.action",
+
+        "koi.ichi_1_third": "animation.action.koi.ichi_1_third",
+        "koi.ichi_2_third": "animation.action.koi.ichi_2_third",
+        "koi.ni_1_third": "animation.action.koi.ni_1_third",
+        "koi.san_1_third": "animation.action.koi.san_1_third",
+        "koi.go_1_third": "animation.action.koi.go_1_third",
+        "koi.roku_1_third": "animation.action.koi.roku_1_third"
+
       },
       "render_controllers": [
-        "controller.render.soldier.mituri"
+        "controller.render.soldier.mituri",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "soldier_spawn_egg",

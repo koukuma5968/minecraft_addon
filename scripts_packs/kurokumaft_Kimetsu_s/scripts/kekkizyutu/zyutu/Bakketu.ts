@@ -22,7 +22,7 @@ export class Bakketu extends ZytuComonClass {
         entity.addTag(entity.id);
         const healthFilterOption = {
             excludeFamilies: [
-                "inanimate", "orge", "monster"
+                "inanimate", "ogre", "monster"
             ],
             excludeTypes: [
                 "item"
