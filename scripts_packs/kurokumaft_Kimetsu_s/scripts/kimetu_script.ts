@@ -1,11 +1,11 @@
-import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause } from "@minecraft/server";
+import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent } from "@minecraft/server";
 import { initRegisterKimetuCustom } from "./custom/KimetuCustomComponentRegistry";
 import { kokyuClassRecord, KokyuMobClassRecord, KokyuMobObject, KokyuMobObjects, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 import { KimetuEquipmentTick } from "./player/KimetuEquipmentTick";
 import { RaisingStatusCheckClass } from "./player/RaisingStatusCheckClass";
 import { KekkizyutuClassRecord, KekkizyutuMobClassRecord, KekkizyutuMobObject, KekkizyutuMobObjects, KekkizyutuObject, KekkizyutuObjects } from "./item/weapon/KekkizyutuTypes";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { getRandomInRange } from "./common/KimetuCommonUtil";
+import { getRandomInRange, isBelowThreshold, weightChoice } from "./common/KimetuCommonUtil";
 
 // ワールド接続時
 //system.SystemBeforeEvents.subscribe(initEvent => {
@@ -33,15 +33,17 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   const entity = event.entity;
   if (entity instanceof Player) {
     if (event.eventId == "kurokumaft:attack_time") {
-      const nichirintou = entity.getProperty("kurokumaft:nichirintou_type") as number;
-      if (nichirintou > 1) {
-        if (!entity.getProperty("kurokumaft:kokyu_attack")) {
+      // const nichirintou = entity.getProperty("kurokumaft:nichirintou_type") as number;
+      // if (nichirintou > 1) {
+      const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+      const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
+      if (mainHand != undefined) {
+        const object = KokyuObjects.find(ob => ob.itemName == mainHand.typeId) as KokyuObject;
+        if (object != undefined && object.type > 1 && !entity.getProperty("kurokumaft:kokyu_attack")) {
           entity.setProperty("kurokumaft:kokyu_attack", true);
           system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_attack", false);
           },10);
-
-          const object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
           const kokyuClass = kokyuClassRecord[object.className];
           const kokyuObject = new kokyuClass();
 
@@ -80,7 +82,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
       if (ogre != undefined) {
         const kekkizyutuClass = KekkizyutuMobClassRecord[ogre.className];
         const kekkizyutuObject = new kekkizyutuClass(entity);
-        kekkizyutuObject.startMonitoring();
+        kekkizyutuObject.startMonitoring(entity);
       }
     }
   }
@@ -114,6 +116,12 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 
 // world.afterEvents.entityLoad.subscribe(event => {
 // });
+const ogreRankLists = weightChoice([
+    { item: 'low' , weight: 30 },
+    { item: 'unusual' , weight: 20 },
+    { item: 'quarter' , weight: 20 },
+    { item: 'crescent' , weight: 20 }
+]);
 
 world.afterEvents.entitySpawn.subscribe(event => {
   const entity = event.entity as Entity;
@@ -122,7 +130,18 @@ world.afterEvents.entitySpawn.subscribe(event => {
     const kaikyuRan = getRandomInRange(1, 10);
     entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
     system.runTimeout(() => {
-      entity.triggerEvent("kurokumaft:kakyu_change");
+      entity.triggerEvent("kurokumaft:kaikyu_change");
+    }, 4);
+  }
+  const ogre_rank = entity.getProperty("kurokumaft:ogre_rank") as string;
+  if (entity.typeId == "kurokumaft:nezuko" && event.cause == EntityInitializationCause.Spawned) {
+    const rankRan = ogreRankLists.pick();
+    entity.setProperty("kurokumaft:ogre_rank", rankRan);
+    if (ogre_rank == "quarter" || ogre_rank == "crescent") {
+      entity.setProperty("kurokumaft:ogre_moon", getRandomInRange(1, 6));
+    }
+    system.runTimeout(() => {
+      entity.triggerEvent("kurokumaft:ogre_rank_change");
     }, 4);
   }
 });
@@ -152,7 +171,57 @@ world.afterEvents.entityDie.subscribe(event => {
       }
     }
   }
+  if (deadEntity.typeId == "kurokumaft:hantengu") {
+    const dimension = deadEntity.dimension;
+    const obie = dimension.spawnEntity("kurokumaft:hantengu_obie", deadEntity.location);
+    obie.addTag(deadEntity.id);
+    const sekido = dimension.spawnEntity("kurokumaft:sekido", deadEntity.location);
+    sekido.addTag(deadEntity.id);
+    const karaku = dimension.spawnEntity("kurokumaft:karaku", deadEntity.location);
+    karaku.addTag(deadEntity.id);
+  }
+});
 
+world.afterEvents.entityHurt.subscribe(event => {
+  const hurtEntity = event.hurtEntity;
+  const health = hurtEntity.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+  if (hurtEntity.typeId == "kurokumaft:sekido") {
+    if (hurtEntity.getTags().length == 1) {
+      if (isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
+        hurtEntity.addTag("bunretu_1");
+        const aizetu = hurtEntity.dimension.spawnEntity("kurokumaft:aizetu", hurtEntity.location);
+        aizetu.addTag(hurtEntity.getTags()[0]);
+        aizetu.addTag("bunretu_1");
+      }
+    }
+  }
+  if (hurtEntity.typeId == "kurokumaft:karaku") {
+    if (hurtEntity.getTags().length == 1 && isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
+      hurtEntity.addTag("bunretu_1");
+      const urogi = hurtEntity.dimension.spawnEntity("kurokumaft:urogi", hurtEntity.location);
+      urogi.addTag(hurtEntity.getTags()[0]);
+      urogi.addTag("bunretu_1");
+    }
+  }
+  if (hurtEntity.typeId == "kurokumaft:sekido"
+     || hurtEntity.typeId == "kurokumaft:karaku"
+     || hurtEntity.typeId == "kurokumaft:aizetu"
+     || hurtEntity.typeId == "kurokumaft:urogi"
+  ) {
+    if (hurtEntity.getTags().length == 2 && isBelowThreshold(health.currentValue, health.defaultValue, 0.3)) {
+      const bunretutai = hurtEntity.dimension.getEntities({
+        tags: [hurtEntity.getTags()[0]],
+        maxDistance: 64,
+        location: hurtEntity.location
+      });
+      hurtEntity.dimension.spawnEntity("kurokumaft:zouhakuten", hurtEntity.location);
+      bunretutai.forEach(en => {
+        if (en.typeId != "kurokumaft:hantengu_obie") {
+          en.remove();
+        }
+      });
+    }
+  }
 });
 
 world.afterEvents.projectileHitEntity.subscribe(event => {
@@ -327,7 +396,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
             if (upPoint < 0) {
               sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu-1);
               sourceEntity.setProperty("kurokumaft:ogre_kill", killtarget);
-              sourceEntity.triggerEvent("kurokumaft:kakyu_change");
+              sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
             } else {
               sourceEntity.setProperty("kurokumaft:ogre_kill", upPoint);
             }
@@ -335,7 +404,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
           case 11:
             sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu-1);
             sourceEntity.setProperty("kurokumaft:ogre_kill", 300);
-            sourceEntity.triggerEvent("kurokumaft:kakyu_change");
+            sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
           }
       }
     } else if (params[0] == "set") {
@@ -343,12 +412,12 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
       if (num > 0 && num <= 11) {
         sourceEntity.setProperty("kurokumaft:kaikyu", num);
         system.runTimeout(() => {
-          sourceEntity.triggerEvent("kurokumaft:kakyu_change");
+          sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
         }, 2);
       } else if (num == 0) {
         sourceEntity.setProperty("kurokumaft:kaikyu", num);
         system.runTimeout(() => {
-          sourceEntity.triggerEvent("kurokumaft:kakyu_change");
+          sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
         }, 2);
       }
     }

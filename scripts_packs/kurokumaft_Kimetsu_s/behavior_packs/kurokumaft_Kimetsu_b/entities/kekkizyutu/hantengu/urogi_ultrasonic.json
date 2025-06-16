@@ -8,11 +8,6 @@
             "is_experimental": false,
             "runtime_identifier": "minecraft:arrow"
         },
-        "component_groups": {
-            "kurokumaft:despawn": {
-                "minecraft:instant_despawn": {}
-            }
-        },
         "components": {
             "minecraft:collision_box": {
                 "width": 1.5,
@@ -21,7 +16,7 @@
             "minecraft:projectile": {
                 "on_hit": {
                     "impact_damage": {
-                        "damage": 18,
+                        "damage": 8,
                         "knockback": false,
                         "semirandomdiffdamage": false,
                         "destroyonhit": false
@@ -37,26 +32,12 @@
                 "reflectOnHurt": true,
                 "catch_fire": false
             },
-            "minecraft:timer": {
-                "looping": false,
-                "time": [0.3,0.3],
-                "time_down_event": { 
-                    "event": "kurokumaft:despawn"
-                }
-            },
             "minecraft:physics": {},
             "minecraft:conditional_bandwidth_optimization": {
                 "default_values": {
                   "max_optimized_distance": 80.0,
                   "max_dropped_ticks": 7,
                   "use_motion_prediction_hints": true
-                }
-            }
-        },
-        "events": {
-            "kurokumaft:despawn": {
-                "add": {
-                    "component_groups": [ "kurokumaft:despawn" ]
                 }
             }
         }

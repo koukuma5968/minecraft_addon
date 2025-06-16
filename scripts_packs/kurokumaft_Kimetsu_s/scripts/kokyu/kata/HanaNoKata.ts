@@ -108,11 +108,11 @@ export class HanaNoKata extends KataComonClass {
         const molang = new MolangVariableMap();
         molang.setFloat("variable.kaikyu", kaikyuNum);
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 1);
-        entity.applyKnockback(distance.x,distance.z,5,0.6);
+        const distanceK = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 1);
 
         const num = system.runInterval(() => {
             try {
+                entity.applyKnockback(distanceK.x,distanceK.z,2,0.2);
                 const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
@@ -121,8 +121,7 @@ export class HanaNoKata extends KataComonClass {
             } catch (error) {
                 system.clearRun(num);
             }
-   
-        },5);
+        },3);
 
         system.runTimeout(() => {
             try {

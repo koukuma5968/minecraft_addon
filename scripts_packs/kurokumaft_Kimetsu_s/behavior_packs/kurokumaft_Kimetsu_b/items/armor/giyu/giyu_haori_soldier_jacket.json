@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:giyu_haori_soldier_jacket",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.chestplate"
+        "category": "equipment"
       }
     },
     "components": {

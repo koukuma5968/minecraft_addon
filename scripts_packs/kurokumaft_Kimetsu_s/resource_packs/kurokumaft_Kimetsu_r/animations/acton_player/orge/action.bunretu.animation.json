@@ -2,7 +2,31 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"animation.action.bunretu.shitotu_third": {
-			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"body": {
+					"rotation": [0, -30, 0]
+				},
+				"leftArm": {
+					"rotation": [-7.65699, 52.98599, 6.90252]
+				},
+				"rightArm": {
+					"rotation": [-50.54432, 7.42573, -34.94143],
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": [37.5, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [17.5, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-20, 0, 0]
+				}
+			}
+		},
+		"animation.action.bunretu.shitotu_first": {
+			"animation_length": 0.75,
 			"bones": {
 				"body": {
 					"rotation": [0, -30, 0]

@@ -19,13 +19,13 @@ export class MushiNoKata extends KataComonClass {
                 const filter = addRegimentalFilter(0, entity.location, 3, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
+                entity.applyKnockback(distance.x,distance.z,4,0.4);
             } catch (error) {
                 system.clearRun(num);
             }
         },2);
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
-        entity.applyKnockback(distance.x,distance.z,10,0.4);
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
 
         system.runTimeout(() => {

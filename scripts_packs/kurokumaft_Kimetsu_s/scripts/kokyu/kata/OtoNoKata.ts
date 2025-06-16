@@ -85,12 +85,12 @@ export class OtoNoKata extends KataComonClass {
             source: entity
         };
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
-        entity.applyKnockback(distance.x,distance.z,30,0);
-
         const num = system.runInterval(() => {
 
             try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
+                entity.applyKnockback(distance.x,distance.z,5,0);
+
                 const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 const front = getForwardPosition(entity.location, entity.getRotation().y, 1);

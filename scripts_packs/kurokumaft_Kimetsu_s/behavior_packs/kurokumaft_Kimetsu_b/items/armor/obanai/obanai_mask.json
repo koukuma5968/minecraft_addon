@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:obanai_mask",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.helmet"
+        "category": "equipment"
       }
     },
     "components": {

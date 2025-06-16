@@ -38,6 +38,46 @@
 					]
 				}
 			}
+		},
+		"controller.animation.kekkizyutu.aizetu_spear": {
+			"initial_state": "first_person",
+			"states": {
+				"default":{
+					"transitions" : [
+						{"equipment": "query.is_item_name_any('slot.weapon.mainhand','kurokumaft:aizetu_spear')"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "c.is_first_person && query.property('kurokumaft:kokyu_use')"},
+						{"third_person": "!c.is_first_person && query.property('kurokumaft:kokyu_use')"},
+						{"default": "!query.is_item_name_any('slot.weapon.mainhand','kurokumaft:aizetu_spear')"}
+					]
+				},
+				"first_person":{
+					"transitions" : [
+						{"shitotu_first": "query.property('kurokumaft:kekkizyutu_kata') == 1"}
+					]
+				},
+				"shitotu_first": {
+					"animations": ["shitotu_first"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				},
+				"third_person":{
+					"transitions" : [
+						{"shitotu_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"}
+					]
+				},
+				"shitotu_third": {
+					"animations": ["shitotu_third"],
+					"transitions": [
+						{"equipment": "query.any_animation_finished"}
+					]
+				}
+			}
 		}
+
 	}
 }

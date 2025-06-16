@@ -250,7 +250,7 @@
 						"hi.shiti_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"hi8_1_first" : {
@@ -258,7 +258,7 @@
 						"hi.hachi_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"hi9_1_first" : {
@@ -266,7 +266,7 @@
 						"hi.ku_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"hi10_1_first" : {
@@ -274,13 +274,10 @@
 						"hi.tou_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"hi11_1_first" : {
-					"animations" : [
-						"hi.zyuichi_1_first"
-					],
 					"transitions" : [
 						{"first_person":"query.property('kurokumaft:kokyu_chage') == 0"}
 					]
@@ -691,7 +688,7 @@
 				},
 				"mizu10_1_first" : {
 					"animations" : [
-						"mizu_dragon",
+						"mizu_dragon_first",
 						"mizu.tou_1_first"
 					],
 					"transitions" : [
@@ -736,7 +733,7 @@
 				},
 				"hi6_1_first" : {
 					"animations" : [
-						"hi_dragon",
+						"hi_dragon_first",
 						"hi.roku_1_first"
 					],
 					"transitions" : [

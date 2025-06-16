@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:mituri_skirt",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
+        "category": "equipment"
       }
     },
     "components": {

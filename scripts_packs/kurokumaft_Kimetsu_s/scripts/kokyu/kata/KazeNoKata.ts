@@ -14,11 +14,11 @@ export class KazeNoKata extends KataComonClass {
         }
         entity.setProperty("kurokumaft:kokyu_use", false);
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,30,0);
-
         const num = system.runInterval(() => {
             try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+                entity.applyKnockback(distance.x,distance.z,4,0);
+
                 const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
             } catch (error) {
@@ -269,7 +269,7 @@ export class KazeNoKata extends KataComonClass {
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
     
                 const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-                entity.applyKnockback(distance.x,distance.z,10,0);
+                entity.applyKnockback(distance.x,distance.z,8,0);
 
             } catch (error) {
                 system.clearRun(num);

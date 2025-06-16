@@ -23,7 +23,8 @@
           "wield_third_person": "animation.aizetu_spear.wield_third_person",
           "wield_third_person2": "animation.aizetu_spear.wield_third_person2",
           "wield_third_person_raise": "animation.aizetu_spear.wield_third_person_raise",
-          "": "controller.animation.spear.action.player",
+          "kekkizyutu": "controller.animation.kekkizyutu.aizetu_spear",
+          "shitotu_first": "animation.aizetu_spear.shitotu_first",
           "shitotu_third": "animation.aizetu_spear.shitotu_third"
         },
         "scripts": {
@@ -31,7 +32,8 @@
             "variable.charge_amount = math.clamp((query.main_hand_item_max_duration - (query.main_hand_item_use_duration - query.frame_alpha + 1.0)) / 10.0, 0.0, 1.0f);"
           ],
           "animate": [
-            "wield"
+            "wield",
+            "kekkizyutu"
           ]
         },
         "render_controllers": [ "controller.render.item_default" ]

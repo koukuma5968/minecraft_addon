@@ -26,9 +26,11 @@
 			"minecraft:material_instances": {
 			"*": {
 					"texture": "kyouzyuro_skull",
-					"render_method": "alpha_test"
+					"render_method": "alpha_test",
+                    "face_dimming": false
 				}
 			},
+            "minecraft:light_dampening": 0,
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 5.5
 			},

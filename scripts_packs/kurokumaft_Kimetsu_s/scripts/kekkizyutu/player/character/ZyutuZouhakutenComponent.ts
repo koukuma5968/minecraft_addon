@@ -1,6 +1,7 @@
 import { Entity, Player } from "@minecraft/server";
 import { KekkizyutuUseComponent } from "../../KekkizyutuUseComponent";
 import { Bunretu } from "../../zyutu/Bunretu";
+import { KekkizyutuObjects, KekkizyutuObject } from "../../../item/weapon/KekkizyutuTypes";
 
 /**
  * 血気術（）
@@ -11,6 +12,21 @@ export class ZyutuZouhakutenComponent implements KekkizyutuUseComponent {
      * @param {Player} player
      */
     changeZyutu(player:Player): void {
+
+        let kata = player.getProperty("kurokumaft:kekkizyutu_kata") as number;
+        const kekkizyutuObject = KekkizyutuObjects[9] as KekkizyutuObject;
+
+        switch (kata) {
+            case kekkizyutuObject.kata[kekkizyutuObject.kata.length-1] :
+                kata = kekkizyutuObject.kata[0];
+                player.setProperty("kurokumaft:kekkizyutu_kata", kata);
+                break;
+            default :
+                const index = kekkizyutuObject.kata.findIndex((el) => el == kata);
+                kata = kekkizyutuObject.kata[index+1];
+                player.setProperty("kurokumaft:kekkizyutu_kata", kata);
+        }
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_zouhakuten" + kata + ".value"}]});
 
     }
 

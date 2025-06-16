@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:nezuko_kimono",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
+        "category": "equipment"
       }
     },
     "components": {

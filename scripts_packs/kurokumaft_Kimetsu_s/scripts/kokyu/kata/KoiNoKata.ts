@@ -13,12 +13,12 @@ export class KoiNoKata extends KataComonClass {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:koi_kokyu1.value"}]});
         }
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,30,0);
 
         const num = system.runInterval(() => {
 
             try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+                entity.applyKnockback(distance.x,distance.z,3,0);
                 const filter = addRegimentalFilter(0, entity.location, 5, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
             } catch (error) {
@@ -49,13 +49,13 @@ export class KoiNoKata extends KataComonClass {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 6, entity);
                 this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+                entity.applyKnockback(distance.x,distance.z,4,1);
+
             } catch (error) {
                 system.clearRun(num);
             }
-        },4);
-
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,10,1);
+        },2);
 
         system.runTimeout(() => {
 

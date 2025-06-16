@@ -31,7 +31,7 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
-          "hakaisatu.kekkizyutu_body"
+          "action"
         ]
       },
       "animations": {
@@ -57,19 +57,19 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "hakaisatu.kekkizyutu_body": "controller.animation.kekkizyutu.hakaisatu",
-        "rashin": "animation.kekkizyutu.hakaisatu.body.rashin",
-        "kushiki": "animation.kekkizyutu.hakaisatu.body.kushiki",
-        "ranshiki": "animation.kekkizyutu.hakaisatu.body.ranshiki",
-        "meshiki": "animation.kekkizyutu.hakaisatu.body.meshiki",
-        "meshiki_attack": "animation.kekkizyutu.hakaisatu.body.meshiki_attack",
-        "kamurosakiwari": "animation.kekkizyutu.hakaisatu.body.kamurosakiwari",
-        "ryuseigunkou": "animation.kekkizyutu.hakaisatu.body.ryuseigunkou",
-        "hiyuseisenrin": "animation.kekkizyutu.hakaisatu.body.hiyuseisenrin",
-        "manyousenyanagi": "animation.kekkizyutu.hakaisatu.body.manyousenyanagi",
-        "manyousenyanagi_attack": "animation.kekkizyutu.hakaisatu.body.manyousenyanagi_attack",
-        "kishinyaenshin": "animation.kekkizyutu.hakaisatu.body.kishinyaenshin",
-        "aoginranzankou": "animation.kekkizyutu.hakaisatu.body.aoginranzankou"
+        "action": "controller.animation.hakaisatu.action",
+        "hakaisatu.rashin_third": "animation.action.hakaisatu.rashin_third",
+        "hakaisatu.kushiki_third": "animation.action.hakaisatu.kushiki_third",
+        "hakaisatu.ranshiki_third": "animation.action.hakaisatu.ranshiki_third",
+        "hakaisatu.meshiki_third": "animation.action.hakaisatu.meshiki_third",
+        "hakaisatu.meshiki_attack_third": "animation.action.hakaisatu.meshiki_attack_third",
+        "hakaisatu.kamurosakiwari_third": "animation.action.hakaisatu.kamurosakiwari_third",
+        "hakaisatu.ryuseigunkou_third": "animation.action.hakaisatu.ryuseigunkou_third",
+        "hakaisatu.hiyuseisenrin_third": "animation.action.hakaisatu.hiyuseisenrin_third",
+        "hakaisatu.manyousenyanagi_third": "animation.action.hakaisatu.manyousenyanagi_third",
+        "hakaisatu.manyousenyanagi_attack_third": "animation.action.hakaisatu.manyousenyanagi_attack_third",
+        "hakaisatu.kishinyaenshin_third": "animation.action.hakaisatu.kishinyaenshin_third",
+        "hakaisatu.aoginranzankou_third": "animation.action.hakaisatu.aoginranzankou_third"
 
       },
       "render_controllers": [

@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:akaza_hakama",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
+        "category": "equipment"
       }
     },
     "components": {

@@ -279,10 +279,10 @@ msg.kurokumaft:kekkizyutu_obi2.value=連撃
 msg.kurokumaft:kekkizyutu_obi3.value=帯（遠距離）
 msg.kurokumaft:kekkizyutu_obi4.value=八重帯斬り
 
-msg.kurokumaft:kekkizyutu_ikazuti1.value=雷
+msg.kurokumaft:kekkizyutu_ikazuti1.value=雷殺
 msg.kurokumaft:kekkizyutu_toppu1.value=爆風
 msg.kurokumaft:kekkizyutu_kyoumei1.value=狂鳴
-msg.kurokumaft:kekkizyutu_shitotu1.value=刺突
+msg.kurokumaft:kekkizyutu_shitotu1.value=激涙刺突
 
 msg.kurokumaft:kekkizyutu_zouhakuten1.value=石竜子
 msg.kurokumaft:kekkizyutu_zouhakuten2.value=狂鳴雷殺
@@ -400,6 +400,11 @@ item.spawn_egg.entity.kurokumaft:obanai.name=伊黒 小芭内
 item.spawn_egg.entity.kurokumaft:regimental_guy.name=隊士（男）
 item.spawn_egg.entity.kurokumaft:regimental_girl.name=隊士（女）
 
+kurokumaft:itemGroup.name.soldier_head=隊士服頭
+kurokumaft:itemGroup.name.soldier_chestplate=隊士服上着
+kurokumaft:itemGroup.name.soldier_pants=隊士服ズボン
+kurokumaft:itemGroup.name.soldier_boots=隊士服足袋
+
 item.kurokumaft:soldier_jacket_guy_brown.name=隊士服上着・茶(男)
 item.kurokumaft:soldier_jacket_guy_harf_brown.name=隊士服上着(袖なし)・茶(男)
 item.kurokumaft:soldier_pants_guy_brown.name=隊士服ズボン・茶(男)
@@ -413,7 +418,7 @@ item.kurokumaft:soldier_boots_guy_blue.name=隊士服足袋・紺(男)
 item.kurokumaft:soldier_jacket_guy_green.name=隊士服上着・緑(男)
 item.kurokumaft:soldier_jacket_guy_harf_green.name=隊士服上着(袖なし)・緑(男)
 item.kurokumaft:soldier_pants_guy_green.name=隊士服ズボン・緑(男)
-item.kurokumaft:soldier_boots_guy_blue.name=隊士服足袋・緑(男)
+item.kurokumaft:soldier_boots_guy_green.name=隊士服足袋・緑(男)
 
 item.kurokumaft:soldier_jacket_girl_blue.name=隊士服上着・紺(女)
 item.kurokumaft:soldier_pants_girl_blue.name=隊士服ズボン・紺(女)
@@ -484,6 +489,8 @@ item.kurokumaft:muitiro_hakama.name=無一郎の袴
 item.kurokumaft:obanai_mask.name=小芭内の手ぬぐい
 item.kurokumaft:obanai_haori_soldier_jacket.name=小芭内の羽織
 
+kurokumaft:itemGroup.name.soldier_skull=キャラクター頭
+
 item.kurokumaft:tanjiro_head.name=炭次郎の頭
 item.kurokumaft:zenitu_head.name=善逸の頭
 item.kurokumaft:inosuke_head.name=伊之助の頭
@@ -541,6 +548,11 @@ item.spawn_egg.entity.kurokumaft:urogi.name=空喜
 item.spawn_egg.entity.kurokumaft:zouhakuten.name=憎珀天
 item.spawn_egg.entity.kurokumaft:douma.name=童磨
 item.spawn_egg.entity.kurokumaft:kokushibou.name=黒死牟
+
+kurokumaft:itemGroup.name.ogre_head=鬼の服頭
+kurokumaft:itemGroup.name.ogre_chestplate=鬼の服上着
+kurokumaft:itemGroup.name.ogre_pants=鬼の服ズボン
+kurokumaft:itemGroup.name.ogre_boots=鬼の服足袋
 
 item.kurokumaft:rui_kimono.name=累の着物
 

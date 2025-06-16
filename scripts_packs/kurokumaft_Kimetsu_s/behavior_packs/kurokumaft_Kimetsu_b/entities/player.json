@@ -184,7 +184,7 @@
               "on_damage": {
                 "filters": {
                   "all_of": [
-                    { "test": "int_property", "domain": "kurokumaft:nichirintou_type", "operator": "==", "value": 0 }
+                    { "test": "int_property", "subject": "damager", "domain": "kurokumaft:nichirintou_type", "operator": "==", "value": 0 }
                   ]
                 }
               },
@@ -306,6 +306,15 @@
 
       "kurokumaft:ogre_rank_low": {
         "minecraft:health": {
+          "value": 40,
+          "max": 40
+        },
+        "minecraft:attack": {
+          "damage": 4
+        }
+      },
+      "kurokumaft:ogre_rank_unusual": {
+        "minecraft:health": {
           "value": 50,
           "max": 50
         },
@@ -313,34 +322,52 @@
           "damage": 6
         }
       },
-      "kurokumaft:ogre_rank_unusual": {
+      "kurokumaft:ogre_rank_quarter_6": {
         "minecraft:health": {
-          "value": 80,
-          "max": 80
+          "value": 70,
+          "max": 70
         },
         "minecraft:attack": {
           "damage": 8
         }
       },
-      "kurokumaft:ogre_rank_quarter_6": {
+      "kurokumaft:ogre_rank_quarter_5": {
         "minecraft:health": {
-          "value": 100,
-          "max": 100
+          "value": 80,
+          "max": 80
+        },
+        "minecraft:attack": {
+          "damage": 9
+        }
+      },
+      "kurokumaft:ogre_rank_quarter_4": {
+        "minecraft:health": {
+          "value": 90,
+          "max": 90
         },
         "minecraft:attack": {
           "damage": 10
         }
       },
-      "kurokumaft:ogre_rank_quarter_5": {
+      "kurokumaft:ogre_rank_quarter_3": {
         "minecraft:health": {
-          "value": 110,
-          "max": 110
+          "value": 100,
+          "max": 100
         },
         "minecraft:attack": {
           "damage": 11
         }
       },
-      "kurokumaft:ogre_rank_quarter_4": {
+      "kurokumaft:ogre_rank_quarter_2": {
+        "minecraft:health": {
+          "value": 110,
+          "max": 110
+        },
+        "minecraft:attack": {
+          "damage": 12
+        }
+      },
+      "kurokumaft:ogre_rank_quarter_1": {
         "minecraft:health": {
           "value": 120,
           "max": 120
@@ -349,94 +376,67 @@
           "damage": 12
         }
       },
-      "kurokumaft:ogre_rank_quarter_3": {
+      "kurokumaft:ogre_rank_crescent_6": {
         "minecraft:health": {
           "value": 130,
           "max": 130
         },
         "minecraft:attack": {
-          "damage": 13
+          "damage": 14
         }
       },
-      "kurokumaft:ogre_rank_quarter_2": {
+      "kurokumaft:ogre_rank_crescent_5": {
         "minecraft:health": {
           "value": 140,
           "max": 140
         },
         "minecraft:attack": {
-          "damage": 14
+          "damage": 15
         }
       },
-      "kurokumaft:ogre_rank_quarter_1": {
+      "kurokumaft:ogre_rank_crescent_4": {
         "minecraft:health": {
           "value": 150,
           "max": 150
         },
         "minecraft:attack": {
-          "damage": 15
+          "damage": 16
         }
       },
-      "kurokumaft:ogre_rank_crescent_6": {
+      "kurokumaft:ogre_rank_crescent_3": {
+        "minecraft:health": {
+          "value": 160,
+          "max": 160
+        },
+        "minecraft:attack": {
+          "damage": 17
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_2": {
+        "minecraft:health": {
+          "value": 170,
+          "max": 170
+        },
+        "minecraft:attack": {
+          "damage": 18
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_1": {
+        "minecraft:health": {
+          "value": 180,
+          "max": 180
+        },
+        "minecraft:attack": {
+          "damage": 20
+        }
+      },
+      "kurokumaft:ogre_rank_king": {
         "minecraft:health": {
           "value": 200,
           "max": 200
         },
         "minecraft:attack": {
           "damage": 20
-        }
-      },
-      "kurokumaft:ogre_rank_crescent_5": {
-        "minecraft:health": {
-          "value": 210,
-          "max": 210
-        },
-        "minecraft:attack": {
-          "damage": 21
-        }
-      },
-      "kurokumaft:ogre_rank_crescent_4": {
-        "minecraft:health": {
-          "value": 220,
-          "max": 220
-        },
-        "minecraft:attack": {
-          "damage": 22
-        }
-      },
-      "kurokumaft:ogre_rank_crescent_3": {
-        "minecraft:health": {
-          "value": 230,
-          "max": 230
-        },
-        "minecraft:attack": {
-          "damage": 23
-        }
-      },
-      "kurokumaft:ogre_rank_crescent_2": {
-        "minecraft:health": {
-          "value": 240,
-          "max": 240
-        },
-        "minecraft:attack": {
-          "damage": 24
-        }
-      },
-      "kurokumaft:ogre_rank_crescent_1": {
-        "minecraft:health": {
-          "value": 250,
-          "max": 250
-        },
-        "minecraft:attack": {
-          "damage": 25
-        }
-      },
-      "kurokumaft:ogre_rank_king": {
-        "minecraft:health": {
-          "value": 300,
-          "max": 300
-        },
-        "minecraft:attack": {
-          "damage": 30
         }
       }
 
@@ -570,7 +570,7 @@
 
       "kurokumaft:attack_time": {},
 
-      "kurokumaft:kakyu_change": {
+      "kurokumaft:kaikyu_change": {
         "sequence": [
           {
             "remove": {

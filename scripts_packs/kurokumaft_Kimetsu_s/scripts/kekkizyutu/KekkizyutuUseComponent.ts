@@ -15,8 +15,8 @@ export interface KekkizyutuUseComponent {
 
 export interface KekkizyutuMobUseComponent {
 
-    startMonitoring(): void;
-    // 術攻撃
-    useAttackZyutu(): Promise<void>;
+    startMonitoring(entity:Entity): void;
+    // 呼吸攻撃
+    useAttackZyutu(entity:Entity): void;
 
 }

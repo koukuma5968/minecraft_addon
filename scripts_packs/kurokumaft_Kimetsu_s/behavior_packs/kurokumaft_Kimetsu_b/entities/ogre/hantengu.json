@@ -30,18 +30,22 @@
     },
 
     "component_groups": {
-      "minecraft:raid_trigger": {
-        "minecraft:raid_trigger": {
-          "triggered_event": {
-            "event": "minecraft:remove_raid_trigger",
-            "target": "self"
-          }
-        },
-        "minecraft:spell_effects": {
-          "remove_effects": "bad_omen"
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
+        }
+      },
+      "kurokumaft:damage_clear": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "deals_damage": "no"
+            }
+          ]
         }
       }
-
     },
 
     "components": {
@@ -64,8 +68,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 100,
-        "max": 100
+        "value": 20,
+        "max": 20
       },
       "minecraft:behavior.flee_sun": {
         "priority": 2,
@@ -99,28 +103,18 @@
         "value": 64,
         "max": 64
       },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 3,
-        "alert_same_type": true,
-        "entity_types": [
-          {
-            "max_dist": 64
-          }
-        ]
-      },
       "minecraft:behavior.avoid_mob_type": {
         "priority": 2,
         "entity_types": [
           {
-            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+            "filters": {
+              "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"}
+              ]
+            },
             "max_dist": 16,
-            "walk_speed_multiplier": 1.9,
-            "sprint_speed_multiplier": 1.8
-          },
-          {
-            "filters": { "test" :  "is_family", "subject" : "other", "value" :  "regimental_soldier"},
-            "max_dist": 16,
-            "walk_speed_multiplier": 2.1,
+            "walk_speed_multiplier": 0.9,
             "sprint_speed_multiplier": 1.8
           }
         ]
@@ -135,6 +129,7 @@
               "all_of": [
                 {"test": "is_family","subject": "other","operator": "!=","value": "ogre"},
                 {"test": "is_family","subject": "other","operator": "!=","value": "player"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"},
                 {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"}
               ]
             },
@@ -147,13 +142,6 @@
         "priority": 4,
         "track_target": true,
         "speed_multiplier": 1.25
-      },
-      "minecraft:behavior.random_stroll": {
-        "priority": 6,
-        "speed_multiplier": 1
-      },
-      "minecraft:behavior.random_look_around": {
-        "priority": 8
       },
       "minecraft:behavior.equip_item": {
         "priority": 3
@@ -230,7 +218,6 @@
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mituri" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_muitiro" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_gyoumei" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kokushibou" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_hi" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mizu" },
@@ -250,7 +237,7 @@
               }
             },
             "cause": "entity_attack",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           }
         ]
       },
@@ -273,8 +260,44 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:attack_normal"
+          ]
         }
+      },
+      "kurokumaft:kekkizyutu_start":{},
+      "kurokumaft:attack_stop":{
+        "remove": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+      "kurokumaft:kekkizyutu_end":{
+        "add": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+
+      "kurokumaft:add_damage_clear": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
+      },
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       }
     }
   }

@@ -23,18 +23,6 @@
     },
 
     "component_groups": {
-      "minecraft:raid_trigger": {
-        "minecraft:raid_trigger": {
-          "triggered_event": {
-            "event": "minecraft:remove_raid_trigger",
-            "target": "self"
-          }
-        },
-        "minecraft:spell_effects": {
-          "remove_effects": "bad_omen"
-        }
-      },
-
       "ogre_1": {
         "minecraft:skin_id": {
           "value": 0
@@ -79,8 +67,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": "math.random(5, 40)",
-        "max": 40
+        "value": "math.random(5, 30)",
+        "max": 30
       },
       "minecraft:behavior.flee_sun": {
         "priority": 2,

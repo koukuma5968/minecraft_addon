@@ -31,7 +31,7 @@
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
           { "swimming": "variable.swim_amount > 0.0" },
 
-          "obi.kekkizyutu_body"
+          "action"
         ]
       },
       "animations": {
@@ -57,8 +57,11 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "obi.kekkizyutu_body": "controller.animation.kekkizyutu.obi_body",
-        "yaeobigiri": "animation.kekkizyutu.obi.yaeobigiri_body"
+        "action": "controller.animation.obi.action",
+        "obi.yokonagi_third": "animation.action.obi.yokonagi_third",
+        "obi.shot_third": "animation.action.obi.shot_third",
+        "obi.yaeobigiri_third": "animation.action.obi.yaeobigiri_third",
+        "obi.barrage_attack_third": "animation.action.obi.barrage_attack_third"
 
       },
       "render_controllers": [

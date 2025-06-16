@@ -113,11 +113,11 @@
           "on_death": "Math.Min(5, 10)"
         },
         "minecraft:health": {
-          "value": 30,
-          "max": 30
+          "value": "math.random(10, 15)",
+          "max": 15
         },
         "minecraft:attack": {
-          "damage": 2
+          "damage": 1
         }
       },
       "kurokumaft:soldier_kaikyu2": {
@@ -125,11 +125,11 @@
           "on_death": "Math.Min(10, 20)"
         },
         "minecraft:health": {
-          "value": 40,
-          "max": 40
+          "value": "math.random(15, 20)",
+          "max": 20
         },
         "minecraft:attack": {
-          "damage": 3
+          "damage": 2
         }
       },
       "kurokumaft:soldier_kaikyu3": {
@@ -137,11 +137,11 @@
           "on_death": "Math.Min(10, 30)"
         },
         "minecraft:health": {
-          "value": 50,
-          "max": 50
+          "value": "math.random(15, 25)",
+          "max": 25
         },
         "minecraft:attack": {
-          "damage": 4
+          "damage": 2
         }
       },
       "kurokumaft:soldier_kaikyu4": {
@@ -149,11 +149,11 @@
           "on_death": "Math.Min(10, 40)"
         },
         "minecraft:health": {
-          "value": 60,
-          "max": 60
+          "value": "math.random(20, 30)",
+          "max": 30
         },
         "minecraft:attack": {
-          "damage": 5
+          "damage": 2
         }
       },
       "kurokumaft:soldier_kaikyu5": {
@@ -161,11 +161,11 @@
           "on_death": "Math.Min(10, 50)"
         },
         "minecraft:health": {
-          "value": 70,
-          "max": 70
+          "value": "math.random(25, 40)",
+          "max": 40
         },
         "minecraft:attack": {
-          "damage": 6
+          "damage": 3
         }
       },
       "kurokumaft:soldier_kaikyu6": {
@@ -173,11 +173,11 @@
           "on_death": "Math.Min(10, 70)"
         },
         "minecraft:health": {
-          "value": 70,
-          "max": 70
+          "value": "math.random(30, 45)",
+          "max": 45
         },
         "minecraft:attack": {
-          "damage": 7
+          "damage": 3
         }
       },
       "kurokumaft:soldier_kaikyu7": {
@@ -185,11 +185,11 @@
           "on_death": "Math.Min(20, 80)"
         },
         "minecraft:health": {
-          "value": 80,
-          "max": 80
+          "value": "math.random(45, 50)",
+          "max": 50
         },
         "minecraft:attack": {
-          "damage": 8
+          "damage": 4
         }
       },
       "kurokumaft:soldier_kaikyu8": {
@@ -197,11 +197,11 @@
           "on_death": "Math.Min(30, 90)"
         },
         "minecraft:health": {
-          "value": 90,
-          "max": 90
+          "value": "math.random(55, 60)",
+          "max": 60
         },
         "minecraft:attack": {
-          "damage": 9
+          "damage": 4
         }
       },
       "kurokumaft:soldier_kaikyu9": {
@@ -209,11 +209,11 @@
           "on_death": "Math.Min(40, 100)"
         },
         "minecraft:health": {
-          "value": 100,
-          "max": 100
+          "value": "math.random(60, 70)",
+          "max": 70
         },
         "minecraft:attack": {
-          "damage": 10
+          "damage": 5
         }
       },
       "kurokumaft:soldier_kaikyu10": {
@@ -221,11 +221,11 @@
           "on_death": "Math.Min(50, 120)"
         },
         "minecraft:health": {
-          "value": 120,
-          "max": 120
+          "value": "math.random(70, 80)",
+          "max": 80
         },
         "minecraft:attack": {
-          "damage": 10
+          "damage": 6
         }
       },
       "kurokumaft:ogre_damage_sensor": {
@@ -426,10 +426,6 @@
       "minecraft:collision_box": {
         "width": 0.6,
         "height": 1.8
-      },
-      "minecraft:health": {
-        "value": "math.random(50, 200)",
-        "max": 200
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/regimental_guy_gear.json"
@@ -684,10 +680,13 @@
       "kurokumaft:kokyu_end":{
         "add": {
           "component_groups": [ "kurokumaft:attack_normal" ]
+        },
+        "set_property": {
+          "kurokumaft:kokyu_kata": 0
         }
       },
 
-      "kurokumaft:kakyu_change": {
+      "kurokumaft:kaikyu_change": {
         "sequence": [
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 0 },

@@ -13,11 +13,13 @@
           "tuti_dragon": "geometry.tuti_dragon"
         },
         "animations": {
-          "attack": "animation.tuti_dragon.attack"
+          "con": "controller.animation.tuti_dragon",
+          "attack": "animation.tuti_dragon.attack",
+          "mukengouzyu": "animation.tuti_dragon.mukengouzyu"
         },
         "scripts": {
           "animate": [
-            "attack"
+            "con"
           ]
         },
         "render_controllers": ["controller.render.tuti_dragon"]

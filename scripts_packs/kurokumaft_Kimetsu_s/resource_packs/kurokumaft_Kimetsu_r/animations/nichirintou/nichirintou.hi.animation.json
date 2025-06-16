@@ -73,7 +73,7 @@
 		},
 		"animation.nichirintou.hi.san_2_first": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
+			"animation_length": 0.75,
 			"bones": {
 				"nichirintou": {
 					"rotation": {
@@ -86,12 +86,18 @@
 		},
 		"animation.nichirintou.hi.shi_1_first": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
+			"animation_length": 0.5833,
 			"bones": {
 				"nichirintou": {
 					"rotation": {
-						"0.0": [0, 35, 0],
-						"0.2083": [-85, 7.61452, -180]
+						"0.0": [0, -40, 0],
+						"0.0833": [85, -40, 0],
+						"0.1667": [84.60418, 44.76518, -7.02415],
+						"0.25": [49.69997, 22.06901, -65.4802],
+						"0.3333": [-118.08824, 3.60397, -225.10222],
+						"0.4167": [-18.09, 3.6, -225.1],
+						"0.5": [-25.22204, -43.34431, -206.00849],
+						"0.5833": [-132.72204, -43.34431, -206.00849]
 					},
 					"position": [0, 0, 0]
 				}
@@ -120,13 +126,13 @@
 			}
 		},
 		"animation.nichirintou.hi.roku_1_first": {
-			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
+			"loop": true,
+			"animation_length": 0.2083,
 			"bones": {
 				"nichirintou": {
 					"rotation": {
-						"0.0": [31.76182, -87.50073, 20.87214],
-						"0.2083": [106.76182, -87.50073, 20.87214]
+						"0.0": [32.29393, -26.07147, -40.99594],
+						"0.2083": [177.257, -29.2508, -51.00988]
 					},
 					"position": {
 						"0.0": [1, 8, -13],

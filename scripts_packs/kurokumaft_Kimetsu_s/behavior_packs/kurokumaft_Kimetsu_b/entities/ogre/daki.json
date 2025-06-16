@@ -13,6 +13,22 @@
           "default": 6,
           "client_sync": true
         },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kekkizyutu_kata": {
+          "type": "int",
+          "range": [0, 4],
+          "default": 0,
+          "client_sync": true
+        },
         "kurokumaft:ogre_rank": {
           "type": "enum",
           "values": ["none", "crescent"],
@@ -32,61 +48,28 @@
         ]
       },
       "animations":{
-        "kekkizyutu":"controller.animation.daki.kekkizyutu",
-        "barrage_attack": "animation.kekkizyutu.obi.barrage_attack"
+        "kekkizyutu":"controller.animation.kekkizyutu.monitor",
+        "cooldown": "animation.cooldown.twenty_sec"
       }
     },
 
     "component_groups": {
-      "minecraft:raid_trigger": {
-        "minecraft:raid_trigger": {
-          "triggered_event": {
-            "event": "minecraft:remove_raid_trigger",
-            "target": "self"
-          }
-        },
-        "minecraft:spell_effects": {
-          "remove_effects": "bad_omen"
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
         }
       },
-
-      "mark_variant0": {
-        "minecraft:mark_variant": {
-          "value": 0
-        }
-      },
-      "mark_variant1": {
-        "minecraft:mark_variant": {
-            "value": 1
-        }
-      },
-      "mark_variant2": {
-        "minecraft:mark_variant": {
-            "value": 2
-        }
-      },
-
-      "variant0": {
-        "minecraft:variant": {
-            "value": 0
-        }
-      },
-      "variant1": {
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "variant2": {
-        "minecraft:variant": {
-            "value": 2
-        }
-      },
-      "variant3": {
-        "minecraft:variant": {
-            "value": 3
+      "kurokumaft:damage_clear": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "deals_damage": "no"
+            }
+          ]
         }
       }
-
     },
 
     "components": {
@@ -106,8 +89,11 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 500,
-        "max": 500
+        "value": 60,
+        "max": 60
+      },
+      "minecraft:attack": {
+        "damage": 4
       },
       "minecraft:behavior.flee_sun": {
         "priority": 2,
@@ -154,15 +140,6 @@
         "value": 64,
         "max": 64
       },
-      "minecraft:timer": {
-        "time": [10.0, 15.0],
-        "randomInterval": true,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kekkizyutu",
-          "target": "self"
-        }
-      },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
         "alert_same_type": true,
@@ -188,11 +165,6 @@
           }
         ]
       },
-      "minecraft:behavior.melee_attack": {
-        "priority": 4,
-        "track_target": true,
-        "speed_multiplier": 1.25
-      },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
         "speed_multiplier": 1
@@ -211,9 +183,6 @@
             "damage_per_tick": 4
           }
         ]
-      },
-      "minecraft:attack": {
-        "damage": 4
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -254,7 +223,6 @@
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mituri" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_muitiro" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_gyoumei" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kokushibou" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_hi" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mizu" },
@@ -274,7 +242,7 @@
               }
             },
             "cause": "entity_attack",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           }
         ]
       },
@@ -297,125 +265,45 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:attack_normal"
+          ]
+        }
+      },
+      "kurokumaft:kekkizyutu_start":{},
+      "kurokumaft:attack_stop":{
+        "remove": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+      "kurokumaft:kekkizyutu_end":{
+        "add": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
 
-      "kurokumaft:random_kekkizyutu": {
+      "kurokumaft:add_damage_clear": {
         "sequence": [
           {
             "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
             }
-          },
-          {
-            "filters": {
-              "test": "has_target"
-            },
-            "randomize": [
-              {
-                "weight": 40,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 40,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              },
-              {
-                "weight": 20,
-                "add": {
-                  "component_groups": [ "variant3" ]
-                }
-              }
-            ]
           }
         ]
       },
-      "kurokumaft:random_kekkizyutu_off": {
-        "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
-        }
-      },
-
-      "mark_variant0": {
-        "add": {
-          "component_groups": [ "mark_variant0" ]
-        }
-      },
-      "mark_variant1": {
-        "add": {
-          "component_groups": [ "mark_variant1" ]
-        }
-      },
-      "mark_variant2": {
-        "add": {
-          "component_groups": [ "mark_variant2" ]
-        }
-      },
-
-      "variant0": {
-        "add": {
-          "component_groups": [ "variant0" ]
-        }
-      },
-      "variant1": {
-        "add": {
-          "component_groups": [ "variant1" ]
-        }
-      },
-      "variant2": {
-        "add": {
-          "component_groups": [ "variant2" ]
-        }
-      },
-      "variant3": {
-        "add": {
-          "component_groups": [ "variant3" ]
-        }
-      },
-      "variant4": {
-        "add": {
-          "component_groups": [ "variant4" ]
-        }
-      },
-      "variant5": {
-        "add": {
-          "component_groups": [ "variant5" ]
-        }
-      },
-      "variant6": {
-        "add": {
-          "component_groups": [ "variant6" ]
-        }
-      },
-      "variant7": {
-        "add": {
-          "component_groups": [ "variant7" ]
-        }
-      },
-      "variant8": {
-        "add": {
-          "component_groups": [ "variant8" ]
-        }
-      },
-      "variant9": {
-        "add": {
-          "component_groups": [ "variant9" ]
-        }
-      },
-      "variant10": {
-        "add": {
-          "component_groups": [ "variant10" ]
-        }
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       }
     }
   }
 }
-
-
-
-

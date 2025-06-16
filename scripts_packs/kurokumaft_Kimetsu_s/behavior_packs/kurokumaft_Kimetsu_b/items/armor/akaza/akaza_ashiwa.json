@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:akaza_ashiwa",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.boots"
+        "category": "equipment"
       }
     },
     "components": {

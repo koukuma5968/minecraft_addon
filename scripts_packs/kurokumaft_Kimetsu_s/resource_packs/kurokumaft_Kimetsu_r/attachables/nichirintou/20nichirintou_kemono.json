@@ -18,6 +18,7 @@
           "animate": [
             "scale",
             "person",
+            "attack_con",
             "kedamono"
           ]
         },
@@ -25,6 +26,8 @@
           "person": "controller.animation.nichirintou.person",
           "scale": "animation.nichirintou_scale_twin",
           "first": "animation.nichirintou_first_twin",
+          "attack_con": "controller.animation.nichirintou.attack",
+          "attack": "animation.nichirintou_first.two_attack",
 
           "kedamono": "controller.animation.nichirintou.kedamono",
 

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.21.10",
+  "animation_controllers": {
+    "controller.animation.kekkizyutu.monitor": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "start": "query.has_target" },
+            { "end": "!query.has_target" }
+          ]
+        },
+        "start":{
+          "animations" : [ "cooldown" ],
+          "on_entry": [
+            "/event entity @s kurokumaft:kekkizyutu_start"
+          ],
+          "transitions": [
+            {"default": "query.any_animation_finished"}
+          ]
+        },
+        "end":{
+          "on_entry": [
+            "/event entity @s kurokumaft:kekkizyutu_end"
+          ],
+          "transitions": [
+            {"default": "(1.0)"}
+          ]
+        }
+      }
+    }
+  }
+}

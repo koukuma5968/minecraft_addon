@@ -17,13 +17,16 @@
         "scripts": {
           "animate": [
             "scale",
-            "person"
+            "person",
+            "attack_con"
           ]
         },
         "animations": {
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
-          "first": "animation.nichirintou_first"
+          "first": "animation.nichirintou_first",
+          "attack_con": "controller.animation.nichirintou.attack",
+          "attack": "animation.nichirintou_first.horizontality_attack"
         },
         "render_controllers": ["controller.render.nichirintou"]
       }

@@ -16,12 +16,12 @@ export class KaminariNoKata extends KataComonClass {
         entity.setProperty("kurokumaft:kokyu_use", false);
 
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,15,0);
 
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                entity.applyKnockback(distance.x,distance.z,6,0);
             } catch (error) {
                 system.clearRun(num);
             }
@@ -78,15 +78,6 @@ export class KaminariNoKata extends KataComonClass {
             entity.setDynamicProperty("kurokumaft:attack_count", 8);
             const num = system.runInterval(() => {
                 this.ichiAttack(entity, itemStack);
-                system.runTimeout(() => {
-                    entity.teleport(entity.location, {
-                        keepVelocity: false,
-                        rotation: {
-                            x:0,
-                            y:entity.getRotation().y + getRandomInRange(75, 115)
-                        }
-                    });
-                }, 2);
             }, 8);
 
             system.runTimeout(() => {
@@ -113,11 +104,24 @@ export class KaminariNoKata extends KataComonClass {
             entity.setProperty("kurokumaft:kokyu_attack", false);
         },1);
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,15,0);
+        const num = system.runInterval(() => {
+            const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+            entity.applyKnockback(distance.x,distance.z,4,0);
 
-        const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
-        this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+            const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
+            this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+
+        }, 1);
+        system.runTimeout(() => {
+            entity.teleport(entity.location, {
+                keepVelocity: false,
+                rotation: {
+                    x:0,
+                    y:entity.getRotation().y + getRandomInRange(75, 115)
+                }
+            });
+            system.clearRun(num);
+        }, 6);
 
     }
 

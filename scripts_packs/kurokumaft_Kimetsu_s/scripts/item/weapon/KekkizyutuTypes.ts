@@ -11,6 +11,16 @@ import { ZyutuSekidoComponent } from "../../kekkizyutu/player/character/ZyutuSek
 import { ZyutuUrogiComponent } from "../../kekkizyutu/player/character/ZyutuUrogiComponent";
 import { ZyutuZouhakutenComponent } from "../../kekkizyutu/player/character/ZyutuZouhakutenComponent";
 import { TokageComponent } from "../../kekkizyutu/mob/TokageComponent";
+import { DakiComponent } from "../../kekkizyutu/mob/DakiComponent";
+import { GyutaroComponent } from "../../kekkizyutu/mob/GyutaroComponent";
+import { RuiComponent } from "../../kekkizyutu/mob/RuiComponent";
+import { NezukoComponent } from "../../kekkizyutu/mob/NezukoComponent";
+import { AkazaComponent } from "../../kekkizyutu/mob/AkazaComponent";
+import { AizetuComponent } from "../../kekkizyutu/mob/AizetuComponent";
+import { KarakuComponent } from "../../kekkizyutu/mob/KarakuComponent";
+import { SekidoComponent } from "../../kekkizyutu/mob/SekidoComponent";
+import { UrogiComponent } from "../../kekkizyutu/mob/UrogiComponent";
+import { ZouhakutenComponent } from "../../kekkizyutu/mob/ZouhakutenComponent";
 
 export interface KekkizyutuObject {
     itemName:string,
@@ -113,11 +123,61 @@ export interface KekkizyutuMobObject {
 
 export const KekkizyutuMobClassRecord: Record<string, new (entity:Entity) => KekkizyutuMobUseComponent> = {
     tokage: TokageComponent,
+    nezuko: NezukoComponent,
+    daki: DakiComponent,
+    gyutaro: GyutaroComponent,
+    rui: RuiComponent,
+    akaza: AkazaComponent,
+    aizetu: AizetuComponent,
+    karaku: KarakuComponent,
+    sekido: SekidoComponent,
+    urogi: UrogiComponent,
+    zouhakuten: ZouhakutenComponent,
 };
 
 export const KekkizyutuMobObjects = Object.freeze([
     {
         entityName: "kurokumaft:tokage",
         className: "tokage"
+    },
+    {
+        entityName: "kurokumaft:nezuko",
+        className: "nezuko"
+    },
+    {
+        entityName: "kurokumaft:daki",
+        className: "daki"
+    },
+    {
+        entityName: "kurokumaft:gyutaro",
+        className: "gyutaro"
+    },
+    {
+        entityName: "kurokumaft:rui",
+        className: "rui"
+    },
+    {
+        entityName: "kurokumaft:akaza",
+        className: "akaza"
+    },
+    {
+        entityName: "kurokumaft:aizetu",
+        className: "aizetu"
+    },
+    {
+        entityName: "kurokumaft:karaku",
+        className: "karaku"
+    },
+    {
+        entityName: "kurokumaft:sekido",
+        className: "sekido"
+    },
+    {
+        entityName: "kurokumaft:urogi",
+        className: "urogi"
+    },
+    {
+        entityName: "kurokumaft:zouhakuten",
+        className: "zouhakuten"
     },
 ]);

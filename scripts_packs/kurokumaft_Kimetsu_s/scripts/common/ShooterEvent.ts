@@ -31,7 +31,7 @@ function throwing(entity:Entity, item:ItemStack, throwItem:string, ranNum:number
 function shooting(entity:Entity, throwItem:string, ranNum:number, seepd:number, event:string | undefined) {
 
     let bulet;
-    const distance = getLookLocationDistancePitch(entity.getRotation(), 1, 0);
+    const distance = getLookLocationDistancePitch(entity.getRotation(), 1, ranNum);
 
     if (event != undefined) {
         bulet = entity.dimension.spawnEntity(throwItem+"<"+event+">", getDistanceLocation(

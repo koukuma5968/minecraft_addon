@@ -29,7 +29,7 @@
 				},
 				"shitotu_first" : {
 					"animations" : [
-						"spear.shitotu_first"
+						"bunretu.shitotu_first"
 					],
 					"transitions" : [
 						{"first_person":"query.any_animation_finished"}
@@ -49,7 +49,7 @@
 				},
 				"shitotu_third" : {
 					"animations" : [
-						"spear.shitotu_third"
+						"bunretu.shitotu_third"
 					],
 					"transitions" : [
 						{"third_person":"query.any_animation_finished"}

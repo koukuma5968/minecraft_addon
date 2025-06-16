@@ -6,8 +6,8 @@
 			"bones": {
 				"gyutaro_kama": {
 					"rotation": [-9.75261, 74.16096, -67.78876],
-					"position": [-3, 12, -8],
-					"scale": 1
+					"position": [0, 23, -5],
+					"scale": [1.5, 2.1, 2.3]
 				}
 			}
 		},
@@ -17,7 +17,7 @@
 				"gyutaro_kama": {
 					"rotation": [0, 0, 0],
 					"position": [0, 22, -3],
-					"scale": 1.25
+					"scale": [1.25, 1.25, 1.45]
 				}
 			}
 		}

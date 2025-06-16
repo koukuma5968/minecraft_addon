@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:soldier_jacket_girl_brown",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.chestplate"
+        "category": "equipment"
       }
     },
     "components": {

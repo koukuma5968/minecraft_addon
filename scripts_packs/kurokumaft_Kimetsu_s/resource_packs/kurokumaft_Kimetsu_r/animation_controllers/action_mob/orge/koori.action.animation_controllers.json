@@ -1,0 +1,91 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.koori.action" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"konagoori_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"hasugoori_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"karesonosizuri_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"itegumori_third": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
+						{"tururenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"kanretunosirahime_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
+						{"fuyuzareturara_third": "query.property('kurokumaft:kekkizyutu_kata') == 7"},
+						{"tirirenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 8"}
+					]
+				},
+				"konagoori_third" : {
+					"animations" : [
+						"konagoori_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"hasugoori_third" : {
+					"animations" : [
+						"hasugoori_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"karesonosizuri_third" : {
+					"animations" : [
+						"karesonosizuri_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"itegumori_third" : {
+					"animations" : [
+						"itegumori_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"tururenge_third" : {
+					"animations" : [
+						"tururenge_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kanretunosirahime_third" : {
+					"animations" : [
+						"kanretunosirahime_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"fuyuzareturara_third" : {
+					"animations" : [
+						"fuyuzareturara_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"tirirenge_third" : {
+					"animations" : [
+						"tirirenge_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				}
+			}
+		}
+    }
+}

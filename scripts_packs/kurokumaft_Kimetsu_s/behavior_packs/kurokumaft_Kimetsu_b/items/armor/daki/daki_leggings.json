@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:daki_leggings",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
+        "category": "equipment"
       }
     },
     "components": {

@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:soldier_pants_girl_purple",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
+        "category": "equipment"
       }
     },
     "components": {

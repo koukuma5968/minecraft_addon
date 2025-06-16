@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:sanemi_head",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.skull"
+        "category": "items"
       }
     },
     "components": {

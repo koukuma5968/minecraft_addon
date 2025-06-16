@@ -12,12 +12,12 @@ export class HebiNoKata extends KataComonClass {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hebi_kokyu1.value"}]});
         }
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,6,0);
-
         const distancePitch = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distancePitch), 4, entity);
         this.kokyuApplyDamage(entity, filter, 3, 2, itemStack);
+
+        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+        entity.applyKnockback(distance.x,distance.z,6,0);
 
         system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -52,11 +52,11 @@ export class HebiNoKata extends KataComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hebi_kokyu3.value"}]});
         }
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,30,0);
 
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 6, entity);
+                entity.applyKnockback(distance.x,distance.z,4,0);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
             } catch (error) {
                 system.clearRun(num);

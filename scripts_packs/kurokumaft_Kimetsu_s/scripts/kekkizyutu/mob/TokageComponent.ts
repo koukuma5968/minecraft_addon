@@ -7,28 +7,22 @@ import { Bunretu } from "../zyutu/Bunretu";
  */
 export class TokageComponent implements KekkizyutuMobUseComponent {
 
-    entity: Entity;
-    num: number;
+    startMonitoring(entity: Entity) {
 
-    constructor(entity: Entity) {
-        this.entity = entity;
-        this.num = 0;
-    }
-
-    startMonitoring() {
-        this.num = system.runInterval(() => {
-            if (this.entity.isValid()) {
-                this.useAttackZyutu();
-            } else {
-                system.clearRun(this.num);
+        if (entity != undefined && entity.isValid()) {
+            const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
+            if (nitirintou_equip) {
+                entity.setProperty("kurokumaft:kokyu_use", true);
+                entity.setProperty("kurokumaft:kokyu_particle", true);
+                this.useAttackZyutu(entity);
             }
-        }, 15*TicksPerSecond);
+        }
     }
 
-    async useAttackZyutu(): Promise<void> {
+    async useAttackZyutu(entity: Entity): Promise<void> {
 
         const bunretu = new Bunretu();
-        bunretu.ultrasonic(this.entity);
+        bunretu.ultrasonic(entity);
 
     }
 

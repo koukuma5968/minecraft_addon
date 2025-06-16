@@ -63,20 +63,150 @@
                     },
                     {
                         "group_identifier": {
-                            "icon": "kurokumaft:tanjiro_haori_soldier_jacket",
-                            "name": "kurokumaft:itemGroup.name.soldier_chestplate"
+                            "icon": "kurokumaft:kanawo_hair_band",
+                            "name": "kurokumaft:itemGroup.name.soldier_head"
                         },
                         "items": [
-                            "kurokumaft:tanjiro_haori_soldier_jacket"
+                            "kurokumaft:kanawo_hair_band",
+                            "kurokumaft:inosuke_headdress",
+                            "kurokumaft:tengen_headgear",
+                            "kurokumaft:obanai_mask"
                         ]
                     },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:tanjiro_haori_soldier_jacket",
+                            "name": "kurokumaft:itemGroup.name.soldier_chestplate"
+                        },
+                        "items": [
+                            "kurokumaft:tanjiro_haori_soldier_jacket",
+                            "kurokumaft:kanawo_mant",
+                            "kurokumaft:shinobu_hair_band",
+                            "kurokumaft:zenitu_haori_soldier_jacket",
+                            "kurokumaft:giyu_haori_soldier_jacket",
+                            "kurokumaft:kyouzyuro_mant",
+                            "kurokumaft:shinobu_haori",
+                            "kurokumaft:tengen_soldier_jacket",
+                            "kurokumaft:mituri_haori",
+                            "kurokumaft:mituri_jacket",
+                            "kurokumaft:sanemi_haori_soldier_jacket",
+                            "kurokumaft:genya_haori_soldier_jacket",
+                            "kurokumaft:gyoumei_haori_soldier_jacket",
+                            "kurokumaft:muitiro_jacket",
+                            "kurokumaft:obanai_haori_soldier_jacket",
+                            "kurokumaft:soldier_jacket_guy_harf_brown",
+                            "kurokumaft:soldier_jacket_guy_harf_blue",
+                            "kurokumaft:soldier_jacket_guy_harf_green",
+                            "kurokumaft:soldier_jacket_guy_brown",
+                            "kurokumaft:soldier_jacket_guy_blue",
+                            "kurokumaft:soldier_jacket_guy_green",
+                            "kurokumaft:soldier_jacket_girl_blue",
+                            "kurokumaft:soldier_jacket_girl_brown",
+                            "kurokumaft:soldier_jacket_girl_purple"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:soldier_pants_guy_blue",
+                            "name": "kurokumaft:itemGroup.name.soldier_pants"
+                        },
+                        "items": [
+                            "kurokumaft:inosuke_hakama",
+                            "kurokumaft:mituri_skirt",
+                            "kurokumaft:muitiro_hakama",
+                            "kurokumaft:soldier_pants_guy_brown",
+                            "kurokumaft:soldier_pants_guy_blue",
+                            "kurokumaft:soldier_pants_guy_green",
+                            "kurokumaft:soldier_pants_girl_blue",
+                            "kurokumaft:soldier_skirt_girl_blue",
+                            "kurokumaft:soldier_pants_girl_brown",
+                            "kurokumaft:soldier_skirt_girl_brown",
+                            "kurokumaft:soldier_pants_girl_purple",
+                            "kurokumaft:soldier_skirt_girl_purple"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:tanjiro_tabi",
                             "name": "kurokumaft:itemGroup.name.soldier_boots"
                         },
                         "items": [
-                            "kurokumaft:tanjiro_tabi"
+                            "kurokumaft:tanjiro_tabi",
+                            "kurokumaft:zenitu_tabi",
+                            "kurokumaft:inosuke_tabi",
+                            "kurokumaft:kanawo_boots",
+                            "kurokumaft:giyu_tabi",
+                            "kurokumaft:kyouzyuro_tabi",
+                            "kurokumaft:shinobu_tabi",
+                            "kurokumaft:tengen_tabi",
+                            "kurokumaft:mituri_tabi",
+                            "kurokumaft:sanemi_tabi",
+                            "kurokumaft:genya_tabi",
+                            "kurokumaft:gyoumei_tabi",
+                            "kurokumaft:muitiro_tabi",
+                            "kurokumaft:soldier_boots_guy_brown",
+                            "kurokumaft:soldier_boots_guy_blue",
+                            "kurokumaft:soldier_boots_guy_green",
+                            "kurokumaft:soldier_boots_girl_blue",
+                            "kurokumaft:soldier_boots_girl_brown",
+                            "kurokumaft:soldier_boots_girl_purple"
+                        ]
+                    },
+
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:nezuko_mask",
+                            "name": "kurokumaft:itemGroup.name.ogre_head"
+                        },
+                        "items": [
+                            "kurokumaft:nezuko_mask",
+                            "kurokumaft:daki_kanzashi"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:nezuko_haori",
+                            "name": "kurokumaft:itemGroup.name.ogre_chestplate"
+                        },
+                        "items": [
+                            "kurokumaft:nezuko_haori",
+                            "kurokumaft:daki_obi",
+                            "kurokumaft:rui_kimono",
+                            "kurokumaft:akaza_jacket",
+                            "kurokumaft:gyutaro_obi",
+                            "kurokumaft:hantengu_kimono",
+                            "kurokumaft:sekido_kimono",
+                            "kurokumaft:karaku_jacket",
+                            "kurokumaft:aizetu_jacket",
+                            "kurokumaft:urogi_zyuzu",
+                            "kurokumaft:zouhakuten_taiko"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:nezuko_kimono",
+                            "name": "kurokumaft:itemGroup.name.ogre_pants"
+                        },
+                        "items": [
+                            "kurokumaft:nezuko_kimono",
+                            "kurokumaft:akaza_hakama",
+                            "kurokumaft:daki_leggings",
+                            "kurokumaft:gyutaro_hakama",
+                            "kurokumaft:karaku_hakama",
+                            "kurokumaft:aizetu_hakama",
+                            "kurokumaft:urogi_hakama",
+                            "kurokumaft:zouhakuten_hakama"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:nezuko_boots",
+                            "name": "kurokumaft:itemGroup.name.ogre_boots"
+                        },
+                        "items": [
+                            "kurokumaft:nezuko_boots",
+                            "kurokumaft:akaza_ashiwa",
+                            "kurokumaft:daki_geta"
                         ]
                     }
                 ]

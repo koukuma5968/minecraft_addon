@@ -26,6 +26,15 @@ function getRandomInRange(min:number, max:number) {
     return Math.random() * (max - min) + min;
 }
 
+/**
+ * @param {number} current
+ * @param {number} max
+ * @param {number} percent
+ */
+function isBelowThreshold(current: number, max: number, percent: number): boolean {
+  return current <= max * percent;
+}
+
 // サウンド再生
 /**
  * @param {Player} entity
@@ -368,7 +377,7 @@ function isTargetInFront(myPos: Vector3, yawDeg: number, targetPos: Vector3, max
     return thetaDeg <= maxHalfAngleDeg && dist <= maxDistance;
 }
 
-export { print, clamp, getRandomInRange, playsound, getDistanceLocation, 
+export { print, clamp, getRandomInRange, playsound, getDistanceLocation, isBelowThreshold,
     getDirectionVector, addRegimentalFilter, addOrgeFilter, addProjectionFilter, BlockLocationList, weightChoice,
     getForwardPosition, getRightPosition, getLeftPosition, getLookLocationDistance, getLookLocationDistancePitch, isTargetInFront,
     getForwardVector };

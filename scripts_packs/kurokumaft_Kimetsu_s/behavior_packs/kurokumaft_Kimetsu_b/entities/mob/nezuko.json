@@ -6,14 +6,50 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:ogre_moon": {
+          "type": "int",
+          "range": [1, 6],
+          "default": 6,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kekkizyutu_kata": {
+          "type": "int",
+          "range": [0, 4],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:ogre_rank": {
+          "type": "enum",
+          "values": ["none", "low", "unusual", "quarter", "crescent", "king"],
+          "default": "none",
+          "client_sync": true
+        },
+        "kurokumaft:ogre_point": {
+          "type": "int",
+          "range": [0, 250],
+          "default": 250,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
-          "bakketu"
+          "kekkizyutu"
         ]
       },
       "animations":{
-        "bakketu":"controller.animation.nezuko.kekkizyutu",
-        "bakketu_target": "animation.kekkizyutu.bakketu.target","bakketu_fire": "animation.kekkizyutu.bakketu.fire"
+        "kekkizyutu":"controller.animation.kekkizyutu.monitor",
+        "cooldown": "animation.cooldown.twenty_sec"
       }
     },
 
@@ -29,59 +65,150 @@
           "remove_effects": "bad_omen"
         }
       },
-      "damage_clear": {
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
+        }
+      },
+      "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
-          "triggers": {
-            "cause": "entity_attack",
-            "deals_damage": false
-          }
+          "triggers": [
+            {
+              "deals_damage": "no"
+            }
+          ]
         }
       },
-
-      "mark_variant0": {
-        "minecraft:mark_variant": {
-            "value": 0
+      "kurokumaft:ogre_hurt_on_condition": {
+        "minecraft:burns_in_daylight": {
         }
       },
-      "mark_variant1": {
-        "minecraft:mark_variant": {
-            "value": 1
+      "kurokumaft:ogre_rank_low": {
+        "minecraft:health": {
+          "value": 50,
+          "max": 50
+        },
+        "minecraft:attack": {
+          "damage": 3
         }
       },
-      "mark_variant2": {
-        "minecraft:mark_variant": {
-            "value": 2
+      "kurokumaft:ogre_rank_unusual": {
+        "minecraft:health": {
+          "value": 60,
+          "max": 60
+        },
+        "minecraft:attack": {
+          "damage": 4
         }
       },
-      "mark_variant3": {
-        "minecraft:mark_variant": {
-            "value": 3
+      "kurokumaft:ogre_rank_quarter_6": {
+        "minecraft:health": {
+          "value": 70,
+          "max": 70
+        },
+        "minecraft:attack": {
+          "damage": 5
         }
       },
-
-      "variant0": {
-        "minecraft:variant": {
-            "value": 0
+      "kurokumaft:ogre_rank_quarter_5": {
+        "minecraft:health": {
+          "value": 80,
+          "max": 80
+        },
+        "minecraft:attack": {
+          "damage": 6
         }
       },
-      "variant1": {
-        "minecraft:variant": {
-            "value": 1
+      "kurokumaft:ogre_rank_quarter_4": {
+        "minecraft:health": {
+          "value": 90,
+          "max": 90
+        },
+        "minecraft:attack": {
+          "damage": 7
         }
       },
-      "variant2": {
-        "minecraft:variant": {
-            "value": 2
+      "kurokumaft:ogre_rank_quarter_3": {
+        "minecraft:health": {
+          "value": 100,
+          "max": 100
+        },
+        "minecraft:attack": {
+          "damage": 8
         }
       },
-      "variant3": {
-        "minecraft:variant": {
-            "value": 3
+      "kurokumaft:ogre_rank_quarter_2": {
+        "minecraft:health": {
+          "value": 110,
+          "max": 110
+        },
+        "minecraft:attack": {
+          "damage": 9
         }
       },
-      "variant4": {
-        "minecraft:variant": {
-            "value": 4
+      "kurokumaft:ogre_rank_quarter_1": {
+        "minecraft:health": {
+          "value": 120,
+          "max": 120
+        },
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_6": {
+        "minecraft:health": {
+          "value": 130,
+          "max": 130
+        },
+        "minecraft:attack": {
+          "damage": 10
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_5": {
+        "minecraft:health": {
+          "value": 140,
+          "max": 140
+        },
+        "minecraft:attack": {
+          "damage": 11
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_4": {
+        "minecraft:health": {
+          "value": 150,
+          "max": 150
+        },
+        "minecraft:attack": {
+          "damage": 11
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_3": {
+        "minecraft:health": {
+          "value": 150,
+          "max": 150
+        },
+        "minecraft:attack": {
+          "damage": 11
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_2": {
+        "minecraft:health": {
+          "value": 170,
+          "max": 170
+        },
+        "minecraft:attack": {
+          "damage": 13
+        }
+      },
+      "kurokumaft:ogre_rank_crescent_1": {
+        "minecraft:health": {
+          "value": 200,
+          "max": 200
+        },
+        "minecraft:attack": {
+          "damage": 15
         }
       }
     },
@@ -144,7 +271,8 @@
             "filters": {
               "all_of": [
                 {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "villager"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
@@ -159,25 +287,14 @@
           {
             "filters": {
               "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
+                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
               ]
             },
             "max_dist": 64
-          },
-          {
-            "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "ogre"}
-              ]
-            },
-            "max_dist": 128
           }
         ]
-      },
-      "minecraft:behavior.melee_attack": {
-        "priority": 4,
-        "track_target": true,
-        "speed_multiplier": 1.25
       },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -197,9 +314,6 @@
             "damage_per_tick": 4
           }
         ]
-      },
-      "minecraft:attack": {
-        "damage": 4
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -240,15 +354,6 @@
       },
       "minecraft:conditional_bandwidth_optimization": {
       },
-      "minecraft:timer": {
-        "time": [10.0, 15.0],
-        "randomInterval": true,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kokyu",
-          "target": "self"
-        }
-      },
       "minecraft:block_climber": {},
       "minecraft:environment_sensor": {
         "triggers": [
@@ -268,108 +373,206 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:attack_normal"
+          ]
         }
       },
-      "minecraft:trigger_raid": {
-        "add": {
-          "component_groups": [ "minecraft:raid_trigger" ]
-        }
-      },
-      "minecraft:remove_raid_trigger": {
+      "kurokumaft:kekkizyutu_start":{},
+      "kurokumaft:attack_stop":{
         "remove": {
-          "component_groups": [ "minecraft:raid_trigger" ]
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
-      "add_damage_clear": {
+      "kurokumaft:kekkizyutu_end":{
         "add": {
-          "component_groups": [ "damage_clear" ]
-        }
-      },
-      "remove_damage_clear": {
-        "remove": {
-          "component_groups": [ "damage_clear" ]
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
 
-      "kurokumaft:random_kokyu": {
+      "kurokumaft:add_damage_clear": {
         "sequence": [
           {
             "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
             }
-          },
-          {
-            "filters": {
-              "test": "has_target"
-            },
-            "randomize": [
-              {
-                "weight": 100,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              }
-            ]
           }
         ]
       },
-      "kurokumaft:random_kokyu_off": {
-        "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
-        }
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       },
 
-      "mark_variant0": {
-        "add": {
-          "component_groups": [ "mark_variant0" ]
-        }
-      },
-      "mark_variant1": {
-        "add": {
-          "component_groups": [ "mark_variant1" ]
-        }
-      },
-      "mark_variant2": {
-        "add": {
-          "component_groups": [ "mark_variant2" ]
-        }
-      },
-      "mark_variant3": {
-        "add": {
-          "component_groups": [ "mark_variant3" ]
-        }
-      },
-
-      "variant0": {
-        "add": {
-          "component_groups": [ "variant0" ]
-        }
-      },
-      "variant1": {
-        "add": {
-          "component_groups": [ "variant1" ]
-        }
-      },
-      "variant2": {
-        "add": {
-          "component_groups": [ "variant2" ]
-        }
-      },
-      "variant3": {
-        "add": {
-          "component_groups": [ "variant3" ]
-        }
-      },
-      "variant4": {
-        "add": {
-          "component_groups": [ "variant4" ]
-        }
+      "kurokumaft:ogre_rank_change": {
+        "sequence": [
+          {
+            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "low" },
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_low"
+              ]
+            }
+          },
+          {
+            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "unusual" },
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_unusual"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "quarter"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 6}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_quarter_6"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "quarter"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 5}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_quarter_5"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "quarter"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 4}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_quarter_4"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "quarter"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 3}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_quarter_3"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "quarter"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 2}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_quarter_2"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "quarter"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 1}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_hurt_on_condition",
+                "kurokumaft:ogre_rank_quarter_1"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "crescent"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 6}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_rank_crescent_6"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "crescent"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 5}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_rank_crescent_5"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "crescent"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 4}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_rank_crescent_4"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "crescent"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 3}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_rank_crescent_3"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "crescent"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 2}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_rank_crescent_2"
+              ]
+            }
+          },
+          {
+            "filters": [
+              {"test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "crescent"},
+              {"test": "int_property", "domain": "kurokumaft:ogre_moon", "operator": "==", "value": 1}
+            ],
+            "add": {
+              "component_groups": [
+                "kurokumaft:ogre_rank_crescent_1"
+              ]
+            }
+          }
+        ]
       }
     }
   }
 }
-
-
-
-

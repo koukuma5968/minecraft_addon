@@ -3,7 +3,7 @@
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:zouhakuten",
-      "is_spawnable": true,
+      "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
       "properties": {
@@ -11,6 +11,22 @@
           "type": "int",
           "range": [0, 4],
           "default": 4,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kekkizyutu_kata": {
+          "type": "int",
+          "range": [0, 4],
+          "default": 0,
           "client_sync": true
         },
         "kurokumaft:ogre_rank": {
@@ -32,82 +48,26 @@
         ]
       },
       "animations":{
-        "kekkizyutu":"controller.animation.sekido.kekkizyutu"
+        "kekkizyutu":"controller.animation.kekkizyutu.monitor",
+        "cooldown": "animation.cooldown.twenty_sec"
       }
     },
 
     "component_groups": {
-      "minecraft:raid_trigger": {
-        "minecraft:raid_trigger": {
-          "triggered_event": {
-            "event": "minecraft:remove_raid_trigger",
-            "target": "self"
-          }
-        },
-        "minecraft:spell_effects": {
-          "remove_effects": "bad_omen"
+      "kurokumaft:attack_normal": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 1.25
         }
       },
-
-      "kurokumaft:knockback_max": {
-        "minecraft:knockback_resistance": {
-          "value": 100
-        }
-      },
-      "kurokumaft:knockback_zero": {
-        "minecraft:knockback_resistance": {
-          "value": 0
-        }
-      },
-
-      "kurokumaft:explosion_nullify": {
+      "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
           "triggers": [
             {
-              "on_damage": {
-                "filters": {
-                  "any_of": [
-                    {"test": "has_damage", "subject": "self", "operator": "==", "value": "block_explosion" },
-                    {"test": "has_damage", "subject": "self", "operator": "==", "value": "entity_explosion" }
-                  ]
-                }
-              },
-              "cause": "entity_explosion",
-              "deals_damage": false
+              "deals_damage": "no"
             }
           ]
-        }
-      },
-
-      "mark_variant0": {
-        "minecraft:mark_variant": {
-            "value": 0
-        }
-      },
-      "mark_variant1": {
-        "minecraft:mark_variant": {
-            "value": 1
-        }
-      },
-      "mark_variant2": {
-        "minecraft:mark_variant": {
-            "value": 2
-        }
-      },
-
-      "variant0": {
-        "minecraft:variant": {
-            "value": 0
-        }
-      },
-      "variant1": {
-        "minecraft:variant": {
-            "value": 1
-        }
-      },
-      "variant2": {
-        "minecraft:variant": {
-            "value": 2
         }
       }
 
@@ -118,7 +78,7 @@
         "on_death": "Math.Min(7, 100)"
       },
       "minecraft:type_family": {
-        "family": [ "mob", "ogre", "undead", "monster" ]
+        "family": [ "mob", "ogre", "undead", "monster"]
       },
       "minecraft:is_hidden_when_invisible": {
       },
@@ -130,8 +90,8 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 700,
-        "max": 700
+        "value": 130,
+        "max": 130
       },
       "minecraft:behavior.flee_sun": {
         "priority": 2,
@@ -146,15 +106,6 @@
         "search_height": 2,
         "goal_radius": 1.14,
         "interval": 20
-      },
-      "minecraft:timer": {
-        "time": [10.0, 15.0],
-        "randomInterval": true,
-        "looping": true,
-        "time_down_event": {
-          "event": "kurokumaft:random_kekkizyutu",
-          "target": "self"
-        }
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/ogre/zouhakuten_gear.json"
@@ -211,11 +162,6 @@
             "must_see": false
           }
         ]
-      },
-      "minecraft:behavior.melee_attack": {
-        "priority": 4,
-        "track_target": true,
-        "speed_multiplier": 1.25
       },
       "minecraft:behavior.random_stroll": {
         "priority": 6,
@@ -278,7 +224,6 @@
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mituri" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_muitiro" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_gyoumei" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kokushibou" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_hi" },
                   {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mizu" },
@@ -298,165 +243,54 @@
               }
             },
             "cause": "entity_attack",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           }
         ]
       },
-      "minecraft:block_climber": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          }
-        ]
-      }
+      "minecraft:block_climber": {}
     },
 
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
+          "component_groups": [
+            "kurokumaft:attack_normal"
+          ]
+        }
+      },
+      "kurokumaft:kekkizyutu_start":{},
+      "kurokumaft:attack_stop":{
+        "remove": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
+        }
+      },
+      "kurokumaft:kekkizyutu_end":{
+        "add": {
+          "component_groups": [ "kurokumaft:attack_normal" ]
         }
       },
 
-      "kurokumaft:random_kekkizyutu": {
+      "kurokumaft:add_damage_clear": {
         "sequence": [
           {
             "add": {
-              "component_groups": [ "variant0","mark_variant0" ]
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
             }
-          },
-          {
-            "filters": {
-              "test": "has_target"
-            },
-            "randomize": [
-              {
-                "weight": 15,
-                "add": {
-                  "component_groups": [ "variant1" ]
-                }
-              },
-              {
-                "weight": 10,
-                "add": {
-                  "component_groups": [ "variant2" ]
-                }
-              }
-            ]
           }
         ]
       },
-      "kurokumaft:random_kekkizyutu_off": {
-        "add": {
-          "component_groups": [ "variant0","mark_variant0" ]
-        }
-      },
-
-      "kurokumaft:knockback_add": {
-        "remove": {
-          "component_groups": [ "kurokumaft:knockback_zero" ]
-        },
-        "add": {
-          "component_groups": [ "kurokumaft:knockback_max" ]
-        }
-      },
-      "kurokumaft:knockback_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:knockback_max" ]
-        },
-        "add": {
-          "component_groups": [ "kurokumaft:knockback_zero" ]
-        }
-      },
-
-      "kurokumaft:explosion_nullify": {
-        "add": {
-          "component_groups": [ "kurokumaft:explosion_nullify" ]
-        }
-      },
-      "kurokumaft:explosion_nullify_remove": {
-        "remove": {
-          "component_groups": [ "kurokumaft:explosion_nullify" ]
-        }
-      },
-
-      "mark_variant0": {
-        "add": {
-          "component_groups": [ "mark_variant0" ]
-        }
-      },
-      "mark_variant1": {
-        "add": {
-          "component_groups": [ "mark_variant1" ]
-        }
-      },
-      "mark_variant2": {
-        "add": {
-          "component_groups": [ "mark_variant2" ]
-        }
-      },
-
-      "variant0": {
-        "add": {
-          "component_groups": [ "variant0" ]
-        }
-      },
-      "variant1": {
-        "add": {
-          "component_groups": [ "variant1" ]
-        }
-      },
-      "variant2": {
-        "add": {
-          "component_groups": [ "variant2" ]
-        }
-      },
-      "variant3": {
-        "add": {
-          "component_groups": [ "variant3" ]
-        }
-      },
-      "variant4": {
-        "add": {
-          "component_groups": [ "variant4" ]
-        }
-      },
-      "variant5": {
-        "add": {
-          "component_groups": [ "variant5" ]
-        }
-      },
-      "variant6": {
-        "add": {
-          "component_groups": [ "variant6" ]
-        }
-      },
-      "variant7": {
-        "add": {
-          "component_groups": [ "variant7" ]
-        }
-      },
-      "variant8": {
-        "add": {
-          "component_groups": [ "variant8" ]
-        }
-      },
-      "variant9": {
-        "add": {
-          "component_groups": [ "variant9" ]
-        }
-      },
-      "variant10": {
-        "add": {
-          "component_groups": [ "variant10" ]
-        }
+      "kurokumaft:remove_damage_clear": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_clear"
+              ]
+            }
+          }
+        ]
       }
     }
   }

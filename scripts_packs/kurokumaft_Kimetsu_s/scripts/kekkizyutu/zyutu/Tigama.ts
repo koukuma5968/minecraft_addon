@@ -96,7 +96,7 @@ export class Tigama extends ZytuComonClass {
                             }
                         }
             
-                    }, 6);
+                    }, 3);
     
                 }
 

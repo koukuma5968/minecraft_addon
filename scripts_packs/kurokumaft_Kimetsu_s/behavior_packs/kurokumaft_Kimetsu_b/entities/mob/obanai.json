@@ -334,6 +334,9 @@
       "kurokumaft:kokyu_end":{
         "add": {
           "component_groups": [ "kurokumaft:attack_normal" ]
+        },
+        "set_property": {
+          "kurokumaft:kokyu_kata": 0
         }
       },
 

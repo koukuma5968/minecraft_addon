@@ -16,11 +16,11 @@ export class HonoNoKata extends KataComonClass {
         entity.setProperty("kurokumaft:kokyu_use", false);
 
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,20,0);
 
         const num = system.runInterval(() => {
             try {
-                let filter = addRegimentalFilter(0, entity.location, 3.5, entity);
+                const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
+                entity.applyKnockback(distance.x,distance.z,4,0);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
             } catch (error) {
                 system.clearRun(num);
@@ -129,11 +129,11 @@ export class HonoNoKata extends KataComonClass {
         entity.setProperty("kurokumaft:kokyu_use", false);
 
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(distance.x,distance.z,50,0);
 
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
+                entity.applyKnockback(distance.x,distance.z,6,0);
                 this.kokyuApplyDamage(entity, filter, 10, 3, itemStack);
             } catch (error) {
                 system.clearRun(num);

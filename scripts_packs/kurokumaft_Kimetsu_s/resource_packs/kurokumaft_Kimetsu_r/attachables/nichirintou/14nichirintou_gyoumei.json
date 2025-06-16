@@ -18,6 +18,7 @@
           "animate": [
             "scale",
             "person",
+            "attack_con",
             "gyoumei"
           ]
         },
@@ -25,6 +26,8 @@
           "person": "controller.animation.nichirintou.person",
           "scale": "animation.nichirintou_scale_gyoumei",
           "first": "animation.nichirintou_first_twin",
+          "attack_con": "controller.animation.nichirintou.attack",
+          "attack": "animation.nichirintou_first.two_attack",
 
           "gyoumei": "controller.animation.nichirintou.gyoumei",
 

@@ -1,0 +1,28 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.spear.action" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"shitotu_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"}
+					]
+				},
+				"shitotu_third" : {
+					"animations" : [
+						"bunretu.shitotu_third"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
+					]
+				}
+			}
+		}
+    }
+}

@@ -41,7 +41,7 @@ export class RaisingStatusCheckClass {
                     player.setProperty("kurokumaft:kaikyu", kaikyu+1);
                     player.setProperty("kurokumaft:ogre_kill", 0);
                     system.runTimeout(() => {
-                        player.triggerEvent("kurokumaft:kakyu_change");
+                        player.triggerEvent("kurokumaft:kaikyu_change");
                     }, 2);
                 } else {
                     player.setProperty("kurokumaft:ogre_kill", upPoint);

@@ -18,6 +18,7 @@
           "animate": [
             "scale",
             "person",
+            "attack_con",
             "kasumi"
           ]
         },
@@ -25,6 +26,8 @@
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
           "first": "animation.nichirintou_first",
+          "attack_con": "controller.animation.nichirintou.attack",
+          "attack": "animation.nichirintou_first.one_attack",
 
           "kasumi": "controller.animation.nichirintou.kasumi",
           "ichi_1_third": "animation.nichirintou.kasumi.ichi_1_third",

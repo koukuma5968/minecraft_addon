@@ -113,7 +113,7 @@
 			}
 		},
 		"animation.aizetu_spear.shitotu_first": {
-			"animation_length": 0.5833,
+			"animation_length": 0.75,
 			"bones": {
 				"pole": {
 					"rotation": {

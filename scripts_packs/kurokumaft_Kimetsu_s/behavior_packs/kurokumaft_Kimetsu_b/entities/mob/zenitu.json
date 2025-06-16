@@ -446,10 +446,13 @@
       "kurokumaft:kokyu_end":{
         "add": {
           "component_groups": [ "kurokumaft:attack_normal" ]
+        },
+        "set_property": {
+          "kurokumaft:kokyu_kata": 0
         }
       },
 
-      "kurokumaft:kakyu_change": {
+      "kurokumaft:kaikyu_change": {
         "sequence": [
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 0 },

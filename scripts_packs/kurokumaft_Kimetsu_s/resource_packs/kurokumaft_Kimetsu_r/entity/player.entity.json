@@ -191,7 +191,9 @@
         "nichirintou_custom.attack_horizontality_third": "animation.nichirintou_custom.attack_horizontality_third",
 
         "mizu_dragon": "animation.mizu_dragon.attack",
+        "mizu_dragon_first": "animation.mizu_dragon.attack_first",
         "hi_dragon": "animation.hi_dragon.attack",
+        "hi_dragon_first": "animation.hi_dragon.attack_first",
         "kaminari_dragon": "animation.kaminari_dragon.attack",
         "hebi_ichi": "animation.hebi.ichi",
         "hebi_ni": "animation.hebi.ni",
@@ -578,7 +580,10 @@
         "hakaisatu.manyousenyanagi_third": "animation.action.hakaisatu.manyousenyanagi_third",
         "hakaisatu.manyousenyanagi_attack_third": "animation.action.hakaisatu.manyousenyanagi_attack_third",
         "hakaisatu.kishinyaenshin_third": "animation.action.hakaisatu.kishinyaenshin_third",
-        "hakaisatu.aoginranzankou_third": "animation.action.hakaisatu.aoginranzankou_third"
+        "hakaisatu.aoginranzankou_third": "animation.action.hakaisatu.aoginranzankou_third",
+
+        "bunretu.shitotu_first": "animation.action.bunretu.shitotu_first",
+        "bunretu.shitotu_third": "animation.action.bunretu.shitotu_third"
 
       },
       "render_controllers": [

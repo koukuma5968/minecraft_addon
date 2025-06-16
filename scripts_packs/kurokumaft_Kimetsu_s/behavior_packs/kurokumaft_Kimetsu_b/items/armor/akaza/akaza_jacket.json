@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:akaza_jacket",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.chestplate"
+        "category": "equipment"
       }
     },
     "components": {

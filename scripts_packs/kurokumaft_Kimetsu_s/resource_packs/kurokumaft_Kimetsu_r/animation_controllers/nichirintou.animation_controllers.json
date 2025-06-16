@@ -21,12 +21,12 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack": "variable.attack_time"}
+						{"attack": "query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
 				"attack": {
 					"animations": [
-						{"nichirintou_attack": "!variable.is_first_person"}
+						{"attack": "c.is_first_person"}
 					],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
@@ -39,12 +39,12 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack": "variable.attack_time"}
+						{"attack": "query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
 				"attack": {
 					"animations": [
-						{"nichirintou_two_attack": "!variable.is_first_person"}
+						{"attack": "c.is_first_person"}
 					],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
@@ -57,12 +57,12 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack": "variable.attack_time"}
+						{"attack": "query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
 				"attack": {
 					"animations": [
-						{"zyuu_attack": "!variable.is_first_person"}
+						{"attack": "c.is_first_person"}
 					],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
@@ -75,12 +75,12 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack": "variable.attack_time"}
+						{"attack": "query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
 				"attack": {
 					"animations": [
-						{"nichirintou_attack_horizontality": "!variable.is_first_person"}
+						{"attack": "c.is_first_person"}
 					],
 					"transitions": [
 						{"default": "query.any_animation_finished"}

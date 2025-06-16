@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:scarlet_nugget",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.scarlet"
+        "category": "items"
       }
     },
     "components": {
