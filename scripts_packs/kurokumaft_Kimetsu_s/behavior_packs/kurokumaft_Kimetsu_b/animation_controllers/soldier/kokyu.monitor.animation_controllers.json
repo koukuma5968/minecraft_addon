@@ -5,7 +5,8 @@
       "states": {
         "default": {
           "transitions": [
-            { "start": "query.has_target" }
+            { "start": "query.has_target" },
+            { "end": "!query.has_target" }
           ]
         },
         "start":{
@@ -15,6 +16,14 @@
           ],
           "transitions": [
             {"default": "query.any_animation_finished"}
+          ]
+        },
+        "end":{
+          "on_entry": [
+            "/event entity @s kurokumaft:kokyu_end"
+          ],
+          "transitions": [
+            {"default": "(1.0)"}
           ]
         }
       }

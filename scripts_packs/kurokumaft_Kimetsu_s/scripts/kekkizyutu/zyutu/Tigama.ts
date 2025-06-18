@@ -9,6 +9,10 @@ export class Tigama extends ZytuComonClass {
      * 飛び血鎌
      */
     tobiTigama(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
+
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama1.value"}]});
         }
@@ -24,6 +28,10 @@ export class Tigama extends ZytuComonClass {
      * @param {Entity} entity
      */
     private async tigamaHorming(entity:Entity, i:number) {
+
+        if (entity == undefined) {
+            return;
+        }
 
         const kama = this.tigamaShooting(entity);
 
@@ -146,6 +154,9 @@ export class Tigama extends ZytuComonClass {
      */
     bakkotyouryou(entity:Entity) {
 
+        if (entity == undefined) {
+            return;
+        }
         if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama2.value"}]});
@@ -196,6 +207,10 @@ export class Tigama extends ZytuComonClass {
      * 円斬旋回・飛び血鎌
      */
     enzansenkai(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
+
         if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama3.value"}]});
@@ -203,23 +218,28 @@ export class Tigama extends ZytuComonClass {
             entity.setDynamicProperty("kurokumaft:chage_type", true);
 
             const parnum = system.runInterval(() => {
+                if (entity == undefined) {
+                    return;
+                }
 
                 entity.addTag(entity.id);
                 const filter = addOrgeFilter(0, entity.location, 10, entity.id);
                 const targets = entity.dimension.getEntities(filter);
                 targets.forEach(en => {
-                    if (en instanceof Player) {
-                        if (this.gardCheck(en)) {
-                            en.applyDamage(2, {
+                    if (en != undefined) {
+                        if (en instanceof Player) {
+                            if (this.gardCheck(en)) {
+                                en.applyDamage(2, {
+                                    cause: EntityDamageCause.entityAttack,
+                                    damagingEntity: entity
+                                });
+                            }
+                        } else {
+                            en.applyDamage(3, {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
                         }
-                    } else {
-                        en.applyDamage(3, {
-                            cause: EntityDamageCause.entityAttack,
-                            damagingEntity: entity
-                        });
                     }
                 });
                 entity.removeTag(entity.id);
@@ -278,14 +298,16 @@ export class Tigama extends ZytuComonClass {
                 maxDistance: 4
             });
             targets.forEach(en => {
-                en.applyDamage(1, {
-                    cause: EntityDamageCause.entityAttack,
-                    damagingEntity: entity
-                });
-                en.addEffect(MinecraftEffectTypes.Poison, 10, {
-                    showParticles: false,
-                    amplifier: 5
-                });
+                if (en != undefined) {
+                    en.applyDamage(1, {
+                        cause: EntityDamageCause.entityAttack,
+                        damagingEntity: entity
+                    });
+                    en.addEffect(MinecraftEffectTypes.Poison, 10, {
+                        showParticles: false,
+                        amplifier: 5
+                    });
+                }
             });
             entity.removeTag(entity.id);
         }, 2);

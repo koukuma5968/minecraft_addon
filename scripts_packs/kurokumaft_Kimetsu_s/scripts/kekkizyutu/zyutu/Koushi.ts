@@ -73,7 +73,9 @@ export class Koushi extends ZytuComonClass {
                 if (ayamekago != undefined && ayamekago.isValid()) {
                     if (targets[0] != undefined && targets[0].isValid()) {
                         targets[0].teleport(ayamekago.location);
-                        this.kokyuApplyDamage(entity, filter, 2, 1);
+                        if (entity != undefined) {
+                            this.kokyuApplyDamage(entity, filter, 2, 1);
+                        }
                     } else {
                         system.clearRun(num);
                         ayamekago.remove();

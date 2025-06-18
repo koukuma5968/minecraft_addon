@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/ogre/daki"
+        "default": "textures/kurokumaft/models/mob/ogre/daki",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.daki"
+        "default": "geometry.daki",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "scripts": {
         "scaleX": "0.96",
@@ -53,6 +55,7 @@
         "riding":"controller.animation.humanoid.riding",
         "riding.arms":"animation.humanoid.riding.arms",
         "riding.legs":"animation.humanoid.riding.legs",
+        "riding.body": "animation.humanoid.riding.body",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
@@ -65,7 +68,8 @@
 
       },
       "render_controllers": [
-        "controller.render.ogre.daki"
+        "controller.render.ogre.daki",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "ogre_spawn_egg",

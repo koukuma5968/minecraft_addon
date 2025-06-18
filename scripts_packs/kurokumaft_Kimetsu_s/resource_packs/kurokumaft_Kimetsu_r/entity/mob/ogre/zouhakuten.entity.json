@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/ogre/zouhakuten"
+        "default": "textures/kurokumaft/models/mob/ogre/zouhakuten",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.zouhakuten"
+        "default": "geometry.zouhakuten",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "scripts": {
         "scaleX": "0.90",
@@ -51,13 +53,15 @@
         "riding":"controller.animation.humanoid.riding",
         "riding.arms":"animation.humanoid.riding.arms",
         "riding.legs":"animation.humanoid.riding.legs",
+        "riding.body": "animation.humanoid.riding.body",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress"
 
       },
       "render_controllers": [
-        "controller.render.ogre.zouhakuten"
+        "controller.render.ogre.zouhakuten",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "ogre_spawn_egg",

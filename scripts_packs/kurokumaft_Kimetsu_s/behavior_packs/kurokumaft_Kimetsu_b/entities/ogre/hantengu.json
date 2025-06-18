@@ -37,6 +37,13 @@
           "speed_multiplier": 1.25
         }
       },
+      "kurokumaft:attack_kekkizyutu": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 0.25
+        }
+      },
       "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
           "triggers": [
@@ -109,8 +116,7 @@
           {
             "filters": {
               "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"}
+                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
             },
             "max_dist": 16,
@@ -120,17 +126,14 @@
         ]
       },
       "minecraft:behavior.nearest_attackable_target": {
-        "priority": 4,
+        "priority": 2,
         "reselect_targets": true,
         "must_see": true,
         "entity_types": [
           {
             "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "ogre"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "player"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "animal"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"}
+              "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
             },
             "max_dist": 64,
@@ -269,11 +272,20 @@
       "kurokumaft:attack_stop":{
         "remove": {
           "component_groups": [ "kurokumaft:attack_normal" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:attack_kekkizyutu" ]
         }
       },
       "kurokumaft:kekkizyutu_end":{
+        "remove": {
+          "component_groups": [ "kurokumaft:attack_kekkizyutu" ]
+        },
         "add": {
           "component_groups": [ "kurokumaft:attack_normal" ]
+        },
+        "set_property": {
+          "kurokumaft:kekkizyutu_kata": 0
         }
       },
 

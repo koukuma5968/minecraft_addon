@@ -1,7 +1,7 @@
 import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent } from "@minecraft/server";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { addProjectionFilter } from "../../common/KimetuCommonUtil";
+import { addProjectionFilter, getDistanceLocation, getLookLocationDistance } from "../../common/KimetuCommonUtil";
 
 export class KataComonClass {
 
@@ -45,6 +45,13 @@ export class KataComonClass {
                 }
             }
         });
+        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+        this.nitirintouFillBlock(
+            entity.dimension,
+            getDistanceLocation(entity.location, {x:distance.x-3,y:distance.y,z:distance.z-3}),
+            getDistanceLocation(entity.location, {x:distance.x+3,y:distance.y+2,z:distance.z+3})
+        );
+
         if (itemStack != undefined) {
             ItemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
         }

@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:bakketu",
+        "materials": {
+          "default": "entity_alphatest"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/no_item"
+        },
+        "geometry": {
+          "default": "geometry.no_item"
+        },
+        "render_controllers": [ "controller.render.bullet" ]
+      }
+    }
+  }
+  

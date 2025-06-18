@@ -57,6 +57,7 @@
         "riding":"controller.animation.humanoid.riding",
         "riding.arms":"animation.humanoid.riding.arms",
         "riding.legs":"animation.humanoid.riding.legs",
+        "riding.body": "animation.humanoid.riding.body",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress"

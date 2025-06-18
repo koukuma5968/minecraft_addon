@@ -18,11 +18,6 @@ export class MizuNoKata extends KataComonClass {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-        this.nitirintouFillBlock(
-            entity.dimension,
-            getDistanceLocation(entity.location, {x:distance.x-3,y:distance.y,z:distance.z-3}),
-            getDistanceLocation(entity.location, {x:distance.x+3,y:distance.y+2,z:distance.z+3})
-        );
 
         system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -53,12 +48,6 @@ export class MizuNoKata extends KataComonClass {
         const dfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, ddistance), 2.5, entity);
         this.kokyuApplyDamage(entity, dfilter, 3, 1, itemStack);
 
-        this.nitirintouFillBlock(
-            entity.dimension,
-            getDistanceLocation(entity.location, {x:entity.location.x-2,y:entity.location.y-2,z:entity.location.z-2}),
-            getDistanceLocation(entity.location, {x:entity.location.x+2,y:entity.location.y+4,z:entity.location.z+2})
-        );
-
         system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -82,6 +71,7 @@ export class MizuNoKata extends KataComonClass {
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 1, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+
             } catch (error) {
                 system.clearRun(num);
             }
@@ -117,6 +107,7 @@ export class MizuNoKata extends KataComonClass {
                 entity.dimension.spawnParticle("kurokumaft:mizu2_particle",getDistanceLocation(entity.location, distance));
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
                 side=-side
+
             } catch (error) {
                 system.clearRun(num);
             }

@@ -2,7 +2,7 @@ import { EntityDamageCause, EntityQueryOptions, Entity, Player } from "@minecraf
 import { KataComonClass } from "../../kokyu/kata/KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
-const ogreRankPoint = Object.freeze([
+export const ogreRankPoint = Object.freeze([
     {
         rank: "unusual",
         point: 1

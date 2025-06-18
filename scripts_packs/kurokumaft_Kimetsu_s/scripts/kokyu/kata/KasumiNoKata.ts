@@ -37,6 +37,11 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
+                if (entity == undefined) {
+                    system.clearRun(num);
+                    return;
+                }
+
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
             } catch (error) {
@@ -91,6 +96,10 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
+                if (entity == undefined) {
+                    system.clearRun(num);
+                    return;
+                }
                 entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", entity.location, molang);
             } catch (error) {
                 system.clearRun(num);
@@ -125,6 +134,11 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
+                if (entity == undefined) {
+                    system.clearRun(num);
+                    return;
+                }
+
                 const filter = addRegimentalFilter(0, entity.location, 3, entity);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
 
@@ -163,6 +177,10 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
+                if (entity == undefined) {
+                    system.clearRun(num);
+                    return;
+                }
                 const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, -0.5);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
                 this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
@@ -216,6 +234,10 @@ export class KasumiNoKata extends KataComonClass {
             });
             const num = system.runInterval(() => {
                 try {
+                    if (entity == undefined) {
+                        system.clearRun(num);
+                        return;
+                    }
                     entity.dimension.spawnParticle("kurokumaft:kasumi_fog_lage_particle",entity.location, molang);
         
                     if (entity.getProperty("kurokumaft:kokyu_chage") == 1) {

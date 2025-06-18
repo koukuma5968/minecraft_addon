@@ -7,10 +7,12 @@
         "default": "entity_alphatest"
       },
       "textures": {
-        "default": "textures/kurokumaft/models/mob/ogre/douma"
+        "default": "textures/kurokumaft/models/mob/ogre/douma",
+        "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
-        "default": "geometry.douma"
+        "default": "geometry.douma",
+        "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "scripts": {
         "scaleX": "1.00",
@@ -53,6 +55,7 @@
         "riding":"controller.animation.humanoid.riding",
         "riding.arms":"animation.humanoid.riding.arms",
         "riding.legs":"animation.humanoid.riding.legs",
+        "riding.body": "animation.humanoid.riding.body",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
@@ -69,7 +72,8 @@
 
       },
       "render_controllers": [
-        "controller.render.ogre.douma"
+        "controller.render.ogre.douma",
+        "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {
         "texture": "ogre_spawn_egg",

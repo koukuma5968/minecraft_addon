@@ -83,6 +83,13 @@
           "speed_multiplier": 1.25
         }
       },
+      "kurokumaft:attack_kokyu": {
+        "minecraft:behavior.melee_attack": {
+          "priority": 4,
+          "track_target": true,
+          "speed_multiplier": 0.25
+        }
+      },
       "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
           "triggers": [
@@ -309,19 +316,7 @@
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
-        "alert_same_type": true,
-        "entity_types": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
-              ]
-            },
-            "max_dist": 64
-          }
-        ]
+        "alert_same_type": true
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -330,10 +325,9 @@
         "entity_types": [
           {
             "filters": {
-              "all_of": [
-                {"test": "is_family","subject": "other","operator": "!=","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "villager"},
-                {"test": "is_family","subject": "other","operator": "!=","value": "animal"}
+              "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
+                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
               ]
             },
             "max_dist": 64
@@ -440,9 +434,15 @@
       "kurokumaft:attack_stop":{
         "remove": {
           "component_groups": [ "kurokumaft:attack_normal" ]
+        },
+        "add": {
+          "component_groups": [ "kurokumaft:attack_kokyu" ]
         }
       },
       "kurokumaft:kokyu_end":{
+        "remove": {
+          "component_groups": [ "kurokumaft:attack_kokyu" ]
+        },
         "add": {
           "component_groups": [ "kurokumaft:attack_normal" ]
         },

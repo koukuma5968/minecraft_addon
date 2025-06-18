@@ -57,6 +57,10 @@ export class Obi extends ZytuComonClass {
 
         const serchNum = system.runInterval(() => {
 
+            if (entity == undefined) {
+                return;
+            }
+
             if (obi != undefined && !targethoming) {
                 obi.addTag(obi.id);
                 entity.addTag(entity.id);
@@ -81,41 +85,42 @@ export class Obi extends ZytuComonClass {
                     targets[0].addTag("hitObiTarget:"+ obi.id);
         
                     const num = system.runInterval(() =>{
-            
-                        const hittargets = entity.dimension.getEntities({
-                            excludeFamilies: [
-                                "inanimate", "animal", "obi"
-                            ],
-                            excludeTypes: [
-                                "item"
-                            ],
-                            tags: [
-                                "hitObiTarget:"+ obi.id
-                            ],
-                            location: obi.location,
-                            closest: 1
-                        });
-                        if (hittargets.length > 0) {
-                            const target = hittargets[0];
-                            const targetLoc = getDirectionVector(obi.location, target.location);
-                            const tpLoc = {
-                                x:obi.location.x+targetLoc.x,
-                                y:obi.location.y+targetLoc.y+1,
-                                z:obi.location.z+targetLoc.z
-                            }
-                            obi.teleport(tpLoc, {
-                                checkForBlocks: false,
-                                keepVelocity: true
+                        if (entity != undefined) {
+                            const hittargets = entity.dimension.getEntities({
+                                excludeFamilies: [
+                                    "inanimate", "animal", "obi"
+                                ],
+                                excludeTypes: [
+                                    "item"
+                                ],
+                                tags: [
+                                    "hitObiTarget:"+ obi.id
+                                ],
+                                location: obi.location,
+                                closest: 1
                             });
-                            obi.applyImpulse(targetLoc);
-                        } else {
-                            if (obi.isValid()) {
-                                system.clearRun(num);
-                                obi.setDynamicProperty("hormingNum");
-                                obi.remove();
+                            if (hittargets.length > 0) {
+                                const target = hittargets[0];
+                                const targetLoc = getDirectionVector(obi.location, target.location);
+                                const tpLoc = {
+                                    x:obi.location.x+targetLoc.x,
+                                    y:obi.location.y+targetLoc.y+1,
+                                    z:obi.location.z+targetLoc.z
+                                }
+                                obi.teleport(tpLoc, {
+                                    checkForBlocks: false,
+                                    keepVelocity: true
+                                });
+                                obi.applyImpulse(targetLoc);
+                            } else {
+                                if (obi.isValid()) {
+                                    system.clearRun(num);
+                                    obi.setDynamicProperty("hormingNum");
+                                    obi.remove();
+                                }
                             }
                         }
-            
+           
                     }, 2);
                     obi.setDynamicProperty("hormingNum", num);
                     obi.setDynamicProperty("hitCount", 0);

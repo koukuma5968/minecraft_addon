@@ -10,6 +10,9 @@ export class Bunretu extends ZytuComonClass {
      * 超音波
      */
     ultrasonic(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kyoumei1.value"}]});
         }
@@ -33,6 +36,9 @@ export class Bunretu extends ZytuComonClass {
      * 雷
      */
     ikazuti(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_ikazuti1.value"}]});
         }
@@ -80,6 +86,9 @@ export class Bunretu extends ZytuComonClass {
      * 突風
      */
     toppu(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_toppu1.value"}]});
         }
@@ -105,6 +114,9 @@ export class Bunretu extends ZytuComonClass {
      * 石竜子
      */
     tokage(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_zouhakuten1.value"}]});
         }
@@ -139,6 +151,9 @@ export class Bunretu extends ZytuComonClass {
      * 狂鳴雷殺
      */
     kyoumeiraisatu(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_zouhakuten2.value"}]});
         }
@@ -207,6 +222,9 @@ export class Bunretu extends ZytuComonClass {
      * 狂圧鳴波
      */
     kyouatumeiha(entity:Entity) {
+        if (entity == undefined) {
+            return;
+        }
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_zouhakuten3.value"}]});
         }
