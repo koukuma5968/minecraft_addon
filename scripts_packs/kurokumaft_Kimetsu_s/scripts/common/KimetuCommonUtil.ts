@@ -196,7 +196,7 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, en
 
     let filterOption = {
         excludeFamilies: [
-            "inanimate", "regimental_soldier", "villager", "animal"
+            "inanimate", "regimental_soldier", "villager", "animal", "villager_player", "regimental_player"
         ],
         excludeTypes: [
             "item"
@@ -213,6 +213,13 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, en
         filterOption.excludeFamilies = [
             "inanimate", "animal"
         ];
+    } else {
+        const tags = entity.getTags();
+        if (tags.indexOf("hostility") != 1) {
+            filterOption.excludeFamilies = [
+                "inanimate", "regimental_soldier", "villager", "animal"
+            ];
+        }
     }
 
     if (!world.gameRules.pvp) {

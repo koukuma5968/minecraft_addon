@@ -18,6 +18,59 @@
 				},
 				"first_use":{
 					"transitions" : [
+						{"oto1_first": "query.property('kurokumaft:kokyu_kata') == 1"},
+						{"oto2_first": "query.property('kurokumaft:kokyu_kata') == 2"},
+						{"oto3_first": "query.property('kurokumaft:kokyu_kata') == 3"},
+						{"oto4_first": "query.property('kurokumaft:kokyu_kata') == 4"},
+						{"oto5_first": "query.property('kurokumaft:kokyu_kata') == 5"}
+					]
+				},
+				"oto1_first" : {
+					"animations" : [
+						"ichi_1_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"oto2_first" : {
+					"animations" : [
+						"ni_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"oto3_first" : {
+					"animations" : [
+						"san_1_first"
+					],
+					"transitions" : [
+						{"oto3_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"oto3_2_first" : {
+					"animations" : [
+						"san_2_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"oto4_first" : {
+					"animations" : [
+						"shi_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"oto5_first" : {
+					"animations" : [
+						"go_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 

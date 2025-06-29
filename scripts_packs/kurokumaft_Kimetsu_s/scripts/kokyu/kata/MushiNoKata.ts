@@ -29,14 +29,16 @@ export class MushiNoKata extends KataComonClass {
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
 
         system.runTimeout(() => {
-
             try {
                 entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
             } finally {
                 system.clearRun(num);
             }
         },8);
+
+        system.runTimeout(() => {
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        },20);
 
     }
 

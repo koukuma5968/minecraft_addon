@@ -39,48 +39,51 @@ export class HebiComponent implements KokyuMobUseComponent {
 
         const hebi = new HebiNoKata();
 
-        switch (kata) {
-            case 1 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hebi.ichiNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
-            case 2 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hebi.niNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
-            case 3 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hebi.sanNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
-            case 4 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hebi.shiNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
-            case 5 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hebi.goNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
+        try {
+            switch (kata) {
+                case 1 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hebi.ichiNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+                case 2 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hebi.niNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+                case 3 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hebi.sanNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+                case 4 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hebi.shiNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+                case 5 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hebi.goNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+            }
+        } catch (error) {
+            
         }
-
     }
 }

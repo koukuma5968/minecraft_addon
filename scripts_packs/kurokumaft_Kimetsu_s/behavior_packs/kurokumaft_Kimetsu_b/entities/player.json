@@ -46,6 +46,11 @@
           "default": "false",
           "client_sync": true
         },
+        "kurokumaft:use_attack": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
         "kurokumaft:kokyu_chage": {
           "type": "int",
           "range": [0, 10],
@@ -138,12 +143,12 @@
 
       "kurokumaft:nomal_family": {
         "minecraft:type_family": {
-          "family": [ "player", "villager" ]
+          "family": [ "player", "villager_player" ]
         }
       },
       "kurokumaft:soldier_family": {
         "minecraft:type_family": {
-          "family": [ "player", "regimental_soldier" ]
+          "family": [ "player", "regimental_player" ]
         }
       },
       "kurokumaft:ogre_family": {
@@ -445,9 +450,6 @@
     "components": {
       "minecraft:experience_reward": {
         "on_death": "Math.Min(query.player_level * 7, 100)"
-      },
-      "minecraft:type_family": {
-        "family": [ "player", "villager" ]
       },
       "minecraft:is_hidden_when_invisible": {
       },

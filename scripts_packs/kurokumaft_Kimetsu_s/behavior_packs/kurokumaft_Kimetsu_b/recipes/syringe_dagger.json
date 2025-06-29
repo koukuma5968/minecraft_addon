@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:syringe_dagger"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "#",
+      "n",
+      "w"
+    ],
+    "key": {
+      "n": {
+        "item": "minecraft:glass"
+      },
+      "#": {
+        "item": "minecraft:iron_ingot"
+      },
+      "w": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:syringe_dagger"
+    }
+  }
+}

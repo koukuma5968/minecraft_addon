@@ -566,7 +566,7 @@
 						"hi.ku_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"hi10_1_third" : {

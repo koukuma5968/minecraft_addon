@@ -37,32 +37,37 @@ export class ZenituComponent implements KokyuMobUseComponent {
 
         const kaminari = new KaminariNoKata();
 
-        switch (kata) {
-            case 1 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                system.runTimeout(() => {
-                    kaminari.ichiNoKata(entity, undefined);
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 40);
-            break;
-            case 2 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                system.runTimeout(() => {
-                    kaminari.ichiNoKataShinsoku(entity, undefined);
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 80);
-            break;
-            case 3 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                system.runTimeout(() => {
-                    kaminari.shitiNoKata(entity, undefined);
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 120);
-            break;
-        }
+        try {
 
+            switch (kata) {
+                case 1 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    system.runTimeout(() => {
+                        kaminari.ichiNoKata(entity, undefined);
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 40);
+                break;
+                case 2 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    system.runTimeout(() => {
+                        kaminari.ichiNoKataShinsoku(entity, undefined);
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 80);
+                break;
+                case 3 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    system.runTimeout(() => {
+                        kaminari.shitiNoKata(entity, undefined);
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 120);
+                break;
+            }
+
+        } catch (error) {
+            
+        }
     }
 }

@@ -18,6 +18,14 @@ export class KataComonClass {
             });
             return false;
         }
+        if (en.isSneaking && (main != undefined && main.typeId.indexOf("nichirintou") != -1)) {
+            en.playSound("break.iron", {
+                pitch: 1,
+                volume: 2
+            });
+            return false;
+        }
+
         return true;
     }
 

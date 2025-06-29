@@ -31,6 +31,13 @@
 
           "tengen": "controller.animation.nichirintou.tengen",
 
+          "ichi_1_first": "animation.nichirintou.oto.ichi_1_first",
+          "ni_1_first": "animation.nichirintou.oto.ni_1_first",
+          "san_1_first": "animation.nichirintou.oto.san_1_first",
+          "san_2_first": "animation.nichirintou.oto.san_2_first",
+          "shi_1_first": "animation.nichirintou.oto.shi_1_first",
+          "go_1_first": "animation.nichirintou.oto.go_1_first",
+
           "ichi_1_third": "animation.nichirintou.oto.ichi_1_third",
           "ni_1_third": "animation.nichirintou.oto.ni_1_third",
           "san_1_third": "animation.nichirintou.oto.san_1_third",

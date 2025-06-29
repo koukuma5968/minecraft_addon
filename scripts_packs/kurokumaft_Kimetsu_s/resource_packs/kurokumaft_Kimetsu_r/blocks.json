@@ -47,6 +47,9 @@
    },
    "muitiro_skull" : {
       "sound" : "stone"
+   },
+   "obanai_skull" : {
+      "sound" : "stone"
    }
 
 }

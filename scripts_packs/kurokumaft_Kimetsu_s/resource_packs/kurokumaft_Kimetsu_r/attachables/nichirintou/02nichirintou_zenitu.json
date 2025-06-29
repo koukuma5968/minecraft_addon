@@ -18,7 +18,9 @@
           "animate": [
             "scale",
             "person",
-            "attack_con"
+            "attack_con",
+            "zenitu"
+
           ]
         },
         "animations": {
@@ -26,7 +28,18 @@
           "person": "controller.animation.nichirintou.person",
           "first": "animation.nichirintou_first",
           "attack_con": "controller.animation.nichirintou.attack",
-          "attack": "animation.nichirintou_first.one_attack"
+          "attack": "animation.nichirintou_first.one_attack",
+
+          "zenitu": "controller.animation.nichirintou.zenitu",
+
+          "ichi_1_first": "animation.nichirintou.kaminari.ichi_1_first",
+          "ichi_shinsoku_first": "animation.nichirintou.kaminari.ichi_shinsoku_first",
+          "ichi_roku_first": "animation.nichirintou.kaminari.ichi_roku_first",
+          "ichi_hati_first": "animation.nichirintou.kaminari.ichi_hati_first",
+          "shiti_first": "animation.nichirintou.kaminari.shiti_first",
+          "ichi_2_first": "animation.nichirintou.kaminari.ichi_2_first",
+          "ichi_roku_2_first": "animation.nichirintou.kaminari.ichi_roku_2_first",
+          "ichi_hati_2_first": "animation.nichirintou.kaminari.ichi_hati_2_first"
 
         },
         "render_controllers": ["controller.render.nichirintou"]

@@ -1510,6 +1510,60 @@
 						"effect": "hi_blead_particle",
 						"locator": "nichirintou_hold6"
 					}
+				],
+				"0.0833": [
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold3"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.125": [
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold3"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
+				],
+				"0.2083": [
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold3"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold4"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "hi_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
 				]
 			}
 		},
@@ -1552,10 +1606,10 @@
 			"bones": {
 				"nichirintou_hold_right": {
 					"rotation": {
-						"0.0": [0, 35, 0],
-						"0.2083": [-85, 7.61452, -180]
+						"0.0": [0, 7.5, 0],
+						"0.2083": [-77.5, 7.61452, -180]
 					},
-					"position": [0, 0, 0]
+					"position": [0, 0, -2]
 				}
 			},
 			"particle_effects": {
@@ -1757,14 +1811,6 @@
 			},
 			"particle_effects": {
 				"0.0": [
-					{
-						"effect": "hi_blead_particle",
-						"locator": "nichirintou_hold3"
-					},
-					{
-						"effect": "hi_blead_particle",
-						"locator": "nichirintou_hold4"
-					},
 					{
 						"effect": "hi_blead_particle",
 						"locator": "nichirintou_hold5"

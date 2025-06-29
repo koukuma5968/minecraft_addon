@@ -32,17 +32,7 @@
 						"kaminari.ichi_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.property('kurokumaft:kokyu_chage') == 0"},
-						{"kaminari1_shinshoku_first":"query.property('kurokumaft:kokyu_chage') == 5"},
-						{"kaminari17_1_first":"query.property('kurokumaft:kokyu_chage') == 10"},
-						{"kaminari1_2_first":"query.property('kurokumaft:kokyu_attack')"}
-					]
-				},
-				"kaminari1_shinshoku_first" : {
-					"animations" : [
-						"kaminari.ichi_shinshoku_first"
-					],
-					"transitions" : [
+						{"kaminari1_roku_first":"query.any_animation_finished"},
 						{"kaminari1_2_first":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
@@ -51,7 +41,58 @@
 						"kaminari.ichi_2_first"
 					],
 					"transitions" : [
-						{"kaminari1_1_first":"query.any_animation_finished"}
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_roku_first" : {
+					"animations" : [
+						"kaminari.ichi_roku_first"
+					],
+					"transitions" : [
+						{"kaminari1_hati_first":"query.any_animation_finished"},
+						{"kaminari1_roku_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari1_roku_2_first" : {
+					"animations" : [
+						"kaminari.ichi_roku_2_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_hati_first" : {
+					"animations" : [
+						"kaminari.ichi_hati_first"
+					],
+					"transitions" : [
+						{"kaminari1_shinsoku_first":"query.any_animation_finished"},
+						{"kaminari1_hati_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari1_hati_2_first" : {
+					"animations" : [
+						"kaminari.ichi_hati_2_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_shinsoku_first" : {
+					"animations" : [
+						"kaminari.ichi_shinsoku_first"
+					],
+					"transitions" : [
+						{"kaminari17_1_first":"query.any_animation_finished"},
+						{"kaminari1_shinsoku_2_first":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari1_shinsoku_2_first" : {
+					"animations" : [
+						"kaminari.ichi_2_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
 					]
 				},
 				"kaminari17_1_first" : {
@@ -88,17 +129,7 @@
 						"kaminari.ichi_1_third"
 					],
 					"transitions" : [
-						{"third_person":"query.property('kurokumaft:kokyu_chage') == 0"},
-						{"kaminari1_shinshoku_third":"query.property('kurokumaft:kokyu_chage') == 5"},
-						{"kaminari17_1_third":"query.property('kurokumaft:kokyu_chage') == 10"},
-						{"kaminari1_2_third":"query.property('kurokumaft:kokyu_attack')"}
-					]
-				},
-				"kaminari1_shinshoku_third" : {
-					"animations" : [
-						"kaminari.ichi_shinshoku_third"
-					],
-					"transitions" : [
+						{"kaminari1_roku_1_third":"query.any_animation_finished"},
 						{"kaminari1_2_third":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
@@ -107,7 +138,58 @@
 						"kaminari.ichi_2_third"
 					],
 					"transitions" : [
-						{"kaminari1_1_third":"query.any_animation_finished"}
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_roku_1_third" : {
+					"animations" : [
+						"kaminari.ichi_roku_third"
+					],
+					"transitions" : [
+						{"kaminari1_hati_1_third":"query.any_animation_finished"},
+						{"kaminari1_roku_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari1_roku_2_third" : {
+					"animations" : [
+						"kaminari.ichi_roku_2_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_hati_1_third" : {
+					"animations" : [
+						"kaminari.ichi_hati_third"
+					],
+					"transitions" : [
+						{"kaminari1_shinsoku_third":"query.any_animation_finished"},
+						{"kaminari1_hati_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari1_hati_2_third" : {
+					"animations" : [
+						"kaminari.ichi_hati_2_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"kaminari1_shinsoku_third" : {
+					"animations" : [
+						"kaminari.ichi_shinsoku_third"
+					],
+					"transitions" : [
+						{"kaminari17_1_third":"query.any_animation_finished"},
+						{"kaminari1_shinsoku_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"kaminari1_shinsoku_2_third" : {
+					"animations" : [
+						"kaminari.ichi_2_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
 					]
 				},
 				"kaminari17_1_third" : {

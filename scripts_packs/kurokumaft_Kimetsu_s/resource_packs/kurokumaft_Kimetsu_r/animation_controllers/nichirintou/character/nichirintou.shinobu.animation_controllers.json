@@ -30,7 +30,7 @@
 						"chou_1_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"houga_1_first" : {

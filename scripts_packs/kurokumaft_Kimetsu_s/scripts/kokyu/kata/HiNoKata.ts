@@ -1,8 +1,7 @@
-import { EquipmentSlot, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
-import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, isTargetInFront} from "../../common/KimetuCommonUtil";
+import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player, world } from "@minecraft/server";
+import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class HiNoKata extends KataComonClass {
 
@@ -23,7 +22,7 @@ export class HiNoKata extends KataComonClass {
 
         system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },15);
+        },10);
 
     }
 
@@ -278,7 +277,7 @@ export class HiNoKata extends KataComonClass {
             } finally {
                 system.clearRun(num);
             }
-        },20);
+        },30);
 
     }
 

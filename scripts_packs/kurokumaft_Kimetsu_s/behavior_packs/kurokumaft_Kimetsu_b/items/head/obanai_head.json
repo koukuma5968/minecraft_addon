@@ -1,0 +1,41 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:obanai_head",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:obanai_head.name"
+			},
+      "minecraft:icon": "obanai_head",
+      "minecraft:block_placer": {
+        "block": "kurokumaft:obanai_skull"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:obanai_head" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:durability": {
+        "max_durability": 2500,
+        "damage_chance": {
+          "min": 1,
+          "max": 3
+        }
+      },
+      "minecraft:damage": 0,
+      "minecraft:wearable": {
+        "protection": 20,
+        "slot": "slot.armor.head"
+      }
+    }
+  }
+}

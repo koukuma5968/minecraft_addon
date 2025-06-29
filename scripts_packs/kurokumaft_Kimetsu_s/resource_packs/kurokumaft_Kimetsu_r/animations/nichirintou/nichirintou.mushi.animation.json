@@ -89,13 +89,65 @@
 			"loop": true
 		},
 		"animation.nichirintou.mushi.chou_1_first": {
-			"loop": true
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": [70, 0, 0],
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.125": [10, -14, -4]
+					}
+				}
+			}
 		},
 		"animation.nichirintou.mushi.houga_1_first": {
-			"loop": true
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou": {
+					"rotation": [70, 0, 0],
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.125": [10, -14, -4]
+					}
+				}
+			}
 		},
 		"animation.nichirintou.mushi.seirei_1_first": {
-			"loop": true
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [70, 0, 0],
+						"0.0833": [70, 0, 0],
+						"0.125": [46.95269, -2.92136, -24.92843],
+						"0.2083": [70, 0, 0],
+						"0.25": [88.99892, -0.58813, 20.40466],
+						"0.3333": [70, 0, 0],
+						"0.375": [67.5, 0, 0],
+						"0.4583": [70, 0, 0],
+						"0.5": [82.5, 0, 0]
+					},
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.0417": [10, -14, -4],
+						"0.0833": [-2, -1, -3],
+						"0.125": [-2, -1, -3],
+						"0.1667": [2, -5, -8],
+						"0.2083": [-2, -1, -3],
+						"0.25": [-2, -1, -3],
+						"0.2917": [2, -8, -3],
+						"0.3333": [-2, -1, -3],
+						"0.375": [-2, -1, -3],
+						"0.4167": [4, -8, -3],
+						"0.4583": [-2, -1, -3],
+						"0.5": [-2, -1, -3],
+						"0.5417": [7, -8, -2]
+					}
+				}
+			}
 		},
 		"animation.nichirintou.mushi.gokou_1_first": {
 			"loop": true

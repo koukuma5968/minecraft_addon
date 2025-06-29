@@ -154,8 +154,8 @@ msg.kurokumaft:hi_kokyu11.value=§c幻日虹
 msg.kurokumaft:hi_kokyu12.value=§c炎舞
 
 msg.kurokumaft:kaminari_kokyu1.value=§6霹靂一閃
-msg.kurokumaft:kaminari_kokyu1_rengeki.value=§6霹靂一閃 %1連
-msg.kurokumaft:kaminari_kokyu1_shinsoku.value=§6霹靂一閃 神速
+msg.kurokumaft:kaminari_kokyu1_rengeki.value=§6 %1連
+msg.kurokumaft:kaminari_kokyu1_shinsoku.value=§6 神速
 msg.kurokumaft:kaminari_kokyu2.value=§6稲魂
 msg.kurokumaft:kaminari_kokyu3.value=§6聚蚊成雷
 msg.kurokumaft:kaminari_kokyu4.value=§6遠雷

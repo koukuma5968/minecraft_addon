@@ -50,6 +50,9 @@
       },
       "muitiro_skull" : {
          "textures" : "textures/kurokumaft/models/head/muitiro_head"
+      },
+      "obanai_skull" : {
+         "textures" : "textures/kurokumaft/models/head/obanai_head"
       }
    },
    "texture_name" : "atlas.terrain"

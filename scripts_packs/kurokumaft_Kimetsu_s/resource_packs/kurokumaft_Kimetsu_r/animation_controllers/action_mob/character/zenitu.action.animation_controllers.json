@@ -12,7 +12,7 @@
 				"third_use": {
 					"transitions" : [
 						{"kaminari1_1_third": "query.property('kurokumaft:kokyu_kata') == 1"},
-						{"kaminari1_shinshoku_third": "query.property('kurokumaft:kokyu_kata') == 2"},
+						{"kaminari1_shinsoku_third": "query.property('kurokumaft:kokyu_kata') == 2"},
 						{"kaminari17_1_third": "query.property('kurokumaft:kokyu_kata') == 1"}
 					]
 				},
@@ -24,9 +24,9 @@
 						{"kaminari1_2_third":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
-				"kaminari1_shinshoku_third" : {
+				"kaminari1_shinsoku_third" : {
 					"animations" : [
-						"kaminari.ichi_shinshoku_third"
+						"kaminari.ichi_shinsoku_third"
 					],
 					"transitions" : [
 						{"kaminari1_2_third":"!query.property('kurokumaft:kokyu_use')"}

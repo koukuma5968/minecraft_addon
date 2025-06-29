@@ -5,7 +5,54 @@
       "identifier": "kurokumaft:genya",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "properties": {
+        "kurokumaft:kaikyu": {
+          "type": "int",
+          "range": [1, 10],
+          "default": 1,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_kata": {
+          "type": "int",
+          "range": [0, 11],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:nitirintou_equip": {
+          "type": "bool",
+          "default": "true",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_attack": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_chage": {
+          "type": "int",
+          "range": [0, 10],
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_ran": {
+          "type": "int",
+          "range": [-160, 160],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+
     },
 
     "component_groups": {
@@ -21,7 +68,7 @@
         }
       },
 
-            "kurokumaft:damage_clear": {
+      "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
           "triggers": [
             {
@@ -261,8 +308,12 @@
       },
       "minecraft:navigation.walk": {
         "is_amphibious": true,
-        "avoid_sun": true,
-        "avoid_water": true
+        "avoid_sun": false,
+        "avoid_water": true,
+        "can_open_doors": true,
+        "can_breach": true,
+        "can_jump": true,
+        "can_path_over_water": true
       },
       "minecraft:movement.basic": {
       },

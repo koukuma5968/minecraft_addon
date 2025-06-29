@@ -212,16 +212,106 @@
 			}
 		},
 		"animation.action.mushi.chou_1_first": {
-			"loop": true
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou_hold_right": {
+					"rotation": [70, 0, 0],
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.125": [10, -14, -4]
+					}
+				},
+				"particle": {
+					"position": [6, -11, -12]
+				}
+			},
+			"particle_effects": {
+				"0.125": {
+					"effect": "mushi_chou_particle",
+					"locator": "nichirintou_hold6"
+				}
+			}
 		},
 		"animation.action.mushi.houga_1_first": {
-			"loop": true
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"nichirintou_hold_right": {
+					"rotation": [70, 0, 0],
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.125": [10, -14, -4]
+					}
+				}
+			}
 		},
 		"animation.action.mushi.seirei_1_first": {
-			"loop": true
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [70, 0, 0],
+						"0.0833": [70, 0, 0],
+						"0.125": [46.95269, -2.92136, -24.92843],
+						"0.2083": [70, 0, 0],
+						"0.25": [88.99892, -0.58813, 20.40466],
+						"0.3333": [70, 0, 0],
+						"0.375": [67.5, 0, 0],
+						"0.4583": [70, 0, 0],
+						"0.5": [82.5, 0, 0]
+					},
+					"position": {
+						"0.0": [-2, -1, -3],
+						"0.0417": [10, -14, -4],
+						"0.0833": [-2, -1, -3],
+						"0.125": [-2, -1, -3],
+						"0.1667": [2, -5, -8],
+						"0.2083": [-2, -1, -3],
+						"0.25": [-2, -1, -3],
+						"0.2917": [2, -8, -3],
+						"0.3333": [-2, -1, -3],
+						"0.375": [-2, -1, -3],
+						"0.4167": [4, -8, -3],
+						"0.4583": [-2, -1, -3],
+						"0.5": [-2, -1, -3],
+						"0.5417": [7, -8, -2]
+					}
+				}
+			}
 		},
 		"animation.action.mushi.gokou_1_first": {
-			"loop": true
+			"loop": true,
+			"animation_length": 0.375
+		},
+		"animation.action.mushi.chou_third": {
+			"loop": true,
+			"bones": {
+				"particle": {
+					"position": [6, -8, -37]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "chou",
+					"locator": "move_particle1"
+				}
+			}
+		},
+		"animation.action.mushi.chou_first": {
+			"loop": true,
+			"bones": {
+				"particle": {
+					"position": [824, -689, -15]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "chou",
+					"locator": "move_particle1"
+				}
+			}
 		}
 	}
 }

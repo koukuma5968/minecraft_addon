@@ -23,11 +23,11 @@
 			"bones": {
 				"nichirinto_left": {
 					"rotation": [104.53588, -22.73475, 165.86002],
-					"position": [-24, -10, 25]
+					"position": [-26, -6, 25]
 				},
 				"nichirinto_right": {
 					"rotation": [-31.62237, 65.14418, -89.77431],
-					"position": [13, 0, 10]
+					"position": [17, 5, 13]
 				},
 				"nichirinto_hanmar_right": {
 					"rotation": [-342.60019, 67.86137, -379.80591],

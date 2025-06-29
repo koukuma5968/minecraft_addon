@@ -10,8 +10,8 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": "query.property('kurokumaft:kaikyu')*2",
-				"max_particles": "query.property('kurokumaft:kaikyu')*4"
+				"spawn_rate": "query.property('kurokumaft:kaikyu')*10",
+				"max_particles": "query.property('kurokumaft:kaikyu')*30"
 			},
 			"minecraft:emitter_lifetime_expression": {
 				"activation_expression": "query.property('kurokumaft:kokyu_particle')",
@@ -34,8 +34,8 @@
 					"texture_width": 128,
 					"texture_height": 128,
 					"flipbook": {
-						"base_UV": [10, 115],
-						"size_UV": [8, 8],
+						"base_UV": [22, 114],
+						"size_UV": [6, 13],
 						"step_UV": [10, 0],
 						"frames_per_second": 10,
 						"max_frame": 10

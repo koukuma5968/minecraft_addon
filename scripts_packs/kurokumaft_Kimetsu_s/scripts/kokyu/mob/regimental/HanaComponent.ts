@@ -38,40 +38,43 @@ export class HanaComponent implements KokyuMobUseComponent {
 
         const hana = new HanaNoKata();
 
-        switch (kata) {
-            case 2 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hana.niNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
-            case 4 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hana.shiNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
-            case 5 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hana.goNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
-            case 6 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hana.rokuNoKata(entity, undefined);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kokyu_end");
-                }, 30);
-            break;
+        try {
+            switch (kata) {
+                case 2 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hana.niNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+                case 4 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hana.shiNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+                case 5 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hana.goNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+                case 6 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hana.rokuNoKata(entity, undefined);
+                    system.runTimeout(() => {
+                        entity.setProperty("kurokumaft:kokyu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kokyu_end");
+                    }, 30);
+                break;
+            }
+        } catch (error) {
+            
         }
-
     }
 }

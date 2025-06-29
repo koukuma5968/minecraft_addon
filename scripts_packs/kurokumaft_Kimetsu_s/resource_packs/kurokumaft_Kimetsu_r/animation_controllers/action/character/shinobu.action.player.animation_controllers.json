@@ -32,10 +32,11 @@
 				},
 				"chou_first" : {
 					"animations" : [
-						"mushi.chou_1_first"
+						"mushi.chou_1_first",
+						"mushi.chou_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"houga_first" : {
@@ -79,7 +80,8 @@
 				},
 				"chou_third" : {
 					"animations" : [
-						"mushi.chou_1_third"
+						"mushi.chou_1_third",
+						"mushi.chou_third"
 					],
 					"transitions" : [
 						{"third_person":"!query.property('kurokumaft:kokyu_use')"}

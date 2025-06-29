@@ -125,24 +125,30 @@ const ogreRankLists = weightChoice([
 
 world.afterEvents.entitySpawn.subscribe(event => {
   const entity = event.entity as Entity;
-  const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-  if (kaikyuNum != undefined && kaikyuNum != 11 && event.cause == EntityInitializationCause.Spawned) {
-    const kaikyuRan = getRandomInRange(1, 10);
-    entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
-    system.runTimeout(() => {
-      entity.triggerEvent("kurokumaft:kaikyu_change");
-    }, 4);
-  }
-  const ogre_rank = entity.getProperty("kurokumaft:ogre_rank") as string;
-  if (entity.typeId == "kurokumaft:nezuko" && event.cause == EntityInitializationCause.Spawned) {
-    const rankRan = ogreRankLists.pick();
-    entity.setProperty("kurokumaft:ogre_rank", rankRan);
-    if (ogre_rank == "quarter" || ogre_rank == "crescent") {
-      entity.setProperty("kurokumaft:ogre_moon", getRandomInRange(1, 6));
+  try {
+    if (entity != undefined) {
+      const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
+      if (kaikyuNum != undefined && kaikyuNum != 11 && event.cause == EntityInitializationCause.Spawned) {
+        const kaikyuRan = getRandomInRange(1, 10);
+        entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
+        system.runTimeout(() => {
+          entity.triggerEvent("kurokumaft:kaikyu_change");
+        }, 4);
+      }
+      const ogre_rank = entity.getProperty("kurokumaft:ogre_rank") as string;
+      if (entity.typeId == "kurokumaft:nezuko" && event.cause == EntityInitializationCause.Spawned) {
+        const rankRan = ogreRankLists.pick();
+        entity.setProperty("kurokumaft:ogre_rank", rankRan);
+        if (ogre_rank == "quarter" || ogre_rank == "crescent") {
+          entity.setProperty("kurokumaft:ogre_moon", getRandomInRange(1, 6));
+        }
+        system.runTimeout(() => {
+          entity.triggerEvent("kurokumaft:ogre_rank_change");
+        }, 4);
+      }
     }
-    system.runTimeout(() => {
-      entity.triggerEvent("kurokumaft:ogre_rank_change");
-    }, 4);
+  } catch (error) {
+
   }
 });
 
@@ -179,6 +185,17 @@ world.afterEvents.entityDie.subscribe(event => {
     sekido.addTag(deadEntity.id);
     const karaku = dimension.spawnEntity("kurokumaft:karaku", deadEntity.location);
     karaku.addTag(deadEntity.id);
+  }
+});
+
+world.afterEvents.entityHitEntity.subscribe(event => {
+  const damagingEntity = event.damagingEntity;
+  const hitEntity = event.hitEntity;
+  if (hitEntity != undefined) {
+    const familyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+    if (familyTypes.hasTypeFamily("regimental_soldier")) {
+      hitEntity.addTag("hostility");
+    }
   }
 });
 

@@ -175,8 +175,12 @@
       },
       "minecraft:navigation.walk": {
         "is_amphibious": true,
-        "avoid_sun": true,
-        "avoid_water": true
+        "avoid_sun": false,
+        "avoid_water": true,
+        "can_open_doors": true,
+        "can_breach": true,
+        "can_jump": true,
+        "can_path_over_water": true
       },
       "minecraft:movement.basic": {
       },

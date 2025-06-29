@@ -476,6 +476,9 @@
       "muitiro_head": {
          "textures" : "textures/kurokumaft/items/head/muitiro_head"
       },
+      "obanai_head": {
+         "textures" : "textures/kurokumaft/items/head/obanai_head"
+      },
 
       "syringe_dagger": {
          "textures" : "textures/kurokumaft/items/syringe_dagger"

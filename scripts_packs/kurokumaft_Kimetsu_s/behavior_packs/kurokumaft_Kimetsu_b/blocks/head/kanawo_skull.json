@@ -7,10 +7,14 @@
             "register_to_creative_menu": false,
 			"menu_category": {
 				"category": "none"
-			},
-			"states": {
-                "kurokumaft:rotation": [ 1, 2, 3, 4, 5 ]
-			}
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
 		},
 		"components": {
 			"minecraft:display_name": "kurokumaft:kanawo_skull",
@@ -39,34 +43,34 @@
         },
         "permutations": [
             {
-                "condition": "query.block_state('kurokumaft:rotation') == 2",
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'north'",
                 "components": {
                     "minecraft:transformation": {
-                        "rotation": [ 0, 180, 0 ]
+                        "rotation": [0,180,0]
                     }
                 }
             },
             {
-                "condition": "query.block_state('kurokumaft:rotation') == 3",
-                "components": { 
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'south'",
+                "components": {
                     "minecraft:transformation": {
-                        "rotation": [ 0, 0, 0 ]
+                        "rotation": [0,0,0]
                     }
                 }
             },
             {
-                "condition": "query.block_state('kurokumaft:rotation') == 4",
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'west'",
                 "components": {
                     "minecraft:transformation": {
-                        "rotation": [ 0, 270, 0 ]
+                        "rotation": [0,-90,0]
                     }
                 }
             },
             {
-                "condition": "query.block_state('kurokumaft:rotation') == 5",
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'east'",
                 "components": {
                     "minecraft:transformation": {
-                        "rotation": [ 0, 90, 0 ]
+                        "rotation": [0,90,0]
                     }
                 }
             }

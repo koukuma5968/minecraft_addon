@@ -28,10 +28,7 @@
 				"rotation_rate": 5
 			},
 			"minecraft:particle_initial_speed": 3,
-			"minecraft:particle_motion_dynamic": {
-				"rotation_acceleration": "math.random(10, 100)",
-				"rotation_drag_coefficient": "math.random(100, 300)"
-			},
+			"minecraft:particle_motion_dynamic": {},
 			"minecraft:particle_appearance_billboard": {
 				"size": ["math.random(0.1, 0.15)", "math.random(0.25, 0.4)"],
 				"facing_camera_mode": "lookat_xyz",
@@ -39,8 +36,8 @@
 					"texture_width": 128,
 					"texture_height": 128,
 					"flipbook": {
-						"base_UV": [10, 115],
-						"size_UV": [8, 8],
+						"base_UV": [16, 114],
+						"size_UV": [6, 7],
 						"step_UV": [8, 0],
 						"frames_per_second": 10,
 						"max_frame": 10

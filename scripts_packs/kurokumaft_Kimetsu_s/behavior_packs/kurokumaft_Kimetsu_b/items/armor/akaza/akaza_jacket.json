@@ -28,13 +28,13 @@
       "minecraft:durability": {
         "max_durability": 2800,
         "damage_chance": {
-          "min": 80,
-          "max": 100
+          "min": 1,
+          "max": 3
         }
       },
       "minecraft:damage": 0,
       "minecraft:wearable": {
-        "protection": 250,
+        "protection": 20,
         "slot": "slot.armor.chest"
       }
     }
