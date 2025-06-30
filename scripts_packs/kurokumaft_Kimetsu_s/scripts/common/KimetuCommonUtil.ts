@@ -213,9 +213,13 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, en
         filterOption.excludeFamilies = [
             "inanimate", "animal"
         ];
+    } else if (familyTypes != undefined && familyTypes.hasTypeFamily("player")) {
+        filterOption.excludeFamilies = [
+            "inanimate", "animal"
+        ];
     } else {
         const tags = entity.getTags();
-        if (tags.indexOf("hostility") != 1) {
+        if (tags.indexOf("hostility") != -1) {
             filterOption.excludeFamilies = [
                 "inanimate", "regimental_soldier", "villager", "animal"
             ];

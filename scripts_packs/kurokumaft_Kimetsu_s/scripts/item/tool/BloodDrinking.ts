@@ -45,7 +45,7 @@ export class BloodDrinking implements ItemCustomComponent {
                 player.setProperty("kurokumaft:ogre_becoming", 0);
                 system.runTimeout(() => {
                     player.triggerEvent("kurokumaft:ogre_rank_change");
-                }, 2);
+                }, 4);
             } else {
                 player.setProperty("kurokumaft:ogre_becoming", becoming);
                 player.addEffect(MinecraftEffectTypes.Hunger, 20, {
@@ -139,7 +139,7 @@ export class BloodDrinking implements ItemCustomComponent {
                 player.setProperty("kurokumaft:ogre_becoming", 0);
                 system.runTimeout(() => {
                     player.triggerEvent("kurokumaft:ogre_rank_change");
-                }, 2);
+                }, 4);
             } else {
                 player.setProperty("kurokumaft:ogre_becoming", becoming);
             }

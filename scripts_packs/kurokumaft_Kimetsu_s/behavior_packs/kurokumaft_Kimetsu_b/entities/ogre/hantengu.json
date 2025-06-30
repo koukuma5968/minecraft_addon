@@ -116,6 +116,7 @@
           {
             "filters": {
               "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
                 {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
             },
@@ -133,6 +134,7 @@
           {
             "filters": {
               "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
                 {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
             },

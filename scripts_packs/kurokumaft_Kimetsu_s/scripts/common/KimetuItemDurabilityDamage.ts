@@ -1,5 +1,6 @@
-import { ItemStack, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, Player } from "@minecraft/server";
+import { ItemStack, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, Player, world, ItemEnchantableComponent, EnchantmentType } from "@minecraft/server";
 import { getRandomInRange } from "./KimetuCommonUtil";
+import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 
 /**
  * アイテムダメージ
@@ -13,12 +14,18 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
         const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
         const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-        const dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
+        const dChangeRang = durability.getDamageChanceRange();
+        let dChange = getRandomInRange(dChangeRang.min, dChangeRang.max);
+
+        const enchantable = item.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+        const unbreaking = enchantable.getEnchantment(MinecraftEnchantmentTypes.Unbreaking);
+        if (unbreaking != undefined) {
+            dChange = durability.getDamageChance(unbreaking.level);
+        }
 
         if ((durability.damage + dChange) >= durability.maxDurability) {
             equ.setEquipment(slot, undefined);
         } else {
-
             durability.damage = durability.damage + dChange;
             equ.setEquipment(slot, item);
         }

@@ -59,14 +59,14 @@ export const KekkizyutuObjects = Object.freeze([
         className: "rui"
     },
     {
-        itemName: "kurokumaft:hakaisatu",
+        itemName: "kurokumaft:hakaisatu_item",
         type: 3,
         kata: [1,2,3,4,5,6,7,8,9,10],
         kata_msg: "kekkizyutu_hakai",
         className: "akaza"
     },
     {
-        itemName: "kurokumaft:obi",
+        itemName: "kurokumaft:obi_item",
         type: 4,
         kata: [1,2,3,4],
         kata_msg: "kekkizyutu_obi",
@@ -101,7 +101,7 @@ export const KekkizyutuObjects = Object.freeze([
         className: "aizetu"
     },
     {
-        itemName: "kurokumaft:urogi_ultrasonic",
+        itemName: "kurokumaft:urogi_ultrasonic_item",
         type: 9,
         kata: [1],
         kata_msg: "kekkizyutu_kyoumei",

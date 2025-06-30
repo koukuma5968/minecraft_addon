@@ -51,14 +51,14 @@
                         "items": [
                             "kurokumaft:bakketu",
                             "kurokumaft:koushi",
-                            "kurokumaft:obi",
+                            "kurokumaft:obi_item",
                             "kurokumaft:gyutaro_kama",
                             "kurokumaft:sekido_syakuzyou",
                             "kurokumaft:karaku_ougi",
                             "kurokumaft:aizetu_spear",
-                            "kurokumaft:urogi_ultrasonic",
+                            "kurokumaft:urogi_ultrasonic_item",
                             "kurokumaft:zouhakuten_bati",
-                            "kurokumaft:hakaisatu"
+                            "kurokumaft:hakaisatu_item"
                         ]
                     },
                     {

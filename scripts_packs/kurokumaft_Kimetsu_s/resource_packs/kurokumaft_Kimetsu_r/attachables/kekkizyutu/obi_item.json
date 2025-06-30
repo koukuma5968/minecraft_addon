@@ -2,7 +2,7 @@
     "format_version": "1.10.0",
     "minecraft:attachable": {
       "description": {
-        "identifier": "kurokumaft:obi",
+        "identifier": "kurokumaft:obi_item",
         "materials": {
           "default": "entity_alphatest"
         },

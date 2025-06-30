@@ -24,6 +24,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
     event.player.setProperty("kurokumaft:kokyu_ran", 0);
     event.player.setDynamicProperty("kurokumaft:chage_type", undefined);
   }
+  event.player.triggerEvent("kurokumaft:player_spawned");
   const playerTick = new KimetuEquipmentTick(event.player);
   playerTick.startMonitoring();
 
@@ -60,18 +61,19 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
         const nichirintoutype = entity.getProperty("kurokumaft:nichirintou_type") as number;
         if (nichirintoutype != undefined) {
           const kokyuObject = KokyuObjects.find(ob => ob.type == nichirintoutype) as KokyuObject;
-          const katana = KokyuMobObjects.find(ob => ob.entityName == kokyuObject.itemName) as KokyuMobObject;
-          if (katana != undefined) {
-            const KokyuClass = KokyuMobClassRecord[katana.className];
-            const KokyuObject = new KokyuClass();
-            KokyuObject.startMonitoring(entity);
+          if (kokyuObject != undefined) {
+            const katana = KokyuMobObjects.find(ob => ob.entityName == kokyuObject.itemName) as KokyuMobObject;
+            if (katana != undefined) {
+              const KokyuClass = KokyuMobClassRecord[katana.className];
+              const KokyuObject = new KokyuClass();
+              KokyuObject.startMonitoring(entity);
+            }
           }
         }
 
       } else {
         const taishi = KokyuMobObjects.find(ob => ob.entityName == entity.typeId) as KokyuMobObject;
         if (taishi != undefined) {
-          const kokyu_kata = entity.getProperty("kurokumaft:kokyu_kata");
           const KokyuClass = KokyuMobClassRecord[taishi.className];
           const KokyuObject = new KokyuClass();
           KokyuObject.startMonitoring(entity);
@@ -128,7 +130,8 @@ world.afterEvents.entitySpawn.subscribe(event => {
   try {
     if (entity != undefined) {
       const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-      if (kaikyuNum != undefined && kaikyuNum != 11 && event.cause == EntityInitializationCause.Spawned) {
+      const kaikyuFlg = entity.getProperty("kurokumaft:kaikyu_ran") as boolean;
+      if (kaikyuFlg != undefined && kaikyuFlg && kaikyuNum != undefined && kaikyuNum != 11 && event.cause == EntityInitializationCause.Spawned) {
         const kaikyuRan = getRandomInRange(1, 10);
         entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
         system.runTimeout(() => {
@@ -172,10 +175,12 @@ world.afterEvents.entityDie.subscribe(event => {
     const damager = event.damageSource.damagingEntity;
     if (damager != undefined) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-      if (dfamilyTypes.hasTypeFamily("player")) {
+      if (dfamilyTypes != undefined && dfamilyTypes.hasTypeFamily("player")) {
         new RaisingStatusCheckClass().statusCheck(damager as Player, deadEntity);
       }
     }
+  } else if (familyTypes != undefined && familyTypes.hasTypeFamily("player")) {
+    deadEntity.removeTag("hostility_player");
   }
   if (deadEntity.typeId == "kurokumaft:hantengu") {
     const dimension = deadEntity.dimension;
@@ -192,9 +197,13 @@ world.afterEvents.entityHitEntity.subscribe(event => {
   const damagingEntity = event.damagingEntity;
   const hitEntity = event.hitEntity;
   if (hitEntity != undefined) {
-    const familyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-    if (familyTypes.hasTypeFamily("regimental_soldier")) {
+    const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+    const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+    if (hitFamilyTypes != undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
       hitEntity.addTag("hostility");
+    } else if (hitFamilyTypes != undefined && hitFamilyTypes.hasTypeFamily("player") && damageFamilyTypes.hasTypeFamily("player")) {
+      hitEntity.addTag("hostility_player");
+      damagingEntity.addTag("hostility_player");
     }
   }
 });

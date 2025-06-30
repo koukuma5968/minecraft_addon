@@ -163,36 +163,42 @@ export class Tigama extends ZytuComonClass {
             }
             entity.setDynamicProperty("kurokumaft:chage_type", true);
 
+            entity.addTag(entity.id);
             const parnum = system.runInterval(() => {
 
-                entity.addTag(entity.id);
-                const filter = addOrgeFilter(0, entity.location, 6, entity.id);
-                const targets = entity.dimension.getEntities(filter);
-                targets.forEach(en => {
-                    if (en instanceof Player) {
-                        if (this.gardCheck(en)) {
-                            en.applyDamage(2, {
+                try {
+                    const filter = addOrgeFilter(0, entity.location, 6, entity.id);
+                    const targets = entity.dimension.getEntities(filter);
+                    targets.forEach(en => {
+                        if (en instanceof Player) {
+                            if (this.gardCheck(en)) {
+                                en.applyDamage(2, {
+                                    cause: EntityDamageCause.entityAttack,
+                                    damagingEntity: entity
+                                });
+                            }
+                            en.addEffect(MinecraftEffectTypes.Poison, 5, {
+                                showParticles: false,
+                                amplifier: 2
+                            });
+                        } else {
+                            en.applyDamage(3, {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
+                            en.addEffect(MinecraftEffectTypes.Poison, 10, {
+                                showParticles: false,
+                                amplifier: 5
+                            });
                         }
-                        en.addEffect(MinecraftEffectTypes.Poison, 5, {
-                            showParticles: false,
-                            amplifier: 2
-                        });
-                    } else {
-                        en.applyDamage(3, {
-                            cause: EntityDamageCause.entityAttack,
-                            damagingEntity: entity
-                        });
-                        en.addEffect(MinecraftEffectTypes.Poison, 10, {
-                            showParticles: false,
-                            amplifier: 5
-                        });
-                    }
-                });
-                entity.removeTag(entity.id);
+                    });
+
+                } catch (error) {
+                    system.clearRun(parnum);
+                    entity.removeTag(entity.id);
+                }
             },2);
+            entity.removeTag(entity.id);
 
             system.runTimeout(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
@@ -217,33 +223,40 @@ export class Tigama extends ZytuComonClass {
             }
             entity.setDynamicProperty("kurokumaft:chage_type", true);
 
+            entity.addTag(entity.id);
             const parnum = system.runInterval(() => {
-                if (entity == undefined) {
-                    return;
-                }
 
-                entity.addTag(entity.id);
-                const filter = addOrgeFilter(0, entity.location, 10, entity.id);
-                const targets = entity.dimension.getEntities(filter);
-                targets.forEach(en => {
-                    if (en != undefined) {
-                        if (en instanceof Player) {
-                            if (this.gardCheck(en)) {
-                                en.applyDamage(2, {
+                try {
+
+                    if (entity == undefined) {
+                        return;
+                    }
+
+                    const filter = addOrgeFilter(0, entity.location, 10, entity.id);
+                    const targets = entity.dimension.getEntities(filter);
+                    targets.forEach(en => {
+                        if (en != undefined) {
+                            if (en instanceof Player) {
+                                if (this.gardCheck(en)) {
+                                    en.applyDamage(2, {
+                                        cause: EntityDamageCause.entityAttack,
+                                        damagingEntity: entity
+                                    });
+                                }
+                            } else {
+                                en.applyDamage(3, {
                                     cause: EntityDamageCause.entityAttack,
                                     damagingEntity: entity
                                 });
                             }
-                        } else {
-                            en.applyDamage(3, {
-                                cause: EntityDamageCause.entityAttack,
-                                damagingEntity: entity
-                            });
                         }
-                    }
-                });
-                entity.removeTag(entity.id);
+                    });
+                } catch (error) {
+                    system.clearRun(parnum);
+                    entity.removeTag(entity.id);
+                }
             },2);
+            entity.removeTag(entity.id);
 
             system.runTimeout(() => {
                 system.clearRun(parnum);

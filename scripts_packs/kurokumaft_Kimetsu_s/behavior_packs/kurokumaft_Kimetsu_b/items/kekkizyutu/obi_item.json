@@ -2,21 +2,21 @@
   "format_version": "1.21.10",
   "minecraft:item": {
     "description": {
-      "identifier": "kurokumaft:urogi_ultrasonic",
+      "identifier": "kurokumaft:obi_item",
       "menu_category": {
         "category": "equipment"
       }
     },
     "components": {
       "minecraft:display_name": {
-				"value": "item.kurokumaft:urogi_ultrasonic.name"
+				"value": "item.kurokumaft:obi.name"
 			},
       "minecraft:tags": {
         "tags": [
           "kurokumaft:kekkizyutu"
         ]
       },
-      "minecraft:icon": "urogi_ultrasonic",
+      "minecraft:icon": "obi",
       "minecraft:max_stack_size": 1,
       "minecraft:damage": 0,
       "minecraft:allow_off_hand": true,

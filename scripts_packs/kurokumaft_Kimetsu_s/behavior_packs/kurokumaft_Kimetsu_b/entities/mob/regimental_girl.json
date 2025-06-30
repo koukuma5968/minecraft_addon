@@ -13,6 +13,11 @@
           "default": 1,
           "client_sync": true
         },
+        "kurokumaft:kaikyu_ran": {
+          "type": "bool",
+          "default": "true",
+          "client_sync": true
+        },
         "kurokumaft:kokyu_use": {
           "type": "bool",
           "default": "false",

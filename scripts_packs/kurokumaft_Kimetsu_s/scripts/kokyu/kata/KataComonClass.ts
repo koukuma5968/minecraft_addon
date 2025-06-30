@@ -1,4 +1,4 @@
-import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent } from "@minecraft/server";
+import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent, system } from "@minecraft/server";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addProjectionFilter, getDistanceLocation, getLookLocationDistance } from "../../common/KimetuCommonUtil";
@@ -39,17 +39,41 @@ export class KataComonClass {
         targets.forEach(en => {
             if (en != undefined) {
                 if (en instanceof Player) {
-                    if (this.gardCheck(en)) {
-                        en.applyDamage(pDamage*damageNum, {
+                    if (entity instanceof Player) {
+                        const tags = en.getTags();
+                        if (world.gameRules.pvp && tags.indexOf("hostility_player") != -1) {
+                            if (this.gardCheck(en)) {
+                                en.applyDamage(pDamage*damageNum, {
+                                    cause: EntityDamageCause.entityAttack,
+                                    damagingEntity: entity
+                                });
+                            }
+                        }
+                    } else {
+                        const tags = entity.getTags();
+                        if (tags.indexOf("hostility") != -1) {
+                            en.applyDamage(enDamage*damageNum, {
+                                cause: EntityDamageCause.entityAttack,
+                                damagingEntity: entity
+                            });
+                        }
+                    }
+                } else {
+                    const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                    if (familyTypes != undefined && familyTypes.hasTypeFamily("ogre")) {
+                        en.applyDamage(enDamage*damageNum, {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
+                    } else {
+                        const tags = en.getTags();
+                        if (tags.indexOf("hostility") != -1) {
+                            en.applyDamage(enDamage*damageNum, {
+                                cause: EntityDamageCause.entityAttack,
+                                damagingEntity: entity
+                            });
+                        }
                     }
-                } else {
-                    en.applyDamage(enDamage*damageNum, {
-                        cause: EntityDamageCause.entityAttack,
-                        damagingEntity: entity
-                    });
                 }
             }
         });

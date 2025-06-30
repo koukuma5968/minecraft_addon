@@ -13,7 +13,7 @@
 			"bones": [
 				{
 					"name": "nichirintou_hold_right",
-					"pivot": [-5, 0, 0]
+					"pivot": [-5, 1, 0]
 				},
 				{
 					"name": "nichirintou",

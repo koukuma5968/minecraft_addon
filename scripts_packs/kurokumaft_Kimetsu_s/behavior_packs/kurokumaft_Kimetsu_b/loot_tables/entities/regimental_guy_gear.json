@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "kurokumaft:nichirintou",
+          "name": "kurokumaft:nichirintou_mizu",
           "weight": 30
         },
         {
@@ -25,7 +25,17 @@
         },
         {
           "type": "item",
+          "name": "kurokumaft:nichirintou_kasumi",
+          "weight": 10
+        },
+        {
+          "type": "item",
           "name": "kurokumaft:nichirintou_kaminari",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "kurokumaft:nichirintou_iwa",
           "weight": 5
         },
         {
@@ -35,12 +45,27 @@
         },
         {
           "type": "item",
+          "name": "kurokumaft:nichirintou_kemono",
+          "weight": 10
+        },
+        {
+          "type": "item",
           "name": "kurokumaft:nichirintou_hi",
           "weight": 1
         },
         {
           "type": "item",
+          "name": "kurokumaft:nichirintou_tuki",
+          "weight": 1
+        },
+        {
+          "type": "item",
           "name": "kurokumaft:nichirintou_koi",
+          "weight": 5
+        },
+        {
+          "type": "item",
+          "name": "kurokumaft:nichirintou_hebi",
           "weight": 5
         },
         {

@@ -13,7 +13,7 @@
 			"bones": [
 				{
 					"name": "nichirintou_hold_left",
-					"pivot": [6, 0, 0]
+					"pivot": [6, 1, 0]
 				},
 				{
 					"name": "nichirinto_left",
@@ -1744,7 +1744,7 @@
 				},
 				{
 					"name": "nichirintou_hold_right",
-					"pivot": [-6, 0, 0]
+					"pivot": [-6, 1, 0]
 				},
 				{
 					"name": "nichirinto_right",

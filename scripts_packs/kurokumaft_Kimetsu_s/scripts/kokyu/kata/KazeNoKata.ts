@@ -31,6 +31,7 @@ export class KazeNoKata extends KataComonClass {
             try {
                 entity.setDynamicProperty("kurokumaft:chage_type", undefined);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            } catch (error) {
             } finally {
                 system.clearRun(num);
             }
@@ -59,8 +60,11 @@ export class KazeNoKata extends KataComonClass {
         }
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } catch (error) {
+            }
         },10);
 
     }
@@ -94,6 +98,7 @@ export class KazeNoKata extends KataComonClass {
             try {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            } catch (error) {
             } finally {
                 system.clearRun(num);
             }
@@ -132,6 +137,7 @@ export class KazeNoKata extends KataComonClass {
             try {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 entity.setProperty("kurokumaft:kokyu_use", false);
+            } catch (error) {
             } finally {
                 system.clearRun(this.sazinIntervalId);
                 system.clearRun(num);
@@ -187,6 +193,7 @@ export class KazeNoKata extends KataComonClass {
             try {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 entity.setProperty("kurokumaft:kokyu_use", false);
+            } catch (error) {
             } finally {
                 system.clearRun(num);
             }
@@ -207,8 +214,11 @@ export class KazeNoKata extends KataComonClass {
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
 
         system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
+            try {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            } catch (error) {
+            }
         },15);
 
     }
@@ -247,6 +257,7 @@ export class KazeNoKata extends KataComonClass {
             try {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            } catch (error) {
             } finally {
                 system.clearRun(num);
             }
@@ -270,7 +281,6 @@ export class KazeNoKata extends KataComonClass {
     
                 const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                 entity.applyKnockback(distance.x,distance.z,8,0);
-
             } catch (error) {
                 system.clearRun(num);
             }
@@ -281,6 +291,7 @@ export class KazeNoKata extends KataComonClass {
             try {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            } catch (error) {
             } finally {
                 system.clearRun(num);
             }
@@ -323,6 +334,7 @@ export class KazeNoKata extends KataComonClass {
             try {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            } catch (error) {
             } finally {
                 system.clearRun(num);
             }

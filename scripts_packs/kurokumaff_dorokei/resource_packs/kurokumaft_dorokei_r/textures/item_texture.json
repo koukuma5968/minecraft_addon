@@ -1,0 +1,9 @@
+{
+   "resource_pack_name" : "kurokumaft_dorokei_r",
+   "texture_data" : {
+      "keibou": {
+         "textures" : "textures/kurokumaft/items/keibou"
+      }
+   },
+   "texture_name" : "atlas.items"
+}

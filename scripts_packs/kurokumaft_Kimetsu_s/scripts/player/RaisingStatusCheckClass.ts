@@ -1,4 +1,4 @@
-import { Entity, Player, system } from "@minecraft/server";
+import { Entity, Player, system, world } from "@minecraft/server";
 
 export class RaisingStatusCheckClass {
 
@@ -9,43 +9,48 @@ export class RaisingStatusCheckClass {
         let upPoint = count+point;
         let killtarget=0;
         switch(kaikyu) {
-            case 0:
-                killtarget=1;
-                break;
             case 10:
                 const ogreKaikyu = ogre.getProperty("kurokumaft:ogre_kaikyu") as number;
                 if (ogreKaikyu >= 9) {
                     killtarget=killtarget+300;
                 } else {
-                    upPoint = 0;
+                    upPoint = point;
                 }
             case 9:
-                killtarget=killtarget+90;
+                killtarget=killtarget+900;
             case 8:
-                killtarget=killtarget+80;
+                killtarget=killtarget+800;
             case 7:
-                killtarget=killtarget+70;
+                killtarget=killtarget+700;
             case 6:
-                killtarget=killtarget+60;
+                killtarget=killtarget+600;
             case 5:
-                killtarget=killtarget+50;
+                killtarget=killtarget+500;
             case 4:
-                killtarget=killtarget+40;
+                killtarget=killtarget+400;
             case 3:
-                killtarget=killtarget+30;
+                killtarget=killtarget+300;
             case 2:
-                killtarget=killtarget+20;
+                killtarget=killtarget+200;
             case 1:
-                killtarget=killtarget+10;
+                killtarget=killtarget+100;
                 if (upPoint >= killtarget) {
                     player.setProperty("kurokumaft:kaikyu", kaikyu+1);
                     player.setProperty("kurokumaft:ogre_kill", 0);
                     system.runTimeout(() => {
                         player.triggerEvent("kurokumaft:kaikyu_change");
-                    }, 2);
+                    }, 4);
                 } else {
                     player.setProperty("kurokumaft:ogre_kill", upPoint);
                 }
+                break
+            case 0:
+                player.setProperty("kurokumaft:kaikyu", kaikyu+1);
+                player.setProperty("kurokumaft:ogre_kill", 0);
+                system.runTimeout(() => {
+                    player.triggerEvent("kurokumaft:kaikyu_change");
+                }, 4);
+                break
         }
 
     }

@@ -148,6 +148,8 @@
           {
             "filters": {
               "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
                 {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
                 {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
