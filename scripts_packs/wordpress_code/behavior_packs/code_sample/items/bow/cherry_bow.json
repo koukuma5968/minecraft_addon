@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:cherry_bow",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.bow"
+        "category": "equipment"
       }
     },
     "components": {
@@ -36,6 +35,9 @@
       },
       "minecraft:hand_equipped": true,
       "minecraft:use_animation": "bow",
+      "minecraft:use_modifiers": {
+        "use_duration": 100
+      },
       "minecraft:shooter": {
         "ammunition": [
           {
@@ -51,9 +53,7 @@
             "use_in_creative": true
           }
         ],
-        "launch_power_scale": 0.2,
         "max_draw_duration": 1.0,
-        "max_launch_power": 1.0,
         "scale_power_by_draw_duration": true
       }
     }

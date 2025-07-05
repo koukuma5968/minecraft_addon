@@ -22,9 +22,9 @@
   },
   "dependencies": {
     "@minecraft/math": "^1.1.0",
-    "@minecraft/server": "^1.15.0-beta",
-    "@minecraft/server-ui": "^1.4.0-beta",
-    "@minecraft/vanilla-data": "^1.21.30"
+    "@minecraft/server": "^1.19.0",
+    "@minecraft/server-ui": "^1.3.0",
+    "@minecraft/vanilla-data": "^1.21.20"
   },
   "overrides": {
     "@minecraft/math": {

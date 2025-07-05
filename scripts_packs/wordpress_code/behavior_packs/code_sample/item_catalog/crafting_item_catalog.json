@@ -1,0 +1,129 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:crafting_items_catalog": {
+        "categories": [
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.sword"
+                        },
+                        "items": [
+                            "kurokumaft:echo_sword",
+                            "kurokumaft:tnt_sword",
+                            "kurokumaft:copper_sword"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.spear"
+                        },
+                        "items": [
+                            "kurokumaft:wooden_spear"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "minecraft:bow",
+                            "name": "kurokumaft:itemGroup.name.bow"
+                        },
+                        "items": [
+                            "minecraft:bow",
+                            "kurokumaft:cherry_bow"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.arrow"
+                        },
+                        "items": [
+                            "kurokumaft:cherry_arrow"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.boots"
+                        },
+                        "items": [
+                            "kurokumaft:cherry_boots"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.chestplate"
+                        },
+                        "items": [
+                            "kurokumaft:cherry_chestplate"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.helmet"
+                        },
+                        "items": [
+                            "kurokumaft:cherry_helmet"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.leggings"
+                        },
+                        "items": [
+                            "kurokumaft:cherry_leggings"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.miscFood"
+                        },
+                        "items": [
+                            "kurokumaft:apple_pie"
+                        ]
+                    }
+                ]
+            }
+
+        ]
+    }
+}

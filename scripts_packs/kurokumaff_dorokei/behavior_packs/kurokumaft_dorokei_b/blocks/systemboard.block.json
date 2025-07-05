@@ -5,7 +5,7 @@
             "identifier": "kurokumaft:systemboard",
             "menu_category": {
                 "category": "items"
-            },
+			},
             "traits": {
                 "minecraft:placement_direction": {
                     "enabled_states": [

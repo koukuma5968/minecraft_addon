@@ -1,5 +1,8 @@
-import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockVolume, world, system, BlockStates, BlockPermutation, DisplaySlotId } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
+import { SystemMonitorTick } from "../monitor/SystemMonitorTick";
+
+const systemMonitorTick = new SystemMonitorTick();
 
 /**
  * システムブロック
@@ -10,38 +13,38 @@ export class SystemBoardBlock implements BlockCustomComponent {
         const block = event.block as Block;
         const player = event.player as Player;
 
-        const modalForm = new ModalFormData().title("Example Modal Controls for §o§7ModalFormData§r");
+        const modalForm = new ModalFormData().title({ translate: "msg.kurokumaft:systemblock.title"});
 
-        modalForm.toggle("Toggle w/o default");
-        modalForm.toggle("Toggle w/ default", {
-            defaultValue:true
+        modalForm.label({translate: "msg.kurokumaft:systemblock.field.range.label"});
+        modalForm.slider({ translate: "msg.kurokumaft:systemblock.field.down.text"}, 1, 64, {
+            defaultValue:1
         });
-
-        modalForm.slider("Slider w/o default", 0, 50, {
-            defaultValue:5
-        });
-        modalForm.slider("Slider w/ default", 0, 50, {
-            defaultValue:5,
-            valueStep:30
-        });
-
-        modalForm.dropdown("Dropdown w/o default", ["option 1", "option 2", "option 3"]);
-        modalForm.dropdown("Dropdown w/ default", ["option 1", "option 2", "option 3"], {
-            defaultValueIndex:2
-        });
-
-        modalForm.textField("Input w/o default", "type text here");
-        modalForm.textField("Input w/ default", "type text here", {
-            defaultValue:"this is default"
+        modalForm.slider({ translate: "msg.kurokumaft:systemblock.field.range.text"}, 24, 256, {
+            defaultValue:24
         });
 
         modalForm
             .show(player)
             .then((formData) => {
-                player.sendMessage(`Modal form results: ${JSON.stringify(formData.formValues, undefined, 2)}`);
-                })
+                const values = formData.formValues;
+                if (values != undefined) {
+                    const fieldDown = values[1] as number;
+                    const fieldRange = values[2] as number;
+
+                    if (block.location.y-fieldDown < -63) {
+                        throw ({ translate: "error.kurokumaft:systemblock.field.down.max_orver"});
+                    }
+
+                    systemMonitorTick.startMonitoring(fieldRange.toString(), fieldDown.toString());
+                }
+            })
             .catch((error: Error) => {
+                world.sendMessage(error.message);
+                console.log(error.stack);
+                
             return -1;
         });
     }
+
 }
+

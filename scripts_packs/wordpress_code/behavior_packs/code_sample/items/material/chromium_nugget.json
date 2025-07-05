@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:chromium_nugget",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.chromium_nugget"
+        "category": "items"
       }
     },
     "components": {

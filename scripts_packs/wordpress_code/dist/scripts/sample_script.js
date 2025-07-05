@@ -3378,27 +3378,21 @@ world2.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:tnt_sword", new TntSwordBreak());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:echo_sword", new EchoSword());
   initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:fortune_destroy", new FortuneDestroy());
-  initEvent.blockComponentRegistry.registerCustomComponent("amw:magic_reinforcement_table", {
-    onPlace(e) {
-      let entity = e.dimension.spawnEntity("amw:magic_reinforcement_table", { x: e.block.location.x + 0.5, y: e.block.location.y + 1, z: e.block.location.z + 0.5 });
-      entity.nameTag = "amw:magic_reinforcement_table";
-    }
-  });
 });
 world2.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   if (event.eventId == "kurokumaft:stop_riding") {
-    let entity = event.entity;
+    const entity = event.entity;
     if (entity.typeId == "kurokumaft:owl") {
-      let ride = entity.getComponent(EntityComponentTypes6.Riding);
+      const ride = entity.getComponent(EntityComponentTypes6.Riding);
       if (ride != void 0) {
-        let player = ride.entityRidingOn;
+        const player = ride.entityRidingOn;
         if (player.isFalling && !entity.getDynamicProperty("fallingOwner")) {
           entity.setDynamicProperty("fallingOwner", true);
           system2.runTimeout(() => {
             if (player.isFalling) {
               event.entity.runCommand("ride @s stop_riding");
             }
-            let num = system2.runInterval(() => {
+            const num = system2.runInterval(() => {
               if (!entity.isValid()) {
                 system2.clearRun(num);
               } else if (player.isOnGround) {
@@ -3412,24 +3406,23 @@ world2.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
     }
   }
   if (event.eventId == "minecraft:on_tame") {
-    let entity = event.entity;
+    const entity = event.entity;
     if (entity.typeId == "kurokumaft:owl") {
       entity.setDynamicProperty("fallingOwner", false);
     }
   }
 });
 world2.beforeEvents.entityRemove.subscribe((event) => {
-  let removedEntity = event.removedEntity;
-  removeArrow(removedEntity);
+  const removedEntity = event.removedEntity;
   removeSpear(removedEntity);
 });
 world2.afterEvents.entitySpawn.subscribe((event) => {
-  let entity = event.entity;
-  let cause = event.cause;
+  const entity = event.entity;
+  const cause = event.cause;
   if (cause == "Born") {
-    let mess = { translate: "mess.entity_spawn.Born", with: [entity.typeId] };
+    const mess = { translate: "mess.entity_spawn.Born", with: [entity.typeId] };
   } else if (cause == "Transformed") {
-    let mess = { translate: "mess.entity_spawn.Transformed", with: [entity.typeId] };
+    const mess = { translate: "mess.entity_spawn.Transformed", with: [entity.typeId] };
   }
   if (entity.typeId == "kurokumaft:owl") {
     entity.nameTag = "\u30D5\u30AF\u30ED\u30A6";
@@ -3439,8 +3432,8 @@ world2.afterEvents.entitySpawn.subscribe((event) => {
   }
 });
 world2.afterEvents.itemReleaseUse.subscribe((event) => {
-  let player = event.source;
-  let item = event.itemStack;
+  const player = event.source;
+  const item = event.itemStack;
   if (item != void 0) {
     if (item.typeId.indexOf("spear") != -1) {
       releaseSpear(player, item);
@@ -3448,8 +3441,8 @@ world2.afterEvents.itemReleaseUse.subscribe((event) => {
   }
 });
 world2.afterEvents.itemStopUse.subscribe((event) => {
-  let player = event.source;
-  let item = event.itemStack;
+  const player = event.source;
+  const item = event.itemStack;
   if (item != void 0) {
     if (item.typeId.indexOf("spear") != -1) {
       stopSpear(player);
@@ -3457,17 +3450,18 @@ world2.afterEvents.itemStopUse.subscribe((event) => {
   }
 });
 world2.afterEvents.projectileHitBlock.subscribe((event) => {
-  let projectileEn = event.projectile;
-  let source = event.source;
+  const projectileEn = event.projectile;
+  const source = event.source;
+  removeArrow(projectileEn);
   if (source != void 0 && source instanceof Player7) {
     hitSpear(source, projectileEn);
   }
 });
 world2.afterEvents.projectileHitEntity.subscribe((event) => {
-  let projectileEn = event.projectile;
-  let source = event.source;
-  let hitEn = event.getEntityHit().entity;
-  let hitVector = event.hitVector;
+  const projectileEn = event.projectile;
+  const source = event.source;
+  const hitEn = event.getEntityHit().entity;
+  const hitVector = event.hitVector;
   if (source != void 0 && source instanceof Player7) {
     hitSpear(source, projectileEn);
   }
@@ -3476,15 +3470,16 @@ async function removeArrow(removedEntity) {
   if (removedEntity.typeId.indexOf("arrow") == -1) {
     return;
   }
-  let dim = removedEntity.dimension;
-  let loca = removedEntity.location;
+  const dim = removedEntity.dimension;
+  const loca = removedEntity.location;
+  removedEntity.remove();
   system2.runTimeout(() => {
     dim.spawnItem(new ItemStack9(removedEntity.typeId), loca);
   }, 2);
 }
 world2.afterEvents.playerInteractWithEntity.subscribe((event) => {
-  let beforeItemStack = event.beforeItemStack;
-  let target = event.target;
+  const beforeItemStack = event.beforeItemStack;
+  const target = event.target;
 });
 
 //# sourceMappingURL=../debug/sample_script.js.map

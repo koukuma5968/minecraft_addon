@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:cherry_arrow",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.arrow"
+        "category": "equipment"
       }
     },
     "components": {

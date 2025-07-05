@@ -10,12 +10,12 @@ async function checkMagicPlayerEquTick() {
     let players = world.getPlayers() as Player[];
 
     for (let i = 0; i < players.length; i++) {
-        let player = players[i];
+        const player = players[i];
         if (!player.isValid()) {
             continue;
         }
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let offHand = equ.getEquipment(EquipmentSlot.Offhand);
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const offHand = equ.getEquipment(EquipmentSlot.Offhand);
         if (offHand != undefined) {
             if (offHand.hasTag("kurokumaft:") && player.isSneaking) {
                 if (!player.hasTag("off_shield_guard")) {
@@ -32,7 +32,7 @@ async function checkMagicPlayerEquTick() {
             }
         }
 
-        let mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
+        const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
         if (mainHand != undefined) {
             if (mainHand.hasTag("kurokumaft:") && player.isSneaking) {
                 if (!player.hasTag("main_shield_guard")) {
@@ -49,7 +49,7 @@ async function checkMagicPlayerEquTick() {
             }
         }
 
-        let head = equ.getEquipment(EquipmentSlot.Head);
+        const head = equ.getEquipment(EquipmentSlot.Head);
         if (head != undefined) {
             if (!player.getDynamicProperty("magic_helmet_equ")) {
                 new MagicHelmetSurveillance(player, head).checkMagicHelmetTick();
@@ -57,7 +57,7 @@ async function checkMagicPlayerEquTick() {
         } else {
             player.setDynamicProperty("magic_helmet_equ", false);
         }
-        let chest = equ.getEquipment(EquipmentSlot.Chest);
+        const chest = equ.getEquipment(EquipmentSlot.Chest);
         if (chest != undefined) {
             if (!player.getDynamicProperty("magic_chest_equ")) {
                 new MagicChestSurveillance(player, chest).checkMagicChestTick();
@@ -65,7 +65,7 @@ async function checkMagicPlayerEquTick() {
         } else {
             player.setDynamicProperty("magic_chest_equ", false);
         }
-        let legs = equ.getEquipment(EquipmentSlot.Legs);
+        const legs = equ.getEquipment(EquipmentSlot.Legs);
         if (legs != undefined) {
             if (!player.getDynamicProperty("magic_leg_equ")) {
                 new MagicLeggingsSurveillance(player, legs).checkMagicLeggingsTick();
@@ -73,7 +73,7 @@ async function checkMagicPlayerEquTick() {
         } else {
             player.setDynamicProperty("magic_leg_equ", false);
         }
-        let feet = equ.getEquipment(EquipmentSlot.Feet);
+        const feet = equ.getEquipment(EquipmentSlot.Feet);
         if (feet != undefined) {
             if (!player.getDynamicProperty("magic_boot_equ")) {
                 new MagicBootsSurveillance(player, feet).checkMagicBootsTick();

@@ -5,7 +5,16 @@
       "identifier": "kurokumaft:phoenix",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "scripts":{
+        "animate":[
+          "action"
+        ]
+      },
+      "animations":{
+        "attack":"controller.animation.phoenix.action",
+        "cooldown": "animation.cooldown.twenty_mine"
+      }
     },
 
     "components": {
@@ -63,105 +72,8 @@
       "minecraft:movement": {
         "value": 0.2
       },
-      "minecraft:navigation.walk": {
-        "can_path_over_water": true,
-        "avoid_water": true
-      },
-      "minecraft:jump.static": {
-      },
-      "minecraft:can_climb": {
-      },
-      "minecraft:can_fly": {
-      },
-      "minecraft:movement.hover": {
-        "speed_multiplier": 0.2,
-        "max_turn": 0.5
-      },
-
-      "minecraft:behavior.float_wander": {
-        "xz_dist": 10,
-        "y_dist": 7,
-        "y_offset": -0.5,
-        "random_reselect": false,
-        "float_duration": [ 1.0, 2.0 ]
-      },
-      "minecraft:behavior.mount_pathing": {
-        "priority": 2,
-        "speed_multiplier": 0.2,
-        "target_dist": 0.0,
-        "track_target": true
-      },
-      "minecraft:behavior.wither_target_highest_damage": {
-        "priority": 1
-      },
-      "minecraft:behavior.hurt_by_target": {
-        "priority": 2
-      },
-      "minecraft:behavior.nearest_attackable_target": {
-        "priority": 3,
-        "entity_types": [
-          {
-            "filters": {
-              "any_of": [
-                { "test": "is_family", "subject": "other", "value": "player" },
-                { "test": "is_family", "subject": "other", "value": "familiar" },
-                { "test": "is_family", "subject": "other", "value": "snowgolem" },
-                { "test": "is_family", "subject": "other", "value": "irongolem" }
-              ]
-            },
-            "max_dist": 35
-          },
-          {
-            "filters": {
-               "all_of": [
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "undead"
-                },
-                {
-                  "test": "is_family",
-                  "subject": "other",
-                  "operator": "!=",
-                  "value": "inanimate"
-                }
-              ]
-            },
-            "max_dist": 50
-          }
-        ],
-        "must_see": true
-      },
-      "minecraft:behavior.ranged_attack": {
-        "priority": 2,
-        "attack_interval": 5,
-        "burst_interval": 0.5,
-        "burst_shots": 3,
-        "ranged_fov": 120,
-        "attack_radius": 32,
-        "charge_shoot_trigger": 2,
-        "charge_charged_trigger": 1
-      },
-      "minecraft:shooter": {
-        "def": "kurokumaft:fireballmagic"
-      },
-      "minecraft:behavior.random_stroll": {
-        "priority": 7,
-        "speed_multiplier": 1
-      },
-      "minecraft:behavior.random_look_around": {
-        "priority": 9
-      },
-      "minecraft:behavior.look_at_target": {
-        "priority": 5
-      },
-      "minecraft:behavior.look_at_player": {
-        "priority": 6,
-        "look_distance": 8
-      },
       "minecraft:type_family": {
-        "family": [ "fire", "monster", "boss" ]
+        "family": [ "fire", "monster", "boss", "magic_boss" ]
       },
       "minecraft:persistent": {
       },

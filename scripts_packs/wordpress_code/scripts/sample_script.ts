@@ -22,13 +22,6 @@ world.beforeEvents.worldInitialize.subscribe(initEvent => {
     // ブロックカスタムコンポーネントの登録
     initEvent.blockComponentRegistry.registerCustomComponent("kurokumaft:fortune_destroy", new FortuneDestroy());
 
-    initEvent.blockComponentRegistry.registerCustomComponent("amw:magic_reinforcement_table", {
-        onPlace(e){
-            let entity = e.dimension.spawnEntity("amw:magic_reinforcement_table", { x: e.block.location.x+0.5, y: e.block.location.y+1, z: e.block.location.z+0.5 });
-            entity.nameTag = "amw:magic_reinforcement_table";
-        }
-    });
-
 });
 // world.afterEvents.blockExplode.subscribe(event => {
 //     world.sendMessage("blockExplode");
@@ -44,13 +37,13 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     // world.sendMessage(event.eventId);
     // ライド停止イベントを検知
     if (event.eventId == "kurokumaft:stop_riding") {
-        let entity = event.entity as Entity;
+        const entity = event.entity as Entity;
         // イベント送信者がフクロウの場合
         if (entity.typeId == "kurokumaft:owl") {
-            let ride = entity.getComponent(EntityComponentTypes.Riding) as EntityRidingComponent;
+            const ride = entity.getComponent(EntityComponentTypes.Riding) as EntityRidingComponent;
             // フクロウがライド状態である場合
             if (ride != undefined) {
-                let player = ride.entityRidingOn as Entity;
+                const player = ride.entityRidingOn as Entity;
                 // プレイヤーが落下を始めた時、かつ着地するまで
                 if (player.isFalling && !entity.getDynamicProperty("fallingOwner")) {
                     // 落下中を設定
@@ -63,7 +56,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
                             event.entity.runCommand("ride @s stop_riding");
                         }
                         // 2tick間隔で処理を実行
-                        let num = system.runInterval(() => {
+                        const num = system.runInterval(() => {
                             // フクロウが死亡した場合
                             if (!entity.isValid()) {
                                 // 処理を停止する
@@ -82,7 +75,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
         }
     }
     if (event.eventId == "minecraft:on_tame") {
-        let entity = event.entity as Entity;
+        const entity = event.entity as Entity;
         if (entity.typeId == "kurokumaft:owl") {
             entity.setDynamicProperty("fallingOwner", false);
         }
@@ -119,8 +112,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
 
 // エンティティ削除前
 world.beforeEvents.entityRemove.subscribe(event => {
-    let removedEntity = event.removedEntity;
-    removeArrow(removedEntity);
+    const removedEntity = event.removedEntity;
     removeSpear(removedEntity);
 });
 
@@ -132,17 +124,17 @@ world.beforeEvents.entityRemove.subscribe(event => {
 world.afterEvents.entitySpawn.subscribe(event => {
     // world.sendMessage("entitySpawn");
     // スポーンしたエンティティ
-    let entity = event.entity;
+    const entity = event.entity;
     // どうやってスポーンしたか
-    let cause = event.cause;
+    const cause = event.cause;
     // スポーンしたエンティティをメッセージに送る（ただの文字結合でもOK、RawMessageのtranslateを使うと多言語に対応できる）
     if (cause == "Born") {
         // 繁殖によって生まれた時
-        let mess = {translate : "mess.entity_spawn.Born", with: [entity.typeId]};
+        const mess = {translate : "mess.entity_spawn.Born", with: [entity.typeId]};
         // world.sendMessage(mess);
     } else if (cause == "Transformed") {
         // ドラウンドやウィッチなどに変化した時
-        let mess = {translate : "mess.entity_spawn.Transformed", with: [entity.typeId]};
+        const mess = {translate : "mess.entity_spawn.Transformed", with: [entity.typeId]};
         // world.sendMessage(mess);
     }
     // モブの表示名を設定する
@@ -171,8 +163,8 @@ world.afterEvents.entitySpawn.subscribe(event => {
 // アイテム使用リリース
 world.afterEvents.itemReleaseUse.subscribe(event => {
     // world.sendMessage("itemCompleteUse");
-    let player = event.source;
-    let item = event.itemStack;
+    const player = event.source;
+    const item = event.itemStack;
     if (item != undefined) {
         if (item.typeId.indexOf("spear") != -1) {
             releaseSpear(player, item);
@@ -191,8 +183,8 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 // アイテム使用停止
 world.afterEvents.itemStopUse.subscribe(event => {
     // world.sendMessage("itemStopUse");
-    let player = event.source;
-    let item = event.itemStack;
+    const player = event.source;
+    const item = event.itemStack;
     if (item != undefined) {
         if (item.typeId.indexOf("spear") != -1) {
             stopSpear(player);
@@ -263,8 +255,9 @@ world.afterEvents.itemStopUse.subscribe(event => {
 // 遠距離ブロックhit後
 world.afterEvents.projectileHitBlock.subscribe(event => {
     // world.sendMessage("projectileHitBlock");
-    let projectileEn = event.projectile;
-    let source = event.source as Entity
+    const projectileEn = event.projectile;
+    const source = event.source as Entity
+    removeArrow(projectileEn);
     if (source != undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
@@ -273,10 +266,10 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
 // 遠距離hit後
 world.afterEvents.projectileHitEntity.subscribe(event => {
     // world.sendMessage("projectileHitEntity");
-    let projectileEn = event.projectile;
-    let source = event.source as Entity
-    let hitEn = event.getEntityHit().entity as Entity;
-    let hitVector = event.hitVector;
+    const projectileEn = event.projectile;
+    const source = event.source as Entity
+    const hitEn = event.getEntityHit().entity as Entity;
+    const hitVector = event.hitVector;
     if (source != undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
@@ -299,8 +292,9 @@ async function removeArrow(removedEntity:Entity) {
         return;
     }
 
-    let dim = removedEntity.dimension;
-    let loca = removedEntity.location;
+    const dim = removedEntity.dimension;
+    const loca = removedEntity.location;
+    removedEntity.remove();
     system.runTimeout(() => {
         dim.spawnItem(new ItemStack(removedEntity.typeId), loca);
     }, 2);
@@ -308,7 +302,7 @@ async function removeArrow(removedEntity:Entity) {
 
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
     // world.sendMessage("playerInteractWithEntity");
-    let beforeItemStack = event.beforeItemStack as ItemStack;
-    let target = event.target as Entity;
+    const beforeItemStack = event.beforeItemStack as ItemStack;
+    const target = event.target as Entity;
     // world.sendMessage(target.typeId);
 });

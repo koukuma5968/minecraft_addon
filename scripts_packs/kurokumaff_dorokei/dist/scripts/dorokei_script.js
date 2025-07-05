@@ -1,5 +1,5 @@
 // scripts/dorokei_script.ts
-import { system } from "@minecraft/server";
+import { system as system3 } from "@minecraft/server";
 
 // scripts/item/KeibouComponent.ts
 import { world } from "@minecraft/server";
@@ -12,34 +12,79 @@ var KeibouComponent = class {
 };
 
 // scripts/block/SystemBoardBlock.ts
+import { world as world3 } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
+
+// scripts/monitor/SystemMonitorTick.ts
+import { system, TicksPerSecond, world as world2 } from "@minecraft/server";
+var SystemMonitorTick = class {
+  constructor() {
+    this.num = 0;
+  }
+  startMonitoring(fieldRange, fieldDown) {
+    if (this.num != 0) {
+      system.clearRun(this.num);
+    }
+    this.num = system.runInterval(() => {
+      try {
+        this.checkPlayerKaikyuTick(fieldRange, fieldDown);
+      } catch (error) {
+        system.clearRun(this.num);
+      }
+    }, 0.5 * TicksPerSecond);
+  }
+  async checkPlayerKaikyuTick(fieldRange, fieldDown) {
+    world2.getAllPlayers().forEach((player) => {
+      if (player.isValid) {
+        player.onScreenDisplay.setTitle(
+          {
+            rawtext: [
+              { translate: "screen.kurokumaft:systemblock.fieldRange" },
+              { text: fieldRange },
+              { text: "\n" },
+              { translate: "screen.kurokumaft:systemblock.fieldDown" },
+              { text: fieldDown }
+            ]
+          },
+          {
+            stayDuration: 100,
+            fadeInDuration: 0,
+            fadeOutDuration: 1,
+            subtitle: ""
+          }
+        );
+      }
+    });
+  }
+};
+
+// scripts/block/SystemBoardBlock.ts
+var systemMonitorTick = new SystemMonitorTick();
 var SystemBoardBlock = class {
   onPlayerInteract(event) {
     const block = event.block;
     const player = event.player;
-    const modalForm = new ModalFormData().title("Example Modal Controls for \xA7o\xA77ModalFormData\xA7r");
-    modalForm.toggle("Toggle w/o default");
-    modalForm.toggle("Toggle w/ default", {
-      defaultValue: true
+    const modalForm = new ModalFormData().title({ translate: "msg.kurokumaft:systemblock.title" });
+    modalForm.label({ translate: "msg.kurokumaft:systemblock.field.range.label" });
+    modalForm.slider({ translate: "msg.kurokumaft:systemblock.field.down.text" }, 1, 64, {
+      defaultValue: 1
     });
-    modalForm.slider("Slider w/o default", 0, 50, {
-      defaultValue: 5
-    });
-    modalForm.slider("Slider w/ default", 0, 50, {
-      defaultValue: 5,
-      valueStep: 30
-    });
-    modalForm.dropdown("Dropdown w/o default", ["option 1", "option 2", "option 3"]);
-    modalForm.dropdown("Dropdown w/ default", ["option 1", "option 2", "option 3"], {
-      defaultValueIndex: 2
-    });
-    modalForm.textField("Input w/o default", "type text here");
-    modalForm.textField("Input w/ default", "type text here", {
-      defaultValue: "this is default"
+    modalForm.slider({ translate: "msg.kurokumaft:systemblock.field.range.text" }, 24, 256, {
+      defaultValue: 24
     });
     modalForm.show(player).then((formData) => {
-      player.sendMessage(`Modal form results: ${JSON.stringify(formData.formValues, void 0, 2)}`);
+      const values = formData.formValues;
+      if (values != void 0) {
+        const fieldDown = values[1];
+        const fieldRange = values[2];
+        if (block.location.y - fieldDown < -63) {
+          throw { translate: "error.kurokumaft:systemblock.field.down.max_orver" };
+        }
+        systemMonitorTick.startMonitoring(fieldRange.toString(), fieldDown.toString());
+      }
     }).catch((error) => {
+      world3.sendMessage(error.message);
+      console.log(error.stack);
       return -1;
     });
   }
@@ -52,7 +97,7 @@ function initRegisterDorokeiCustom(initEvent) {
 }
 
 // scripts/dorokei_script.ts
-system.beforeEvents.startup.subscribe((initEvent) => {
+system3.beforeEvents.startup.subscribe((initEvent) => {
   initRegisterDorokeiCustom(initEvent);
 });
 

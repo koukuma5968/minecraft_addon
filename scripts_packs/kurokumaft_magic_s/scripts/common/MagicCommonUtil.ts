@@ -47,7 +47,7 @@ function getRandomInRange(min:number, max:number) {
  * @param {String} sound
  */
 function playsound(entity:Entity, sound:String) {
-    let commandText =  "playsound " + sound + " @s";
+    const commandText =  "playsound " + sound + " @s";
     entity.runCommandAsync(commandText);
 };
 
@@ -58,26 +58,26 @@ function playsound(entity:Entity, sound:String) {
  * @param {number} point
  */
 function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector3 {
-    let piNum = 90;
+    const piNum = 90;
     let xlocation;
     let ylocation;
     let zlocation;
 
     // 西～北
     if (rotation.y >= -90 && rotation.y < 0) {
-        let yRotax = -rotation.y / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = -rotation.y / piNum;
+        const yRotaz = (rotation.y + 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
@@ -86,18 +86,18 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
     // 北～東
     } else if (rotation.y >= 0 && rotation.y <= 90) {
 
-        let yRotax = -rotation.y / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = -rotation.y / piNum;
+        const yRotaz = -(rotation.y - 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
@@ -106,19 +106,19 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
     // 西～南
     } else if (rotation.y < -90 && rotation.y > -180) {
 
-        let yRotax = (rotation.y + 180) / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = (rotation.y + 180) / piNum;
+        const yRotaz = (rotation.y + 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
@@ -126,18 +126,18 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
 
     // 東～南
     } else if (rotation.y > 90 && rotation.y <= 180) {
-        let yRotax = (rotation.y - 180) / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = (rotation.y - 180) / piNum;
+        const yRotaz = -(rotation.y - 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * point;
             ylocation = (location.y + 1.5) + (yRota) * point;
             zlocation = location.z + (yRotaz * xRota) * point;
@@ -154,7 +154,7 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
  * @param {number} side
  */
 function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : HorizonVector2 {
-    let piNum = 90;
+    const piNum = 90;
     let rotax;
     let rotaz;
 
@@ -218,9 +218,9 @@ function addTeamsTagFilter(player:Player, filterOption:EntityQueryOptions) {
     } else {
         filterOption.excludeTags.push("main_shield_guard", "off_shield_guard");
     }
-    let tags = player.getTags();
+    const tags = player.getTags();
     if (tags != undefined && tags.length > 0) {
-        for (let index in tags) {
+        for (const index in tags) {
             if (tags[index].indexOf("team") != -1) {
                 filterOption.excludeTags.push(tags[index]);
             }
@@ -232,7 +232,7 @@ function addTeamsTagFilter(player:Player, filterOption:EntityQueryOptions) {
 // 岩盤破壊キャンセル
 export function explodeBedrock(impactBLockList:Block[]): Block[] | undefined {
     try {
-        let filterBlockList = impactBLockList.filter(block => {
+        const filterBlockList = impactBLockList.filter(block => {
             if (block.location.y >= -64) {
                 if (!block.matches("minecraft:bedrock")) {
                     return block;

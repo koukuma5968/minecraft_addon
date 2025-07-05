@@ -4,8 +4,7 @@
     "description": {
       "identifier": "kurokumaft:cherry_leggings",
       "menu_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.leggings"
+        "category": "equipment"
       }
     },
     "components": {

@@ -1,3 +1,15 @@
 item.kurokumaft:keibou.name=警棒
 
 tile.kurokumaft:systemboard.name=システム設定ボード
+
+msg.kurokumaft:systemblock.title=システム設定ボード
+msg.kurokumaft:systemblock.field.range.label=ブロックを中心にフィールドエリアが設定されます
+msg.kurokumaft:systemblock.field.up.text=フィールド上限の高さを設定してください
+msg.kurokumaft:systemblock.field.down.text=フィールド下限の高さを設定してください
+msg.kurokumaft:systemblock.field.range.text=フィールド範囲を設定してください
+
+screen.kurokumaft:systemblock.fieldRange=フィールド範囲：
+screen.kurokumaft:systemblock.fieldDown=フィールド下限：
+
+error.kurokumaft:systemblock.field.down.max_orver=ワールドの下限を超えています
+
