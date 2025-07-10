@@ -125,29 +125,29 @@ export class SwordWeaponMagic implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let effect = event.hadEffect as boolean;
+        const itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Player;
+        const hitEntity = event.hitEntity as Entity;
+        const effect = event.hadEffect as boolean;
 
         if (!itemStack) {
             return;
         }
-        let swordMagicObject = SwordHitObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + swordMagicObject.sendMsg + "\"}]}");
+        const swordMagicObject = SwordHitObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"swordMagicObject.sendMsg"}]});
         swordMagicObject.func(attackEntity, hitEntity);
 
     }
 
     // チャージ完了
-    onCompleteUse(event:ItemComponentCompleteUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+    onCompconsteUse(event:ItemComponentCompleteUseEvent) {
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
         if (!itemStack) {
             return;
         }
-        let swordChargeMagicObject = SwordChargeObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + swordChargeMagicObject.sendMsg + "\"}]}");
+        const swordChargeMagicObject = SwordChargeObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:"swordChargeMagicObject.sendMsg"}]});
         swordChargeMagicObject.func(player);
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
@@ -161,15 +161,15 @@ export class SwordWeaponMagicMons implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let effect = event.hadEffect as boolean;
+        const itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const effect = event.hadEffect as boolean;
 
         if (!itemStack) {
             return;
         }
-        let swordMagicObject = SwordHitMonsObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicMonsObject;
+        const swordMagicObject = SwordHitMonsObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicMonsObject;
         swordMagicObject.func(attackEntity, hitEntity);
         itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 

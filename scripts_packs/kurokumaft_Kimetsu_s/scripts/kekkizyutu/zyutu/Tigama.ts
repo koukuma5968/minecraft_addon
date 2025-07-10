@@ -9,7 +9,7 @@ export class Tigama extends ZytuComonClass {
      * 飛び血鎌
      */
     tobiTigama(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
 
@@ -29,7 +29,7 @@ export class Tigama extends ZytuComonClass {
      */
     private async tigamaHorming(entity:Entity, i:number) {
 
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
 
@@ -154,10 +154,10 @@ export class Tigama extends ZytuComonClass {
      */
     bakkotyouryou(entity:Entity) {
 
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama2.value"}]});
             }
@@ -213,11 +213,11 @@ export class Tigama extends ZytuComonClass {
      * 円斬旋回・飛び血鎌
      */
     enzansenkai(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama3.value"}]});
             }
@@ -228,14 +228,14 @@ export class Tigama extends ZytuComonClass {
 
                 try {
 
-                    if (entity == undefined) {
+                    if (entity === undefined) {
                         return;
                     }
 
                     const filter = addOrgeFilter(0, entity.location, 10, entity.id);
                     const targets = entity.dimension.getEntities(filter);
                     targets.forEach(en => {
-                        if (en != undefined) {
+                        if (en !== undefined) {
                             if (en instanceof Player) {
                                 if (this.gardCheck(en)) {
                                     en.applyDamage(2, {
@@ -311,7 +311,7 @@ export class Tigama extends ZytuComonClass {
                 maxDistance: 4
             });
             targets.forEach(en => {
-                if (en != undefined) {
+                if (en !== undefined) {
                     en.applyDamage(1, {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: entity

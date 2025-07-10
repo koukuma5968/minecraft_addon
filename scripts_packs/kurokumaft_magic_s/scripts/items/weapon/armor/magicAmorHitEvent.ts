@@ -10,17 +10,17 @@ import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage"
  * @param {Vector3} hitVector
  */
 async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | undefined, hitVector:Vector3 | undefined) {
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     if (!equ) {
         return;
     }
-    let chest = equ.getEquipment(EquipmentSlot.Chest);
-    let legs = equ.getEquipment(EquipmentSlot.Legs);
-    let head = equ.getEquipment(EquipmentSlot.Head);
+    const chest = equ.getEquipment(EquipmentSlot.Chest);
+    const legs = equ.getEquipment(EquipmentSlot.Legs);
+    const head = equ.getEquipment(EquipmentSlot.Head);
     if (chest != undefined) {
         if (damager != undefined && projectile == undefined) {
             if (chest.typeId == "kurokumaft:stone_magic_chestplate" || chest.typeId == "kurokumaft:nether_stone_magic_chestplate") {
-                let view = player.getViewDirection();
+                const view = player.getViewDirection();
                 damager.applyDamage(5,{"cause":"entityExplosion"} as EntityApplyDamageOptions);
                 damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
                 damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
@@ -36,12 +36,12 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
     if (legs != undefined) {
         if (damager != undefined && projectile == undefined) {
             if (legs.typeId == "kurokumaft:lightning_magic_leggings" || legs.typeId == "kurokumaft:nether_lightning_magic_leggings") {
-                let location = damager.location;
+                const location = damager.location;
                 // 5から15の範囲のランダムな数値を取得
-                let randomNum1 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
-                let randomNum2 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
-                let randomInRange1 = Math.floor(Math.random()*2) == 1 ? -randomNum1 : randomNum1;
-                let randomInRange2 = Math.floor(Math.random()*2) == 1 ? -randomNum2 : randomNum2;
+                const randomNum1 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+                const randomNum2 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
+                const randomInRange1 = Math.floor(Math.random()*2) == 1 ? -randomNum1 : randomNum1;
+                const randomInRange2 = Math.floor(Math.random()*2) == 1 ? -randomNum2 : randomNum2;
                 damager.teleport({x:location.x + randomInRange1, y:location.y, z:location.z + randomInRange2});
                 itemDurabilityDamage(player, legs, EquipmentSlot.Legs);
             }
@@ -52,9 +52,9 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
             try {
                 projectile.clearVelocity();
                 projectile.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", projectile.location);
-                let projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+                const projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
                 projComp.stopOnHit = true;
-                let intervalNum = system.runInterval(() => {
+                const intervalNum = system.runInterval(() => {
                     if (!projectile.isValid()) {
                         projectile.clearVelocity();
                     }
@@ -70,7 +70,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
             try {
                 projectile.clearVelocity();
                 projectile.dimension.spawnParticle("kurokumaft:wind_arrow_particle", projectile.location);
-                let projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+                const projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
                 projComp.owner = player;
                 projComp.shoot(projectile.getViewDirection(), {
                     uncertainty: 0

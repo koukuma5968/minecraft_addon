@@ -5,7 +5,7 @@ import { shooting } from "../../../common/MagicShooterMagicEvent";
  * ウィンドアロー
  */
 export async function windArrowShot(player:Player, arrow:string, ran:number, speed:number) {
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         shooting(player, arrow, ran, speed, undefined);
     }, 2);
     system.runTimeout(() => {
@@ -17,7 +17,7 @@ export async function windArrowShot(player:Player, arrow:string, ran:number, spe
  * ウィンドアローヒット
  */
 export async function windArrow(entity:Entity) {
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {

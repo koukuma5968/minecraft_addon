@@ -7,11 +7,11 @@ import { itemDurabilityDamageFixed } from "../../common/MagicItemDurabilityDamag
  */
 export async function breakRangeBlock(event:ItemComponentUseOnEvent) {
     try {
-        let entity = event.source as Entity;
-        let itemStack = event.itemStack as ItemStack;
-        let block = event.block as Block;
+        const entity = event.source as Entity;
+        const itemStack = event.itemStack as ItemStack;
+        const block = event.block as Block;
 
-        let blockVol = new BlockVolume(
+        const blockVol = new BlockVolume(
             {
                 x:block.location.x-2,
                 y:block.location.y-2,
@@ -23,11 +23,11 @@ export async function breakRangeBlock(event:ItemComponentUseOnEvent) {
                 z:block.location.z+2
             }
         );
-        let blockIt = blockVol.getBlockLocationIterator();
+        const blockIt = blockVol.getBlockLocationIterator();
         let nextValue = blockIt.next();
         while (!nextValue.done) {
-            let value = nextValue.value;
-            let breakBlock = block.dimension.getBlock(value);
+            const value = nextValue.value;
+            const breakBlock = block.dimension.getBlock(value);
             if (breakBlock != undefined) {
                 if (breakBlock.hasTag("minecraft:is_pickaxe_item_destructible")) {
                     breakBlock.dimension.spawnItem(new ItemStack(breakBlock.typeId, 1), breakBlock.location);
@@ -35,7 +35,7 @@ export async function breakRangeBlock(event:ItemComponentUseOnEvent) {
             }
             nextValue = blockIt.next();
         }
-        let ListBlockVolume = block.dimension.fillBlocks(blockVol, MinecraftBlockTypes.Air, {
+        const ListBlockVolume = block.dimension.fillBlocks(blockVol, MinecraftBlockTypes.Air, {
             blockFilter: {
                 includeTags: [
                     "minecraft:is_pickaxe_item_destructible"

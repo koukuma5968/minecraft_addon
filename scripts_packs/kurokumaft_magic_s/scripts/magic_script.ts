@@ -1,4 +1,4 @@
-import { world,Entity, Player, EntityDamageSource, Block, system, TicksPerSecond, ScriptEventSource, EntityInitializationCause } from "@minecraft/server";
+import { world,Entity, Player, EntityDamageSource, Block, system, TicksPerSecond, ScriptEventSource, EntityInitializationCause, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, ItemStack, EntityTypeFamilyComponent } from "@minecraft/server";
 import { magicShieldGuard, magicShieldCounter, MagicShieldKnockback } from "./items/weapon/shield/MagicShieldEvent";
 import { hitMagicAmor } from "./items/weapon/armor/MagicAmorHitEvent";
 import { initRegisterMagicCustom, initMagicStateChangeMonitor } from "./custom/MagicCustomComponentRegistry";
@@ -17,7 +17,7 @@ import { flamePorcupineGuard } from "./mob/animal/FlamePorcupine";
 import { aquaJackalAttack } from "./mob/animal/AquaJackal";
 import { snowWolfAttack } from "./mob/animal/SnowWolf";
 import { earthRhinoKnockback } from "./mob/animal/EarthRhino";
-import { PhoenixActionCompornent } from "./mob/boos/PhoenixActionCompornent";
+import { BossActionClassRecord, BossActionObject, BossActionObjects } from "./mob/boos/mover/BossActionInterface";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -43,6 +43,14 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     //     entity.applyKnockback(0, 1, 0, 0.8);
     // } else if (event.eventId == "kurokumaft:on_ground_event") {
     //     world.sendMessage(event.eventId);
+    } else if (event.eventId == "kurokumaft:moniter_boss_event") {
+        const object = BossActionObjects.find(ob => ob.entityName == entity.typeId) as BossActionObject;
+        if (object != undefined) {
+            const actionClass = BossActionClassRecord[object.className];
+            const actionObject = new actionClass(entity);
+
+            actionObject.startMoniter();
+        }
     }
 });
 
@@ -215,8 +223,6 @@ world.afterEvents.entitySpawn.subscribe(event => {
                 pitch:1,
                 volume:2
             });
-        } else if (entity.typeId == "kurokumaft:phoenix") {
-            new PhoenixActionCompornent();
         }
     }
 });

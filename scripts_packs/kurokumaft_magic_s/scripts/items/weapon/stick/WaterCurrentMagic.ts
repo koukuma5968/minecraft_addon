@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * アクアショック
@@ -9,14 +9,14 @@ export async function aquaShock(player:Player, entity:Entity) {
 
     player.addTag("aqua_shock_self");
 
-    let left = getLookRotaionPoints(entity.getRotation(), 0, 2.5);
+    const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
     entity.dimension.spawnParticle("kurokumaft:aqua_shock_particle", {x:entity.location.x+left.x, y:entity.location.y+1.8, z:entity.location.z+left.z});
-    let center = getLookRotaionPoints(entity.getRotation(), 0, 0);
+    const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
     entity.dimension.spawnParticle("kurokumaft:aqua_shock_particle", {x:entity.location.x+center.x, y:entity.location.y+1.8, z:entity.location.z+center.z});
-    let right = getLookRotaionPoints(entity.getRotation(), 0, -2.5);
+    const right = getLookRotaionPointsV2(entity.getRotation(), 0, -2.5);
     entity.dimension.spawnParticle("kurokumaft:aqua_shock_particle", {x:entity.location.x+right.x, y:entity.location.y+1.8, z:entity.location.z+right.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "aqua_shock_self",
         ],
@@ -26,7 +26,7 @@ export async function aquaShock(player:Player, entity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -51,9 +51,9 @@ export async function aquaShock(player:Player, entity:Entity) {
 export async function aquaShot(player:Player) {
     player.addTag("aqua_shot_self");
 
-    let dimension = player.dimension;
+    const dimension = player.dimension;
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "aqua_shot_self"
         ],
@@ -64,9 +64,9 @@ export async function aquaShot(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = dimension.getEntities(filterOption);
+    const targets = dimension.getEntities(filterOption);
 
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;
@@ -100,9 +100,9 @@ export async function aquaShot(player:Player) {
  */
 export async function tidalWave(player:Player) {
     player.addTag("tidal_wave_self");
-    let dimension = player.dimension;
+    const dimension = player.dimension;
 
-    let filterOption = {
+    const filterOption = {
         excludeFamilies: [
             "inanimate", "familiar", "magic", "arrow"
         ],
@@ -119,9 +119,9 @@ export async function tidalWave(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = dimension.getEntities(filterOption);
+    const targets = dimension.getEntities(filterOption);
 
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         targets.forEach(en => {
             en.dimension.spawnParticle("kurokumaft:tidal_wave_particle", en.location);
             if (en instanceof Player) {

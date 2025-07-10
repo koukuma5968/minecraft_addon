@@ -8,7 +8,7 @@ export async function bramFang(player:Player) {
 
     player.addTag("bram_fang_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "bram_fang_self",
         ],
@@ -17,7 +17,7 @@ export async function bramFang(player:Player) {
     } as EntityQueryOptions;
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -39,14 +39,14 @@ export async function fireStorm(player:Player) {
 
     player.addTag("firestormmagic_self");
 
-    let look = getLookPoints(player.getRotation(), player.location, 15);
+    const look = getLookPoints(player.getRotation(), player.location, 15);
 
-    let dim = player.dimension;
-    let ploc = player.location
-    let intervalNum = system.runInterval(() => {
+    const dim = player.dimension;
+    const ploc = player.location
+    const intervalNum = system.runInterval(() => {
         dim.spawnParticle("kurokumaft:firestome5_particle", {x:look.x,y:ploc.y,z:look.z});
 
-        let filterOption = {
+        const filterOption = {
             excludeTags: [
                 "firestormmagic_self",
             ],
@@ -55,7 +55,7 @@ export async function fireStorm(player:Player) {
         } as EntityQueryOptions;
         addTeamsTagFilter(player, filterOption);
     
-        let targets = dim.getEntities(filterOption);
+        const targets = dim.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;

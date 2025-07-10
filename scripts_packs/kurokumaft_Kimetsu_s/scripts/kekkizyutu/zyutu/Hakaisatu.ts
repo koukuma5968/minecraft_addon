@@ -10,7 +10,7 @@ export class Hakaisatu extends ZytuComonClass {
      * 破壊殺・羅針
      */
     rashin(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -45,7 +45,7 @@ export class Hakaisatu extends ZytuComonClass {
      * 破壊殺・空式
      */
     kushiki(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -70,7 +70,7 @@ export class Hakaisatu extends ZytuComonClass {
      * 破壊殺・乱式
      */
     ranshiki(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {

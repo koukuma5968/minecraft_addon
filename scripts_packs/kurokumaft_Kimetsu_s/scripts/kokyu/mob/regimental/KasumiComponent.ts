@@ -19,7 +19,7 @@ const kasumiKokyuLists = weightChoice([
 export class KasumiComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity != undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid()) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);

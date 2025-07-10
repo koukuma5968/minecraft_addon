@@ -270,7 +270,7 @@ export class TukiNoKata extends KataComonClass {
             try {
                 const filter = addRegimentalFilter(0, location, 2, entity);
                 const exes = filter.excludeFamilies;
-                if (exes != undefined) {
+                if (exes !== undefined) {
                     exes.push("tuki_blead");
                 }
                 this.kokyuApplyDamage(entity, filter, 2, 1, undefined);
@@ -415,7 +415,7 @@ export class TukiNoKata extends KataComonClass {
             try {
                 const filter = addRegimentalFilter(0, location, 2, entity);
                 const exes = filter.excludeFamilies;
-                if (exes != undefined) {
+                if (exes !== undefined) {
                     exes.push("tuki_blead");
                 }
                 this.kokyuApplyDamage(entity, filter, 2, 1, undefined);

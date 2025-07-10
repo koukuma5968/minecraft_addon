@@ -317,7 +317,7 @@ export class HiNoKata extends KataComonClass {
      */
     zyuichiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hi_kokyu11.value"}]});
             }

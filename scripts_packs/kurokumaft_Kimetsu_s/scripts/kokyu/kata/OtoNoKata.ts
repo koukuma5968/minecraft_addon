@@ -189,7 +189,7 @@ export class OtoNoKata extends KataComonClass {
      */
     goNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu5.value"}]});
             }

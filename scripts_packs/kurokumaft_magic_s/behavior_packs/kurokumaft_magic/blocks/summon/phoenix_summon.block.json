@@ -6,8 +6,7 @@
 			"is_experimental": false,
             "register_to_creative_menu": false,
 			"menu_category": {
-				"category": "none",
-				"group": "itemGroup.name.summon_stone"
+				"category": "none"
 			},
 			"states": {
 				"kurokumaft:summon_check": [0, 1]

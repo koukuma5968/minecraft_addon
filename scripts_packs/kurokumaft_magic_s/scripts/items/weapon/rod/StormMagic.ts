@@ -11,7 +11,7 @@ export async function stormBread(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:storm_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "storm_bread_self",
         ],
@@ -20,7 +20,7 @@ export async function stormBread(player:Player, hitEntity:Entity) {
     } as EntityQueryOptions;
 
     addTeamsTagFilter(player, filterOption);
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -46,7 +46,7 @@ export async function stormBread(player:Player, hitEntity:Entity) {
 export async function storm(player:Player) {
     player.setDynamicProperty(player.id, true);
 
-    let filterOption = {
+    const filterOption = {
         propertyOptions: [
             {
                 exclude: true,
@@ -60,7 +60,7 @@ export async function storm(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -96,7 +96,7 @@ export async function storm(player:Player) {
 export async function aerobomb(player:Player) {
     player.setDynamicProperty(player.id, true);
 
-    let filterOption = {
+    const filterOption = {
         propertyOptions: [
             {
                 exclude: true,
@@ -110,7 +110,7 @@ export async function aerobomb(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;

@@ -9,22 +9,22 @@ import { isMagicStoneOject, getMagicStoneOjectByName, MagicStoneOjects } from ".
 export class MagicLecternBlock implements BlockCustomComponent {
 
     onPlace(blockEvent:BlockComponentOnPlaceEvent) {
-        let block = blockEvent.block;
-        let dimension = blockEvent.dimension;
+        const block = blockEvent.block;
+        const dimension = blockEvent.dimension;
     }
 
     onPlayerDestroy(blockEvent:BlockComponentPlayerDestroyEvent) {
-        let block = blockEvent.block;
-        let dimension = blockEvent.dimension;
+        const block = blockEvent.block;
+        const dimension = blockEvent.dimension;
         magic_lectern_break(block, dimension);
     }
 
     onPlayerInteract(blockEvent:BlockComponentPlayerInteractEvent) {
-        let player = blockEvent.player as Player;
-        let equ = player?.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let item = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-        let block = blockEvent.block;
-        let dimension = blockEvent.dimension;
+        const player = blockEvent.player as Player;
+        const equ = player?.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const item = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        const block = blockEvent.block;
+        const dimension = blockEvent.dimension;
         magic_lectern(player, item, block)
     }
 }
@@ -36,23 +36,23 @@ export class MagicLecternBlock implements BlockCustomComponent {
  * @param {Block} block
  */
 function magic_lectern(player:Player, item:ItemStack, block:Block) {
-    let blockPer = block.permutation;
+    const blockPer = block.permutation;
 
     if (item != undefined) {
         if (isGrimoireAllItemsId(item.typeId)) {
             // print("魔導書");
             if (block.matches(block.typeId,{"kurokumaft:book_set":0})) {
                 block.setPermutation(blockPer.withState("kurokumaft:book_set", 1));
-                let grimoire_book_entity = block.dimension.spawnEntity("kurokumaft:grimoire_book_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
-                let bookObj = getGrimoireAllObjectsId(item.typeId) as GrimoireBook;
+                const grimoire_book_entity = block.dimension.spawnEntity("kurokumaft:grimoire_book_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
+                const bookObj = getGrimoireAllObjectsId(item.typeId) as GrimoireBook;
                 grimoire_book_entity.triggerEvent(bookObj.event);
-                let invent = grimoire_book_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-                let container = invent.container as Container;
-                let grimoire_empty = item.clone();
+                const invent = grimoire_book_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+                const container = invent.container as Container;
+                const grimoire_empty = item.clone();
                 grimoire_empty.amount = 1;
                 container.addItem(grimoire_empty);
 
-                let direction = blockPer.getState("minecraft:cardinal_direction");
+                const direction = blockPer.getState("minecraft:cardinal_direction");
                 if (direction == "north") {
                     grimoire_book_entity.triggerEvent("kurokumaft:north");
                 } else if (direction == "south") {
@@ -66,22 +66,22 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
             }
         } else if (isMagicStoneOject(item.typeId)) {
             // print("魔法石");
-            let magic_stone_entitys = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
+            const magic_stone_entitys = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
             for (let i=0; i<magic_stone_entitys.length; i++) {
                 if (magic_stone_entitys[i].typeId == "kurokumaft:magic_stone_entity") {
                     magic_stone_entitys[i].remove();
                 }
             }
-            let magic_stone_entity = block.dimension.spawnEntity("kurokumaft:magic_stone_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
+            const magic_stone_entity = block.dimension.spawnEntity("kurokumaft:magic_stone_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
             magic_stone_entity.setDynamicProperty("stone_life_count", 10);
-            let stoneComp = getMagicStoneOjectByName(item.typeId) as MagicStoneOjects;
+            const stoneComp = getMagicStoneOjectByName(item.typeId) as MagicStoneOjects;
 
             block.setPermutation(blockPer.withState("kurokumaft:stone_set", stoneComp.state));
             // print("stoneState:" + stoneComp.state);
             // print("stoneEvent:" + stoneComp.event);
             magic_stone_entity.triggerEvent(stoneComp.event);
 
-            let direction = blockPer.getState("minecraft:cardinal_direction");
+            const direction = blockPer.getState("minecraft:cardinal_direction");
             if (direction == "north") {
                 magic_stone_entity.triggerEvent("kurokumaft:north");
             } else if (direction == "south") {
@@ -92,9 +92,9 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
                 magic_stone_entity.triggerEvent("kurokumaft:west");
             }
 
-            let invent = magic_stone_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-            let container = invent.container as Container;
-            let magic_stone = item.clone();
+            const invent = magic_stone_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+            const container = invent.container as Container;
+            const magic_stone = item.clone();
             magic_stone.amount = 1;
             container.addItem(magic_stone);
 
@@ -102,7 +102,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
             // 魔導書セット済み
             if (!block.matches(block.typeId,{"kurokumaft:book_set":0})) {
                 let grimoire_entity;
-                let block_entitys = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
+                const block_entitys = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
                 for (let i=0; i<block_entitys.length; i++) {
                     if (block_entitys[i].typeId == "kurokumaft:grimoire_book_entity") {
                         grimoire_entity = block_entitys[i];
@@ -113,9 +113,9 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
                     // print("grimoire_entityなし");
                     return;
                 }
-                let invent = grimoire_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-                let container = invent.container as Container;
-                let grimoire_book = container.getItem(0);
+                const invent = grimoire_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+                const container = invent.container as Container;
+                const grimoire_book = container.getItem(0);
                 if (grimoire_book == undefined) {
                     return;
                 }
@@ -137,7 +137,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
 
                 let new_grimoire_book;
 
-                let lore = grimoire_book.getLore();
+                const lore = grimoire_book.getLore();
                 let remainingNum = 0;
                 if (lore.length > 0) {
                     remainingNum = Number(lore[0].substring(3));
@@ -145,7 +145,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
 
                 // 魔法石セット済み
                 if (!block.matches(block.typeId,{"kurokumaft:stone_set": 0})) {
-                    let grimoireItemType = getGrimoireObjectId(grimoire_book.typeId);
+                    const grimoireItemType = getGrimoireObjectId(grimoire_book.typeId);
                     // 空以外の魔導書がセットされている場合
                     if (grimoireItemType != "empty") {
                         // 魔導書に対応するアイテムでない場合は終了
@@ -153,7 +153,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
                             noBookItem();
                             return;
                         }
-                        let mulVal = getGrimoireItemsMultiValue(grimoireItemType, item.typeId) as number;
+                        const mulVal = getGrimoireItemsMultiValue(grimoireItemType, item.typeId) as number;
                         new_grimoire_book = grimoire_book;
                         if (new_grimoire_book.typeId == "kurokumaft:grimoire_music_sound") {
                             new_grimoire_book.setDynamicProperty(item.typeId, item.typeId);
@@ -167,14 +167,14 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
                             noBookItem();
                             return;
                         }
-                        let mulVal = getGrimoireAllItemsMultiValue(item.typeId);
+                        const mulVal = getGrimoireAllItemsMultiValue(item.typeId);
                         remainingNum = remainingNum + (item.amount * mulVal);
-                        let bookId = getGrimoireAllItemsId(item.typeId);
+                        const bookId = getGrimoireAllItemsId(item.typeId);
                         new_grimoire_book = new ItemStack(bookId, 1);
                         if (bookId == "kurokumaft:grimoire_music_sound") {
                             new_grimoire_book.setDynamicProperty(item.typeId, item.typeId);
                         }
-                        let event = getGrimoireAllItemsEvent(bookId);
+                        const event = getGrimoireAllItemsEvent(bookId);
                         grimoire_entity.triggerEvent(event);
                     }
                     if (new_grimoire_book.typeId != "kurokumaft:grimoire_music_sound") {
@@ -183,14 +183,14 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
 
                     container.setItem(0, new_grimoire_book);
 
-                    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+                    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
                     equ.setEquipment(EquipmentSlot.Mainhand);
 
-                    let magic_stone_entitys = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
+                    const magic_stone_entitys = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
                     for (let i=0; i<magic_stone_entitys.length; i++) {
                         if (magic_stone_entitys[i].typeId == "kurokumaft:magic_stone_entity") {
-                            let magic_stone_en = magic_stone_entitys[i];
-                            let life = magic_stone_en.getDynamicProperty("stone_life_count") as number;
+                            const magic_stone_en = magic_stone_entitys[i];
+                            const life = magic_stone_en.getDynamicProperty("stone_life_count") as number;
                             if(life == 1) {
                                 magic_stone_en.remove();
                             } else {
@@ -204,14 +204,14 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
         }
     } else {
         if (blockPer.getState("kurokumaft:book_set") == 1) {
-            let grimoire_book_entity = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
+            const grimoire_book_entity = block.dimension.getEntitiesAtBlockLocation({x:block.location.x,y:block.location.y+1,z:block.location.z});
             for (let i=0; i<grimoire_book_entity.length; i++) {
                 if (grimoire_book_entity[i].typeId == "kurokumaft:grimoire_book_entity") {
                     block.setPermutation(blockPer.withState("kurokumaft:book_set", 0));
-                    let pinvent = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-                    let pcontainer = pinvent.container as Container;
-                    let invent = grimoire_book_entity[i].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-                    let gcontainer = invent.container as Container;
+                    const pinvent = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+                    const pcontainer = pinvent.container as Container;
+                    const invent = grimoire_book_entity[i].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+                    const gcontainer = invent.container as Container;
                     if (pcontainer.emptySlotsCount != 0) {
                         pcontainer.setItem(player.selectedSlotIndex, gcontainer.getItem(0));
                     } else {
@@ -225,7 +225,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
             }
         } else {
 
-            let actionForm = new ActionFormData()
+            const actionForm = new ActionFormData()
             .title({ translate: "tile.kurokumaft:magic_lectern.name" })
             .body({rawtext: [
                 { translate: "magic_lectern.mess.title" },
@@ -270,7 +270,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
  * @param {Dimension} dimension
  */
 export async function magic_lectern_break(block: Block, dimension: Dimension) {
-    let entitys = dimension.getEntitiesAtBlockLocation({x:block.location.x, y:block.location.y+1,z:block.location.z});
+    const entitys = dimension.getEntitiesAtBlockLocation({x:block.location.x, y:block.location.y+1,z:block.location.z});
     entitys.forEach(en => {
         let invent = en.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
         let item = invent.container?.getItem(0);

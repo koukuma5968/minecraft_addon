@@ -11,7 +11,7 @@ export async function lightBread(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:light_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "lightBread_self",
         ],
@@ -20,7 +20,7 @@ export async function lightBread(player:Player, hitEntity:Entity) {
     } as EntityQueryOptions;
 
     addTeamsTagFilter(player, filterOption);
-    let targets = hitEntity.dimension.getEntities(filterOption);
+    const targets = hitEntity.dimension.getEntities(filterOption);
     targets.forEach(en => {
         let damage = 2 as number;
         if (en instanceof Player) {

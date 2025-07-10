@@ -183,23 +183,23 @@ export class WandWeaponMagic implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let effect = event.hadEffect as boolean;
+        const itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Player;
+        const hitEntity = event.hitEntity as Entity;
+        const effect = event.hadEffect as boolean;
 
         if (!itemStack) {
             return;
         }
-        let wandMagic = WandHitObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
+        const wandMagic = WandHitObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
         wandMagic.func(attackEntity, hitEntity);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + wandMagic.sendMsg + "\"}]}");
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"wandMagic.sendMsg"}]});
     }
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
         let wandMagic:WandMagicObject;
         if (player.isSneaking) {
@@ -220,11 +220,11 @@ export class WandWeaponMagic implements ItemCustomComponent {
             }
         }
 
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + wandMagic.sendMsg + "\"}]}");
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:"wandMagic.sendMsg"}]});
 
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
-        let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+        const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
     }
 
@@ -269,7 +269,7 @@ export function checkWandProjectile(projectileName:string) {
 }
 
 export function hitWandProjectileEvent(projectile:Entity) {
-    let proje = WandProjectileObjects.find(obj => obj.itemName == projectile.typeId) as WandMagicObject;
+    const proje = WandProjectileObjects.find(obj => obj.itemName == projectile.typeId) as WandMagicObject;
     try {
         proje.func(projectile);
         projectile.remove();

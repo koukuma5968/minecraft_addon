@@ -11,7 +11,7 @@ export async function lightningBread(player:Player, hitEntity:Entity) {
 
     player.dimension.spawnParticle("kurokumaft:lightning_bread_particle", {x:hitEntity.location.x, y:player.location.y+1.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "lightning_bread_self",
         ],
@@ -21,7 +21,7 @@ export async function lightningBread(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -47,7 +47,7 @@ export async function lightningBread(player:Player, hitEntity:Entity) {
 export async function thunderclap(player:Player) {
     player.addTag("thunderclap_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "thunderclap_self",
         ],
@@ -58,7 +58,7 @@ export async function thunderclap(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -86,7 +86,7 @@ export async function thunderclap(player:Player) {
 export async function thunderjail(player:Player) {
     player.addTag("thunder_jail_self");
  
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "thunder_jail_self"
         ],
@@ -96,7 +96,7 @@ export async function thunderjail(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;

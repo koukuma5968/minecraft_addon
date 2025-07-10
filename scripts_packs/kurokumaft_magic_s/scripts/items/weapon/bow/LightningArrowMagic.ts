@@ -4,7 +4,7 @@ import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from
  * ライトニングアロー
  */
 export async function lightningArrow(entity:Entity) {
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {

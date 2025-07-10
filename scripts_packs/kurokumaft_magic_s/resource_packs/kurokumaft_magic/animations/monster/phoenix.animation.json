@@ -1,6 +1,106 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
+		"animation.phoenix.spear": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"root": {
+					"rotation": ["90 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [0, -17, -7]
+				},
+				"top": {
+					"rotation": [-90, 0, 0]
+				},
+				"tail": {
+					"rotation": [-50, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "fire",
+						"locator": "fire"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire2"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire3"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire4"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire5"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire6"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire7"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire8"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire9"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire10"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire11"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire12"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire13"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire14"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire15"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire16"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire17"
+					},
+					{
+						"effect": "fire",
+						"locator": "fire18"
+					},
+					{
+						"effect": "head",
+						"locator": "fire19"
+					},
+					{
+						"effect": "head",
+						"locator": "fire20"
+					}
+				]
+			}
+		},
 		"animation.phoenix.move": {
 			"loop": true,
 			"animation_length": 0.375,
@@ -169,134 +269,6 @@
 					},
 					{
 						"effect": "fire",
-						"locator": "fire13"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire14"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire15"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire16"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire17"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire18"
-					},
-					{
-						"effect": "head",
-						"locator": "fire19"
-					},
-					{
-						"effect": "head",
-						"locator": "fire20"
-					}
-				]
-			}
-		},
-		"animation.phoenix.spear": {
-			"loop": true,
-			"animation_length": 0.25,
-			"bones": {
-				"root": {
-					"rotation": ["90 - query.target_x_rotation", "-query.target_y_rotation", 0],
-					"position": [0, -17, -7]
-				},
-				"top": {
-					"rotation": [-90, 0, 0]
-				},
-				"tail": {
-					"rotation": [-50, 0, 0]
-				}
-			},
-			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "fire",
-						"locator": "fire"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire2"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire3"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire4"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire5"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire6"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire7"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire8"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire9"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire10"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire11"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire12"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire13"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire14"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire15"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire16"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire17"
-					},
-					{
-						"effect": "fire",
-						"locator": "fire18"
-					},
-					{
-						"effect": "head",
-						"locator": "fire19"
-					},
-					{
-						"effect": "head",
 						"locator": "fire20"
 					}
 				]

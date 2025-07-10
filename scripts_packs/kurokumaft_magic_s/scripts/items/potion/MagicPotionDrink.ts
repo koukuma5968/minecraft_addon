@@ -45,9 +45,9 @@ const MagicPotionObjects = Object.freeze([
 export class MagicPotionDrink implements ItemCustomComponent {
 
     onConsume(event:ItemComponentConsumeEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
-        let nut = MagicPotionObjects.find(obj => obj.itemName == itemStack.typeId) as MagicPotionObject;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
+        const nut = MagicPotionObjects.find(obj => obj.itemName == itemStack.typeId) as MagicPotionObject;
         nut.func(player);
     }
 

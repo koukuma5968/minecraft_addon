@@ -69,11 +69,11 @@ const chiseledStone = [
 export async function polishBlock(event:ItemComponentUseOnEvent) {
     try {
 
-        let entity = event.source as Entity;
-        let itemStack = event.itemStack as ItemStack;
-        let block = event.block as Block;
+        const entity = event.source as Entity;
+        const itemStack = event.itemStack as ItemStack;
+        const block = event.block as Block;
 
-        let blockVol = new BlockVolume(
+        const blockVol = new BlockVolume(
             {
                 x:block.location.x-4,
                 y:block.location.y-4,
@@ -85,20 +85,20 @@ export async function polishBlock(event:ItemComponentUseOnEvent) {
                 z:block.location.z+4
             }
         );
-        let blockIt = blockVol.getBlockLocationIterator();
+        const blockIt = blockVol.getBlockLocationIterator();
         let nextValue = blockIt.next();
         while (!nextValue.done) {
-            let value = nextValue.value;
+            const value = nextValue.value;
             if (value.y >= -64) {
-                let breakBlock = block.dimension.getBlock(value);
+                const breakBlock = block.dimension.getBlock(value);
                 if (breakBlock != undefined && breakBlock.typeId != MinecraftBlockTypes.Air) {
                     if (polishedStone.some(obj => obj.coarse == breakBlock.typeId)) {
-                        let polisBlock = polishedStone.find(obj => obj.coarse == breakBlock.typeId);
+                        const polisBlock = polishedStone.find(obj => obj.coarse == breakBlock.typeId);
                         if (polisBlock != undefined) {
                             breakBlock.dimension.setBlockType(breakBlock.location, polisBlock.polished);
                         }
                     } else if (chiseledStone.some(obj => obj.carved == breakBlock.typeId)) {
-                        let chiseledBlock = chiseledStone.find(obj => obj.carved == breakBlock.typeId);
+                        const chiseledBlock = chiseledStone.find(obj => obj.carved == breakBlock.typeId);
                         if (chiseledBlock != undefined) {
                             breakBlock.dimension.setBlockType(breakBlock.location, chiseledBlock.chiseled);
                         }

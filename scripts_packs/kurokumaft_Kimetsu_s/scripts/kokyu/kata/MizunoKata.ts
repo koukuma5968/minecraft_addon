@@ -343,7 +343,7 @@ export class MizuNoKata extends KataComonClass {
      */
     kuNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kokyu9.value"}]});
             }
@@ -372,7 +372,7 @@ export class MizuNoKata extends KataComonClass {
 
         const chage = entity.getProperty("kurokumaft:kokyu_chage") as number;
         entity.setProperty("kurokumaft:kokyu_use", false);
-        if (chage == 4) {
+        if (chage === 4) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kokyu10.value"}]});
             }
@@ -459,7 +459,7 @@ export class MizuNoKata extends KataComonClass {
      */
     zyuichiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             try {
 
                 if (entity instanceof Player) {
@@ -516,7 +516,7 @@ export class MizuNoKata extends KataComonClass {
             const filter = addRegimentalFilter(0, entity.location, 4.5, entity);
             const targets = entity.dimension.getEntities(filter);
             targets.forEach(en => {
-                if (en != undefined && en.isValid()) {
+                if (en !== undefined && en.isValid()) {
                     const view = en.getViewDirection();
                     en.applyKnockback(-Math.round(view.x)*3,-Math.round(view.z)*3,3,0);
                     if (en instanceof Player) {
@@ -533,7 +533,7 @@ export class MizuNoKata extends KataComonClass {
                         });
                     }
                     entity.setProperty("kurokumaft:kokyu_attack", true);
-                    if (itemStack != undefined) {
+                    if (itemStack !== undefined) {
                         ItemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
                     }
                 }

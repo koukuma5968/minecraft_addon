@@ -11,7 +11,7 @@ export async function darkBread(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:dark_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         propertyOption: [
             {
                 propertyId : player.id,
@@ -23,7 +23,7 @@ export async function darkBread(player:Player, hitEntity:Entity) {
     } as EntityQueryOptions;
 
     addTeamsTagFilter(player, filterOption);
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         let damage = 2 as number;
         if (en instanceof Player) {

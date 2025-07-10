@@ -140,7 +140,7 @@ export class HanaNoKata extends KataComonClass {
     shitiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hana_kokyu7.value"}]});
             }

@@ -8,7 +8,7 @@ export class Bakketu extends ZytuComonClass {
      * 爆血
      */
     bakketu(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -20,10 +20,10 @@ export class Bakketu extends ZytuComonClass {
         entity.setProperty("kurokumaft:kokyu_particle", false);
 
         const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
-        const point = ogreRankPoint.find(rank => rank.rank == ogre_rank);
+        const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
 
         const molang = new MolangVariableMap();
-        molang.setFloat("variable.kaikyu", (point != undefined ? point.point : 1));
+        molang.setFloat("variable.kaikyu", (point !== undefined ? point.point : 1));
 
         entity.addTag(entity.id);
         const healthFilterOption = {
@@ -58,12 +58,12 @@ export class Bakketu extends ZytuComonClass {
 
         const num = system.runInterval(() => {
             targets1.forEach(en => {
-                if (en != undefined && en.isValid()) {
+                if (en !== undefined && en.isValid()) {
                     dimension.spawnParticle("kurokumaft:bakketu",en.location, molang);
                 }
             });
             targets2.forEach(en => {
-                if (en != undefined && en.isValid()) {
+                if (en !== undefined && en.isValid()) {
                     dimension.spawnParticle("kurokumaft:bakketu",en.location, molang);
                 }
             });
@@ -73,7 +73,7 @@ export class Bakketu extends ZytuComonClass {
             system.clearRun(num);
             const num2 = system.runInterval(() => {
                 targets1.forEach(en => {
-                    if (en != undefined && en.isValid()) {
+                    if (en !== undefined && en.isValid()) {
                         dimension.spawnParticle("kurokumaft:bakketu_fire",en.location, molang);
                         en.addEffect(MinecraftEffectTypes.InstantHealth, 2, {
                             amplifier: 2,
@@ -83,7 +83,7 @@ export class Bakketu extends ZytuComonClass {
                 });
 
                 targets2.forEach(en => {
-                    if (en != undefined && en.isValid() && entity.isValid()) {
+                    if (en !== undefined && en.isValid() && entity.isValid()) {
                         dimension.spawnParticle("kurokumaft:bakketu_fire",en.location, molang);
                         if (en instanceof Player) {
                             if (this.gardCheck(en)) {

@@ -105,12 +105,12 @@ export class MagicHelmetSurveillance {
 
     private async checkJob() {
 
-        let equItem = MagicHelmetObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicHelmetObject;
+        const equItem = MagicHelmetObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicHelmetObject;
         if (equItem == undefined) {
             return;
         }
-        let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let head = equ.getEquipment(EquipmentSlot.Head) as ItemStack;
+        const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const head = equ.getEquipment(EquipmentSlot.Head) as ItemStack;
 
         if (head != null && head.typeId == equItem.itemName) {
             this.player.setDynamicProperty("magic_helmet_equ", true);

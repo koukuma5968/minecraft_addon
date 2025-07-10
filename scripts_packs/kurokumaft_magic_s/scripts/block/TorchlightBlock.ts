@@ -15,8 +15,8 @@ export class TorchlightBlock implements BlockCustomComponent {
 }
 
 async function torchlightFire(blockEvent:BlockEvent) {
-    let block = blockEvent.block;
-    let dimension = blockEvent.dimension;
+    const block = blockEvent.block;
+    const dimension = blockEvent.dimension;
     dimension.spawnParticle("kurokumaft:torchlight_fire", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
 
 }

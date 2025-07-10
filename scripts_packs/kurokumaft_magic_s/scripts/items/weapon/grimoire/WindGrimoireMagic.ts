@@ -69,29 +69,29 @@ const MowingBlockS = Object.freeze([
  */
 export async function mowing(event:ItemComponentUseEvent) {
 
-    let entity = event.source as Entity;
-    let itemStack = event.itemStack as ItemStack;
+    const entity = event.source as Entity;
+    const itemStack = event.itemStack as ItemStack;
 
-    let playerDim = entity.dimension;
-    let bx = entity.location.x;
-    let by = entity.location.y;
-    let bz = entity.location.z;
+    const playerDim = entity.dimension;
+    const bx = entity.location.x;
+    const by = entity.location.y;
+    const bz = entity.location.z;
 
     let setFireF = false;
     let xpcount1 = 0;
-    let intervalNumXP = system.runInterval(() => {
+    const intervalNumXP = system.runInterval(() => {
         for (let z=0; z<10;z++) {
             for (let y=0; y<10;y++) {
-                let vec = {"x":bx+xpcount1,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xpcount1,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xpcount1) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
                 }
             }
             for (let y=-1; y>-3;y--) {
-                let vec = {"x":bx+xpcount1,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xpcount1,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xpcount1) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
@@ -102,19 +102,19 @@ export async function mowing(event:ItemComponentUseEvent) {
     }, 1);
 
     let xmcount1 = 0;
-    let intervalNumXM = system.runInterval(() => {
+    const intervalNumXM = system.runInterval(() => {
         for (let z=0; z<10;z++) {
             for (let y=0; y<10;y++) {
-                let vec = {"x":bx+xmcount1,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xmcount1,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xmcount1) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
                 }
             }
             for (let y=-1; y>-3;y--) {
-                let vec = {"x":bx+xmcount1,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xmcount1,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xmcount1) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
@@ -125,19 +125,19 @@ export async function mowing(event:ItemComponentUseEvent) {
     }, 1);
 
     let xpcount2 = 0;
-    let intervalNumZP = system.runInterval(() => {
+    const intervalNumZP = system.runInterval(() => {
         for (let z=-1; z>-10;z--) {
             for (let y=0; y<10;y++) {
-                let vec = {"x":bx+xpcount2,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xpcount2,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xpcount2) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
                 }
             }
             for (let y=-1; y>-3;y--) {
-                let vec = {"x":bx+xpcount2,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xpcount2,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xpcount2) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
@@ -148,19 +148,19 @@ export async function mowing(event:ItemComponentUseEvent) {
     }, 1);
 
     let xmcount2 = 0;
-    let intervalNumZM = system.runInterval(() => {
+    const intervalNumZM = system.runInterval(() => {
         for (let z=-1; z>-10;z--) {
             for (let y=0; y<10;y++) {
-                let vec = {"x":bx+xmcount2,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xmcount2,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xmcount2) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
                 }
             }
             for (let y=-1; y>-3;y--) {
-                let vec = {"x":bx+xmcount2,"y":by+y,"z":bz+z};
-                let dimBlock = playerDim.getBlock(vec) as Block;
+                const vec = {"x":bx+xmcount2,"y":by+y,"z":bz+z};
+                const dimBlock = playerDim.getBlock(vec) as Block;
                 if(!dimBlock.isAir && MowingBlockS.indexOf(dimBlock.typeId) != -1) {
                     playerDim.runCommand("setblock " + (bx+xmcount2) + " " + (by+y) + " " + (bz+z) + " air destroy");
                     setFireF = true;
@@ -296,8 +296,8 @@ const MusicRecodes = Object.freeze([
  */
 export async function musicSound(event:ItemComponentUseEvent) {
 
-    let entity = event.source as Entity;
-    let itemStack = event.itemStack as ItemStack;
+    const entity = event.source as Entity;
+    const itemStack = event.itemStack as ItemStack;
 
     world.stopMusic();
 
@@ -305,11 +305,11 @@ export async function musicSound(event:ItemComponentUseEvent) {
     .title({ translate: "mess.kurokumaft:musicSound.title" })
     .body({ translate: "mess.kurokumaft:musicSound.body" });
 
-    let viewList = new Array();
+    const viewList = new Array();
     if (entity instanceof Player && itemStack.getDynamicPropertyIds().length > 0) {
         itemStack.getDynamicPropertyIds().forEach((sound,index) => {
-            let music = itemStack.getDynamicProperty(sound) as string;
-            let music_rec = MusicRecodes.find(obj => obj.itemName == music) as MusicRecode;
+            const music = itemStack.getDynamicProperty(sound) as string;
+            const music_rec = MusicRecodes.find(obj => obj.itemName == music) as MusicRecode;
             form.button({ translate: music_rec.viewDesc});
             viewList.push(music_rec.itemName);
         });
@@ -323,7 +323,7 @@ export async function musicSound(event:ItemComponentUseEvent) {
     form.show(entity as Player)
     .then((response: ActionFormResponse) => {
         if (!response.canceled) {
-            let music_rec = MusicRecodes.find(obj => obj.itemName == viewList[response.selection!]) as MusicRecode;
+            const music_rec = MusicRecodes.find(obj => obj.itemName == viewList[response.selection!]) as MusicRecode;
             world.playMusic(music_rec.eventName, {
                 volume: 1,
                 fade: 5

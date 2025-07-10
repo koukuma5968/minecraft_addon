@@ -9,10 +9,10 @@ import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
  */
 export async function water(event:ItemComponentUseOnEvent) {
 
-    let entity = event.source as Entity;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
-    let blockFace = event.blockFace as Direction;
+    const entity = event.source as Entity;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
+    const blockFace = event.blockFace as Direction;
 
     let setFireF = false;
 
@@ -21,15 +21,15 @@ export async function water(event:ItemComponentUseOnEvent) {
     }
     BlockLocationList.forEach(obj => {
         if (obj.direction == blockFace) {
-            let blockDim = block.dimension;
-            let bx = block.location.x;
-            let by = block.location.y;
-            let bz = block.location.z;
-            let vec = {"x":bx+obj.location.x,"y":by+obj.location.y,"z":bz+obj.location.z};
+            const blockDim = block.dimension;
+            const bx = block.location.x;
+            const by = block.location.y;
+            const bz = block.location.z;
+            const vec = {"x":bx+obj.location.x,"y":by+obj.location.y,"z":bz+obj.location.z};
 
-            let dimeBlock = blockDim.getBlock(vec) as Block;
+            const dimeBlock = blockDim.getBlock(vec) as Block;
             if(dimeBlock.isAir) {
-                let setLocation = {x:(bx+obj.location.x),y:(by+obj.location.y),z:(bz+obj.location.z)};
+                const setLocation = {x:(bx+obj.location.x),y:(by+obj.location.y),z:(bz+obj.location.z)};
                 blockDim.setBlockPermutation(setLocation, BlockPermutation.resolve(MinecraftBlockTypes.FlowingWater, {liquid_depth:0}));
                 setFireF = true;
             }
@@ -48,12 +48,12 @@ export async function water(event:ItemComponentUseOnEvent) {
  */
 export async function waterCauldron(event:ItemUseOnAfterEvent) {
 
-    let entity = event.source as Entity;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
+    const entity = event.source as Entity;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
 
-    let blockPer = block.permutation;
-    let cauldron = blockPer.getState("cauldron_liquid");
+    const blockPer = block.permutation;
+    const cauldron = blockPer.getState("cauldron_liquid");
 
     let setFireF = false;
 

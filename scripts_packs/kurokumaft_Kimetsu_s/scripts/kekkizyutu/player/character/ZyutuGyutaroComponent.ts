@@ -22,7 +22,7 @@ export class ZyutuGyutaroComponent implements KekkizyutuUseComponent {
                 player.setProperty("kurokumaft:kekkizyutu_kata", kata);
                 break;
             default :
-                const index = kekkizyutuObject.kata.findIndex((el) => el == kata);
+                const index = kekkizyutuObject.kata.findIndex((el) => el === kata);
                 kata = kekkizyutuObject.kata[index+1];
                 player.setProperty("kurokumaft:kekkizyutu_kata", kata);
             }

@@ -69,12 +69,12 @@ export class MagicLeggingsSurveillance {
 
     private async checkJob() {
 
-        let equItem = MagicLeggingsObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicLeggingsObject;
+        const equItem = MagicLeggingsObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicLeggingsObject;
         if (equItem == undefined) {
             return;
         }
-        let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let leg = equ.getEquipment(EquipmentSlot.Legs) as ItemStack;
+        const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const leg = equ.getEquipment(EquipmentSlot.Legs) as ItemStack;
 
         if (leg != null && leg.typeId == equItem.itemName) {
             this.player.setDynamicProperty("magic_leg_equ", true);

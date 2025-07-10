@@ -1,5 +1,5 @@
 import { EntityDamageCause, EntityQueryOptions, Player, system, Vector3 } from "@minecraft/server";
-import { addTeamsTagFilter, getLookPoints, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookPoints, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * ソニックスライサー
@@ -7,7 +7,7 @@ import { addTeamsTagFilter, getLookPoints, getLookRotaionPoints } from "../../..
 export async function sonicSlicer(player:Player) {
     player.addTag("sonicSlicer_self");
 
-    let slicer1 = getLookRotaionPoints(player.getRotation(), 5, 0);
+    const slicer1 = getLookRotaionPointsV2(player.getRotation(), 5, 0);
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer1.x, 
@@ -23,7 +23,7 @@ export async function sonicSlicer(player:Player) {
         }
     );
 
-    let slicer2 = getLookRotaionPoints(player.getRotation(), 5, -2);
+    const slicer2 = getLookRotaionPointsV2(player.getRotation(), 5, -2);
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer2.x, 
@@ -39,7 +39,7 @@ export async function sonicSlicer(player:Player) {
         }
     );
 
-    let slicer3 = getLookRotaionPoints(player.getRotation(), 5, 2);
+    const slicer3 = getLookRotaionPointsV2(player.getRotation(), 5, 2);
     player.dimension.spawnParticle("kurokumaft:storm_bread_particle", 
         {
             x:player.location.x+slicer3.x, 
@@ -55,7 +55,7 @@ export async function sonicSlicer(player:Player) {
         }
     );
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "sonicSlicer_self",
         ],
@@ -64,7 +64,7 @@ export async function sonicSlicer(player:Player) {
     } as EntityQueryOptions;
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -91,11 +91,11 @@ export async function sonicSlicer(player:Player) {
 export async function mailstrom(player:Player) {
     player.addTag("mailstrom_self");
 
-    let look = getLookPoints(player.getRotation(), player.location, 15);
-    let mailLo = {x:look.x, y:player.location.y, z:look.z} as Vector3;
-    let dim = player.dimension;
+    const look = getLookPoints(player.getRotation(), player.location, 15);
+    const mailLo = {x:look.x, y:player.location.y, z:look.z} as Vector3;
+    const dim = player.dimension;
 
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         dim.spawnParticle("kurokumaft:mailstrom1_particle", mailLo);
         dim.spawnParticle("kurokumaft:mailstrom1_particle", {x:mailLo.x,y:mailLo.y+0.5,z:mailLo.z});
         dim.spawnParticle("kurokumaft:mailstrom2_particle", {x:mailLo.x,y:mailLo.y+1,z:mailLo.z});
@@ -109,7 +109,7 @@ export async function mailstrom(player:Player) {
         dim.spawnParticle("kurokumaft:mailstrom6_particle", {x:mailLo.x,y:mailLo.y+5,z:mailLo.z});
         dim.spawnParticle("kurokumaft:mailstrom6_particle", {x:mailLo.x,y:mailLo.y+5.5,z:mailLo.z});
 
-        let filterOption = {
+        const filterOption = {
             excludeTags: [
                 "mailstrom_self",
             ],
@@ -118,7 +118,7 @@ export async function mailstrom(player:Player) {
         } as EntityQueryOptions;
         addTeamsTagFilter(player, filterOption);
 
-        let targets = dim.getEntities(filterOption);
+        const targets = dim.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;

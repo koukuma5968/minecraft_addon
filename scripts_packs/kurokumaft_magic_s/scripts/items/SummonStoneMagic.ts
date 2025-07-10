@@ -40,12 +40,12 @@ export class SummonStoneMagic implements ItemCustomComponent {
 
     // ブロッククリック
     onUseOn(event:ItemComponentUseOnEvent) {
-        let block = event.block;
-        let itemStack = event.itemStack as ItemStack;
+        const block = event.block;
+        const itemStack = event.itemStack as ItemStack;
 
-        let magicObject = SummonStoneObjects.find(obj => obj.itemName == itemStack.typeId) as SummonStoneObject;
+        const magicObject = SummonStoneObjects.find(obj => obj.itemName == itemStack.typeId) as SummonStoneObject;
         if (magicObject) {
-            let loc = block.location;
+            const loc = block.location;
             block.dimension.spawnEntity(magicObject.event, {x:loc.x,y:loc.y+1,z:loc.z});
         }
     }

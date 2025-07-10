@@ -94,13 +94,13 @@ const PicAttackObjects = Object.freeze([
 export class PicMagicAttack implements ItemCustomComponent {
 
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let entity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
+        const entity = event.hitEntity as Entity;
 
         if (itemStack == undefined || !entity.isValid()) {
             return;
         }
-        let pic = PicAttackObjects.find(obj => obj.itemName == itemStack.typeId) as PicAttackObject;
+        const pic = PicAttackObjects.find(obj => obj.itemName == itemStack.typeId) as PicAttackObject;
         try {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {
@@ -166,9 +166,9 @@ export class PicMagicTool implements ItemCustomComponent {
 
 export function magicPickaxe(event:ItemComponentUseOnEvent) {
 
-    let itemStack = event.itemStack as ItemStack;
+    const itemStack = event.itemStack as ItemStack;
     if (itemStack != undefined) {
-        let magicPic = MagicPicObjects.find(pic => pic.itemName == itemStack.typeId) as MagicPicObject;
+        const magicPic = MagicPicObjects.find(pic => pic.itemName == itemStack.typeId) as MagicPicObject;
         magicPic.func(event);
     }
 }

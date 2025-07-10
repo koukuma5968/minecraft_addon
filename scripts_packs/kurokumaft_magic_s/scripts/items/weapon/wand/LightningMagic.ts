@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * スパーク
@@ -10,7 +10,7 @@ export async function spark(player:Player, hitEntity:Entity) {
 
     player.dimension.spawnParticle("kurokumaft:spark_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "spark_self",
         ],
@@ -20,7 +20,7 @@ export async function spark(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         let damage = 2 as number;
         if (en instanceof Player) {
@@ -39,7 +39,7 @@ export async function spark(player:Player, hitEntity:Entity) {
  */
 export async function lightningwall(player:Player) {
 
-    let look = getLookRotaionPoints(player.getRotation(), 4, 0);
+    const look = getLookRotaionPointsV2(player.getRotation(), 4, 0);
     player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y, z:player.location.z+look.z}, "kurokumaft:lightningwall_block");
     player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y+1, z:player.location.z+look.z}, "kurokumaft:lightningwall_block");
 

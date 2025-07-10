@@ -11,14 +11,14 @@ export class KataComonClass {
         const main = equ.getEquipment(EquipmentSlot.Mainhand);
         const off = equ.getEquipment(EquipmentSlot.Offhand);
 
-        if (en.isSneaking && ((main != undefined && main.typeId.indexOf("shield") != -1) || (off != undefined && off.typeId.indexOf("shield") != -1))) {
+        if (en.isSneaking && ((main !== undefined && main.typeId.indexOf("shield") !== -1) || (off !== undefined && off.typeId.indexOf("shield") !== -1))) {
             en.playSound("item.shield.block", {
                 pitch: 1,
                 volume: 2
             });
             return false;
         }
-        if (en.isSneaking && (main != undefined && main.typeId.indexOf("nichirintou") != -1)) {
+        if (en.isSneaking && (main !== undefined && main.typeId.indexOf("nichirintou") !== -1)) {
             en.playSound("break.iron", {
                 pitch: 1,
                 volume: 2
@@ -35,13 +35,13 @@ export class KataComonClass {
         const targets = entity.dimension.getEntities(filter);
 
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        const damageNum = kaikyuNum == 0 ? 0.5 : kaikyuNum;
+        const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum;
         targets.forEach(en => {
-            if (en != undefined) {
+            if (en !== undefined && en.isValid()) {
                 if (en instanceof Player) {
                     if (entity instanceof Player) {
                         const tags = en.getTags();
-                        if (world.gameRules.pvp && tags.indexOf("hostility_player") != -1) {
+                        if (world.gameRules.pvp && tags.indexOf("hostility_player") !== -1) {
                             if (this.gardCheck(en)) {
                                 en.applyDamage(pDamage*damageNum, {
                                     cause: EntityDamageCause.entityAttack,
@@ -51,7 +51,7 @@ export class KataComonClass {
                         }
                     } else {
                         const tags = entity.getTags();
-                        if (tags.indexOf("hostility") != -1) {
+                        if (tags.indexOf("hostility") !== -1) {
                             en.applyDamage(enDamage*damageNum, {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
@@ -60,14 +60,14 @@ export class KataComonClass {
                     }
                 } else {
                     const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-                    if (familyTypes != undefined && familyTypes.hasTypeFamily("ogre")) {
+                    if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
                         en.applyDamage(enDamage*damageNum, {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
                     } else {
                         const tags = en.getTags();
-                        if (tags.indexOf("hostility") != -1) {
+                        if (tags.indexOf("hostility") !== -1) {
                             en.applyDamage(enDamage*damageNum, {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
@@ -84,7 +84,7 @@ export class KataComonClass {
             getDistanceLocation(entity.location, {x:distance.x+3,y:distance.y+2,z:distance.z+3})
         );
 
-        if (itemStack != undefined) {
+        if (itemStack !== undefined) {
             ItemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
         }
         entity.removeTag(entity.id);
@@ -107,20 +107,22 @@ export class KataComonClass {
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        const damageNum = kaikyuNum == 0 ? 0.5 : kaikyuNum;
+        const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum;
         targets.forEach(en => {
-            if (en instanceof Player) {
-                if (this.gardCheck(en)) {
-                    en.addEffect(effect, Math.round(duration*damageNum*0.25), {
-                        amplifier: Math.round(damage*damageNum*0.25),
+            if (en !== undefined && en.isValid()) {
+                if (en instanceof Player) {
+                    if (this.gardCheck(en)) {
+                        en.addEffect(effect, Math.round(duration*damageNum*0.25), {
+                            amplifier: Math.round(damage*damageNum*0.25),
+                            showParticles: true
+                        });
+                    }
+                } else {
+                    en.addEffect(effect, Math.round(duration*damageNum*0.75), {
+                        amplifier: Math.round(damage*damageNum),
                         showParticles: true
                     });
                 }
-            } else {
-                en.addEffect(effect, Math.round(duration*damageNum*0.75), {
-                    amplifier: Math.round(damage*damageNum),
-                    showParticles: true
-                });
             }
         });
         entity.removeTag(entity.id);
@@ -136,7 +138,7 @@ export class KataComonClass {
         projectiles.forEach(projectile => {
             projectile.clearVelocity();
             const projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
-            if (projComp != undefined) {
+            if (projComp !== undefined) {
                 projComp.shoot(projectile.getViewDirection(), {
                     uncertainty: 0
                 });

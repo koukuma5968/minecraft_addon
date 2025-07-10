@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
@@ -9,14 +9,14 @@ export async function iceShock(player:Player, entity:Entity) {
 
     player.addTag("ice_shock_self");
 
-    let left = getLookRotaionPoints(entity.getRotation(), 0, 2.5);
+    const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
     entity.dimension.spawnParticle("kurokumaft:ice_shock_particle", {x:entity.location.x+left.x, y:entity.location.y+1.8, z:entity.location.z+left.z});
-    let center = getLookRotaionPoints(entity.getRotation(), 0, 0);
+    const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
     entity.dimension.spawnParticle("kurokumaft:ice_shock_particle", {x:entity.location.x+center.x, y:entity.location.y+1.8, z:entity.location.z+center.z});
-    let right = getLookRotaionPoints(entity.getRotation(), 0, -2.5);
+    const right = getLookRotaionPointsV2(entity.getRotation(), 0, -2.5);
     entity.dimension.spawnParticle("kurokumaft:ice_shock_particle", {x:entity.location.x+right.x, y:entity.location.y+1.8, z:entity.location.z+right.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "ice_shock_self",
         ],
@@ -26,7 +26,7 @@ export async function iceShock(player:Player, entity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -51,7 +51,7 @@ export async function iceBlock(player:Player) {
 
     player.addTag("iceblock_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "iceblock_self",
         ],
@@ -62,7 +62,7 @@ export async function iceBlock(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;

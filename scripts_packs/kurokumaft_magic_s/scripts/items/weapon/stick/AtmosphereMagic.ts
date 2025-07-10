@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * ストームショック
@@ -9,14 +9,14 @@ export async function stormShock(player:Player, entity:Entity) {
 
     player.addTag("storm_shock_self");
 
-    let left = getLookRotaionPoints(entity.getRotation(), 0, 2.5);
+    const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
     entity.dimension.spawnParticle("kurokumaft:storm_shock_particle", {x:entity.location.x+left.x, y:entity.location.y+1.8, z:entity.location.z+left.z});
-    let center = getLookRotaionPoints(entity.getRotation(), 0, 0);
+    const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
     entity.dimension.spawnParticle("kurokumaft:storm_shock_particle", {x:entity.location.x+center.x, y:entity.location.y+1.8, z:entity.location.z+center.z});
-    let right = getLookRotaionPoints(entity.getRotation(), 0, -2.5);
+    const right = getLookRotaionPointsV2(entity.getRotation(), 0, -2.5);
     entity.dimension.spawnParticle("kurokumaft:storm_shock_particle", {x:entity.location.x+right.x, y:entity.location.y+1.8, z:entity.location.z+right.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "storm_shock_self",
         ],
@@ -25,7 +25,7 @@ export async function stormShock(player:Player, entity:Entity) {
     } as EntityQueryOptions;
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -48,12 +48,12 @@ export async function stormShock(player:Player, entity:Entity) {
  */
 export async function atmosphere(player:Player) {
     player.addTag("atmosphere_self");
-    let dimen = player.dimension;
-    let intervalNum = system.runInterval(() => {
-        let ploca = player.location;
+    const dimen = player.dimension;
+    const intervalNum = system.runInterval(() => {
+        const ploca = player.location;
         dimen.spawnParticle("kurokumaft:atmosphere_particle", ploca);
 
-        let filterOption = {
+        const filterOption = {
             excludeTags: [
                 "atmosphere_self",
             ],
@@ -63,13 +63,13 @@ export async function atmosphere(player:Player) {
 
         addTeamsTagFilter(player, filterOption);
 
-        let targets = dimen.getEntities(filterOption);
+        const targets = dimen.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;
             }
 
-            let enloca = en.location;
+            const enloca = en.location;
             dimen.spawnParticle("kurokumaft:wind_particle", {x:enloca.x,y:enloca.y,z:enloca.z});
             dimen.spawnParticle("kurokumaft:storm1_particle", {x:enloca.x,y:enloca.y+1,z:enloca.z});
             dimen.spawnParticle("kurokumaft:storm2_particle", {x:enloca.x,y:enloca.y,z:enloca.z});

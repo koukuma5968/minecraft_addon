@@ -57,11 +57,11 @@ export class Obi extends ZytuComonClass {
 
         const serchNum = system.runInterval(() => {
 
-            if (entity == undefined) {
+            if (entity === undefined) {
                 return;
             }
 
-            if (obi != undefined && !targethoming) {
+            if (obi !== undefined && !targethoming) {
                 obi.addTag(obi.id);
                 entity.addTag(entity.id);
                 const targets = entity.dimension.getEntities({
@@ -85,7 +85,7 @@ export class Obi extends ZytuComonClass {
                     targets[0].addTag("hitObiTarget:"+ obi.id);
         
                     const num = system.runInterval(() =>{
-                        if (entity != undefined) {
+                        if (entity !== undefined) {
                             const hittargets = entity.dimension.getEntities({
                                 excludeFamilies: [
                                     "inanimate", "animal", "obi"

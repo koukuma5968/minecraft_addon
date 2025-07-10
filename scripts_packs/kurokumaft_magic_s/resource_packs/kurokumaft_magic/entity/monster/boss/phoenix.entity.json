@@ -15,9 +15,7 @@
         "head": "kurokumaft:fire_bread_particle"
       },
       "scripts": {
-        "scaleX": "3.00",
-        "scaleY": "3.00",
-        "scaleZ": "3.00",
+        "scale": "3.00",
         "animate": [
           "move"
         ]

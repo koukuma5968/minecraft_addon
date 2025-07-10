@@ -1,6 +1,6 @@
 import { EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
 import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * ディグ・ヴォルト
@@ -8,7 +8,7 @@ import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCo
 export async function digVault(player:Player) {
     player.addTag("digVault_self");
 
-    let left = getLookRotaionPoints(player.getRotation(), 4.4, 2.5);
+    const left = getLookRotaionPointsV2(player.getRotation(), 4.4, 2.5);
     player.dimension.spawnParticle("kurokumaft:spark_shock_particle", 
         {
             x:player.location.x+left.x, 
@@ -17,7 +17,7 @@ export async function digVault(player:Player) {
         }
     );
 
-    let center = getLookRotaionPoints(player.getRotation(), 4.4, 0);
+    const center = getLookRotaionPointsV2(player.getRotation(), 4.4, 0);
     player.dimension.spawnParticle("kurokumaft:spark_shock_particle", 
         {
             x:player.location.x+center.x, 
@@ -26,7 +26,7 @@ export async function digVault(player:Player) {
         }
     );
 
-    let right = getLookRotaionPoints(player.getRotation(), 4.4, -2.5);
+    const right = getLookRotaionPointsV2(player.getRotation(), 4.4, -2.5);
     player.dimension.spawnParticle("kurokumaft:spark_shock_particle", 
         {
             x:player.location.x+right.x, 
@@ -35,7 +35,7 @@ export async function digVault(player:Player) {
         }
     );
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "digVault_self",
         ],
@@ -44,7 +44,7 @@ export async function digVault(player:Player) {
     } as EntityQueryOptions;
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -76,9 +76,9 @@ export async function digVault(player:Player) {
  */
 export async function flameSpark(player:Player) {
     player.addTag("flamespark_self");
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
 
-        let filterOption = {
+        const filterOption = {
             excludeTags: [
                 "flamespark_self",
             ],
@@ -88,7 +88,7 @@ export async function flameSpark(player:Player) {
         } as EntityQueryOptions;
         addTeamsTagFilter(player, filterOption);
 
-        let targets = player.dimension.getEntities(filterOption);
+        const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;

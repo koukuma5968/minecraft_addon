@@ -65,15 +65,15 @@ const ShellBomObjects = Object.freeze([
 export class BazookaShotMagic implements ItemCustomComponent {
 
     // チャージ完了
-    onCompleteUse(event:ItemComponentCompleteUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+    onCompconsteUse(event:ItemComponentCompleteUseEvent) {
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
     }
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
         if (!itemStack) {
             return;
@@ -87,7 +87,7 @@ export function checkShellProjectile(projectileName:string) {
 }
 
 export function hitShellEvent(projectile: Entity, dameger: Entity) {
-    let proje = ShellBomObjects.find(obj => obj.itemName == projectile.typeId) as BazookaMagicObject;
+    const proje = ShellBomObjects.find(obj => obj.itemName == projectile.typeId) as BazookaMagicObject;
     try {
         proje.func(projectile, dameger);
     } catch (error) {

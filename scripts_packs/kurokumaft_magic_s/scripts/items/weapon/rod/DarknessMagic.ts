@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * ダークファング
@@ -8,9 +8,9 @@ export async function darkFang(player:Player, hitEntity:Entity) {
 
     player.addTag("dark_fang_self");
 
-    let look = getLookRotaionPoints(player.getRotation(), 3.5, 0);
+    const look = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "dark_fang_self",
         ],
@@ -20,7 +20,7 @@ export async function darkFang(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -48,7 +48,7 @@ export async function brushash(player:Player) {
 
     player.addTag("brushash_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "brushash_self",
         ],
@@ -59,8 +59,8 @@ export async function brushash(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
-    let intervalNum = system.runInterval(() => {
+    const targets = player.dimension.getEntities(filterOption);
+    const intervalNum = system.runInterval(() => {
         targets.forEach(en => {
             if (en.isValid()) {
                 en.dimension.spawnParticle("kurokumaft:dark_brushash_particle", en.location);
@@ -86,8 +86,8 @@ export async function brushash(player:Player) {
 /**
  * ダークスケルトン召喚
  */
-export async function summonSkeleton(player:Player) {
-    player.dimension.spawnEntity("kurokumaft:dark_skeleton", {x:player.location.x+3,y:player.location.y,z:player.location.z}).nameTag = "ダークスケルトン";
-    player.dimension.spawnEntity("kurokumaft:dark_skeleton", {x:player.location.x-3,y:player.location.y,z:player.location.z}).nameTag = "ダークスケルトン";
-    player.dimension.spawnEntity("kurokumaft:dark_skeleton", {x:player.location.x,y:player.location.y,z:player.location.z+3}).nameTag = "ダークスケルトン";
+export async function summonSkeconston(player:Player) {
+    player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x+3,y:player.location.y,z:player.location.z}).nameTag = "ダークスケルトン";
+    player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x-3,y:player.location.y,z:player.location.z}).nameTag = "ダークスケルトン";
+    player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x,y:player.location.y,z:player.location.z+3}).nameTag = "ダークスケルトン";
 }

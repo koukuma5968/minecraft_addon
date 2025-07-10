@@ -48,7 +48,7 @@ const tanjiroKokyuLists = weightChoice([
 export class TanjiroComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity != undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid()) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);
@@ -164,7 +164,7 @@ export class TanjiroComponent implements KokyuMobUseComponent {
                 case 11 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     const ichi = getRandomInRange(1, 2);
-                    if (ichi == 1) {
+                    if (ichi === 1) {
                         hi.ichiNoKata(entity, undefined);
                         system.runTimeout(() => {
                             entity.setProperty("kurokumaft:kokyu_kata", 0);

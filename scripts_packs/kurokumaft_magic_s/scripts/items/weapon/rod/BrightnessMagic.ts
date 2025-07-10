@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * ライトファング
@@ -9,9 +9,9 @@ export async function lightFang(player:Player, hitEntity:Entity) {
 
     player.addTag("light_fang_self");
 
-    let look = getLookRotaionPoints(player.getRotation(), 3.5, 0);
+    const look = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "light_self",
         ],
@@ -21,7 +21,7 @@ export async function lightFang(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -46,7 +46,7 @@ export async function lightFang(player:Player, hitEntity:Entity) {
  */
 export async function areaheel(player:Player) {
     player.dimension.spawnParticle("kurokumaft:areaheel_particle", player.location);
-    let p = player.dimension.getEntities({
+    const p = player.dimension.getEntities({
         excludeFamilies: [
             "inanimate", "magic", "arrow"
         ],
@@ -59,7 +59,7 @@ export async function areaheel(player:Player) {
         location: player.location,
         maxDistance: 10
     });
-    let f = player.dimension.getEntities({
+    const f = player.dimension.getEntities({
         excludeFamilies: [
             "inanimate", "magic", "arrow"
         ],
@@ -72,7 +72,7 @@ export async function areaheel(player:Player) {
         location: player.location,
         maxDistance: 10
     });
-    let u = player.dimension.getEntities({
+    const u = player.dimension.getEntities({
         excludeFamilies: [
             "inanimate", "magic", "arrow"
         ],
@@ -121,6 +121,6 @@ export async function areaheel(player:Player) {
  * ブライトゴーレム召喚
  */
 export async function summonGolem(player:Player) {
-    let golem = player.dimension.spawnEntity("kurokumaft:brightness_golem<minecraft:from_player>", {x:player.location.x,y:player.location.y,z:player.location.z+3});
+    const golem = player.dimension.spawnEntity("kurokumaft:brightness_golem<minecraft:from_player>", {x:player.location.x,y:player.location.y,z:player.location.z+3});
     golem.nameTag = "ブライトゴーレム";
 }

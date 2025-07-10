@@ -15,7 +15,7 @@ export async function megaBrand(player:Player) {
         }
     );
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "megaBrand_self",
         ],
@@ -24,7 +24,7 @@ export async function megaBrand(player:Player) {
     } as EntityQueryOptions;
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -55,19 +55,19 @@ export async function megaBrand(player:Player) {
  * エクスプロージョン
  */
 export async function explosion(player:Player) {
-    let look = getLookPoints(player.getRotation(), player.location, 30);
-    let explosion = player.dimension.spawnEntity("kurokumaft:explosionmagic", 
+    const look = getLookPoints(player.getRotation(), player.location, 30);
+    const explosion = player.dimension.spawnEntity("kurokumaft:explosionmagic", 
         {
             x:look.x,
             y:player.location.y + 25,
             z:look.z
         }
     );
-    let projectile = explosion.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    const projectile = explosion.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
     projectile.owner = player;
     let dim = explosion.dimension;
     let loca = explosion.location;
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (explosion.isValid()) {
             explosion.dimension.spawnParticle("kurokumaft:explosion_wave", explosion.location);
             dim = explosion.dimension;

@@ -9,10 +9,10 @@ import { EntityComponentTypes, EntityProjectileComponent, ItemStack, Player } fr
  */
 function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:number) {
 
-    let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
+    const bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
     item.amount++;
 
-    let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
     projectile.owner = player;
     projectile.shoot(player.getViewDirection(), {
         uncertainty: ranNum
@@ -37,7 +37,7 @@ function shooting(player:Player, throwItem:string, ranNum:number, seepd:number, 
         bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
     }
 
-    let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
     projectile.owner = player;
     projectile.shoot({
         x:player.getViewDirection().x * seepd,

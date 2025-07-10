@@ -11,7 +11,7 @@ export async function iceBread(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:ice_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "ice_bread_self",
         ],
@@ -21,7 +21,7 @@ export async function iceBread(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -47,7 +47,7 @@ export async function iceBread(player:Player, hitEntity:Entity) {
 export async function freezConclusion(player:Player) {
     player.addTag("freez_conclusion_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "freez_conclusion_self",
         ],
@@ -58,7 +58,7 @@ export async function freezConclusion(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;

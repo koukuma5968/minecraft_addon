@@ -28,9 +28,9 @@ const WallMagicObjects = Object.freeze([
 export class WallBlock implements BlockCustomComponent {
 
     onStepOn(blockEvent:BlockComponentStepOnEvent) {
-        let entity = blockEvent.entity as Entity;
+        const entity = blockEvent.entity as Entity;
         if (entity != undefined) {
-            let filterOption = {
+            const filterOption = {
                 excludeFamilies: [
                     "inanimate", "magic", "arrow"
                 ],
@@ -41,7 +41,7 @@ export class WallBlock implements BlockCustomComponent {
             } as EntityQueryOptions;
     
             if (entity.matches(filterOption)) {
-                let wallMagicObject = WallMagicObjects.find(obj => obj.itemName == blockEvent.block.typeId) as WallMagicObject;
+                const wallMagicObject = WallMagicObjects.find(obj => obj.itemName == blockEvent.block.typeId) as WallMagicObject;
                 wallMagicObject.func(blockEvent);
             }
         }
@@ -49,9 +49,9 @@ export class WallBlock implements BlockCustomComponent {
 
     onStepOff(blockEvent:BlockComponentStepOffEvent) {
 
-        let entity = blockEvent.entity as Entity;
+        const entity = blockEvent.entity as Entity;
         if (entity != undefined) {
-            let wallNum = entity.getDynamicProperty("walllNum");
+            const wallNum = entity.getDynamicProperty("walllNum");
             if (wallNum != undefined) {
                 system.clearRun(wallNum as number);
             }
@@ -60,10 +60,10 @@ export class WallBlock implements BlockCustomComponent {
 }
 
 async function lightningwall(blockEvent:BlockComponentStepOnEvent) {
-    let block = blockEvent.block;
-    let dimension = blockEvent.dimension;
-    let entity = blockEvent.entity as Entity;
-    let intervalnum = system.runInterval(() => {
+    const block = blockEvent.block;
+    const dimension = blockEvent.dimension;
+    const entity = blockEvent.entity as Entity;
+    const intervalnum = system.runInterval(() => {
         entity.applyDamage(1, {
             cause: EntityDamageCause.lightning
         });
@@ -74,10 +74,10 @@ async function lightningwall(blockEvent:BlockComponentStepOnEvent) {
 }
 
 async function waterwall(blockEvent:BlockComponentStepOnEvent) {
-    let block = blockEvent.block;
-    let dimension = blockEvent.dimension;
-    let entity = blockEvent.entity as Entity;
-    let intervalnum = system.runInterval(() => {
+    const block = blockEvent.block;
+    const dimension = blockEvent.dimension;
+    const entity = blockEvent.entity as Entity;
+    const intervalnum = system.runInterval(() => {
         entity.applyDamage(1, {
             cause: EntityDamageCause.drowning
         });
@@ -87,9 +87,9 @@ async function waterwall(blockEvent:BlockComponentStepOnEvent) {
 }
 
 async function windwall(blockEvent:BlockComponentStepOnEvent) {
-    let block = blockEvent.block;
-    let dimension = blockEvent.dimension;
-    let entity = blockEvent.entity as Entity;
+    const block = blockEvent.block;
+    const dimension = blockEvent.dimension;
+    const entity = blockEvent.entity as Entity;
     entity.addEffect(MinecraftEffectTypes.Levitation, 2*TicksPerSecond, {
         amplifier: 3
     });

@@ -10,7 +10,7 @@ export async function bumrod(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:bumrod_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "bumrod_self",
         ],
@@ -20,7 +20,7 @@ export async function bumrod(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -45,9 +45,9 @@ export async function bumrod(player:Player, hitEntity:Entity) {
  */
 export async function flarecircle(player:Player) {
     player.addTag("flamecircle_self");
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
 
-        let filterOption = {
+        const filterOption = {
             excludeTags: [
                 "flamecircle_self",
             ],
@@ -58,7 +58,7 @@ export async function flarecircle(player:Player) {
 
         addTeamsTagFilter(player, filterOption);
 
-        let targets = player.dimension.getEntities(filterOption);
+        const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;
@@ -89,7 +89,7 @@ export async function flarecircle(player:Player) {
 export async function burstflare(player:Player) {
     player.addTag("burstflare_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "burstflare_self",
         ],
@@ -100,7 +100,7 @@ export async function burstflare(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;

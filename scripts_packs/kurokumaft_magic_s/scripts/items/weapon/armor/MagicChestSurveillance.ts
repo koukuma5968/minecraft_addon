@@ -69,12 +69,12 @@ export class MagicChestSurveillance {
 
     private async checkJob() {
 
-        let equItem = MagicChestObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicChestObject;
+        const equItem = MagicChestObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicChestObject;
         if (equItem == undefined) {
             return;
         }
-        let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let chest = equ.getEquipment(EquipmentSlot.Chest) as ItemStack;
+        const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const chest = equ.getEquipment(EquipmentSlot.Chest) as ItemStack;
 
         if (chest != null && chest.typeId == equItem.itemName) {
             this.player.setDynamicProperty("magic_chest_equ", true);
@@ -101,7 +101,7 @@ async function waterHealthUp(player:Player) {
 }
 
 async function lavaFreeze(player:Player) {
-    let blockVol = new BlockVolume(
+    const blockVol = new BlockVolume(
         {
             x:player.location.x-2,
             y:player.location.y-2,

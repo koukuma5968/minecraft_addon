@@ -20,7 +20,7 @@ export class BloodDrinking implements ItemCustomComponent {
         const lores = item.getLore();
         const rank = player.getProperty("kurokumaft:ogre_rank");
         let becoming = player.getProperty("kurokumaft:ogre_becoming") as number;
-        if (lores != undefined && lores.length > 0) {
+        if (lores !== undefined && lores.length > 0) {
             switch (lores[0]) {
                 case "Lv 5" :
                     becoming = becoming + 30;
@@ -38,7 +38,7 @@ export class BloodDrinking implements ItemCustomComponent {
             becoming = becoming + 10;
         }
 
-        if ("none" == rank) {
+        if ("none" === rank) {
             if (becoming >= 100) {
                 player.setProperty("kurokumaft:kaikyu", 0);
                 player.setProperty("kurokumaft:ogre_rank", "low");
@@ -64,19 +64,19 @@ export class BloodDrinking implements ItemCustomComponent {
                         player.setProperty("kurokumaft:ogre_rank", "unusual");
                         const Inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
                         const container = Inventory.container;
-                        if (container != undefined) {
+                        if (container !== undefined) {
                             const itemstack = container.transferItem(0, container);
-                            if (itemstack != undefined) {
+                            if (itemstack !== undefined) {
                                 player.dimension.spawnItem(itemstack, player.location);
                             }
                             const kekkizyutu = kekkizyutuLists.pick();
-                            if (kekkizyutu == "kurokumaft:hantengu") {
+                            if (kekkizyutu === "kurokumaft:hantengu") {
                                 const zyutu = new ItemStack("kurokumaft:zouhakuten_bati", 1);
                                 zyutu.lockMode = ItemLockMode.slot;
                                 container.setItem(0, zyutu);
 
                                 // const itemstack1 = container.transferItem(1, container);
-                                // if (itemstack1 != undefined) {
+                                // if (itemstack1 !== undefined) {
                                 //     player.dimension.spawnItem(itemstack1, player.location);
                                 // }
                                 // const zyutu1 = new ItemStack("kurokumaft:aizetu_sper", 1);
@@ -84,7 +84,7 @@ export class BloodDrinking implements ItemCustomComponent {
                                 // container.setItem(1, zyutu1);
 
                                 // const itemstack2 = container.transferItem(2, container);
-                                // if (itemstack2 != undefined) {
+                                // if (itemstack2 !== undefined) {
                                 //     player.dimension.spawnItem(itemstack2, player.location);
                                 // }
                                 // const zyutu2 = new ItemStack("kurokumaft:karaku_ougi", 1);
@@ -92,7 +92,7 @@ export class BloodDrinking implements ItemCustomComponent {
                                 // container.setItem(2, zyutu2);
 
                                 // const itemstack3 = container.transferItem(3, container);
-                                // if (itemstack3 != undefined) {
+                                // if (itemstack3 !== undefined) {
                                 //     player.dimension.spawnItem(itemstack3, player.location);
                                 // }
                                 // const zyutu3 = new ItemStack("kurokumaft:sekido_syakuzou", 1);
@@ -100,7 +100,7 @@ export class BloodDrinking implements ItemCustomComponent {
                                 // container.setItem(3, zyutu3);
 
                                 // const itemstack3 = container.transferItem(3, container);
-                                // if (itemstack3 != undefined) {
+                                // if (itemstack3 !== undefined) {
                                 //     player.dimension.spawnItem(itemstack3, player.location);
                                 // }
                                 // const zyutu3 = new ItemStack("kurokumaft:sekido_syakuzou", 1);
@@ -120,7 +120,7 @@ export class BloodDrinking implements ItemCustomComponent {
                     break;
                     case "quarter" :
                         const moon1 = player.getProperty("kurokumaft:ogre_moon") as number;
-                        if (moon1 == 1) {
+                        if (moon1 === 1) {
                             player.setProperty("kurokumaft:ogre_moon", 6);
                             player.setProperty("kurokumaft:ogre_rank", "crescent");
                         } else {
@@ -129,7 +129,7 @@ export class BloodDrinking implements ItemCustomComponent {
                     break;
                     case "crescent" :
                         const moon2 = player.getProperty("kurokumaft:ogre_moon") as number;
-                        if (moon2 == 1) {
+                        if (moon2 === 1) {
                             player.setProperty("kurokumaft:ogre_rank", "king");
                         } else {
                             player.setProperty("kurokumaft:ogre_moon", moon2-1);

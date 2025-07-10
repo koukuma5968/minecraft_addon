@@ -39,7 +39,7 @@ export async function blazeBurst(player:Player) {
     player.dimension.spawnParticle("kurokumaft:explosion_shell", player.location);
     player.dimension.spawnParticle("kurokumaft:explosion_wave", player.location);
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "blazeBurst_self"
         ],
@@ -49,7 +49,7 @@ export async function blazeBurst(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let entitys = player.dimension.getEntities(filterOption) as Entity[];
+    const entitys = player.dimension.getEntities(filterOption) as Entity[];
     entitys.forEach(en => {
         en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
             {

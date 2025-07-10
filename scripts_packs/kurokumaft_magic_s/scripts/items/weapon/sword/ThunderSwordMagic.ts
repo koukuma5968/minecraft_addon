@@ -11,7 +11,7 @@ export async function thunderSword(player:Player, entity:Entity) {
     player.addTag("thunder_sword_slash_self");
     entity.dimension.spawnParticle("kurokumaft:thunder_sword_slash", entity.location);
 
-    let entitys = player.dimension.getEntities({
+    const entitys = player.dimension.getEntities({
         excludeFamilies: [
             "player", "inanimate", "familiar"
         ],
@@ -40,7 +40,7 @@ export async function thunderSword(player:Player, entity:Entity) {
     });
 
     if (world.gameRules.pvp) {
-        let filterOption = {
+        const filterOption = {
             excludeFamilies: [
                 "inanimate"
             ],
@@ -56,7 +56,7 @@ export async function thunderSword(player:Player, entity:Entity) {
         } as EntityQueryOptions;
 
         addTeamsTagFilter(player, filterOption);
-        let others = player.dimension.getEntities(filterOption) as Entity[];
+        const others = player.dimension.getEntities(filterOption) as Entity[];
     
         others.forEach(en => {
             en.dimension.spawnEntity("kurokumaft:thunder_sword_magic", 
@@ -88,7 +88,7 @@ export async function thunderSword(player:Player, entity:Entity) {
 //     player.dimension.spawnParticle("kurokumaft:explosion_shell", player.location);
 //     player.dimension.spawnParticle("kurokumaft:explosion_wave_particle", player.location);
 
-//     let entitys = player.dimension.getEntities({
+//     const entitys = player.dimension.getEntities({
 //         excludeFamilies: [
 //             "player", "inanimate", "familiar"
 //         ],
@@ -112,7 +112,7 @@ export async function thunderSword(player:Player, entity:Entity) {
 //     });
 
 //     if (world.gameRules.pvp) {
-//         let players = player.dimension.getEntities({
+//         const players = player.dimension.getEntities({
 //             families: [
 //                 "player"
 //             ],
@@ -144,7 +144,7 @@ export async function thunderSwordMons(attack:Entity, hit:Entity) {
     attack.addTag("thunder_sword_slash_self");
     hit.dimension.spawnParticle("kurokumaft:thunder_sword_slash", hit.location);
 
-    let entitys = attack.dimension.getEntities({
+    const entitys = attack.dimension.getEntities({
         excludeFamilies: [
             "player", "inanimate", "familiar"
         ],
@@ -172,7 +172,7 @@ export async function thunderSwordMons(attack:Entity, hit:Entity) {
         en.addTag("thunder_sword_slash_target");
     });
 
-    let filterOption = {
+    const filterOption = {
         excludeFamilies: [
             "inanimate"
         ],
@@ -187,7 +187,7 @@ export async function thunderSwordMons(attack:Entity, hit:Entity) {
         maxDistance: 5
     } as EntityQueryOptions;
 
-    let others = attack.dimension.getEntities(filterOption) as Entity[];
+    const others = attack.dimension.getEntities(filterOption) as Entity[];
 
     others.forEach(en => {
         en.dimension.spawnEntity("kurokumaft:thunder_sword_magic", 

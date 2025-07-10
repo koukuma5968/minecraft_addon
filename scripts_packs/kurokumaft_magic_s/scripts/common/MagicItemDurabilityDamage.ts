@@ -46,9 +46,9 @@ async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:Equ
         return;
     }
 
-    let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
-    let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
 
     if ((durability.damage + damage) >= durability.maxDurability) {
         equ.setEquipment(slot, undefined);
@@ -68,9 +68,9 @@ async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:Equ
 async function summonGrimoireDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
     if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-        let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
-        let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+        const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
         if ((durability.damage + 1) >= durability.maxDurability) {
             equ.setEquipment(slot, undefined);
         } else {
@@ -88,17 +88,17 @@ async function summonGrimoireDurabilityDamage(entity:Entity, item:ItemStack, slo
 async function decrimentGrimoireCount(player:Player, item:ItemStack) {
 
     if (player.getGameMode() != GameMode.creative) {
-        let lore = item.getLore();
+        const lore = item.getLore();
         if (lore.length > 0) {
             let cont = Number(lore[0].substring(3));
             world.sendMessage(cont+"");
             cont--;
             world.sendMessage(cont+"");
-            let inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-            let con = inventory.container as Container;
+            const inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+            const con = inventory.container as Container;
             if (cont == 0) {
                 world.sendMessage("grimoire_damage");
-                let grimoire_damage = new ItemStack("kurokumaft:grimoire_damage", 1);
+                const grimoire_damage = new ItemStack("kurokumaft:grimoire_damage", 1);
                 con.setItem(player.selectedSlotIndex, grimoire_damage);
             } else {
                 item.setLore(["残数：" + cont]);

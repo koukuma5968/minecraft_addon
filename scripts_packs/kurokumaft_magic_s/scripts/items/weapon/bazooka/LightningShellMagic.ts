@@ -6,14 +6,14 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function lightningShell(entity:Entity, dameger:Entity) {
     try {
-        let dim = dameger.dimension;
-        let enLoc = entity.location
+        const dim = dameger.dimension;
+        const enLoc = entity.location
     
         dameger.addTag("lightning_shell");
-        let intervalNum = system.runInterval(() => {
+        const intervalNum = system.runInterval(() => {
             dim.spawnParticle("kurokumaft:lightning_shell", enLoc);
 
-            let filterOption = {
+            const filterOption = {
                 excludeTags: [
                     "lightning_shell",
                 ],
@@ -23,7 +23,7 @@ export async function lightningShell(entity:Entity, dameger:Entity) {
 
             addTeamsTagFilter(dameger as Player, filterOption);
 
-            let targets = dim.getEntities(filterOption);
+            const targets = dim.getEntities(filterOption);
             targets.forEach(en => {
                 if (en instanceof Player) {
                     en.applyDamage(1, {

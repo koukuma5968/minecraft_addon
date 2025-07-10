@@ -10,7 +10,7 @@ export class Bunretu extends ZytuComonClass {
      * 超音波
      */
     ultrasonic(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -25,7 +25,7 @@ export class Bunretu extends ZytuComonClass {
         system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-            if (ultrasonic != undefined && ultrasonic.id != undefined) {
+            if (ultrasonic !== undefined && ultrasonic.id !== undefined) {
                 ultrasonic.remove();
             }
         },10);
@@ -36,7 +36,7 @@ export class Bunretu extends ZytuComonClass {
      * 雷
      */
     ikazuti(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -86,7 +86,7 @@ export class Bunretu extends ZytuComonClass {
      * 突風
      */
     toppu(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -114,7 +114,7 @@ export class Bunretu extends ZytuComonClass {
      * 石竜子
      */
     tokage(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -151,7 +151,7 @@ export class Bunretu extends ZytuComonClass {
      * 狂鳴雷殺
      */
     kyoumeiraisatu(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -183,7 +183,7 @@ export class Bunretu extends ZytuComonClass {
         }
 
         const num = system.runInterval(() => {
-            if (tokageR != undefined && tokageR.isValid()) {
+            if (tokageR !== undefined && tokageR.isValid()) {
                 const filterR = addOrgeFilter(0, tokageR.location, 10, entity.id);
                 filterR.excludeFamilies?.push("tokage");
                 this.kokyuApplyDamage(entity, filterR, 2, 1);
@@ -192,7 +192,7 @@ export class Bunretu extends ZytuComonClass {
                 entity.dimension.spawnParticle("kurokumaft:ikazuti_particle", getDistanceLocation(tokageR.location, distanceR));
             }
 
-            if (tokageL != undefined && tokageL.isValid()) {
+            if (tokageL !== undefined && tokageL.isValid()) {
                 const distanceL = getLookLocationDistancePitch(tokageL.getRotation(), 3, 0);
                 const filterL = addOrgeFilter(0, getDistanceLocation(tokageL.location, distanceL), 4, entity.id);
                 filterL.excludeFamilies?.push("tokage");
@@ -200,7 +200,7 @@ export class Bunretu extends ZytuComonClass {
 
                 const ultrasonic = shooting(tokageL, "kurokumaft:urogi_ultrasonic", 0, 3, undefined);
                 system.runTimeout(() => {
-                    if (ultrasonic != undefined && ultrasonic.id != undefined) {
+                    if (ultrasonic !== undefined && ultrasonic.id !== undefined) {
                         ultrasonic.remove();
                     }
                 },15);
@@ -208,10 +208,10 @@ export class Bunretu extends ZytuComonClass {
         }, 5);
 
         system.runTimeout(() => {
-            if (tokageR != undefined) {
+            if (tokageR !== undefined) {
                 tokageR.remove();
             }
-            if (tokageL != undefined) {
+            if (tokageL !== undefined) {
                 tokageL.remove();
             }
             system.clearRun(num);
@@ -222,7 +222,7 @@ export class Bunretu extends ZytuComonClass {
      * 狂圧鳴波
      */
     kyouatumeiha(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
         if (entity instanceof Player) {
@@ -242,7 +242,7 @@ export class Bunretu extends ZytuComonClass {
         for (let i=-1; i<=1; i++) {
             const ultrasonic = this.sonic(entity, i);
             system.runTimeout(() => {
-                if (ultrasonic != undefined && ultrasonic.id != undefined) {
+                if (ultrasonic !== undefined && ultrasonic.id !== undefined) {
                     ultrasonic.remove();
                 }
             },10);
@@ -297,7 +297,7 @@ export class Bunretu extends ZytuComonClass {
         });
 
         const num = system.runInterval(() => {
-            if (tokage != undefined && tokage.isValid()) {
+            if (tokage !== undefined && tokage.isValid()) {
                 const distance = getLookLocationDistance(tokage.getRotation().y, 3, 0, 0);
                 tokage.applyKnockback(distance.x,distance.z,10,0);
 
@@ -311,7 +311,7 @@ export class Bunretu extends ZytuComonClass {
         }, 2);
         system.runTimeout(() => {
             system.clearRun(num);
-            if (tokage != undefined && tokage.isValid()) {
+            if (tokage !== undefined && tokage.isValid()) {
                 tokage.remove();
             }
         },60);

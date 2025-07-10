@@ -12,38 +12,38 @@ interface GunMagicObject {
 const GunChargeObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_magic_gun",
-        event: "kurokumaft:fire_magic_bullet",
-        sendMsg: "magic.kurokumaft:fire_magic_bullet.translate",
+        event: "kurokumaft:fire_magic_bulconst",
+        sendMsg: "magic.kurokumaft:fire_magic_bulconst.translate",
         property: "kurokumaft:gun_charge_fire"
     },
     {
         itemName: "kurokumaft:water_magic_gun",
-        event: "kurokumaft:water_magic_bullet",
-        sendMsg: "magic.kurokumaft:water_magic_bullet.translate",
+        event: "kurokumaft:water_magic_bulconst",
+        sendMsg: "magic.kurokumaft:water_magic_bulconst.translate",
         property: "kurokumaft:gun_charge_water"
     },
     {
         itemName: "kurokumaft:wind_magic_gun",
-        event: "kurokumaft:wind_magic_bullet",
-        sendMsg: "magic.kurokumaft:wind_magic_bullet.translate",
+        event: "kurokumaft:wind_magic_bulconst",
+        sendMsg: "magic.kurokumaft:wind_magic_bulconst.translate",
         property: "kurokumaft:gun_charge_wind"
     },
     {
         itemName: "kurokumaft:stone_magic_gun",
-        event: "kurokumaft:stone_magic_bullet",
-        sendMsg: "magic.kurokumaft:stone_magic_bullet.translate",
+        event: "kurokumaft:stone_magic_bulconst",
+        sendMsg: "magic.kurokumaft:stone_magic_bulconst.translate",
         property: "kurokumaft:gun_charge_stone"
     },
     {
         itemName: "kurokumaft:lightning_magic_gun",
-        event: "kurokumaft:lightning_magic_bullet",
-        sendMsg: "magic.kurokumaft:lightning_magic_bullet.translate",
+        event: "kurokumaft:lightning_magic_bulconst",
+        sendMsg: "magic.kurokumaft:lightning_magic_bulconst.translate",
         property: "kurokumaft:gun_charge_lightning"
     },
     {
         itemName: "kurokumaft:ice_magic_gun",
-        event: "kurokumaft:ice_magic_bullet",
-        sendMsg: "magic.kurokumaft:ice_magic_bullet.translate",
+        event: "kurokumaft:ice_magic_bulconst",
+        sendMsg: "magic.kurokumaft:ice_magic_bulconst.translate",
         property: "kurokumaft:gun_charge_ice"
     }
 ]);
@@ -55,14 +55,14 @@ const GunChargeObjects = Object.freeze([
 export class GunShotMagic implements ItemCustomComponent {
 
     // チャージ完了
-    onCompleteUse(event:ItemComponentCompleteUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+    onCompconsteUse(event:ItemComponentCompleteUseEvent) {
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
         if (!itemStack) {
             return;
         }
 
-        let gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
+        const gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
         if (gunMagicObject) {
            player.setProperty(gunMagicObject.property, 1);
         }
@@ -70,13 +70,13 @@ export class GunShotMagic implements ItemCustomComponent {
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
         if (!itemStack) {
             return;
         }
-        let gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
+        const gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
         if (gunMagicObject) {
             if (player.getProperty(gunMagicObject.property) == 2) {
                 magicGunShot(player, itemStack, gunMagicObject);
@@ -87,7 +87,7 @@ export class GunShotMagic implements ItemCustomComponent {
 
 export function isChargeed(player:Player, itemStack:ItemStack) : boolean {
 
-    let gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
+    const gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
     if (gunMagicObject) {
         if (player.getProperty(gunMagicObject.property) == 1) {
             player.setProperty(gunMagicObject.property, 2);
@@ -121,6 +121,6 @@ async function magicGunShot(player: Player, itemStack: ItemStack, gunMagicObject
     }
     itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     player.setProperty(gunMagicObject.property, 0);
-    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + gunMagicObject.sendMsg + "\"}]}");
+    player.onScreenDisplay.setActionBar({rawtext:[{translate:"gunMagicObject.sendMsg"}]});
 
 }

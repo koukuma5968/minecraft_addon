@@ -86,8 +86,8 @@ export class BowShotMagic implements ItemCustomComponent {
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
         if (!itemStack) {
             return;
@@ -108,9 +108,9 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
 
     player.setDynamicProperty("BowShotMagicCharge", false);
 
-    let bowMagicObject = BowChargeObjects.find(obj => obj.itemName == itemStack.typeId) as BowMagicObject;
+    const bowMagicObject = BowChargeObjects.find(obj => obj.itemName == itemStack.typeId) as BowMagicObject;
     if (bowMagicObject) {
-        let speed = Math.ceil(clamp((bowMagicObject.maxduration - duration/TicksPerSecond), 0.0, 5.0) * bowMagicObject.addition);
+        const speed = Math.ceil(clamp((bowMagicObject.maxduration - duration/TicksPerSecond), 0.0, 5.0) * bowMagicObject.addition);
         if (itemStack.typeId == "kurokumaft:wind_magic_bow") {
             windArrowShot(player, bowMagicObject.event, 2, speed);
         } else if (itemStack.typeId == "kurokumaft:water_magic_bow") {
@@ -118,7 +118,7 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
         } else {
             shooting(player, bowMagicObject.event, 0, speed, undefined);
         }
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + bowMagicObject.sendMsg + "\"}]}");
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:"bowMagicObject.sendMsg"}]});
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
@@ -164,7 +164,7 @@ export function checkArrowProjectile(projectileName:string) {
 }
 
 export function hitArrowEvent(projectile:Entity, target:Entity) {
-    let proje = BowCProjectilehargeObjects.find(obj => obj.itemName == projectile.typeId) as BowMagicObject;
+    const proje = BowCProjectilehargeObjects.find(obj => obj.itemName == projectile.typeId) as BowMagicObject;
     try {
         proje.func(target);
     } catch (error) {

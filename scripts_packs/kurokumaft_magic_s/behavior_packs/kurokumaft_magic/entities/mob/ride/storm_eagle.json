@@ -1,5 +1,5 @@
 {
-  "format_version": "1.20.10",
+  "format_version": "1.21.90",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:storm_eagle",
@@ -26,10 +26,20 @@
             "player",
             "zombie"
           ],
+          "dismount_mode": "on_top_center",
           "interact_text": "action.interact.mount",
-          "seats": {
-            "position": [ 0.0, 1.1, -0.2 ]
-          }
+          "seats": [
+            {
+              "min_rider_count": 0,
+              "max_rider_count": 2,
+              "position": [ 0.0, 1.1, -0.2 ]
+            },
+            {
+              "min_rider_count": 1,
+              "max_rider_count": 2,
+              "position": [ 0.0, -0.1, -0.2 ]
+            }
+          ]
 
         },
   
@@ -330,9 +340,13 @@
         ]
       },
       "minecraft:leashable": {
-        "soft_distance": 4.0,
-        "hard_distance": 6.0,
-        "max_distance": 10.0
+        "presets": [
+          {
+            "soft_distance": 4.0,
+            "hard_distance": 6.0,
+            "max_distance": 10.0
+          }
+        ]
       },
       "minecraft:balloonable": {
       },
@@ -362,7 +376,7 @@
       "minecraft:damage_sensor": {
         "triggers": {
           "cause": "fall",
-          "deals_damage": false
+          "deals_damage": "no"
         }
       },
       "minecraft:jump.static": {

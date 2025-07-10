@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { getLookRotaionPoints, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
+import { getLookRotaionPointsV2, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * アースショック
@@ -9,14 +9,14 @@ export async function earthShock(player:Player, entity:Entity) {
 
     player.addTag("earth_shock_self");
 
-    let left = getLookRotaionPoints(entity.getRotation(), 0, 2.5);
+    const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
     entity.dimension.spawnParticle("kurokumaft:earth_shock_particle", {x:entity.location.x+left.x, y:entity.location.y+1.8, z:entity.location.z+left.z});
-    let center = getLookRotaionPoints(entity.getRotation(), 0, 0);
+    const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
     entity.dimension.spawnParticle("kurokumaft:earth_shock_particle", {x:entity.location.x+center.x, y:entity.location.y+1.8, z:entity.location.z+center.z});
-    let right = getLookRotaionPoints(entity.getRotation(), 0, -2.5);
+    const right = getLookRotaionPointsV2(entity.getRotation(), 0, -2.5);
     entity.dimension.spawnParticle("kurokumaft:earth_shock_particle", {x:entity.location.x+right.x, y:entity.location.y+1.8, z:entity.location.z+right.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "earth_shock_self",
         ],
@@ -26,7 +26,7 @@ export async function earthShock(player:Player, entity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -49,10 +49,10 @@ export async function earthShock(player:Player, entity:Entity) {
  */
 export async function gravityField(player:Player) {
     player.addTag("gravity_field_self");
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         player.dimension.spawnParticle("kurokumaft:gravity_field_particle", player.location);
 
-        let filterOption = {
+        const filterOption = {
             excludeTags: [
                 "gravity_field_self",
             ],
@@ -62,7 +62,7 @@ export async function gravityField(player:Player) {
 
         addTeamsTagFilter(player, filterOption);
 
-        let targets = player.dimension.getEntities(filterOption);
+        const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;

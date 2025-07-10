@@ -1,0 +1,19 @@
+{
+  "format_version": "1.20.10",
+  "animation_controllers": {
+    "controller.animation.boss.action": {
+      "states": {
+        "default": {
+          "transitions": [
+            {"moniter": "(1.0)"}
+          ]
+        },
+        "moniter": {
+          "on_entry": [
+            "/event entity @s kurokumaft:moniter_boss_event"
+          ]
+        }
+      }
+    }
+  }
+}

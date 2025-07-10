@@ -59,19 +59,19 @@ const DoubleFlowerBlockS = Object.freeze([
  */
 export async function flowerGarden(event:ItemComponentUseOnEvent) {
 
-    let entity = event.source as Player;
-    let blockPerm = event.usedOnBlockPermutation as BlockPermutation;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
-    let blockFace = event.blockFace as Direction;
-    let faceLocation = event.faceLocation as Vector3;
+    const entity = event.source as Player;
+    const blockPerm = event.usedOnBlockPermutation as BlockPermutation;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
+    const blockFace = event.blockFace as Direction;
+    const faceLocation = event.faceLocation as Vector3;
 
-    let blockDim = block.dimension;
-    let bx = block.location.x;
-    let by = block.location.y;
-    let bz = block.location.z;
+    const blockDim = block.dimension;
+    const bx = block.location.x;
+    const by = block.location.y;
+    const bz = block.location.z;
 
-    let itemCool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+    const itemCool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
 
     let setFireF = false;
 
@@ -85,27 +85,27 @@ export async function flowerGarden(event:ItemComponentUseOnEvent) {
         blockDim.spawnParticle("kurokumaft:flower_garden_growth_emitter", block.location);
         itemCool.startCooldown(entity);
         let xpcount1 = 0;
-        let intervalNumXP = system.runInterval(() => {
+        const intervalNumXP = system.runInterval(() => {
             for (let z=0; z<8;z++) {
-                let vec = {"x":bx+xpcount1,"y":by,"z":bz+z};
-                let upvec = {"x":bx+xpcount1,"y":by+1,"z":bz+z};
-                let dupvec = {"x":bx+xpcount1,"y":by+2,"z":bz+z};
+                const vec = {"x":bx+xpcount1,"y":by,"z":bz+z};
+                const upvec = {"x":bx+xpcount1,"y":by+1,"z":bz+z};
+                const dupvec = {"x":bx+xpcount1,"y":by+2,"z":bz+z};
 
-                let dimeBlock = blockDim.getBlock(vec) as Block;
-                let updimeBlock = blockDim.getBlock(upvec) as Block;
+                const dimeBlock = blockDim.getBlock(vec) as Block;
+                const updimeBlock = blockDim.getBlock(upvec) as Block;
                 if(dimeBlock.typeId == MinecraftBlockTypes.GrassBlock || dimeBlock.typeId == MinecraftBlockTypes.Dirt ) {
                     if (dimeBlock.typeId == MinecraftBlockTypes.Dirt) {
                         blockDim.setBlockType(vec,MinecraftBlockTypes.GrassBlock );
                     }
                     if(updimeBlock.isAir) {
-                        let randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
+                        const randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
                         if (randomBlock == "") {
                             continue;
                         }
-                        let dupdimeBlock = blockDim.getBlock(dupvec) as Block;
+                        const dupdimeBlock = blockDim.getBlock(dupvec) as Block;
                         if (randomBlock == "double") {
                             if (dupdimeBlock.isAir) {
-                                let state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
+                                const state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
                                 blockDim.setBlockPermutation(upvec,BlockPermutation.resolve("minecraft:double_plant",state));
                             }
                         } else {
@@ -121,27 +121,27 @@ export async function flowerGarden(event:ItemComponentUseOnEvent) {
         }, 1);
 
         let xmcount1 = 0;
-        let intervalNumXM = system.runInterval(() => {
+        const intervalNumXM = system.runInterval(() => {
             for (let z=0; z<8;z++) {
-                let vec = {"x":bx+xmcount1,"y":by,"z":bz+z};
-                let upvec = {"x":bx+xmcount1,"y":by+1,"z":bz+z};
-                let dupvec = {"x":bx+xmcount1,"y":by+2,"z":bz+z};
+                const vec = {"x":bx+xmcount1,"y":by,"z":bz+z};
+                const upvec = {"x":bx+xmcount1,"y":by+1,"z":bz+z};
+                const dupvec = {"x":bx+xmcount1,"y":by+2,"z":bz+z};
 
-                let dimeBlock = blockDim.getBlock(vec) as Block;
-                let updimeBlock = blockDim.getBlock(upvec) as Block;
+                const dimeBlock = blockDim.getBlock(vec) as Block;
+                const updimeBlock = blockDim.getBlock(upvec) as Block;
                 if(dimeBlock.typeId == MinecraftBlockTypes.GrassBlock || dimeBlock.typeId == MinecraftBlockTypes.Dirt ) {
                     if (dimeBlock.typeId == MinecraftBlockTypes.Dirt) {
                         blockDim.setBlockType(vec,MinecraftBlockTypes.GrassBlock );
                     }
                     if(updimeBlock.isAir) {
-                        let randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
+                        const randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
                         if (randomBlock == "") {
                             continue;
                         }
-                        let dupdimeBlock = blockDim.getBlock(dupvec) as Block;
+                        const dupdimeBlock = blockDim.getBlock(dupvec) as Block;
                         if (randomBlock == "double") {
                             if (dupdimeBlock.isAir) {
-                                let state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
+                                const state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
                                 blockDim.setBlockPermutation(upvec,BlockPermutation.resolve("minecraft:double_plant",state));
                             }
                         } else {
@@ -156,27 +156,27 @@ export async function flowerGarden(event:ItemComponentUseOnEvent) {
         }, 1);
 
         let xpcount2 = 0;
-        let intervalNumZP = system.runInterval(() => {
+        const intervalNumZP = system.runInterval(() => {
             for (let z=-1; z>-8;z--) {
-                let vec = {"x":bx+xpcount2,"y":by,"z":bz+z};
-                let upvec = {"x":bx+xpcount2,"y":by+1,"z":bz+z};
-                let dupvec = {"x":bx+xpcount2,"y":by+2,"z":bz+z};
+                const vec = {"x":bx+xpcount2,"y":by,"z":bz+z};
+                const upvec = {"x":bx+xpcount2,"y":by+1,"z":bz+z};
+                const dupvec = {"x":bx+xpcount2,"y":by+2,"z":bz+z};
 
-                let dimeBlock = blockDim.getBlock(vec) as Block;
-                let updimeBlock = blockDim.getBlock(upvec) as Block;
+                const dimeBlock = blockDim.getBlock(vec) as Block;
+                const updimeBlock = blockDim.getBlock(upvec) as Block;
                 if(dimeBlock.typeId == MinecraftBlockTypes.GrassBlock || dimeBlock.typeId == MinecraftBlockTypes.Dirt ) {
                     if (dimeBlock.typeId == MinecraftBlockTypes.Dirt) {
                         blockDim.setBlockType(vec,MinecraftBlockTypes.GrassBlock );
                     }
                     if(updimeBlock.isAir) {
-                        let randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
+                        const randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
                         if (randomBlock == "") {
                             continue;
                         }
-                        let dupdimeBlock = blockDim.getBlock(dupvec) as Block;
+                        const dupdimeBlock = blockDim.getBlock(dupvec) as Block;
                         if (randomBlock == "double") {
                             if (dupdimeBlock.isAir) {
-                                let state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
+                                const state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
                                 blockDim.setBlockPermutation(upvec,BlockPermutation.resolve("minecraft:double_plant",state));
                             }
                         } else {
@@ -192,27 +192,27 @@ export async function flowerGarden(event:ItemComponentUseOnEvent) {
         }, 1);
 
         let xmcount2 = 0;
-        let intervalNumZM = system.runInterval(() => {
+        const intervalNumZM = system.runInterval(() => {
             for (let z=-1; z>-8;z--) {
-                let vec = {"x":bx+xmcount2,"y":by,"z":bz+z};
-                let upvec = {"x":bx+xmcount2,"y":by+1,"z":bz+z};
-                let dupvec = {"x":bx+xmcount2,"y":by+2,"z":bz+z};
+                const vec = {"x":bx+xmcount2,"y":by,"z":bz+z};
+                const upvec = {"x":bx+xmcount2,"y":by+1,"z":bz+z};
+                const dupvec = {"x":bx+xmcount2,"y":by+2,"z":bz+z};
 
-                let dimeBlock = blockDim.getBlock(vec) as Block;
-                let updimeBlock = blockDim.getBlock(upvec) as Block;
+                const dimeBlock = blockDim.getBlock(vec) as Block;
+                const updimeBlock = blockDim.getBlock(upvec) as Block;
                 if(dimeBlock.typeId == MinecraftBlockTypes.GrassBlock || dimeBlock.typeId == MinecraftBlockTypes.Dirt ) {
                     if (dimeBlock.typeId == MinecraftBlockTypes.Dirt) {
                         blockDim.setBlockType(vec,MinecraftBlockTypes.GrassBlock );
                     }
                     if(updimeBlock.isAir) {
-                        let randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
+                        const randomBlock = FlowerBlockS[Math.floor(Math.random() * FlowerBlockS.length)];
                         if (randomBlock == "") {
                             continue;
                         }
-                        let dupdimeBlock = blockDim.getBlock(dupvec) as Block;
+                        const dupdimeBlock = blockDim.getBlock(dupvec) as Block;
                         if (randomBlock == "double") {
                             if (dupdimeBlock.isAir) {
-                                let state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
+                                const state = DoubleFlowerBlockS[Math.floor(Math.random() * DoubleFlowerBlockS.length)];
                                 blockDim.setBlockPermutation(upvec,BlockPermutation.resolve("minecraft:double_plant",state));
                             }
                         } else {
@@ -256,19 +256,19 @@ const wood_sapling = Object.freeze([
 */
 export async function growth(event:ItemComponentUseOnEvent) {
 
-    let player = event.source as Player;
-    let blockPerm = event.usedOnBlockPermutation as BlockPermutation;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
-    let blockFace = event.blockFace as Direction;
-    let faceLocation = event.faceLocation as Vector3;
+    const player = event.source as Player;
+    const blockPerm = event.usedOnBlockPermutation as BlockPermutation;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
+    const blockFace = event.blockFace as Direction;
+    const faceLocation = event.faceLocation as Vector3;
 
 
-    let blockPer = block.permutation;
-    let blockDim = block.dimension;
-    let bx = block.location.x;
-    let by = block.location.y;
-    let bz = block.location.z;
+    const blockPer = block.permutation;
+    const blockDim = block.dimension;
+    const bx = block.location.x;
+    const by = block.location.y;
+    const bz = block.location.z;
 
     let setFireF = false;
 
@@ -323,7 +323,7 @@ export async function growth(event:ItemComponentUseOnEvent) {
         }
         blockDim.spawnParticle("minecraft:crop_growth_emitter", block.location);
     } else if ((wood_sapling.indexOf(block.typeId) != -1)) {
-        let age_bit = blockPer.getState("age_bit");
+        const age_bit = blockPer.getState("age_bit");
         if (age_bit) {
 
         }

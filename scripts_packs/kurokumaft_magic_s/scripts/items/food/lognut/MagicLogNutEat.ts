@@ -45,9 +45,9 @@ const MagicLogNutObjects = Object.freeze([
 export class MagicLogNutEat implements ItemCustomComponent {
 
     onConsume(event:ItemComponentConsumeEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
-        let nut = MagicLogNutObjects.find(obj => obj.itemName == itemStack.typeId) as MagicLogNutObject;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
+        const nut = MagicLogNutObjects.find(obj => obj.itemName == itemStack.typeId) as MagicLogNutObject;
         nut.func(player);
     }
 

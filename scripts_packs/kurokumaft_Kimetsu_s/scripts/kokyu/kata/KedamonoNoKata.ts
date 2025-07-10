@@ -159,7 +159,7 @@ export class KedamonoNoKata extends KataComonClass {
      */
     shitiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu7.value"}]});
             }
@@ -202,7 +202,7 @@ export class KedamonoNoKata extends KataComonClass {
      */
     hachiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu8.value"}]});
             }
@@ -245,7 +245,7 @@ export class KedamonoNoKata extends KataComonClass {
      */
     zyuNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             entity.setDynamicProperty("kurokumaft:chage_type", true);
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu10.value"}]});

@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
@@ -11,7 +11,7 @@ export async function burstRondo(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:fire_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "burstRondo_self"
         ],
@@ -20,7 +20,7 @@ export async function burstRondo(player:Player, hitEntity:Entity) {
     } as EntityQueryOptions;
 
     addTeamsTagFilter(player, filterOption);
-    let targets = hitEntity.dimension.getEntities(filterOption) as Entity[];
+    const targets = hitEntity.dimension.getEntities(filterOption) as Entity[];
     targets.forEach(en => {
         let damage = 2 as number;
         if (en instanceof Player) {
@@ -39,7 +39,7 @@ export async function burstRondo(player:Player, hitEntity:Entity) {
  */
 export async function firewall(player:Player) {
 
-    let look = getLookRotaionPoints(player.getRotation(), 4, 0);
+    const look = getLookRotaionPointsV2(player.getRotation(), 4, 0);
     player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y, z:player.location.z+look.z}, MinecraftBlockTypes.Magma);
     player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y+1, z:player.location.z+look.z}, MinecraftBlockTypes.Magma);
 

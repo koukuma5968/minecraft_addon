@@ -9,12 +9,12 @@ import { MinecraftBlockTypes, MinecraftEntityTypes } from "@minecraft/vanilla-da
  */
 export async function torchlight(event:ItemComponentUseOnEvent) {
 
-    let entity = event.source as Entity;
-    let blockPerm = event.usedOnBlockPermutation as BlockPermutation;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
-    let blockFace = event.blockFace as Direction;
-    let faceLocation = event.faceLocation as Vector3;
+    const entity = event.source as Entity;
+    const blockPerm = event.usedOnBlockPermutation as BlockPermutation;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
+    const blockFace = event.blockFace as Direction;
+    const faceLocation = event.faceLocation as Vector3;
 
     if ((block.typeId.indexOf("chest") == -1) && (block.typeId.indexOf("boat") == -1) && (MagicCraftBlocks.indexOf(block.typeId) == -1)) {
         decrimentGrimoireCount(entity as Player, itemStack);
@@ -28,16 +28,16 @@ export async function torchlight(event:ItemComponentUseOnEvent) {
  */
 export async function ignited(event:ItemComponentUseOnEvent) {
 
-    let entity = event.source as Entity;
-    let blockPerm = event.usedOnBlockPermutation as BlockPermutation;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
-    let blockFace = event.blockFace as Direction;
-    let faceLocation = event.faceLocation as Vector3;
+    const entity = event.source as Entity;
+    const blockPerm = event.usedOnBlockPermutation as BlockPermutation;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
+    const blockFace = event.blockFace as Direction;
+    const faceLocation = event.faceLocation as Vector3;
 
-    let blockPer = block.permutation;
-    let extinguished = blockPer.getState("extinguished");
-    let lit = blockPer.getState("lit");
+    const blockPer = block.permutation;
+    const extinguished = blockPer.getState("extinguished");
+    const lit = blockPer.getState("lit");
 
     let setFireF = false;
 
@@ -51,22 +51,22 @@ export async function ignited(event:ItemComponentUseOnEvent) {
         block.setPermutation(blockPer.withState("lit", true));
         setFireF = true;
     } else if (block.typeId == "minecraft:tnt") {
-        let blockDim = block.dimension as Dimension;
+        const blockDim = block.dimension as Dimension;
         blockDim.setBlockType(block.location, MinecraftBlockTypes.Air);
-        let tnt = blockDim.spawnEntity(MinecraftEntityTypes.Tnt, block.location);
+        const tnt = blockDim.spawnEntity(MinecraftEntityTypes.Tnt, block.location);
         setFireF = true;
     } else {
         BlockLocationList.forEach(obj => {
             if (obj.direction == blockFace) {
-                let bx = block.location.x;
-                let by = block.location.y;
-                let bz = block.location.z;
-                let vec = {"x":bx+obj.location.x,"y":by+obj.location.y,"z":bz+obj.location.z};
+                const bx = block.location.x;
+                const by = block.location.y;
+                const bz = block.location.z;
+                const vec = {"x":bx+obj.location.x,"y":by+obj.location.y,"z":bz+obj.location.z};
 
-                let blockDim = block.dimension as Dimension;
-                let dimeBlock = blockDim.getBlock(vec) as Block;
+                const blockDim = block.dimension as Dimension;
+                const dimeBlock = blockDim.getBlock(vec) as Block;
                 if(dimeBlock.isAir) {
-                    let setLocation = {x:(bx+obj.location.x),y:(by+obj.location.y),z:(bz+obj.location.z)};
+                    const setLocation = {x:(bx+obj.location.x),y:(by+obj.location.y),z:(bz+obj.location.z)};
                     blockDim.setBlockPermutation(setLocation, BlockPermutation.resolve(MinecraftBlockTypes.Fire, {age:0}));
                     setFireF = true;
                 }
@@ -86,23 +86,23 @@ export async function ignited(event:ItemComponentUseOnEvent) {
  */
 export async function ignitedTnt(event:ItemComponentUseOnEvent) {
 
-    let entity = event.source as Entity;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
+    const entity = event.source as Entity;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
 
-    let bx = block.location.x;
-    let by = block.location.y;
-    let bz = block.location.z;
+    const bx = block.location.x;
+    const by = block.location.y;
+    const bz = block.location.z;
 
     if ((MagicCraftBlocks.indexOf(block.typeId) != -1)) {
         return;
     }
 
     if (block.typeId == "minecraft:tnt") {
-        let location = {x:bx,y:by,z:bz};
+        const location = {x:bx,y:by,z:bz};
         // print("tnt spawn");
         entity.dimension.setBlockType(location, MinecraftBlockTypes.Air);
-        let tnt = entity.dimension.spawnEntity(MinecraftEntityTypes.Tnt, location) as Entity;
+        const tnt = entity.dimension.spawnEntity(MinecraftEntityTypes.Tnt, location) as Entity;
         tnt.triggerEvent("from_explosion");
 
         decrimentGrimoireCount(entity as Player, itemStack);

@@ -45,11 +45,11 @@ const FiringOreBlocks = Object.freeze([
 export async function firingOreBlock(event:ItemComponentUseOnEvent) {
     try {
 
-        let entity = event.source as Entity;
-        let itemStack = event.itemStack as ItemStack;
-        let block = event.block as Block;
+        const entity = event.source as Entity;
+        const itemStack = event.itemStack as ItemStack;
+        const block = event.block as Block;
 
-        let oreBlock = FiringOreBlocks.find(obj => obj.block == block.typeId) as FiringOreBlockObject;
+        const oreBlock = FiringOreBlocks.find(obj => obj.block == block.typeId) as FiringOreBlockObject;
         if (oreBlock != undefined) {
             block.dimension.setBlockType(block.location, MinecraftBlockTypes.Air);
             block.dimension.spawnItem(new ItemStack(oreBlock.item, getRandomInRange(1,3)), {x:block.location.x,y:block.location.y+1,z:block.location.z});
@@ -57,7 +57,7 @@ export async function firingOreBlock(event:ItemComponentUseOnEvent) {
             itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
         }
 
-        let blockVol = new BlockVolume(
+        const blockVol = new BlockVolume(
             {
                 x:block.location.x-4,
                 y:block.location.y-4,
@@ -69,12 +69,12 @@ export async function firingOreBlock(event:ItemComponentUseOnEvent) {
                 z:block.location.z+4
             }
         );
-        let blockIt = blockVol.getBlockLocationIterator();
+        const blockIt = blockVol.getBlockLocationIterator();
         let nextValue = blockIt.next();
         while (!nextValue.done) {
-            let value = nextValue.value;
+            const value = nextValue.value;
             if (value.y >= -64) {
-                let breakBlock = block.dimension.getBlock(value);
+                const breakBlock = block.dimension.getBlock(value);
                 if (breakBlock != undefined) {
                     if (breakBlock.typeId.indexOf("_terracotta") != -1 && breakBlock.typeId.indexOf("_glazed_") == -1) {
                         breakBlock.dimension.setBlockType(breakBlock.location, breakBlock.typeId.split("_").join("_glazed_"));

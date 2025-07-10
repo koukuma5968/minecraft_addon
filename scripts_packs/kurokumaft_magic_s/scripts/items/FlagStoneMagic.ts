@@ -34,10 +34,10 @@ export class FlagStoneMagic implements ItemCustomComponent {
 
     // ブロッククリック
     onUseOn(event:ItemComponentUseOnEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
-        let magicObject = FlagStoneObjects.find(obj => obj.itemName == itemStack.typeId) as FlagStoneObject;
+        const magicObject = FlagStoneObjects.find(obj => obj.itemName == itemStack.typeId) as FlagStoneObject;
         if (magicObject) {
             setPortalStand(magicObject, event);
             itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
@@ -47,11 +47,11 @@ export class FlagStoneMagic implements ItemCustomComponent {
 }
 
 async function setPortalStand(magicObject:FlagStoneObject ,event:ItemComponentUseOnEvent) {
-    let block = event.block;
-    let face = event.blockFace;
+    const block = event.block;
+    const face = event.blockFace;
     if (magicObject.blockName == block.typeId && face == "Up") {
-        let dimension = block.dimension;
-        let location = block.location;
+        const dimension = block.dimension;
+        const location = block.location;
         let xLoca = true;
         A:
         for (let x=-2; x<=2; x++) {

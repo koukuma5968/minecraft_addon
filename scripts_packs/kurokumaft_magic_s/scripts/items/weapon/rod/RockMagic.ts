@@ -11,7 +11,7 @@ export async function stoneBread(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:stone_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "stone_bread_self",
         ],
@@ -21,7 +21,7 @@ export async function stoneBread(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -47,7 +47,7 @@ export async function stoneBread(player:Player, hitEntity:Entity) {
 export async function rockbreak(player:Player) {
     player.addTag("rock_break_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "rock_break_self",
         ],
@@ -58,7 +58,7 @@ export async function rockbreak(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -73,7 +73,7 @@ export async function rockbreak(player:Player) {
                 amplifier: 10
             });
         }
-        let rock = en.dimension.spawnEntity("kurokumaft:rockbreakmagic", {x:en.location.x,y:en.location.y + 10, z:en.location.z});
+        const rock = en.dimension.spawnEntity("kurokumaft:rockbreakmagic", {x:en.location.x,y:en.location.y + 10, z:en.location.z});
     });
 
     player.removeTag("rock_break_self");
@@ -85,7 +85,7 @@ export async function rockbreak(player:Player) {
 export async function greybomb(player:Player) {
     player.addTag("grey_bomb_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "grey_bomb_self",
         ],
@@ -96,7 +96,7 @@ export async function greybomb(player:Player) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;

@@ -7,9 +7,8 @@ import { print } from "./MagicCommonUtil";
  * @param {Vector3} location
  */
 function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
-    let r = 1;  // 半径
 
-    let piNum = 75;
+    const piNum = 75;
     let xapply;
     let yapply;
     let zapply;

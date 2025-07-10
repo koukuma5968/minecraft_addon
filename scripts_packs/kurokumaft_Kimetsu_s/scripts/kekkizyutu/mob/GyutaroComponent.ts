@@ -15,7 +15,7 @@ const gyutaroKekkizyutuLists = weightChoice([
 export class GyutaroComponent implements KekkizyutuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity != undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid()) {
             entity.setProperty("kurokumaft:kokyu_use", true);
             entity.setProperty("kurokumaft:kokyu_particle", true);
             this.useAttackZyutu(entity);

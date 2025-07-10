@@ -87,34 +87,34 @@ export class BreadWeaponMagic implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let effect = event.hadEffect as boolean;
+        const itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Player;
+        const hitEntity = event.hitEntity as Entity;
+        const effect = event.hadEffect as boolean;
 
         if (!itemStack) {
             return;
         }
-        let breadMagicObject = BreadHitObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
+        const breadMagicObject = BreadHitObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadMagicObject.func(hitEntity);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + breadMagicObject.sendMsg + "\"}]}");
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"breadMagicObject.sendMsg"}]});
         itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 
     }
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
         if (!itemStack) {
             return;
         }
-        let breadShotObject = BreadShotObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
+        const breadShotObject = BreadShotObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadShotObject.func(player);
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + breadShotObject.sendMsg + "\"}]}");
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:"breadShotObject.sendMsg"}]});
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-        let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+        const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
     }
 

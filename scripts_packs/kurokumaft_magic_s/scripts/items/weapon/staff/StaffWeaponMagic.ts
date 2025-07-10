@@ -67,34 +67,34 @@ export class StaffWeaponMagic implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let effect = event.hadEffect as boolean;
+        const itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Player;
+        const hitEntity = event.hitEntity as Entity;
+        const effect = event.hadEffect as boolean;
 
         if (!itemStack) {
             return;
         }
-        let staffMagicObject = StaffHitObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
+        const staffMagicObject = StaffHitObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
         staffMagicObject.func(attackEntity);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + staffMagicObject.sendMsg + "\"}]}");
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"staffMagicObject.sendMsg"}]});
 
     }
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
-        let staffRightOneMagicObject = StaffRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
+        const staffRightOneMagicObject = StaffRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
         if (staffRightOneMagicObject) {
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + staffRightOneMagicObject.sendMsg + "\"}]}");
+            player.onScreenDisplay.setActionBar({rawtext:[{translate:"staffRightOneMagicObject.sendMsg"}]});
             staffRightOneMagicObject.func(player);
         }
 
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
-        let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+        const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
 
     }

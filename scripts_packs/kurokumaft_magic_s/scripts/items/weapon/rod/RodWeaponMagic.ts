@@ -7,7 +7,7 @@ import { aerobomb, storm, stormBread } from "./StormMagic";
 import { greybomb, rockbreak, stoneBread } from "./RockMagic";
 import { lightningBread, thunderclap, thunderjail } from "./ThunderclapMagic";
 import { freezConclusion, iceBread } from "./FreezeMagic";
-import { brushash, darkFang, summonSkeleton } from "./DarknessMagic";
+import { brushash, darkFang, summonSkeconston } from "./DarknessMagic";
 import { areaheel, lightFang, summonGolem } from "./BrightnessMagic";
 
 interface RodFuncMagicObject {
@@ -149,8 +149,8 @@ const RodRightFuncMagicObjects = Object.freeze([
     },
     {
         itemName: "kurokumaft:darkness_rod",
-        func: summonSkeleton,
-        sendMsg: "magic.kurokumaft:summonSkeleton.translate"
+        func: summonSkeconston,
+        sendMsg: "magic.kurokumaft:summonSkeconston.translate"
     },
     {
         itemName: "kurokumaft:brightness_rod",
@@ -167,48 +167,48 @@ export class RodWeaponMagic implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let effect = event.hadEffect as boolean;
+        const itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Player;
+        const hitEntity = event.hitEntity as Entity;
+        const effect = event.hadEffect as boolean;
 
         if (!itemStack) {
             return;
         }
-        let wandMagicObject = RodHitObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
+        const wandMagicObject = RodHitObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
         wandMagicObject.func(attackEntity, hitEntity);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + wandMagicObject.sendMsg + "\"}]}");
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"wandMagicObject.sendMsg"}]});
 
     }
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
         if (player.isSneaking) {
-            let rodFuncMagicObject = RodRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
+            const rodFuncMagicObject = RodRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
             if (rodFuncMagicObject) {
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + rodFuncMagicObject.sendMsg + "\"}]}");
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"rodFuncMagicObject.sendMsg"}]});
                 rodFuncMagicObject.func(player);
             }
         } else {
-            let rodShotMagicObject = RodShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
+            const rodShotMagicObject = RodShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodMagicObject;
             if (rodShotMagicObject) {
 
                 shooting(player, rodShotMagicObject.event, 0, rodShotMagicObject.addition, undefined);
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + rodShotMagicObject.sendMsg + "\"}]}");
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"rodShotMagicObject.sendMsg"}]});
             }
-            let rodRightOneMagicObject = RodRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
+            const rodRightOneMagicObject = RodRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
             if (rodRightOneMagicObject) {
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + rodRightOneMagicObject.sendMsg + "\"}]}");
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"rodRightOneMagicObject.sendMsg"}]});
                 rodRightOneMagicObject.func(player);
             }
         }
 
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
-        let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+        const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
 
     }

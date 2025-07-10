@@ -108,7 +108,7 @@ const GrimoireBookOjects = Object.freeze({
  * @param {string} bookId
  */
 function getGrimoireObjectId(bookId:string) {
-    let grimoireKeys = Object.keys(GrimoireBookOjects) as (keyof typeof GrimoireBookOjects)[];
+    const grimoireKeys = Object.keys(GrimoireBookOjects) as (keyof typeof GrimoireBookOjects)[];
     return grimoireKeys.find(obj => GrimoireBookOjects[obj].typeId == bookId) as string;
 };
 
@@ -118,8 +118,8 @@ function getGrimoireObjectId(bookId:string) {
  * @param {string} itemName
  */
 function isGrimoireItemsObject(grimoireItemType:string, itemName:string) {
-    let grimoireKeys = Object.keys(GrimoireBookOjects) as (keyof typeof GrimoireBookOjects)[];
-    let type = grimoireKeys.find(obj => obj == grimoireItemType);
+    const grimoireKeys = Object.keys(GrimoireBookOjects) as (keyof typeof GrimoireBookOjects)[];
+    const type = grimoireKeys.find(obj => obj == grimoireItemType);
     if (type) {
         return GrimoireBookOjects[type].items.find(item => item.name == itemName) != undefined;
     }
@@ -132,7 +132,7 @@ function isGrimoireItemsObject(grimoireItemType:string, itemName:string) {
  * @param {string} itemName
  */
 function isGrimoireAllItemsObject(itemName:string) {
-    let items = (Object.values(GrimoireBookOjects).find(obj => {
+    const items = (Object.values(GrimoireBookOjects).find(obj => {
         return obj.items.find(itemObj => {
             return itemObj.name == itemName;
         });
@@ -146,8 +146,8 @@ function isGrimoireAllItemsObject(itemName:string) {
  * @param {string} itemName
  */
 function getGrimoireItemsMultiValue(grimoireItemType:string, itemName:string) {
-    let grimoireKeys = Object.keys(GrimoireBookOjects) as (keyof typeof GrimoireBookOjects)[];
-    let type = grimoireKeys.find(obj => obj == grimoireItemType);
+    const grimoireKeys = Object.keys(GrimoireBookOjects) as (keyof typeof GrimoireBookOjects)[];
+    const type = grimoireKeys.find(obj => obj == grimoireItemType);
     if (type) {
         return GrimoireBookOjects[type].items.find(item => item.name == itemName)?.multiValue;
     }
@@ -175,8 +175,8 @@ function getGrimoireAllItemsMultiValue(itemName:string) {
  * @param {string} itemName
  */
 function getGrimoireAllItemsId(itemName:string) {
-    let obj = Object.values(GrimoireBookOjects).find(obj => {
-        let filObj = obj.items.find(itemObj => {
+    const obj = Object.values(GrimoireBookOjects).find(obj => {
+        const filObj = obj.items.find(itemObj => {
             return itemObj.name == itemName;
         });
         return filObj;
@@ -189,7 +189,7 @@ function getGrimoireAllItemsId(itemName:string) {
  * @param {string} typeId
  */
 function getGrimoireAllItemsEvent(typeId:string) {
-    let obj = Object.values(GrimoireBookOjects).find(obj => {
+    const obj = Object.values(GrimoireBookOjects).find(obj => {
         return obj.typeId == typeId;
     }) as GrimoireBook;
     return obj.event as string;

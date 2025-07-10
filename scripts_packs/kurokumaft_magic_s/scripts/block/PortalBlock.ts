@@ -24,8 +24,8 @@ const PortalObjects = Object.freeze([
 export class PortalBlock implements BlockCustomComponent {
 
     onPlayerDestroy(blockEvent:BlockComponentPlayerDestroyEvent) {
-        let blockPermutation = blockEvent.destroyedBlockPermutation as BlockPermutation;
-        let block = blockEvent.block;
+        const blockPermutation = blockEvent.destroyedBlockPermutation as BlockPermutation;
+        const block = blockEvent.block;
         portalGateBreak(block, blockPermutation);
     }
 
@@ -33,12 +33,12 @@ export class PortalBlock implements BlockCustomComponent {
 
 export async function portalGateBreak(block:Block, blockPermutation:BlockPermutation) {
 
-    let portalObj = PortalObjects.find(obj => obj.itemName == blockPermutation.type.id) as PortalObject;
+    const portalObj = PortalObjects.find(obj => obj.itemName == blockPermutation.type.id) as PortalObject;
     if (portalObj) {
         world.setDynamicProperty(portalObj.portalState, 0);
         for (let x=-2; x<=2; x++) {
             for (let y=-2; y<=2; y++) {
-                let portal = block.dimension.getBlock({x:block.location.x+x,y:block.location.y+y,z:block.location.z}) as Block;
+                const portal = block.dimension.getBlock({x:block.location.x+x,y:block.location.y+y,z:block.location.z}) as Block;
                 if (portal && portal.typeId == portalObj.itemName) {
                     block.dimension.setBlockType({x:block.location.x+x,y:block.location.y+y,z:block.location.z}, MinecraftBlockTypes.Air);
                 }
@@ -46,7 +46,7 @@ export async function portalGateBreak(block:Block, blockPermutation:BlockPermuta
         }
         for (let z=-2; z<=2; z++) {
             for (let y=-2; y<=2; y++) {
-                let portal = block.dimension.getBlock({x:block.location.x,y:block.location.y+y,z:block.location.z+z}) as Block;
+                const portal = block.dimension.getBlock({x:block.location.x,y:block.location.y+y,z:block.location.z+z}) as Block;
                 if (portal && portal.typeId == portalObj.itemName) {
                     block.dimension.setBlockType({x:block.location.x,y:block.location.y+y,z:block.location.z+z}, MinecraftBlockTypes.Air);
                 }

@@ -23,7 +23,7 @@ function clamp(value:number, min:number, max:number) {
  * @param {number} max
  */
 function getRandomInRange(min:number, max:number) {
-    return Math.random() * (max - min) + min;
+    return Math.round(Math.random() * (max - min) + min);
 }
 
 /**
@@ -209,17 +209,17 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, en
     } as EntityQueryOptions;
 
     const familyTypes = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-    if (familyTypes != undefined && familyTypes.hasTypeFamily("ogre")) {
+    if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
         filterOption.excludeFamilies = [
             "inanimate", "animal"
         ];
-    } else if (familyTypes != undefined && familyTypes.hasTypeFamily("player")) {
+    } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("player")) {
         filterOption.excludeFamilies = [
             "inanimate", "animal"
         ];
     } else {
         const tags = entity.getTags();
-        if (tags.indexOf("hostility") != -1) {
+        if (tags.indexOf("hostility") !== -1) {
             filterOption.excludeFamilies = [
                 "inanimate", "regimental_soldier", "villager", "animal"
             ];
@@ -229,7 +229,7 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, en
     if (!world.gameRules.pvp) {
         filterOption.excludeFamilies?.push("player");
     }
-    if (closest != 0) {
+    if (closest !== 0) {
         filterOption.closest = closest;
     }
 
@@ -256,7 +256,7 @@ function addOrgeFilter(closest:number, location:Vector3, maxDis:number, exeTag:s
     if (!world.gameRules.pvp) {
         filterOption.excludeFamilies?.push("player");
     }
-    if (closest != 0) {
+    if (closest !== 0) {
         filterOption.closest = closest;
     }
 
@@ -274,7 +274,7 @@ function addProjectionFilter(closest:number, location:Vector3, maxDis:number): E
         maxDistance: maxDis
     } as EntityQueryOptions;
 
-    if (closest != 0) {
+    if (closest !== 0) {
         filterOption.closest = closest;
     }
 

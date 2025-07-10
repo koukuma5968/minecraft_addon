@@ -4,7 +4,7 @@ import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from
  * ファイアアロー
  */
 export async function fireArrow(entity:Entity) {
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {

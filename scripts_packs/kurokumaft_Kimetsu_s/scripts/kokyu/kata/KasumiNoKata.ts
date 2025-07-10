@@ -37,7 +37,7 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
-                if (entity == undefined) {
+                if (entity === undefined) {
                     system.clearRun(num);
                     return;
                 }
@@ -96,7 +96,7 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
-                if (entity == undefined) {
+                if (entity === undefined) {
                     system.clearRun(num);
                     return;
                 }
@@ -134,7 +134,7 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
-                if (entity == undefined) {
+                if (entity === undefined) {
                     system.clearRun(num);
                     return;
                 }
@@ -177,7 +177,7 @@ export class KasumiNoKata extends KataComonClass {
 
         const num = system.runInterval(() => {
             try {
-                if (entity == undefined) {
+                if (entity === undefined) {
                     system.clearRun(num);
                     return;
                 }
@@ -212,7 +212,7 @@ export class KasumiNoKata extends KataComonClass {
      */
     shitiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
-        if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+        if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kasumi_kokyu7.value"}]});
             }
@@ -234,13 +234,13 @@ export class KasumiNoKata extends KataComonClass {
             });
             const num = system.runInterval(() => {
                 try {
-                    if (entity == undefined) {
+                    if (entity === undefined) {
                         system.clearRun(num);
                         return;
                     }
                     entity.dimension.spawnParticle("kurokumaft:kasumi_fog_lage_particle",entity.location, molang);
         
-                    if (entity.getProperty("kurokumaft:kokyu_chage") == 1) {
+                    if (entity.getProperty("kurokumaft:kokyu_chage") === 1) {
                         entity.setProperty("kurokumaft:kokyu_chage", 2);
                         entity.removeEffect(MinecraftEffectTypes.Invisibility);
                     } else {

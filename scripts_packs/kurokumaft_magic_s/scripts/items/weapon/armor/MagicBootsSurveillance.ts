@@ -105,12 +105,12 @@ export class MagicBootsSurveillance {
 
     private async checkJob() {
 
-        let equItem = MagicBootsObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicBootsObject;
+        const equItem = MagicBootsObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicBootsObject;
         if (equItem == undefined) {
             return;
         }
-        let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let boot = equ.getEquipment(EquipmentSlot.Feet) as ItemStack;
+        const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const boot = equ.getEquipment(EquipmentSlot.Feet) as ItemStack;
 
         if (boot != null && boot.typeId == equItem.itemName) {
             this.player.setDynamicProperty("magic_boot_equ", true);
@@ -127,7 +127,7 @@ export class MagicBootsSurveillance {
 
 async function lavaWalker(player:Player) {
 
-    let blockVol = new BlockVolume(
+    const blockVol = new BlockVolume(
         {
             x:player.location.x-1,
             y:player.location.y-1,
@@ -153,7 +153,7 @@ async function lavaWalker(player:Player) {
 }
 
 async function waterSpeedUp(player:Player) {
-    let move = player.getComponent(EntityComponentTypes.UnderwaterMovement) as EntityUnderwaterMovementComponent;
+    const move = player.getComponent(EntityComponentTypes.UnderwaterMovement) as EntityUnderwaterMovementComponent;
     if (player.isInWater) {
         move.setCurrentValue(0.15);
     } else {
@@ -162,7 +162,7 @@ async function waterSpeedUp(player:Player) {
 }
 
 async function windSpeedUp(player:Player) {
-    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
+    const move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
     if (!player.isInWater) {
         move.setCurrentValue(0.2);
     } else {
@@ -179,14 +179,14 @@ async function stoneFallInvalidReset(player:Player) {
 }
 
 async function lightningSpeedUp(player:Player) {
-    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
+    const move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
     if (move.currentValue != 0.4) {
         move.setCurrentValue(0.4);
     }
 }
 
 async function iceWalker(player:Player) {
-    let blockVol = new BlockVolume(
+    const blockVol = new BlockVolume(
         {
             x:player.location.x-1,
             y:player.location.y-1,
@@ -215,14 +215,14 @@ async function lavaWalkerReset(player:Player) {
 }
 
 async function waterSpeedReset(player:Player) {
-    let move = player.getComponent(EntityComponentTypes.UnderwaterMovement) as EntityUnderwaterMovementComponent;
+    const move = player.getComponent(EntityComponentTypes.UnderwaterMovement) as EntityUnderwaterMovementComponent;
     if (move.currentValue != 0.02) {
         move.setCurrentValue(0.02);
     }
 }
 
 async function windSpeedReset(player:Player) {
-    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
+    const move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
     if (move.currentValue != 0.1) {
         move.setCurrentValue(0.1);
     }
@@ -230,7 +230,7 @@ async function windSpeedReset(player:Player) {
 }
 
 async function lightningSpeedReset(player:Player) {
-    let move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
+    const move = player.getComponent(EntityComponentTypes.Movement) as EntityMovementComponent;
     if (move.currentValue != 0.1) {
         move.setCurrentValue(0.1);
     }

@@ -12,7 +12,7 @@ export async function watercutter(player:Player, hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:watercutter_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "watercutter_self",
         ],
@@ -22,7 +22,7 @@ export async function watercutter(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -47,10 +47,10 @@ export async function watercutter(player:Player, hitEntity:Entity) {
  */
 export async function waterwave(player:Player) {
 
-    let {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
+    const {xapply, yapply, zapply, xlocation, ylocation, zlocation} = getAdjacentSphericalPoints(player.getRotation(), player.location);
 
-    let wave = player.dimension.spawnEntity("kurokumaft:waterwavemagic", {x:xlocation!,y:player.location.y,z:zlocation!});
-    let intervalNum = system.runInterval(() => {
+    const wave = player.dimension.spawnEntity("kurokumaft:waterwavemagic", {x:xlocation!,y:player.location.y,z:zlocation!});
+    const intervalNum = system.runInterval(() => {
         wave.applyImpulse({x:xapply!,y:0,z:zapply!});
         wave.setRotation({x:xlocation!,y:zlocation!});
     }, 2);
@@ -66,7 +66,7 @@ export async function waterwave(player:Player) {
 export async function waterjail(player:Player) {
     player.addTag("waterjail_self");
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "waterjail_self"
         ],
@@ -76,7 +76,7 @@ export async function waterjail(player:Player) {
     } as EntityQueryOptions;
 
     addTeamsTagFilter(player, filterOption);
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;

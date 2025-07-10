@@ -38,7 +38,7 @@ function clamp(value:number, min:number, max:number) {
  * @param {number} max
  */
 function getRandomInRange(min:number, max:number) {
-    return Math.random() * (max - min) + min;
+    return Math.round(Math.random() * (max - min) + min);
 }
 
 // サウンド再生
@@ -153,7 +153,7 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number): Vector
  * @param {number} point
  * @param {number} side
  */
-function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : HorizonVector2 {
+function getLookRotaionPointsV2(rotation:Vector2, point:number, side:number) : HorizonVector2 {
     const piNum = 90;
     let rotax;
     let rotaz;
@@ -178,6 +178,94 @@ function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : Hor
     return { x:rotax!, z:rotaz! };
 }
 
+/**
+ * 水平視線位置取得
+ * @param {number} angle
+ * @param {number} forwardPoint
+ * @param {number} sidePoint
+ * @param {number} udFixed
+ */
+function getLookLocationDistance(angle: number, forwardPoint:number, sidePoint:number, udFixed:number) : Vector3 {
+
+    const forwardRad = degToRad(angle);
+
+    const forntDisPoint = {
+        x: -(Math.sin(forwardRad)) * forwardPoint,
+        z: (Math.cos(forwardRad)) * forwardPoint,
+    }
+
+    if (sidePoint < 0) {
+        const leftRad = degToRad(angle + 90);
+        forntDisPoint.x = forntDisPoint.x + Math.sin(leftRad) * -sidePoint;
+        forntDisPoint.z = forntDisPoint.z + Math.cos(leftRad) * -sidePoint;
+    } else if (sidePoint > 0) {
+        const rightRad = degToRad(angle - 90);
+        forntDisPoint.x = forntDisPoint.x + Math.sin(rightRad) * sidePoint;
+        forntDisPoint.z = forntDisPoint.z + Math.cos(rightRad) * sidePoint;
+    }
+
+    const angleDisPoint = {
+        x: Number(forntDisPoint.x.toFixed(3)),
+        y: udFixed,
+        z: Number(forntDisPoint.z.toFixed(3))
+    };
+
+    return angleDisPoint;
+}
+
+/**
+ * 空間視線位置取得
+ * @param {Vector2} angle
+ * @param {number} forwardPoint
+ * @param {number} sidePoint
+ */
+function getLookLocationDistancePitch(angle: Vector2, forwardPoint:number, sidePoint:number) : Vector3 {
+
+    const forwardRad = degToRad(angle.y);
+    const pitchRad = degToRad(angle.x);
+
+    let angleDisPoint = {
+        x: -(Math.cos(pitchRad) * Math.sin(forwardRad)) * forwardPoint,
+        y: Math.sin(pitchRad) * forwardPoint,
+        z: (Math.cos(pitchRad) * Math.cos(forwardRad)) * forwardPoint,
+    };
+
+    if (sidePoint < 0) {
+        const leftRad = degToRad(angle.y + 90);
+        angleDisPoint = crossProduct(angleDisPoint, {
+            x: Math.sin(leftRad) * -sidePoint,
+            y: 0,
+            z: Math.cos(leftRad) * -sidePoint
+        });
+    } else if (sidePoint > 0) {
+        const rightRad = degToRad(angle.y - 90);
+        angleDisPoint = crossProduct(angleDisPoint, {
+            x: Math.sin(rightRad) * sidePoint,
+            y: 0,
+            z: Math.cos(rightRad) * sidePoint
+        });
+    }
+
+    const retDisPoint = {
+        x: Number(angleDisPoint.x.toFixed(3)),
+        y: -Number(angleDisPoint.y.toFixed(3)),
+        z: Number(angleDisPoint.z.toFixed(3))
+    };
+    return retDisPoint;
+}
+
+function degToRad(deg: number): number {
+  return deg * Math.PI / 180;
+}
+
+function crossProduct(front: Vector3, side: Vector3): Vector3 {
+    return {
+      x: Number((front.x * + side.x).toFixed(3)),
+      y: Number(front.y.toFixed(3)),
+      z: Number((front.z + side.z).toFixed(3)),
+    };
+}
+
 function normalizeVector(v: Vector3): Vector3 {
     const length = Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
     return {
@@ -194,6 +282,21 @@ function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
         z: targetEn.z - thisEn.z
     };
     return normalizeVector(direction);
+}
+
+/**
+ * 空間視線位置取得
+ * @param {Vector3} origin
+ * @param {Vector3} distance
+ */
+function getDistanceLocation(origin: Vector3, distance:Vector3) : Vector3 {
+    const angleDisPoint = {
+        x: Number((origin.x + distance.x).toFixed(3)),
+        y: Number((origin.y + distance.y).toFixed(3)),
+        z: Number((origin.z + distance.z).toFixed(3))
+    };
+
+    return angleDisPoint;
 }
 
 function addTeamsTagFilter(player:Player, filterOption:EntityQueryOptions) {
@@ -273,4 +376,6 @@ const BlockLocationList = Object.freeze([
 
 ]);
 
-export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPoints, getDirectionVector, addTeamsTagFilter, MagicCraftBlocks, BlockLocationList };
+export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPointsV2, getDistanceLocation, getDirectionVector, addTeamsTagFilter,
+    getLookLocationDistance, getLookLocationDistancePitch, 
+    MagicCraftBlocks, BlockLocationList };

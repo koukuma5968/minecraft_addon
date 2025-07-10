@@ -55,15 +55,15 @@ export class PortalGateBlock implements BlockCustomComponent {
 }
 
 async function portalGateTp(gateObj:PortalGateObject, blockEvent:BlockComponentStepOnEvent) {
-    let entity = blockEvent.entity;
-    let block = blockEvent.block;
-    let location = block.location;
-    let dimension = blockEvent.dimension;
-    let portal = dimension.getBlock({x:location.x,y:location.y+1,z:location.z});
+    const entity = blockEvent.entity;
+    const block = blockEvent.block;
+    const location = block.location;
+    const dimension = blockEvent.dimension;
+    const portal = dimension.getBlock({x:location.x,y:location.y+1,z:location.z});
     if (portal && (portal.typeId == gateObj.gate.x || portal.typeId == gateObj.gate.z)) {
 
         if (dimension.id == MinecraftDimensionTypes.Overworld) {
-            let portal = dimension.getBlock({x:location.x,y:location.y+1,z:location.z});
+            const portal = dimension.getBlock({x:location.x,y:location.y+1,z:location.z});
             if (portal && (portal.typeId == gateObj.gate.x || portal.typeId == gateObj.gate.z)) {
                 if (world.getDynamicProperty(gateObj.portalState) == 0) {
                     world.setDynamicProperty(gateObj.portalState, 1);
@@ -93,13 +93,13 @@ async function portalGateTp(gateObj:PortalGateObject, blockEvent:BlockComponentS
                 });
             }
         } else {
-            let overLoc = entity?.getDynamicProperty("hell_tp_point");
+            const overLoc = entity?.getDynamicProperty("hell_tp_point");
             if (overLoc) {
                 entity?.teleport(overLoc as Vector3, {
                     dimension: world.getDimension(MinecraftDimensionTypes.Overworld)
                 });
             } else {
-                let player = entity as Player;
+                const player = entity as Player;
                 player?.teleport({x:player.getSpawnPoint()!.x,y:player.getSpawnPoint()!.y,z:player.getSpawnPoint()!.z}, {
                     dimension: world.getDimension(MinecraftDimensionTypes.Overworld)
                 });

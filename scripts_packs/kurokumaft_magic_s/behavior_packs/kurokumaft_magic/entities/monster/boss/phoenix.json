@@ -12,8 +12,9 @@
         ]
       },
       "animations":{
-        "attack":"controller.animation.phoenix.action",
-        "cooldown": "animation.cooldown.twenty_mine"
+        "action":"controller.animation.boss.action",
+        "cooldown": "animation.cooldown.ten_mine",
+        "move": "animation.cooldown.five_mine"
       }
     },
 
@@ -67,10 +68,11 @@
       "minecraft:loot": {
         "table": "loot_tables/entities/boss/phoenix.json"
       },
-      "minecraft:nameable": {
+      "minecraft:can_fly": {
       },
-      "minecraft:movement": {
-        "value": 0.2
+      "minecraft:movement.hover": {
+      },
+      "minecraft:nameable": {
       },
       "minecraft:type_family": {
         "family": [ "fire", "monster", "boss", "magic_boss" ]
@@ -98,8 +100,8 @@
 
     "events": {
       "minecraft:entity_spawned": {
-
-      }
+      },
+      "kurokumaft:moniter_boss_event": {}
     }
   }
 }

@@ -6,13 +6,13 @@ import { addTeamsTagFilter, getDirectionVector } from "../../../common/MagicComm
  * ウォーターアローホーミング
  */
 export async function waterArrowHoming(player:Player, arrow:string, ran:number, speed:number) {
-    let water = shooting(player, arrow, ran, speed, undefined);
+    const water = shooting(player, arrow, ran, speed, undefined);
     water.addTag("waterarrow")
     player.addTag("waterarrow_self");
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (water != undefined && water.isValid()) {
 
-            let filterOption = {
+            const filterOption = {
                 excludeTags: [
                     "waterarrow",
                     "waterarrow_self",
@@ -24,10 +24,10 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
         
             addTeamsTagFilter(player, filterOption);
         
-            let target = water.dimension.getEntities(filterOption);
+            const target = water.dimension.getEntities(filterOption);
             if (target != undefined && target.length > 0 && target[0].isValid()) {
-                let targetLoc = getDirectionVector(water.location, target[0].location);
-                let tpLoc = {
+                const targetLoc = getDirectionVector(water.location, target[0].location);
+                const tpLoc = {
                     x:water.location.x+targetLoc.x,
                     y:water.location.y+targetLoc.y,
                     z:water.location.z+targetLoc.z
@@ -59,7 +59,7 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
  * ウォーターアロー
  */
 export async function waterArrow(entity:Entity) {
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {

@@ -79,7 +79,7 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
                 mizu.zyuNoKataShot(player, itemStack);
             break;
             case 11 :
-                if (player.getProperty("kurokumaft:kokyu_chage") == 0) {
+                if (player.getProperty("kurokumaft:kokyu_chage") === 0) {
                     player.setProperty("kurokumaft:kokyu_chage", 1);
                     this.enbuIntervalId = system.runTimeout(() => {
                         if (player.getProperty("kurokumaft:kokyu_use")) {
@@ -144,9 +144,9 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
                 mizu.hachiNoKata(player, itemStack);
             break;
             case 11 :
-                if (player.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+                if (player.getDynamicProperty("kurokumaft:chage_type") === undefined) {
                     player.setDynamicProperty("kurokumaft:chage_type", true);
-                    if (player.getProperty("kurokumaft:kokyu_chage") == 5) {
+                    if (player.getProperty("kurokumaft:kokyu_chage") === 5) {
                         hi.ichiNoKataIssen(player, itemStack);
                     } else {
                         player.setProperty("kurokumaft:kokyu_use", false);

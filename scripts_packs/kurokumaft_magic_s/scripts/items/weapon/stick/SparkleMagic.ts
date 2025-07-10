@@ -1,6 +1,6 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { getLookRotaionPoints, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
+import { getLookRotaionPointsV2, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
  * スパークルライト
@@ -9,14 +9,14 @@ export async function sparkleShock(player:Player, entity:Entity) {
 
     player.addTag("sparkle_shock_self");
 
-    let left = getLookRotaionPoints(entity.getRotation(), 0, 2.5);
+    const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
     entity.dimension.spawnParticle("kurokumaft:sparkle_light_particle", {x:entity.location.x+left.x, y:entity.location.y+1.8, z:entity.location.z+left.z});
-    let center = getLookRotaionPoints(entity.getRotation(), 0, 0);
+    const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
     entity.dimension.spawnParticle("kurokumaft:sparkle_light_particle", {x:entity.location.x+center.x, y:entity.location.y+1.8, z:entity.location.z+center.z});
-    let right = getLookRotaionPoints(entity.getRotation(), 0, -2.5);
+    const right = getLookRotaionPointsV2(entity.getRotation(), 0, -2.5);
     entity.dimension.spawnParticle("kurokumaft:sparkle_light_particle", {x:entity.location.x+right.x, y:entity.location.y+1.8, z:entity.location.z+right.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "sparkle_shock_self",
         ],
@@ -26,7 +26,7 @@ export async function sparkleShock(player:Player, entity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         if (!en.isValid()) {
             return;
@@ -49,19 +49,19 @@ export async function sparkleShock(player:Player, entity:Entity) {
  * ホーリーフィールド
  */
 export async function hollyField(player:Player) {
-    let holly_field = player.dimension.spawnEntity("kurokumaft:holly_field", 
+    const holly_field = player.dimension.spawnEntity("kurokumaft:holly_field", 
         {
             x:player.location.x,
             y:player.location.y,
             z:player.location.z
         }
     );
-    let holeLo = holly_field.location;
-    let intervalNum = system.runInterval(() => {
+    const holeLo = holly_field.location;
+    const intervalNum = system.runInterval(() => {
         holly_field.dimension.spawnParticle("kurokumaft:holly_field_particle", holly_field.location);
         holly_field.dimension.spawnParticle("kurokumaft:holly_field_outer_particle", holly_field.location);
 
-        let filterOption = {
+        const filterOption = {
             excludeTags: [
                 "sparkle_shock_self",
             ],
@@ -75,7 +75,7 @@ export async function hollyField(player:Player) {
             maxDistance: 15
         } as EntityQueryOptions;
 
-        let targets = player.dimension.getEntities(filterOption);
+        const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;

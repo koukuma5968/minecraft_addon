@@ -11,7 +11,7 @@ export class KekkizyutuComponent implements ItemCustomComponent {
 
         if (player.isSneaking) {
             const kekkizyutu = player.getProperty("kurokumaft:kekkizyutu_type") as number;
-            const object = KekkizyutuObjects.find(ob => ob.type == kekkizyutu) as KekkizyutuObject;
+            const object = KekkizyutuObjects.find(ob => ob.type === kekkizyutu) as KekkizyutuObject;
             const kekkizyutuClass = KekkizyutuClassRecord[object.className];
             const kekkizyutuObject = new kekkizyutuClass();
             kekkizyutuObject.changeZyutu(player);
@@ -20,8 +20,8 @@ export class KekkizyutuComponent implements ItemCustomComponent {
             if (!player.getProperty("kurokumaft:kokyu_use")) {
                 const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
                 const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
-                if (mainHand != undefined) {
-                    const object = KekkizyutuObjects.find(ob => ob.itemName == mainHand.typeId) as KekkizyutuObject;
+                if (mainHand !== undefined) {
+                    const object = KekkizyutuObjects.find(ob => ob.itemName === mainHand.typeId) as KekkizyutuObject;
                     const kekkizyutuClass = KekkizyutuClassRecord[object.className];
                     const kekkizyutuObject = new kekkizyutuClass();
                     player.setProperty("kurokumaft:kokyu_use", true);

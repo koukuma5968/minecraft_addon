@@ -8,13 +8,13 @@ import { getLookPoints } from "../../common/MagicCommonUtil";
 export class DiamondBottle implements ItemCustomComponent {
 
     onUseOn(event:ItemComponentUseOnEvent) {
-        let bottle = event.itemStack as ItemStack;
-        let player = event.source as Player;
-        let block = event.block as Block;
+        const bottle = event.itemStack as ItemStack;
+        const player = event.source as Player;
+        const block = event.block as Block;
         if (block.typeId != MinecraftBlockTypes.Water) {
-            let blockFace = event.blockFace as Direction;
+            const blockFace = event.blockFace as Direction;
             let faceBlock;
-            let blocLocation = block.location;
+            const blocLocation = block.location;
             if (Direction.Up == blockFace) {
                 faceBlock = player.dimension.getBlock({x:blocLocation.x,y:blocLocation.y+1,z:blocLocation.z}) as Block;
             } else if (Direction.Down == blockFace) {
@@ -33,20 +33,20 @@ export class DiamondBottle implements ItemCustomComponent {
             }
         }
 
-        let equippable = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-        let waterBottle = new ItemStack("kurokumaft:diamond_bottle_water", 1);
+        const equippable = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+        const waterBottle = new ItemStack("kurokumaft:diamond_bottle_water", 1);
 
-        let remaining = bottle.amount - 1;
+        const remaining = bottle.amount - 1;
         if (remaining <= 0) {
             equippable.setEquipment(EquipmentSlot.Mainhand, undefined);
             equippable.setEquipment(EquipmentSlot.Mainhand, waterBottle);
         } else {
             bottle.amount -= 1;
             equippable.setEquipment(EquipmentSlot.Mainhand, bottle);
-            let container = inventory.container as Container;
+            const container = inventory.container as Container;
             if (container.emptySlotsCount == 0) {
-                let point = getLookPoints(player.getRotation(),player.location,1);
+                const point = getLookPoints(player.getRotation(),player.location,1);
                 player.dimension.spawnItem(waterBottle, point);
             } else {
                 container.addItem(waterBottle);

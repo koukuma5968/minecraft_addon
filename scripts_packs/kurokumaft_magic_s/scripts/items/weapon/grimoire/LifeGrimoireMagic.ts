@@ -52,9 +52,9 @@ export class LifeGrimoireBlockMagic implements ItemCustomComponent {
 
     // ブロッククリック
     onUseOn(event:ItemComponentUseOnEvent) {
-        let itemStack = event.itemStack as ItemStack;
+        const itemStack = event.itemStack as ItemStack;
 
-        let magicObject = LifeGrimoireUseOnObjects.find(obj => obj.itemName == itemStack.typeId) as LifeGrimoireMagicObject;
+        const magicObject = LifeGrimoireUseOnObjects.find(obj => obj.itemName == itemStack.typeId) as LifeGrimoireMagicObject;
         if (magicObject) {
             magicObject.func(event);
         }
@@ -69,9 +69,9 @@ export class LifeGrimoireUseMagic implements ItemCustomComponent {
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
+        const itemStack = event.itemStack as ItemStack;
 
-        let magicObject = LifeGrimoireUseObjects.find(obj => obj.itemName == itemStack.typeId) as LifeGrimoireMagicObject;
+        const magicObject = LifeGrimoireUseObjects.find(obj => obj.itemName == itemStack.typeId) as LifeGrimoireMagicObject;
         if (magicObject) {
             magicObject.func(event);
         }

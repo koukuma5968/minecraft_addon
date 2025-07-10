@@ -8,9 +8,9 @@ import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage"
  * @param {Boolean} range
  */
 function magicShieldGuard(player:Player, range:Boolean) {
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let offhand = equ.getEquipment(EquipmentSlot.Offhand);
-    let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const offhand = equ.getEquipment(EquipmentSlot.Offhand);
+    const mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
     if (player.isSneaking) {
         // シールド耐久
         if (offhand != undefined && (offhand.typeId.indexOf("_shield") != -1)) {
@@ -29,17 +29,17 @@ function magicShieldGuard(player:Player, range:Boolean) {
  * @param {Entity} damager
  */
 function magicShieldCounter(player:Player, damager:Entity) {
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let offhand = equ.getEquipment(EquipmentSlot.Offhand);
-    let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const offhand = equ.getEquipment(EquipmentSlot.Offhand);
+    const mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
     if (player.isSneaking) {
         // 火の盾
         if (offhand != undefined && offhand.typeId == "kurokumaft:fire_magic_shield") {
             damager.applyDamage(3,{"cause":"lava"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:mobflame_firing", damager.location);
-            let intervalNum = system.runInterval(() => {
+            const intervalNum = system.runInterval(() => {
                 if (damager) {
-                    let health = damager.getComponent(EntityComponentTypes.Health);
+                    const health = damager.getComponent(EntityComponentTypes.Health);
                     if (health) {
                         damager.applyDamage(3,{"cause":"lava"} as EntityApplyDamageOptions);
                         damager.dimension.spawnParticle("kurokumaft:mobflame_firing", damager.location);
@@ -52,9 +52,9 @@ function magicShieldCounter(player:Player, damager:Entity) {
         } else if (mainhand != undefined && mainhand.typeId == "kurokumaft:fire_magic_shield") {
             damager.applyDamage(3,{"cause":"lava"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:mobflame_firing", damager.location);
-            let intervalNum = system.runInterval(() => {
+            const intervalNum = system.runInterval(() => {
                 if (damager) {
-                    let health = damager.getComponent(EntityComponentTypes.Health);
+                    const health = damager.getComponent(EntityComponentTypes.Health);
                     if (health) {
                         damager.applyDamage(3,{"cause":"lava"} as EntityApplyDamageOptions);
                         damager.runCommand("particle kurokumaft:mobflame_firing ~~~");
@@ -77,12 +77,12 @@ function magicShieldCounter(player:Player, damager:Entity) {
         }
         // 風の盾
         if (offhand != undefined && offhand.typeId == "kurokumaft:wind_magic_shield") {
-            let view = player.getViewDirection();
+            const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"fall"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:aero_bomb_short_particle", damager.location);
             damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
         } else if (mainhand != undefined && mainhand.typeId == "kurokumaft:wind_magic_shield") {
-            let view = player.getViewDirection();
+            const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"fall"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:aero_bomb_short_particle", damager.location);
             damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
@@ -91,9 +91,9 @@ function magicShieldCounter(player:Player, damager:Entity) {
         if (offhand != undefined && offhand.typeId == "kurokumaft:thunder_magic_shield") {
             damager.applyDamage(3,{"cause":"lightning"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:snowflake_particle", damager.location);
-            let intervalNum = system.runInterval(() => {
+            const intervalNum = system.runInterval(() => {
                 if (damager) {
-                    let health = damager.getComponent(EntityComponentTypes.Health);
+                    const health = damager.getComponent(EntityComponentTypes.Health);
                     if (health) {
                         damager.applyDamage(3,{"cause":"lightning"} as EntityApplyDamageOptions);
                         damager.dimension.spawnParticle("kurokumaft:snowflake_particle", damager.location);
@@ -106,9 +106,9 @@ function magicShieldCounter(player:Player, damager:Entity) {
         } else if (mainhand != undefined && mainhand.typeId == "kurokumaft:thunder_magic_shield") {
             damager.applyDamage(3,{"cause":"lightning"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:thunder_sword_particle", damager.location);
-            let intervalNum = system.runInterval(() => {
+            const intervalNum = system.runInterval(() => {
                 if (damager) {
-                    let health = damager.getComponent(EntityComponentTypes.Health);
+                    const health = damager.getComponent(EntityComponentTypes.Health);
                     if (health) {
                         damager.applyDamage(3,{"cause":"lightning"} as EntityApplyDamageOptions);
                         damager.dimension.spawnParticle("kurokumaft:thunder_sword_particle", damager.location);
@@ -121,12 +121,12 @@ function magicShieldCounter(player:Player, damager:Entity) {
         }
         // 岩の盾
         if (offhand != undefined && offhand.typeId == "kurokumaft:stone_magic_shield") {
-            let view = player.getViewDirection();
+            const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"piston"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:grey_bomb_short_particle", damager.location);
             damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
         } else if (mainhand != undefined && mainhand.typeId == "kurokumaft:stone_magic_shield") {
-            let view = player.getViewDirection();
+            const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"piston"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:grey_bomb_short_particle", damager.location);
             damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);

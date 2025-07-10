@@ -10,7 +10,7 @@ import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
  */
 async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() !== GameMode.creative) {
         const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
         const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
@@ -19,7 +19,7 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
 
         const enchantable = item.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
         const unbreaking = enchantable.getEnchantment(MinecraftEnchantmentTypes.Unbreaking);
-        if (unbreaking != undefined) {
+        if (unbreaking !== undefined) {
             dChange = durability.getDamageChance(unbreaking.level);
         }
 

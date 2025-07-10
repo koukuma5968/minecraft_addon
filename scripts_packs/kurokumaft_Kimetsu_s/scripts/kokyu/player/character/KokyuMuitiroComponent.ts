@@ -22,7 +22,7 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
                 player.setProperty("kurokumaft:kokyu_kata", kata);
                 break;
             default :
-                let index = kokyuObject.kata.findIndex((el) => el == kata);
+                let index = kokyuObject.kata.findIndex((el) => el === kata);
                 kata = kokyuObject.kata[index+1];
                 player.setProperty("kurokumaft:kokyu_kata", kata);
             }

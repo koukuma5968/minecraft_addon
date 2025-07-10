@@ -1,6 +1,6 @@
 import { EntityDamageCause, EntityQueryOptions, EquipmentSlot, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond } from "@minecraft/server";
 import { summonGrimoireDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 interface SummonGrimoireMagicObject {
     itemName:string,
@@ -32,10 +32,10 @@ export class SummonGrimoireMagic implements ItemCustomComponent {
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
-        let summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
+        const summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
         if (summonMagicObject) {
             grimoire_summon_Release(player, itemStack);
         }
@@ -63,20 +63,20 @@ export class SummonGrimoireMagic implements ItemCustomComponent {
  */
 export async function grimoire_summon_Release(player:Player, itemStack:ItemStack) {
 
-    let summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
+    const summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
 
     player.dimension.spawnParticle(summonMagicObject.particle, {x:player.location.x,y:player.location.y+0.75,z:player.location.z});
-    player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + summonMagicObject.sendMsg + "\"}]}");
+    player.onScreenDisplay.setActionBar({rawtext:[{translate:"summonMagicObject.sendMsg"}]});
     player.addTag(summonMagicObject.extag);
 
-    let point = getLookRotaionPoints(player.getRotation(), 8, 0);
-    let summonMons = player.dimension.spawnEntity(summonMagicObject.entity, {x:player.location.x+point.x, y:player.location.y+4, z:player.location.z+point.z});
-    let sommonLoc = summonMons.location;
+    const point = getLookRotaionPointsV2(player.getRotation(), 8, 0);
+    const summonMons = player.dimension.spawnEntity(summonMagicObject.entity, {x:player.location.x+point.x, y:player.location.y+4, z:player.location.z+point.z});
+    const sommonLoc = summonMons.location;
 
     summonGrimoireDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
-    let intervalNum = system.runInterval(() => {
-        let filterOption = {
+    const intervalNum = system.runInterval(() => {
+        const filterOption = {
             excludeTags: [
                 summonMagicObject.extag,
             ],
@@ -86,7 +86,7 @@ export async function grimoire_summon_Release(player:Player, itemStack:ItemStack
 
         addTeamsTagFilter(player, filterOption);
 
-        let targets = player.dimension.getEntities(filterOption);
+        const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
             if (!en.isValid()) {
                 return;

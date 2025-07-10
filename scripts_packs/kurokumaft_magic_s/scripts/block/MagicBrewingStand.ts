@@ -67,12 +67,12 @@ const MagicBrewingItemObjects = Object.freeze([
 export class MagicBrewingStandBlock implements BlockCustomComponent {
 
     onPlace(blockEvent:BlockComponentOnPlaceEvent) {
-        let block = blockEvent.block;
-        let dimension = blockEvent.dimension;
-        let magic_brewing_stand = dimension.spawnEntity("kurokumaft:magic_brewing_stand", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5}) as Entity;
+        const block = blockEvent.block;
+        const dimension = blockEvent.dimension;
+        const magic_brewing_stand = dimension.spawnEntity("kurokumaft:magic_brewing_stand", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5}) as Entity;
         magic_brewing_stand.nameTag = "magic_brewing_stand";
 
-        let direction = block.permutation.getState("minecraft:cardinal_direction");
+        const direction = block.permutation.getState("minecraft:cardinal_direction");
 
         if (direction == "north") {
             magic_brewing_stand.setProperty("kurokumaft:stand_pos", "n");
@@ -88,8 +88,8 @@ export class MagicBrewingStandBlock implements BlockCustomComponent {
     }
 
     onPlayerDestroy(blockEvent:BlockComponentPlayerDestroyEvent) {
-        let block = blockEvent.block;
-        let dimension = blockEvent.dimension;
+        const block = blockEvent.block;
+        const dimension = blockEvent.dimension;
         breakMagicBrewing(block, dimension);
     }
 
@@ -116,13 +116,13 @@ export class MagicBrewingStand {
     private async checkJob() {
 
         if (this.stand.isValid()) {
-            let inventory = this.stand.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-            let container = inventory.container as Container;
+            const inventory = this.stand.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+            const container = inventory.container as Container;
 
-            let materialItem = container.getItem(0) as ItemStack;
-            let stoneItem = container.getItem(1) as ItemStack;
-            let fuelItem = container.getItem(2) as ItemStack;
-            let outputItem = container.getItem(3) as ItemStack;
+            const materialItem = container.getItem(0) as ItemStack;
+            const stoneItem = container.getItem(1) as ItemStack;
+            const fuelItem = container.getItem(2) as ItemStack;
+            const outputItem = container.getItem(3) as ItemStack;
             if (outputItem != undefined) {
                 if (outputItem.typeId == "kurokumaft:diamond_bottle_water") {
                     this.stand.setProperty("kurokumaft:bottle_type", "magic");
@@ -131,14 +131,14 @@ export class MagicBrewingStand {
                 }
 
                 if (materialItem != undefined && stoneItem != undefined) {
-                    let brewingItemObject = getBrewingItemObject(materialItem, stoneItem);
+                    const brewingItemObject = getBrewingItemObject(materialItem, stoneItem);
                     if (brewingItemObject != undefined ) {
                         if (fuelItem != undefined && fuelItem.typeId == "minecraft:blaze_powder" && outputItem.typeId == "kurokumaft:diamond_bottle_water") {
                             let brewingCount = this.stand.getProperty("kurokumaft:brewing_fuel") as number;
                             this.stand.dimension.spawnParticle(brewingItemObject.particle, this.stand.location);
                             brewingCount++;
                             if (brewingCount == 10) {
-                                let newOutputItem = new ItemStack(brewingItemObject.outputItem, 1);
+                                const newOutputItem = new ItemStack(brewingItemObject.outputItem, 1);
                                 newOutputItem.setLore([brewingItemObject.lore]);
                                 container.setItem(3, undefined);
                                 container.setItem(3, newOutputItem);
@@ -183,7 +183,7 @@ export class MagicBrewingStand {
 
 function getBrewingItemObject(materialItem:ItemStack, stoneItem:ItemStack) : MagicBrewingItemObject {
 
-    let brewingItem = MagicBrewingItemObjects.find((predicate) => {
+    const brewingItem = MagicBrewingItemObjects.find((predicate) => {
         return (predicate.materialItem == materialItem.typeId && predicate.stoneItem == stoneItem.typeId);
     }) as MagicBrewingItemObject;
 
@@ -192,7 +192,7 @@ function getBrewingItemObject(materialItem:ItemStack, stoneItem:ItemStack) : Mag
 
 function isPorionBottle(potion:ItemStack) : string {
 
-    let brewingItem = MagicBrewingItemObjects.find((predicate) => {
+    const brewingItem = MagicBrewingItemObjects.find((predicate) => {
         return (predicate.outputItem == potion.typeId);
     }) as MagicBrewingItemObject;
 
@@ -205,23 +205,23 @@ function isPorionBottle(potion:ItemStack) : string {
  * @param {Dimension} dimension
  */
 export async function breakMagicBrewing(block: Block, dimension: Dimension) {
-    let stand = dimension.getEntitiesAtBlockLocation({x:block.location.x+0.5, y:block.location.y,z:block.location.z+0.5}) as Entity[];
-    let inventory = stand[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-    let container = inventory.container as Container;
+    const stand = dimension.getEntitiesAtBlockLocation({x:block.location.x+0.5, y:block.location.y,z:block.location.z+0.5}) as Entity[];
+    const inventory = stand[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+    const container = inventory.container as Container;
 
-    let materialItem = container.getItem(0) as ItemStack;
+    const materialItem = container.getItem(0) as ItemStack;
     if (materialItem != undefined) {
         dimension.spawnItem(materialItem, stand[0].location);
     }
-    let stoneItem = container.getItem(1) as ItemStack;
+    const stoneItem = container.getItem(1) as ItemStack;
     if (stoneItem != undefined) {
         dimension.spawnItem(stoneItem, stand[0].location);
     }
-    let fuelItem = container.getItem(2) as ItemStack;
+    const fuelItem = container.getItem(2) as ItemStack;
     if (fuelItem != undefined) {
         dimension.spawnItem(fuelItem, stand[0].location);
     }
-    let outputItem = container.getItem(3) as ItemStack;
+    const outputItem = container.getItem(3) as ItemStack;
     if (outputItem != undefined) {
         dimension.spawnItem(outputItem, stand[0].location);
     }

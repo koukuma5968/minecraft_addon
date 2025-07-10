@@ -28,20 +28,22 @@ export class ZytuComonClass extends KataComonClass {
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
         const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
-        const point = ogreRankPoint.find(rank => rank.rank == ogre_rank);
+        const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
         targets.forEach(en => {
-            if (en instanceof Player) {
-                if (this.gardCheck(en)) {
-                    en.applyDamage(pDamage*(point != undefined ? point.point : 1), {
+            if (en !== undefined && en.isValid()) {
+                if (en instanceof Player) {
+                    if (this.gardCheck(en)) {
+                        en.applyDamage(pDamage*(point !== undefined ? point.point : 1), {
+                            cause: EntityDamageCause.entityAttack,
+                            damagingEntity: entity
+                        });
+                    }
+                } else {
+                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1), {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: entity
                     });
                 }
-            } else {
-                en.applyDamage(enDamage*(point != undefined ? point.point : 1), {
-                    cause: EntityDamageCause.entityAttack,
-                    damagingEntity: entity
-                });
             }
         });
         entity.removeTag(entity.id);
@@ -53,21 +55,23 @@ export class ZytuComonClass extends KataComonClass {
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
         const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
-        const point = ogreRankPoint.find(rank => rank.rank == ogre_rank);
-        const damageNum = point != undefined ? point.point : 1;
+        const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
+        const damageNum = point !== undefined ? point.point : 1;
         targets.forEach(en => {
-            if (en instanceof Player) {
-                if (this.gardCheck(en)) {
-                    en.addEffect(effect, Math.round(duration*damageNum*0.25), {
-                        amplifier: Math.round(damage*damageNum*0.25),
+            if (en !== undefined && en.isValid()) {
+                if (en instanceof Player) {
+                    if (this.gardCheck(en)) {
+                        en.addEffect(effect, Math.round(duration*damageNum*0.25), {
+                            amplifier: Math.round(damage*damageNum*0.25),
+                            showParticles: true
+                        });
+                    }
+                } else {
+                    en.addEffect(effect, Math.round(duration*damageNum*0.75), {
+                        amplifier: Math.round(damage*damageNum),
                         showParticles: true
                     });
                 }
-            } else {
-                en.addEffect(effect, Math.round(duration*damageNum*0.75), {
-                    amplifier: Math.round(damage*damageNum),
-                    showParticles: true
-                });
             }
         });
         entity.removeTag(entity.id);

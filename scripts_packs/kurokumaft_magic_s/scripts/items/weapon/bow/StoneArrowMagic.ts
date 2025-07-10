@@ -5,7 +5,7 @@ import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from
  */
 export async function stoneArrow(entity:Entity) {
     entity.applyKnockback(1,1,1,1);
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (entity.isValid()) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {

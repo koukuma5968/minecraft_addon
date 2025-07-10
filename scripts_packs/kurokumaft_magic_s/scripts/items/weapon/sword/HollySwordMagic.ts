@@ -10,7 +10,7 @@ export async function hollySword(player:Player, entity:Entity) {
 
     entity.dimension.spawnParticle("kurokumaft:holly_sword_slash", entity.location);
 
-    let entitys = entity.dimension.getEntities({
+    const entitys = entity.dimension.getEntities({
         excludeFamilies: [
             "inanimate", "magic", "arrow"
         ],
@@ -39,7 +39,7 @@ export async function hollySword(player:Player, entity:Entity) {
 //     player.dimension.spawnParticle("kurokumaft:explosion_shell", player.location);
 //     player.dimension.spawnParticle("kurokumaft:explosion_wave_particle", player.location);
 
-//     let entitys = player.dimension.getEntities({
+//     const entitys = player.dimension.getEntities({
 //         excludeFamilies: [
 //             "player", "inanimate", "familiar"
 //         ],
@@ -63,7 +63,7 @@ export async function hollySword(player:Player, entity:Entity) {
 //     });
 
 //     if (world.gameRules.pvp) {
-//         let players = player.dimension.getEntities({
+//         const players = player.dimension.getEntities({
 //             families: [
 //                 "player"
 //             ],
@@ -94,7 +94,7 @@ export async function hollySwordMons(attack:Entity, hit:Entity) {
 
     hit.dimension.spawnParticle("kurokumaft:holly_sword_slash", hit.location);
 
-    let entitys = hit.dimension.getEntities({
+    const entitys = hit.dimension.getEntities({
         excludeFamilies: [
             "inanimate", "magic", "arrow"
         ],

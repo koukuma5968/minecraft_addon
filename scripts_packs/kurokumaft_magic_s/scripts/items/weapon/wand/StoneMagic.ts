@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
-import { addTeamsTagFilter, getLookRotaionPoints } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
@@ -11,7 +11,7 @@ export async function sandBlast(player:Player, hitEntity:Entity) {
 
     player.dimension.spawnParticle("kurokumaft:sand_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
-    let filterOption = {
+    const filterOption = {
         excludeTags: [
             "sand_blast_self",
         ],
@@ -21,7 +21,7 @@ export async function sandBlast(player:Player, hitEntity:Entity) {
 
     addTeamsTagFilter(player, filterOption);
 
-    let targets = player.dimension.getEntities(filterOption);
+    const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
         let damage = 2 as number;
         if (en instanceof Player) {
@@ -40,7 +40,7 @@ export async function sandBlast(player:Player, hitEntity:Entity) {
  */
 export async function stonewall(player:Player) {
 
-    let look = getLookRotaionPoints(player.getRotation(), 4, 0);
+    const look = getLookRotaionPointsV2(player.getRotation(), 4, 0);
     player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y, z:player.location.z+look.z}, MinecraftBlockTypes.Basalt);
     player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y+1, z:player.location.z+look.z}, MinecraftBlockTypes.Basalt);
 

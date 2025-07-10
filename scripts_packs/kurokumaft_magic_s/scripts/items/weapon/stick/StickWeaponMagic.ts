@@ -173,37 +173,37 @@ export class StickWeaponMagic implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let effect = event.hadEffect as boolean;
+        const itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Player;
+        const hitEntity = event.hitEntity as Entity;
+        const effect = event.hadEffect as boolean;
 
         if (!itemStack || (hitEntity instanceof Player && !world.gameRules.pvp)) {
             return;
         }
-        let stickMagicObject = StickHitObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
+        const stickMagicObject = StickHitObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
         stickMagicObject.func(attackEntity, hitEntity);
-        attackEntity.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickMagicObject.sendMsg + "\"}]}");
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"stickMagicObject.sendMsg"}]});
 
     }
 
     // 右クリック
     onUse(event:ItemComponentUseEvent) {
-        let itemStack = event.itemStack as ItemStack;
-        let player = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const player = event.source as Player;
 
         if (player.isSneaking) {
-            let stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
+            const stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
             if (stickFuncMagicObject) {
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickFuncMagicObject.sendMsg + "\"}]}");
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"stickFuncMagicObject.sendMsg"}]});
                 stickFuncMagicObject.func(player);
             }
         } else {
-            let stickShotMagicObject = StickShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
+            const stickShotMagicObject = StickShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
             if (stickShotMagicObject) {
 
                 if (itemStack.typeId == "kurokumaft:atmosphere_stick") {
-                    let intervalNum = system.runInterval(() => {
+                    const intervalNum = system.runInterval(() => {
                         shooting(player, stickShotMagicObject.event, 1, stickShotMagicObject.addition, undefined);
                     }, 4);
                     system.runTimeout(() => {
@@ -212,18 +212,18 @@ export class StickWeaponMagic implements ItemCustomComponent {
                 } else {
                     shooting(player, stickShotMagicObject.event, 0, stickShotMagicObject.addition, undefined);
                 }
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickShotMagicObject.sendMsg + "\"}]}");
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"stickShotMagicObject.sendMsg"}]});
             }
-            let stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
+            const stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
             if (stickRightOneMagicObject) {
-                player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"" + stickRightOneMagicObject.sendMsg + "\"}]}");
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"stickRightOneMagicObject.sendMsg"}]});
                 stickRightOneMagicObject.func(player);
             }
         }
 
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 
-        let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+        const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
 
     }

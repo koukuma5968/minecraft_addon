@@ -10,7 +10,7 @@ export class NichirintouComponent implements ItemCustomComponent {
 
         if (player.isSneaking) {
             const nichirintou = player.getProperty("kurokumaft:nichirintou_type") as number;
-            const object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
+            const object = KokyuObjects.find(ob => ob.type === nichirintou) as KokyuObject;
             const kokyuClass = kokyuClassRecord[object.className];
             const kokyuObject = new kokyuClass();
             kokyuObject.changeKata(player);
@@ -19,10 +19,10 @@ export class NichirintouComponent implements ItemCustomComponent {
             if (!player.getProperty("kurokumaft:kokyu_use")) {
                 const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
                 const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
-                if (mainHand != undefined) {
-                    const object = KokyuObjects.find(ob => ob.itemName == mainHand.typeId) as KokyuObject;
+                if (mainHand !== undefined) {
+                    const object = KokyuObjects.find(ob => ob.itemName === mainHand.typeId) as KokyuObject;
                     // const nichirintou = player.getProperty("kurokumaft:nichirintou_type") as number;
-                    // const object = KokyuObjects.find(ob => ob.type == nichirintou) as KokyuObject;
+                    // const object = KokyuObjects.find(ob => ob.type === nichirintou) as KokyuObject;
                     const kokyuClass = kokyuClassRecord[object.className];
                     const kokyuObject = new kokyuClass();
                     player.setProperty("kurokumaft:kokyu_use", true);

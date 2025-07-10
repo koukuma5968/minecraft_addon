@@ -28,7 +28,7 @@ export function windDesires(entity:Entity) {
  */
 export function windBarkSlash(player:Player) {
 
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         shooting(player, "kurokumaft:wind_bark_slash", 1, 5,"kurokumaft:projectile_1");
         shooting(player, "kurokumaft:wind_bark_slash", 1, 5,"kurokumaft:projectile_2");
         shooting(player, "kurokumaft:wind_bark_slash", 1, 5,"kurokumaft:projectile_3");

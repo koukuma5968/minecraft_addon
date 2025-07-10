@@ -70,10 +70,10 @@ export class Koushi extends ZytuComonClass {
             const ayamekago = targets[0].dimension.spawnEntity("kurokumaft:ayamekago", targets[0].location);
 
             const num = system.runInterval(() => {
-                if (ayamekago != undefined && ayamekago.isValid()) {
-                    if (targets[0] != undefined && targets[0].isValid()) {
+                if (ayamekago !== undefined && ayamekago.isValid()) {
+                    if (targets[0] !== undefined && targets[0].isValid()) {
                         targets[0].teleport(ayamekago.location);
-                        if (entity != undefined) {
+                        if (entity !== undefined) {
                             this.kokyuApplyDamage(entity, filter, 2, 1);
                         }
                     } else {
@@ -85,7 +85,7 @@ export class Koushi extends ZytuComonClass {
     
             system.runTimeout(() => {
                 system.clearRun(num);
-                if (ayamekago != undefined && ayamekago.isValid()) {
+                if (ayamekago !== undefined && ayamekago.isValid()) {
                     ayamekago.remove();
                 }
             },40);
