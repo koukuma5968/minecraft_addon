@@ -15,18 +15,25 @@ const ruiKekkizyutuLists = weightChoice([
 export class RuiComponent implements KekkizyutuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
-            entity.setProperty("kurokumaft:kokyu_use", true);
-            entity.setProperty("kurokumaft:kokyu_particle", true);
-            this.useAttackZyutu(entity);
+
+        try {
+            if (entity !== undefined && entity.isValid) {
+                entity.setProperty("kurokumaft:kokyu_use", true);
+                entity.setProperty("kurokumaft:kokyu_particle", true);
+                this.useAttackZyutu(entity);
+            }
+        } catch (error: any) {
         }
     }
 
     useAttackZyutu(entity:Entity): void {
 
-        const num = ruiKekkizyutuLists.pick();
-        entity.setProperty("kurokumaft:kekkizyutu_kata", num);
-        this.kokyuUse(entity, num);
+        try {
+            const num = ruiKekkizyutuLists.pick();
+            entity.setProperty("kurokumaft:kekkizyutu_kata", num);
+            this.kokyuUse(entity, num);
+        } catch (error: any) {
+        }
 
     }
 
@@ -34,31 +41,37 @@ export class RuiComponent implements KekkizyutuMobUseComponent {
 
         const koushi = new Koushi();
 
-        switch (kata) {
-            case 1 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                koushi.kokushirou(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 30);
-            break;
-            case 2 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                koushi.kokushirinten(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 80);
-            break;
-            case 3 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                koushi.ayamekago(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 60);
-            break;
+        try {
+            switch (kata) {
+                case 1 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    koushi.kokushirou(entity);
+                    system.waitTicks(30).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 2 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    koushi.kokushirinten(entity);
+                    system.waitTicks(80).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 3 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    koushi.ayamekago(entity);
+                    system.waitTicks(60).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+            }
+        } catch (error: any) {
         }
 
     }

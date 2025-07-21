@@ -1,4 +1,4 @@
-import { ItemStack, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, Player, world, ItemEnchantableComponent, EnchantmentType } from "@minecraft/server";
+import { ItemStack, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, Player, world, ItemEnchantableComponent, EnchantmentType, ContainerSlot, EntityInventoryComponent, Container } from "@minecraft/server";
 import { getRandomInRange } from "./KimetuCommonUtil";
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 
@@ -6,13 +6,10 @@ import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
  * アイテムダメージ
  * @param {Entity} entity
  * @param {ItemStack} item
- * @param {EquipmentSlot} slot
  */
-async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
+async function ItemDurabilityDamage(entity:Entity, item:ItemStack) {
 
-    if (entity instanceof Player && entity.getGameMode() !== GameMode.creative) {
-        const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-
+    if (entity instanceof Player && entity.getGameMode() !== GameMode.Creative) {
         const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
         const dChangeRang = durability.getDamageChanceRange();
         let dChange = getRandomInRange(dChangeRang.min, dChangeRang.max);
@@ -23,12 +20,21 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
             dChange = durability.getDamageChance(unbreaking.level);
         }
 
-        if ((durability.damage + dChange) >= durability.maxDurability) {
-            equ.setEquipment(slot, undefined);
-        } else {
-            durability.damage = durability.damage + dChange;
-            equ.setEquipment(slot, item);
+        const equippable = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const mainHand = equippable.getEquipment(EquipmentSlot.Mainhand);
+        if (mainHand !== undefined) {
+            const useItemName = mainHand.getDynamicProperty("useItemName") as boolean;
+            mainHand.setDynamicProperty("useItemName");
+            if (useItemName && mainHand.typeId === item.typeId) {
+                if ((durability.damage + dChange) >= durability.maxDurability) {
+                    equippable.setEquipment(EquipmentSlot.Mainhand, undefined);
+                } else {
+                    durability.damage = durability.damage + dChange;
+                    equippable.setEquipment(EquipmentSlot.Mainhand, item);
+                }
+            }
         }
+
     }
 
 }

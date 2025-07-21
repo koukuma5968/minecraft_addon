@@ -13,20 +13,19 @@ export class KokyuKyouzyuroComponent implements NichirintouUseComponent {
      */
     changeKata(player:Player): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         const kokyuObject = KokyuObjects[7] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                kata = kokyuObject.kata[0];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
+                player.setProperty("kurokumaft:kokyu_kata", 0);
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hono_kata" + kokyuObject.kata[0] + ".value"}]});
                 break;
             default :
                 const index = kokyuObject.kata.findIndex((el) => el === kata);
-                kata = kokyuObject.kata[index+1];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
-            }
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:hono_kata" + kata + ".value\"}]}");
+                player.setProperty("kurokumaft:kokyu_kata", (index+1));
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hono_kata" + kokyuObject.kata[(index+1)] + ".value"}]});
+        }
 
     }
 

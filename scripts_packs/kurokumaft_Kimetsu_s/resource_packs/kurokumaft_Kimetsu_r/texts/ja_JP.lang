@@ -549,10 +549,10 @@ item.spawn_egg.entity.kurokumaft:zouhakuten.name=憎珀天
 item.spawn_egg.entity.kurokumaft:douma.name=童磨
 item.spawn_egg.entity.kurokumaft:kokushibou.name=黒死牟
 
-kurokumaft:itemGroup.name.ogre_head=鬼の服頭
-kurokumaft:itemGroup.name.ogre_chestplate=鬼の服上着
-kurokumaft:itemGroup.name.ogre_pants=鬼の服ズボン
-kurokumaft:itemGroup.name.ogre_boots=鬼の服足袋
+kurokumaft:itemGroup.name.ogre_head=鬼の頭巾
+kurokumaft:itemGroup.name.ogre_chestplate=鬼の着物
+kurokumaft:itemGroup.name.ogre_pants=鬼の袴
+kurokumaft:itemGroup.name.ogre_boots=鬼の足袋
 
 item.kurokumaft:rui_kimono.name=累の着物
 

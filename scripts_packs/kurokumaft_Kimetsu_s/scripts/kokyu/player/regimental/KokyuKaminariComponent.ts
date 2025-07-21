@@ -13,20 +13,19 @@ export class KokyuKaminariComponent implements NichirintouUseComponent {
      */
     changeKata(player:Player): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[15] as KokyuObject;
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kokyuObject = KokyuObjects[15] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                kata = kokyuObject.kata[0];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
+                player.setProperty("kurokumaft:kokyu_kata", 0);
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kata" + kokyuObject.kata[0] + ".value"}]});
                 break;
             default :
                 const index = kokyuObject.kata.findIndex((el) => el === kata);
-                kata = kokyuObject.kata[index+1];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
+                player.setProperty("kurokumaft:kokyu_kata", (index+1));
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kata" + kokyuObject.kata[(index+1)] + ".value"}]});
         }
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kaminari_kata" + kata + ".value\"}]}");
 
     }
 
@@ -42,38 +41,48 @@ export class KokyuKaminariComponent implements NichirintouUseComponent {
      */
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kaminari = new KaminariNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kaminari = new KaminariNoKata();
 
-        switch (kata) {
-            case 2 :
-                kaminari.niNoKata(player, itemStack);
-            break;
-            case 3 :
-                kaminari.sanNoKata(player, itemStack);
-            break;
-            case 5 :
-                kaminari.goNoKata(player, itemStack);
-            break;
-            case 6 :
-                kaminari.rokuNoKata(player, itemStack);
-            break;
+        try {
+
+            switch (kata) {
+                case 2 :
+                    kaminari.niNoKata(player, itemStack);
+                break;
+                case 3 :
+                    kaminari.sanNoKata(player, itemStack);
+                break;
+                case 5 :
+                    kaminari.goNoKata(player, itemStack);
+                break;
+                case 6 :
+                    kaminari.rokuNoKata(player, itemStack);
+                break;
+            }
+        } catch (error: any) {
+            
         }
 
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kaminari = new KaminariNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kaminari = new KaminariNoKata();
 
-        switch (kata) {
-            case 1 :
-                kaminari.ichiNoKata(player, itemStack);
-            break;
-            case 4 :
-                kaminari.shiNoKata(player, itemStack);
-            break;
-       }
+        try {
+
+            switch (kata) {
+                case 1 :
+                    kaminari.ichiNoKata(player, itemStack);
+                break;
+                case 4 :
+                    kaminari.shiNoKata(player, itemStack);
+                break;
+            }
+        } catch (error: any) {
+            
+        }
     }
 
 }

@@ -14,22 +14,20 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
      */
     changeKata(player:Player): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
         const kokyuObject = KokyuObjects[1] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
                 player.setProperty("kurokumaft:kokyu_kata", 1);
-                kata = kokyuObject.kata[0];
-                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kata" + kata + ".value"}]});
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kata1.value"}]});
                 break;
             default :
                 player.setProperty("kurokumaft:kokyu_kata", kata+1);
-                kata = kata+1;
-                if (kata < 11) {
-                    player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kata" + kata + ".value"}]});
+                if (kata+1 < 11) {
+                    player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:mizu_kata" + (kata+1) + ".value"}]});
                 } else {
-                    player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hinokami_kata" + kata + ".value"}]});
+                    player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hinokami_kata" + (kata+1) + ".value"}]});
                 }
             }
 
@@ -81,11 +79,11 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
             case 11 :
                 if (player.getProperty("kurokumaft:kokyu_chage") === 0) {
                     player.setProperty("kurokumaft:kokyu_chage", 1);
-                    this.enbuIntervalId = system.runTimeout(() => {
+                    system.waitTicks(3*TicksPerSecond).then(() => {
                         if (player.getProperty("kurokumaft:kokyu_use")) {
                             player.setProperty("kurokumaft:kokyu_chage", 5);
                         }
-                    },3*TicksPerSecond);
+                    });
                 }
             break;
             case 12 :

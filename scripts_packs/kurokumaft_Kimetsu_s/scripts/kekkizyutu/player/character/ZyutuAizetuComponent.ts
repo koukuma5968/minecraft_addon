@@ -28,10 +28,13 @@ export class ZyutuAizetuComponent implements KekkizyutuUseComponent {
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
         const bunretu = new Bunretu();
 
-        switch (kata) {
-            case 1 :
-                bunretu.shitotu(entity);
-            break;
+        try {
+            switch (kata) {
+                case 1 :
+                    bunretu.shitotu(entity);
+                break;
+            }
+        } catch (error: any) {
         }
 
     }

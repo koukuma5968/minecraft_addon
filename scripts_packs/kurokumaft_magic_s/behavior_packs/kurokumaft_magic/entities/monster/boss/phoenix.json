@@ -6,6 +6,14 @@
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false,
+      "properties": {
+        "kurokumaft:boss_pattern": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        }
+      },
       "scripts":{
         "animate":[
           "action"

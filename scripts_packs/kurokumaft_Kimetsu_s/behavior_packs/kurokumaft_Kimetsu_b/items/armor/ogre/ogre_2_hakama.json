@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:display_name": {
-				"value": "item.kurokumaft:ogre_2_hakama.name"
+				"value": "item.kurokumaft:ogre_pants.name"
 			},
       "minecraft:icon": "ogre_2_hakama",
       "minecraft:repairable": {

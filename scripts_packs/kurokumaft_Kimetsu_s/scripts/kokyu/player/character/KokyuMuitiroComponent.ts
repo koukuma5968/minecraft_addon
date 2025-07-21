@@ -13,20 +13,19 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
      */
     changeKata(player:Player): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[10] as KokyuObject;
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kokyuObject = KokyuObjects[10] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                kata = kokyuObject.kata[0];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
+                player.setProperty("kurokumaft:kokyu_kata", 0);
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kasumi_kata" + kokyuObject.kata[0] + ".value"}]});
                 break;
             default :
-                let index = kokyuObject.kata.findIndex((el) => el === kata);
-                kata = kokyuObject.kata[index+1];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
-            }
-            player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:kasumi_kata" + kata + ".value\"}]}");
+                const index = kokyuObject.kata.findIndex((el) => el === kata);
+                player.setProperty("kurokumaft:kokyu_kata", (index+1));
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kasumi_kata" + kokyuObject.kata[(index+1)] + ".value"}]});
+        }
     }
 
     /**
@@ -41,10 +40,9 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
      */
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kasumi = new KasumiNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kasumi = new KasumiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 2 :
                 kasumi.niNoKata(player, itemStack);
@@ -59,15 +57,13 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
                 kasumi.shitiNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
 
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kasumi = new KasumiNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kasumi = new KasumiNoKata();
 
-        player.addTag(player.id);
         switch (kata) {
             case 1 :
                 kasumi.ichiNoKata(player, itemStack);
@@ -79,7 +75,6 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
                 kasumi.shiNoKata(player, itemStack);
             break;
         }
-        player.removeTag(player.id);
     }
 
 }

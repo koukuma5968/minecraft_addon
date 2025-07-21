@@ -2,6 +2,7 @@ import { ExplosionOptions, ItemStack, MolangVariableMap, Entity, system, TicksPe
 import { addRegimentalFilter, getDistanceLocation, getForwardPosition, getLeftPosition, getLookLocationDistance, getRightPosition } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class OtoNoKata extends KataComonClass {
 
@@ -11,6 +12,9 @@ export class OtoNoKata extends KataComonClass {
     ichiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu1.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
 
         const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0.5);
@@ -26,10 +30,12 @@ export class OtoNoKata extends KataComonClass {
         };
         entity.dimension.createExplosion(disLocation, 1, option);
 
-        system.runTimeout(() => {
+        system.waitTicks(5).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },5);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
     }
 
@@ -38,6 +44,9 @@ export class OtoNoKata extends KataComonClass {
      */
     niNoKata(entity:Entity, itemStack:ItemStack | undefined) {
 
+        if (itemStack !== undefined) {
+            ItemDurabilityDamage(entity, itemStack);
+        }
         const option = {
             allowUnderwater: true,
             breaksBlocks: false,
@@ -55,20 +64,18 @@ export class OtoNoKata extends KataComonClass {
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 entity.dimension.createExplosion(disLocation, 1, option);
                 side=side+2;
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },5);
 
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },16);
+        system.waitTicks(16).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
 
     }
 
@@ -77,6 +84,9 @@ export class OtoNoKata extends KataComonClass {
      */
     sanNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         entity.setProperty("kurokumaft:kokyu_use", false);
+        if (itemStack !== undefined) {
+            ItemDurabilityDamage(entity, itemStack);
+        }
 
         const option = {
             allowUnderwater: true,
@@ -88,26 +98,24 @@ export class OtoNoKata extends KataComonClass {
         const num = system.runInterval(() => {
 
             try {
-                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
-                entity.applyKnockback(distance.x,distance.z,5,0);
+                const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0.5);
+                entity.applyKnockback({x:distance.x,z:distance.z},0);
 
                 const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 const front = getForwardPosition(entity.location, entity.getRotation().y, 1);
                 entity.dimension.createExplosion(front, 2, option);
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },2);
 
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },12);
+        system.waitTicks(12).then(() => {
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
 
     }
 
@@ -117,6 +125,9 @@ export class OtoNoKata extends KataComonClass {
     shiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu4.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
 
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
@@ -136,26 +147,23 @@ export class OtoNoKata extends KataComonClass {
                 const filter = addRegimentalFilter(0, entity.location, 5, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 this.checkSousouReflection(entity, option);
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },2);
 
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-                entity.setProperty("kurokumaft:kokyu_use", false);
-            } finally {
-                system.clearRun(this.sousouIntervalId);
-                system.clearRun(num);
-            }
-        },20);
+        system.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
 
     }
-    private sousouIntervalId: number =0;
     private checkSousouReflection(entity: Entity, option: ExplosionOptions): void {
-        if (entity.isValid()) {
+
+        if (entity.isValid) {
 
             this.projectRefrect(entity, entity.location);
 
@@ -179,8 +187,6 @@ export class OtoNoKata extends KataComonClass {
 
             entity.removeTag(entity.id);
 
-        } else {
-            system.clearRun(this.sousouIntervalId);
         }
     };
 
@@ -192,6 +198,9 @@ export class OtoNoKata extends KataComonClass {
         if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:oto_kokyu5.value"}]});
+                if (itemStack !== undefined) {
+                    ItemDurabilityDamage(entity, itemStack);
+                }
             }
 
             entity.setDynamicProperty("kurokumaft:chage_type", true);
@@ -211,9 +220,9 @@ export class OtoNoKata extends KataComonClass {
             const num = system.runInterval(() => {
 
                 try {
-                    const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
+                    const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0.5);
         
-                    entity.applyKnockback(distance.x,distance.z,3,0);
+                    entity.applyKnockback({x:distance.x,z:distance.z},0);
 
                     const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
                     this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
@@ -223,21 +232,19 @@ export class OtoNoKata extends KataComonClass {
         
                     const left = getLeftPosition(entity.location, entity.getRotation().y, 3);
                     entity.dimension.createExplosion(left, 2.5, option);
-                } catch (error) {
+                } catch (error: any) {
                     system.clearRun(num);
                 }
             },2);
     
-            system.runTimeout(() => {
-
-                try {
-                    entity.setProperty("kurokumaft:kokyu_use", false);
-                    entity.setProperty("kurokumaft:kokyu_particle", false);
-                    entity.setDynamicProperty("kurokumaft:chage_type", undefined);
-                } finally {
-                    system.clearRun(num);
-                }
-            },3*TicksPerSecond);
+            system.waitTicks(3*TicksPerSecond).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setDynamicProperty("kurokumaft:chage_type", undefined);
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(num);
+            });
     
         }
 

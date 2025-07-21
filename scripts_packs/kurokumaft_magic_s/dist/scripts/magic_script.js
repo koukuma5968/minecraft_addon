@@ -11455,6 +11455,7 @@ import { EntityComponentTypes as EntityComponentTypes15, EntityDamageCause as En
 var BossMoverBase = class {
   constructor(center, speed) {
     this.angle = 0;
+    this.origin = { x: 0, y: 0, z: 0 };
     this.position = { x: 0, y: 0, z: 0 };
     this.center = { x: 0, y: 0, z: 0 };
     this.speed = 0;
@@ -11463,6 +11464,13 @@ var BossMoverBase = class {
   }
   setPotion(position) {
     this.position = position;
+    this.origin = { x: position.x, y: position.y, z: position.z };
+  }
+  setCenterY(y) {
+    this.center.y = y;
+  }
+  getCenter() {
+    return this.center;
   }
   moveCenter(deltaTime) {
     const dx = this.center.x - this.position.x;
@@ -11482,8 +11490,29 @@ var BossMoverBase = class {
     }
     return this.position;
   }
+  moveOrigin(deltaTime) {
+    const dx = this.origin.x - this.position.x;
+    const dy = this.origin.y - this.position.y;
+    const dz = this.origin.z - this.position.z;
+    const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
+    if (distance === 0)
+      return this.position;
+    const moveDist = this.speed * deltaTime;
+    if (moveDist >= distance) {
+      this.position = { ...this.origin };
+    } else {
+      const ratio = moveDist / distance;
+      this.position.x += dx * ratio;
+      this.position.y += dy * ratio;
+      this.position.z += dz * ratio;
+    }
+    return this.position;
+  }
   isComplete() {
     return this.position.x === this.center.x && this.position.y === this.center.y && this.position.z === this.center.z;
+  }
+  isCompleteOrigin() {
+    return this.position.x === this.origin.x && this.position.y === this.origin.y && this.position.z === this.origin.z;
   }
 };
 
@@ -11514,38 +11543,25 @@ var PhoenixActionCompornent = class {
     this.moveCount = 0;
   }
   startMoniter() {
+    this.entity.setProperty("kurokumaft:boss_pattern", 0);
     world38.sendMessage("\u79FB\u52D5");
     this.startMoveing();
   }
   startMoveing() {
     try {
-      const hitBlock = this.entity.dimension.getBlockFromRay(this.entity.location, { x: 0, y: -1, z: 0 });
-      let brokHi = this.entity.location.y;
-      if (hitBlock !== void 0) {
-        brokHi = hitBlock.block.location.y + 10;
-      }
       if (this.entity !== void 0 && this.entity.isValid()) {
-        if (this.moveCount === 60) {
+        const hitBlock = this.entity.dimension.getBlockFromRay(this.entity.location, { x: 0, y: -1, z: 0 });
+        let brokHi = this.entity.location.y;
+        if (hitBlock !== void 0) {
+          brokHi = hitBlock.block.location.y + 10;
+        }
+        if (this.moveCount >= 300) {
           this.moveCount = 0;
           world38.sendMessage("\u4E2D\u5FC3\u79FB\u52D5");
-          world38.sendMessage(JSON.stringify(this.entity.location));
           this.mover.setPotion(this.entity.location);
-          while (true) {
-            const center = this.mover.moveCenter(0.1);
-            world38.sendMessage(JSON.stringify(center));
-            this.entity.teleport(this.entity.location, {
-              checkForBlocks: true,
-              facingLocation: center
-            });
-            this.entity.teleport(center, {
-              checkForBlocks: true
-            });
-            if (this.mover.isComplete()) {
-              world38.sendMessage("\u4E2D\u5FC3\u79FB\u52D5\u7D42\u308F\u308A");
-              break;
-            }
-          }
-          this.startMoveing();
+          this.mover.setCenterY(brokHi - 9);
+          this.entity.setProperty("kurokumaft:boss_pattern", 1);
+          this.centerMoveing();
         } else {
           this.moveCount = this.moveCount + getRandomInRange(1, 5);
           const pos = this.mover.updatePosition(0.1);
@@ -11556,147 +11572,177 @@ var PhoenixActionCompornent = class {
           this.entity.teleport({ x: pos.x, y: brokHi, z: pos.z }, {
             checkForBlocks: true
           });
-          if (this.attackCount === 30) {
-            this.attackSkiil();
+          if (this.attackCount >= 60) {
+            if (getRandomInRange(1, 2) === 1) {
+              this.fireBlast(0);
+              system42.waitTicks(3).then(() => {
+                this.attackCount = this.attackCount + getRandomInRange(1, 3);
+                this.startMoveing();
+              });
+            } else {
+              this.entity.setProperty("kurokumaft:boss_pattern", 1);
+              this.mover.setPotion(this.entity.location);
+              this.blazeWear(0, brokHi);
+            }
             this.attackCount = 0;
+          } else {
+            system42.waitTicks(3).then(() => {
+              this.attackCount = this.attackCount + getRandomInRange(1, 3);
+              this.startMoveing();
+            });
           }
-          system42.waitTicks(3).then(() => {
-            this.attackCount = this.attackCount + 1;
-            this.startMoveing();
+        }
+      }
+    } catch (error) {
+    } finally {
+    }
+  }
+  centerMoveing() {
+    try {
+      if (this.entity !== void 0 && this.entity.isValid()) {
+        const center = this.mover.moveCenter(1.5);
+        this.entity.teleport(this.entity.location, {
+          checkForBlocks: true,
+          facingLocation: center
+        });
+        this.entity.teleport(center, {
+          checkForBlocks: true
+        });
+        if (this.mover.isComplete()) {
+          world38.sendMessage("\u4E2D\u5FC3\u79FB\u52D5\u7D42\u308F\u308A");
+          system42.waitTicks(getRandomInRange(3, 8) * TicksPerSecond53).then(() => {
+            this.entity.setProperty("kurokumaft:boss_pattern", 0);
+            this.flameStream(0);
+          });
+        } else {
+          system42.waitTicks(5).then(() => {
+            this.centerMoveing();
           });
         }
       }
     } catch (error) {
-      throw error;
     } finally {
     }
   }
-  attackSkiil() {
-    switch (getRandomInRange(1, 3)) {
-      case 1:
-        this.flameStream();
-        break;
-      case 2:
-        this.fireBlast();
-        break;
-      case 3:
-        this.blazeWear();
-        break;
+  originMoveing(deltaTime) {
+    try {
+      if (this.entity !== void 0 && this.entity.isValid()) {
+        const origin = this.mover.moveOrigin(deltaTime);
+        this.entity.teleport(this.entity.location, {
+          checkForBlocks: true,
+          facingLocation: origin
+        });
+        this.entity.teleport(origin, {
+          checkForBlocks: true
+        });
+        if (this.mover.isCompleteOrigin()) {
+          world38.sendMessage("\u30AA\u30EA\u30B8\u30F3\u79FB\u52D5\u7D42\u308F\u308A");
+          this.entity.setProperty("kurokumaft:boss_pattern", 0);
+          this.startMoveing();
+        } else {
+          system42.waitTicks(5).then(() => {
+            this.originMoveing(deltaTime);
+          });
+        }
+      }
+    } catch (error) {
+    } finally {
     }
   }
-  flameStream() {
+  flameStream(count) {
     try {
       world38.sendMessage("\u706B\u7114\u653E\u5C04");
-      const num = system42.runInterval(() => {
-        try {
-          const filterOption1 = {
-            location: this.entity.location,
-            maxDistance: 32,
-            excludeTags: [this.entity.id]
-          };
-          const targets1 = this.entity.dimension.getEntities(filterOption1);
-          targets1.forEach((en) => {
-            if (en instanceof Player100) {
-              en.applyDamage(1, {
-                cause: EntityDamageCause64.fire
-              });
-            } else {
-              en.applyDamage(3, {
-                cause: EntityDamageCause64.fire
-              });
-            }
-            en.dimension.spawnParticle("kurokumaft:phoenix_wall_particle", en.location);
-          });
-        } catch (error) {
-          system42.clearRun(num);
+      if (this.entity !== void 0 && this.entity.isValid()) {
+        const filterOption1 = {
+          location: this.entity.location,
+          maxDistance: 32,
+          excludeTags: [this.entity.id]
+        };
+        const targets1 = this.entity.dimension.getEntities(filterOption1);
+        this.entity.dimension.spawnParticle("kurokumaft:phoenix_stream_particle", this.entity.location);
+        targets1.forEach((en) => {
+          if (en instanceof Player100) {
+            en.applyDamage(1, {
+              cause: EntityDamageCause64.fire
+            });
+          } else {
+            en.applyDamage(3, {
+              cause: EntityDamageCause64.fire
+            });
+          }
+        });
+        system42.waitTicks(3).then(() => {
+          if (count !== 10) {
+            this.flameStream(count + 1);
+          } else {
+            system42.waitTicks(TicksPerSecond53).then(() => {
+              world38.sendMessage("\u3082\u3068\u306B\u4F4D\u7F6E\u306B\u623B\u308B");
+              this.originMoveing(1.5);
+            });
+          }
+        });
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+  async fireBlast(count) {
+    world38.sendMessage("\u706B\u7403\u4E71\u5C04");
+    try {
+      const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.location);
+      const projectile = bulet.getComponent(EntityComponentTypes15.Projectile);
+      projectile.owner = this.entity;
+      projectile.shoot({
+        x: this.entity.getViewDirection().x,
+        y: this.entity.getViewDirection().y - 3,
+        z: this.entity.getViewDirection().z
+      }, {
+        uncertainty: 3
+      });
+      system42.waitTicks(5).then(() => {
+        if (count !== 5) {
+          this.fireBlast(count + 1);
         }
-      }, 5);
-      system42.waitTicks(3 * TicksPerSecond53).then(() => {
-        system42.clearRun(num);
       });
     } catch (error) {
       throw error;
     }
   }
-  fireBlast() {
-    world38.sendMessage("\u706B\u7403\u4E71\u5C04");
-    const num = system42.runInterval(() => {
-      try {
-        const filterOption2 = {
-          location: this.entity.location,
-          maxDistance: 32,
-          excludeTags: [this.entity.id],
-          closest: 1
-        };
-        const targets2 = this.entity.dimension.getEntities(filterOption2);
-        targets2.forEach((en) => {
-          this.entity.teleport(this.entity.location, {
-            checkForBlocks: true,
-            facingLocation: en.location
-          });
-          const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.getHeadLocation());
-          const projectile = bulet.getComponent(EntityComponentTypes15.Projectile);
-          projectile.owner = this.entity;
-          projectile.shoot({
-            x: this.entity.getViewDirection().x,
-            y: this.entity.getViewDirection().y,
-            z: this.entity.getViewDirection().z
-          }, {
-            uncertainty: getRandomInRange(0, 2)
-          });
-        });
-      } catch (error) {
-        system42.clearRun(num);
-        throw error;
-      }
-    }, 5);
-    system42.waitTicks(3 * TicksPerSecond53).then(() => {
-      system42.clearRun(num);
-    });
-  }
-  blazeWear() {
+  blazeWear(count, hight) {
     world38.sendMessage("\u706B\u7114\u7E8F");
-    const filterOption3 = {
-      location: this.entity.location,
-      maxDistance: 32,
-      excludeTags: [this.entity.id],
-      closest: 1
-    };
-    const targets3 = this.entity.dimension.getEntities(filterOption3);
-    if (targets3.length < 1) {
-      return;
-    }
-    const num = system42.runInterval(() => {
-      try {
-        if (targets3[0] !== void 0 && this.entity.isValid()) {
-          const loc = this.entity.location;
-          this.entity.teleport({ x: loc.x, y: targets3[0].location.y, z: loc.z }, {
-            checkForBlocks: true,
-            facingLocation: targets3[0].location
-          });
+    try {
+      system42.waitTicks(5).then(() => {
+        const loc = this.entity.location;
+        this.entity.teleport({ x: loc.x, y: hight, z: loc.z }, {
+          checkForBlocks: true,
+          facingLocation: this.mover.getCenter()
+        });
+        if (count === 8) {
+          this.entity.setProperty("kurokumaft:boss_pattern", 0);
+          this.blazeWearAttack(0);
+        } else {
+          this.blazeWear(count + 1, hight - 1);
         }
-      } catch (error) {
-        system42.clearRun(num);
-        throw error;
-      }
-    }, 5);
-    system42.waitTicks(3 * TicksPerSecond53).then(() => {
-      system42.clearRun(num);
-      try {
-        const move = system42.runInterval(() => {
-          const distance = getLookLocationDistance(this.entity.getRotation().y, 1, 0, 0);
-          this.entity.teleport(getDistanceLocation(this.entity.location, distance), {
-            checkForBlocks: true
-          });
-        }, 5);
-        system42.runTimeout(() => {
-          system42.clearRun(move);
-        }, 15);
-      } catch (error) {
-        system42.clearRun(num);
-        throw error;
-      }
-    });
+      });
+    } catch (error) {
+    }
+  }
+  blazeWearAttack(count) {
+    world38.sendMessage("\u706B\u7114\u7E8F\u30A2\u30BF\u30C3\u30AF");
+    try {
+      system42.waitTicks(1).then(() => {
+        const distance = getLookLocationDistance(this.entity.getRotation().y, 1, 0, 0);
+        this.entity.teleport(getDistanceLocation(this.entity.location, distance), {
+          checkForBlocks: true
+        });
+        if (count === 30) {
+          this.originMoveing(3);
+        } else {
+          this.blazeWearAttack(count + 1);
+        }
+      });
+    } catch (error) {
+    }
   }
 };
 

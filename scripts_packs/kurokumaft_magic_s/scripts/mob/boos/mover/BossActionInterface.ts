@@ -4,7 +4,6 @@ import { PhoenixActionCompornent } from "../PhoenixActionCompornent";
 export interface BossActionInterface {
 
     startMoniter(): void;
-    attackSkiil() :void;
     startMoveing(): void;
 
 }
@@ -16,9 +15,13 @@ export interface BossActionObject {
 
 export interface BossMoveMoverInterface {
     updatePosition(deltaTime: number): Vector3;
-    setPotion(position: Vector3) :void;
+    setPotion(position: Vector3) : void;
+    setCenterY(y: number): void;
+    getCenter() :Vector3;
     moveCenter(deltaTime: number): Vector3;
     isComplete(): boolean;
+    moveOrigin(deltaTime: number): Vector3;
+    isCompleteOrigin(): boolean;
 }
 
 export const BossActionObjects = Object.freeze([

@@ -1,0 +1,42 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:revolver",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:revolver.name"
+      },
+      "minecraft:icon": "revolver",
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 2,
+          "max": 5
+        },
+        "max_durability": 1500
+      },
+      "minecraft:enchantable": {
+        "value": 20,
+        "slot": "bow"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:revolver" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:use_animation": "bow",
+      "minecraft:use_modifiers": {
+        "use_duration": 10
+      }
+    }
+  }
+}

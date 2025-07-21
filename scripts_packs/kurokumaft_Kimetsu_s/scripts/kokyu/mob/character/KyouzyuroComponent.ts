@@ -18,7 +18,7 @@ const kyouzyuroKokyuLists = weightChoice([
 export class KyouzyuroComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);
@@ -45,58 +45,66 @@ export class KyouzyuroComponent implements KokyuMobUseComponent {
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         hono.ichiNoKata(entity, undefined);
-                    }, 30);
-                    system.runTimeout(() => {
+                    }).catch((error: any) => {
+                    });
+                    system.waitTicks(60).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 60);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hono.niNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 3 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hono.sanNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 4 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hono.shiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 5 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hono.goNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 9 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(40).then(() => {
                         hono.kuNoKata(entity, undefined);
-                    }, 40);
-                    system.runTimeout(() => {
+                    }).catch((error: any) => {
+                    });
+                    system.waitTicks(80).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 80);
+                    }).catch((error: any) => {
+                    });
                 break;
             }
-        } catch (error) {
+        } catch (error: any) {
             
         }
 

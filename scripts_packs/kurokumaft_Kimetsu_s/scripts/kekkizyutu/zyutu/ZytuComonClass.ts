@@ -30,7 +30,7 @@ export class ZytuComonClass extends KataComonClass {
         const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
         const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
         targets.forEach(en => {
-            if (en !== undefined && en.isValid()) {
+            if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
                     if (this.gardCheck(en)) {
                         en.applyDamage(pDamage*(point !== undefined ? point.point : 1), {
@@ -58,7 +58,7 @@ export class ZytuComonClass extends KataComonClass {
         const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
         const damageNum = point !== undefined ? point.point : 1;
         targets.forEach(en => {
-            if (en !== undefined && en.isValid()) {
+            if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
                     if (this.gardCheck(en)) {
                         en.addEffect(effect, Math.round(duration*damageNum*0.25), {

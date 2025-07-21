@@ -1,12 +1,12 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.phoenix.spear": {
+		"animation.phoenix.move": {
 			"loop": true,
 			"animation_length": 0.25,
 			"bones": {
 				"root": {
-					"rotation": ["90 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"rotation": [90, "-query.target_y_rotation", 0],
 					"position": [0, -17, -7]
 				},
 				"top": {
@@ -14,6 +14,54 @@
 				},
 				"tail": {
 					"rotation": [-50, 0, 0]
+				},
+				"rightfeather": {
+					"rotation": [0, 0, -7.5]
+				},
+				"rightfeather2": {
+					"rotation": [0, 0, -5]
+				},
+				"rightfeather3": {
+					"rotation": [0, 0, -2.5]
+				},
+				"rightfeather5": {
+					"rotation": [0, 0, 5]
+				},
+				"rightfeather6": {
+					"rotation": [0, 0, 7.5]
+				},
+				"rightfeather7": {
+					"rotation": [0, 0, 10]
+				},
+				"rightfeather8": {
+					"rotation": [0, 0, 12.5]
+				},
+				"rightfeather9": {
+					"rotation": [0, 0, 17.5]
+				},
+				"leftfeather": {
+					"rotation": [0, 0, 7.5]
+				},
+				"leftfeather2": {
+					"rotation": [0, 0, 5]
+				},
+				"leftfeather3": {
+					"rotation": [0, 0, 2.5]
+				},
+				"leftfeather5": {
+					"rotation": [0, 0, -5]
+				},
+				"leftfeather6": {
+					"rotation": [0, 0, -7.5]
+				},
+				"leftfeather7": {
+					"rotation": [0, 0, -10]
+				},
+				"leftfeather8": {
+					"rotation": [0, 0, -12.5]
+				},
+				"leftfeather9": {
+					"rotation": [0, 0, -17.5]
 				}
 			},
 			"particle_effects": {
@@ -101,7 +149,7 @@
 				]
 			}
 		},
-		"animation.phoenix.move": {
+		"animation.phoenix.hover": {
 			"loop": true,
 			"animation_length": 0.375,
 			"bones": {

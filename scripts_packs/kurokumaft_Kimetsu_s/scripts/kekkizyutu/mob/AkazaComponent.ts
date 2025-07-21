@@ -14,22 +14,30 @@ const akazaKekkizyutuLists = weightChoice([
 export class AkazaComponent implements KekkizyutuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
-            entity.setProperty("kurokumaft:kokyu_use", true);
-            entity.setProperty("kurokumaft:kokyu_particle", true);
-            this.useAttackZyutu(entity);
+        try {
+
+            if (entity !== undefined && entity.isValid) {
+                entity.setProperty("kurokumaft:kokyu_use", true);
+                entity.setProperty("kurokumaft:kokyu_particle", true);
+                this.useAttackZyutu(entity);
+            }
+        } catch (error: any) {
         }
     }
 
     useAttackZyutu(entity:Entity): void {
 
-        if (entity.getProperty("kurokumaft:rashin")) {
-            const num = akazaKekkizyutuLists.pick();
-            entity.setProperty("kurokumaft:kekkizyutu_kata", num);
-            this.kokyuUse(entity, num);
-        } else {
-            entity.setProperty("kurokumaft:kekkizyutu_kata", 1);
-            this.kokyuUse(entity, 1);
+        try {
+
+            if (entity.getProperty("kurokumaft:rashin")) {
+                const num = akazaKekkizyutuLists.pick();
+                entity.setProperty("kurokumaft:kekkizyutu_kata", num);
+                this.kokyuUse(entity, num);
+            } else {
+                entity.setProperty("kurokumaft:kekkizyutu_kata", 1);
+                this.kokyuUse(entity, 1);
+            }
+        } catch (error: any) {
         }
 
     }
@@ -38,90 +46,104 @@ export class AkazaComponent implements KekkizyutuMobUseComponent {
 
         const hakaisatu = new Hakaisatu();
 
-        switch (kata) {
-            case 1 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.rashin(entity);
-                entity.setProperty("kurokumaft:rashin", true);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 30);
-            break;
-            case 2 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.kushiki(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 20);
-            break;
-            case 3 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.ranshiki(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 80);
-            break;
-            case 4 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.kamurosakiwari(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 60);
-            break;
-            case 5 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.ryusengunkou(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 60);
-            break;
-            case 6 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.hiyuuseisenrin(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 60);
-            break;
-            case 7 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.manyousenyanagi(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 60);
-            break;
-            case 8 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.kishinyaenshin(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 60);
-            break;
-            case 9 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                system.runTimeout(() => {
-                    hakaisatu.messhiki(entity);
-                }, 20);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 60);
-            break;
-            case 10 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                hakaisatu.aoginranzankou(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 80);
-            break;
+        try {
+
+            switch (kata) {
+                case 1 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.rashin(entity);
+                    entity.setProperty("kurokumaft:rashin", true);
+                    system.waitTicks(30).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 2 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.kushiki(entity);
+                    system.waitTicks(20).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 3 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.ranshiki(entity);
+                    system.waitTicks(80).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 4 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.kamurosakiwari(entity);
+                    system.waitTicks(60).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 5 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.ryusengunkou(entity);
+                    system.waitTicks(60).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 6 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.hiyuuseisenrin(entity);
+                    system.waitTicks(60).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 7 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.manyousenyanagi(entity);
+                    system.waitTicks(60).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 8 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.kishinyaenshin(entity);
+                    system.waitTicks(60).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 9 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    system.runTimeout(() => {
+                        hakaisatu.messhiki(entity);
+                    }, 20);
+                    system.waitTicks(60).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 10 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    hakaisatu.aoginranzankou(entity);
+                    system.waitTicks(80).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+            }
+        } catch (error: any) {
         }
 
     }

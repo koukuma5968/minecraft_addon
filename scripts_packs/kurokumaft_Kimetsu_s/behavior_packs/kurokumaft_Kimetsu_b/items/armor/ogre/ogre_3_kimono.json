@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:display_name": {
-				"value": "item.kurokumaft:ogre_3_kimono.name"
+				"value": "item.kurokumaft:ogre_chestplate.name"
 			},
       "minecraft:icon": "ogre_3_kimono",
       "minecraft:repairable": {

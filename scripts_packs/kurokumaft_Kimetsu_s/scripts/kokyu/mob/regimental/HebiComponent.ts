@@ -17,7 +17,7 @@ const hebiKokyuLists = weightChoice([
 export class HebiComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);
@@ -44,45 +44,50 @@ export class HebiComponent implements KokyuMobUseComponent {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hebi.ichiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hebi.niNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 3 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hebi.sanNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 4 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hebi.shiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 5 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     hebi.goNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
             }
-        } catch (error) {
+        } catch (error: any) {
             
         }
     }

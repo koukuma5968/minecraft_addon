@@ -1,0 +1,36 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.phoenix" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"move" : "query.is_charged"
+						}
+					]
+				},
+				"move" : {
+					"transitions" : [
+						{
+							"hover" : "!query.is_charged"
+						}
+					]
+				},
+				"hover" : {
+					"particle_effects" : [
+						{
+							"effect" : "charged_flames"
+						}
+					],
+					"transitions" : [
+						{
+							"default" : "!query.is_charged"
+						}
+					]
+				}
+			}
+		}
+	}
+}

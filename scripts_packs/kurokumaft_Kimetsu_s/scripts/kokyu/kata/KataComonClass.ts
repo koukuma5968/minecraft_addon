@@ -1,5 +1,4 @@
 import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent, system } from "@minecraft/server";
-import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addProjectionFilter, getDistanceLocation, getLookLocationDistance } from "../../common/KimetuCommonUtil";
 
@@ -37,7 +36,7 @@ export class KataComonClass {
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum;
         targets.forEach(en => {
-            if (en !== undefined && en.isValid()) {
+            if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
                     if (entity instanceof Player) {
                         const tags = en.getTags();
@@ -65,7 +64,7 @@ export class KataComonClass {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
-                    } else {
+                    } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
                         const tags = en.getTags();
                         if (tags.indexOf("hostility") !== -1) {
                             en.applyDamage(enDamage*damageNum, {
@@ -73,6 +72,11 @@ export class KataComonClass {
                                 damagingEntity: entity
                             });
                         }
+                    } else {
+                        en.applyDamage(enDamage*damageNum, {
+                            cause: EntityDamageCause.entityAttack,
+                            damagingEntity: entity
+                        });
                     }
                 }
             }
@@ -84,19 +88,16 @@ export class KataComonClass {
             getDistanceLocation(entity.location, {x:distance.x+3,y:distance.y+2,z:distance.z+3})
         );
 
-        if (itemStack !== undefined) {
-            ItemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
-        }
         entity.removeTag(entity.id);
 
     }
 
-    kokyuApplyKnockback(entity:Entity, filter:EntityQueryOptions, distance:Vector3, hNum:number, vNum:number): void {
+    kokyuApplyKnockback(entity:Entity, filter:EntityQueryOptions, distance:Vector3, vNum:number): void {
 
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
         targets.forEach(en => {
-            en.applyKnockback(distance.x,distance.z,hNum,vNum);
+            en.applyKnockback({x:distance.x,z:distance.z},vNum);
         });
         entity.removeTag(entity.id);
 
@@ -109,7 +110,7 @@ export class KataComonClass {
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum;
         targets.forEach(en => {
-            if (en !== undefined && en.isValid()) {
+            if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
                     if (this.gardCheck(en)) {
                         en.addEffect(effect, Math.round(duration*damageNum*0.25), {

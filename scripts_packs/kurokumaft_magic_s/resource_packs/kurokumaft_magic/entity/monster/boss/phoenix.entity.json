@@ -21,7 +21,8 @@
         ]
       },
       "animations": {
-        "move": "animation.phoenix.move"
+        "move": "animation.phoenix.move",
+        "hover": "animation.phoenix.hover"
       },
       "render_controllers": [ "controller.render.phoenix" ],
       "spawn_egg": {

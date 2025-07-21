@@ -13,20 +13,19 @@ export class KokyuIwaComponent implements NichirintouUseComponent {
      */
     changeKata(player:Player): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kokyuObject = KokyuObjects[20] as KokyuObject;
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kokyuObject = KokyuObjects[20] as KokyuObject;
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                kata = kokyuObject.kata[0];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
+                player.setProperty("kurokumaft:kokyu_kata", 0);
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:iwa_kata" + kokyuObject.kata[0] + ".value"}]});
                 break;
             default :
                 const index = kokyuObject.kata.findIndex((el) => el === kata);
-                kata = kokyuObject.kata[index+1];
-                player.setProperty("kurokumaft:kokyu_kata", kata);
+                player.setProperty("kurokumaft:kokyu_kata", (index+1));
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:iwa_kata" + kokyuObject.kata[(index+1)] + ".value"}]});
         }
-        player.runCommand("/titleraw @s actionbar {\"rawtext\":[{\"translate\":\"msg.kurokumaft:iwa_kata" + kata + ".value\"}]}");
 
     }
 
@@ -42,25 +41,30 @@ export class KokyuIwaComponent implements NichirintouUseComponent {
      */
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let iwa = new IwaNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const iwa = new IwaNoKata();
 
-        switch (kata) {
-            case 1 :
-                iwa.ichiNoKata(player, itemStack);
-            break;
-            case 2 :
-                iwa.niNoKata(player, itemStack);
-            break;
-            case 3 :
-                iwa.sanNoKata(player, itemStack);
-            break;
-            case 4 :
-                iwa.shiNoKata(player, itemStack);
-            break;
-            case 5 :
-                iwa.goNoKata(player, itemStack);
-            break;
+        try {
+
+            switch (kata) {
+                case 1 :
+                    iwa.ichiNoKata(player, itemStack);
+                break;
+                case 2 :
+                    iwa.niNoKata(player, itemStack);
+                break;
+                case 3 :
+                    iwa.sanNoKata(player, itemStack);
+                break;
+                case 4 :
+                    iwa.shiNoKata(player, itemStack);
+                break;
+                case 5 :
+                    iwa.goNoKata(player, itemStack);
+                break;
+            }
+        } catch (error: any) {
+            
         }
 
     }

@@ -9,20 +9,26 @@ export class TokageComponent implements KekkizyutuMobUseComponent {
 
     startMonitoring(entity: Entity) {
 
-        if (entity !== undefined && entity.isValid()) {
-            const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
-            if (nitirintou_equip) {
-                entity.setProperty("kurokumaft:kokyu_use", true);
-                entity.setProperty("kurokumaft:kokyu_particle", true);
-                this.useAttackZyutu(entity);
+        try {
+            if (entity !== undefined && entity.isValid) {
+                const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
+                if (nitirintou_equip) {
+                    entity.setProperty("kurokumaft:kokyu_use", true);
+                    entity.setProperty("kurokumaft:kokyu_particle", true);
+                    this.useAttackZyutu(entity);
+                }
             }
+        } catch (error: any) {
         }
     }
 
     async useAttackZyutu(entity: Entity): Promise<void> {
 
-        const bunretu = new Bunretu();
-        bunretu.ultrasonic(entity);
+        try {
+            const bunretu = new Bunretu();
+            bunretu.ultrasonic(entity);
+        } catch (error: any) {
+        }
 
     }
 

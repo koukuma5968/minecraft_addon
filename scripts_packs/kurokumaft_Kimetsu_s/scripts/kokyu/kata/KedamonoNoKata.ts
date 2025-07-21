@@ -2,6 +2,7 @@ import { ItemStack, Entity, system, TicksPerSecond, Player } from "@minecraft/se
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistancePitch} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class KedamonoNoKata extends KataComonClass {
 
@@ -12,15 +13,20 @@ export class KedamonoNoKata extends KataComonClass {
 
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu1.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
 
-        system.runTimeout(() => {
+        system.waitTicks(15).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },15);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
     }
 
@@ -30,22 +36,29 @@ export class KedamonoNoKata extends KataComonClass {
     niNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu2.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         // 左
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, -0.5);
         const lfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, lfilter, 2, 1, itemStack);
-        system.runTimeout(() => {
+        system.waitTicks(10).then(() => {
             // 右
             const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0.5);
             const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
             this.kokyuApplyDamage(entity, rfilter, 2, 1, itemStack);
-        }, 10);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
-        system.runTimeout(() => {
+        system.waitTicks(15).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },15);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
     }
 
     /**
@@ -55,15 +68,20 @@ export class KedamonoNoKata extends KataComonClass {
         
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu3.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
         this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
 
-        system.runTimeout(() => {
+        system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },10);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
     }
 
     /**
@@ -73,6 +91,9 @@ export class KedamonoNoKata extends KataComonClass {
 
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu4.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         const num = system.runInterval(() => {
 
@@ -80,19 +101,16 @@ export class KedamonoNoKata extends KataComonClass {
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },4);
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },40);
+        system.waitTicks(40).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
     }
 
@@ -102,25 +120,25 @@ export class KedamonoNoKata extends KataComonClass {
     goNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu5.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         const num = system.runInterval(() => {
 
             try {
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },4);
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },20);
+        system.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
     }
 
@@ -131,6 +149,9 @@ export class KedamonoNoKata extends KataComonClass {
 
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu6.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         const num = system.runInterval(() => {
 
@@ -138,19 +159,16 @@ export class KedamonoNoKata extends KataComonClass {
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 1, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
                 this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },4);
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },40);
+        system.waitTicks(40).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
     }
 
@@ -162,6 +180,9 @@ export class KedamonoNoKata extends KataComonClass {
         if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu7.value"}]});
+                if (itemStack !== undefined) {
+                    ItemDurabilityDamage(entity, itemStack);
+                }
             }
             entity.setProperty("kurokumaft:kokyu_chage", 10);
             entity.setDynamicProperty("kurokumaft:chage_type", true);
@@ -179,21 +200,25 @@ export class KedamonoNoKata extends KataComonClass {
                     targets.forEach(en => {
                         en.dimension.spawnParticle("kurokumaft:kedamono7_particle", en.location);
                     });
-                } catch (error) {
+                } catch (error: any) {
                     system.clearRun(num);
                 }
             },2);
 
-            system.runTimeout(() => {
+            system.waitTicks(10).then(() => {
                 entity.setDynamicProperty("kurokumaft:chage_type", undefined);
                 entity.setProperty("kurokumaft:kokyu_chage", 0);
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },10);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
 
-            system.runTimeout(() => {
+            system.waitTicks(10*TicksPerSecond).then(() => {
                 system.clearRun(num);
-            },10*TicksPerSecond);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         }
     }
 
@@ -205,6 +230,9 @@ export class KedamonoNoKata extends KataComonClass {
         if (entity.getDynamicProperty("kurokumaft:chage_type") === undefined) {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu8.value"}]});
+                if (itemStack !== undefined) {
+                    ItemDurabilityDamage(entity, itemStack);
+                }
             }
             entity.setDynamicProperty("kurokumaft:chage_type", true);
             entity.setProperty("kurokumaft:kokyu_chage", 10);
@@ -213,12 +241,14 @@ export class KedamonoNoKata extends KataComonClass {
                 amplifier: 5,
                 showParticles: false
             });
-            system.runTimeout(() => {
+            system.waitTicks(10*TicksPerSecond).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 entity.setDynamicProperty("kurokumaft:chage_type", undefined);
                 entity.setProperty("kurokumaft:kokyu_chage", 0);
-            },10*TicksPerSecond);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         }
     }
 
@@ -229,15 +259,20 @@ export class KedamonoNoKata extends KataComonClass {
 
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu9.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         const distance = getLookLocationDistancePitch(entity.getRotation(), 3.5, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
         this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
 
-        system.runTimeout(() => {
+        system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },10);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
     }
 
     /**
@@ -249,6 +284,9 @@ export class KedamonoNoKata extends KataComonClass {
             entity.setDynamicProperty("kurokumaft:chage_type", true);
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kedamono_kokyu10.value"}]});
+                if (itemStack !== undefined) {
+                    ItemDurabilityDamage(entity, itemStack);
+                }
             }
             const num = system.runInterval(() => {
 
@@ -262,21 +300,19 @@ export class KedamonoNoKata extends KataComonClass {
                     const rdistance = getLookLocationDistancePitch(entity.getRotation(), 0.5, 1.5);
                     const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, rdistance), 4, entity);
                     this.kokyuApplyDamage(entity, rfilter, 2, 1, itemStack);
-                } catch (error) {
+                } catch (error: any) {
                     system.clearRun(num);
                 }
             },4);
 
-            system.runTimeout(() => {
-
-                try {
-                    entity.setProperty("kurokumaft:kokyu_use", false);
-                    entity.setProperty("kurokumaft:kokyu_particle", false);
-                    entity.setDynamicProperty("kurokumaft:chage_type", undefined);
-                } finally {
-                    system.clearRun(num);
-                }
-            },3*TicksPerSecond);
+            system.waitTicks(3*TicksPerSecond).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setDynamicProperty("kurokumaft:chage_type", undefined);
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(num);
+            });
     
         }
 

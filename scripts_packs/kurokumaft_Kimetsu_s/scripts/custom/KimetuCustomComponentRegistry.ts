@@ -1,13 +1,13 @@
-import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { NichirintouComponent } from "../item/weapon/nichirintou/NichirintouComponent";
 import { BloodDrinking } from "../item/tool/BloodDrinking";
 import { KekkizyutuComponent } from "../item/weapon/kekkizyutu/KekkizyutuComponent";
+import { StartupEvent } from "@minecraft/server";
 
 /**
  * カスタムコンポーネントの登録
- * @param {WorldInitializeBeforeEvent} initEvent
+ * @param {StartupEvent} initEvent
  */
-function initRegisterKimetuCustom(initEvent:WorldInitializeBeforeEvent) {
+function initRegisterKimetuCustom(initEvent:StartupEvent) {
 
     // アイテム類
     // 日輪刀

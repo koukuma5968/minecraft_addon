@@ -1,4 +1,4 @@
-import { ItemStack, Player, ItemComponentTypes, ItemEnchantableComponent, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot } from "@minecraft/server";
+import { ItemStack, Player, ItemComponentTypes, ItemEnchantableComponent, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, Entity } from "@minecraft/server";
 import { weightChoice } from "../common/KimetuCommonUtil";
 import { NichirintouUseComponent } from "./NichirintouUseComponent";
 
@@ -20,7 +20,8 @@ const nichirintouLists = weightChoice([
 ]);
 
 export class NichirintouChoiceComponent implements NichirintouUseComponent {
-
+    durabilityDamageNitiriontou(entity: Entity, itemStack: ItemStack, duration: number): void {
+    }
     changeKata(player: Player): void {
     }
     hitAttackKata(player: Player, itemStack: ItemStack): void {
@@ -41,15 +42,15 @@ export class NichirintouChoiceComponent implements NichirintouUseComponent {
         player.setProperty("kurokumaft:kokyu_particle", false);
         player.setProperty("kurokumaft:kokyu_use", false);
 
-        let nichirintou = nichirintouLists.pick();
+        const nichirintou = nichirintouLists.pick();
 
-        let enchant = itemStack.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+        const enchant = itemStack.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
 
-        let changeItem = new ItemStack(nichirintou);
-        let newEnchant = changeItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+        const changeItem = new ItemStack(nichirintou);
+        const newEnchant = changeItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
         newEnchant.addEnchantments(enchant.getEnchantments());
 
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         equ.setEquipment(EquipmentSlot.Mainhand, changeItem);
 
     }

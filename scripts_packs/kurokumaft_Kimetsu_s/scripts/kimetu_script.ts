@@ -1,4 +1,4 @@
-import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent } from "@minecraft/server";
+import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent, WorldLoadAfterEvent, EntityInventoryComponent, Container, ContainerSlot } from "@minecraft/server";
 import { initRegisterKimetuCustom } from "./custom/KimetuCustomComponentRegistry";
 import { kokyuClassRecord, KokyuMobClassRecord, KokyuMobObject, KokyuMobObjects, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 import { KimetuEquipmentTick } from "./player/KimetuEquipmentTick";
@@ -8,8 +8,7 @@ import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { getRandomInRange, isBelowThreshold, weightChoice } from "./common/KimetuCommonUtil";
 
 // ワールド接続時
-//system.SystemBeforeEvents.subscribe(initEvent => {
-world.beforeEvents.worldInitialize.subscribe(initEvent => {
+system.beforeEvents.startup.subscribe(initEvent => {
   initRegisterKimetuCustom(initEvent);
 });
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
@@ -90,6 +89,27 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   }
 });
 
+world.afterEvents.itemStopUse.subscribe(event => {
+  const source = event.source as Entity;
+  if (source instanceof Player) {
+    const item = event.itemStack as ItemStack;
+    const use = source.getProperty("kurokumaft:kokyu_use");
+    const equippable = source.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const mainHand = equippable.getEquipment(EquipmentSlot.Mainhand);
+    world.sendMessage("kokyu_use:"+use);
+    if ((mainHand === undefined || mainHand.typeId !== item.typeId) && use) {
+      source.setProperty("kurokumaft:kokyu_use", false);
+      source.setProperty("kurokumaft:kokyu_particle", false);
+      source.setProperty("kurokumaft:kokyu_attack", false);
+      source.setProperty("kurokumaft:kokyu_chage", 0);
+      source.setProperty("kurokumaft:kokyu_ran", 0);
+      source.setDynamicProperty("kurokumaft:chage_type", undefined);
+      item.setDynamicProperty("useItemName", undefined);
+
+    }
+  }
+});
+
 // アイテム右クリックリリース後
 world.afterEvents.itemReleaseUse.subscribe(event => {
   const player = event.source;
@@ -134,9 +154,10 @@ world.afterEvents.entitySpawn.subscribe(event => {
       if (kaikyuFlg !== undefined && kaikyuFlg && kaikyuNum !== undefined && kaikyuNum !== 11 && event.cause === EntityInitializationCause.Spawned) {
         const kaikyuRan = getRandomInRange(1, 10);
         entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
-        system.runTimeout(() => {
+        system.waitTicks(4).then(() => {
           entity.triggerEvent("kurokumaft:kaikyu_change");
-        }, 4);
+        }).catch((error: any) => {
+        });
       }
       const ogre_rank = entity.getProperty("kurokumaft:ogre_rank") as string;
       if (entity.typeId === "kurokumaft:nezuko" && event.cause === EntityInitializationCause.Spawned) {
@@ -145,13 +166,13 @@ world.afterEvents.entitySpawn.subscribe(event => {
         if (ogre_rank === "quarter" || ogre_rank === "crescent") {
           entity.setProperty("kurokumaft:ogre_moon", getRandomInRange(1, 6));
         }
-        system.runTimeout(() => {
+        system.waitTicks(4).then(() => {
           entity.triggerEvent("kurokumaft:ogre_rank_change");
-        }, 4);
+        }).catch((error: any) => {
+        });
       }
     }
-  } catch (error) {
-
+  } catch (error: any) {
   }
 });
 
@@ -170,6 +191,9 @@ world.afterEvents.entitySpawn.subscribe(event => {
 
 world.afterEvents.entityDie.subscribe(event => {
   const deadEntity = event.deadEntity;
+  if (!deadEntity.isValid) {
+    return;
+  }
   const familyTypes = deadEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
   if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
     const damager = event.damageSource.damagingEntity;
@@ -201,6 +225,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
     const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
     if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
       hitEntity.addTag("hostility");
+      damagingEntity.addTag("hostility_player");
     } else if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("player") && damageFamilyTypes.hasTypeFamily("player")) {
       hitEntity.addTag("hostility_player");
       damagingEntity.addTag("hostility_player");
@@ -279,25 +304,29 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
         event.dimension.spawnItem(daggerFull, event.location);
       }
     }
-  } else if (projectile.isValid() && "kurokumaft:obi" === projectile.typeId) {
+  } else if (projectile.isValid && "kurokumaft:obi" === projectile.typeId) {
 
-    const hitCount = projectile.getDynamicProperty("hitCount") as number;
+    try {
+      const hitCount = projectile.getDynamicProperty("hitCount") as number;
 
-    if (hitEntity !== undefined && hitEntity.isValid() && hitCount < 5) {
-      projectile.setDynamicProperty("hitCount", hitCount + 1);
-    } else {
-      const num = projectile.getDynamicProperty("hormingNum") as number;
-      if (num !== undefined) {
-        system.clearRun(num);
-        projectile.remove();
+      if (hitEntity !== undefined && hitEntity.isValid && hitCount < 5) {
+        projectile.setDynamicProperty("hitCount", hitCount + 1);
+      } else {
+        const num = projectile.getDynamicProperty("hormingNum") as number;
+        if (num !== undefined) {
+          system.clearRun(num);
+          projectile.remove();
+        }
       }
+    } catch (error: any) {
+      system.clearRun(projectile.getDynamicProperty("hormingNum") as number);
     }
-  } else if (projectile.isValid() && "kurokumaft:tobi_tigama" === projectile.typeId) {
+  } else if (projectile.isValid && "kurokumaft:tobi_tigama" === projectile.typeId) {
 
-    if (hitEntity !== undefined && hitEntity.isValid()) {
+    if (hitEntity !== undefined && hitEntity.isValid) {
       hitEntity.addEffect(MinecraftEffectTypes.Poison, 10, {
-          showParticles: false,
-          amplifier: 5
+        showParticles: false,
+        amplifier: 5
       });
     }
   }

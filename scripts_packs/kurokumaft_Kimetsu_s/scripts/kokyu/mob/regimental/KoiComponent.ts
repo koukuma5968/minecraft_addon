@@ -17,7 +17,7 @@ const koiKokyuLists = weightChoice([
 export class KoiComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);
@@ -45,45 +45,50 @@ export class KoiComponent implements KokyuMobUseComponent {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     koi.ichiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(50).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 50);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     koi.niNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 3 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     koi.sanNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 5 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     koi.goNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 6 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     koi.rokuNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(40).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 40);
+                    }).catch((error: any) => {
+                    });
                 break;
             }
-        } catch (error) {
+        } catch (error: any) {
             
         }
 

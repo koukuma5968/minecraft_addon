@@ -7,14 +7,17 @@ export class Kouri extends ZytuComonClass {
      * 蓮葉氷
      */
     ichi(entity:Entity) {
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri1.value"}]});
-        }
-        entity.setProperty("kurokumaft:kokyu_use", false);
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri1.value"}]});
+            }
+            entity.setProperty("kurokumaft:kokyu_use", false);
 
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        },6);
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            },6);
+        } catch (error: any) {
+        }
 
     }
 
@@ -22,26 +25,34 @@ export class Kouri extends ZytuComonClass {
      * 枯園垂り
      */
     niNoKata(entity:Entity) {
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri2.value"}]});
+
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri2.value"}]});
+            }
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            },TicksPerSecond);
+        } catch (error: any) {
         }
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        },TicksPerSecond);
     }
 
     /**
      * 枯園垂り
      */
     sanNoKata(entity:Entity) {
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri3.value"}]});
+
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri3.value"}]});
+            }
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            },30);
+        } catch (error: any) {
         }
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        },30);
 
     }
 
@@ -49,26 +60,34 @@ export class Kouri extends ZytuComonClass {
      * 凍て曇
      */
     shiNoKata(entity:Entity) {
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri4.value"}]});
+
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri4.value"}]});
+            }
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            },20);
+        } catch (error: any) {
         }
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-        },20);
     }
 
     /**
      * 蔓蓮華
      */
     goNoKata(entity:Entity) {
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri5.value"}]});
+
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri5.value"}]});
+            }
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            },4);
+        } catch (error: any) {
         }
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.setProperty("kurokumaft:kokyu_use", false);
-        },4);
     }
 
     /**
@@ -76,13 +95,16 @@ export class Kouri extends ZytuComonClass {
      */
     rokuNoKata(entity:Entity) {
 
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri6.value"}]});
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri6.value"}]});
+            }
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            },25);
+        } catch (error: any) {
         }
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        },25);
 
     }
 
@@ -91,13 +113,16 @@ export class Kouri extends ZytuComonClass {
      */
     shitiNoKata(entity:Entity) {
 
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri7.value"}]});
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri7.value"}]});
+            }
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            },5);
+        } catch (error: any) {
         }
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        },5);
 
     }
 
@@ -106,8 +131,11 @@ export class Kouri extends ZytuComonClass {
      */
     hachiNoKata(entity:Entity) {
 
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri8.value"}]});
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri8.value"}]});
+            }
+        } catch (error: any) {
         }
     }
 
@@ -116,13 +144,16 @@ export class Kouri extends ZytuComonClass {
      */
     kuNoKata(entity:Entity) {
 
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri9.value"}]});
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri9.value"}]});
+            }
+            system.runTimeout(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            },10);
+        } catch (error: any) {
         }
-        system.runTimeout(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        },10);
     }
 
     /**
@@ -130,8 +161,11 @@ export class Kouri extends ZytuComonClass {
      */
     zyuNoKata(entity:Entity) {
 
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri10.value"}]});
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri10.value"}]});
+            }
+        } catch (error: any) {
         }
     }
 

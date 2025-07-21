@@ -64,6 +64,32 @@ var SystemBoardBlock = class {
   onPlayerInteract(event) {
     const block = event.block;
     const player = event.player;
+    this.gameruleForm(block, player);
+  }
+  gameruleForm(block, player) {
+    const modalForm = new ModalFormData().title({ translate: "msg.kurokumaft:systemblock.title" });
+    modalForm.dropdown(
+      { translate: "msg.kurokumaft:systemblock.gamerule.outcome.label" },
+      [
+        { translate: "msg.kurokumaft:systemblock.gamerule.outcome.apprehension" },
+        { translate: "msg.kurokumaft:systemblock.gamerule.outcome.escape" }
+      ],
+      {
+        defaultValueIndex: 0
+      }
+    );
+    modalForm.show(player).then((formData) => {
+      const values = formData.formValues;
+      if (values != void 0) {
+        const fieldDown = values[0];
+      }
+    }).catch((error) => {
+      world3.sendMessage(error.message);
+      console.log(error.stack);
+      return -1;
+    });
+  }
+  fieldForm(block, player) {
     const modalForm = new ModalFormData().title({ translate: "msg.kurokumaft:systemblock.title" });
     modalForm.label({ translate: "msg.kurokumaft:systemblock.field.range.label" });
     modalForm.slider({ translate: "msg.kurokumaft:systemblock.field.down.text" }, 1, 64, {

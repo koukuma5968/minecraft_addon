@@ -1,7 +1,8 @@
 import { ItemStack, Entity, system, Player } from "@minecraft/server";
-import { addRegimentalFilter, getDistanceLocation, getForwardPosition, getLookLocationDistance} from "../../common/KimetuCommonUtil";
+import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class MushiNoKata extends KataComonClass {
 
@@ -11,34 +12,38 @@ export class MushiNoKata extends KataComonClass {
     ichiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu1.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
 
+        const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0.5);
+        entity.applyKnockback({x:distance.x,z:distance.z},0.3);
         const num = system.runInterval(() => {
 
             try {
                 const filter = addRegimentalFilter(0, entity.location, 3, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
-                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0.5);
-                entity.applyKnockback(distance.x,distance.z,4,0.4);
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
-        },2);
+        },4);
 
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
 
-        system.runTimeout(() => {
-            try {
-                entity.setProperty("kurokumaft:kokyu_use", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },8);
+        system.waitTicks(12).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
 
-        system.runTimeout(() => {
+        system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },20);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
     }
 
@@ -48,24 +53,30 @@ export class MushiNoKata extends KataComonClass {
     niNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu2.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
 
-        const point = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback(point.x,point.z,15,0.0);
+        const point = getLookLocationDistance(entity.getRotation().y, 10, 0, 0);
+        entity.applyKnockback({x:point.x,z:point.z},0);
 
-        system.runTimeout(() => {
+        system.waitTicks(2).then(() => {
             entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
             const filter = addRegimentalFilter(0, entity.location, 3, entity);
             this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
             this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
-    
-        },2);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
-        system.runTimeout(() => {
+        system.waitTicks(8).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-        },8);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
     }
 
@@ -76,6 +87,9 @@ export class MushiNoKata extends KataComonClass {
 
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu3.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
         const num = system.runInterval(() => {
 
@@ -84,19 +98,17 @@ export class MushiNoKata extends KataComonClass {
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },4);
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },16);
+        system.waitTicks(16).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
 
     }
 
@@ -106,14 +118,17 @@ export class MushiNoKata extends KataComonClass {
     shiNoKata(entity:Entity, itemStack:ItemStack | undefined) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate: "msg.kurokumaft:mushi_kokyu4.value"}]});
+            if (itemStack !== undefined) {
+                ItemDurabilityDamage(entity, itemStack);
+            }
         }
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 2, -2, 0);
-        entity.applyKnockback(distance.x,distance.z,10,0);
+        const distance = getLookLocationDistance(entity.getRotation().y, 8, -8, 0);
+        entity.applyKnockback({x:distance.x,z:distance.z},0);
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
         entity.setProperty("kurokumaft:kokyu_attack", true);
 
-        let side = 2;
+        let side = 8;
         const num = system.runInterval(() => {
 
             try {
@@ -121,26 +136,24 @@ export class MushiNoKata extends KataComonClass {
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
                 this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
     
-                const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0);
-                entity.applyKnockback(distance.x,distance.z,10,0);
+                const distance = getLookLocationDistance(entity.getRotation().y, 8, side, 0);
+                entity.applyKnockback({x:distance.x,z:distance.z},0);
                 entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
                 side = -side;
-            } catch (error) {
+            } catch (error: any) {
                 system.clearRun(num);
             }
         },4);
 
-        system.runTimeout(() => {
-
-            try {
-                entity.setProperty("kurokumaft:kokyu_attack", false);
-                entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            } finally {
-                system.clearRun(num);
-            }
-        },40);
+        system.waitTicks(40).then(() => {
+            entity.setProperty("kurokumaft:kokyu_attack", false);
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
 
     }
 

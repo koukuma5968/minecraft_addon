@@ -13,18 +13,25 @@ const urogiKekkizyutuLists = weightChoice([
 export class UrogiComponent implements KekkizyutuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
-            entity.setProperty("kurokumaft:kokyu_use", true);
-            entity.setProperty("kurokumaft:kokyu_particle", true);
-            this.useAttackZyutu(entity);
+
+        try {
+            if (entity !== undefined && entity.isValid) {
+                entity.setProperty("kurokumaft:kokyu_use", true);
+                entity.setProperty("kurokumaft:kokyu_particle", true);
+                this.useAttackZyutu(entity);
+            }
+        } catch (error: any) {
         }
     }
 
     useAttackZyutu(entity:Entity): void {
 
-        const num = urogiKekkizyutuLists.pick();
-        entity.setProperty("kurokumaft:kekkizyutu_kata", num);
-        this.kokyuUse(entity, num);
+        try {
+            const num = urogiKekkizyutuLists.pick();
+            entity.setProperty("kurokumaft:kekkizyutu_kata", num);
+            this.kokyuUse(entity, num);
+        } catch (error: any) {
+        }
 
     }
 
@@ -32,15 +39,19 @@ export class UrogiComponent implements KekkizyutuMobUseComponent {
 
         const bunretu = new Bunretu();
 
-        switch (kata) {
-            case 1 :
-                entity.triggerEvent("kurokumaft:attack_stop");
-                bunretu.ultrasonic(entity);
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                    entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                }, 80);
-            break;
+        try {
+            switch (kata) {
+                case 1 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    bunretu.ultrasonic(entity);
+                    system.waitTicks(80).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+            }
+        } catch (error: any) {
         }
 
     }

@@ -1,4 +1,4 @@
-import { ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { ItemStack, Player, TicksPerSecond } from "@minecraft/server";
 import { NichirintouUseComponent } from "../../NichirintouUseComponent";
 import { KaminariNoKata } from "../../kata/KaminariNoKata";
 
@@ -28,8 +28,8 @@ export class KokyuZenituComponent implements NichirintouUseComponent {
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
-        let kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        let kaminari = new KaminariNoKata();
+        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
+        const kaminari = new KaminariNoKata();
 
         switch (kata) {
             case 1 :

@@ -14,7 +14,7 @@ export class KimetuEquipmentTick {
 
     startMonitoring() {
         this.num = system.runInterval(() => {
-            if (this.player.isValid()) {
+            if (this.player.isValid) {
                 this.checkPlayerKimetuEquTick();
                 this.checkPlayerKaikyuTick();
             } else {
@@ -24,70 +24,77 @@ export class KimetuEquipmentTick {
     }
 
     async checkPlayerKaikyuTick() {
-        if (this.player.isValid()) {
+        if (this.player.isValid) {
 
             let kataMess = "";
             let kaikyu = "";
-            const ogreRank = this.player.getProperty("kurokumaft:ogre_rank");
-            const kaikyuNum = this.player.getProperty("kurokumaft:kaikyu") as number;
-            if (kaikyuNum > 0) {
-                kaikyu = "msg.kurokumaft:kaikyu"+ kaikyuNum +".value";
-            } else {
-                if (ogreRank !== "none") {
-                    const ogreMoon = this.player.getProperty("kurokumaft:ogre_moon") as number;
-                    kaikyu = "msg.kurokumaft:ogrerank_" + ogreRank + (("quarter" === ogreRank || "crescent" === ogreRank) ? ogreMoon : "") + ".value";
-                }
-            }
 
-            // 装備状態
-            const nichirintou_type = this.player.getProperty("kurokumaft:nichirintou_type") as number;
-            const kokyuObject = KokyuObjects.find(ob => ob.type === nichirintou_type) as KokyuObject;
-            // 日輪刀を持っている
-            if (kokyuObject !== undefined) {
-                if (kokyuObject.type > 1) {
-                    const kataNum = this.player.getProperty("kurokumaft:kokyu_kata") as number;
-                    if (kokyuObject.type === 2) {
-                        if (kataNum > 10) {
-                            if (kokyuObject.kata[kataNum-1] !== undefined) {
-                                const hikata = (kokyuObject.kata[kataNum-1] as number - 10);
-                                kataMess = "msg.kurokumaft:hi_kata" + hikata + ".value";
+            try {
+
+                const ogreRank = this.player.getProperty("kurokumaft:ogre_rank");
+                const kaikyuNum = this.player.getProperty("kurokumaft:kaikyu") as number;
+                if (kaikyuNum > 0) {
+                    kaikyu = "msg.kurokumaft:kaikyu"+ kaikyuNum +".value";
+                } else {
+                    if (ogreRank !== "none") {
+                        const ogreMoon = this.player.getProperty("kurokumaft:ogre_moon") as number;
+                        kaikyu = "msg.kurokumaft:ogrerank_" + ogreRank + (("quarter" === ogreRank || "crescent" === ogreRank) ? ogreMoon : "") + ".value";
+                    }
+                }
+
+                // 装備状態
+                const nichirintou_type = this.player.getProperty("kurokumaft:nichirintou_type") as number;
+                const kokyuObject = KokyuObjects.find(ob => ob.type === nichirintou_type) as KokyuObject;
+                // 日輪刀を持っている
+                if (kokyuObject !== undefined) {
+                    if (kokyuObject.type > 1) {
+                        const kataNum = this.player.getProperty("kurokumaft:kokyu_kata") as number;
+                        if (kokyuObject.type === 2) {
+                            if (kataNum > 10) {
+                                if (kokyuObject.kata[kataNum] !== undefined) {
+                                    const hikata = (kokyuObject.kata[kataNum] as number - 10);
+                                    kataMess = "msg.kurokumaft:hi_kata" + hikata + ".value";
+                                }
+                            } else {
+                                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum]+ ".value";
                             }
                         } else {
-                            kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum-1]+ ".value";
-                        }
-                    } else {
-                        if (kokyuObject.kata[kataNum-1] !== undefined) {
-                            kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum-1]+ ".value";
+                            if (kokyuObject.kata[kataNum] !== undefined) {
+                                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum]+ ".value";
+                            }
                         }
                     }
                 }
-            }
-            const kekkizyutu_type = this.player.getProperty("kurokumaft:kekkizyutu_type") as number;
-            const kekkizyutuObject = KekkizyutuObjects.find(ob => ob.type === kekkizyutu_type) as KekkizyutuObject;
-            // 血気術を持っている
-            if (kekkizyutuObject !== undefined) {
-                const kataNum = this.player.getProperty("kurokumaft:kekkizyutu_kata") as number;
-                if (kekkizyutuObject.kata[kataNum-1] !== undefined) {
-                    kataMess = "msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[kataNum-1]+ ".value";
+                const kekkizyutu_type = this.player.getProperty("kurokumaft:kekkizyutu_type") as number;
+                const kekkizyutuObject = KekkizyutuObjects.find(ob => ob.type === kekkizyutu_type) as KekkizyutuObject;
+                // 血気術を持っている
+                if (kekkizyutuObject !== undefined) {
+                    const kataNum = this.player.getProperty("kurokumaft:kekkizyutu_kata") as number;
+                    if (kekkizyutuObject.kata[kataNum-1] !== undefined) {
+                        kataMess = "msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[kataNum-1]+ ".value";
+                    }
                 }
-            }
 
-            this.player.onScreenDisplay.setTitle(
-                {
-                    rawtext:[
-                        {text:"階級："},
-                        {translate:kaikyu},
-                        {text:"\n"},
-                        {translate:kataMess}
-                    ]
-                },
-                {
-                    stayDuration: 100,
-                    fadeInDuration: 0,
-                    fadeOutDuration: 1,
-                    subtitle: ""
-                }
-            );
+            } catch (error: any) {
+
+            } finally {
+                this.player.onScreenDisplay.setTitle(
+                    {
+                        rawtext:[
+                            {text:"階級："},
+                            {translate:kaikyu},
+                            {text:"\n"},
+                            {translate:kataMess}
+                        ]
+                    },
+                    {
+                        stayDuration: 100,
+                        fadeInDuration: 0,
+                        fadeOutDuration: 1,
+                        subtitle: ""
+                    }
+                );
+            }
 
         }
 
@@ -95,7 +102,7 @@ export class KimetuEquipmentTick {
 
     async checkPlayerKimetuEquTick() {
 
-        if (this.player.isValid()) {
+        if (this.player.isValid) {
 
             const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 

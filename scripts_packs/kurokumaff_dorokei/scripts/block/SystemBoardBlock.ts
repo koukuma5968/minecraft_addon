@@ -13,6 +13,40 @@ export class SystemBoardBlock implements BlockCustomComponent {
         const block = event.block as Block;
         const player = event.player as Player;
 
+        this.gameruleForm(block, player);
+    }
+
+    private gameruleForm(block:Block, player:Player) {
+        const modalForm = new ModalFormData().title({ translate: "msg.kurokumaft:systemblock.title"});
+
+        modalForm.dropdown(
+            {translate: "msg.kurokumaft:systemblock.gamerule.outcome.label"}, 
+            [
+                { translate: "msg.kurokumaft:systemblock.gamerule.outcome.apprehension"},
+                { translate: "msg.kurokumaft:systemblock.gamerule.outcome.escape"}
+            ], {
+            defaultValueIndex:0
+        });
+
+        modalForm
+            .show(player)
+            .then((formData) => {
+                const values = formData.formValues;
+                if (values != undefined) {
+                    const fieldDown = values[0] as string;
+
+                }
+            })
+            .catch((error: Error) => {
+                world.sendMessage(error.message);
+                console.log(error.stack);
+                
+            return -1;
+        });
+    }
+
+    private fieldForm (block:Block, player:Player) {
+
         const modalForm = new ModalFormData().title({ translate: "msg.kurokumaft:systemblock.title"});
 
         modalForm.label({translate: "msg.kurokumaft:systemblock.field.range.label"});
@@ -44,7 +78,7 @@ export class SystemBoardBlock implements BlockCustomComponent {
                 
             return -1;
         });
-    }
 
+    }
 }
 

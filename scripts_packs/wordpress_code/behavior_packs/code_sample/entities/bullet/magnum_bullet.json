@@ -1,0 +1,62 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:magnum_bullet",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:arrow"
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "arrow" ]
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 1.0
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "definition_event": {
+            "affect_projectile": true
+          },
+          "impact_damage": {
+            "damage": 10,
+            "catch_fire": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": true
+          },
+          "remove_on_hit": {}
+        },
+        "knockback": false,
+        "destroy_on_hurt": true,
+        "power": 4.0,
+        "gravity": 0.01,
+        "inertia": 1.0,
+        "uncertaintyBase": 8,
+        "uncertaintyMultiplier": 2.5,
+        "anchor": 1,
+        "offset": [-0.2, 0, 0],
+        "reflect_on_hurt": true,
+        "shoot_target": true,
+        "catch_fire": false
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    }
+  }
+}

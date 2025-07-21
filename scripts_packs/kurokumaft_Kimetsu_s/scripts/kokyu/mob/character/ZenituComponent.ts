@@ -15,7 +15,7 @@ const zenituKokyuLists = weightChoice([
 export class ZenituComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);
@@ -42,31 +42,34 @@ export class ZenituComponent implements KokyuMobUseComponent {
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(40).then(() => {
                         kaminari.ichiNoKata(entity, undefined);
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 40);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(80).then(() => {
                         kaminari.ichiNoKataShinsoku(entity, undefined);
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 80);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 3 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(120).then(() => {
                         kaminari.shitiNoKata(entity, undefined);
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 120);
+                    }).catch((error: any) => {
+                    });
                 break;
             }
 
-        } catch (error) {
+        } catch (error: any) {
             
         }
     }

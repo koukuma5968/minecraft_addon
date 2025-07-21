@@ -1,0 +1,48 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.bullet.shot": {
+			"loop": true,
+			"bones": {
+				"bullet": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			}
+		},
+		"animation.sonic_bullet.move": {
+			"loop": true,
+			"animation_length": 0.05,
+			"bones": {
+				"bullet_body": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "sonic_explosion",
+					"locator": "bullet_body"
+				}
+			}
+		},
+		"animation.bullet.lifeling": {
+			"loop": true,
+			"animation_length": 0.125,
+			"bones": {
+				"bullet": {
+					"rotation": {
+						"0.0": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+						"0.0417": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", -90],
+						"0.0833": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", -180],
+						"0.125": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", -270]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 1, 0],
+						"0.0833": [-1, 1, 0],
+						"0.125": [-1, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

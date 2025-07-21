@@ -16,7 +16,7 @@ const shinobuKokyuLists = weightChoice([
 export class ShinobuComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);
@@ -44,37 +44,41 @@ export class ShinobuComponent implements KokyuMobUseComponent {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mushi.ichiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mushi.niNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 3 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mushi.sanNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 4 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mushi.shiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(30).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 30);
+                    }).catch((error: any) => {
+                    });
                 break;
             }
-        } catch (error) {
+        } catch (error: any) {
             
         }
 

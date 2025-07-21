@@ -23,7 +23,7 @@ const giyuKokyuLists = weightChoice([
 export class GiyuComponent implements KokyuMobUseComponent {
 
     startMonitoring(entity:Entity) {
-        if (entity !== undefined && entity.isValid()) {
+        if (entity !== undefined && entity.isValid) {
             const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip") as boolean;
             if (nitirintou_equip) {
                 entity.setProperty("kurokumaft:kokyu_use", true);
@@ -50,93 +50,105 @@ export class GiyuComponent implements KokyuMobUseComponent {
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(15).then(() => {
                         mizu.ichiNoKata(entity, undefined);
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 15);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mizu.niNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(20).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 20);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 3 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mizu.sanNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(20).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 20);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 4 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mizu.shiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(20).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 20);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 5 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(20).then(() => {
                         mizu.goNoKata(entity, undefined);
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 20);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 6 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(20).then(() => {
                         mizu.rokuNoKata(entity, undefined);
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 20);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 7 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(20).then(() => {
                         mizu.shitiNoKata(entity, undefined);
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 20);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 8 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    system.runTimeout(() => {
+                    system.waitTicks(5).then(() => {
                         mizu.hachiNoKata(entity, undefined);
-                    }, 5);
-                    system.runTimeout(() => {
+                    }).catch((error: any) => {
+                    });
+                    system.waitTicks(50).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 50);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 9 :
                     mizu.kuNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(15*TicksPerSecond).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    }, 15*TicksPerSecond);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 10 :
                     entity.triggerEvent("kurokumaft:attack_stop");
                     mizu.zyuNoKataMob(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(40).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");
-                    }, 40);
+                    }).catch((error: any) => {
+                    });
                 break;
                 case 11 :
                     mizu.zyuichiNoKata(entity, undefined);
-                    system.runTimeout(() => {
+                    system.waitTicks(15*TicksPerSecond).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
-                    }, 15*TicksPerSecond);
+                    }).catch((error: any) => {
+                    });
                 break;
             }
 
-        } catch (error) {
+        } catch (error: any) {
             
         }
     }
