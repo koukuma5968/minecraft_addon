@@ -27,9 +27,11 @@ export class Koushi extends ZytuComonClass {
 
             this.kokyuApplyDamage(entity, filter, 3, 1);
 
-            system.runTimeout(() => {
+            system.waitTicks(20).then(() => {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },20);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
 
         } catch (error: any) {
         }
@@ -48,11 +50,14 @@ export class Koushi extends ZytuComonClass {
             entity.setProperty("kurokumaft:kokyu_particle", false);
 
             const ito = shooting(entity, "kurokumaft:kokushirinten", 0, 3, undefined);
-            system.runTimeout(() => {
+
+            system.waitTicks(2*TicksPerSecond).then(() => {
                 if (ito.isValid) {
                     ito.remove();
                 }
-            }, 2*TicksPerSecond);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -95,12 +100,14 @@ export class Koushi extends ZytuComonClass {
                     }
                 }, 2);
         
-                system.runTimeout(() => {
-                    system.clearRun(num);
+                system.waitTicks(40).then(() => {
                     if (ayamekago !== undefined && ayamekago.isValid) {
                         ayamekago.remove();
                     }
-                },40);
+                }).catch((error: any) => {
+                }).finally(() => {
+                    system.clearRun(num);
+                });
             }
         } catch (error: any) {
         }

@@ -15,10 +15,12 @@ export class Obi extends ZytuComonClass {
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
             this.kokyuApplyDamage(entity, filter, 4, 2);
 
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },6);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -42,11 +44,13 @@ export class Obi extends ZytuComonClass {
 
             },2);
 
-            system.runTimeout(() => {
+            system.waitTicks(40).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },40);
+            });
         } catch (error: any) {
         }
 
@@ -60,11 +64,6 @@ export class Obi extends ZytuComonClass {
         try {
 
             const obi = shooting(entity, "kurokumaft:obi", 0, 3, undefined);
-
-            system.runTimeout(() => {
-                entity.setProperty("kurokumaft:kokyu_use", false);
-                entity.setProperty("kurokumaft:kokyu_particle", false);
-            },5);
 
             let targethoming = false;
 
@@ -149,12 +148,21 @@ export class Obi extends ZytuComonClass {
         
             }, 4);
 
-            system.runTimeout(() => {
+            system.waitTicks(5).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
+
+            system.waitTicks(100).then(() => {
                 if (obi.isValid) {
                     system.clearRun(serchNum);
                     obi.remove();
                 }
-            }, 100);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
 
         } catch (error: any) {
         }
@@ -173,10 +181,12 @@ export class Obi extends ZytuComonClass {
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 10, entity.id);
             this.kokyuApplyDamage(entity, filter, 6, 3);
 
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },6);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
 
         } catch (error: any) {
         }

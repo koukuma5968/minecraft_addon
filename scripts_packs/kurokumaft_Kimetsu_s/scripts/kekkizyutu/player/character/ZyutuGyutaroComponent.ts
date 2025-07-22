@@ -1,4 +1,4 @@
-import { ItemStack, Entity, Player } from "@minecraft/server";
+import { ItemStack, Entity, Player, world } from "@minecraft/server";
 import { KekkizyutuUseComponent } from "../../KekkizyutuUseComponent";
 import { KekkizyutuObject, KekkizyutuObjects } from "../../../item/weapon/KekkizyutuTypes";
 import { Tigama } from "../../zyutu/Tigama";
@@ -37,7 +37,6 @@ export class ZyutuGyutaroComponent implements KekkizyutuUseComponent {
     }
 
     /**
-     * @param {ItemStack} itemStack
      * @param {Entity} entity
      */
     useAttackZyutu(entity: Entity): void {

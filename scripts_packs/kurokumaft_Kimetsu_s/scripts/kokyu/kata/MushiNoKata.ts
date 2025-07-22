@@ -18,7 +18,7 @@ export class MushiNoKata extends KataComonClass {
         }
 
         const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0.5);
-        entity.applyKnockback({x:distance.x,z:distance.z},0.3);
+        entity.applyKnockback({x:distance.x,z:distance.z},0.5);
         const num = system.runInterval(() => {
 
             try {
@@ -28,11 +28,11 @@ export class MushiNoKata extends KataComonClass {
             } catch (error: any) {
                 system.clearRun(num);
             }
-        },4);
+        },2);
 
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
 
-        system.waitTicks(12).then(() => {
+        system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
         }).catch((error: any) => {
         }).finally(() => {

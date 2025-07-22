@@ -76,8 +76,7 @@ export class Bakketu extends ZytuComonClass {
                 }
             },4);
 
-            system.runTimeout(() => {
-                system.clearRun(num);
+            system.waitTicks(30).then(() => {
                 const num2 = system.runInterval(() => {
                     try {
                         targets1.forEach(en => {
@@ -114,10 +113,15 @@ export class Bakketu extends ZytuComonClass {
             
                 },4);
 
-                system.runTimeout(() => {
+                system.waitTicks(40).then(() => {
+                }).catch((error: any) => {
+                }).finally(() => {
                     system.clearRun(num2);
-                },40);
-            }, 30);
+                });
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(num);
+            });
 
             entity.removeTag(entity.id);
         } catch (error: any) {

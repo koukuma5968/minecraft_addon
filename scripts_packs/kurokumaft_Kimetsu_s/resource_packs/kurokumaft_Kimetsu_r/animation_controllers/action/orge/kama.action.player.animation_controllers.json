@@ -31,7 +31,7 @@
 				},
 				"tobi_tibama_first" : {
 					"transitions" : [
-						{"first_person":"(1.0)"}
+						{"equipment":"(1.0)"}
 					]
 				},
 				"bakkotyouryou_first" : {
@@ -39,7 +39,7 @@
 						"kama.bakkotyouryou_first"
 					],
 					"transitions" : [
-						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"enzansenkai_first" : {
@@ -55,7 +55,7 @@
 						"kama.enzansenkai_attack_first"
 					],
 					"transitions" : [
-						{"first_person":"query.any_animation_finished"}
+						{"equipment":"query.any_animation_finished"}
 					]
 				},
 				"third_person": {
@@ -74,7 +74,7 @@
 				},
 				"tobi_tibama_third" : {
 					"transitions" : [
-						{"third_person":"(1.0)"}
+						{"equipment":"(1.0)"}
 					]
 				},
 				"bakkotyouryou_third" : {
@@ -82,7 +82,7 @@
 						"kama.bakkotyouryou_third"
 					],
 					"transitions" : [
-						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"enzansenkai_third" : {
@@ -98,7 +98,7 @@
 						"kama.enzansenkai_attack_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"equipment":"query.any_animation_finished"}
 					]
 				}
 			}

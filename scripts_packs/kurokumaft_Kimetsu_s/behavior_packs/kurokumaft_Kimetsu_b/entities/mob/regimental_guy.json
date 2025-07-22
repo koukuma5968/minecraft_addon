@@ -70,7 +70,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.two_sec"
+        "cooldown": "animation.cooldown.twenty_sec"
       }
 
     },
@@ -480,6 +480,7 @@
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "reselect_targets": true,
+        "attack_interval": 15,
         "must_see": true,
         "entity_types": [
           {

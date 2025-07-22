@@ -3,8 +3,8 @@
 	"render_controllers": {
 		"controller.render.nichirintou": {
 			"geometry": "Geometry.default",
-			"materials": [ { "*": "variable.is_enchanted ? Material.enchanted : Material.default" } ],
-			"textures": [ "Texture.default", "Texture.enchanted" ]
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.default" ]
 		},
 		"controller.render.nichirintou_custom": {
 			"geometry": "Geometry.nichirintou_custom",

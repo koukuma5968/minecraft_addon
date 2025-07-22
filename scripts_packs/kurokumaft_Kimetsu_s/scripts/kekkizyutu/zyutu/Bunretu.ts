@@ -24,13 +24,15 @@ export class Bunretu extends ZytuComonClass {
             this.kokyuApplyEffect(entity, filter, 10, 5, MinecraftEffectTypes.Nausea);
 
             const ultrasonic = shooting(entity, "kurokumaft:urogi_ultrasonic", 0, 3, undefined);
-            system.runTimeout(() => {
+            system.waitTicks(10).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 if (ultrasonic !== undefined && ultrasonic.id !== undefined) {
                     ultrasonic.remove();
                 }
-            },10);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -63,11 +65,13 @@ export class Bunretu extends ZytuComonClass {
 
             },2);
 
-            system.runTimeout(() => {
+            system.waitTicks(40).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },40);
+            });
         } catch (error: any) {
         }
     }
@@ -96,11 +100,13 @@ export class Bunretu extends ZytuComonClass {
                 }
             },2);
 
-            system.runTimeout(() => {
+            system.waitTicks(10).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },11);
+            });
         } catch (error: any) {
         }
 
@@ -131,10 +137,12 @@ export class Bunretu extends ZytuComonClass {
             });
             entity.removeTag(entity.id);
 
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },6);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -247,15 +255,17 @@ export class Bunretu extends ZytuComonClass {
                 }
             }, 5);
 
-            system.runTimeout(() => {
+            system.waitTicks(60).then(() => {
                 if (tokageR !== undefined) {
                     tokageR.remove();
                 }
                 if (tokageL !== undefined) {
                     tokageL.remove();
                 }
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },60);
+            });
         } catch (error: any) {
         }
     }
@@ -296,9 +306,11 @@ export class Bunretu extends ZytuComonClass {
                 },10);
             }
 
-            system.runTimeout(() => {
+            system.waitTicks(20).then(() => {
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },20);
+            });
         } catch (error: any) {
         }
 
@@ -368,12 +380,14 @@ export class Bunretu extends ZytuComonClass {
                     system.clearRun(num);
                 }
             }, 2);
-            system.runTimeout(() => {
-                system.clearRun(num);
+            system.waitTicks(60).then(() => {
                 if (tokage !== undefined && tokage.isValid) {
                     tokage.remove();
                 }
-            },60);
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(num);
+            });
         } catch (error: any) {
         }
 

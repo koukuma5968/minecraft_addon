@@ -33,7 +33,7 @@
 			"states": {
 				"default":{
 					"transitions" : [
-						{"equipment": "query.is_item_name_any('slot.weapon.mainhand','kurokumaft:obi')"}
+						{"equipment": "query.is_item_name_any('slot.weapon.mainhand','kurokumaft:obi_item')"}
 					]
 				},
 				"equipment":{

@@ -3,7 +3,7 @@
 	"animations": {
 		"animation.action.hi.ichi_1_third": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.25,
+			"animation_length": 3,
 			"bones": {
 				"leftArm": {
 					"rotation": {

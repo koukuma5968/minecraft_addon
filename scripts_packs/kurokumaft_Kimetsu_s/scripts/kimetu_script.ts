@@ -96,7 +96,6 @@ world.afterEvents.itemStopUse.subscribe(event => {
     const use = source.getProperty("kurokumaft:kokyu_use");
     const equippable = source.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     const mainHand = equippable.getEquipment(EquipmentSlot.Mainhand);
-    world.sendMessage("kokyu_use:"+use);
     if ((mainHand === undefined || mainHand.typeId !== item.typeId) && use) {
       source.setProperty("kurokumaft:kokyu_use", false);
       source.setProperty("kurokumaft:kokyu_particle", false);
@@ -104,7 +103,6 @@ world.afterEvents.itemStopUse.subscribe(event => {
       source.setProperty("kurokumaft:kokyu_chage", 0);
       source.setProperty("kurokumaft:kokyu_ran", 0);
       source.setDynamicProperty("kurokumaft:chage_type", undefined);
-      item.setDynamicProperty("useItemName", undefined);
 
     }
   }

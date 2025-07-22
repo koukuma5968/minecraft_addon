@@ -1,5 +1,5 @@
 import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
-import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance} from "../../common/KimetuCommonUtil";
+import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getRandomInRange} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
@@ -53,7 +53,7 @@ export class KoiNoKata extends KataComonClass {
             const filter = addRegimentalFilter(0, entity.location, 6, entity);
             this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
             const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
-            entity.applyKnockback({x:distance.x,z:distance.z},2);
+            entity.applyKnockback({x:distance.x,z:distance.z},1);
 
         } catch (error: any) {
         }
@@ -61,7 +61,7 @@ export class KoiNoKata extends KataComonClass {
         system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+            entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
                 amplifier: 1,
                 showParticles: false
             });
@@ -80,8 +80,8 @@ export class KoiNoKata extends KataComonClass {
                 ItemDurabilityDamage(entity, itemStack);
             }
         }
-        const distance = getLookLocationDistance(entity.getRotation().y, 5, -5, 0);
-        entity.applyKnockback({x:distance.x,z:distance.z},2);
+        const distance = getLookLocationDistance(entity.getRotation().y, 3, -5, 0);
+        entity.applyKnockback({x:distance.x,z:distance.z},0.3);
 
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
         entity.setProperty("kurokumaft:kokyu_attack", true);
@@ -93,8 +93,8 @@ export class KoiNoKata extends KataComonClass {
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
     
-                const distance = getLookLocationDistance(entity.getRotation().y, 5, side, 0);
-                entity.applyKnockback({x:distance.x,z:distance.z},2);
+                const distance = getLookLocationDistance(entity.getRotation().y, 3, side, 0);
+                entity.applyKnockback({x:distance.x,z:distance.z},0.3);
                 entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
                 side = -side;
@@ -184,7 +184,7 @@ export class KoiNoKata extends KataComonClass {
             }
         }
         const distance = getLookLocationDistance(entity.getRotation().y, -4, 0, 0);
-        entity.applyKnockback({x:distance.x,z:distance.z},2);
+        entity.applyKnockback({x:distance.x,z:distance.z},1);
 
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         const molang = new MolangVariableMap();

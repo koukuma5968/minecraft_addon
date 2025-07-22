@@ -473,7 +473,7 @@
 					],
 					"transitions" : [
 						{"hi1_2_third":"!query.property('kurokumaft:kokyu_use')"},
-						{"hi1_1_issen_third":"query.property('kurokumaft:kokyu_chage') == 5"}
+						{"hi1_1_issen_third":"query.any_animation_finished"}
 					]
 				},
 				"hi1_1_issen_third" : {

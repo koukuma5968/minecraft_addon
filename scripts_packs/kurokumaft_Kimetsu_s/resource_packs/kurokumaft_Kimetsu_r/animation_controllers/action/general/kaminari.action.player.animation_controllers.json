@@ -166,7 +166,7 @@
 						"kaminari.go_1_third"
 					],
 					"transitions" : [
-						{"equipment":"query.any_animation_finished"}
+						{"equipment":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"kaminari6_1_third" : {

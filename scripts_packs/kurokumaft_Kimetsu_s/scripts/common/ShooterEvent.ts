@@ -1,4 +1,4 @@
-import { Entity, EntityComponentTypes, EntityProjectileComponent, ItemStack, Player, Vector3 } from "@minecraft/server"
+import { Entity, EntityComponentTypes, EntityProjectileComponent, ItemStack, Player, Vector3, world } from "@minecraft/server"
 import { getDistanceLocation, getLookLocationDistancePitch } from "./KimetuCommonUtil";
 
 /**
@@ -30,30 +30,20 @@ function throwing(entity:Entity, item:ItemStack, throwItem:string, ranNum:number
  */
 function shooting(entity:Entity, throwItem:string, ranNum:number, seepd:number, event:string | undefined) {
 
-    let bulet;
     const distance = getLookLocationDistancePitch(entity.getRotation(), 1, ranNum);
-
+    const bulet = entity.dimension.spawnEntity(throwItem, getDistanceLocation(
+        {
+            x:entity.location.x,
+            y:entity.location.y+0.5,
+            z:entity.location.z
+        },
+        distance
+    ));
     if (event !== undefined) {
-        bulet = entity.dimension.spawnEntity(throwItem+"<"+event+">", getDistanceLocation(
-            {
-                x:entity.location.x,
-                y:entity.location.y+0.5,
-                z:entity.location.z
-            },
-            distance
-        ));
-    } else {
-        bulet = entity.dimension.spawnEntity(throwItem, getDistanceLocation(
-            {
-                x:entity.location.x,
-                y:entity.location.y+0.5,
-                z:entity.location.z
-            },
-            distance
-        ));
+        bulet.triggerEvent(event);
     }
 
-    let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
     projectile.owner = entity;
     projectile.shoot({
         x:distance.x * seepd,

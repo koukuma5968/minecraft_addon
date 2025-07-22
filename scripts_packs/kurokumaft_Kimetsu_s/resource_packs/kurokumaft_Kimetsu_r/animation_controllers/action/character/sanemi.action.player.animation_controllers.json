@@ -180,7 +180,8 @@
 				},
 				"kaze5_third" : {
 					"animations" : [
-						"kaze.go_1_third"
+						"kaze.go_1_third",
+						"kaze.go_uzu"
 					],
 					"transitions" : [
 						{"equipment":"!query.property('kurokumaft:kokyu_use')"}

@@ -108,6 +108,7 @@ export class KasumiNoKata extends KataComonClass {
 
         const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
         this.kokyuApplyDamage(entity, filter, 4, 1, itemStack);
+        entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", entity.location, molang);
 
         const num = system.runInterval(() => {
             try {
@@ -121,7 +122,7 @@ export class KasumiNoKata extends KataComonClass {
             }
         },2);
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
+        const distance = getLookLocationDistance(entity.getRotation().y, 10, 0, 0);
         entity.applyKnockback({x:distance.x,z:distance.z},0);
 
         system.waitTicks(10).then(() => {
@@ -147,6 +148,8 @@ export class KasumiNoKata extends KataComonClass {
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         const molang = new MolangVariableMap();
         molang.setFloat("variable.kaikyu", kaikyuNum);
+        const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+        entity.applyKnockback({x:distance.x,z:distance.z},0.5);
 
         const num = system.runInterval(() => {
             try {
@@ -158,8 +161,7 @@ export class KasumiNoKata extends KataComonClass {
                 const filter = addRegimentalFilter(0, entity.location, 3, entity);
                 this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
 
-                const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-                entity.applyKnockback({x:distance.x,z:distance.z},0.5);
+                entity.applyKnockback({x:distance.x,z:distance.z},0);
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                 entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", getDistanceLocation(entity.location, pdistance), molang);
             } catch (error: any) {
@@ -210,7 +212,7 @@ export class KasumiNoKata extends KataComonClass {
         },4);
 
         const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 1);
-        entity.applyKnockback({x:distance.x,z:distance.z},1);
+        entity.applyKnockback({x:distance.x,z:distance.z},0.5);
 
         system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);

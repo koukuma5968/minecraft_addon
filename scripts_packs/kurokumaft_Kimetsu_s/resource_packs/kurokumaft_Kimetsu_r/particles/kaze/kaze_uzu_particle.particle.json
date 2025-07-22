@@ -33,17 +33,18 @@
 				"linear_drag_coefficient": 1
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.5, 0.5],
+				"size": [0.25, 0.25],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 128,
 					"texture_height": 128,
 					"flipbook": {
-						"base_UV": [60, 80],
+						"base_UV": [56, 80],
 						"size_UV": [8, 8],
-						"step_UV": [30, 0],
-						"frames_per_second": 5,
-						"max_frame": 5
+						"step_UV": [8, 0],
+						"frames_per_second": 10,
+						"max_frame": 5,
+						"loop": true
 					}
 				}
 			},

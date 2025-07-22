@@ -1,4 +1,4 @@
-import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, ItemStack, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
+import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, ItemStack, Entity, system, TicksPerSecond, Player, world } from "@minecraft/server";
 import { addOrgeFilter, getDirectionVector, getDistanceLocation, getLookLocationDistance, getRandomInRange} from "../../common/KimetuCommonUtil";
 import { ZytuComonClass } from "./ZytuComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
@@ -14,14 +14,22 @@ export class Tigama extends ZytuComonClass {
         }
 
         try {
-            if (entity instanceof Player) {
-                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama1.value"}]});
-            }
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
+            if (entity.getProperty("kurokumaft:kokyu_chage") === 0) {
+                if (entity instanceof Player) {
+                    entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama1.value"}]});
+                }
+                entity.setProperty("kurokumaft:kokyu_chage", 1);
 
-            for(let i=0; i<5; i++) {
-                this.tigamaHorming(entity, i);
+                for(let i=0; i<5; i++) {
+                    this.tigamaHorming(entity, i);
+                }
+                system.waitTicks(60).then(() => {
+                    entity.setProperty("kurokumaft:kokyu_chage", 0);
+                }).catch((error: any) => {
+                }).finally(() => {
+                });
             }
         } catch (error: any) {
         }
@@ -122,12 +130,14 @@ export class Tigama extends ZytuComonClass {
                     system.clearRun(serchNum);
                 }
             },4);
-            system.runTimeout(() => {
+            system.waitTicks(100).then(() => {
                 if (kama.isValid) {
                     system.clearRun(serchNum);
                     kama.remove();
                 }
-            }, 100);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -168,24 +178,23 @@ export class Tigama extends ZytuComonClass {
      */
     bakkotyouryou(entity:Entity) {
 
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
 
         try {
-            if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
-                if (entity instanceof Player) {
-                    entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama2.value"}]});
-                }
-                entity.setDynamicProperty("kurokumaft:chage_type", true);
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama2.value"}]});
+            }
 
-                entity.addTag(entity.id);
-                const parnum = system.runInterval(() => {
+            entity.addTag(entity.id);
+            const parnum = system.runInterval(() => {
 
-                    try {
-                        const filter = addOrgeFilter(0, entity.location, 6, entity.id);
-                        const targets = entity.dimension.getEntities(filter);
-                        targets.forEach(en => {
+                try {
+                    const filter = addOrgeFilter(0, entity.location, 6, entity.id);
+                    const targets = entity.dimension.getEntities(filter);
+                    targets.forEach(en => {
+                        if (en !== undefined && en.isValid) {
                             if (en instanceof Player) {
                                 if (this.gardCheck(en)) {
                                     en.applyDamage(2, {
@@ -207,22 +216,22 @@ export class Tigama extends ZytuComonClass {
                                     amplifier: 5
                                 });
                             }
-                        });
+                        }
+                    });
 
-                    } catch (error: any) {
-                        system.clearRun(parnum);
-                        entity.removeTag(entity.id);
-                    }
-                },2);
-                entity.removeTag(entity.id);
-
-                system.runTimeout(() => {
-                    entity.setProperty("kurokumaft:kokyu_use", false);
-                    entity.setProperty("kurokumaft:kokyu_particle", false);
-                    entity.setDynamicProperty("kurokumaft:chage_type", undefined);
+                } catch (error: any) {
                     system.clearRun(parnum);
-                },3*TicksPerSecond);
-            }
+                }
+            },2);
+
+            system.waitTicks(3*TicksPerSecond).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(parnum);
+                entity.removeTag(entity.id);
+            });
         } catch (error: any) {
         }
     }
@@ -231,30 +240,30 @@ export class Tigama extends ZytuComonClass {
      * 円斬旋回・飛び血鎌
      */
     enzansenkai(entity:Entity) {
-        if (entity == undefined) {
+        if (entity === undefined) {
             return;
         }
 
         try {
-            if (entity.getDynamicProperty("kurokumaft:chage_type") == undefined) {
+            if (entity.getProperty("kurokumaft:kokyu_chage") === 0) {
                 if (entity instanceof Player) {
                     entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama3.value"}]});
                 }
-                entity.setDynamicProperty("kurokumaft:chage_type", true);
+                entity.setProperty("kurokumaft:kokyu_chage", 1);
 
                 entity.addTag(entity.id);
                 const parnum = system.runInterval(() => {
 
                     try {
 
-                        if (entity == undefined) {
+                        if (entity === undefined) {
                             return;
                         }
 
                         const filter = addOrgeFilter(0, entity.location, 10, entity.id);
                         const targets = entity.dimension.getEntities(filter);
                         targets.forEach(en => {
-                            if (en != undefined) {
+                            if (en !== undefined && en.isValid) {
                                 if (en instanceof Player) {
                                     if (this.gardCheck(en)) {
                                         en.applyDamage(2, {
@@ -275,17 +284,19 @@ export class Tigama extends ZytuComonClass {
                         entity.removeTag(entity.id);
                     }
                 },2);
-                entity.removeTag(entity.id);
 
-                system.runTimeout(() => {
-                    system.clearRun(parnum);
+                system.waitTicks(2*TicksPerSecond).then(() => {
                     entity.setProperty("kurokumaft:kokyu_use", false);
                     entity.setProperty("kurokumaft:kokyu_particle", false);
                     this.enzanTigama(entity, -5);
                     this.enzanTigama(entity, 0);
                     this.enzanTigama(entity, 5);
-                    entity.setDynamicProperty("kurokumaft:chage_type", undefined);
-                },40);
+                    entity.setProperty("kurokumaft:kokyu_chage", 0);
+                }).catch((error: any) => {
+                }).finally(() => {
+                    system.clearRun(parnum);
+                    entity.removeTag(entity.id);
+                });
 
             }
         } catch (error: any) {
@@ -351,12 +362,14 @@ export class Tigama extends ZytuComonClass {
                 }
             }, 2);
 
-            system.runTimeout(() => {
+            system.waitTicks(30).then(() => {
                 if (bulet.isValid) {
                     bulet.remove();
-                    system.clearRun(num);
                 }
-            },30);
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(num);
+            });
         } catch (error: any) {
         }
 

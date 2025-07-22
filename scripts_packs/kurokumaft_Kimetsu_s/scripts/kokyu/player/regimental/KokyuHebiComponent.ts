@@ -18,12 +18,12 @@ export class KokyuHebiComponent implements NichirintouUseComponent {
 
         switch (kata) {
             case kokyuObject.kata[kokyuObject.kata.length-1] :
-                player.setProperty("kurokumaft:kokyu_kata", 0);
+                player.setProperty("kurokumaft:kokyu_kata", kokyuObject.kata[0]);
                 player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hebi_kata" + kokyuObject.kata[0] + ".value"}]});
                 break;
             default :
                 const index = kokyuObject.kata.findIndex((el) => el === kata);
-                player.setProperty("kurokumaft:kokyu_kata", (index+1));
+                player.setProperty("kurokumaft:kokyu_kata", kokyuObject.kata[(index+1)]);
                 player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:hebi_kata" + kokyuObject.kata[(index+1)] + ".value"}]});
         }
 

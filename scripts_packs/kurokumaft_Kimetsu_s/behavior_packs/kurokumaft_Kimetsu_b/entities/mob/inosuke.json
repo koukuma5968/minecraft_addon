@@ -64,7 +64,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.two_sec"
+        "cooldown": "animation.cooldown.twenty_sec"
       }
     },
 

@@ -20,7 +20,7 @@ export class KimetuEquipmentTick {
             } else {
                 system.clearRun(this.num);
             }
-        }, 0.5*TicksPerSecond);
+        }, 5);
     }
 
     async checkPlayerKaikyuTick() {
@@ -49,18 +49,19 @@ export class KimetuEquipmentTick {
                 if (kokyuObject !== undefined) {
                     if (kokyuObject.type > 1) {
                         const kataNum = this.player.getProperty("kurokumaft:kokyu_kata") as number;
+                        const index = kokyuObject.kata.findIndex((el) => el === kataNum);
                         if (kokyuObject.type === 2) {
-                            if (kataNum > 10) {
-                                if (kokyuObject.kata[kataNum] !== undefined) {
-                                    const hikata = (kokyuObject.kata[kataNum] as number - 10);
+                            if (index > 10) {
+                                if (kokyuObject.kata[index] !== undefined) {
+                                    const hikata = (kokyuObject.kata[index] as number - 10);
                                     kataMess = "msg.kurokumaft:hi_kata" + hikata + ".value";
                                 }
                             } else {
-                                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum]+ ".value";
+                                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[index]+ ".value";
                             }
                         } else {
-                            if (kokyuObject.kata[kataNum] !== undefined) {
-                                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum]+ ".value";
+                            if (kokyuObject.kata[index] !== undefined) {
+                                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[index]+ ".value";
                             }
                         }
                     }
@@ -118,24 +119,38 @@ export class KimetuEquipmentTick {
                             this.player.setProperty("kurokumaft:kokyu_kata", kokyuObject.kata[0]);
                             this.player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[0]+ ".value"}]});
                         }
+                        this.player.setProperty("kurokumaft:kokyu_use", false);
+                        this.player.setProperty("kurokumaft:kokyu_particle", false);
+                        this.player.setProperty("kurokumaft:kokyu_attack", false);
+                        this.player.setProperty("kurokumaft:kokyu_chage", 0);
+                        this.player.setProperty("kurokumaft:kokyu_ran", 0);
+                        this.player.setDynamicProperty("kurokumaft:chage_type", undefined);
                     }
                 // 日輪刀を持っていない
                 } else {
                     this.player.setProperty("kurokumaft:nichirintou_type", 0);
                     this.player.setProperty("kurokumaft:kokyu_kata", 0);
-                }
-                const kekkizyutuObject = KekkizyutuObjects.find(ob => ob.itemName === mainHand.typeId) as KekkizyutuObject;
-                // 血気術を持っている
-                if (kekkizyutuObject !== undefined) {
-                    if (this.player.getProperty("kurokumaft:kekkizyutu_type") !== kekkizyutuObject.type) {
-                        this.player.setProperty("kurokumaft:kekkizyutu_type", kekkizyutuObject.type);
-                        this.player.setProperty("kurokumaft:kekkizyutu_kata", kekkizyutuObject.kata[0]);
-                        this.player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[0]+ ".value"}]});
+
+                    const kekkizyutuObject = KekkizyutuObjects.find(ob => ob.itemName === mainHand.typeId) as KekkizyutuObject;
+                    // 血気術を持っている
+                    if (kekkizyutuObject !== undefined) {
+                        if (this.player.getProperty("kurokumaft:kekkizyutu_type") !== kekkizyutuObject.type) {
+                            this.player.setProperty("kurokumaft:kekkizyutu_type", kekkizyutuObject.type);
+                            this.player.setProperty("kurokumaft:kekkizyutu_kata", kekkizyutuObject.kata[0]);
+                            this.player.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[0]+ ".value"}]});
+                        }
+                    // 血気術を持ってない
+                    } else {
+                        this.player.setProperty("kurokumaft:kokyu_use", false);
+                        this.player.setProperty("kurokumaft:kokyu_particle", false);
+                        this.player.setProperty("kurokumaft:kokyu_attack", false);
+                        this.player.setProperty("kurokumaft:kokyu_chage", 0);
+                        this.player.setProperty("kurokumaft:kokyu_ran", 0);
+                        this.player.setDynamicProperty("kurokumaft:chage_type", undefined);
+                        this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
+                        this.player.setProperty("kurokumaft:kekkizyutu_kata", 0);
                     }
-                // 血気術を持ってない
-                } else {
-                    this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
-                    this.player.setProperty("kurokumaft:kekkizyutu_kata", 0);
+
                 }
 
             } else {
@@ -147,6 +162,12 @@ export class KimetuEquipmentTick {
                     this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
                     this.player.setProperty("kurokumaft:kekkizyutu_kata", 0);
                 }
+                this.player.setProperty("kurokumaft:kokyu_use", false);
+                this.player.setProperty("kurokumaft:kokyu_particle", false);
+                this.player.setProperty("kurokumaft:kokyu_attack", false);
+                this.player.setProperty("kurokumaft:kokyu_chage", 0);
+                this.player.setProperty("kurokumaft:kokyu_ran", 0);
+                this.player.setDynamicProperty("kurokumaft:chage_type", undefined);
             }
         }
     }

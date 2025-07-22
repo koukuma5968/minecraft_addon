@@ -45,8 +45,6 @@ export class HiNoKata extends KataComonClass {
                 ItemDurabilityDamage(entity, itemStack);
             }
         }
-        entity.setProperty("kurokumaft:kokyu_use", false);
-        entity.setProperty("kurokumaft:kokyu_chage", 0);
 
         const num = system.runInterval(() => {
             try {
@@ -60,13 +58,18 @@ export class HiNoKata extends KataComonClass {
             }
         },1);
 
-        system.waitTicks(12).then(() => {
+        system.waitTicks(8).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
+            system.waitTicks(4).then(() => {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         }).catch((error: any) => {
         }).finally(() => {
             system.clearRun(num);
         });
+
 
     }
 
@@ -309,7 +312,7 @@ export class HiNoKata extends KataComonClass {
         const ufilter = addRegimentalFilter(0, getDistanceLocation(entity.location, udistance), 3, entity);
         this.kokyuApplyDamage(entity, ufilter, 6, 3, itemStack);
 
-        system.waitTicks(30).then(() => {
+        system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
         }).catch((error: any) => {
@@ -346,6 +349,13 @@ export class HiNoKata extends KataComonClass {
         const ddistance = getLookLocationDistance(entity.getRotation().y, 0, 0, -2.5);
         const dfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, ddistance), 2.5, entity);
         this.kokyuApplyDamage(entity, dfilter, 6, 3, itemStack);
+
+        system.waitTicks(5).then(() => {
+            const point = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
+            entity.applyKnockback({x:point.x,z:point.z},0.5);
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
 
         system.waitTicks(15).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);

@@ -14,7 +14,7 @@
 			"loop": false
 		},
 		"animation.cooldown.twenty_sec": {
-			"animation_length": 10,
+			"animation_length": 20,
 			"loop": false
 		}
 	}

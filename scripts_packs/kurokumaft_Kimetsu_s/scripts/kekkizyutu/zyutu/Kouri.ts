@@ -13,9 +13,11 @@ export class Kouri extends ZytuComonClass {
             }
             entity.setProperty("kurokumaft:kokyu_use", false);
 
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },6);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -30,10 +32,13 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri2.value"}]});
             }
-            system.runTimeout(() => {
+
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },TicksPerSecond);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -47,10 +52,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri3.value"}]});
             }
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },30);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -65,10 +72,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri4.value"}]});
             }
-            system.runTimeout(() => {
-                entity.setProperty("kurokumaft:kokyu_particle", false);
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
-            },20);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -82,10 +91,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri5.value"}]});
             }
-            system.runTimeout(() => {
-                entity.setProperty("kurokumaft:kokyu_particle", false);
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
-            },4);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -99,10 +110,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri6.value"}]});
             }
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },25);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -117,10 +130,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri7.value"}]});
             }
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },5);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -135,6 +150,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri8.value"}]});
             }
+            system.waitTicks(6).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -148,10 +169,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri9.value"}]});
             }
-            system.runTimeout(() => {
+            system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-            },10);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -165,6 +188,12 @@ export class Kouri extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_kouri10.value"}]});
             }
+            system.waitTicks(6).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }

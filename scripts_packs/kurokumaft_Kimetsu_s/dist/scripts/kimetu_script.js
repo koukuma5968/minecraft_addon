@@ -1,5 +1,5 @@
 // scripts/kimetu_script.ts
-import { world as world9, system as system63, EquipmentSlot as EquipmentSlot8, Player as Player34, EntityComponentTypes as EntityComponentTypes14, ItemStack as ItemStack26, ScriptEventSource, EntityInitializationCause } from "@minecraft/server";
+import { world as world13, system as system63, EquipmentSlot as EquipmentSlot8, Player as Player35, EntityComponentTypes as EntityComponentTypes14, ItemStack as ItemStack27, ScriptEventSource, EntityInitializationCause } from "@minecraft/server";
 
 // scripts/item/weapon/nichirintou/NichirintouComponent.ts
 import { EntityComponentTypes as EntityComponentTypes7, EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
@@ -2646,7 +2646,6 @@ var MinecraftItemTypes = ((MinecraftItemTypes2) => {
   MinecraftItemTypes2["MusicDiscCreator"] = "minecraft:music_disc_creator";
   MinecraftItemTypes2["MusicDiscCreatorMusicBox"] = "minecraft:music_disc_creator_music_box";
   MinecraftItemTypes2["MusicDiscFar"] = "minecraft:music_disc_far";
-  MinecraftItemTypes2["MusicDiscLavaChicken"] = "minecraft:music_disc_lava_chicken";
   MinecraftItemTypes2["MusicDiscMall"] = "minecraft:music_disc_mall";
   MinecraftItemTypes2["MusicDiscMellohi"] = "minecraft:music_disc_mellohi";
   MinecraftItemTypes2["MusicDiscOtherside"] = "minecraft:music_disc_otherside";
@@ -3428,28 +3427,19 @@ var KataComonClass = class {
 // scripts/common/ShooterEvent.ts
 import { EntityComponentTypes as EntityComponentTypes3 } from "@minecraft/server";
 function shooting(entity, throwItem, ranNum, seepd, event) {
-  let bulet;
   const distance = getLookLocationDistancePitch(entity.getRotation(), 1, ranNum);
+  const bulet = entity.dimension.spawnEntity(throwItem, getDistanceLocation(
+    {
+      x: entity.location.x,
+      y: entity.location.y + 0.5,
+      z: entity.location.z
+    },
+    distance
+  ));
   if (event !== void 0) {
-    bulet = entity.dimension.spawnEntity(throwItem + "<" + event + ">", getDistanceLocation(
-      {
-        x: entity.location.x,
-        y: entity.location.y + 0.5,
-        z: entity.location.z
-      },
-      distance
-    ));
-  } else {
-    bulet = entity.dimension.spawnEntity(throwItem, getDistanceLocation(
-      {
-        x: entity.location.x,
-        y: entity.location.y + 0.5,
-        z: entity.location.z
-      },
-      distance
-    ));
+    bulet.triggerEvent(event);
   }
-  let projectile = bulet.getComponent(EntityComponentTypes3.Projectile);
+  const projectile = bulet.getComponent(EntityComponentTypes3.Projectile);
   projectile.owner = entity;
   projectile.shoot(
     {
@@ -3479,9 +3469,7 @@ async function ItemDurabilityDamage(entity, item) {
     const equippable = entity.getComponent(EntityComponentTypes4.Equippable);
     const mainHand = equippable.getEquipment(EquipmentSlot2.Mainhand);
     if (mainHand !== void 0) {
-      const useItemName = mainHand.getDynamicProperty("useItemName");
-      mainHand.setDynamicProperty("useItemName");
-      if (useItemName && mainHand.typeId === item.typeId) {
+      if (mainHand.typeId === item.typeId) {
         if (durability.damage + dChange >= durability.maxDurability) {
           equippable.setEquipment(EquipmentSlot2.Mainhand, void 0);
         } else {
@@ -3566,8 +3554,6 @@ var MizuNoKata = class extends KataComonClass {
     }
     const num = system2.runInterval(() => {
       try {
-        const point = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
-        entity.applyKnockback({ x: point.x, z: point.z }, 0);
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
@@ -3575,12 +3561,21 @@ var MizuNoKata = class extends KataComonClass {
         system2.clearRun(num);
       }
     }, 6);
+    const work = system2.runInterval(() => {
+      try {
+        const point = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+        entity.applyKnockback({ x: point.x, z: point.z }, 0);
+      } catch (error) {
+        system2.clearRun(work);
+      }
+    }, 2);
     system2.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
       system2.clearRun(num);
+      system2.clearRun(work);
     });
   }
   /**
@@ -3596,8 +3591,6 @@ var MizuNoKata = class extends KataComonClass {
     let side = -2;
     const num = system2.runInterval(() => {
       try {
-        const point = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
-        entity.applyKnockback({ x: point.x, z: point.z }, 0);
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, side);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
         entity.dimension.spawnParticle("kurokumaft:mizu2_particle", getDistanceLocation(entity.location, distance));
@@ -3607,12 +3600,21 @@ var MizuNoKata = class extends KataComonClass {
         system2.clearRun(num);
       }
     }, 8);
+    const work = system2.runInterval(() => {
+      try {
+        const point = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+        entity.applyKnockback({ x: point.x, z: point.z }, 0);
+      } catch (error) {
+        system2.clearRun(work);
+      }
+    }, 2);
     system2.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
       system2.clearRun(num);
+      system2.clearRun(work);
     });
   }
   /**
@@ -4232,9 +4234,10 @@ var HanaNoKata = class extends KataComonClass {
     const molang = new MolangVariableMap2();
     molang.setFloat("variable.kaikyu", kaikyuNum);
     const distanceK = getLookLocationDistance(entity.getRotation().y, 3, 0, 1);
+    entity.applyKnockback({ x: distanceK.x, z: distanceK.z }, 0.5);
     const num = system3.runInterval(() => {
       try {
-        entity.applyKnockback({ x: distanceK.x, z: distanceK.z }, 1.5);
+        entity.applyKnockback({ x: distanceK.x, z: distanceK.z }, 0);
         const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
@@ -4407,13 +4410,13 @@ var KoiNoKata = class extends KataComonClass {
       const filter = addRegimentalFilter(0, entity.location, 6, entity);
       this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
       const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
-      entity.applyKnockback({ x: distance.x, z: distance.z }, 2);
+      entity.applyKnockback({ x: distance.x, z: distance.z }, 1);
     } catch (error) {
     }
     system4.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
-      entity.addEffect(MinecraftEffectTypes.SlowFalling, 2 * TicksPerSecond3, {
+      entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond3, {
         amplifier: 1,
         showParticles: false
       });
@@ -4431,8 +4434,8 @@ var KoiNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const distance = getLookLocationDistance(entity.getRotation().y, 5, -5, 0);
-    entity.applyKnockback({ x: distance.x, z: distance.z }, 2);
+    const distance = getLookLocationDistance(entity.getRotation().y, 3, -5, 0);
+    entity.applyKnockback({ x: distance.x, z: distance.z }, 0.3);
     entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
     entity.setProperty("kurokumaft:kokyu_attack", true);
     let side = 5;
@@ -4440,8 +4443,8 @@ var KoiNoKata = class extends KataComonClass {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-        const distance2 = getLookLocationDistance(entity.getRotation().y, 5, side, 0);
-        entity.applyKnockback({ x: distance2.x, z: distance2.z }, 2);
+        const distance2 = getLookLocationDistance(entity.getRotation().y, 3, side, 0);
+        entity.applyKnockback({ x: distance2.x, z: distance2.z }, 0.3);
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
         side = -side;
       } catch (error) {
@@ -4518,7 +4521,7 @@ var KoiNoKata = class extends KataComonClass {
       }
     }
     const distance = getLookLocationDistance(entity.getRotation().y, -4, 0, 0);
-    entity.applyKnockback({ x: distance.x, z: distance.z }, 2);
+    entity.applyKnockback({ x: distance.x, z: distance.z }, 1);
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap3();
     molang.setFloat("variable.kaikyu", kaikyuNum);
@@ -4902,6 +4905,7 @@ var KazeNoKata = class extends KataComonClass {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
+      system6.clearRun(num);
     });
   }
   /**
@@ -4944,7 +4948,8 @@ var KazeNoKata = class extends KataComonClass {
       const targets = entity.dimension.getEntities(filter);
       targets.forEach((en) => {
         const view = en.getViewDirection();
-        en.applyKnockback({ x: -Math.round(entity.location.x - view.x), z: -Math.round(entity.location.z - view.z) }, 1.5);
+        const distance = getLookLocationDistance(entity.getRotation().y, 1, 1, 0);
+        en.applyKnockback({ x: -Math.round(distance.x - view.x), z: -Math.round(distance.z - view.z) }, 2.5);
       });
       entity.removeTag(entity.id);
     }
@@ -4959,7 +4964,7 @@ var KazeNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, 1);
+    const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 1);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 1);
     const num = system6.runInterval(() => {
       try {
@@ -4970,9 +4975,21 @@ var KazeNoKata = class extends KataComonClass {
         system6.clearRun(num);
       }
     }, 2);
+    system6.waitTicks(10).then(() => {
+      entity.addEffect(MinecraftEffectTypes.SlowFalling, 0.5 * TicksPerSecond4, {
+        amplifier: 1,
+        showParticles: false
+      });
+    }).catch((error) => {
+    }).finally(() => {
+    });
     system6.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
+      entity.addEffect(MinecraftEffectTypes.SlowFalling, 0.5 * TicksPerSecond4, {
+        amplifier: 1,
+        showParticles: false
+      });
     }).catch((error) => {
     }).finally(() => {
       system6.clearRun(num);
@@ -4988,7 +5005,7 @@ var KazeNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-    system6.waitTicks(15).then(() => {
+    system6.waitTicks(8).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5181,7 +5198,7 @@ var MushiNoKata = class extends KataComonClass {
       }
     }
     const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0.5);
-    entity.applyKnockback({ x: distance.x, z: distance.z }, 0.3);
+    entity.applyKnockback({ x: distance.x, z: distance.z }, 0.5);
     const num = system7.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 3, entity);
@@ -5190,9 +5207,9 @@ var MushiNoKata = class extends KataComonClass {
       } catch (error) {
         system7.clearRun(num);
       }
-    }, 4);
+    }, 2);
     entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
-    system7.waitTicks(12).then(() => {
+    system7.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
     }).catch((error) => {
     }).finally(() => {
@@ -5350,7 +5367,7 @@ var KokyuShinobuComponent = class {
 };
 
 // scripts/kokyu/player/character/KokyuTanjiroComponent.ts
-import { system as system9, TicksPerSecond as TicksPerSecond6 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond6 } from "@minecraft/server";
 
 // scripts/kokyu/kata/HiNoKata.ts
 import { MolangVariableMap as MolangVariableMap5, system as system8, TicksPerSecond as TicksPerSecond5, Player as Player11 } from "@minecraft/server";
@@ -5393,8 +5410,6 @@ var HiNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    entity.setProperty("kurokumaft:kokyu_use", false);
-    entity.setProperty("kurokumaft:kokyu_chage", 0);
     const num = system8.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
@@ -5405,9 +5420,13 @@ var HiNoKata = class extends KataComonClass {
         system8.clearRun(num);
       }
     }, 1);
-    system8.waitTicks(12).then(() => {
+    system8.waitTicks(8).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
-      entity.setProperty("kurokumaft:kokyu_particle", false);
+      system8.waitTicks(4).then(() => {
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     }).catch((error) => {
     }).finally(() => {
       system8.clearRun(num);
@@ -5616,7 +5635,7 @@ var HiNoKata = class extends KataComonClass {
     const udistance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 3);
     const ufilter = addRegimentalFilter(0, getDistanceLocation(entity.location, udistance), 3, entity);
     this.kokyuApplyDamage(entity, ufilter, 6, 3, itemStack);
-    system8.waitTicks(30).then(() => {
+    system8.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5646,6 +5665,12 @@ var HiNoKata = class extends KataComonClass {
     const ddistance = getLookLocationDistance(entity.getRotation().y, 0, 0, -2.5);
     const dfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, ddistance), 2.5, entity);
     this.kokyuApplyDamage(entity, dfilter, 6, 3, itemStack);
+    system8.waitTicks(5).then(() => {
+      const point = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
+      entity.applyKnockback({ x: point.x, z: point.z }, 0.5);
+    }).catch((error) => {
+    }).finally(() => {
+    });
     system8.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -5744,9 +5769,6 @@ var HiNoKata = class extends KataComonClass {
 
 // scripts/kokyu/player/character/KokyuTanjiroComponent.ts
 var KokyuTanjiroComponent = class {
-  constructor() {
-    this.enbuIntervalId = 0;
-  }
   /**
    * 呼吸型変更
    * @param {Player} player
@@ -5756,12 +5778,13 @@ var KokyuTanjiroComponent = class {
     const kokyuObject = KokyuObjects[1];
     switch (kata) {
       case kokyuObject.kata[kokyuObject.kata.length - 1]:
-        player.setProperty("kurokumaft:kokyu_kata", 1);
+        player.setProperty("kurokumaft:kokyu_kata", kokyuObject.kata[0]);
         player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:mizu_kata1.value" }] });
         break;
       default:
-        player.setProperty("kurokumaft:kokyu_kata", kata + 1);
-        if (kata + 1 < 11) {
+        const index = kokyuObject.kata.findIndex((el) => el === kata);
+        player.setProperty("kurokumaft:kokyu_kata", kokyuObject.kata[index + 1]);
+        if (kokyuObject.kata[index + 1] < 11) {
           player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:mizu_kata" + (kata + 1) + ".value" }] });
         } else {
           player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:hinokami_kata" + (kata + 1) + ".value" }] });
@@ -5803,16 +5826,6 @@ var KokyuTanjiroComponent = class {
         break;
       case 10:
         mizu.zyuNoKataShot(player, itemStack);
-        break;
-      case 11:
-        if (player.getProperty("kurokumaft:kokyu_chage") === 0) {
-          player.setProperty("kurokumaft:kokyu_chage", 1);
-          system9.waitTicks(3 * TicksPerSecond6).then(() => {
-            if (player.getProperty("kurokumaft:kokyu_use")) {
-              player.setProperty("kurokumaft:kokyu_chage", 5);
-            }
-          });
-        }
         break;
       case 12:
         hi.niNoKata(player, itemStack);
@@ -5867,17 +5880,11 @@ var KokyuTanjiroComponent = class {
         mizu.hachiNoKata(player, itemStack);
         break;
       case 11:
-        if (player.getDynamicProperty("kurokumaft:chage_type") === void 0) {
-          player.setDynamicProperty("kurokumaft:chage_type", true);
-          if (player.getProperty("kurokumaft:kokyu_chage") === 5) {
-            hi.ichiNoKataIssen(player, itemStack);
-          } else {
-            player.setProperty("kurokumaft:kokyu_use", false);
-            player.setProperty("kurokumaft:kokyu_chage", 0);
-            player.setDynamicProperty("kurokumaft:chage_type", void 0);
-            system9.clearRun(this.enbuIntervalId);
-            hi.ichiNoKata(player, itemStack);
-          }
+        const chage = duration / TicksPerSecond6;
+        if (chage > 997) {
+          hi.ichiNoKata(player, itemStack);
+        } else {
+          hi.ichiNoKataIssen(player, itemStack);
         }
         break;
       case 15:
@@ -6162,7 +6169,16 @@ var KaminariNoKata = class extends KataComonClass {
       } catch (error) {
         system10.clearRun(num);
       }
-    }, 1);
+    }, 2);
+    const filter = addRegimentalFilter(1, entity.location, 6, entity);
+    this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
+    system10.waitTicks(20).then(() => {
+      entity.setProperty("kurokumaft:kokyu_use", false);
+      entity.setProperty("kurokumaft:kokyu_particle", false);
+    }).catch((error) => {
+    }).finally(() => {
+      system10.clearRun(num);
+    });
     let event = "kurokumaft:small_damage";
     if (kaikyuNum > 8) {
       event = "kurokumaft:lage_damage";
@@ -6170,15 +6186,6 @@ var KaminariNoKata = class extends KataComonClass {
       event = "kurokumaft:middle_damage";
     }
     const dragon = shooting(entity, "kurokumaft:kaminari_dragon_small", 0, 3, event);
-    const filter = addRegimentalFilter(1, entity.location, 6, entity);
-    this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
-    system10.waitTicks(10).then(() => {
-      entity.setProperty("kurokumaft:kokyu_use", false);
-      entity.setProperty("kurokumaft:kokyu_particle", false);
-    }).catch((error) => {
-    }).finally(() => {
-      system10.clearRun(num);
-    });
     system10.waitTicks(2 * TicksPerSecond7).then(() => {
       if (dragon.isValid) {
         dragon.remove();
@@ -6905,6 +6912,7 @@ var KokyuIwaComponent = class {
 };
 
 // scripts/kokyu/player/regimental/KokyuKaminariComponent.ts
+import { world as world7 } from "@minecraft/server";
 var KokyuKaminariComponent = class {
   /**
    * 呼吸型変更
@@ -6952,6 +6960,7 @@ var KokyuKaminariComponent = class {
           break;
       }
     } catch (error) {
+      world7.sendMessage(JSON.stringify(error));
     }
   }
   releaseAttackKata(player, itemStack, duration) {
@@ -6972,13 +6981,13 @@ var KokyuKaminariComponent = class {
 };
 
 // scripts/kokyu/kata/KasumiNoKata.ts
-import { MolangVariableMap as MolangVariableMap8, system as system13, TicksPerSecond as TicksPerSecond10, Player as Player18 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap8, system as system13, TicksPerSecond as TicksPerSecond10, Player as Player19 } from "@minecraft/server";
 var KasumiNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 垂天遠霞
    */
   ichiNoKata(entity, itemStack) {
-    if (entity instanceof Player18) {
+    if (entity instanceof Player19) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kasumi_kokyu1.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7001,7 +7010,7 @@ var KasumiNoKata = class extends KataComonClass {
    * 弐ノ型 八重霞
    */
   niNoKata(entity, itemStack) {
-    if (entity instanceof Player18) {
+    if (entity instanceof Player19) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kasumi_kokyu2.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7031,7 +7040,7 @@ var KasumiNoKata = class extends KataComonClass {
    * 参ノ型 霞散の飛沫
    */
   sanNoKata(entity, itemStack) {
-    if (entity instanceof Player18) {
+    if (entity instanceof Player19) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kasumi_kokyu3.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7050,7 +7059,7 @@ var KasumiNoKata = class extends KataComonClass {
    * 肆ノ型 移流斬り
    */
   shiNoKata(entity, itemStack) {
-    if (entity instanceof Player18) {
+    if (entity instanceof Player19) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kasumi_kokyu4.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7062,6 +7071,7 @@ var KasumiNoKata = class extends KataComonClass {
     molang.setFloat("variable.kaikyu", kaikyuNum);
     const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
     this.kokyuApplyDamage(entity, filter, 4, 1, itemStack);
+    entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", entity.location, molang);
     const num = system13.runInterval(() => {
       try {
         if (entity === void 0) {
@@ -7073,7 +7083,7 @@ var KasumiNoKata = class extends KataComonClass {
         system13.clearRun(num);
       }
     }, 2);
-    const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
+    const distance = getLookLocationDistance(entity.getRotation().y, 10, 0, 0);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
     system13.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -7086,7 +7096,7 @@ var KasumiNoKata = class extends KataComonClass {
    * 伍ノ型 霞雲の海
    */
   goNoKata(entity, itemStack) {
-    if (entity instanceof Player18) {
+    if (entity instanceof Player19) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kasumi_kokyu5.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7095,6 +7105,8 @@ var KasumiNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap8();
     molang.setFloat("variable.kaikyu", kaikyuNum);
+    const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+    entity.applyKnockback({ x: distance.x, z: distance.z }, 0.5);
     const num = system13.runInterval(() => {
       try {
         if (entity === void 0) {
@@ -7103,8 +7115,7 @@ var KasumiNoKata = class extends KataComonClass {
         }
         const filter = addRegimentalFilter(0, entity.location, 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-        const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-        entity.applyKnockback({ x: distance.x, z: distance.z }, 0.5);
+        entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         const pdistance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
         entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", getDistanceLocation(entity.location, pdistance), molang);
       } catch (error) {
@@ -7123,7 +7134,7 @@ var KasumiNoKata = class extends KataComonClass {
    * 陸ノ型 月の霞消
    */
   rokuNoKata(entity, itemStack) {
-    if (entity instanceof Player18) {
+    if (entity instanceof Player19) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kasumi_kokyu6.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7147,7 +7158,7 @@ var KasumiNoKata = class extends KataComonClass {
       }
     }, 4);
     const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 1);
-    entity.applyKnockback({ x: distance.x, z: distance.z }, 1);
+    entity.applyKnockback({ x: distance.x, z: distance.z }, 0.5);
     system13.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -7161,7 +7172,7 @@ var KasumiNoKata = class extends KataComonClass {
    */
   shitiNoKata(entity, itemStack) {
     if (entity.getDynamicProperty("kurokumaft:chage_type") === void 0) {
-      if (entity instanceof Player18) {
+      if (entity instanceof Player19) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kasumi_kokyu7.value" }] });
         if (itemStack !== void 0) {
           ItemDurabilityDamage(entity, itemStack);
@@ -7505,13 +7516,13 @@ var KokyuMushiComponent = class {
 };
 
 // scripts/kokyu/kata/OtoNoKata.ts
-import { MolangVariableMap as MolangVariableMap9, system as system14, TicksPerSecond as TicksPerSecond11, Player as Player19 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap9, system as system14, TicksPerSecond as TicksPerSecond11, Player as Player20 } from "@minecraft/server";
 var OtoNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 轟
    */
   ichiNoKata(entity, itemStack) {
-    if (entity instanceof Player19) {
+    if (entity instanceof Player20) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:oto_kokyu1.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7606,7 +7617,7 @@ var OtoNoKata = class extends KataComonClass {
    * 肆ノ型 鳴弦奏々
    */
   shiNoKata(entity, itemStack) {
-    if (entity instanceof Player19) {
+    if (entity instanceof Player20) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:oto_kokyu4.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7662,7 +7673,7 @@ var OtoNoKata = class extends KataComonClass {
    */
   goNoKata(entity, itemStack) {
     if (entity.getDynamicProperty("kurokumaft:chage_type") === void 0) {
-      if (entity instanceof Player19) {
+      if (entity instanceof Player20) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:oto_kokyu5.value" }] });
         if (itemStack !== void 0) {
           ItemDurabilityDamage(entity, itemStack);
@@ -7952,13 +7963,13 @@ var KokyuKoiComponent = class {
 };
 
 // scripts/kokyu/kata/KedamonoNoKata.ts
-import { system as system15, TicksPerSecond as TicksPerSecond12, Player as Player20 } from "@minecraft/server";
+import { system as system15, TicksPerSecond as TicksPerSecond12, Player as Player21 } from "@minecraft/server";
 var KedamonoNoKata = class extends KataComonClass {
   /**
    * 壱ノ牙 穿ち抜き
    */
   ichiNoKata(entity, itemStack) {
-    if (entity instanceof Player20) {
+    if (entity instanceof Player21) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu1.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -7978,7 +7989,7 @@ var KedamonoNoKata = class extends KataComonClass {
    * 弐ノ牙 切り裂き
    */
   niNoKata(entity, itemStack) {
-    if (entity instanceof Player20) {
+    if (entity instanceof Player21) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu2.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8005,7 +8016,7 @@ var KedamonoNoKata = class extends KataComonClass {
    * 参ノ牙 喰い裂き
    */
   sanNoKata(entity, itemStack) {
-    if (entity instanceof Player20) {
+    if (entity instanceof Player21) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu3.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8025,7 +8036,7 @@ var KedamonoNoKata = class extends KataComonClass {
    * 肆ノ牙 切細裂き
    */
   shiNoKata(entity, itemStack) {
-    if (entity instanceof Player20) {
+    if (entity instanceof Player21) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu4.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8051,7 +8062,7 @@ var KedamonoNoKata = class extends KataComonClass {
    * 伍ノ牙 狂い裂き
    */
   goNoKata(entity, itemStack) {
-    if (entity instanceof Player20) {
+    if (entity instanceof Player21) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu5.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8076,7 +8087,7 @@ var KedamonoNoKata = class extends KataComonClass {
    * 陸ノ牙 乱杭咬み
    */
   rokuNoKata(entity, itemStack) {
-    if (entity instanceof Player20) {
+    if (entity instanceof Player21) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu6.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8103,7 +8114,7 @@ var KedamonoNoKata = class extends KataComonClass {
    */
   shitiNoKata(entity, itemStack) {
     if (entity.getDynamicProperty("kurokumaft:chage_type") === void 0) {
-      if (entity instanceof Player20) {
+      if (entity instanceof Player21) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu7.value" }] });
         if (itemStack !== void 0) {
           ItemDurabilityDamage(entity, itemStack);
@@ -8146,7 +8157,7 @@ var KedamonoNoKata = class extends KataComonClass {
    */
   hachiNoKata(entity, itemStack) {
     if (entity.getDynamicProperty("kurokumaft:chage_type") === void 0) {
-      if (entity instanceof Player20) {
+      if (entity instanceof Player21) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu8.value" }] });
         if (itemStack !== void 0) {
           ItemDurabilityDamage(entity, itemStack);
@@ -8172,7 +8183,7 @@ var KedamonoNoKata = class extends KataComonClass {
    * 玖ノ牙 伸・うねり裂き
    */
   kuNoKata(entity, itemStack) {
-    if (entity instanceof Player20) {
+    if (entity instanceof Player21) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu9.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8194,7 +8205,7 @@ var KedamonoNoKata = class extends KataComonClass {
   zyuNoKata(entity, itemStack) {
     if (entity.getDynamicProperty("kurokumaft:chage_type") === void 0) {
       entity.setDynamicProperty("kurokumaft:chage_type", true);
-      if (entity instanceof Player20) {
+      if (entity instanceof Player21) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kedamono_kokyu10.value" }] });
         if (itemStack !== void 0) {
           ItemDurabilityDamage(entity, itemStack);
@@ -8542,14 +8553,14 @@ var KokyuHanaComponent = class {
 };
 
 // scripts/kokyu/kata/TukiNoKata.ts
-import { EntityComponentTypes as EntityComponentTypes6, MolangVariableMap as MolangVariableMap10, system as system16, Player as Player21 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes6, MolangVariableMap as MolangVariableMap10, system as system16, Player as Player22 } from "@minecraft/server";
 var TukiNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 闇月・宵の宮
    */
   ichiNoKata(entity, itemStack) {
     entity.setProperty("kurokumaft:kokyu_use", false);
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu1.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8573,7 +8584,7 @@ var TukiNoKata = class extends KataComonClass {
    * 弐ノ型 珠華ノ弄月
    */
   niNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu2.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8610,7 +8621,7 @@ var TukiNoKata = class extends KataComonClass {
    * 参ノ型 厭忌月・銷り
    */
   sanNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu3.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8644,7 +8655,7 @@ var TukiNoKata = class extends KataComonClass {
    * 伍ノ型 月魄災渦
    */
   goNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu5.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8678,7 +8689,7 @@ var TukiNoKata = class extends KataComonClass {
    * 陸ノ型 常夜孤月・無間
    */
   rokuNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu6.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8717,7 +8728,7 @@ var TukiNoKata = class extends KataComonClass {
    * 漆ノ型 厄鏡・月映え
    */
   shitiNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu7.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8791,7 +8802,7 @@ var TukiNoKata = class extends KataComonClass {
    * 捌ノ型 月龍輪尾
    */
   hachiNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu8.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8819,7 +8830,7 @@ var TukiNoKata = class extends KataComonClass {
    * 玖ノ型 降り月・連面
    */
   kuNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu9.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8857,7 +8868,7 @@ var TukiNoKata = class extends KataComonClass {
    * 拾ノ型 穿面斬・蘿月
    */
   zyuNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu10.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8916,7 +8927,7 @@ var TukiNoKata = class extends KataComonClass {
    * 拾肆ノ型 兇変・天満繊月
    */
   zyushiNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu14.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -8950,7 +8961,7 @@ var TukiNoKata = class extends KataComonClass {
    * 拾陸ノ型 月虹・片割れ月
    */
   zyurokuNoKata(entity, itemStack) {
-    if (entity instanceof Player21) {
+    if (entity instanceof Player22) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu16.value" }] });
       if (itemStack !== void 0) {
         ItemDurabilityDamage(entity, itemStack);
@@ -12257,8 +12268,7 @@ var NichirintouComponent = class {
         const equippable = player.getComponent(EntityComponentTypes7.Equippable);
         const mainHand = equippable.getEquipment(EquipmentSlot5.Mainhand);
         if (mainHand !== void 0) {
-          mainHand.setDynamicProperty("useItemName", true);
-          const object = KokyuObjects.find((ob) => ob.itemName === mainHand.typeId);
+          const object = KokyuObjects.find((ob) => ob.itemName === itemStack.typeId);
           const kokyuClass = kokyuClassRecord[object.className];
           const kokyuObject = new kokyuClass();
           player.setProperty("kurokumaft:kokyu_use", true);
@@ -12271,7 +12281,7 @@ var NichirintouComponent = class {
 };
 
 // scripts/item/tool/BloodDrinking.ts
-import { ItemStack as ItemStack22, system as system44, EntityComponentTypes as EntityComponentTypes8, ItemLockMode } from "@minecraft/server";
+import { ItemStack as ItemStack23, system as system44, EntityComponentTypes as EntityComponentTypes8, ItemLockMode } from "@minecraft/server";
 var kekkizyutuLists = weightChoice([
   { item: "kurokumaft:bakketu", weight: 30 },
   { item: "kurokumaft:gyutaro_kama", weight: 20 },
@@ -12337,11 +12347,11 @@ var BloodDrinking = class {
               }
               const kekkizyutu = kekkizyutuLists.pick();
               if (kekkizyutu === "kurokumaft:hantengu") {
-                const zyutu = new ItemStack22("kurokumaft:zouhakuten_bati", 1);
+                const zyutu = new ItemStack23("kurokumaft:zouhakuten_bati", 1);
                 zyutu.lockMode = ItemLockMode.slot;
                 container.setItem(0, zyutu);
               } else {
-                const zyutu = new ItemStack22(kekkizyutu, 1);
+                const zyutu = new ItemStack23(kekkizyutu, 1);
                 zyutu.lockMode = ItemLockMode.slot;
                 container.setItem(0, zyutu);
               }
@@ -12383,10 +12393,10 @@ var BloodDrinking = class {
 import { EntityComponentTypes as EntityComponentTypes12, EquipmentSlot as EquipmentSlot6 } from "@minecraft/server";
 
 // scripts/kekkizyutu/zyutu/Bunretu.ts
-import { system as system45, Player as Player25, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
+import { system as system45, Player as Player26, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
 
 // scripts/kekkizyutu/zyutu/ZytuComonClass.ts
-import { EntityDamageCause as EntityDamageCause3, Player as Player24 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause3, Player as Player25 } from "@minecraft/server";
 var ogreRankPoint = Object.freeze([
   {
     rank: "unusual",
@@ -12413,7 +12423,7 @@ var ZytuComonClass = class extends KataComonClass {
     const point = ogreRankPoint.find((rank) => rank.rank === ogre_rank);
     targets.forEach((en) => {
       if (en !== void 0 && en.isValid) {
-        if (en instanceof Player24) {
+        if (en instanceof Player25) {
           if (this.gardCheck(en)) {
             en.applyDamage(pDamage * (point !== void 0 ? point.point : 1), {
               cause: EntityDamageCause3.entityAttack,
@@ -12438,7 +12448,7 @@ var ZytuComonClass = class extends KataComonClass {
     const damageNum = point !== void 0 ? point.point : 1;
     targets.forEach((en) => {
       if (en !== void 0 && en.isValid) {
-        if (en instanceof Player24) {
+        if (en instanceof Player25) {
           if (this.gardCheck(en)) {
             en.addEffect(effect, Math.round(duration * damageNum * 0.25), {
               amplifier: Math.round(damage * damageNum * 0.25),
@@ -12467,20 +12477,22 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_kyoumei1.value" }] });
       }
       const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
       const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
       this.kokyuApplyEffect(entity, filter, 10, 5, MinecraftEffectTypes.Nausea);
       const ultrasonic = shooting(entity, "kurokumaft:urogi_ultrasonic", 0, 3, void 0);
-      system45.runTimeout(() => {
+      system45.waitTicks(10).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         if (ultrasonic !== void 0 && ultrasonic.id !== void 0) {
           ultrasonic.remove();
         }
-      }, 10);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -12492,7 +12504,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ikazuti1.value" }] });
       }
       const num = system45.runInterval(() => {
@@ -12505,11 +12517,13 @@ var Bunretu = class extends ZytuComonClass {
           system45.clearRun(num);
         }
       }, 2);
-      system45.runTimeout(() => {
+      system45.waitTicks(40).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
         system45.clearRun(num);
-      }, 40);
+      });
     } catch (error) {
     }
   }
@@ -12521,7 +12535,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_shitotu1.value" }] });
       }
       const num = system45.runInterval(() => {
@@ -12533,11 +12547,13 @@ var Bunretu = class extends ZytuComonClass {
           system45.clearRun(num);
         }
       }, 2);
-      system45.runTimeout(() => {
+      system45.waitTicks(10).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
         system45.clearRun(num);
-      }, 11);
+      });
     } catch (error) {
     }
   }
@@ -12549,7 +12565,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_toppu1.value" }] });
       }
       entity.addTag(entity.id);
@@ -12562,10 +12578,12 @@ var Bunretu = class extends ZytuComonClass {
         en.applyKnockback({ x: knockback.x, z: knockback.z }, 1.5);
       });
       entity.removeTag(entity.id);
-      system45.runTimeout(() => {
+      system45.waitTicks(6).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
-      }, 6);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -12577,7 +12595,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten1.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12594,12 +12612,12 @@ var Bunretu = class extends ZytuComonClass {
         tokage.triggerEvent("kurokumaft:tokage");
         const tameable = tokage.getComponent(EntityComponentTypes9.Tameable);
         if (!tameable.isTamed) {
-          if (entity instanceof Player25) {
+          if (entity instanceof Player26) {
             tameable.tame(entity);
           }
         }
       } else {
-        if (entity instanceof Player25) {
+        if (entity instanceof Player26) {
           entity.onScreenDisplay.setActionBar({ text: "\u53EC\u559A\u6570\u4E0A\u9650\u8D85\u904E" });
         }
       }
@@ -12614,7 +12632,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten2.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12624,7 +12642,7 @@ var Bunretu = class extends ZytuComonClass {
       tokageL.triggerEvent("kurokumaft:kyoumeiraisatu");
       const tameableL = tokageL.getComponent(EntityComponentTypes9.Tameable);
       if (!tameableL.isTamed) {
-        if (entity instanceof Player25) {
+        if (entity instanceof Player26) {
           tameableL.tame(entity);
         }
       }
@@ -12633,7 +12651,7 @@ var Bunretu = class extends ZytuComonClass {
       tokageR.triggerEvent("kurokumaft:kyoumeiraisatu");
       const tameableR = tokageR.getComponent(EntityComponentTypes9.Tameable);
       if (!tameableR.isTamed) {
-        if (entity instanceof Player25) {
+        if (entity instanceof Player26) {
           tameableR.tame(entity);
         }
       }
@@ -12662,15 +12680,17 @@ var Bunretu = class extends ZytuComonClass {
           system45.clearRun(num);
         }
       }, 5);
-      system45.runTimeout(() => {
+      system45.waitTicks(60).then(() => {
         if (tokageR !== void 0) {
           tokageR.remove();
         }
         if (tokageL !== void 0) {
           tokageL.remove();
         }
+      }).catch((error) => {
+      }).finally(() => {
         system45.clearRun(num);
-      }, 60);
+      });
     } catch (error) {
     }
   }
@@ -12682,7 +12702,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten3.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12705,9 +12725,11 @@ var Bunretu = class extends ZytuComonClass {
           }
         }, 10);
       }
-      system45.runTimeout(() => {
+      system45.waitTicks(20).then(() => {
+      }).catch((error) => {
+      }).finally(() => {
         system45.clearRun(num);
-      }, 20);
+      });
     } catch (error) {
     }
   }
@@ -12728,7 +12750,7 @@ var Bunretu = class extends ZytuComonClass {
    */
   mukengouzyu(entity) {
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten4.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12764,12 +12786,14 @@ var Bunretu = class extends ZytuComonClass {
           system45.clearRun(num);
         }
       }, 2);
-      system45.runTimeout(() => {
-        system45.clearRun(num);
+      system45.waitTicks(60).then(() => {
         if (tokage !== void 0 && tokage.isValid) {
           tokage.remove();
         }
-      }, 60);
+      }).catch((error) => {
+      }).finally(() => {
+        system45.clearRun(num);
+      });
     } catch (error) {
     }
   }
@@ -12808,7 +12832,7 @@ var ZyutuAizetuComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Hakaisatu.ts
-import { EntityComponentTypes as EntityComponentTypes10, MolangVariableMap as MolangVariableMap11, system as system46, TicksPerSecond as TicksPerSecond19, Player as Player26 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes10, MolangVariableMap as MolangVariableMap11, system as system46, TicksPerSecond as TicksPerSecond19, Player as Player27 } from "@minecraft/server";
 var Hakaisatu = class extends ZytuComonClass {
   /**
    * 破壊殺・羅針
@@ -12818,7 +12842,7 @@ var Hakaisatu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai1.value" }] });
       }
       const move = entity.getComponent(EntityComponentTypes10.Movement);
@@ -12826,7 +12850,7 @@ var Hakaisatu = class extends ZytuComonClass {
       const molang = new MolangVariableMap11();
       molang.setFloat("variable.rotaion", -entity.getRotation().y);
       entity.dimension.spawnParticle("kurokumaft:rashin", entity.location, molang);
-      system46.runTimeout(() => {
+      system46.waitTicks(30).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         move.resetToDefaultValue();
@@ -12838,7 +12862,9 @@ var Hakaisatu = class extends ZytuComonClass {
           amplifier: 1,
           showParticles: false
         });
-      }, 30);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -12850,7 +12876,7 @@ var Hakaisatu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai2.value" }] });
       }
       const kushiki = shooting(entity, "kurokumaft:kushiki", 0, 3, void 0);
@@ -12858,11 +12884,13 @@ var Hakaisatu = class extends ZytuComonClass {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }, 5);
-      system46.runTimeout(() => {
+      system46.waitTicks(1 * TicksPerSecond19).then(() => {
         if (kushiki.isValid) {
           kushiki.remove();
         }
-      }, 1 * TicksPerSecond19);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -12874,7 +12902,7 @@ var Hakaisatu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai3.value" }] });
       }
       const num = system46.runInterval(() => {
@@ -12888,11 +12916,13 @@ var Hakaisatu = class extends ZytuComonClass {
           system46.clearRun(num);
         }
       }, 2);
-      system46.runTimeout(() => {
+      system46.waitTicks(40).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
         system46.clearRun(num);
-      }, 40);
+      });
     } catch (error) {
     }
   }
@@ -12901,7 +12931,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   messhiki(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai4.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -12918,7 +12948,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   kamurosakiwari(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai5.value" }] });
       }
       const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 2);
@@ -12926,10 +12956,12 @@ var Hakaisatu = class extends ZytuComonClass {
       entity.dimension.spawnParticle("kurokumaft:ranshiki", getDistanceLocation(entity.location, distance));
       this.kokyuApplyDamage(entity, filter, 6, 3);
       this.kokyuApplyKnockback(entity, filter, distance, 4);
-      system46.runTimeout(() => {
-        entity.setProperty("kurokumaft:kokyu_particle", false);
+      system46.waitTicks(5).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
-      }, 5);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -12938,7 +12970,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   ryusengunkou(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai6.value" }] });
       }
       const num = system46.runInterval(() => {
@@ -12953,11 +12985,13 @@ var Hakaisatu = class extends ZytuComonClass {
           system46.clearRun(num);
         }
       }, 4);
-      system46.runTimeout(() => {
+      system46.waitTicks(40).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
         system46.clearRun(num);
-      }, 40);
+      });
     } catch (error) {
     }
   }
@@ -12966,7 +13000,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   hiyuuseisenrin(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai7.value" }] });
       }
       const num = system46.runInterval(() => {
@@ -12981,17 +13015,21 @@ var Hakaisatu = class extends ZytuComonClass {
           system46.clearRun(num);
         }
       }, 4);
-      system46.runTimeout(() => {
+      system46.waitTicks(40).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
-        system46.clearRun(num);
-        system46.runTimeout(() => {
+        system46.waitTicks(5).then(() => {
           entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond19, {
             amplifier: 1,
             showParticles: false
           });
-        }, 5);
-      }, 40);
+        }).catch((error) => {
+        }).finally(() => {
+        });
+      }).catch((error) => {
+      }).finally(() => {
+        system46.clearRun(num);
+      });
     } catch (error) {
     }
   }
@@ -13000,12 +13038,12 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   manyousenyanagi(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai8.value" }] });
       }
       const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
       entity.applyKnockback({ x: distance.x, z: distance.z }, 1);
-      system46.runTimeout(() => {
+      system46.waitTicks(20).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         const distance2 = getLookLocationDistance(entity.getRotation().y, 0, 0, -1);
@@ -13022,7 +13060,9 @@ var Hakaisatu = class extends ZytuComonClass {
           amplifier: 1,
           showParticles: false
         });
-      }, 20);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -13031,7 +13071,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   kishinyaenshin(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai9.value" }] });
       }
       const num = system46.runInterval(() => {
@@ -13045,11 +13085,13 @@ var Hakaisatu = class extends ZytuComonClass {
           system46.clearRun(num);
         }
       }, 2);
-      system46.runTimeout(() => {
+      system46.waitTicks(16).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
         system46.clearRun(num);
-      }, 16);
+      });
     } catch (error) {
     }
   }
@@ -13058,7 +13100,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   aoginranzankou(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai10.value" }] });
       }
       const num = system46.runInterval(() => {
@@ -13071,11 +13113,13 @@ var Hakaisatu = class extends ZytuComonClass {
           system46.clearRun(num);
         }
       }, 5);
-      system46.runTimeout(() => {
+      system46.waitTicks(60).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
         system46.clearRun(num);
-      }, 60);
+      });
     } catch (error) {
     }
   }
@@ -13156,7 +13200,7 @@ var ZyutuAkazaComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Obi.ts
-import { Player as Player27, system as system47 } from "@minecraft/server";
+import { Player as Player28, system as system47 } from "@minecraft/server";
 var Obi = class extends ZytuComonClass {
   /**
    * 薙ぎ払い
@@ -13166,10 +13210,12 @@ var Obi = class extends ZytuComonClass {
       const distance = getLookLocationDistancePitch(entity.getRotation(), 5, 0);
       const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
       this.kokyuApplyDamage(entity, filter, 4, 2);
-      system47.runTimeout(() => {
+      system47.waitTicks(6).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
-      }, 6);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -13187,11 +13233,13 @@ var Obi = class extends ZytuComonClass {
           system47.clearRun(num);
         }
       }, 2);
-      system47.runTimeout(() => {
+      system47.waitTicks(40).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
         system47.clearRun(num);
-      }, 40);
+      });
     } catch (error) {
     }
   }
@@ -13201,10 +13249,6 @@ var Obi = class extends ZytuComonClass {
   shot(entity) {
     try {
       const obi = shooting(entity, "kurokumaft:obi", 0, 3, void 0);
-      system47.runTimeout(() => {
-        entity.setProperty("kurokumaft:kokyu_use", false);
-        entity.setProperty("kurokumaft:kokyu_particle", false);
-      }, 5);
       let targethoming = false;
       const serchNum = system47.runInterval(() => {
         try {
@@ -13286,12 +13330,20 @@ var Obi = class extends ZytuComonClass {
           system47.clearRun(serchNum);
         }
       }, 4);
-      system47.runTimeout(() => {
+      system47.waitTicks(5).then(() => {
+        entity.setProperty("kurokumaft:kokyu_use", false);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+      });
+      system47.waitTicks(100).then(() => {
         if (obi.isValid) {
           system47.clearRun(serchNum);
           obi.remove();
         }
-      }, 100);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -13300,16 +13352,18 @@ var Obi = class extends ZytuComonClass {
    */
   yaeobigiri(entity) {
     try {
-      if (entity instanceof Player27) {
+      if (entity instanceof Player28) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_obi4.value" }] });
       }
       const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 2);
       const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 10, entity.id);
       this.kokyuApplyDamage(entity, filter, 6, 3);
-      system47.runTimeout(() => {
+      system47.waitTicks(6).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
-      }, 6);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -13368,7 +13422,7 @@ var ZyutuDakiComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Tigama.ts
-import { EntityComponentTypes as EntityComponentTypes11, EntityDamageCause as EntityDamageCause4, system as system48, TicksPerSecond as TicksPerSecond20, Player as Player28 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes11, EntityDamageCause as EntityDamageCause4, system as system48, TicksPerSecond as TicksPerSecond20, Player as Player29 } from "@minecraft/server";
 var Tigama = class extends ZytuComonClass {
   /**
    * 飛び血鎌
@@ -13378,13 +13432,21 @@ var Tigama = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player28) {
-        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama1.value" }] });
-      }
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
-      for (let i = 0; i < 5; i++) {
-        this.tigamaHorming(entity, i);
+      if (entity.getProperty("kurokumaft:kokyu_chage") === 0) {
+        if (entity instanceof Player29) {
+          entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama1.value" }] });
+        }
+        entity.setProperty("kurokumaft:kokyu_chage", 1);
+        for (let i = 0; i < 5; i++) {
+          this.tigamaHorming(entity, i);
+        }
+        system48.waitTicks(60).then(() => {
+          entity.setProperty("kurokumaft:kokyu_chage", 0);
+        }).catch((error) => {
+        }).finally(() => {
+        });
       }
     } catch (error) {
     }
@@ -13478,12 +13540,14 @@ var Tigama = class extends ZytuComonClass {
           system48.clearRun(serchNum);
         }
       }, 4);
-      system48.runTimeout(() => {
+      system48.waitTicks(100).then(() => {
         if (kama.isValid) {
           system48.clearRun(serchNum);
           kama.remove();
         }
-      }, 100);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -13514,22 +13578,21 @@ var Tigama = class extends ZytuComonClass {
    * 跋扈跳梁
    */
   bakkotyouryou(entity) {
-    if (entity == void 0) {
+    if (entity === void 0) {
       return;
     }
     try {
-      if (entity.getDynamicProperty("kurokumaft:chage_type") == void 0) {
-        if (entity instanceof Player28) {
-          entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama2.value" }] });
-        }
-        entity.setDynamicProperty("kurokumaft:chage_type", true);
-        entity.addTag(entity.id);
-        const parnum = system48.runInterval(() => {
-          try {
-            const filter = addOrgeFilter(0, entity.location, 6, entity.id);
-            const targets = entity.dimension.getEntities(filter);
-            targets.forEach((en) => {
-              if (en instanceof Player28) {
+      if (entity instanceof Player29) {
+        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama2.value" }] });
+      }
+      entity.addTag(entity.id);
+      const parnum = system48.runInterval(() => {
+        try {
+          const filter = addOrgeFilter(0, entity.location, 6, entity.id);
+          const targets = entity.dimension.getEntities(filter);
+          targets.forEach((en) => {
+            if (en !== void 0 && en.isValid) {
+              if (en instanceof Player29) {
                 if (this.gardCheck(en)) {
                   en.applyDamage(2, {
                     cause: EntityDamageCause4.entityAttack,
@@ -13550,20 +13613,20 @@ var Tigama = class extends ZytuComonClass {
                   amplifier: 5
                 });
               }
-            });
-          } catch (error) {
-            system48.clearRun(parnum);
-            entity.removeTag(entity.id);
-          }
-        }, 2);
-        entity.removeTag(entity.id);
-        system48.runTimeout(() => {
-          entity.setProperty("kurokumaft:kokyu_use", false);
-          entity.setProperty("kurokumaft:kokyu_particle", false);
-          entity.setDynamicProperty("kurokumaft:chage_type", void 0);
+            }
+          });
+        } catch (error) {
           system48.clearRun(parnum);
-        }, 3 * TicksPerSecond20);
-      }
+        }
+      }, 2);
+      system48.waitTicks(3 * TicksPerSecond20).then(() => {
+        entity.setProperty("kurokumaft:kokyu_use", false);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+        system48.clearRun(parnum);
+        entity.removeTag(entity.id);
+      });
     } catch (error) {
     }
   }
@@ -13571,26 +13634,26 @@ var Tigama = class extends ZytuComonClass {
    * 円斬旋回・飛び血鎌
    */
   enzansenkai(entity) {
-    if (entity == void 0) {
+    if (entity === void 0) {
       return;
     }
     try {
-      if (entity.getDynamicProperty("kurokumaft:chage_type") == void 0) {
-        if (entity instanceof Player28) {
+      if (entity.getProperty("kurokumaft:kokyu_chage") === 0) {
+        if (entity instanceof Player29) {
           entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama3.value" }] });
         }
-        entity.setDynamicProperty("kurokumaft:chage_type", true);
+        entity.setProperty("kurokumaft:kokyu_chage", 1);
         entity.addTag(entity.id);
         const parnum = system48.runInterval(() => {
           try {
-            if (entity == void 0) {
+            if (entity === void 0) {
               return;
             }
             const filter = addOrgeFilter(0, entity.location, 10, entity.id);
             const targets = entity.dimension.getEntities(filter);
             targets.forEach((en) => {
-              if (en != void 0) {
-                if (en instanceof Player28) {
+              if (en !== void 0 && en.isValid) {
+                if (en instanceof Player29) {
                   if (this.gardCheck(en)) {
                     en.applyDamage(2, {
                       cause: EntityDamageCause4.entityAttack,
@@ -13610,16 +13673,18 @@ var Tigama = class extends ZytuComonClass {
             entity.removeTag(entity.id);
           }
         }, 2);
-        entity.removeTag(entity.id);
-        system48.runTimeout(() => {
-          system48.clearRun(parnum);
+        system48.waitTicks(2 * TicksPerSecond20).then(() => {
           entity.setProperty("kurokumaft:kokyu_use", false);
           entity.setProperty("kurokumaft:kokyu_particle", false);
           this.enzanTigama(entity, -5);
           this.enzanTigama(entity, 0);
           this.enzanTigama(entity, 5);
-          entity.setDynamicProperty("kurokumaft:chage_type", void 0);
-        }, 40);
+          entity.setProperty("kurokumaft:kokyu_chage", 0);
+        }).catch((error) => {
+        }).finally(() => {
+          system48.clearRun(parnum);
+          entity.removeTag(entity.id);
+        });
       }
     } catch (error) {
     }
@@ -13679,12 +13744,14 @@ var Tigama = class extends ZytuComonClass {
           system48.clearRun(num);
         }
       }, 2);
-      system48.runTimeout(() => {
+      system48.waitTicks(30).then(() => {
         if (bulet.isValid) {
           bulet.remove();
-          system48.clearRun(num);
         }
-      }, 30);
+      }).catch((error) => {
+      }).finally(() => {
+        system48.clearRun(num);
+      });
     } catch (error) {
     }
   }
@@ -13717,7 +13784,6 @@ var ZyutuGyutaroComponent = class {
   hitAttackZyutu(entity) {
   }
   /**
-   * @param {ItemStack} itemStack
    * @param {Entity} entity
    */
   useAttackZyutu(entity) {
@@ -13770,7 +13836,7 @@ var ZyutuKarakuComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Bakketu.ts
-import { EntityDamageCause as EntityDamageCause5, MolangVariableMap as MolangVariableMap12, system as system49, Player as Player29 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause5, MolangVariableMap as MolangVariableMap12, system as system49, Player as Player30 } from "@minecraft/server";
 var Bakketu = class extends ZytuComonClass {
   /**
    * 爆血
@@ -13780,7 +13846,7 @@ var Bakketu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player29) {
+      if (entity instanceof Player30) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_bakketu1.value" }] });
       }
       const dimension = entity.dimension;
@@ -13840,8 +13906,7 @@ var Bakketu = class extends ZytuComonClass {
           system49.clearRun(num);
         }
       }, 4);
-      system49.runTimeout(() => {
-        system49.clearRun(num);
+      system49.waitTicks(30).then(() => {
         const num2 = system49.runInterval(() => {
           try {
             targets1.forEach((en) => {
@@ -13856,7 +13921,7 @@ var Bakketu = class extends ZytuComonClass {
             targets2.forEach((en) => {
               if (en !== void 0 && en.isValid && entity.isValid) {
                 dimension.spawnParticle("kurokumaft:bakketu_fire", en.location, molang);
-                if (en instanceof Player29) {
+                if (en instanceof Player30) {
                   if (this.gardCheck(en)) {
                     en.applyDamage(2, {
                       cause: EntityDamageCause5.fire,
@@ -13875,10 +13940,15 @@ var Bakketu = class extends ZytuComonClass {
             system49.clearRun(num2);
           }
         }, 4);
-        system49.runTimeout(() => {
+        system49.waitTicks(40).then(() => {
+        }).catch((error) => {
+        }).finally(() => {
           system49.clearRun(num2);
-        }, 40);
-      }, 30);
+        });
+      }).catch((error) => {
+      }).finally(() => {
+        system49.clearRun(num);
+      });
       entity.removeTag(entity.id);
     } catch (error) {
     }
@@ -13916,14 +13986,14 @@ var ZyutuNezukoComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Koushi.ts
-import { BlockVolume as BlockVolume3, system as system50, TicksPerSecond as TicksPerSecond21, Player as Player30 } from "@minecraft/server";
+import { BlockVolume as BlockVolume3, system as system50, TicksPerSecond as TicksPerSecond21, Player as Player31 } from "@minecraft/server";
 var Koushi = class extends ZytuComonClass {
   /**
    * 刻糸牢
    */
   kokushirou(entity) {
     try {
-      if (entity instanceof Player30) {
+      if (entity instanceof Player31) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ito1.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -13936,9 +14006,11 @@ var Koushi = class extends ZytuComonClass {
         en.dimension.fillBlocks(volume, MinecraftBlockTypes.Web);
       });
       this.kokyuApplyDamage(entity, filter, 3, 1);
-      system50.runTimeout(() => {
+      system50.waitTicks(20).then(() => {
         entity.setProperty("kurokumaft:kokyu_particle", false);
-      }, 20);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -13947,17 +14019,19 @@ var Koushi = class extends ZytuComonClass {
    */
   kokushirinten(entity) {
     try {
-      if (entity instanceof Player30) {
+      if (entity instanceof Player31) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ito2.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
       const ito = shooting(entity, "kurokumaft:kokushirinten", 0, 3, void 0);
-      system50.runTimeout(() => {
+      system50.waitTicks(2 * TicksPerSecond21).then(() => {
         if (ito.isValid) {
           ito.remove();
         }
-      }, 2 * TicksPerSecond21);
+      }).catch((error) => {
+      }).finally(() => {
+      });
     } catch (error) {
     }
   }
@@ -13966,7 +14040,7 @@ var Koushi = class extends ZytuComonClass {
    */
   ayamekago(entity) {
     try {
-      if (entity instanceof Player30) {
+      if (entity instanceof Player31) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ito3.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -13994,12 +14068,14 @@ var Koushi = class extends ZytuComonClass {
             system50.clearRun(num);
           }
         }, 2);
-        system50.runTimeout(() => {
-          system50.clearRun(num);
+        system50.waitTicks(40).then(() => {
           if (ayamekago !== void 0 && ayamekago.isValid) {
             ayamekago.remove();
           }
-        }, 40);
+        }).catch((error) => {
+        }).finally(() => {
+          system50.clearRun(num);
+        });
       }
     } catch (error) {
     }
@@ -14989,7 +15065,7 @@ function initRegisterKimetuCustom(initEvent) {
 }
 
 // scripts/player/KimetuEquipmentTick.ts
-import { EntityComponentTypes as EntityComponentTypes13, EquipmentSlot as EquipmentSlot7, system as system61, TicksPerSecond as TicksPerSecond23 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes13, EquipmentSlot as EquipmentSlot7, system as system61 } from "@minecraft/server";
 var KimetuEquipmentTick = class {
   constructor(player) {
     this.player = player;
@@ -15003,7 +15079,7 @@ var KimetuEquipmentTick = class {
       } else {
         system61.clearRun(this.num);
       }
-    }, 0.5 * TicksPerSecond23);
+    }, 5);
   }
   async checkPlayerKaikyuTick() {
     if (this.player.isValid) {
@@ -15025,18 +15101,19 @@ var KimetuEquipmentTick = class {
         if (kokyuObject !== void 0) {
           if (kokyuObject.type > 1) {
             const kataNum = this.player.getProperty("kurokumaft:kokyu_kata");
+            const index = kokyuObject.kata.findIndex((el) => el === kataNum);
             if (kokyuObject.type === 2) {
-              if (kataNum > 10) {
-                if (kokyuObject.kata[kataNum - 1] !== void 0) {
-                  const hikata = kokyuObject.kata[kataNum - 1] - 10;
+              if (index > 10) {
+                if (kokyuObject.kata[index] !== void 0) {
+                  const hikata = kokyuObject.kata[index] - 10;
                   kataMess = "msg.kurokumaft:hi_kata" + hikata + ".value";
                 }
               } else {
-                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum - 1] + ".value";
+                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[index] + ".value";
               }
             } else {
-              if (kokyuObject.kata[kataNum - 1] !== void 0) {
-                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[kataNum - 1] + ".value";
+              if (kokyuObject.kata[index] !== void 0) {
+                kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[index] + ".value";
               }
             }
           }
@@ -15083,21 +15160,33 @@ var KimetuEquipmentTick = class {
               this.player.setProperty("kurokumaft:kokyu_kata", kokyuObject.kata[0]);
               this.player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[0] + ".value" }] });
             }
+            this.player.setProperty("kurokumaft:kokyu_use", false);
+            this.player.setProperty("kurokumaft:kokyu_particle", false);
+            this.player.setProperty("kurokumaft:kokyu_attack", false);
+            this.player.setProperty("kurokumaft:kokyu_chage", 0);
+            this.player.setProperty("kurokumaft:kokyu_ran", 0);
+            this.player.setDynamicProperty("kurokumaft:chage_type", void 0);
           }
         } else {
           this.player.setProperty("kurokumaft:nichirintou_type", 0);
           this.player.setProperty("kurokumaft:kokyu_kata", 0);
-        }
-        const kekkizyutuObject = KekkizyutuObjects.find((ob) => ob.itemName === mainHand.typeId);
-        if (kekkizyutuObject !== void 0) {
-          if (this.player.getProperty("kurokumaft:kekkizyutu_type") !== kekkizyutuObject.type) {
-            this.player.setProperty("kurokumaft:kekkizyutu_type", kekkizyutuObject.type);
-            this.player.setProperty("kurokumaft:kekkizyutu_kata", kekkizyutuObject.kata[0]);
-            this.player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[0] + ".value" }] });
+          const kekkizyutuObject = KekkizyutuObjects.find((ob) => ob.itemName === mainHand.typeId);
+          if (kekkizyutuObject !== void 0) {
+            if (this.player.getProperty("kurokumaft:kekkizyutu_type") !== kekkizyutuObject.type) {
+              this.player.setProperty("kurokumaft:kekkizyutu_type", kekkizyutuObject.type);
+              this.player.setProperty("kurokumaft:kekkizyutu_kata", kekkizyutuObject.kata[0]);
+              this.player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[0] + ".value" }] });
+            }
+          } else {
+            this.player.setProperty("kurokumaft:kokyu_use", false);
+            this.player.setProperty("kurokumaft:kokyu_particle", false);
+            this.player.setProperty("kurokumaft:kokyu_attack", false);
+            this.player.setProperty("kurokumaft:kokyu_chage", 0);
+            this.player.setProperty("kurokumaft:kokyu_ran", 0);
+            this.player.setDynamicProperty("kurokumaft:chage_type", void 0);
+            this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
+            this.player.setProperty("kurokumaft:kekkizyutu_kata", 0);
           }
-        } else {
-          this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
-          this.player.setProperty("kurokumaft:kekkizyutu_kata", 0);
         }
       } else {
         if (this.player.getProperty("kurokumaft:nichirintou_type") !== 0) {
@@ -15108,6 +15197,12 @@ var KimetuEquipmentTick = class {
           this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
           this.player.setProperty("kurokumaft:kekkizyutu_kata", 0);
         }
+        this.player.setProperty("kurokumaft:kokyu_use", false);
+        this.player.setProperty("kurokumaft:kokyu_particle", false);
+        this.player.setProperty("kurokumaft:kokyu_attack", false);
+        this.player.setProperty("kurokumaft:kokyu_chage", 0);
+        this.player.setProperty("kurokumaft:kokyu_ran", 0);
+        this.player.setDynamicProperty("kurokumaft:chage_type", void 0);
       }
     }
   }
@@ -15173,10 +15268,10 @@ var RaisingStatusCheckClass = class {
 system63.beforeEvents.startup.subscribe((initEvent) => {
   initRegisterKimetuCustom(initEvent);
 });
-world9.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world13.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world9.afterEvents.playerSpawn.subscribe((event) => {
+world13.afterEvents.playerSpawn.subscribe((event) => {
   if (event.initialSpawn) {
     event.player.setProperty("kurokumaft:kokyu_use", false);
     event.player.setProperty("kurokumaft:kokyu_particle", false);
@@ -15189,9 +15284,9 @@ world9.afterEvents.playerSpawn.subscribe((event) => {
   const playerTick = new KimetuEquipmentTick(event.player);
   playerTick.startMonitoring();
 });
-world9.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+world13.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   const entity = event.entity;
-  if (entity instanceof Player34) {
+  if (entity instanceof Player35) {
     if (event.eventId === "kurokumaft:attack_time") {
       const equ = entity.getComponent(EntityComponentTypes14.Equippable);
       const mainHand = equ.getEquipment(EquipmentSlot8.Mainhand);
@@ -15243,14 +15338,13 @@ world9.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
     }
   }
 });
-world9.afterEvents.itemStopUse.subscribe((event) => {
+world13.afterEvents.itemStopUse.subscribe((event) => {
   const source = event.source;
-  if (source instanceof Player34) {
+  if (source instanceof Player35) {
     const item = event.itemStack;
     const use = source.getProperty("kurokumaft:kokyu_use");
     const equippable = source.getComponent(EntityComponentTypes14.Equippable);
     const mainHand = equippable.getEquipment(EquipmentSlot8.Mainhand);
-    world9.sendMessage("kokyu_use:" + use);
     if ((mainHand === void 0 || mainHand.typeId !== item.typeId) && use) {
       source.setProperty("kurokumaft:kokyu_use", false);
       source.setProperty("kurokumaft:kokyu_particle", false);
@@ -15258,11 +15352,10 @@ world9.afterEvents.itemStopUse.subscribe((event) => {
       source.setProperty("kurokumaft:kokyu_chage", 0);
       source.setProperty("kurokumaft:kokyu_ran", 0);
       source.setDynamicProperty("kurokumaft:chage_type", void 0);
-      item.setDynamicProperty("useItemName", void 0);
     }
   }
 });
-world9.afterEvents.itemReleaseUse.subscribe((event) => {
+world13.afterEvents.itemReleaseUse.subscribe((event) => {
   const player = event.source;
   const item = event.itemStack;
   const duration = event.useDuration;
@@ -15291,7 +15384,7 @@ var ogreRankLists = weightChoice([
   { item: "quarter", weight: 20 },
   { item: "crescent", weight: 20 }
 ]);
-world9.afterEvents.entitySpawn.subscribe((event) => {
+world13.afterEvents.entitySpawn.subscribe((event) => {
   const entity = event.entity;
   try {
     if (entity !== void 0) {
@@ -15321,7 +15414,7 @@ world9.afterEvents.entitySpawn.subscribe((event) => {
   } catch (error) {
   }
 });
-world9.afterEvents.entityDie.subscribe((event) => {
+world13.afterEvents.entityDie.subscribe((event) => {
   const deadEntity = event.deadEntity;
   if (!deadEntity.isValid) {
     return;
@@ -15348,7 +15441,7 @@ world9.afterEvents.entityDie.subscribe((event) => {
     karaku.addTag(deadEntity.id);
   }
 });
-world9.afterEvents.entityHitEntity.subscribe((event) => {
+world13.afterEvents.entityHitEntity.subscribe((event) => {
   const damagingEntity = event.damagingEntity;
   const hitEntity = event.hitEntity;
   if (hitEntity !== void 0) {
@@ -15363,7 +15456,7 @@ world9.afterEvents.entityHitEntity.subscribe((event) => {
     }
   }
 });
-world9.afterEvents.entityHurt.subscribe((event) => {
+world13.afterEvents.entityHurt.subscribe((event) => {
   const hurtEntity = event.hurtEntity;
   const health = hurtEntity.getComponent(EntityComponentTypes14.Health);
   if (hurtEntity.typeId === "kurokumaft:sekido") {
@@ -15400,7 +15493,7 @@ world9.afterEvents.entityHurt.subscribe((event) => {
     }
   }
 });
-world9.afterEvents.projectileHitEntity.subscribe((event) => {
+world13.afterEvents.projectileHitEntity.subscribe((event) => {
   const projectile = event.projectile;
   const hitEntity = event.getEntityHit().entity;
   if ("kurokumaft:thrown_syringe_dagger" === projectile.typeId) {
@@ -15408,7 +15501,7 @@ world9.afterEvents.projectileHitEntity.subscribe((event) => {
       const familyTypes = hitEntity.getComponent(EntityComponentTypes14.TypeFamily);
       if (familyTypes.hasTypeFamily("ogre")) {
         const rank = hitEntity.getProperty("kurokumaft:ogre_rank");
-        const daggerFull = new ItemStack26("kurokumaft:syringe_dagger_full", 1);
+        const daggerFull = new ItemStack27("kurokumaft:syringe_dagger_full", 1);
         switch (rank) {
           case "low":
             daggerFull.setLore(["Lv 1"]);
@@ -15453,10 +15546,10 @@ world9.afterEvents.projectileHitEntity.subscribe((event) => {
     }
   }
 });
-world9.afterEvents.projectileHitBlock.subscribe((event) => {
+world13.afterEvents.projectileHitBlock.subscribe((event) => {
   const projectile = event.projectile;
   if ("kurokumaft:thrown_syringe_dagger" === projectile.typeId) {
-    event.dimension.spawnItem(new ItemStack26("kurokumaft:syringe_dagger", 1), event.location);
+    event.dimension.spawnItem(new ItemStack27("kurokumaft:syringe_dagger", 1), event.location);
   }
 });
 system63.afterEvents.scriptEventReceive.subscribe((event) => {
@@ -15467,33 +15560,33 @@ system63.afterEvents.scriptEventReceive.subscribe((event) => {
   const sourceType = event.sourceType;
   if (initiator !== void 0) {
   }
-  if (id === "kk:kaikyuchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player34) {
+  if (id === "kk:kaikyuchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player35) {
     const params = message.split(" ");
     if (params[0] !== "set" && params[0] !== "add") {
-      world9.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_method" });
+      world13.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_method" });
       return;
     }
     if (params[0] === "add") {
       if (params.length !== 3) {
-        world9.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_argument" });
+        world13.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_argument" });
         return;
       }
       if (params[1] !== "promotion" && params[1] !== "demotion") {
-        world9.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_type" });
+        world13.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_type" });
         return;
       }
       if (!(typeof params[2] === "number" && Number.isFinite(params[2]))) {
-        world9.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_num" });
+        world13.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_num" });
         return;
       }
     } else if (params[0] === "set") {
       if (params.length !== 2) {
-        world9.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_argument" });
+        world13.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_argument" });
         return;
       }
       const num = Number(params[1]);
       if (!(!isNaN(num) && Number.isFinite(num))) {
-        world9.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_num" });
+        world13.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_num" });
         return;
       }
     }
@@ -15593,33 +15686,33 @@ system63.afterEvents.scriptEventReceive.subscribe((event) => {
       }
     }
   }
-  if (id === "kk:ogrerankchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player34) {
+  if (id === "kk:ogrerankchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player35) {
     const params = message.split(" ");
     if (params[0] !== "set" && params[0] !== "add") {
-      world9.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_method" });
+      world13.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_method" });
       return;
     }
     if (params[0] === "add") {
       if (params.length !== 3) {
-        world9.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_argument" });
+        world13.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_argument" });
         return;
       }
       if (params[1] !== "promotion" && params[1] !== "demotion") {
-        world9.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_type" });
+        world13.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_type" });
         return;
       }
       if (!(typeof params[2] === "number" && Number.isFinite(params[2]))) {
-        world9.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_num" });
+        world13.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_num" });
         return;
       }
     } else if (params[0] === "set") {
       if (params.length !== 2) {
-        world9.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_argument" });
+        world13.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_argument" });
         return;
       }
       const num = Number(params[1]);
       if (!(!isNaN(num) && Number.isFinite(num))) {
-        world9.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_num" });
+        world13.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_num" });
         return;
       }
     }

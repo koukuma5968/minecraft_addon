@@ -87,9 +87,6 @@ export class MizuNoKata extends KataComonClass {
         const num = system.runInterval(() => {
 
             try {
-                const point = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
-                entity.applyKnockback({x:point.x,z:point.z},0);
-
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 1, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
@@ -99,6 +96,16 @@ export class MizuNoKata extends KataComonClass {
             }
 
         },6);
+        const work = system.runInterval(() => {
+
+            try {
+                const point = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+                entity.applyKnockback({x:point.x,z:point.z},0);
+            } catch (error: any) {
+                system.clearRun(work);
+            }
+
+        },2);
 
         system.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -106,6 +113,7 @@ export class MizuNoKata extends KataComonClass {
         }).catch((error: any) => {
         }).finally(() => {
             system.clearRun(num);
+            system.clearRun(work);
         });
 
     }
@@ -124,9 +132,6 @@ export class MizuNoKata extends KataComonClass {
         const num = system.runInterval(() => {
 
             try {
-                const point = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
-                entity.applyKnockback({x:point.x,z:point.z},0);
-
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, side);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
 
@@ -138,6 +143,15 @@ export class MizuNoKata extends KataComonClass {
                 system.clearRun(num);
             }
         },8);
+        const work = system.runInterval(() => {
+
+            try {
+                const point = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
+                entity.applyKnockback({x:point.x,z:point.z},0);
+            } catch (error: any) {
+                system.clearRun(work);
+            }
+        },2);
 
         system.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -145,6 +159,7 @@ export class MizuNoKata extends KataComonClass {
         }).catch((error: any) => {
         }).finally(() => {
             system.clearRun(num);
+            system.clearRun(work);
         });
 
     }

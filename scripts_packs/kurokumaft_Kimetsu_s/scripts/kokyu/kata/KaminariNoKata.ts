@@ -1,4 +1,4 @@
-import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
+import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player, world } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomInRange} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
@@ -315,7 +315,18 @@ export class KaminariNoKata extends KataComonClass {
             } catch (error: any) {
                 system.clearRun(num);
             }
-        },1);
+        },2);
+
+        const filter = addRegimentalFilter(1, entity.location, 6, entity);
+        this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
+
+        system.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_particle", false);
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
 
         let event = "kurokumaft:small_damage";
         if (kaikyuNum > 8) {
@@ -324,17 +335,6 @@ export class KaminariNoKata extends KataComonClass {
             event = "kurokumaft:middle_damage";
         }
         const dragon = shooting(entity, "kurokumaft:kaminari_dragon_small", 0, 3, event);
-
-        const filter = addRegimentalFilter(1, entity.location, 6, entity);
-        this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
-
-        system.waitTicks(10).then(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        }).catch((error: any) => {
-        }).finally(() => {
-            system.clearRun(num);
-        });
 
         system.waitTicks(2*TicksPerSecond).then(() => {
             if (dragon.isValid) {

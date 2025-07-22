@@ -554,6 +554,13 @@ kurokumaft:itemGroup.name.ogre_chestplate=鬼の着物
 kurokumaft:itemGroup.name.ogre_pants=鬼の袴
 kurokumaft:itemGroup.name.ogre_boots=鬼の足袋
 
+item.kurokumaft:ogre_1_kimono.name=着物（下級鬼）
+item.kurokumaft:ogre_1_koshi.name=腰布（下級鬼）
+item.kurokumaft:ogre_2_hakama.name=袴（下級鬼）
+item.kurokumaft:ogre_2_kimono.name=着物（下級鬼）
+item.kurokumaft:ogre_3_hakama.name=袴（下級鬼）
+item.kurokumaft:ogre_3_kimono.name=着物（下級鬼）
+
 item.kurokumaft:rui_kimono.name=累の着物
 
 item.kurokumaft:akaza_ashiwa.name=猗窩座の数珠

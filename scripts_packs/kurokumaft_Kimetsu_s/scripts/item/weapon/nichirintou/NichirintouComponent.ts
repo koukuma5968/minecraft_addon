@@ -20,9 +20,8 @@ export class NichirintouComponent implements ItemCustomComponent {
                 const equippable = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
                 const mainHand = equippable.getEquipment(EquipmentSlot.Mainhand);
                 if (mainHand !== undefined) {
-                    mainHand.setDynamicProperty("useItemName", true);
 
-                    const object = KokyuObjects.find(ob => ob.itemName === mainHand.typeId) as KokyuObject;
+                    const object = KokyuObjects.find(ob => ob.itemName === itemStack.typeId) as KokyuObject;
                     // const nichirintou = player.getProperty("kurokumaft:nichirintou_type") as number;
                     // const object = KokyuObjects.find(ob => ob.type === nichirintou) as KokyuObject;
                     const kokyuClass = kokyuClassRecord[object.className];

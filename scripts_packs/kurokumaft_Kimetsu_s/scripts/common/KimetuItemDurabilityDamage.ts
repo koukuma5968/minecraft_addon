@@ -23,9 +23,7 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack) {
         const equippable = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         const mainHand = equippable.getEquipment(EquipmentSlot.Mainhand);
         if (mainHand !== undefined) {
-            const useItemName = mainHand.getDynamicProperty("useItemName") as boolean;
-            mainHand.setDynamicProperty("useItemName");
-            if (useItemName && mainHand.typeId === item.typeId) {
+            if (mainHand.typeId === item.typeId) {
                 if ((durability.damage + dChange) >= durability.maxDurability) {
                     equippable.setEquipment(EquipmentSlot.Mainhand, undefined);
                 } else {

@@ -25,7 +25,7 @@ export class Hakaisatu extends ZytuComonClass {
             molang.setFloat("variable.rotaion", -entity.getRotation().y);
             entity.dimension.spawnParticle("kurokumaft:rashin", entity.location, molang);
 
-            system.runTimeout(() => {
+            system.waitTicks(30).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 move.resetToDefaultValue();
@@ -38,8 +38,9 @@ export class Hakaisatu extends ZytuComonClass {
                     amplifier: 1,
                     showParticles: false
                 });
-        
-            },30);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -63,11 +64,13 @@ export class Hakaisatu extends ZytuComonClass {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
             },5);
 
-            system.runTimeout(() => {
+            system.waitTicks(1*TicksPerSecond).then(() => {
                 if (kushiki.isValid) {
                     kushiki.remove();
                 }
-            }, 1*TicksPerSecond);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
 
@@ -100,11 +103,13 @@ export class Hakaisatu extends ZytuComonClass {
 
             },2);
 
-            system.runTimeout(() => {
+            system.waitTicks(40).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },40);
+            });
 
         } catch (error: any) {
         }
@@ -146,10 +151,12 @@ export class Hakaisatu extends ZytuComonClass {
 
             this.kokyuApplyKnockback(entity, filter, distance, 4);
 
-            system.runTimeout(() => {
-                entity.setProperty("kurokumaft:kokyu_particle", false);
+            system.waitTicks(5).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
-            },5);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -179,11 +186,13 @@ export class Hakaisatu extends ZytuComonClass {
 
             },4);
 
-            system.runTimeout(() => {
+            system.waitTicks(40).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },40);
+            });
         } catch (error: any) {
         }
 
@@ -212,18 +221,22 @@ export class Hakaisatu extends ZytuComonClass {
                 }
             },4);
 
-            system.runTimeout(() => {
+            system.waitTicks(40).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-                system.clearRun(num);
 
-                system.runTimeout(() => {
+                system.waitTicks(5).then(() => {
                     entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
                         amplifier: 1,
                         showParticles: false
                     });
-                }, 5);
-            },40);
+                }).catch((error: any) => {
+                }).finally(() => {
+                });
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(num);
+            });
 
         } catch (error: any) {
         }
@@ -241,7 +254,7 @@ export class Hakaisatu extends ZytuComonClass {
             const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
             entity.applyKnockback({x:distance.x,z:distance.z},1);
 
-            system.runTimeout(() => {
+            system.waitTicks(20).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 const distance2 = getLookLocationDistance(entity.getRotation().y, 0, 0, -1);
@@ -261,7 +274,9 @@ export class Hakaisatu extends ZytuComonClass {
                     amplifier: 1,
                     showParticles: false
                 });
-            },20);
+            }).catch((error: any) => {
+            }).finally(() => {
+            });
         } catch (error: any) {
         }
     }
@@ -290,11 +305,13 @@ export class Hakaisatu extends ZytuComonClass {
 
             },2);
 
-            system.runTimeout(() => {
+            system.waitTicks(16).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },16);
+            });
 
         } catch (error: any) {
         }
@@ -321,11 +338,13 @@ export class Hakaisatu extends ZytuComonClass {
                 }
             },5);
 
-            system.runTimeout(() => {
+            system.waitTicks(60).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
                 system.clearRun(num);
-            },60);
+            });
         } catch (error: any) {
         }
 
