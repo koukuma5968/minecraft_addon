@@ -1,11 +1,11 @@
-import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent, WorldLoadAfterEvent, EntityInventoryComponent, Container, ContainerSlot } from "@minecraft/server";
+import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent, WorldLoadAfterEvent, EntityInventoryComponent, Container, ContainerSlot, EntityDamageCause } from "@minecraft/server";
 import { initRegisterKimetuCustom } from "./custom/KimetuCustomComponentRegistry";
 import { kokyuClassRecord, KokyuMobClassRecord, KokyuMobObject, KokyuMobObjects, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 import { KimetuEquipmentTick } from "./player/KimetuEquipmentTick";
 import { RaisingStatusCheckClass } from "./player/RaisingStatusCheckClass";
 import { KekkizyutuClassRecord, KekkizyutuMobClassRecord, KekkizyutuMobObject, KekkizyutuMobObjects, KekkizyutuObject, KekkizyutuObjects } from "./item/weapon/KekkizyutuTypes";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-import { getRandomInRange, isBelowThreshold, weightChoice } from "./common/KimetuCommonUtil";
+import { getLookLocationDistance, getRandomInRange, isBelowThreshold, weightChoice } from "./common/KimetuCommonUtil";
 
 // ワールド接続時
 system.beforeEvents.startup.subscribe(initEvent => {
@@ -23,7 +23,12 @@ world.afterEvents.playerSpawn.subscribe(event => {
     event.player.setProperty("kurokumaft:kokyu_ran", 0);
     event.player.setDynamicProperty("kurokumaft:chage_type", undefined);
   }
-  event.player.triggerEvent("kurokumaft:player_spawned");
+  const familyTypes = event.player.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+  if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
+    event.player.triggerEvent("kurokumaft:player_spawned_ogre");
+  } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_player")) {
+    event.player.triggerEvent("kurokumaft:player_spawned_regimental");
+  }
   const playerTick = new KimetuEquipmentTick(event.player);
   playerTick.startMonitoring();
 
@@ -53,7 +58,12 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
 
         }
       }
-    }
+    } else if (event.eventId === "kurokumaft:damaged_by_player") {
+      entity.applyDamage(0, {
+          cause: EntityDamageCause.entityAttack,
+          damagingEntity: entity
+        });
+      }
   } else {
     if (event.eventId === "kurokumaft:kokyu_start") {
       if (entity.typeId.indexOf("kurokumaft:regimental") !== -1) {
@@ -87,12 +97,13 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
       }
     }
   }
+
 });
 
 world.afterEvents.itemStopUse.subscribe(event => {
   const source = event.source as Entity;
-  if (source instanceof Player) {
-    const item = event.itemStack as ItemStack;
+  const item = event.itemStack as ItemStack;
+  if (source instanceof Player && item !== undefined) {
     const use = source.getProperty("kurokumaft:kokyu_use");
     const equippable = source.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     const mainHand = equippable.getEquipment(EquipmentSlot.Mainhand);
@@ -197,7 +208,7 @@ world.afterEvents.entityDie.subscribe(event => {
     const damager = event.damageSource.damagingEntity;
     if (damager !== undefined) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-      if (dfamilyTypes !== undefined && dfamilyTypes.hasTypeFamily("player")) {
+      if (dfamilyTypes !== undefined && dfamilyTypes.hasTypeFamily("player") && !dfamilyTypes.hasTypeFamily("ogre")) {
         new RaisingStatusCheckClass().statusCheck(damager as Player, deadEntity);
       }
     }
@@ -218,15 +229,20 @@ world.afterEvents.entityDie.subscribe(event => {
 world.afterEvents.entityHitEntity.subscribe(event => {
   const damagingEntity = event.damagingEntity;
   const hitEntity = event.hitEntity;
-  if (hitEntity !== undefined) {
-    const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-    const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-    if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
-      hitEntity.addTag("hostility");
-      damagingEntity.addTag("hostility_player");
-    } else if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("player") && damageFamilyTypes.hasTypeFamily("player")) {
-      hitEntity.addTag("hostility_player");
-      damagingEntity.addTag("hostility_player");
+  const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+  const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+  if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
+    hitEntity.addTag("hostility");
+    damagingEntity.addTag("hostility_player");
+  } else if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("player") && damageFamilyTypes.hasTypeFamily("player")) {
+    hitEntity.addTag("hostility_player");
+    damagingEntity.addTag("hostility_player");
+  }
+  if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("ogre")) {
+    const type = damagingEntity.getProperty("kurokumaft:nichirintou_type");
+    if (type === undefined || type === 0) {
+      const distance = getLookLocationDistance(damagingEntity.getRotation().y, 1.25, 0, 0.5);
+      hitEntity.applyKnockback({x:distance.x, z:distance.z}, 0.25);
     }
   }
 });

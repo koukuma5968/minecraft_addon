@@ -13,7 +13,7 @@
           "minecraft:dirt"
         ],
         "minecraft:density_limit": {
-          "surface": 3
+          "surface": 2
         },
         "minecraft:brightness_filter": {
           "min": 0,

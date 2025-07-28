@@ -1,25 +1,6 @@
 import { EntityDamageCause, EntityQueryOptions, Entity, Player } from "@minecraft/server";
-import { KataComonClass } from "../../kokyu/kata/KataComonClass";
+import { KataComonClass, ogreRankPoint } from "../../kokyu/kata/KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
-
-export const ogreRankPoint = Object.freeze([
-    {
-        rank: "unusual",
-        point: 1
-    },
-    {
-        rank: "quarter",
-        point: 2
-    },
-    {
-        rank: "crescent",
-        point: 4
-    },
-    {
-        rank: "king",
-        point: 6
-    },
-]);
 
 export class ZytuComonClass extends KataComonClass {
 
@@ -39,7 +20,7 @@ export class ZytuComonClass extends KataComonClass {
                         });
                     }
                 } else {
-                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1), {
+                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1)*1.5, {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: entity
                     });

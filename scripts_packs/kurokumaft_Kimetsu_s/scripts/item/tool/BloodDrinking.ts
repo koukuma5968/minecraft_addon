@@ -24,14 +24,19 @@ export class BloodDrinking implements ItemCustomComponent {
             switch (lores[0]) {
                 case "Lv 5" :
                     becoming = becoming + 30;
+                    break;
                 case "Lv 4" :
                     becoming = becoming + 25;
+                    break;
                 case "Lv 3" :
                     becoming = becoming + 20;
+                    break;
                 case "Lv 2" :
                     becoming = becoming + 15;
+                    break;
                 case "Lv 1" :
                     becoming = becoming + 10;
+                    break;
                 break;
             }
         } else {
@@ -40,7 +45,6 @@ export class BloodDrinking implements ItemCustomComponent {
 
         if ("none" === rank) {
             if (becoming >= 100) {
-                player.setProperty("kurokumaft:kaikyu", 0);
                 player.setProperty("kurokumaft:ogre_rank", "low");
                 player.setProperty("kurokumaft:ogre_becoming", 0);
                 system.runTimeout(() => {
@@ -58,7 +62,22 @@ export class BloodDrinking implements ItemCustomComponent {
                 });
             }
         } else {
-            if (becoming >= 100) {
+            let rankPoint = 0;
+            switch (rank) {
+                case "low" :
+                    rankPoint = 150;
+                break;
+                case "unusual" :
+                    rankPoint = 200;
+                break;
+                case "quarter" :
+                    rankPoint = 400;
+                break;
+                case "crescent" :
+                    rankPoint = 500;
+                break;
+            }
+            if (becoming >= rankPoint) {
                 switch (rank) {
                     case "low" :
                         player.setProperty("kurokumaft:ogre_rank", "unusual");
@@ -74,38 +93,6 @@ export class BloodDrinking implements ItemCustomComponent {
                                 const zyutu = new ItemStack("kurokumaft:zouhakuten_bati", 1);
                                 zyutu.lockMode = ItemLockMode.slot;
                                 container.setItem(0, zyutu);
-
-                                // const itemstack1 = container.transferItem(1, container);
-                                // if (itemstack1 !== undefined) {
-                                //     player.dimension.spawnItem(itemstack1, player.location);
-                                // }
-                                // const zyutu1 = new ItemStack("kurokumaft:aizetu_sper", 1);
-                                // zyutu1.lockMode = ItemLockMode.slot;
-                                // container.setItem(1, zyutu1);
-
-                                // const itemstack2 = container.transferItem(2, container);
-                                // if (itemstack2 !== undefined) {
-                                //     player.dimension.spawnItem(itemstack2, player.location);
-                                // }
-                                // const zyutu2 = new ItemStack("kurokumaft:karaku_ougi", 1);
-                                // zyutu2.lockMode = ItemLockMode.slot;
-                                // container.setItem(2, zyutu2);
-
-                                // const itemstack3 = container.transferItem(3, container);
-                                // if (itemstack3 !== undefined) {
-                                //     player.dimension.spawnItem(itemstack3, player.location);
-                                // }
-                                // const zyutu3 = new ItemStack("kurokumaft:sekido_syakuzou", 1);
-                                // zyutu3.lockMode = ItemLockMode.slot;
-                                // container.setItem(3, zyutu3);
-
-                                // const itemstack3 = container.transferItem(3, container);
-                                // if (itemstack3 !== undefined) {
-                                //     player.dimension.spawnItem(itemstack3, player.location);
-                                // }
-                                // const zyutu3 = new ItemStack("kurokumaft:sekido_syakuzou", 1);
-                                // zyutu3.lockMode = ItemLockMode.slot;
-                                // container.setItem(3, zyutu3);
 
                             } else {
                                 const zyutu = new ItemStack(kekkizyutu, 1);

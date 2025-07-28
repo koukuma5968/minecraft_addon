@@ -1,6 +1,7 @@
 import { EntityDamageCause, EntityQueryOptions, MolangVariableMap, Entity, system, Player, world } from "@minecraft/server";
-import { ogreRankPoint, ZytuComonClass } from "./ZytuComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { ogreRankPoint } from "../../kokyu/kata/KataComonClass";
+import { ZytuComonClass } from "./ZytuComonClass";
 
 export class Bakketu extends ZytuComonClass {
 

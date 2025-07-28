@@ -1,25 +1,25 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "DemonSlayerBv4.2",
-		"description": "鬼滅の刃Bv4.2 日輪刀/キャラクターアドオン ビヘイビアーパック",
+		"name": "DemonSlayerBv4.3",
+		"description": "鬼滅の刃Bv4.3 日輪刀/キャラクターアドオン ビヘイビアーパック",
 		"uuid": "d174c416-a595-4bfc-86d3-0d993dd8b45c",
-		"version": [4, 0, 2],
+		"version": [4, 0, 3],
 		"min_engine_version": [1, 21, 60]
 	},
 	"modules": [
 		{
-			"description": "鬼滅の刃アドオンRv4.2",
+			"description": "鬼滅の刃アドオンRv4.3",
 			"type": "data",
 			"uuid": "445c582c-656e-42e5-ab25-72acfa3f761e",
-			"version": [4, 0, 2]
+			"version": [4, 0, 3]
 		},
 		{
 			"description": "鬼滅の刃アドオンscripting",
 			"type": "script",
 			"language": "javascript",
 			"uuid": "7b62273c-c9e2-41f3-bf99-025c5828a0a4",
-			"version": [4,0,2],
+			"version": [4,0,3],
 			"entry": "scripts/kimetu_script.js"
 		}
 
@@ -30,7 +30,7 @@
 	"dependencies": [
 		{
 			"uuid": "7d00f465-dd97-4d70-a72b-df79443c2a6c",
-			"version": [4, 0, 2]
+			"version": [4, 0, 3]
 		},
 		{
 			"module_name": "@minecraft/server-ui",

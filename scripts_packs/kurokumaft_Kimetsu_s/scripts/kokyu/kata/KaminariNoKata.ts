@@ -148,11 +148,15 @@ export class KaminariNoKata extends KataComonClass {
             }
         }
 
+        const molang = new MolangVariableMap();
+        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
+        molang.setFloat("variable.kaikyu", kaikyuNum);
         const num = system.runInterval(() => {
             try {
                 const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
 
+                entity.dimension.spawnParticle("kurokumaft:kaminari4_particle",entity.location,molang);
                 const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
                 this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
             } catch (error: any) {
@@ -401,10 +405,14 @@ export class KaminariNoKata extends KataComonClass {
                 ItemDurabilityDamage(entity, itemStack);
             }
         }
+        entity.setProperty("kurokumaft:kokyu_chage", 10);
+        entity.setProperty("kurokumaft:kokyu_use", false);
 
         const filter = addRegimentalFilter(1, entity.location, 30, entity);
 
+        entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
+        entity.removeTag(entity.id);
         if (targets.length > 0) {
             entity.teleport(targets[0].location, {
                 facingLocation: targets[0].location,
@@ -415,7 +423,7 @@ export class KaminariNoKata extends KataComonClass {
         this.kokyuApplyDamage(entity, filter2, 20, 8, itemStack);
 
         system.waitTicks(10).then(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
+            entity.setProperty("kurokumaft:kokyu_chage", 0);
             entity.setProperty("kurokumaft:kokyu_particle", false);
         }).catch((error: any) => {
         }).finally(() => {

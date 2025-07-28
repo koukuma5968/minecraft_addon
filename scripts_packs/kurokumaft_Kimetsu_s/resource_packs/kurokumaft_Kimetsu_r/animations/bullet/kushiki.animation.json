@@ -4,6 +4,14 @@
 		"animation.kushiki.shot": {
 			"loop": true,
 			"animation_length": 0.0417,
+			"bones": {
+				"uzu": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 360, 0]
+					}
+				}
+			},
 			"particle_effects": {
 				"0.0": {
 					"effect": "kushiki",

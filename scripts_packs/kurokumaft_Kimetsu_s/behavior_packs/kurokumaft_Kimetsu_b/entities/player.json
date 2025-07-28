@@ -15,7 +15,7 @@
         },
         "kurokumaft:ogre_kill": {
           "type": "int",
-          "range": [0, 600],
+          "range": [0, 5000],
           "default": 0,
           "client_sync": true
         },
@@ -77,7 +77,7 @@
         },
         "kurokumaft:ogre_becoming": {
           "type": "int",
-          "range": [0, 100],
+          "range": [0, 1000],
           "default": 0,
           "client_sync": true
         },
@@ -161,6 +161,9 @@
         "minecraft:damage_sensor": {
           "triggers": [
             {
+              "on_damage": {
+                "event": "kurokumaft:damage_clear"
+              },
               "deals_damage": "no"
             }
           ]
@@ -168,6 +171,16 @@
       },
 
       "kurokumaft:nomal_damage": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "event": "kurokumaft:nomal_damage"
+              },
+              "deals_damage": "yes"
+            }
+          ]
+        },
         "minecraft:hurt_on_condition": {
           "damage_conditions": [
             {
@@ -189,7 +202,36 @@
               "on_damage": {
                 "filters": {
                   "all_of": [
-                    { "test": "int_property", "subject": "damager", "domain": "kurokumaft:nichirintou_type", "operator": "==", "value": 0 }
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_tanjiro" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_zenitu" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_inosuke" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kanawo" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_genya" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:zyuu_genya" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_giyu" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kyouzyuro" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_shinobu" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_tengen" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_obanai" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_sanemi" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mituri" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_muitiro" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_gyoumei" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_hi" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mizu" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kaminari" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kemono" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_mushi" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_hana" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kasumi" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_koi" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_hono" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_oto" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_kaze" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_iwa" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_hebi" },
+                    {"test": "has_equipment", "subject": "damager", "operator": "!=", "domain": "hand", "value": "kurokumaft:nichirintou_tuki" }
                   ]
                 }
               },
@@ -570,8 +612,11 @@
         }
       },
 
-      "kurokumaft:player_spawned": {
+      "kurokumaft:player_spawned_regimental": {
         "trigger": "kurokumaft:kaikyu_change"
+      },
+      "kurokumaft:player_spawned_ogre": {
+        "trigger": "kurokumaft:ogre_rank_change"
       },
       "kurokumaft:attack_time": {},
 
@@ -913,9 +958,19 @@
                 "kurokumaft:ogre_damage_sensor"
               ]
             }
+          },
+          {
+            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "none" },
+            "add": {
+              "component_groups": [
+                "kurokumaft:nomal_damage"
+              ]
+            }
           }
         ]
-      }
+      },
+      "kurokumaft:damage_clear": {},
+      "kurokumaft:nomal_damage": {}
 
     }
   }

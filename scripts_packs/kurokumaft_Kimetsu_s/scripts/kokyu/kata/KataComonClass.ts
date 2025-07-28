@@ -2,6 +2,35 @@ import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, Entity
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addProjectionFilter, getDistanceLocation, getLookLocationDistance } from "../../common/KimetuCommonUtil";
 
+export const ogreRankPoint = Object.freeze([
+    {
+        rank: "low",
+        point: 2,
+        damage: 4
+    },
+    {
+        rank: "unusual",
+        point: 3,
+        damage: 3
+    },
+    {
+        rank: "quarter",
+        point: 5,
+        damage: 2
+    },
+    {
+        rank: "crescent",
+        point: 8,
+        damage: 1
+    },
+    {
+        rank: "king",
+        point: 12,
+        damage: 0.75
+    },
+]);
+
+
 export class KataComonClass {
 
     gardCheck(en: Player): boolean {
@@ -34,7 +63,7 @@ export class KataComonClass {
         const targets = entity.dimension.getEntities(filter);
 
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum;
+        const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum * 2;
         targets.forEach(en => {
             if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
@@ -49,34 +78,52 @@ export class KataComonClass {
                             }
                         }
                     } else {
+                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
                         const tags = entity.getTags();
                         if (tags.indexOf("hostility") !== -1) {
-                            en.applyDamage(enDamage*damageNum, {
+                            en.applyDamage(pDamage*damageNum * 0.75, {
+                                cause: EntityDamageCause.entityAttack,
+                                damagingEntity: entity
+                            });
+                        } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
+                            en.applyDamage(pDamage*damageNum, {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
                         }
                     }
                 } else {
-                    const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-                    if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
-                        en.applyDamage(enDamage*damageNum, {
+                    const damagerFamilyTypes = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                    if (damagerFamilyTypes !== undefined && damagerFamilyTypes.hasTypeFamily("ogre")) {
+                        const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
+                        const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
+                        en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.point : 0.5)), {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
-                    } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
-                        const tags = en.getTags();
-                        if (tags.indexOf("hostility") !== -1) {
+                    } else {
+                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                        if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
+                            const ogre_rank = en.getProperty("kurokumaft:ogre_rank");
+                            const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
+                            en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.damage : 5)), {
+                                cause: EntityDamageCause.entityAttack,
+                                damagingEntity: entity
+                            });
+                        } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
+                            const tags = en.getTags();
+                            if (tags.indexOf("hostility") !== -1) {
+                                en.applyDamage(enDamage*damageNum, {
+                                    cause: EntityDamageCause.entityAttack,
+                                    damagingEntity: entity
+                                });
+                            }
+                        } else {
                             en.applyDamage(enDamage*damageNum, {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
                         }
-                    } else {
-                        en.applyDamage(enDamage*damageNum, {
-                            cause: EntityDamageCause.entityAttack,
-                            damagingEntity: entity
-                        });
                     }
                 }
             }
@@ -112,17 +159,65 @@ export class KataComonClass {
         targets.forEach(en => {
             if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
-                    if (this.gardCheck(en)) {
-                        en.addEffect(effect, Math.round(duration*damageNum*0.25), {
-                            amplifier: Math.round(damage*damageNum*0.25),
-                            showParticles: true
-                        });
+                    if (entity instanceof Player) {
+                        const tags = en.getTags();
+                        if (world.gameRules.pvp && tags.indexOf("hostility_player") !== -1) {
+                            if (this.gardCheck(en)) {
+                                en.addEffect(effect, Math.round(duration*damageNum*0.25), {
+                                    amplifier: Math.round(damage*damageNum*0.25),
+                                    showParticles: true
+                                });
+                            }
+                        }
+                    } else {
+                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                        const tags = entity.getTags();
+                        if (tags.indexOf("hostility") !== -1) {
+                            en.addEffect(effect, Math.round(duration*damageNum*0.25), {
+                                amplifier: Math.round(damage*damageNum*0.25),
+                                showParticles: true
+                            });
+                        } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
+                            en.addEffect(effect, Math.round(duration*damageNum*1.5), {
+                                amplifier: Math.round(damage*damageNum*1.5),
+                                showParticles: true
+                            });
+                        }
                     }
                 } else {
-                    en.addEffect(effect, Math.round(duration*damageNum*0.75), {
-                        amplifier: Math.round(damage*damageNum),
-                        showParticles: true
-                    });
+                    const damagerFamilyTypes = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                    if (damagerFamilyTypes !== undefined && damagerFamilyTypes.hasTypeFamily("ogre")) {
+                        en.addEffect(effect, Math.round(duration*damageNum*1.25), {
+                            amplifier: Math.round(damage*damageNum*1.25),
+                            showParticles: true
+                        });
+                    } else {
+                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                        if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
+                            en.addEffect(effect, Math.round(duration*damageNum*1.75), {
+                                amplifier: Math.round(damage*damageNum*1.75),
+                                showParticles: true
+                            });
+                        } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
+                            const tags = en.getTags();
+                            if (tags.indexOf("hostility") !== -1) {
+                                en.addEffect(effect, Math.round(duration*damageNum*0.75), {
+                                    amplifier: Math.round(damage*damageNum*0.75),
+                                    showParticles: true
+                                });
+                            }
+                        } else {
+                            en.addEffect(effect, Math.round(duration*damageNum*0.75), {
+                                amplifier: Math.round(damage*damageNum*0.75),
+                                showParticles: true
+                            });
+                        }
+                    }
+                }
+                if (en instanceof Player) {
+                    if (this.gardCheck(en)) {
+                    }
+                } else {
                 }
             }
         });

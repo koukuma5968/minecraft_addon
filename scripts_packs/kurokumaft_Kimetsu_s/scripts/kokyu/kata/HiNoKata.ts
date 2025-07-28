@@ -198,7 +198,7 @@ export class HiNoKata extends KataComonClass {
         entity.setDynamicProperty("kurokumaft:chage_type", true);
         entity.setProperty("kurokumaft:kokyu_chage", 1);
 
-        entity.addEffect(MinecraftEffectTypes.Speed, 5*TicksPerSecond,{
+        entity.addEffect(MinecraftEffectTypes.Speed, 2*TicksPerSecond,{
             amplifier: 6,
             showParticles: false
         });
@@ -219,7 +219,7 @@ export class HiNoKata extends KataComonClass {
             }
         },4);
 
-        system.waitTicks(5*TicksPerSecond).then(() => {
+        system.waitTicks(2*TicksPerSecond).then(() => {
             entity.setProperty("kurokumaft:kokyu_attack", false);
             entity.setProperty("kurokumaft:kokyu_chage", 0);
             entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -401,7 +401,7 @@ export class HiNoKata extends KataComonClass {
                 }
             },1);
     
-            system.waitTicks(10*TicksPerSecond).then(() => {
+            system.waitTicks(6*TicksPerSecond).then(() => {
                 entity.setProperty("kurokumaft:kokyu_attack", false);
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);

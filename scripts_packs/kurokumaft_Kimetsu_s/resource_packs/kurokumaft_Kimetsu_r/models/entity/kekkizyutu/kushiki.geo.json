@@ -4,8 +4,8 @@
 		{
 			"description": {
 				"identifier": "geometry.kushiki",
-				"texture_width": 16,
-				"texture_height": 16,
+				"texture_width": 64,
+				"texture_height": 64,
 				"visible_bounds_width": 2,
 				"visible_bounds_height": 1.5,
 				"visible_bounds_offset": [0, 0.25, 0]
@@ -14,12 +14,21 @@
 				{
 					"name": "kushiki",
 					"pivot": [0, 0, 0],
+					"rotation": [90, 0, 0],
 					"cubes": [
 						{"origin": [-1, 0, -1], "size": [2, 2, 2], "uv": [0, 0]}
 					],
 					"locators": {
 						"kushiki": [0, 0, 0]
 					}
+				},
+				{
+					"name": "uzu",
+					"parent": "kushiki",
+					"pivot": [0, 1, 0],
+					"cubes": [
+						{"origin": [-1.5, -1.5, -1.5], "size": [3, 5, 3], "uv": [32, 22]}
+					]
 				}
 			]
 		}

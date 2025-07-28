@@ -1,11 +1,11 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.kekkizyutu.koori.body.konagoori": {
+		"animation.action.koori.konagoori_third": {
 			"loop": true,
 			"animation_length": 0.04167
 		},
-		"animation.kekkizyutu.koori.body.hasugoori": {
+		"animation.action.koori.hasugoori_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.25,
 			"bones": {
@@ -68,7 +68,7 @@
 				}
 			}
 		},
-		"animation.kekkizyutu.koori.body.karesonosizuri": {
+		"animation.action.koori.karesonosizuri_third": {
 			"loop": true,
 			"animation_length": 0.6667,
 			"bones": {
@@ -92,7 +92,7 @@
 				}
 			}
 		},
-		"animation.kekkizyutu.koori.body.itegumori": {
+		"animation.action.koori.itegumori_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.2083,
 			"bones": {
@@ -131,7 +131,7 @@
 				}
 			}
 		},
-		"animation.kekkizyutu.koori.body.tururenge": {
+		"animation.action.koori.tururenge_third": {
 			"loop": "hold_on_last_frame",
 			"bones": {
 				"rightArm": {
@@ -142,7 +142,7 @@
 				}
 			}
 		},
-		"animation.kekkizyutu.koori.body.kanretunosirahime": {
+		"animation.action.koori.kanretunosirahime_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.2083,
 			"bones": {
@@ -154,7 +154,7 @@
 				}
 			}
 		},
-		"animation.kekkizyutu.koori.body.fuyuzareturara": {
+		"animation.action.koori.fuyuzareturara_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.2083,
 			"bones": {
@@ -166,7 +166,7 @@
 				}
 			}
 		},
-		"animation.kekkizyutu.koori.body.tirirenge": {
+		"animation.action.koori.tirirenge_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.25,
 			"bones": {

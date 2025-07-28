@@ -16,14 +16,14 @@
           "kaminari_dragon_particle": "kurokumaft:kaminari_dragon_particle"
         },
         "animations": {
-          "attack": "animation.kaminari_dragon.attack"
+          "shot": "animation.kaminari_dragon.shot"
         },
         "scripts": {
           "scaleX": "0.20",
           "scaleY": "0.16",
           "scaleZ": "0.20",
           "animate": [
-            "attack"
+            "shot"
           ]
         },
         "render_controllers": ["controller.render.kaminari_dragon"]

@@ -34,13 +34,13 @@ export class KokyuZenituComponent implements NichirintouUseComponent {
         switch (kata) {
             case 1 :
                 const chage = (duration / TicksPerSecond);
-                if (chage > 997) {
+                if (chage > 998.5) {
                     kaminari.ichiNoKata(player, itemStack);
-                } else if (chage > 993) {
+                } else if (chage > 996.5) {
                     kaminari.ichiNoKataRoku(player, itemStack);
-                } else if (chage > 991) {
+                } else if (chage > 995.5) {
                     kaminari.ichiNoKataHati(player, itemStack);
-                } else if (chage > 988) {
+                } else if (chage > 994) {
                     kaminari.ichiNoKataShinsoku(player, itemStack);
                 } else {
                     kaminari.shitiNoKata(player, itemStack);

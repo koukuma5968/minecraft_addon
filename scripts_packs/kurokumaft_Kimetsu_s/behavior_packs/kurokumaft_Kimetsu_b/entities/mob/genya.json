@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.10",
+  "format_version": "1.21.90",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:genya",
@@ -289,6 +289,7 @@
     },
 
     "components": {
+      "minecraft:floats_in_liquid":{},
       "minecraft:experience_reward": {
         "on_death": "Math.Min(7, 100)"
       },
@@ -564,6 +565,11 @@
             "remove": {
               "component_groups": [
                 "kurokumaft:damage_clear"
+              ]
+            },
+            "add": {
+              "component_groups": [
+                "kurokumaft:nomal_damage"
               ]
             }
           }

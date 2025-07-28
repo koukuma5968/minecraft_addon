@@ -6,7 +6,7 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"equipment": "variable.kekkizyutu_type == 26"}
+						{"equipment": "variable.kekkizyutu_type == 9"}
 					]
 				},
 				"equipment":{
@@ -17,7 +17,7 @@
 				},
 				"first_person": {
 					"transitions" : [
-						{"default": "variable.kekkizyutu_type != 26"},
+						{"default": "variable.kekkizyutu_type != 9"},
 						{"equipment": "!variable.is_first_person"},
 						{"first_use": "query.property('kurokumaft:kokyu_use')"}
 					]
@@ -100,7 +100,7 @@
 				},
 				"third_person": {
 					"transitions" : [
-						{"default": "variable.kekkizyutu_type != 26"},
+						{"default": "variable.kekkizyutu_type != 9"},
 						{"equipment": "!variable.is_third_person"},
 						{"third_use": "query.property('kurokumaft:kokyu_use')"}
 					]

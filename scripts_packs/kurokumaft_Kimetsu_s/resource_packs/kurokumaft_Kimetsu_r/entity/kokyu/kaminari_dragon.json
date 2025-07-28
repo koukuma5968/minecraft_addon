@@ -12,6 +12,11 @@
         "geometry": {
           "kaminari_dragon": "geometry.kaminari_dragon"
         },
+        "scripts": {
+          "scaleX": "0.60",
+          "scaleY": "0.46",
+          "scaleZ": "0.60"
+        },
         "render_controllers": ["controller.render.kaminari_dragon"]
       }
     }

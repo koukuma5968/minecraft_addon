@@ -269,7 +269,7 @@ export class MizuNoKata extends KataComonClass {
                 this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
             }
             const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 1);
-            entity.applyKnockback({x:distance.x,z:distance.z},1.5);
+            entity.applyKnockback({x:distance.x,z:distance.z},1.2);
             const num = system.runInterval(() => {
 
                 try {
@@ -354,11 +354,11 @@ export class MizuNoKata extends KataComonClass {
 
             const oLocate = entity.location;
             const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-            entity.applyKnockback({x:distance.x,z:distance.z},1.5);
+            entity.applyKnockback({x:distance.x,z:distance.z},1.2);
             let parnum = 0;
 
             system.waitTicks(25).then(() => {
-                const filter = addRegimentalFilter(0, oLocate, 6, entity);
+                const filter = addRegimentalFilter(0, oLocate, 8, entity);
 
                 const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
                 const molang = new MolangVariableMap();

@@ -1,0 +1,65 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "kurokumaft:hakaisatu_small_bullet",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false,
+            "runtime_identifier": "minecraft:arrow"
+        },
+        "component_groups": {
+            "kurokumaft:despawn": {
+                "minecraft:instant_despawn": {
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 0.5,
+                "height": 0.5
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "impact_damage": {
+                        "damage": 13,
+                        "knockback": false,
+                        "semirandomdiffdamage": false,
+                        "destroyonhit": false
+                    }
+                },
+                "power": 5.0,
+                "gravity": 0.01,
+                "inertia": 1.0,
+                "anchor": 1,
+                "offset": [0, 0, 0],
+                "reflect_on_hurt": false,
+                "catch_fire": false
+            },
+            "minecraft:timer": {
+                "looping": false,
+                "time": [1.0,1.0],
+                "time_down_event": {
+                    "event": "kurokumaft:despawn"
+                }
+            },
+            "minecraft:physics": {},
+            "minecraft:conditional_bandwidth_optimization": {
+                "default_values": {
+                  "max_optimized_distance": 80.0,
+                  "max_dropped_ticks": 7,
+                  "use_motion_prediction_hints": true
+                }
+            }
+        },
+        "events": {
+            "kurokumaft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "kurokumaft:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

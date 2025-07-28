@@ -13,11 +13,11 @@
           "mizu_dragon": "geometry.mizu_dragon"
         },
         "animations": {
-          "attack": "animation.mizu_dragon.attack"
+          "shot": "animation.mizu_dragon.shot"
         },
         "scripts": {
           "animate": [
-            "attack"
+            "shot"
           ]
         },
         "render_controllers": ["controller.render.mizu_dragon"]

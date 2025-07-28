@@ -26,6 +26,35 @@ function getRandomInRange(min:number, max:number) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
+// 乱数（少数）
+/**
+ * @param {number} min
+ * @param {number} max
+ * @param {number} round
+ */
+function getRandomRange(min:number, max:number, round:number) {
+    return Math.round((Math.random() * (max - min) + min) * round / round);
+}
+
+
+/**
+ * 中間値を除いた乱数を返す
+ * @param {number} min
+ * @param {number} max
+ * @param {number} exclud
+ * @param {number} rand
+ */
+function getRandomExcludingZero(min: number, max: number, exclud:number, round:number): number {
+
+    let rand: number;
+    do {
+        rand = Math.random() * (max - min) + min;
+        rand = Math.round(rand * round) / round; // 小数を丸める
+    } while (rand >= -exclud && rand <= exclud); // excludを除く（-0.2~0.2）を除外
+
+    return rand;
+}
+
 /**
  * @param {number} current
  * @param {number} max
@@ -395,4 +424,4 @@ function isTargetInFront(myPos: Vector3, yawDeg: number, targetPos: Vector3, max
 export { print, clamp, getRandomInRange, playsound, getDistanceLocation, isBelowThreshold,
     getDirectionVector, addRegimentalFilter, addOrgeFilter, addProjectionFilter, BlockLocationList, weightChoice,
     getForwardPosition, getRightPosition, getLeftPosition, getLookLocationDistance, getLookLocationDistancePitch, isTargetInFront,
-    getForwardVector };
+    getForwardVector, getRandomRange, getRandomExcludingZero };

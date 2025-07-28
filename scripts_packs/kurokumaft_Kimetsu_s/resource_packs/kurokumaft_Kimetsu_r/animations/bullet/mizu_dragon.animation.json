@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.mizu_dragon.attack": {
+		"animation.mizu_dragon.shot": {
 			"loop": true,
 			"bones": {
 				"beast": {

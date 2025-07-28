@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.10",
+  "format_version": "1.21.90",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:regimental_girl",
@@ -120,6 +120,25 @@
           ]
         }
       },
+      "kurokumaft:nomal_damage": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "deals_damage": "yes"
+            }
+          ]
+        },
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            }
+          ]
+        }
+      },
+
       "kurokumaft:soldier_kaikyu1": {
         "minecraft:experience_reward": {
           "on_death": "Math.Min(5, 10)"
@@ -174,7 +193,7 @@
         },
         "minecraft:health": {
           "value": "math.random(25, 40)",
-          "max": 40
+          "max": 35
         },
         "minecraft:attack": {
           "damage": 3
@@ -186,7 +205,7 @@
         },
         "minecraft:health": {
           "value": "math.random(30, 45)",
-          "max": 45
+          "max": 40
         },
         "minecraft:attack": {
           "damage": 3
@@ -198,10 +217,10 @@
         },
         "minecraft:health": {
           "value": "math.random(45, 50)",
-          "max": 50
+          "max": 45
         },
         "minecraft:attack": {
-          "damage": 4
+          "damage": 3
         }
       },
       "kurokumaft:soldier_kaikyu8": {
@@ -210,10 +229,10 @@
         },
         "minecraft:health": {
           "value": "math.random(55, 60)",
-          "max": 60
+          "max": 50
         },
         "minecraft:attack": {
-          "damage": 4
+          "damage": 3
         }
       },
       "kurokumaft:soldier_kaikyu9": {
@@ -222,10 +241,10 @@
         },
         "minecraft:health": {
           "value": "math.random(60, 70)",
-          "max": 70
+          "max": 55
         },
         "minecraft:attack": {
-          "damage": 5
+          "damage": 4
         }
       },
       "kurokumaft:soldier_kaikyu10": {
@@ -234,27 +253,10 @@
         },
         "minecraft:health": {
           "value": "math.random(70, 80)",
-          "max": 80
+          "max": 60
         },
         "minecraft:attack": {
-          "damage": 6
-        }
-      },
-      "kurokumaft:ogre_damage_sensor": {
-        "minecraft:damage_sensor": {
-          "triggers": [
-            {
-              "on_damage": {
-                "filters": {
-                  "all_of": [
-                    { "test": "int_property", "domain": "kurokumaft:nichirintou_type", "operator": "==", "value": 0 }
-                  ]
-                }
-              },
-              "cause": "entity_attack",
-              "deals_damage": "no_but_side_effects_apply"
-            }
-          ]
+          "damage": 4
         }
       },
       "kurokumaft:nichirintou_equ": {
@@ -424,6 +426,7 @@
     },
 
     "components": {
+      "minecraft:floats_in_liquid":{},
       "minecraft:experience_reward": {
         "on_death": "Math.Min(7, 20)"
       },
@@ -481,7 +484,7 @@
         "priority": 2,
         "reselect_targets": true,
         "must_see": true,
-        "attack_interval": 15,
+        "attack_interval": 5,
         "entity_types": [
           {
             "filters": {
@@ -793,13 +796,10 @@
               "component_groups": [
                 "kurokumaft:damage_clear"
               ]
-            }
-          },
-          {
-            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "!=", "value": "none" },
+            },
             "add": {
               "component_groups": [
-                "kurokumaft:ogre_damage_sensor"
+                "kurokumaft:nomal_damage"
               ]
             }
           }

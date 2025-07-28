@@ -434,6 +434,22 @@
          "textures" : "textures/kurokumaft/items/armor/hantengu/zouhakuten/zouhakuten_hakama"
       },
 
+      "douma_sensu": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/douma_sensu"
+      },
+      "douma_boushi": {
+         "textures" : "textures/kurokumaft/items/armor/douma/douma_boushi"
+      },
+      "douma_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/douma/douma_hakama"
+      },
+      "douma_haori": {
+         "textures" : "textures/kurokumaft/items/armor/douma/douma_haori"
+      },
+      "douma_boots": {
+         "textures" : "textures/kurokumaft/items/armor/douma/douma_boots"
+      },
+
       "tanjiro_head": {
          "textures" : "textures/kurokumaft/items/head/tanjiro_head"
       },
@@ -521,7 +537,8 @@
             "textures/kurokumaft/items/spawn_egg/ogre/karaku_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/aizetu_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/urogi_egg",
-            "textures/kurokumaft/items/spawn_egg/ogre/zouhakuten_egg"
+            "textures/kurokumaft/items/spawn_egg/ogre/zouhakuten_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/douma_egg"
          ]
       }
 

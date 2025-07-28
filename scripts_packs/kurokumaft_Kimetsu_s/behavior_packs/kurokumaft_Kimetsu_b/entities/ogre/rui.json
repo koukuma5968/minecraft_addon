@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.10",
+  "format_version": "1.21.90",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:rui",
@@ -37,7 +37,7 @@
         },
         "kurokumaft:ogre_point": {
           "type": "int",
-          "range": [0, 200],
+          "range": [190, 200],
           "default": 200,
           "client_sync": true
         }
@@ -81,6 +81,7 @@
     },
 
     "components": {
+      "minecraft:floats_in_liquid":{},
       "minecraft:experience_reward": {
         "on_death": "Math.Min(7, 100)"
       },
@@ -92,6 +93,9 @@
       "minecraft:loot": {
         "table": "loot_tables/entities/ogre/rui.json"
       },
+      "minecraft:equipment": {
+        "table": "loot_tables/entities/ogre/rui_gear.json"
+      },
       "minecraft:collision_box": {
         "width": 0.6,
         "height": 1.8
@@ -99,9 +103,6 @@
       "minecraft:health": {
         "value": 160,
         "max": 160
-      },
-      "minecraft:equipment": {
-        "table": "loot_tables/entities/ogre/rui_gear.json"
       },
       "minecraft:navigation.walk": {
         "is_amphibious": true,
@@ -148,8 +149,7 @@
           {
             "filters": {
               "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "player"},
                 {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
                 {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
@@ -168,6 +168,10 @@
       },
       "minecraft:behavior.equip_item": {
         "priority": 3
+      },
+      "minecraft:behavior.flee_sun": {
+        "priority": 0,
+        "speed_multiplier": 1
       },
       "minecraft:burns_in_daylight": {
       },
@@ -250,48 +254,6 @@
             },
             "cause": "entity_attack",
             "deals_damage": "no_but_side_effects_apply"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "any_of": [
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_tanjiro" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_zenitu" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_inosuke" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_kanawo" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_genya" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:zyuu_genya" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_giyu" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_kyouzyuro" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_shinobu" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_tengen" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_obanai" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_sanemi" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_mituri" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_muitiro" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_gyoumei" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_hi" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_mizu" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_kaminari" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_kemono" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_mushi" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_hana" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_kasumi" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_koi" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_hono" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_oto" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_kaze" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_iwa" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_hebi" },
-                  {"test": "has_equipment", "subject": "damager", "operator": "==", "domain": "hand", "value": "kurokumaft:nichirintou_tuki" }
-                ]
-              }
-            },
-            "cause": "entity_attack",
-            "deals_damage": "yes",
-            "damage_multiplier": 0.5,
-            "damage_modifier": -5
           }
         ]
       },

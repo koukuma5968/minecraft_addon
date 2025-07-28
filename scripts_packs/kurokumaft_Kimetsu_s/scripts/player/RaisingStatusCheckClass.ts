@@ -14,7 +14,7 @@ export class RaisingStatusCheckClass {
                 if (ogreKaikyu >= 9) {
                     killtarget=killtarget+300;
                 } else {
-                    upPoint = point;
+                    upPoint = count;
                 }
             case 9:
                 killtarget=killtarget+900;

@@ -1,8 +1,8 @@
-import { BlockVolume, EntityComponentTypes, EntityMovementComponent, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
+import { BlockVolume, EntityComponentTypes, EntityMovementComponent, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player, EntityProjectileComponent, world } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { shooting } from "../../common/ShooterEvent";
-import { addOrgeFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomInRange } from "../../common/KimetuCommonUtil";
+import { addOrgeFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomExcludingZero, getRandomInRange, getRandomRange } from "../../common/KimetuCommonUtil";
 
 export class Hakaisatu extends ZytuComonClass {
 
@@ -95,8 +95,11 @@ export class Hakaisatu extends ZytuComonClass {
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 5, entity.id);
                     this.kokyuApplyDamage(entity, filter, 2, 1);
 
-                    const distance2 = getLookLocationDistance(entity.getRotation().y, 5, getRandomInRange(-5, 5), getRandomInRange(0, 3));
+                    const side = getRandomInRange(-4, 4);
+                    const top = getRandomInRange(0, 3);
+                    const distance2 = getLookLocationDistance(entity.getRotation().y, 5, side, top);
                     entity.dimension.spawnParticle("kurokumaft:ranshiki", getDistanceLocation(entity.location, distance2));
+                    this.ran(entity, side, top);
                 } catch (error: any) {
                     system.clearRun(num);
                 }
@@ -113,6 +116,39 @@ export class Hakaisatu extends ZytuComonClass {
 
         } catch (error: any) {
         }
+    }
+
+    /**
+     * 乱式
+     * @param {Entity} entity
+     */
+    private ran(entity:Entity, side:number, top:number) {
+    
+        const distance = getLookLocationDistance(entity.getRotation().y, 1, side, top);
+        const bulet = entity.dimension.spawnEntity("kurokumaft:hakaisatu_small_bullet", getDistanceLocation(
+            {
+                x:entity.location.x,
+                y:entity.location.y + 0.5,
+                z:entity.location.z
+            },
+            distance
+        ));
+    
+        const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+        projectile.owner = entity;
+        const shotdistance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+        projectile.shoot({
+            x:shotdistance.x,
+            y:0,
+            z:shotdistance.z
+        });
+
+        system.waitTicks(10).then(() => {
+            bulet.remove();
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
+
     }
 
     /**
@@ -294,11 +330,14 @@ export class Hakaisatu extends ZytuComonClass {
 
                 try {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
-                    const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
+                    const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
                     this.kokyuApplyDamage(entity, filter, 4, 2);
 
-                    const distance2 = getLookLocationDistance(entity.getRotation().y, 3, getRandomInRange(-3, 3), getRandomInRange(0, 3));
+                    const side = getRandomInRange(-6, 6);
+                    const top = getRandomInRange(0, 3);
+                    const distance2 = getLookLocationDistance(entity.getRotation().y, 3, side, top);
                     entity.dimension.spawnParticle("kurokumaft:ryuseigunkou", getDistanceLocation(entity.location, distance2));
+                    this.kishin(entity, side, top);
                 } catch (error: any) {
                     system.clearRun(num);
                 }
@@ -318,6 +357,39 @@ export class Hakaisatu extends ZytuComonClass {
     }
 
     /**
+     * 鬼神
+     * @param {Entity} entity
+     */
+    private kishin(entity:Entity, side:number, top:number) {
+    
+        const distance = getLookLocationDistance(entity.getRotation().y, 1, side, top);
+        const bulet = entity.dimension.spawnEntity("kurokumaft:hakaisatu_lage_bullet", getDistanceLocation(
+            {
+                x:entity.location.x,
+                y:entity.location.y + 0.5,
+                z:entity.location.z
+            },
+            distance
+        ));
+    
+        const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+        projectile.owner = entity;
+        const shotdistance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+        projectile.shoot({
+            x:shotdistance.x,
+            y:0,
+            z:shotdistance.z
+        });
+
+        system.waitTicks(10).then(() => {
+            bulet.remove();
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
+
+    }
+
+    /**
      * 終式・青銀乱残光
      */
     aoginranzankou(entity:Entity) {
@@ -326,6 +398,9 @@ export class Hakaisatu extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_hakai10.value"}]});
             }
+            const molang = new MolangVariableMap();
+            molang.setFloat("variable.rotaion", -entity.getRotation().y);
+            entity.dimension.spawnParticle("kurokumaft:rashin", entity.location, molang);
             const num = system.runInterval(() => {
 
                 try {
@@ -333,6 +408,11 @@ export class Hakaisatu extends ZytuComonClass {
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 10, entity.id);
                     entity.dimension.spawnParticle("kurokumaft:aoginranzankou", getDistanceLocation(entity.location, distance));
                     this.kokyuApplyDamage(entity, filter, 6, 3);
+
+                    for (let i = 0; i < 10; i++) {
+                        this.aogin(entity);
+                    }
+
                 } catch (error: any) {
                     system.clearRun(num);
                 }
@@ -350,4 +430,36 @@ export class Hakaisatu extends ZytuComonClass {
 
     }
 
+    /**
+     * 青銀
+     * @param {Entity} entity
+     */
+    private aogin(entity:Entity) {
+    
+        const distance = getLookLocationDistance(entity.getRotation().y, getRandomExcludingZero(-1, 1, 0.2, 10), getRandomExcludingZero(-1, 1, 0.2, 10), getRandomExcludingZero(0, 0.85, 0, 10));
+        const bulet = entity.dimension.spawnEntity("kurokumaft:hakaisatu_small_bullet", getDistanceLocation(
+            {
+                x:entity.location.x,
+                y:entity.location.y + 0.5,
+                z:entity.location.z
+            },
+            distance
+        ));
+    
+        const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+        projectile.owner = entity;
+        projectile.shoot({
+            x:Math.round(distance.x * 10) / 10,
+            y:Math.round(distance.y * 10) / 10,
+            z:Math.round(distance.z * 10) / 10
+        });
+
+        system.waitTicks(10).then(() => {
+            bulet.remove();
+        }).catch((error: any) => {
+        }).finally(() => {
+        });
+
+    }
 }
+

@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:douma_sensu",
+        "materials": {
+          "default": "entity_alphatest",
+          "enchanted": "entity_alphatest_glint"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/kekkizyutu/douma/douma_sensu",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.douma_sensu"
+        },
+        "animations": {
+          "wield": "controller.animation.douma_sensu.wield",
+          "first": "animation.douma_sensu.first",
+          "third": "animation.douma_sensu.third"
+        },
+        "scripts": {
+          "animate": [
+            "wield"
+          ]
+        },
+        "render_controllers": [ "controller.render.item_default" ]
+      }
+    }
+  }
+  

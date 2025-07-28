@@ -2,6 +2,30 @@ import { EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, Player,
 import { KokyuObject, KokyuObjects } from "../item/weapon/NichirintouTypes";
 import { KekkizyutuObject, KekkizyutuObjects } from "../item/weapon/KekkizyutuTypes";
 
+const kaikyuPointList = [
+    "0",
+    "100",
+    "300",
+    "600",
+    "1000",
+    "1500",
+    "2100",
+    "2800",
+    "3600",
+    "4500",
+    "4800",
+    "-"
+];
+
+const ogrePointList = [
+    {name :"none", value: "100"},
+    {name :"low", value: "150"},
+    {name :"unusual", value: "200"},
+    {name :"quarter", value: "400"},
+    {name :"crescent", value: "500"},
+    {name :"king", value: "-"},
+];
+
 export class KimetuEquipmentTick {
 
     player: Player;
@@ -28,18 +52,22 @@ export class KimetuEquipmentTick {
 
             let kataMess = "";
             let kaikyu = "";
+            let rankuPoint = "";
 
             try {
 
-                const ogreRank = this.player.getProperty("kurokumaft:ogre_rank");
+                const ogreRank = this.player.getProperty("kurokumaft:ogre_rank") as string;
                 const kaikyuNum = this.player.getProperty("kurokumaft:kaikyu") as number;
-                if (kaikyuNum > 0) {
+                // 鬼化を優先
+                if (ogreRank !== "none") {
+                    const ogreMoon = this.player.getProperty("kurokumaft:ogre_moon") as number;
+                    kaikyu = "msg.kurokumaft:ogrerank_" + ogreRank + (("quarter" === ogreRank || "crescent" === ogreRank) ? ogreMoon : "") + ".value";
+                    const becoming = this.player.getProperty("kurokumaft:ogre_becoming") as number;
+                    rankuPoint = becoming + "/" + ogrePointList.find((rank) => rank.name === ogreRank)?.value;
+                } else if (kaikyuNum > 0) {
                     kaikyu = "msg.kurokumaft:kaikyu"+ kaikyuNum +".value";
-                } else {
-                    if (ogreRank !== "none") {
-                        const ogreMoon = this.player.getProperty("kurokumaft:ogre_moon") as number;
-                        kaikyu = "msg.kurokumaft:ogrerank_" + ogreRank + (("quarter" === ogreRank || "crescent" === ogreRank) ? ogreMoon : "") + ".value";
-                    }
+                    const point = this.player.getProperty("kurokumaft:ogre_kill") as number;
+                    rankuPoint = point + "/" + kaikyuPointList[kaikyuNum];
                 }
 
                 // 装備状態
@@ -85,6 +113,9 @@ export class KimetuEquipmentTick {
                             {text:"階級："},
                             {translate:kaikyu},
                             {text:"\n"},
+                            {text:"残り："},
+                            {translate:rankuPoint},
+                            {text:"\n"},
                             {translate:kataMess}
                         ]
                     },
@@ -113,6 +144,7 @@ export class KimetuEquipmentTick {
                 const kokyuObject = KokyuObjects.find(ob => ob.itemName === mainHand.typeId) as KokyuObject;
                 // 日輪刀を持っている
                 if (kokyuObject !== undefined) {
+                    this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
                     if (this.player.getProperty("kurokumaft:nichirintou_type") !== kokyuObject.type) {
                         this.player.setProperty("kurokumaft:nichirintou_type", kokyuObject.type);
                         if (kokyuObject.type > 1) {

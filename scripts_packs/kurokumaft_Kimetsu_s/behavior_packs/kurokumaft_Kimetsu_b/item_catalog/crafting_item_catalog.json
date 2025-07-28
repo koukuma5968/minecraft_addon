@@ -58,7 +58,8 @@
                             "kurokumaft:aizetu_spear",
                             "kurokumaft:urogi_ultrasonic_item",
                             "kurokumaft:zouhakuten_bati",
-                            "kurokumaft:hakaisatu_item"
+                            "kurokumaft:hakaisatu_item",
+                            "kurokumaft:douma_sensu"
                         ]
                     },
                     {
@@ -160,7 +161,8 @@
                         },
                         "items": [
                             "kurokumaft:nezuko_mask",
-                            "kurokumaft:daki_kanzashi"
+                            "kurokumaft:daki_kanzashi",
+                            "kurokumaft:douma_boushi"
                         ]
                     },
                     {
@@ -179,7 +181,8 @@
                             "kurokumaft:karaku_jacket",
                             "kurokumaft:aizetu_jacket",
                             "kurokumaft:urogi_zyuzu",
-                            "kurokumaft:zouhakuten_taiko"
+                            "kurokumaft:zouhakuten_taiko",
+                            "kurokumaft:douma_haori"
                         ]
                     },
                     {
@@ -195,7 +198,8 @@
                             "kurokumaft:karaku_hakama",
                             "kurokumaft:aizetu_hakama",
                             "kurokumaft:urogi_hakama",
-                            "kurokumaft:zouhakuten_hakama"
+                            "kurokumaft:zouhakuten_hakama",
+                            "kurokumaft:douma_hakama"
                         ]
                     },
                     {
@@ -206,7 +210,8 @@
                         "items": [
                             "kurokumaft:nezuko_boots",
                             "kurokumaft:akaza_ashiwa",
-                            "kurokumaft:daki_geta"
+                            "kurokumaft:daki_geta",
+                            "kurokumaft:douma_boots"
                         ]
                     }
                 ]

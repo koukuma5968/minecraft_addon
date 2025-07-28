@@ -1,0 +1,21 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:douma_boots",
+        "materials": {
+          "default": "armor",
+          "enchanted": "armor_enchanted"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/armor/douma/douma_uniform_2",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.douma_boots"
+        },
+        "render_controllers": ["controller.render.armor"]
+      }
+    }
+  }
+  

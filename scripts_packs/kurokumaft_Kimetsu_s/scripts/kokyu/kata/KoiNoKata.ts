@@ -21,9 +21,9 @@ export class KoiNoKata extends KataComonClass {
         const num = system.runInterval(() => {
 
             try {
-                const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
+                const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
-                const filter = addRegimentalFilter(0, entity.location, 5, entity);
+                const filter = addRegimentalFilter(0, entity.location, 8, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
             } catch (error: any) {
                 system.clearRun(num);
@@ -50,10 +50,10 @@ export class KoiNoKata extends KataComonClass {
             }
         }
         try {
-            const filter = addRegimentalFilter(0, entity.location, 6, entity);
+            const filter = addRegimentalFilter(0, entity.location, 8, entity);
             this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
             const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
-            entity.applyKnockback({x:distance.x,z:distance.z},1);
+            entity.applyKnockback({x:distance.x,z:distance.z},0.75);
 
         } catch (error: any) {
         }
@@ -90,7 +90,7 @@ export class KoiNoKata extends KataComonClass {
         const num = system.runInterval(() => {
 
             try {
-                const filter = addRegimentalFilter(0, entity.location, 4, entity);
+                const filter = addRegimentalFilter(0, entity.location, 8, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
     
                 const distance = getLookLocationDistance(entity.getRotation().y, 3, side, 0);
@@ -134,8 +134,8 @@ export class KoiNoKata extends KataComonClass {
 
         system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
-            const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, -2);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
+            const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, -1);
+            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
 
             const parnum = system.runInterval(() => {
 
@@ -183,7 +183,7 @@ export class KoiNoKata extends KataComonClass {
                 ItemDurabilityDamage(entity, itemStack);
             }
         }
-        const distance = getLookLocationDistance(entity.getRotation().y, -4, 0, 0);
+        const distance = getLookLocationDistance(entity.getRotation().y, -3, 0, 0);
         entity.applyKnockback({x:distance.x,z:distance.z},1);
 
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
@@ -193,8 +193,8 @@ export class KoiNoKata extends KataComonClass {
         system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
 
-            const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, -1.0);
-            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
+            const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, -1.0);
+            const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
 
             const parnum = system.runInterval(() => {
 

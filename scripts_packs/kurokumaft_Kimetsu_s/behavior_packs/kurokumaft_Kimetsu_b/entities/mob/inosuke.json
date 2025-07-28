@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.10",
+  "format_version": "1.21.90",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:inosuke",
@@ -64,7 +64,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.twenty_sec"
+        "cooldown": "animation.cooldown.five_sec"
       }
     },
 
@@ -105,6 +105,15 @@
           "triggers": [
             {
               "deals_damage": "no"
+            }
+          ]
+        }
+      },
+      "kurokumaft:nomal_damage": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "deals_damage": "yes"
             }
           ]
         }
@@ -311,6 +320,7 @@
     },
 
     "components": {
+      "minecraft:floats_in_liquid":{},
       "minecraft:experience_reward": {
         "on_death": "Math.Min(7, 100)"
       },
@@ -593,6 +603,11 @@
             "remove": {
               "component_groups": [
                 "kurokumaft:damage_clear"
+              ]
+            },
+            "add": {
+              "component_groups": [
+                "kurokumaft:nomal_damage"
               ]
             }
           }

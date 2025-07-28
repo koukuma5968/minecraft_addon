@@ -239,6 +239,7 @@
         "hakaisatu.action": "controller.animation.hakaisatu.action.player",
         "kama.action": "controller.animation.kama.action.player",
         "spear.action": "controller.animation.spear.action.player",
+        "koori.action": "controller.animation.koori.action.player",
 
         "mizu.ichi_1_first": "animation.action.mizu.ichi_1_first",
         "mizu.ichi_2_first": "animation.action.mizu.ichi_2_first",
@@ -594,7 +595,16 @@
         "hakaisatu.aoginranzankou_third": "animation.action.hakaisatu.aoginranzankou_third",
 
         "bunretu.shitotu_first": "animation.action.bunretu.shitotu_first",
-        "bunretu.shitotu_third": "animation.action.bunretu.shitotu_third"
+        "bunretu.shitotu_third": "animation.action.bunretu.shitotu_third",
+
+        "konagoori": "animation.action.koori.konagoori_third",
+        "hasugoori": "animation.action.koori.hasugoori_third",
+        "karesonosizuri": "animation.action.koori.karesonosizuri_third",
+        "itegumori": "animation.action.koori.itegumori_third",
+        "tururenge": "animation.action.koori.tururenge_third",
+        "kanretunosirahime": "animation.action.koori.kanretunosirahime_third",
+        "fuyuzareturara": "animation.action.koori.fuyuzareturara_third",
+        "tirirenge": "animation.action.koori.tirirenge_third"
 
       },
       "render_controllers": [
@@ -605,7 +615,7 @@
         "controller.render.nichirintou_custom",
         { "controller.render.mizu_dragon": "(variable.nichirintou_equipment == 2 || variable.nichirintou_equipment == 6 || variable.nichirintou_equipment == 15) && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 10 && query.property('kurokumaft:kokyu_attack')" },
         { "controller.render.hi_dragon": "((variable.nichirintou_equipment == 2 && query.property('kurokumaft:kokyu_kata') == 16) || (variable.nichirintou_equipment == 17 && query.property('kurokumaft:kokyu_kata') == 6)) && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_chage') == 1 && query.property('kurokumaft:kokyu_attack')" },
-        { "controller.render.kaminari_dragon": "(variable.nichirintou_equipment == 3 || variable.nichirintou_equipment == 16) && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 7 && query.property('kurokumaft:kokyu_chage') == 10" },
+        { "controller.render.kaminari_dragon": "(variable.nichirintou_equipment == 3 || variable.nichirintou_equipment == 16) && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_chage') == 10" },
         { "controller.render.hebi": "(variable.nichirintou_equipment == 13 || variable.nichirintou_equipment == 24) && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_use')" }
 
       ],

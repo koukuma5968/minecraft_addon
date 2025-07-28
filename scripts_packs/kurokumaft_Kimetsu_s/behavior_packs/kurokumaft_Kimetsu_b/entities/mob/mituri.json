@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.10",
+  "format_version": "1.21.90",
   "minecraft:entity": {
     "description": {
       "identifier": "kurokumaft:mituri",
@@ -59,7 +59,7 @@
       },
       "animations":{
         "kokyu":"controller.animation.kokyu.monitor",
-        "cooldown": "animation.cooldown.twenty_sec"
+        "cooldown": "animation.cooldown.five_sec"
       }
 
     },
@@ -95,6 +95,15 @@
           "triggers": [
             {
               "deals_damage": "no"
+            }
+          ]
+        }
+      },
+      "kurokumaft:nomal_damage": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "deals_damage": "yes"
             }
           ]
         }
@@ -149,6 +158,7 @@
     },
 
     "components": {
+      "minecraft:floats_in_liquid":{},
       "minecraft:experience_reward": {
         "on_death": "Math.Min(7, 100)"
       },
@@ -255,8 +265,8 @@
               }
             },
             "cause": "entity_attack",
-            "damage_modifier": -2.0,
-            "deals_damage": true
+            "damage_multiplier": 0.5,
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -267,8 +277,8 @@
               }
             },
             "cause": "sonic_boom",
-            "damage_modifier": -2.0,
-            "deals_damage": true
+            "damage_multiplier": 0.5,
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -279,8 +289,8 @@
               }
             },
             "cause": "block_explosion",
-            "damage_modifier": -2.0,
-            "deals_damage": true
+            "damage_multiplier": 0.5,
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -291,8 +301,8 @@
               }
             },
             "cause": "entity_explosion",
-            "damage_modifier": -2.0,
-            "deals_damage": true
+            "damage_multiplier": 0.5,
+            "deals_damage": "yes"
           }
         ]
       },
@@ -414,6 +424,11 @@
             "remove": {
               "component_groups": [
                 "kurokumaft:damage_clear"
+              ]
+            },
+            "add": {
+              "component_groups": [
+                "kurokumaft:nomal_damage"
               ]
             }
           }

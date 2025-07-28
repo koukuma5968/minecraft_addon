@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:hakaisatu_small_bullet",
+        "materials": {
+            "default": "breeze_wind"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/akaza/hakaisatu_bullet"
+          },
+          "geometry": {
+            "default": "geometry.hakaisatu_bullet"
+          },
+          "animations": {
+            "shot": "animation.hakaisatu_small_bullet.shot"
+          },
+          "scripts": {
+            "animate": [
+              "shot"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

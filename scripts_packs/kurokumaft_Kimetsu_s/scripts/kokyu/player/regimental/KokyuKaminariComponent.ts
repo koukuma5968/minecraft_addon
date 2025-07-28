@@ -61,7 +61,6 @@ export class KokyuKaminariComponent implements NichirintouUseComponent {
                 break;
             }
         } catch (error: any) {
-            world.sendMessage(JSON.stringify(error));
         }
 
     }

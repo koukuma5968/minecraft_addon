@@ -593,8 +593,14 @@ item.kurokumaft:urogi_hakama.name=空喜のズボン
 item.kurokumaft:urogi_zyuzu.name=空喜の数珠
 
 item.kurokumaft:zouhakuten_bati.name=憎珀天の桴
-item.kurokumaft:zouhakuten_hakama.name=憎珀天のズボン
+item.kurokumaft:zouhakuten_hakama.name=憎珀天の袴
 item.kurokumaft:zouhakuten_taiko.name=憎珀天の太鼓
+
+item.kurokumaft:douma_sensu.name=童磨の扇子
+item.kurokumaft:douma_boushi.name=童磨の帽子
+item.kurokumaft:douma_hakama.name=童磨の袴
+item.kurokumaft:douma_haori.name=童磨の羽織
+item.kurokumaft:douma_boots.name=童磨のブーツ
 
 item.kurokumaft:kaigaku_katana.name=獪岳の刀
 

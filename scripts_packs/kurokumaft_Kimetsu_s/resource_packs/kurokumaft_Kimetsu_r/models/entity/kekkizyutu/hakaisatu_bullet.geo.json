@@ -1,0 +1,51 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.hakaisatu_bullet",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "hakaisatu_bullet",
+					"pivot": [0, 0, 0],
+					"rotation": [90, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "hakaisatu_bullet",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1, -2, -1], "size": [2, 4, 2], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "uzu",
+					"parent": "hakaisatu_bullet",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "uzu_front",
+					"parent": "uzu",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1.5, -2.5, -1.5], "size": [3, 5, 3], "uv": [23, 38]}
+					]
+				},
+				{
+					"name": "uzu_back",
+					"parent": "uzu",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-2, -4.5, -2], "size": [4, 5, 4], "uv": [20, 21]}
+					]
+				}
+			]
+		}
+	]
+}

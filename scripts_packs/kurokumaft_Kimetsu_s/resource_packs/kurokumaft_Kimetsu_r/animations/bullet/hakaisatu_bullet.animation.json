@@ -1,0 +1,51 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hakaisatu_small_bullet.shot": {
+			"loop": true,
+			"animation_length": 0.1,
+			"bones": {
+				"hakaisatu_bullet": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [0, 0, 0],
+					"scale": 1.5
+				},
+				"uzu_front": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [0, 360, 0]
+					}
+				},
+				"uzu_back": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [0, -360, 0]
+					}
+				}
+			}
+		},
+		"animation.hakaisatu_lage_bullet.shot": {
+			"loop": true,
+			"animation_length": 0.1,
+			"bones": {
+				"hakaisatu_bullet": {
+					"rotation": ["1.0 - query.target_x_rotation", "-query.target_y_rotation", 0],
+					"position": [0, 0, 0],
+					"scale": [4.9, 3.4, 5]
+				},
+				"uzu_front": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [0, 360, 0]
+					}
+				},
+				"uzu_back": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [0, -360, 0]
+					}
+				}
+			}
+		}
+	}
+}

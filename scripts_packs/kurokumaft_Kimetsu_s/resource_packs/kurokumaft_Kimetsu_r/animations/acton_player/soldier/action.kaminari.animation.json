@@ -2,7 +2,7 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"animation.action.kaminari.ichi_1_third": {
-			"animation_length": 3,
+			"animation_length": 1.5,
 			"bones": {
 				"root": {
 					"rotation": [0, 0, 0],
@@ -51,20 +51,14 @@
 				}
 			},
 			"particle_effects": {
-				"0.0": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					}
-				]
+				"0.0": {
+					"effect": "kaminari_blead_particle",
+					"locator": "move_particle1"
+				}
 			}
 		},
 		"animation.action.kaminari.ichi_roku_third": {
-			"animation_length": 3,
+			"animation_length": 1.5,
 			"bones": {
 				"root": {
 					"rotation": [0, 0, 0],
@@ -95,17 +89,17 @@
 				"0.0": [
 					{
 						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
+						"locator": "move_particle2"
 					},
 					{
 						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
+						"locator": "move_particle1"
 					}
 				]
 			}
 		},
 		"animation.action.kaminari.ichi_hati_third": {
-			"animation_length": 3,
+			"animation_length": 1.5,
 			"bones": {
 				"root": {
 					"rotation": [0, 0, 0],
@@ -136,18 +130,21 @@
 				"0.0": [
 					{
 						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
+						"locator": "move_particle1"
 					},
 					{
 						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
+						"locator": "move_particle2"
+					},
+					{
+						"effect": "kaminari_blead_particle",
+						"locator": "move_particle3"
 					}
 				]
 			}
 		},
 		"animation.action.kaminari.ichi_shinsoku_third": {
-			"loop": true,
-			"animation_length": 3.625,
+			"animation_length": 1.5,
 			"bones": {
 				"root": {
 					"rotation": [0, 0, 0],
@@ -260,132 +257,6 @@
 					}
 				],
 				"1.5": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"1.75": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"2.0": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"2.25": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"2.5": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"2.75": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"3.0": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"3.2083": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"3.4167": [
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold5"
-					},
-					{
-						"effect": "kaminari_blead_particle",
-						"locator": "nichirintou_hold6"
-					},
-					{
-						"effect": "kaminari_spark_particle",
-						"locator": "body_particle"
-					}
-				],
-				"3.625": [
 					{
 						"effect": "kaminari_blead_particle",
 						"locator": "nichirintou_hold5"

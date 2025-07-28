@@ -206,7 +206,7 @@
 						"kaminari.shiti_2_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"query.property('kurokumaft:kokyu_chage') == 0"}
 					]
 				}
 			}
