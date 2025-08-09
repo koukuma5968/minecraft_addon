@@ -24,7 +24,7 @@
     "@minecraft/math": "^1.1.0",
     "@minecraft/server": "^1.16.0",
     "@minecraft/server-ui": "^1.3.0",
-    "@minecraft/vanilla-data": "^1.21.60"
+    "@minecraft/vanilla-data": "^1.21.70"
   },
   "overrides": {
     "@minecraft/math": {

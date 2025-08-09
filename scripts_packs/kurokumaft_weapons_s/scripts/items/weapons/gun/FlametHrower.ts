@@ -10,14 +10,14 @@ export class FlametHrower implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
     }
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         shotFlametHrower(source, itemStack);
     }
 }
@@ -31,16 +31,16 @@ async function shotFlametHrower(player: Player, item: ItemStack) {
 
     player.setDynamicProperty("flametHrowerShot", true);
     player.addTag("flametHrowerSelf");
-    let dimension = player.dimension;
+    const dimension = player.dimension;
     let count = 0;
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
 
         for (let i=1;i<=5;i++) {
-            let loock = getLookPoints(player.getRotation(), player.location, i);
-            let loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
+            const loock = getLookPoints(player.getRotation(), player.location, i);
+            const loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
             player.dimension.spawnParticle("kurokumaft:flamethrower_fire", {x:loockpoint.xlocation!, y:loockpoint.ylocation!-1, z:loockpoint.zlocation!});
 
-            let target = dimension.getEntities({
+            const target = dimension.getEntities({
                 excludeTags: [
                     "flametHrowerSelf"
                 ],
@@ -73,7 +73,7 @@ async function shotFlametHrower(player: Player, item: ItemStack) {
  */
 export async function stopFlametHrower(player: Player) {
 
-    let eventNum = player.getDynamicProperty("flametHrowerEventNum") as number;
+    const eventNum = player.getDynamicProperty("flametHrowerEventNum") as number;
     player.setDynamicProperty("flametHrowerShot", undefined);
     player.setDynamicProperty("flametHrowerEventNum", undefined);
     player.removeTag("flametHrowerSelf");

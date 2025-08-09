@@ -28,6 +28,8 @@ world.afterEvents.playerSpawn.subscribe(event => {
     event.player.triggerEvent("kurokumaft:player_spawned_ogre");
   } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_player")) {
     event.player.triggerEvent("kurokumaft:player_spawned_regimental");
+  } else {
+    event.player.triggerEvent("kurokumaft:player_spawned_init");
   }
   const playerTick = new KimetuEquipmentTick(event.player);
   playerTick.startMonitoring();
@@ -507,7 +509,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
         world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_type"});
         return;
       }
-      if (!(typeof params[2] === "number" && Number.isFinite(params[2]))) {
+      if (!(Number.isFinite(params[2]))) {
         world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_num"});
         return;
       }

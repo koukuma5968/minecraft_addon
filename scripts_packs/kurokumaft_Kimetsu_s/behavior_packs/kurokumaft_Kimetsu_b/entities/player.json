@@ -1,8 +1,9 @@
 {
-  "format_version": "1.21.70",
+  "format_version": "1.21.90",
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:player",
+      "spawn_category": "creature",
       "is_spawnable": false,
       "is_summonable": false,
       "is_experimental": false,
@@ -105,39 +106,28 @@
     },
 
     "component_groups": {
-      "minecraft:add_bad_omen": {
+      "minecraft:add_raid_omen": {
         "minecraft:spell_effects": {
           "add_effects": [
             {
-              "effect": "bad_omen",
-              "duration": 6000,
-              "visible": false,
+              "effect": "raid_omen",
+              "duration": 30,
               "display_on_screen_animation": true
             }
-          ]
+          ],
+          "remove_effects": "bad_omen"
         },
         "minecraft:timer": {
           "time": [ 0.0, 0.0 ],
           "looping": false,
           "time_down_event": {
-            "event": "minecraft:clear_add_bad_omen",
+            "event": "minecraft:clear_add_raid_omen",
             "target": "self"
           }
         }
       },
-      "minecraft:clear_bad_omen_spell_effect": {
+      "minecraft:clear_raid_omen_spell_effect": {
         "minecraft:spell_effects": {
-        }
-      },
-      "minecraft:raid_trigger": {
-        "minecraft:raid_trigger": {
-          "triggered_event": {
-            "event": "minecraft:remove_raid_trigger",
-            "target": "self"
-          }
-        },
-        "minecraft:spell_effects": {
-          "remove_effects": "bad_omen"
         }
       },
 
@@ -507,14 +497,25 @@
       "minecraft:movement": {
         "value": 0.1
       },
+      "minecraft:exhaustion_values": {
+        "heal": 6,
+        "jump": 0.05,
+        "sprint_jump": 0.2,
+        "mine": 0.005,
+        "attack": 0.1,
+        "damage": 0.1,
+        "walk": 0.0,
+        "sprint": 0.1,
+        "swim": 0.01
+      },
       "minecraft:player.saturation": {
-        "value": 20
+        "value": 5,
+        "max": 20
       },
       "minecraft:player.exhaustion": {
         "value": 0,
-        "max": 4
-      },
-      "minecraft:player.level": {
+        "max": 20
+      },      "minecraft:player.level": {
         "value": 0,
         "max": 24791
       },
@@ -533,6 +534,7 @@
         "allow_name_tag_renaming": false
       },
       "minecraft:physics": {
+        "push_towards_closest_space": true
       },
       "minecraft:pushable": {
         "is_pushable": false,
@@ -566,38 +568,43 @@
       },
       "minecraft:block_climber": {},
       "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          }
-
-        ]
+        "triggers": {
+          "filters": {
+            "all_of": [
+              {
+                "test": "has_mob_effect",
+                "subject": "self",
+                "value": "bad_omen"
+              },
+              {
+                "test": "is_in_village",
+                "subject": "self",
+                "value": true
+              }
+            ]
+          },
+          "event": "minecraft:gain_raid_omen"
+        }
       }
     },
 
     "events": {
-      "minecraft:gain_bad_omen": {
+      "minecraft:gain_raid_omen": {
         "add": {
           "component_groups": [
-            "minecraft:add_bad_omen"
+            "minecraft:add_raid_omen"
           ]
         }
       },
-      "minecraft:clear_add_bad_omen": {
+      "minecraft:clear_add_raid_omen": {
         "remove": {
           "component_groups": [
-            "minecraft:add_bad_omen"
+            "minecraft:add_raid_omen"
           ]
         },
         "add": {
           "component_groups": [
-            "minecraft:clear_bad_omen_spell_effect"
+            "minecraft:clear_raid_omen_spell_effect"
           ]
         }
       },
@@ -612,6 +619,15 @@
         }
       },
 
+      "kurokumaft:player_spawned_init": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:nomal_damage",
+            "kurokumaft:ordinary_person",
+            "kurokumaft:nomal_family"
+          ]
+        }
+      },
       "kurokumaft:player_spawned_regimental": {
         "trigger": "kurokumaft:kaikyu_change"
       },

@@ -46,9 +46,11 @@ item.kurokumaft:orichalcum_pickaxe.name=オリハルコンのツルハシ
 
 item.kurokumaft:steel_hoe.name=鋼のくわ
 item.kurokumaft:mithril_hoe.name=ミスリルのくわ
+item.kurokumaft:orichalcum_hoe.name=オリハルコンのくわ
 
 item.kurokumaft:steel_shovel.name=鋼のシャベル
 item.kurokumaft:mithril_shovel.name=ミスリルのシャベル
+item.kurokumaft:orichalcum_shovel.name=オリハルコンのシャベル
 
 item.kurokumaft:bamboo_battleaxe.name=バンブーバトルアックス
 item.kurokumaft:wooden_battleaxe.name=木のバトルアックス

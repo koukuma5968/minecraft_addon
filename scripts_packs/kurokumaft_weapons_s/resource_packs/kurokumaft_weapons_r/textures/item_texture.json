@@ -608,14 +608,14 @@
       "potion_bottle_hiheal" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_hiheal"
       },
-      "potion_bottle_hidamageBoost" : {
-         "textures" : "textures/kurokumaft/items/potion/potion_bottle_hidamageBoost"
+      "potion_bottle_hidamage_boost" : {
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_hidamage_boost"
       },
       "potion_bottle_histurdiness" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_histurdiness"
       },
-      "potion_bottle_himoveSpeed" : {
-         "textures" : "textures/kurokumaft/items/potion/potion_bottle_himoveSpeed"
+      "potion_bottle_himove_speed" : {
+         "textures" : "textures/kurokumaft/items/potion/potion_bottle_himove_speed"
       },
       "potion_bottle_hipoison" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_hipoison"
@@ -637,12 +637,18 @@
       "mithril_shovel" : {
          "textures" : "textures/kurokumaft/items/shovel/mithril_shovel"
       },
+      "orichalcum_shovel": {
+         "textures" : "textures/kurokumaft/items/shovel/orichalcum_shovel"
+      },
 
       "steel_hoe" : {
          "textures" : "textures/kurokumaft/items/hoe/steel_hoe"
       },
       "mithril_hoe" : {
          "textures" : "textures/kurokumaft/items/hoe/mithril_hoe"
+      },
+      "orichalcum_hoe": {
+         "textures" : "textures/kurokumaft/items/hoe/orichalcum_hoe"
       },
 
       "copper_bucket_axolotl" : {

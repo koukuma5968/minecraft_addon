@@ -1,0 +1,40 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:ice_plate",
+			"is_experimental": false,
+            "register_to_creative_menu": false,
+			"menu_category": {
+				"category": "none"
+			}
+		},
+		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:minecraft:is_sword_item_destructible": {},
+			"minecraft:selection_box": {
+				"origin": [-8.0, 0.0, -8.0],
+				"size": [16.0, 1.0, 16.0]
+			},
+			"minecraft:collision_box": {
+				"origin": [-8.0, 0.0, -8.0],
+				"size": [16.0, 1.0, 16.0]
+			},
+			"minecraft:friction": 0.0,
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.2
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.2
+			},
+			"minecraft:geometry": "geometry.ice_plate",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "ice_plate",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:loot": "loot_tables/empty.json"
+		}
+	}
+}

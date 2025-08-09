@@ -10,9 +10,9 @@
     },
     "components": {
       "minecraft:display_name": {
-				"value": "potion.kurokumaft:himoveSpeed.name"
+				"value": "potion.kurokumaft:himovespeed.name"
 			},
-      "minecraft:icon": "potion_bottle_himoveSpeed",
+      "minecraft:icon": "potion_bottle_himove_speed",
       "minecraft:glint": true,
       "minecraft:max_stack_size": 1,
       "minecraft:use_animation":"eat",

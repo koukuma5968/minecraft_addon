@@ -8,9 +8,9 @@ import { WeaponLogBlocks, WeaponOtherLogBlocks, WeaponOtherStrippedLogBlocks, We
 export class AxeStripped implements ItemCustomComponent {
 
     onUseOn(event:ItemComponentUseOnEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
-        let block = event.block as Block;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const block = event.block as Block;
         stripped(block);
         itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
@@ -23,8 +23,8 @@ async function stripped(block:Block) {
     || WeaponOtherLogBlocks.find(type => type == block.typeId) != undefined
     || WeaponOtherWoodBlocks.find(type => type == block.typeId) != undefined) {
 
-        let log = WeaponStrippedLogBlocks.find(type => {
-            let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+        const log = WeaponStrippedLogBlocks.find(type => {
+            const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });
         if (log) {
@@ -36,8 +36,8 @@ async function stripped(block:Block) {
             return;
         }
 
-        let otlog = WeaponOtherStrippedLogBlocks.find(type => {
-            let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+        const otlog = WeaponOtherStrippedLogBlocks.find(type => {
+            const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });
         if (otlog) {
@@ -49,8 +49,8 @@ async function stripped(block:Block) {
             return;
         }
 
-        let wood = WeaponStrippedWoodBlocks.find(type => {
-            let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+        const wood = WeaponStrippedWoodBlocks.find(type => {
+            const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });
         if (wood) {
@@ -62,8 +62,8 @@ async function stripped(block:Block) {
             return;
         }
 
-        let otwood = WeaponOtherStrippedWoodBlocks.find(type => {
-            let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+        const otwood = WeaponOtherStrippedWoodBlocks.find(type => {
+            const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
             return type == str;
         });
         if (otwood) {

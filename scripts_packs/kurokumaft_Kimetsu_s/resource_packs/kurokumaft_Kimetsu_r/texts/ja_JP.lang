@@ -248,16 +248,15 @@ msg.kurokumaft:tuki_kokyu16.value=§e月虹・片割れ月
 
 msg.kurokumaft:kekkizyutu_bakketu1.value=爆血
 
-msg.kurokumaft:kekkizyutu_kouri1.value=粉凍り
-msg.kurokumaft:kekkizyutu_kouri2.value=蓮葉氷
-msg.kurokumaft:kekkizyutu_kouri3.value=枯園垂り
-msg.kurokumaft:kekkizyutu_kouri4.value=凍て曇
-msg.kurokumaft:kekkizyutu_kouri5.value=蔓蓮華
-msg.kurokumaft:kekkizyutu_kouri6.value=寒烈の白姫
-msg.kurokumaft:kekkizyutu_kouri7.value=冬ざれ氷柱
-msg.kurokumaft:kekkizyutu_kouri8.value=散り蓮華
-msg.kurokumaft:kekkizyutu_kouri9.value=結晶ノ御子
-msg.kurokumaft:kekkizyutu_kouri10.value=霧氷・睡蓮菩薩
+msg.kurokumaft:kekkizyutu_koori1.value=蓮葉氷
+msg.kurokumaft:kekkizyutu_koori2.value=枯園垂り
+msg.kurokumaft:kekkizyutu_koori3.value=凍て曇
+msg.kurokumaft:kekkizyutu_koori4.value=蔓蓮華
+msg.kurokumaft:kekkizyutu_koori5.value=寒烈の白姫
+msg.kurokumaft:kekkizyutu_koori6.value=冬ざれ氷柱
+msg.kurokumaft:kekkizyutu_koori7.value=散り蓮華
+msg.kurokumaft:kekkizyutu_koori8.value=結晶ノ御子
+msg.kurokumaft:kekkizyutu_koori9.value=霧氷・睡蓮菩薩
 
 msg.kurokumaft:kekkizyutu_hakai1.value=破壊殺・羅針
 msg.kurokumaft:kekkizyutu_hakai2.value=破壊殺・空式
@@ -356,7 +355,7 @@ item.kurokumaft:koushi.name=血気術 累(鋼糸)
 item.kurokumaft:obi.name=血気術 堕姫(帯)
 item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
 item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
-item.kurokumaft:kouri.name=血気術 童磨(氷)
+item.kurokumaft:koori.name=血気術 童磨(氷)
 
 tile.kurokumaft:scarlet_gravel.name=緋の砂利
 tile.kurokumaft:scarlet_ore.name=緋の鉱石
@@ -532,6 +531,7 @@ entity.kurokumaft:sekido.name=積怒
 entity.kurokumaft:karaku.name=可楽
 entity.kurokumaft:aizetu.name=哀絶
 entity.kurokumaft:urogi.name=空喜
+entity.kurokumaft:zouhakuten.name=憎珀天
 entity.kurokumaft:douma.name=童磨
 entity.kurokumaft:kokushibou.name=黒死牟
 
@@ -602,9 +602,9 @@ item.kurokumaft:douma_hakama.name=童磨の袴
 item.kurokumaft:douma_haori.name=童磨の羽織
 item.kurokumaft:douma_boots.name=童磨のブーツ
 
-item.kurokumaft:kaigaku_katana.name=獪岳の刀
+item.kurokumaft:nichirintou_kaigaku.name=日輪刀 獪岳
 
-item.kurokumaft:kokushibou_katana.name=虚哭神去
+item.kurokumaft:kyokokukamusari.name=虚哭神去
 
 msg.kurokumaft:ogrerank_low.value=§f§l鬼(下)
 msg.kurokumaft:ogrerank_unusual.value=§7§l鬼(異)

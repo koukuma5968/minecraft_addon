@@ -8,9 +8,9 @@ import { WeaponLogBlocks, WeaponStrippedLogBlocks, WeaponStrippedWoodBlocks, Wea
 export class FireBrand implements ItemCustomComponent {
 
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackingEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackingEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
         mobflameFiring(hitEntity);
         itemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot.Mainhand);
     }

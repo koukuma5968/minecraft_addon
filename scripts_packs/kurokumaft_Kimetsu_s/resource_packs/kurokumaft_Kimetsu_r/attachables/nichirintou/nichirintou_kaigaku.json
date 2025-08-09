@@ -1,0 +1,46 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:nichirintou_kaigaku",
+        "materials": {
+          "default": "nichirintou",
+          "enchanted": "entity_alphatest_glint"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/nichirintou/nichirintou_kaigaku",
+          "enchanted": "textures/kurokumaft/misc/enchanted_item_shiner"
+        },
+        "geometry": {
+          "default": "geometry.nichirintou_kaigaku"
+        },
+        "scripts": {
+          "animate": [
+            "scale",
+            "person",
+            "attack_con",
+            "kaminari"
+
+          ]
+        },
+        "animations": {
+          "scale": "animation.nichirintou_scale",
+          "person": "controller.animation.nichirintou.person",
+          "first": "animation.nichirintou_first",
+          "attack_con": "controller.animation.nichirintou.attack",
+          "attack": "animation.nichirintou_first.one_attack",
+
+          "kaminari": "controller.animation.nichirintou.kaminari",
+
+          "shi_1_third": "animation.nichirintou.kaminari.shi_1_third",
+          "shi_2_third": "animation.nichirintou.kaminari.shi_2_third",
+
+          "shi_1_first": "animation.nichirintou.kaminari.shi_1_first",
+          "shi_2_first": "animation.nichirintou.kaminari.shi_2_first"
+
+        },
+        "render_controllers": ["controller.render.nichirintou"]
+      }
+    }
+  }
+  

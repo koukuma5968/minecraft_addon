@@ -21,6 +21,10 @@ import { KarakuComponent } from "../../kekkizyutu/mob/KarakuComponent";
 import { SekidoComponent } from "../../kekkizyutu/mob/SekidoComponent";
 import { UrogiComponent } from "../../kekkizyutu/mob/UrogiComponent";
 import { ZouhakutenComponent } from "../../kekkizyutu/mob/ZouhakutenComponent";
+import { KokushibouComponent } from "../../kekkizyutu/mob/KokushibouComponent";
+import { ZyutuKokushibouComponent } from "../../kekkizyutu/player/character/ZyutuKokushibouComponent";
+import { ZyutuKaigakuComponent } from "../../kekkizyutu/player/character/ZyutuKaigakuComponent";
+import { ZyutuDoumaComponent } from "../../kekkizyutu/player/character/ZyutuDoumaComponent";
 
 export interface KekkizyutuObject {
     itemName:string,
@@ -41,6 +45,9 @@ export const KekkizyutuClassRecord: Record<string, new () => KekkizyutuUseCompon
     aizetu: ZyutuAizetuComponent,
     urogi: ZyutuUrogiComponent,
     zouhakuten: ZyutuZouhakutenComponent,
+    douma: ZyutuDoumaComponent,
+    kokushibou: ZyutuKokushibouComponent,
+    kaigaku: ZyutuKaigakuComponent,
 };
 
 export const KekkizyutuObjects = Object.freeze([
@@ -114,6 +121,27 @@ export const KekkizyutuObjects = Object.freeze([
         kata_msg: "kekkizyutu_zouhakuten",
         className: "zouhakuten"
     },
+    {
+        itemName: "kurokumaft:douma_sensu",
+        type: 11,
+        kata: [1,2,3,4,5,6,7,8,9],
+        kata_msg: "kekkizyutu_koori",
+        className: "douma"
+    },
+    {
+        itemName: "kurokumaft:kyokokukamusari",
+        type: 12,
+        kata: [1,2,3,5,6,7,8,9,10,14,16],
+        kata_msg: "tuki_kata",
+        className: "kokushibou"
+    },
+    {
+        itemName: "kurokumaft:nichirintou_kaigaku",
+        type: 13,
+        kata: [2,3,4,5,6],
+        kata_msg: "kaminari_kata",
+        className: "kaigaku"
+    },
 ]);
 
 export interface KekkizyutuMobObject {
@@ -133,6 +161,7 @@ export const KekkizyutuMobClassRecord: Record<string, new (entity:Entity) => Kek
     sekido: SekidoComponent,
     urogi: UrogiComponent,
     zouhakuten: ZouhakutenComponent,
+    kokushibou: KokushibouComponent,
 };
 
 export const KekkizyutuMobObjects = Object.freeze([
@@ -179,5 +208,9 @@ export const KekkizyutuMobObjects = Object.freeze([
     {
         entityName: "kurokumaft:zouhakuten",
         className: "zouhakuten"
+    },
+    {
+        entityName: "kurokumaft:kokushibou",
+        className: "kokushibou"
     },
 ]);

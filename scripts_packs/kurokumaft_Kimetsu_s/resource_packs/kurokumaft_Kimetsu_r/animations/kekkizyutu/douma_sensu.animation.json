@@ -4,19 +4,28 @@
 		"animation.douma_sensu.first": {
 			"loop": "hold_on_last_frame",
 			"bones": {
-				"douma_sensu": {
+				"douma_sensu_right": {
 					"rotation": [147.71798, 26.41142, 43.20045],
 					"position": [3, 21, 0],
 					"scale": 1
+				},
+				"douma_sensu_left": {
+					"rotation": [-127.39121, 3.37562, -128.80934],
+					"position": [15, 22, -41]
 				}
 			}
 		},
 		"animation.douma_sensu.third": {
 			"loop": "hold_on_last_frame",
 			"bones": {
-				"douma_sensu": {
-					"rotation": [79.1292, 0.82307, 6.64693],
-					"position": [0, 23, -4],
+				"douma_sensu_right": {
+					"rotation": [85.45862, -9.92099, -62.88038],
+					"position": [6, 23, -4],
+					"scale": 1
+				},
+				"douma_sensu_left": {
+					"rotation": [88.1409, -7.88417, 58.73325],
+					"position": [-6, 23, -3],
 					"scale": 1
 				}
 			}

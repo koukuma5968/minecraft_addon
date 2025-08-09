@@ -48,8 +48,11 @@
    "muitiro_skull" : {
       "sound" : "stone"
    },
-   "obanai_skull" : {
-      "sound" : "stone"
+   "hasuhagoori" : {
+      "sound" : "glass"
+   },
+   "ice_plate" : {
+      "sound" : "glass"
    }
 
 }

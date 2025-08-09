@@ -17,9 +17,9 @@
       "minecraft:durability": {
         "damage_chance": {
           "min": 1,
-          "max": 2
+          "max": 3
         },
-        "max_durability": 400
+        "max_durability": 1200
       },
       "minecraft:allow_off_hand": true,
       "minecraft:repairable": {

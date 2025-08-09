@@ -1,0 +1,21 @@
+{
+	"format_version": "1.20.10",
+	"animations": {
+		"animation.cooldown.two_sec": {
+			"animation_length": 2.00,
+			"loop": false
+		},
+		"animation.cooldown.five_sec": {
+			"animation_length": 5.00,
+			"loop": false
+		},
+		"animation.cooldown.ten_sec": {
+			"animation_length": 10.00,
+			"loop": false
+		},
+		"animation.cooldown.twenty_sec": {
+			"animation_length": 20,
+			"loop": false
+		}
+	}
+}

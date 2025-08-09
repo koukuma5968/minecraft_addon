@@ -1,5 +1,5 @@
 // scripts/weapons_script.ts
-import { world as world19, Player as Player47, EquipmentSlot as EquipmentSlot43, EntityComponentTypes as EntityComponentTypes27, EntityInitializationCause, system as system16, TicksPerSecond as TicksPerSecond11 } from "@minecraft/server";
+import { world as world23, Player as Player47, EquipmentSlot as EquipmentSlot47, EntityComponentTypes as EntityComponentTypes27, EntityInitializationCause, system as system20, TicksPerSecond as TicksPerSecond11 } from "@minecraft/server";
 
 // scripts/common/WeaponsCommonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -3195,14 +3195,25 @@ import { system, EntityComponentTypes as EntityComponentTypes3, ItemComponentTyp
 import { Player as Player2, ItemComponentTypes as ItemComponentTypes2, EntityComponentTypes as EntityComponentTypes2, GameMode } from "@minecraft/server";
 async function itemDurabilityDamage(entity, item, slot) {
   if (entity instanceof Player2 && entity.getGameMode() != GameMode.creative) {
-    let equ = entity.getComponent(EntityComponentTypes2.Equippable);
-    let durability = item.getComponent(ItemComponentTypes2.Durability);
-    let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
-    if (durability.damage + dChange >= durability.maxDurability) {
-      equ.setEquipment(slot, void 0);
-    } else {
-      durability.damage = durability.damage + dChange;
-      equ.setEquipment(slot, item);
+    const durability = item.getComponent(ItemComponentTypes2.Durability);
+    const dChangeRang = durability.getDamageChanceRange();
+    let dChange = getRandomInRange(dChangeRang.min, dChangeRang.max);
+    const enchantable = item.getComponent(ItemComponentTypes2.Enchantable);
+    const unbreaking = enchantable.getEnchantment(MinecraftEnchantmentTypes.Unbreaking);
+    if (unbreaking !== void 0) {
+      dChange = durability.getDamageChance(unbreaking.level);
+    }
+    const equippable = entity.getComponent(EntityComponentTypes2.Equippable);
+    const mainHand = equippable.getEquipment(slot);
+    if (mainHand !== void 0) {
+      if (mainHand.typeId === item.typeId) {
+        if (durability.damage + dChange >= durability.maxDurability) {
+          equippable.setEquipment(slot, void 0);
+        } else {
+          durability.damage = durability.damage + dChange;
+          equippable.setEquipment(slot, item);
+        }
+      }
     }
   }
 }
@@ -4509,13 +4520,13 @@ import { system as system5, EquipmentSlot as EquipmentSlot17, EntityComponentTyp
 var Gatling = class {
   // 通常攻撃
   onHitEntity(event) {
-    let attackEntity = event.attackingEntity;
-    let hitEntity = event.hitEntity;
-    let itemStack = event.itemStack;
+    const attackEntity = event.attackingEntity;
+    const hitEntity = event.hitEntity;
+    const itemStack = event.itemStack;
   }
   onUse(event) {
-    let source = event.source;
-    let itemStack = event.itemStack;
+    const source = event.source;
+    const itemStack = event.itemStack;
     shotGatling(source, itemStack);
   }
 };
@@ -4524,9 +4535,9 @@ async function shotGatling(player, item) {
   player.setProperty("kurokumaft:gun_shot", true);
   let count = 0;
   let shot = 1;
-  let intervalNum = system5.runInterval(() => {
-    let reEqu = player.getComponent(EntityComponentTypes9.Equippable);
-    let reItem = reEqu.getEquipment(EquipmentSlot17.Offhand);
+  const intervalNum = system5.runInterval(() => {
+    const reEqu = player.getComponent(EntityComponentTypes9.Equippable);
+    const reItem = reEqu.getEquipment(EquipmentSlot17.Offhand);
     if (reItem == void 0 || reItem.typeId != "kurokumaft:twenty_two_lr") {
       system5.clearRun(intervalNum);
       return;
@@ -4547,7 +4558,7 @@ async function shotGatling(player, item) {
   player.setDynamicProperty("gatlingShotEventNum", intervalNum);
 }
 async function stopGatling(player) {
-  let eventNum = player.getDynamicProperty("gatlingShotEventNum");
+  const eventNum = player.getDynamicProperty("gatlingShotEventNum");
   player.setProperty("kurokumaft:gun_shot", false);
   player.setDynamicProperty("gatlingShot", void 0);
   player.setDynamicProperty("gatlingShotEventNum", void 0);
@@ -4637,9 +4648,9 @@ var WeaponMineDurability = class {
 import { EquipmentSlot as EquipmentSlot20, EntityDamageCause as EntityDamageCause9 } from "@minecraft/server";
 var FireBrand = class {
   onHitEntity(event) {
-    let attackingEntity = event.attackingEntity;
-    let hitEntity = event.hitEntity;
-    let itemStack = event.itemStack;
+    const attackingEntity = event.attackingEntity;
+    const hitEntity = event.hitEntity;
+    const itemStack = event.itemStack;
     mobflameFiring(hitEntity);
     itemDurabilityDamage(attackingEntity, itemStack, EquipmentSlot20.Mainhand);
   }
@@ -4662,17 +4673,17 @@ async function fireCharcoalBlock(attackingEntity, itemStack, block) {
 import { BlockPermutation as BlockPermutation2, EquipmentSlot as EquipmentSlot21, world as world8 } from "@minecraft/server";
 var AxeStripped = class {
   onUseOn(event) {
-    let source = event.source;
-    let itemStack = event.itemStack;
-    let block = event.block;
+    const source = event.source;
+    const itemStack = event.itemStack;
+    const block = event.block;
     stripped(block);
     itemDurabilityDamage(source, itemStack, EquipmentSlot21.Mainhand);
   }
 };
 async function stripped(block) {
   if (WeaponLogBlocks.find((type) => type == block.typeId) != void 0 || WeaponWoodBlocks.find((type) => type == block.typeId) != void 0 || WeaponOtherLogBlocks.find((type) => type == block.typeId) != void 0 || WeaponOtherWoodBlocks.find((type) => type == block.typeId) != void 0) {
-    let log = WeaponStrippedLogBlocks.find((type) => {
-      let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+    const log = WeaponStrippedLogBlocks.find((type) => {
+      const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
     if (log) {
@@ -4683,8 +4694,8 @@ async function stripped(block) {
       });
       return;
     }
-    let otlog = WeaponOtherStrippedLogBlocks.find((type) => {
-      let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+    const otlog = WeaponOtherStrippedLogBlocks.find((type) => {
+      const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
     if (otlog) {
@@ -4695,8 +4706,8 @@ async function stripped(block) {
       });
       return;
     }
-    let wood = WeaponStrippedWoodBlocks.find((type) => {
-      let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+    const wood = WeaponStrippedWoodBlocks.find((type) => {
+      const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
     if (wood) {
@@ -4707,8 +4718,8 @@ async function stripped(block) {
       });
       return;
     }
-    let otwood = WeaponOtherStrippedWoodBlocks.find((type) => {
-      let str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
+    const otwood = WeaponOtherStrippedWoodBlocks.find((type) => {
+      const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
       return type == str;
     });
     if (otwood) {
@@ -4727,27 +4738,27 @@ import { system as system6, EquipmentSlot as EquipmentSlot22, EntityDamageCause 
 var FlametHrower = class {
   // 通常攻撃
   onHitEntity(event) {
-    let attackEntity = event.attackingEntity;
-    let hitEntity = event.hitEntity;
-    let itemStack = event.itemStack;
+    const attackEntity = event.attackingEntity;
+    const hitEntity = event.hitEntity;
+    const itemStack = event.itemStack;
   }
   onUse(event) {
-    let source = event.source;
-    let itemStack = event.itemStack;
+    const source = event.source;
+    const itemStack = event.itemStack;
     shotFlametHrower(source, itemStack);
   }
 };
 async function shotFlametHrower(player, item) {
   player.setDynamicProperty("flametHrowerShot", true);
   player.addTag("flametHrowerSelf");
-  let dimension = player.dimension;
+  const dimension = player.dimension;
   let count = 0;
-  let intervalNum = system6.runInterval(() => {
+  const intervalNum = system6.runInterval(() => {
     for (let i = 1; i <= 5; i++) {
-      let loock = getLookPoints(player.getRotation(), player.location, i);
-      let loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
+      const loock = getLookPoints(player.getRotation(), player.location, i);
+      const loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
       player.dimension.spawnParticle("kurokumaft:flamethrower_fire", { x: loockpoint.xlocation, y: loockpoint.ylocation - 1, z: loockpoint.zlocation });
-      let target = dimension.getEntities({
+      const target = dimension.getEntities({
         excludeTags: [
           "flametHrowerSelf"
         ],
@@ -4771,7 +4782,7 @@ async function shotFlametHrower(player, item) {
   player.setDynamicProperty("flametHrowerEventNum", intervalNum);
 }
 async function stopFlametHrower(player) {
-  let eventNum = player.getDynamicProperty("flametHrowerEventNum");
+  const eventNum = player.getDynamicProperty("flametHrowerEventNum");
   player.setDynamicProperty("flametHrowerShot", void 0);
   player.setDynamicProperty("flametHrowerEventNum", void 0);
   player.removeTag("flametHrowerSelf");
@@ -6372,6 +6383,299 @@ async function deepFlyEat(player, equ, item, block) {
   }
 }
 
+// scripts/items/axe/AxeBatchDestruction.ts
+import { ItemStack as ItemStack50, EquipmentSlot as EquipmentSlot43, BlockVolume, system as system16 } from "@minecraft/server";
+var AxeBatchDestruction = class {
+  onMineBlock(event) {
+    const block = event.block;
+    const mineBlock = event.minedBlockPermutation;
+    const entity = event.source;
+    const itemStack = event.itemStack;
+    if (itemStack != void 0) {
+      itemDurabilityDamage(entity, itemStack, EquipmentSlot43.Mainhand);
+    }
+    if (mineBlock.hasTag("minecraft:is_axe_item_destructible")) {
+      const brakeBlockList = destructionBlocks(block.location, block.dimension);
+      processListWithDelay(block.dimension, brakeBlockList);
+    }
+  }
+};
+async function processListWithDelay(dimension, list) {
+  try {
+    for (const item of list) {
+      dimension.spawnItem(new ItemStack50(item.id), item.location);
+      dimension.setBlockType(item.location, MinecraftBlockTypes.Air);
+      await system16.waitTicks(1);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+function destructionBlocks(location, dimension, brakeBlockList = []) {
+  try {
+    const blockVol = new BlockVolume(
+      {
+        x: location.x - 4,
+        y: location.y - 4,
+        z: location.z - 4
+      },
+      {
+        x: location.x + 4,
+        y: location.y + 4,
+        z: location.z + 4
+      }
+    );
+    const blockIt = blockVol.getBlockLocationIterator();
+    let nextValue = blockIt.next();
+    do {
+      const value = nextValue.value;
+      if (value.y >= -64) {
+        if (brakeBlockList.length > 100) {
+          break;
+        }
+        const breakBlock2 = dimension.getBlock(value);
+        if (breakBlock2 != void 0) {
+          if (breakBlock2.typeId.lastIndexOf("log") !== -1 || breakBlock2.typeId.lastIndexOf("wood") !== -1) {
+            if (brakeBlockList.find((blocks) => blocks.location.x === breakBlock2.location.x && blocks.location.y === breakBlock2.location.y && blocks.location.z === breakBlock2.location.z) === void 0) {
+              brakeBlockList.push({ id: breakBlock2.typeId, location: breakBlock2.location });
+              return destructionBlocks(breakBlock2.location, dimension, brakeBlockList);
+            }
+          }
+        }
+      }
+      nextValue = blockIt.next();
+    } while (!nextValue.done);
+  } catch (error) {
+    console.error(error);
+  }
+  return brakeBlockList;
+}
+
+// scripts/items/hoe/HoeBatchDestruction.ts
+import { ItemStack as ItemStack51, EquipmentSlot as EquipmentSlot44, BlockVolume as BlockVolume2, system as system17 } from "@minecraft/server";
+var HoeBatchDestruction = class {
+  onMineBlock(event) {
+    const block = event.block;
+    const mineBlock = event.minedBlockPermutation;
+    const entity = event.source;
+    const itemStack = event.itemStack;
+    if (itemStack != void 0) {
+      itemDurabilityDamage(entity, itemStack, EquipmentSlot44.Mainhand);
+    }
+    if (mineBlock.hasTag("minecraft:is_hoe_item_destructible")) {
+      const brakeBlockList = destructionBlocks2(block.location, block.dimension);
+      processListWithDelay2(block.dimension, brakeBlockList);
+    }
+  }
+};
+async function processListWithDelay2(dimension, list) {
+  try {
+    for (const item of list) {
+      dimension.spawnItem(new ItemStack51(item.id), item.location);
+      dimension.setBlockType(item.location, MinecraftBlockTypes.Air);
+      await system17.waitTicks(1);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+function destructionBlocks2(location, dimension, brakeBlockList = []) {
+  try {
+    const blockVol = new BlockVolume2(
+      {
+        x: location.x - 4,
+        y: location.y - 4,
+        z: location.z - 4
+      },
+      {
+        x: location.x + 4,
+        y: location.y + 4,
+        z: location.z + 4
+      }
+    );
+    const blockIt = blockVol.getBlockLocationIterator();
+    let nextValue = blockIt.next();
+    do {
+      const value = nextValue.value;
+      if (value.y >= -64) {
+        if (brakeBlockList.length > 100) {
+          break;
+        }
+        const breakBlock2 = dimension.getBlock(value);
+        if (breakBlock2 != void 0) {
+          if (breakBlock2.typeId.lastIndexOf("leaves") !== -1) {
+            if (brakeBlockList.find((blocks) => blocks.location.x === breakBlock2.location.x && blocks.location.y === breakBlock2.location.y && blocks.location.z === breakBlock2.location.z) === void 0) {
+              brakeBlockList.push({ id: breakBlock2.typeId, location: breakBlock2.location });
+              return destructionBlocks2(breakBlock2.location, dimension, brakeBlockList);
+            }
+          }
+        }
+      }
+      nextValue = blockIt.next();
+    } while (!nextValue.done);
+  } catch (error) {
+    console.error(error);
+  }
+  return brakeBlockList;
+}
+
+// scripts/items/shovel/StraightDownHole.ts
+import { ItemStack as ItemStack52, EquipmentSlot as EquipmentSlot45, BlockVolume as BlockVolume3, system as system18 } from "@minecraft/server";
+var StraightDownHole = class {
+  onMineBlock(event) {
+    const block = event.block;
+    const mineBlock = event.minedBlockPermutation;
+    const entity = event.source;
+    const itemStack = event.itemStack;
+    if (itemStack != void 0) {
+      itemDurabilityDamage(entity, itemStack, EquipmentSlot45.Mainhand);
+    }
+    if (mineBlock.hasTag("minecraft:is_shovel_item_destructible")) {
+      const brakeBlockList = destructionBlocks3(block.location, block.dimension);
+      processListWithDelay3(block.dimension, brakeBlockList);
+    }
+  }
+};
+async function processListWithDelay3(dimension, list) {
+  try {
+    for (const item of list) {
+      dimension.spawnItem(new ItemStack52(item.id), item.location);
+      dimension.setBlockType(item.location, MinecraftBlockTypes.Air);
+      await system18.waitTicks(1);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+function destructionBlocks3(location, dimension, brakeBlockList = []) {
+  try {
+    const blockVol = new BlockVolume3(
+      {
+        x: location.x,
+        y: location.y - 1,
+        z: location.z
+      },
+      {
+        x: location.x,
+        y: location.y - 50,
+        z: location.z
+      }
+    );
+    const blockIt = blockVol.getBlockLocationIterator();
+    let nextValue = blockIt.next();
+    do {
+      const value = nextValue.value;
+      if (value.y >= -64) {
+        const breakBlock2 = dimension.getBlock(value);
+        if (breakBlock2 != void 0) {
+          if (breakBlock2.hasTag("minecraft:is_shovel_item_destructible")) {
+            if (brakeBlockList.find((blocks) => blocks.location.x === breakBlock2.location.x && blocks.location.y === breakBlock2.location.y && blocks.location.z === breakBlock2.location.z) === void 0) {
+              brakeBlockList.push({ id: breakBlock2.typeId, location: breakBlock2.location });
+            }
+          }
+        }
+      }
+      nextValue = blockIt.next();
+    } while (!nextValue.done);
+  } catch (error) {
+    console.error(error);
+  }
+  return brakeBlockList;
+}
+
+// scripts/items/pickaxe/PicRangeDestruction.ts
+import { ItemStack as ItemStack53, EquipmentSlot as EquipmentSlot46, BlockVolume as BlockVolume4, system as system19 } from "@minecraft/server";
+var oreBlocks = [
+  { ore: "minecraft:quartz_ore", raw: "minecraft:quartz" },
+  { ore: "minecraft:coal_ore", raw: "minecraft:coal" },
+  { ore: "minecraft:diamond_ore", raw: "minecraft:diamond" },
+  { ore: "minecraft:emerald_ore", raw: "minecraft:emerald" },
+  { ore: "minecraft:gold_ore", raw: "minecraft:raw_gold" },
+  { ore: "minecraft:iron_ore", raw: "minecraft:raw_iron" },
+  { ore: "minecraft:copper_ore", raw: "minecraft:raw_copper" },
+  { ore: "minecraft:lapis_ore", raw: "minecraft:lapis" },
+  { ore: "minecraft:redstone_ore", raw: "minecraft:redstone" },
+  { ore: "minecraft:oreRuby", raw: "minecraft:ruby" },
+  { ore: "minecraft:nether_gold_ore", raw: "minecraft:raw_gold" },
+  { ore: "minecraft:deepslate_gold_ore", raw: "minecraft:raw_gold" },
+  { ore: "minecraft:deepslate_lapis_ore", raw: "minecraft:lapis" },
+  { ore: "minecraft:deepslate_iron_ore", raw: "minecraft:raw_iron" },
+  { ore: "minecraft:deepslate_redstone_ore", raw: "minecraft:redstone" },
+  { ore: "minecraft:deepslate_diamond_ore", raw: "minecraft:diamond" },
+  { ore: "minecraft:deepslate_coal_ore", raw: "minecraft:coal" },
+  { ore: "minecraft:deepslate_emerald_ore", raw: "minecraft:emerald" },
+  { ore: "minecraft:deepslate_copper_ore", raw: "minecraft:raw_copper" },
+  { ore: "minecraft:ancient_debris", raw: "minecraft:netherite_scrap" },
+  { ore: "kurokumaft:chromium_ore", raw: "kurokumaft:chromium_nugget" },
+  { ore: "kurokumaft:deepslate_chromium_ore", raw: "kurokumaft:chromium_nugget" },
+  { ore: "kurokumaft:orichalcum_ore", raw: "kurokumaft:orichalcum" },
+  { ore: "kurokumaft:deepslate_orichalcum_ore", raw: "kurokumaft:orichalcum" }
+];
+var PicRangeDestruction = class {
+  onMineBlock(event) {
+    const block = event.block;
+    const mineBlock = event.minedBlockPermutation;
+    const entity = event.source;
+    const itemStack = event.itemStack;
+    if (itemStack != void 0) {
+      itemDurabilityDamage(entity, itemStack, EquipmentSlot46.Mainhand);
+    }
+    if (mineBlock.hasTag("minecraft:is_pickaxe_item_destructible")) {
+      const brakeBlockList = destructionBlocks4(block.location, block.dimension);
+      processListWithDelay4(block.dimension, brakeBlockList);
+    }
+  }
+};
+async function processListWithDelay4(dimension, list) {
+  try {
+    for (const item of list) {
+      dimension.spawnItem(new ItemStack53(item.id), item.location);
+      dimension.setBlockType(item.location, MinecraftBlockTypes.Air);
+      await system19.waitTicks(1);
+    }
+  } catch (error) {
+  }
+}
+function destructionBlocks4(location, dimension, brakeBlockList = []) {
+  try {
+    const blockVol = new BlockVolume4(
+      {
+        x: location.x - 5,
+        y: location.y - 5,
+        z: location.z - 5
+      },
+      {
+        x: location.x + 5,
+        y: location.y + 5,
+        z: location.z + 5
+      }
+    );
+    const blockIt = blockVol.getBlockLocationIterator();
+    let nextValue = blockIt.next();
+    do {
+      const value = nextValue.value;
+      if (value.y >= -64) {
+        const breakBlock2 = dimension.getBlock(value);
+        if (breakBlock2 != void 0) {
+          if (breakBlock2.hasTag("minecraft:is_pickaxe_item_destructible")) {
+            if (brakeBlockList.find((blocks) => blocks.location.x === breakBlock2.location.x && blocks.location.y === breakBlock2.location.y && blocks.location.z === breakBlock2.location.z) === void 0) {
+              const ore = oreBlocks.find((block) => block.ore === breakBlock2.typeId);
+              if (ore !== void 0) {
+                brakeBlockList.push({ id: ore.raw, location: breakBlock2.location });
+              } else {
+                brakeBlockList.push({ id: breakBlock2.typeId, location: breakBlock2.location });
+              }
+            }
+          }
+        }
+      }
+      nextValue = blockIt.next();
+    } while (!nextValue.done);
+  } catch (error) {
+  }
+  return brakeBlockList;
+}
+
 // scripts/custom/WeaponsCustomComponentRegistry.ts
 function initWeaponsRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:tnt_sword", new TntSwordBreak());
@@ -6403,9 +6707,13 @@ function initWeaponsRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:flamethrower", new FlametHrower());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:sniper_rifle", new SniperRifle());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:sniper_steel_bow", new SniperSteelBow());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:pic_range_destruction", new PicRangeDestruction());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:shovel_pavement", new ShovelPavement());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:straight_down_hole", new StraightDownHole());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:axe_stripped", new AxeStripped());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:batch_destruction", new AxeBatchDestruction());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:hoe_farming", new HoeFarming());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:batch_destruction_hoe", new HoeBatchDestruction());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:fire_brand", new FireBrand());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:weapon_mine_durability", new WeaponMineDurability());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:growth_meal", new GrowthMeal());
@@ -6431,31 +6739,31 @@ function initWeaponsStateChangeMonitor(initEvent) {
 }
 
 // scripts/weapons_script.ts
-world19.beforeEvents.worldInitialize.subscribe((initEvent) => {
+world23.beforeEvents.worldInitialize.subscribe((initEvent) => {
   initWeaponsRegisterCustom(initEvent);
   initWeaponsStateChangeMonitor(initEvent);
 });
-world19.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world23.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world19.beforeEvents.itemUseOn.subscribe((event) => {
+world23.beforeEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world19.afterEvents.itemUseOn.subscribe((event) => {
+world23.afterEvents.itemUseOn.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   let block = event.block;
 });
-world19.beforeEvents.explosion.subscribe((event) => {
+world23.beforeEvents.explosion.subscribe((event) => {
   let impactBLockList = event.getImpactedBlocks();
   let filterBlockList = explodeBedrock(impactBLockList);
   filterBlockList = explodeBakutikuCancel(filterBlockList);
   event.setImpactedBlocks(filterBlockList);
   explodeBakutikuChain(impactBLockList);
 });
-world19.afterEvents.playerInteractWithEntity.subscribe((event) => {
+world23.afterEvents.playerInteractWithEntity.subscribe((event) => {
   let player = event.player;
   let target = event.target;
   if (target.typeId == "kurokumaft:bamboo_bag") {
@@ -6466,7 +6774,7 @@ world19.afterEvents.playerInteractWithEntity.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+world23.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   let eventId = event.eventId;
   let entity = event.entity;
   let family = entity.getComponent(EntityComponentTypes27.TypeFamily);
@@ -6478,16 +6786,16 @@ world19.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.itemStartUse.subscribe((event) => {
+world23.afterEvents.itemStartUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world19.beforeEvents.entityRemove.subscribe((event) => {
+world23.beforeEvents.entityRemove.subscribe((event) => {
   let removedEntity = event.removedEntity;
   removeSpear(removedEntity);
   removeHammer(removedEntity);
 });
-world19.afterEvents.itemReleaseUse.subscribe((event) => {
+world23.afterEvents.itemReleaseUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6517,7 +6825,7 @@ world19.afterEvents.itemReleaseUse.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.itemStopUse.subscribe((event) => {
+world23.afterEvents.itemStopUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
@@ -6547,13 +6855,13 @@ world19.afterEvents.itemStopUse.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.entitySpawn.subscribe((event) => {
+world23.afterEvents.entitySpawn.subscribe((event) => {
   let cause = event.cause;
   let entity = event.entity;
   if (EntityInitializationCause.Spawned == cause) {
     let family = entity.getComponent(EntityComponentTypes27.TypeFamily);
     if (family != void 0 && family.hasTypeFamily("energy_bullet")) {
-      system16.runTimeout(() => {
+      system20.runTimeout(() => {
         if (entity.isValid()) {
           entity.remove;
         }
@@ -6565,36 +6873,36 @@ world19.afterEvents.entitySpawn.subscribe((event) => {
     spawnBoomerang(entity);
   }
 });
-world19.beforeEvents.itemUse.subscribe((event) => {
+world23.beforeEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
   if (item != void 0) {
   }
 });
-world19.afterEvents.itemUse.subscribe((event) => {
+world23.afterEvents.itemUse.subscribe((event) => {
   let player = event.source;
   let item = event.itemStack;
 });
-world19.afterEvents.blockExplode.subscribe((event) => {
+world23.afterEvents.blockExplode.subscribe((event) => {
   let dimension = event.dimension;
   let block = event.block;
   if (block.typeId == "kurokumaft:tear_enchant") {
     breackTearEnchant(dimension, block);
   }
 });
-world19.afterEvents.playerPlaceBlock.subscribe((event) => {
+world23.afterEvents.playerPlaceBlock.subscribe((event) => {
   let block = event.block;
   let dimension = event.dimension;
   playerMithrilset(block);
 });
-world19.beforeEvents.playerBreakBlock.subscribe((event) => {
+world23.beforeEvents.playerBreakBlock.subscribe((event) => {
   let player = event.player;
   let item = event.itemStack;
   let block = event.block;
   if (item != void 0) {
   }
 });
-world19.afterEvents.entityHitEntity.subscribe((event) => {
+world23.afterEvents.entityHitEntity.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitEn = event.hitEntity;
   if (hitEn != void 0 && hitEn instanceof Player47) {
@@ -6602,12 +6910,12 @@ world19.afterEvents.entityHitEntity.subscribe((event) => {
     shieldCounter(hitEn, damageEn);
   }
 });
-world19.afterEvents.entityHitBlock.subscribe((event) => {
+world23.afterEvents.entityHitBlock.subscribe((event) => {
   let damageEn = event.damagingEntity;
   let hitBlock = event.hitBlock;
   if (hitBlock != void 0) {
     let equ = damageEn.getComponent(EntityComponentTypes27.Equippable);
-    let itemStack = equ.getEquipment(EquipmentSlot43.Mainhand);
+    let itemStack = equ.getEquipment(EquipmentSlot47.Mainhand);
     if (itemStack != void 0) {
       if (itemStack.typeId == "kurokumaft:fire_brand") {
         fireCharcoalBlock(damageEn, itemStack, hitBlock);
@@ -6621,7 +6929,7 @@ world19.afterEvents.entityHitBlock.subscribe((event) => {
     }
   }
 });
-world19.afterEvents.projectileHitEntity.subscribe((event) => {
+world23.afterEvents.projectileHitEntity.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   let hitEn = event.getEntityHit().entity;
@@ -6638,7 +6946,7 @@ world19.afterEvents.projectileHitEntity.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world19.afterEvents.projectileHitBlock.subscribe((event) => {
+world23.afterEvents.projectileHitBlock.subscribe((event) => {
   let projectileEn = event.projectile;
   let source = event.source;
   if (source != void 0 && source instanceof Player47) {
@@ -6649,7 +6957,7 @@ world19.afterEvents.projectileHitBlock.subscribe((event) => {
     stopHammer(projectileEn);
   }
 });
-world19.afterEvents.entityHurt.subscribe((event) => {
+world23.afterEvents.entityHurt.subscribe((event) => {
   let damage = event.damage;
   let damageSource = event.damageSource;
   let hitEn = event.hurtEntity;

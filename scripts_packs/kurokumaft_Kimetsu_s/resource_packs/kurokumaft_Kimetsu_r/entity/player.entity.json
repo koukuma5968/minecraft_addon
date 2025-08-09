@@ -56,7 +56,14 @@
         "kasumi_slash_particle": "kurokumaft:kasumi_slash_particle",
         "tuki_blead_particle": "kurokumaft:tuki_blead_particle",
         "tuki_box_particle": "kurokumaft:tuki_box_particle",
-        "enzansenkai": "kurokumaft:enzansenkai"
+        "enzansenkai": "kurokumaft:enzansenkai",
+        "mikazuki_blead_particle": "kurokumaft:mikazuki_blead_particle",
+        "mikazuki_box_particle": "kurokumaft:mikazuki_box_particle",
+        "kokurai_blead_particle": "kurokumaft:kokurai_blead_particle",
+        "kokurai_point_particle": "kurokumaft:kokurai_point_particle",
+        "kokurai_spark_particle": "kurokumaft:kokurai_spark_particle",
+        "kokurai2_particle": "kurokumaft:kokurai2_particle",
+        "koori_slash": "kurokumaft:koori_slash_particle"
       },
       "scripts": {
         "scale": "0.9375",
@@ -128,7 +135,10 @@
           "obi.action",
           "hakaisatu.action",
           "kama.action",
-          "spear.action"
+          "spear.action",
+          "koori.action",
+          "mikazuki.action",
+          "kokurai.action"
 
         ]
       },
@@ -240,6 +250,8 @@
         "kama.action": "controller.animation.kama.action.player",
         "spear.action": "controller.animation.spear.action.player",
         "koori.action": "controller.animation.koori.action.player",
+        "mikazuki.action": "controller.animation.mikazuki.action.player",
+        "kokurai.action": "controller.animation.kokurai.action.player",
 
         "mizu.ichi_1_first": "animation.action.mizu.ichi_1_first",
         "mizu.ichi_2_first": "animation.action.mizu.ichi_2_first",
@@ -597,14 +609,68 @@
         "bunretu.shitotu_first": "animation.action.bunretu.shitotu_first",
         "bunretu.shitotu_third": "animation.action.bunretu.shitotu_third",
 
-        "konagoori": "animation.action.koori.konagoori_third",
-        "hasugoori": "animation.action.koori.hasugoori_third",
-        "karesonosizuri": "animation.action.koori.karesonosizuri_third",
-        "itegumori": "animation.action.koori.itegumori_third",
-        "tururenge": "animation.action.koori.tururenge_third",
-        "kanretunosirahime": "animation.action.koori.kanretunosirahime_third",
-        "fuyuzareturara": "animation.action.koori.fuyuzareturara_third",
-        "tirirenge": "animation.action.koori.tirirenge_third"
+        "koori.hasugoori_first": "animation.action.koori.hasugoori_first",
+        "koori.karesonosizuri_first": "animation.action.koori.karesonosizuri_first",
+        "koori.itegumori_first": "animation.action.koori.itegumori_first",
+        "koori.tururenge_first": "animation.action.koori.tururenge_first",
+        "koori.kanretunosirahime_first": "animation.action.koori.kanretunosirahime_first",
+        "koori.fuyuzareturara_first": "animation.action.koori.fuyuzareturara_first",
+        "koori.tirirenge_first": "animation.action.koori.tirirenge_first",
+
+        "koori.hasugoori_third": "animation.action.koori.hasugoori_third",
+        "koori.karesonosizuri_third": "animation.action.koori.karesonosizuri_third",
+        "koori.itegumori_third": "animation.action.koori.itegumori_third",
+        "koori.tururenge_third": "animation.action.koori.tururenge_third",
+        "koori.kanretunosirahime_third": "animation.action.koori.kanretunosirahime_third",
+        "koori.fuyuzareturara_third": "animation.action.koori.fuyuzareturara_third",
+        "koori.tirirenge_third": "animation.action.koori.tirirenge_third",
+
+        "mikazuki.ichi_1_first": "animation.action.mikazuki.ichi_1_first",
+        "mikazuki.ichi_2_first": "animation.action.mikazuki.ichi_2_first",
+        "mikazuki.ni_1_first": "animation.action.mikazuki.ni_1_first",
+        "mikazuki.san_1_first": "animation.action.mikazuki.san_1_first",
+        "mikazuki.go_1_first": "animation.action.mikazuki.go_1_first",
+        "mikazuki.roku_1_first": "animation.action.mikazuki.roku_1_first",
+        "mikazuki.shiti_1_first": "animation.action.mikazuki.shiti_1_first",
+        "mikazuki.hachi_1_first": "animation.action.mikazuki.hachi_1_first",
+        "mikazuki.ku_1_first": "animation.action.mikazuki.ku_1_first",
+        "mikazuki.zyu_1_first": "animation.action.mikazuki.zyu_1_first",
+        "mikazuki.zyushi_1_first": "animation.action.mikazuki.zyushi_1_first",
+        "mikazuki.zyuroku_1_first": "animation.action.mikazuki.zyuroku_1_first",
+
+        "mikazuki.ichi_1_third": "animation.action.mikazuki.ichi_1_third",
+        "mikazuki.ichi_2_third": "animation.action.mikazuki.ichi_2_third",
+        "mikazuki.ni_1_third": "animation.action.mikazuki.ni_1_third",
+        "mikazuki.san_1_third": "animation.action.mikazuki.san_1_third",
+        "mikazuki.go_1_third": "animation.action.mikazuki.go_1_third",
+        "mikazuki.roku_1_third": "animation.action.mikazuki.roku_1_third",
+        "mikazuki.shiti_1_third": "animation.action.mikazuki.shiti_1_third",
+        "mikazuki.hachi_1_third": "animation.action.mikazuki.hachi_1_third",
+        "mikazuki.ku_1_third": "animation.action.mikazuki.ku_1_third",
+        "mikazuki.zyu_1_third": "animation.action.mikazuki.zyu_1_third",
+        "mikazuki.zyuichi_1_third": "animation.action.mikazuki.zyuichi_1_third",
+        "mikazuki.zyushi_1_third": "animation.action.mikazuki.zyushi_1_third",
+        "mikazuki.zyuroku_1_third": "animation.action.mikazuki.zyuroku_1_third",
+
+        "kokurai.ichi_2_first": "animation.action.kokurai.ichi_2_first",
+        "kokurai.ichi_roku_2_first": "animation.action.kokurai.ichi_roku_2_first",
+        "kokurai.ichi_hati_2_first": "animation.action.kokurai.ichi_hati_2_first",
+        "kokurai.ni_1_first": "animation.action.kokurai.ni_1_first",
+        "kokurai.san_1_first": "animation.action.kokurai.san_1_first",
+        "kokurai.shi_1_first": "animation.action.kokurai.shi_1_first",
+        "kokurai.shi_2_first": "animation.action.kokurai.shi_2_first",
+        "kokurai.go_1_first": "animation.action.kokurai.go_1_first",
+        "kokurai.roku_1_first": "animation.action.kokurai.roku_1_first",
+
+        "kokurai.ichi_2_third": "animation.action.kokurai.ichi_2_third",
+        "kokurai.ichi_roku_2_third": "animation.action.kokurai.ichi_roku_2_third",
+        "kokurai.ichi_hati_2_third": "animation.action.kokurai.ichi_hati_2_third",
+        "kokurai.ni_1_third": "animation.action.kokurai.ni_1_third",
+        "kokurai.san_1_third": "animation.action.kokurai.san_1_third",
+        "kokurai.shi_1_third": "animation.action.kokurai.shi_1_third",
+        "kokurai.shi_2_third": "animation.action.kokurai.shi_2_third",
+        "kokurai.go_1_third": "animation.action.kokurai.go_1_third",
+        "kokurai.roku_1_third": "animation.action.kokurai.roku_1_third"
 
       },
       "render_controllers": [

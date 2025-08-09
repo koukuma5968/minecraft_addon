@@ -51,6 +51,10 @@ import { CopperBucketMilk } from "../items/bucket/CopperBucketMilk";
 import { CopperBucketWater } from "../items/bucket/CopperBucketWater";
 import { OliveGrowth } from "../block/plants/OliveGrowth";
 import { Fryer } from "../block/Fryer";
+import { AxeBatchDestruction } from "../items/axe/AxeBatchDestruction";
+import { HoeBatchDestruction } from "../items/hoe/HoeBatchDestruction";
+import { StraightDownHole } from "../items/shovel/StraightDownHole";
+import { PicRangeDestruction } from "../items/pickaxe/PicRangeDestruction";
 
 /**
  * カスタムコンポーネントの登録
@@ -126,14 +130,20 @@ function initWeaponsRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
     // スナイパーボウ
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:sniper_steel_bow', new SniperSteelBow());
 
+    // ピッケル
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:pic_range_destruction', new PicRangeDestruction());
+
     // シャベル
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:shovel_pavement', new ShovelPavement());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:straight_down_hole', new StraightDownHole());
 
     // 斧
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:axe_stripped', new AxeStripped());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:batch_destruction', new AxeBatchDestruction());
 
     // くわ
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:hoe_farming', new HoeFarming());
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:batch_destruction_hoe', new HoeBatchDestruction());
 
     // ファイアブランド
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:fire_brand', new FireBrand());

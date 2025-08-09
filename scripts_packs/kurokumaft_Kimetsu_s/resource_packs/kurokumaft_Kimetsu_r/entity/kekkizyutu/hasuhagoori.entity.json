@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:hasuhagoori",
+        "materials": {
+            "default": "armor_stand"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/douma/hasuhagoori"
+          },
+          "geometry": {
+            "default": "geometry.hasuhagoori"
+          },
+          "animations": {
+            "hasuhagoori": "controller.animation.kekkizyutu.koori.hasuhagoori",
+            "turugenge_1": "animation.koori.hasuhagoori.turugenge_1",
+            "turugenge_2": "animation.koori.hasuhagoori.turugenge_2",
+            "turugenge_3": "animation.koori.hasuhagoori.turugenge_3",
+            "turugenge_4": "animation.koori.hasuhagoori.turugenge_4"
+          },
+          "scripts": {
+            "scale": "1.5",
+            "animate": [
+              "hasuhagoori"
+            ]
+          },
+          "render_controllers": [ "controller.render.armor_stand" ]
+        }
+    }
+  }
+  

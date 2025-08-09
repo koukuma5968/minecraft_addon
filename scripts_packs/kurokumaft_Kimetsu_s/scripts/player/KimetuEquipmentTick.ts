@@ -13,7 +13,7 @@ const kaikyuPointList = [
     "2800",
     "3600",
     "4500",
-    "4800",
+    "10",
     "-"
 ];
 
@@ -99,8 +99,9 @@ export class KimetuEquipmentTick {
                 // 血気術を持っている
                 if (kekkizyutuObject !== undefined) {
                     const kataNum = this.player.getProperty("kurokumaft:kekkizyutu_kata") as number;
-                    if (kekkizyutuObject.kata[kataNum-1] !== undefined) {
-                        kataMess = "msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[kataNum-1]+ ".value";
+                    const index = kekkizyutuObject.kata.findIndex((el) => el === kataNum);
+                    if (kekkizyutuObject.kata[index] !== undefined) {
+                        kataMess = "msg.kurokumaft:" + kekkizyutuObject.kata_msg + kekkizyutuObject.kata[index]+ ".value";
                     }
                 }
 
@@ -157,6 +158,8 @@ export class KimetuEquipmentTick {
                         this.player.setProperty("kurokumaft:kokyu_chage", 0);
                         this.player.setProperty("kurokumaft:kokyu_ran", 0);
                         this.player.setDynamicProperty("kurokumaft:chage_type", undefined);
+                        this.player.setProperty("kurokumaft:kekkizyutu_type", 0);
+                        this.player.setProperty("kurokumaft:kekkizyutu_kata", 0);
                     }
                 // 日輪刀を持っていない
                 } else {

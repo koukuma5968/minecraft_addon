@@ -225,7 +225,7 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, en
 
     let filterOption = {
         excludeFamilies: [
-            "inanimate", "villager", 
+            "inanimate", "animal", "villager", 
             "regimental_soldier", "villager_player", "regimental_player"
         ],
         excludeTypes: [
@@ -241,20 +241,20 @@ function addRegimentalFilter(closest:number, location:Vector3, maxDis:number, en
     const familyTypes = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
     if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
         filterOption.excludeFamilies = [
-            "inanimate"
+            "inanimate", "animal"
         ];
     } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("player")) {
         const tags = entity.getTags();
         if (tags.indexOf("hostility_player") !== -1) {
             filterOption.excludeFamilies = [
-                "inanimate", "villager"
+                "inanimate", "animal", "villager"
             ];
         }
     } else {
         const tags = entity.getTags();
         if (tags.indexOf("hostility") !== -1) {
             filterOption.excludeFamilies = [
-                "inanimate", "villager"
+                "inanimate", "animal", "villager"
             ];
         }
     }

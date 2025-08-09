@@ -47,7 +47,8 @@
         ]
       },
       "minecraft:custom_components": [
-        "kurokumaft:weapon_mine_durability"
+        "kurokumaft:weapon_mine_durability",
+        "kurokumaft:pic_range_destruction"
       ]
     }
   }

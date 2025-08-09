@@ -1,0 +1,41 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.kekkizyutu.koori.hasuhagoori": {
+			"states": {
+				"default":{
+					"transitions" : [
+						{"turugenge_1": "query.property('kurokumaft:attack_ran') == 1"},
+						{"turugenge_2": "query.property('kurokumaft:attack_ran') == 2"},
+						{"turugenge_3": "query.property('kurokumaft:attack_ran') == 3"},
+						{"turugenge_4": "query.property('kurokumaft:attack_ran') == 4"}
+					]
+				},
+				"turugenge_1":{
+					"animations": ["turugenge_1"],
+					"transitions": [
+						{"default": "query.property('kurokumaft:attack_ran') != 1"}
+					]
+				},
+				"turugenge_2":{
+					"animations": ["turugenge_2"],
+					"transitions": [
+						{"default": "query.property('kurokumaft:attack_ran') != 2"}
+					]
+				},
+				"turugenge_3":{
+					"animations": ["turugenge_3"],
+					"transitions": [
+						{"default": "query.property('kurokumaft:attack_ran') != 3"}
+					]
+				},
+				"turugenge_4":{
+					"animations": ["turugenge_4"],
+					"transitions": [
+						{"default": "query.property('kurokumaft:attack_ran') != 4"}
+					]
+				}
+			}
+		}
+	}
+}

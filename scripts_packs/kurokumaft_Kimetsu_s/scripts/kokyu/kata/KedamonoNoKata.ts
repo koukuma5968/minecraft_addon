@@ -110,6 +110,7 @@ export class KedamonoNoKata extends KataComonClass {
             entity.setProperty("kurokumaft:kokyu_particle", false);
         }).catch((error: any) => {
         }).finally(() => {
+            system.clearRun(num);
         });
 
     }
@@ -138,6 +139,7 @@ export class KedamonoNoKata extends KataComonClass {
             entity.setProperty("kurokumaft:kokyu_particle", false);
         }).catch((error: any) => {
         }).finally(() => {
+            system.clearRun(num);
         });
 
     }
@@ -168,6 +170,7 @@ export class KedamonoNoKata extends KataComonClass {
             entity.setProperty("kurokumaft:kokyu_particle", false);
         }).catch((error: any) => {
         }).finally(() => {
+            system.clearRun(num);
         });
 
     }
@@ -212,6 +215,7 @@ export class KedamonoNoKata extends KataComonClass {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
             }).catch((error: any) => {
             }).finally(() => {
+                system.clearRun(num);
             });
 
             system.waitTicks(10*TicksPerSecond).then(() => {

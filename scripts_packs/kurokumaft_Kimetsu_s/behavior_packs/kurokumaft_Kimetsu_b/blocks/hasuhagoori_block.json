@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.10",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:hasuhagoori_block",
+			"is_experimental": false,
+            "register_to_creative_menu": false,
+			"menu_category": {
+				"category": "none"
+			}
+		},
+		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"tag:minecraft:is_sword_item_destructible": {},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5
+			},
+			"minecraft:geometry": "geometry.hasuhagoori_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "hasuhagoori_block",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:loot": "loot_tables/empty.json"
+		}
+	}
+}

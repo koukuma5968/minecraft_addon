@@ -1,6 +1,5 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot } from "@minecraft/server";
 import { KekkizyutuClassRecord, KekkizyutuObject, KekkizyutuObjects } from "../KekkizyutuTypes";
-import { KokyuObject } from "../NichirintouTypes";
 
 export class KekkizyutuComponent implements ItemCustomComponent {
 

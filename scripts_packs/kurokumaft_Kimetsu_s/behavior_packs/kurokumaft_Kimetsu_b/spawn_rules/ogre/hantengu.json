@@ -2,7 +2,7 @@
   "format_version": "1.8.0",
   "minecraft:spawn_rules": {
     "description": {
-      "identifier": "kurokumaft:daki",
+      "identifier": "kurokumaft:hantengu",
       "population_control": "monster"
     },
     "conditions": [

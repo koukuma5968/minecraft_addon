@@ -86,7 +86,9 @@ export class KataComonClass {
                                 damagingEntity: entity
                             });
                         } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
-                            en.applyDamage(pDamage*damageNum, {
+                            const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
+                            const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
+                            en.applyDamage(pDamage*(damageNum+(point !== undefined ? point.damage : 0.5)), {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
@@ -97,7 +99,7 @@ export class KataComonClass {
                     if (damagerFamilyTypes !== undefined && damagerFamilyTypes.hasTypeFamily("ogre")) {
                         const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
                         const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                        en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.point : 0.5)), {
+                        en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.damage : 0.5)), {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
@@ -106,7 +108,7 @@ export class KataComonClass {
                         if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
                             const ogre_rank = en.getProperty("kurokumaft:ogre_rank");
                             const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                            en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.damage : 5)), {
+                            en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.point : 5)), {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });

@@ -10,12 +10,20 @@ export class RaisingStatusCheckClass {
         let killtarget=0;
         switch(kaikyu) {
             case 10:
-                const ogreKaikyu = ogre.getProperty("kurokumaft:ogre_kaikyu") as number;
-                if (ogreKaikyu >= 9) {
-                    killtarget=killtarget+300;
-                } else {
-                    upPoint = count;
+                const rank = player.getProperty("kurokumaft:ogre_rank") as string;
+                if (rank === "crescent") {
+                    killtarget=killtarget+1;
                 }
+                if (10 >= killtarget) {
+                    player.setProperty("kurokumaft:kaikyu", kaikyu+1);
+                    player.setProperty("kurokumaft:ogre_kill", 0);
+                    system.runTimeout(() => {
+                        player.triggerEvent("kurokumaft:kaikyu_change");
+                    }, 4);
+                } else {
+                    player.setProperty("kurokumaft:ogre_kill", count+1);
+                }
+                break;
             case 9:
                 killtarget=killtarget+900;
             case 8:

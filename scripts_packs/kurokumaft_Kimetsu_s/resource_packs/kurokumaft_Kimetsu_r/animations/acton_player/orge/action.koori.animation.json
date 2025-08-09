@@ -1,10 +1,6 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.action.koori.konagoori_third": {
-			"loop": true,
-			"animation_length": 0.04167
-		},
 		"animation.action.koori.hasugoori_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.25,
@@ -19,18 +15,11 @@
 						"0.0417": [0, -2, -6]
 					}
 				},
-				"head": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.0417": [-32.5, 0, 0]
-					},
-					"position": [0, 0, 0]
-				},
 				"rightArm": {
 					"rotation": {
 						"0.0": [0, 0, 0],
-						"0.0417": [-128.55707, 14.34337, 108.35788],
-						"0.25": [25.53022, -21.65635, 92.01719]
+						"0.0417": [-133.9144, 29.46626, 94.18481],
+						"0.25": [-3.91, 29.47, 94.18]
 					},
 					"position": {
 						"0.0": [0, 0, 0],
@@ -40,12 +29,8 @@
 				"leftArm": {
 					"rotation": {
 						"0.0": [0, 0, 0],
-						"0.0417": [-114.33275, 37.05034, -40.04909],
-						"0.0833": [-101.7389, 9.88141, -17.55213],
-						"0.125": [-91.99356, -14.4278, -19.74337],
-						"0.1667": [-82.37918, -45.09567, -12.65135],
-						"0.2083": [-74.84634, -79.10419, -13.14803],
-						"0.25": [87.62289, -65.8344, -185.91779]
+						"0.0417": [-134.60094, -21.91165, -94.31193],
+						"0.25": [2.9, -21.91, -94.31]
 					},
 					"position": {
 						"0.0": [0, 0, 0],
@@ -66,6 +51,26 @@
 					},
 					"position": [0, 0, 0]
 				}
+			},
+			"particle_effects": {
+				"0.0417": [
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold12"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold11"
+					}
+				]
 			}
 		},
 		"animation.action.koori.karesonosizuri_third": {
@@ -90,6 +95,26 @@
 						"0.6667": [-11.52799, -2.06673, 57.48233]
 					}
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold12"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold11"
+					}
+				]
 			}
 		},
 		"animation.action.koori.itegumori_third": {
@@ -103,18 +128,18 @@
 					},
 					"position": [0, 0, 0]
 				},
-				"head": {
-					"rotation": {
-						"0.0": [0, -25, 0],
-						"0.2083": [0, 77.5, 0]
-					}
-				},
 				"rightArm": {
-					"rotation": [0, 85, 90],
+					"rotation": {
+						"0.0": [-180, 0, -90],
+						"0.2083": [-145, 0, -90]
+					},
 					"position": [0, 0, 0]
 				},
 				"leftArm": {
-					"rotation": [-22.5, 0, -92.5],
+					"rotation": {
+						"0.0": [-22.5, 0, -92.5],
+						"0.2083": [30, 0, -92.5]
+					},
 					"position": [0, -1, 1]
 				},
 				"rightLeg": {
@@ -129,6 +154,26 @@
 						"0.2083": [27.5, 0, -12.5]
 					}
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold12"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold11"
+					}
+				]
 			}
 		},
 		"animation.action.koori.tururenge_third": {
@@ -140,6 +185,18 @@
 				"leftArm": {
 					"rotation": [-61.27832, -1.78045, -14.86365]
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold6"
+					}
+				]
 			}
 		},
 		"animation.action.koori.kanretunosirahime_third": {
@@ -182,7 +239,40 @@
 						"0.25": [-63.86784, 53.10479, 17.17679]
 					}
 				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "koori_slash",
+						"locator": "nichirintou_hold6"
+					}
+				]
 			}
+		},
+		"animation.action.koori.hasugoori_first": {
+			"loop": true
+		},
+		"animation.action.koori.karesonosizuri_first": {
+			"loop": true
+		},
+		"animation.action.koori.itegumori_first": {
+			"loop": true
+		},
+		"animation.action.koori.tururenge_first": {
+			"loop": true
+		},
+		"animation.action.koori.kanretunosirahime_first": {
+			"loop": true
+		},
+		"animation.action.koori.fuyuzareturara_first": {
+			"loop": true
+		},
+		"animation.action.koori.tirirenge_first": {
+			"loop": true
 		}
 	}
 }

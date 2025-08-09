@@ -11,14 +11,14 @@ export class Gatling implements ItemCustomComponent {
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
 
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
     }
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         shotGatling(source, itemStack);
     }
 }
@@ -34,10 +34,10 @@ async function shotGatling(player: Player, item: ItemStack) {
     player.setProperty("kurokumaft:gun_shot", true);
     let count = 0;
     let shot = 1;
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
 
-        let reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let reItem = reEqu.getEquipment(EquipmentSlot.Offhand);
+        const reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const reItem = reEqu.getEquipment(EquipmentSlot.Offhand);
         if (reItem == undefined || reItem.typeId != "kurokumaft:twenty_two_lr") {
             system.clearRun(intervalNum);
             return;
@@ -66,7 +66,7 @@ async function shotGatling(player: Player, item: ItemStack) {
  */
 export async function stopGatling(player: Player) {
 
-    let eventNum = player.getDynamicProperty("gatlingShotEventNum") as number;
+    const eventNum = player.getDynamicProperty("gatlingShotEventNum") as number;
     player.setProperty("kurokumaft:gun_shot", false);
     player.setDynamicProperty("gatlingShot", undefined);
     player.setDynamicProperty("gatlingShotEventNum", undefined);

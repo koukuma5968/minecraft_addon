@@ -53,6 +53,12 @@
       },
       "obanai_skull" : {
          "textures" : "textures/kurokumaft/models/head/obanai_head"
+      },
+      "hasuhagoori_block" : {
+         "textures" : "textures/kurokumaft/blocks/hasuhagoori"
+      },
+      "ice_plate" : {
+         "textures" : "textures/kurokumaft/blocks/ice_plate"
       }
    },
    "texture_name" : "atlas.terrain"

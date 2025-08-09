@@ -1,5 +1,6 @@
-import { ItemStack, Player, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, EntityInventoryComponent, Container } from "@minecraft/server";
+import { ItemStack, Player, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, EntityInventoryComponent, Container, ItemEnchantableComponent } from "@minecraft/server";
 import { getRandomInRange } from "./WeaponsCommonUtil";
+import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 
 /**
  * アイテムダメージ
@@ -10,17 +11,29 @@ import { getRandomInRange } from "./WeaponsCommonUtil";
 async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
     if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
-        let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+        const dChangeRang = durability.getDamageChanceRange();
+        let dChange = getRandomInRange(dChangeRang.min, dChangeRang.max);
 
-        let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-        let dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
-    
-        if ((durability.damage + dChange) >= durability.maxDurability) {
-            equ.setEquipment(slot, undefined);
-        } else {
-            durability.damage = durability.damage + dChange;
-            equ.setEquipment(slot, item);
+        const enchantable = item.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+        const unbreaking = enchantable.getEnchantment(MinecraftEnchantmentTypes.Unbreaking);
+        if (unbreaking !== undefined) {
+            dChange = durability.getDamageChance(unbreaking.level);
         }
+
+        const equippable = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const mainHand = equippable.getEquipment(slot);
+        if (mainHand !== undefined) {
+            if (mainHand.typeId === item.typeId) {
+                if ((durability.damage + dChange) >= durability.maxDurability) {
+                    equippable.setEquipment(slot, undefined);
+                } else {
+                    durability.damage = durability.damage + dChange;
+                    equippable.setEquipment(slot, item);
+                }
+            }
+        }
+
     }
 
 }

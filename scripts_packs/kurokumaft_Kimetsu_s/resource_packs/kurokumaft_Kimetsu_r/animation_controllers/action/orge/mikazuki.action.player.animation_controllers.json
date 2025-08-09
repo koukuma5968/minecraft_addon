@@ -1,0 +1,258 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.mikazuki.action.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"equipment": "variable.kekkizyutu_type == 12"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"first_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 12"},
+						{"equipment": "!variable.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use": {
+					"transitions" : [
+						{"mikazuki1_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"mikazuki2_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"mikazuki3_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"mikazuki5_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"mikazuki6_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
+						{"mikazuki7_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 7"},
+						{"mikazuki8_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 8"},
+						{"mikazuki9_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 9"},
+						{"mikazuki10_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 10"},
+						{"mikazuki14_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 14"},
+						{"mikazuki16_1_first": "query.property('kurokumaft:kekkizyutu_kata') == 16"}
+					]
+				},
+				"mikazuki1_1_first" : {
+					"animations" : [
+						"mikazuki.ichi_1_first"
+					],
+					"transitions" : [
+						{"mikazuki1_2_first":"query.any_animation_finished"}
+					]
+				},
+				"mikazuki1_2_first" : {
+					"animations" : [
+						"mikazuki.ichi_2_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"mikazuki2_1_first" : {
+					"animations" : [
+						"mikazuki.ni_1_first"
+					],
+					"transitions" : [
+						{"first_person":"query.any_animation_finished"}
+					]
+				},
+				"mikazuki3_1_first" : {
+					"animations" : [
+						"mikazuki.san_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki5_1_first" : {
+					"animations" : [
+						"mikazuki.go_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki6_1_first" : {
+					"animations" : [
+						"mikazuki.roku_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki7_1_first" : {
+					"animations" : [
+						"mikazuki.shiti_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki8_1_first" : {
+					"animations" : [
+						"mikazuki.hachi_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki9_1_first" : {
+					"animations" : [
+						"mikazuki.ku_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki10_1_first" : {
+					"animations" : [
+						"mikazuki.zyu_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki14_1_first" : {
+					"animations" : [
+						"mikazuki.zyushi_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki16_1_first" : {
+					"animations" : [
+						"mikazuki.zyuroku_1_first"
+					],
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 12"},
+						{"equipment": "variable.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"mikazuki1_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"mikazuki2_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"mikazuki3_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"mikazuki5_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"mikazuki6_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
+						{"mikazuki7_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 7"},
+						{"mikazuki8_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 8"},
+						{"mikazuki9_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 9"},
+						{"mikazuki10_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 10"},
+						{"mikazuki14_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 14"},
+						{"mikazuki16_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 16"}
+					]
+				},
+				"mikazuki1_1_third" : {
+					"animations" : [
+						"mikazuki.ichi_1_third"
+					],
+					"transitions" : [
+						{"mikazuki1_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki1_2_third" : {
+					"animations" : [
+						"mikazuki.ichi_2_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"mikazuki2_1_third" : {
+					"animations" : [
+						"mikazuki.ni_1_third"
+					],
+					"transitions" : [
+						{"third_person":"query.any_animation_finished"}
+					]
+				},
+				"mikazuki3_1_third" : {
+					"animations" : [
+						"mikazuki.san_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki5_1_third" : {
+					"animations" : [
+						"mikazuki.go_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki6_1_third" : {
+					"animations" : [
+						"mikazuki.roku_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki7_1_third" : {
+					"animations" : [
+						"mikazuki.shiti_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki8_1_third" : {
+					"animations" : [
+						"mikazuki.hachi_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki9_1_third" : {
+					"animations" : [
+						"mikazuki.ku_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki10_1_third" : {
+					"animations" : [
+						"mikazuki.zyu_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki14_1_third" : {
+					"animations" : [
+						"mikazuki.zyushi_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mikazuki16_1_third" : {
+					"animations" : [
+						"mikazuki.zyuroku_1_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				}
+
+			}
+		}
+	}
+}

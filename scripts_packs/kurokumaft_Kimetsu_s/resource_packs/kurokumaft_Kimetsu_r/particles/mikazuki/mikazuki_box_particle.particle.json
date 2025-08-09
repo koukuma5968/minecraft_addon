@@ -1,0 +1,52 @@
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "kurokumaft:mikazuki_box_particle",
+			"basic_render_parameters": {
+				"material": "particles_blend",
+				"texture": "textures/kurokumaft/particle/tuki"
+			}
+		},
+		"components": {
+			"minecraft:emitter_initialization": {
+				"creation_expression": "variable.tuki_size = math.random_integer(0.4, 0.8);"
+			},
+			"minecraft:emitter_rate_steady": {
+				"spawn_rate": 15,
+				"max_particles": 150
+			},
+			"minecraft:emitter_lifetime_expression": {
+				"activation_expression": 1,
+				"expiration_expression": "(variable.emitter_age > 2 ? 1.0 : 0.0)"
+			},
+			"minecraft:emitter_shape_box": {
+				"offset": [0, 2, 0],
+				"half_dimensions": [4, 4, 4],
+				"direction": "outwards"
+			},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": 1
+			},
+			"minecraft:particle_appearance_billboard": {
+				"size": ["variable.tuki_size", "variable.tuki_size"],
+				"facing_camera_mode": "lookat_xyz",
+				"uv": {
+					"texture_width": 8,
+					"texture_height": 32,
+					"flipbook": {
+						"base_UV": [0, 0],
+						"size_UV": [8, 8],
+						"step_UV": [0, 8],
+						"frames_per_second": 4,
+						"max_frame": 4,
+						"loop": true
+					}
+				}
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": [0.47451, 0.20784, 0.81961, 1]
+			}
+		}
+	}
+}

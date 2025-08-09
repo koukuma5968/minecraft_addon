@@ -53,6 +53,9 @@
       "nichirintou_obanai": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_obanai"
       },
+      "nichirintou_kaigaku": {
+         "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_kaigaku"
+      },
 
       "nichirintou_hi": {
          "textures" : "textures/kurokumaft/items/nichirintou/nichirintou_hi"
@@ -448,6 +451,10 @@
       },
       "douma_boots": {
          "textures" : "textures/kurokumaft/items/armor/douma/douma_boots"
+      },
+
+      "kyokokukamusari": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/kyokokukamusari"
       },
 
       "tanjiro_head": {

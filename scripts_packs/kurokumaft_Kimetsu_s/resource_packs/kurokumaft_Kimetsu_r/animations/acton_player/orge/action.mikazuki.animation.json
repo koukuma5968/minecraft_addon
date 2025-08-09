@@ -1,0 +1,1135 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.action.mikazuki.ichi_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.2,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2": [-148.90905, -3.78596, 122.73166]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2": [-27.5, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.action.mikazuki.ichi_2_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.6,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [-148.90905, -3.78596, 122.73166],
+						"0.1": [16.20167, 3.26559, 98.73081]
+					}
+				},
+				"leftArm": {
+					"rotation": [-27.5, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.6": [45, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.6": [0, -1, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.ni_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [-103.58761, -26.16284, 116.3502],
+						"0.3": [38.91239, -26.16284, 116.3502],
+						"0.4": [221.26554, -16.76902, 264.19408],
+						"0.6": [326.26554, -16.76902, 264.19408],
+						"0.7": [233.85582, -3.4683, 435.60334],
+						"0.9": [384.55921, 17.5892, 417.8607]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-51.4304, 89.63005, -51.62616],
+						"0.1": [-126.71571, 36.27127, -93.58058]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [12.5, 0, -7.5]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [-5, 0, 7.5]
+					}
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [35, 0, 0],
+						"0.6": [70, 0, 0],
+						"0.7": [2.5, 0, 0],
+						"0.9": [52.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3": [0, -1, -5],
+						"0.6": [0, -1, -4],
+						"0.7": [0, 0, -2],
+						"0.9": [0, -1, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.san_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [-43.80993, 25.65891, 16.10211],
+						"0.25": [-5.53343, -49.19275, -90.90081]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-132.5, 0, 90],
+						"0.0833": [-7.5, 0, 90],
+						"0.1667": [-172.43603, 7.43547, -89.01552],
+						"0.25": [-17.44, 7.44, -89.02]
+					}
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [70, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -2, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "mikazuki_blead_particle",
+					"locator": "nichirintou_hold6"
+				}
+			}
+		},
+		"animation.action.mikazuki.go_1_third": {
+			"loop": true,
+			"animation_length": 0.625,
+			"bones": {
+				"particle": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -287.5, 0],
+						"0.25": [0, 0, 0],
+						"0.375": [0, 227.5, 0],
+						"0.5": [0, 0, 0],
+						"0.625": [0, 225, 0]
+					},
+					"position": {
+						"0.0": [0, 9, -30],
+						"0.25": [0, 17, -30],
+						"0.375": [0, 22, -30],
+						"0.5": [0, 5, -30],
+						"0.625": [0, 22, -30]
+					},
+					"scale": {
+						"0.0": [1, 1, 2.4],
+						"0.125": [1, 1, 6.1],
+						"0.25": [1, 1, 2.4],
+						"0.375": [1, 1, 6],
+						"0.5": [1, 1, 2.4],
+						"0.625": [1, 1, 4.6]
+					}
+				},
+				"bb_main": {
+					"rotation": [0, 0, 0],
+					"position": [0, 9, -74]
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "mikazuki_blead_particle",
+					"locator": "move_particle2"
+				}
+			}
+		},
+		"animation.action.mikazuki.roku_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.125,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 40, 0],
+						"0.125": [0, -22.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-125.67831, 52.21677, -6.48009],
+						"0.125": [-48.18, 52.22, -6.48]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-137.5723, -6.29247, 8.01305],
+						"0.125": [-23.70435, -10.06509, -9.73799]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [52.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -1, -4]
+					}
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 22.5],
+					"position": [0, 0, 0]
+				},
+				"particle": {
+					"position": [0, 24, -68]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.shiti_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 40, 0],
+						"0.125": [0, -30, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-105.91377, 61.57276, -14.07606],
+						"0.125": [-111.05314, -68.69733, 19.7216]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-156.85918, 1.69148, -90.43453],
+						"0.125": [-33.80799, -6.74927, -102.85422]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [95, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -4, -3]
+					}
+				},
+				"leftLeg": {
+					"rotation": [27.5, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-17.5, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.hachi_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.1667,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 30, 0],
+						"0.1667": [0, -62.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-149.74895, 48.80228, -59.21154],
+						"0.1667": [-69.75, 48.8, -59.21]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-176.13871, 13.97887, -47.18374],
+						"0.1667": [-20.12252, 8.55676, -66.68001]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [60, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, -8],
+						"0.1667": [0, -9, -8]
+					},
+					"scale": {
+						"0.0": [1, 1, 2.8],
+						"0.0833": [1, 1, 3.2],
+						"0.1667": [1, 1, 1.3]
+					}
+				},
+				"leftLeg": {
+					"rotation": [32.5, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-35, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"particle": {
+					"rotation": [0, 90, 0],
+					"position": [0, 26, -94],
+					"scale": [1, 1, 5.6]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "move_particle1"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "move_particle2"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "move_particle3"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.ku_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, -30, 0],
+						"0.1667": [15.96364, -26.82449, 8.30365]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [3, 0, -2]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-62.71266, 53.54326, 65.02093],
+						"0.1667": [-7.71, 53.54, 65.02]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-122.26398, 32.40263, 84.16525],
+						"0.1667": [55.9443, 53.98263, 113.55154]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [70, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 0, -3]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [-35, 0, 0],
+						"0.1667": [-34.0724, -8.53726, -12.37961]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [42.5, 0, 0],
+						"0.1667": [26.60406, -18.17696, 20.99692]
+					},
+					"position": [0, 0, 0]
+				},
+				"particle": {
+					"rotation": [0, 90, 0],
+					"position": {
+						"0.0": [0, 64, -94],
+						"0.5": [0, -2, -94]
+					},
+					"scale": [1, 1, 5.6]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "move_particle1"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "move_particle2"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "move_particle3"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.zyu_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.2917,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 40, 0],
+						"0.125": [0, -22.5, 0],
+						"0.2917": [0, 2.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-125.67831, 52.21677, -6.48009],
+						"0.125": [5.53791, 65.76918, 54.3224],
+						"0.1667": [-40.54876, 57.48078, 2.83235],
+						"0.2917": [-178.86121, 50.02378, -73.02015]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-137.70324, -38.28615, -1.87523],
+						"0.125": [-23.70963, 25.2852, -3.21829],
+						"0.1667": [-122.93822, -51.78789, 135.85764],
+						"0.2917": [15.63651, 17.47359, 160.4162]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [52.5, 0, 0],
+						"0.1667": [-5, 0, 0],
+						"0.2917": [52.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -1, -4],
+						"0.1667": [0, 1, -1]
+					}
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 22.5],
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.zyushi_1_third": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [-43.80993, 25.65891, 16.10211],
+						"0.25": [-5.53343, -49.19275, -90.90081]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-132.5, 0, 90],
+						"0.0833": [-7.5, 0, 90],
+						"0.1667": [-172.43603, 7.43547, -89.01552],
+						"0.25": [-17.44, 7.44, -89.02]
+					}
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [70, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -2, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.zyuroku_1_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.2917,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, -22.5, 0],
+						"0.1667": [0, 2.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [5.53791, 65.76918, 54.3224],
+						"0.1667": [-178.86121, 50.02378, -73.02015]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-131.5129, -60.95197, 142.76122],
+						"0.1667": [15.63651, 17.47359, 160.4162]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [52.5, 0, 0],
+						"0.1667": [52.5, 0, 0]
+					},
+					"position": [0, -1, -4]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 22.5],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.action.mikazuki.ichi_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.2,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2": [-148.90905, -3.78596, 122.73166]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2": [-27.5, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.action.mikazuki.ichi_2_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.1,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [-148.90905, -3.78596, 122.73166],
+						"0.1": [16.20167, 3.26559, 98.73081]
+					}
+				},
+				"leftArm": {
+					"rotation": [-27.5, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [45, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1": [0, -1, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.ni_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [-103.58761, -26.16284, 116.3502],
+						"0.3": [38.91239, -26.16284, 116.3502],
+						"0.4": [221.26554, -16.76902, 264.19408],
+						"0.6": [326.26554, -16.76902, 264.19408],
+						"0.7": [233.85582, -3.4683, 435.60334],
+						"0.9": [384.55921, 17.5892, 417.8607]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-51.4304, 89.63005, -51.62616],
+						"0.1": [-126.71571, 36.27127, -93.58058]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [12.5, 0, -7.5]
+					}
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [-5, 0, 7.5]
+					}
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [35, 0, 0],
+						"0.6": [70, 0, 0],
+						"0.7": [2.5, 0, 0],
+						"0.9": [52.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.3": [0, -1, -5],
+						"0.6": [0, -1, -4],
+						"0.7": [0, 0, -2],
+						"0.9": [0, -1, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "mikazuki_blead_particle",
+						"locator": "nichirintou_hold5"
+					}
+				]
+			}
+		},
+		"animation.action.mikazuki.san_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [-43.80993, 25.65891, 16.10211],
+						"0.25": [-5.53343, -49.19275, -90.90081]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-132.5, 0, 90],
+						"0.0833": [-7.5, 0, 90],
+						"0.1667": [-172.43603, 7.43547, -89.01552],
+						"0.25": [-17.44, 7.44, -89.02]
+					}
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [70, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -2, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "mikazuki_blead_particle",
+					"locator": "nichirintou_hold6"
+				}
+			}
+		},
+		"animation.action.mikazuki.go_1_first": {
+			"loop": true,
+			"animation_length": 0.625,
+			"bones": {
+				"particle": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -287.5, 0],
+						"0.25": [0, 0, 0],
+						"0.375": [0, 227.5, 0],
+						"0.5": [0, 0, 0],
+						"0.625": [0, 225, 0]
+					},
+					"position": {
+						"0.0": [0, 9, -30],
+						"0.25": [0, 17, -30],
+						"0.375": [0, 22, -30],
+						"0.5": [0, 5, -30],
+						"0.625": [0, 22, -30]
+					},
+					"scale": {
+						"0.0": [1, 1, 2.4],
+						"0.125": [1, 1, 6.1],
+						"0.25": [1, 1, 2.4],
+						"0.375": [1, 1, 6],
+						"0.5": [1, 1, 2.4],
+						"0.625": [1, 1, 4.6]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "mikazuki_blead_particle",
+					"locator": "move_particle2"
+				}
+			}
+		},
+		"animation.action.mikazuki.roku_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.125,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 40, 0],
+						"0.125": [0, -22.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-125.67831, 52.21677, -6.48009],
+						"0.125": [-48.18, 52.22, -6.48]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-137.5723, -6.29247, 8.01305],
+						"0.125": [-23.70435, -10.06509, -9.73799]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [52.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -1, -4]
+					}
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 22.5],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.action.mikazuki.shiti_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.125,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 40, 0],
+						"0.125": [0, -30, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-105.91377, 61.57276, -14.07606],
+						"0.125": [-111.05314, -68.69733, 19.7216]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-156.85918, 1.69148, -90.43453],
+						"0.125": [-33.80799, -6.74927, -102.85422]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [95, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -4, -3]
+					}
+				},
+				"leftLeg": {
+					"rotation": [27.5, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-17.5, 0, 0]
+				}
+			}
+		},
+		"animation.action.mikazuki.hachi_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.1667,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 30, 0],
+						"0.1667": [0, -62.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-149.74895, 48.80228, -59.21154],
+						"0.1667": [-69.75, 48.8, -59.21]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-176.13871, 13.97887, -47.18374],
+						"0.1667": [-20.12252, 8.55676, -66.68001]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [60, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, -8],
+						"0.1667": [0, -9, -8]
+					},
+					"scale": {
+						"0.0": [1, 1, 2.8],
+						"0.0833": [1, 1, 3.2],
+						"0.1667": [1, 1, 1.3]
+					}
+				},
+				"leftLeg": {
+					"rotation": [32.5, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-35, 0, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.action.mikazuki.ku_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.1667,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, -30, 0],
+						"0.1667": [15.96364, -26.82449, 8.30365]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [3, 0, -2]
+					}
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-62.71266, 53.54326, 65.02093],
+						"0.1667": [-7.71, 53.54, 65.02]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-122.26398, 32.40263, 84.16525],
+						"0.1667": [55.9443, 53.98263, 113.55154]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [70, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, 0, -3]
+					}
+				},
+				"leftLeg": {
+					"rotation": {
+						"0.0": [-35, 0, 0],
+						"0.1667": [-34.0724, -8.53726, -12.37961]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": {
+						"0.0": [42.5, 0, 0],
+						"0.1667": [26.60406, -18.17696, 20.99692]
+					},
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.action.mikazuki.zyu_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.2917,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 40, 0],
+						"0.125": [0, -22.5, 0],
+						"0.2917": [0, 2.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-125.67831, 52.21677, -6.48009],
+						"0.125": [5.53791, 65.76918, 54.3224],
+						"0.1667": [-40.54876, 57.48078, 2.83235],
+						"0.2917": [-178.86121, 50.02378, -73.02015]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-137.70324, -38.28615, -1.87523],
+						"0.125": [-23.70963, 25.2852, -3.21829],
+						"0.1667": [-122.93822, -51.78789, 135.85764],
+						"0.2917": [15.63651, 17.47359, 160.4162]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [52.5, 0, 0],
+						"0.1667": [-5, 0, 0],
+						"0.2917": [52.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, -1, -4],
+						"0.1667": [0, 1, -1]
+					}
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 22.5],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"animation.action.mikazuki.zyushi_1_first": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"leftArm": {
+					"rotation": {
+						"0.0": [-43.80993, 25.65891, 16.10211],
+						"0.25": [-5.53343, -49.19275, -90.90081]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-132.5, 0, 90],
+						"0.0833": [-7.5, 0, 90],
+						"0.1667": [-172.43603, 7.43547, -89.01552],
+						"0.25": [-17.44, 7.44, -89.02]
+					}
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [70, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -2, -3]
+					}
+				}
+			},
+			"particle_effects": {
+				"0.0": {
+					"effect": "mikazuki_blead_particle",
+					"locator": "nichirintou_hold6"
+				}
+			}
+		},
+		"animation.action.mikazuki.zyuroku_1_first": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.2917,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, -22.5, 0],
+						"0.1667": [0, 2.5, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [5.53791, 65.76918, 54.3224],
+						"0.1667": [-178.86121, 50.02378, -73.02015]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-131.5129, -60.95197, 142.76122],
+						"0.1667": [15.63651, 17.47359, 160.4162]
+					},
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [52.5, 0, 0],
+						"0.1667": [52.5, 0, 0]
+					},
+					"position": [0, -1, -4]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -22.5],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 22.5],
+					"position": [0, 0, 0]
+				}
+			}
+		}
+	}
+}

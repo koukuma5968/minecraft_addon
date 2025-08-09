@@ -24,8 +24,7 @@
       "minecraft:block_placer": {
         "block": "kurokumaft:olive_tree",
         "use_on" : [
-          "dirt",
-          "grass"
+          "dirt"
         ]
       }
     }

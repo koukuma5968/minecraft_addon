@@ -25,7 +25,7 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": [ "kurokumaft:steel_ingot" ],
+            "items": [ "kurokumaft:orichalcum" ],
             "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
           },
           {
@@ -34,7 +34,7 @@
           }
         ]
       },
-      "minecraft:damage": 9,
+      "minecraft:damage": 12,
       "minecraft:enchantable": {
         "value": 30,
         "slot": "axe"
@@ -48,7 +48,8 @@
       },
       "minecraft:custom_components": [
         "kurokumaft:weapon_mine_durability",
-        "kurokumaft:axe_stripped"
+        "kurokumaft:axe_stripped",
+        "kurokumaft:batch_destruction"
       ]
     }
   }

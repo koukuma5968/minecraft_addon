@@ -11,8 +11,7 @@
 				},
 				"third_use": {
 					"transitions" : [
-						{"konagoori_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
-						{"hasugoori_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"hasugoori_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
 						{"karesonosizuri_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
 						{"itegumori_third": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
 						{"tururenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 5"},

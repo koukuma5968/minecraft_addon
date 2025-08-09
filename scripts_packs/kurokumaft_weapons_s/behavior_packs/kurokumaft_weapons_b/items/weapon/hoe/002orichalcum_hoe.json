@@ -1,0 +1,57 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item" : {
+    "description": {
+      "identifier": "kurokumaft:orichalcum_hoe",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:orichalcum_hoe.name"
+      },
+      "minecraft:icon":"orichalcum_hoe",
+      "minecraft:max_stack_size": 1,
+      "minecraft:hand_equipped": true,
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 2
+        },
+        "max_durability": 2500
+      },
+      "minecraft:allow_off_hand": true,
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:orichalcum" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 8 < query.max_durability ? (query.max_durability - query.remaining_durability) / 8 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:orichalcum_hoe" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:damage": 7,
+      "minecraft:enchantable": {
+        "value": 50,
+        "slot": "hoe"
+      },
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {"block": {"tags": "query.any_tag('minecraft:is_hoe_item_destructible')"},"speed": 25}
+        ]
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:hoe_farming",
+        "kurokumaft:weapon_mine_durability",
+        "kurokumaft:batch_destruction_hoe"
+      ]
+    }
+  }
+}
+
