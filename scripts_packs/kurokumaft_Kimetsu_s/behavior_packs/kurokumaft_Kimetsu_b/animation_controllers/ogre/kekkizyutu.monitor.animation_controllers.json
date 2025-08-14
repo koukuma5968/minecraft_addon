@@ -27,6 +27,24 @@
           ]
         }
       }
+    },
+    "controller.animation.kanretunosirahime.monitor": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "start": "variable.attack_time" }
+          ]
+        },
+        "start":{
+          "animations" : [ "cooldown" ],
+          "on_entry": [
+            "/event entity @s kurokumaft:ibuki_start"
+          ],
+          "transitions": [
+            {"default": "query.any_animation_finished"}
+          ]
+        }
+      }
     }
   }
 }

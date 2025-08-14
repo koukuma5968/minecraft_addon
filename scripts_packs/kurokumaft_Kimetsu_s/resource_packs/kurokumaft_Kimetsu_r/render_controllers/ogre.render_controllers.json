@@ -76,6 +76,11 @@
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Texture.default" ]
+    },
+    "controller.render.ogre.kokushibou": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
     }
 
   }

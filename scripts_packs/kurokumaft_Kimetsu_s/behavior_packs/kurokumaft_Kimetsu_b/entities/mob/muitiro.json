@@ -174,11 +174,11 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 100,
-        "max": 100
+        "value": 160,
+        "max": 160
       },
       "minecraft:attack": {
-        "damage": 4
+        "damage": 8
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/muitiro_gear.json"

@@ -4,12 +4,12 @@ import { weightChoice } from "../../../common/KimetuCommonUtil";
 import { HonoNoKata } from "../../kata/HonoNoKata";
 
 const kyouzyuroKokyuLists = weightChoice([
-    { item: 1 , weight: 40 },
+    { item: 1 , weight: 35 },
     { item: 2 , weight: 30 },
     { item: 3 , weight: 30 },
     { item: 4 , weight: 30 },
     { item: 5 , weight: 20 },
-    { item: 9 , weight: 10 },
+    { item: 9 , weight: 15 },
 ]);
 
 /**

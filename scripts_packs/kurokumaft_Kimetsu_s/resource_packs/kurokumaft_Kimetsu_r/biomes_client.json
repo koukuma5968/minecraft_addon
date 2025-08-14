@@ -1,0 +1,14 @@
+{
+  "biomes": {
+    "kurokumaft:sunlight_mountains": {
+      "water_surface_color": "#1B9ED8",
+      "fog_identifier": "minecraft:fog_jungle_mutated",
+      "inherit_from_prior_fog": false
+    },
+    "kurokumaft:wisteria_pile_mutated": {
+      "water_surface_color": "#1B9ED8",
+      "fog_identifier": "minecraft:fog_jungle_mutated",
+      "inherit_from_prior_fog": false
+    }
+  }
+}

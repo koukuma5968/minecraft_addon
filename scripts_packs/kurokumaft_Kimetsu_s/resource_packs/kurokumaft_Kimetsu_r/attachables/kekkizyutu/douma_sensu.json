@@ -17,7 +17,8 @@
         "animations": {
           "wield": "controller.animation.douma_sensu.wield",
           "first": "animation.douma_sensu.first",
-          "third": "animation.douma_sensu.third"
+          "third": "animation.douma_sensu.third",
+          "douma": "animation.douma_sensu.douma"
         },
         "scripts": {
           "animate": [

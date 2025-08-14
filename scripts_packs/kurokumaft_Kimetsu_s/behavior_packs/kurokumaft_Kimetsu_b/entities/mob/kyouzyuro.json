@@ -174,11 +174,11 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 180,
-        "max": 180
+        "value": 240,
+        "max": 240
       },
       "minecraft:attack": {
-        "damage": 8
+        "damage": 10
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/kyouzyuro_gear.json"

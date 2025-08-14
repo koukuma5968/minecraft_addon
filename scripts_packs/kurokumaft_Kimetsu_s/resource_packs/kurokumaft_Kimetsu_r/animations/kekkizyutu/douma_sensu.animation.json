@@ -25,7 +25,46 @@
 				},
 				"douma_sensu_left": {
 					"rotation": [88.1409, -7.88417, 58.73325],
-					"position": [-6, 23, -3],
+					"position": [-5, 23, -3],
+					"scale": 1
+				}
+			}
+		},
+		"animation.kessyounomiko_scale": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"kessyounomiko_sensu_right": {
+					"scale": 0.3
+				},
+				"kessyounomiko_sensu_left": {
+					"scale": 0.3
+				}
+			}
+		},
+		"animation.kessyounomiko_sensu.third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"kessyounomiko_sensu_right": {
+					"rotation": [94.42682, -2.55932, 108.29314],
+					"position": [6, 23, -4]
+				},
+				"kessyounomiko_sensu_left": {
+					"rotation": [-277.60474, -13.97706, -126.52469],
+					"position": [1, 13, -3]
+				}
+			}
+		},
+		"animation.douma_sensu.douma": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"douma_sensu_right": {
+					"rotation": [85.45862, -9.92099, -62.88038],
+					"position": [6, 23, -4],
+					"scale": 1
+				},
+				"douma_sensu_left": {
+					"rotation": [88.14421, 7.10804, 58.24843],
+					"position": [1, 15, -3],
 					"scale": 1
 				}
 			}

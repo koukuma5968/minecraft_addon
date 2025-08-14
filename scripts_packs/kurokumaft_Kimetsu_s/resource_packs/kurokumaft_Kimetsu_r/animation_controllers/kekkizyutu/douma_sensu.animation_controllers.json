@@ -6,7 +6,8 @@
 				"default": {
 					"animations": ["first"],
 					"transitions": [
-						{"third": "!c.is_first_person"}
+						{"third": "!c.is_first_person && query.owner_identifier != 'kurokumaft:douma'"},
+						{"douma": "query.owner_identifier == 'kurokumaft:douma'"}
 					]
 				},
 				"third": {
@@ -14,6 +15,9 @@
 					"transitions": [
 						{"default": "c.is_first_person"}
 					]
+				},
+				"douma": {
+					"animations": ["douma"]
 				}
 			}
 		}

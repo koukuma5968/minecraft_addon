@@ -110,6 +110,7 @@
         "priority": 0,
         "speed_multiplier": 1
       },
+      "minecraft:behavior.restrict_sun": {},
       "minecraft:burns_in_daylight": {
       },
       "minecraft:behavior.stomp_turtle_egg": {
@@ -253,6 +254,11 @@
             },
             "cause": "entity_attack",
             "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "all",
+            "damage_multiplier": 0.5,
+            "deals_damage": "yes"
           }
         ]
       },

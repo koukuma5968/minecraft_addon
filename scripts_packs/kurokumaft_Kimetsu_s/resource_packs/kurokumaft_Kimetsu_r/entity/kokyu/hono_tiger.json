@@ -17,11 +17,11 @@
           "hono_tiger_fang_particle": "kurokumaft:hono_tiger_fang_particle"
         },
         "animations": {
-          "attack": "animation.hono_tiger.attack"
+          "shot": "animation.hono_tiger.shot"
         },
         "scripts": {
           "animate": [
-            "attack"
+            "shot"
           ]
         },
         "render_controllers": ["controller.render.hono_tiger"]

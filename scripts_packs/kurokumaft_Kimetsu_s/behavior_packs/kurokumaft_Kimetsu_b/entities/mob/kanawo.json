@@ -9,8 +9,8 @@
       "properties": {
         "kurokumaft:kaikyu": {
           "type": "int",
-          "range": [1, 10],
-          "default": 1,
+          "range": [4, 10],
+          "default": 5,
           "client_sync": true
         },
         "kurokumaft:kaikyu_ran": {
@@ -214,11 +214,11 @@
           "on_death": "Math.Min(40, 100)"
         },
         "minecraft:health": {
-          "value": 100,
-          "max": 100
+          "value": 120,
+          "max": 120
         },
         "minecraft:attack": {
-          "damage": 10
+          "damage": 9
         }
       },
       "kurokumaft:soldier_kaikyu10": {
@@ -226,11 +226,11 @@
           "on_death": "Math.Min(50, 120)"
         },
         "minecraft:health": {
-          "value": 120,
-          "max": 120
+          "value": 180,
+          "max": 180
         },
         "minecraft:attack": {
-          "damage": 10
+          "damage": 11
         }
       },
       "kurokumaft:nichirintou_equ": {

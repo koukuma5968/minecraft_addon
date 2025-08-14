@@ -75,6 +75,7 @@
         "priority": 0,
         "speed_multiplier": 1
       },
+      "minecraft:behavior.restrict_sun": {},
       "minecraft:navigation.walk": {
         "is_amphibious": true,
         "avoid_sun": true,

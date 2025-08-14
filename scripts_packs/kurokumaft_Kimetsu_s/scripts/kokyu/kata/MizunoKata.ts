@@ -1,4 +1,4 @@
-import { EntityDamageCause, EquipmentSlot, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
+import { EntityDamageCause, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player, world } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, weightChoice } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
@@ -352,12 +352,12 @@ export class MizuNoKata extends KataComonClass {
             }
             entity.setDynamicProperty("kurokumaft:mizuhati", true);
 
-            const oLocate = entity.location;
             const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+            const oLocate = entity.location;
             entity.applyKnockback({x:distance.x,z:distance.z},1.2);
             let parnum = 0;
 
-            system.waitTicks(25).then(() => {
+            system.waitTicks(20).then(() => {
                 const filter = addRegimentalFilter(0, oLocate, 8, entity);
 
                 const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
@@ -366,7 +366,7 @@ export class MizuNoKata extends KataComonClass {
                 parnum = system.runInterval(() => {
 
                     try {
-                        entity.dimension.spawnParticle("kurokumaft:mizu8_particle",{x:oLocate.x, y:oLocate.y+0.5,z:oLocate.z}, molang);
+                        entity.dimension.spawnParticle("kurokumaft:mizu8_particle",{x:entity.location.x, y:oLocate.y+0.5,z:entity.location.z}, molang);
                         entity.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:entity.location.x+1, y:entity.location.y-0.5,z:entity.location.z+1}, molang);
                         entity.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:entity.location.x+1, y:entity.location.y-0.5,z:entity.location.z-1}, molang);
                         entity.dimension.spawnParticle("kurokumaft:mizu_pillar_particle",{x:entity.location.x-1, y:entity.location.y-0.5,z:entity.location.z+1}, molang);
@@ -378,7 +378,6 @@ export class MizuNoKata extends KataComonClass {
                 },3);
             }).catch((error: any) => {
             }).finally(() => {
-                system.clearRun(parnum);
             });
 
             system.waitTicks(30).then(() => {

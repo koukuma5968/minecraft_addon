@@ -1,6 +1,7 @@
-import { ItemStack, Entity, system, TicksPerSecond, Player, System, EntityQueryOptions, world, EntityComponentTypes, EntityTameableComponent } from "@minecraft/server";
+import { ItemStack, Entity, system, TicksPerSecond, Player, System, EntityQueryOptions, world, EntityComponentTypes, EntityTameableComponent, EntityDamageCause } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
 import { addOrgeFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomInRange } from "../../common/KimetuCommonUtil";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export class Koori extends ZytuComonClass {
 
@@ -78,6 +79,7 @@ export class Koori extends ZytuComonClass {
                     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
                     this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.kokyuApplyEffect(entity, filter, 20, 2, MinecraftEffectTypes.Weakness);
 
                 } catch (error: any) {
                     system.clearRun(num);
@@ -108,19 +110,25 @@ export class Koori extends ZytuComonClass {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_koori4.value"}]});
             }
 
+            let owner = undefined;
+            const tameable = entity.getComponent(EntityComponentTypes.Tameable) as EntityTameableComponent;
+            if (tameable !== undefined && tameable.isTamed) {
+                owner = tameable.tamedToPlayer;
+            }
             const left = getLookLocationDistance(entity.getRotation().y, 2, 2, 0);
             const hasu1 = entity.dimension.spawnEntity("kurokumaft:hasuhagoori", getDistanceLocation(entity.location, left));
-            const renge1 = new hasuRenge(hasu1, entity);
+
+            const renge1 = new hasuRenge(hasu1, entity, owner);
             renge1.startMonitoring();
 
             const center = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
             const hasu2 = entity.dimension.spawnEntity("kurokumaft:hasuhagoori", getDistanceLocation(entity.location, center));
-            const renge2 = new hasuRenge(hasu2, entity);
+            const renge2 = new hasuRenge(hasu2, entity, owner);
             renge2.startMonitoring();
 
             const right = getLookLocationDistance(entity.getRotation().y, 2, -2, 0);
             const hasu3 = entity.dimension.spawnEntity("kurokumaft:hasuhagoori", getDistanceLocation(entity.location, right));
-            const renge3 = new hasuRenge(hasu3, entity);
+            const renge3 = new hasuRenge(hasu3, entity, owner);
             renge3.startMonitoring();
 
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -189,11 +197,12 @@ export class Koori extends ZytuComonClass {
             },2);
             entity.dimension.spawnParticle("kurokumaft:koori_turara_particle", entity.location);
 
-            system.waitTicks(40).then(() => {
+            system.waitTicks(2*TicksPerSecond).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
             }).catch((error: any) => {
             }).finally(() => {
+                system.clearRun(num);
             });
         } catch (error: any) {
         }
@@ -209,11 +218,25 @@ export class Koori extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_koori7.value"}]});
             }
-            system.waitTicks(6).then(() => {
+            const num = system.runInterval(() => {
+                try {
+                    const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+                    const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
+                    this.kokyuApplyDamage(entity, filter, 4, 2);
+
+                } catch (error: any) {
+                    system.clearRun(num);
+                }
+            },2);
+
+            entity.dimension.spawnParticle("kurokumaft:tirirenge_particle", entity.location);
+
+            system.waitTicks(1*TicksPerSecond).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
             }).catch((error: any) => {
             }).finally(() => {
+                system.clearRun(num);
             });
         } catch (error: any) {
         }
@@ -229,6 +252,16 @@ export class Koori extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_koori8.value"}]});
             }
+
+            const center = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+            const miko = entity.dimension.spawnEntity("kurokumaft:kessyounomiko", getDistanceLocation(entity.location, center));
+            const tameable = miko.getComponent(EntityComponentTypes.Tameable) as EntityTameableComponent;
+            if (!tameable.isTamed) {
+                if (entity instanceof Player) {
+                    tameable.tame(entity);
+                }
+            }
+
             system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -248,6 +281,16 @@ export class Koori extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_koori9.value"}]});
             }
+
+            const center = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
+            const bosatu = entity.dimension.spawnEntity("kurokumaft:muhyousuirenbosatu", getDistanceLocation(entity.location, center));
+            const tameable = bosatu.getComponent(EntityComponentTypes.Tameable) as EntityTameableComponent;
+            if (!tameable.isTamed) {
+                if (entity instanceof Player) {
+                    tameable.tame(entity);
+                }
+            }
+
             system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -258,6 +301,35 @@ export class Koori extends ZytuComonClass {
         }
     }
 
+    /**
+     * 菩薩範囲攻撃
+     */
+    bosatuattack(entity:Entity) {
+
+        try {
+            const num = system.runInterval(() => {
+                try {
+                    const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, 0);
+                    const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
+                    this.kokyuApplyDamage(entity, filter, 4, 2);
+
+                } catch (error: any) {
+                    system.clearRun(num);
+                }
+            },2);
+
+            system.waitTicks(2*TicksPerSecond).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+            }).finally(() => {
+                system.clearRun(num);
+            });
+        } catch (error: any) {
+        }
+
+    }
+
 }
 
 class hasuRenge extends ZytuComonClass {
@@ -265,13 +337,18 @@ class hasuRenge extends ZytuComonClass {
     entity: Entity;
     num: number;
     ownerEntity: Entity;
+    player: Player | undefined;
 
-    constructor(entity: Entity, ownerEntity: Entity) {
+    constructor(entity: Entity, ownerEntity: Entity, player: Player | undefined) {
         super();
         this.entity = entity;
         this.num = 0;
         this.ownerEntity = ownerEntity;
-        this.ownerEntity.addTag(this.entity.id)
+        this.ownerEntity.addTag(this.entity.id);
+        if (player !== undefined) {
+            this.player = player;
+            this.player.addTag(this.entity.id);
+        }
     }
 
     startMonitoring() {
@@ -281,7 +358,12 @@ class hasuRenge extends ZytuComonClass {
                 this.attackTick();
             } else {
                 system.clearRun(this.num);
-                this.ownerEntity.removeTag(this.entity.id)
+                if (this.ownerEntity.isValid) {
+                    this.ownerEntity.removeTag(this.entity.id)
+                }
+                if (this.player !== undefined) {
+                    this.player.removeTag(this.entity.id)
+                }
             }
         }, 10);
     }
@@ -290,7 +372,7 @@ class hasuRenge extends ZytuComonClass {
  
         const filter = {
             excludeFamilies: [
-                "inanimate", "animal", "hasuhagoori"
+                "inanimate", "animal", "hasuhagoori", "koori"
             ],
             excludeTypes: [
                 "item"
@@ -319,3 +401,58 @@ class hasuRenge extends ZytuComonClass {
     }
 
 }
+
+/**
+ * 白姫の息吹
+ */
+export function ibuki(entity:Entity) {
+
+    try {
+
+        const num = system.runInterval(() => {
+            try {
+                const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+                const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
+                filter.excludeFamilies?.push("koori");
+
+                const targets = entity.dimension.getEntities(filter);
+                targets.forEach(en => {
+                    if (en !== undefined && en.isValid) {
+                        if (en instanceof Player) {
+                            en.applyDamage(2, {
+                                cause: EntityDamageCause.entityAttack,
+                                damagingEntity: entity
+                            });
+                            en.addEffect(MinecraftEffectTypes.Weakness, 20, {
+                                amplifier: 2,
+                                showParticles: true
+                            });
+                        } else {
+                            en.applyDamage(4, {
+                                cause: EntityDamageCause.entityAttack,
+                                damagingEntity: entity
+                            });
+                            en.addEffect(MinecraftEffectTypes.Weakness, 20, {
+                                amplifier: 4,
+                                showParticles: true
+                            });
+                        }
+                    }
+                });
+            } catch (error: any) {
+                system.clearRun(num);
+            }
+        },2);
+
+        entity.dimension.spawnParticle("kurokumaft:itegumori_particle", entity.location);
+
+        system.waitTicks(1*TicksPerSecond).then(() => {
+        }).catch((error: any) => {
+        }).finally(() => {
+            system.clearRun(num);
+        });
+    } catch (error: any) {
+    }
+
+}
+

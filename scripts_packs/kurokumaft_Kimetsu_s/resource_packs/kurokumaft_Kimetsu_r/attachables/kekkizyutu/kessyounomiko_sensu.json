@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "kurokumaft:kessyounomiko_sensu",
+        "materials": {
+          "default": "entity_alphatest",
+          "enchanted": "entity_alphatest_glint"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/kekkizyutu/douma/kessyounomiko_sensu",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+          "default": "geometry.kessyounomiko_sensu"
+        },
+        "animations": {
+          "scale": "animation.kessyounomiko_scale",
+          "third": "animation.kessyounomiko_sensu.third"
+        },
+        "scripts": {
+          "animate": [
+            "scale",
+            "third"
+          ]
+        },
+        "render_controllers": [ "controller.render.item_default" ]
+      }
+    }
+  }
+  

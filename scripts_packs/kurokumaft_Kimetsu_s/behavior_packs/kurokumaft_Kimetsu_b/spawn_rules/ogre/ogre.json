@@ -10,10 +10,26 @@
         "minecraft:spawns_on_surface": {},
         "minecraft:spawns_on_block_filter": [
           "minecraft:grass_block",
-          "minecraft:dirt"
+          "minecraft:dirt",
+          "minecraft:stone",
+          "minecraft:granite",
+          "minecraft:diorite",
+          "minecraft:andesite",
+          "minecraft:tuff",
+          "minecraft:deepslate",
+          "minecraft:sand",
+          "minecraft:red_sand",
+          "minecraft:sandstone",
+          "minecraft:snow",
+          "minecraft:powder_snow",
+          "minecraft:snow_layer",
+          "minecraft:packed_ice",
+          "minecraft:gravel",
+          "minecraft:ice"
         ],
         "minecraft:density_limit": {
-          "surface": 1
+          "surface": 5,
+          "underground": 10
         },
         "minecraft:brightness_filter": {
           "min": 0,
@@ -21,11 +37,11 @@
           "adjust_for_weather": false
         },
         "minecraft:weight": {
-          "default": 60
+          "default": 70
         },
         "minecraft:herd": {
-          "min_size":1,
-          "max_size":1
+          "min_size":3,
+          "max_size":5
         },
         "minecraft:biome_filter": {
           "test": "has_biome_tag", "operator":"==", "value": "monster"

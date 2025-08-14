@@ -12,20 +12,12 @@
 				"third_use": {
 					"transitions" : [
 						{"hasugoori_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
-						{"karesonosizuri_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
-						{"itegumori_third": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
-						{"tururenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
-						{"kanretunosirahime_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
-						{"fuyuzareturara_third": "query.property('kurokumaft:kekkizyutu_kata') == 7"},
-						{"tirirenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 8"}
-					]
-				},
-				"konagoori_third" : {
-					"animations" : [
-						"konagoori_third"
-					],
-					"transitions" : [
-						{"default":"!query.property('kurokumaft:kokyu_use')"}
+						{"karesonosizuri_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"itegumori_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"tururenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
+						{"kanretunosirahime_third": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"fuyuzareturara_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
+						{"tirirenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 7"}
 					]
 				},
 				"hasugoori_third" : {
@@ -80,6 +72,41 @@
 					"animations" : [
 						"tirirenge_third"
 					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				}
+			}
+		},
+		"controller.animation.bosatu.action" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"attack_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"itegumori_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"tirirenge_third": "query.property('kurokumaft:kekkizyutu_kata') == 7"}
+					]
+				},
+				"attack_third" : {
+					"animations" : [
+						"attack_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"itegumori_third" : {
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"tirirenge_third" : {
 					"transitions" : [
 						{"default":"!query.property('kurokumaft:kokyu_use')"}
 					]

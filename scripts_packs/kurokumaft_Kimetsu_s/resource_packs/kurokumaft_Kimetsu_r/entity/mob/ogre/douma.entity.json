@@ -14,6 +14,9 @@
         "default": "geometry.douma",
         "nichirintou_custom": "geometry.nichirintou_custom"
       },
+      "particle_effects": {
+        "koori_slash": "kurokumaft:koori_slash_particle"
+      },
       "scripts": {
         "scaleX": "1.00",
         "scaleY": "1.06",
@@ -31,7 +34,9 @@
           "bob",
           { "damage_nearby_mobs": "variable.damage_nearby_mobs" },
           { "use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 )" },
-          { "swimming": "variable.swim_amount > 0.0" }
+          { "swimming": "variable.swim_amount > 0.0" },
+
+          "action"
         ]
       },
       "animations": {
@@ -56,7 +61,16 @@
         "riding.body": "animation.humanoid.riding.body",
         "sneaking":"animation.humanoid.sneaking",
         "swimming":"animation.humanoid.swimming",
-        "use_item_progress":"animation.humanoid.use_item_progress"
+        "use_item_progress":"animation.humanoid.use_item_progress",
+
+        "action": "controller.animation.koori.action",
+        "hasugoori_third": "animation.action.koori.hasugoori_third",
+        "karesonosizuri_third": "animation.action.koori.karesonosizuri_third",
+        "itegumori_third": "animation.action.koori.itegumori_third",
+        "tururenge_third": "animation.action.koori.tururenge_third",
+        "kanretunosirahime_third": "animation.action.koori.kanretunosirahime_third",
+        "fuyuzareturara_third": "animation.action.koori.fuyuzareturara_third",
+        "tirirenge_third": "animation.action.koori.tirirenge_third"
 
       },
       "render_controllers": [

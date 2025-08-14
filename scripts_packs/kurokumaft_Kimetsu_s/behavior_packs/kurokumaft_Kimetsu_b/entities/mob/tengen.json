@@ -212,11 +212,11 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 190,
-        "max": 190
+        "value": 250,
+        "max": 250
       },
       "minecraft:attack": {
-        "damage": 16
+        "damage": 13
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/tengen_gear.json"
@@ -288,46 +288,6 @@
             "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
             "cause": "lava",
             "damage_per_tick": 4
-          }
-        ]
-      },
-      "minecraft:damage_sensor": {
-        "triggers": [
-          {
-            "on_damage": {
-              "filters": {
-                "all_of" : [
-                  {"test": "has_damage","operator": "equals","subject": "self","value": "sonic_boom"}
-                ]
-              }
-            },
-            "cause": "sonic_boom",
-            "damage_multiplier": 0.5,
-            "deals_damage": "yes"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "all_of" : [
-                  {"test": "has_damage","operator": "equals","subject": "self","value": "block_explosion"}
-                ]
-              }
-            },
-            "cause": "block_explosion",
-            "damage_multiplier": 0.2,
-            "deals_damage": "yes"
-          },
-          {
-            "on_damage": {
-              "filters": {
-                "all_of" : [
-                  {"test": "has_damage","operator": "equals","subject": "self","value": "entity_explosion"}
-                ]
-              }
-            },
-            "cause": "entity_explosion",
-            "damage_multiplier": 0.2,
-            "deals_damage": "yes"
           }
         ]
       },

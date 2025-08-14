@@ -13,7 +13,7 @@
                         {
                             "test": "has_biome_tag",
                             "operator": "==",
-                            "value": "sunlight_mountains"
+                            "value": "kurokumaft:sunlight_mountains"
                         },
                         {
                             "test": "has_biome_tag",

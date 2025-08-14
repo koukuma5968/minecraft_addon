@@ -10,7 +10,22 @@
         "minecraft:spawns_on_surface": {},
         "minecraft:spawns_on_block_filter": [
           "minecraft:grass_block",
-          "minecraft:dirt"
+          "minecraft:dirt",
+          "minecraft:stone",
+          "minecraft:granite",
+          "minecraft:diorite",
+          "minecraft:andesite",
+          "minecraft:tuff",
+          "minecraft:deepslate",
+          "minecraft:sand",
+          "minecraft:red_sand",
+          "minecraft:sandstone",
+          "minecraft:snow",
+          "minecraft:powder_snow",
+          "minecraft:snow_layer",
+          "minecraft:packed_ice",
+          "minecraft:gravel",
+          "minecraft:ice"
         ],
         "minecraft:density_limit": {
           "surface": 1
@@ -21,7 +36,7 @@
           "adjust_for_weather": false
         },
         "minecraft:weight": {
-          "default": 2
+          "default": 20
         },
         "minecraft:herd": {
           "min_size":1,

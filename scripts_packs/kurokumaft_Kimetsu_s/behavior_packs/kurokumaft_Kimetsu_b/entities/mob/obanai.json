@@ -174,11 +174,11 @@
         "height": 1.8
       },
       "minecraft:health": {
-        "value": 130,
-        "max": 130
+        "value": 160,
+        "max": 160
       },
       "minecraft:attack": {
-        "damage": 13
+        "damage": 10
       },
       "minecraft:equipment": {
         "table": "loot_tables/entities/obanai_gear.json"

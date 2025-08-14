@@ -8,12 +8,9 @@
     "conditions": [
       {
         "minecraft:spawns_on_surface": {},
-        "minecraft:spawns_on_block_filter": [
-          "minecraft:grass_block",
-          "minecraft:dirt"
-        ],
         "minecraft:density_limit": {
-          "surface": 1
+          "surface": 1,
+          "underground": 1
         },
         "minecraft:brightness_filter": {
           "min": 0,

@@ -17,11 +17,13 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "ogre", "hasuhagoori" ]
+        "family": [ "armor_stand", "ogre", "hasuhagoori", "koori" ]
       },
       "minecraft:collision_box": {
         "width": 1.25,
         "height": 0.85
+      },
+      "minecraft:burns_in_daylight": {
       },
       "minecraft:custom_hit_test": {
         "hitboxes": [

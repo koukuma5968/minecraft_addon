@@ -20,7 +20,7 @@ export class ZytuComonClass extends KataComonClass {
                         });
                     }
                 } else {
-                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1)*1.5, {
+                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1)*1.25, {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: entity
                     });

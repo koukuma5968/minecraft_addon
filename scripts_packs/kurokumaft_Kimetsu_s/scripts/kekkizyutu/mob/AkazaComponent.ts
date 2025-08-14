@@ -4,8 +4,15 @@ import { KekkizyutuMobUseComponent } from "../KekkizyutuUseComponent";
 import { Hakaisatu } from "../zyutu/Hakaisatu";
 
 const akazaKekkizyutuLists = weightChoice([
-    { item: 2 , weight: 40 },
-    { item: 3 , weight: 10 },
+    { item: 2 , weight: 5 },
+    { item: 3 , weight: 15 },
+    { item: 4 , weight: 10 },
+    { item: 5 , weight: 10 },
+    { item: 6 , weight: 15 },
+    { item: 7 , weight: 15 },
+    { item: 8 , weight: 10 },
+    { item: 9 , weight: 5 },
+    { item: 10 , weight: 5 },
 ]);
 
 /**

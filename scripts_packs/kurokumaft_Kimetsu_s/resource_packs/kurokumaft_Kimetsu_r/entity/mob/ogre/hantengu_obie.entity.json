@@ -13,9 +13,7 @@
         "default": "geometry.hantengu"
       },
       "scripts": {
-        "scaleX": "0.24",
-        "scaleY": "0.26",
-        "scaleZ": "0.26",
+        "scale": "0.20",
         "pre_animation": [
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
         ],

@@ -3,12 +3,16 @@ import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { weightChoice } from "../../common/KimetuCommonUtil";
 
 const kekkizyutuLists = weightChoice([
-    { item: 'kurokumaft:bakketu' , weight: 30 },
-    { item: 'kurokumaft:gyutaro_kama' , weight: 20 },
-    { item: 'kurokumaft:hakaisatu' , weight: 20 },
-    { item: 'kurokumaft:hantengu' , weight: 20 },
-    { item: 'kurokumaft:koushi' , weight: 30 },
-    { item: 'kurokumaft:obi' , weight: 20 },
+    { item: 'kurokumaft:bakketu' , weight: 20 },
+    { item: 'kurokumaft:koushi' , weight: 20 },
+    { item: 'kurokumaft:obi' , weight: 15 },
+    { item: 'kurokumaft:nichirintou_kaigaku' , weight: 10 },
+    { item: 'kurokumaft:gyutaro_kama' , weight: 10 },
+    { item: 'kurokumaft:zouhakuten_bati' , weight: 10 },
+    { item: 'kurokumaft:hakaisatu' , weight: 5 },
+    { item: 'kurokumaft:douma_sensu' , weight: 5 },
+    { item: 'kurokumaft:kyokokukamusari' , weight: 5 },
+    
 ]);
 
 export class BloodDrinking implements ItemCustomComponent {
@@ -89,16 +93,9 @@ export class BloodDrinking implements ItemCustomComponent {
                                 player.dimension.spawnItem(itemstack, player.location);
                             }
                             const kekkizyutu = kekkizyutuLists.pick();
-                            if (kekkizyutu === "kurokumaft:hantengu") {
-                                const zyutu = new ItemStack("kurokumaft:zouhakuten_bati", 1);
-                                zyutu.lockMode = ItemLockMode.slot;
-                                container.setItem(0, zyutu);
-
-                            } else {
-                                const zyutu = new ItemStack(kekkizyutu, 1);
-                                zyutu.lockMode = ItemLockMode.slot;
-                                container.setItem(0, zyutu);
-                            }
+                            const zyutu = new ItemStack(kekkizyutu, 1);
+                            zyutu.lockMode = ItemLockMode.slot;
+                            container.setItem(0, zyutu);
                         }
 
                     break;

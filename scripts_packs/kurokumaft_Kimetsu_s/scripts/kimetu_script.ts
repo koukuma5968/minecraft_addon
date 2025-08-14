@@ -6,6 +6,8 @@ import { RaisingStatusCheckClass } from "./player/RaisingStatusCheckClass";
 import { KekkizyutuClassRecord, KekkizyutuMobClassRecord, KekkizyutuMobObject, KekkizyutuMobObjects, KekkizyutuObject, KekkizyutuObjects } from "./item/weapon/KekkizyutuTypes";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { getLookLocationDistance, getRandomInRange, isBelowThreshold, weightChoice } from "./common/KimetuCommonUtil";
+import { ibuki } from "./kekkizyutu/zyutu/Koori";
+import { OgreKaikyu, TaishiKaikyu } from "./common/KimetuConst";
 
 // ワールド接続時
 system.beforeEvents.startup.subscribe(initEvent => {
@@ -97,6 +99,8 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
         const kekkizyutuObject = new kekkizyutuClass(entity);
         kekkizyutuObject.startMonitoring(entity);
       }
+    } else if (event.eventId === "kurokumaft:ibuki_start") {
+      ibuki(entity);
     }
   }
 
@@ -160,10 +164,9 @@ world.afterEvents.entitySpawn.subscribe(event => {
   const entity = event.entity as Entity;
   try {
     if (entity !== undefined) {
-      const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-      const kaikyuFlg = entity.getProperty("kurokumaft:kaikyu_ran") as boolean;
-      if (kaikyuFlg !== undefined && kaikyuFlg && kaikyuNum !== undefined && kaikyuNum !== 11 && event.cause === EntityInitializationCause.Spawned) {
-        const kaikyuRan = getRandomInRange(1, 10);
+      const taishibject = TaishiKaikyu.find(taishi => taishi.name === entity.typeId);
+      if (taishibject !== undefined && event.cause === EntityInitializationCause.Spawned) {
+        const kaikyuRan = getRandomInRange(taishibject.min, taishibject.max);
         entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
         system.waitTicks(4).then(() => {
           entity.triggerEvent("kurokumaft:kaikyu_change");
@@ -171,16 +174,26 @@ world.afterEvents.entitySpawn.subscribe(event => {
         });
       }
       const ogre_rank = entity.getProperty("kurokumaft:ogre_rank") as string;
-      if (entity.typeId === "kurokumaft:nezuko" && event.cause === EntityInitializationCause.Spawned) {
-        const rankRan = ogreRankLists.pick();
-        entity.setProperty("kurokumaft:ogre_rank", rankRan);
-        if (ogre_rank === "quarter" || ogre_rank === "crescent") {
-          entity.setProperty("kurokumaft:ogre_moon", getRandomInRange(1, 6));
+      if (event.cause === EntityInitializationCause.Spawned) {
+        if (entity.typeId === "kurokumaft:nezuko") {
+          const rankRan = ogreRankLists.pick();
+          entity.setProperty("kurokumaft:ogre_rank", rankRan);
+          if (ogre_rank === "quarter" || ogre_rank === "crescent") {
+            entity.setProperty("kurokumaft:ogre_moon", getRandomInRange(1, 6));
+          }
+          system.waitTicks(4).then(() => {
+            entity.triggerEvent("kurokumaft:ogre_rank_change");
+          }).catch((error: any) => {
+          });
+        } else if (entity.typeId === "kurokumaft:ogre") {
+          entity.setProperty("kurokumaft:ogre_rank", "low");
+          entity.setProperty("kurokumaft:ogre_point", getRandomInRange(10, 60));
+        } else {
+          const ogreObject = OgreKaikyu.find(ogre => ogre.name === entity.typeId);
+          if (ogreObject !== undefined) {
+            entity.setProperty("kurokumaft:ogre_rank", ogreObject.rank);
+          }
         }
-        system.waitTicks(4).then(() => {
-          entity.triggerEvent("kurokumaft:ogre_rank_change");
-        }).catch((error: any) => {
-        });
       }
     }
   } catch (error: any) {
@@ -200,6 +213,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
 
 // });
 
+const raishinStastsCheck = new RaisingStatusCheckClass();
 world.afterEvents.entityDie.subscribe(event => {
   const deadEntity = event.deadEntity;
   if (!deadEntity.isValid) {
@@ -211,7 +225,7 @@ world.afterEvents.entityDie.subscribe(event => {
     if (damager !== undefined) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
       if (dfamilyTypes !== undefined && dfamilyTypes.hasTypeFamily("player") && !dfamilyTypes.hasTypeFamily("ogre")) {
-        new RaisingStatusCheckClass().statusCheck(damager as Player, deadEntity);
+        raishinStastsCheck.statusCheck(damager as Player, deadEntity);
       }
     }
   } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("player")) {
@@ -231,6 +245,9 @@ world.afterEvents.entityDie.subscribe(event => {
 world.afterEvents.entityHitEntity.subscribe(event => {
   const damagingEntity = event.damagingEntity;
   const hitEntity = event.hitEntity;
+  if (!hitEntity.isValid) {
+    return;
+  }
   const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
   const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
   if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
@@ -251,6 +268,9 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 
 world.afterEvents.entityHurt.subscribe(event => {
   const hurtEntity = event.hurtEntity;
+  if (!hurtEntity.isValid) {
+    return;
+  }
   const health = hurtEntity.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
   if (hurtEntity.typeId === "kurokumaft:sekido") {
     if (hurtEntity.getTags().length === 1) {
@@ -474,11 +494,12 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
             break;
           case 11:
             sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu-1);
-            sourceEntity.setProperty("kurokumaft:ogre_kill", 300);
+            sourceEntity.setProperty("kurokumaft:ogre_kill", 1);
             sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
           }
       }
     } else if (params[0] === "set") {
+      sourceEntity.setProperty("kurokumaft:ogre_kill", 0);
       const num = Number(params[1]);
       if (num > 0 && num <= 11) {
         sourceEntity.setProperty("kurokumaft:kaikyu", num);

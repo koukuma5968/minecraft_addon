@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:muhyousuirenbosatu",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kekkizyutu/douma/muhyousuirenbosatu"
+      },
+      "geometry": {
+        "default": "geometry.muhyousuirenbosatu"
+      },
+      "particle_effects": {
+        "koori_slash": "kurokumaft:koori_slash_particle"
+      },
+      "scripts": {
+        "scale": "4",
+        "animate": [
+          "look_at_target",
+          "action"
+        ]
+      },
+      "animations": {
+        "look_at_target":"controller.animation.humanoid.look_at_target",
+        "look_at_target_default":"animation.humanoid.look_at_target.default",
+        "look_at_target_gliding":"animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming":"animation.humanoid.look_at_target.swimming",
+
+        "action": "controller.animation.bosatu.action",
+        "attack_third": "animation.action.muhyousuirenbosatu.attack"
+
+      },
+      "render_controllers": [
+        "controller.render.ogre.douma"
+      ],
+      "enable_attachables": true
+    }
+  }
+}

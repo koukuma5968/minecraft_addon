@@ -25,6 +25,9 @@ import { KokushibouComponent } from "../../kekkizyutu/mob/KokushibouComponent";
 import { ZyutuKokushibouComponent } from "../../kekkizyutu/player/character/ZyutuKokushibouComponent";
 import { ZyutuKaigakuComponent } from "../../kekkizyutu/player/character/ZyutuKaigakuComponent";
 import { ZyutuDoumaComponent } from "../../kekkizyutu/player/character/ZyutuDoumaComponent";
+import { DoumaComponent } from "../../kekkizyutu/mob/DoumaComponent";
+import { KessyounomikoComponent } from "../../kekkizyutu/mob/KessyounomikoComponent";
+import { MuhyousuirenbosatuComponent } from "../../kekkizyutu/mob/MuhyousuirenbosatuComponent";
 
 export interface KekkizyutuObject {
     itemName:string,
@@ -162,6 +165,9 @@ export const KekkizyutuMobClassRecord: Record<string, new (entity:Entity) => Kek
     urogi: UrogiComponent,
     zouhakuten: ZouhakutenComponent,
     kokushibou: KokushibouComponent,
+    douma: DoumaComponent,
+    kessyounomiko: KessyounomikoComponent,
+    muhyousuirenbosatu: MuhyousuirenbosatuComponent
 };
 
 export const KekkizyutuMobObjects = Object.freeze([
@@ -212,5 +218,17 @@ export const KekkizyutuMobObjects = Object.freeze([
     {
         entityName: "kurokumaft:kokushibou",
         className: "kokushibou"
+    },
+    {
+        entityName: "kurokumaft:douma",
+        className: "douma"
+    },
+    {
+        entityName: "kurokumaft:kessyounomiko",
+        className: "kessyounomiko"
+    },
+    {
+        entityName: "kurokumaft:muhyousuirenbosatu",
+        className: "muhyousuirenbosatu"
     },
 ]);

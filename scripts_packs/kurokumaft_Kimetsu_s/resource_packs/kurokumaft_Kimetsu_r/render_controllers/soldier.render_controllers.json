@@ -82,6 +82,11 @@
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Texture.default" ]
     },
+    "controller.render.soldier.yoriiti": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
     "controller.render.soldier.regimental_girl": {
       "arrays": {
         "textures": {

@@ -113,6 +113,7 @@
         "priority": 0,
         "speed_multiplier": 1
       },
+      "minecraft:behavior.restrict_sun": {},
       "minecraft:burns_in_daylight": {
       },
       "minecraft:behavior.stomp_turtle_egg": {
@@ -198,7 +199,7 @@
         ]
       },
       "minecraft:attack": {
-        "damage": 8
+        "damage": 15
       },
       "minecraft:breathable": {
         "total_supply": 15,
@@ -220,6 +221,17 @@
       },
       "minecraft:damage_sensor": {
         "triggers": [
+          {
+            "on_damage": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_brightness", "subject": "self", "operator": ">", "value": 7 }
+                ]
+              }
+            },
+            "cause": "fire",
+            "deals_damage": "yes"
+          },
           {
             "on_damage": {
               "filters": {
@@ -259,6 +271,11 @@
             },
             "cause": "entity_attack",
             "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "all",
+            "damage_multiplier": 0.5,
+            "deals_damage": "yes"
           }
         ]
       },

@@ -6,27 +6,27 @@ export const ogreRankPoint = Object.freeze([
     {
         rank: "low",
         point: 2,
-        damage: 4
+        damage: 3
     },
     {
         rank: "unusual",
         point: 3,
-        damage: 3
+        damage: 2
     },
     {
         rank: "quarter",
         point: 5,
-        damage: 2
+        damage: 1
     },
     {
         rank: "crescent",
         point: 8,
-        damage: 1
+        damage: 0.5
     },
     {
         rank: "king",
         point: 12,
-        damage: 0.75
+        damage: 0.25
     },
 ]);
 
@@ -63,7 +63,7 @@ export class KataComonClass {
         const targets = entity.dimension.getEntities(filter);
 
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum * 2;
+        const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum * 1.5;
         targets.forEach(en => {
             if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
@@ -88,7 +88,7 @@ export class KataComonClass {
                         } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
                             const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
                             const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                            en.applyDamage(pDamage*(damageNum+(point !== undefined ? point.damage : 0.5)), {
+                            en.applyDamage(pDamage*(damageNum+(point !== undefined ? point.damage : 5)), {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
@@ -99,7 +99,7 @@ export class KataComonClass {
                     if (damagerFamilyTypes !== undefined && damagerFamilyTypes.hasTypeFamily("ogre")) {
                         const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
                         const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                        en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.damage : 0.5)), {
+                        en.applyDamage(enDamage*(damageNum)*(point !== undefined ? point.point : 0.5), {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
@@ -108,7 +108,7 @@ export class KataComonClass {
                         if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
                             const ogre_rank = en.getProperty("kurokumaft:ogre_rank");
                             const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                            en.applyDamage(enDamage*(damageNum+(point !== undefined ? point.point : 5)), {
+                            en.applyDamage(enDamage*(damageNum)*(point !== undefined ? point.damage : 5), {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });

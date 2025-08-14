@@ -214,8 +214,8 @@
           "on_death": "Math.Min(40, 100)"
         },
         "minecraft:health": {
-          "value": 100,
-          "max": 100
+          "value": 120,
+          "max": 120
         },
         "minecraft:attack": {
           "damage": 10
@@ -226,8 +226,8 @@
           "on_death": "Math.Min(50, 120)"
         },
         "minecraft:health": {
-          "value": 120,
-          "max": 120
+          "value": 200,
+          "max": 200
         },
         "minecraft:attack": {
           "damage": 10

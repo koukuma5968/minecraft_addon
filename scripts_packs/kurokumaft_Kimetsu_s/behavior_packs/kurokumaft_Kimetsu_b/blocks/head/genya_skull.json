@@ -30,7 +30,7 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "genya_skull",
-					"render_method": "opaque"
+					"render_method": "alpha_test"
 				}
 			},
 			"minecraft:destructible_by_explosion": {

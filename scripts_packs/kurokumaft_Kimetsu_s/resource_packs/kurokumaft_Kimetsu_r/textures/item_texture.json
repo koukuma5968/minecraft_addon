@@ -452,6 +452,9 @@
       "douma_boots": {
          "textures" : "textures/kurokumaft/items/armor/douma/douma_boots"
       },
+      "kessyounomiko_sensu": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/kessyounomiko_sensu"
+      },
 
       "kyokokukamusari": {
          "textures" : "textures/kurokumaft/items/kekkizyutu/kyokokukamusari"
