@@ -26,7 +26,7 @@ export async function megaBrand(player:Player) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -68,7 +68,7 @@ export async function explosion(player:Player) {
     let dim = explosion.dimension;
     let loca = explosion.location;
     const intervalNum = system.runInterval(() => {
-        if (explosion.isValid()) {
+        if (explosion.isValid) {
             explosion.dimension.spawnParticle("kurokumaft:explosion_wave", explosion.location);
             dim = explosion.dimension;
             loca = explosion.location;

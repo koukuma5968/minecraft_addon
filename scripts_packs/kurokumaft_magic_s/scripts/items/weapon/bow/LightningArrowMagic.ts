@@ -5,7 +5,7 @@ import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from
  */
 export async function lightningArrow(entity:Entity) {
     const intervalNum = system.runInterval(() => {
-        if (entity.isValid()) {
+        if (entity.isValid) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {
                     entity.dimension.spawnParticle("kurokumaft:thunder_desires_particle", entity.location);

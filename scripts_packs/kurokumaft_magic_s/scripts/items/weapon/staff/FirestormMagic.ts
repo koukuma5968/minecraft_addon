@@ -19,7 +19,7 @@ export async function bramFang(player:Player) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -57,7 +57,7 @@ export async function fireStorm(player:Player) {
     
         const targets = dim.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
 

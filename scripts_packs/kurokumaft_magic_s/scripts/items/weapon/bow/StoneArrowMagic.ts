@@ -4,9 +4,9 @@ import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from
  * ストーンアロー
  */
 export async function stoneArrow(entity:Entity) {
-    entity.applyKnockback(1,1,1,1);
+    entity.applyKnockback({x:1,z:1},1);
     const intervalNum = system.runInterval(() => {
-        if (entity.isValid()) {
+        if (entity.isValid) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {
                     entity.applyDamage(1, {

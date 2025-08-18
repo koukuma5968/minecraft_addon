@@ -1,4 +1,4 @@
-import { ItemStack, EntityComponentTypes, system, Entity, EntityInventoryComponent, Container, TicksPerSecond, world, Block, BlockComponentOnPlaceEvent, BlockComponentPlayerDestroyEvent, BlockCustomComponent, Dimension, Direction } from "@minecraft/server";
+import { ItemStack, EntityComponentTypes, system, Entity, EntityInventoryComponent, Container, TicksPerSecond, world, Block, BlockComponentOnPlaceEvent, BlockComponentPlayerBreakEvent, BlockCustomComponent, Dimension, Direction } from "@minecraft/server";
 
 interface MagicBrewingItemObject {
     materialItem:string,
@@ -87,7 +87,7 @@ export class MagicBrewingStandBlock implements BlockCustomComponent {
         new MagicBrewingStand(magic_brewing_stand, block).checkPosionBrewTick();
     }
 
-    onPlayerDestroy(blockEvent:BlockComponentPlayerDestroyEvent) {
+    onPlayerBreak(blockEvent:BlockComponentPlayerBreakEvent) {
         const block = blockEvent.block;
         const dimension = blockEvent.dimension;
         breakMagicBrewing(block, dimension);
@@ -115,7 +115,7 @@ export class MagicBrewingStand {
 
     private async checkJob() {
 
-        if (this.stand.isValid()) {
+        if (this.stand.isValid) {
             const inventory = this.stand.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
             const container = inventory.container as Container;
 

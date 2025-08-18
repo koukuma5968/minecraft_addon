@@ -1,11 +1,10 @@
 import { world,Entity, Player, EntityDamageSource, Block, system, TicksPerSecond, ScriptEventSource, EntityInitializationCause, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, ItemStack, EntityTypeFamilyComponent } from "@minecraft/server";
 import { magicShieldGuard, magicShieldCounter, MagicShieldKnockback } from "./items/weapon/shield/MagicShieldEvent";
 import { hitMagicAmor } from "./items/weapon/armor/MagicAmorHitEvent";
-import { initRegisterMagicCustom, initMagicStateChangeMonitor } from "./custom/MagicCustomComponentRegistry";
+import { initRegisterMagicCustom } from "./custom/MagicCustomComponentRegistry";
 import { checkArrowProjectile, hitArrowEvent, magicBowShot } from "./items/weapon/bow/BowWeaponMagic";
 import { checkWandProjectile, hitWandProjectileEvent } from "./items/weapon/wand/WandWeaponMagic";
 import { checkShellProjectile, hitShellEvent } from "./items/weapon/bazooka/BazookaWeaponMagic";
-import { waterCauldron } from "./items/weapon/grimoire/WaterGrimoireMagic";
 import { magic_lectern_break } from "./block/MagicLecternBlock";
 import { portalGateBreak } from "./block/PortalBlock";
 import { explodeBedrock } from "./common/MagicCommonUtil";
@@ -18,31 +17,39 @@ import { aquaJackalAttack } from "./mob/animal/AquaJackal";
 import { snowWolfAttack } from "./mob/animal/SnowWolf";
 import { earthRhinoKnockback } from "./mob/animal/EarthRhino";
 import { BossActionClassRecord, BossActionObject, BossActionObjects } from "./mob/boos/mover/BossActionInterface";
+import { MagicPlayerMonitorTick } from "./player/MagicArmorEquipment";
+import { checkMagicAttack } from "./items/weapon/MagicAttackEvent";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
 // ワールド接続時
-world.beforeEvents.worldInitialize.subscribe(initEvent => {
+system.beforeEvents.startup.subscribe(initEvent => {
     initRegisterMagicCustom(initEvent);
-    initMagicStateChangeMonitor(initEvent);
 });
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
     leaveEvent.player.clearDynamicProperties();
+});
+
+world.afterEvents.playerSpawn.subscribe(event => {
+    new MagicPlayerMonitorTick(event.player).startMonitoring();
 });
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     const entity = event.entity;
     if (event.eventId == "kurokumaft:explosion_guard_knockback") {
         MagicShieldKnockback(entity);
-    // } else if (event.eventId == "kurokumaft:attack_event") {
-    //     world.sendMessage(event.eventId);
+    } else if (event.eventId == "kurokumaft:attack_event") {
+        if (entity instanceof Player) {
+            checkMagicAttack(entity);
+        }
+
     // } else if (event.eventId == "kurokumaft:jump_event") {
-    //     world.sendMessage(event.eventId);
+    //     player.onScreenDisplay.setActionBar(event.eventId);
     // } else if (event.eventId == "kurokumaft:two_jump_event") {
-    //     world.sendMessage(event.eventId);
+    //     player.onScreenDisplay.setActionBar(event.eventId);
     //     entity.applyKnockback(0, 1, 0, 0.8);
     // } else if (event.eventId == "kurokumaft:on_ground_event") {
-    //     world.sendMessage(event.eventId);
+    //     player.onScreenDisplay.setActionBar(event.eventId);
     } else if (event.eventId == "kurokumaft:moniter_boss_event") {
         const object = BossActionObjects.find(ob => ob.entityName == entity.typeId) as BossActionObject;
         if (object != undefined) {
@@ -148,27 +155,6 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 
 });
 
-// ブロック右クリック後
-world.afterEvents.itemUseOn.subscribe(event => {
-    const player = event.source;
-    const item = event.itemStack;
-    const block = event.block;
-    const blockFace = event.blockFace;
-
-    if (item != undefined && item.typeId == "kurokumaft:grimoire_water") {
-        waterCauldron(event);
-    }
-
-});
-
-// ブロック右クリック前
-world.beforeEvents.itemUseOn.subscribe(event => {
-    const player = event.source;
-    const item = event.itemStack;
-    const block = event.block;
-    const blockFace = event.blockFace;
-});
-
 // ブロック爆発後
 world.afterEvents.blockExplode.subscribe(event => {
     const block = event.block;
@@ -214,12 +200,12 @@ world.afterEvents.entitySpawn.subscribe(event => {
 
     if (cause == EntityInitializationCause.Spawned){
         if (entity.typeId == "kurokumaft:dolphin_ultrasonic") {
-            world.playSound("mob.dolphin.death", entity.location, {
+            entity.dimension.playSound("mob.dolphin.death", entity.location, {
                 pitch:1,
                 volume:2
             });
         } else if (entity.typeId == "kurokumaft:bat_ultrasonic") {
-            world.playSound("mob.bat.death", entity.location, {
+            entity.dimension.playSound("mob.bat.death", entity.location, {
                 pitch:1,
                 volume:2
             });
@@ -273,11 +259,11 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                             tags.forEach(tag => {
                                 if (tag.indexOf("team") != -1) {
                                     player.removeTag(tag);
-                                    world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                                    player.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
                                 }
                             });
                             player.addTag("team"+params[1]);
-                            world.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]]});
+                            player.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.add", with: [params[1]]});
                             // const scoreObject =  world.scoreboard.getObjective("team"+params[1]);
                             // if (scoreObject != undefined) {
                             //     scoreObject.setScore(player.scoreboardIdentity!, 0);
@@ -294,14 +280,14 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                             tags.forEach(tag => {
                                 if (tag.indexOf("team") != -1) {
                                     player.removeTag(tag);
-                                    world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                                    player.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
                                 }
                             });
                             // const scoreObject =  world.scoreboard.getObjective("team"+params[1]);
                             // if (scoreObject != undefined) {
                             //     scoreObject.removeParticipant(player.scoreboardIdentity!);
                             //     const scoreboardIdentity = world.scoreboard.getParticipants();
-                            //     world.sendMessage(""+scoreboardIdentity.length);
+                            //     player.onScreenDisplay.setActionBar(""+scoreboardIdentity.length);
                             //     if (scoreboardIdentity.length == 0) {
                             //         world.scoreboard.removeObjective("team"+params[1]);
                             //     }
@@ -313,7 +299,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
         }
     } else if (sourceType == ScriptEventSource.Entity) {
         const sourceEntity = event.sourceEntity;
-        if (sourceEntity != undefined) {
+        if (sourceEntity != undefined && sourceEntity instanceof Player) {
             if (id == "kk:teamtag") {
                 const params = message.split(" ");
                 if (params[0] == "add") {
@@ -321,11 +307,11 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                     tags.forEach(tag => {
                         if (tag.indexOf("team") != -1) {
                             sourceEntity.removeTag(tag);
-                            world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                            sourceEntity.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
                         }
                     });
                     sourceEntity.addTag("team"+params[1]);
-                    world.sendMessage({ translate: "mess.kurokumaft:team_name.add", with: [params[1]]});
+                    sourceEntity.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.add", with: [params[1]]});
                     // const scoreObject =  world.scoreboard.getObjective("team"+params[1]);
                     // if (scoreObject != undefined) {
                     //     scoreObject.setScore(sourceEntity.scoreboardIdentity!, 0);
@@ -342,7 +328,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                     tags.forEach(tag => {
                         if (tag.indexOf("team") != -1) {
                             sourceEntity.removeTag(tag);
-                            world.sendMessage({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
+                            sourceEntity.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
                         }
                     });
                     // const scoreObject =  world.scoreboard.getObjective("team"+params[1]);

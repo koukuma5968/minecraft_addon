@@ -32,9 +32,9 @@ const bundleTaskOptions: BundleTaskParameters = {
 };
 
 const copyTaskOptions: CopyTaskParameters = {
-  copyToBehaviorPacks: [`./behavior_packs/${projectName}_b`],
+  copyToBehaviorPacks: [`./behavior_packs/${projectName}`],
   copyToScripts: ["./dist/scripts"],
-  copyToResourcePacks: [`./resource_packs/${projectName}_r`],
+  copyToResourcePacks: [`./resource_packs/${projectName}`],
 };
 
 const mcaddonTaskOptions: ZipTaskParameters = {

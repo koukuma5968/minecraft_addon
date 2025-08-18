@@ -5,7 +5,7 @@ import { shooting } from "../../../common/MagicShooterMagicEvent";
  * 焔裂き(ほむらざき)
  */
 export async function flamingDesires(entity:Entity) {
-    if (entity != undefined && entity.isValid()) {
+    if (entity != undefined && entity.isValid) {
         entity.dimension.spawnParticle("kurokumaft:flaming_desires_particle", entity.location);
         entity.applyDamage(5, {
             cause: EntityDamageCause.fire

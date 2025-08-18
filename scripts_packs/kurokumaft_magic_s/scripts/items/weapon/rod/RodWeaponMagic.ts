@@ -177,7 +177,7 @@ export class RodWeaponMagic implements ItemCustomComponent {
         }
         const wandMagicObject = RodHitObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
         wandMagicObject.func(attackEntity, hitEntity);
-        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"wandMagicObject.sendMsg"}]});
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:wandMagicObject.sendMsg}]});
 
     }
 
@@ -189,7 +189,7 @@ export class RodWeaponMagic implements ItemCustomComponent {
         if (player.isSneaking) {
             const rodFuncMagicObject = RodRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
             if (rodFuncMagicObject) {
-                player.onScreenDisplay.setActionBar({rawtext:[{translate:"rodFuncMagicObject.sendMsg"}]});
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:rodFuncMagicObject.sendMsg}]});
                 rodFuncMagicObject.func(player);
             }
         } else {
@@ -197,11 +197,11 @@ export class RodWeaponMagic implements ItemCustomComponent {
             if (rodShotMagicObject) {
 
                 shooting(player, rodShotMagicObject.event, 0, rodShotMagicObject.addition, undefined);
-                player.onScreenDisplay.setActionBar({rawtext:[{translate:"rodShotMagicObject.sendMsg"}]});
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:rodShotMagicObject.sendMsg}]});
             }
             const rodRightOneMagicObject = RodRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
             if (rodRightOneMagicObject) {
-                player.onScreenDisplay.setActionBar({rawtext:[{translate:"rodRightOneMagicObject.sendMsg"}]});
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:rodRightOneMagicObject.sendMsg}]});
                 rodRightOneMagicObject.func(player);
             }
         }

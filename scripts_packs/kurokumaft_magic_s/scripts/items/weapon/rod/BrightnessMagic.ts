@@ -23,7 +23,7 @@ export async function lightFang(player:Player, hitEntity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -86,7 +86,7 @@ export async function areaheel(player:Player) {
         maxDistance: 10
     });
     p.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -96,7 +96,7 @@ export async function areaheel(player:Player) {
         });
     });
     f.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -106,7 +106,7 @@ export async function areaheel(player:Player) {
         });
     });
     u.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 

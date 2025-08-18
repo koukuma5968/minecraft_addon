@@ -80,12 +80,12 @@ function magicShieldCounter(player:Player, damager:Entity) {
             const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"fall"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:aero_bomb_short_particle", damager.location);
-            damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
+            damager.applyKnockback({x:Math.round(view.x)*10,z:Math.round(view.z)*10},1);
         } else if (mainhand != undefined && mainhand.typeId == "kurokumaft:wind_magic_shield") {
             const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"fall"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:aero_bomb_short_particle", damager.location);
-            damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
+            damager.applyKnockback({x:Math.round(view.x)*10,z:Math.round(view.z)*10},1);
         }
         // 雷の盾
         if (offhand != undefined && offhand.typeId == "kurokumaft:thunder_magic_shield") {
@@ -124,12 +124,12 @@ function magicShieldCounter(player:Player, damager:Entity) {
             const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"piston"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:grey_bomb_short_particle", damager.location);
-            damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
+            damager.applyKnockback({x:Math.round(view.x)*10,z:Math.round(view.z)*10},1);
         } else if (mainhand != undefined && mainhand.typeId == "kurokumaft:stone_magic_shield") {
             const view = player.getViewDirection();
             damager.applyDamage(1,{"cause":"piston"} as EntityApplyDamageOptions);
             damager.dimension.spawnParticle("kurokumaft:grey_bomb_short_particle", damager.location);
-            damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
+            damager.applyKnockback({x:Math.round(view.x)*10,z:Math.round(view.z)*10},1);
         }
         // 氷の盾
         if (offhand != undefined && offhand.typeId == "kurokumaft:ice_magic_shield") {
@@ -145,7 +145,7 @@ function magicShieldCounter(player:Player, damager:Entity) {
 };
 
 async function MagicShieldKnockback(entity:Entity) {
-    entity.applyKnockback(1, 1, 0.2, 0.2);
+    entity.applyKnockback({x:1, z:1}, 0.2);
     if (entity instanceof Player) {
         magicShieldGuard(entity, false);
     }

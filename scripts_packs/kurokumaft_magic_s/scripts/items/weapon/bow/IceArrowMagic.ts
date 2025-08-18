@@ -5,7 +5,7 @@ import { Entity, EntityDamageCause, Player, system, TicksPerSecond, world } from
  */
 export async function iceArrow(entity:Entity) {
     const intervalNum = system.runInterval(() => {
-        if (entity.isValid()) {
+        if (entity.isValid) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {
                     entity.applyDamage(1, {

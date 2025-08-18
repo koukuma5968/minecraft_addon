@@ -165,13 +165,13 @@ const OtherDownMagicObjects = Object.freeze([
         itemName: "kurokumaft:dark_wand",
         event: "",
         func: invisibility,
-        sendMsg: "§8インビジブル"
+        sendMsg: "magic.kurokumaft:invisibility.translate"
     },
     {
         itemName: "kurokumaft:light_wand",
         event: "",
         func: recovery,
-        sendMsg: "§eリカバリー"
+        sendMsg: "magic.kurokumaft:recovery.translate"
     }
 
 ]);
@@ -193,7 +193,7 @@ export class WandWeaponMagic implements ItemCustomComponent {
         }
         const wandMagic = WandHitObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
         wandMagic.func(attackEntity, hitEntity);
-        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"wandMagic.sendMsg"}]});
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:wandMagic.sendMsg}]});
     }
 
     // 右クリック
@@ -220,7 +220,7 @@ export class WandWeaponMagic implements ItemCustomComponent {
             }
         }
 
-        player.onScreenDisplay.setActionBar({rawtext:[{translate:"wandMagic.sendMsg"}]});
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:wandMagic.sendMsg}]});
 
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
 

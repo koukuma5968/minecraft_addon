@@ -6,7 +6,7 @@ import { shooting } from "../../../common/MagicShooterMagicEvent";
  */
 export function windDesires(entity:Entity) {
 
-    if (entity != undefined && entity.isValid()) {
+    if (entity != undefined && entity.isValid) {
         entity.dimension.spawnParticle("kurokumaft:wind_desires_particle", {x:entity.location.x+0.5,y:entity.location.y,z:entity.location.z});
         entity.dimension.spawnParticle("kurokumaft:wind_desires_particle", {x:entity.location.x,y:entity.location.y,z:entity.location.z});
         entity.dimension.spawnParticle("kurokumaft:wind_desires_particle", {x:entity.location.x-0.5,y:entity.location.y,z:entity.location.z});

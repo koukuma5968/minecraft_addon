@@ -23,7 +23,7 @@ export async function stoneBread(player:Player, hitEntity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -60,7 +60,7 @@ export async function rockbreak(player:Player) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -98,7 +98,7 @@ export async function greybomb(player:Player) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 

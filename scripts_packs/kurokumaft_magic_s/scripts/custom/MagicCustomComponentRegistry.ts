@@ -1,8 +1,6 @@
-import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { WandWeaponMagic } from "../items/weapon/wand/WandWeaponMagic";
 import { SwordWeaponMagic, SwordWeaponMagicMons } from "../items/weapon/sword/SwordWeaponMagic";
 import { BowShotMagic } from "../items/weapon/bow/BowWeaponMagic";
-import { checkMagicPlayerEquTick } from "../player/MagicArmorEquipment";
 import { StickWeaponMagic } from "../items/weapon/stick/StickWeaponMagic";
 import { RodWeaponMagic } from "../items/weapon/rod/RodWeaponMagic";
 import { StaffWeaponMagic } from "../items/weapon/staff/StaffWeaponMagic";
@@ -26,12 +24,13 @@ import { MagicBrewingStandBlock } from "../block/MagicBrewingStand";
 import { MagicPotionDrink } from "../items/potion/MagicPotionDrink";
 import { MagicMineDurability } from "../items/tool/MagicMineDurability";
 import { PicMagicAttack, PicMagicTool } from "../items/pickaxe/MagicPickaxe";
+import { StartupEvent } from "@minecraft/server";
 
 /**
  * カスタムコンポーネントの登録
- * @param {WorldInitializeBeforeEvent} initEvent
+ * @param {StartupEvent} initEvent
  */
-function initRegisterMagicCustom(initEvent:WorldInitializeBeforeEvent) {
+function initRegisterMagicCustom(initEvent:StartupEvent) {
 
     // アイテム類
     // ワンド系
@@ -109,12 +108,4 @@ function initRegisterMagicCustom(initEvent:WorldInitializeBeforeEvent) {
 
 }
 
-/**
- * 監視スレッドの登録
- * @param {WorldInitializeBeforeEvent} initEvent
- */
-function initMagicStateChangeMonitor(initEvent:WorldInitializeBeforeEvent) {
-    checkMagicPlayerEquTick();
-}
-
-export {initRegisterMagicCustom, initMagicStateChangeMonitor}
+export {initRegisterMagicCustom}

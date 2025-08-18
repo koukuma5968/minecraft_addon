@@ -25,7 +25,7 @@
         },
         "kurokumaft:kekkizyutu_kata": {
           "type": "int",
-          "range": [0, 10],
+          "range": [0, 9],
           "default": 0,
           "client_sync": true
         },

@@ -66,7 +66,7 @@ export async function sonicSlicer(player:Player) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -120,7 +120,7 @@ export async function mailstrom(player:Player) {
 
         const targets = dim.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
 

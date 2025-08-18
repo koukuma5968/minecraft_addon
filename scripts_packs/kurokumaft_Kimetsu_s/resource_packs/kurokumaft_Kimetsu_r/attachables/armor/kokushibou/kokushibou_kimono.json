@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:kokushibou_kimono",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/armor/kokushibou/kokushibou_uniform",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.kokushibou_kimono"
+      },
+      "render_controllers": ["controller.render.armor"]
+    }
+  }
+}

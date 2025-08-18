@@ -449,6 +449,9 @@ magic.kurokumaft:deepSnow.translate=§fディープスノー
 magic.kurokumaft:absorption.translate=§8アブソープション
 magic.kurokumaft:healing.translate=§eヒーリング
 
+magic.kurokumaft:invisibility.translate=§8インビジブル
+magic.kurokumaft:recovery.translate=§eリカバリー
+
 magic.kurokumaft:fireSword.translate=§4フレイムソード
 magic.kurokumaft:waterSword.translate=§bウォーターソード
 magic.kurokumaft:windSword.translate=§aウィンドソード

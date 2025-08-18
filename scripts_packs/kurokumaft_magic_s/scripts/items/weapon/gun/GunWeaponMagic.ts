@@ -121,6 +121,6 @@ async function magicGunShot(player: Player, itemStack: ItemStack, gunMagicObject
     }
     itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     player.setProperty(gunMagicObject.property, 0);
-    player.onScreenDisplay.setActionBar({rawtext:[{translate:"gunMagicObject.sendMsg"}]});
+    player.onScreenDisplay.setActionBar({rawtext:[{translate:gunMagicObject.sendMsg}]});
 
 }

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.60",
+  "format_version": "1.21.90",
   "minecraft:biome": {
     "description": {
       "identifier": "kurokumaft:forest_magic_lightning"
@@ -13,24 +13,39 @@
       "minecraft:overworld_height": {
         "noise_type": "default"
       },
-      "minecraft:surface_parameters": {
-        "sea_floor_depth": 7,
-        "sea_floor_material": "minecraft:gravel",
-        "foundation_material": "minecraft:stone",
-        "mid_material": "minecraft:dirt",
-        "top_material": "minecraft:grass_block"
+      "minecraft:replace_biomes": {
+        "replacements": [
+          {
+            "dimension": "minecraft:overworld",
+            "targets": ["minecraft:desert_hills"],
+            "amount": 0.2,
+            "noise_frequency_scale": 30
+          }
+        ]
       },
-      "minecraft:overworld_generation_rules": {
-        "hills_transformation": [
-          [ "forest", 10 ],
-          [ "jungle", 10 ],
-          [ "birch_forest", 2 ]
-        ],
-        "mutate_transformation": "sunflower_plains",
-        "generate_for_climates": [
-          [ "medium", 3 ],
-          [ "warm", 1 ],
-          [ "cold", 1 ]
+      "minecraft:surface_builder": {
+        "builder": {
+          "type":  "minecraft:overworld",
+          "sea_floor_depth": 1,
+          "sea_floor_material": "minecraft:gravel",
+          "foundation_material": "minecraft:stone",
+          "mid_material": "minecraft:stone",
+          "top_material": "minecraft:stone",
+          "sea_material": "minecraft:gravel"
+        }
+      },
+      "minecraft:surface_material_adjustments": {
+        "adjustments": [
+          {
+            "materials": {
+              "mid_material": "minecraft:calcite",
+              "top_material": "minecraft:stone",
+              "sea_material": "minecraft:gravel"
+            },
+            "height_range": [ 80, 120 ],
+            "noise_frequency_scale": 0.015,
+            "noise_range": [ -0.0125, 0.0125 ]
+          }
         ]
       },
       "minecraft:tags": {
@@ -38,7 +53,7 @@
           "animal",
           "monster",
           "overworld",
-          "forest_magic_flame"
+          "forest_magic_lightning"
         ]
       }
     }

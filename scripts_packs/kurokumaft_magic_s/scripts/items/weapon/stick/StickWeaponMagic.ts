@@ -183,7 +183,7 @@ export class StickWeaponMagic implements ItemCustomComponent {
         }
         const stickMagicObject = StickHitObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
         stickMagicObject.func(attackEntity, hitEntity);
-        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"stickMagicObject.sendMsg"}]});
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:stickMagicObject.sendMsg}]});
 
     }
 
@@ -195,7 +195,7 @@ export class StickWeaponMagic implements ItemCustomComponent {
         if (player.isSneaking) {
             const stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
             if (stickFuncMagicObject) {
-                player.onScreenDisplay.setActionBar({rawtext:[{translate:"stickFuncMagicObject.sendMsg"}]});
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:stickFuncMagicObject.sendMsg}]});
                 stickFuncMagicObject.func(player);
             }
         } else {
@@ -212,11 +212,11 @@ export class StickWeaponMagic implements ItemCustomComponent {
                 } else {
                     shooting(player, stickShotMagicObject.event, 0, stickShotMagicObject.addition, undefined);
                 }
-                player.onScreenDisplay.setActionBar({rawtext:[{translate:"stickShotMagicObject.sendMsg"}]});
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:stickShotMagicObject.sendMsg}]});
             }
             const stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
             if (stickRightOneMagicObject) {
-                player.onScreenDisplay.setActionBar({rawtext:[{translate:"stickRightOneMagicObject.sendMsg"}]});
+                player.onScreenDisplay.setActionBar({rawtext:[{translate:stickRightOneMagicObject.sendMsg}]});
                 stickRightOneMagicObject.func(player);
             }
         }

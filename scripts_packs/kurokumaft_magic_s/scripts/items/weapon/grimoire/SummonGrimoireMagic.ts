@@ -1,6 +1,7 @@
-import { EntityDamageCause, EntityQueryOptions, EquipmentSlot, ItemComponentUseEvent, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond } from "@minecraft/server";
+import { CustomComponentParameters, EntityDamageCause, EntityQueryOptions, EquipmentSlot, ItemComponentUseEvent, ItemComponentUseOnEvent, ItemCustomComponent, ItemStack, Player, system, TicksPerSecond } from "@minecraft/server";
 import { summonGrimoireDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
+import { waterCauldron } from "./WaterGrimoireMagic";
 
 interface SummonGrimoireMagicObject {
     itemName:string,
@@ -41,6 +42,12 @@ export class SummonGrimoireMagic implements ItemCustomComponent {
         }
     }
 
+    onUseOn(event: ItemComponentUseOnEvent, arg1: CustomComponentParameters) {
+        const item = event.itemStack;
+        if (item != undefined && item.typeId == "kurokumaft:grimoire_water") {
+            waterCauldron(event);
+        }
+    }
 }
 
 // // 魔導書（召喚）使用開始
@@ -66,7 +73,7 @@ export async function grimoire_summon_Release(player:Player, itemStack:ItemStack
     const summonMagicObject = SummonGrimoireObjects.find(obj => obj.itemName == itemStack.typeId) as SummonGrimoireMagicObject;
 
     player.dimension.spawnParticle(summonMagicObject.particle, {x:player.location.x,y:player.location.y+0.75,z:player.location.z});
-    player.onScreenDisplay.setActionBar({rawtext:[{translate:"summonMagicObject.sendMsg"}]});
+    player.onScreenDisplay.setActionBar({rawtext:[{translate:summonMagicObject.sendMsg}]});
     player.addTag(summonMagicObject.extag);
 
     const point = getLookRotaionPointsV2(player.getRotation(), 8, 0);
@@ -88,7 +95,7 @@ export async function grimoire_summon_Release(player:Player, itemStack:ItemStack
 
         const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
             if (en instanceof Player) {

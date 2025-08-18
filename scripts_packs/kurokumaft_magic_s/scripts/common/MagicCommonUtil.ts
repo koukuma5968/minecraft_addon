@@ -43,12 +43,11 @@ function getRandomInRange(min:number, max:number) {
 
 // サウンド再生
 /**
- * @param {Entity} entity
- * @param {String} sound
+ * @param {Player} player
+ * @param {string} sound
  */
-function playsound(entity:Entity, sound:String) {
-    const commandText =  "playsound " + sound + " @s";
-    entity.runCommandAsync(commandText);
+function playsound(player:Player, sound:string) {
+    player.playSound(sound);
 };
 
 /**

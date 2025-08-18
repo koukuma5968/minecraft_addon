@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:tanjiro_kazari",
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/armor/tanjiro/tanjiro_kazari",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.tanjiro_kazari"
+      },
+      "render_controllers": ["controller.render.armor"]
+    }
+  }
+}

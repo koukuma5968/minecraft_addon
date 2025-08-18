@@ -9809,9 +9809,11 @@ var InosukeComponent = class {
           });
           break;
         case 9:
+          entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.kuNoKata(entity, void 0);
           system19.waitTicks(15 * TicksPerSecond15).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
           });
           break;

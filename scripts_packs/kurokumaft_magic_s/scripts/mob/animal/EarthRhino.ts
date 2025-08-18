@@ -6,5 +6,5 @@ import { Entity } from "@minecraft/server";
 export async function earthRhinoKnockback(hitEntity:Entity) {
 
     hitEntity.dimension.spawnParticle("kurokumaft:rhino_knockback", hitEntity.location);
-    hitEntity.applyKnockback(0, 3, 1, 1);
+    hitEntity.applyKnockback({x:0, z:3}, 1);
 }

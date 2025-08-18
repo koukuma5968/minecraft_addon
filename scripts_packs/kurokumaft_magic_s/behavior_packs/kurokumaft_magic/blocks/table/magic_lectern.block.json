@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.80",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:magic_lectern",
@@ -10,10 +10,6 @@
 				"minecraft:placement_direction": {
 					"enabled_states": ["minecraft:cardinal_direction"]
 				}
-			},
-			"states": {
-				"kurokumaft:book_set": [0, 1],
-				"kurokumaft:stone_set": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 			}
 		},
 		"components": {

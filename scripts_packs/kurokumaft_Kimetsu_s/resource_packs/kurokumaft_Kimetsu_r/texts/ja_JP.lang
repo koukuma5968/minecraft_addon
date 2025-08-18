@@ -434,6 +434,7 @@ item.kurokumaft:soldier_pants_girl_purple.name=隊士服ズボン・紫(女)
 item.kurokumaft:soldier_skirt_girl_purple.name=隊士服キュロット・紫(女)
 item.kurokumaft:soldier_boots_girl_purple.name=隊士服ブーツ・紫(女)
 
+item.kurokumaft:tanjiro_kazari.name=炭次郎の耳飾り
 item.kurokumaft:tanjiro_tabi.name=炭次郎の足袋
 item.kurokumaft:tanjiro_haori_soldier_jacket.name=炭次郎の羽織(隊士服)
 
@@ -526,6 +527,7 @@ entity.kurokumaft:rui.name=累
 entity.kurokumaft:akaza.name=猗窩座
 entity.kurokumaft:daki.name=堕姫
 entity.kurokumaft:gyutaro.name=妓夫太郎
+entity.kurokumaft:gyokko.name=玉壺
 entity.kurokumaft:hantengu.name=半天狗
 entity.kurokumaft:sekido.name=積怒
 entity.kurokumaft:karaku.name=可楽
@@ -540,6 +542,7 @@ item.spawn_egg.entity.kurokumaft:rui.name=累
 item.spawn_egg.entity.kurokumaft:akaza.name=猗窩座
 item.spawn_egg.entity.kurokumaft:daki.name=堕姫
 item.spawn_egg.entity.kurokumaft:gyutaro.name=妓夫太郎
+item.spawn_egg.entity.kurokumaft:gyokko.name=玉壺
 item.spawn_egg.entity.kurokumaft:hantengu.name=半天狗
 item.spawn_egg.entity.kurokumaft:sekido.name=積怒
 item.spawn_egg.entity.kurokumaft:karaku.name=可楽
@@ -606,6 +609,9 @@ item.kurokumaft:kessyounomiko_sensu.name=結晶の御子の扇子
 item.kurokumaft:nichirintou_kaigaku.name=日輪刀 獪岳
 
 item.kurokumaft:kyokokukamusari.name=虚哭神去
+item.kurokumaft:kokushibou_kimono.name=黒死牟の着物
+item.kurokumaft:kokushibou_hakama.name=黒死牟の袴
+item.kurokumaft:kokushibou_tabi.name=黒死牟の足袋
 
 msg.kurokumaft:ogrerank_low.value=§f§l鬼(下)
 msg.kurokumaft:ogrerank_unusual.value=§7§l鬼(異)

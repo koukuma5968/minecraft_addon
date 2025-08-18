@@ -134,7 +134,7 @@ export class SwordWeaponMagic implements ItemCustomComponent {
             return;
         }
         const swordMagicObject = SwordHitObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
-        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"swordMagicObject.sendMsg"}]});
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:swordMagicObject.sendMsg}]});
         swordMagicObject.func(attackEntity, hitEntity);
 
     }
@@ -147,7 +147,7 @@ export class SwordWeaponMagic implements ItemCustomComponent {
             return;
         }
         const swordChargeMagicObject = SwordChargeObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
-        player.onScreenDisplay.setActionBar({rawtext:[{translate:"swordChargeMagicObject.sendMsg"}]});
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:swordChargeMagicObject.sendMsg}]});
         swordChargeMagicObject.func(player);
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }

@@ -118,7 +118,7 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
         } else {
             shooting(player, bowMagicObject.event, 0, speed, undefined);
         }
-        player.onScreenDisplay.setActionBar({rawtext:[{translate:"bowMagicObject.sendMsg"}]});
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:bowMagicObject.sendMsg}]});
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 

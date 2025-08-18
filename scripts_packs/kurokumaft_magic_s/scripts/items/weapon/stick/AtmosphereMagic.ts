@@ -27,7 +27,7 @@ export async function stormShock(player:Player, entity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -65,7 +65,7 @@ export async function atmosphere(player:Player) {
 
         const targets = dimen.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
 

@@ -1,94 +1,103 @@
-import { EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, ItemStack, Player, system, world } from "@minecraft/server";
+import { EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, ItemStack, Player, system } from "@minecraft/server";
 import { MagicHelmetSurveillance } from "../items/weapon/armor/MagicHelmetSurveillance";
 import { MagicChestSurveillance } from "../items/weapon/armor/MagicChestSurveillance";
 import { MagicLeggingsSurveillance } from "../items/weapon/armor/MagicLeggingsSurveillance";
 import { MagicBootsSurveillance } from "../items/weapon/armor/MagicBootsSurveillance";
 
-async function checkMagicPlayerEquTick() {
+export class MagicPlayerMonitorTick {
 
-    try {
-    let players = world.getPlayers() as Player[];
+    player: Player;
 
-    for (let i = 0; i < players.length; i++) {
-        const player = players[i];
-        if (!player.isValid()) {
-            continue;
-        }
-        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        const offHand = equ.getEquipment(EquipmentSlot.Offhand);
-        if (offHand != undefined) {
-            if (offHand.hasTag("kurokumaft:") && player.isSneaking) {
-                if (!player.hasTag("off_shield_guard")) {
-                    player.addTag("off_shield_guard");
-                }
-            } else {
-                if (player.hasTag("off_shield_guard")) {
-                    player.removeTag("off_shield_guard");
-                }
-            }
-        } else {
-            if (player.hasTag("off_shield_guard")) {
-                player.removeTag("off_shield_guard");
-            }
-        }
-
-        const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
-        if (mainHand != undefined) {
-            if (mainHand.hasTag("kurokumaft:") && player.isSneaking) {
-                if (!player.hasTag("main_shield_guard")) {
-                    player.addTag("main_shield_guard");
-                }
-            } else {
-                if (player.hasTag("main_shield_guard")) {
-                    player.removeTag("main_shield_guard");
-                }
-            }
-        } else {
-            if (player.hasTag("main_shield_guard")) {
-                player.removeTag("main_shield_guard");
-            }
-        }
-
-        const head = equ.getEquipment(EquipmentSlot.Head);
-        if (head != undefined) {
-            if (!player.getDynamicProperty("magic_helmet_equ")) {
-                new MagicHelmetSurveillance(player, head).checkMagicHelmetTick();
-            }
-        } else {
-            player.setDynamicProperty("magic_helmet_equ", false);
-        }
-        const chest = equ.getEquipment(EquipmentSlot.Chest);
-        if (chest != undefined) {
-            if (!player.getDynamicProperty("magic_chest_equ")) {
-                new MagicChestSurveillance(player, chest).checkMagicChestTick();
-            }
-        } else {
-            player.setDynamicProperty("magic_chest_equ", false);
-        }
-        const legs = equ.getEquipment(EquipmentSlot.Legs);
-        if (legs != undefined) {
-            if (!player.getDynamicProperty("magic_leg_equ")) {
-                new MagicLeggingsSurveillance(player, legs).checkMagicLeggingsTick();
-            }
-        } else {
-            player.setDynamicProperty("magic_leg_equ", false);
-        }
-        const feet = equ.getEquipment(EquipmentSlot.Feet);
-        if (feet != undefined) {
-            if (!player.getDynamicProperty("magic_boot_equ")) {
-                new MagicBootsSurveillance(player, feet).checkMagicBootsTick();
-            }
-        } else {
-            player.setDynamicProperty("magic_boot_equ", false);
-        }
-        checkAttackProtection(player, head, chest, legs, feet);
+    constructor(player: Player) {
+        this.player = player;
     }
-    } catch (error) {
-        if (error instanceof Error) {
-            world.sendMessage(error.message);
+
+    startMonitoring() {
+        this.checkPlayerMagicEquTick();
+    }
+
+    async checkPlayerMagicEquTick() {
+        if (this.player.isValid) {
+
+            try {
+                const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+                const offHand = equ.getEquipment(EquipmentSlot.Offhand);
+                if (offHand != undefined) {
+                    if (offHand.hasTag("kurokumaft:magic_shield") && this.player.isSneaking) {
+                        if (!this.player.hasTag("off_shield_guard")) {
+                            this.player.addTag("off_shield_guard");
+                        }
+                    } else {
+                        if (this.player.hasTag("off_shield_guard")) {
+                            this.player.removeTag("off_shield_guard");
+                        }
+                    }
+                } else {
+                    if (this.player.hasTag("off_shield_guard")) {
+                        this.player.removeTag("off_shield_guard");
+                    }
+                }
+
+                const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
+                if (mainHand != undefined) {
+                    if (mainHand.hasTag("kurokumaft:magic_shield") && this.player.isSneaking) {
+                        if (!this.player.hasTag("main_shield_guard")) {
+                            this.player.addTag("main_shield_guard");
+                        }
+                    } else {
+                        if (this.player.hasTag("main_shield_guard")) {
+                            this.player.removeTag("main_shield_guard");
+                        }
+                    }
+                } else {
+                    if (this.player.hasTag("main_shield_guard")) {
+                        this.player.removeTag("main_shield_guard");
+                    }
+                }
+
+                const head = equ.getEquipment(EquipmentSlot.Head);
+                if (head != undefined) {
+                    if (!this.player.getDynamicProperty("magic_helmet_equ")) {
+                        new MagicHelmetSurveillance(this.player, head).checkMagicHelmetTick();
+                    }
+                } else {
+                    this.player.setDynamicProperty("magic_helmet_equ", false);
+                }
+                const chest = equ.getEquipment(EquipmentSlot.Chest);
+                if (chest != undefined) {
+                    if (!this.player.getDynamicProperty("magic_chest_equ")) {
+                        new MagicChestSurveillance(this.player, chest).checkMagicChestTick();
+                    }
+                } else {
+                    this.player.setDynamicProperty("magic_chest_equ", false);
+                }
+                const legs = equ.getEquipment(EquipmentSlot.Legs);
+                if (legs != undefined) {
+                    if (!this.player.getDynamicProperty("magic_leg_equ")) {
+                        new MagicLeggingsSurveillance(this.player, legs).checkMagicLeggingsTick();
+                    }
+                } else {
+                    this.player.setDynamicProperty("magic_leg_equ", false);
+                }
+                const feet = equ.getEquipment(EquipmentSlot.Feet);
+                if (feet != undefined) {
+                    if (!this.player.getDynamicProperty("magic_boot_equ")) {
+                        new MagicBootsSurveillance(this.player, feet).checkMagicBootsTick();
+                    }
+                } else {
+                    this.player.setDynamicProperty("magic_boot_equ", false);
+                }
+                checkAttackProtection(this.player, head, chest, legs, feet);
+            } catch (error) {
+                if (error instanceof Error) {
+                    console.error(error.message);
+                }
+            }
+            system.waitTicks(2).then(() => {
+                new MagicPlayerMonitorTick(this.player).startMonitoring();
+            });
         }
     }
-    system.run(checkMagicPlayerEquTick);
 }
 
 function checkAttackProtection(player:Player, head:ItemStack|undefined, chest:ItemStack|undefined , legs:ItemStack|undefined, feet:ItemStack|undefined) {
@@ -107,5 +116,3 @@ function checkAttackProtection(player:Player, head:ItemStack|undefined, chest:It
         }
     }
 };
-
-export {checkMagicPlayerEquTick}

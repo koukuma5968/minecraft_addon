@@ -97,7 +97,7 @@ export class PicMagicAttack implements ItemCustomComponent {
         const itemStack = event.itemStack as ItemStack;
         const entity = event.hitEntity as Entity;
 
-        if (itemStack == undefined || !entity.isValid()) {
+        if (itemStack == undefined || !entity.isValid) {
             return;
         }
         const pic = PicAttackObjects.find(obj => obj.itemName == itemStack.typeId) as PicAttackObject;

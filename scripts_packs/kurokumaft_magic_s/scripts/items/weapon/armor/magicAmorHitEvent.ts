@@ -23,7 +23,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 const view = player.getViewDirection();
                 damager.applyDamage(5,{"cause":"entityExplosion"} as EntityApplyDamageOptions);
                 damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
-                damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
+                damager.applyKnockback({x:Math.round(view.x)*10, z:Math.round(view.z)*10}, 10);
                 itemDurabilityDamage(player, chest, EquipmentSlot.Chest);
             }
             if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chest") {
@@ -55,7 +55,7 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 const projComp = projectile.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
                 projComp.stopOnHit = true;
                 const intervalNum = system.runInterval(() => {
-                    if (!projectile.isValid()) {
+                    if (!projectile.isValid) {
                         projectile.clearVelocity();
                     }
                 }, 5);

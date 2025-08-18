@@ -77,7 +77,7 @@ export class StaffWeaponMagic implements ItemCustomComponent {
         }
         const staffMagicObject = StaffHitObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
         staffMagicObject.func(attackEntity);
-        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"staffMagicObject.sendMsg"}]});
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:staffMagicObject.sendMsg}]});
 
     }
 
@@ -88,7 +88,7 @@ export class StaffWeaponMagic implements ItemCustomComponent {
 
         const staffRightOneMagicObject = StaffRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StaffMagicObject;
         if (staffRightOneMagicObject) {
-            player.onScreenDisplay.setActionBar({rawtext:[{translate:"staffRightOneMagicObject.sendMsg"}]});
+            player.onScreenDisplay.setActionBar({rawtext:[{translate:staffRightOneMagicObject.sendMsg}]});
             staffRightOneMagicObject.func(player);
         }
 

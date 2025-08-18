@@ -34,7 +34,7 @@
       },
       "minecraft:damage": 0,
       "minecraft:wearable": {
-        "protection": 20,
+        "protection": 5,
         "slot": "slot.armor.chest"
       }
     }

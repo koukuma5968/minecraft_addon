@@ -11,17 +11,17 @@
 				},
 				"third_use": {
 					"transitions" : [
-						{"tuki1_1_third": "query.property('kurokumaft:kokyu_kata') == 1"},
-						{"tuki2_1_third": "query.property('kurokumaft:kokyu_kata') == 2"},
-						{"tuki3_1_third": "query.property('kurokumaft:kokyu_kata') == 3"},
-						{"tuki5_1_third": "query.property('kurokumaft:kokyu_kata') == 5"},
-						{"tuki6_1_third": "query.property('kurokumaft:kokyu_kata') == 6"},
-						{"tuki7_1_third": "query.property('kurokumaft:kokyu_kata') == 7"},
-						{"tuki8_1_third": "query.property('kurokumaft:kokyu_kata') == 8"},
-						{"tuki9_1_third": "query.property('kurokumaft:kokyu_kata') == 9"},
-						{"tuki10_1_third": "query.property('kurokumaft:kokyu_kata') == 10"},
-						{"tuki14_1_third": "query.property('kurokumaft:kokyu_kata') == 14"},
-						{"tuki16_1_third": "query.property('kurokumaft:kokyu_kata') == 16"}
+						{"tuki1_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"tuki2_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"tuki3_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"tuki5_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"tuki6_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"},
+						{"tuki7_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 7"},
+						{"tuki8_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 8"},
+						{"tuki9_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 9"},
+						{"tuki10_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 10"},
+						{"tuki14_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 14"},
+						{"tuki16_1_third": "query.property('kurokumaft:kekkizyutu_kata') == 16"}
 					]
 				},
 				"tuki1_1_third" : {

@@ -113,6 +113,9 @@
       "tanjiro_tabi": {
          "textures" : "textures/kurokumaft/items/armor/tanjiro/tanjiro_tabi"
       },
+      "tanjiro_kazari": {
+         "textures" : "textures/kurokumaft/items/armor/tanjiro/tanjiro_kazari"
+      },
 
       "nezuko_kimono": {
          "textures" : "textures/kurokumaft/items/armor/nezuko/nezuko_kimono"
@@ -458,6 +461,15 @@
 
       "kyokokukamusari": {
          "textures" : "textures/kurokumaft/items/kekkizyutu/kyokokukamusari"
+      },
+      "kokushibou_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/kokushibou/kokushibou_kimono"
+      },
+      "kokushibou_hakama": {
+         "textures" : "textures/kurokumaft/items/armor/kokushibou/kokushibou_hakama"
+      },
+      "kokushibou_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/kokushibou/kokushibou_tabi"
       },
 
       "tanjiro_head": {

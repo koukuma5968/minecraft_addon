@@ -28,7 +28,7 @@ export async function earthShock(player:Player, entity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -64,7 +64,7 @@ export async function gravityField(player:Player) {
 
         const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
 

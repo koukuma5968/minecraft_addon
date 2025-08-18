@@ -18,7 +18,7 @@ export async function windArrowShot(player:Player, arrow:string, ran:number, spe
  */
 export async function windArrow(entity:Entity) {
     const intervalNum = system.runInterval(() => {
-        if (entity.isValid()) {
+        if (entity.isValid) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {
                     entity.applyDamage(1, {

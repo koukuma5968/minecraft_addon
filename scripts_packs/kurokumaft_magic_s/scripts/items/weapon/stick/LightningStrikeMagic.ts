@@ -28,7 +28,7 @@ export async function sparkShock(player:Player, entity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
         if (en instanceof Player) {
@@ -65,7 +65,7 @@ export async function lightningStrike(player:Player) {
 
         const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
             en.dimension.spawnParticle("kurokumaft:spark_particle", en.location);

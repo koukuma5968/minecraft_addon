@@ -34,20 +34,14 @@ export class BossSummonBlock implements BlockCustomComponent {
 
 async function phoenixSummon(sumOb:BossSummonObject ,blockEvent:BlockComponentStepOnEvent) {
     const block = blockEvent.block;
-    const state = block.permutation.getState("kurokumaft:summon_check");
-    if (state == 0) {
-        const dimension = blockEvent.dimension;
-        dimension.spawnEntity(sumOb.entityName, {x:block.location.x+0.5,y:block.location.y+6,z:block.location.z+0.5})
-        block.setPermutation(block.permutation.withState("kurokumaft:summon_check", 1));
-    }
+    const dimension = blockEvent.dimension;
+    dimension.spawnEntity(sumOb.entityName, {x:block.location.x+0.5,y:block.location.y+6,z:block.location.z+0.5})
+    block.dimension.setBlockType(block.location, sumOb.itemName+"_empty");
 }
 
 async function fenrirSummon(sumOb:BossSummonObject ,blockEvent:BlockComponentStepOnEvent) {
     const block = blockEvent.block;
-    const state = block.permutation.getState("kurokumaft:summon_check");
-    if (state == 0) {
-        const dimension = blockEvent.dimension;
-        dimension.spawnEntity(sumOb.entityName, {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5})
-        block.setPermutation(block.permutation.withState("kurokumaft:summon_check", 1));
-    }
+    const dimension = blockEvent.dimension;
+    dimension.spawnEntity(sumOb.entityName, {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5})
+    block.dimension.setBlockType(block.location, sumOb.itemName+"_empty");
 }

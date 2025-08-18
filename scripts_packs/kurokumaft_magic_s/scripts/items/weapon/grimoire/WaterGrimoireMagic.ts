@@ -1,4 +1,4 @@
-import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Player, ItemUseOnAfterEvent } from "@minecraft/server";
+import { ItemComponentUseOnEvent, Entity, BlockPermutation, ItemStack, Block, Direction, Player } from "@minecraft/server";
 import { BlockLocationList, MagicCraftBlocks } from "../../../common/MagicCommonUtil";
 import { decrimentGrimoireCount } from "../../../common/MagicItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
@@ -44,9 +44,9 @@ export async function water(event:ItemComponentUseOnEvent) {
 
 /**
  * 魔導書（ウォーター）大釜使用
- * @param {ItemUseOnAfterEvent} event
+ * @param {ItemComponentUseOnEvent} event
  */
-export async function waterCauldron(event:ItemUseOnAfterEvent) {
+export async function waterCauldron(event:ItemComponentUseOnEvent) {
 
     const entity = event.source as Entity;
     const itemStack = event.itemStack as ItemStack;

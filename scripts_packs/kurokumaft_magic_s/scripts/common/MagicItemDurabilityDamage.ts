@@ -10,7 +10,7 @@ import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
  */
 async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() != GameMode.Creative) {
         const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
         const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
@@ -42,7 +42,7 @@ async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
  */
 async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number) {
 
-    if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
     }
 
@@ -67,7 +67,7 @@ async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:Equ
  */
 async function summonGrimoireDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() != GameMode.Creative) {
         const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
         const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
@@ -87,22 +87,22 @@ async function summonGrimoireDurabilityDamage(entity:Entity, item:ItemStack, slo
  */
 async function decrimentGrimoireCount(player:Player, item:ItemStack) {
 
-    if (player.getGameMode() != GameMode.creative) {
+    if (player.getGameMode() != GameMode.Creative) {
         const lore = item.getLore();
         if (lore.length > 0) {
             let cont = Number(lore[0].substring(3));
-            world.sendMessage(cont+"");
+            player.onScreenDisplay.setActionBar(cont+"");
             cont--;
-            world.sendMessage(cont+"");
+            player.onScreenDisplay.setActionBar(cont+"");
             const inventory = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
             const con = inventory.container as Container;
             if (cont == 0) {
-                world.sendMessage("grimoire_damage");
+                player.onScreenDisplay.setActionBar("grimoire_damage");
                 const grimoire_damage = new ItemStack("kurokumaft:grimoire_damage", 1);
                 con.setItem(player.selectedSlotIndex, grimoire_damage);
             } else {
                 item.setLore(["残数：" + cont]);
-                world.sendMessage(item.getLore());
+                player.onScreenDisplay.setActionBar(item.getLore());
                 con.setItem(player.selectedSlotIndex, item);
             }
         }

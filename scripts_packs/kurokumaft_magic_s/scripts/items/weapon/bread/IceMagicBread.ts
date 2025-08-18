@@ -5,7 +5,7 @@ import { shooting } from "../../../common/MagicShooterMagicEvent";
  * 斬雪(ざんせつ)
  */
 export async function iceDesires(entity:Entity) {
-    if (entity != undefined && entity.isValid()) {
+    if (entity != undefined && entity.isValid) {
         entity.dimension.spawnParticle("kurokumaft:ice_desires_particle", entity.location);
         entity.applyDamage(5, {
             cause: EntityDamageCause.freezing

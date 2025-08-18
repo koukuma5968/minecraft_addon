@@ -46,7 +46,7 @@ export async function digVault(player:Player) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -90,7 +90,7 @@ export async function flameSpark(player:Player) {
 
         const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
 

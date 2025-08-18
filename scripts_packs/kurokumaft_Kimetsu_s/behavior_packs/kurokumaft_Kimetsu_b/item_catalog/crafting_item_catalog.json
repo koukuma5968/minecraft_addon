@@ -59,15 +59,18 @@
                             "kurokumaft:urogi_ultrasonic_item",
                             "kurokumaft:zouhakuten_bati",
                             "kurokumaft:hakaisatu_item",
-                            "kurokumaft:douma_sensu"
+                            "kurokumaft:douma_sensu",
+                            "kurokumaft:kyokokukamusari",
+                            "kurokumaft:nichirintou_kaigaku"
                         ]
                     },
                     {
                         "group_identifier": {
-                            "icon": "kurokumaft:kanawo_hair_band",
+                            "icon": "kurokumaft:tanjiro_kazari",
                             "name": "kurokumaft:itemGroup.name.soldier_head"
                         },
                         "items": [
+                            "kurokumaft:tanjiro_kazari",
                             "kurokumaft:kanawo_hair_band",
                             "kurokumaft:inosuke_headdress",
                             "kurokumaft:tengen_headgear",
@@ -182,7 +185,8 @@
                             "kurokumaft:aizetu_jacket",
                             "kurokumaft:urogi_zyuzu",
                             "kurokumaft:zouhakuten_taiko",
-                            "kurokumaft:douma_haori"
+                            "kurokumaft:douma_haori",
+                            "kurokumaft:kokushibou_kimono"
                         ]
                     },
                     {
@@ -199,7 +203,8 @@
                             "kurokumaft:aizetu_hakama",
                             "kurokumaft:urogi_hakama",
                             "kurokumaft:zouhakuten_hakama",
-                            "kurokumaft:douma_hakama"
+                            "kurokumaft:douma_hakama",
+                            "kurokumaft:kokushibou_hakama"
                         ]
                     },
                     {
@@ -211,7 +216,8 @@
                             "kurokumaft:nezuko_boots",
                             "kurokumaft:akaza_ashiwa",
                             "kurokumaft:daki_geta",
-                            "kurokumaft:douma_boots"
+                            "kurokumaft:douma_boots",
+                            "kurokumaft:kokushibou_tabi"
                         ]
                     }
                 ]

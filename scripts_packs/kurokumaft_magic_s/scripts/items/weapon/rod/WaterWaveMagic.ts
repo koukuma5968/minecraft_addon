@@ -24,7 +24,7 @@ export async function watercutter(player:Player, hitEntity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -78,7 +78,7 @@ export async function waterjail(player:Player) {
     addTeamsTagFilter(player, filterOption);
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 

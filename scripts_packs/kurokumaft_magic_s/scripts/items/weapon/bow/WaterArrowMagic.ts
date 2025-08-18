@@ -10,7 +10,7 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
     water.addTag("waterarrow")
     player.addTag("waterarrow_self");
     const intervalNum = system.runInterval(() => {
-        if (water != undefined && water.isValid()) {
+        if (water != undefined && water.isValid) {
 
             const filterOption = {
                 excludeTags: [
@@ -25,7 +25,7 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
             addTeamsTagFilter(player, filterOption);
         
             const target = water.dimension.getEntities(filterOption);
-            if (target != undefined && target.length > 0 && target[0].isValid()) {
+            if (target != undefined && target.length > 0 && target[0].isValid) {
                 const targetLoc = getDirectionVector(water.location, target[0].location);
                 const tpLoc = {
                     x:water.location.x+targetLoc.x,
@@ -46,7 +46,7 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
         }
     }, 5);
     system.runTimeout(() => {
-        if (water != undefined && water.isValid()) {
+        if (water != undefined && water.isValid) {
             water.removeTag("waterarrow")
             water.removeTag("waterarrow_self")
             water.remove();
@@ -60,7 +60,7 @@ export async function waterArrowHoming(player:Player, arrow:string, ran:number, 
  */
 export async function waterArrow(entity:Entity) {
     const intervalNum = system.runInterval(() => {
-        if (entity.isValid()) {
+        if (entity.isValid) {
             if (entity instanceof Player) {
                 if (world.gameRules.pvp) {
                     entity.applyDamage(1, {

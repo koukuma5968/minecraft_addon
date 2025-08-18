@@ -1,4 +1,4 @@
-import { BlockCustomComponent, BlockComponentStepOnEvent, world, BlockComponentPlayerDestroyEvent, Block, BlockPermutation } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentStepOnEvent, world, BlockComponentPlayerBreakEvent, Block, BlockPermutation } from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftDimensionTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 interface PortalObject {
@@ -23,8 +23,8 @@ const PortalObjects = Object.freeze([
  */
 export class PortalBlock implements BlockCustomComponent {
 
-    onPlayerDestroy(blockEvent:BlockComponentPlayerDestroyEvent) {
-        const blockPermutation = blockEvent.destroyedBlockPermutation as BlockPermutation;
+    onPlayerBreak(blockEvent:BlockComponentPlayerBreakEvent) {
+        const blockPermutation = blockEvent.brokenBlockPermutation as BlockPermutation;
         const block = blockEvent.block;
         portalGateBreak(block, blockPermutation);
     }

@@ -30,7 +30,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
 
         try {
 
-            if (this.entity !== undefined && this.entity.isValid()) {
+            if (this.entity !== undefined && this.entity.isValid) {
                 const hitBlock = this.entity.dimension.getBlockFromRay(this.entity.location, {x:0,y:-1,z:0});
                 let brokHi = this.entity.location.y;
                 if (hitBlock !== undefined) {
@@ -82,7 +82,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
     centerMoveing(): void {
 
         try {
-            if (this.entity !== undefined && this.entity.isValid()) {
+            if (this.entity !== undefined && this.entity.isValid) {
                 const center = this.mover.moveCenter(1.5);
 
                 this.entity.teleport(this.entity.location, {
@@ -113,7 +113,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
     originMoveing(deltaTime: number): void {
 
         try {
-            if (this.entity !== undefined && this.entity.isValid()) {
+            if (this.entity !== undefined && this.entity.isValid) {
                 const origin = this.mover.moveOrigin(deltaTime);
 
                 this.entity.teleport(this.entity.location, {
@@ -143,7 +143,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
 
         try {
             world.sendMessage("火焔放射");
-            if (this.entity !== undefined && this.entity.isValid()) {
+            if (this.entity !== undefined && this.entity.isValid) {
                 const filterOption1 = {
                     location: this.entity.location,
                     maxDistance: 32,

@@ -1,0 +1,24 @@
+{
+  "biomes": {
+    "kurokumaft:forest_magic_flame": {
+      "water_surface_color": "#1B9ED8",
+      "fog_identifier": "minecraft:fog_jungle_mutated",
+      "inherit_from_prior_fog": false
+    },
+    "kurokumaft:forest_magic_flowing": {
+      "water_surface_color": "#1B9ED8",
+      "fog_identifier": "minecraft:fog_jungle_mutated",
+      "inherit_from_prior_fog": false
+    },
+    "kurokumaft:forest_magic_lightning": {
+      "water_surface_color": "#1B9ED8",
+      "fog_identifier": "minecraft:fog_jungle_mutated",
+      "inherit_from_prior_fog": false
+    },
+    "kurokumaft:forest_magic_rock": {
+      "water_surface_color": "#1B9ED8",
+      "fog_identifier": "minecraft:fog_jungle_mutated",
+      "inherit_from_prior_fog": false
+    }
+  }
+}

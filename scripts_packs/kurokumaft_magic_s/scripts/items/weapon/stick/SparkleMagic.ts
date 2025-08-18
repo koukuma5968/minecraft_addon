@@ -28,7 +28,7 @@ export async function sparkleShock(player:Player, entity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
         if (en instanceof Player) {
@@ -77,7 +77,7 @@ export async function hollyField(player:Player) {
 
         const targets = player.dimension.getEntities(filterOption);
         targets.forEach(en => {
-            if (!en.isValid()) {
+            if (!en.isValid) {
                 return;
             }
             en.addEffect(MinecraftEffectTypes.InstantHealth, 5, {

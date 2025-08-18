@@ -97,7 +97,7 @@ export class BreadWeaponMagic implements ItemCustomComponent {
         }
         const breadMagicObject = BreadHitObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadMagicObject.func(hitEntity);
-        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:"breadMagicObject.sendMsg"}]});
+        attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:breadMagicObject.sendMsg}]});
         itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 
     }
@@ -112,7 +112,7 @@ export class BreadWeaponMagic implements ItemCustomComponent {
         }
         const breadShotObject = BreadShotObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadShotObject.func(player);
-        player.onScreenDisplay.setActionBar({rawtext:[{translate:"breadShotObject.sendMsg"}]});
+        player.onScreenDisplay.setActionBar({rawtext:[{translate:breadShotObject.sendMsg}]});
         itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
         const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

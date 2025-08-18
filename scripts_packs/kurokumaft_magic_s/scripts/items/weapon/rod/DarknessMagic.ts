@@ -22,7 +22,7 @@ export async function darkFang(player:Player, hitEntity:Entity) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
 
@@ -62,7 +62,7 @@ export async function brushash(player:Player) {
     const targets = player.dimension.getEntities(filterOption);
     const intervalNum = system.runInterval(() => {
         targets.forEach(en => {
-            if (en.isValid()) {
+            if (en.isValid) {
                 en.dimension.spawnParticle("kurokumaft:dark_brushash_particle", en.location);
                 if (en instanceof Player) {
                     en.applyDamage(2, {
