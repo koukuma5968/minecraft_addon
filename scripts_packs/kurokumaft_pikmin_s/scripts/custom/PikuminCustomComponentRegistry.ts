@@ -1,13 +1,13 @@
-import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { ExtremelyHotSpray } from "../items/ExtremelyHotSpray";
 import { PelletGrassBlock } from "../block/PelletGrass";
 import { OniyonsBlock } from "../block/Oniyons";
+import { StartupEvent } from "@minecraft/server";
 
 /**
  * カスタムコンポーネントの登録
- * @param {WorldInitializeBeforeEvent} initEvent
+ * @param {StartupEvent} initEvent
  */
-function initPikuminRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
+function initPikuminRegisterCustom(initEvent:StartupEvent) {
 
     // アイテム類
     // 唐辛子スプレー

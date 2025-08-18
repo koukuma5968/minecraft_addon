@@ -1,11 +1,11 @@
-import { Entity, EntityComponentTypes, EntityInitializationCause, EntityTypeFamilyComponent, ItemStack, system, TicksPerSecond, world } from "@minecraft/server";
+import { Entity, EntityComponentTypes, EntityTypeFamilyComponent, ItemStack, system, TicksPerSecond, world } from "@minecraft/server";
 import { initPikuminRegisterCustom } from "./custom/PikuminCustomComponentRegistry";
 import { OniyonBase } from "./entity/OniyonBase";
 import { Pikumin } from "./entity/Pikmin";
 import { ButaDokkuri } from "./entity/ButaDokkuri";
 
 // ワールド接続時
-world.beforeEvents.worldInitialize.subscribe(initEvent => {
+system.beforeEvents.startup.subscribe(initEvent => {
     initPikuminRegisterCustom(initEvent);
 });
 
@@ -56,7 +56,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
     const entity = event.entity;
     if (entity.typeId == "kurokumaft:feather_pikmin_thrown") {
         system.runTimeout(() => {
-            if (entity.isValid()) {
+            if (entity.isValid) {
                 entity.remove();
             }
         }, 3*TicksPerSecond);

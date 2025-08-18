@@ -6,7 +6,7 @@ export class ButaDokkuri {
     dokkuriFire(dokkuri: Entity) {
 
         const num = system.runInterval(() => {
-            if (dokkuri.isValid()) {
+            if (dokkuri.isValid) {
 
                 const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
                 dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
@@ -60,7 +60,7 @@ export class ButaDokkuri {
     kodokkuriFire(dokkuri: Entity) {
 
         const num = system.runInterval(() => {
-            if (dokkuri.isValid()) {
+            if (dokkuri.isValid) {
                 const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
                 dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));
                 const target1 = dokkuri.dimension.getEntities(addDokkuriFireFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
@@ -114,7 +114,7 @@ export class ButaDokkuri {
     mizudokkuriFire(dokkuri: Entity) {
 
         const num = system.runInterval(() => {
-            if (dokkuri.isValid()) {
+            if (dokkuri.isValid) {
                 const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 1, 0, 0.5);
                 dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_mizu", getDistanceLocation(dokkuri.location, distance1));
                 const target1 = dokkuri.dimension.getEntities(addDokkuriMizuFilter(getDistanceLocation(dokkuri.location, distance1), 1.5));
@@ -167,7 +167,7 @@ export class ButaDokkuri {
     zoudokkuriFire(dokkuri: Entity) {
 
         const num = system.runInterval(() => {
-            if (dokkuri.isValid()) {
+            if (dokkuri.isValid) {
 
                 const distance1 = getLookLocationDistance(dokkuri.getRotation().y, 10, 0, 2.5);
                 dokkuri.dimension.spawnParticle("kurokumaft:dokkuri_fire", getDistanceLocation(dokkuri.location, distance1));

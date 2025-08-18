@@ -15,10 +15,10 @@ export const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosi
  */
 async function itemTans(player: Player, item: ItemStack, replaceitem: string, slot: EquipmentSlot) {
 
-    let eqc = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let newItem = new ItemStack(replaceitem, 1);
-    let dur = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-    let newDur = newItem.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const eqc = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const newItem = new ItemStack(replaceitem, 1);
+    const dur = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const newDur = newItem.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
     newDur.damage = dur.damage;
 
     replaceEnchant(item, newItem);
@@ -70,11 +70,11 @@ function getRandomInRange(min:number, max:number) {
 
 // サウンド再生
 /**
- * @param {Entity} entity
+ * @param {Player} player
  * @param {string} sound
  */
-async function playsound(entity:Entity, sound:string) {
-    world.playSound(sound, entity.location);
+async function playsound(player:Player, sound:string) {
+    player.playSound(sound);
 };
 
 /**
@@ -83,7 +83,7 @@ async function playsound(entity:Entity, sound:string) {
  * @param {ItemStack} itemStack
  */
 async function itemCoolDown(player:Player, itemStack:ItemStack) {
-    let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+    const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
     cool.startCooldown(player);
 }
 
@@ -97,7 +97,7 @@ async function breakBlock(block:Block) {
 
 // 蘇生
 function resuscitation(player: Player) {
-    let health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+    const health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
     health.setCurrentValue(5);
     player.addEffect(MinecraftEffectTypes.Absorption, TicksPerSecond * 30, {
         amplifier: 5,
@@ -108,7 +108,7 @@ function resuscitation(player: Player) {
 
 // 岩盤破壊キャンセル
 export function explodeBedrock(impactBLockList:Block[]): Block[] {
-    let filterBlockList = impactBLockList.filter(block => {
+    const filterBlockList = impactBLockList.filter(block => {
         if (!block.matches("minecraft:bedrock")) {
             return block;
         }
@@ -179,7 +179,7 @@ const weightChoice = (list: any[]) => {
 
 function addTargetFilter(closest:number, location:Vector3, maxDis:number, exeTag:string): EntityQueryOptions {
 
-    let filterOption = {
+    const filterOption = {
         excludeFamilies: [
             "inanimate", "pikmin", "villager", "animal"
         ],
@@ -206,7 +206,7 @@ function addTargetFilter(closest:number, location:Vector3, maxDis:number, exeTag
 
 function addDokkuriFireFilter(location:Vector3, maxDis:number): EntityQueryOptions {
 
-    let filterOption = {
+    const filterOption = {
         excludeFamilies: [
             "inanimate", "dokkuri_fire"
         ],
@@ -223,7 +223,7 @@ function addDokkuriFireFilter(location:Vector3, maxDis:number): EntityQueryOptio
 
 function addDokkuriMizuFilter(location:Vector3, maxDis:number): EntityQueryOptions {
 
-    let filterOption = {
+    const filterOption = {
         excludeFamilies: [
             "inanimate", "dokkuri_water"
         ],

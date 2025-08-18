@@ -1,4 +1,4 @@
-import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockComponentTickEvent, EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot, world } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockComponentTickEvent, EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot, world, BlockPermutation } from "@minecraft/server";
 import { subtractionItem } from "../common/PikuminItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
@@ -13,9 +13,11 @@ export class OniyonsBlock implements BlockCustomComponent {
         const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         if (itemStack != undefined && itemStack.typeId.indexOf("meal") != -1) {
             const block = event.block as Block;
-            const growth = block.permutation.getState("kurokumaft:growth") as number;
+            const states = block.permutation.getAllStates();
+            const growth =  states["kurokumaft:growth"] as number;
             if (growth < 3) {
-                block.setPermutation(block.permutation.withState("kurokumaft:growth", growth+1));
+                block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:growth" : growth+1}))
+                // block.setPermutation(block.permutation.withState("kurokumaft:growth", growth+1));
                 event.dimension.spawnParticle("minecraft:crop_growth_emitter", {x:block.location.x+0.5, y:block.location.y, z:block.location.z+0.5});
                 subtractionItem(player, itemStack, EquipmentSlot.Mainhand, 1);
             } else if (growth == 3) {

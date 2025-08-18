@@ -10,13 +10,13 @@ import { getRandomInRange } from "./PikuminCommonUtil";
  */
 async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number|undefined) {
 
-    if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
     }
 
-    let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
-    let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
     let dChange;
     if (damage) {
         dChange = damage;
@@ -42,14 +42,14 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
  */
 async function throwItemDurabilityDamage(entity:Entity, item:ItemStack, slotNum:number, damage:number|undefined) {
 
-    if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
     }
 
-    let invent = entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-    let container = invent.container as Container;
+    const invent = entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+    const container = invent.container as Container;
 
-    let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
     let dChange;
     if (damage) {
         dChange = damage;
@@ -74,8 +74,8 @@ async function throwItemDurabilityDamage(entity:Entity, item:ItemStack, slotNum:
  * @param {number} decNum
  */
 async function subtractionItem(player: Player, item: ItemStack, slot: EquipmentSlot, decNum: number) {
-    let remaining = item.amount - decNum;
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const remaining = item.amount - decNum;
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     if (remaining <= 0) {
         equ.setEquipment(slot, undefined);
     } else {

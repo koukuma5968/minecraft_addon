@@ -5,7 +5,7 @@ import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-da
 export class Pikumin {
 
     checkExtremelyHotTime(pikmin: Entity) {
-        if (pikmin.isValid()) {
+        if (pikmin.isValid) {
             const mode = pikmin.getProperty("kurokumaft:mode") as string;
             if (mode == "nomal") {
                 return;
@@ -15,7 +15,7 @@ export class Pikumin {
 
             pikmin.dimension.spawnParticle("kurokumaft:extremely_hot_emitter", pikmin.location);
             const num = system.runInterval(() => {
-                if (pikmin.isValid()) {
+                if (pikmin.isValid) {
                     const splay_timer = pikmin.getProperty("kurokumaft:splay_timer") as number;
                     if (splay_timer != 0) {
                         pikmin.setProperty("kurokumaft:splay_timer", splay_timer-1);
@@ -26,7 +26,7 @@ export class Pikumin {
 
             const splay_timer = pikmin.getProperty("kurokumaft:splay_timer") as number;
             system.runTimeout(() => {
-                if (pikmin.isValid()) {
+                if (pikmin.isValid) {
                     pikmin.setProperty("kurokumaft:mode", "nomal");
                     pikmin.setProperty("kurokumaft:splay_timer", 60);
                     pikmin.triggerEvent("kurokumaft:extremely_hot_down");
@@ -87,7 +87,7 @@ export class Pikumin {
                         damagingEntity: source
                     })
                 });
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     projectile.remove();
                 }
             break;
@@ -104,7 +104,7 @@ export class Pikumin {
                         damagingEntity: source
                     })
                 })
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     projectile.remove();
                 }
             break;
@@ -117,12 +117,12 @@ export class Pikumin {
                         damagingEntity: source
                     })
                 })
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     projectile.remove();
                 }
             break;
             case "purple":
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
                     const projeComp = shock.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
                     projeComp.owner = source;
@@ -136,19 +136,19 @@ export class Pikumin {
                         showParticles: false
                     });
                 }
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     projectile.remove();
                 }
             break;
             case "rock":
                 if (target != undefined) {
-                    target.applyKnockback(-Math.round(location.x-target.getViewDirection().x),-Math.round(location.z-target.getViewDirection().z),6,1);
+                    target.applyKnockback({x:-Math.round(location.x-target.getViewDirection().x), z:-Math.round(location.z-target.getViewDirection().z)},1);
                     target.addEffect(MinecraftEffectTypes.Nausea, 5*TicksPerSecond, {
                         amplifier: 5,
                         showParticles: false
                     });
                 }
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     projectile.remove();
                 }
             break;
@@ -170,7 +170,7 @@ export class Pikumin {
         source.addTag(source.id);
         switch(pikumin[0]) {
             case "red":
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const red = dimension.spawnEntity("kurokumaft:red_pikmin", location);
                     red.triggerEvent("kurokumaft:oniyon_spawned");
                     red.triggerEvent("kurokumaft:pikmin_pull_up");
@@ -178,7 +178,7 @@ export class Pikumin {
                 }
             break;
             case "blue":
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const blue = dimension.spawnEntity("kurokumaft:blue_pikmin", location);
                     blue.triggerEvent("kurokumaft:oniyon_spawned");
                     blue.triggerEvent("kurokumaft:pikmin_pull_up");
@@ -186,7 +186,7 @@ export class Pikumin {
                 }
             break;
             case "yellow":
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const yellow = dimension.spawnEntity("kurokumaft:yellow_pikmin", location);
                     yellow.triggerEvent("kurokumaft:oniyon_spawned");
                     yellow.triggerEvent("kurokumaft:pikmin_pull_up");
@@ -194,7 +194,7 @@ export class Pikumin {
                 }
             break;
             case "purple":
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
                     const projeComp = shock.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
                     projeComp.owner = source;
@@ -206,7 +206,7 @@ export class Pikumin {
                 }
             break;
             case "white":
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const white = dimension.spawnEntity("kurokumaft:white_pikmin", location);
                     white.triggerEvent("kurokumaft:oniyon_spawned");
                     white.triggerEvent("kurokumaft:pikmin_pull_up");
@@ -218,7 +218,7 @@ export class Pikumin {
                     dimension.setBlockType(location, MinecraftBlockTypes.Air);
                     dimension.spawnItem(new ItemStack(block.typeId, 1), {x:location.x,y:location.y+1,z:location.z});
                 }
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const rock = dimension.spawnEntity("kurokumaft:rock_pikmin", location);
                     rock.triggerEvent("kurokumaft:oniyon_spawned");
                     rock.triggerEvent("kurokumaft:pikmin_pull_up");
@@ -226,7 +226,7 @@ export class Pikumin {
                 }
             break;
             case "feather":
-                if (projectile.isValid()) {
+                if (projectile.isValid) {
                     const feather = dimension.spawnEntity("kurokumaft:feather_pikmin", location);
                     feather.triggerEvent("kurokumaft:oniyon_spawned");
                     feather.triggerEvent("kurokumaft:pikmin_pull_up");
