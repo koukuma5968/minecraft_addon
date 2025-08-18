@@ -14,7 +14,7 @@
         "minecraft:water"
       ],
       "bottom": [
-        "minecraft:grass",
+        "minecraft:grass_block",
         "minecraft:dirt",
         "minecraft:gravel",
         "minecraft:sand"

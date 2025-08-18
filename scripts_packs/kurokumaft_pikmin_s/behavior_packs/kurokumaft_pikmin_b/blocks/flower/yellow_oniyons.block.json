@@ -27,7 +27,7 @@
 						"allowed_faces": ["up"],
 						"block_filter": [
 							{"name": "farmland"},
-							{"name": "grass"},
+							{"name": "grass_block"},
 							{"name": "dirt"},
 							{"name": "stone"},
 							{"name": "hardened_clay"},

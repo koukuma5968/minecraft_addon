@@ -38,12 +38,8 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
     const grimoire_entity = block_entitys.find(en => en.typeId === "kurokumaft:grimoire_book_entity");
     const magic_stone_entity = block_entitys.find(en => en.typeId === "kurokumaft:magic_stone_entity");
 
-    world.sendMessage(""+item);
     if (item !== undefined) {
-        world.sendMessage(item.typeId);
         if (isGrimoireAllItemsId(item.typeId)) {
-            world.sendMessage("魔導書");
-            world.sendMessage(""+grimoire_entity);
             if (grimoire_entity === undefined) {
                 const grimoire_book_entity = block.dimension.spawnEntity("kurokumaft:grimoire_book_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
                 const bookObj = getGrimoireAllObjectsId(item.typeId) as GrimoireBook;
@@ -111,7 +107,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
                 }
 
                 // 魔法石セット済み
-                if (!block.matches(block.typeId,{"kurokumaft:stone_set": 0})) {
+                if (magic_stone_entity !== undefined) {
                     let new_grimoire_book;
 
                     const grimoireItemType = getGrimoireObjectId(grimoire_book.typeId);

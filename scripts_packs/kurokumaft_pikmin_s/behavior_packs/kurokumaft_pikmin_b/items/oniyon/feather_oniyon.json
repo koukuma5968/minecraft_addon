@@ -15,7 +15,7 @@
       "minecraft:block_placer": {
         "block": "kurokumaft:feather_oniyons",
         "use_on" : [
-          "farmland","grass","dirt"
+          "farmland","grass_block","dirt"
         ]
       }
     }

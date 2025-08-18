@@ -11,7 +11,7 @@
       "min_sides_must_attach": 1,
       "auto_rotate": false,
       "bottom": [
-        "minecraft:grass",
+        "minecraft:grass_block",
         "minecraft:dirt"
       ]
     },
