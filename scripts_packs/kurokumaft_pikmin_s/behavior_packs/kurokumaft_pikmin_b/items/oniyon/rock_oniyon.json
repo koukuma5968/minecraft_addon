@@ -12,10 +12,11 @@
 				"value": "item.kurokumaft:rock_oniyon.name"
 			},
       "minecraft:icon": "rock_oniyon",
+      "minecraft:max_stack_size": 32,
       "minecraft:block_placer": {
         "block": "kurokumaft:rock_oniyons",
         "use_on" : [
-          "farmland","grass_block","dirt"
+          "farmland","grass_block","dirt", "stone"
         ]
       }
     }

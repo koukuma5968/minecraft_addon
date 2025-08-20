@@ -1,5 +1,6 @@
-import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Direction, Block, EntityHealthComponent, ItemCooldownComponent, TicksPerSecond, EntityQueryOptions, Vector3, Vector2} from "@minecraft/server";
-import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { world,Player,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,
+    ItemEnchantableComponent,ItemDurabilityComponent, Block, EntityHealthComponent, ItemCooldownComponent, 
+    TicksPerSecond, EntityQueryOptions, Vector3, Vector2} from "@minecraft/server";
 
 export const silkType = ["kurokumaft:charcoal_block","kurokumaft:small_mithril_bud","kurokumaft:medium_mithril_bud","kurokumaft:large_mithril_bud"
 , "kurokumaft:mithril_cluster","kurokumaft:budding_mithril","kurokumaft:medicinal_plants", "kurokumaft:onions","kurokumaft:soybeans"];
@@ -35,8 +36,8 @@ async function itemTans(player: Player, item: ItemStack, replaceitem: string, sl
  */
 async function replaceEnchant(oldItem: ItemStack, newItem: ItemStack) {
 
-    let oldEnc = oldItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
-    let newEnc = newItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+    const oldEnc = oldItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+    const newEnc = newItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
 
     newEnc.addEnchantments(oldEnc.getEnchantments());
 
@@ -92,14 +93,14 @@ async function itemCoolDown(player:Player, itemStack:ItemStack) {
  * @param {Block} block
  */
 async function breakBlock(block:Block) {
-    block.dimension.setBlockType(block.location, MinecraftBlockTypes.Air);
+    block.dimension.setBlockType(block.location, "minecraft:air");
 }
 
 // 蘇生
 function resuscitation(player: Player) {
     const health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
     health.setCurrentValue(5);
-    player.addEffect(MinecraftEffectTypes.Absorption, TicksPerSecond * 30, {
+    player.addEffect("minecraft:absorption", TicksPerSecond * 30, {
         amplifier: 5,
         showParticles: true
     });
@@ -131,34 +132,6 @@ export const ProbabilisticChoice = (list: any[]) => {
         }
     }
 };
-
-const BlockLocationList = Object.freeze([
-    {
-        direction: Direction.Up,
-        location: {x:0,y:1,z:0}
-    },
-    {
-        direction: Direction.Down,
-        location: {x:0,y:-1,z:0}
-    },
-    {
-        direction: Direction.South,
-        location: {x:0,y:0,z:1}
-    },
-    {
-        direction: Direction.North,
-        location: {x:0,y:0,z:-1}
-    },
-    {
-        direction: Direction.East,
-        location: {x:1,y:0,z:0}
-    },
-    {
-        direction: Direction.West,
-        location: {x:-1,y:0,z:0}
-    }
-
-]);
 
 const weightChoice = (list: any[]) => {
     const totalWeight = list.reduce((p, c) => {
@@ -341,52 +314,7 @@ function degToRad(deg: number): number {
   return deg * Math.PI / 180;
 }
 
-function getForwardPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
-  const rad = degToRad(angleZ);
-  return {
-    x: origin.x + Math.sin(rad) * distance,
-    y: origin.y,
-    z: origin.z + Math.cos(rad) * distance
-  };
-}
-
-function getRightPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
-  const rad = degToRad(angleZ + 90);
-  return {
-    x: origin.x + Math.sin(rad) * distance,
-    y: origin.y,
-    z: origin.z + Math.cos(rad) * distance
-  };
-}
-
-function getLeftPosition(origin: Vector3, angleZ: number, distance: number): Vector3 {
-  const rad = degToRad(angleZ - 90);
-  return {
-    x: origin.x + Math.sin(rad) * distance,
-    y: origin.y,
-    z: origin.z + Math.cos(rad) * distance
-  };
-}
-
-function normalizeVector(v: Vector3): Vector3 {
-    const length = Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
-    return {
-        x: v.x / length,
-        y: v.y / length,
-        z: v.z / length
-    };
-}
-
-function getDirectionVector(thisEn: Vector3, targetEn: Vector3): Vector3 {
-    const direction = {
-        x: targetEn.x - thisEn.x,
-        y: targetEn.y - thisEn.y,
-        z: targetEn.z - thisEn.z
-    };
-    return normalizeVector(direction);
-}
-
 export { print, clamp, itemTans, getRandomInRange, playsound, breakBlock, resuscitation,
-    itemCoolDown, BlockLocationList, weightChoice, addTargetFilter,
+    itemCoolDown, weightChoice, addTargetFilter,
     getLookLocationDistance, getLookLocationDistancePitch, getDistanceLocation,
     addDokkuriFireFilter, addDokkuriMizuFilter };

@@ -1,0 +1,115 @@
+{
+	"format_version": "1.21.60",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:ice_oniyons",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+				"kurokumaft:growth": [0, 1, 2, 3]
+			}
+		},
+		"components": {
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": false,
+			"minecraft:geometry": "geometry.oniyon",
+			"minecraft:loot": "loot_tables/blocks/oniyon/ice_oniyons.json",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+					"liquid_type": "water",
+					"on_liquid_touches": "no_reaction"
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": [
+							{"name": "farmland"},
+							{"name": "grass_block"},
+							{"name": "dirt"},
+							{"name": "packed_ice"},
+							{"name": "ice"},
+							{"name": "blue_ice"}
+						]
+					}
+				]
+			},
+			"minecraft:custom_components": [
+				"kurokumaft:oniyon_block"
+			]
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 0",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 1.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "ice_oniyon_stage_0",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 1",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 8.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "ice_oniyon_stage_1",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 2",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 16.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "ice_oniyon_stage_2",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 3",
+				"components": {
+					"minecraft:loot": "loot_tables/empty.json",
+					"minecraft:selection_box": {
+						"origin": [-8.0, 0.0, -8.0]	,
+						"size": [16.0, 10.0, 16.0]
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "ice_oniyon_stage_3",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		]
+	}
+}

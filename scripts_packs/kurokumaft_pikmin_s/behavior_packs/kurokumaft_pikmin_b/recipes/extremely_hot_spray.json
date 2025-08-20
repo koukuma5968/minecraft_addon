@@ -1,0 +1,12 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "kurokumaft:extremely_hot_spray"
+    },
+    "tags": [ "brewing_stand" ],
+    "input": "minecraft:potion_type:thick",
+    "reagent": "kurokumaft:gekikara_fruit",
+    "output": "kurokumaft:extremely_hot_spray"
+  }
+}

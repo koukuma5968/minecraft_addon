@@ -20,5 +20,8 @@
 	},
 	"kurokumaft:white_oniyons": {
 	   "sound": "grass"
+	},
+	"kurokumaft:ice_oniyons": {
+	   "sound": "grass"
 	}
 }

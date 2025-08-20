@@ -36,7 +36,8 @@
                       {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:yellow_pellet"},
                       {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:rock_pellet"},
                       {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:feather_pellet"},
-                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:purple_pellet"}
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:purple_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:ice_pellet"}
                     ]
                   },
                   {"test": "is_family","subject": "other","value": "player"}

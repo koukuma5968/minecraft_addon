@@ -6,6 +6,7 @@ entity.kurokumaft:feather_pikmin.name=羽ピクミン
 entity.kurokumaft:rock_pikmin.name=岩ピクミン
 entity.kurokumaft:white_pikmin.name=白ピクミン
 entity.kurokumaft:purple_pikmin.name=紫ピクミン
+entity.kurokumaft:ice_pikmin.name=氷ピクミン
 
 entity.kurokumaft:red_pellet_grass.name=赤のペレット草
 entity.kurokumaft:yellow_pellet_grass.name=黄のペレット草
@@ -14,6 +15,9 @@ entity.kurokumaft:feather_pellet_grass.name=ピンクのペレット草
 entity.kurokumaft:rock_pellet_grass.name=黒のペレット草
 entity.kurokumaft:white_pellet_grass.name=白のペレット草
 entity.kurokumaft:purple_pellet_grass.name=紫のペレット草
+entity.kurokumaft:ice_pellet_grass.name=氷のペレット草
+
+entity.kurokumaft:pikinotuyukusa.name=ピキノツユクサ
 
 entity.kurokumaft:chappie.name=チャッピー
 entity.kurokumaft:chappie_kids.name=コチャッピーモドキ
@@ -38,6 +42,7 @@ item.spawn_egg.entity.kurokumaft:feather_pikmin.name=羽ピクミンをスポー
 item.spawn_egg.entity.kurokumaft:rock_pikmin.name=岩ピクミンをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:white_pikmin.name=白ピクミンをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:purple_pikmin.name=紫ピクミンをスポーンさせる	#
+item.spawn_egg.entity.kurokumaft:ice_pikmin.name=氷ピクミンをスポーンさせる	#
 
 item.spawn_egg.entity.kurokumaft:chappie.name=チャッピーをスポーンさせる	#
 item.spawn_egg.entity.kurokumaft:chappie_kids.name=コチャッピーモドキをスポーンさせる	#
@@ -62,6 +67,7 @@ item.kurokumaft:feather_oniyon.name=羽ピクミンのオニヨン
 item.kurokumaft:rock_oniyon.name=岩ピクミンのオニヨン
 item.kurokumaft:white_oniyon.name=白ピクミンのオニヨン
 item.kurokumaft:purple_oniyon.name=紫ピクミンのオニヨン
+item.kurokumaft:ice_oniyon.name=氷ピクミンのオニヨン
 
 item.kurokumaft:red_pellet.name=赤のペレット
 item.kurokumaft:yellow_pellet.name=黄のペレット
@@ -70,8 +76,11 @@ item.kurokumaft:feather_pellet.name=ピンクのペレット
 item.kurokumaft:rock_pellet.name=黒のペレット
 item.kurokumaft:white_pellet.name=白のペレット
 item.kurokumaft:purple_pellet.name=紫のペレット
+item.kurokumaft:ice_pellet.name=氷のペレット
 
-item.kurokumaft:extremely_hot_spray.name=激辛スプレー
+item.kurokumaft:gekikara_fruit.name=ゲキカラの実
+
+item.kurokumaft:extremely_hot_spray.name=ゲキカラスプレー
 
 item.kurokumaft:assault_whistle.name=突撃笛
 
@@ -82,6 +91,7 @@ tile.kurokumaft:feather_oniyon.name=羽ピクミンのオニヨン
 tile.kurokumaft:rock_oniyon.name=岩ピクミンのオニヨン
 tile.kurokumaft:white_oniyon.name=白ピクミンのオニヨン
 tile.kurokumaft:purple_oniyon.name=紫ピクミンのオニヨン
+tile.kurokumaft:ice_oniyon.name=氷ピクミンのオニヨン
 
 item.kurokumaft:seeds_pellet_grass.name=ペレット草の種
 tile.kurokumaft:pellet_grass_bud.name=ペレット草のつぼみ

@@ -1,0 +1,82 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:ice_oniyon_base",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "oniyon_base", "inanimate" ]
+      },
+      "minecraft:scale": {
+        "value": 8.0
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 1.975
+      },
+      "minecraft:health": {
+        "value": 500,
+        "max": 500
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "any_of": [
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:red_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:white_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:blue_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:yellow_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:rock_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:feather_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:purple_pellet"},
+                      {"test": "has_equipment","subject": "other","domain": "hand","value": "kurokumaft:ice_pellet"}
+                    ]
+                  },
+                  {"test": "is_family","subject": "other","value": "player"}
+                ]
+              }
+            },
+            "barter": true,
+            "admire": true,
+            "use_item": false
+          }
+        ]
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/pikmin/oniyon/ice_oniyon_base.json"
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    }
+  }
+}

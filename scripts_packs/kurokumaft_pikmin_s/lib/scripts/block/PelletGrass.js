@@ -1,7 +1,6 @@
 import { EntityComponentTypes, EquipmentSlot, BlockPermutation } from "@minecraft/server";
 import { subtractionItem } from "../common/PikuminItemDurabilityDamage";
 import { weightChoice } from "../common/PikuminCommonUtil";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 /**
  * ペレットブロック
  */
@@ -39,7 +38,7 @@ export class PelletGrassBlock {
                     { item: 'rock', weight: 5 },
                     { item: 'feather', weight: 5 },
                 ]);
-                dimension.setBlockType(location, MinecraftBlockTypes.Air);
+                dimension.setBlockType(location, "minecraft:air");
                 const choice = pekketLists.pick();
                 switch (choice) {
                     case 'red':

@@ -1,0 +1,24 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "kurokumaft:ice_pellet",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "kurokumaft:seeds_pellet_grass",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

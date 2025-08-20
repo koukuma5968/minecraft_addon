@@ -209,6 +209,8 @@ export class ButaDokkuri {
                     })
                 });
     
+            } else {
+                system.clearRun(num);
             }
 
         }, 5);

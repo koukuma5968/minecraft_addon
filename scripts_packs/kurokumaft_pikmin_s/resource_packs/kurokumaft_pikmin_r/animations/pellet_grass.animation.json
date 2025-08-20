@@ -4,7 +4,7 @@
 		"animation.pellet_grass.tremor": {
 			"animation_length": 0.25,
 			"bones": {
-				"pellet_grass": {
+				"grass": {
 					"rotation": {
 						"0.0": [0, 0, 0],
 						"0.0833": [0, 0, 5],

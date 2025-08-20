@@ -72,6 +72,15 @@ export class OniyonBase {
                     target.dimension.spawnEntity("kurokumaft:feather_pikmin", {x:location.x + getRandomInRange(-5, 5), y:location.y, z:location.z + getRandomInRange(-5, 5)}).triggerEvent("kurokumaft:oniyon_spawned");
                 }
             break;
+            case "ice":
+                if (pellet[0] == "ice") {
+                    target.dimension.spawnEntity("kurokumaft:ice_pikmin", {x:location.x + getRandomInRange(-5, 5), y:location.y, z:location.z + getRandomInRange(-5, 5)}).triggerEvent("kurokumaft:oniyon_spawned");
+                    target.dimension.spawnEntity("kurokumaft:ice_pikmin", {x:location.x + getRandomInRange(-5, 5), y:location.y, z:location.z + getRandomInRange(-5, 5)}).triggerEvent("kurokumaft:oniyon_spawned");
+                    target.dimension.spawnEntity("kurokumaft:ice_pikmin", {x:location.x + getRandomInRange(-5, 5), y:location.y, z:location.z + getRandomInRange(-5, 5)}).triggerEvent("kurokumaft:oniyon_spawned");
+                } else {
+                    target.dimension.spawnEntity("kurokumaft:ice_pikmin", {x:location.x + getRandomInRange(-5, 5), y:location.y, z:location.z + getRandomInRange(-5, 5)}).triggerEvent("kurokumaft:oniyon_spawned");
+                }
+            break;
         }
         subtractionItem(player, itemStack, EquipmentSlot.Mainhand, 1);
     }

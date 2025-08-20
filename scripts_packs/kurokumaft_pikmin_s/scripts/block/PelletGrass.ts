@@ -1,7 +1,7 @@
-import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockComponentTickEvent, EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot, BlockPermutation } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockComponentTickEvent, 
+    EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot, BlockPermutation } from "@minecraft/server";
 import { subtractionItem } from "../common/PikuminItemDurabilityDamage";
 import { weightChoice } from "../common/PikuminCommonUtil";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
  * ペレットブロック
@@ -43,7 +43,7 @@ export class PelletGrassBlock implements BlockCustomComponent {
                     { item: 'feather' , weight: 5 },
                 ]);
 
-                dimension.setBlockType(location, MinecraftBlockTypes.Air);
+                dimension.setBlockType(location, "minecraft:air");
                 const choice = pekketLists.pick();
                 switch (choice as string) {
                     case 'red': 

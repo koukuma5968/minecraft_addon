@@ -1,13 +1,13 @@
-import { Block, Dimension, Entity, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityTameableComponent, EquipmentSlot, ItemStack, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
-import { addTargetFilter } from "../common/PikuminCommonUtil";
-import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { Block, BlockVolume, Dimension, Entity, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, 
+    EntityProjectileComponent, EntityTameableComponent, EquipmentSlot, ItemStack, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
+import { addTargetFilter, getLookLocationDistance } from "../common/PikuminCommonUtil";
 
 export class Pikumin {
 
     checkExtremelyHotTime(pikmin: Entity) {
         if (pikmin.isValid) {
             const mode = pikmin.getProperty("kurokumaft:mode") as string;
-            if (mode == "nomal") {
+            if (mode === "nomal") {
                 return;
             }
 
@@ -61,6 +61,9 @@ export class Pikumin {
             case "feather":
                 equ.setEquipment(EquipmentSlot.Mainhand, new ItemStack("kurokumaft:feather_pikmin_item", 1));
             break;
+            case "ice":
+                equ.setEquipment(EquipmentSlot.Mainhand, new ItemStack("kurokumaft:ice_pikmin_item", 1));
+            break;
         }
         target.remove();
     }
@@ -77,89 +80,102 @@ export class Pikumin {
     pikminThrownhit(projectile:Entity ,target: Entity | undefined, source: Entity, location: Vector3, dimension:Dimension) {
         const pikumin = projectile.typeId.split(":")[1].split("_");
         source.addTag(source.id);
-        switch(pikumin[0]) {
-            case "red":
-                const redTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
-                redTargets.forEach(en => {
-                    dimension.spawnParticle("minecraft:mobflame_single", en.location);
-                    en.applyDamage(6, {
-                        cause: EntityDamageCause.fire,
-                        damagingEntity: source
+        try {
+            switch(pikumin[0]) {
+                case "red":
+                    const redTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
+                    redTargets.forEach(en => {
+                        dimension.spawnParticle("minecraft:mobflame_single", en.location);
+                        en.applyDamage(6, {
+                            cause: EntityDamageCause.fire,
+                            damagingEntity: source
+                        })
+                    });
+                    if (projectile.isValid) {
+                        projectile.remove();
+                    }
+                break;
+                case "blue":
+                    const blueTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
+                    blueTargets.forEach(en => {
+                        dimension.spawnParticle("minecraft:bubble_column_up_particle", en.location);
+                        en.addEffect("minecraft:weakness", 10*TicksPerSecond, {
+                            amplifier: 10,
+                            showParticles: false
+                        });
+                        en.applyDamage(6, {
+                            cause: EntityDamageCause.drowning,
+                            damagingEntity: source
+                        })
                     })
-                });
-                if (projectile.isValid) {
-                    projectile.remove();
-                }
-            break;
-            case "blue":
-                const blueTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
-                blueTargets.forEach(en => {
-                    dimension.spawnParticle("minecraft:bubble_column_up_particle", en.location);
-                    en.addEffect(MinecraftEffectTypes.Weakness, 10*TicksPerSecond, {
-                        amplifier: 10,
-                        showParticles: false
-                    });
-                    en.applyDamage(6, {
-                        cause: EntityDamageCause.drowning,
-                        damagingEntity: source
+                    if (projectile.isValid) {
+                        projectile.remove();
+                    }
+                break;
+                case "yellow":
+                    const yellowTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
+                    yellowTargets.forEach(en => {
+                        dimension.spawnParticle("minecraft:yellow_lightning", en.location);
+                        en.applyDamage(6, {
+                            cause: EntityDamageCause.lightning,
+                            damagingEntity: source
+                        })
                     })
-                })
-                if (projectile.isValid) {
-                    projectile.remove();
-                }
-            break;
-            case "yellow":
-                const yellowTargets = dimension.getEntities(addTargetFilter(0, location, 6, source.id));
-                yellowTargets.forEach(en => {
-                    dimension.spawnParticle("minecraft:yellow_lightning", en.location);
-                    en.applyDamage(6, {
-                        cause: EntityDamageCause.lightning,
-                        damagingEntity: source
-                    })
-                })
-                if (projectile.isValid) {
-                    projectile.remove();
-                }
-            break;
-            case "purple":
-                if (projectile.isValid) {
-                    const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
-                    const projeComp = shock.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
-                    projeComp.owner = source;
-                    projectile.remove();
-                }
-            break;
-            case "white":
-                if (target != undefined) {
-                    target.addEffect(MinecraftEffectTypes.Poison, 10*TicksPerSecond, {
-                        amplifier: 10,
-                        showParticles: false
-                    });
-                }
-                if (projectile.isValid) {
-                    projectile.remove();
-                }
-            break;
-            case "rock":
-                if (target != undefined) {
-                    target.applyKnockback({x:-Math.round(location.x-target.getViewDirection().x), z:-Math.round(location.z-target.getViewDirection().z)},1);
-                    target.addEffect(MinecraftEffectTypes.Nausea, 5*TicksPerSecond, {
-                        amplifier: 5,
-                        showParticles: false
-                    });
-                }
-                if (projectile.isValid) {
-                    projectile.remove();
-                }
-            break;
-            case "feather":
-                if (target != undefined) {
-                    target.addEffect(MinecraftEffectTypes.Levitation, 5*TicksPerSecond, {
-                        amplifier: 5,
-                        showParticles: false
-                    });
-                }
-            break;
+                    if (projectile.isValid) {
+                        projectile.remove();
+                    }
+                break;
+                case "purple":
+                    if (projectile.isValid) {
+                        const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
+                        const projeComp = shock.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+                        projeComp.owner = source;
+                        projectile.remove();
+                    }
+                break;
+                case "white":
+                    if (target !== undefined) {
+                        target.addEffect("minecraft:poison", 10*TicksPerSecond, {
+                            amplifier: 10,
+                            showParticles: false
+                        });
+                    }
+                    if (projectile.isValid) {
+                        projectile.remove();
+                    }
+                break;
+                case "rock":
+                    if (target !== undefined) {
+                        const point = getLookLocationDistance(target.location.y, -2, 0, 0);
+                        target.applyKnockback({x:point.x, z:point.z},0.2);
+                        target.addEffect("minecraft:nausea", 5*TicksPerSecond, {
+                            amplifier: 5,
+                            showParticles: false
+                        });
+                    }
+                    if (projectile.isValid) {
+                        projectile.remove();
+                    }
+                break;
+                case "feather":
+                    if (target !== undefined) {
+                        target.addEffect("minecraft:levitation", 5*TicksPerSecond, {
+                            amplifier: 5,
+                            showParticles: false
+                        });
+                    }
+                break;
+                case "ice":
+                    if (target !== undefined) {
+                        target.addEffect("minecraft:weakness", 5*TicksPerSecond, {
+                            amplifier: 5,
+                            showParticles: false
+                        });
+                    }
+                break;
+            }
+
+        } catch (error) {
         }
         source.addTag(source.id);
 
@@ -168,80 +184,131 @@ export class Pikumin {
     pikminThrownhitBlock(projectile:Entity ,block: Block | undefined, source: Entity, location: Vector3, dimension:Dimension) {
         const pikumin = projectile.typeId.split(":")[1].split("_");
         source.addTag(source.id);
-        switch(pikumin[0]) {
-            case "red":
-                if (projectile.isValid) {
-                    const red = dimension.spawnEntity("kurokumaft:red_pikmin", location);
-                    red.triggerEvent("kurokumaft:oniyon_spawned");
-                    red.triggerEvent("kurokumaft:pikmin_pull_up");
-                    projectile.remove();
-                }
-            break;
-            case "blue":
-                if (projectile.isValid) {
-                    const blue = dimension.spawnEntity("kurokumaft:blue_pikmin", location);
-                    blue.triggerEvent("kurokumaft:oniyon_spawned");
-                    blue.triggerEvent("kurokumaft:pikmin_pull_up");
-                    projectile.remove();
-                }
-            break;
-            case "yellow":
-                if (projectile.isValid) {
-                    const yellow = dimension.spawnEntity("kurokumaft:yellow_pikmin", location);
-                    yellow.triggerEvent("kurokumaft:oniyon_spawned");
-                    yellow.triggerEvent("kurokumaft:pikmin_pull_up");
-                    projectile.remove();
-                }
-            break;
-            case "purple":
-                if (projectile.isValid) {
-                    const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
-                    const projeComp = shock.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
-                    projeComp.owner = source;
+        try {
+            switch(pikumin[0]) {
+                case "red":
+                    if (projectile.isValid) {
+                        const red = dimension.spawnEntity("kurokumaft:red_pikmin", location);
+                        red.triggerEvent("kurokumaft:oniyon_spawned");
+                        red.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                    }
+                break;
+                case "blue":
+                    if (projectile.isValid) {
+                        const blue = dimension.spawnEntity("kurokumaft:blue_pikmin", location);
+                        blue.triggerEvent("kurokumaft:oniyon_spawned");
+                        blue.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                    }
+                break;
+                case "yellow":
+                    if (projectile.isValid) {
+                        const yellow = dimension.spawnEntity("kurokumaft:yellow_pikmin", location);
+                        yellow.triggerEvent("kurokumaft:oniyon_spawned");
+                        yellow.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                    }
+                break;
+                case "purple":
+                    if (projectile.isValid) {
+                        const shock = dimension.spawnEntity("kurokumaft:purple_shock", location);
+                        const projeComp = shock.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+                        projeComp.owner = source;
 
-                    const purple = dimension.spawnEntity("kurokumaft:purple_pikmin", location);
-                    purple.triggerEvent("kurokumaft:oniyon_spawned");
-                    purple.triggerEvent("kurokumaft:pikmin_pull_up");
-                    projectile.remove();
-                }
-            break;
-            case "white":
-                if (projectile.isValid) {
-                    const white = dimension.spawnEntity("kurokumaft:white_pikmin", location);
-                    white.triggerEvent("kurokumaft:oniyon_spawned");
-                    white.triggerEvent("kurokumaft:pikmin_pull_up");
-                    projectile.remove();
-                }
-            break;
-            case "rock":
-                if (block != undefined) {
-                    dimension.setBlockType(location, MinecraftBlockTypes.Air);
-                    dimension.spawnItem(new ItemStack(block.typeId, 1), {x:location.x,y:location.y+1,z:location.z});
-                }
-                if (projectile.isValid) {
-                    const rock = dimension.spawnEntity("kurokumaft:rock_pikmin", location);
-                    rock.triggerEvent("kurokumaft:oniyon_spawned");
-                    rock.triggerEvent("kurokumaft:pikmin_pull_up");
-                    projectile.remove();
-                }
-            break;
-            case "feather":
-                if (projectile.isValid) {
-                    const feather = dimension.spawnEntity("kurokumaft:feather_pikmin", location);
-                    feather.triggerEvent("kurokumaft:oniyon_spawned");
-                    feather.triggerEvent("kurokumaft:pikmin_pull_up");
-                    projectile.remove();
-                }
-            break;
+                        const purple = dimension.spawnEntity("kurokumaft:purple_pikmin", location);
+                        purple.triggerEvent("kurokumaft:oniyon_spawned");
+                        purple.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                    }
+                break;
+                case "white":
+                    if (projectile.isValid) {
+                        const white = dimension.spawnEntity("kurokumaft:white_pikmin", location);
+                        white.triggerEvent("kurokumaft:oniyon_spawned");
+                        white.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                    }
+                break;
+                case "rock":
+                    if (block !== undefined && !block.isLiquid && block.typeId !== "minecraft:bedrock") {
+                        dimension.setBlockType(location, "minecraft:air");
+                        dimension.spawnItem(new ItemStack(block.typeId, 1), {x:location.x,y:location.y+1,z:location.z});
+                    }
+                    if (projectile.isValid) {
+                        const rock = dimension.spawnEntity("kurokumaft:rock_pikmin", location);
+                        rock.triggerEvent("kurokumaft:oniyon_spawned");
+                        rock.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                    }
+                break;
+                case "feather":
+                    if (projectile.isValid) {
+                        const feather = dimension.spawnEntity("kurokumaft:feather_pikmin", location);
+                        feather.triggerEvent("kurokumaft:oniyon_spawned");
+                        feather.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                    }
+                break;
+                case "ice":
+                    if (projectile.isValid) {
+                        const ice = dimension.spawnEntity("kurokumaft:ice_pikmin", location);
+                        ice.triggerEvent("kurokumaft:oniyon_spawned");
+                        ice.triggerEvent("kurokumaft:pikmin_pull_up");
+                        projectile.remove();
+                        if (block !== undefined) {
+                            if ("minecraft:frosted_ice" === block.typeId) {
+                                const startTick = system.currentTick;
+                                const run = system.runInterval(() => {
+                                    try {
+                                        if (ice.isValid) {
+                                            this.pikminThrownFreezeWater(ice);
+                                            if ((startTick + 500) <= system.currentTick) {
+                                                system.clearRun(run);
+                                            }
+                                        } else {
+                                            system.clearRun(run);
+                                        }
+                                    } catch(error) {
+                                        system.clearRun(run);
+                                    };
+                                }, TicksPerSecond);
+
+                            }
+                        }
+                    }
+                break;
+            }
+        } catch (error) {
         }
         source.addTag(source.id);
 
     }
 
     whitePoison(target:Entity) {
-        target.addEffect(MinecraftEffectTypes.Poison, 10*TicksPerSecond, {
+        target.addEffect("minecraft:poison", 10*TicksPerSecond, {
             amplifier: 5,
             showParticles: false
         });
+    }
+
+    pikminThrownFreezeWater(hit: Entity) {
+        if (hit.isValid) {
+            const blockVolume = new BlockVolume(
+                {x:hit.location.x-2, y:hit.location.y-2, z:hit.location.z-2}, 
+                {x:hit.location.x+2, y:hit.location.y+2, z:hit.location.z+2}
+            );
+            hit.dimension.fillBlocks(blockVolume, "minecraft:frosted_ice", {
+                blockFilter: {
+                    includeTypes: [
+                        "minecraft:frosted_ice",
+                        "minecraft:water",
+                        "minecraft:flowing_water"
+                    ]
+                },
+                ignoreChunkBoundErrors: true
+            });
+        }
+
     }
 }

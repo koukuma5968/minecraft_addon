@@ -22,6 +22,9 @@
       "purple_pikmin": {
          "textures": "textures/kurokumaft/items/pikmin/purple_pikmin"
       },
+      "ice_pikmin": {
+         "textures": "textures/kurokumaft/items/pikmin/ice_pikmin"
+      },
 
       "red_oniyon": {
          "textures": "textures/kurokumaft/items/oniyon/red_oniyon"
@@ -43,6 +46,9 @@
       },
       "purple_oniyon": {
          "textures": "textures/kurokumaft/items/oniyon/purple_oniyon"
+      },
+      "ice_oniyon": {
+         "textures": "textures/kurokumaft/items/oniyon/ice_oniyon"
       },
 
       "red_pellet": {
@@ -66,6 +72,13 @@
       "purple_pellet": {
          "textures": "textures/kurokumaft/items/pellet/purple_pellet"
       },
+      "ice_pellet": {
+         "textures": "textures/kurokumaft/items/pellet/ice_pellet"
+      },
+
+      "gekikara_fruit": {
+         "textures": "textures/kurokumaft/items/fruit/gekikara_fruit"
+      },
 
       "extremely_hot_spray": {
          "textures": "textures/kurokumaft/items/spray/extremely_hot_spray"
@@ -83,7 +96,8 @@
             "textures/kurokumaft/items/spawn_egg/pikmin/rock_pikmin_egg",
             "textures/kurokumaft/items/spawn_egg/pikmin/feather_pikmin_egg",
             "textures/kurokumaft/items/spawn_egg/pikmin/white_pikmin_egg",
-            "textures/kurokumaft/items/spawn_egg/pikmin/purple_pikmin_egg"
+            "textures/kurokumaft/items/spawn_egg/pikmin/purple_pikmin_egg",
+            "textures/kurokumaft/items/spawn_egg/pikmin/ice_pikmin_egg"
          ]
       },
 

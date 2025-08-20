@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:pikinotuyukusa",
+      "materials": {
+        "default": "armor_stand"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/grass/pikinotuyukusa"
+      },
+      "geometry": {
+        "default": "geometry.pikinotuyukusa"
+      },
+      "scripts": {
+        "animate": [
+          "stand",
+          "pellet_grass"
+        ]
+      },
+      "animations": {
+        "pellet_grass": "controller.animation.pellet_grass",
+        "stand": "animation.pellet_grass.stand",
+        "tremor": "animation.pellet_grass.tremor"
+      },
+      "render_controllers": [ "controller.render.armor_stand" ],
+      "enable_attachables": true
+    }
+  }
+}

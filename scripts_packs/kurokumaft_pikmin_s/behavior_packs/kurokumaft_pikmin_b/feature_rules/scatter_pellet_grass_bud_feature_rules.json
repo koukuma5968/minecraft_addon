@@ -13,7 +13,7 @@
             {
               "test": "has_biome_tag",
               "operator": "==",
-              "value": "flat"
+              "value": "ice_plains"
             },
             {
               "test": "has_biome_tag",
@@ -23,7 +23,7 @@
             {
               "test": "has_biome_tag",
               "operator": "==",
-              "value": "plain"
+              "value": "plains"
             },
             {
               "test": "has_biome_tag",
@@ -39,6 +39,16 @@
               "test": "has_biome_tag",
               "operator": "==",
               "value": "river"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "extreme_hills"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "taiga_mutated"
             }
           ]
         }

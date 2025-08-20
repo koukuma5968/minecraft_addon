@@ -21,6 +21,19 @@
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 0
 			},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": ["up"],
+						"block_filter": [
+							{"name": "farmland"},
+							{"name": "grass_block"},
+							{"name": "dirt"},
+							{"name": "mud"}
+						]
+					}
+				]
+			},
 			"minecraft:liquid_detection": {
 				"detection_rules": [
 					{

@@ -12,6 +12,7 @@
 				"value": "item.kurokumaft:red_oniyon.name"
 			},
       "minecraft:icon": "red_oniyon",
+      "minecraft:max_stack_size": 32,
       "minecraft:block_placer": {
         "block": "kurokumaft:red_oniyons",
         "use_on" : [

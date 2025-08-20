@@ -1,6 +1,6 @@
-import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, BlockComponentTickEvent, EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot, world, BlockPermutation } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentPlayerInteractEvent, Block, Player, 
+    EntityEquippableComponent, EntityComponentTypes, ItemStack, EquipmentSlot, BlockPermutation } from "@minecraft/server";
 import { subtractionItem } from "../common/PikuminItemDurabilityDamage";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
  * オニヨンブロック
@@ -16,8 +16,7 @@ export class OniyonsBlock implements BlockCustomComponent {
             const states = block.permutation.getAllStates();
             const growth =  states["kurokumaft:growth"] as number;
             if (growth < 3) {
-                block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:growth" : growth+1}))
-                // block.setPermutation(block.permutation.withState("kurokumaft:growth", growth+1));
+                block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:growth" : growth+1}));
                 event.dimension.spawnParticle("minecraft:crop_growth_emitter", {x:block.location.x+0.5, y:block.location.y, z:block.location.z+0.5});
                 subtractionItem(player, itemStack, EquipmentSlot.Mainhand, 1);
             } else if (growth == 3) {
@@ -25,7 +24,7 @@ export class OniyonsBlock implements BlockCustomComponent {
                 const dimension = block.dimension;
                 const location = block.location;
 
-                dimension.setBlockType(location, MinecraftBlockTypes.Air);
+                dimension.setBlockType(location, "minecraft:air");
                 switch (oniyonType[0]) {
                     case 'red': 
                         dimension.spawnEntity("kurokumaft:red_oniyon_base", location);
@@ -47,6 +46,9 @@ export class OniyonsBlock implements BlockCustomComponent {
                     break;
                     case 'feather': 
                         dimension.spawnEntity("kurokumaft:feather_oniyon_base", location);
+                    break;
+                    case 'ice': 
+                        dimension.spawnEntity("kurokumaft:ice_oniyon_base", location);
                     break;
                 }
             }

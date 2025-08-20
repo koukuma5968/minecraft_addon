@@ -15,7 +15,7 @@ world.beforeEvents.playerLeave.subscribe(leaveEvent => {
 
 world.afterEvents.entityLoad.subscribe(event => {
     const entity = event.entity;
-    if (entity.typeId.lastIndexOf("pikmin") != -1) {
+    if (entity.typeId.endsWith("pikmin")) {
         new Pikumin().checkExtremelyHotTime(entity);
     }
 });
@@ -34,10 +34,10 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     const entity = event.entity;
-    if (event.eventId == "kurokumaft:this_kill") {
+    if (event.eventId === "kurokumaft:this_kill") {
         entity.kill();
     }
-    if (event.eventId == "kurokumaft:dokkuri_breath") {
+    if (event.eventId === "kurokumaft:dokkuri_breath") {
         const dokkuri = new ButaDokkuri();
         if ("kurokumaft:butadokkuri" == entity.typeId) {
             dokkuri.dokkuriFire(entity);
@@ -48,6 +48,9 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
         } else if ("kurokumaft:zoubutadokkuri" == entity.typeId) {
             dokkuri.zoudokkuriFire(entity);
         }
+    }
+    if (event.eventId === "kurokumaft:freeze_water") {
+        new Pikumin().pikminThrownFreezeWater(entity);
     }
 });
 

@@ -1,4 +1,5 @@
-import { ItemStack, Player, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, EntityInventoryComponent, Container } from "@minecraft/server";
+import { ItemStack, Player, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, 
+    EntityComponentTypes, EquipmentSlot, GameMode, EntityInventoryComponent, Container } from "@minecraft/server";
 import { getRandomInRange } from "./PikuminCommonUtil";
 
 /**

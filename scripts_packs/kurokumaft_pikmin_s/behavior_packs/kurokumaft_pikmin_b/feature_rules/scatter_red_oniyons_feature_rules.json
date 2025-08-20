@@ -13,17 +13,12 @@
                         {
                           "test": "has_biome_tag",
                           "operator": "==",
-                          "value": "flat"
-                        },
-                        {
-                          "test": "has_biome_tag",
-                          "operator": "==",
                           "value": "forest"
                         },
                         {
                           "test": "has_biome_tag",
                           "operator": "==",
-                          "value": "plain"
+                          "value": "plains"
                         }
                     ]
                 }

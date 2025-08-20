@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:ice_pikmin_thrown",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/mob/pikmin/ice_pikmin"
+      },
+      "geometry": {
+        "default": "geometry.ice_pikmin"
+      },
+      "scripts": {
+        "animate": [
+          "throw"
+        ]
+      },
+      "animations": {
+        "throw": "animation.pikmin.throw"
+      },
+      "render_controllers": [ "controller.render.pikmin" ],
+      "enable_attachables": true
+    }
+  }
+}

@@ -28,7 +28,8 @@
 						"block_filter": [
 							{"name": "farmland"},
 							{"name": "grass_block"},
-							{"name": "dirt"}
+							{"name": "dirt"},
+							{"name": "stone"}
 						]
 					}
 				]

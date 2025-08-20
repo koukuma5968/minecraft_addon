@@ -1,0 +1,17 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:ice_pellet",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:ice_pellet.name"
+			},
+      "minecraft:icon": "ice_pellet"
+    }
+  }
+}
