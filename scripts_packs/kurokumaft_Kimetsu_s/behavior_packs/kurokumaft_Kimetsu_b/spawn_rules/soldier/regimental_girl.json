@@ -28,7 +28,7 @@
           "minecraft:ice"
         ],
         "minecraft:density_limit": {
-          "surface": 3
+          "surface": 10
         },
         "minecraft:brightness_filter": {
           "min": 0,
@@ -39,8 +39,8 @@
           "default": 40
         },
         "minecraft:herd": {
-          "min_size":1,
-          "max_size":3
+          "min_size":2,
+          "max_size":4
         },
     
         "minecraft:biome_filter": {

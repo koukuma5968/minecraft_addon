@@ -17,7 +17,7 @@
             {
               "title_background": {
                 "type": "image",
-                "size": [ "100%sm", "90%sm + 6px" ],
+                "size": [ "90%", "90%sm + 6px" ],
                 "texture": "textures/ui/hud_tip_text_background",
                 "alpha": "@hud.anim_title_background_alpha_in"
               }
@@ -81,7 +81,7 @@
             "type": "panel",
             "anchor_from": "bottom_left",
             "anchor_to": "bottom_left",
-            "size": [ 100, 50 ],
+            "size": [ 130, 50 ],
             "factory": {
               "name": "hud_title_text_factory",
               "control_ids": {

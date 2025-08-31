@@ -1,5 +1,4 @@
 import { EntityDamageCause, EntityQueryOptions, MolangVariableMap, Entity, system, Player, world } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ogreRankPoint } from "../../kokyu/kata/KataComonClass";
 import { ZytuComonClass } from "./ZytuComonClass";
 
@@ -83,7 +82,7 @@ export class Bakketu extends ZytuComonClass {
                         targets1.forEach(en => {
                             if (en !== undefined && en.isValid) {
                                 dimension.spawnParticle("kurokumaft:bakketu_fire",en.location, molang);
-                                en.addEffect(MinecraftEffectTypes.InstantHealth, 2, {
+                                en.addEffect("minecraft:instant_health", 2, {
                                     amplifier: 2,
                                     showParticles: true
                                 });

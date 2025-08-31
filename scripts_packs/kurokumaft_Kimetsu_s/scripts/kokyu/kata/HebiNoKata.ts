@@ -1,7 +1,6 @@
 import { ItemStack, Entity, system, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class HebiNoKata extends KataComonClass {
@@ -44,7 +43,7 @@ export class HebiNoKata extends KataComonClass {
         const distancePitch = getLookLocationDistancePitch(entity.getRotation(), 0, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distancePitch), 3, entity);
         this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-        this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+        this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
 
         system.waitTicks(6).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);

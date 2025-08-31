@@ -1,6 +1,5 @@
 import { MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addOrgeFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch} from "../../common/KimetuCommonUtil";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { shooting } from "../../common/ShooterEvent";
 import { ZytuComonClass } from "./ZytuComonClass";
 
@@ -110,7 +109,7 @@ export class Kokurai extends ZytuComonClass {
             } catch (error: any) {
                 system.clearRun(num);
             }
-        },2);
+        },4);
 
         system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -129,13 +128,9 @@ export class Kokurai extends ZytuComonClass {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kokyu5.value"}]});
         }
 
-        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        const molang = new MolangVariableMap();
-        molang.setFloat("variable.kaikyu", kaikyuNum);
-
         const num = system.runInterval(() => {
             try {
-                entity.dimension.spawnParticle("kurokumaft:kokurai5_particle", entity.location, molang);
+                entity.dimension.spawnParticle("kurokumaft:kokurai5_particle", entity.location);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -152,13 +147,7 @@ export class Kokurai extends ZytuComonClass {
             system.clearRun(num);
         });
 
-        let event = "kurokumaft:small_damage";
-        if (kaikyuNum > 8) {
-            event = "kurokumaft:lage_damage";
-        } else if (kaikyuNum > 4) {
-            event = "kurokumaft:middle_damage";
-        }
-        const dragon = shooting(entity, "kurokumaft:kuro_dragon_small", 0, 3, event);
+        const dragon = shooting(entity, "kurokumaft:kuro_dragon_small", 0, 3, "kurokumaft:lage_damage");
 
         system.waitTicks(2*TicksPerSecond).then(() => {
             if (dragon.isValid) {
@@ -181,19 +170,16 @@ export class Kokurai extends ZytuComonClass {
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
         entity.applyKnockback({x:distance.x,z:distance.z},0.8);
 
-        entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+        entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
             amplifier: 1,
             showParticles: false
         });
 
         const nowloc = entity.location;
-        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        const molang = new MolangVariableMap();
-        molang.setFloat("variable.kaikyu", kaikyuNum);
         const num = system.runInterval(() => {
 
             try {
-                entity.dimension.spawnParticle("kurokumaft:kokurai6_particle",nowloc,molang);
+                entity.dimension.spawnParticle("kurokumaft:kokurai6_particle",nowloc);
             } catch (error: any) {
                 system.clearRun(num);
             }

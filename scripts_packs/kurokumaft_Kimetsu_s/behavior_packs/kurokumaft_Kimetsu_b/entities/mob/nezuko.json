@@ -98,7 +98,33 @@
         }
       },
       "kurokumaft:ogre_hurt_on_condition": {
-        "minecraft:burns_in_daylight": {
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            },
+            {
+              "filters": { "test": "on_fire", "subject": "self", "operator": "equals", "value": true },
+              "cause": "fire",
+              "damage_per_tick": 30
+            }
+          ]
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  { "test": "is_underground", "subject": "self", "operator": "equals", "value": false },
+                  { "test": "light_level", "subject": "self", "operator": ">", "value": 10 },
+                  { "test": "is_daytime", "subject": "self", "operator": "equals", "value": true }
+                ]
+              },
+              "event": "kurokumaft:sun_fire"
+            }
+          ]
         }
       },
       "kurokumaft:ogre_rank_low": {
@@ -240,7 +266,7 @@
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/nezuko.json"
+        "table": "loot_tables/entities/soldier/nezuko.json"
       },
       "minecraft:collision_box": {
         "width": 0.6,
@@ -251,7 +277,7 @@
         "max": 400
       },
       "minecraft:equipment": {
-        "table": "loot_tables/entities/nezuko_gear.json"
+        "table": "loot_tables/entities/soldier/nezuko_gear.json"
       },
       "minecraft:navigation.walk": {
         "is_amphibious": true,
@@ -284,9 +310,45 @@
         "value": 64,
         "max": 64
       },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "operator": "equals","value": "player"},
+                  { "test": "has_equipment", "domain": "hand", "subject": "other", "value": "kurokumaft:match_wooden_tag"}
+                ]
+              }
+            },
+            "give_item": false,
+            "take_item": false
+          }
+        ]
+      },
+      "minecraft:behavior.look_at_trading_player": {
+        "priority": 2
+      },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
-        "alert_same_type": true
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "all_of": [
+                    { "test": "has_tag", "subject": "self", "operator": "equals", "value": "hostility" },
+                    { "test": "has_tag", "subject": "other", "operator": "equals", "value": "hostility_player" }
+                  ]
+                },
+                {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
+                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+              ]
+            },
+            "max_dist": 64
+          }
+        ]
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -296,6 +358,12 @@
           {
             "filters": {
               "any_of": [
+                {
+                  "all_of": [
+                    { "test": "has_tag", "subject": "self", "operator": "equals", "value": "hostility" },
+                    { "test": "has_tag", "subject": "other", "operator": "equals", "value": "hostility_player" }
+                  ]
+                },
                 {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
                 {"test": "is_family","subject": "other","operator": "==","value": "monster"}
               ]

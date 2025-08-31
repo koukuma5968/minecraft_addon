@@ -1,7 +1,6 @@
 import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, weightChoice} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class HanaNoKata extends KataComonClass {
@@ -171,39 +170,39 @@ export class HanaNoKata extends KataComonClass {
             }
             entity.setDynamicProperty("kurokumaft:chage_type", true);
     
-            entity.addEffect(MinecraftEffectTypes.Speed, 200*TicksPerSecond,{
+            entity.addEffect("minecraft:speed", 200*TicksPerSecond,{
                 amplifier: 5,
                 showParticles: false
             });
-            entity.addEffect(MinecraftEffectTypes.JumpBoost, 200*TicksPerSecond,{
+            entity.addEffect("minecraft:jump_boost", 200*TicksPerSecond,{
                 amplifier: 3,
                 showParticles: false
             });
-            entity.addEffect(MinecraftEffectTypes.NightVision, 200*TicksPerSecond,{
+            entity.addEffect("minecraft:night_vision", 200*TicksPerSecond,{
                 amplifier: 10,
                 showParticles: false
             });
             system.waitTicks(180*TicksPerSecond).then(() => {
                 entity.setDynamicProperty("kurokumaft:chage_type", undefined);
 
-                entity.removeEffect(MinecraftEffectTypes.Speed);
-                entity.removeEffect(MinecraftEffectTypes.JumpBoost);
-                entity.removeEffect(MinecraftEffectTypes.NightVision);
+                entity.removeEffect("minecraft:speed");
+                entity.removeEffect("minecraft:jump_boost");
+                entity.removeEffect("minecraft:night_vision");
 
                 const choice = this.higanLists.pick();
                 switch (choice as string) {
                     case 'blindness': 
-                        entity.addEffect(MinecraftEffectTypes.Blindness, 600*TicksPerSecond,{
+                        entity.addEffect("minecraft:blindness", 600*TicksPerSecond,{
                             amplifier: 3,
                             showParticles: false
                         });
                     case 'serious': 
-                        entity.addEffect(MinecraftEffectTypes.Weakness, 10*TicksPerSecond,{
+                        entity.addEffect("minecraft:weakness", 10*TicksPerSecond,{
                             amplifier: 1,
                             showParticles: false
                         });
                     case 'minor': 
-                        entity.addEffect(MinecraftEffectTypes.Slowness, 10*TicksPerSecond,{
+                        entity.addEffect("minecraft:slowness", 10*TicksPerSecond,{
                             amplifier: 1,
                             showParticles: false
                         });

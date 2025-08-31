@@ -1,4 +1,4 @@
-import { ItemStack, Entity, Player } from "@minecraft/server";
+import { Entity, Player } from "@minecraft/server";
 import { KekkizyutuUseComponent } from "../../KekkizyutuUseComponent";
 import { KekkizyutuObject, KekkizyutuObjects } from "../../../item/weapon/KekkizyutuTypes";
 import { Obi } from "../../zyutu/Obi";

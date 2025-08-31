@@ -472,6 +472,10 @@
          "textures" : "textures/kurokumaft/items/armor/kokushibou/kokushibou_tabi"
       },
 
+      "gyokko_tubo": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/gyokko_tubo"
+      },
+
       "tanjiro_head": {
          "textures" : "textures/kurokumaft/items/head/tanjiro_head"
       },
@@ -524,6 +528,22 @@
       "syringe_dagger_full": {
          "textures" : "textures/kurokumaft/items/syringe_dagger_full"
       },
+      "match_wooden_tag": {
+         "textures" : "textures/kurokumaft/items/match_wooden_tag"
+      },
+
+      "meat_chunk": {
+         "textures" : "textures/kurokumaft/items/food/meat_chunk"
+      },
+      "rare_blood": {
+         "textures" : "textures/kurokumaft/items/food/rare_blood"
+      },
+      "ogre_meat_chunk": {
+         "textures" : "textures/kurokumaft/items/food/ogre_meat_chunk"
+      },
+      "demonization_reversal_potion": {
+         "textures" : "textures/kurokumaft/items/food/demonization_reversal_potion"
+      },
 
       "soldier_spawn_egg" : {
          "textures" : [
@@ -560,7 +580,9 @@
             "textures/kurokumaft/items/spawn_egg/ogre/aizetu_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/urogi_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/zouhakuten_egg",
-            "textures/kurokumaft/items/spawn_egg/ogre/douma_egg"
+            "textures/kurokumaft/items/spawn_egg/ogre/douma_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/gyokko_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/kokushibou_egg"
          ]
       }
 

@@ -1,7 +1,6 @@
 import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
-import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getRandomInRange} from "../../common/KimetuCommonUtil";
+import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class KoiNoKata extends KataComonClass {
@@ -61,7 +60,7 @@ export class KoiNoKata extends KataComonClass {
         system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+            entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
                 amplifier: 1,
                 showParticles: false
             });
@@ -146,7 +145,7 @@ export class KoiNoKata extends KataComonClass {
                 }
 
             },1);
-            entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+            entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
                 amplifier: 1,
                 showParticles: false
             });
@@ -154,9 +153,9 @@ export class KoiNoKata extends KataComonClass {
             system.waitTicks(10).then(() => {
                 try {
                     entity.setProperty("kurokumaft:kokyu_particle", false);
-                    entity.removeEffect(MinecraftEffectTypes.SlowFalling);
+                    entity.removeEffect("minecraft:slow_falling");
                     system.runTimeout(() => {
-                        entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+                        entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
                             amplifier: 1,
                             showParticles: false
                         });
@@ -207,7 +206,7 @@ export class KoiNoKata extends KataComonClass {
 
             system.waitTicks(10).then(() => {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
-                entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+                entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
                     amplifier: 1,
                     showParticles: false
                 });

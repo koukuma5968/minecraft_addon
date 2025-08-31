@@ -10,6 +10,11 @@
 			"geometry": "Geometry.default",
 			"materials": [ { "*": "Material.default" } ],
 			"textures": [ "Texture.default"]
+		},
+		"controller.render.takotubo": {
+			"geometry": "Geometry.takotubo",
+			"materials": [ { "*": "Material.default" } ],
+			"textures": [ "Texture.takotubo"]
 		}
 
 	}

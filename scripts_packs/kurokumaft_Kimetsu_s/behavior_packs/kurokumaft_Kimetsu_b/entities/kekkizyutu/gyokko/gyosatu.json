@@ -1,0 +1,176 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:gyosatu",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "kurokumaft:ogre_moon": {
+          "type": "int",
+          "range": [0, 5],
+          "default": 5,
+          "client_sync": true
+        },
+        "kurokumaft:ogre_rank": {
+          "type": "enum",
+          "values": ["none", "low"],
+          "default": "low",
+          "client_sync": true
+        },
+        "kurokumaft:ogre_point": {
+          "type": "int",
+          "range": [10, 20],
+          "default": 10,
+          "client_sync": true
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:floats_in_liquid":{},
+      "minecraft:experience_reward": {
+        "on_death": "Math.Min(80, 100)"
+      },
+      "minecraft:type_family": {
+        "family": [ "mob", "ogre", "monster", "sakana" ]
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:tameable": {
+        "probability": 6.0
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 0.5,
+            "height": 0.5,
+            "pivot": [0,0.1,0]
+          }
+        ]
+      },
+      "minecraft:health": {
+        "value": 30,
+        "max": 30
+      },
+      "minecraft:behavior.flee_sun": {
+        "priority": 0,
+        "speed_multiplier": 1
+      },
+      "minecraft:shooter": {
+        "def": "kurokumaft:gyosatuhari"
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 3,
+        "burst_shots": 5,
+        "attack_interval": 0.5,
+        "attack_radius": 12.0
+      },
+      "minecraft:behavior.restrict_sun": {},
+      "minecraft:burns_in_daylight": {
+      },
+      "minecraft:can_fly": {
+      },
+      "minecraft:navigation.hover": {
+        "is_amphibious": true,
+        "avoid_sun": true,
+        "avoid_water": true
+      },
+      "minecraft:movement.hover": {
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:target_nearby_sensor": {
+        "must_see": false,
+        "inside_range": 0,
+        "outside_range": 64
+      },
+      "minecraft:follow_range": {
+        "value": 64,
+        "max": 64
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {"test": "is_family","subject": "other","operator": "!=","value": "sakana"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+              ]
+            },
+            "max_dist": 64,
+            "must_see": false
+          }
+        ]
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 1
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      },
+      "minecraft:behavior.equip_item": {
+        "priority": 3
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "fall",
+            "deals_damage": "no"
+          }
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": -1,
+        "inhale_time": 3.75,
+        "generates_bubbles": false
+      },
+      "minecraft:nameable": {
+        "always_show": true,
+        "allow_name_tag_renaming": false
+      },
+      "minecraft:physics": {
+        "has_gravity": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:block_climber": {}
+    }
+  }
+}
+
+
+
+

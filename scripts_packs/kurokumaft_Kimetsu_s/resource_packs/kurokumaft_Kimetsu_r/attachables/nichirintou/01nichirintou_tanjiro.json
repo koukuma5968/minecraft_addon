@@ -14,6 +14,9 @@
         "geometry": {
           "default": "geometry.nichirintou_tanjiro"
         },
+        "particle_effects": {
+          "particle": "kurokumaft:mizu_awa_particle"
+        },
         "scripts": {
           "animate": [
             "scale",

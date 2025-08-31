@@ -1,7 +1,6 @@
 import { ExplosionOptions, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getForwardPosition, getLeftPosition, getLookLocationDistance, getRightPosition } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class OtoNoKata extends KataComonClass {
@@ -28,7 +27,7 @@ export class OtoNoKata extends KataComonClass {
             causesFire: false,
             source: entity
         };
-        entity.dimension.createExplosion(disLocation, 1, option);
+        entity.dimension.createExplosion(disLocation, 2, option);
 
         system.waitTicks(5).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -62,7 +61,7 @@ export class OtoNoKata extends KataComonClass {
                 const disLocation = getDistanceLocation(entity.location, distance);
                 const filter = addRegimentalFilter(0, disLocation, 4, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-                entity.dimension.createExplosion(disLocation, 1, option);
+                entity.dimension.createExplosion(disLocation, 2, option);
                 side=side+2;
             } catch (error: any) {
                 system.clearRun(num);
@@ -205,7 +204,7 @@ export class OtoNoKata extends KataComonClass {
 
             entity.setDynamicProperty("kurokumaft:chage_type", true);
 
-            entity.addEffect(MinecraftEffectTypes.Speed, 3*TicksPerSecond,{
+            entity.addEffect("minecraft:speed", 3*TicksPerSecond,{
                 amplifier: 5,
                 showParticles: false
             });

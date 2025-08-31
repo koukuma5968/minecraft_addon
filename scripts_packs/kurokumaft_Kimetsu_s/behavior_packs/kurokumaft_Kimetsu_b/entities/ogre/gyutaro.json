@@ -40,6 +40,11 @@
           "range": [390, 400],
           "default": 400,
           "client_sync": true
+        },
+        "kurokumaft:sun_hurt": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": false
         }
       },
       "scripts":{
@@ -85,7 +90,7 @@
         "on_death": "Math.Min(7, 100)"
       },
       "minecraft:type_family": {
-        "family": [ "mob", "ogre", "undead", "monster" ]
+        "family": [ "mob", "ogre", "monster" ]
       },
       "minecraft:is_hidden_when_invisible": {
       },
@@ -108,8 +113,6 @@
         "speed_multiplier": 1
       },
       "minecraft:behavior.restrict_sun": {},
-      "minecraft:burns_in_daylight": {
-      },
       "minecraft:behavior.stomp_turtle_egg": {
         "priority": 4,
         "speed_multiplier": 1,
@@ -151,7 +154,16 @@
         "alert_same_type": true,
         "entity_types": [
           {
-            "max_dist": 64
+            "filters": {
+              "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+              ]
+            },
+            "max_dist": 64,
+            "must_see": true
           }
         ]
       },
@@ -163,13 +175,14 @@
           {
             "filters": {
               "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
                 {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
                 {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
             },
             "max_dist": 64,
-            "must_see": false
+            "must_see": true
           }
         ]
       },
@@ -194,6 +207,44 @@
             "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
             "cause": "lava",
             "damage_per_tick": 4
+          },
+          {
+            "filters": {
+              "all_of": [
+                { "test": "on_fire", "subject": "self", "operator": "equals", "value": true },
+                { "test": "is_underground", "subject": "self", "operator": "equals", "value": false },
+                { "test": "light_level", "subject": "self", "operator": ">", "value": 10 },
+                { "test": "is_daytime", "subject": "self", "operator": "equals", "value": true }
+              ]
+            },
+            "cause": "fire",
+            "damage_per_tick": 40
+          }
+        ]
+      },
+      "minecraft:environment_sensor": {
+        "triggers": [
+          {
+            "filters": {
+              "all_of": [
+                { "test": "weather_at_position", "subject": "self", "operator": "equals", "value": "clear" },
+                { "test": "is_underground", "subject": "self", "operator": "equals", "value": false },
+                { "test": "light_level", "subject": "self", "operator": ">=", "value": 10 },
+                { "test": "is_daytime", "subject": "self", "operator": "equals", "value": true }
+              ]
+            },
+            "event": "kurokumaft:sun_fire"
+          },
+          {
+            "filters": {
+              "any_of": [
+                { "test": "weather_at_position", "subject": "self", "operator": "not", "value": "clear" },
+                { "test": "is_underground", "subject": "self", "operator": "equals", "value": true },
+                { "test": "light_level", "subject": "self", "operator": "<", "value": 10 },
+                { "test": "is_daytime", "subject": "self", "operator": "equals", "value": false }
+              ]
+            },
+            "event": "kurokumaft:sun_shade"
           }
         ]
       },
@@ -267,20 +318,7 @@
           }
         ]
       },
-      "minecraft:block_climber": {},
-      "minecraft:environment_sensor": {
-        "triggers": [
-          {
-            "filters": {
-              "all_of": [
-                {"test": "has_mob_effect","subject": "self","value": "bad_omen"},
-                {"test": "is_in_village","subject": "self","value": true}
-              ]
-            },
-            "event": "minecraft:trigger_raid"
-          }
-        ]
-      }
+      "minecraft:block_climber": {}
     },
 
     "events": {
@@ -312,6 +350,16 @@
         }
       },
 
+      "kurokumaft:sun_fire": {
+        "set_property": {
+          "kurokumaft:sun_hurt": true
+        }
+      },
+      "kurokumaft:sun_shade": {
+        "set_property": {
+          "kurokumaft:sun_hurt": false
+        }
+      },
       "kurokumaft:add_damage_clear": {
         "sequence": [
           {

@@ -1,7 +1,6 @@
-import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, ItemStack, Entity, system, TicksPerSecond, Player, world } from "@minecraft/server";
+import { EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addOrgeFilter, getDirectionVector, getDistanceLocation, getLookLocationDistance, getRandomInRange} from "../../common/KimetuCommonUtil";
 import { ZytuComonClass } from "./ZytuComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export class Tigama extends ZytuComonClass {
 
@@ -202,7 +201,7 @@ export class Tigama extends ZytuComonClass {
                                         damagingEntity: entity
                                     });
                                 }
-                                en.addEffect(MinecraftEffectTypes.Poison, 5, {
+                                en.addEffect("minecraft:poison", 5, {
                                     showParticles: false,
                                     amplifier: 2
                                 });
@@ -211,7 +210,7 @@ export class Tigama extends ZytuComonClass {
                                     cause: EntityDamageCause.entityAttack,
                                     damagingEntity: entity
                                 });
-                                en.addEffect(MinecraftEffectTypes.Poison, 10, {
+                                en.addEffect("minecraft:poison", 10, {
                                     showParticles: false,
                                     amplifier: 5
                                 });
@@ -350,7 +349,7 @@ export class Tigama extends ZytuComonClass {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
-                            en.addEffect(MinecraftEffectTypes.Poison, 10, {
+                            en.addEffect("minecraft:poison", 10, {
                                 showParticles: false,
                                 amplifier: 5
                             });

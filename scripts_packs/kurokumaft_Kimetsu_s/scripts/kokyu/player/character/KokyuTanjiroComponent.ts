@@ -1,4 +1,4 @@
-import { ItemStack, Player, TicksPerSecond } from "@minecraft/server";
+import { ItemStack, Player, TicksPerSecond, world } from "@minecraft/server";
 import { NichirintouUseComponent } from "../../NichirintouUseComponent";
 import { MizuNoKata } from "../../kata/MizuNoKata";
 import { KokyuObjects, KokyuObject } from "../../../item/weapon/NichirintouTypes";

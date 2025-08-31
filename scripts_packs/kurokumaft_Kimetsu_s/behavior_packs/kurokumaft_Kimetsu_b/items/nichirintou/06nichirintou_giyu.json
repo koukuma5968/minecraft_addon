@@ -38,7 +38,7 @@
           }
         ]
       },
-      "minecraft:damage": 25,
+      "minecraft:damage": 8,
       "minecraft:enchantable": {
         "value": 250,
         "slot": "sword"

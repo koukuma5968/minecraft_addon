@@ -1,8 +1,7 @@
-import { BlockVolume, EntityComponentTypes, EntityMovementComponent, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player, EntityProjectileComponent, world } from "@minecraft/server";
+import { EntityComponentTypes, EntityMovementComponent, MolangVariableMap, Entity, system, TicksPerSecond, Player, EntityProjectileComponent } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { shooting } from "../../common/ShooterEvent";
-import { addOrgeFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomExcludingZero, getRandomInRange, getRandomRange } from "../../common/KimetuCommonUtil";
+import { addOrgeFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomExcludingZero, getRandomInRange } from "../../common/KimetuCommonUtil";
 
 export class Hakaisatu extends ZytuComonClass {
 
@@ -30,11 +29,11 @@ export class Hakaisatu extends ZytuComonClass {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 move.resetToDefaultValue();
 
-                entity.addEffect(MinecraftEffectTypes.Speed, 10*TicksPerSecond,{
+                entity.addEffect("minecraft:speed", 10*TicksPerSecond,{
                     amplifier: 5,
                     showParticles: false
                 });
-                entity.addEffect(MinecraftEffectTypes.Strength, 10*TicksPerSecond,{
+                entity.addEffect("minecraft:strength", 10*TicksPerSecond,{
                     amplifier: 1,
                     showParticles: false
                 });
@@ -262,7 +261,7 @@ export class Hakaisatu extends ZytuComonClass {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
 
                 system.waitTicks(5).then(() => {
-                    entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+                    entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
                         amplifier: 1,
                         showParticles: false
                     });
@@ -306,7 +305,7 @@ export class Hakaisatu extends ZytuComonClass {
                     allowUnderwater: true
                 });
 
-                entity.addEffect(MinecraftEffectTypes.SlowFalling, 1*TicksPerSecond,{
+                entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
                     amplifier: 1,
                     showParticles: false
                 });
@@ -418,7 +417,7 @@ export class Hakaisatu extends ZytuComonClass {
                 }
             },5);
 
-            system.waitTicks(60).then(() => {
+            system.waitTicks(80).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
             }).catch((error: any) => {

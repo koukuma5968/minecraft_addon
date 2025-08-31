@@ -8,14 +8,15 @@
       },
       "textures": {
         "default": "textures/kurokumaft/models/mob/ogre/gyokko",
+        "hentai": "textures/kurokumaft/models/mob/ogre/gyokko_hentai",
+        "takotubo": "textures/kurokumaft/models/kekkizyutu/gyokko/takotubo",
         "nichirintou": "textures/kurokumaft/models/nichirintou/no_image"
       },
       "geometry": {
         "default": "geometry.gyokko",
+        "hentai": "geometry.gyokko_hentai",
+        "takotubo": "geometry.takotubo",
         "nichirintou_custom": "geometry.nichirintou_custom"
-      },
-      "particle_effects": {
-        "enzansenkai": "kurokumaft:enzansenkai"
       },
       "scripts": {
         "scaleX": "1.00",
@@ -63,19 +64,20 @@
         "swimming":"animation.humanoid.swimming",
         "use_item_progress":"animation.humanoid.use_item_progress",
 
-        "action": "controller.animation.kama.action",
-        "kama.bakkotyouryou_third": "animation.action.kama.bakkotyouryou_third",
-        "kama.enzansenkai_third": "animation.action.kama.enzansenkai_third",
-        "kama.enzansenkai_attack_third": "animation.action.kama.enzansenkai_attack_third"
+        "action": "controller.animation.tubo.action",
+        "tubo.attack": "animation.takotubo.attack",
+        "tubo.takotubozigoku_third": "animation.action.tubo.takotubozigoku_third",
+        "tubo.zinsatugyorin_third": "animation.action.tubo.zinsatugyorin_third"
 
       },
       "render_controllers": [
         "controller.render.ogre.gyokko",
-        "controller.render.nichirintou_custom"
+        "controller.render.nichirintou_custom",
+        { "controller.render.takotubo": "query.property('kurokumaft:kekkizyutu_kata') == 3 && query.property('kurokumaft:kokyu_use')" }
       ],
       "spawn_egg": {
         "texture": "ogre_spawn_egg",
-        "texture_index": 4
+        "texture_index": 12
       },
       "enable_attachables": true
     }

@@ -19,9 +19,7 @@
           "shot": "animation.kaminari_dragon.shot"
         },
         "scripts": {
-          "scaleX": "0.20",
-          "scaleY": "0.16",
-          "scaleZ": "0.20",
+          "scale": "0.2",
           "animate": [
             "shot"
           ]

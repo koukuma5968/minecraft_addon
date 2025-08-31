@@ -30,14 +30,14 @@ export class ZyutuKaigakuComponent implements KekkizyutuUseComponent {
     }
 
     /**
-     * @param {Player} player
+     * @param {Entity} entity
      */
     hitAttackZyutu(entity: Entity): void {
     }
 
     /**
      * @param {ItemStack} itemStack
-     * @param {Player} player
+     * @param {Entity} entity
      */
     useAttackZyutu(entity: Entity): void {
 

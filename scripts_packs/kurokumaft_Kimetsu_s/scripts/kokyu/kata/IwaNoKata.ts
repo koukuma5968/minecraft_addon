@@ -2,7 +2,6 @@ import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } 
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getRandomInRange } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
 import { shooting } from "../../common/ShooterEvent";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class IwaNoKata extends KataComonClass {
@@ -183,7 +182,7 @@ export class IwaNoKata extends KataComonClass {
             }
         },2);
 
-        entity.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+        entity.addEffect("minecraft:slow_falling", 2*TicksPerSecond,{
             amplifier: 1,
             showParticles: false
         });

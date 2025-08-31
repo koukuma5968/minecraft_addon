@@ -1,7 +1,6 @@
 import { ItemStack, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistancePitch} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class KedamonoNoKata extends KataComonClass {
@@ -190,7 +189,7 @@ export class KedamonoNoKata extends KataComonClass {
             entity.setProperty("kurokumaft:kokyu_chage", 10);
             entity.setDynamicProperty("kurokumaft:chage_type", true);
 
-            entity.addEffect(MinecraftEffectTypes.NightVision, 30*TicksPerSecond,{
+            entity.addEffect("minecraft:night_vision", 30*TicksPerSecond,{
                 amplifier: 5,
                 showParticles: false
             });
@@ -241,7 +240,7 @@ export class KedamonoNoKata extends KataComonClass {
             entity.setDynamicProperty("kurokumaft:chage_type", true);
             entity.setProperty("kurokumaft:kokyu_chage", 10);
     
-            entity.addEffect(MinecraftEffectTypes.Speed, 10*TicksPerSecond,{
+            entity.addEffect("minecraft:speed", 10*TicksPerSecond,{
                 amplifier: 5,
                 showParticles: false
             });

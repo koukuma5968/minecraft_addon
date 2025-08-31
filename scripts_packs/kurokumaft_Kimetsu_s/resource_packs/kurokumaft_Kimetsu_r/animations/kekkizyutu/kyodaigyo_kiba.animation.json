@@ -1,0 +1,36 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.kyodaigyo_kiba.walk": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": [0, "query.target_y_rotation - this", 0]
+				},
+				"righthire": {
+					"rotation": [0, 0, "variable.tcos_right_side * 0.5"]
+				},
+				"rightLeg": {
+					"rotation": ["variable.tcos_right_side", 0, 0]
+				},
+				"leftLeg": {
+					"rotation": ["variable.tcos_left_side", 0, 0]
+				},
+				"lefthire": {
+					"rotation": [0, 0, "variable.tcos_left_side * 0.5"]
+				}
+			}
+		},
+		"animation.kyodaigyo_kiba.look_at_target": {
+			"loop": true
+		},
+		"animation.kyodaigyo_kiba.attack": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": ["variable.attack_head_rot", 0, 0]
+				}
+			}
+		}
+	}
+}

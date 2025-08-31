@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:match_wooden_tag"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "w",
+      "r",
+      "w"
+    ],
+    "key": {
+      "r": {
+        "item": "minecraft:redstone"
+      },
+      "w": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "result": {
+      "item": "kurokumaft:match_wooden_tag"
+    }
+  }
+}

@@ -15,124 +15,458 @@
 			}
 		},
 		"animation.nichirintou_custom.attack_third": {
-			"animation_length": 0.5,
-			"bones": {
-				"root": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [0, -22.5, 0]
-					},
-					"position": [0, 0, 0]
-				},
-				"body": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [0, 22.5, 0],
-						"0.3333": [0, 17.5, 0]
-					},
-					"position": [0, 0, 0]
-				},
-				"leftArm": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [-137.18705, 25.70114, -41.5461],
-						"0.3333": [-31.02103, 56.23902, -0.33953]
-					},
-					"position": [0, 0, 0]
-				},
-				"rightArm": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [-127.87778, -14.71935, -14.35508],
-						"0.3333": [-6.80402, -18.72066, -26.72532]
-					},
-					"position": [0, 0, 0]
-				},
-				"leftLeg": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [15.32723, 21.11183, -5.54121]
-					},
-					"position": [0, 0, 0]
-				},
-				"rightLeg": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.1667": [-14.3546, 24.56163, 7.86675]
-					},
-					"position": [0, 0, 0]
-				}
-			}
-		},
-		"animation.nichirintou_custom.two_attack_third": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.5,
 			"bones": {
 				"root": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.125": [0, -20, 0]
-					},
+					"rotation": [0, -22.5, 0],
 					"position": [0, 0, 0]
 				},
 				"body": {
 					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.5": [0, 40, 0]
+						"0.0": [0, 22.5, 0],
+						"0.1667": [0, 17.5, 0]
 					},
 					"position": [0, 0, 0]
 				},
 				"leftArm": {
 					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.125": [-59.70336, -57.48927, -6.09033],
-						"0.25": [-59.7, -57.49, -6.09],
-						"0.375": [-129.8001, -8.11729, 50.12877],
-						"0.5": [-7.3001, -8.11729, 50.12877]
+						"0.0": [-137.18705, 25.70114, -41.5461],
+						"0.1667": [-31.02103, 56.23902, -0.33953]
 					},
 					"position": [0, 0, 0]
 				},
 				"rightArm": {
 					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.125": [-127.50473, -0.21782, -35.0095],
-						"0.25": [-2.5, -0.22, -35.01],
-						"0.375": [-82.40703, 60.68902, -21.74355]
+						"0.0": [-127.87778, -14.71935, -14.35508],
+						"0.1667": [-6.80402, -18.72066, -26.72532]
 					},
 					"position": [0, 0, 0]
 				},
 				"leftLeg": {
-					"rotation": {
-						"0.0": [0, 0, 0],
-						"0.125": [14.96611, 15.46286, -8.52531]
-					},
+					"rotation": [15.32723, 21.11183, -5.54121],
 					"position": [0, 0, 0]
 				},
 				"rightLeg": {
+					"rotation": [-14.3546, 24.56163, 7.86675],
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.attack_2_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"root": {
+					"rotation": [0, -22.5, 0],
+					"position": [0, 0, 0]
+				},
+				"body": {
+					"rotation": [20, 17.5, 0],
+					"position": [0, 0, -5]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-31.02103, 56.23902, -0.33953],
+						"0.1667": [-16.42854, 22.66544, -41.38751]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-141.38439, -17.76359, 142.21748],
+						"0.1667": [6.12, -17.76, 142.22]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [15.32723, 21.11183, -5.54121],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-14.3546, 24.56163, 7.86675],
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
 					"rotation": {
 						"0.0": [0, 0, 0],
-						"0.125": [-17.68055, 18.93005, 1.89801]
+						"0.1667": [52.5, 0, 0]
 					},
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.attack_3_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5,
+			"bones": {
+				"root": {
+					"rotation": [0, -22.5, 0],
+					"position": [0, 0, 0]
+				},
+				"body": {
+					"rotation": {
+						"0.0": [10.45847, 40.63839, 10.98088],
+						"0.1667": [16.19432, -60.39904, -10.04826]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": [-63.52103, 56.23902, -0.33953],
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [200.32004, 3.03669, 262.34868],
+						"0.1667": [295.32, 3.04, 262.35]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [15.32723, 21.11183, -5.54121],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-14.3546, 24.56163, 7.86675],
+					"position": [0, 0, 0]
+				},
+				"nichirintou_hold_right": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1667": [42.5, 0, 0]
+					},
+					"position": [0, 0, 0]
+				}
+			},
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.two_attack_third": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.3125,
+			"bones": {
+				"root": {
+					"rotation": [0, -20, 0],
+					"position": [0, 0, 0]
+				},
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3125": [0, 40, 0]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftArm": {
+					"rotation": {
+						"0.0": [-59.70336, -57.48927, -6.09033],
+						"0.125": [-59.7, -57.49, -6.09],
+						"0.1875": [-129.8001, -8.11729, 50.12877],
+						"0.3125": [-7.3001, -8.11729, 50.12877]
+					},
+					"position": [0, 0, 0]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-127.50473, -0.21782, -35.0095],
+						"0.125": [-2.5, -0.22, -35.01],
+						"0.1875": [-82.40703, 60.68902, -21.74355]
+					},
+					"position": [0, 0, 0]
+				},
+				"leftLeg": {
+					"rotation": [14.96611, 15.46286, -8.52531],
+					"position": [0, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-17.68055, 18.93005, 1.89801],
 					"position": [0, 0, 0]
 				}
 			}
 		},
 		"animation.nichirintou_custom.attack_horizontality_third": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.5,
+			"animation_length": 0.2917,
 			"bones": {
 				"leftArm": {
 					"rotation": {
 						"0.0": [-115.10814, 14.49974, -90.49648],
-						"0.2917": [31.44557, 0.53968, -89.83013]
+						"0.1667": [31.44557, 0.53968, -89.83013]
 					}
 				},
 				"rightArm": {
 					"rotation": {
 						"0.0": [-91.54445, -16.87952, 77.49797],
-						"0.2917": [35.71139, -2.50597, 92.59933]
+						"0.1667": [35.71139, -2.50597, 92.59933]
 					}
 				}
+			}
+		},
+		"animation.nichirintou_custom.mizu_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mizu_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mizu_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.hono_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hono_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "hono_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.hi_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hi_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "hi_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.kaminari_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaminari_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "kaminari_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.kedamono_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kedamono_attack_particle",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "kedamono_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "kedamono_attack_particle",
+						"locator": "nichirintou_hold11"
+					},
+					{
+						"effect": "kedamono_attack_particle",
+						"locator": "nichirintou_hold12"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.hana_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hana_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "hana_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.kaze_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kaze_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "kaze_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.iwa_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "iwa_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "iwa_attack_particle",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "iwa_attack_particle",
+						"locator": "nichirintou_hold11"
+					},
+					{
+						"effect": "iwa_attack_particle",
+						"locator": "nichirintou_hold12"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.mushi_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "mushi_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "mushi_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.hebi_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "hebi_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "hebi_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.koi_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "koi_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "koi_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.kasumi_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "kasumi_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "kasumi_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.oto_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "oto_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "oto_attack_particle",
+						"locator": "nichirintou_hold6"
+					},
+					{
+						"effect": "oto_attack_particle",
+						"locator": "nichirintou_hold11"
+					},
+					{
+						"effect": "oto_attack_particle",
+						"locator": "nichirintou_hold12"
+					}
+				]
+			}
+		},
+		"animation.nichirintou_custom.tuki_attack.particle.player": {
+			"animation_length": 0.3333,
+			"particle_effects": {
+				"0.0": [
+					{
+						"effect": "tuki_attack_particle",
+						"locator": "nichirintou_hold5"
+					},
+					{
+						"effect": "tuki_attack_particle",
+						"locator": "nichirintou_hold6"
+					}
+				]
 			}
 		}
 	}

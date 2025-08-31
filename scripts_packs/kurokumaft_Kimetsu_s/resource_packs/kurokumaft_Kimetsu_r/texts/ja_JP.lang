@@ -292,7 +292,7 @@ msg.kurokumaft:kekkizyutu_tubo1.value=水獄鉢
 msg.kurokumaft:kekkizyutu_tubo2.value=千本針魚殺
 msg.kurokumaft:kekkizyutu_tubo3.value=蛸壺地獄
 msg.kurokumaft:kekkizyutu_tubo4.value=一万滑空粘魚
-msg.kurokumaft:kekkizyutu_tubo5.value=神の手
+msg.kurokumaft:kekkizyutu_tubo5.value=魚召喚
 msg.kurokumaft:kekkizyutu_tubo6.value=陣殺魚鱗
 
 msg.kurokumaft:kekkizyutu_akumu1.value=強制昏倒 催眠の囁
@@ -353,9 +353,15 @@ kurokumaft:itemGroup.name.kekkizyutu=血気術
 item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
 item.kurokumaft:koushi.name=血気術 累(鋼糸)
 item.kurokumaft:obi.name=血気術 堕姫(帯)
+item.kurokumaft:tigama.name=血気術 妓夫太郎(血鎌)
+item.kurokumaft:suisei.name=血気術 玉壺(水生)
+item.kurokumaft:mogura.name=血気術 憎珀天(土竜)
 item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
-item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
 item.kurokumaft:koori.name=血気術 童磨(氷)
+item.kurokumaft:mikatuki.name=血気術 黒死牟(月)
+item.kurokumaft:kokurai.name=血気術 獪岳(亀裂)
+
+item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
 
 tile.kurokumaft:scarlet_gravel.name=緋の砂利
 tile.kurokumaft:scarlet_ore.name=緋の鉱石
@@ -380,6 +386,8 @@ entity.kurokumaft:muitiro.name=時透 無一郎
 entity.kurokumaft:obanai.name=伊黒 小芭内
 entity.kurokumaft:regimental_guy.name=隊士（男）
 entity.kurokumaft:regimental_girl.name=隊士（女）
+
+kurokumaft:itemGroup.name.soldier_spawn_egg=鬼殺隊スポーンエッグ
 
 item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
 item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
@@ -536,6 +544,8 @@ entity.kurokumaft:urogi.name=空喜
 entity.kurokumaft:zouhakuten.name=憎珀天
 entity.kurokumaft:douma.name=童磨
 entity.kurokumaft:kokushibou.name=黒死牟
+entity.kurokumaft:kyodaigyo_kiba.name=巨大魚（牙）
+entity.kurokumaft:nengyo.name=粘魚
 
 item.spawn_egg.entity.kurokumaft:ogre.name=鬼（下級）
 item.spawn_egg.entity.kurokumaft:rui.name=累
@@ -551,6 +561,7 @@ item.spawn_egg.entity.kurokumaft:urogi.name=空喜
 item.spawn_egg.entity.kurokumaft:zouhakuten.name=憎珀天
 item.spawn_egg.entity.kurokumaft:douma.name=童磨
 item.spawn_egg.entity.kurokumaft:kokushibou.name=黒死牟
+item.spawn_egg.entity.kurokumaft:kyodaigyo_kiba.name=巨大魚（牙）
 
 kurokumaft:itemGroup.name.ogre_head=鬼の頭巾
 kurokumaft:itemGroup.name.ogre_chestplate=鬼の着物
@@ -613,6 +624,8 @@ item.kurokumaft:kokushibou_kimono.name=黒死牟の着物
 item.kurokumaft:kokushibou_hakama.name=黒死牟の袴
 item.kurokumaft:kokushibou_tabi.name=黒死牟の足袋
 
+item.kurokumaft:gyokko_tubo.name=玉壺の壺
+
 msg.kurokumaft:ogrerank_low.value=§f§l鬼(下)
 msg.kurokumaft:ogrerank_unusual.value=§7§l鬼(異)
 msg.kurokumaft:ogrerank_quarter1.value=§9§l下弦(壱)
@@ -629,19 +642,35 @@ msg.kurokumaft:ogrerank_crescent5.value=§5§l上弦(伍)
 msg.kurokumaft:ogrerank_crescent6.value=§6§l上弦(陸)
 msg.kurokumaft:ogrerank_king.value=§0§l鬼の王
 
-msg.kurokumaft:kaikyuChange.missing_method=第一引数は「set」(変更)、「add」(加算)で指定してください。
-msg.kurokumaft:kaikyuChange.missing_add_argument=コマンド引数は3つ指定してください。例：「add promotion 100」(鬼撃破数を加算)
-msg.kurokumaft:kaikyuChange.missing_add_type=第二引数は「promotion」(昇格)、「demotion」(降格)で指定してください。
-msg.kurokumaft:kaikyuChange.missing_add_num=第三引数は数値で指定してください。最小最大を超える値は無視されます
-msg.kurokumaft:kaikyuChange.missing_set_argument=コマンド引数は2つ指定してください。例：「set 1」(指定の階級に変更)
-msg.kurokumaft:kaikyuChange.missing_set_num=第二引数は数値で指定してください。階級値(0~11)(一般人~柱)以外は無視されます
+msg.kurokumaft:kaikyu_change.missing_method=第一引数は「set」(変更)、「add」(加算)で指定してください。
+msg.kurokumaft:kaikyu_change.missing_add_argument=コマンド引数は3つ指定してください。例：「add promotion 100」(鬼撃破数を加算)
+msg.kurokumaft:kaikyu_change.missing_add_type=第二引数は「promotion」(昇格)、「demotion」(降格)で指定してください。
+msg.kurokumaft:kaikyu_change.missing_add_num=第三引数は数値で指定してください。最小最大を超える値は無視されます
+msg.kurokumaft:kaikyu_change.missing_set_argument=コマンド引数は2つ指定してください。例：「set 1」(指定の階級に変更)
+msg.kurokumaft:kaikyu_change.missing_set_num=第二引数は数値で指定してください。階級値(0~11)(一般人~柱)以外は無視されます
 
-msg.kurokumaft:ogreRankChange.missing_method=第一引数は「set」(変更)、「add」(加算)で指定してください。
-msg.kurokumaft:ogreRankChange.missing_add_argument=コマンド引数は3つ指定してください。例：「add promotion 100」(血の摂取量を加算)
-msg.kurokumaft:ogreRankChange.missing_add_type=第二引数は「promotion」(昇格)、「demotion」(降格)で指定してください。
-msg.kurokumaft:ogreRankChange.missing_add_num=第三引数は数値で指定してください。最小最大を超える値は無視されます
-msg.kurokumaft:ogreRankChange.missing_set_argument=コマンド引数は2つ指定してください。例：「set 1」(指定の階級に変更)
-msg.kurokumaft:ogreRankChange.missing_set_num=第二引数は数値で指定してください。階級値(0~15)(一般人~鬼の王)以外は無視されます
+msg.kurokumaft:ogre_rank_change.missing_method=第一引数は「set」(変更)、「add」(加算)で指定してください。
+msg.kurokumaft:ogre_rank_change.missing_add_argument=コマンド引数は3つ指定してください。例：「add promotion 100」(血の摂取量を加算)
+msg.kurokumaft:ogre_rank_change.missing_add_type=第二引数は「promotion」(昇格)、「demotion」(降格)で指定してください。
+msg.kurokumaft:ogre_rank_change.missing_add_num=第三引数は数値で指定してください。最小最大を超える値は無視されます
+msg.kurokumaft:ogre_rank_change.missing_set_argument=コマンド引数は2つ指定してください。例：「set 1」(指定の階級に変更)
+msg.kurokumaft:ogre_rank_change.missing_set_num=第二引数は数値で指定してください。階級値(0~15)(一般人~鬼の王)以外は無視されます
+
+msg.kurokumaft:soldier.keiko.title=稽古開始
+msg.kurokumaft:soldier.keiko.body=稽古を開始しますか？
+msg.kurokumaft:soldier.keiko.yes=はい
+msg.kurokumaft:soldier.keiko.no=いいえ
 
 item.kurokumaft:syringe_dagger.name=短刀
 item.kurokumaft:syringe_dagger_full.name=短刀（採血済）
+
+tile.kurokumaft:transparent_block.name=透明ブロック
+
+msg.kurokumaft:kekkizyutu.title=血気術選択
+
+item.kurokumaft:match_wooden_tag.name=稽古札
+
+item.kurokumaft:meat_chunk.name=肉片
+item.kurokumaft:rare_blood.name=稀血
+item.kurokumaft:ogre_meat_chunk.name=鬼の肉片
+item.kurokumaft:demonization_reversal_potion.name=鬼化解除薬

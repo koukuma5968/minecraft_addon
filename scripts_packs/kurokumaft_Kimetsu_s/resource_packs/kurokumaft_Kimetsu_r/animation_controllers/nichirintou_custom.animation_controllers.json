@@ -30,6 +30,23 @@
 						{"third": "query.any_animation_finished"}
 					]
 				},
+				"one_2_third": {
+					"animations": [
+						"nichirintou_custom.attack_2_third"
+					],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"one_3_third": "variable.attack_time > 0.0"}
+					]
+				},
+				"one_3_third": {
+					"animations": [
+						"nichirintou_custom.attack_3_third"
+					],
+					"transitions": [
+						{"third": "query.any_animation_finished"}
+					]
+				},
 				"two_third": {
 					"animations": [
 						"nichirintou_custom.two_attack_third"
@@ -44,6 +61,159 @@
 					],
 					"transitions": [
 						{"third": "query.any_animation_finished"}
+					]
+				}
+			}
+		},
+		"controller.animation.nichirintou_custom.attack.particle": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"attack_third": "variable.attack_time > 0.0 && query.property('kurokumaft:nichirintou_type') != 0 && !query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"attack_third": {
+					"transitions": [
+						{"mizu": "variable.nichirintou_equipment == 2 && query.property('kurokumaft:kokyu_kata') <= 10"},
+						{"hi": "variable.nichirintou_equipment == 2 && query.property('kurokumaft:kokyu_kata') >= 11"},
+						{"kaminari": "variable.nichirintou_equipment == 3"},
+						{"kedamono": "variable.nichirintou_equipment == 4"},
+						{"hana": "variable.nichirintou_equipment == 5"},
+						{"mizu": "variable.nichirintou_equipment == 6"},
+						{"mushi": "variable.nichirintou_equipment == 7"},
+						{"hono": "variable.nichirintou_equipment == 8"},
+						{"kaze": "variable.nichirintou_equipment == 9"},
+						{"iwa": "variable.nichirintou_equipment == 10"},
+						{"kasumi": "variable.nichirintou_equipment == 11"},
+						{"oto": "variable.nichirintou_equipment == 12"},
+						{"hebi": "variable.nichirintou_equipment == 13"},
+						{"koi": "variable.nichirintou_equipment == 14"},
+						{"mizu": "variable.nichirintou_equipment == 15"},
+						{"kaminari": "variable.nichirintou_equipment == 16"},
+						{"hi": "variable.nichirintou_equipment == 17"},
+						{"hono": "variable.nichirintou_equipment == 18"},
+						{"kedamono": "variable.nichirintou_equipment == 19"},
+						{"kaze": "variable.nichirintou_equipment == 20"},
+						{"iwa": "variable.nichirintou_equipment == 21"},
+						{"kasumi": "variable.nichirintou_equipment == 22"},
+						{"oto": "variable.nichirintou_equipment == 23"},
+						{"hebi": "variable.nichirintou_equipment == 24"},
+						{"koi": "variable.nichirintou_equipment == 25"},
+						{"mushi": "variable.nichirintou_equipment == 26"},
+						{"hana": "variable.nichirintou_equipment == 27"},
+						{"tuki": "variable.nichirintou_equipment == 28"}
+					]
+				},
+				"mizu": {
+					"animations": [
+						"mizu_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"hi": {
+					"animations": [
+						"hi_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"kaminari": {
+					"animations": [
+						"kaminari_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"kedamono": {
+					"animations": [
+						"kedamono_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"hana": {
+					"animations": [
+						"hana_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"mushi": {
+					"animations": [
+						"mushi_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"hono": {
+					"animations": [
+						"hono_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"kaze": {
+					"animations": [
+						"kaze_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"iwa": {
+					"animations": [
+						"iwa_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"kasumi": {
+					"animations": [
+						"kasumi_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"koi": {
+					"animations": [
+						"koi_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"hebi": {
+					"animations": [
+						"hebi_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"oto": {
+					"animations": [
+						"oto_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"tuki": {
+					"animations": [
+						"tuki_attack"
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
 					]
 				}
 			}

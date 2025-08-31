@@ -1,30 +1,7 @@
 import { EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, Player, system, TicksPerSecond, world } from "@minecraft/server";
 import { KokyuObject, KokyuObjects } from "../item/weapon/NichirintouTypes";
 import { KekkizyutuObject, KekkizyutuObjects } from "../item/weapon/KekkizyutuTypes";
-
-const kaikyuPointList = [
-    "0",
-    "100",
-    "300",
-    "600",
-    "1000",
-    "1500",
-    "2100",
-    "2800",
-    "3600",
-    "4500",
-    "10",
-    "-"
-];
-
-const ogrePointList = [
-    {name :"none", value: "100"},
-    {name :"low", value: "150"},
-    {name :"unusual", value: "200"},
-    {name :"quarter", value: "400"},
-    {name :"crescent", value: "500"},
-    {name :"king", value: "-"},
-];
+import { kaikyuPointList, ogrePointList } from "../common/KimetuConst";
 
 export class KimetuEquipmentTick {
 
@@ -63,7 +40,8 @@ export class KimetuEquipmentTick {
                     const ogreMoon = this.player.getProperty("kurokumaft:ogre_moon") as number;
                     kaikyu = "msg.kurokumaft:ogrerank_" + ogreRank + (("quarter" === ogreRank || "crescent" === ogreRank) ? ogreMoon : "") + ".value";
                     const becoming = this.player.getProperty("kurokumaft:ogre_becoming") as number;
-                    rankuPoint = becoming + "/" + ogrePointList.find((rank) => rank.name === ogreRank)?.value;
+                    const rank = ogrePointList.find((rank) => rank.name === ogreRank);
+                    rankuPoint = becoming + "/" + rank?.value;
                 } else if (kaikyuNum > 0) {
                     kaikyu = "msg.kurokumaft:kaikyu"+ kaikyuNum +".value";
                     const point = this.player.getProperty("kurokumaft:ogre_kill") as number;
@@ -79,10 +57,9 @@ export class KimetuEquipmentTick {
                         const kataNum = this.player.getProperty("kurokumaft:kokyu_kata") as number;
                         const index = kokyuObject.kata.findIndex((el) => el === kataNum);
                         if (kokyuObject.type === 2) {
-                            if (index > 10) {
+                            if (index > 9) {
                                 if (kokyuObject.kata[index] !== undefined) {
-                                    const hikata = (kokyuObject.kata[index] as number - 10);
-                                    kataMess = "msg.kurokumaft:hi_kata" + hikata + ".value";
+                                    kataMess = "msg.kurokumaft:hinokami_kata" + kokyuObject.kata[index] + ".value";
                                 }
                             } else {
                                 kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[index]+ ".value";

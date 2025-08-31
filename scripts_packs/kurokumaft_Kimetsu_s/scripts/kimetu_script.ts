@@ -1,13 +1,17 @@
-import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent, WorldLoadAfterEvent, EntityInventoryComponent, Container, ContainerSlot, EntityDamageCause } from "@minecraft/server";
+import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, 
+  ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent, EntityDamageCause, 
+  EntityInventoryComponent} from "@minecraft/server";
 import { initRegisterKimetuCustom } from "./custom/KimetuCustomComponentRegistry";
 import { kokyuClassRecord, KokyuMobClassRecord, KokyuMobObject, KokyuMobObjects, KokyuObject, KokyuObjects } from "./item/weapon/NichirintouTypes";
 import { KimetuEquipmentTick } from "./player/KimetuEquipmentTick";
 import { RaisingStatusCheckClass } from "./player/RaisingStatusCheckClass";
 import { KekkizyutuClassRecord, KekkizyutuMobClassRecord, KekkizyutuMobObject, KekkizyutuMobObjects, KekkizyutuObject, KekkizyutuObjects } from "./item/weapon/KekkizyutuTypes";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { getLookLocationDistance, getRandomInRange, isBelowThreshold, weightChoice } from "./common/KimetuCommonUtil";
 import { ibuki } from "./kekkizyutu/zyutu/Koori";
-import { OgreKaikyu, TaishiKaikyu } from "./common/KimetuConst";
+import { kekkizyutuLists, NitirintouEquips, OgreKaikyu, ogrePointList, TaishiKaikyu } from "./common/KimetuConst";
+import { gyokkoMove } from "./kekkizyutu/zyutu/Tubo";
+import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
+import { subtractionItem } from "./common/KimetuItemDurabilityDamage";
 
 // ワールド接続時
 system.beforeEvents.startup.subscribe(initEvent => {
@@ -33,6 +37,7 @@ world.afterEvents.playerSpawn.subscribe(event => {
   } else {
     event.player.triggerEvent("kurokumaft:player_spawned_init");
   }
+  event.player.removeTag("hostility_player");
   const playerTick = new KimetuEquipmentTick(event.player);
   playerTick.startMonitoring();
 
@@ -101,10 +106,19 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
       }
     } else if (event.eventId === "kurokumaft:ibuki_start") {
       ibuki(entity);
+    } else if (event.eventId === "kurokumaft:gyokko_move") {
+      gyokkoMove(entity);
     }
   }
 
+  if (event.eventId === "kurokumaft:sun_fire") {
+    sunLightFire(entity);
+  }
 });
+
+async function sunLightFire(entity:Entity) {
+    entity.setOnFire(1, true);
+}
 
 world.afterEvents.itemStopUse.subscribe(event => {
   const source = event.source as Entity;
@@ -170,6 +184,8 @@ world.afterEvents.entitySpawn.subscribe(event => {
         entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
         system.waitTicks(4).then(() => {
           entity.triggerEvent("kurokumaft:kaikyu_change");
+          const health = entity.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+          health.resetToMaxValue();
         }).catch((error: any) => {
         });
       }
@@ -228,8 +244,42 @@ world.afterEvents.entityDie.subscribe(event => {
         raishinStastsCheck.statusCheck(damager as Player, deadEntity);
       }
     }
+  // 稽古中の隊士を倒す
+  } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
+    const tags = deadEntity.getTags();
+    if (tags.indexOf("hostility") !== -1) {
+      const equips = NitirintouEquips.find(soldier => soldier.charaName === deadEntity.typeId);
+      if (equips !== undefined) {
+        deadEntity.dimension.spawnItem(new ItemStack(equips.itemName, 1), deadEntity.location);
+      }
+      const damager = event.damageSource.damagingEntity;
+      if (damager?.isValid) {
+        damager.removeTag("hostility_player");
+      }
+    }
+  // 稽古中に倒される
   } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("player")) {
-    deadEntity.removeTag("hostility_player");
+    const tags = deadEntity.getTags();
+    if (tags.indexOf("hostility_player") !== -1) {
+      const damager = event.damageSource.damagingEntity;
+      if (damager !== undefined) {
+        damager.removeTag("hostility");
+      }
+    }
+  // 村人が鬼に倒されたら肉を落とす
+  } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("villager")) {
+    const damager = event.damageSource.damagingEntity;
+    if (damager !== undefined) {
+      const dfamilyTypes = damager.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+      if (dfamilyTypes !== undefined && dfamilyTypes.hasTypeFamily("ogre")) {
+        const dimension = deadEntity.dimension;
+        dimension.spawnItem(new ItemStack("kurokumaft:meat_chunk", getRandomInRange(1, 2)), deadEntity.location);
+        const rare = getRandomInRange(0, 10);
+        if (rare === 10) {
+          dimension.spawnItem(new ItemStack("kurokumaft:rare_blood", getRandomInRange(1, 2)), deadEntity.location);
+        }
+      }
+    }
   }
   if (deadEntity.typeId === "kurokumaft:hantengu") {
     const dimension = deadEntity.dimension;
@@ -250,13 +300,13 @@ world.afterEvents.entityHitEntity.subscribe(event => {
   }
   const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
   const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-  if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
-    hitEntity.addTag("hostility");
-    damagingEntity.addTag("hostility_player");
-  } else if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("player") && damageFamilyTypes.hasTypeFamily("player")) {
-    hitEntity.addTag("hostility_player");
-    damagingEntity.addTag("hostility_player");
-  }
+  // if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
+  //   hitEntity.addTag("hostility");
+  //   damagingEntity.addTag("hostility_player");
+  // } else if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("player") && damageFamilyTypes.hasTypeFamily("player")) {
+  //   hitEntity.addTag("hostility_player");
+  //   damagingEntity.addTag("hostility_player");
+  // }
   if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("ogre")) {
     const type = damagingEntity.getProperty("kurokumaft:nichirintou_type");
     if (type === undefined || type === 0) {
@@ -271,23 +321,38 @@ world.afterEvents.entityHurt.subscribe(event => {
   if (!hurtEntity.isValid) {
     return;
   }
+  const ogre_rank = hurtEntity.getProperty("kurokumaft:ogre_rank") as string;
+  if (ogre_rank !== undefined && ogre_rank !== "none") {
+    const sun_hurt = hurtEntity.getProperty("kurokumaft:sun_hurt") as boolean;
+    if (!sun_hurt) {
+      const rank = ogrePointList.find(list => list.name === ogre_rank);
+      event.hurtEntity.addEffect("minecraft:regeneration", rank?.regeneTime!, {
+        amplifier: rank?.regene,
+        showParticles: false
+      });
+    } else {
+      event.hurtEntity.removeEffect("minecraft:regeneration");
+    }
+  }
+    
   const health = hurtEntity.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
-  if (hurtEntity.typeId === "kurokumaft:sekido") {
-    if (hurtEntity.getTags().length === 1) {
-      if (isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
+  if (!hurtEntity.getProperty("kurokumaft:bunretu_flg") as boolean) {
+    if (isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
+      if (hurtEntity.typeId === "kurokumaft:sekido") {
         hurtEntity.addTag("bunretu_1");
+        hurtEntity.setProperty("kurokumaft:bunretu_flg", true);
         const aizetu = hurtEntity.dimension.spawnEntity("kurokumaft:aizetu", hurtEntity.location);
         aizetu.addTag(hurtEntity.getTags()[0]);
         aizetu.addTag("bunretu_1");
+        aizetu.setProperty("kurokumaft:bunretu_flg", true);
+      } else if (hurtEntity.typeId === "kurokumaft:karaku") {
+        hurtEntity.addTag("bunretu_1");
+        hurtEntity.setProperty("kurokumaft:bunretu_flg", true);
+        const urogi = hurtEntity.dimension.spawnEntity("kurokumaft:urogi", hurtEntity.location);
+        urogi.addTag(hurtEntity.getTags()[0]);
+        urogi.addTag("bunretu_1");
+        urogi.setProperty("kurokumaft:bunretu_flg", true);
       }
-    }
-  }
-  if (hurtEntity.typeId === "kurokumaft:karaku") {
-    if (hurtEntity.getTags().length === 1 && isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
-      hurtEntity.addTag("bunretu_1");
-      const urogi = hurtEntity.dimension.spawnEntity("kurokumaft:urogi", hurtEntity.location);
-      urogi.addTag(hurtEntity.getTags()[0]);
-      urogi.addTag("bunretu_1");
     }
   }
   if (hurtEntity.typeId === "kurokumaft:sekido"
@@ -295,7 +360,7 @@ world.afterEvents.entityHurt.subscribe(event => {
      || hurtEntity.typeId === "kurokumaft:aizetu"
      || hurtEntity.typeId === "kurokumaft:urogi"
   ) {
-    if (hurtEntity.getTags().length === 2 && isBelowThreshold(health.currentValue, health.defaultValue, 0.3)) {
+    if (hurtEntity.getProperty("kurokumaft:bunretu_flg") as boolean && isBelowThreshold(health.currentValue, health.defaultValue, 0.3)) {
       const bunretutai = hurtEntity.dimension.getEntities({
         tags: [hurtEntity.getTags()[0]],
         maxDistance: 64,
@@ -360,7 +425,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
   } else if (projectile.isValid && "kurokumaft:tobi_tigama" === projectile.typeId) {
 
     if (hitEntity !== undefined && hitEntity.isValid) {
-      hitEntity.addEffect(MinecraftEffectTypes.Poison, 10, {
+      hitEntity.addEffect("minecraft:poison", 10, {
         showParticles: false,
         amplifier: 5
       });
@@ -376,6 +441,34 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
   }
 });
 
+world.afterEvents.playerInteractWithEntity.subscribe(event => {
+  const item = event.itemStack as ItemStack;
+  const player = event.player as Player;
+  const target = event.target as Entity;
+  if (item.typeId === "kurokumaft:match_wooden_tag") {
+    const familyTypes = target.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+    if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
+      const form = new ActionFormData()
+        .title({ translate: "msg.kurokumaft:soldier.keiko.title"})
+        .body({ translate: "msg.kurokumaft:soldier.keiko.body"})
+        .button({ translate: "msg.kurokumaft:soldier.keiko.yes"})
+        .button({ translate: "msg.kurokumaft:soldier.keiko.no"});
+
+      form.show(player).then((result: ActionFormResponse) => {
+        if (result.canceled) {
+          return -1;
+        } else {
+          if (result.selection === 0) {
+            subtractionItem(player, item, EquipmentSlot.Mainhand, 1);
+            target.addTag("hostility");
+            player.addTag("hostility_player");
+          }
+        }
+      });
+    }
+  }
+});
+
 system.afterEvents.scriptEventReceive.subscribe(event => {
   const id = event.id;
   const message = event.message;
@@ -387,30 +480,31 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
   if (id === "kk:kaikyuchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player) {
     const params = message.split(" ");
     if (params[0] !== "set" && params[0] !== "add") {
-      world.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_method"});
+      sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_method"});
       return;
     }
     if (params[0] === "add") {
       if (params.length !== 3) {
-        world.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_argument"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_add_argument"});
         return;
       }
       if (params[1] !== "promotion" && params[1] !== "demotion") {
-        world.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_type"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_add_type"});
         return;
       }
-      if (!(typeof params[2] === "number" && Number.isFinite(params[2]))) {
-        world.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_num"});
+      const num = Number(params[2]);
+      if (!(!isNaN(num) && Number.isFinite(num))) {
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_add_num"});
         return;
       }
     } else if (params[0] === "set") {
       if (params.length !== 2) {
-        world.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_argument"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_set_argument"});
         return;
       }
       const num = Number(params[1]);
       if (!(!isNaN(num) && Number.isFinite(num))) {
-        world.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_num"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_set_num"});
         return;
       }
     }
@@ -486,7 +580,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
             killtarget=killtarget+10;
             if (upPoint < 0) {
               sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu-1);
-              sourceEntity.setProperty("kurokumaft:ogre_kill", killtarget);
+              sourceEntity.setProperty("kurokumaft:ogre_kill", 0);
               sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
             } else {
               sourceEntity.setProperty("kurokumaft:ogre_kill", upPoint);
@@ -518,35 +612,35 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
   if (id === "kk:ogrerankchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player) {
     const params = message.split(" ");
     if (params[0] !== "set" && params[0] !== "add") {
-      world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_method"});
+      sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_method"});
       return;
     }
     if (params[0] === "add") {
       if (params.length !== 3) {
-        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_argument"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_add_argument"});
         return;
       }
       if (params[1] !== "promotion" && params[1] !== "demotion") {
-        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_type"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_add_type"});
         return;
       }
-      if (!(Number.isFinite(params[2]))) {
-        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_num"});
+      const num = Number(params[2]);
+      if (!(!isNaN(num) && Number.isFinite(num))) {
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_add_num"});
         return;
       }
     } else if (params[0] === "set") {
       if (params.length !== 2) {
-        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_argument"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_set_argument"});
         return;
       }
       const num = Number(params[1]);
       if (!(!isNaN(num) && Number.isFinite(num))) {
-        world.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_num"});
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_set_num"});
         return;
       }
     }
 
-    sourceEntity.setProperty("kurokumaft:kaikyu", 0);
     sourceEntity.setProperty("kurokumaft:ogre_kill", 0);
 
     const rank = sourceEntity.getProperty("kurokumaft:ogre_rank");
@@ -558,6 +652,9 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
         becoming = becoming+num;
         if (becoming >= 100) {
           switch (rank) {
+            case "none" :
+              sourceEntity.setProperty("kurokumaft:ogre_rank", "low");
+            break;
             case "low" :
               sourceEntity.setProperty("kurokumaft:ogre_rank", "unusual");
             break;
@@ -634,6 +731,16 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
         switch (num) {
           case 0:
             sourceEntity.setProperty("kurokumaft:ogre_rank", "none");
+            const Inventory = sourceEntity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+            const container = Inventory.container;
+            if (container !== undefined) {
+              const itemstack = container.getItem(0) as ItemStack;
+              const kekkizyutu = kekkizyutuLists.find(items => items.item === itemstack.typeId);
+              if (kekkizyutu !== undefined) {
+                container.setItem(0, undefined);
+              }
+            }
+
           break;
           case 1:
             sourceEntity.setProperty("kurokumaft:ogre_rank", "low");

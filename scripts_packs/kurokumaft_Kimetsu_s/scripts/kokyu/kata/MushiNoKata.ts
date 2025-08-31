@@ -1,7 +1,6 @@
 import { ItemStack, Entity, system, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class MushiNoKata extends KataComonClass {
@@ -24,7 +23,7 @@ export class MushiNoKata extends KataComonClass {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 3, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-                this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+                this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -66,7 +65,7 @@ export class MushiNoKata extends KataComonClass {
 
             const filter = addRegimentalFilter(0, entity.location, 3, entity);
             this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+            this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
         }).catch((error: any) => {
         }).finally(() => {
         });
@@ -97,7 +96,7 @@ export class MushiNoKata extends KataComonClass {
                 const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-                this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+                this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -134,7 +133,7 @@ export class MushiNoKata extends KataComonClass {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
                 this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-                this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+                this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
     
                 const distance = getLookLocationDistance(entity.getRotation().y, 8, side, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);

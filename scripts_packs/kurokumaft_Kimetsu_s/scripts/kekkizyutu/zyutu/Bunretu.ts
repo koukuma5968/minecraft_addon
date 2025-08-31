@@ -1,8 +1,7 @@
 import { Entity, system, Player, EntityComponentTypes, EntityTameableComponent, EntityProjectileComponent } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
-import { getLookLocationDistancePitch, addOrgeFilter, getDistanceLocation, getLookLocationDistance, getRandomInRange, addRegimentalFilter } from "../../common/KimetuCommonUtil";
+import { getLookLocationDistancePitch, addOrgeFilter, getDistanceLocation, getLookLocationDistance, getRandomInRange } from "../../common/KimetuCommonUtil";
 import { shooting } from "../../common/ShooterEvent";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export class Bunretu extends ZytuComonClass {
 
@@ -21,7 +20,7 @@ export class Bunretu extends ZytuComonClass {
 
             const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
-            this.kokyuApplyEffect(entity, filter, 10, 5, MinecraftEffectTypes.Nausea);
+            this.kokyuApplyEffect(entity, filter, 10, 5, "minecraft:nausea");
 
             const ultrasonic = shooting(entity, "kurokumaft:urogi_ultrasonic", 0, 3, undefined);
             system.waitTicks(10).then(() => {
@@ -241,7 +240,7 @@ export class Bunretu extends ZytuComonClass {
                         const distanceL = getLookLocationDistancePitch(tokageL.getRotation(), 3, 0);
                         const filterL = addOrgeFilter(0, getDistanceLocation(tokageL.location, distanceL), 4, entity.id);
                         filterL.excludeFamilies?.push("tokage");
-                        this.kokyuApplyEffect(entity, filterL, 10, 5, MinecraftEffectTypes.Nausea);
+                        this.kokyuApplyEffect(entity, filterL, 10, 5, "minecraft:nausea");
 
                         const ultrasonic = shooting(tokageL, "kurokumaft:urogi_ultrasonic", 0, 3, undefined);
                         system.runTimeout(() => {
@@ -291,7 +290,7 @@ export class Bunretu extends ZytuComonClass {
             const num = system.runInterval(() => {
                 try {
                     this.kokyuApplyDamage(entity, filter, 3, 1);
-                    this.kokyuApplyEffect(entity, filter, 10, 5, MinecraftEffectTypes.Nausea);
+                    this.kokyuApplyEffect(entity, filter, 10, 5, "minecraft:nausea");
                 } catch (error: any) {
                     system.clearRun(num);
                 }

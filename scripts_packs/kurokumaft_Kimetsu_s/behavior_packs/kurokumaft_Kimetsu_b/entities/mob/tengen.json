@@ -200,12 +200,12 @@
         "on_death": "Math.Min(7, 100)"
       },
       "minecraft:type_family": {
-        "family": [ "mob", "regimental_soldier", "villager" ]
+        "family": [ "mob", "regimental_soldier"]
       },
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/tengen.json"
+        "table": "loot_tables/entities/soldier/tengen.json"
       },
       "minecraft:collision_box": {
         "width": 0.6,
@@ -219,7 +219,7 @@
         "damage": 13
       },
       "minecraft:equipment": {
-        "table": "loot_tables/entities/tengen_gear.json"
+        "table": "loot_tables/entities/soldier/tengen_gear.json"
       },
       "minecraft:navigation.walk": {
         "is_amphibious": true,
@@ -252,9 +252,45 @@
         "value": 24,
         "max": 24
       },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "operator": "equals","value": "player"},
+                  { "test": "has_equipment", "domain": "hand", "subject": "other", "value": "kurokumaft:match_wooden_tag"}
+                ]
+              }
+            },
+            "give_item": false,
+            "take_item": false
+          }
+        ]
+      },
+      "minecraft:behavior.look_at_trading_player": {
+        "priority": 2
+      },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
-        "alert_same_type": true
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "all_of": [
+                    { "test": "has_tag", "subject": "self", "operator": "equals", "value": "hostility" },
+                    { "test": "has_tag", "subject": "other", "operator": "equals", "value": "hostility_player" }
+                  ]
+                },
+                {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
+                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+              ]
+            },
+            "max_dist": 64
+          }
+        ]
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
@@ -264,6 +300,12 @@
           {
             "filters": {
               "any_of": [
+                {
+                  "all_of": [
+                    { "test": "has_tag", "subject": "self", "operator": "equals", "value": "hostility" },
+                    { "test": "has_tag", "subject": "other", "operator": "equals", "value": "hostility_player" }
+                  ]
+                },
                 {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
                 {"test": "is_family","subject": "other","operator": "==","value": "monster"}
               ]

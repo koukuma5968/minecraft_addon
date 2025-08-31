@@ -1,6 +1,6 @@
-import { EntityDamageCause, EntityQueryOptions, Entity, Player } from "@minecraft/server";
+import { EntityDamageCause, EntityQueryOptions, Entity, Player, EntityComponentTypes, EntityTypeFamilyComponent } from "@minecraft/server";
 import { KataComonClass, ogreRankPoint } from "../../kokyu/kata/KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { getLookLocationDistance } from "../../common/KimetuCommonUtil";
 
 export class ZytuComonClass extends KataComonClass {
 
@@ -18,12 +18,25 @@ export class ZytuComonClass extends KataComonClass {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
+                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+
+                        if (familyTypes.hasTypeFamily("ogre")) {
+                            const distance = getLookLocationDistance(en.getRotation().y, -1.25, 0, 0.5);
+                            en.applyKnockback({x:distance.x, z:distance.z}, 0.25);
+                        }
+
                     }
                 } else {
-                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1)*1.25, {
+                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1), {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: entity
                     });
+                    const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+
+                    if (familyTypes.hasTypeFamily("ogre")) {
+                        const distance = getLookLocationDistance(en.getRotation().y, -1.25, 0, 0.5);
+                        en.applyKnockback({x:distance.x, z:distance.z}, 0.25);
+                    }
                 }
             }
         });
@@ -31,7 +44,7 @@ export class ZytuComonClass extends KataComonClass {
 
     }
 
-    kokyuApplyEffect(entity:Entity, filter:EntityQueryOptions, duration:number, damage:number, effect:MinecraftEffectTypes): void {
+    kokyuApplyEffect(entity:Entity, filter:EntityQueryOptions, duration:number, damage:number, effect:string): void {
 
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);

@@ -1,4 +1,4 @@
-import { Block, BlockComponentPlayerDestroyEvent, BlockCustomComponent, BlockPermutation, Enchantment, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, ItemComponentTypes, ItemEnchantableComponent, ItemStack, Player } from "@minecraft/server";
+import { Block, BlockComponentPlayerBreakEvent, BlockCustomComponent, BlockPermutation, Enchantment, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, ItemComponentTypes, ItemEnchantableComponent, ItemStack, Player } from "@minecraft/server";
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 
 interface CustomBlock {
@@ -15,13 +15,13 @@ const CustomBlocks = Object.freeze([
 
 export class FortuneDestroy implements BlockCustomComponent {
     // プレイヤーがブロックを破壊した時のイベント
-    onPlayerDestroy(event:BlockComponentPlayerDestroyEvent) {
+    onPlayerBreak(event:BlockComponentPlayerBreakEvent) {
         // 破壊したしたプレイヤー
         let player = event.player as Player;
         // 破壊後のブロック
         let block = event.block as Block;
         // 破壊されたブロック情報
-        let blockPermutation = event.destroyedBlockPermutation as BlockPermutation;
+        let blockPermutation = event.brokenBlockPermutation as BlockPermutation;
         fortuneDestroy(player, block, blockPermutation);
     }
 }

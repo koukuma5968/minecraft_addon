@@ -1,11 +1,21 @@
 // scripts/kimetu_script.ts
-import { world as world15, system as system69, EquipmentSlot as EquipmentSlot7, Player as Player37, EntityComponentTypes as EntityComponentTypes16, ItemStack as ItemStack27, ScriptEventSource, EntityInitializationCause, EntityDamageCause as EntityDamageCause7 } from "@minecraft/server";
+import {
+  world as world9,
+  system as system72,
+  EquipmentSlot as EquipmentSlot8,
+  Player as Player41,
+  EntityComponentTypes as EntityComponentTypes19,
+  ItemStack as ItemStack27,
+  ScriptEventSource,
+  EntityInitializationCause,
+  EntityDamageCause as EntityDamageCause8
+} from "@minecraft/server";
 
 // scripts/item/weapon/nichirintou/NichirintouComponent.ts
 import { EntityComponentTypes as EntityComponentTypes7, EquipmentSlot as EquipmentSlot4 } from "@minecraft/server";
 
 // scripts/kokyu/kata/MizuNoKata.ts
-import { EntityDamageCause as EntityDamageCause2, MolangVariableMap, system as system2, TicksPerSecond, Player as Player5 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause2, MolangVariableMap, system, TicksPerSecond, Player as Player5 } from "@minecraft/server";
 
 // scripts/common/KimetuCommonUtil.ts
 import { world, Direction, EntityComponentTypes } from "@minecraft/server";
@@ -266,3091 +276,39 @@ var weightChoice = (list) => {
 };
 
 // scripts/kokyu/kata/KataComonClass.ts
-import { BlockVolume, EntityComponentTypes as EntityComponentTypes2, EntityDamageCause, EquipmentSlot, world as world2, Player as Player2 } from "@minecraft/server";
-
-// node_modules/@minecraft/vanilla-data/lib/index.js
-var MinecraftBiomeTypes = ((MinecraftBiomeTypes2) => {
-  MinecraftBiomeTypes2["BambooJungle"] = "minecraft:bamboo_jungle";
-  MinecraftBiomeTypes2["BambooJungleHills"] = "minecraft:bamboo_jungle_hills";
-  MinecraftBiomeTypes2["BasaltDeltas"] = "minecraft:basalt_deltas";
-  MinecraftBiomeTypes2["Beach"] = "minecraft:beach";
-  MinecraftBiomeTypes2["BirchForest"] = "minecraft:birch_forest";
-  MinecraftBiomeTypes2["BirchForestHills"] = "minecraft:birch_forest_hills";
-  MinecraftBiomeTypes2["BirchForestHillsMutated"] = "minecraft:birch_forest_hills_mutated";
-  MinecraftBiomeTypes2["BirchForestMutated"] = "minecraft:birch_forest_mutated";
-  MinecraftBiomeTypes2["CherryGrove"] = "minecraft:cherry_grove";
-  MinecraftBiomeTypes2["ColdBeach"] = "minecraft:cold_beach";
-  MinecraftBiomeTypes2["ColdOcean"] = "minecraft:cold_ocean";
-  MinecraftBiomeTypes2["ColdTaiga"] = "minecraft:cold_taiga";
-  MinecraftBiomeTypes2["ColdTaigaHills"] = "minecraft:cold_taiga_hills";
-  MinecraftBiomeTypes2["ColdTaigaMutated"] = "minecraft:cold_taiga_mutated";
-  MinecraftBiomeTypes2["CrimsonForest"] = "minecraft:crimson_forest";
-  MinecraftBiomeTypes2["DeepColdOcean"] = "minecraft:deep_cold_ocean";
-  MinecraftBiomeTypes2["DeepDark"] = "minecraft:deep_dark";
-  MinecraftBiomeTypes2["DeepFrozenOcean"] = "minecraft:deep_frozen_ocean";
-  MinecraftBiomeTypes2["DeepLukewarmOcean"] = "minecraft:deep_lukewarm_ocean";
-  MinecraftBiomeTypes2["DeepOcean"] = "minecraft:deep_ocean";
-  MinecraftBiomeTypes2["DeepWarmOcean"] = "minecraft:deep_warm_ocean";
-  MinecraftBiomeTypes2["Desert"] = "minecraft:desert";
-  MinecraftBiomeTypes2["DesertHills"] = "minecraft:desert_hills";
-  MinecraftBiomeTypes2["DesertMutated"] = "minecraft:desert_mutated";
-  MinecraftBiomeTypes2["DripstoneCaves"] = "minecraft:dripstone_caves";
-  MinecraftBiomeTypes2["ExtremeHills"] = "minecraft:extreme_hills";
-  MinecraftBiomeTypes2["ExtremeHillsEdge"] = "minecraft:extreme_hills_edge";
-  MinecraftBiomeTypes2["ExtremeHillsMutated"] = "minecraft:extreme_hills_mutated";
-  MinecraftBiomeTypes2["ExtremeHillsPlusTrees"] = "minecraft:extreme_hills_plus_trees";
-  MinecraftBiomeTypes2["ExtremeHillsPlusTreesMutated"] = "minecraft:extreme_hills_plus_trees_mutated";
-  MinecraftBiomeTypes2["FlowerForest"] = "minecraft:flower_forest";
-  MinecraftBiomeTypes2["Forest"] = "minecraft:forest";
-  MinecraftBiomeTypes2["ForestHills"] = "minecraft:forest_hills";
-  MinecraftBiomeTypes2["FrozenOcean"] = "minecraft:frozen_ocean";
-  MinecraftBiomeTypes2["FrozenPeaks"] = "minecraft:frozen_peaks";
-  MinecraftBiomeTypes2["FrozenRiver"] = "minecraft:frozen_river";
-  MinecraftBiomeTypes2["Grove"] = "minecraft:grove";
-  MinecraftBiomeTypes2["Hell"] = "minecraft:hell";
-  MinecraftBiomeTypes2["IceMountains"] = "minecraft:ice_mountains";
-  MinecraftBiomeTypes2["IcePlains"] = "minecraft:ice_plains";
-  MinecraftBiomeTypes2["IcePlainsSpikes"] = "minecraft:ice_plains_spikes";
-  MinecraftBiomeTypes2["JaggedPeaks"] = "minecraft:jagged_peaks";
-  MinecraftBiomeTypes2["Jungle"] = "minecraft:jungle";
-  MinecraftBiomeTypes2["JungleEdge"] = "minecraft:jungle_edge";
-  MinecraftBiomeTypes2["JungleEdgeMutated"] = "minecraft:jungle_edge_mutated";
-  MinecraftBiomeTypes2["JungleHills"] = "minecraft:jungle_hills";
-  MinecraftBiomeTypes2["JungleMutated"] = "minecraft:jungle_mutated";
-  MinecraftBiomeTypes2["LegacyFrozenOcean"] = "minecraft:legacy_frozen_ocean";
-  MinecraftBiomeTypes2["LukewarmOcean"] = "minecraft:lukewarm_ocean";
-  MinecraftBiomeTypes2["LushCaves"] = "minecraft:lush_caves";
-  MinecraftBiomeTypes2["MangroveSwamp"] = "minecraft:mangrove_swamp";
-  MinecraftBiomeTypes2["Meadow"] = "minecraft:meadow";
-  MinecraftBiomeTypes2["MegaTaiga"] = "minecraft:mega_taiga";
-  MinecraftBiomeTypes2["MegaTaigaHills"] = "minecraft:mega_taiga_hills";
-  MinecraftBiomeTypes2["Mesa"] = "minecraft:mesa";
-  MinecraftBiomeTypes2["MesaBryce"] = "minecraft:mesa_bryce";
-  MinecraftBiomeTypes2["MesaPlateau"] = "minecraft:mesa_plateau";
-  MinecraftBiomeTypes2["MesaPlateauMutated"] = "minecraft:mesa_plateau_mutated";
-  MinecraftBiomeTypes2["MesaPlateauStone"] = "minecraft:mesa_plateau_stone";
-  MinecraftBiomeTypes2["MesaPlateauStoneMutated"] = "minecraft:mesa_plateau_stone_mutated";
-  MinecraftBiomeTypes2["MushroomIsland"] = "minecraft:mushroom_island";
-  MinecraftBiomeTypes2["MushroomIslandShore"] = "minecraft:mushroom_island_shore";
-  MinecraftBiomeTypes2["Ocean"] = "minecraft:ocean";
-  MinecraftBiomeTypes2["PaleGarden"] = "minecraft:pale_garden";
-  MinecraftBiomeTypes2["Plains"] = "minecraft:plains";
-  MinecraftBiomeTypes2["RedwoodTaigaHillsMutated"] = "minecraft:redwood_taiga_hills_mutated";
-  MinecraftBiomeTypes2["RedwoodTaigaMutated"] = "minecraft:redwood_taiga_mutated";
-  MinecraftBiomeTypes2["River"] = "minecraft:river";
-  MinecraftBiomeTypes2["RoofedForest"] = "minecraft:roofed_forest";
-  MinecraftBiomeTypes2["RoofedForestMutated"] = "minecraft:roofed_forest_mutated";
-  MinecraftBiomeTypes2["Savanna"] = "minecraft:savanna";
-  MinecraftBiomeTypes2["SavannaMutated"] = "minecraft:savanna_mutated";
-  MinecraftBiomeTypes2["SavannaPlateau"] = "minecraft:savanna_plateau";
-  MinecraftBiomeTypes2["SavannaPlateauMutated"] = "minecraft:savanna_plateau_mutated";
-  MinecraftBiomeTypes2["SnowySlopes"] = "minecraft:snowy_slopes";
-  MinecraftBiomeTypes2["SoulsandValley"] = "minecraft:soulsand_valley";
-  MinecraftBiomeTypes2["StoneBeach"] = "minecraft:stone_beach";
-  MinecraftBiomeTypes2["StonyPeaks"] = "minecraft:stony_peaks";
-  MinecraftBiomeTypes2["SunflowerPlains"] = "minecraft:sunflower_plains";
-  MinecraftBiomeTypes2["Swampland"] = "minecraft:swampland";
-  MinecraftBiomeTypes2["SwamplandMutated"] = "minecraft:swampland_mutated";
-  MinecraftBiomeTypes2["Taiga"] = "minecraft:taiga";
-  MinecraftBiomeTypes2["TaigaHills"] = "minecraft:taiga_hills";
-  MinecraftBiomeTypes2["TaigaMutated"] = "minecraft:taiga_mutated";
-  MinecraftBiomeTypes2["TheEnd"] = "minecraft:the_end";
-  MinecraftBiomeTypes2["WarmOcean"] = "minecraft:warm_ocean";
-  MinecraftBiomeTypes2["WarpedForest"] = "minecraft:warped_forest";
-  return MinecraftBiomeTypes2;
-})(MinecraftBiomeTypes || {});
-var MinecraftBlockTypes = ((MinecraftBlockTypes2) => {
-  MinecraftBlockTypes2["AcaciaButton"] = "minecraft:acacia_button";
-  MinecraftBlockTypes2["AcaciaDoor"] = "minecraft:acacia_door";
-  MinecraftBlockTypes2["AcaciaDoubleSlab"] = "minecraft:acacia_double_slab";
-  MinecraftBlockTypes2["AcaciaFence"] = "minecraft:acacia_fence";
-  MinecraftBlockTypes2["AcaciaFenceGate"] = "minecraft:acacia_fence_gate";
-  MinecraftBlockTypes2["AcaciaHangingSign"] = "minecraft:acacia_hanging_sign";
-  MinecraftBlockTypes2["AcaciaLeaves"] = "minecraft:acacia_leaves";
-  MinecraftBlockTypes2["AcaciaLog"] = "minecraft:acacia_log";
-  MinecraftBlockTypes2["AcaciaPlanks"] = "minecraft:acacia_planks";
-  MinecraftBlockTypes2["AcaciaPressurePlate"] = "minecraft:acacia_pressure_plate";
-  MinecraftBlockTypes2["AcaciaSapling"] = "minecraft:acacia_sapling";
-  MinecraftBlockTypes2["AcaciaSlab"] = "minecraft:acacia_slab";
-  MinecraftBlockTypes2["AcaciaStairs"] = "minecraft:acacia_stairs";
-  MinecraftBlockTypes2["AcaciaStandingSign"] = "minecraft:acacia_standing_sign";
-  MinecraftBlockTypes2["AcaciaTrapdoor"] = "minecraft:acacia_trapdoor";
-  MinecraftBlockTypes2["AcaciaWallSign"] = "minecraft:acacia_wall_sign";
-  MinecraftBlockTypes2["AcaciaWood"] = "minecraft:acacia_wood";
-  MinecraftBlockTypes2["ActivatorRail"] = "minecraft:activator_rail";
-  MinecraftBlockTypes2["Air"] = "minecraft:air";
-  MinecraftBlockTypes2["Allium"] = "minecraft:allium";
-  MinecraftBlockTypes2["Allow"] = "minecraft:allow";
-  MinecraftBlockTypes2["AmethystBlock"] = "minecraft:amethyst_block";
-  MinecraftBlockTypes2["AmethystCluster"] = "minecraft:amethyst_cluster";
-  MinecraftBlockTypes2["AncientDebris"] = "minecraft:ancient_debris";
-  MinecraftBlockTypes2["Andesite"] = "minecraft:andesite";
-  MinecraftBlockTypes2["AndesiteDoubleSlab"] = "minecraft:andesite_double_slab";
-  MinecraftBlockTypes2["AndesiteSlab"] = "minecraft:andesite_slab";
-  MinecraftBlockTypes2["AndesiteStairs"] = "minecraft:andesite_stairs";
-  MinecraftBlockTypes2["AndesiteWall"] = "minecraft:andesite_wall";
-  MinecraftBlockTypes2["Anvil"] = "minecraft:anvil";
-  MinecraftBlockTypes2["Azalea"] = "minecraft:azalea";
-  MinecraftBlockTypes2["AzaleaLeaves"] = "minecraft:azalea_leaves";
-  MinecraftBlockTypes2["AzaleaLeavesFlowered"] = "minecraft:azalea_leaves_flowered";
-  MinecraftBlockTypes2["AzureBluet"] = "minecraft:azure_bluet";
-  MinecraftBlockTypes2["Bamboo"] = "minecraft:bamboo";
-  MinecraftBlockTypes2["BambooBlock"] = "minecraft:bamboo_block";
-  MinecraftBlockTypes2["BambooButton"] = "minecraft:bamboo_button";
-  MinecraftBlockTypes2["BambooDoor"] = "minecraft:bamboo_door";
-  MinecraftBlockTypes2["BambooDoubleSlab"] = "minecraft:bamboo_double_slab";
-  MinecraftBlockTypes2["BambooFence"] = "minecraft:bamboo_fence";
-  MinecraftBlockTypes2["BambooFenceGate"] = "minecraft:bamboo_fence_gate";
-  MinecraftBlockTypes2["BambooHangingSign"] = "minecraft:bamboo_hanging_sign";
-  MinecraftBlockTypes2["BambooMosaic"] = "minecraft:bamboo_mosaic";
-  MinecraftBlockTypes2["BambooMosaicDoubleSlab"] = "minecraft:bamboo_mosaic_double_slab";
-  MinecraftBlockTypes2["BambooMosaicSlab"] = "minecraft:bamboo_mosaic_slab";
-  MinecraftBlockTypes2["BambooMosaicStairs"] = "minecraft:bamboo_mosaic_stairs";
-  MinecraftBlockTypes2["BambooPlanks"] = "minecraft:bamboo_planks";
-  MinecraftBlockTypes2["BambooPressurePlate"] = "minecraft:bamboo_pressure_plate";
-  MinecraftBlockTypes2["BambooSapling"] = "minecraft:bamboo_sapling";
-  MinecraftBlockTypes2["BambooSlab"] = "minecraft:bamboo_slab";
-  MinecraftBlockTypes2["BambooStairs"] = "minecraft:bamboo_stairs";
-  MinecraftBlockTypes2["BambooStandingSign"] = "minecraft:bamboo_standing_sign";
-  MinecraftBlockTypes2["BambooTrapdoor"] = "minecraft:bamboo_trapdoor";
-  MinecraftBlockTypes2["BambooWallSign"] = "minecraft:bamboo_wall_sign";
-  MinecraftBlockTypes2["Barrel"] = "minecraft:barrel";
-  MinecraftBlockTypes2["Barrier"] = "minecraft:barrier";
-  MinecraftBlockTypes2["Basalt"] = "minecraft:basalt";
-  MinecraftBlockTypes2["Beacon"] = "minecraft:beacon";
-  MinecraftBlockTypes2["Bed"] = "minecraft:bed";
-  MinecraftBlockTypes2["Bedrock"] = "minecraft:bedrock";
-  MinecraftBlockTypes2["BeeNest"] = "minecraft:bee_nest";
-  MinecraftBlockTypes2["Beehive"] = "minecraft:beehive";
-  MinecraftBlockTypes2["Beetroot"] = "minecraft:beetroot";
-  MinecraftBlockTypes2["Bell"] = "minecraft:bell";
-  MinecraftBlockTypes2["BigDripleaf"] = "minecraft:big_dripleaf";
-  MinecraftBlockTypes2["BirchButton"] = "minecraft:birch_button";
-  MinecraftBlockTypes2["BirchDoor"] = "minecraft:birch_door";
-  MinecraftBlockTypes2["BirchDoubleSlab"] = "minecraft:birch_double_slab";
-  MinecraftBlockTypes2["BirchFence"] = "minecraft:birch_fence";
-  MinecraftBlockTypes2["BirchFenceGate"] = "minecraft:birch_fence_gate";
-  MinecraftBlockTypes2["BirchHangingSign"] = "minecraft:birch_hanging_sign";
-  MinecraftBlockTypes2["BirchLeaves"] = "minecraft:birch_leaves";
-  MinecraftBlockTypes2["BirchLog"] = "minecraft:birch_log";
-  MinecraftBlockTypes2["BirchPlanks"] = "minecraft:birch_planks";
-  MinecraftBlockTypes2["BirchPressurePlate"] = "minecraft:birch_pressure_plate";
-  MinecraftBlockTypes2["BirchSapling"] = "minecraft:birch_sapling";
-  MinecraftBlockTypes2["BirchSlab"] = "minecraft:birch_slab";
-  MinecraftBlockTypes2["BirchStairs"] = "minecraft:birch_stairs";
-  MinecraftBlockTypes2["BirchStandingSign"] = "minecraft:birch_standing_sign";
-  MinecraftBlockTypes2["BirchTrapdoor"] = "minecraft:birch_trapdoor";
-  MinecraftBlockTypes2["BirchWallSign"] = "minecraft:birch_wall_sign";
-  MinecraftBlockTypes2["BirchWood"] = "minecraft:birch_wood";
-  MinecraftBlockTypes2["BlackCandle"] = "minecraft:black_candle";
-  MinecraftBlockTypes2["BlackCandleCake"] = "minecraft:black_candle_cake";
-  MinecraftBlockTypes2["BlackCarpet"] = "minecraft:black_carpet";
-  MinecraftBlockTypes2["BlackConcrete"] = "minecraft:black_concrete";
-  MinecraftBlockTypes2["BlackConcretePowder"] = "minecraft:black_concrete_powder";
-  MinecraftBlockTypes2["BlackGlazedTerracotta"] = "minecraft:black_glazed_terracotta";
-  MinecraftBlockTypes2["BlackShulkerBox"] = "minecraft:black_shulker_box";
-  MinecraftBlockTypes2["BlackStainedGlass"] = "minecraft:black_stained_glass";
-  MinecraftBlockTypes2["BlackStainedGlassPane"] = "minecraft:black_stained_glass_pane";
-  MinecraftBlockTypes2["BlackTerracotta"] = "minecraft:black_terracotta";
-  MinecraftBlockTypes2["BlackWool"] = "minecraft:black_wool";
-  MinecraftBlockTypes2["Blackstone"] = "minecraft:blackstone";
-  MinecraftBlockTypes2["BlackstoneDoubleSlab"] = "minecraft:blackstone_double_slab";
-  MinecraftBlockTypes2["BlackstoneSlab"] = "minecraft:blackstone_slab";
-  MinecraftBlockTypes2["BlackstoneStairs"] = "minecraft:blackstone_stairs";
-  MinecraftBlockTypes2["BlackstoneWall"] = "minecraft:blackstone_wall";
-  MinecraftBlockTypes2["BlastFurnace"] = "minecraft:blast_furnace";
-  MinecraftBlockTypes2["BlueCandle"] = "minecraft:blue_candle";
-  MinecraftBlockTypes2["BlueCandleCake"] = "minecraft:blue_candle_cake";
-  MinecraftBlockTypes2["BlueCarpet"] = "minecraft:blue_carpet";
-  MinecraftBlockTypes2["BlueConcrete"] = "minecraft:blue_concrete";
-  MinecraftBlockTypes2["BlueConcretePowder"] = "minecraft:blue_concrete_powder";
-  MinecraftBlockTypes2["BlueGlazedTerracotta"] = "minecraft:blue_glazed_terracotta";
-  MinecraftBlockTypes2["BlueIce"] = "minecraft:blue_ice";
-  MinecraftBlockTypes2["BlueOrchid"] = "minecraft:blue_orchid";
-  MinecraftBlockTypes2["BlueShulkerBox"] = "minecraft:blue_shulker_box";
-  MinecraftBlockTypes2["BlueStainedGlass"] = "minecraft:blue_stained_glass";
-  MinecraftBlockTypes2["BlueStainedGlassPane"] = "minecraft:blue_stained_glass_pane";
-  MinecraftBlockTypes2["BlueTerracotta"] = "minecraft:blue_terracotta";
-  MinecraftBlockTypes2["BlueWool"] = "minecraft:blue_wool";
-  MinecraftBlockTypes2["BoneBlock"] = "minecraft:bone_block";
-  MinecraftBlockTypes2["Bookshelf"] = "minecraft:bookshelf";
-  MinecraftBlockTypes2["BorderBlock"] = "minecraft:border_block";
-  MinecraftBlockTypes2["BrainCoral"] = "minecraft:brain_coral";
-  MinecraftBlockTypes2["BrainCoralBlock"] = "minecraft:brain_coral_block";
-  MinecraftBlockTypes2["BrainCoralFan"] = "minecraft:brain_coral_fan";
-  MinecraftBlockTypes2["BrainCoralWallFan"] = "minecraft:brain_coral_wall_fan";
-  MinecraftBlockTypes2["BrewingStand"] = "minecraft:brewing_stand";
-  MinecraftBlockTypes2["BrickBlock"] = "minecraft:brick_block";
-  MinecraftBlockTypes2["BrickDoubleSlab"] = "minecraft:brick_double_slab";
-  MinecraftBlockTypes2["BrickSlab"] = "minecraft:brick_slab";
-  MinecraftBlockTypes2["BrickStairs"] = "minecraft:brick_stairs";
-  MinecraftBlockTypes2["BrickWall"] = "minecraft:brick_wall";
-  MinecraftBlockTypes2["BrownCandle"] = "minecraft:brown_candle";
-  MinecraftBlockTypes2["BrownCandleCake"] = "minecraft:brown_candle_cake";
-  MinecraftBlockTypes2["BrownCarpet"] = "minecraft:brown_carpet";
-  MinecraftBlockTypes2["BrownConcrete"] = "minecraft:brown_concrete";
-  MinecraftBlockTypes2["BrownConcretePowder"] = "minecraft:brown_concrete_powder";
-  MinecraftBlockTypes2["BrownGlazedTerracotta"] = "minecraft:brown_glazed_terracotta";
-  MinecraftBlockTypes2["BrownMushroom"] = "minecraft:brown_mushroom";
-  MinecraftBlockTypes2["BrownMushroomBlock"] = "minecraft:brown_mushroom_block";
-  MinecraftBlockTypes2["BrownShulkerBox"] = "minecraft:brown_shulker_box";
-  MinecraftBlockTypes2["BrownStainedGlass"] = "minecraft:brown_stained_glass";
-  MinecraftBlockTypes2["BrownStainedGlassPane"] = "minecraft:brown_stained_glass_pane";
-  MinecraftBlockTypes2["BrownTerracotta"] = "minecraft:brown_terracotta";
-  MinecraftBlockTypes2["BrownWool"] = "minecraft:brown_wool";
-  MinecraftBlockTypes2["BubbleColumn"] = "minecraft:bubble_column";
-  MinecraftBlockTypes2["BubbleCoral"] = "minecraft:bubble_coral";
-  MinecraftBlockTypes2["BubbleCoralBlock"] = "minecraft:bubble_coral_block";
-  MinecraftBlockTypes2["BubbleCoralFan"] = "minecraft:bubble_coral_fan";
-  MinecraftBlockTypes2["BubbleCoralWallFan"] = "minecraft:bubble_coral_wall_fan";
-  MinecraftBlockTypes2["BuddingAmethyst"] = "minecraft:budding_amethyst";
-  MinecraftBlockTypes2["Bush"] = "minecraft:bush";
-  MinecraftBlockTypes2["Cactus"] = "minecraft:cactus";
-  MinecraftBlockTypes2["CactusFlower"] = "minecraft:cactus_flower";
-  MinecraftBlockTypes2["Cake"] = "minecraft:cake";
-  MinecraftBlockTypes2["Calcite"] = "minecraft:calcite";
-  MinecraftBlockTypes2["CalibratedSculkSensor"] = "minecraft:calibrated_sculk_sensor";
-  MinecraftBlockTypes2["Camera"] = "minecraft:camera";
-  MinecraftBlockTypes2["Campfire"] = "minecraft:campfire";
-  MinecraftBlockTypes2["Candle"] = "minecraft:candle";
-  MinecraftBlockTypes2["CandleCake"] = "minecraft:candle_cake";
-  MinecraftBlockTypes2["Carrots"] = "minecraft:carrots";
-  MinecraftBlockTypes2["CartographyTable"] = "minecraft:cartography_table";
-  MinecraftBlockTypes2["CarvedPumpkin"] = "minecraft:carved_pumpkin";
-  MinecraftBlockTypes2["Cauldron"] = "minecraft:cauldron";
-  MinecraftBlockTypes2["CaveVines"] = "minecraft:cave_vines";
-  MinecraftBlockTypes2["CaveVinesBodyWithBerries"] = "minecraft:cave_vines_body_with_berries";
-  MinecraftBlockTypes2["CaveVinesHeadWithBerries"] = "minecraft:cave_vines_head_with_berries";
-  MinecraftBlockTypes2["Chain"] = "minecraft:chain";
-  MinecraftBlockTypes2["ChainCommandBlock"] = "minecraft:chain_command_block";
-  MinecraftBlockTypes2["ChemicalHeat"] = "minecraft:chemical_heat";
-  MinecraftBlockTypes2["CherryButton"] = "minecraft:cherry_button";
-  MinecraftBlockTypes2["CherryDoor"] = "minecraft:cherry_door";
-  MinecraftBlockTypes2["CherryDoubleSlab"] = "minecraft:cherry_double_slab";
-  MinecraftBlockTypes2["CherryFence"] = "minecraft:cherry_fence";
-  MinecraftBlockTypes2["CherryFenceGate"] = "minecraft:cherry_fence_gate";
-  MinecraftBlockTypes2["CherryHangingSign"] = "minecraft:cherry_hanging_sign";
-  MinecraftBlockTypes2["CherryLeaves"] = "minecraft:cherry_leaves";
-  MinecraftBlockTypes2["CherryLog"] = "minecraft:cherry_log";
-  MinecraftBlockTypes2["CherryPlanks"] = "minecraft:cherry_planks";
-  MinecraftBlockTypes2["CherryPressurePlate"] = "minecraft:cherry_pressure_plate";
-  MinecraftBlockTypes2["CherrySapling"] = "minecraft:cherry_sapling";
-  MinecraftBlockTypes2["CherrySlab"] = "minecraft:cherry_slab";
-  MinecraftBlockTypes2["CherryStairs"] = "minecraft:cherry_stairs";
-  MinecraftBlockTypes2["CherryStandingSign"] = "minecraft:cherry_standing_sign";
-  MinecraftBlockTypes2["CherryTrapdoor"] = "minecraft:cherry_trapdoor";
-  MinecraftBlockTypes2["CherryWallSign"] = "minecraft:cherry_wall_sign";
-  MinecraftBlockTypes2["CherryWood"] = "minecraft:cherry_wood";
-  MinecraftBlockTypes2["Chest"] = "minecraft:chest";
-  MinecraftBlockTypes2["ChippedAnvil"] = "minecraft:chipped_anvil";
-  MinecraftBlockTypes2["ChiseledBookshelf"] = "minecraft:chiseled_bookshelf";
-  MinecraftBlockTypes2["ChiseledCopper"] = "minecraft:chiseled_copper";
-  MinecraftBlockTypes2["ChiseledDeepslate"] = "minecraft:chiseled_deepslate";
-  MinecraftBlockTypes2["ChiseledNetherBricks"] = "minecraft:chiseled_nether_bricks";
-  MinecraftBlockTypes2["ChiseledPolishedBlackstone"] = "minecraft:chiseled_polished_blackstone";
-  MinecraftBlockTypes2["ChiseledQuartzBlock"] = "minecraft:chiseled_quartz_block";
-  MinecraftBlockTypes2["ChiseledRedSandstone"] = "minecraft:chiseled_red_sandstone";
-  MinecraftBlockTypes2["ChiseledResinBricks"] = "minecraft:chiseled_resin_bricks";
-  MinecraftBlockTypes2["ChiseledSandstone"] = "minecraft:chiseled_sandstone";
-  MinecraftBlockTypes2["ChiseledStoneBricks"] = "minecraft:chiseled_stone_bricks";
-  MinecraftBlockTypes2["ChiseledTuff"] = "minecraft:chiseled_tuff";
-  MinecraftBlockTypes2["ChiseledTuffBricks"] = "minecraft:chiseled_tuff_bricks";
-  MinecraftBlockTypes2["ChorusFlower"] = "minecraft:chorus_flower";
-  MinecraftBlockTypes2["ChorusPlant"] = "minecraft:chorus_plant";
-  MinecraftBlockTypes2["Clay"] = "minecraft:clay";
-  MinecraftBlockTypes2["ClosedEyeblossom"] = "minecraft:closed_eyeblossom";
-  MinecraftBlockTypes2["CoalBlock"] = "minecraft:coal_block";
-  MinecraftBlockTypes2["CoalOre"] = "minecraft:coal_ore";
-  MinecraftBlockTypes2["CoarseDirt"] = "minecraft:coarse_dirt";
-  MinecraftBlockTypes2["CobbledDeepslate"] = "minecraft:cobbled_deepslate";
-  MinecraftBlockTypes2["CobbledDeepslateDoubleSlab"] = "minecraft:cobbled_deepslate_double_slab";
-  MinecraftBlockTypes2["CobbledDeepslateSlab"] = "minecraft:cobbled_deepslate_slab";
-  MinecraftBlockTypes2["CobbledDeepslateStairs"] = "minecraft:cobbled_deepslate_stairs";
-  MinecraftBlockTypes2["CobbledDeepslateWall"] = "minecraft:cobbled_deepslate_wall";
-  MinecraftBlockTypes2["Cobblestone"] = "minecraft:cobblestone";
-  MinecraftBlockTypes2["CobblestoneDoubleSlab"] = "minecraft:cobblestone_double_slab";
-  MinecraftBlockTypes2["CobblestoneSlab"] = "minecraft:cobblestone_slab";
-  MinecraftBlockTypes2["CobblestoneWall"] = "minecraft:cobblestone_wall";
-  MinecraftBlockTypes2["Cocoa"] = "minecraft:cocoa";
-  MinecraftBlockTypes2["ColoredTorchBlue"] = "minecraft:colored_torch_blue";
-  MinecraftBlockTypes2["ColoredTorchGreen"] = "minecraft:colored_torch_green";
-  MinecraftBlockTypes2["ColoredTorchPurple"] = "minecraft:colored_torch_purple";
-  MinecraftBlockTypes2["ColoredTorchRed"] = "minecraft:colored_torch_red";
-  MinecraftBlockTypes2["CommandBlock"] = "minecraft:command_block";
-  MinecraftBlockTypes2["Composter"] = "minecraft:composter";
-  MinecraftBlockTypes2["CompoundCreator"] = "minecraft:compound_creator";
-  MinecraftBlockTypes2["Conduit"] = "minecraft:conduit";
-  MinecraftBlockTypes2["CopperBlock"] = "minecraft:copper_block";
-  MinecraftBlockTypes2["CopperBulb"] = "minecraft:copper_bulb";
-  MinecraftBlockTypes2["CopperChest"] = "minecraft:copper_chest";
-  MinecraftBlockTypes2["CopperDoor"] = "minecraft:copper_door";
-  MinecraftBlockTypes2["CopperGrate"] = "minecraft:copper_grate";
-  MinecraftBlockTypes2["CopperOre"] = "minecraft:copper_ore";
-  MinecraftBlockTypes2["CopperTrapdoor"] = "minecraft:copper_trapdoor";
-  MinecraftBlockTypes2["Cornflower"] = "minecraft:cornflower";
-  MinecraftBlockTypes2["CrackedDeepslateBricks"] = "minecraft:cracked_deepslate_bricks";
-  MinecraftBlockTypes2["CrackedDeepslateTiles"] = "minecraft:cracked_deepslate_tiles";
-  MinecraftBlockTypes2["CrackedNetherBricks"] = "minecraft:cracked_nether_bricks";
-  MinecraftBlockTypes2["CrackedPolishedBlackstoneBricks"] = "minecraft:cracked_polished_blackstone_bricks";
-  MinecraftBlockTypes2["CrackedStoneBricks"] = "minecraft:cracked_stone_bricks";
-  MinecraftBlockTypes2["Crafter"] = "minecraft:crafter";
-  MinecraftBlockTypes2["CraftingTable"] = "minecraft:crafting_table";
-  MinecraftBlockTypes2["CreakingHeart"] = "minecraft:creaking_heart";
-  MinecraftBlockTypes2["CreeperHead"] = "minecraft:creeper_head";
-  MinecraftBlockTypes2["CrimsonButton"] = "minecraft:crimson_button";
-  MinecraftBlockTypes2["CrimsonDoor"] = "minecraft:crimson_door";
-  MinecraftBlockTypes2["CrimsonDoubleSlab"] = "minecraft:crimson_double_slab";
-  MinecraftBlockTypes2["CrimsonFence"] = "minecraft:crimson_fence";
-  MinecraftBlockTypes2["CrimsonFenceGate"] = "minecraft:crimson_fence_gate";
-  MinecraftBlockTypes2["CrimsonFungus"] = "minecraft:crimson_fungus";
-  MinecraftBlockTypes2["CrimsonHangingSign"] = "minecraft:crimson_hanging_sign";
-  MinecraftBlockTypes2["CrimsonHyphae"] = "minecraft:crimson_hyphae";
-  MinecraftBlockTypes2["CrimsonNylium"] = "minecraft:crimson_nylium";
-  MinecraftBlockTypes2["CrimsonPlanks"] = "minecraft:crimson_planks";
-  MinecraftBlockTypes2["CrimsonPressurePlate"] = "minecraft:crimson_pressure_plate";
-  MinecraftBlockTypes2["CrimsonRoots"] = "minecraft:crimson_roots";
-  MinecraftBlockTypes2["CrimsonSlab"] = "minecraft:crimson_slab";
-  MinecraftBlockTypes2["CrimsonStairs"] = "minecraft:crimson_stairs";
-  MinecraftBlockTypes2["CrimsonStandingSign"] = "minecraft:crimson_standing_sign";
-  MinecraftBlockTypes2["CrimsonStem"] = "minecraft:crimson_stem";
-  MinecraftBlockTypes2["CrimsonTrapdoor"] = "minecraft:crimson_trapdoor";
-  MinecraftBlockTypes2["CrimsonWallSign"] = "minecraft:crimson_wall_sign";
-  MinecraftBlockTypes2["CryingObsidian"] = "minecraft:crying_obsidian";
-  MinecraftBlockTypes2["CutCopper"] = "minecraft:cut_copper";
-  MinecraftBlockTypes2["CutCopperSlab"] = "minecraft:cut_copper_slab";
-  MinecraftBlockTypes2["CutCopperStairs"] = "minecraft:cut_copper_stairs";
-  MinecraftBlockTypes2["CutRedSandstone"] = "minecraft:cut_red_sandstone";
-  MinecraftBlockTypes2["CutRedSandstoneDoubleSlab"] = "minecraft:cut_red_sandstone_double_slab";
-  MinecraftBlockTypes2["CutRedSandstoneSlab"] = "minecraft:cut_red_sandstone_slab";
-  MinecraftBlockTypes2["CutSandstone"] = "minecraft:cut_sandstone";
-  MinecraftBlockTypes2["CutSandstoneDoubleSlab"] = "minecraft:cut_sandstone_double_slab";
-  MinecraftBlockTypes2["CutSandstoneSlab"] = "minecraft:cut_sandstone_slab";
-  MinecraftBlockTypes2["CyanCandle"] = "minecraft:cyan_candle";
-  MinecraftBlockTypes2["CyanCandleCake"] = "minecraft:cyan_candle_cake";
-  MinecraftBlockTypes2["CyanCarpet"] = "minecraft:cyan_carpet";
-  MinecraftBlockTypes2["CyanConcrete"] = "minecraft:cyan_concrete";
-  MinecraftBlockTypes2["CyanConcretePowder"] = "minecraft:cyan_concrete_powder";
-  MinecraftBlockTypes2["CyanGlazedTerracotta"] = "minecraft:cyan_glazed_terracotta";
-  MinecraftBlockTypes2["CyanShulkerBox"] = "minecraft:cyan_shulker_box";
-  MinecraftBlockTypes2["CyanStainedGlass"] = "minecraft:cyan_stained_glass";
-  MinecraftBlockTypes2["CyanStainedGlassPane"] = "minecraft:cyan_stained_glass_pane";
-  MinecraftBlockTypes2["CyanTerracotta"] = "minecraft:cyan_terracotta";
-  MinecraftBlockTypes2["CyanWool"] = "minecraft:cyan_wool";
-  MinecraftBlockTypes2["DamagedAnvil"] = "minecraft:damaged_anvil";
-  MinecraftBlockTypes2["Dandelion"] = "minecraft:dandelion";
-  MinecraftBlockTypes2["DarkOakButton"] = "minecraft:dark_oak_button";
-  MinecraftBlockTypes2["DarkOakDoor"] = "minecraft:dark_oak_door";
-  MinecraftBlockTypes2["DarkOakDoubleSlab"] = "minecraft:dark_oak_double_slab";
-  MinecraftBlockTypes2["DarkOakFence"] = "minecraft:dark_oak_fence";
-  MinecraftBlockTypes2["DarkOakFenceGate"] = "minecraft:dark_oak_fence_gate";
-  MinecraftBlockTypes2["DarkOakHangingSign"] = "minecraft:dark_oak_hanging_sign";
-  MinecraftBlockTypes2["DarkOakLeaves"] = "minecraft:dark_oak_leaves";
-  MinecraftBlockTypes2["DarkOakLog"] = "minecraft:dark_oak_log";
-  MinecraftBlockTypes2["DarkOakPlanks"] = "minecraft:dark_oak_planks";
-  MinecraftBlockTypes2["DarkOakPressurePlate"] = "minecraft:dark_oak_pressure_plate";
-  MinecraftBlockTypes2["DarkOakSapling"] = "minecraft:dark_oak_sapling";
-  MinecraftBlockTypes2["DarkOakSlab"] = "minecraft:dark_oak_slab";
-  MinecraftBlockTypes2["DarkOakStairs"] = "minecraft:dark_oak_stairs";
-  MinecraftBlockTypes2["DarkOakTrapdoor"] = "minecraft:dark_oak_trapdoor";
-  MinecraftBlockTypes2["DarkOakWood"] = "minecraft:dark_oak_wood";
-  MinecraftBlockTypes2["DarkPrismarine"] = "minecraft:dark_prismarine";
-  MinecraftBlockTypes2["DarkPrismarineDoubleSlab"] = "minecraft:dark_prismarine_double_slab";
-  MinecraftBlockTypes2["DarkPrismarineSlab"] = "minecraft:dark_prismarine_slab";
-  MinecraftBlockTypes2["DarkPrismarineStairs"] = "minecraft:dark_prismarine_stairs";
-  MinecraftBlockTypes2["DarkoakStandingSign"] = "minecraft:darkoak_standing_sign";
-  MinecraftBlockTypes2["DarkoakWallSign"] = "minecraft:darkoak_wall_sign";
-  MinecraftBlockTypes2["DaylightDetector"] = "minecraft:daylight_detector";
-  MinecraftBlockTypes2["DaylightDetectorInverted"] = "minecraft:daylight_detector_inverted";
-  MinecraftBlockTypes2["DeadBrainCoral"] = "minecraft:dead_brain_coral";
-  MinecraftBlockTypes2["DeadBrainCoralBlock"] = "minecraft:dead_brain_coral_block";
-  MinecraftBlockTypes2["DeadBrainCoralFan"] = "minecraft:dead_brain_coral_fan";
-  MinecraftBlockTypes2["DeadBrainCoralWallFan"] = "minecraft:dead_brain_coral_wall_fan";
-  MinecraftBlockTypes2["DeadBubbleCoral"] = "minecraft:dead_bubble_coral";
-  MinecraftBlockTypes2["DeadBubbleCoralBlock"] = "minecraft:dead_bubble_coral_block";
-  MinecraftBlockTypes2["DeadBubbleCoralFan"] = "minecraft:dead_bubble_coral_fan";
-  MinecraftBlockTypes2["DeadBubbleCoralWallFan"] = "minecraft:dead_bubble_coral_wall_fan";
-  MinecraftBlockTypes2["DeadFireCoral"] = "minecraft:dead_fire_coral";
-  MinecraftBlockTypes2["DeadFireCoralBlock"] = "minecraft:dead_fire_coral_block";
-  MinecraftBlockTypes2["DeadFireCoralFan"] = "minecraft:dead_fire_coral_fan";
-  MinecraftBlockTypes2["DeadFireCoralWallFan"] = "minecraft:dead_fire_coral_wall_fan";
-  MinecraftBlockTypes2["DeadHornCoral"] = "minecraft:dead_horn_coral";
-  MinecraftBlockTypes2["DeadHornCoralBlock"] = "minecraft:dead_horn_coral_block";
-  MinecraftBlockTypes2["DeadHornCoralFan"] = "minecraft:dead_horn_coral_fan";
-  MinecraftBlockTypes2["DeadHornCoralWallFan"] = "minecraft:dead_horn_coral_wall_fan";
-  MinecraftBlockTypes2["DeadTubeCoral"] = "minecraft:dead_tube_coral";
-  MinecraftBlockTypes2["DeadTubeCoralBlock"] = "minecraft:dead_tube_coral_block";
-  MinecraftBlockTypes2["DeadTubeCoralFan"] = "minecraft:dead_tube_coral_fan";
-  MinecraftBlockTypes2["DeadTubeCoralWallFan"] = "minecraft:dead_tube_coral_wall_fan";
-  MinecraftBlockTypes2["Deadbush"] = "minecraft:deadbush";
-  MinecraftBlockTypes2["DecoratedPot"] = "minecraft:decorated_pot";
-  MinecraftBlockTypes2["Deepslate"] = "minecraft:deepslate";
-  MinecraftBlockTypes2["DeepslateBrickDoubleSlab"] = "minecraft:deepslate_brick_double_slab";
-  MinecraftBlockTypes2["DeepslateBrickSlab"] = "minecraft:deepslate_brick_slab";
-  MinecraftBlockTypes2["DeepslateBrickStairs"] = "minecraft:deepslate_brick_stairs";
-  MinecraftBlockTypes2["DeepslateBrickWall"] = "minecraft:deepslate_brick_wall";
-  MinecraftBlockTypes2["DeepslateBricks"] = "minecraft:deepslate_bricks";
-  MinecraftBlockTypes2["DeepslateCoalOre"] = "minecraft:deepslate_coal_ore";
-  MinecraftBlockTypes2["DeepslateCopperOre"] = "minecraft:deepslate_copper_ore";
-  MinecraftBlockTypes2["DeepslateDiamondOre"] = "minecraft:deepslate_diamond_ore";
-  MinecraftBlockTypes2["DeepslateEmeraldOre"] = "minecraft:deepslate_emerald_ore";
-  MinecraftBlockTypes2["DeepslateGoldOre"] = "minecraft:deepslate_gold_ore";
-  MinecraftBlockTypes2["DeepslateIronOre"] = "minecraft:deepslate_iron_ore";
-  MinecraftBlockTypes2["DeepslateLapisOre"] = "minecraft:deepslate_lapis_ore";
-  MinecraftBlockTypes2["DeepslateRedstoneOre"] = "minecraft:deepslate_redstone_ore";
-  MinecraftBlockTypes2["DeepslateTileDoubleSlab"] = "minecraft:deepslate_tile_double_slab";
-  MinecraftBlockTypes2["DeepslateTileSlab"] = "minecraft:deepslate_tile_slab";
-  MinecraftBlockTypes2["DeepslateTileStairs"] = "minecraft:deepslate_tile_stairs";
-  MinecraftBlockTypes2["DeepslateTileWall"] = "minecraft:deepslate_tile_wall";
-  MinecraftBlockTypes2["DeepslateTiles"] = "minecraft:deepslate_tiles";
-  MinecraftBlockTypes2["Deny"] = "minecraft:deny";
-  MinecraftBlockTypes2["DetectorRail"] = "minecraft:detector_rail";
-  MinecraftBlockTypes2["DiamondBlock"] = "minecraft:diamond_block";
-  MinecraftBlockTypes2["DiamondOre"] = "minecraft:diamond_ore";
-  MinecraftBlockTypes2["Diorite"] = "minecraft:diorite";
-  MinecraftBlockTypes2["DioriteDoubleSlab"] = "minecraft:diorite_double_slab";
-  MinecraftBlockTypes2["DioriteSlab"] = "minecraft:diorite_slab";
-  MinecraftBlockTypes2["DioriteStairs"] = "minecraft:diorite_stairs";
-  MinecraftBlockTypes2["DioriteWall"] = "minecraft:diorite_wall";
-  MinecraftBlockTypes2["Dirt"] = "minecraft:dirt";
-  MinecraftBlockTypes2["DirtWithRoots"] = "minecraft:dirt_with_roots";
-  MinecraftBlockTypes2["Dispenser"] = "minecraft:dispenser";
-  MinecraftBlockTypes2["DoubleCutCopperSlab"] = "minecraft:double_cut_copper_slab";
-  MinecraftBlockTypes2["DragonEgg"] = "minecraft:dragon_egg";
-  MinecraftBlockTypes2["DragonHead"] = "minecraft:dragon_head";
-  MinecraftBlockTypes2["DriedGhast"] = "minecraft:dried_ghast";
-  MinecraftBlockTypes2["DriedKelpBlock"] = "minecraft:dried_kelp_block";
-  MinecraftBlockTypes2["DripstoneBlock"] = "minecraft:dripstone_block";
-  MinecraftBlockTypes2["Dropper"] = "minecraft:dropper";
-  MinecraftBlockTypes2["Element0"] = "minecraft:element_0";
-  MinecraftBlockTypes2["Element1"] = "minecraft:element_1";
-  MinecraftBlockTypes2["Element10"] = "minecraft:element_10";
-  MinecraftBlockTypes2["Element100"] = "minecraft:element_100";
-  MinecraftBlockTypes2["Element101"] = "minecraft:element_101";
-  MinecraftBlockTypes2["Element102"] = "minecraft:element_102";
-  MinecraftBlockTypes2["Element103"] = "minecraft:element_103";
-  MinecraftBlockTypes2["Element104"] = "minecraft:element_104";
-  MinecraftBlockTypes2["Element105"] = "minecraft:element_105";
-  MinecraftBlockTypes2["Element106"] = "minecraft:element_106";
-  MinecraftBlockTypes2["Element107"] = "minecraft:element_107";
-  MinecraftBlockTypes2["Element108"] = "minecraft:element_108";
-  MinecraftBlockTypes2["Element109"] = "minecraft:element_109";
-  MinecraftBlockTypes2["Element11"] = "minecraft:element_11";
-  MinecraftBlockTypes2["Element110"] = "minecraft:element_110";
-  MinecraftBlockTypes2["Element111"] = "minecraft:element_111";
-  MinecraftBlockTypes2["Element112"] = "minecraft:element_112";
-  MinecraftBlockTypes2["Element113"] = "minecraft:element_113";
-  MinecraftBlockTypes2["Element114"] = "minecraft:element_114";
-  MinecraftBlockTypes2["Element115"] = "minecraft:element_115";
-  MinecraftBlockTypes2["Element116"] = "minecraft:element_116";
-  MinecraftBlockTypes2["Element117"] = "minecraft:element_117";
-  MinecraftBlockTypes2["Element118"] = "minecraft:element_118";
-  MinecraftBlockTypes2["Element12"] = "minecraft:element_12";
-  MinecraftBlockTypes2["Element13"] = "minecraft:element_13";
-  MinecraftBlockTypes2["Element14"] = "minecraft:element_14";
-  MinecraftBlockTypes2["Element15"] = "minecraft:element_15";
-  MinecraftBlockTypes2["Element16"] = "minecraft:element_16";
-  MinecraftBlockTypes2["Element17"] = "minecraft:element_17";
-  MinecraftBlockTypes2["Element18"] = "minecraft:element_18";
-  MinecraftBlockTypes2["Element19"] = "minecraft:element_19";
-  MinecraftBlockTypes2["Element2"] = "minecraft:element_2";
-  MinecraftBlockTypes2["Element20"] = "minecraft:element_20";
-  MinecraftBlockTypes2["Element21"] = "minecraft:element_21";
-  MinecraftBlockTypes2["Element22"] = "minecraft:element_22";
-  MinecraftBlockTypes2["Element23"] = "minecraft:element_23";
-  MinecraftBlockTypes2["Element24"] = "minecraft:element_24";
-  MinecraftBlockTypes2["Element25"] = "minecraft:element_25";
-  MinecraftBlockTypes2["Element26"] = "minecraft:element_26";
-  MinecraftBlockTypes2["Element27"] = "minecraft:element_27";
-  MinecraftBlockTypes2["Element28"] = "minecraft:element_28";
-  MinecraftBlockTypes2["Element29"] = "minecraft:element_29";
-  MinecraftBlockTypes2["Element3"] = "minecraft:element_3";
-  MinecraftBlockTypes2["Element30"] = "minecraft:element_30";
-  MinecraftBlockTypes2["Element31"] = "minecraft:element_31";
-  MinecraftBlockTypes2["Element32"] = "minecraft:element_32";
-  MinecraftBlockTypes2["Element33"] = "minecraft:element_33";
-  MinecraftBlockTypes2["Element34"] = "minecraft:element_34";
-  MinecraftBlockTypes2["Element35"] = "minecraft:element_35";
-  MinecraftBlockTypes2["Element36"] = "minecraft:element_36";
-  MinecraftBlockTypes2["Element37"] = "minecraft:element_37";
-  MinecraftBlockTypes2["Element38"] = "minecraft:element_38";
-  MinecraftBlockTypes2["Element39"] = "minecraft:element_39";
-  MinecraftBlockTypes2["Element4"] = "minecraft:element_4";
-  MinecraftBlockTypes2["Element40"] = "minecraft:element_40";
-  MinecraftBlockTypes2["Element41"] = "minecraft:element_41";
-  MinecraftBlockTypes2["Element42"] = "minecraft:element_42";
-  MinecraftBlockTypes2["Element43"] = "minecraft:element_43";
-  MinecraftBlockTypes2["Element44"] = "minecraft:element_44";
-  MinecraftBlockTypes2["Element45"] = "minecraft:element_45";
-  MinecraftBlockTypes2["Element46"] = "minecraft:element_46";
-  MinecraftBlockTypes2["Element47"] = "minecraft:element_47";
-  MinecraftBlockTypes2["Element48"] = "minecraft:element_48";
-  MinecraftBlockTypes2["Element49"] = "minecraft:element_49";
-  MinecraftBlockTypes2["Element5"] = "minecraft:element_5";
-  MinecraftBlockTypes2["Element50"] = "minecraft:element_50";
-  MinecraftBlockTypes2["Element51"] = "minecraft:element_51";
-  MinecraftBlockTypes2["Element52"] = "minecraft:element_52";
-  MinecraftBlockTypes2["Element53"] = "minecraft:element_53";
-  MinecraftBlockTypes2["Element54"] = "minecraft:element_54";
-  MinecraftBlockTypes2["Element55"] = "minecraft:element_55";
-  MinecraftBlockTypes2["Element56"] = "minecraft:element_56";
-  MinecraftBlockTypes2["Element57"] = "minecraft:element_57";
-  MinecraftBlockTypes2["Element58"] = "minecraft:element_58";
-  MinecraftBlockTypes2["Element59"] = "minecraft:element_59";
-  MinecraftBlockTypes2["Element6"] = "minecraft:element_6";
-  MinecraftBlockTypes2["Element60"] = "minecraft:element_60";
-  MinecraftBlockTypes2["Element61"] = "minecraft:element_61";
-  MinecraftBlockTypes2["Element62"] = "minecraft:element_62";
-  MinecraftBlockTypes2["Element63"] = "minecraft:element_63";
-  MinecraftBlockTypes2["Element64"] = "minecraft:element_64";
-  MinecraftBlockTypes2["Element65"] = "minecraft:element_65";
-  MinecraftBlockTypes2["Element66"] = "minecraft:element_66";
-  MinecraftBlockTypes2["Element67"] = "minecraft:element_67";
-  MinecraftBlockTypes2["Element68"] = "minecraft:element_68";
-  MinecraftBlockTypes2["Element69"] = "minecraft:element_69";
-  MinecraftBlockTypes2["Element7"] = "minecraft:element_7";
-  MinecraftBlockTypes2["Element70"] = "minecraft:element_70";
-  MinecraftBlockTypes2["Element71"] = "minecraft:element_71";
-  MinecraftBlockTypes2["Element72"] = "minecraft:element_72";
-  MinecraftBlockTypes2["Element73"] = "minecraft:element_73";
-  MinecraftBlockTypes2["Element74"] = "minecraft:element_74";
-  MinecraftBlockTypes2["Element75"] = "minecraft:element_75";
-  MinecraftBlockTypes2["Element76"] = "minecraft:element_76";
-  MinecraftBlockTypes2["Element77"] = "minecraft:element_77";
-  MinecraftBlockTypes2["Element78"] = "minecraft:element_78";
-  MinecraftBlockTypes2["Element79"] = "minecraft:element_79";
-  MinecraftBlockTypes2["Element8"] = "minecraft:element_8";
-  MinecraftBlockTypes2["Element80"] = "minecraft:element_80";
-  MinecraftBlockTypes2["Element81"] = "minecraft:element_81";
-  MinecraftBlockTypes2["Element82"] = "minecraft:element_82";
-  MinecraftBlockTypes2["Element83"] = "minecraft:element_83";
-  MinecraftBlockTypes2["Element84"] = "minecraft:element_84";
-  MinecraftBlockTypes2["Element85"] = "minecraft:element_85";
-  MinecraftBlockTypes2["Element86"] = "minecraft:element_86";
-  MinecraftBlockTypes2["Element87"] = "minecraft:element_87";
-  MinecraftBlockTypes2["Element88"] = "minecraft:element_88";
-  MinecraftBlockTypes2["Element89"] = "minecraft:element_89";
-  MinecraftBlockTypes2["Element9"] = "minecraft:element_9";
-  MinecraftBlockTypes2["Element90"] = "minecraft:element_90";
-  MinecraftBlockTypes2["Element91"] = "minecraft:element_91";
-  MinecraftBlockTypes2["Element92"] = "minecraft:element_92";
-  MinecraftBlockTypes2["Element93"] = "minecraft:element_93";
-  MinecraftBlockTypes2["Element94"] = "minecraft:element_94";
-  MinecraftBlockTypes2["Element95"] = "minecraft:element_95";
-  MinecraftBlockTypes2["Element96"] = "minecraft:element_96";
-  MinecraftBlockTypes2["Element97"] = "minecraft:element_97";
-  MinecraftBlockTypes2["Element98"] = "minecraft:element_98";
-  MinecraftBlockTypes2["Element99"] = "minecraft:element_99";
-  MinecraftBlockTypes2["ElementConstructor"] = "minecraft:element_constructor";
-  MinecraftBlockTypes2["EmeraldBlock"] = "minecraft:emerald_block";
-  MinecraftBlockTypes2["EmeraldOre"] = "minecraft:emerald_ore";
-  MinecraftBlockTypes2["EnchantingTable"] = "minecraft:enchanting_table";
-  MinecraftBlockTypes2["EndBrickStairs"] = "minecraft:end_brick_stairs";
-  MinecraftBlockTypes2["EndBricks"] = "minecraft:end_bricks";
-  MinecraftBlockTypes2["EndPortal"] = "minecraft:end_portal";
-  MinecraftBlockTypes2["EndPortalFrame"] = "minecraft:end_portal_frame";
-  MinecraftBlockTypes2["EndRod"] = "minecraft:end_rod";
-  MinecraftBlockTypes2["EndStone"] = "minecraft:end_stone";
-  MinecraftBlockTypes2["EndStoneBrickDoubleSlab"] = "minecraft:end_stone_brick_double_slab";
-  MinecraftBlockTypes2["EndStoneBrickSlab"] = "minecraft:end_stone_brick_slab";
-  MinecraftBlockTypes2["EndStoneBrickWall"] = "minecraft:end_stone_brick_wall";
-  MinecraftBlockTypes2["EnderChest"] = "minecraft:ender_chest";
-  MinecraftBlockTypes2["ExposedChiseledCopper"] = "minecraft:exposed_chiseled_copper";
-  MinecraftBlockTypes2["ExposedCopper"] = "minecraft:exposed_copper";
-  MinecraftBlockTypes2["ExposedCopperBulb"] = "minecraft:exposed_copper_bulb";
-  MinecraftBlockTypes2["ExposedCopperChest"] = "minecraft:exposed_copper_chest";
-  MinecraftBlockTypes2["ExposedCopperDoor"] = "minecraft:exposed_copper_door";
-  MinecraftBlockTypes2["ExposedCopperGrate"] = "minecraft:exposed_copper_grate";
-  MinecraftBlockTypes2["ExposedCopperTrapdoor"] = "minecraft:exposed_copper_trapdoor";
-  MinecraftBlockTypes2["ExposedCutCopper"] = "minecraft:exposed_cut_copper";
-  MinecraftBlockTypes2["ExposedCutCopperSlab"] = "minecraft:exposed_cut_copper_slab";
-  MinecraftBlockTypes2["ExposedCutCopperStairs"] = "minecraft:exposed_cut_copper_stairs";
-  MinecraftBlockTypes2["ExposedDoubleCutCopperSlab"] = "minecraft:exposed_double_cut_copper_slab";
-  MinecraftBlockTypes2["Farmland"] = "minecraft:farmland";
-  MinecraftBlockTypes2["FenceGate"] = "minecraft:fence_gate";
-  MinecraftBlockTypes2["Fern"] = "minecraft:fern";
-  MinecraftBlockTypes2["Fire"] = "minecraft:fire";
-  MinecraftBlockTypes2["FireCoral"] = "minecraft:fire_coral";
-  MinecraftBlockTypes2["FireCoralBlock"] = "minecraft:fire_coral_block";
-  MinecraftBlockTypes2["FireCoralFan"] = "minecraft:fire_coral_fan";
-  MinecraftBlockTypes2["FireCoralWallFan"] = "minecraft:fire_coral_wall_fan";
-  MinecraftBlockTypes2["FireflyBush"] = "minecraft:firefly_bush";
-  MinecraftBlockTypes2["FletchingTable"] = "minecraft:fletching_table";
-  MinecraftBlockTypes2["FlowerPot"] = "minecraft:flower_pot";
-  MinecraftBlockTypes2["FloweringAzalea"] = "minecraft:flowering_azalea";
-  MinecraftBlockTypes2["FlowingLava"] = "minecraft:flowing_lava";
-  MinecraftBlockTypes2["FlowingWater"] = "minecraft:flowing_water";
-  MinecraftBlockTypes2["Frame"] = "minecraft:frame";
-  MinecraftBlockTypes2["FrogSpawn"] = "minecraft:frog_spawn";
-  MinecraftBlockTypes2["FrostedIce"] = "minecraft:frosted_ice";
-  MinecraftBlockTypes2["Furnace"] = "minecraft:furnace";
-  MinecraftBlockTypes2["GildedBlackstone"] = "minecraft:gilded_blackstone";
-  MinecraftBlockTypes2["Glass"] = "minecraft:glass";
-  MinecraftBlockTypes2["GlassPane"] = "minecraft:glass_pane";
-  MinecraftBlockTypes2["GlowFrame"] = "minecraft:glow_frame";
-  MinecraftBlockTypes2["GlowLichen"] = "minecraft:glow_lichen";
-  MinecraftBlockTypes2["Glowstone"] = "minecraft:glowstone";
-  MinecraftBlockTypes2["GoldBlock"] = "minecraft:gold_block";
-  MinecraftBlockTypes2["GoldOre"] = "minecraft:gold_ore";
-  MinecraftBlockTypes2["GoldenRail"] = "minecraft:golden_rail";
-  MinecraftBlockTypes2["Granite"] = "minecraft:granite";
-  MinecraftBlockTypes2["GraniteDoubleSlab"] = "minecraft:granite_double_slab";
-  MinecraftBlockTypes2["GraniteSlab"] = "minecraft:granite_slab";
-  MinecraftBlockTypes2["GraniteStairs"] = "minecraft:granite_stairs";
-  MinecraftBlockTypes2["GraniteWall"] = "minecraft:granite_wall";
-  MinecraftBlockTypes2["GrassBlock"] = "minecraft:grass_block";
-  MinecraftBlockTypes2["GrassPath"] = "minecraft:grass_path";
-  MinecraftBlockTypes2["Gravel"] = "minecraft:gravel";
-  MinecraftBlockTypes2["GrayCandle"] = "minecraft:gray_candle";
-  MinecraftBlockTypes2["GrayCandleCake"] = "minecraft:gray_candle_cake";
-  MinecraftBlockTypes2["GrayCarpet"] = "minecraft:gray_carpet";
-  MinecraftBlockTypes2["GrayConcrete"] = "minecraft:gray_concrete";
-  MinecraftBlockTypes2["GrayConcretePowder"] = "minecraft:gray_concrete_powder";
-  MinecraftBlockTypes2["GrayGlazedTerracotta"] = "minecraft:gray_glazed_terracotta";
-  MinecraftBlockTypes2["GrayShulkerBox"] = "minecraft:gray_shulker_box";
-  MinecraftBlockTypes2["GrayStainedGlass"] = "minecraft:gray_stained_glass";
-  MinecraftBlockTypes2["GrayStainedGlassPane"] = "minecraft:gray_stained_glass_pane";
-  MinecraftBlockTypes2["GrayTerracotta"] = "minecraft:gray_terracotta";
-  MinecraftBlockTypes2["GrayWool"] = "minecraft:gray_wool";
-  MinecraftBlockTypes2["GreenCandle"] = "minecraft:green_candle";
-  MinecraftBlockTypes2["GreenCandleCake"] = "minecraft:green_candle_cake";
-  MinecraftBlockTypes2["GreenCarpet"] = "minecraft:green_carpet";
-  MinecraftBlockTypes2["GreenConcrete"] = "minecraft:green_concrete";
-  MinecraftBlockTypes2["GreenConcretePowder"] = "minecraft:green_concrete_powder";
-  MinecraftBlockTypes2["GreenGlazedTerracotta"] = "minecraft:green_glazed_terracotta";
-  MinecraftBlockTypes2["GreenShulkerBox"] = "minecraft:green_shulker_box";
-  MinecraftBlockTypes2["GreenStainedGlass"] = "minecraft:green_stained_glass";
-  MinecraftBlockTypes2["GreenStainedGlassPane"] = "minecraft:green_stained_glass_pane";
-  MinecraftBlockTypes2["GreenTerracotta"] = "minecraft:green_terracotta";
-  MinecraftBlockTypes2["GreenWool"] = "minecraft:green_wool";
-  MinecraftBlockTypes2["Grindstone"] = "minecraft:grindstone";
-  MinecraftBlockTypes2["HangingRoots"] = "minecraft:hanging_roots";
-  MinecraftBlockTypes2["HardBlackStainedGlass"] = "minecraft:hard_black_stained_glass";
-  MinecraftBlockTypes2["HardBlackStainedGlassPane"] = "minecraft:hard_black_stained_glass_pane";
-  MinecraftBlockTypes2["HardBlueStainedGlass"] = "minecraft:hard_blue_stained_glass";
-  MinecraftBlockTypes2["HardBlueStainedGlassPane"] = "minecraft:hard_blue_stained_glass_pane";
-  MinecraftBlockTypes2["HardBrownStainedGlass"] = "minecraft:hard_brown_stained_glass";
-  MinecraftBlockTypes2["HardBrownStainedGlassPane"] = "minecraft:hard_brown_stained_glass_pane";
-  MinecraftBlockTypes2["HardCyanStainedGlass"] = "minecraft:hard_cyan_stained_glass";
-  MinecraftBlockTypes2["HardCyanStainedGlassPane"] = "minecraft:hard_cyan_stained_glass_pane";
-  MinecraftBlockTypes2["HardGlass"] = "minecraft:hard_glass";
-  MinecraftBlockTypes2["HardGlassPane"] = "minecraft:hard_glass_pane";
-  MinecraftBlockTypes2["HardGrayStainedGlass"] = "minecraft:hard_gray_stained_glass";
-  MinecraftBlockTypes2["HardGrayStainedGlassPane"] = "minecraft:hard_gray_stained_glass_pane";
-  MinecraftBlockTypes2["HardGreenStainedGlass"] = "minecraft:hard_green_stained_glass";
-  MinecraftBlockTypes2["HardGreenStainedGlassPane"] = "minecraft:hard_green_stained_glass_pane";
-  MinecraftBlockTypes2["HardLightBlueStainedGlass"] = "minecraft:hard_light_blue_stained_glass";
-  MinecraftBlockTypes2["HardLightBlueStainedGlassPane"] = "minecraft:hard_light_blue_stained_glass_pane";
-  MinecraftBlockTypes2["HardLightGrayStainedGlass"] = "minecraft:hard_light_gray_stained_glass";
-  MinecraftBlockTypes2["HardLightGrayStainedGlassPane"] = "minecraft:hard_light_gray_stained_glass_pane";
-  MinecraftBlockTypes2["HardLimeStainedGlass"] = "minecraft:hard_lime_stained_glass";
-  MinecraftBlockTypes2["HardLimeStainedGlassPane"] = "minecraft:hard_lime_stained_glass_pane";
-  MinecraftBlockTypes2["HardMagentaStainedGlass"] = "minecraft:hard_magenta_stained_glass";
-  MinecraftBlockTypes2["HardMagentaStainedGlassPane"] = "minecraft:hard_magenta_stained_glass_pane";
-  MinecraftBlockTypes2["HardOrangeStainedGlass"] = "minecraft:hard_orange_stained_glass";
-  MinecraftBlockTypes2["HardOrangeStainedGlassPane"] = "minecraft:hard_orange_stained_glass_pane";
-  MinecraftBlockTypes2["HardPinkStainedGlass"] = "minecraft:hard_pink_stained_glass";
-  MinecraftBlockTypes2["HardPinkStainedGlassPane"] = "minecraft:hard_pink_stained_glass_pane";
-  MinecraftBlockTypes2["HardPurpleStainedGlass"] = "minecraft:hard_purple_stained_glass";
-  MinecraftBlockTypes2["HardPurpleStainedGlassPane"] = "minecraft:hard_purple_stained_glass_pane";
-  MinecraftBlockTypes2["HardRedStainedGlass"] = "minecraft:hard_red_stained_glass";
-  MinecraftBlockTypes2["HardRedStainedGlassPane"] = "minecraft:hard_red_stained_glass_pane";
-  MinecraftBlockTypes2["HardWhiteStainedGlass"] = "minecraft:hard_white_stained_glass";
-  MinecraftBlockTypes2["HardWhiteStainedGlassPane"] = "minecraft:hard_white_stained_glass_pane";
-  MinecraftBlockTypes2["HardYellowStainedGlass"] = "minecraft:hard_yellow_stained_glass";
-  MinecraftBlockTypes2["HardYellowStainedGlassPane"] = "minecraft:hard_yellow_stained_glass_pane";
-  MinecraftBlockTypes2["HardenedClay"] = "minecraft:hardened_clay";
-  MinecraftBlockTypes2["HayBlock"] = "minecraft:hay_block";
-  MinecraftBlockTypes2["HeavyCore"] = "minecraft:heavy_core";
-  MinecraftBlockTypes2["HeavyWeightedPressurePlate"] = "minecraft:heavy_weighted_pressure_plate";
-  MinecraftBlockTypes2["HoneyBlock"] = "minecraft:honey_block";
-  MinecraftBlockTypes2["HoneycombBlock"] = "minecraft:honeycomb_block";
-  MinecraftBlockTypes2["Hopper"] = "minecraft:hopper";
-  MinecraftBlockTypes2["HornCoral"] = "minecraft:horn_coral";
-  MinecraftBlockTypes2["HornCoralBlock"] = "minecraft:horn_coral_block";
-  MinecraftBlockTypes2["HornCoralFan"] = "minecraft:horn_coral_fan";
-  MinecraftBlockTypes2["HornCoralWallFan"] = "minecraft:horn_coral_wall_fan";
-  MinecraftBlockTypes2["Ice"] = "minecraft:ice";
-  MinecraftBlockTypes2["InfestedChiseledStoneBricks"] = "minecraft:infested_chiseled_stone_bricks";
-  MinecraftBlockTypes2["InfestedCobblestone"] = "minecraft:infested_cobblestone";
-  MinecraftBlockTypes2["InfestedCrackedStoneBricks"] = "minecraft:infested_cracked_stone_bricks";
-  MinecraftBlockTypes2["InfestedDeepslate"] = "minecraft:infested_deepslate";
-  MinecraftBlockTypes2["InfestedMossyStoneBricks"] = "minecraft:infested_mossy_stone_bricks";
-  MinecraftBlockTypes2["InfestedStone"] = "minecraft:infested_stone";
-  MinecraftBlockTypes2["InfestedStoneBricks"] = "minecraft:infested_stone_bricks";
-  MinecraftBlockTypes2["IronBars"] = "minecraft:iron_bars";
-  MinecraftBlockTypes2["IronBlock"] = "minecraft:iron_block";
-  MinecraftBlockTypes2["IronDoor"] = "minecraft:iron_door";
-  MinecraftBlockTypes2["IronOre"] = "minecraft:iron_ore";
-  MinecraftBlockTypes2["IronTrapdoor"] = "minecraft:iron_trapdoor";
-  MinecraftBlockTypes2["Jigsaw"] = "minecraft:jigsaw";
-  MinecraftBlockTypes2["Jukebox"] = "minecraft:jukebox";
-  MinecraftBlockTypes2["JungleButton"] = "minecraft:jungle_button";
-  MinecraftBlockTypes2["JungleDoor"] = "minecraft:jungle_door";
-  MinecraftBlockTypes2["JungleDoubleSlab"] = "minecraft:jungle_double_slab";
-  MinecraftBlockTypes2["JungleFence"] = "minecraft:jungle_fence";
-  MinecraftBlockTypes2["JungleFenceGate"] = "minecraft:jungle_fence_gate";
-  MinecraftBlockTypes2["JungleHangingSign"] = "minecraft:jungle_hanging_sign";
-  MinecraftBlockTypes2["JungleLeaves"] = "minecraft:jungle_leaves";
-  MinecraftBlockTypes2["JungleLog"] = "minecraft:jungle_log";
-  MinecraftBlockTypes2["JunglePlanks"] = "minecraft:jungle_planks";
-  MinecraftBlockTypes2["JunglePressurePlate"] = "minecraft:jungle_pressure_plate";
-  MinecraftBlockTypes2["JungleSapling"] = "minecraft:jungle_sapling";
-  MinecraftBlockTypes2["JungleSlab"] = "minecraft:jungle_slab";
-  MinecraftBlockTypes2["JungleStairs"] = "minecraft:jungle_stairs";
-  MinecraftBlockTypes2["JungleStandingSign"] = "minecraft:jungle_standing_sign";
-  MinecraftBlockTypes2["JungleTrapdoor"] = "minecraft:jungle_trapdoor";
-  MinecraftBlockTypes2["JungleWallSign"] = "minecraft:jungle_wall_sign";
-  MinecraftBlockTypes2["JungleWood"] = "minecraft:jungle_wood";
-  MinecraftBlockTypes2["Kelp"] = "minecraft:kelp";
-  MinecraftBlockTypes2["LabTable"] = "minecraft:lab_table";
-  MinecraftBlockTypes2["Ladder"] = "minecraft:ladder";
-  MinecraftBlockTypes2["Lantern"] = "minecraft:lantern";
-  MinecraftBlockTypes2["LapisBlock"] = "minecraft:lapis_block";
-  MinecraftBlockTypes2["LapisOre"] = "minecraft:lapis_ore";
-  MinecraftBlockTypes2["LargeAmethystBud"] = "minecraft:large_amethyst_bud";
-  MinecraftBlockTypes2["LargeFern"] = "minecraft:large_fern";
-  MinecraftBlockTypes2["Lava"] = "minecraft:lava";
-  MinecraftBlockTypes2["LeafLitter"] = "minecraft:leaf_litter";
-  MinecraftBlockTypes2["Lectern"] = "minecraft:lectern";
-  MinecraftBlockTypes2["Lever"] = "minecraft:lever";
-  MinecraftBlockTypes2["LightBlock0"] = "minecraft:light_block_0";
-  MinecraftBlockTypes2["LightBlock1"] = "minecraft:light_block_1";
-  MinecraftBlockTypes2["LightBlock10"] = "minecraft:light_block_10";
-  MinecraftBlockTypes2["LightBlock11"] = "minecraft:light_block_11";
-  MinecraftBlockTypes2["LightBlock12"] = "minecraft:light_block_12";
-  MinecraftBlockTypes2["LightBlock13"] = "minecraft:light_block_13";
-  MinecraftBlockTypes2["LightBlock14"] = "minecraft:light_block_14";
-  MinecraftBlockTypes2["LightBlock15"] = "minecraft:light_block_15";
-  MinecraftBlockTypes2["LightBlock2"] = "minecraft:light_block_2";
-  MinecraftBlockTypes2["LightBlock3"] = "minecraft:light_block_3";
-  MinecraftBlockTypes2["LightBlock4"] = "minecraft:light_block_4";
-  MinecraftBlockTypes2["LightBlock5"] = "minecraft:light_block_5";
-  MinecraftBlockTypes2["LightBlock6"] = "minecraft:light_block_6";
-  MinecraftBlockTypes2["LightBlock7"] = "minecraft:light_block_7";
-  MinecraftBlockTypes2["LightBlock8"] = "minecraft:light_block_8";
-  MinecraftBlockTypes2["LightBlock9"] = "minecraft:light_block_9";
-  MinecraftBlockTypes2["LightBlueCandle"] = "minecraft:light_blue_candle";
-  MinecraftBlockTypes2["LightBlueCandleCake"] = "minecraft:light_blue_candle_cake";
-  MinecraftBlockTypes2["LightBlueCarpet"] = "minecraft:light_blue_carpet";
-  MinecraftBlockTypes2["LightBlueConcrete"] = "minecraft:light_blue_concrete";
-  MinecraftBlockTypes2["LightBlueConcretePowder"] = "minecraft:light_blue_concrete_powder";
-  MinecraftBlockTypes2["LightBlueGlazedTerracotta"] = "minecraft:light_blue_glazed_terracotta";
-  MinecraftBlockTypes2["LightBlueShulkerBox"] = "minecraft:light_blue_shulker_box";
-  MinecraftBlockTypes2["LightBlueStainedGlass"] = "minecraft:light_blue_stained_glass";
-  MinecraftBlockTypes2["LightBlueStainedGlassPane"] = "minecraft:light_blue_stained_glass_pane";
-  MinecraftBlockTypes2["LightBlueTerracotta"] = "minecraft:light_blue_terracotta";
-  MinecraftBlockTypes2["LightBlueWool"] = "minecraft:light_blue_wool";
-  MinecraftBlockTypes2["LightGrayCandle"] = "minecraft:light_gray_candle";
-  MinecraftBlockTypes2["LightGrayCandleCake"] = "minecraft:light_gray_candle_cake";
-  MinecraftBlockTypes2["LightGrayCarpet"] = "minecraft:light_gray_carpet";
-  MinecraftBlockTypes2["LightGrayConcrete"] = "minecraft:light_gray_concrete";
-  MinecraftBlockTypes2["LightGrayConcretePowder"] = "minecraft:light_gray_concrete_powder";
-  MinecraftBlockTypes2["LightGrayShulkerBox"] = "minecraft:light_gray_shulker_box";
-  MinecraftBlockTypes2["LightGrayStainedGlass"] = "minecraft:light_gray_stained_glass";
-  MinecraftBlockTypes2["LightGrayStainedGlassPane"] = "minecraft:light_gray_stained_glass_pane";
-  MinecraftBlockTypes2["LightGrayTerracotta"] = "minecraft:light_gray_terracotta";
-  MinecraftBlockTypes2["LightGrayWool"] = "minecraft:light_gray_wool";
-  MinecraftBlockTypes2["LightWeightedPressurePlate"] = "minecraft:light_weighted_pressure_plate";
-  MinecraftBlockTypes2["LightningRod"] = "minecraft:lightning_rod";
-  MinecraftBlockTypes2["Lilac"] = "minecraft:lilac";
-  MinecraftBlockTypes2["LilyOfTheValley"] = "minecraft:lily_of_the_valley";
-  MinecraftBlockTypes2["LimeCandle"] = "minecraft:lime_candle";
-  MinecraftBlockTypes2["LimeCandleCake"] = "minecraft:lime_candle_cake";
-  MinecraftBlockTypes2["LimeCarpet"] = "minecraft:lime_carpet";
-  MinecraftBlockTypes2["LimeConcrete"] = "minecraft:lime_concrete";
-  MinecraftBlockTypes2["LimeConcretePowder"] = "minecraft:lime_concrete_powder";
-  MinecraftBlockTypes2["LimeGlazedTerracotta"] = "minecraft:lime_glazed_terracotta";
-  MinecraftBlockTypes2["LimeShulkerBox"] = "minecraft:lime_shulker_box";
-  MinecraftBlockTypes2["LimeStainedGlass"] = "minecraft:lime_stained_glass";
-  MinecraftBlockTypes2["LimeStainedGlassPane"] = "minecraft:lime_stained_glass_pane";
-  MinecraftBlockTypes2["LimeTerracotta"] = "minecraft:lime_terracotta";
-  MinecraftBlockTypes2["LimeWool"] = "minecraft:lime_wool";
-  MinecraftBlockTypes2["LitBlastFurnace"] = "minecraft:lit_blast_furnace";
-  MinecraftBlockTypes2["LitDeepslateRedstoneOre"] = "minecraft:lit_deepslate_redstone_ore";
-  MinecraftBlockTypes2["LitFurnace"] = "minecraft:lit_furnace";
-  MinecraftBlockTypes2["LitPumpkin"] = "minecraft:lit_pumpkin";
-  MinecraftBlockTypes2["LitRedstoneLamp"] = "minecraft:lit_redstone_lamp";
-  MinecraftBlockTypes2["LitRedstoneOre"] = "minecraft:lit_redstone_ore";
-  MinecraftBlockTypes2["LitSmoker"] = "minecraft:lit_smoker";
-  MinecraftBlockTypes2["Lodestone"] = "minecraft:lodestone";
-  MinecraftBlockTypes2["Loom"] = "minecraft:loom";
-  MinecraftBlockTypes2["MagentaCandle"] = "minecraft:magenta_candle";
-  MinecraftBlockTypes2["MagentaCandleCake"] = "minecraft:magenta_candle_cake";
-  MinecraftBlockTypes2["MagentaCarpet"] = "minecraft:magenta_carpet";
-  MinecraftBlockTypes2["MagentaConcrete"] = "minecraft:magenta_concrete";
-  MinecraftBlockTypes2["MagentaConcretePowder"] = "minecraft:magenta_concrete_powder";
-  MinecraftBlockTypes2["MagentaGlazedTerracotta"] = "minecraft:magenta_glazed_terracotta";
-  MinecraftBlockTypes2["MagentaShulkerBox"] = "minecraft:magenta_shulker_box";
-  MinecraftBlockTypes2["MagentaStainedGlass"] = "minecraft:magenta_stained_glass";
-  MinecraftBlockTypes2["MagentaStainedGlassPane"] = "minecraft:magenta_stained_glass_pane";
-  MinecraftBlockTypes2["MagentaTerracotta"] = "minecraft:magenta_terracotta";
-  MinecraftBlockTypes2["MagentaWool"] = "minecraft:magenta_wool";
-  MinecraftBlockTypes2["Magma"] = "minecraft:magma";
-  MinecraftBlockTypes2["MangroveButton"] = "minecraft:mangrove_button";
-  MinecraftBlockTypes2["MangroveDoor"] = "minecraft:mangrove_door";
-  MinecraftBlockTypes2["MangroveDoubleSlab"] = "minecraft:mangrove_double_slab";
-  MinecraftBlockTypes2["MangroveFence"] = "minecraft:mangrove_fence";
-  MinecraftBlockTypes2["MangroveFenceGate"] = "minecraft:mangrove_fence_gate";
-  MinecraftBlockTypes2["MangroveHangingSign"] = "minecraft:mangrove_hanging_sign";
-  MinecraftBlockTypes2["MangroveLeaves"] = "minecraft:mangrove_leaves";
-  MinecraftBlockTypes2["MangroveLog"] = "minecraft:mangrove_log";
-  MinecraftBlockTypes2["MangrovePlanks"] = "minecraft:mangrove_planks";
-  MinecraftBlockTypes2["MangrovePressurePlate"] = "minecraft:mangrove_pressure_plate";
-  MinecraftBlockTypes2["MangrovePropagule"] = "minecraft:mangrove_propagule";
-  MinecraftBlockTypes2["MangroveRoots"] = "minecraft:mangrove_roots";
-  MinecraftBlockTypes2["MangroveSlab"] = "minecraft:mangrove_slab";
-  MinecraftBlockTypes2["MangroveStairs"] = "minecraft:mangrove_stairs";
-  MinecraftBlockTypes2["MangroveStandingSign"] = "minecraft:mangrove_standing_sign";
-  MinecraftBlockTypes2["MangroveTrapdoor"] = "minecraft:mangrove_trapdoor";
-  MinecraftBlockTypes2["MangroveWallSign"] = "minecraft:mangrove_wall_sign";
-  MinecraftBlockTypes2["MangroveWood"] = "minecraft:mangrove_wood";
-  MinecraftBlockTypes2["MaterialReducer"] = "minecraft:material_reducer";
-  MinecraftBlockTypes2["MediumAmethystBud"] = "minecraft:medium_amethyst_bud";
-  MinecraftBlockTypes2["MelonBlock"] = "minecraft:melon_block";
-  MinecraftBlockTypes2["MelonStem"] = "minecraft:melon_stem";
-  MinecraftBlockTypes2["MobSpawner"] = "minecraft:mob_spawner";
-  MinecraftBlockTypes2["MossBlock"] = "minecraft:moss_block";
-  MinecraftBlockTypes2["MossCarpet"] = "minecraft:moss_carpet";
-  MinecraftBlockTypes2["MossyCobblestone"] = "minecraft:mossy_cobblestone";
-  MinecraftBlockTypes2["MossyCobblestoneDoubleSlab"] = "minecraft:mossy_cobblestone_double_slab";
-  MinecraftBlockTypes2["MossyCobblestoneSlab"] = "minecraft:mossy_cobblestone_slab";
-  MinecraftBlockTypes2["MossyCobblestoneStairs"] = "minecraft:mossy_cobblestone_stairs";
-  MinecraftBlockTypes2["MossyCobblestoneWall"] = "minecraft:mossy_cobblestone_wall";
-  MinecraftBlockTypes2["MossyStoneBrickDoubleSlab"] = "minecraft:mossy_stone_brick_double_slab";
-  MinecraftBlockTypes2["MossyStoneBrickSlab"] = "minecraft:mossy_stone_brick_slab";
-  MinecraftBlockTypes2["MossyStoneBrickStairs"] = "minecraft:mossy_stone_brick_stairs";
-  MinecraftBlockTypes2["MossyStoneBrickWall"] = "minecraft:mossy_stone_brick_wall";
-  MinecraftBlockTypes2["MossyStoneBricks"] = "minecraft:mossy_stone_bricks";
-  MinecraftBlockTypes2["Mud"] = "minecraft:mud";
-  MinecraftBlockTypes2["MudBrickDoubleSlab"] = "minecraft:mud_brick_double_slab";
-  MinecraftBlockTypes2["MudBrickSlab"] = "minecraft:mud_brick_slab";
-  MinecraftBlockTypes2["MudBrickStairs"] = "minecraft:mud_brick_stairs";
-  MinecraftBlockTypes2["MudBrickWall"] = "minecraft:mud_brick_wall";
-  MinecraftBlockTypes2["MudBricks"] = "minecraft:mud_bricks";
-  MinecraftBlockTypes2["MuddyMangroveRoots"] = "minecraft:muddy_mangrove_roots";
-  MinecraftBlockTypes2["MushroomStem"] = "minecraft:mushroom_stem";
-  MinecraftBlockTypes2["Mycelium"] = "minecraft:mycelium";
-  MinecraftBlockTypes2["NetherBrick"] = "minecraft:nether_brick";
-  MinecraftBlockTypes2["NetherBrickDoubleSlab"] = "minecraft:nether_brick_double_slab";
-  MinecraftBlockTypes2["NetherBrickFence"] = "minecraft:nether_brick_fence";
-  MinecraftBlockTypes2["NetherBrickSlab"] = "minecraft:nether_brick_slab";
-  MinecraftBlockTypes2["NetherBrickStairs"] = "minecraft:nether_brick_stairs";
-  MinecraftBlockTypes2["NetherBrickWall"] = "minecraft:nether_brick_wall";
-  MinecraftBlockTypes2["NetherGoldOre"] = "minecraft:nether_gold_ore";
-  MinecraftBlockTypes2["NetherSprouts"] = "minecraft:nether_sprouts";
-  MinecraftBlockTypes2["NetherWart"] = "minecraft:nether_wart";
-  MinecraftBlockTypes2["NetherWartBlock"] = "minecraft:nether_wart_block";
-  MinecraftBlockTypes2["NetheriteBlock"] = "minecraft:netherite_block";
-  MinecraftBlockTypes2["Netherrack"] = "minecraft:netherrack";
-  MinecraftBlockTypes2["NormalStoneDoubleSlab"] = "minecraft:normal_stone_double_slab";
-  MinecraftBlockTypes2["NormalStoneSlab"] = "minecraft:normal_stone_slab";
-  MinecraftBlockTypes2["NormalStoneStairs"] = "minecraft:normal_stone_stairs";
-  MinecraftBlockTypes2["Noteblock"] = "minecraft:noteblock";
-  MinecraftBlockTypes2["OakDoubleSlab"] = "minecraft:oak_double_slab";
-  MinecraftBlockTypes2["OakFence"] = "minecraft:oak_fence";
-  MinecraftBlockTypes2["OakHangingSign"] = "minecraft:oak_hanging_sign";
-  MinecraftBlockTypes2["OakLeaves"] = "minecraft:oak_leaves";
-  MinecraftBlockTypes2["OakLog"] = "minecraft:oak_log";
-  MinecraftBlockTypes2["OakPlanks"] = "minecraft:oak_planks";
-  MinecraftBlockTypes2["OakSapling"] = "minecraft:oak_sapling";
-  MinecraftBlockTypes2["OakSlab"] = "minecraft:oak_slab";
-  MinecraftBlockTypes2["OakStairs"] = "minecraft:oak_stairs";
-  MinecraftBlockTypes2["OakWood"] = "minecraft:oak_wood";
-  MinecraftBlockTypes2["Observer"] = "minecraft:observer";
-  MinecraftBlockTypes2["Obsidian"] = "minecraft:obsidian";
-  MinecraftBlockTypes2["OchreFroglight"] = "minecraft:ochre_froglight";
-  MinecraftBlockTypes2["OpenEyeblossom"] = "minecraft:open_eyeblossom";
-  MinecraftBlockTypes2["OrangeCandle"] = "minecraft:orange_candle";
-  MinecraftBlockTypes2["OrangeCandleCake"] = "minecraft:orange_candle_cake";
-  MinecraftBlockTypes2["OrangeCarpet"] = "minecraft:orange_carpet";
-  MinecraftBlockTypes2["OrangeConcrete"] = "minecraft:orange_concrete";
-  MinecraftBlockTypes2["OrangeConcretePowder"] = "minecraft:orange_concrete_powder";
-  MinecraftBlockTypes2["OrangeGlazedTerracotta"] = "minecraft:orange_glazed_terracotta";
-  MinecraftBlockTypes2["OrangeShulkerBox"] = "minecraft:orange_shulker_box";
-  MinecraftBlockTypes2["OrangeStainedGlass"] = "minecraft:orange_stained_glass";
-  MinecraftBlockTypes2["OrangeStainedGlassPane"] = "minecraft:orange_stained_glass_pane";
-  MinecraftBlockTypes2["OrangeTerracotta"] = "minecraft:orange_terracotta";
-  MinecraftBlockTypes2["OrangeTulip"] = "minecraft:orange_tulip";
-  MinecraftBlockTypes2["OrangeWool"] = "minecraft:orange_wool";
-  MinecraftBlockTypes2["OxeyeDaisy"] = "minecraft:oxeye_daisy";
-  MinecraftBlockTypes2["OxidizedChiseledCopper"] = "minecraft:oxidized_chiseled_copper";
-  MinecraftBlockTypes2["OxidizedCopper"] = "minecraft:oxidized_copper";
-  MinecraftBlockTypes2["OxidizedCopperBulb"] = "minecraft:oxidized_copper_bulb";
-  MinecraftBlockTypes2["OxidizedCopperChest"] = "minecraft:oxidized_copper_chest";
-  MinecraftBlockTypes2["OxidizedCopperDoor"] = "minecraft:oxidized_copper_door";
-  MinecraftBlockTypes2["OxidizedCopperGrate"] = "minecraft:oxidized_copper_grate";
-  MinecraftBlockTypes2["OxidizedCopperTrapdoor"] = "minecraft:oxidized_copper_trapdoor";
-  MinecraftBlockTypes2["OxidizedCutCopper"] = "minecraft:oxidized_cut_copper";
-  MinecraftBlockTypes2["OxidizedCutCopperSlab"] = "minecraft:oxidized_cut_copper_slab";
-  MinecraftBlockTypes2["OxidizedCutCopperStairs"] = "minecraft:oxidized_cut_copper_stairs";
-  MinecraftBlockTypes2["OxidizedDoubleCutCopperSlab"] = "minecraft:oxidized_double_cut_copper_slab";
-  MinecraftBlockTypes2["PackedIce"] = "minecraft:packed_ice";
-  MinecraftBlockTypes2["PackedMud"] = "minecraft:packed_mud";
-  MinecraftBlockTypes2["PaleHangingMoss"] = "minecraft:pale_hanging_moss";
-  MinecraftBlockTypes2["PaleMossBlock"] = "minecraft:pale_moss_block";
-  MinecraftBlockTypes2["PaleMossCarpet"] = "minecraft:pale_moss_carpet";
-  MinecraftBlockTypes2["PaleOakButton"] = "minecraft:pale_oak_button";
-  MinecraftBlockTypes2["PaleOakDoor"] = "minecraft:pale_oak_door";
-  MinecraftBlockTypes2["PaleOakDoubleSlab"] = "minecraft:pale_oak_double_slab";
-  MinecraftBlockTypes2["PaleOakFence"] = "minecraft:pale_oak_fence";
-  MinecraftBlockTypes2["PaleOakFenceGate"] = "minecraft:pale_oak_fence_gate";
-  MinecraftBlockTypes2["PaleOakHangingSign"] = "minecraft:pale_oak_hanging_sign";
-  MinecraftBlockTypes2["PaleOakLeaves"] = "minecraft:pale_oak_leaves";
-  MinecraftBlockTypes2["PaleOakLog"] = "minecraft:pale_oak_log";
-  MinecraftBlockTypes2["PaleOakPlanks"] = "minecraft:pale_oak_planks";
-  MinecraftBlockTypes2["PaleOakPressurePlate"] = "minecraft:pale_oak_pressure_plate";
-  MinecraftBlockTypes2["PaleOakSapling"] = "minecraft:pale_oak_sapling";
-  MinecraftBlockTypes2["PaleOakSlab"] = "minecraft:pale_oak_slab";
-  MinecraftBlockTypes2["PaleOakStairs"] = "minecraft:pale_oak_stairs";
-  MinecraftBlockTypes2["PaleOakStandingSign"] = "minecraft:pale_oak_standing_sign";
-  MinecraftBlockTypes2["PaleOakTrapdoor"] = "minecraft:pale_oak_trapdoor";
-  MinecraftBlockTypes2["PaleOakWallSign"] = "minecraft:pale_oak_wall_sign";
-  MinecraftBlockTypes2["PaleOakWood"] = "minecraft:pale_oak_wood";
-  MinecraftBlockTypes2["PearlescentFroglight"] = "minecraft:pearlescent_froglight";
-  MinecraftBlockTypes2["Peony"] = "minecraft:peony";
-  MinecraftBlockTypes2["PetrifiedOakDoubleSlab"] = "minecraft:petrified_oak_double_slab";
-  MinecraftBlockTypes2["PetrifiedOakSlab"] = "minecraft:petrified_oak_slab";
-  MinecraftBlockTypes2["PiglinHead"] = "minecraft:piglin_head";
-  MinecraftBlockTypes2["PinkCandle"] = "minecraft:pink_candle";
-  MinecraftBlockTypes2["PinkCandleCake"] = "minecraft:pink_candle_cake";
-  MinecraftBlockTypes2["PinkCarpet"] = "minecraft:pink_carpet";
-  MinecraftBlockTypes2["PinkConcrete"] = "minecraft:pink_concrete";
-  MinecraftBlockTypes2["PinkConcretePowder"] = "minecraft:pink_concrete_powder";
-  MinecraftBlockTypes2["PinkGlazedTerracotta"] = "minecraft:pink_glazed_terracotta";
-  MinecraftBlockTypes2["PinkPetals"] = "minecraft:pink_petals";
-  MinecraftBlockTypes2["PinkShulkerBox"] = "minecraft:pink_shulker_box";
-  MinecraftBlockTypes2["PinkStainedGlass"] = "minecraft:pink_stained_glass";
-  MinecraftBlockTypes2["PinkStainedGlassPane"] = "minecraft:pink_stained_glass_pane";
-  MinecraftBlockTypes2["PinkTerracotta"] = "minecraft:pink_terracotta";
-  MinecraftBlockTypes2["PinkTulip"] = "minecraft:pink_tulip";
-  MinecraftBlockTypes2["PinkWool"] = "minecraft:pink_wool";
-  MinecraftBlockTypes2["Piston"] = "minecraft:piston";
-  MinecraftBlockTypes2["PistonArmCollision"] = "minecraft:piston_arm_collision";
-  MinecraftBlockTypes2["PitcherCrop"] = "minecraft:pitcher_crop";
-  MinecraftBlockTypes2["PitcherPlant"] = "minecraft:pitcher_plant";
-  MinecraftBlockTypes2["PlayerHead"] = "minecraft:player_head";
-  MinecraftBlockTypes2["Podzol"] = "minecraft:podzol";
-  MinecraftBlockTypes2["PointedDripstone"] = "minecraft:pointed_dripstone";
-  MinecraftBlockTypes2["PolishedAndesite"] = "minecraft:polished_andesite";
-  MinecraftBlockTypes2["PolishedAndesiteDoubleSlab"] = "minecraft:polished_andesite_double_slab";
-  MinecraftBlockTypes2["PolishedAndesiteSlab"] = "minecraft:polished_andesite_slab";
-  MinecraftBlockTypes2["PolishedAndesiteStairs"] = "minecraft:polished_andesite_stairs";
-  MinecraftBlockTypes2["PolishedBasalt"] = "minecraft:polished_basalt";
-  MinecraftBlockTypes2["PolishedBlackstone"] = "minecraft:polished_blackstone";
-  MinecraftBlockTypes2["PolishedBlackstoneBrickDoubleSlab"] = "minecraft:polished_blackstone_brick_double_slab";
-  MinecraftBlockTypes2["PolishedBlackstoneBrickSlab"] = "minecraft:polished_blackstone_brick_slab";
-  MinecraftBlockTypes2["PolishedBlackstoneBrickStairs"] = "minecraft:polished_blackstone_brick_stairs";
-  MinecraftBlockTypes2["PolishedBlackstoneBrickWall"] = "minecraft:polished_blackstone_brick_wall";
-  MinecraftBlockTypes2["PolishedBlackstoneBricks"] = "minecraft:polished_blackstone_bricks";
-  MinecraftBlockTypes2["PolishedBlackstoneButton"] = "minecraft:polished_blackstone_button";
-  MinecraftBlockTypes2["PolishedBlackstoneDoubleSlab"] = "minecraft:polished_blackstone_double_slab";
-  MinecraftBlockTypes2["PolishedBlackstonePressurePlate"] = "minecraft:polished_blackstone_pressure_plate";
-  MinecraftBlockTypes2["PolishedBlackstoneSlab"] = "minecraft:polished_blackstone_slab";
-  MinecraftBlockTypes2["PolishedBlackstoneStairs"] = "minecraft:polished_blackstone_stairs";
-  MinecraftBlockTypes2["PolishedBlackstoneWall"] = "minecraft:polished_blackstone_wall";
-  MinecraftBlockTypes2["PolishedDeepslate"] = "minecraft:polished_deepslate";
-  MinecraftBlockTypes2["PolishedDeepslateDoubleSlab"] = "minecraft:polished_deepslate_double_slab";
-  MinecraftBlockTypes2["PolishedDeepslateSlab"] = "minecraft:polished_deepslate_slab";
-  MinecraftBlockTypes2["PolishedDeepslateStairs"] = "minecraft:polished_deepslate_stairs";
-  MinecraftBlockTypes2["PolishedDeepslateWall"] = "minecraft:polished_deepslate_wall";
-  MinecraftBlockTypes2["PolishedDiorite"] = "minecraft:polished_diorite";
-  MinecraftBlockTypes2["PolishedDioriteDoubleSlab"] = "minecraft:polished_diorite_double_slab";
-  MinecraftBlockTypes2["PolishedDioriteSlab"] = "minecraft:polished_diorite_slab";
-  MinecraftBlockTypes2["PolishedDioriteStairs"] = "minecraft:polished_diorite_stairs";
-  MinecraftBlockTypes2["PolishedGranite"] = "minecraft:polished_granite";
-  MinecraftBlockTypes2["PolishedGraniteDoubleSlab"] = "minecraft:polished_granite_double_slab";
-  MinecraftBlockTypes2["PolishedGraniteSlab"] = "minecraft:polished_granite_slab";
-  MinecraftBlockTypes2["PolishedGraniteStairs"] = "minecraft:polished_granite_stairs";
-  MinecraftBlockTypes2["PolishedTuff"] = "minecraft:polished_tuff";
-  MinecraftBlockTypes2["PolishedTuffDoubleSlab"] = "minecraft:polished_tuff_double_slab";
-  MinecraftBlockTypes2["PolishedTuffSlab"] = "minecraft:polished_tuff_slab";
-  MinecraftBlockTypes2["PolishedTuffStairs"] = "minecraft:polished_tuff_stairs";
-  MinecraftBlockTypes2["PolishedTuffWall"] = "minecraft:polished_tuff_wall";
-  MinecraftBlockTypes2["Poppy"] = "minecraft:poppy";
-  MinecraftBlockTypes2["Portal"] = "minecraft:portal";
-  MinecraftBlockTypes2["Potatoes"] = "minecraft:potatoes";
-  MinecraftBlockTypes2["PowderSnow"] = "minecraft:powder_snow";
-  MinecraftBlockTypes2["PoweredComparator"] = "minecraft:powered_comparator";
-  MinecraftBlockTypes2["PoweredRepeater"] = "minecraft:powered_repeater";
-  MinecraftBlockTypes2["Prismarine"] = "minecraft:prismarine";
-  MinecraftBlockTypes2["PrismarineBrickDoubleSlab"] = "minecraft:prismarine_brick_double_slab";
-  MinecraftBlockTypes2["PrismarineBrickSlab"] = "minecraft:prismarine_brick_slab";
-  MinecraftBlockTypes2["PrismarineBricks"] = "minecraft:prismarine_bricks";
-  MinecraftBlockTypes2["PrismarineBricksStairs"] = "minecraft:prismarine_bricks_stairs";
-  MinecraftBlockTypes2["PrismarineDoubleSlab"] = "minecraft:prismarine_double_slab";
-  MinecraftBlockTypes2["PrismarineSlab"] = "minecraft:prismarine_slab";
-  MinecraftBlockTypes2["PrismarineStairs"] = "minecraft:prismarine_stairs";
-  MinecraftBlockTypes2["PrismarineWall"] = "minecraft:prismarine_wall";
-  MinecraftBlockTypes2["Pumpkin"] = "minecraft:pumpkin";
-  MinecraftBlockTypes2["PumpkinStem"] = "minecraft:pumpkin_stem";
-  MinecraftBlockTypes2["PurpleCandle"] = "minecraft:purple_candle";
-  MinecraftBlockTypes2["PurpleCandleCake"] = "minecraft:purple_candle_cake";
-  MinecraftBlockTypes2["PurpleCarpet"] = "minecraft:purple_carpet";
-  MinecraftBlockTypes2["PurpleConcrete"] = "minecraft:purple_concrete";
-  MinecraftBlockTypes2["PurpleConcretePowder"] = "minecraft:purple_concrete_powder";
-  MinecraftBlockTypes2["PurpleGlazedTerracotta"] = "minecraft:purple_glazed_terracotta";
-  MinecraftBlockTypes2["PurpleShulkerBox"] = "minecraft:purple_shulker_box";
-  MinecraftBlockTypes2["PurpleStainedGlass"] = "minecraft:purple_stained_glass";
-  MinecraftBlockTypes2["PurpleStainedGlassPane"] = "minecraft:purple_stained_glass_pane";
-  MinecraftBlockTypes2["PurpleTerracotta"] = "minecraft:purple_terracotta";
-  MinecraftBlockTypes2["PurpleWool"] = "minecraft:purple_wool";
-  MinecraftBlockTypes2["PurpurBlock"] = "minecraft:purpur_block";
-  MinecraftBlockTypes2["PurpurDoubleSlab"] = "minecraft:purpur_double_slab";
-  MinecraftBlockTypes2["PurpurPillar"] = "minecraft:purpur_pillar";
-  MinecraftBlockTypes2["PurpurSlab"] = "minecraft:purpur_slab";
-  MinecraftBlockTypes2["PurpurStairs"] = "minecraft:purpur_stairs";
-  MinecraftBlockTypes2["QuartzBlock"] = "minecraft:quartz_block";
-  MinecraftBlockTypes2["QuartzBricks"] = "minecraft:quartz_bricks";
-  MinecraftBlockTypes2["QuartzDoubleSlab"] = "minecraft:quartz_double_slab";
-  MinecraftBlockTypes2["QuartzOre"] = "minecraft:quartz_ore";
-  MinecraftBlockTypes2["QuartzPillar"] = "minecraft:quartz_pillar";
-  MinecraftBlockTypes2["QuartzSlab"] = "minecraft:quartz_slab";
-  MinecraftBlockTypes2["QuartzStairs"] = "minecraft:quartz_stairs";
-  MinecraftBlockTypes2["Rail"] = "minecraft:rail";
-  MinecraftBlockTypes2["RawCopperBlock"] = "minecraft:raw_copper_block";
-  MinecraftBlockTypes2["RawGoldBlock"] = "minecraft:raw_gold_block";
-  MinecraftBlockTypes2["RawIronBlock"] = "minecraft:raw_iron_block";
-  MinecraftBlockTypes2["RedCandle"] = "minecraft:red_candle";
-  MinecraftBlockTypes2["RedCandleCake"] = "minecraft:red_candle_cake";
-  MinecraftBlockTypes2["RedCarpet"] = "minecraft:red_carpet";
-  MinecraftBlockTypes2["RedConcrete"] = "minecraft:red_concrete";
-  MinecraftBlockTypes2["RedConcretePowder"] = "minecraft:red_concrete_powder";
-  MinecraftBlockTypes2["RedGlazedTerracotta"] = "minecraft:red_glazed_terracotta";
-  MinecraftBlockTypes2["RedMushroom"] = "minecraft:red_mushroom";
-  MinecraftBlockTypes2["RedMushroomBlock"] = "minecraft:red_mushroom_block";
-  MinecraftBlockTypes2["RedNetherBrick"] = "minecraft:red_nether_brick";
-  MinecraftBlockTypes2["RedNetherBrickDoubleSlab"] = "minecraft:red_nether_brick_double_slab";
-  MinecraftBlockTypes2["RedNetherBrickSlab"] = "minecraft:red_nether_brick_slab";
-  MinecraftBlockTypes2["RedNetherBrickStairs"] = "minecraft:red_nether_brick_stairs";
-  MinecraftBlockTypes2["RedNetherBrickWall"] = "minecraft:red_nether_brick_wall";
-  MinecraftBlockTypes2["RedSand"] = "minecraft:red_sand";
-  MinecraftBlockTypes2["RedSandstone"] = "minecraft:red_sandstone";
-  MinecraftBlockTypes2["RedSandstoneDoubleSlab"] = "minecraft:red_sandstone_double_slab";
-  MinecraftBlockTypes2["RedSandstoneSlab"] = "minecraft:red_sandstone_slab";
-  MinecraftBlockTypes2["RedSandstoneStairs"] = "minecraft:red_sandstone_stairs";
-  MinecraftBlockTypes2["RedSandstoneWall"] = "minecraft:red_sandstone_wall";
-  MinecraftBlockTypes2["RedShulkerBox"] = "minecraft:red_shulker_box";
-  MinecraftBlockTypes2["RedStainedGlass"] = "minecraft:red_stained_glass";
-  MinecraftBlockTypes2["RedStainedGlassPane"] = "minecraft:red_stained_glass_pane";
-  MinecraftBlockTypes2["RedTerracotta"] = "minecraft:red_terracotta";
-  MinecraftBlockTypes2["RedTulip"] = "minecraft:red_tulip";
-  MinecraftBlockTypes2["RedWool"] = "minecraft:red_wool";
-  MinecraftBlockTypes2["RedstoneBlock"] = "minecraft:redstone_block";
-  MinecraftBlockTypes2["RedstoneLamp"] = "minecraft:redstone_lamp";
-  MinecraftBlockTypes2["RedstoneOre"] = "minecraft:redstone_ore";
-  MinecraftBlockTypes2["RedstoneTorch"] = "minecraft:redstone_torch";
-  MinecraftBlockTypes2["RedstoneWire"] = "minecraft:redstone_wire";
-  MinecraftBlockTypes2["Reeds"] = "minecraft:reeds";
-  MinecraftBlockTypes2["ReinforcedDeepslate"] = "minecraft:reinforced_deepslate";
-  MinecraftBlockTypes2["RepeatingCommandBlock"] = "minecraft:repeating_command_block";
-  MinecraftBlockTypes2["ResinBlock"] = "minecraft:resin_block";
-  MinecraftBlockTypes2["ResinBrickDoubleSlab"] = "minecraft:resin_brick_double_slab";
-  MinecraftBlockTypes2["ResinBrickSlab"] = "minecraft:resin_brick_slab";
-  MinecraftBlockTypes2["ResinBrickStairs"] = "minecraft:resin_brick_stairs";
-  MinecraftBlockTypes2["ResinBrickWall"] = "minecraft:resin_brick_wall";
-  MinecraftBlockTypes2["ResinBricks"] = "minecraft:resin_bricks";
-  MinecraftBlockTypes2["ResinClump"] = "minecraft:resin_clump";
-  MinecraftBlockTypes2["RespawnAnchor"] = "minecraft:respawn_anchor";
-  MinecraftBlockTypes2["RoseBush"] = "minecraft:rose_bush";
-  MinecraftBlockTypes2["Sand"] = "minecraft:sand";
-  MinecraftBlockTypes2["Sandstone"] = "minecraft:sandstone";
-  MinecraftBlockTypes2["SandstoneDoubleSlab"] = "minecraft:sandstone_double_slab";
-  MinecraftBlockTypes2["SandstoneSlab"] = "minecraft:sandstone_slab";
-  MinecraftBlockTypes2["SandstoneStairs"] = "minecraft:sandstone_stairs";
-  MinecraftBlockTypes2["SandstoneWall"] = "minecraft:sandstone_wall";
-  MinecraftBlockTypes2["Scaffolding"] = "minecraft:scaffolding";
-  MinecraftBlockTypes2["Sculk"] = "minecraft:sculk";
-  MinecraftBlockTypes2["SculkCatalyst"] = "minecraft:sculk_catalyst";
-  MinecraftBlockTypes2["SculkSensor"] = "minecraft:sculk_sensor";
-  MinecraftBlockTypes2["SculkShrieker"] = "minecraft:sculk_shrieker";
-  MinecraftBlockTypes2["SculkVein"] = "minecraft:sculk_vein";
-  MinecraftBlockTypes2["SeaLantern"] = "minecraft:sea_lantern";
-  MinecraftBlockTypes2["SeaPickle"] = "minecraft:sea_pickle";
-  MinecraftBlockTypes2["Seagrass"] = "minecraft:seagrass";
-  MinecraftBlockTypes2["ShortDryGrass"] = "minecraft:short_dry_grass";
-  MinecraftBlockTypes2["ShortGrass"] = "minecraft:short_grass";
-  MinecraftBlockTypes2["Shroomlight"] = "minecraft:shroomlight";
-  MinecraftBlockTypes2["SilverGlazedTerracotta"] = "minecraft:silver_glazed_terracotta";
-  MinecraftBlockTypes2["SkeletonSkull"] = "minecraft:skeleton_skull";
-  MinecraftBlockTypes2["Slime"] = "minecraft:slime";
-  MinecraftBlockTypes2["SmallAmethystBud"] = "minecraft:small_amethyst_bud";
-  MinecraftBlockTypes2["SmallDripleafBlock"] = "minecraft:small_dripleaf_block";
-  MinecraftBlockTypes2["SmithingTable"] = "minecraft:smithing_table";
-  MinecraftBlockTypes2["Smoker"] = "minecraft:smoker";
-  MinecraftBlockTypes2["SmoothBasalt"] = "minecraft:smooth_basalt";
-  MinecraftBlockTypes2["SmoothQuartz"] = "minecraft:smooth_quartz";
-  MinecraftBlockTypes2["SmoothQuartzDoubleSlab"] = "minecraft:smooth_quartz_double_slab";
-  MinecraftBlockTypes2["SmoothQuartzSlab"] = "minecraft:smooth_quartz_slab";
-  MinecraftBlockTypes2["SmoothQuartzStairs"] = "minecraft:smooth_quartz_stairs";
-  MinecraftBlockTypes2["SmoothRedSandstone"] = "minecraft:smooth_red_sandstone";
-  MinecraftBlockTypes2["SmoothRedSandstoneDoubleSlab"] = "minecraft:smooth_red_sandstone_double_slab";
-  MinecraftBlockTypes2["SmoothRedSandstoneSlab"] = "minecraft:smooth_red_sandstone_slab";
-  MinecraftBlockTypes2["SmoothRedSandstoneStairs"] = "minecraft:smooth_red_sandstone_stairs";
-  MinecraftBlockTypes2["SmoothSandstone"] = "minecraft:smooth_sandstone";
-  MinecraftBlockTypes2["SmoothSandstoneDoubleSlab"] = "minecraft:smooth_sandstone_double_slab";
-  MinecraftBlockTypes2["SmoothSandstoneSlab"] = "minecraft:smooth_sandstone_slab";
-  MinecraftBlockTypes2["SmoothSandstoneStairs"] = "minecraft:smooth_sandstone_stairs";
-  MinecraftBlockTypes2["SmoothStone"] = "minecraft:smooth_stone";
-  MinecraftBlockTypes2["SmoothStoneDoubleSlab"] = "minecraft:smooth_stone_double_slab";
-  MinecraftBlockTypes2["SmoothStoneSlab"] = "minecraft:smooth_stone_slab";
-  MinecraftBlockTypes2["SnifferEgg"] = "minecraft:sniffer_egg";
-  MinecraftBlockTypes2["Snow"] = "minecraft:snow";
-  MinecraftBlockTypes2["SnowLayer"] = "minecraft:snow_layer";
-  MinecraftBlockTypes2["SoulCampfire"] = "minecraft:soul_campfire";
-  MinecraftBlockTypes2["SoulFire"] = "minecraft:soul_fire";
-  MinecraftBlockTypes2["SoulLantern"] = "minecraft:soul_lantern";
-  MinecraftBlockTypes2["SoulSand"] = "minecraft:soul_sand";
-  MinecraftBlockTypes2["SoulSoil"] = "minecraft:soul_soil";
-  MinecraftBlockTypes2["SoulTorch"] = "minecraft:soul_torch";
-  MinecraftBlockTypes2["Sponge"] = "minecraft:sponge";
-  MinecraftBlockTypes2["SporeBlossom"] = "minecraft:spore_blossom";
-  MinecraftBlockTypes2["SpruceButton"] = "minecraft:spruce_button";
-  MinecraftBlockTypes2["SpruceDoor"] = "minecraft:spruce_door";
-  MinecraftBlockTypes2["SpruceDoubleSlab"] = "minecraft:spruce_double_slab";
-  MinecraftBlockTypes2["SpruceFence"] = "minecraft:spruce_fence";
-  MinecraftBlockTypes2["SpruceFenceGate"] = "minecraft:spruce_fence_gate";
-  MinecraftBlockTypes2["SpruceHangingSign"] = "minecraft:spruce_hanging_sign";
-  MinecraftBlockTypes2["SpruceLeaves"] = "minecraft:spruce_leaves";
-  MinecraftBlockTypes2["SpruceLog"] = "minecraft:spruce_log";
-  MinecraftBlockTypes2["SprucePlanks"] = "minecraft:spruce_planks";
-  MinecraftBlockTypes2["SprucePressurePlate"] = "minecraft:spruce_pressure_plate";
-  MinecraftBlockTypes2["SpruceSapling"] = "minecraft:spruce_sapling";
-  MinecraftBlockTypes2["SpruceSlab"] = "minecraft:spruce_slab";
-  MinecraftBlockTypes2["SpruceStairs"] = "minecraft:spruce_stairs";
-  MinecraftBlockTypes2["SpruceStandingSign"] = "minecraft:spruce_standing_sign";
-  MinecraftBlockTypes2["SpruceTrapdoor"] = "minecraft:spruce_trapdoor";
-  MinecraftBlockTypes2["SpruceWallSign"] = "minecraft:spruce_wall_sign";
-  MinecraftBlockTypes2["SpruceWood"] = "minecraft:spruce_wood";
-  MinecraftBlockTypes2["StandingBanner"] = "minecraft:standing_banner";
-  MinecraftBlockTypes2["StandingSign"] = "minecraft:standing_sign";
-  MinecraftBlockTypes2["StickyPiston"] = "minecraft:sticky_piston";
-  MinecraftBlockTypes2["StickyPistonArmCollision"] = "minecraft:sticky_piston_arm_collision";
-  MinecraftBlockTypes2["Stone"] = "minecraft:stone";
-  MinecraftBlockTypes2["StoneBrickDoubleSlab"] = "minecraft:stone_brick_double_slab";
-  MinecraftBlockTypes2["StoneBrickSlab"] = "minecraft:stone_brick_slab";
-  MinecraftBlockTypes2["StoneBrickStairs"] = "minecraft:stone_brick_stairs";
-  MinecraftBlockTypes2["StoneBrickWall"] = "minecraft:stone_brick_wall";
-  MinecraftBlockTypes2["StoneBricks"] = "minecraft:stone_bricks";
-  MinecraftBlockTypes2["StoneButton"] = "minecraft:stone_button";
-  MinecraftBlockTypes2["StonePressurePlate"] = "minecraft:stone_pressure_plate";
-  MinecraftBlockTypes2["StoneStairs"] = "minecraft:stone_stairs";
-  MinecraftBlockTypes2["StonecutterBlock"] = "minecraft:stonecutter_block";
-  MinecraftBlockTypes2["StrippedAcaciaLog"] = "minecraft:stripped_acacia_log";
-  MinecraftBlockTypes2["StrippedAcaciaWood"] = "minecraft:stripped_acacia_wood";
-  MinecraftBlockTypes2["StrippedBambooBlock"] = "minecraft:stripped_bamboo_block";
-  MinecraftBlockTypes2["StrippedBirchLog"] = "minecraft:stripped_birch_log";
-  MinecraftBlockTypes2["StrippedBirchWood"] = "minecraft:stripped_birch_wood";
-  MinecraftBlockTypes2["StrippedCherryLog"] = "minecraft:stripped_cherry_log";
-  MinecraftBlockTypes2["StrippedCherryWood"] = "minecraft:stripped_cherry_wood";
-  MinecraftBlockTypes2["StrippedCrimsonHyphae"] = "minecraft:stripped_crimson_hyphae";
-  MinecraftBlockTypes2["StrippedCrimsonStem"] = "minecraft:stripped_crimson_stem";
-  MinecraftBlockTypes2["StrippedDarkOakLog"] = "minecraft:stripped_dark_oak_log";
-  MinecraftBlockTypes2["StrippedDarkOakWood"] = "minecraft:stripped_dark_oak_wood";
-  MinecraftBlockTypes2["StrippedJungleLog"] = "minecraft:stripped_jungle_log";
-  MinecraftBlockTypes2["StrippedJungleWood"] = "minecraft:stripped_jungle_wood";
-  MinecraftBlockTypes2["StrippedMangroveLog"] = "minecraft:stripped_mangrove_log";
-  MinecraftBlockTypes2["StrippedMangroveWood"] = "minecraft:stripped_mangrove_wood";
-  MinecraftBlockTypes2["StrippedOakLog"] = "minecraft:stripped_oak_log";
-  MinecraftBlockTypes2["StrippedOakWood"] = "minecraft:stripped_oak_wood";
-  MinecraftBlockTypes2["StrippedPaleOakLog"] = "minecraft:stripped_pale_oak_log";
-  MinecraftBlockTypes2["StrippedPaleOakWood"] = "minecraft:stripped_pale_oak_wood";
-  MinecraftBlockTypes2["StrippedSpruceLog"] = "minecraft:stripped_spruce_log";
-  MinecraftBlockTypes2["StrippedSpruceWood"] = "minecraft:stripped_spruce_wood";
-  MinecraftBlockTypes2["StrippedWarpedHyphae"] = "minecraft:stripped_warped_hyphae";
-  MinecraftBlockTypes2["StrippedWarpedStem"] = "minecraft:stripped_warped_stem";
-  MinecraftBlockTypes2["StructureBlock"] = "minecraft:structure_block";
-  MinecraftBlockTypes2["StructureVoid"] = "minecraft:structure_void";
-  MinecraftBlockTypes2["Sunflower"] = "minecraft:sunflower";
-  MinecraftBlockTypes2["SuspiciousGravel"] = "minecraft:suspicious_gravel";
-  MinecraftBlockTypes2["SuspiciousSand"] = "minecraft:suspicious_sand";
-  MinecraftBlockTypes2["SweetBerryBush"] = "minecraft:sweet_berry_bush";
-  MinecraftBlockTypes2["TallDryGrass"] = "minecraft:tall_dry_grass";
-  MinecraftBlockTypes2["TallGrass"] = "minecraft:tall_grass";
-  MinecraftBlockTypes2["Target"] = "minecraft:target";
-  MinecraftBlockTypes2["TintedGlass"] = "minecraft:tinted_glass";
-  MinecraftBlockTypes2["Tnt"] = "minecraft:tnt";
-  MinecraftBlockTypes2["Torch"] = "minecraft:torch";
-  MinecraftBlockTypes2["Torchflower"] = "minecraft:torchflower";
-  MinecraftBlockTypes2["TorchflowerCrop"] = "minecraft:torchflower_crop";
-  MinecraftBlockTypes2["Trapdoor"] = "minecraft:trapdoor";
-  MinecraftBlockTypes2["TrappedChest"] = "minecraft:trapped_chest";
-  MinecraftBlockTypes2["TrialSpawner"] = "minecraft:trial_spawner";
-  MinecraftBlockTypes2["TripWire"] = "minecraft:trip_wire";
-  MinecraftBlockTypes2["TripwireHook"] = "minecraft:tripwire_hook";
-  MinecraftBlockTypes2["TubeCoral"] = "minecraft:tube_coral";
-  MinecraftBlockTypes2["TubeCoralBlock"] = "minecraft:tube_coral_block";
-  MinecraftBlockTypes2["TubeCoralFan"] = "minecraft:tube_coral_fan";
-  MinecraftBlockTypes2["TubeCoralWallFan"] = "minecraft:tube_coral_wall_fan";
-  MinecraftBlockTypes2["Tuff"] = "minecraft:tuff";
-  MinecraftBlockTypes2["TuffBrickDoubleSlab"] = "minecraft:tuff_brick_double_slab";
-  MinecraftBlockTypes2["TuffBrickSlab"] = "minecraft:tuff_brick_slab";
-  MinecraftBlockTypes2["TuffBrickStairs"] = "minecraft:tuff_brick_stairs";
-  MinecraftBlockTypes2["TuffBrickWall"] = "minecraft:tuff_brick_wall";
-  MinecraftBlockTypes2["TuffBricks"] = "minecraft:tuff_bricks";
-  MinecraftBlockTypes2["TuffDoubleSlab"] = "minecraft:tuff_double_slab";
-  MinecraftBlockTypes2["TuffSlab"] = "minecraft:tuff_slab";
-  MinecraftBlockTypes2["TuffStairs"] = "minecraft:tuff_stairs";
-  MinecraftBlockTypes2["TuffWall"] = "minecraft:tuff_wall";
-  MinecraftBlockTypes2["TurtleEgg"] = "minecraft:turtle_egg";
-  MinecraftBlockTypes2["TwistingVines"] = "minecraft:twisting_vines";
-  MinecraftBlockTypes2["UnderwaterTnt"] = "minecraft:underwater_tnt";
-  MinecraftBlockTypes2["UnderwaterTorch"] = "minecraft:underwater_torch";
-  MinecraftBlockTypes2["UndyedShulkerBox"] = "minecraft:undyed_shulker_box";
-  MinecraftBlockTypes2["Unknown"] = "minecraft:unknown";
-  MinecraftBlockTypes2["UnlitRedstoneTorch"] = "minecraft:unlit_redstone_torch";
-  MinecraftBlockTypes2["UnpoweredComparator"] = "minecraft:unpowered_comparator";
-  MinecraftBlockTypes2["UnpoweredRepeater"] = "minecraft:unpowered_repeater";
-  MinecraftBlockTypes2["Vault"] = "minecraft:vault";
-  MinecraftBlockTypes2["VerdantFroglight"] = "minecraft:verdant_froglight";
-  MinecraftBlockTypes2["Vine"] = "minecraft:vine";
-  MinecraftBlockTypes2["WallBanner"] = "minecraft:wall_banner";
-  MinecraftBlockTypes2["WallSign"] = "minecraft:wall_sign";
-  MinecraftBlockTypes2["WarpedButton"] = "minecraft:warped_button";
-  MinecraftBlockTypes2["WarpedDoor"] = "minecraft:warped_door";
-  MinecraftBlockTypes2["WarpedDoubleSlab"] = "minecraft:warped_double_slab";
-  MinecraftBlockTypes2["WarpedFence"] = "minecraft:warped_fence";
-  MinecraftBlockTypes2["WarpedFenceGate"] = "minecraft:warped_fence_gate";
-  MinecraftBlockTypes2["WarpedFungus"] = "minecraft:warped_fungus";
-  MinecraftBlockTypes2["WarpedHangingSign"] = "minecraft:warped_hanging_sign";
-  MinecraftBlockTypes2["WarpedHyphae"] = "minecraft:warped_hyphae";
-  MinecraftBlockTypes2["WarpedNylium"] = "minecraft:warped_nylium";
-  MinecraftBlockTypes2["WarpedPlanks"] = "minecraft:warped_planks";
-  MinecraftBlockTypes2["WarpedPressurePlate"] = "minecraft:warped_pressure_plate";
-  MinecraftBlockTypes2["WarpedRoots"] = "minecraft:warped_roots";
-  MinecraftBlockTypes2["WarpedSlab"] = "minecraft:warped_slab";
-  MinecraftBlockTypes2["WarpedStairs"] = "minecraft:warped_stairs";
-  MinecraftBlockTypes2["WarpedStandingSign"] = "minecraft:warped_standing_sign";
-  MinecraftBlockTypes2["WarpedStem"] = "minecraft:warped_stem";
-  MinecraftBlockTypes2["WarpedTrapdoor"] = "minecraft:warped_trapdoor";
-  MinecraftBlockTypes2["WarpedWallSign"] = "minecraft:warped_wall_sign";
-  MinecraftBlockTypes2["WarpedWartBlock"] = "minecraft:warped_wart_block";
-  MinecraftBlockTypes2["Water"] = "minecraft:water";
-  MinecraftBlockTypes2["Waterlily"] = "minecraft:waterlily";
-  MinecraftBlockTypes2["WaxedChiseledCopper"] = "minecraft:waxed_chiseled_copper";
-  MinecraftBlockTypes2["WaxedCopper"] = "minecraft:waxed_copper";
-  MinecraftBlockTypes2["WaxedCopperBulb"] = "minecraft:waxed_copper_bulb";
-  MinecraftBlockTypes2["WaxedCopperChest"] = "minecraft:waxed_copper_chest";
-  MinecraftBlockTypes2["WaxedCopperDoor"] = "minecraft:waxed_copper_door";
-  MinecraftBlockTypes2["WaxedCopperGrate"] = "minecraft:waxed_copper_grate";
-  MinecraftBlockTypes2["WaxedCopperTrapdoor"] = "minecraft:waxed_copper_trapdoor";
-  MinecraftBlockTypes2["WaxedCutCopper"] = "minecraft:waxed_cut_copper";
-  MinecraftBlockTypes2["WaxedCutCopperSlab"] = "minecraft:waxed_cut_copper_slab";
-  MinecraftBlockTypes2["WaxedCutCopperStairs"] = "minecraft:waxed_cut_copper_stairs";
-  MinecraftBlockTypes2["WaxedDoubleCutCopperSlab"] = "minecraft:waxed_double_cut_copper_slab";
-  MinecraftBlockTypes2["WaxedExposedChiseledCopper"] = "minecraft:waxed_exposed_chiseled_copper";
-  MinecraftBlockTypes2["WaxedExposedCopper"] = "minecraft:waxed_exposed_copper";
-  MinecraftBlockTypes2["WaxedExposedCopperBulb"] = "minecraft:waxed_exposed_copper_bulb";
-  MinecraftBlockTypes2["WaxedExposedCopperChest"] = "minecraft:waxed_exposed_copper_chest";
-  MinecraftBlockTypes2["WaxedExposedCopperDoor"] = "minecraft:waxed_exposed_copper_door";
-  MinecraftBlockTypes2["WaxedExposedCopperGrate"] = "minecraft:waxed_exposed_copper_grate";
-  MinecraftBlockTypes2["WaxedExposedCopperTrapdoor"] = "minecraft:waxed_exposed_copper_trapdoor";
-  MinecraftBlockTypes2["WaxedExposedCutCopper"] = "minecraft:waxed_exposed_cut_copper";
-  MinecraftBlockTypes2["WaxedExposedCutCopperSlab"] = "minecraft:waxed_exposed_cut_copper_slab";
-  MinecraftBlockTypes2["WaxedExposedCutCopperStairs"] = "minecraft:waxed_exposed_cut_copper_stairs";
-  MinecraftBlockTypes2["WaxedExposedDoubleCutCopperSlab"] = "minecraft:waxed_exposed_double_cut_copper_slab";
-  MinecraftBlockTypes2["WaxedOxidizedChiseledCopper"] = "minecraft:waxed_oxidized_chiseled_copper";
-  MinecraftBlockTypes2["WaxedOxidizedCopper"] = "minecraft:waxed_oxidized_copper";
-  MinecraftBlockTypes2["WaxedOxidizedCopperBulb"] = "minecraft:waxed_oxidized_copper_bulb";
-  MinecraftBlockTypes2["WaxedOxidizedCopperChest"] = "minecraft:waxed_oxidized_copper_chest";
-  MinecraftBlockTypes2["WaxedOxidizedCopperDoor"] = "minecraft:waxed_oxidized_copper_door";
-  MinecraftBlockTypes2["WaxedOxidizedCopperGrate"] = "minecraft:waxed_oxidized_copper_grate";
-  MinecraftBlockTypes2["WaxedOxidizedCopperTrapdoor"] = "minecraft:waxed_oxidized_copper_trapdoor";
-  MinecraftBlockTypes2["WaxedOxidizedCutCopper"] = "minecraft:waxed_oxidized_cut_copper";
-  MinecraftBlockTypes2["WaxedOxidizedCutCopperSlab"] = "minecraft:waxed_oxidized_cut_copper_slab";
-  MinecraftBlockTypes2["WaxedOxidizedCutCopperStairs"] = "minecraft:waxed_oxidized_cut_copper_stairs";
-  MinecraftBlockTypes2["WaxedOxidizedDoubleCutCopperSlab"] = "minecraft:waxed_oxidized_double_cut_copper_slab";
-  MinecraftBlockTypes2["WaxedWeatheredChiseledCopper"] = "minecraft:waxed_weathered_chiseled_copper";
-  MinecraftBlockTypes2["WaxedWeatheredCopper"] = "minecraft:waxed_weathered_copper";
-  MinecraftBlockTypes2["WaxedWeatheredCopperBulb"] = "minecraft:waxed_weathered_copper_bulb";
-  MinecraftBlockTypes2["WaxedWeatheredCopperChest"] = "minecraft:waxed_weathered_copper_chest";
-  MinecraftBlockTypes2["WaxedWeatheredCopperDoor"] = "minecraft:waxed_weathered_copper_door";
-  MinecraftBlockTypes2["WaxedWeatheredCopperGrate"] = "minecraft:waxed_weathered_copper_grate";
-  MinecraftBlockTypes2["WaxedWeatheredCopperTrapdoor"] = "minecraft:waxed_weathered_copper_trapdoor";
-  MinecraftBlockTypes2["WaxedWeatheredCutCopper"] = "minecraft:waxed_weathered_cut_copper";
-  MinecraftBlockTypes2["WaxedWeatheredCutCopperSlab"] = "minecraft:waxed_weathered_cut_copper_slab";
-  MinecraftBlockTypes2["WaxedWeatheredCutCopperStairs"] = "minecraft:waxed_weathered_cut_copper_stairs";
-  MinecraftBlockTypes2["WaxedWeatheredDoubleCutCopperSlab"] = "minecraft:waxed_weathered_double_cut_copper_slab";
-  MinecraftBlockTypes2["WeatheredChiseledCopper"] = "minecraft:weathered_chiseled_copper";
-  MinecraftBlockTypes2["WeatheredCopper"] = "minecraft:weathered_copper";
-  MinecraftBlockTypes2["WeatheredCopperBulb"] = "minecraft:weathered_copper_bulb";
-  MinecraftBlockTypes2["WeatheredCopperChest"] = "minecraft:weathered_copper_chest";
-  MinecraftBlockTypes2["WeatheredCopperDoor"] = "minecraft:weathered_copper_door";
-  MinecraftBlockTypes2["WeatheredCopperGrate"] = "minecraft:weathered_copper_grate";
-  MinecraftBlockTypes2["WeatheredCopperTrapdoor"] = "minecraft:weathered_copper_trapdoor";
-  MinecraftBlockTypes2["WeatheredCutCopper"] = "minecraft:weathered_cut_copper";
-  MinecraftBlockTypes2["WeatheredCutCopperSlab"] = "minecraft:weathered_cut_copper_slab";
-  MinecraftBlockTypes2["WeatheredCutCopperStairs"] = "minecraft:weathered_cut_copper_stairs";
-  MinecraftBlockTypes2["WeatheredDoubleCutCopperSlab"] = "minecraft:weathered_double_cut_copper_slab";
-  MinecraftBlockTypes2["Web"] = "minecraft:web";
-  MinecraftBlockTypes2["WeepingVines"] = "minecraft:weeping_vines";
-  MinecraftBlockTypes2["WetSponge"] = "minecraft:wet_sponge";
-  MinecraftBlockTypes2["Wheat"] = "minecraft:wheat";
-  MinecraftBlockTypes2["WhiteCandle"] = "minecraft:white_candle";
-  MinecraftBlockTypes2["WhiteCandleCake"] = "minecraft:white_candle_cake";
-  MinecraftBlockTypes2["WhiteCarpet"] = "minecraft:white_carpet";
-  MinecraftBlockTypes2["WhiteConcrete"] = "minecraft:white_concrete";
-  MinecraftBlockTypes2["WhiteConcretePowder"] = "minecraft:white_concrete_powder";
-  MinecraftBlockTypes2["WhiteGlazedTerracotta"] = "minecraft:white_glazed_terracotta";
-  MinecraftBlockTypes2["WhiteShulkerBox"] = "minecraft:white_shulker_box";
-  MinecraftBlockTypes2["WhiteStainedGlass"] = "minecraft:white_stained_glass";
-  MinecraftBlockTypes2["WhiteStainedGlassPane"] = "minecraft:white_stained_glass_pane";
-  MinecraftBlockTypes2["WhiteTerracotta"] = "minecraft:white_terracotta";
-  MinecraftBlockTypes2["WhiteTulip"] = "minecraft:white_tulip";
-  MinecraftBlockTypes2["WhiteWool"] = "minecraft:white_wool";
-  MinecraftBlockTypes2["Wildflowers"] = "minecraft:wildflowers";
-  MinecraftBlockTypes2["WitherRose"] = "minecraft:wither_rose";
-  MinecraftBlockTypes2["WitherSkeletonSkull"] = "minecraft:wither_skeleton_skull";
-  MinecraftBlockTypes2["WoodenButton"] = "minecraft:wooden_button";
-  MinecraftBlockTypes2["WoodenDoor"] = "minecraft:wooden_door";
-  MinecraftBlockTypes2["WoodenPressurePlate"] = "minecraft:wooden_pressure_plate";
-  MinecraftBlockTypes2["YellowCandle"] = "minecraft:yellow_candle";
-  MinecraftBlockTypes2["YellowCandleCake"] = "minecraft:yellow_candle_cake";
-  MinecraftBlockTypes2["YellowCarpet"] = "minecraft:yellow_carpet";
-  MinecraftBlockTypes2["YellowConcrete"] = "minecraft:yellow_concrete";
-  MinecraftBlockTypes2["YellowConcretePowder"] = "minecraft:yellow_concrete_powder";
-  MinecraftBlockTypes2["YellowGlazedTerracotta"] = "minecraft:yellow_glazed_terracotta";
-  MinecraftBlockTypes2["YellowShulkerBox"] = "minecraft:yellow_shulker_box";
-  MinecraftBlockTypes2["YellowStainedGlass"] = "minecraft:yellow_stained_glass";
-  MinecraftBlockTypes2["YellowStainedGlassPane"] = "minecraft:yellow_stained_glass_pane";
-  MinecraftBlockTypes2["YellowTerracotta"] = "minecraft:yellow_terracotta";
-  MinecraftBlockTypes2["YellowWool"] = "minecraft:yellow_wool";
-  MinecraftBlockTypes2["ZombieHead"] = "minecraft:zombie_head";
-  return MinecraftBlockTypes2;
-})(MinecraftBlockTypes || {});
-var MinecraftCameraPresetsTypes = ((MinecraftCameraPresetsTypes2) => {
-  MinecraftCameraPresetsTypes2["ControlSchemeCamera"] = "minecraft:control_scheme_camera";
-  MinecraftCameraPresetsTypes2["FirstPerson"] = "minecraft:first_person";
-  MinecraftCameraPresetsTypes2["FixedBoom"] = "minecraft:fixed_boom";
-  MinecraftCameraPresetsTypes2["FollowOrbit"] = "minecraft:follow_orbit";
-  MinecraftCameraPresetsTypes2["Free"] = "minecraft:free";
-  MinecraftCameraPresetsTypes2["ThirdPerson"] = "minecraft:third_person";
-  MinecraftCameraPresetsTypes2["ThirdPersonFront"] = "minecraft:third_person_front";
-  return MinecraftCameraPresetsTypes2;
-})(MinecraftCameraPresetsTypes || {});
-var MinecraftCooldownCategoryTypes = ((MinecraftCooldownCategoryTypes2) => {
-  MinecraftCooldownCategoryTypes2["Chorusfruit"] = "minecraft:chorusfruit";
-  MinecraftCooldownCategoryTypes2["EnderPearl"] = "minecraft:ender_pearl";
-  MinecraftCooldownCategoryTypes2["GoatHorn"] = "minecraft:goat_horn";
-  MinecraftCooldownCategoryTypes2["Shield"] = "minecraft:shield";
-  MinecraftCooldownCategoryTypes2["WindCharge"] = "minecraft:wind_charge";
-  return MinecraftCooldownCategoryTypes2;
-})(MinecraftCooldownCategoryTypes || {});
-var MinecraftDimensionTypes = ((MinecraftDimensionTypes2) => {
-  MinecraftDimensionTypes2["Nether"] = "minecraft:nether";
-  MinecraftDimensionTypes2["Overworld"] = "minecraft:overworld";
-  MinecraftDimensionTypes2["TheEnd"] = "minecraft:the_end";
-  return MinecraftDimensionTypes2;
-})(MinecraftDimensionTypes || {});
-var MinecraftEffectTypes = ((MinecraftEffectTypes22) => {
-  MinecraftEffectTypes22["Absorption"] = "minecraft:absorption";
-  MinecraftEffectTypes22["BadOmen"] = "minecraft:bad_omen";
-  MinecraftEffectTypes22["Blindness"] = "minecraft:blindness";
-  MinecraftEffectTypes22["ConduitPower"] = "minecraft:conduit_power";
-  MinecraftEffectTypes22["Darkness"] = "minecraft:darkness";
-  MinecraftEffectTypes22["FatalPoison"] = "minecraft:fatal_poison";
-  MinecraftEffectTypes22["FireResistance"] = "minecraft:fire_resistance";
-  MinecraftEffectTypes22["Haste"] = "minecraft:haste";
-  MinecraftEffectTypes22["HealthBoost"] = "minecraft:health_boost";
-  MinecraftEffectTypes22["Hunger"] = "minecraft:hunger";
-  MinecraftEffectTypes22["Infested"] = "minecraft:infested";
-  MinecraftEffectTypes22["InstantDamage"] = "minecraft:instant_damage";
-  MinecraftEffectTypes22["InstantHealth"] = "minecraft:instant_health";
-  MinecraftEffectTypes22["Invisibility"] = "minecraft:invisibility";
-  MinecraftEffectTypes22["JumpBoost"] = "minecraft:jump_boost";
-  MinecraftEffectTypes22["Levitation"] = "minecraft:levitation";
-  MinecraftEffectTypes22["MiningFatigue"] = "minecraft:mining_fatigue";
-  MinecraftEffectTypes22["Nausea"] = "minecraft:nausea";
-  MinecraftEffectTypes22["NightVision"] = "minecraft:night_vision";
-  MinecraftEffectTypes22["Oozing"] = "minecraft:oozing";
-  MinecraftEffectTypes22["Poison"] = "minecraft:poison";
-  MinecraftEffectTypes22["RaidOmen"] = "minecraft:raid_omen";
-  MinecraftEffectTypes22["Regeneration"] = "minecraft:regeneration";
-  MinecraftEffectTypes22["Resistance"] = "minecraft:resistance";
-  MinecraftEffectTypes22["Saturation"] = "minecraft:saturation";
-  MinecraftEffectTypes22["SlowFalling"] = "minecraft:slow_falling";
-  MinecraftEffectTypes22["Slowness"] = "minecraft:slowness";
-  MinecraftEffectTypes22["Speed"] = "minecraft:speed";
-  MinecraftEffectTypes22["Strength"] = "minecraft:strength";
-  MinecraftEffectTypes22["TrialOmen"] = "minecraft:trial_omen";
-  MinecraftEffectTypes22["VillageHero"] = "minecraft:village_hero";
-  MinecraftEffectTypes22["WaterBreathing"] = "minecraft:water_breathing";
-  MinecraftEffectTypes22["Weakness"] = "minecraft:weakness";
-  MinecraftEffectTypes22["Weaving"] = "minecraft:weaving";
-  MinecraftEffectTypes22["WindCharged"] = "minecraft:wind_charged";
-  MinecraftEffectTypes22["Wither"] = "minecraft:wither";
-  return MinecraftEffectTypes22;
-})(MinecraftEffectTypes || {});
-var MinecraftEnchantmentTypes = ((MinecraftEnchantmentTypes2) => {
-  MinecraftEnchantmentTypes2["AquaAffinity"] = "minecraft:aqua_affinity";
-  MinecraftEnchantmentTypes2["BaneOfArthropods"] = "minecraft:bane_of_arthropods";
-  MinecraftEnchantmentTypes2["Binding"] = "minecraft:binding";
-  MinecraftEnchantmentTypes2["BlastProtection"] = "minecraft:blast_protection";
-  MinecraftEnchantmentTypes2["BowInfinity"] = "minecraft:infinity";
-  MinecraftEnchantmentTypes2["Breach"] = "minecraft:breach";
-  MinecraftEnchantmentTypes2["Channeling"] = "minecraft:channeling";
-  MinecraftEnchantmentTypes2["Density"] = "minecraft:density";
-  MinecraftEnchantmentTypes2["DepthStrider"] = "minecraft:depth_strider";
-  MinecraftEnchantmentTypes2["Efficiency"] = "minecraft:efficiency";
-  MinecraftEnchantmentTypes2["FeatherFalling"] = "minecraft:feather_falling";
-  MinecraftEnchantmentTypes2["FireAspect"] = "minecraft:fire_aspect";
-  MinecraftEnchantmentTypes2["FireProtection"] = "minecraft:fire_protection";
-  MinecraftEnchantmentTypes2["Flame"] = "minecraft:flame";
-  MinecraftEnchantmentTypes2["Fortune"] = "minecraft:fortune";
-  MinecraftEnchantmentTypes2["FrostWalker"] = "minecraft:frost_walker";
-  MinecraftEnchantmentTypes2["Impaling"] = "minecraft:impaling";
-  MinecraftEnchantmentTypes2["Knockback"] = "minecraft:knockback";
-  MinecraftEnchantmentTypes2["Looting"] = "minecraft:looting";
-  MinecraftEnchantmentTypes2["Loyalty"] = "minecraft:loyalty";
-  MinecraftEnchantmentTypes2["LuckOfTheSea"] = "minecraft:luck_of_the_sea";
-  MinecraftEnchantmentTypes2["Lure"] = "minecraft:lure";
-  MinecraftEnchantmentTypes2["Mending"] = "minecraft:mending";
-  MinecraftEnchantmentTypes2["Multishot"] = "minecraft:multishot";
-  MinecraftEnchantmentTypes2["Piercing"] = "minecraft:piercing";
-  MinecraftEnchantmentTypes2["Power"] = "minecraft:power";
-  MinecraftEnchantmentTypes2["ProjectileProtection"] = "minecraft:projectile_protection";
-  MinecraftEnchantmentTypes2["Protection"] = "minecraft:protection";
-  MinecraftEnchantmentTypes2["Punch"] = "minecraft:punch";
-  MinecraftEnchantmentTypes2["QuickCharge"] = "minecraft:quick_charge";
-  MinecraftEnchantmentTypes2["Respiration"] = "minecraft:respiration";
-  MinecraftEnchantmentTypes2["Riptide"] = "minecraft:riptide";
-  MinecraftEnchantmentTypes2["Sharpness"] = "minecraft:sharpness";
-  MinecraftEnchantmentTypes2["SilkTouch"] = "minecraft:silk_touch";
-  MinecraftEnchantmentTypes2["Smite"] = "minecraft:smite";
-  MinecraftEnchantmentTypes2["SoulSpeed"] = "minecraft:soul_speed";
-  MinecraftEnchantmentTypes2["SwiftSneak"] = "minecraft:swift_sneak";
-  MinecraftEnchantmentTypes2["Thorns"] = "minecraft:thorns";
-  MinecraftEnchantmentTypes2["Unbreaking"] = "minecraft:unbreaking";
-  MinecraftEnchantmentTypes2["Vanishing"] = "minecraft:vanishing";
-  MinecraftEnchantmentTypes2["WindBurst"] = "minecraft:wind_burst";
-  return MinecraftEnchantmentTypes2;
-})(MinecraftEnchantmentTypes || {});
-var MinecraftEntityTypes = ((MinecraftEntityTypes2) => {
-  MinecraftEntityTypes2["Agent"] = "minecraft:agent";
-  MinecraftEntityTypes2["Allay"] = "minecraft:allay";
-  MinecraftEntityTypes2["AreaEffectCloud"] = "minecraft:area_effect_cloud";
-  MinecraftEntityTypes2["Armadillo"] = "minecraft:armadillo";
-  MinecraftEntityTypes2["ArmorStand"] = "minecraft:armor_stand";
-  MinecraftEntityTypes2["Arrow"] = "minecraft:arrow";
-  MinecraftEntityTypes2["Axolotl"] = "minecraft:axolotl";
-  MinecraftEntityTypes2["Bat"] = "minecraft:bat";
-  MinecraftEntityTypes2["Bee"] = "minecraft:bee";
-  MinecraftEntityTypes2["Blaze"] = "minecraft:blaze";
-  MinecraftEntityTypes2["Boat"] = "minecraft:boat";
-  MinecraftEntityTypes2["Bogged"] = "minecraft:bogged";
-  MinecraftEntityTypes2["Breeze"] = "minecraft:breeze";
-  MinecraftEntityTypes2["BreezeWindChargeProjectile"] = "minecraft:breeze_wind_charge_projectile";
-  MinecraftEntityTypes2["Camel"] = "minecraft:camel";
-  MinecraftEntityTypes2["Cat"] = "minecraft:cat";
-  MinecraftEntityTypes2["CaveSpider"] = "minecraft:cave_spider";
-  MinecraftEntityTypes2["ChestBoat"] = "minecraft:chest_boat";
-  MinecraftEntityTypes2["ChestMinecart"] = "minecraft:chest_minecart";
-  MinecraftEntityTypes2["Chicken"] = "minecraft:chicken";
-  MinecraftEntityTypes2["Cod"] = "minecraft:cod";
-  MinecraftEntityTypes2["CommandBlockMinecart"] = "minecraft:command_block_minecart";
-  MinecraftEntityTypes2["CopperGolem"] = "minecraft:copper_golem";
-  MinecraftEntityTypes2["Cow"] = "minecraft:cow";
-  MinecraftEntityTypes2["Creaking"] = "minecraft:creaking";
-  MinecraftEntityTypes2["Creeper"] = "minecraft:creeper";
-  MinecraftEntityTypes2["Dolphin"] = "minecraft:dolphin";
-  MinecraftEntityTypes2["Donkey"] = "minecraft:donkey";
-  MinecraftEntityTypes2["DragonFireball"] = "minecraft:dragon_fireball";
-  MinecraftEntityTypes2["Drowned"] = "minecraft:drowned";
-  MinecraftEntityTypes2["Egg"] = "minecraft:egg";
-  MinecraftEntityTypes2["ElderGuardian"] = "minecraft:elder_guardian";
-  MinecraftEntityTypes2["EnderCrystal"] = "minecraft:ender_crystal";
-  MinecraftEntityTypes2["EnderDragon"] = "minecraft:ender_dragon";
-  MinecraftEntityTypes2["EnderPearl"] = "minecraft:ender_pearl";
-  MinecraftEntityTypes2["Enderman"] = "minecraft:enderman";
-  MinecraftEntityTypes2["Endermite"] = "minecraft:endermite";
-  MinecraftEntityTypes2["EvocationIllager"] = "minecraft:evocation_illager";
-  MinecraftEntityTypes2["EyeOfEnderSignal"] = "minecraft:eye_of_ender_signal";
-  MinecraftEntityTypes2["Fireball"] = "minecraft:fireball";
-  MinecraftEntityTypes2["FireworksRocket"] = "minecraft:fireworks_rocket";
-  MinecraftEntityTypes2["FishingHook"] = "minecraft:fishing_hook";
-  MinecraftEntityTypes2["Fox"] = "minecraft:fox";
-  MinecraftEntityTypes2["Frog"] = "minecraft:frog";
-  MinecraftEntityTypes2["Ghast"] = "minecraft:ghast";
-  MinecraftEntityTypes2["GlowSquid"] = "minecraft:glow_squid";
-  MinecraftEntityTypes2["Goat"] = "minecraft:goat";
-  MinecraftEntityTypes2["Guardian"] = "minecraft:guardian";
-  MinecraftEntityTypes2["HappyGhast"] = "minecraft:happy_ghast";
-  MinecraftEntityTypes2["Hoglin"] = "minecraft:hoglin";
-  MinecraftEntityTypes2["HopperMinecart"] = "minecraft:hopper_minecart";
-  MinecraftEntityTypes2["Horse"] = "minecraft:horse";
-  MinecraftEntityTypes2["Husk"] = "minecraft:husk";
-  MinecraftEntityTypes2["IronGolem"] = "minecraft:iron_golem";
-  MinecraftEntityTypes2["LightningBolt"] = "minecraft:lightning_bolt";
-  MinecraftEntityTypes2["LingeringPotion"] = "minecraft:lingering_potion";
-  MinecraftEntityTypes2["Llama"] = "minecraft:llama";
-  MinecraftEntityTypes2["LlamaSpit"] = "minecraft:llama_spit";
-  MinecraftEntityTypes2["MagmaCube"] = "minecraft:magma_cube";
-  MinecraftEntityTypes2["Minecart"] = "minecraft:minecart";
-  MinecraftEntityTypes2["Mooshroom"] = "minecraft:mooshroom";
-  MinecraftEntityTypes2["Mule"] = "minecraft:mule";
-  MinecraftEntityTypes2["Npc"] = "minecraft:npc";
-  MinecraftEntityTypes2["Ocelot"] = "minecraft:ocelot";
-  MinecraftEntityTypes2["OminousItemSpawner"] = "minecraft:ominous_item_spawner";
-  MinecraftEntityTypes2["Panda"] = "minecraft:panda";
-  MinecraftEntityTypes2["Parrot"] = "minecraft:parrot";
-  MinecraftEntityTypes2["Phantom"] = "minecraft:phantom";
-  MinecraftEntityTypes2["Pig"] = "minecraft:pig";
-  MinecraftEntityTypes2["Piglin"] = "minecraft:piglin";
-  MinecraftEntityTypes2["PiglinBrute"] = "minecraft:piglin_brute";
-  MinecraftEntityTypes2["Pillager"] = "minecraft:pillager";
-  MinecraftEntityTypes2["Player"] = "minecraft:player";
-  MinecraftEntityTypes2["PolarBear"] = "minecraft:polar_bear";
-  MinecraftEntityTypes2["Pufferfish"] = "minecraft:pufferfish";
-  MinecraftEntityTypes2["Rabbit"] = "minecraft:rabbit";
-  MinecraftEntityTypes2["Ravager"] = "minecraft:ravager";
-  MinecraftEntityTypes2["Salmon"] = "minecraft:salmon";
-  MinecraftEntityTypes2["Sheep"] = "minecraft:sheep";
-  MinecraftEntityTypes2["Shulker"] = "minecraft:shulker";
-  MinecraftEntityTypes2["ShulkerBullet"] = "minecraft:shulker_bullet";
-  MinecraftEntityTypes2["Silverfish"] = "minecraft:silverfish";
-  MinecraftEntityTypes2["Skeleton"] = "minecraft:skeleton";
-  MinecraftEntityTypes2["SkeletonHorse"] = "minecraft:skeleton_horse";
-  MinecraftEntityTypes2["Slime"] = "minecraft:slime";
-  MinecraftEntityTypes2["SmallFireball"] = "minecraft:small_fireball";
-  MinecraftEntityTypes2["Sniffer"] = "minecraft:sniffer";
-  MinecraftEntityTypes2["SnowGolem"] = "minecraft:snow_golem";
-  MinecraftEntityTypes2["Snowball"] = "minecraft:snowball";
-  MinecraftEntityTypes2["Spider"] = "minecraft:spider";
-  MinecraftEntityTypes2["SplashPotion"] = "minecraft:splash_potion";
-  MinecraftEntityTypes2["Squid"] = "minecraft:squid";
-  MinecraftEntityTypes2["Stray"] = "minecraft:stray";
-  MinecraftEntityTypes2["Strider"] = "minecraft:strider";
-  MinecraftEntityTypes2["Tadpole"] = "minecraft:tadpole";
-  MinecraftEntityTypes2["ThrownTrident"] = "minecraft:thrown_trident";
-  MinecraftEntityTypes2["Tnt"] = "minecraft:tnt";
-  MinecraftEntityTypes2["TntMinecart"] = "minecraft:tnt_minecart";
-  MinecraftEntityTypes2["TraderLlama"] = "minecraft:trader_llama";
-  MinecraftEntityTypes2["TripodCamera"] = "minecraft:tripod_camera";
-  MinecraftEntityTypes2["Tropicalfish"] = "minecraft:tropicalfish";
-  MinecraftEntityTypes2["Turtle"] = "minecraft:turtle";
-  MinecraftEntityTypes2["Vex"] = "minecraft:vex";
-  MinecraftEntityTypes2["Villager"] = "minecraft:villager";
-  MinecraftEntityTypes2["VillagerV2"] = "minecraft:villager_v2";
-  MinecraftEntityTypes2["Vindicator"] = "minecraft:vindicator";
-  MinecraftEntityTypes2["WanderingTrader"] = "minecraft:wandering_trader";
-  MinecraftEntityTypes2["Warden"] = "minecraft:warden";
-  MinecraftEntityTypes2["WindChargeProjectile"] = "minecraft:wind_charge_projectile";
-  MinecraftEntityTypes2["Witch"] = "minecraft:witch";
-  MinecraftEntityTypes2["Wither"] = "minecraft:wither";
-  MinecraftEntityTypes2["WitherSkeleton"] = "minecraft:wither_skeleton";
-  MinecraftEntityTypes2["WitherSkull"] = "minecraft:wither_skull";
-  MinecraftEntityTypes2["WitherSkullDangerous"] = "minecraft:wither_skull_dangerous";
-  MinecraftEntityTypes2["Wolf"] = "minecraft:wolf";
-  MinecraftEntityTypes2["XpBottle"] = "minecraft:xp_bottle";
-  MinecraftEntityTypes2["XpOrb"] = "minecraft:xp_orb";
-  MinecraftEntityTypes2["Zoglin"] = "minecraft:zoglin";
-  MinecraftEntityTypes2["Zombie"] = "minecraft:zombie";
-  MinecraftEntityTypes2["ZombieHorse"] = "minecraft:zombie_horse";
-  MinecraftEntityTypes2["ZombiePigman"] = "minecraft:zombie_pigman";
-  MinecraftEntityTypes2["ZombieVillager"] = "minecraft:zombie_villager";
-  MinecraftEntityTypes2["ZombieVillagerV2"] = "minecraft:zombie_villager_v2";
-  return MinecraftEntityTypes2;
-})(MinecraftEntityTypes || {});
-var MinecraftFeatureTypes = ((MinecraftFeatureTypes2) => {
-  MinecraftFeatureTypes2["AncientCity"] = "minecraft:ancient_city";
-  MinecraftFeatureTypes2["BastionRemnant"] = "minecraft:bastion_remnant";
-  MinecraftFeatureTypes2["BuriedTreasure"] = "minecraft:buried_treasure";
-  MinecraftFeatureTypes2["EndCity"] = "minecraft:end_city";
-  MinecraftFeatureTypes2["Fortress"] = "minecraft:fortress";
-  MinecraftFeatureTypes2["Mansion"] = "minecraft:mansion";
-  MinecraftFeatureTypes2["Mineshaft"] = "minecraft:mineshaft";
-  MinecraftFeatureTypes2["Monument"] = "minecraft:monument";
-  MinecraftFeatureTypes2["PillagerOutpost"] = "minecraft:pillager_outpost";
-  MinecraftFeatureTypes2["RuinedPortal"] = "minecraft:ruined_portal";
-  MinecraftFeatureTypes2["Ruins"] = "minecraft:ruins";
-  MinecraftFeatureTypes2["Shipwreck"] = "minecraft:shipwreck";
-  MinecraftFeatureTypes2["Stronghold"] = "minecraft:stronghold";
-  MinecraftFeatureTypes2["Temple"] = "minecraft:temple";
-  MinecraftFeatureTypes2["TrailRuins"] = "minecraft:trail_ruins";
-  MinecraftFeatureTypes2["TrialChambers"] = "minecraft:trial_chambers";
-  MinecraftFeatureTypes2["Village"] = "minecraft:village";
-  return MinecraftFeatureTypes2;
-})(MinecraftFeatureTypes || {});
-var MinecraftItemTypes = ((MinecraftItemTypes2) => {
-  MinecraftItemTypes2["AcaciaBoat"] = "minecraft:acacia_boat";
-  MinecraftItemTypes2["AcaciaButton"] = "minecraft:acacia_button";
-  MinecraftItemTypes2["AcaciaChestBoat"] = "minecraft:acacia_chest_boat";
-  MinecraftItemTypes2["AcaciaDoor"] = "minecraft:acacia_door";
-  MinecraftItemTypes2["AcaciaFence"] = "minecraft:acacia_fence";
-  MinecraftItemTypes2["AcaciaFenceGate"] = "minecraft:acacia_fence_gate";
-  MinecraftItemTypes2["AcaciaHangingSign"] = "minecraft:acacia_hanging_sign";
-  MinecraftItemTypes2["AcaciaLeaves"] = "minecraft:acacia_leaves";
-  MinecraftItemTypes2["AcaciaLog"] = "minecraft:acacia_log";
-  MinecraftItemTypes2["AcaciaPlanks"] = "minecraft:acacia_planks";
-  MinecraftItemTypes2["AcaciaPressurePlate"] = "minecraft:acacia_pressure_plate";
-  MinecraftItemTypes2["AcaciaSapling"] = "minecraft:acacia_sapling";
-  MinecraftItemTypes2["AcaciaSign"] = "minecraft:acacia_sign";
-  MinecraftItemTypes2["AcaciaSlab"] = "minecraft:acacia_slab";
-  MinecraftItemTypes2["AcaciaStairs"] = "minecraft:acacia_stairs";
-  MinecraftItemTypes2["AcaciaTrapdoor"] = "minecraft:acacia_trapdoor";
-  MinecraftItemTypes2["AcaciaWood"] = "minecraft:acacia_wood";
-  MinecraftItemTypes2["ActivatorRail"] = "minecraft:activator_rail";
-  MinecraftItemTypes2["AllaySpawnEgg"] = "minecraft:allay_spawn_egg";
-  MinecraftItemTypes2["Allium"] = "minecraft:allium";
-  MinecraftItemTypes2["Allow"] = "minecraft:allow";
-  MinecraftItemTypes2["AmethystBlock"] = "minecraft:amethyst_block";
-  MinecraftItemTypes2["AmethystCluster"] = "minecraft:amethyst_cluster";
-  MinecraftItemTypes2["AmethystShard"] = "minecraft:amethyst_shard";
-  MinecraftItemTypes2["AncientDebris"] = "minecraft:ancient_debris";
-  MinecraftItemTypes2["Andesite"] = "minecraft:andesite";
-  MinecraftItemTypes2["AndesiteSlab"] = "minecraft:andesite_slab";
-  MinecraftItemTypes2["AndesiteStairs"] = "minecraft:andesite_stairs";
-  MinecraftItemTypes2["AndesiteWall"] = "minecraft:andesite_wall";
-  MinecraftItemTypes2["AnglerPotterySherd"] = "minecraft:angler_pottery_sherd";
-  MinecraftItemTypes2["Anvil"] = "minecraft:anvil";
-  MinecraftItemTypes2["Apple"] = "minecraft:apple";
-  MinecraftItemTypes2["ArcherPotterySherd"] = "minecraft:archer_pottery_sherd";
-  MinecraftItemTypes2["ArmadilloScute"] = "minecraft:armadillo_scute";
-  MinecraftItemTypes2["ArmadilloSpawnEgg"] = "minecraft:armadillo_spawn_egg";
-  MinecraftItemTypes2["ArmorStand"] = "minecraft:armor_stand";
-  MinecraftItemTypes2["ArmsUpPotterySherd"] = "minecraft:arms_up_pottery_sherd";
-  MinecraftItemTypes2["Arrow"] = "minecraft:arrow";
-  MinecraftItemTypes2["AxolotlBucket"] = "minecraft:axolotl_bucket";
-  MinecraftItemTypes2["AxolotlSpawnEgg"] = "minecraft:axolotl_spawn_egg";
-  MinecraftItemTypes2["Azalea"] = "minecraft:azalea";
-  MinecraftItemTypes2["AzaleaLeaves"] = "minecraft:azalea_leaves";
-  MinecraftItemTypes2["AzaleaLeavesFlowered"] = "minecraft:azalea_leaves_flowered";
-  MinecraftItemTypes2["AzureBluet"] = "minecraft:azure_bluet";
-  MinecraftItemTypes2["BakedPotato"] = "minecraft:baked_potato";
-  MinecraftItemTypes2["Bamboo"] = "minecraft:bamboo";
-  MinecraftItemTypes2["BambooBlock"] = "minecraft:bamboo_block";
-  MinecraftItemTypes2["BambooButton"] = "minecraft:bamboo_button";
-  MinecraftItemTypes2["BambooChestRaft"] = "minecraft:bamboo_chest_raft";
-  MinecraftItemTypes2["BambooDoor"] = "minecraft:bamboo_door";
-  MinecraftItemTypes2["BambooFence"] = "minecraft:bamboo_fence";
-  MinecraftItemTypes2["BambooFenceGate"] = "minecraft:bamboo_fence_gate";
-  MinecraftItemTypes2["BambooHangingSign"] = "minecraft:bamboo_hanging_sign";
-  MinecraftItemTypes2["BambooMosaic"] = "minecraft:bamboo_mosaic";
-  MinecraftItemTypes2["BambooMosaicSlab"] = "minecraft:bamboo_mosaic_slab";
-  MinecraftItemTypes2["BambooMosaicStairs"] = "minecraft:bamboo_mosaic_stairs";
-  MinecraftItemTypes2["BambooPlanks"] = "minecraft:bamboo_planks";
-  MinecraftItemTypes2["BambooPressurePlate"] = "minecraft:bamboo_pressure_plate";
-  MinecraftItemTypes2["BambooRaft"] = "minecraft:bamboo_raft";
-  MinecraftItemTypes2["BambooSign"] = "minecraft:bamboo_sign";
-  MinecraftItemTypes2["BambooSlab"] = "minecraft:bamboo_slab";
-  MinecraftItemTypes2["BambooStairs"] = "minecraft:bamboo_stairs";
-  MinecraftItemTypes2["BambooTrapdoor"] = "minecraft:bamboo_trapdoor";
-  MinecraftItemTypes2["Banner"] = "minecraft:banner";
-  MinecraftItemTypes2["Barrel"] = "minecraft:barrel";
-  MinecraftItemTypes2["Barrier"] = "minecraft:barrier";
-  MinecraftItemTypes2["Basalt"] = "minecraft:basalt";
-  MinecraftItemTypes2["BatSpawnEgg"] = "minecraft:bat_spawn_egg";
-  MinecraftItemTypes2["Beacon"] = "minecraft:beacon";
-  MinecraftItemTypes2["Bed"] = "minecraft:bed";
-  MinecraftItemTypes2["Bedrock"] = "minecraft:bedrock";
-  MinecraftItemTypes2["BeeNest"] = "minecraft:bee_nest";
-  MinecraftItemTypes2["BeeSpawnEgg"] = "minecraft:bee_spawn_egg";
-  MinecraftItemTypes2["Beef"] = "minecraft:beef";
-  MinecraftItemTypes2["Beehive"] = "minecraft:beehive";
-  MinecraftItemTypes2["Beetroot"] = "minecraft:beetroot";
-  MinecraftItemTypes2["BeetrootSeeds"] = "minecraft:beetroot_seeds";
-  MinecraftItemTypes2["BeetrootSoup"] = "minecraft:beetroot_soup";
-  MinecraftItemTypes2["Bell"] = "minecraft:bell";
-  MinecraftItemTypes2["BigDripleaf"] = "minecraft:big_dripleaf";
-  MinecraftItemTypes2["BirchBoat"] = "minecraft:birch_boat";
-  MinecraftItemTypes2["BirchButton"] = "minecraft:birch_button";
-  MinecraftItemTypes2["BirchChestBoat"] = "minecraft:birch_chest_boat";
-  MinecraftItemTypes2["BirchDoor"] = "minecraft:birch_door";
-  MinecraftItemTypes2["BirchFence"] = "minecraft:birch_fence";
-  MinecraftItemTypes2["BirchFenceGate"] = "minecraft:birch_fence_gate";
-  MinecraftItemTypes2["BirchHangingSign"] = "minecraft:birch_hanging_sign";
-  MinecraftItemTypes2["BirchLeaves"] = "minecraft:birch_leaves";
-  MinecraftItemTypes2["BirchLog"] = "minecraft:birch_log";
-  MinecraftItemTypes2["BirchPlanks"] = "minecraft:birch_planks";
-  MinecraftItemTypes2["BirchPressurePlate"] = "minecraft:birch_pressure_plate";
-  MinecraftItemTypes2["BirchSapling"] = "minecraft:birch_sapling";
-  MinecraftItemTypes2["BirchSign"] = "minecraft:birch_sign";
-  MinecraftItemTypes2["BirchSlab"] = "minecraft:birch_slab";
-  MinecraftItemTypes2["BirchStairs"] = "minecraft:birch_stairs";
-  MinecraftItemTypes2["BirchTrapdoor"] = "minecraft:birch_trapdoor";
-  MinecraftItemTypes2["BirchWood"] = "minecraft:birch_wood";
-  MinecraftItemTypes2["BlackBundle"] = "minecraft:black_bundle";
-  MinecraftItemTypes2["BlackCandle"] = "minecraft:black_candle";
-  MinecraftItemTypes2["BlackCarpet"] = "minecraft:black_carpet";
-  MinecraftItemTypes2["BlackConcrete"] = "minecraft:black_concrete";
-  MinecraftItemTypes2["BlackConcretePowder"] = "minecraft:black_concrete_powder";
-  MinecraftItemTypes2["BlackDye"] = "minecraft:black_dye";
-  MinecraftItemTypes2["BlackGlazedTerracotta"] = "minecraft:black_glazed_terracotta";
-  MinecraftItemTypes2["BlackHarness"] = "minecraft:black_harness";
-  MinecraftItemTypes2["BlackShulkerBox"] = "minecraft:black_shulker_box";
-  MinecraftItemTypes2["BlackStainedGlass"] = "minecraft:black_stained_glass";
-  MinecraftItemTypes2["BlackStainedGlassPane"] = "minecraft:black_stained_glass_pane";
-  MinecraftItemTypes2["BlackTerracotta"] = "minecraft:black_terracotta";
-  MinecraftItemTypes2["BlackWool"] = "minecraft:black_wool";
-  MinecraftItemTypes2["Blackstone"] = "minecraft:blackstone";
-  MinecraftItemTypes2["BlackstoneSlab"] = "minecraft:blackstone_slab";
-  MinecraftItemTypes2["BlackstoneStairs"] = "minecraft:blackstone_stairs";
-  MinecraftItemTypes2["BlackstoneWall"] = "minecraft:blackstone_wall";
-  MinecraftItemTypes2["BladePotterySherd"] = "minecraft:blade_pottery_sherd";
-  MinecraftItemTypes2["BlastFurnace"] = "minecraft:blast_furnace";
-  MinecraftItemTypes2["BlazePowder"] = "minecraft:blaze_powder";
-  MinecraftItemTypes2["BlazeRod"] = "minecraft:blaze_rod";
-  MinecraftItemTypes2["BlazeSpawnEgg"] = "minecraft:blaze_spawn_egg";
-  MinecraftItemTypes2["BlueBundle"] = "minecraft:blue_bundle";
-  MinecraftItemTypes2["BlueCandle"] = "minecraft:blue_candle";
-  MinecraftItemTypes2["BlueCarpet"] = "minecraft:blue_carpet";
-  MinecraftItemTypes2["BlueConcrete"] = "minecraft:blue_concrete";
-  MinecraftItemTypes2["BlueConcretePowder"] = "minecraft:blue_concrete_powder";
-  MinecraftItemTypes2["BlueDye"] = "minecraft:blue_dye";
-  MinecraftItemTypes2["BlueEgg"] = "minecraft:blue_egg";
-  MinecraftItemTypes2["BlueGlazedTerracotta"] = "minecraft:blue_glazed_terracotta";
-  MinecraftItemTypes2["BlueHarness"] = "minecraft:blue_harness";
-  MinecraftItemTypes2["BlueIce"] = "minecraft:blue_ice";
-  MinecraftItemTypes2["BlueOrchid"] = "minecraft:blue_orchid";
-  MinecraftItemTypes2["BlueShulkerBox"] = "minecraft:blue_shulker_box";
-  MinecraftItemTypes2["BlueStainedGlass"] = "minecraft:blue_stained_glass";
-  MinecraftItemTypes2["BlueStainedGlassPane"] = "minecraft:blue_stained_glass_pane";
-  MinecraftItemTypes2["BlueTerracotta"] = "minecraft:blue_terracotta";
-  MinecraftItemTypes2["BlueWool"] = "minecraft:blue_wool";
-  MinecraftItemTypes2["BoggedSpawnEgg"] = "minecraft:bogged_spawn_egg";
-  MinecraftItemTypes2["BoltArmorTrimSmithingTemplate"] = "minecraft:bolt_armor_trim_smithing_template";
-  MinecraftItemTypes2["Bone"] = "minecraft:bone";
-  MinecraftItemTypes2["BoneBlock"] = "minecraft:bone_block";
-  MinecraftItemTypes2["BoneMeal"] = "minecraft:bone_meal";
-  MinecraftItemTypes2["Book"] = "minecraft:book";
-  MinecraftItemTypes2["Bookshelf"] = "minecraft:bookshelf";
-  MinecraftItemTypes2["BorderBlock"] = "minecraft:border_block";
-  MinecraftItemTypes2["BordureIndentedBannerPattern"] = "minecraft:bordure_indented_banner_pattern";
-  MinecraftItemTypes2["Bow"] = "minecraft:bow";
-  MinecraftItemTypes2["Bowl"] = "minecraft:bowl";
-  MinecraftItemTypes2["BrainCoral"] = "minecraft:brain_coral";
-  MinecraftItemTypes2["BrainCoralBlock"] = "minecraft:brain_coral_block";
-  MinecraftItemTypes2["BrainCoralFan"] = "minecraft:brain_coral_fan";
-  MinecraftItemTypes2["Bread"] = "minecraft:bread";
-  MinecraftItemTypes2["BreezeRod"] = "minecraft:breeze_rod";
-  MinecraftItemTypes2["BreezeSpawnEgg"] = "minecraft:breeze_spawn_egg";
-  MinecraftItemTypes2["BrewerPotterySherd"] = "minecraft:brewer_pottery_sherd";
-  MinecraftItemTypes2["BrewingStand"] = "minecraft:brewing_stand";
-  MinecraftItemTypes2["Brick"] = "minecraft:brick";
-  MinecraftItemTypes2["BrickBlock"] = "minecraft:brick_block";
-  MinecraftItemTypes2["BrickSlab"] = "minecraft:brick_slab";
-  MinecraftItemTypes2["BrickStairs"] = "minecraft:brick_stairs";
-  MinecraftItemTypes2["BrickWall"] = "minecraft:brick_wall";
-  MinecraftItemTypes2["BrownBundle"] = "minecraft:brown_bundle";
-  MinecraftItemTypes2["BrownCandle"] = "minecraft:brown_candle";
-  MinecraftItemTypes2["BrownCarpet"] = "minecraft:brown_carpet";
-  MinecraftItemTypes2["BrownConcrete"] = "minecraft:brown_concrete";
-  MinecraftItemTypes2["BrownConcretePowder"] = "minecraft:brown_concrete_powder";
-  MinecraftItemTypes2["BrownDye"] = "minecraft:brown_dye";
-  MinecraftItemTypes2["BrownEgg"] = "minecraft:brown_egg";
-  MinecraftItemTypes2["BrownGlazedTerracotta"] = "minecraft:brown_glazed_terracotta";
-  MinecraftItemTypes2["BrownHarness"] = "minecraft:brown_harness";
-  MinecraftItemTypes2["BrownMushroom"] = "minecraft:brown_mushroom";
-  MinecraftItemTypes2["BrownMushroomBlock"] = "minecraft:brown_mushroom_block";
-  MinecraftItemTypes2["BrownShulkerBox"] = "minecraft:brown_shulker_box";
-  MinecraftItemTypes2["BrownStainedGlass"] = "minecraft:brown_stained_glass";
-  MinecraftItemTypes2["BrownStainedGlassPane"] = "minecraft:brown_stained_glass_pane";
-  MinecraftItemTypes2["BrownTerracotta"] = "minecraft:brown_terracotta";
-  MinecraftItemTypes2["BrownWool"] = "minecraft:brown_wool";
-  MinecraftItemTypes2["Brush"] = "minecraft:brush";
-  MinecraftItemTypes2["BubbleCoral"] = "minecraft:bubble_coral";
-  MinecraftItemTypes2["BubbleCoralBlock"] = "minecraft:bubble_coral_block";
-  MinecraftItemTypes2["BubbleCoralFan"] = "minecraft:bubble_coral_fan";
-  MinecraftItemTypes2["Bucket"] = "minecraft:bucket";
-  MinecraftItemTypes2["BuddingAmethyst"] = "minecraft:budding_amethyst";
-  MinecraftItemTypes2["Bundle"] = "minecraft:bundle";
-  MinecraftItemTypes2["BurnPotterySherd"] = "minecraft:burn_pottery_sherd";
-  MinecraftItemTypes2["Bush"] = "minecraft:bush";
-  MinecraftItemTypes2["Cactus"] = "minecraft:cactus";
-  MinecraftItemTypes2["CactusFlower"] = "minecraft:cactus_flower";
-  MinecraftItemTypes2["Cake"] = "minecraft:cake";
-  MinecraftItemTypes2["Calcite"] = "minecraft:calcite";
-  MinecraftItemTypes2["CalibratedSculkSensor"] = "minecraft:calibrated_sculk_sensor";
-  MinecraftItemTypes2["CamelSpawnEgg"] = "minecraft:camel_spawn_egg";
-  MinecraftItemTypes2["Campfire"] = "minecraft:campfire";
-  MinecraftItemTypes2["Candle"] = "minecraft:candle";
-  MinecraftItemTypes2["Carrot"] = "minecraft:carrot";
-  MinecraftItemTypes2["CarrotOnAStick"] = "minecraft:carrot_on_a_stick";
-  MinecraftItemTypes2["CartographyTable"] = "minecraft:cartography_table";
-  MinecraftItemTypes2["CarvedPumpkin"] = "minecraft:carved_pumpkin";
-  MinecraftItemTypes2["CatSpawnEgg"] = "minecraft:cat_spawn_egg";
-  MinecraftItemTypes2["Cauldron"] = "minecraft:cauldron";
-  MinecraftItemTypes2["CaveSpiderSpawnEgg"] = "minecraft:cave_spider_spawn_egg";
-  MinecraftItemTypes2["Chain"] = "minecraft:chain";
-  MinecraftItemTypes2["ChainCommandBlock"] = "minecraft:chain_command_block";
-  MinecraftItemTypes2["ChainmailBoots"] = "minecraft:chainmail_boots";
-  MinecraftItemTypes2["ChainmailChestplate"] = "minecraft:chainmail_chestplate";
-  MinecraftItemTypes2["ChainmailHelmet"] = "minecraft:chainmail_helmet";
-  MinecraftItemTypes2["ChainmailLeggings"] = "minecraft:chainmail_leggings";
-  MinecraftItemTypes2["Charcoal"] = "minecraft:charcoal";
-  MinecraftItemTypes2["CherryBoat"] = "minecraft:cherry_boat";
-  MinecraftItemTypes2["CherryButton"] = "minecraft:cherry_button";
-  MinecraftItemTypes2["CherryChestBoat"] = "minecraft:cherry_chest_boat";
-  MinecraftItemTypes2["CherryDoor"] = "minecraft:cherry_door";
-  MinecraftItemTypes2["CherryFence"] = "minecraft:cherry_fence";
-  MinecraftItemTypes2["CherryFenceGate"] = "minecraft:cherry_fence_gate";
-  MinecraftItemTypes2["CherryHangingSign"] = "minecraft:cherry_hanging_sign";
-  MinecraftItemTypes2["CherryLeaves"] = "minecraft:cherry_leaves";
-  MinecraftItemTypes2["CherryLog"] = "minecraft:cherry_log";
-  MinecraftItemTypes2["CherryPlanks"] = "minecraft:cherry_planks";
-  MinecraftItemTypes2["CherryPressurePlate"] = "minecraft:cherry_pressure_plate";
-  MinecraftItemTypes2["CherrySapling"] = "minecraft:cherry_sapling";
-  MinecraftItemTypes2["CherrySign"] = "minecraft:cherry_sign";
-  MinecraftItemTypes2["CherrySlab"] = "minecraft:cherry_slab";
-  MinecraftItemTypes2["CherryStairs"] = "minecraft:cherry_stairs";
-  MinecraftItemTypes2["CherryTrapdoor"] = "minecraft:cherry_trapdoor";
-  MinecraftItemTypes2["CherryWood"] = "minecraft:cherry_wood";
-  MinecraftItemTypes2["Chest"] = "minecraft:chest";
-  MinecraftItemTypes2["ChestMinecart"] = "minecraft:chest_minecart";
-  MinecraftItemTypes2["Chicken"] = "minecraft:chicken";
-  MinecraftItemTypes2["ChickenSpawnEgg"] = "minecraft:chicken_spawn_egg";
-  MinecraftItemTypes2["ChippedAnvil"] = "minecraft:chipped_anvil";
-  MinecraftItemTypes2["ChiseledBookshelf"] = "minecraft:chiseled_bookshelf";
-  MinecraftItemTypes2["ChiseledCopper"] = "minecraft:chiseled_copper";
-  MinecraftItemTypes2["ChiseledDeepslate"] = "minecraft:chiseled_deepslate";
-  MinecraftItemTypes2["ChiseledNetherBricks"] = "minecraft:chiseled_nether_bricks";
-  MinecraftItemTypes2["ChiseledPolishedBlackstone"] = "minecraft:chiseled_polished_blackstone";
-  MinecraftItemTypes2["ChiseledQuartzBlock"] = "minecraft:chiseled_quartz_block";
-  MinecraftItemTypes2["ChiseledRedSandstone"] = "minecraft:chiseled_red_sandstone";
-  MinecraftItemTypes2["ChiseledResinBricks"] = "minecraft:chiseled_resin_bricks";
-  MinecraftItemTypes2["ChiseledSandstone"] = "minecraft:chiseled_sandstone";
-  MinecraftItemTypes2["ChiseledStoneBricks"] = "minecraft:chiseled_stone_bricks";
-  MinecraftItemTypes2["ChiseledTuff"] = "minecraft:chiseled_tuff";
-  MinecraftItemTypes2["ChiseledTuffBricks"] = "minecraft:chiseled_tuff_bricks";
-  MinecraftItemTypes2["ChorusFlower"] = "minecraft:chorus_flower";
-  MinecraftItemTypes2["ChorusFruit"] = "minecraft:chorus_fruit";
-  MinecraftItemTypes2["ChorusPlant"] = "minecraft:chorus_plant";
-  MinecraftItemTypes2["Clay"] = "minecraft:clay";
-  MinecraftItemTypes2["ClayBall"] = "minecraft:clay_ball";
-  MinecraftItemTypes2["Clock"] = "minecraft:clock";
-  MinecraftItemTypes2["ClosedEyeblossom"] = "minecraft:closed_eyeblossom";
-  MinecraftItemTypes2["Coal"] = "minecraft:coal";
-  MinecraftItemTypes2["CoalBlock"] = "minecraft:coal_block";
-  MinecraftItemTypes2["CoalOre"] = "minecraft:coal_ore";
-  MinecraftItemTypes2["CoarseDirt"] = "minecraft:coarse_dirt";
-  MinecraftItemTypes2["CoastArmorTrimSmithingTemplate"] = "minecraft:coast_armor_trim_smithing_template";
-  MinecraftItemTypes2["CobbledDeepslate"] = "minecraft:cobbled_deepslate";
-  MinecraftItemTypes2["CobbledDeepslateSlab"] = "minecraft:cobbled_deepslate_slab";
-  MinecraftItemTypes2["CobbledDeepslateStairs"] = "minecraft:cobbled_deepslate_stairs";
-  MinecraftItemTypes2["CobbledDeepslateWall"] = "minecraft:cobbled_deepslate_wall";
-  MinecraftItemTypes2["Cobblestone"] = "minecraft:cobblestone";
-  MinecraftItemTypes2["CobblestoneSlab"] = "minecraft:cobblestone_slab";
-  MinecraftItemTypes2["CobblestoneWall"] = "minecraft:cobblestone_wall";
-  MinecraftItemTypes2["CocoaBeans"] = "minecraft:cocoa_beans";
-  MinecraftItemTypes2["Cod"] = "minecraft:cod";
-  MinecraftItemTypes2["CodBucket"] = "minecraft:cod_bucket";
-  MinecraftItemTypes2["CodSpawnEgg"] = "minecraft:cod_spawn_egg";
-  MinecraftItemTypes2["CommandBlock"] = "minecraft:command_block";
-  MinecraftItemTypes2["CommandBlockMinecart"] = "minecraft:command_block_minecart";
-  MinecraftItemTypes2["Comparator"] = "minecraft:comparator";
-  MinecraftItemTypes2["Compass"] = "minecraft:compass";
-  MinecraftItemTypes2["Composter"] = "minecraft:composter";
-  MinecraftItemTypes2["Conduit"] = "minecraft:conduit";
-  MinecraftItemTypes2["CookedBeef"] = "minecraft:cooked_beef";
-  MinecraftItemTypes2["CookedChicken"] = "minecraft:cooked_chicken";
-  MinecraftItemTypes2["CookedCod"] = "minecraft:cooked_cod";
-  MinecraftItemTypes2["CookedMutton"] = "minecraft:cooked_mutton";
-  MinecraftItemTypes2["CookedPorkchop"] = "minecraft:cooked_porkchop";
-  MinecraftItemTypes2["CookedRabbit"] = "minecraft:cooked_rabbit";
-  MinecraftItemTypes2["CookedSalmon"] = "minecraft:cooked_salmon";
-  MinecraftItemTypes2["Cookie"] = "minecraft:cookie";
-  MinecraftItemTypes2["CopperAxe"] = "minecraft:copper_axe";
-  MinecraftItemTypes2["CopperBlock"] = "minecraft:copper_block";
-  MinecraftItemTypes2["CopperBoots"] = "minecraft:copper_boots";
-  MinecraftItemTypes2["CopperBulb"] = "minecraft:copper_bulb";
-  MinecraftItemTypes2["CopperChest"] = "minecraft:copper_chest";
-  MinecraftItemTypes2["CopperChestplate"] = "minecraft:copper_chestplate";
-  MinecraftItemTypes2["CopperDoor"] = "minecraft:copper_door";
-  MinecraftItemTypes2["CopperGolemSpawnEgg"] = "minecraft:copper_golem_spawn_egg";
-  MinecraftItemTypes2["CopperGrate"] = "minecraft:copper_grate";
-  MinecraftItemTypes2["CopperHelmet"] = "minecraft:copper_helmet";
-  MinecraftItemTypes2["CopperHoe"] = "minecraft:copper_hoe";
-  MinecraftItemTypes2["CopperIngot"] = "minecraft:copper_ingot";
-  MinecraftItemTypes2["CopperLeggings"] = "minecraft:copper_leggings";
-  MinecraftItemTypes2["CopperNugget"] = "minecraft:copper_nugget";
-  MinecraftItemTypes2["CopperOre"] = "minecraft:copper_ore";
-  MinecraftItemTypes2["CopperPickaxe"] = "minecraft:copper_pickaxe";
-  MinecraftItemTypes2["CopperShovel"] = "minecraft:copper_shovel";
-  MinecraftItemTypes2["CopperSword"] = "minecraft:copper_sword";
-  MinecraftItemTypes2["CopperTrapdoor"] = "minecraft:copper_trapdoor";
-  MinecraftItemTypes2["Cornflower"] = "minecraft:cornflower";
-  MinecraftItemTypes2["CowSpawnEgg"] = "minecraft:cow_spawn_egg";
-  MinecraftItemTypes2["CrackedDeepslateBricks"] = "minecraft:cracked_deepslate_bricks";
-  MinecraftItemTypes2["CrackedDeepslateTiles"] = "minecraft:cracked_deepslate_tiles";
-  MinecraftItemTypes2["CrackedNetherBricks"] = "minecraft:cracked_nether_bricks";
-  MinecraftItemTypes2["CrackedPolishedBlackstoneBricks"] = "minecraft:cracked_polished_blackstone_bricks";
-  MinecraftItemTypes2["CrackedStoneBricks"] = "minecraft:cracked_stone_bricks";
-  MinecraftItemTypes2["Crafter"] = "minecraft:crafter";
-  MinecraftItemTypes2["CraftingTable"] = "minecraft:crafting_table";
-  MinecraftItemTypes2["CreakingHeart"] = "minecraft:creaking_heart";
-  MinecraftItemTypes2["CreakingSpawnEgg"] = "minecraft:creaking_spawn_egg";
-  MinecraftItemTypes2["CreeperBannerPattern"] = "minecraft:creeper_banner_pattern";
-  MinecraftItemTypes2["CreeperHead"] = "minecraft:creeper_head";
-  MinecraftItemTypes2["CreeperSpawnEgg"] = "minecraft:creeper_spawn_egg";
-  MinecraftItemTypes2["CrimsonButton"] = "minecraft:crimson_button";
-  MinecraftItemTypes2["CrimsonDoor"] = "minecraft:crimson_door";
-  MinecraftItemTypes2["CrimsonFence"] = "minecraft:crimson_fence";
-  MinecraftItemTypes2["CrimsonFenceGate"] = "minecraft:crimson_fence_gate";
-  MinecraftItemTypes2["CrimsonFungus"] = "minecraft:crimson_fungus";
-  MinecraftItemTypes2["CrimsonHangingSign"] = "minecraft:crimson_hanging_sign";
-  MinecraftItemTypes2["CrimsonHyphae"] = "minecraft:crimson_hyphae";
-  MinecraftItemTypes2["CrimsonNylium"] = "minecraft:crimson_nylium";
-  MinecraftItemTypes2["CrimsonPlanks"] = "minecraft:crimson_planks";
-  MinecraftItemTypes2["CrimsonPressurePlate"] = "minecraft:crimson_pressure_plate";
-  MinecraftItemTypes2["CrimsonRoots"] = "minecraft:crimson_roots";
-  MinecraftItemTypes2["CrimsonSign"] = "minecraft:crimson_sign";
-  MinecraftItemTypes2["CrimsonSlab"] = "minecraft:crimson_slab";
-  MinecraftItemTypes2["CrimsonStairs"] = "minecraft:crimson_stairs";
-  MinecraftItemTypes2["CrimsonStem"] = "minecraft:crimson_stem";
-  MinecraftItemTypes2["CrimsonTrapdoor"] = "minecraft:crimson_trapdoor";
-  MinecraftItemTypes2["Crossbow"] = "minecraft:crossbow";
-  MinecraftItemTypes2["CryingObsidian"] = "minecraft:crying_obsidian";
-  MinecraftItemTypes2["CutCopper"] = "minecraft:cut_copper";
-  MinecraftItemTypes2["CutCopperSlab"] = "minecraft:cut_copper_slab";
-  MinecraftItemTypes2["CutCopperStairs"] = "minecraft:cut_copper_stairs";
-  MinecraftItemTypes2["CutRedSandstone"] = "minecraft:cut_red_sandstone";
-  MinecraftItemTypes2["CutRedSandstoneSlab"] = "minecraft:cut_red_sandstone_slab";
-  MinecraftItemTypes2["CutSandstone"] = "minecraft:cut_sandstone";
-  MinecraftItemTypes2["CutSandstoneSlab"] = "minecraft:cut_sandstone_slab";
-  MinecraftItemTypes2["CyanBundle"] = "minecraft:cyan_bundle";
-  MinecraftItemTypes2["CyanCandle"] = "minecraft:cyan_candle";
-  MinecraftItemTypes2["CyanCarpet"] = "minecraft:cyan_carpet";
-  MinecraftItemTypes2["CyanConcrete"] = "minecraft:cyan_concrete";
-  MinecraftItemTypes2["CyanConcretePowder"] = "minecraft:cyan_concrete_powder";
-  MinecraftItemTypes2["CyanDye"] = "minecraft:cyan_dye";
-  MinecraftItemTypes2["CyanGlazedTerracotta"] = "minecraft:cyan_glazed_terracotta";
-  MinecraftItemTypes2["CyanHarness"] = "minecraft:cyan_harness";
-  MinecraftItemTypes2["CyanShulkerBox"] = "minecraft:cyan_shulker_box";
-  MinecraftItemTypes2["CyanStainedGlass"] = "minecraft:cyan_stained_glass";
-  MinecraftItemTypes2["CyanStainedGlassPane"] = "minecraft:cyan_stained_glass_pane";
-  MinecraftItemTypes2["CyanTerracotta"] = "minecraft:cyan_terracotta";
-  MinecraftItemTypes2["CyanWool"] = "minecraft:cyan_wool";
-  MinecraftItemTypes2["DamagedAnvil"] = "minecraft:damaged_anvil";
-  MinecraftItemTypes2["Dandelion"] = "minecraft:dandelion";
-  MinecraftItemTypes2["DangerPotterySherd"] = "minecraft:danger_pottery_sherd";
-  MinecraftItemTypes2["DarkOakBoat"] = "minecraft:dark_oak_boat";
-  MinecraftItemTypes2["DarkOakButton"] = "minecraft:dark_oak_button";
-  MinecraftItemTypes2["DarkOakChestBoat"] = "minecraft:dark_oak_chest_boat";
-  MinecraftItemTypes2["DarkOakDoor"] = "minecraft:dark_oak_door";
-  MinecraftItemTypes2["DarkOakFence"] = "minecraft:dark_oak_fence";
-  MinecraftItemTypes2["DarkOakFenceGate"] = "minecraft:dark_oak_fence_gate";
-  MinecraftItemTypes2["DarkOakHangingSign"] = "minecraft:dark_oak_hanging_sign";
-  MinecraftItemTypes2["DarkOakLeaves"] = "minecraft:dark_oak_leaves";
-  MinecraftItemTypes2["DarkOakLog"] = "minecraft:dark_oak_log";
-  MinecraftItemTypes2["DarkOakPlanks"] = "minecraft:dark_oak_planks";
-  MinecraftItemTypes2["DarkOakPressurePlate"] = "minecraft:dark_oak_pressure_plate";
-  MinecraftItemTypes2["DarkOakSapling"] = "minecraft:dark_oak_sapling";
-  MinecraftItemTypes2["DarkOakSign"] = "minecraft:dark_oak_sign";
-  MinecraftItemTypes2["DarkOakSlab"] = "minecraft:dark_oak_slab";
-  MinecraftItemTypes2["DarkOakStairs"] = "minecraft:dark_oak_stairs";
-  MinecraftItemTypes2["DarkOakTrapdoor"] = "minecraft:dark_oak_trapdoor";
-  MinecraftItemTypes2["DarkOakWood"] = "minecraft:dark_oak_wood";
-  MinecraftItemTypes2["DarkPrismarine"] = "minecraft:dark_prismarine";
-  MinecraftItemTypes2["DarkPrismarineSlab"] = "minecraft:dark_prismarine_slab";
-  MinecraftItemTypes2["DarkPrismarineStairs"] = "minecraft:dark_prismarine_stairs";
-  MinecraftItemTypes2["DaylightDetector"] = "minecraft:daylight_detector";
-  MinecraftItemTypes2["DeadBrainCoral"] = "minecraft:dead_brain_coral";
-  MinecraftItemTypes2["DeadBrainCoralBlock"] = "minecraft:dead_brain_coral_block";
-  MinecraftItemTypes2["DeadBrainCoralFan"] = "minecraft:dead_brain_coral_fan";
-  MinecraftItemTypes2["DeadBubbleCoral"] = "minecraft:dead_bubble_coral";
-  MinecraftItemTypes2["DeadBubbleCoralBlock"] = "minecraft:dead_bubble_coral_block";
-  MinecraftItemTypes2["DeadBubbleCoralFan"] = "minecraft:dead_bubble_coral_fan";
-  MinecraftItemTypes2["DeadFireCoral"] = "minecraft:dead_fire_coral";
-  MinecraftItemTypes2["DeadFireCoralBlock"] = "minecraft:dead_fire_coral_block";
-  MinecraftItemTypes2["DeadFireCoralFan"] = "minecraft:dead_fire_coral_fan";
-  MinecraftItemTypes2["DeadHornCoral"] = "minecraft:dead_horn_coral";
-  MinecraftItemTypes2["DeadHornCoralBlock"] = "minecraft:dead_horn_coral_block";
-  MinecraftItemTypes2["DeadHornCoralFan"] = "minecraft:dead_horn_coral_fan";
-  MinecraftItemTypes2["DeadTubeCoral"] = "minecraft:dead_tube_coral";
-  MinecraftItemTypes2["DeadTubeCoralBlock"] = "minecraft:dead_tube_coral_block";
-  MinecraftItemTypes2["DeadTubeCoralFan"] = "minecraft:dead_tube_coral_fan";
-  MinecraftItemTypes2["Deadbush"] = "minecraft:deadbush";
-  MinecraftItemTypes2["DecoratedPot"] = "minecraft:decorated_pot";
-  MinecraftItemTypes2["Deepslate"] = "minecraft:deepslate";
-  MinecraftItemTypes2["DeepslateBrickSlab"] = "minecraft:deepslate_brick_slab";
-  MinecraftItemTypes2["DeepslateBrickStairs"] = "minecraft:deepslate_brick_stairs";
-  MinecraftItemTypes2["DeepslateBrickWall"] = "minecraft:deepslate_brick_wall";
-  MinecraftItemTypes2["DeepslateBricks"] = "minecraft:deepslate_bricks";
-  MinecraftItemTypes2["DeepslateCoalOre"] = "minecraft:deepslate_coal_ore";
-  MinecraftItemTypes2["DeepslateCopperOre"] = "minecraft:deepslate_copper_ore";
-  MinecraftItemTypes2["DeepslateDiamondOre"] = "minecraft:deepslate_diamond_ore";
-  MinecraftItemTypes2["DeepslateEmeraldOre"] = "minecraft:deepslate_emerald_ore";
-  MinecraftItemTypes2["DeepslateGoldOre"] = "minecraft:deepslate_gold_ore";
-  MinecraftItemTypes2["DeepslateIronOre"] = "minecraft:deepslate_iron_ore";
-  MinecraftItemTypes2["DeepslateLapisOre"] = "minecraft:deepslate_lapis_ore";
-  MinecraftItemTypes2["DeepslateRedstoneOre"] = "minecraft:deepslate_redstone_ore";
-  MinecraftItemTypes2["DeepslateTileSlab"] = "minecraft:deepslate_tile_slab";
-  MinecraftItemTypes2["DeepslateTileStairs"] = "minecraft:deepslate_tile_stairs";
-  MinecraftItemTypes2["DeepslateTileWall"] = "minecraft:deepslate_tile_wall";
-  MinecraftItemTypes2["DeepslateTiles"] = "minecraft:deepslate_tiles";
-  MinecraftItemTypes2["Deny"] = "minecraft:deny";
-  MinecraftItemTypes2["DetectorRail"] = "minecraft:detector_rail";
-  MinecraftItemTypes2["Diamond"] = "minecraft:diamond";
-  MinecraftItemTypes2["DiamondAxe"] = "minecraft:diamond_axe";
-  MinecraftItemTypes2["DiamondBlock"] = "minecraft:diamond_block";
-  MinecraftItemTypes2["DiamondBoots"] = "minecraft:diamond_boots";
-  MinecraftItemTypes2["DiamondChestplate"] = "minecraft:diamond_chestplate";
-  MinecraftItemTypes2["DiamondHelmet"] = "minecraft:diamond_helmet";
-  MinecraftItemTypes2["DiamondHoe"] = "minecraft:diamond_hoe";
-  MinecraftItemTypes2["DiamondHorseArmor"] = "minecraft:diamond_horse_armor";
-  MinecraftItemTypes2["DiamondLeggings"] = "minecraft:diamond_leggings";
-  MinecraftItemTypes2["DiamondOre"] = "minecraft:diamond_ore";
-  MinecraftItemTypes2["DiamondPickaxe"] = "minecraft:diamond_pickaxe";
-  MinecraftItemTypes2["DiamondShovel"] = "minecraft:diamond_shovel";
-  MinecraftItemTypes2["DiamondSword"] = "minecraft:diamond_sword";
-  MinecraftItemTypes2["Diorite"] = "minecraft:diorite";
-  MinecraftItemTypes2["DioriteSlab"] = "minecraft:diorite_slab";
-  MinecraftItemTypes2["DioriteStairs"] = "minecraft:diorite_stairs";
-  MinecraftItemTypes2["DioriteWall"] = "minecraft:diorite_wall";
-  MinecraftItemTypes2["Dirt"] = "minecraft:dirt";
-  MinecraftItemTypes2["DirtWithRoots"] = "minecraft:dirt_with_roots";
-  MinecraftItemTypes2["DiscFragment5"] = "minecraft:disc_fragment_5";
-  MinecraftItemTypes2["Dispenser"] = "minecraft:dispenser";
-  MinecraftItemTypes2["DolphinSpawnEgg"] = "minecraft:dolphin_spawn_egg";
-  MinecraftItemTypes2["DonkeySpawnEgg"] = "minecraft:donkey_spawn_egg";
-  MinecraftItemTypes2["DragonBreath"] = "minecraft:dragon_breath";
-  MinecraftItemTypes2["DragonEgg"] = "minecraft:dragon_egg";
-  MinecraftItemTypes2["DragonHead"] = "minecraft:dragon_head";
-  MinecraftItemTypes2["DriedGhast"] = "minecraft:dried_ghast";
-  MinecraftItemTypes2["DriedKelp"] = "minecraft:dried_kelp";
-  MinecraftItemTypes2["DriedKelpBlock"] = "minecraft:dried_kelp_block";
-  MinecraftItemTypes2["DripstoneBlock"] = "minecraft:dripstone_block";
-  MinecraftItemTypes2["Dropper"] = "minecraft:dropper";
-  MinecraftItemTypes2["DrownedSpawnEgg"] = "minecraft:drowned_spawn_egg";
-  MinecraftItemTypes2["DuneArmorTrimSmithingTemplate"] = "minecraft:dune_armor_trim_smithing_template";
-  MinecraftItemTypes2["EchoShard"] = "minecraft:echo_shard";
-  MinecraftItemTypes2["Egg"] = "minecraft:egg";
-  MinecraftItemTypes2["ElderGuardianSpawnEgg"] = "minecraft:elder_guardian_spawn_egg";
-  MinecraftItemTypes2["Elytra"] = "minecraft:elytra";
-  MinecraftItemTypes2["Emerald"] = "minecraft:emerald";
-  MinecraftItemTypes2["EmeraldBlock"] = "minecraft:emerald_block";
-  MinecraftItemTypes2["EmeraldOre"] = "minecraft:emerald_ore";
-  MinecraftItemTypes2["EmptyMap"] = "minecraft:empty_map";
-  MinecraftItemTypes2["EnchantedBook"] = "minecraft:enchanted_book";
-  MinecraftItemTypes2["EnchantedGoldenApple"] = "minecraft:enchanted_golden_apple";
-  MinecraftItemTypes2["EnchantingTable"] = "minecraft:enchanting_table";
-  MinecraftItemTypes2["EndBrickStairs"] = "minecraft:end_brick_stairs";
-  MinecraftItemTypes2["EndBricks"] = "minecraft:end_bricks";
-  MinecraftItemTypes2["EndCrystal"] = "minecraft:end_crystal";
-  MinecraftItemTypes2["EndPortalFrame"] = "minecraft:end_portal_frame";
-  MinecraftItemTypes2["EndRod"] = "minecraft:end_rod";
-  MinecraftItemTypes2["EndStone"] = "minecraft:end_stone";
-  MinecraftItemTypes2["EndStoneBrickSlab"] = "minecraft:end_stone_brick_slab";
-  MinecraftItemTypes2["EndStoneBrickWall"] = "minecraft:end_stone_brick_wall";
-  MinecraftItemTypes2["EnderChest"] = "minecraft:ender_chest";
-  MinecraftItemTypes2["EnderDragonSpawnEgg"] = "minecraft:ender_dragon_spawn_egg";
-  MinecraftItemTypes2["EnderEye"] = "minecraft:ender_eye";
-  MinecraftItemTypes2["EnderPearl"] = "minecraft:ender_pearl";
-  MinecraftItemTypes2["EndermanSpawnEgg"] = "minecraft:enderman_spawn_egg";
-  MinecraftItemTypes2["EndermiteSpawnEgg"] = "minecraft:endermite_spawn_egg";
-  MinecraftItemTypes2["EvokerSpawnEgg"] = "minecraft:evoker_spawn_egg";
-  MinecraftItemTypes2["ExperienceBottle"] = "minecraft:experience_bottle";
-  MinecraftItemTypes2["ExplorerPotterySherd"] = "minecraft:explorer_pottery_sherd";
-  MinecraftItemTypes2["ExposedChiseledCopper"] = "minecraft:exposed_chiseled_copper";
-  MinecraftItemTypes2["ExposedCopper"] = "minecraft:exposed_copper";
-  MinecraftItemTypes2["ExposedCopperBulb"] = "minecraft:exposed_copper_bulb";
-  MinecraftItemTypes2["ExposedCopperChest"] = "minecraft:exposed_copper_chest";
-  MinecraftItemTypes2["ExposedCopperDoor"] = "minecraft:exposed_copper_door";
-  MinecraftItemTypes2["ExposedCopperGrate"] = "minecraft:exposed_copper_grate";
-  MinecraftItemTypes2["ExposedCopperTrapdoor"] = "minecraft:exposed_copper_trapdoor";
-  MinecraftItemTypes2["ExposedCutCopper"] = "minecraft:exposed_cut_copper";
-  MinecraftItemTypes2["ExposedCutCopperSlab"] = "minecraft:exposed_cut_copper_slab";
-  MinecraftItemTypes2["ExposedCutCopperStairs"] = "minecraft:exposed_cut_copper_stairs";
-  MinecraftItemTypes2["EyeArmorTrimSmithingTemplate"] = "minecraft:eye_armor_trim_smithing_template";
-  MinecraftItemTypes2["Farmland"] = "minecraft:farmland";
-  MinecraftItemTypes2["Feather"] = "minecraft:feather";
-  MinecraftItemTypes2["FenceGate"] = "minecraft:fence_gate";
-  MinecraftItemTypes2["FermentedSpiderEye"] = "minecraft:fermented_spider_eye";
-  MinecraftItemTypes2["Fern"] = "minecraft:fern";
-  MinecraftItemTypes2["FieldMasonedBannerPattern"] = "minecraft:field_masoned_banner_pattern";
-  MinecraftItemTypes2["FilledMap"] = "minecraft:filled_map";
-  MinecraftItemTypes2["FireCharge"] = "minecraft:fire_charge";
-  MinecraftItemTypes2["FireCoral"] = "minecraft:fire_coral";
-  MinecraftItemTypes2["FireCoralBlock"] = "minecraft:fire_coral_block";
-  MinecraftItemTypes2["FireCoralFan"] = "minecraft:fire_coral_fan";
-  MinecraftItemTypes2["FireflyBush"] = "minecraft:firefly_bush";
-  MinecraftItemTypes2["FireworkRocket"] = "minecraft:firework_rocket";
-  MinecraftItemTypes2["FireworkStar"] = "minecraft:firework_star";
-  MinecraftItemTypes2["FishingRod"] = "minecraft:fishing_rod";
-  MinecraftItemTypes2["FletchingTable"] = "minecraft:fletching_table";
-  MinecraftItemTypes2["Flint"] = "minecraft:flint";
-  MinecraftItemTypes2["FlintAndSteel"] = "minecraft:flint_and_steel";
-  MinecraftItemTypes2["FlowArmorTrimSmithingTemplate"] = "minecraft:flow_armor_trim_smithing_template";
-  MinecraftItemTypes2["FlowBannerPattern"] = "minecraft:flow_banner_pattern";
-  MinecraftItemTypes2["FlowPotterySherd"] = "minecraft:flow_pottery_sherd";
-  MinecraftItemTypes2["FlowerBannerPattern"] = "minecraft:flower_banner_pattern";
-  MinecraftItemTypes2["FlowerPot"] = "minecraft:flower_pot";
-  MinecraftItemTypes2["FloweringAzalea"] = "minecraft:flowering_azalea";
-  MinecraftItemTypes2["FoxSpawnEgg"] = "minecraft:fox_spawn_egg";
-  MinecraftItemTypes2["Frame"] = "minecraft:frame";
-  MinecraftItemTypes2["FriendPotterySherd"] = "minecraft:friend_pottery_sherd";
-  MinecraftItemTypes2["FrogSpawn"] = "minecraft:frog_spawn";
-  MinecraftItemTypes2["FrogSpawnEgg"] = "minecraft:frog_spawn_egg";
-  MinecraftItemTypes2["FrostedIce"] = "minecraft:frosted_ice";
-  MinecraftItemTypes2["Furnace"] = "minecraft:furnace";
-  MinecraftItemTypes2["GhastSpawnEgg"] = "minecraft:ghast_spawn_egg";
-  MinecraftItemTypes2["GhastTear"] = "minecraft:ghast_tear";
-  MinecraftItemTypes2["GildedBlackstone"] = "minecraft:gilded_blackstone";
-  MinecraftItemTypes2["Glass"] = "minecraft:glass";
-  MinecraftItemTypes2["GlassBottle"] = "minecraft:glass_bottle";
-  MinecraftItemTypes2["GlassPane"] = "minecraft:glass_pane";
-  MinecraftItemTypes2["GlisteringMelonSlice"] = "minecraft:glistering_melon_slice";
-  MinecraftItemTypes2["GlobeBannerPattern"] = "minecraft:globe_banner_pattern";
-  MinecraftItemTypes2["GlowBerries"] = "minecraft:glow_berries";
-  MinecraftItemTypes2["GlowFrame"] = "minecraft:glow_frame";
-  MinecraftItemTypes2["GlowInkSac"] = "minecraft:glow_ink_sac";
-  MinecraftItemTypes2["GlowLichen"] = "minecraft:glow_lichen";
-  MinecraftItemTypes2["GlowSquidSpawnEgg"] = "minecraft:glow_squid_spawn_egg";
-  MinecraftItemTypes2["Glowstone"] = "minecraft:glowstone";
-  MinecraftItemTypes2["GlowstoneDust"] = "minecraft:glowstone_dust";
-  MinecraftItemTypes2["GoatHorn"] = "minecraft:goat_horn";
-  MinecraftItemTypes2["GoatSpawnEgg"] = "minecraft:goat_spawn_egg";
-  MinecraftItemTypes2["GoldBlock"] = "minecraft:gold_block";
-  MinecraftItemTypes2["GoldIngot"] = "minecraft:gold_ingot";
-  MinecraftItemTypes2["GoldNugget"] = "minecraft:gold_nugget";
-  MinecraftItemTypes2["GoldOre"] = "minecraft:gold_ore";
-  MinecraftItemTypes2["GoldenApple"] = "minecraft:golden_apple";
-  MinecraftItemTypes2["GoldenAxe"] = "minecraft:golden_axe";
-  MinecraftItemTypes2["GoldenBoots"] = "minecraft:golden_boots";
-  MinecraftItemTypes2["GoldenCarrot"] = "minecraft:golden_carrot";
-  MinecraftItemTypes2["GoldenChestplate"] = "minecraft:golden_chestplate";
-  MinecraftItemTypes2["GoldenHelmet"] = "minecraft:golden_helmet";
-  MinecraftItemTypes2["GoldenHoe"] = "minecraft:golden_hoe";
-  MinecraftItemTypes2["GoldenHorseArmor"] = "minecraft:golden_horse_armor";
-  MinecraftItemTypes2["GoldenLeggings"] = "minecraft:golden_leggings";
-  MinecraftItemTypes2["GoldenPickaxe"] = "minecraft:golden_pickaxe";
-  MinecraftItemTypes2["GoldenRail"] = "minecraft:golden_rail";
-  MinecraftItemTypes2["GoldenShovel"] = "minecraft:golden_shovel";
-  MinecraftItemTypes2["GoldenSword"] = "minecraft:golden_sword";
-  MinecraftItemTypes2["Granite"] = "minecraft:granite";
-  MinecraftItemTypes2["GraniteSlab"] = "minecraft:granite_slab";
-  MinecraftItemTypes2["GraniteStairs"] = "minecraft:granite_stairs";
-  MinecraftItemTypes2["GraniteWall"] = "minecraft:granite_wall";
-  MinecraftItemTypes2["GrassBlock"] = "minecraft:grass_block";
-  MinecraftItemTypes2["GrassPath"] = "minecraft:grass_path";
-  MinecraftItemTypes2["Gravel"] = "minecraft:gravel";
-  MinecraftItemTypes2["GrayBundle"] = "minecraft:gray_bundle";
-  MinecraftItemTypes2["GrayCandle"] = "minecraft:gray_candle";
-  MinecraftItemTypes2["GrayCarpet"] = "minecraft:gray_carpet";
-  MinecraftItemTypes2["GrayConcrete"] = "minecraft:gray_concrete";
-  MinecraftItemTypes2["GrayConcretePowder"] = "minecraft:gray_concrete_powder";
-  MinecraftItemTypes2["GrayDye"] = "minecraft:gray_dye";
-  MinecraftItemTypes2["GrayGlazedTerracotta"] = "minecraft:gray_glazed_terracotta";
-  MinecraftItemTypes2["GrayHarness"] = "minecraft:gray_harness";
-  MinecraftItemTypes2["GrayShulkerBox"] = "minecraft:gray_shulker_box";
-  MinecraftItemTypes2["GrayStainedGlass"] = "minecraft:gray_stained_glass";
-  MinecraftItemTypes2["GrayStainedGlassPane"] = "minecraft:gray_stained_glass_pane";
-  MinecraftItemTypes2["GrayTerracotta"] = "minecraft:gray_terracotta";
-  MinecraftItemTypes2["GrayWool"] = "minecraft:gray_wool";
-  MinecraftItemTypes2["GreenBundle"] = "minecraft:green_bundle";
-  MinecraftItemTypes2["GreenCandle"] = "minecraft:green_candle";
-  MinecraftItemTypes2["GreenCarpet"] = "minecraft:green_carpet";
-  MinecraftItemTypes2["GreenConcrete"] = "minecraft:green_concrete";
-  MinecraftItemTypes2["GreenConcretePowder"] = "minecraft:green_concrete_powder";
-  MinecraftItemTypes2["GreenDye"] = "minecraft:green_dye";
-  MinecraftItemTypes2["GreenGlazedTerracotta"] = "minecraft:green_glazed_terracotta";
-  MinecraftItemTypes2["GreenHarness"] = "minecraft:green_harness";
-  MinecraftItemTypes2["GreenShulkerBox"] = "minecraft:green_shulker_box";
-  MinecraftItemTypes2["GreenStainedGlass"] = "minecraft:green_stained_glass";
-  MinecraftItemTypes2["GreenStainedGlassPane"] = "minecraft:green_stained_glass_pane";
-  MinecraftItemTypes2["GreenTerracotta"] = "minecraft:green_terracotta";
-  MinecraftItemTypes2["GreenWool"] = "minecraft:green_wool";
-  MinecraftItemTypes2["Grindstone"] = "minecraft:grindstone";
-  MinecraftItemTypes2["GuardianSpawnEgg"] = "minecraft:guardian_spawn_egg";
-  MinecraftItemTypes2["Gunpowder"] = "minecraft:gunpowder";
-  MinecraftItemTypes2["GusterBannerPattern"] = "minecraft:guster_banner_pattern";
-  MinecraftItemTypes2["GusterPotterySherd"] = "minecraft:guster_pottery_sherd";
-  MinecraftItemTypes2["HangingRoots"] = "minecraft:hanging_roots";
-  MinecraftItemTypes2["HappyGhastSpawnEgg"] = "minecraft:happy_ghast_spawn_egg";
-  MinecraftItemTypes2["HardenedClay"] = "minecraft:hardened_clay";
-  MinecraftItemTypes2["HayBlock"] = "minecraft:hay_block";
-  MinecraftItemTypes2["HeartOfTheSea"] = "minecraft:heart_of_the_sea";
-  MinecraftItemTypes2["HeartPotterySherd"] = "minecraft:heart_pottery_sherd";
-  MinecraftItemTypes2["HeartbreakPotterySherd"] = "minecraft:heartbreak_pottery_sherd";
-  MinecraftItemTypes2["HeavyCore"] = "minecraft:heavy_core";
-  MinecraftItemTypes2["HeavyWeightedPressurePlate"] = "minecraft:heavy_weighted_pressure_plate";
-  MinecraftItemTypes2["HoglinSpawnEgg"] = "minecraft:hoglin_spawn_egg";
-  MinecraftItemTypes2["HoneyBlock"] = "minecraft:honey_block";
-  MinecraftItemTypes2["HoneyBottle"] = "minecraft:honey_bottle";
-  MinecraftItemTypes2["Honeycomb"] = "minecraft:honeycomb";
-  MinecraftItemTypes2["HoneycombBlock"] = "minecraft:honeycomb_block";
-  MinecraftItemTypes2["Hopper"] = "minecraft:hopper";
-  MinecraftItemTypes2["HopperMinecart"] = "minecraft:hopper_minecart";
-  MinecraftItemTypes2["HornCoral"] = "minecraft:horn_coral";
-  MinecraftItemTypes2["HornCoralBlock"] = "minecraft:horn_coral_block";
-  MinecraftItemTypes2["HornCoralFan"] = "minecraft:horn_coral_fan";
-  MinecraftItemTypes2["HorseSpawnEgg"] = "minecraft:horse_spawn_egg";
-  MinecraftItemTypes2["HostArmorTrimSmithingTemplate"] = "minecraft:host_armor_trim_smithing_template";
-  MinecraftItemTypes2["HowlPotterySherd"] = "minecraft:howl_pottery_sherd";
-  MinecraftItemTypes2["HuskSpawnEgg"] = "minecraft:husk_spawn_egg";
-  MinecraftItemTypes2["Ice"] = "minecraft:ice";
-  MinecraftItemTypes2["InfestedChiseledStoneBricks"] = "minecraft:infested_chiseled_stone_bricks";
-  MinecraftItemTypes2["InfestedCobblestone"] = "minecraft:infested_cobblestone";
-  MinecraftItemTypes2["InfestedCrackedStoneBricks"] = "minecraft:infested_cracked_stone_bricks";
-  MinecraftItemTypes2["InfestedDeepslate"] = "minecraft:infested_deepslate";
-  MinecraftItemTypes2["InfestedMossyStoneBricks"] = "minecraft:infested_mossy_stone_bricks";
-  MinecraftItemTypes2["InfestedStone"] = "minecraft:infested_stone";
-  MinecraftItemTypes2["InfestedStoneBricks"] = "minecraft:infested_stone_bricks";
-  MinecraftItemTypes2["InkSac"] = "minecraft:ink_sac";
-  MinecraftItemTypes2["IronAxe"] = "minecraft:iron_axe";
-  MinecraftItemTypes2["IronBars"] = "minecraft:iron_bars";
-  MinecraftItemTypes2["IronBlock"] = "minecraft:iron_block";
-  MinecraftItemTypes2["IronBoots"] = "minecraft:iron_boots";
-  MinecraftItemTypes2["IronChestplate"] = "minecraft:iron_chestplate";
-  MinecraftItemTypes2["IronDoor"] = "minecraft:iron_door";
-  MinecraftItemTypes2["IronGolemSpawnEgg"] = "minecraft:iron_golem_spawn_egg";
-  MinecraftItemTypes2["IronHelmet"] = "minecraft:iron_helmet";
-  MinecraftItemTypes2["IronHoe"] = "minecraft:iron_hoe";
-  MinecraftItemTypes2["IronHorseArmor"] = "minecraft:iron_horse_armor";
-  MinecraftItemTypes2["IronIngot"] = "minecraft:iron_ingot";
-  MinecraftItemTypes2["IronLeggings"] = "minecraft:iron_leggings";
-  MinecraftItemTypes2["IronNugget"] = "minecraft:iron_nugget";
-  MinecraftItemTypes2["IronOre"] = "minecraft:iron_ore";
-  MinecraftItemTypes2["IronPickaxe"] = "minecraft:iron_pickaxe";
-  MinecraftItemTypes2["IronShovel"] = "minecraft:iron_shovel";
-  MinecraftItemTypes2["IronSword"] = "minecraft:iron_sword";
-  MinecraftItemTypes2["IronTrapdoor"] = "minecraft:iron_trapdoor";
-  MinecraftItemTypes2["Jigsaw"] = "minecraft:jigsaw";
-  MinecraftItemTypes2["Jukebox"] = "minecraft:jukebox";
-  MinecraftItemTypes2["JungleBoat"] = "minecraft:jungle_boat";
-  MinecraftItemTypes2["JungleButton"] = "minecraft:jungle_button";
-  MinecraftItemTypes2["JungleChestBoat"] = "minecraft:jungle_chest_boat";
-  MinecraftItemTypes2["JungleDoor"] = "minecraft:jungle_door";
-  MinecraftItemTypes2["JungleFence"] = "minecraft:jungle_fence";
-  MinecraftItemTypes2["JungleFenceGate"] = "minecraft:jungle_fence_gate";
-  MinecraftItemTypes2["JungleHangingSign"] = "minecraft:jungle_hanging_sign";
-  MinecraftItemTypes2["JungleLeaves"] = "minecraft:jungle_leaves";
-  MinecraftItemTypes2["JungleLog"] = "minecraft:jungle_log";
-  MinecraftItemTypes2["JunglePlanks"] = "minecraft:jungle_planks";
-  MinecraftItemTypes2["JunglePressurePlate"] = "minecraft:jungle_pressure_plate";
-  MinecraftItemTypes2["JungleSapling"] = "minecraft:jungle_sapling";
-  MinecraftItemTypes2["JungleSign"] = "minecraft:jungle_sign";
-  MinecraftItemTypes2["JungleSlab"] = "minecraft:jungle_slab";
-  MinecraftItemTypes2["JungleStairs"] = "minecraft:jungle_stairs";
-  MinecraftItemTypes2["JungleTrapdoor"] = "minecraft:jungle_trapdoor";
-  MinecraftItemTypes2["JungleWood"] = "minecraft:jungle_wood";
-  MinecraftItemTypes2["Kelp"] = "minecraft:kelp";
-  MinecraftItemTypes2["Ladder"] = "minecraft:ladder";
-  MinecraftItemTypes2["Lantern"] = "minecraft:lantern";
-  MinecraftItemTypes2["LapisBlock"] = "minecraft:lapis_block";
-  MinecraftItemTypes2["LapisLazuli"] = "minecraft:lapis_lazuli";
-  MinecraftItemTypes2["LapisOre"] = "minecraft:lapis_ore";
-  MinecraftItemTypes2["LargeAmethystBud"] = "minecraft:large_amethyst_bud";
-  MinecraftItemTypes2["LargeFern"] = "minecraft:large_fern";
-  MinecraftItemTypes2["LavaBucket"] = "minecraft:lava_bucket";
-  MinecraftItemTypes2["Lead"] = "minecraft:lead";
-  MinecraftItemTypes2["LeafLitter"] = "minecraft:leaf_litter";
-  MinecraftItemTypes2["Leather"] = "minecraft:leather";
-  MinecraftItemTypes2["LeatherBoots"] = "minecraft:leather_boots";
-  MinecraftItemTypes2["LeatherChestplate"] = "minecraft:leather_chestplate";
-  MinecraftItemTypes2["LeatherHelmet"] = "minecraft:leather_helmet";
-  MinecraftItemTypes2["LeatherHorseArmor"] = "minecraft:leather_horse_armor";
-  MinecraftItemTypes2["LeatherLeggings"] = "minecraft:leather_leggings";
-  MinecraftItemTypes2["Lectern"] = "minecraft:lectern";
-  MinecraftItemTypes2["Lever"] = "minecraft:lever";
-  MinecraftItemTypes2["LightBlock0"] = "minecraft:light_block_0";
-  MinecraftItemTypes2["LightBlock1"] = "minecraft:light_block_1";
-  MinecraftItemTypes2["LightBlock10"] = "minecraft:light_block_10";
-  MinecraftItemTypes2["LightBlock11"] = "minecraft:light_block_11";
-  MinecraftItemTypes2["LightBlock12"] = "minecraft:light_block_12";
-  MinecraftItemTypes2["LightBlock13"] = "minecraft:light_block_13";
-  MinecraftItemTypes2["LightBlock14"] = "minecraft:light_block_14";
-  MinecraftItemTypes2["LightBlock15"] = "minecraft:light_block_15";
-  MinecraftItemTypes2["LightBlock2"] = "minecraft:light_block_2";
-  MinecraftItemTypes2["LightBlock3"] = "minecraft:light_block_3";
-  MinecraftItemTypes2["LightBlock4"] = "minecraft:light_block_4";
-  MinecraftItemTypes2["LightBlock5"] = "minecraft:light_block_5";
-  MinecraftItemTypes2["LightBlock6"] = "minecraft:light_block_6";
-  MinecraftItemTypes2["LightBlock7"] = "minecraft:light_block_7";
-  MinecraftItemTypes2["LightBlock8"] = "minecraft:light_block_8";
-  MinecraftItemTypes2["LightBlock9"] = "minecraft:light_block_9";
-  MinecraftItemTypes2["LightBlueBundle"] = "minecraft:light_blue_bundle";
-  MinecraftItemTypes2["LightBlueCandle"] = "minecraft:light_blue_candle";
-  MinecraftItemTypes2["LightBlueCarpet"] = "minecraft:light_blue_carpet";
-  MinecraftItemTypes2["LightBlueConcrete"] = "minecraft:light_blue_concrete";
-  MinecraftItemTypes2["LightBlueConcretePowder"] = "minecraft:light_blue_concrete_powder";
-  MinecraftItemTypes2["LightBlueDye"] = "minecraft:light_blue_dye";
-  MinecraftItemTypes2["LightBlueGlazedTerracotta"] = "minecraft:light_blue_glazed_terracotta";
-  MinecraftItemTypes2["LightBlueHarness"] = "minecraft:light_blue_harness";
-  MinecraftItemTypes2["LightBlueShulkerBox"] = "minecraft:light_blue_shulker_box";
-  MinecraftItemTypes2["LightBlueStainedGlass"] = "minecraft:light_blue_stained_glass";
-  MinecraftItemTypes2["LightBlueStainedGlassPane"] = "minecraft:light_blue_stained_glass_pane";
-  MinecraftItemTypes2["LightBlueTerracotta"] = "minecraft:light_blue_terracotta";
-  MinecraftItemTypes2["LightBlueWool"] = "minecraft:light_blue_wool";
-  MinecraftItemTypes2["LightGrayBundle"] = "minecraft:light_gray_bundle";
-  MinecraftItemTypes2["LightGrayCandle"] = "minecraft:light_gray_candle";
-  MinecraftItemTypes2["LightGrayCarpet"] = "minecraft:light_gray_carpet";
-  MinecraftItemTypes2["LightGrayConcrete"] = "minecraft:light_gray_concrete";
-  MinecraftItemTypes2["LightGrayConcretePowder"] = "minecraft:light_gray_concrete_powder";
-  MinecraftItemTypes2["LightGrayDye"] = "minecraft:light_gray_dye";
-  MinecraftItemTypes2["LightGrayHarness"] = "minecraft:light_gray_harness";
-  MinecraftItemTypes2["LightGrayShulkerBox"] = "minecraft:light_gray_shulker_box";
-  MinecraftItemTypes2["LightGrayStainedGlass"] = "minecraft:light_gray_stained_glass";
-  MinecraftItemTypes2["LightGrayStainedGlassPane"] = "minecraft:light_gray_stained_glass_pane";
-  MinecraftItemTypes2["LightGrayTerracotta"] = "minecraft:light_gray_terracotta";
-  MinecraftItemTypes2["LightGrayWool"] = "minecraft:light_gray_wool";
-  MinecraftItemTypes2["LightWeightedPressurePlate"] = "minecraft:light_weighted_pressure_plate";
-  MinecraftItemTypes2["LightningRod"] = "minecraft:lightning_rod";
-  MinecraftItemTypes2["Lilac"] = "minecraft:lilac";
-  MinecraftItemTypes2["LilyOfTheValley"] = "minecraft:lily_of_the_valley";
-  MinecraftItemTypes2["LimeBundle"] = "minecraft:lime_bundle";
-  MinecraftItemTypes2["LimeCandle"] = "minecraft:lime_candle";
-  MinecraftItemTypes2["LimeCarpet"] = "minecraft:lime_carpet";
-  MinecraftItemTypes2["LimeConcrete"] = "minecraft:lime_concrete";
-  MinecraftItemTypes2["LimeConcretePowder"] = "minecraft:lime_concrete_powder";
-  MinecraftItemTypes2["LimeDye"] = "minecraft:lime_dye";
-  MinecraftItemTypes2["LimeGlazedTerracotta"] = "minecraft:lime_glazed_terracotta";
-  MinecraftItemTypes2["LimeHarness"] = "minecraft:lime_harness";
-  MinecraftItemTypes2["LimeShulkerBox"] = "minecraft:lime_shulker_box";
-  MinecraftItemTypes2["LimeStainedGlass"] = "minecraft:lime_stained_glass";
-  MinecraftItemTypes2["LimeStainedGlassPane"] = "minecraft:lime_stained_glass_pane";
-  MinecraftItemTypes2["LimeTerracotta"] = "minecraft:lime_terracotta";
-  MinecraftItemTypes2["LimeWool"] = "minecraft:lime_wool";
-  MinecraftItemTypes2["LingeringPotion"] = "minecraft:lingering_potion";
-  MinecraftItemTypes2["LitPumpkin"] = "minecraft:lit_pumpkin";
-  MinecraftItemTypes2["LlamaSpawnEgg"] = "minecraft:llama_spawn_egg";
-  MinecraftItemTypes2["Lodestone"] = "minecraft:lodestone";
-  MinecraftItemTypes2["LodestoneCompass"] = "minecraft:lodestone_compass";
-  MinecraftItemTypes2["Loom"] = "minecraft:loom";
-  MinecraftItemTypes2["Mace"] = "minecraft:mace";
-  MinecraftItemTypes2["MagentaBundle"] = "minecraft:magenta_bundle";
-  MinecraftItemTypes2["MagentaCandle"] = "minecraft:magenta_candle";
-  MinecraftItemTypes2["MagentaCarpet"] = "minecraft:magenta_carpet";
-  MinecraftItemTypes2["MagentaConcrete"] = "minecraft:magenta_concrete";
-  MinecraftItemTypes2["MagentaConcretePowder"] = "minecraft:magenta_concrete_powder";
-  MinecraftItemTypes2["MagentaDye"] = "minecraft:magenta_dye";
-  MinecraftItemTypes2["MagentaGlazedTerracotta"] = "minecraft:magenta_glazed_terracotta";
-  MinecraftItemTypes2["MagentaHarness"] = "minecraft:magenta_harness";
-  MinecraftItemTypes2["MagentaShulkerBox"] = "minecraft:magenta_shulker_box";
-  MinecraftItemTypes2["MagentaStainedGlass"] = "minecraft:magenta_stained_glass";
-  MinecraftItemTypes2["MagentaStainedGlassPane"] = "minecraft:magenta_stained_glass_pane";
-  MinecraftItemTypes2["MagentaTerracotta"] = "minecraft:magenta_terracotta";
-  MinecraftItemTypes2["MagentaWool"] = "minecraft:magenta_wool";
-  MinecraftItemTypes2["Magma"] = "minecraft:magma";
-  MinecraftItemTypes2["MagmaCream"] = "minecraft:magma_cream";
-  MinecraftItemTypes2["MagmaCubeSpawnEgg"] = "minecraft:magma_cube_spawn_egg";
-  MinecraftItemTypes2["MangroveBoat"] = "minecraft:mangrove_boat";
-  MinecraftItemTypes2["MangroveButton"] = "minecraft:mangrove_button";
-  MinecraftItemTypes2["MangroveChestBoat"] = "minecraft:mangrove_chest_boat";
-  MinecraftItemTypes2["MangroveDoor"] = "minecraft:mangrove_door";
-  MinecraftItemTypes2["MangroveFence"] = "minecraft:mangrove_fence";
-  MinecraftItemTypes2["MangroveFenceGate"] = "minecraft:mangrove_fence_gate";
-  MinecraftItemTypes2["MangroveHangingSign"] = "minecraft:mangrove_hanging_sign";
-  MinecraftItemTypes2["MangroveLeaves"] = "minecraft:mangrove_leaves";
-  MinecraftItemTypes2["MangroveLog"] = "minecraft:mangrove_log";
-  MinecraftItemTypes2["MangrovePlanks"] = "minecraft:mangrove_planks";
-  MinecraftItemTypes2["MangrovePressurePlate"] = "minecraft:mangrove_pressure_plate";
-  MinecraftItemTypes2["MangrovePropagule"] = "minecraft:mangrove_propagule";
-  MinecraftItemTypes2["MangroveRoots"] = "minecraft:mangrove_roots";
-  MinecraftItemTypes2["MangroveSign"] = "minecraft:mangrove_sign";
-  MinecraftItemTypes2["MangroveSlab"] = "minecraft:mangrove_slab";
-  MinecraftItemTypes2["MangroveStairs"] = "minecraft:mangrove_stairs";
-  MinecraftItemTypes2["MangroveTrapdoor"] = "minecraft:mangrove_trapdoor";
-  MinecraftItemTypes2["MangroveWood"] = "minecraft:mangrove_wood";
-  MinecraftItemTypes2["MediumAmethystBud"] = "minecraft:medium_amethyst_bud";
-  MinecraftItemTypes2["MelonBlock"] = "minecraft:melon_block";
-  MinecraftItemTypes2["MelonSeeds"] = "minecraft:melon_seeds";
-  MinecraftItemTypes2["MelonSlice"] = "minecraft:melon_slice";
-  MinecraftItemTypes2["MilkBucket"] = "minecraft:milk_bucket";
-  MinecraftItemTypes2["Minecart"] = "minecraft:minecart";
-  MinecraftItemTypes2["MinerPotterySherd"] = "minecraft:miner_pottery_sherd";
-  MinecraftItemTypes2["MobSpawner"] = "minecraft:mob_spawner";
-  MinecraftItemTypes2["MojangBannerPattern"] = "minecraft:mojang_banner_pattern";
-  MinecraftItemTypes2["MooshroomSpawnEgg"] = "minecraft:mooshroom_spawn_egg";
-  MinecraftItemTypes2["MossBlock"] = "minecraft:moss_block";
-  MinecraftItemTypes2["MossCarpet"] = "minecraft:moss_carpet";
-  MinecraftItemTypes2["MossyCobblestone"] = "minecraft:mossy_cobblestone";
-  MinecraftItemTypes2["MossyCobblestoneSlab"] = "minecraft:mossy_cobblestone_slab";
-  MinecraftItemTypes2["MossyCobblestoneStairs"] = "minecraft:mossy_cobblestone_stairs";
-  MinecraftItemTypes2["MossyCobblestoneWall"] = "minecraft:mossy_cobblestone_wall";
-  MinecraftItemTypes2["MossyStoneBrickSlab"] = "minecraft:mossy_stone_brick_slab";
-  MinecraftItemTypes2["MossyStoneBrickStairs"] = "minecraft:mossy_stone_brick_stairs";
-  MinecraftItemTypes2["MossyStoneBrickWall"] = "minecraft:mossy_stone_brick_wall";
-  MinecraftItemTypes2["MossyStoneBricks"] = "minecraft:mossy_stone_bricks";
-  MinecraftItemTypes2["MournerPotterySherd"] = "minecraft:mourner_pottery_sherd";
-  MinecraftItemTypes2["Mud"] = "minecraft:mud";
-  MinecraftItemTypes2["MudBrickSlab"] = "minecraft:mud_brick_slab";
-  MinecraftItemTypes2["MudBrickStairs"] = "minecraft:mud_brick_stairs";
-  MinecraftItemTypes2["MudBrickWall"] = "minecraft:mud_brick_wall";
-  MinecraftItemTypes2["MudBricks"] = "minecraft:mud_bricks";
-  MinecraftItemTypes2["MuddyMangroveRoots"] = "minecraft:muddy_mangrove_roots";
-  MinecraftItemTypes2["MuleSpawnEgg"] = "minecraft:mule_spawn_egg";
-  MinecraftItemTypes2["MushroomStem"] = "minecraft:mushroom_stem";
-  MinecraftItemTypes2["MushroomStew"] = "minecraft:mushroom_stew";
-  MinecraftItemTypes2["MusicDisc11"] = "minecraft:music_disc_11";
-  MinecraftItemTypes2["MusicDisc13"] = "minecraft:music_disc_13";
-  MinecraftItemTypes2["MusicDisc5"] = "minecraft:music_disc_5";
-  MinecraftItemTypes2["MusicDiscBlocks"] = "minecraft:music_disc_blocks";
-  MinecraftItemTypes2["MusicDiscCat"] = "minecraft:music_disc_cat";
-  MinecraftItemTypes2["MusicDiscChirp"] = "minecraft:music_disc_chirp";
-  MinecraftItemTypes2["MusicDiscCreator"] = "minecraft:music_disc_creator";
-  MinecraftItemTypes2["MusicDiscCreatorMusicBox"] = "minecraft:music_disc_creator_music_box";
-  MinecraftItemTypes2["MusicDiscFar"] = "minecraft:music_disc_far";
-  MinecraftItemTypes2["MusicDiscLavaChicken"] = "minecraft:music_disc_lava_chicken";
-  MinecraftItemTypes2["MusicDiscMall"] = "minecraft:music_disc_mall";
-  MinecraftItemTypes2["MusicDiscMellohi"] = "minecraft:music_disc_mellohi";
-  MinecraftItemTypes2["MusicDiscOtherside"] = "minecraft:music_disc_otherside";
-  MinecraftItemTypes2["MusicDiscPigstep"] = "minecraft:music_disc_pigstep";
-  MinecraftItemTypes2["MusicDiscPrecipice"] = "minecraft:music_disc_precipice";
-  MinecraftItemTypes2["MusicDiscRelic"] = "minecraft:music_disc_relic";
-  MinecraftItemTypes2["MusicDiscStal"] = "minecraft:music_disc_stal";
-  MinecraftItemTypes2["MusicDiscStrad"] = "minecraft:music_disc_strad";
-  MinecraftItemTypes2["MusicDiscTears"] = "minecraft:music_disc_tears";
-  MinecraftItemTypes2["MusicDiscWait"] = "minecraft:music_disc_wait";
-  MinecraftItemTypes2["MusicDiscWard"] = "minecraft:music_disc_ward";
-  MinecraftItemTypes2["Mutton"] = "minecraft:mutton";
-  MinecraftItemTypes2["Mycelium"] = "minecraft:mycelium";
-  MinecraftItemTypes2["NameTag"] = "minecraft:name_tag";
-  MinecraftItemTypes2["NautilusShell"] = "minecraft:nautilus_shell";
-  MinecraftItemTypes2["NetherBrick"] = "minecraft:nether_brick";
-  MinecraftItemTypes2["NetherBrickFence"] = "minecraft:nether_brick_fence";
-  MinecraftItemTypes2["NetherBrickSlab"] = "minecraft:nether_brick_slab";
-  MinecraftItemTypes2["NetherBrickStairs"] = "minecraft:nether_brick_stairs";
-  MinecraftItemTypes2["NetherBrickWall"] = "minecraft:nether_brick_wall";
-  MinecraftItemTypes2["NetherGoldOre"] = "minecraft:nether_gold_ore";
-  MinecraftItemTypes2["NetherSprouts"] = "minecraft:nether_sprouts";
-  MinecraftItemTypes2["NetherStar"] = "minecraft:nether_star";
-  MinecraftItemTypes2["NetherWart"] = "minecraft:nether_wart";
-  MinecraftItemTypes2["NetherWartBlock"] = "minecraft:nether_wart_block";
-  MinecraftItemTypes2["Netherbrick"] = "minecraft:netherbrick";
-  MinecraftItemTypes2["NetheriteAxe"] = "minecraft:netherite_axe";
-  MinecraftItemTypes2["NetheriteBlock"] = "minecraft:netherite_block";
-  MinecraftItemTypes2["NetheriteBoots"] = "minecraft:netherite_boots";
-  MinecraftItemTypes2["NetheriteChestplate"] = "minecraft:netherite_chestplate";
-  MinecraftItemTypes2["NetheriteHelmet"] = "minecraft:netherite_helmet";
-  MinecraftItemTypes2["NetheriteHoe"] = "minecraft:netherite_hoe";
-  MinecraftItemTypes2["NetheriteIngot"] = "minecraft:netherite_ingot";
-  MinecraftItemTypes2["NetheriteLeggings"] = "minecraft:netherite_leggings";
-  MinecraftItemTypes2["NetheritePickaxe"] = "minecraft:netherite_pickaxe";
-  MinecraftItemTypes2["NetheriteScrap"] = "minecraft:netherite_scrap";
-  MinecraftItemTypes2["NetheriteShovel"] = "minecraft:netherite_shovel";
-  MinecraftItemTypes2["NetheriteSword"] = "minecraft:netherite_sword";
-  MinecraftItemTypes2["NetheriteUpgradeSmithingTemplate"] = "minecraft:netherite_upgrade_smithing_template";
-  MinecraftItemTypes2["Netherrack"] = "minecraft:netherrack";
-  MinecraftItemTypes2["NormalStoneSlab"] = "minecraft:normal_stone_slab";
-  MinecraftItemTypes2["NormalStoneStairs"] = "minecraft:normal_stone_stairs";
-  MinecraftItemTypes2["Noteblock"] = "minecraft:noteblock";
-  MinecraftItemTypes2["OakBoat"] = "minecraft:oak_boat";
-  MinecraftItemTypes2["OakChestBoat"] = "minecraft:oak_chest_boat";
-  MinecraftItemTypes2["OakFence"] = "minecraft:oak_fence";
-  MinecraftItemTypes2["OakHangingSign"] = "minecraft:oak_hanging_sign";
-  MinecraftItemTypes2["OakLeaves"] = "minecraft:oak_leaves";
-  MinecraftItemTypes2["OakLog"] = "minecraft:oak_log";
-  MinecraftItemTypes2["OakPlanks"] = "minecraft:oak_planks";
-  MinecraftItemTypes2["OakSapling"] = "minecraft:oak_sapling";
-  MinecraftItemTypes2["OakSign"] = "minecraft:oak_sign";
-  MinecraftItemTypes2["OakSlab"] = "minecraft:oak_slab";
-  MinecraftItemTypes2["OakStairs"] = "minecraft:oak_stairs";
-  MinecraftItemTypes2["OakWood"] = "minecraft:oak_wood";
-  MinecraftItemTypes2["Observer"] = "minecraft:observer";
-  MinecraftItemTypes2["Obsidian"] = "minecraft:obsidian";
-  MinecraftItemTypes2["OcelotSpawnEgg"] = "minecraft:ocelot_spawn_egg";
-  MinecraftItemTypes2["OchreFroglight"] = "minecraft:ochre_froglight";
-  MinecraftItemTypes2["OminousBottle"] = "minecraft:ominous_bottle";
-  MinecraftItemTypes2["OminousTrialKey"] = "minecraft:ominous_trial_key";
-  MinecraftItemTypes2["OpenEyeblossom"] = "minecraft:open_eyeblossom";
-  MinecraftItemTypes2["OrangeBundle"] = "minecraft:orange_bundle";
-  MinecraftItemTypes2["OrangeCandle"] = "minecraft:orange_candle";
-  MinecraftItemTypes2["OrangeCarpet"] = "minecraft:orange_carpet";
-  MinecraftItemTypes2["OrangeConcrete"] = "minecraft:orange_concrete";
-  MinecraftItemTypes2["OrangeConcretePowder"] = "minecraft:orange_concrete_powder";
-  MinecraftItemTypes2["OrangeDye"] = "minecraft:orange_dye";
-  MinecraftItemTypes2["OrangeGlazedTerracotta"] = "minecraft:orange_glazed_terracotta";
-  MinecraftItemTypes2["OrangeHarness"] = "minecraft:orange_harness";
-  MinecraftItemTypes2["OrangeShulkerBox"] = "minecraft:orange_shulker_box";
-  MinecraftItemTypes2["OrangeStainedGlass"] = "minecraft:orange_stained_glass";
-  MinecraftItemTypes2["OrangeStainedGlassPane"] = "minecraft:orange_stained_glass_pane";
-  MinecraftItemTypes2["OrangeTerracotta"] = "minecraft:orange_terracotta";
-  MinecraftItemTypes2["OrangeTulip"] = "minecraft:orange_tulip";
-  MinecraftItemTypes2["OrangeWool"] = "minecraft:orange_wool";
-  MinecraftItemTypes2["OxeyeDaisy"] = "minecraft:oxeye_daisy";
-  MinecraftItemTypes2["OxidizedChiseledCopper"] = "minecraft:oxidized_chiseled_copper";
-  MinecraftItemTypes2["OxidizedCopper"] = "minecraft:oxidized_copper";
-  MinecraftItemTypes2["OxidizedCopperBulb"] = "minecraft:oxidized_copper_bulb";
-  MinecraftItemTypes2["OxidizedCopperChest"] = "minecraft:oxidized_copper_chest";
-  MinecraftItemTypes2["OxidizedCopperDoor"] = "minecraft:oxidized_copper_door";
-  MinecraftItemTypes2["OxidizedCopperGrate"] = "minecraft:oxidized_copper_grate";
-  MinecraftItemTypes2["OxidizedCopperTrapdoor"] = "minecraft:oxidized_copper_trapdoor";
-  MinecraftItemTypes2["OxidizedCutCopper"] = "minecraft:oxidized_cut_copper";
-  MinecraftItemTypes2["OxidizedCutCopperSlab"] = "minecraft:oxidized_cut_copper_slab";
-  MinecraftItemTypes2["OxidizedCutCopperStairs"] = "minecraft:oxidized_cut_copper_stairs";
-  MinecraftItemTypes2["PackedIce"] = "minecraft:packed_ice";
-  MinecraftItemTypes2["PackedMud"] = "minecraft:packed_mud";
-  MinecraftItemTypes2["Painting"] = "minecraft:painting";
-  MinecraftItemTypes2["PaleHangingMoss"] = "minecraft:pale_hanging_moss";
-  MinecraftItemTypes2["PaleMossBlock"] = "minecraft:pale_moss_block";
-  MinecraftItemTypes2["PaleMossCarpet"] = "minecraft:pale_moss_carpet";
-  MinecraftItemTypes2["PaleOakBoat"] = "minecraft:pale_oak_boat";
-  MinecraftItemTypes2["PaleOakButton"] = "minecraft:pale_oak_button";
-  MinecraftItemTypes2["PaleOakChestBoat"] = "minecraft:pale_oak_chest_boat";
-  MinecraftItemTypes2["PaleOakDoor"] = "minecraft:pale_oak_door";
-  MinecraftItemTypes2["PaleOakFence"] = "minecraft:pale_oak_fence";
-  MinecraftItemTypes2["PaleOakFenceGate"] = "minecraft:pale_oak_fence_gate";
-  MinecraftItemTypes2["PaleOakHangingSign"] = "minecraft:pale_oak_hanging_sign";
-  MinecraftItemTypes2["PaleOakLeaves"] = "minecraft:pale_oak_leaves";
-  MinecraftItemTypes2["PaleOakLog"] = "minecraft:pale_oak_log";
-  MinecraftItemTypes2["PaleOakPlanks"] = "minecraft:pale_oak_planks";
-  MinecraftItemTypes2["PaleOakPressurePlate"] = "minecraft:pale_oak_pressure_plate";
-  MinecraftItemTypes2["PaleOakSapling"] = "minecraft:pale_oak_sapling";
-  MinecraftItemTypes2["PaleOakSign"] = "minecraft:pale_oak_sign";
-  MinecraftItemTypes2["PaleOakSlab"] = "minecraft:pale_oak_slab";
-  MinecraftItemTypes2["PaleOakStairs"] = "minecraft:pale_oak_stairs";
-  MinecraftItemTypes2["PaleOakTrapdoor"] = "minecraft:pale_oak_trapdoor";
-  MinecraftItemTypes2["PaleOakWood"] = "minecraft:pale_oak_wood";
-  MinecraftItemTypes2["PandaSpawnEgg"] = "minecraft:panda_spawn_egg";
-  MinecraftItemTypes2["Paper"] = "minecraft:paper";
-  MinecraftItemTypes2["ParrotSpawnEgg"] = "minecraft:parrot_spawn_egg";
-  MinecraftItemTypes2["PearlescentFroglight"] = "minecraft:pearlescent_froglight";
-  MinecraftItemTypes2["Peony"] = "minecraft:peony";
-  MinecraftItemTypes2["PetrifiedOakSlab"] = "minecraft:petrified_oak_slab";
-  MinecraftItemTypes2["PhantomMembrane"] = "minecraft:phantom_membrane";
-  MinecraftItemTypes2["PhantomSpawnEgg"] = "minecraft:phantom_spawn_egg";
-  MinecraftItemTypes2["PigSpawnEgg"] = "minecraft:pig_spawn_egg";
-  MinecraftItemTypes2["PiglinBannerPattern"] = "minecraft:piglin_banner_pattern";
-  MinecraftItemTypes2["PiglinBruteSpawnEgg"] = "minecraft:piglin_brute_spawn_egg";
-  MinecraftItemTypes2["PiglinHead"] = "minecraft:piglin_head";
-  MinecraftItemTypes2["PiglinSpawnEgg"] = "minecraft:piglin_spawn_egg";
-  MinecraftItemTypes2["PillagerSpawnEgg"] = "minecraft:pillager_spawn_egg";
-  MinecraftItemTypes2["PinkBundle"] = "minecraft:pink_bundle";
-  MinecraftItemTypes2["PinkCandle"] = "minecraft:pink_candle";
-  MinecraftItemTypes2["PinkCarpet"] = "minecraft:pink_carpet";
-  MinecraftItemTypes2["PinkConcrete"] = "minecraft:pink_concrete";
-  MinecraftItemTypes2["PinkConcretePowder"] = "minecraft:pink_concrete_powder";
-  MinecraftItemTypes2["PinkDye"] = "minecraft:pink_dye";
-  MinecraftItemTypes2["PinkGlazedTerracotta"] = "minecraft:pink_glazed_terracotta";
-  MinecraftItemTypes2["PinkHarness"] = "minecraft:pink_harness";
-  MinecraftItemTypes2["PinkPetals"] = "minecraft:pink_petals";
-  MinecraftItemTypes2["PinkShulkerBox"] = "minecraft:pink_shulker_box";
-  MinecraftItemTypes2["PinkStainedGlass"] = "minecraft:pink_stained_glass";
-  MinecraftItemTypes2["PinkStainedGlassPane"] = "minecraft:pink_stained_glass_pane";
-  MinecraftItemTypes2["PinkTerracotta"] = "minecraft:pink_terracotta";
-  MinecraftItemTypes2["PinkTulip"] = "minecraft:pink_tulip";
-  MinecraftItemTypes2["PinkWool"] = "minecraft:pink_wool";
-  MinecraftItemTypes2["Piston"] = "minecraft:piston";
-  MinecraftItemTypes2["PitcherPlant"] = "minecraft:pitcher_plant";
-  MinecraftItemTypes2["PitcherPod"] = "minecraft:pitcher_pod";
-  MinecraftItemTypes2["PlayerHead"] = "minecraft:player_head";
-  MinecraftItemTypes2["PlentyPotterySherd"] = "minecraft:plenty_pottery_sherd";
-  MinecraftItemTypes2["Podzol"] = "minecraft:podzol";
-  MinecraftItemTypes2["PointedDripstone"] = "minecraft:pointed_dripstone";
-  MinecraftItemTypes2["PoisonousPotato"] = "minecraft:poisonous_potato";
-  MinecraftItemTypes2["PolarBearSpawnEgg"] = "minecraft:polar_bear_spawn_egg";
-  MinecraftItemTypes2["PolishedAndesite"] = "minecraft:polished_andesite";
-  MinecraftItemTypes2["PolishedAndesiteSlab"] = "minecraft:polished_andesite_slab";
-  MinecraftItemTypes2["PolishedAndesiteStairs"] = "minecraft:polished_andesite_stairs";
-  MinecraftItemTypes2["PolishedBasalt"] = "minecraft:polished_basalt";
-  MinecraftItemTypes2["PolishedBlackstone"] = "minecraft:polished_blackstone";
-  MinecraftItemTypes2["PolishedBlackstoneBrickSlab"] = "minecraft:polished_blackstone_brick_slab";
-  MinecraftItemTypes2["PolishedBlackstoneBrickStairs"] = "minecraft:polished_blackstone_brick_stairs";
-  MinecraftItemTypes2["PolishedBlackstoneBrickWall"] = "minecraft:polished_blackstone_brick_wall";
-  MinecraftItemTypes2["PolishedBlackstoneBricks"] = "minecraft:polished_blackstone_bricks";
-  MinecraftItemTypes2["PolishedBlackstoneButton"] = "minecraft:polished_blackstone_button";
-  MinecraftItemTypes2["PolishedBlackstonePressurePlate"] = "minecraft:polished_blackstone_pressure_plate";
-  MinecraftItemTypes2["PolishedBlackstoneSlab"] = "minecraft:polished_blackstone_slab";
-  MinecraftItemTypes2["PolishedBlackstoneStairs"] = "minecraft:polished_blackstone_stairs";
-  MinecraftItemTypes2["PolishedBlackstoneWall"] = "minecraft:polished_blackstone_wall";
-  MinecraftItemTypes2["PolishedDeepslate"] = "minecraft:polished_deepslate";
-  MinecraftItemTypes2["PolishedDeepslateSlab"] = "minecraft:polished_deepslate_slab";
-  MinecraftItemTypes2["PolishedDeepslateStairs"] = "minecraft:polished_deepslate_stairs";
-  MinecraftItemTypes2["PolishedDeepslateWall"] = "minecraft:polished_deepslate_wall";
-  MinecraftItemTypes2["PolishedDiorite"] = "minecraft:polished_diorite";
-  MinecraftItemTypes2["PolishedDioriteSlab"] = "minecraft:polished_diorite_slab";
-  MinecraftItemTypes2["PolishedDioriteStairs"] = "minecraft:polished_diorite_stairs";
-  MinecraftItemTypes2["PolishedGranite"] = "minecraft:polished_granite";
-  MinecraftItemTypes2["PolishedGraniteSlab"] = "minecraft:polished_granite_slab";
-  MinecraftItemTypes2["PolishedGraniteStairs"] = "minecraft:polished_granite_stairs";
-  MinecraftItemTypes2["PolishedTuff"] = "minecraft:polished_tuff";
-  MinecraftItemTypes2["PolishedTuffSlab"] = "minecraft:polished_tuff_slab";
-  MinecraftItemTypes2["PolishedTuffStairs"] = "minecraft:polished_tuff_stairs";
-  MinecraftItemTypes2["PolishedTuffWall"] = "minecraft:polished_tuff_wall";
-  MinecraftItemTypes2["PoppedChorusFruit"] = "minecraft:popped_chorus_fruit";
-  MinecraftItemTypes2["Poppy"] = "minecraft:poppy";
-  MinecraftItemTypes2["Porkchop"] = "minecraft:porkchop";
-  MinecraftItemTypes2["Potato"] = "minecraft:potato";
-  MinecraftItemTypes2["Potion"] = "minecraft:potion";
-  MinecraftItemTypes2["PowderSnowBucket"] = "minecraft:powder_snow_bucket";
-  MinecraftItemTypes2["Prismarine"] = "minecraft:prismarine";
-  MinecraftItemTypes2["PrismarineBrickSlab"] = "minecraft:prismarine_brick_slab";
-  MinecraftItemTypes2["PrismarineBricks"] = "minecraft:prismarine_bricks";
-  MinecraftItemTypes2["PrismarineBricksStairs"] = "minecraft:prismarine_bricks_stairs";
-  MinecraftItemTypes2["PrismarineCrystals"] = "minecraft:prismarine_crystals";
-  MinecraftItemTypes2["PrismarineShard"] = "minecraft:prismarine_shard";
-  MinecraftItemTypes2["PrismarineSlab"] = "minecraft:prismarine_slab";
-  MinecraftItemTypes2["PrismarineStairs"] = "minecraft:prismarine_stairs";
-  MinecraftItemTypes2["PrismarineWall"] = "minecraft:prismarine_wall";
-  MinecraftItemTypes2["PrizePotterySherd"] = "minecraft:prize_pottery_sherd";
-  MinecraftItemTypes2["Pufferfish"] = "minecraft:pufferfish";
-  MinecraftItemTypes2["PufferfishBucket"] = "minecraft:pufferfish_bucket";
-  MinecraftItemTypes2["PufferfishSpawnEgg"] = "minecraft:pufferfish_spawn_egg";
-  MinecraftItemTypes2["Pumpkin"] = "minecraft:pumpkin";
-  MinecraftItemTypes2["PumpkinPie"] = "minecraft:pumpkin_pie";
-  MinecraftItemTypes2["PumpkinSeeds"] = "minecraft:pumpkin_seeds";
-  MinecraftItemTypes2["PurpleBundle"] = "minecraft:purple_bundle";
-  MinecraftItemTypes2["PurpleCandle"] = "minecraft:purple_candle";
-  MinecraftItemTypes2["PurpleCarpet"] = "minecraft:purple_carpet";
-  MinecraftItemTypes2["PurpleConcrete"] = "minecraft:purple_concrete";
-  MinecraftItemTypes2["PurpleConcretePowder"] = "minecraft:purple_concrete_powder";
-  MinecraftItemTypes2["PurpleDye"] = "minecraft:purple_dye";
-  MinecraftItemTypes2["PurpleGlazedTerracotta"] = "minecraft:purple_glazed_terracotta";
-  MinecraftItemTypes2["PurpleHarness"] = "minecraft:purple_harness";
-  MinecraftItemTypes2["PurpleShulkerBox"] = "minecraft:purple_shulker_box";
-  MinecraftItemTypes2["PurpleStainedGlass"] = "minecraft:purple_stained_glass";
-  MinecraftItemTypes2["PurpleStainedGlassPane"] = "minecraft:purple_stained_glass_pane";
-  MinecraftItemTypes2["PurpleTerracotta"] = "minecraft:purple_terracotta";
-  MinecraftItemTypes2["PurpleWool"] = "minecraft:purple_wool";
-  MinecraftItemTypes2["PurpurBlock"] = "minecraft:purpur_block";
-  MinecraftItemTypes2["PurpurPillar"] = "minecraft:purpur_pillar";
-  MinecraftItemTypes2["PurpurSlab"] = "minecraft:purpur_slab";
-  MinecraftItemTypes2["PurpurStairs"] = "minecraft:purpur_stairs";
-  MinecraftItemTypes2["Quartz"] = "minecraft:quartz";
-  MinecraftItemTypes2["QuartzBlock"] = "minecraft:quartz_block";
-  MinecraftItemTypes2["QuartzBricks"] = "minecraft:quartz_bricks";
-  MinecraftItemTypes2["QuartzOre"] = "minecraft:quartz_ore";
-  MinecraftItemTypes2["QuartzPillar"] = "minecraft:quartz_pillar";
-  MinecraftItemTypes2["QuartzSlab"] = "minecraft:quartz_slab";
-  MinecraftItemTypes2["QuartzStairs"] = "minecraft:quartz_stairs";
-  MinecraftItemTypes2["Rabbit"] = "minecraft:rabbit";
-  MinecraftItemTypes2["RabbitFoot"] = "minecraft:rabbit_foot";
-  MinecraftItemTypes2["RabbitHide"] = "minecraft:rabbit_hide";
-  MinecraftItemTypes2["RabbitSpawnEgg"] = "minecraft:rabbit_spawn_egg";
-  MinecraftItemTypes2["RabbitStew"] = "minecraft:rabbit_stew";
-  MinecraftItemTypes2["Rail"] = "minecraft:rail";
-  MinecraftItemTypes2["RaiserArmorTrimSmithingTemplate"] = "minecraft:raiser_armor_trim_smithing_template";
-  MinecraftItemTypes2["RavagerSpawnEgg"] = "minecraft:ravager_spawn_egg";
-  MinecraftItemTypes2["RawCopper"] = "minecraft:raw_copper";
-  MinecraftItemTypes2["RawCopperBlock"] = "minecraft:raw_copper_block";
-  MinecraftItemTypes2["RawGold"] = "minecraft:raw_gold";
-  MinecraftItemTypes2["RawGoldBlock"] = "minecraft:raw_gold_block";
-  MinecraftItemTypes2["RawIron"] = "minecraft:raw_iron";
-  MinecraftItemTypes2["RawIronBlock"] = "minecraft:raw_iron_block";
-  MinecraftItemTypes2["RecoveryCompass"] = "minecraft:recovery_compass";
-  MinecraftItemTypes2["RedBundle"] = "minecraft:red_bundle";
-  MinecraftItemTypes2["RedCandle"] = "minecraft:red_candle";
-  MinecraftItemTypes2["RedCarpet"] = "minecraft:red_carpet";
-  MinecraftItemTypes2["RedConcrete"] = "minecraft:red_concrete";
-  MinecraftItemTypes2["RedConcretePowder"] = "minecraft:red_concrete_powder";
-  MinecraftItemTypes2["RedDye"] = "minecraft:red_dye";
-  MinecraftItemTypes2["RedGlazedTerracotta"] = "minecraft:red_glazed_terracotta";
-  MinecraftItemTypes2["RedHarness"] = "minecraft:red_harness";
-  MinecraftItemTypes2["RedMushroom"] = "minecraft:red_mushroom";
-  MinecraftItemTypes2["RedMushroomBlock"] = "minecraft:red_mushroom_block";
-  MinecraftItemTypes2["RedNetherBrick"] = "minecraft:red_nether_brick";
-  MinecraftItemTypes2["RedNetherBrickSlab"] = "minecraft:red_nether_brick_slab";
-  MinecraftItemTypes2["RedNetherBrickStairs"] = "minecraft:red_nether_brick_stairs";
-  MinecraftItemTypes2["RedNetherBrickWall"] = "minecraft:red_nether_brick_wall";
-  MinecraftItemTypes2["RedSand"] = "minecraft:red_sand";
-  MinecraftItemTypes2["RedSandstone"] = "minecraft:red_sandstone";
-  MinecraftItemTypes2["RedSandstoneSlab"] = "minecraft:red_sandstone_slab";
-  MinecraftItemTypes2["RedSandstoneStairs"] = "minecraft:red_sandstone_stairs";
-  MinecraftItemTypes2["RedSandstoneWall"] = "minecraft:red_sandstone_wall";
-  MinecraftItemTypes2["RedShulkerBox"] = "minecraft:red_shulker_box";
-  MinecraftItemTypes2["RedStainedGlass"] = "minecraft:red_stained_glass";
-  MinecraftItemTypes2["RedStainedGlassPane"] = "minecraft:red_stained_glass_pane";
-  MinecraftItemTypes2["RedTerracotta"] = "minecraft:red_terracotta";
-  MinecraftItemTypes2["RedTulip"] = "minecraft:red_tulip";
-  MinecraftItemTypes2["RedWool"] = "minecraft:red_wool";
-  MinecraftItemTypes2["Redstone"] = "minecraft:redstone";
-  MinecraftItemTypes2["RedstoneBlock"] = "minecraft:redstone_block";
-  MinecraftItemTypes2["RedstoneLamp"] = "minecraft:redstone_lamp";
-  MinecraftItemTypes2["RedstoneOre"] = "minecraft:redstone_ore";
-  MinecraftItemTypes2["RedstoneTorch"] = "minecraft:redstone_torch";
-  MinecraftItemTypes2["ReinforcedDeepslate"] = "minecraft:reinforced_deepslate";
-  MinecraftItemTypes2["Repeater"] = "minecraft:repeater";
-  MinecraftItemTypes2["RepeatingCommandBlock"] = "minecraft:repeating_command_block";
-  MinecraftItemTypes2["ResinBlock"] = "minecraft:resin_block";
-  MinecraftItemTypes2["ResinBrick"] = "minecraft:resin_brick";
-  MinecraftItemTypes2["ResinBrickSlab"] = "minecraft:resin_brick_slab";
-  MinecraftItemTypes2["ResinBrickStairs"] = "minecraft:resin_brick_stairs";
-  MinecraftItemTypes2["ResinBrickWall"] = "minecraft:resin_brick_wall";
-  MinecraftItemTypes2["ResinBricks"] = "minecraft:resin_bricks";
-  MinecraftItemTypes2["ResinClump"] = "minecraft:resin_clump";
-  MinecraftItemTypes2["RespawnAnchor"] = "minecraft:respawn_anchor";
-  MinecraftItemTypes2["RibArmorTrimSmithingTemplate"] = "minecraft:rib_armor_trim_smithing_template";
-  MinecraftItemTypes2["RoseBush"] = "minecraft:rose_bush";
-  MinecraftItemTypes2["RottenFlesh"] = "minecraft:rotten_flesh";
-  MinecraftItemTypes2["Saddle"] = "minecraft:saddle";
-  MinecraftItemTypes2["Salmon"] = "minecraft:salmon";
-  MinecraftItemTypes2["SalmonBucket"] = "minecraft:salmon_bucket";
-  MinecraftItemTypes2["SalmonSpawnEgg"] = "minecraft:salmon_spawn_egg";
-  MinecraftItemTypes2["Sand"] = "minecraft:sand";
-  MinecraftItemTypes2["Sandstone"] = "minecraft:sandstone";
-  MinecraftItemTypes2["SandstoneSlab"] = "minecraft:sandstone_slab";
-  MinecraftItemTypes2["SandstoneStairs"] = "minecraft:sandstone_stairs";
-  MinecraftItemTypes2["SandstoneWall"] = "minecraft:sandstone_wall";
-  MinecraftItemTypes2["Scaffolding"] = "minecraft:scaffolding";
-  MinecraftItemTypes2["ScrapePotterySherd"] = "minecraft:scrape_pottery_sherd";
-  MinecraftItemTypes2["Sculk"] = "minecraft:sculk";
-  MinecraftItemTypes2["SculkCatalyst"] = "minecraft:sculk_catalyst";
-  MinecraftItemTypes2["SculkSensor"] = "minecraft:sculk_sensor";
-  MinecraftItemTypes2["SculkShrieker"] = "minecraft:sculk_shrieker";
-  MinecraftItemTypes2["SculkVein"] = "minecraft:sculk_vein";
-  MinecraftItemTypes2["SeaLantern"] = "minecraft:sea_lantern";
-  MinecraftItemTypes2["SeaPickle"] = "minecraft:sea_pickle";
-  MinecraftItemTypes2["Seagrass"] = "minecraft:seagrass";
-  MinecraftItemTypes2["SentryArmorTrimSmithingTemplate"] = "minecraft:sentry_armor_trim_smithing_template";
-  MinecraftItemTypes2["ShaperArmorTrimSmithingTemplate"] = "minecraft:shaper_armor_trim_smithing_template";
-  MinecraftItemTypes2["SheafPotterySherd"] = "minecraft:sheaf_pottery_sherd";
-  MinecraftItemTypes2["Shears"] = "minecraft:shears";
-  MinecraftItemTypes2["SheepSpawnEgg"] = "minecraft:sheep_spawn_egg";
-  MinecraftItemTypes2["ShelterPotterySherd"] = "minecraft:shelter_pottery_sherd";
-  MinecraftItemTypes2["Shield"] = "minecraft:shield";
-  MinecraftItemTypes2["ShortDryGrass"] = "minecraft:short_dry_grass";
-  MinecraftItemTypes2["ShortGrass"] = "minecraft:short_grass";
-  MinecraftItemTypes2["Shroomlight"] = "minecraft:shroomlight";
-  MinecraftItemTypes2["ShulkerShell"] = "minecraft:shulker_shell";
-  MinecraftItemTypes2["ShulkerSpawnEgg"] = "minecraft:shulker_spawn_egg";
-  MinecraftItemTypes2["SilenceArmorTrimSmithingTemplate"] = "minecraft:silence_armor_trim_smithing_template";
-  MinecraftItemTypes2["SilverGlazedTerracotta"] = "minecraft:silver_glazed_terracotta";
-  MinecraftItemTypes2["SilverfishSpawnEgg"] = "minecraft:silverfish_spawn_egg";
-  MinecraftItemTypes2["SkeletonHorseSpawnEgg"] = "minecraft:skeleton_horse_spawn_egg";
-  MinecraftItemTypes2["SkeletonSkull"] = "minecraft:skeleton_skull";
-  MinecraftItemTypes2["SkeletonSpawnEgg"] = "minecraft:skeleton_spawn_egg";
-  MinecraftItemTypes2["SkullBannerPattern"] = "minecraft:skull_banner_pattern";
-  MinecraftItemTypes2["SkullPotterySherd"] = "minecraft:skull_pottery_sherd";
-  MinecraftItemTypes2["Slime"] = "minecraft:slime";
-  MinecraftItemTypes2["SlimeBall"] = "minecraft:slime_ball";
-  MinecraftItemTypes2["SlimeSpawnEgg"] = "minecraft:slime_spawn_egg";
-  MinecraftItemTypes2["SmallAmethystBud"] = "minecraft:small_amethyst_bud";
-  MinecraftItemTypes2["SmallDripleafBlock"] = "minecraft:small_dripleaf_block";
-  MinecraftItemTypes2["SmithingTable"] = "minecraft:smithing_table";
-  MinecraftItemTypes2["Smoker"] = "minecraft:smoker";
-  MinecraftItemTypes2["SmoothBasalt"] = "minecraft:smooth_basalt";
-  MinecraftItemTypes2["SmoothQuartz"] = "minecraft:smooth_quartz";
-  MinecraftItemTypes2["SmoothQuartzSlab"] = "minecraft:smooth_quartz_slab";
-  MinecraftItemTypes2["SmoothQuartzStairs"] = "minecraft:smooth_quartz_stairs";
-  MinecraftItemTypes2["SmoothRedSandstone"] = "minecraft:smooth_red_sandstone";
-  MinecraftItemTypes2["SmoothRedSandstoneSlab"] = "minecraft:smooth_red_sandstone_slab";
-  MinecraftItemTypes2["SmoothRedSandstoneStairs"] = "minecraft:smooth_red_sandstone_stairs";
-  MinecraftItemTypes2["SmoothSandstone"] = "minecraft:smooth_sandstone";
-  MinecraftItemTypes2["SmoothSandstoneSlab"] = "minecraft:smooth_sandstone_slab";
-  MinecraftItemTypes2["SmoothSandstoneStairs"] = "minecraft:smooth_sandstone_stairs";
-  MinecraftItemTypes2["SmoothStone"] = "minecraft:smooth_stone";
-  MinecraftItemTypes2["SmoothStoneSlab"] = "minecraft:smooth_stone_slab";
-  MinecraftItemTypes2["SnifferEgg"] = "minecraft:sniffer_egg";
-  MinecraftItemTypes2["SnifferSpawnEgg"] = "minecraft:sniffer_spawn_egg";
-  MinecraftItemTypes2["SnortPotterySherd"] = "minecraft:snort_pottery_sherd";
-  MinecraftItemTypes2["SnoutArmorTrimSmithingTemplate"] = "minecraft:snout_armor_trim_smithing_template";
-  MinecraftItemTypes2["Snow"] = "minecraft:snow";
-  MinecraftItemTypes2["SnowGolemSpawnEgg"] = "minecraft:snow_golem_spawn_egg";
-  MinecraftItemTypes2["SnowLayer"] = "minecraft:snow_layer";
-  MinecraftItemTypes2["Snowball"] = "minecraft:snowball";
-  MinecraftItemTypes2["SoulCampfire"] = "minecraft:soul_campfire";
-  MinecraftItemTypes2["SoulLantern"] = "minecraft:soul_lantern";
-  MinecraftItemTypes2["SoulSand"] = "minecraft:soul_sand";
-  MinecraftItemTypes2["SoulSoil"] = "minecraft:soul_soil";
-  MinecraftItemTypes2["SoulTorch"] = "minecraft:soul_torch";
-  MinecraftItemTypes2["SpiderEye"] = "minecraft:spider_eye";
-  MinecraftItemTypes2["SpiderSpawnEgg"] = "minecraft:spider_spawn_egg";
-  MinecraftItemTypes2["SpireArmorTrimSmithingTemplate"] = "minecraft:spire_armor_trim_smithing_template";
-  MinecraftItemTypes2["SplashPotion"] = "minecraft:splash_potion";
-  MinecraftItemTypes2["Sponge"] = "minecraft:sponge";
-  MinecraftItemTypes2["SporeBlossom"] = "minecraft:spore_blossom";
-  MinecraftItemTypes2["SpruceBoat"] = "minecraft:spruce_boat";
-  MinecraftItemTypes2["SpruceButton"] = "minecraft:spruce_button";
-  MinecraftItemTypes2["SpruceChestBoat"] = "minecraft:spruce_chest_boat";
-  MinecraftItemTypes2["SpruceDoor"] = "minecraft:spruce_door";
-  MinecraftItemTypes2["SpruceFence"] = "minecraft:spruce_fence";
-  MinecraftItemTypes2["SpruceFenceGate"] = "minecraft:spruce_fence_gate";
-  MinecraftItemTypes2["SpruceHangingSign"] = "minecraft:spruce_hanging_sign";
-  MinecraftItemTypes2["SpruceLeaves"] = "minecraft:spruce_leaves";
-  MinecraftItemTypes2["SpruceLog"] = "minecraft:spruce_log";
-  MinecraftItemTypes2["SprucePlanks"] = "minecraft:spruce_planks";
-  MinecraftItemTypes2["SprucePressurePlate"] = "minecraft:spruce_pressure_plate";
-  MinecraftItemTypes2["SpruceSapling"] = "minecraft:spruce_sapling";
-  MinecraftItemTypes2["SpruceSign"] = "minecraft:spruce_sign";
-  MinecraftItemTypes2["SpruceSlab"] = "minecraft:spruce_slab";
-  MinecraftItemTypes2["SpruceStairs"] = "minecraft:spruce_stairs";
-  MinecraftItemTypes2["SpruceTrapdoor"] = "minecraft:spruce_trapdoor";
-  MinecraftItemTypes2["SpruceWood"] = "minecraft:spruce_wood";
-  MinecraftItemTypes2["Spyglass"] = "minecraft:spyglass";
-  MinecraftItemTypes2["SquidSpawnEgg"] = "minecraft:squid_spawn_egg";
-  MinecraftItemTypes2["Stick"] = "minecraft:stick";
-  MinecraftItemTypes2["StickyPiston"] = "minecraft:sticky_piston";
-  MinecraftItemTypes2["Stone"] = "minecraft:stone";
-  MinecraftItemTypes2["StoneAxe"] = "minecraft:stone_axe";
-  MinecraftItemTypes2["StoneBrickSlab"] = "minecraft:stone_brick_slab";
-  MinecraftItemTypes2["StoneBrickStairs"] = "minecraft:stone_brick_stairs";
-  MinecraftItemTypes2["StoneBrickWall"] = "minecraft:stone_brick_wall";
-  MinecraftItemTypes2["StoneBricks"] = "minecraft:stone_bricks";
-  MinecraftItemTypes2["StoneButton"] = "minecraft:stone_button";
-  MinecraftItemTypes2["StoneHoe"] = "minecraft:stone_hoe";
-  MinecraftItemTypes2["StonePickaxe"] = "minecraft:stone_pickaxe";
-  MinecraftItemTypes2["StonePressurePlate"] = "minecraft:stone_pressure_plate";
-  MinecraftItemTypes2["StoneShovel"] = "minecraft:stone_shovel";
-  MinecraftItemTypes2["StoneStairs"] = "minecraft:stone_stairs";
-  MinecraftItemTypes2["StoneSword"] = "minecraft:stone_sword";
-  MinecraftItemTypes2["StonecutterBlock"] = "minecraft:stonecutter_block";
-  MinecraftItemTypes2["StraySpawnEgg"] = "minecraft:stray_spawn_egg";
-  MinecraftItemTypes2["StriderSpawnEgg"] = "minecraft:strider_spawn_egg";
-  MinecraftItemTypes2["String"] = "minecraft:string";
-  MinecraftItemTypes2["StrippedAcaciaLog"] = "minecraft:stripped_acacia_log";
-  MinecraftItemTypes2["StrippedAcaciaWood"] = "minecraft:stripped_acacia_wood";
-  MinecraftItemTypes2["StrippedBambooBlock"] = "minecraft:stripped_bamboo_block";
-  MinecraftItemTypes2["StrippedBirchLog"] = "minecraft:stripped_birch_log";
-  MinecraftItemTypes2["StrippedBirchWood"] = "minecraft:stripped_birch_wood";
-  MinecraftItemTypes2["StrippedCherryLog"] = "minecraft:stripped_cherry_log";
-  MinecraftItemTypes2["StrippedCherryWood"] = "minecraft:stripped_cherry_wood";
-  MinecraftItemTypes2["StrippedCrimsonHyphae"] = "minecraft:stripped_crimson_hyphae";
-  MinecraftItemTypes2["StrippedCrimsonStem"] = "minecraft:stripped_crimson_stem";
-  MinecraftItemTypes2["StrippedDarkOakLog"] = "minecraft:stripped_dark_oak_log";
-  MinecraftItemTypes2["StrippedDarkOakWood"] = "minecraft:stripped_dark_oak_wood";
-  MinecraftItemTypes2["StrippedJungleLog"] = "minecraft:stripped_jungle_log";
-  MinecraftItemTypes2["StrippedJungleWood"] = "minecraft:stripped_jungle_wood";
-  MinecraftItemTypes2["StrippedMangroveLog"] = "minecraft:stripped_mangrove_log";
-  MinecraftItemTypes2["StrippedMangroveWood"] = "minecraft:stripped_mangrove_wood";
-  MinecraftItemTypes2["StrippedOakLog"] = "minecraft:stripped_oak_log";
-  MinecraftItemTypes2["StrippedOakWood"] = "minecraft:stripped_oak_wood";
-  MinecraftItemTypes2["StrippedPaleOakLog"] = "minecraft:stripped_pale_oak_log";
-  MinecraftItemTypes2["StrippedPaleOakWood"] = "minecraft:stripped_pale_oak_wood";
-  MinecraftItemTypes2["StrippedSpruceLog"] = "minecraft:stripped_spruce_log";
-  MinecraftItemTypes2["StrippedSpruceWood"] = "minecraft:stripped_spruce_wood";
-  MinecraftItemTypes2["StrippedWarpedHyphae"] = "minecraft:stripped_warped_hyphae";
-  MinecraftItemTypes2["StrippedWarpedStem"] = "minecraft:stripped_warped_stem";
-  MinecraftItemTypes2["StructureBlock"] = "minecraft:structure_block";
-  MinecraftItemTypes2["StructureVoid"] = "minecraft:structure_void";
-  MinecraftItemTypes2["Sugar"] = "minecraft:sugar";
-  MinecraftItemTypes2["SugarCane"] = "minecraft:sugar_cane";
-  MinecraftItemTypes2["Sunflower"] = "minecraft:sunflower";
-  MinecraftItemTypes2["SuspiciousGravel"] = "minecraft:suspicious_gravel";
-  MinecraftItemTypes2["SuspiciousSand"] = "minecraft:suspicious_sand";
-  MinecraftItemTypes2["SuspiciousStew"] = "minecraft:suspicious_stew";
-  MinecraftItemTypes2["SweetBerries"] = "minecraft:sweet_berries";
-  MinecraftItemTypes2["TadpoleBucket"] = "minecraft:tadpole_bucket";
-  MinecraftItemTypes2["TadpoleSpawnEgg"] = "minecraft:tadpole_spawn_egg";
-  MinecraftItemTypes2["TallDryGrass"] = "minecraft:tall_dry_grass";
-  MinecraftItemTypes2["TallGrass"] = "minecraft:tall_grass";
-  MinecraftItemTypes2["Target"] = "minecraft:target";
-  MinecraftItemTypes2["TideArmorTrimSmithingTemplate"] = "minecraft:tide_armor_trim_smithing_template";
-  MinecraftItemTypes2["TintedGlass"] = "minecraft:tinted_glass";
-  MinecraftItemTypes2["Tnt"] = "minecraft:tnt";
-  MinecraftItemTypes2["TntMinecart"] = "minecraft:tnt_minecart";
-  MinecraftItemTypes2["Torch"] = "minecraft:torch";
-  MinecraftItemTypes2["Torchflower"] = "minecraft:torchflower";
-  MinecraftItemTypes2["TorchflowerSeeds"] = "minecraft:torchflower_seeds";
-  MinecraftItemTypes2["TotemOfUndying"] = "minecraft:totem_of_undying";
-  MinecraftItemTypes2["TraderLlamaSpawnEgg"] = "minecraft:trader_llama_spawn_egg";
-  MinecraftItemTypes2["Trapdoor"] = "minecraft:trapdoor";
-  MinecraftItemTypes2["TrappedChest"] = "minecraft:trapped_chest";
-  MinecraftItemTypes2["TrialKey"] = "minecraft:trial_key";
-  MinecraftItemTypes2["TrialSpawner"] = "minecraft:trial_spawner";
-  MinecraftItemTypes2["Trident"] = "minecraft:trident";
-  MinecraftItemTypes2["TripwireHook"] = "minecraft:tripwire_hook";
-  MinecraftItemTypes2["TropicalFish"] = "minecraft:tropical_fish";
-  MinecraftItemTypes2["TropicalFishBucket"] = "minecraft:tropical_fish_bucket";
-  MinecraftItemTypes2["TropicalFishSpawnEgg"] = "minecraft:tropical_fish_spawn_egg";
-  MinecraftItemTypes2["TubeCoral"] = "minecraft:tube_coral";
-  MinecraftItemTypes2["TubeCoralBlock"] = "minecraft:tube_coral_block";
-  MinecraftItemTypes2["TubeCoralFan"] = "minecraft:tube_coral_fan";
-  MinecraftItemTypes2["Tuff"] = "minecraft:tuff";
-  MinecraftItemTypes2["TuffBrickSlab"] = "minecraft:tuff_brick_slab";
-  MinecraftItemTypes2["TuffBrickStairs"] = "minecraft:tuff_brick_stairs";
-  MinecraftItemTypes2["TuffBrickWall"] = "minecraft:tuff_brick_wall";
-  MinecraftItemTypes2["TuffBricks"] = "minecraft:tuff_bricks";
-  MinecraftItemTypes2["TuffSlab"] = "minecraft:tuff_slab";
-  MinecraftItemTypes2["TuffStairs"] = "minecraft:tuff_stairs";
-  MinecraftItemTypes2["TuffWall"] = "minecraft:tuff_wall";
-  MinecraftItemTypes2["TurtleEgg"] = "minecraft:turtle_egg";
-  MinecraftItemTypes2["TurtleHelmet"] = "minecraft:turtle_helmet";
-  MinecraftItemTypes2["TurtleScute"] = "minecraft:turtle_scute";
-  MinecraftItemTypes2["TurtleSpawnEgg"] = "minecraft:turtle_spawn_egg";
-  MinecraftItemTypes2["TwistingVines"] = "minecraft:twisting_vines";
-  MinecraftItemTypes2["UndyedShulkerBox"] = "minecraft:undyed_shulker_box";
-  MinecraftItemTypes2["Vault"] = "minecraft:vault";
-  MinecraftItemTypes2["VerdantFroglight"] = "minecraft:verdant_froglight";
-  MinecraftItemTypes2["VexArmorTrimSmithingTemplate"] = "minecraft:vex_armor_trim_smithing_template";
-  MinecraftItemTypes2["VexSpawnEgg"] = "minecraft:vex_spawn_egg";
-  MinecraftItemTypes2["VillagerSpawnEgg"] = "minecraft:villager_spawn_egg";
-  MinecraftItemTypes2["VindicatorSpawnEgg"] = "minecraft:vindicator_spawn_egg";
-  MinecraftItemTypes2["Vine"] = "minecraft:vine";
-  MinecraftItemTypes2["WanderingTraderSpawnEgg"] = "minecraft:wandering_trader_spawn_egg";
-  MinecraftItemTypes2["WardArmorTrimSmithingTemplate"] = "minecraft:ward_armor_trim_smithing_template";
-  MinecraftItemTypes2["WardenSpawnEgg"] = "minecraft:warden_spawn_egg";
-  MinecraftItemTypes2["WarpedButton"] = "minecraft:warped_button";
-  MinecraftItemTypes2["WarpedDoor"] = "minecraft:warped_door";
-  MinecraftItemTypes2["WarpedFence"] = "minecraft:warped_fence";
-  MinecraftItemTypes2["WarpedFenceGate"] = "minecraft:warped_fence_gate";
-  MinecraftItemTypes2["WarpedFungus"] = "minecraft:warped_fungus";
-  MinecraftItemTypes2["WarpedFungusOnAStick"] = "minecraft:warped_fungus_on_a_stick";
-  MinecraftItemTypes2["WarpedHangingSign"] = "minecraft:warped_hanging_sign";
-  MinecraftItemTypes2["WarpedHyphae"] = "minecraft:warped_hyphae";
-  MinecraftItemTypes2["WarpedNylium"] = "minecraft:warped_nylium";
-  MinecraftItemTypes2["WarpedPlanks"] = "minecraft:warped_planks";
-  MinecraftItemTypes2["WarpedPressurePlate"] = "minecraft:warped_pressure_plate";
-  MinecraftItemTypes2["WarpedRoots"] = "minecraft:warped_roots";
-  MinecraftItemTypes2["WarpedSign"] = "minecraft:warped_sign";
-  MinecraftItemTypes2["WarpedSlab"] = "minecraft:warped_slab";
-  MinecraftItemTypes2["WarpedStairs"] = "minecraft:warped_stairs";
-  MinecraftItemTypes2["WarpedStem"] = "minecraft:warped_stem";
-  MinecraftItemTypes2["WarpedTrapdoor"] = "minecraft:warped_trapdoor";
-  MinecraftItemTypes2["WarpedWartBlock"] = "minecraft:warped_wart_block";
-  MinecraftItemTypes2["WaterBucket"] = "minecraft:water_bucket";
-  MinecraftItemTypes2["Waterlily"] = "minecraft:waterlily";
-  MinecraftItemTypes2["WaxedChiseledCopper"] = "minecraft:waxed_chiseled_copper";
-  MinecraftItemTypes2["WaxedCopper"] = "minecraft:waxed_copper";
-  MinecraftItemTypes2["WaxedCopperBulb"] = "minecraft:waxed_copper_bulb";
-  MinecraftItemTypes2["WaxedCopperChest"] = "minecraft:waxed_copper_chest";
-  MinecraftItemTypes2["WaxedCopperDoor"] = "minecraft:waxed_copper_door";
-  MinecraftItemTypes2["WaxedCopperGrate"] = "minecraft:waxed_copper_grate";
-  MinecraftItemTypes2["WaxedCopperTrapdoor"] = "minecraft:waxed_copper_trapdoor";
-  MinecraftItemTypes2["WaxedCutCopper"] = "minecraft:waxed_cut_copper";
-  MinecraftItemTypes2["WaxedCutCopperSlab"] = "minecraft:waxed_cut_copper_slab";
-  MinecraftItemTypes2["WaxedCutCopperStairs"] = "minecraft:waxed_cut_copper_stairs";
-  MinecraftItemTypes2["WaxedExposedChiseledCopper"] = "minecraft:waxed_exposed_chiseled_copper";
-  MinecraftItemTypes2["WaxedExposedCopper"] = "minecraft:waxed_exposed_copper";
-  MinecraftItemTypes2["WaxedExposedCopperBulb"] = "minecraft:waxed_exposed_copper_bulb";
-  MinecraftItemTypes2["WaxedExposedCopperChest"] = "minecraft:waxed_exposed_copper_chest";
-  MinecraftItemTypes2["WaxedExposedCopperDoor"] = "minecraft:waxed_exposed_copper_door";
-  MinecraftItemTypes2["WaxedExposedCopperGrate"] = "minecraft:waxed_exposed_copper_grate";
-  MinecraftItemTypes2["WaxedExposedCopperTrapdoor"] = "minecraft:waxed_exposed_copper_trapdoor";
-  MinecraftItemTypes2["WaxedExposedCutCopper"] = "minecraft:waxed_exposed_cut_copper";
-  MinecraftItemTypes2["WaxedExposedCutCopperSlab"] = "minecraft:waxed_exposed_cut_copper_slab";
-  MinecraftItemTypes2["WaxedExposedCutCopperStairs"] = "minecraft:waxed_exposed_cut_copper_stairs";
-  MinecraftItemTypes2["WaxedOxidizedChiseledCopper"] = "minecraft:waxed_oxidized_chiseled_copper";
-  MinecraftItemTypes2["WaxedOxidizedCopper"] = "minecraft:waxed_oxidized_copper";
-  MinecraftItemTypes2["WaxedOxidizedCopperBulb"] = "minecraft:waxed_oxidized_copper_bulb";
-  MinecraftItemTypes2["WaxedOxidizedCopperChest"] = "minecraft:waxed_oxidized_copper_chest";
-  MinecraftItemTypes2["WaxedOxidizedCopperDoor"] = "minecraft:waxed_oxidized_copper_door";
-  MinecraftItemTypes2["WaxedOxidizedCopperGrate"] = "minecraft:waxed_oxidized_copper_grate";
-  MinecraftItemTypes2["WaxedOxidizedCopperTrapdoor"] = "minecraft:waxed_oxidized_copper_trapdoor";
-  MinecraftItemTypes2["WaxedOxidizedCutCopper"] = "minecraft:waxed_oxidized_cut_copper";
-  MinecraftItemTypes2["WaxedOxidizedCutCopperSlab"] = "minecraft:waxed_oxidized_cut_copper_slab";
-  MinecraftItemTypes2["WaxedOxidizedCutCopperStairs"] = "minecraft:waxed_oxidized_cut_copper_stairs";
-  MinecraftItemTypes2["WaxedWeatheredChiseledCopper"] = "minecraft:waxed_weathered_chiseled_copper";
-  MinecraftItemTypes2["WaxedWeatheredCopper"] = "minecraft:waxed_weathered_copper";
-  MinecraftItemTypes2["WaxedWeatheredCopperBulb"] = "minecraft:waxed_weathered_copper_bulb";
-  MinecraftItemTypes2["WaxedWeatheredCopperChest"] = "minecraft:waxed_weathered_copper_chest";
-  MinecraftItemTypes2["WaxedWeatheredCopperDoor"] = "minecraft:waxed_weathered_copper_door";
-  MinecraftItemTypes2["WaxedWeatheredCopperGrate"] = "minecraft:waxed_weathered_copper_grate";
-  MinecraftItemTypes2["WaxedWeatheredCopperTrapdoor"] = "minecraft:waxed_weathered_copper_trapdoor";
-  MinecraftItemTypes2["WaxedWeatheredCutCopper"] = "minecraft:waxed_weathered_cut_copper";
-  MinecraftItemTypes2["WaxedWeatheredCutCopperSlab"] = "minecraft:waxed_weathered_cut_copper_slab";
-  MinecraftItemTypes2["WaxedWeatheredCutCopperStairs"] = "minecraft:waxed_weathered_cut_copper_stairs";
-  MinecraftItemTypes2["WayfinderArmorTrimSmithingTemplate"] = "minecraft:wayfinder_armor_trim_smithing_template";
-  MinecraftItemTypes2["WeatheredChiseledCopper"] = "minecraft:weathered_chiseled_copper";
-  MinecraftItemTypes2["WeatheredCopper"] = "minecraft:weathered_copper";
-  MinecraftItemTypes2["WeatheredCopperBulb"] = "minecraft:weathered_copper_bulb";
-  MinecraftItemTypes2["WeatheredCopperChest"] = "minecraft:weathered_copper_chest";
-  MinecraftItemTypes2["WeatheredCopperDoor"] = "minecraft:weathered_copper_door";
-  MinecraftItemTypes2["WeatheredCopperGrate"] = "minecraft:weathered_copper_grate";
-  MinecraftItemTypes2["WeatheredCopperTrapdoor"] = "minecraft:weathered_copper_trapdoor";
-  MinecraftItemTypes2["WeatheredCutCopper"] = "minecraft:weathered_cut_copper";
-  MinecraftItemTypes2["WeatheredCutCopperSlab"] = "minecraft:weathered_cut_copper_slab";
-  MinecraftItemTypes2["WeatheredCutCopperStairs"] = "minecraft:weathered_cut_copper_stairs";
-  MinecraftItemTypes2["Web"] = "minecraft:web";
-  MinecraftItemTypes2["WeepingVines"] = "minecraft:weeping_vines";
-  MinecraftItemTypes2["WetSponge"] = "minecraft:wet_sponge";
-  MinecraftItemTypes2["Wheat"] = "minecraft:wheat";
-  MinecraftItemTypes2["WheatSeeds"] = "minecraft:wheat_seeds";
-  MinecraftItemTypes2["WhiteBundle"] = "minecraft:white_bundle";
-  MinecraftItemTypes2["WhiteCandle"] = "minecraft:white_candle";
-  MinecraftItemTypes2["WhiteCarpet"] = "minecraft:white_carpet";
-  MinecraftItemTypes2["WhiteConcrete"] = "minecraft:white_concrete";
-  MinecraftItemTypes2["WhiteConcretePowder"] = "minecraft:white_concrete_powder";
-  MinecraftItemTypes2["WhiteDye"] = "minecraft:white_dye";
-  MinecraftItemTypes2["WhiteGlazedTerracotta"] = "minecraft:white_glazed_terracotta";
-  MinecraftItemTypes2["WhiteHarness"] = "minecraft:white_harness";
-  MinecraftItemTypes2["WhiteShulkerBox"] = "minecraft:white_shulker_box";
-  MinecraftItemTypes2["WhiteStainedGlass"] = "minecraft:white_stained_glass";
-  MinecraftItemTypes2["WhiteStainedGlassPane"] = "minecraft:white_stained_glass_pane";
-  MinecraftItemTypes2["WhiteTerracotta"] = "minecraft:white_terracotta";
-  MinecraftItemTypes2["WhiteTulip"] = "minecraft:white_tulip";
-  MinecraftItemTypes2["WhiteWool"] = "minecraft:white_wool";
-  MinecraftItemTypes2["WildArmorTrimSmithingTemplate"] = "minecraft:wild_armor_trim_smithing_template";
-  MinecraftItemTypes2["Wildflowers"] = "minecraft:wildflowers";
-  MinecraftItemTypes2["WindCharge"] = "minecraft:wind_charge";
-  MinecraftItemTypes2["WitchSpawnEgg"] = "minecraft:witch_spawn_egg";
-  MinecraftItemTypes2["WitherRose"] = "minecraft:wither_rose";
-  MinecraftItemTypes2["WitherSkeletonSkull"] = "minecraft:wither_skeleton_skull";
-  MinecraftItemTypes2["WitherSkeletonSpawnEgg"] = "minecraft:wither_skeleton_spawn_egg";
-  MinecraftItemTypes2["WitherSpawnEgg"] = "minecraft:wither_spawn_egg";
-  MinecraftItemTypes2["WolfArmor"] = "minecraft:wolf_armor";
-  MinecraftItemTypes2["WolfSpawnEgg"] = "minecraft:wolf_spawn_egg";
-  MinecraftItemTypes2["WoodenAxe"] = "minecraft:wooden_axe";
-  MinecraftItemTypes2["WoodenButton"] = "minecraft:wooden_button";
-  MinecraftItemTypes2["WoodenDoor"] = "minecraft:wooden_door";
-  MinecraftItemTypes2["WoodenHoe"] = "minecraft:wooden_hoe";
-  MinecraftItemTypes2["WoodenPickaxe"] = "minecraft:wooden_pickaxe";
-  MinecraftItemTypes2["WoodenPressurePlate"] = "minecraft:wooden_pressure_plate";
-  MinecraftItemTypes2["WoodenShovel"] = "minecraft:wooden_shovel";
-  MinecraftItemTypes2["WoodenSword"] = "minecraft:wooden_sword";
-  MinecraftItemTypes2["WritableBook"] = "minecraft:writable_book";
-  MinecraftItemTypes2["YellowBundle"] = "minecraft:yellow_bundle";
-  MinecraftItemTypes2["YellowCandle"] = "minecraft:yellow_candle";
-  MinecraftItemTypes2["YellowCarpet"] = "minecraft:yellow_carpet";
-  MinecraftItemTypes2["YellowConcrete"] = "minecraft:yellow_concrete";
-  MinecraftItemTypes2["YellowConcretePowder"] = "minecraft:yellow_concrete_powder";
-  MinecraftItemTypes2["YellowDye"] = "minecraft:yellow_dye";
-  MinecraftItemTypes2["YellowGlazedTerracotta"] = "minecraft:yellow_glazed_terracotta";
-  MinecraftItemTypes2["YellowHarness"] = "minecraft:yellow_harness";
-  MinecraftItemTypes2["YellowShulkerBox"] = "minecraft:yellow_shulker_box";
-  MinecraftItemTypes2["YellowStainedGlass"] = "minecraft:yellow_stained_glass";
-  MinecraftItemTypes2["YellowStainedGlassPane"] = "minecraft:yellow_stained_glass_pane";
-  MinecraftItemTypes2["YellowTerracotta"] = "minecraft:yellow_terracotta";
-  MinecraftItemTypes2["YellowWool"] = "minecraft:yellow_wool";
-  MinecraftItemTypes2["ZoglinSpawnEgg"] = "minecraft:zoglin_spawn_egg";
-  MinecraftItemTypes2["ZombieHead"] = "minecraft:zombie_head";
-  MinecraftItemTypes2["ZombieHorseSpawnEgg"] = "minecraft:zombie_horse_spawn_egg";
-  MinecraftItemTypes2["ZombiePigmanSpawnEgg"] = "minecraft:zombie_pigman_spawn_egg";
-  MinecraftItemTypes2["ZombieSpawnEgg"] = "minecraft:zombie_spawn_egg";
-  MinecraftItemTypes2["ZombieVillagerSpawnEgg"] = "minecraft:zombie_villager_spawn_egg";
-  return MinecraftItemTypes2;
-})(MinecraftItemTypes || {});
-var MinecraftPotionEffectTypes = ((MinecraftPotionEffectTypes2) => {
-  MinecraftPotionEffectTypes2["FireResistance"] = "FireResistance";
-  MinecraftPotionEffectTypes2["Harming"] = "Harming";
-  MinecraftPotionEffectTypes2["Healing"] = "Healing";
-  MinecraftPotionEffectTypes2["Infested"] = "Infested";
-  MinecraftPotionEffectTypes2["Invisibility"] = "Invisibility";
-  MinecraftPotionEffectTypes2["Leaping"] = "Leaping";
-  MinecraftPotionEffectTypes2["NightVision"] = "NightVision";
-  MinecraftPotionEffectTypes2["None"] = "None";
-  MinecraftPotionEffectTypes2["Oozing"] = "Oozing";
-  MinecraftPotionEffectTypes2["Poison"] = "Poison";
-  MinecraftPotionEffectTypes2["SlowFalling"] = "SlowFalling";
-  MinecraftPotionEffectTypes2["Slowing"] = "Slowing";
-  MinecraftPotionEffectTypes2["Strength"] = "Strength";
-  MinecraftPotionEffectTypes2["Swiftness"] = "Swiftness";
-  MinecraftPotionEffectTypes2["TurtleMaster"] = "TurtleMaster";
-  MinecraftPotionEffectTypes2["WaterBreath"] = "WaterBreath";
-  MinecraftPotionEffectTypes2["Weakness"] = "Weakness";
-  MinecraftPotionEffectTypes2["Weaving"] = "Weaving";
-  MinecraftPotionEffectTypes2["WindCharged"] = "WindCharged";
-  MinecraftPotionEffectTypes2["Wither"] = "Wither";
-  return MinecraftPotionEffectTypes2;
-})(MinecraftPotionEffectTypes || {});
-var MinecraftPotionLiquidTypes = ((MinecraftPotionLiquidTypes2) => {
-  MinecraftPotionLiquidTypes2["Lingering"] = "Lingering";
-  MinecraftPotionLiquidTypes2["Regular"] = "Regular";
-  MinecraftPotionLiquidTypes2["Splash"] = "Splash";
-  return MinecraftPotionLiquidTypes2;
-})(MinecraftPotionLiquidTypes || {});
-var MinecraftPotionModifierTypes = ((MinecraftPotionModifierTypes2) => {
-  MinecraftPotionModifierTypes2["Long"] = "Long";
-  MinecraftPotionModifierTypes2["Normal"] = "Normal";
-  MinecraftPotionModifierTypes2["Strong"] = "Strong";
-  return MinecraftPotionModifierTypes2;
-})(MinecraftPotionModifierTypes || {});
-
-// scripts/kokyu/kata/KataComonClass.ts
+import {
+  BlockVolume,
+  EntityComponentTypes as EntityComponentTypes2,
+  EntityDamageCause,
+  EquipmentSlot,
+  world as world2,
+  Player as Player2
+} from "@minecraft/server";
 var ogreRankPoint = Object.freeze([
   {
     rank: "low",
-    point: 2,
+    point: 1,
     damage: 3
   },
   {
     rank: "unusual",
-    point: 3,
+    point: 2,
     damage: 2
   },
   {
     rank: "quarter",
-    point: 5,
-    damage: 1
+    point: 4,
+    damage: 1.5
   },
   {
     rank: "crescent",
-    point: 8,
-    damage: 0.5
+    point: 6,
+    damage: 1
   },
   {
     rank: "king",
-    point: 12,
-    damage: 0.25
+    point: 8,
+    damage: 0.75
   }
 ]);
 var KataComonClass = class {
@@ -3396,7 +354,7 @@ var KataComonClass = class {
             const familyTypes = en.getComponent(EntityComponentTypes2.TypeFamily);
             const tags = entity.getTags();
             if (tags.indexOf("hostility") !== -1) {
-              en.applyDamage(pDamage * damageNum * 0.75, {
+              en.applyDamage(pDamage * damageNum * 0.5, {
                 cause: EntityDamageCause.entityAttack,
                 damagingEntity: entity
               });
@@ -3430,7 +388,7 @@ var KataComonClass = class {
             } else if (familyTypes !== void 0 && familyTypes.hasTypeFamily("regimental_soldier")) {
               const tags = en.getTags();
               if (tags.indexOf("hostility") !== -1) {
-                en.applyDamage(enDamage * damageNum, {
+                en.applyDamage(enDamage * damageNum * 0.5, {
                   cause: EntityDamageCause.entityAttack,
                   damagingEntity: entity
                 });
@@ -3551,7 +509,7 @@ var KataComonClass = class {
   }
   nitirintouFillBlock(dimension, from, to) {
     const volume = new BlockVolume(from, to);
-    dimension.fillBlocks(volume, MinecraftBlockTypes.Air, {
+    dimension.fillBlocks(volume, "minecraft:air", {
       ignoreChunkBoundErrors: true,
       blockFilter: {
         includeTags: ["minecraft:is_sword_item_destructible"]
@@ -3591,14 +549,20 @@ function shooting(entity, throwItem, ranNum, seepd, event) {
 }
 
 // scripts/common/KimetuItemDurabilityDamage.ts
-import { ItemComponentTypes, EntityComponentTypes as EntityComponentTypes4, EquipmentSlot as EquipmentSlot2, GameMode, Player as Player4 } from "@minecraft/server";
+import {
+  ItemComponentTypes,
+  EntityComponentTypes as EntityComponentTypes4,
+  EquipmentSlot as EquipmentSlot2,
+  GameMode,
+  Player as Player4
+} from "@minecraft/server";
 async function ItemDurabilityDamage(entity, item) {
   if (entity instanceof Player4 && entity.getGameMode() !== GameMode.Creative) {
     const durability = item.getComponent(ItemComponentTypes.Durability);
     const dChangeRang = durability.getDamageChanceRange();
     let dChange = getRandomInRange(dChangeRang.min, dChangeRang.max);
     const enchantable = item.getComponent(ItemComponentTypes.Enchantable);
-    const unbreaking = enchantable.getEnchantment(MinecraftEnchantmentTypes.Unbreaking);
+    const unbreaking = enchantable.getEnchantment("minecraft:unbreaking");
     if (unbreaking !== void 0) {
       dChange = durability.getDamageChance(unbreaking.level);
     }
@@ -3614,6 +578,16 @@ async function ItemDurabilityDamage(entity, item) {
         }
       }
     }
+  }
+}
+async function subtractionItem(player, item, slot, decNum) {
+  const remaining = item.amount - decNum;
+  const equ = player.getComponent(EntityComponentTypes4.Equippable);
+  if (remaining <= 0) {
+    equ.setEquipment(slot, void 0);
+  } else {
+    item.amount -= decNum;
+    equ.setEquipment(slot, item);
   }
 }
 
@@ -3637,7 +611,7 @@ var MizuNoKata = class extends KataComonClass {
     const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-    system2.waitTicks(6).then(() => {
+    system.waitTicks(6).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -3665,13 +639,13 @@ var MizuNoKata = class extends KataComonClass {
     const ddistance = getLookLocationDistance(entity.getRotation().y, 0, 0, -2.5);
     const dfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, ddistance), 2.5, entity);
     this.kokyuApplyDamage(entity, dfilter, 3, 1, itemStack);
-    system2.waitTicks(5).then(() => {
+    system.waitTicks(5).then(() => {
       const point = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
       entity.applyKnockback({ x: point.x, z: point.z }, 0.5);
     }).catch((error) => {
     }).finally(() => {
     });
-    system2.waitTicks(TicksPerSecond).then(() => {
+    system.waitTicks(TicksPerSecond).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -3688,30 +662,30 @@ var MizuNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system2.runInterval(() => {
+    const num = system.runInterval(() => {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
       } catch (error) {
-        system2.clearRun(num);
+        system.clearRun(num);
       }
     }, 6);
-    const work = system2.runInterval(() => {
+    const work = system.runInterval(() => {
       try {
         const point = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
         entity.applyKnockback({ x: point.x, z: point.z }, 0);
       } catch (error) {
-        system2.clearRun(work);
+        system.clearRun(work);
       }
     }, 2);
-    system2.waitTicks(30).then(() => {
+    system.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system2.clearRun(num);
-      system2.clearRun(work);
+      system.clearRun(num);
+      system.clearRun(work);
     });
   }
   /**
@@ -3725,7 +699,7 @@ var MizuNoKata = class extends KataComonClass {
       }
     }
     let side = -2;
-    const num = system2.runInterval(() => {
+    const num = system.runInterval(() => {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, side);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
@@ -3733,24 +707,24 @@ var MizuNoKata = class extends KataComonClass {
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         side = -side;
       } catch (error) {
-        system2.clearRun(num);
+        system.clearRun(num);
       }
     }, 8);
-    const work = system2.runInterval(() => {
+    const work = system.runInterval(() => {
       try {
         const point = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
         entity.applyKnockback({ x: point.x, z: point.z }, 0);
       } catch (error) {
-        system2.clearRun(work);
+        system.clearRun(work);
       }
     }, 2);
-    system2.waitTicks(30).then(() => {
+    system.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system2.clearRun(num);
-      system2.clearRun(work);
+      system.clearRun(num);
+      system.clearRun(work);
     });
   }
   /**
@@ -3819,7 +793,7 @@ var MizuNoKata = class extends KataComonClass {
     entity.dimension.spawnParticle("kurokumaft:mizu5_particle", entity.location, molang);
     entity.dimension.spawnParticle("kurokumaft:mizu5_particle", entity.location, molang);
     entity.removeTag(entity.id);
-    system2.waitTicks(4).then(() => {
+    system.waitTicks(4).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -3848,7 +822,7 @@ var MizuNoKata = class extends KataComonClass {
       }
       const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 1);
       entity.applyKnockback({ x: distance.x, z: distance.z }, 1.2);
-      const num = system2.runInterval(() => {
+      const num = system.runInterval(() => {
         try {
           if (entity.isInWater) {
             const filter = addRegimentalFilter(0, entity.location, 5, entity);
@@ -3858,23 +832,23 @@ var MizuNoKata = class extends KataComonClass {
             this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
           }
         } catch (error) {
-          system2.clearRun(num);
+          system.clearRun(num);
         }
       }, 4);
-      system2.waitTicks(30).then(() => {
-        entity.addEffect(MinecraftEffectTypes.SlowFalling, 2 * TicksPerSecond, {
+      system.waitTicks(30).then(() => {
+        entity.addEffect("minecraft:slow_falling", 2 * TicksPerSecond, {
           amplifier: 1,
           showParticles: false
         });
       }).catch((error) => {
       });
-      system2.waitTicks(35).then(() => {
-        entity.removeEffect(MinecraftEffectTypes.SlowFalling);
+      system.waitTicks(35).then(() => {
+        entity.removeEffect("minecraft:slow_falling");
         entity.setProperty("kurokumaft:kokyu_particle", false);
         entity.setDynamicProperty("kurokumaft:mizuroku", false);
       }).catch((error) => {
       }).finally(() => {
-        system2.clearRun(num);
+        system.clearRun(num);
       });
     }
   }
@@ -3897,7 +871,7 @@ var MizuNoKata = class extends KataComonClass {
     molang.setFloat("variable.kaikyu", kaikyuNum);
     entity.dimension.spawnParticle("kurokumaft:mizu7_1_particle", getDistanceLocation(entity.location, distance), molang);
     entity.dimension.spawnParticle("kurokumaft:mizu7_2_particle", getDistanceLocation(entity.location, distance), molang);
-    system2.waitTicks(5).then(() => {
+    system.waitTicks(5).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -3920,12 +894,12 @@ var MizuNoKata = class extends KataComonClass {
       const oLocate = entity.location;
       entity.applyKnockback({ x: distance.x, z: distance.z }, 1.2);
       let parnum = 0;
-      system2.waitTicks(20).then(() => {
+      system.waitTicks(20).then(() => {
         const filter = addRegimentalFilter(0, oLocate, 8, entity);
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
         const molang = new MolangVariableMap();
         molang.setFloat("variable.kaikyu", kaikyuNum);
-        parnum = system2.runInterval(() => {
+        parnum = system.runInterval(() => {
           try {
             entity.dimension.spawnParticle("kurokumaft:mizu8_particle", { x: entity.location.x, y: oLocate.y + 0.5, z: entity.location.z }, molang);
             entity.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: entity.location.x + 1, y: entity.location.y - 0.5, z: entity.location.z + 1 }, molang);
@@ -3934,28 +908,28 @@ var MizuNoKata = class extends KataComonClass {
             entity.dimension.spawnParticle("kurokumaft:mizu_pillar_particle", { x: entity.location.x - 1, y: entity.location.y - 0.5, z: entity.location.z - 1 }, molang);
             this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
           } catch (error) {
-            system2.clearRun(parnum);
+            system.clearRun(parnum);
           }
         }, 3);
       }).catch((error) => {
       }).finally(() => {
       });
-      system2.waitTicks(30).then(() => {
-        entity.addEffect(MinecraftEffectTypes.SlowFalling, 2 * TicksPerSecond, {
+      system.waitTicks(30).then(() => {
+        entity.addEffect("minecraft:slow_falling", 2 * TicksPerSecond, {
           amplifier: 1,
           showParticles: false
         });
       }).catch((error) => {
       }).finally(() => {
       });
-      system2.waitTicks(40).then(() => {
-        entity.removeEffect(MinecraftEffectTypes.SlowFalling);
+      system.waitTicks(40).then(() => {
+        entity.removeEffect("minecraft:slow_falling");
         entity.setProperty("kurokumaft:kokyu_particle", false);
         entity.setDynamicProperty("kurokumaft:mizuhati", false);
       }).catch((error) => {
       }).finally(() => {
         if (parnum !== 0) {
-          system2.clearRun(parnum);
+          system.clearRun(parnum);
         }
       });
     }
@@ -3972,15 +946,15 @@ var MizuNoKata = class extends KataComonClass {
         }
       }
       entity.setDynamicProperty("kurokumaft:chage_type", true);
-      entity.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond, {
+      entity.addEffect("minecraft:speed", 10 * TicksPerSecond, {
         amplifier: 5,
         showParticles: false
       });
-      entity.addEffect(MinecraftEffectTypes.JumpBoost, 10 * TicksPerSecond, {
+      entity.addEffect("minecraft:jump_boost", 10 * TicksPerSecond, {
         amplifier: 3,
         showParticles: false
       });
-      system2.waitTicks(10 * TicksPerSecond).then(() => {
+      system.waitTicks(10 * TicksPerSecond).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         entity.setDynamicProperty("kurokumaft:chage_type", void 0);
@@ -4003,11 +977,11 @@ var MizuNoKata = class extends KataComonClass {
         }
       }
       entity.setProperty("kurokumaft:kokyu_chage", 10);
-      system2.waitTicks(10).then(() => {
+      system.waitTicks(10).then(() => {
         const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, void 0);
         entity.setProperty("kurokumaft:kokyu_chage", 0);
         entity.setProperty("kurokumaft:kokyu_particle", false);
-        system2.waitTicks(15).then(() => {
+        system.waitTicks(15).then(() => {
           if (dragon.isValid) {
             dragon.remove();
           }
@@ -4030,7 +1004,7 @@ var MizuNoKata = class extends KataComonClass {
     if (chage < 4) {
       entity.setProperty("kurokumaft:kokyu_particle", true);
       if (chage + 1 < 4) {
-        system2.waitTicks(14).then(() => {
+        system.waitTicks(14).then(() => {
           chage = entity.getProperty("kurokumaft:kokyu_chage");
           if (chage < 4) {
             entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -4052,23 +1026,23 @@ var MizuNoKata = class extends KataComonClass {
     entity.setProperty("kurokumaft:kokyu_attack", true);
     const filter = addRegimentalFilter(0, entity.location, 4.5, entity);
     this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-    const num1 = system2.runInterval(() => {
+    const num1 = system.runInterval(() => {
       try {
         const filter2 = addRegimentalFilter(0, entity.location, 4.5, entity);
         this.kokyuApplyDamage(entity, filter2, 4, 2, itemStack);
       } catch (error) {
-        system2.clearRun(num1);
+        system.clearRun(num1);
       }
     }, 10);
-    system2.waitTicks(35).then(() => {
+    system.waitTicks(35).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_attack", false);
       entity.setProperty("kurokumaft:kokyu_chage", 10);
-      system2.waitTicks(10).then(() => {
+      system.waitTicks(10).then(() => {
         const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, void 0);
         entity.setProperty("kurokumaft:kokyu_chage", 0);
         entity.setProperty("kurokumaft:kokyu_particle", false);
-        system2.waitTicks(2 * TicksPerSecond).then(() => {
+        system.waitTicks(2 * TicksPerSecond).then(() => {
           if (dragon.isValid) {
             dragon.remove();
           }
@@ -4080,7 +1054,7 @@ var MizuNoKata = class extends KataComonClass {
       });
     }).catch((error) => {
     }).finally(() => {
-      system2.clearRun(num1);
+      system.clearRun(num1);
     });
   }
   /**
@@ -4096,36 +1070,36 @@ var MizuNoKata = class extends KataComonClass {
           }
         }
         entity.setDynamicProperty("kurokumaft:chage_type", true);
-        this.nagiIntervalId = system2.runInterval(() => {
+        this.nagiIntervalId = system.runInterval(() => {
           try {
             entity.setProperty("kurokumaft:kokyu_attack", false);
             this.checkNagiReflection(entity, itemStack);
           } catch (error) {
-            system2.clearRun(this.nagiIntervalId);
+            system.clearRun(this.nagiIntervalId);
           }
         }, 2);
-        const parnum = system2.runInterval(() => {
+        const parnum = system.runInterval(() => {
           try {
             const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
             const molang = new MolangVariableMap();
             molang.setFloat("variable.kaikyu", kaikyuNum);
             entity.dimension.spawnParticle("kurokumaft:mizu11_particle", entity.location, molang);
           } catch (error) {
-            system2.clearRun(parnum);
+            system.clearRun(parnum);
           }
         }, TicksPerSecond);
-        system2.waitTicks(10 * TicksPerSecond).then(() => {
+        system.waitTicks(10 * TicksPerSecond).then(() => {
           entity.setProperty("kurokumaft:kokyu_attack", false);
           entity.setProperty("kurokumaft:kokyu_use", false);
           entity.setProperty("kurokumaft:kokyu_particle", false);
           entity.setDynamicProperty("kurokumaft:chage_type", void 0);
-          system2.clearRun(this.nagiIntervalId);
-          system2.clearRun(parnum);
+          system.clearRun(this.nagiIntervalId);
+          system.clearRun(parnum);
         }).catch((error) => {
         }).finally(() => {
         });
       } catch (error) {
-        system2.clearRun(this.nagiIntervalId);
+        system.clearRun(this.nagiIntervalId);
       } finally {
       }
       ;
@@ -4162,7 +1136,7 @@ var MizuNoKata = class extends KataComonClass {
       });
       entity.removeTag(entity.id);
     } else {
-      system2.clearRun(this.nagiIntervalId);
+      system.clearRun(this.nagiIntervalId);
     }
   }
 };
@@ -4251,7 +1225,7 @@ var KokyuGiyuComponent = class {
 };
 
 // scripts/kokyu/kata/HanaNoKata.ts
-import { MolangVariableMap as MolangVariableMap2, system as system3, TicksPerSecond as TicksPerSecond2, Player as Player6 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap2, system as system2, TicksPerSecond as TicksPerSecond2, Player as Player6 } from "@minecraft/server";
 var HanaNoKata = class extends KataComonClass {
   constructor() {
     super(...arguments);
@@ -4275,22 +1249,22 @@ var HanaNoKata = class extends KataComonClass {
       const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
       const molang = new MolangVariableMap2();
       molang.setFloat("variable.kaikyu", kaikyuNum);
-      const num = system3.runInterval(() => {
+      const num = system2.runInterval(() => {
         try {
           const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
           const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
           entity.dimension.spawnParticle("kurokumaft:hana_ni_particle", getDistanceLocation(entity.location, distance), molang);
           this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
         } catch (error) {
-          system3.clearRun(num);
+          system2.clearRun(num);
         }
       }, 4);
-      system3.waitTicks(TicksPerSecond2).then(() => {
+      system2.waitTicks(TicksPerSecond2).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
       }).finally(() => {
-        system3.clearRun(num);
+        system2.clearRun(num);
       });
     } catch (error) {
     } finally {
@@ -4313,7 +1287,7 @@ var HanaNoKata = class extends KataComonClass {
     const molang = new MolangVariableMap2();
     molang.setFloat("variable.kaikyu", kaikyuNum);
     entity.dimension.spawnParticle("kurokumaft:hana_shi_particle", getDistanceLocation(entity.location, distance), molang);
-    system3.waitTicks(TicksPerSecond2).then(() => {
+    system2.waitTicks(TicksPerSecond2).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -4334,7 +1308,7 @@ var HanaNoKata = class extends KataComonClass {
     const molang = new MolangVariableMap2();
     molang.setFloat("variable.kaikyu", kaikyuNum);
     let count = 1;
-    const num = system3.runInterval(() => {
+    const num = system2.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
@@ -4344,15 +1318,15 @@ var HanaNoKata = class extends KataComonClass {
           count++;
         }
       } catch (error) {
-        system3.clearRun(num);
+        system2.clearRun(num);
       }
     }, 2);
-    system3.waitTicks(TicksPerSecond2).then(() => {
+    system2.waitTicks(TicksPerSecond2).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system3.clearRun(num);
+      system2.clearRun(num);
     });
   }
   /**
@@ -4370,7 +1344,7 @@ var HanaNoKata = class extends KataComonClass {
     molang.setFloat("variable.kaikyu", kaikyuNum);
     const distanceK = getLookLocationDistance(entity.getRotation().y, 3, 0, 1);
     entity.applyKnockback({ x: distanceK.x, z: distanceK.z }, 0.5);
-    const num = system3.runInterval(() => {
+    const num = system2.runInterval(() => {
       try {
         entity.applyKnockback({ x: distanceK.x, z: distanceK.z }, 0);
         const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
@@ -4378,15 +1352,15 @@ var HanaNoKata = class extends KataComonClass {
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         entity.dimension.spawnParticle("kurokumaft:hana_roku_particle", getDistanceLocation(entity.location, distance), molang);
       } catch (error) {
-        system3.clearRun(num);
+        system2.clearRun(num);
       }
     }, 3);
-    system3.waitTicks(10).then(() => {
+    system2.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system3.clearRun(num);
+      system2.clearRun(num);
     });
   }
   /**
@@ -4403,37 +1377,37 @@ var HanaNoKata = class extends KataComonClass {
         }
       }
       entity.setDynamicProperty("kurokumaft:chage_type", true);
-      entity.addEffect(MinecraftEffectTypes.Speed, 200 * TicksPerSecond2, {
+      entity.addEffect("minecraft:speed", 200 * TicksPerSecond2, {
         amplifier: 5,
         showParticles: false
       });
-      entity.addEffect(MinecraftEffectTypes.JumpBoost, 200 * TicksPerSecond2, {
+      entity.addEffect("minecraft:jump_boost", 200 * TicksPerSecond2, {
         amplifier: 3,
         showParticles: false
       });
-      entity.addEffect(MinecraftEffectTypes.NightVision, 200 * TicksPerSecond2, {
+      entity.addEffect("minecraft:night_vision", 200 * TicksPerSecond2, {
         amplifier: 10,
         showParticles: false
       });
-      system3.waitTicks(180 * TicksPerSecond2).then(() => {
+      system2.waitTicks(180 * TicksPerSecond2).then(() => {
         entity.setDynamicProperty("kurokumaft:chage_type", void 0);
-        entity.removeEffect(MinecraftEffectTypes.Speed);
-        entity.removeEffect(MinecraftEffectTypes.JumpBoost);
-        entity.removeEffect(MinecraftEffectTypes.NightVision);
+        entity.removeEffect("minecraft:speed");
+        entity.removeEffect("minecraft:jump_boost");
+        entity.removeEffect("minecraft:night_vision");
         const choice = this.higanLists.pick();
         switch (choice) {
           case "blindness":
-            entity.addEffect(MinecraftEffectTypes.Blindness, 600 * TicksPerSecond2, {
+            entity.addEffect("minecraft:blindness", 600 * TicksPerSecond2, {
               amplifier: 3,
               showParticles: false
             });
           case "serious":
-            entity.addEffect(MinecraftEffectTypes.Weakness, 10 * TicksPerSecond2, {
+            entity.addEffect("minecraft:weakness", 10 * TicksPerSecond2, {
               amplifier: 1,
               showParticles: false
             });
           case "minor":
-            entity.addEffect(MinecraftEffectTypes.Slowness, 10 * TicksPerSecond2, {
+            entity.addEffect("minecraft:slowness", 10 * TicksPerSecond2, {
               amplifier: 1,
               showParticles: false
             });
@@ -4501,7 +1475,7 @@ var KokyuKanawoComponent = class {
 };
 
 // scripts/kokyu/kata/KoiNoKata.ts
-import { MolangVariableMap as MolangVariableMap3, system as system4, TicksPerSecond as TicksPerSecond3, Player as Player7 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap3, system as system3, TicksPerSecond as TicksPerSecond3, Player as Player7 } from "@minecraft/server";
 var KoiNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 初恋のわななき
@@ -4514,21 +1488,21 @@ var KoiNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system4.runInterval(() => {
+    const num = system3.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         const filter = addRegimentalFilter(0, entity.location, 8, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
       } catch (error) {
-        system4.clearRun(num);
+        system3.clearRun(num);
       }
     }, 2);
-    system4.waitTicks(10).then(() => {
+    system3.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system4.clearRun(num);
+      system3.clearRun(num);
     });
   }
   /**
@@ -4548,10 +1522,10 @@ var KoiNoKata = class extends KataComonClass {
       entity.applyKnockback({ x: distance.x, z: distance.z }, 0.75);
     } catch (error) {
     }
-    system4.waitTicks(20).then(() => {
+    system3.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
-      entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond3, {
+      entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond3, {
         amplifier: 1,
         showParticles: false
       });
@@ -4574,7 +1548,7 @@ var KoiNoKata = class extends KataComonClass {
     entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
     entity.setProperty("kurokumaft:kokyu_attack", true);
     let side = 5;
-    const num = system4.runInterval(() => {
+    const num = system3.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 8, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
@@ -4583,16 +1557,16 @@ var KoiNoKata = class extends KataComonClass {
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
         side = -side;
       } catch (error) {
-        system4.clearRun(num);
+        system3.clearRun(num);
       }
     }, 10);
-    system4.waitTicks(60).then(() => {
+    system3.waitTicks(60).then(() => {
       entity.setProperty("kurokumaft:kokyu_attack", false);
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system4.clearRun(num);
+      system3.clearRun(num);
     });
   }
   /**
@@ -4610,33 +1584,33 @@ var KoiNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap3();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    system4.waitTicks(10).then(() => {
+    system3.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       const distance2 = getLookLocationDistance(entity.getRotation().y, 0, 0, -1);
       const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 8, entity);
-      const parnum = system4.runInterval(() => {
+      const parnum = system3.runInterval(() => {
         try {
           this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         } catch (error) {
-          system4.clearRun(parnum);
+          system3.clearRun(parnum);
         }
       }, 1);
-      entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond3, {
+      entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond3, {
         amplifier: 1,
         showParticles: false
       });
-      system4.waitTicks(10).then(() => {
+      system3.waitTicks(10).then(() => {
         try {
           entity.setProperty("kurokumaft:kokyu_particle", false);
-          entity.removeEffect(MinecraftEffectTypes.SlowFalling);
-          system4.runTimeout(() => {
-            entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond3, {
+          entity.removeEffect("minecraft:slow_falling");
+          system3.runTimeout(() => {
+            entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond3, {
               amplifier: 1,
               showParticles: false
             });
           }, 5);
         } finally {
-          system4.clearRun(parnum);
+          system3.clearRun(parnum);
         }
       }).catch((error) => {
       }).finally(() => {
@@ -4660,26 +1634,26 @@ var KoiNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap3();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    system4.waitTicks(10).then(() => {
+    system3.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       const distance2 = getLookLocationDistance(entity.getRotation().y, 1, 0, -1);
       const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 8, entity);
-      const parnum = system4.runInterval(() => {
+      const parnum = system3.runInterval(() => {
         try {
           this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         } catch (error) {
-          system4.clearRun(parnum);
+          system3.clearRun(parnum);
         }
       }, 1);
-      system4.waitTicks(10).then(() => {
+      system3.waitTicks(10).then(() => {
         entity.setProperty("kurokumaft:kokyu_particle", false);
-        entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond3, {
+        entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond3, {
           amplifier: 1,
           showParticles: false
         });
       }).catch((error) => {
       }).finally(() => {
-        system4.clearRun(parnum);
+        system3.clearRun(parnum);
       });
     }).catch((error) => {
     }).finally(() => {
@@ -4746,7 +1720,7 @@ var KokyuMituriComponent = class {
 };
 
 // scripts/kokyu/kata/HonoNoKata.ts
-import { system as system5, Player as Player8 } from "@minecraft/server";
+import { system as system4, Player as Player8 } from "@minecraft/server";
 var HonoNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 不知火
@@ -4759,22 +1733,22 @@ var HonoNoKata = class extends KataComonClass {
       }
     }
     entity.setProperty("kurokumaft:kokyu_use", false);
-    const num = system5.runInterval(() => {
+    const num = system4.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
         const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system5.clearRun(num);
+        system4.clearRun(num);
       }
     }, 1);
-    system5.waitTicks(12).then(() => {
+    system4.waitTicks(12).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system5.clearRun(num);
+      system4.clearRun(num);
     });
   }
   /**
@@ -4790,7 +1764,7 @@ var HonoNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-    system5.waitTicks(10).then(() => {
+    system4.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -4810,7 +1784,7 @@ var HonoNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-    system5.waitTicks(10).then(() => {
+    system4.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -4830,7 +1804,7 @@ var HonoNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
     this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
-    system5.waitTicks(25).then(() => {
+    system4.waitTicks(25).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -4848,13 +1822,13 @@ var HonoNoKata = class extends KataComonClass {
       }
     }
     const dragon = shooting(entity, "kurokumaft:hono_tiger", 0, 3, void 0);
-    system5.waitTicks(10).then(() => {
+    system4.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
     });
-    system5.waitTicks(20).then(() => {
+    system4.waitTicks(20).then(() => {
       if (dragon.isValid) {
         dragon.remove();
       }
@@ -4873,22 +1847,22 @@ var HonoNoKata = class extends KataComonClass {
       }
     }
     entity.setProperty("kurokumaft:kokyu_use", false);
-    const num = system5.runInterval(() => {
+    const num = system4.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
         const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         this.kokyuApplyDamage(entity, filter, 10, 3, itemStack);
       } catch (error) {
-        system5.clearRun(num);
+        system4.clearRun(num);
       }
     }, 1);
-    system5.waitTicks(12).then(() => {
+    system4.waitTicks(12).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system5.clearRun(num);
+      system4.clearRun(num);
     });
   }
 };
@@ -4955,7 +1929,7 @@ var KokyuKyouzyuroComponent = class {
 };
 
 // scripts/kokyu/kata/KazeNoKata.ts
-import { MolangVariableMap as MolangVariableMap4, system as system6, TicksPerSecond as TicksPerSecond4, Player as Player9 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap4, system as system5, TicksPerSecond as TicksPerSecond4, Player as Player9 } from "@minecraft/server";
 var KazeNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 塵旋風・削ぎ
@@ -4968,22 +1942,22 @@ var KazeNoKata = class extends KataComonClass {
       }
     }
     entity.setProperty("kurokumaft:kokyu_use", false);
-    const num = system6.runInterval(() => {
+    const num = system5.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
       } catch (error) {
-        system6.clearRun(num);
+        system5.clearRun(num);
       }
     }, 1);
-    system6.waitTicks(12).then(() => {
+    system5.waitTicks(12).then(() => {
       entity.setDynamicProperty("kurokumaft:chage_type", void 0);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system6.clearRun(num);
+      system5.clearRun(num);
     });
   }
   /**
@@ -5005,7 +1979,7 @@ var KazeNoKata = class extends KataComonClass {
       molang.setFloat("variable.kaikyu", kaikyuNum);
       entity.dimension.spawnParticle("kurokumaft:kaze2_particle", getDistanceLocation(entity.location, distance), molang);
     }
-    system6.waitTicks(10).then(() => {
+    system5.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5025,22 +1999,22 @@ var KazeNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap4();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system6.runInterval(() => {
+    const num = system5.runInterval(() => {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         entity.dimension.spawnParticle("kurokumaft:kaze3_particle", getDistanceLocation(entity.location, distance), molang);
       } catch (error) {
-        system6.clearRun(num);
+        system5.clearRun(num);
       }
     }, 2);
-    system6.waitTicks(30).then(() => {
+    system5.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system6.clearRun(num);
+      system5.clearRun(num);
     });
   }
   /**
@@ -5056,7 +2030,7 @@ var KazeNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap4();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system6.runInterval(() => {
+    const num = system5.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, 4);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 5, entity);
@@ -5064,15 +2038,15 @@ var KazeNoKata = class extends KataComonClass {
         entity.dimension.spawnParticle("kurokumaft:kaze4_particle", entity.location, molang);
         this.checkSazinReflection(entity);
       } catch (error) {
-        system6.clearRun(num);
+        system5.clearRun(num);
       }
     }, 2);
-    system6.waitTicks(40).then(() => {
+    system5.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system6.clearRun(num);
+      system5.clearRun(num);
     });
   }
   checkSazinReflection(entity) {
@@ -5101,33 +2075,33 @@ var KazeNoKata = class extends KataComonClass {
     }
     const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 1);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 1);
-    const num = system6.runInterval(() => {
+    const num = system5.runInterval(() => {
       try {
         const distance2 = getLookLocationDistance(entity.getRotation().y, 2.5, 0, -1.5);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 5, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
       } catch (error) {
-        system6.clearRun(num);
+        system5.clearRun(num);
       }
     }, 2);
-    system6.waitTicks(10).then(() => {
-      entity.addEffect(MinecraftEffectTypes.SlowFalling, 0.5 * TicksPerSecond4, {
+    system5.waitTicks(10).then(() => {
+      entity.addEffect("minecraft:slow_falling", 0.5 * TicksPerSecond4, {
         amplifier: 1,
         showParticles: false
       });
     }).catch((error) => {
     }).finally(() => {
     });
-    system6.waitTicks(30).then(() => {
+    system5.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
-      entity.addEffect(MinecraftEffectTypes.SlowFalling, 0.5 * TicksPerSecond4, {
+      entity.addEffect("minecraft:slow_falling", 0.5 * TicksPerSecond4, {
         amplifier: 1,
         showParticles: false
       });
     }).catch((error) => {
     }).finally(() => {
-      system6.clearRun(num);
+      system5.clearRun(num);
     });
   }
   /**
@@ -5140,7 +2114,7 @@ var KazeNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
-    system6.waitTicks(8).then(() => {
+    system5.waitTicks(8).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5166,20 +2140,20 @@ var KazeNoKata = class extends KataComonClass {
       const distance = getLookLocationDistance(entity.getRotation().y, around, side, 0);
       entity.dimension.spawnParticle("kurokumaft:kaze7_particle", getDistanceLocation(entity.location, distance), molang);
     }
-    const num = system6.runInterval(() => {
+    const num = system5.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4.5, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system6.clearRun(num);
+        system5.clearRun(num);
       }
     }, 4);
-    system6.waitTicks(20).then(() => {
+    system5.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system6.clearRun(num);
+      system5.clearRun(num);
     });
   }
   /**
@@ -5192,22 +2166,22 @@ var KazeNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system6.runInterval(() => {
+    const num = system5.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
         const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
       } catch (error) {
-        system6.clearRun(num);
+        system5.clearRun(num);
       }
     }, 4);
-    system6.waitTicks(40).then(() => {
+    system5.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system6.clearRun(num);
+      system5.clearRun(num);
     });
   }
   /**
@@ -5225,26 +2199,26 @@ var KazeNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap4();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system6.runInterval(() => {
+    const num = system5.runInterval(() => {
       try {
         const distance2 = getLookLocationDistance(entity.getRotation().y, 3, 0, -1);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 5, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         entity.dimension.spawnParticle("kurokumaft:kaze3_particle", getDistanceLocation(entity.location, distance2), molang);
       } catch (error) {
-        system6.clearRun(num);
+        system5.clearRun(num);
       }
     }, 2);
-    entity.addEffect(MinecraftEffectTypes.SlowFalling, 2 * TicksPerSecond4, {
+    entity.addEffect("minecraft:slow_falling", 2 * TicksPerSecond4, {
       amplifier: 1,
       showParticles: false
     });
-    system6.waitTicks(40).then(() => {
+    system5.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system6.clearRun(num);
+      system5.clearRun(num);
     });
   }
 };
@@ -5320,7 +2294,7 @@ var KokyuSanemiComponent = class {
 };
 
 // scripts/kokyu/kata/MushiNoKata.ts
-import { system as system7, Player as Player10 } from "@minecraft/server";
+import { system as system6, Player as Player10 } from "@minecraft/server";
 var MushiNoKata = class extends KataComonClass {
   /**
    * 蝶ノ舞 戯れ
@@ -5334,23 +2308,23 @@ var MushiNoKata = class extends KataComonClass {
     }
     const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0.5);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0.5);
-    const num = system7.runInterval(() => {
+    const num = system6.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 3, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-        this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+        this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
       } catch (error) {
-        system7.clearRun(num);
+        system6.clearRun(num);
       }
     }, 2);
     entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
-    system7.waitTicks(10).then(() => {
+    system6.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
     }).catch((error) => {
     }).finally(() => {
-      system7.clearRun(num);
+      system6.clearRun(num);
     });
-    system7.waitTicks(20).then(() => {
+    system6.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -5368,15 +2342,15 @@ var MushiNoKata = class extends KataComonClass {
     }
     const point = getLookLocationDistance(entity.getRotation().y, 10, 0, 0);
     entity.applyKnockback({ x: point.x, z: point.z }, 0);
-    system7.waitTicks(2).then(() => {
+    system6.waitTicks(2).then(() => {
       entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
       const filter = addRegimentalFilter(0, entity.location, 3, entity);
       this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-      this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+      this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
     }).catch((error) => {
     }).finally(() => {
     });
-    system7.waitTicks(8).then(() => {
+    system6.waitTicks(8).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5393,22 +2367,22 @@ var MushiNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system7.runInterval(() => {
+    const num = system6.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-        this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+        this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
       } catch (error) {
-        system7.clearRun(num);
+        system6.clearRun(num);
       }
     }, 4);
-    system7.waitTicks(16).then(() => {
+    system6.waitTicks(16).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system7.clearRun(num);
+      system6.clearRun(num);
     });
   }
   /**
@@ -5426,26 +2400,26 @@ var MushiNoKata = class extends KataComonClass {
     entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
     entity.setProperty("kurokumaft:kokyu_attack", true);
     let side = 8;
-    const num = system7.runInterval(() => {
+    const num = system6.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-        this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
+        this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
         const distance2 = getLookLocationDistance(entity.getRotation().y, 8, side, 0);
         entity.applyKnockback({ x: distance2.x, z: distance2.z }, 0);
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", entity.location);
         side = -side;
       } catch (error) {
-        system7.clearRun(num);
+        system6.clearRun(num);
       }
     }, 4);
-    system7.waitTicks(40).then(() => {
+    system6.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_attack", false);
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system7.clearRun(num);
+      system6.clearRun(num);
     });
   }
 };
@@ -5505,7 +2479,7 @@ var KokyuShinobuComponent = class {
 import { TicksPerSecond as TicksPerSecond6 } from "@minecraft/server";
 
 // scripts/kokyu/kata/HiNoKata.ts
-import { MolangVariableMap as MolangVariableMap5, system as system8, TicksPerSecond as TicksPerSecond5, Player as Player11 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap5, system as system7, TicksPerSecond as TicksPerSecond5, Player as Player11 } from "@minecraft/server";
 var HiNoKata = class extends KataComonClass {
   constructor() {
     super(...arguments);
@@ -5524,12 +2498,12 @@ var HiNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 0, 0.5);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 4, 1, itemStack);
-    system8.waitTicks(2).then(() => {
+    system7.waitTicks(2).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
     }).catch((error) => {
     }).finally(() => {
     });
-    system8.waitTicks(10).then(() => {
+    system7.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -5545,26 +2519,26 @@ var HiNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system8.runInterval(() => {
+    const num = system7.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system8.clearRun(num);
+        system7.clearRun(num);
       }
     }, 1);
-    system8.waitTicks(8).then(() => {
+    system7.waitTicks(8).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
-      system8.waitTicks(4).then(() => {
+      system7.waitTicks(4).then(() => {
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
       }).finally(() => {
       });
     }).catch((error) => {
     }).finally(() => {
-      system8.clearRun(num);
+      system7.clearRun(num);
     });
   }
   /**
@@ -5580,7 +2554,7 @@ var HiNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 0, 0.5);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 6, 2, itemStack);
-    system8.waitTicks(7).then(() => {
+    system7.waitTicks(7).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5600,14 +2574,14 @@ var HiNoKata = class extends KataComonClass {
     const ldistance = getLookLocationDistance(entity.getRotation().y, 1.5, -1.5, 1);
     const lfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, ldistance), 3, entity);
     this.kokyuApplyDamage(entity, lfilter, 3, 1, itemStack);
-    system8.waitTicks(15).then(() => {
+    system7.waitTicks(15).then(() => {
       const rdistance = getLookLocationDistance(entity.getRotation().y, 1.5, 1.5, 1);
       const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, rdistance), 3, entity);
       this.kokyuApplyDamage(entity, rfilter, 3, 1, itemStack);
     }).catch((error) => {
     }).finally(() => {
     });
-    system8.waitTicks(25).then(() => {
+    system7.waitTicks(25).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5625,17 +2599,17 @@ var HiNoKata = class extends KataComonClass {
       }
     }
     let z = 0;
-    const num = system8.runInterval(() => {
+    const num = system7.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, z, 0, 0.5);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 6, 2, itemStack);
         z++;
       } catch (error) {
-        system8.clearRun(num);
+        system7.clearRun(num);
       }
     }, 4);
-    system8.waitTicks(30).then(() => {
+    system7.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5656,7 +2630,7 @@ var HiNoKata = class extends KataComonClass {
     const distance = getLookLocationDistancePitch(entity.getRotation(), 3.5, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
     this.kokyuApplyDamage(entity, filter, 6, 2, itemStack);
-    system8.waitTicks(5).then(() => {
+    system7.waitTicks(5).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -5674,13 +2648,13 @@ var HiNoKata = class extends KataComonClass {
     }
     entity.setDynamicProperty("kurokumaft:chage_type", true);
     entity.setProperty("kurokumaft:kokyu_chage", 1);
-    entity.addEffect(MinecraftEffectTypes.Speed, 2 * TicksPerSecond5, {
+    entity.addEffect("minecraft:speed", 2 * TicksPerSecond5, {
       amplifier: 6,
       showParticles: false
     });
     entity.setProperty("kurokumaft:kokyu_attack", true);
     let side = 5;
-    const num = system8.runInterval(() => {
+    const num = system7.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
@@ -5688,10 +2662,10 @@ var HiNoKata = class extends KataComonClass {
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         side = -side;
       } catch (error) {
-        system8.clearRun(num);
+        system7.clearRun(num);
       }
     }, 4);
-    system8.waitTicks(2 * TicksPerSecond5).then(() => {
+    system7.waitTicks(2 * TicksPerSecond5).then(() => {
       entity.setProperty("kurokumaft:kokyu_attack", false);
       entity.setProperty("kurokumaft:kokyu_chage", 0);
       entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -5699,7 +2673,7 @@ var HiNoKata = class extends KataComonClass {
       entity.setDynamicProperty("kurokumaft:chage_type", void 0);
     }).catch((error) => {
     }).finally(() => {
-      system8.clearRun(num);
+      system7.clearRun(num);
     });
   }
   /**
@@ -5717,7 +2691,7 @@ var HiNoKata = class extends KataComonClass {
     const distance2 = getLookLocationDistance(entity.getRotation().y, 3, 0, -1);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 4, entity);
     this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
-    system8.waitTicks(15).then(() => {
+    system7.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5737,7 +2711,7 @@ var HiNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 3.5, 0, 0.5);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
     this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
-    system8.waitTicks(15).then(() => {
+    system7.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5757,11 +2731,11 @@ var HiNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap5();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system8.runInterval(() => {
+    const num = system7.runInterval(() => {
       try {
         entity.dimension.spawnParticle("kurokumaft:hi9_particle", entity.location, molang);
       } catch (error) {
-        system8.clearRun(num);
+        system7.clearRun(num);
       }
     }, 1);
     const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0.5);
@@ -5770,12 +2744,12 @@ var HiNoKata = class extends KataComonClass {
     const udistance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 3);
     const ufilter = addRegimentalFilter(0, getDistanceLocation(entity.location, udistance), 3, entity);
     this.kokyuApplyDamage(entity, ufilter, 6, 3, itemStack);
-    system8.waitTicks(20).then(() => {
+    system7.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system8.clearRun(num);
+      system7.clearRun(num);
     });
   }
   /**
@@ -5800,13 +2774,13 @@ var HiNoKata = class extends KataComonClass {
     const ddistance = getLookLocationDistance(entity.getRotation().y, 0, 0, -2.5);
     const dfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, ddistance), 2.5, entity);
     this.kokyuApplyDamage(entity, dfilter, 6, 3, itemStack);
-    system8.waitTicks(5).then(() => {
+    system7.waitTicks(5).then(() => {
       const point = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
       entity.applyKnockback({ x: point.x, z: point.z }, 0.5);
     }).catch((error) => {
     }).finally(() => {
     });
-    system8.waitTicks(15).then(() => {
+    system7.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -5826,24 +2800,24 @@ var HiNoKata = class extends KataComonClass {
       }
       entity.setDynamicProperty("kurokumaft:chage_type", true);
       entity.triggerEvent("kurokumaft:add_damage_clear");
-      this.gennitiIntervalId = system8.runInterval(() => {
+      this.gennitiIntervalId = system7.runInterval(() => {
         try {
           this.checkGennitiMove(entity, itemStack);
         } catch (error) {
-          system8.clearRun(this.gennitiIntervalId);
+          system7.clearRun(this.gennitiIntervalId);
         }
       }, 2);
       const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
       const molang = new MolangVariableMap5();
       molang.setFloat("variable.kaikyu", kaikyuNum);
-      const num = system8.runInterval(() => {
+      const num = system7.runInterval(() => {
         try {
           entity.dimension.spawnParticle("kurokumaft:hi_heat_haze_particle", entity.location, molang);
         } catch (error) {
-          system8.clearRun(num);
+          system7.clearRun(num);
         }
       }, 1);
-      system8.waitTicks(6 * TicksPerSecond5).then(() => {
+      system7.waitTicks(6 * TicksPerSecond5).then(() => {
         entity.setProperty("kurokumaft:kokyu_attack", false);
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -5851,8 +2825,8 @@ var HiNoKata = class extends KataComonClass {
         entity.triggerEvent("kurokumaft:remove_damage_clear");
       }).catch((error) => {
       }).finally(() => {
-        system8.clearRun(this.gennitiIntervalId);
-        system8.clearRun(num);
+        system7.clearRun(this.gennitiIntervalId);
+        system7.clearRun(num);
       });
     }
   }
@@ -5872,7 +2846,7 @@ var HiNoKata = class extends KataComonClass {
       });
       entity.removeTag(entity.id);
     } else {
-      system8.clearRun(this.gennitiIntervalId);
+      system7.clearRun(this.gennitiIntervalId);
     }
   }
   /**
@@ -5888,12 +2862,12 @@ var HiNoKata = class extends KataComonClass {
     const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 0, 0.5);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
-    system8.waitTicks(5).then(() => {
+    system7.waitTicks(5).then(() => {
       this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
     }).catch((error) => {
     }).finally(() => {
     });
-    system8.waitTicks(10).then(() => {
+    system7.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -6033,7 +3007,7 @@ var KokyuTanjiroComponent = class {
 import { TicksPerSecond as TicksPerSecond8 } from "@minecraft/server";
 
 // scripts/kokyu/kata/KaminariNoKata.ts
-import { MolangVariableMap as MolangVariableMap6, system as system9, TicksPerSecond as TicksPerSecond7, Player as Player13 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap6, system as system8, TicksPerSecond as TicksPerSecond7, Player as Player13 } from "@minecraft/server";
 var KaminariNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 霹靂一閃
@@ -6045,39 +3019,39 @@ var KaminariNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 1);
-    system9.waitTicks(6).then(() => {
+    system8.waitTicks(6).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
    * 壱ノ型 霹靂一閃
    */
   ichiNoKataRen(entity, itemStack) {
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 1);
-    system9.waitTicks(6).then(() => {
+    system8.waitTicks(6).then(() => {
       entity.teleport(entity.location, {
         keepVelocity: false,
         rotation: {
@@ -6087,7 +3061,7 @@ var KaminariNoKata = class extends KataComonClass {
       });
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
@@ -6102,21 +3076,21 @@ var KaminariNoKata = class extends KataComonClass {
     }
     entity.setProperty("kurokumaft:kokyu_use", false);
     this.ichiNoKataRen(entity, itemStack);
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         this.ichiNoKataRen(entity, itemStack);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 8);
-    system9.waitTicks(49).then(() => {
+    system8.waitTicks(49).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
       if (entity instanceof Player13) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kaminari_kokyu1_rengeki.value", with: ["6"] }] });
       }
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
@@ -6131,21 +3105,21 @@ var KaminariNoKata = class extends KataComonClass {
     }
     entity.setProperty("kurokumaft:kokyu_use", false);
     this.ichiNoKataRen(entity, itemStack);
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         this.ichiNoKataRen(entity, itemStack);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 8);
-    system9.waitTicks(65).then(() => {
+    system8.waitTicks(65).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
       if (entity instanceof Player13) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kaminari_kokyu1_rengeki.value", with: ["8"] }] });
       }
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
@@ -6161,7 +3135,7 @@ var KaminariNoKata = class extends KataComonClass {
     const molang = new MolangVariableMap6();
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
@@ -6169,15 +3143,15 @@ var KaminariNoKata = class extends KataComonClass {
         const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
         this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 1);
-    system9.waitTicks(6).then(() => {
+    system8.waitTicks(6).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
@@ -6190,21 +3164,21 @@ var KaminariNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 4);
-    system9.waitTicks(20).then(() => {
+    system8.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
@@ -6217,12 +3191,12 @@ var KaminariNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 2);
     const distance = getLookLocationDistance(entity.getRotation().y, 4, -4, 0);
@@ -6234,7 +3208,7 @@ var KaminariNoKata = class extends KataComonClass {
         y: entity.getRotation().y + 90
       }
     });
-    const num2 = system9.runInterval(() => {
+    const num2 = system8.runInterval(() => {
       try {
         const distance2 = getLookLocationDistance(entity.getRotation().y, 4, -4, 0);
         entity.applyKnockback({ x: distance2.x, z: distance2.z }, 0);
@@ -6246,16 +3220,16 @@ var KaminariNoKata = class extends KataComonClass {
           }
         });
       } catch (error) {
-        system9.clearRun(num2);
+        system8.clearRun(num2);
       }
     }, 5);
-    system9.waitTicks(30).then(() => {
+    system8.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
-      system9.clearRun(num2);
+      system8.clearRun(num);
+      system8.clearRun(num2);
     });
   }
   /**
@@ -6272,21 +3246,21 @@ var KaminariNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap6();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
         entity.dimension.spawnParticle("kurokumaft:kaminari4_particle", entity.location, molang);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
-    }, 2);
-    system9.waitTicks(20).then(() => {
+    }, 4);
+    system8.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
@@ -6302,21 +3276,21 @@ var KaminariNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap6();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         entity.dimension.spawnParticle("kurokumaft:kaminari5_particle", entity.location, molang);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 2);
     const filter = addRegimentalFilter(1, entity.location, 6, entity);
-    this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
-    system9.waitTicks(20).then(() => {
+    this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+    system8.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
     let event = "kurokumaft:small_damage";
     if (kaikyuNum > 8) {
@@ -6325,7 +3299,7 @@ var KaminariNoKata = class extends KataComonClass {
       event = "kurokumaft:middle_damage";
     }
     const dragon = shooting(entity, "kurokumaft:kaminari_dragon_small", 0, 3, event);
-    system9.waitTicks(2 * TicksPerSecond7).then(() => {
+    system8.waitTicks(2 * TicksPerSecond7).then(() => {
       if (dragon.isValid) {
         dragon.remove();
       }
@@ -6345,7 +3319,7 @@ var KaminariNoKata = class extends KataComonClass {
     }
     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0.8);
-    entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond7, {
+    entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond7, {
       amplifier: 1,
       showParticles: false
     });
@@ -6353,21 +3327,21 @@ var KaminariNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap6();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system9.runInterval(() => {
+    const num = system8.runInterval(() => {
       try {
         entity.dimension.spawnParticle("kurokumaft:kaminari6_particle", nowloc, molang);
       } catch (error) {
-        system9.clearRun(num);
+        system8.clearRun(num);
       }
     }, 1);
     const filter = addRegimentalFilter(1, entity.location, 15, entity);
-    this.kokyuApplyDamage(entity, filter, 8, 4, itemStack);
-    system9.waitTicks(10).then(() => {
+    this.kokyuApplyDamage(entity, filter, 6, 2, itemStack);
+    system8.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system9.clearRun(num);
+      system8.clearRun(num);
     });
   }
   /**
@@ -6392,8 +3366,8 @@ var KaminariNoKata = class extends KataComonClass {
       });
     }
     const filter2 = addRegimentalFilter(0, entity.location, 8, entity);
-    this.kokyuApplyDamage(entity, filter2, 20, 8, itemStack);
-    system9.waitTicks(10).then(() => {
+    this.kokyuApplyDamage(entity, filter2, 10, 8, itemStack);
+    system8.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_chage", 0);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -6492,7 +3466,7 @@ var NichirintouChoiceComponent = class {
 };
 
 // scripts/kokyu/kata/HebiNoKata.ts
-import { system as system10, Player as Player16 } from "@minecraft/server";
+import { system as system9, Player as Player16 } from "@minecraft/server";
 var HebiNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 委蛇斬り
@@ -6509,7 +3483,7 @@ var HebiNoKata = class extends KataComonClass {
     this.kokyuApplyDamage(entity, filter, 3, 2, itemStack);
     const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
-    system10.waitTicks(6).then(() => {
+    system9.waitTicks(6).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -6529,8 +3503,8 @@ var HebiNoKata = class extends KataComonClass {
     const distancePitch = getLookLocationDistancePitch(entity.getRotation(), 0, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distancePitch), 3, entity);
     this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-    this.kokyuApplyEffect(entity, filter, 2, 1, MinecraftEffectTypes.Poison);
-    system10.waitTicks(6).then(() => {
+    this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
+    system9.waitTicks(6).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -6548,21 +3522,21 @@ var HebiNoKata = class extends KataComonClass {
       }
     }
     const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
-    const num = system10.runInterval(() => {
+    const num = system9.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 6, entity);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system10.clearRun(num);
+        system9.clearRun(num);
       }
     }, 4);
-    system10.waitTicks(20).then(() => {
+    system9.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system10.clearRun(num);
+      system9.clearRun(num);
     });
   }
   /**
@@ -6575,22 +3549,22 @@ var HebiNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system10.runInterval(() => {
+    const num = system9.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         const filter = addRegimentalFilter(1, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
       } catch (error) {
-        system10.clearRun(num);
+        system9.clearRun(num);
       }
     }, 2);
-    system10.waitTicks(40).then(() => {
+    system9.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system10.clearRun(num);
+      system9.clearRun(num);
     });
   }
   /**
@@ -6604,7 +3578,7 @@ var HebiNoKata = class extends KataComonClass {
       }
     }
     let side = 4;
-    const num = system10.runInterval(() => {
+    const num = system9.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
@@ -6612,15 +3586,15 @@ var HebiNoKata = class extends KataComonClass {
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         side = -side;
       } catch (error) {
-        system10.clearRun(num);
+        system9.clearRun(num);
       }
     }, 2);
-    system10.waitTicks(20).then(() => {
+    system9.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system10.clearRun(num);
+      system9.clearRun(num);
     });
   }
 };
@@ -6832,7 +3806,7 @@ var KokyuHonoComponent = class {
 };
 
 // scripts/kokyu/kata/IwaNoKata.ts
-import { MolangVariableMap as MolangVariableMap7, system as system11, TicksPerSecond as TicksPerSecond9, Player as Player17 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap7, system as system10, TicksPerSecond as TicksPerSecond9, Player as Player17 } from "@minecraft/server";
 var IwaNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 蛇紋岩・双極
@@ -6846,13 +3820,13 @@ var IwaNoKata = class extends KataComonClass {
     }
     const ono = shooting(entity, "kurokumaft:iwa_axe", 0, 3, void 0);
     const ball = shooting(entity, "kurokumaft:iwa_iron_ball", 0, 3, void 0);
-    system11.waitTicks(10).then(() => {
+    system10.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
     });
-    system11.waitTicks(15).then(() => {
+    system10.waitTicks(15).then(() => {
       if (ono !== void 0) {
         ono.remove();
       }
@@ -6876,7 +3850,7 @@ var IwaNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap7();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    system11.waitTicks(6).then(() => {
+    system10.waitTicks(6).then(() => {
       const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
       const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
       this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
@@ -6884,7 +3858,7 @@ var IwaNoKata = class extends KataComonClass {
     }).catch((error) => {
     }).finally(() => {
     });
-    system11.waitTicks(10).then(() => {
+    system10.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -6904,22 +3878,22 @@ var IwaNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap7();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system11.runInterval(() => {
+    const num = system10.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 6, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
         this.projectRefrect(entity, entity.location);
         entity.dimension.spawnParticle("kurokumaft:iwa3_particle", entity.location, molang);
       } catch (error) {
-        system11.clearRun(num);
+        system10.clearRun(num);
       }
     }, 2);
-    system11.waitTicks(30).then(() => {
+    system10.waitTicks(30).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system11.clearRun(num);
+      system10.clearRun(num);
     });
   }
   /**
@@ -6935,7 +3909,7 @@ var IwaNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap7();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system11.runInterval(() => {
+    const num = system10.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
@@ -6943,15 +3917,15 @@ var IwaNoKata = class extends KataComonClass {
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
         entity.dimension.spawnParticle("kurokumaft:iwa3_particle", entity.location, molang);
       } catch (error) {
-        system11.clearRun(num);
+        system10.clearRun(num);
       }
     }, 2);
-    system11.waitTicks(20).then(() => {
+    system10.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system11.clearRun(num);
+      system10.clearRun(num);
     });
   }
   /**
@@ -6969,7 +3943,7 @@ var IwaNoKata = class extends KataComonClass {
     molang.setFloat("variable.kaikyu", kaikyuNum);
     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 1);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 1);
-    const num = system11.runInterval(() => {
+    const num = system10.runInterval(() => {
       try {
         const distance2 = getLookLocationDistance(entity.getRotation().y, 0, 0, -5);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 5, entity);
@@ -6980,19 +3954,19 @@ var IwaNoKata = class extends KataComonClass {
         entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter", getDistanceLocation(entity.location, distance22));
         entity.dimension.spawnParticle("kurokumaft:iwa3_particle", getDistanceLocation(entity.location, distance22), molang);
       } catch (error) {
-        system11.clearRun(num);
+        system10.clearRun(num);
       }
     }, 2);
-    entity.addEffect(MinecraftEffectTypes.SlowFalling, 2 * TicksPerSecond9, {
+    entity.addEffect("minecraft:slow_falling", 2 * TicksPerSecond9, {
       amplifier: 1,
       showParticles: false
     });
-    system11.waitTicks(40).then(() => {
+    system10.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system11.clearRun(num);
+      system10.clearRun(num);
     });
   }
 };
@@ -7122,7 +4096,7 @@ var KokyuKaminariComponent = class {
 };
 
 // scripts/kokyu/kata/KasumiNoKata.ts
-import { MolangVariableMap as MolangVariableMap8, system as system12, TicksPerSecond as TicksPerSecond10, Player as Player18 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap8, system as system11, TicksPerSecond as TicksPerSecond10, Player as Player18 } from "@minecraft/server";
 var KasumiNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 垂天遠霞
@@ -7141,7 +4115,7 @@ var KasumiNoKata = class extends KataComonClass {
     const distance2 = getLookLocationDistancePitch(entity.getRotation(), 4.5, 0);
     const filter2 = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 2, entity);
     this.kokyuApplyDamage(entity, filter2, 4, 1, itemStack);
-    system12.waitTicks(5).then(() => {
+    system11.waitTicks(5).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -7157,24 +4131,24 @@ var KasumiNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system12.runInterval(() => {
+    const num = system11.runInterval(() => {
       try {
         if (entity === void 0) {
-          system12.clearRun(num);
+          system11.clearRun(num);
           return;
         }
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system12.clearRun(num);
+        system11.clearRun(num);
       }
     }, 2);
-    system12.waitTicks(20).then(() => {
+    system11.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system12.clearRun(num);
+      system11.clearRun(num);
     });
   }
   /**
@@ -7190,7 +4164,7 @@ var KasumiNoKata = class extends KataComonClass {
     entity.setProperty("kurokumaft:kokyu_use", false);
     const filter = addRegimentalFilter(0, entity.location, 6, entity);
     this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
-    system12.waitTicks(10).then(() => {
+    system11.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -7213,24 +4187,24 @@ var KasumiNoKata = class extends KataComonClass {
     const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
     this.kokyuApplyDamage(entity, filter, 4, 1, itemStack);
     entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", entity.location, molang);
-    const num = system12.runInterval(() => {
+    const num = system11.runInterval(() => {
       try {
         if (entity === void 0) {
-          system12.clearRun(num);
+          system11.clearRun(num);
           return;
         }
         entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", entity.location, molang);
       } catch (error) {
-        system12.clearRun(num);
+        system11.clearRun(num);
       }
     }, 2);
     const distance = getLookLocationDistance(entity.getRotation().y, 10, 0, 0);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
-    system12.waitTicks(10).then(() => {
+    system11.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system12.clearRun(num);
+      system11.clearRun(num);
     });
   }
   /**
@@ -7248,10 +4222,10 @@ var KasumiNoKata = class extends KataComonClass {
     molang.setFloat("variable.kaikyu", kaikyuNum);
     const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0.5);
-    const num = system12.runInterval(() => {
+    const num = system11.runInterval(() => {
       try {
         if (entity === void 0) {
-          system12.clearRun(num);
+          system11.clearRun(num);
           return;
         }
         const filter = addRegimentalFilter(0, entity.location, 3, entity);
@@ -7260,15 +4234,15 @@ var KasumiNoKata = class extends KataComonClass {
         const pdistance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
         entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", getDistanceLocation(entity.location, pdistance), molang);
       } catch (error) {
-        system12.clearRun(num);
+        system11.clearRun(num);
       }
     }, 2);
-    system12.waitTicks(20).then(() => {
+    system11.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system12.clearRun(num);
+      system11.clearRun(num);
     });
   }
   /**
@@ -7284,10 +4258,10 @@ var KasumiNoKata = class extends KataComonClass {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
     const molang = new MolangVariableMap8();
     molang.setFloat("variable.kaikyu", kaikyuNum);
-    const num = system12.runInterval(() => {
+    const num = system11.runInterval(() => {
       try {
         if (entity === void 0) {
-          system12.clearRun(num);
+          system11.clearRun(num);
           return;
         }
         const distance2 = getLookLocationDistance(entity.getRotation().y, 1.5, 0, -0.5);
@@ -7295,17 +4269,17 @@ var KasumiNoKata = class extends KataComonClass {
         this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
         entity.dimension.spawnParticle("kurokumaft:kasumi_fog_particle", getDistanceLocation(entity.location, distance2), molang);
       } catch (error) {
-        system12.clearRun(num);
+        system11.clearRun(num);
       }
     }, 4);
     const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 1);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0.5);
-    system12.waitTicks(20).then(() => {
+    system11.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system12.clearRun(num);
+      system11.clearRun(num);
     });
   }
   /**
@@ -7323,45 +4297,45 @@ var KasumiNoKata = class extends KataComonClass {
       const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
       const molang = new MolangVariableMap8();
       molang.setFloat("variable.kaikyu", kaikyuNum);
-      entity.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond10, {
+      entity.addEffect("minecraft:speed", 10 * TicksPerSecond10, {
         amplifier: 3,
         showParticles: false
       });
       entity.setProperty("kurokumaft:kokyu_chage", 1);
       entity.dimension.spawnParticle("kurokumaft:kasumi_fog_lage_particle", entity.location, molang);
-      entity.addEffect(MinecraftEffectTypes.Invisibility, 20, {
+      entity.addEffect("minecraft:invisibility", 20, {
         amplifier: 10,
         showParticles: false
       });
-      const num = system12.runInterval(() => {
+      const num = system11.runInterval(() => {
         try {
           if (entity === void 0) {
-            system12.clearRun(num);
+            system11.clearRun(num);
             return;
           }
           entity.dimension.spawnParticle("kurokumaft:kasumi_fog_lage_particle", entity.location, molang);
           if (entity.getProperty("kurokumaft:kokyu_chage") === 1) {
             entity.setProperty("kurokumaft:kokyu_chage", 2);
-            entity.removeEffect(MinecraftEffectTypes.Invisibility);
+            entity.removeEffect("minecraft:invisibility");
           } else {
             entity.setProperty("kurokumaft:kokyu_chage", 1);
-            entity.addEffect(MinecraftEffectTypes.Invisibility, 20, {
+            entity.addEffect("minecraft:invisibility", 20, {
               amplifier: 10,
               showParticles: false
             });
           }
         } catch (error) {
-          system12.clearRun(num);
+          system11.clearRun(num);
         }
       }, 20);
-      system12.waitTicks(10 * TicksPerSecond10).then(() => {
+      system11.waitTicks(10 * TicksPerSecond10).then(() => {
         entity.setProperty("kurokumaft:kokyu_chage", 0);
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         entity.setDynamicProperty("kurokumaft:chage_type", void 0);
       }).catch((error) => {
       }).finally(() => {
-        system12.clearRun(num);
+        system11.clearRun(num);
       });
     }
   }
@@ -7657,7 +4631,7 @@ var KokyuMushiComponent = class {
 };
 
 // scripts/kokyu/kata/OtoNoKata.ts
-import { MolangVariableMap as MolangVariableMap9, system as system13, TicksPerSecond as TicksPerSecond11, Player as Player19 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap9, system as system12, TicksPerSecond as TicksPerSecond11, Player as Player19 } from "@minecraft/server";
 var OtoNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 轟
@@ -7679,8 +4653,8 @@ var OtoNoKata = class extends KataComonClass {
       causesFire: false,
       source: entity
     };
-    entity.dimension.createExplosion(disLocation, 1, option);
-    system13.waitTicks(5).then(() => {
+    entity.dimension.createExplosion(disLocation, 2, option);
+    system12.waitTicks(5).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -7701,24 +4675,24 @@ var OtoNoKata = class extends KataComonClass {
       source: entity
     };
     let side = -2;
-    const num = system13.runInterval(() => {
+    const num = system12.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0.5);
         const disLocation = getDistanceLocation(entity.location, distance);
         const filter = addRegimentalFilter(0, disLocation, 4, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-        entity.dimension.createExplosion(disLocation, 1, option);
+        entity.dimension.createExplosion(disLocation, 2, option);
         side = side + 2;
       } catch (error) {
-        system13.clearRun(num);
+        system12.clearRun(num);
       }
     }, 5);
-    system13.waitTicks(16).then(() => {
+    system12.waitTicks(16).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system13.clearRun(num);
+      system12.clearRun(num);
     });
   }
   /**
@@ -7735,7 +4709,7 @@ var OtoNoKata = class extends KataComonClass {
       causesFire: false,
       source: entity
     };
-    const num = system13.runInterval(() => {
+    const num = system12.runInterval(() => {
       try {
         const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0.5);
         entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
@@ -7744,14 +4718,14 @@ var OtoNoKata = class extends KataComonClass {
         const front = getForwardPosition(entity.location, entity.getRotation().y, 1);
         entity.dimension.createExplosion(front, 2, option);
       } catch (error) {
-        system13.clearRun(num);
+        system12.clearRun(num);
       }
     }, 2);
-    system13.waitTicks(12).then(() => {
+    system12.waitTicks(12).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system13.clearRun(num);
+      system12.clearRun(num);
     });
   }
   /**
@@ -7773,21 +4747,21 @@ var OtoNoKata = class extends KataComonClass {
       causesFire: false,
       source: entity
     };
-    const num = system13.runInterval(() => {
+    const num = system12.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 5, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
         this.checkSousouReflection(entity, option);
       } catch (error) {
-        system13.clearRun(num);
+        system12.clearRun(num);
       }
     }, 2);
-    system13.waitTicks(20).then(() => {
+    system12.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system13.clearRun(num);
+      system12.clearRun(num);
     });
   }
   checkSousouReflection(entity, option) {
@@ -7821,7 +4795,7 @@ var OtoNoKata = class extends KataComonClass {
         }
       }
       entity.setDynamicProperty("kurokumaft:chage_type", true);
-      entity.addEffect(MinecraftEffectTypes.Speed, 3 * TicksPerSecond11, {
+      entity.addEffect("minecraft:speed", 3 * TicksPerSecond11, {
         amplifier: 5,
         showParticles: false
       });
@@ -7831,7 +4805,7 @@ var OtoNoKata = class extends KataComonClass {
         causesFire: false,
         source: entity
       };
-      const num = system13.runInterval(() => {
+      const num = system12.runInterval(() => {
         try {
           const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0.5);
           entity.applyKnockback({ x: distance.x, z: distance.z }, 0);
@@ -7842,16 +4816,16 @@ var OtoNoKata = class extends KataComonClass {
           const left = getLeftPosition(entity.location, entity.getRotation().y, 3);
           entity.dimension.createExplosion(left, 2.5, option);
         } catch (error) {
-          system13.clearRun(num);
+          system12.clearRun(num);
         }
       }, 2);
-      system13.waitTicks(3 * TicksPerSecond11).then(() => {
+      system12.waitTicks(3 * TicksPerSecond11).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         entity.setDynamicProperty("kurokumaft:chage_type", void 0);
       }).catch((error) => {
       }).finally(() => {
-        system13.clearRun(num);
+        system12.clearRun(num);
       });
     }
   }
@@ -8104,7 +5078,7 @@ var KokyuKoiComponent = class {
 };
 
 // scripts/kokyu/kata/KedamonoNoKata.ts
-import { system as system14, TicksPerSecond as TicksPerSecond12, Player as Player20 } from "@minecraft/server";
+import { system as system13, TicksPerSecond as TicksPerSecond12, Player as Player20 } from "@minecraft/server";
 var KedamonoNoKata = class extends KataComonClass {
   /**
    * 壱ノ牙 穿ち抜き
@@ -8119,7 +5093,7 @@ var KedamonoNoKata = class extends KataComonClass {
     const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-    system14.waitTicks(15).then(() => {
+    system13.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -8139,14 +5113,14 @@ var KedamonoNoKata = class extends KataComonClass {
     const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, -0.5);
     const lfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
     this.kokyuApplyDamage(entity, lfilter, 2, 1, itemStack);
-    system14.waitTicks(10).then(() => {
+    system13.waitTicks(10).then(() => {
       const distance2 = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0.5);
       const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 3, entity);
       this.kokyuApplyDamage(entity, rfilter, 2, 1, itemStack);
     }).catch((error) => {
     }).finally(() => {
     });
-    system14.waitTicks(15).then(() => {
+    system13.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -8166,7 +5140,7 @@ var KedamonoNoKata = class extends KataComonClass {
     const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
     this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-    system14.waitTicks(10).then(() => {
+    system13.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -8183,21 +5157,21 @@ var KedamonoNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system14.runInterval(() => {
+    const num = system13.runInterval(() => {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system14.clearRun(num);
+        system13.clearRun(num);
       }
     }, 4);
-    system14.waitTicks(40).then(() => {
+    system13.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system14.clearRun(num);
+      system13.clearRun(num);
     });
   }
   /**
@@ -8210,20 +5184,20 @@ var KedamonoNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system14.runInterval(() => {
+    const num = system13.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, entity.location, 4, entity);
         this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
       } catch (error) {
-        system14.clearRun(num);
+        system13.clearRun(num);
       }
     }, 4);
-    system14.waitTicks(20).then(() => {
+    system13.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system14.clearRun(num);
+      system13.clearRun(num);
     });
   }
   /**
@@ -8236,21 +5210,21 @@ var KedamonoNoKata = class extends KataComonClass {
         ItemDurabilityDamage(entity, itemStack);
       }
     }
-    const num = system14.runInterval(() => {
+    const num = system13.runInterval(() => {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 1, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
         this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
       } catch (error) {
-        system14.clearRun(num);
+        system13.clearRun(num);
       }
     }, 4);
-    system14.waitTicks(40).then(() => {
+    system13.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system14.clearRun(num);
+      system13.clearRun(num);
     });
   }
   /**
@@ -8266,32 +5240,32 @@ var KedamonoNoKata = class extends KataComonClass {
       }
       entity.setProperty("kurokumaft:kokyu_chage", 10);
       entity.setDynamicProperty("kurokumaft:chage_type", true);
-      entity.addEffect(MinecraftEffectTypes.NightVision, 30 * TicksPerSecond12, {
+      entity.addEffect("minecraft:night_vision", 30 * TicksPerSecond12, {
         amplifier: 5,
         showParticles: false
       });
       const filter = addRegimentalFilter(0, entity.location, 16, entity);
       const targets = entity.dimension.getEntities(filter);
-      const num = system14.runInterval(() => {
+      const num = system13.runInterval(() => {
         try {
           targets.forEach((en) => {
             en.dimension.spawnParticle("kurokumaft:kedamono7_particle", en.location);
           });
         } catch (error) {
-          system14.clearRun(num);
+          system13.clearRun(num);
         }
       }, 2);
-      system14.waitTicks(10).then(() => {
+      system13.waitTicks(10).then(() => {
         entity.setDynamicProperty("kurokumaft:chage_type", void 0);
         entity.setProperty("kurokumaft:kokyu_chage", 0);
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
       }).finally(() => {
-        system14.clearRun(num);
+        system13.clearRun(num);
       });
-      system14.waitTicks(10 * TicksPerSecond12).then(() => {
-        system14.clearRun(num);
+      system13.waitTicks(10 * TicksPerSecond12).then(() => {
+        system13.clearRun(num);
       }).catch((error) => {
       }).finally(() => {
       });
@@ -8310,11 +5284,11 @@ var KedamonoNoKata = class extends KataComonClass {
       }
       entity.setDynamicProperty("kurokumaft:chage_type", true);
       entity.setProperty("kurokumaft:kokyu_chage", 10);
-      entity.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond12, {
+      entity.addEffect("minecraft:speed", 10 * TicksPerSecond12, {
         amplifier: 5,
         showParticles: false
       });
-      system14.waitTicks(10 * TicksPerSecond12).then(() => {
+      system13.waitTicks(10 * TicksPerSecond12).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         entity.setDynamicProperty("kurokumaft:chage_type", void 0);
@@ -8337,7 +5311,7 @@ var KedamonoNoKata = class extends KataComonClass {
     const distance = getLookLocationDistancePitch(entity.getRotation(), 3.5, 0);
     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
     this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
-    system14.waitTicks(10).then(() => {
+    system13.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -8356,7 +5330,7 @@ var KedamonoNoKata = class extends KataComonClass {
           ItemDurabilityDamage(entity, itemStack);
         }
       }
-      const num = system14.runInterval(() => {
+      const num = system13.runInterval(() => {
         try {
           const ldistance = getLookLocationDistancePitch(entity.getRotation(), 0.5, -1.5);
           const lfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, ldistance), 4, entity);
@@ -8365,16 +5339,16 @@ var KedamonoNoKata = class extends KataComonClass {
           const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, rdistance), 4, entity);
           this.kokyuApplyDamage(entity, rfilter, 2, 1, itemStack);
         } catch (error) {
-          system14.clearRun(num);
+          system13.clearRun(num);
         }
       }, 4);
-      system14.waitTicks(3 * TicksPerSecond12).then(() => {
+      system13.waitTicks(3 * TicksPerSecond12).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         entity.setDynamicProperty("kurokumaft:chage_type", void 0);
       }).catch((error) => {
       }).finally(() => {
-        system14.clearRun(num);
+        system13.clearRun(num);
       });
     }
   }
@@ -8698,7 +5672,7 @@ var KokyuHanaComponent = class {
 };
 
 // scripts/kokyu/kata/TukiNoKata.ts
-import { EntityComponentTypes as EntityComponentTypes6, MolangVariableMap as MolangVariableMap10, system as system15, Player as Player21 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes6, MolangVariableMap as MolangVariableMap10, system as system14, Player as Player21 } from "@minecraft/server";
 var TukiNoKata = class extends KataComonClass {
   /**
    * 壱ノ型 闇月・宵の宮
@@ -8719,7 +5693,7 @@ var TukiNoKata = class extends KataComonClass {
     molang.setFloat("variable.tuki_size_x", 5);
     molang.setFloat("variable.tuki_size_y", 2.5);
     entity.dimension.spawnParticle("kurokumaft:tuki5_particle", getDistanceLocation(entity.location, distance), molang);
-    system15.waitTicks(5).then(() => {
+    system14.waitTicks(5).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
@@ -8740,7 +5714,7 @@ var TukiNoKata = class extends KataComonClass {
     molang.setFloat("variable.tuki_size_y", 4);
     let side = -3;
     let tuki_rotaion = 90;
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
         const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0.5);
@@ -8751,15 +5725,15 @@ var TukiNoKata = class extends KataComonClass {
         side = side + 3;
         tuki_rotaion = tuki_rotaion - 90;
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 5);
-    system15.waitTicks(15).then(() => {
+    system14.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -8780,7 +5754,7 @@ var TukiNoKata = class extends KataComonClass {
     this.kokyuApplyDamage(entity, lfilter, 3, 1, itemStack);
     molang.setFloat("variable.tuki_rotaion", 0);
     entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, distance), molang);
-    system15.waitTicks(5).then(() => {
+    system14.waitTicks(5).then(() => {
       const distance2 = getLookLocationDistance(entity.getRotation().y, 2.5, 1.5, 1);
       const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance2), 3.5, entity);
       this.kokyuApplyDamage(entity, rfilter, 3, 1, itemStack);
@@ -8789,7 +5763,7 @@ var TukiNoKata = class extends KataComonClass {
     }).catch((error) => {
     }).finally(() => {
     });
-    system15.waitTicks(10).then(() => {
+    system14.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -8807,7 +5781,7 @@ var TukiNoKata = class extends KataComonClass {
       }
     }
     const molang = new MolangVariableMap10();
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const y = getRandomInRange(0.1, 2.5);
         const distance = getLookLocationDistance(entity.getRotation().y, 3.5, 0, 0);
@@ -8819,15 +5793,15 @@ var TukiNoKata = class extends KataComonClass {
         molang.setFloat("variable.tuki_size_y", getRandomInRange(4, 8));
         entity.dimension.spawnParticle("kurokumaft:tuki5_particle", getDistanceLocation(entity.location, pdistance), molang);
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(20).then(() => {
+    system14.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -8847,7 +5821,7 @@ var TukiNoKata = class extends KataComonClass {
     molang.setFloat("variable.tuki_size_y", 4);
     const parlo = getForwardPosition(entity.location, entity.getRotation().y, 4);
     entity.dimension.spawnParticle("kurokumaft:tuki_box_particle", parlo, molang);
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const side = getRandomInRange(-5, 5);
         const tuki_rotaion = getRandomInRange(-90, 90);
@@ -8858,15 +5832,15 @@ var TukiNoKata = class extends KataComonClass {
         const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
         entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(20).then(() => {
+    system14.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -8889,21 +5863,21 @@ var TukiNoKata = class extends KataComonClass {
     this.tukibae(entity, entity.location, left1);
     const left2 = getLookLocationDistance(entity.getRotation().y, 1, -1, 0);
     this.tukibae(entity, entity.location, left2);
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 6, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
         this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(10).then(() => {
+    system14.waitTicks(10).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -8922,7 +5896,7 @@ var TukiNoKata = class extends KataComonClass {
       y: 0,
       z: distance.z * 3
     });
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, location, 2, entity);
         const exes = filter.excludeFamilies;
@@ -8931,16 +5905,16 @@ var TukiNoKata = class extends KataComonClass {
         }
         this.kokyuApplyDamage(entity, filter, 2, 1, void 0);
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(20).then(() => {
+    system14.waitTicks(20).then(() => {
       if (tuki.isValid) {
         tuki.remove();
       }
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -8964,7 +5938,7 @@ var TukiNoKata = class extends KataComonClass {
     entity.dimension.spawnParticle("kurokumaft:tuki8_particle", disLotation, molang);
     const filter = addRegimentalFilter(0, disLotation, 4, entity);
     this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
-    system15.waitTicks(15).then(() => {
+    system14.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -8987,7 +5961,7 @@ var TukiNoKata = class extends KataComonClass {
     molang.setFloat("variable.tuki_size_x", 8);
     molang.setFloat("variable.tuki_size_y", 4);
     let tuki_rotaion = 75;
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const side = getRandomInRange(-5, 5);
         molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
@@ -8998,15 +5972,15 @@ var TukiNoKata = class extends KataComonClass {
         entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
         tuki_rotaion = -tuki_rotaion;
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(20).then(() => {
+    system14.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -9023,7 +5997,7 @@ var TukiNoKata = class extends KataComonClass {
     this.ragetu(entity, entity.location, ldistance);
     const rdistance = getLookLocationDistance(entity.getRotation().y, 1, 1.5, 0);
     this.ragetu(entity, entity.location, rdistance);
-    system15.waitTicks(15).then(() => {
+    system14.waitTicks(15).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -9047,7 +6021,7 @@ var TukiNoKata = class extends KataComonClass {
       y: 0,
       z: front.z * 3
     });
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const filter = addRegimentalFilter(0, location, 2, entity);
         const exes = filter.excludeFamilies;
@@ -9056,16 +6030,16 @@ var TukiNoKata = class extends KataComonClass {
         }
         this.kokyuApplyDamage(entity, filter, 2, 1, void 0);
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(20).then(() => {
+    system14.waitTicks(20).then(() => {
       if (tuki.isValid) {
         tuki.remove();
       }
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -9079,7 +6053,7 @@ var TukiNoKata = class extends KataComonClass {
       }
     }
     const molang = new MolangVariableMap10();
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const y = getRandomInRange(0.1, 2.5);
         const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
@@ -9091,15 +6065,15 @@ var TukiNoKata = class extends KataComonClass {
         molang.setFloat("variable.tuki_size_y", getRandomInRange(8, 12));
         entity.dimension.spawnParticle("kurokumaft:tuki5_particle", getDistanceLocation(entity.location, pdistance), molang);
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(40).then(() => {
+    system14.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
   /**
@@ -9118,7 +6092,7 @@ var TukiNoKata = class extends KataComonClass {
     molang.setFloat("variable.tuki_size_x", 8);
     molang.setFloat("variable.tuki_size_y", 4);
     let tuki_rotaion = 90;
-    const num = system15.runInterval(() => {
+    const num = system14.runInterval(() => {
       try {
         const side = getRandomInRange(-5, 5);
         molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
@@ -9129,15 +6103,15 @@ var TukiNoKata = class extends KataComonClass {
         entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
         tuki_rotaion = -tuki_rotaion;
       } catch (error) {
-        system15.clearRun(num);
+        system14.clearRun(num);
       }
     }, 2);
-    system15.waitTicks(40).then(() => {
+    system14.waitTicks(40).then(() => {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
     }).finally(() => {
-      system15.clearRun(num);
+      system14.clearRun(num);
     });
   }
 };
@@ -9225,7 +6199,7 @@ var KokyuTukiComponent = class {
 };
 
 // scripts/kokyu/mob/character/TanjiroComponent.ts
-import { system as system16, TicksPerSecond as TicksPerSecond13 } from "@minecraft/server";
+import { system as system15, TicksPerSecond as TicksPerSecond13 } from "@minecraft/server";
 var tanjiroKokyuLowLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -9262,6 +6236,20 @@ var tanjiroKokyuLists = weightChoice([
   { item: 21, weight: 10 },
   { item: 22, weight: 20 }
 ]);
+var tanjiroKokyuHiLists = weightChoice([
+  { item: 11, weight: 30 },
+  { item: 12, weight: 30 },
+  { item: 13, weight: 30 },
+  { item: 14, weight: 20 },
+  { item: 15, weight: 10 },
+  { item: 16, weight: 20 },
+  { item: 17, weight: 20 },
+  { item: 18, weight: 20 },
+  { item: 19, weight: 10 },
+  { item: 20, weight: 20 },
+  { item: 21, weight: 10 },
+  { item: 22, weight: 20 }
+]);
 var TanjiroComponent = class {
   startMonitoring(entity) {
     if (entity !== void 0 && entity.isValid) {
@@ -9275,7 +6263,11 @@ var TanjiroComponent = class {
   }
   useAttackKokyu(entity) {
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
-    if (kaikyuNum > 4) {
+    if (kaikyuNum > 7) {
+      const num = tanjiroKokyuHiLists.pick();
+      entity.setProperty("kurokumaft:kokyu_kata", num);
+      this.kokyuUse(entity, num);
+    } else if (kaikyuNum > 4) {
       const num = tanjiroKokyuLists.pick();
       entity.setProperty("kurokumaft:kokyu_kata", num);
       this.kokyuUse(entity, num);
@@ -9292,7 +6284,255 @@ var TanjiroComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system16.waitTicks(10).then(() => {
+          system15.waitTicks(10).then(() => {
+            mizu.ichiNoKata(entity, void 0);
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 2:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          mizu.niNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 3:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          mizu.sanNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 4:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          mizu.shiNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 5:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          system15.waitTicks(20).then(() => {
+            mizu.goNoKata(entity, void 0);
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 6:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          system15.waitTicks(20).then(() => {
+            mizu.rokuNoKata(entity, void 0);
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 7:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          system15.waitTicks(20).then(() => {
+            mizu.shitiNoKata(entity, void 0);
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 8:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          system15.waitTicks(5).then(() => {
+            mizu.hachiNoKata(entity, void 0);
+          }).catch((error) => {
+          });
+          system15.waitTicks(50).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 9:
+          mizu.kuNoKata(entity, void 0);
+          system15.waitTicks(15 * TicksPerSecond13).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+          }).catch((error) => {
+          });
+          break;
+        case 10:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          mizu.zyuNoKataMob(entity, void 0);
+          system15.waitTicks(40).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 11:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          const ichi = getRandomInRange(1, 2);
+          if (ichi === 1) {
+            hi.ichiNoKata(entity, void 0);
+            system15.waitTicks(20).then(() => {
+              entity.setProperty("kurokumaft:kokyu_kata", 0);
+              entity.triggerEvent("kurokumaft:kokyu_end");
+            }).catch((error) => {
+            });
+          } else {
+            system15.waitTicks(20).then(() => {
+              hi.ichiNoKataIssen(entity, void 0);
+              entity.setProperty("kurokumaft:kokyu_kata", 0);
+              entity.triggerEvent("kurokumaft:kokyu_end");
+            }).catch((error) => {
+            });
+          }
+          break;
+        case 12:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.niNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 13:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.sanNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 14:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.shiNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 15:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          system15.waitTicks(20).then(() => {
+            hi.goNoKata(entity, void 0);
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 16:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.rokuNoKata(entity, void 0);
+          system15.waitTicks(90).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 17:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.shitiNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 18:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.hachiNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 19:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.kuNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 20:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.zyuNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 21:
+          hi.zyuichiNoKata(entity, void 0);
+          system15.waitTicks(10 * TicksPerSecond13).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+          }).catch((error) => {
+          });
+          break;
+        case 22:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          hi.zyuniNoKata(entity, void 0);
+          system15.waitTicks(20).then(() => {
+            entity.setProperty("kurokumaft:kokyu_kata", 0);
+            entity.triggerEvent("kurokumaft:kokyu_end");
+          }).catch((error) => {
+          });
+          break;
+      }
+    } catch (error) {
+    }
+  }
+};
+
+// scripts/kokyu/mob/character/GiyuComponent.ts
+import { system as system16, TicksPerSecond as TicksPerSecond14 } from "@minecraft/server";
+var giyuKokyuLists = weightChoice([
+  { item: 1, weight: 50 },
+  { item: 2, weight: 50 },
+  { item: 3, weight: 50 },
+  { item: 4, weight: 50 },
+  { item: 5, weight: 15 },
+  { item: 6, weight: 20 },
+  { item: 7, weight: 20 },
+  { item: 8, weight: 10 },
+  { item: 9, weight: 10 },
+  { item: 10, weight: 10 },
+  { item: 11, weight: 10 }
+]);
+var GiyuComponent = class {
+  startMonitoring(entity) {
+    if (entity !== void 0 && entity.isValid) {
+      const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip");
+      if (nitirintou_equip) {
+        entity.setProperty("kurokumaft:kokyu_use", true);
+        entity.setProperty("kurokumaft:kokyu_particle", true);
+        this.useAttackKokyu(entity);
+      }
+    }
+  }
+  useAttackKokyu(entity) {
+    const num = giyuKokyuLists.pick();
+    entity.setProperty("kurokumaft:kokyu_kata", num);
+    this.kokyuUse(entity, num);
+  }
+  kokyuUse(entity, kata) {
+    const mizu = new MizuNoKata();
+    try {
+      switch (kata) {
+        case 1:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          system16.waitTicks(15).then(() => {
             mizu.ichiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -9367,7 +6607,7 @@ var TanjiroComponent = class {
           break;
         case 9:
           mizu.kuNoKata(entity, void 0);
-          system16.waitTicks(15 * TicksPerSecond13).then(() => {
+          system16.waitTicks(15 * TicksPerSecond14).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
           }).catch((error) => {
           });
@@ -9382,256 +6622,8 @@ var TanjiroComponent = class {
           });
           break;
         case 11:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          const ichi = getRandomInRange(1, 2);
-          if (ichi === 1) {
-            hi.ichiNoKata(entity, void 0);
-            system16.waitTicks(20).then(() => {
-              entity.setProperty("kurokumaft:kokyu_kata", 0);
-              entity.triggerEvent("kurokumaft:kokyu_end");
-            }).catch((error) => {
-            });
-          } else {
-            system16.waitTicks(20).then(() => {
-              hi.ichiNoKataIssen(entity, void 0);
-              entity.setProperty("kurokumaft:kokyu_kata", 0);
-              entity.triggerEvent("kurokumaft:kokyu_end");
-            }).catch((error) => {
-            });
-          }
-          break;
-        case 12:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.niNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 13:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.sanNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 14:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.shiNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 15:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          system16.waitTicks(20).then(() => {
-            hi.goNoKata(entity, void 0);
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 16:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.rokuNoKata(entity, void 0);
-          system16.waitTicks(90).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 17:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.shitiNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 18:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.hachiNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 19:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.kuNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 20:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.zyuNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 21:
-          hi.zyuichiNoKata(entity, void 0);
-          system16.waitTicks(10 * TicksPerSecond13).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-          }).catch((error) => {
-          });
-          break;
-        case 22:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          hi.zyuniNoKata(entity, void 0);
-          system16.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-      }
-    } catch (error) {
-    }
-  }
-};
-
-// scripts/kokyu/mob/character/GiyuComponent.ts
-import { system as system17, TicksPerSecond as TicksPerSecond14 } from "@minecraft/server";
-var giyuKokyuLists = weightChoice([
-  { item: 1, weight: 50 },
-  { item: 2, weight: 50 },
-  { item: 3, weight: 50 },
-  { item: 4, weight: 50 },
-  { item: 5, weight: 15 },
-  { item: 6, weight: 20 },
-  { item: 7, weight: 20 },
-  { item: 8, weight: 10 },
-  { item: 9, weight: 10 },
-  { item: 10, weight: 10 },
-  { item: 11, weight: 10 }
-]);
-var GiyuComponent = class {
-  startMonitoring(entity) {
-    if (entity !== void 0 && entity.isValid) {
-      const nitirintou_equip = entity.getProperty("kurokumaft:nitirintou_equip");
-      if (nitirintou_equip) {
-        entity.setProperty("kurokumaft:kokyu_use", true);
-        entity.setProperty("kurokumaft:kokyu_particle", true);
-        this.useAttackKokyu(entity);
-      }
-    }
-  }
-  useAttackKokyu(entity) {
-    const num = giyuKokyuLists.pick();
-    entity.setProperty("kurokumaft:kokyu_kata", num);
-    this.kokyuUse(entity, num);
-  }
-  kokyuUse(entity, kata) {
-    const mizu = new MizuNoKata();
-    try {
-      switch (kata) {
-        case 1:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          system17.waitTicks(15).then(() => {
-            mizu.ichiNoKata(entity, void 0);
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 2:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          mizu.niNoKata(entity, void 0);
-          system17.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 3:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          mizu.sanNoKata(entity, void 0);
-          system17.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 4:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          mizu.shiNoKata(entity, void 0);
-          system17.waitTicks(20).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 5:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          system17.waitTicks(20).then(() => {
-            mizu.goNoKata(entity, void 0);
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 6:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          system17.waitTicks(20).then(() => {
-            mizu.rokuNoKata(entity, void 0);
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 7:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          system17.waitTicks(20).then(() => {
-            mizu.shitiNoKata(entity, void 0);
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 8:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          system17.waitTicks(5).then(() => {
-            mizu.hachiNoKata(entity, void 0);
-          }).catch((error) => {
-          });
-          system17.waitTicks(50).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 9:
-          mizu.kuNoKata(entity, void 0);
-          system17.waitTicks(15 * TicksPerSecond14).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-          }).catch((error) => {
-          });
-          break;
-        case 10:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          mizu.zyuNoKataMob(entity, void 0);
-          system17.waitTicks(40).then(() => {
-            entity.setProperty("kurokumaft:kokyu_kata", 0);
-            entity.triggerEvent("kurokumaft:kokyu_end");
-          }).catch((error) => {
-          });
-          break;
-        case 11:
           mizu.zyuichiNoKata(entity, void 0);
-          system17.waitTicks(15 * TicksPerSecond14).then(() => {
+          system16.waitTicks(15 * TicksPerSecond14).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
           }).catch((error) => {
           });
@@ -9643,7 +6635,7 @@ var GiyuComponent = class {
 };
 
 // scripts/kokyu/mob/character/ZenituComponent.ts
-import { system as system18 } from "@minecraft/server";
+import { system as system17 } from "@minecraft/server";
 var zenituKokyuLists = weightChoice([
   { item: 1, weight: 80 },
   { item: 2, weight: 15 },
@@ -9671,7 +6663,7 @@ var ZenituComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system18.waitTicks(40).then(() => {
+          system17.waitTicks(40).then(() => {
             kaminari.ichiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -9680,7 +6672,7 @@ var ZenituComponent = class {
           break;
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system18.waitTicks(80).then(() => {
+          system17.waitTicks(80).then(() => {
             kaminari.ichiNoKataShinsoku(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -9689,7 +6681,7 @@ var ZenituComponent = class {
           break;
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system18.waitTicks(120).then(() => {
+          system17.waitTicks(120).then(() => {
             kaminari.shitiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -9703,7 +6695,7 @@ var ZenituComponent = class {
 };
 
 // scripts/kokyu/mob/character/InosukeComponent.ts
-import { system as system19, TicksPerSecond as TicksPerSecond15 } from "@minecraft/server";
+import { system as system18, TicksPerSecond as TicksPerSecond15 } from "@minecraft/server";
 var inosukeKokyuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -9739,7 +6731,7 @@ var InosukeComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.ichiNoKata(entity, void 0);
-          system19.waitTicks(15).then(() => {
+          system18.waitTicks(15).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9748,7 +6740,7 @@ var InosukeComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.niNoKata(entity, void 0);
-          system19.waitTicks(20).then(() => {
+          system18.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9757,7 +6749,7 @@ var InosukeComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.sanNoKata(entity, void 0);
-          system19.waitTicks(20).then(() => {
+          system18.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9766,7 +6758,7 @@ var InosukeComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.shiNoKata(entity, void 0);
-          system19.waitTicks(20).then(() => {
+          system18.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9775,7 +6767,7 @@ var InosukeComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.goNoKata(entity, void 0);
-          system19.waitTicks(20).then(() => {
+          system18.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9784,7 +6776,7 @@ var InosukeComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.rokuNoKata(entity, void 0);
-          system19.waitTicks(20).then(() => {
+          system18.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9793,7 +6785,7 @@ var InosukeComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.shitiNoKata(entity, void 0);
-          system19.waitTicks(20).then(() => {
+          system18.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9802,7 +6794,7 @@ var InosukeComponent = class {
         case 8:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.hachiNoKata(entity, void 0);
-          system19.waitTicks(50).then(() => {
+          system18.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9811,7 +6803,7 @@ var InosukeComponent = class {
         case 9:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.kuNoKata(entity, void 0);
-          system19.waitTicks(15 * TicksPerSecond15).then(() => {
+          system18.waitTicks(15 * TicksPerSecond15).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9820,7 +6812,7 @@ var InosukeComponent = class {
         case 10:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.zyuNoKata(entity, void 0);
-          system19.waitTicks(60).then(() => {
+          system18.waitTicks(60).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9833,7 +6825,7 @@ var InosukeComponent = class {
 };
 
 // scripts/kokyu/mob/character/KanawoComponent.ts
-import { system as system20 } from "@minecraft/server";
+import { system as system19 } from "@minecraft/server";
 var kanawoKokyuLists = weightChoice([
   { item: 2, weight: 20 },
   { item: 4, weight: 20 },
@@ -9864,7 +6856,7 @@ var KanawoComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.niNoKata(entity, void 0);
-          system20.waitTicks(30).then(() => {
+          system19.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9873,7 +6865,7 @@ var KanawoComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.shiNoKata(entity, void 0);
-          system20.waitTicks(30).then(() => {
+          system19.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9882,7 +6874,7 @@ var KanawoComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.goNoKata(entity, void 0);
-          system20.waitTicks(30).then(() => {
+          system19.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9891,7 +6883,7 @@ var KanawoComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.rokuNoKata(entity, void 0);
-          system20.waitTicks(30).then(() => {
+          system19.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9900,7 +6892,7 @@ var KanawoComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.shitiNoKata(entity, void 0);
-          system20.waitTicks(20).then(() => {
+          system19.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9913,7 +6905,7 @@ var KanawoComponent = class {
 };
 
 // scripts/kokyu/mob/character/ShinobuComponent.ts
-import { system as system21 } from "@minecraft/server";
+import { system as system20 } from "@minecraft/server";
 var shinobuKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -9943,7 +6935,7 @@ var ShinobuComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.ichiNoKata(entity, void 0);
-          system21.waitTicks(30).then(() => {
+          system20.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9952,7 +6944,7 @@ var ShinobuComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.niNoKata(entity, void 0);
-          system21.waitTicks(30).then(() => {
+          system20.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9961,7 +6953,7 @@ var ShinobuComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.sanNoKata(entity, void 0);
-          system21.waitTicks(30).then(() => {
+          system20.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9970,7 +6962,7 @@ var ShinobuComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.shiNoKata(entity, void 0);
-          system21.waitTicks(30).then(() => {
+          system20.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -9983,7 +6975,7 @@ var ShinobuComponent = class {
 };
 
 // scripts/kokyu/mob/character/KyouzyuroComponent.ts
-import { system as system22 } from "@minecraft/server";
+import { system as system21 } from "@minecraft/server";
 var kyouzyuroKokyuLists = weightChoice([
   { item: 1, weight: 35 },
   { item: 2, weight: 30 },
@@ -10014,11 +7006,11 @@ var KyouzyuroComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system22.waitTicks(30).then(() => {
+          system21.waitTicks(30).then(() => {
             hono.ichiNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system22.waitTicks(60).then(() => {
+          system21.waitTicks(60).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10027,7 +7019,7 @@ var KyouzyuroComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.niNoKata(entity, void 0);
-          system22.waitTicks(30).then(() => {
+          system21.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10036,7 +7028,7 @@ var KyouzyuroComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.sanNoKata(entity, void 0);
-          system22.waitTicks(30).then(() => {
+          system21.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10045,7 +7037,7 @@ var KyouzyuroComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.shiNoKata(entity, void 0);
-          system22.waitTicks(30).then(() => {
+          system21.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10054,7 +7046,7 @@ var KyouzyuroComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.goNoKata(entity, void 0);
-          system22.waitTicks(30).then(() => {
+          system21.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10062,11 +7054,11 @@ var KyouzyuroComponent = class {
           break;
         case 9:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system22.waitTicks(40).then(() => {
+          system21.waitTicks(40).then(() => {
             hono.kuNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system22.waitTicks(80).then(() => {
+          system21.waitTicks(80).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10079,7 +7071,7 @@ var KyouzyuroComponent = class {
 };
 
 // scripts/kokyu/mob/character/TengenComponent.ts
-import { system as system23 } from "@minecraft/server";
+import { system as system22 } from "@minecraft/server";
 var tengenKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -10110,7 +7102,7 @@ var TengenComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.ichiNoKata(entity, void 0);
-          system23.waitTicks(30).then(() => {
+          system22.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10119,7 +7111,7 @@ var TengenComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.niNoKata(entity, void 0);
-          system23.waitTicks(30).then(() => {
+          system22.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10128,7 +7120,7 @@ var TengenComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.sanNoKata(entity, void 0);
-          system23.waitTicks(30).then(() => {
+          system22.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10137,7 +7129,7 @@ var TengenComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.shiNoKata(entity, void 0);
-          system23.waitTicks(30).then(() => {
+          system22.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10146,7 +7138,7 @@ var TengenComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.goNoKata(entity, void 0);
-          system23.waitTicks(30).then(() => {
+          system22.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10159,7 +7151,7 @@ var TengenComponent = class {
 };
 
 // scripts/kokyu/mob/character/ObanaiComponent.ts
-import { system as system24 } from "@minecraft/server";
+import { system as system23 } from "@minecraft/server";
 var obanaiKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -10190,7 +7182,7 @@ var ObanaiComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.ichiNoKata(entity, void 0);
-          system24.waitTicks(30).then(() => {
+          system23.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10199,7 +7191,7 @@ var ObanaiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.niNoKata(entity, void 0);
-          system24.waitTicks(30).then(() => {
+          system23.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10208,7 +7200,7 @@ var ObanaiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.sanNoKata(entity, void 0);
-          system24.waitTicks(30).then(() => {
+          system23.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10217,7 +7209,7 @@ var ObanaiComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.shiNoKata(entity, void 0);
-          system24.waitTicks(30).then(() => {
+          system23.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10226,7 +7218,7 @@ var ObanaiComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.goNoKata(entity, void 0);
-          system24.waitTicks(30).then(() => {
+          system23.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10239,7 +7231,7 @@ var ObanaiComponent = class {
 };
 
 // scripts/kokyu/mob/character/SanemiComponent.ts
-import { system as system25 } from "@minecraft/server";
+import { system as system24 } from "@minecraft/server";
 var sanemiKokyuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -10273,11 +7265,11 @@ var SanemiComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system25.waitTicks(20).then(() => {
+          system24.waitTicks(20).then(() => {
             kaze.ichiNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system25.waitTicks(50).then(() => {
+          system24.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10286,7 +7278,7 @@ var SanemiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.niNoKata(entity, void 0);
-          system25.waitTicks(30).then(() => {
+          system24.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10295,7 +7287,7 @@ var SanemiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.sanNoKata(entity, void 0);
-          system25.waitTicks(30).then(() => {
+          system24.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10304,7 +7296,7 @@ var SanemiComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.shiNoKata(entity, void 0);
-          system25.waitTicks(30).then(() => {
+          system24.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10313,7 +7305,7 @@ var SanemiComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.goNoKata(entity, void 0);
-          system25.waitTicks(30).then(() => {
+          system24.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10322,7 +7314,7 @@ var SanemiComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.rokuNoKata(entity, void 0);
-          system25.waitTicks(50).then(() => {
+          system24.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10331,7 +7323,7 @@ var SanemiComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.shitiNoKata(entity, void 0);
-          system25.waitTicks(50).then(() => {
+          system24.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10340,7 +7332,7 @@ var SanemiComponent = class {
         case 8:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.hachiNoKata(entity, void 0);
-          system25.waitTicks(50).then(() => {
+          system24.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10349,7 +7341,7 @@ var SanemiComponent = class {
         case 9:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.kuNoKata(entity, void 0);
-          system25.waitTicks(50).then(() => {
+          system24.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10362,7 +7354,7 @@ var SanemiComponent = class {
 };
 
 // scripts/kokyu/mob/character/MituriComponent.ts
-import { system as system26 } from "@minecraft/server";
+import { system as system25 } from "@minecraft/server";
 var mituriKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -10393,7 +7385,7 @@ var MituriComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.ichiNoKata(entity, void 0);
-          system26.waitTicks(50).then(() => {
+          system25.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10402,7 +7394,7 @@ var MituriComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.niNoKata(entity, void 0);
-          system26.waitTicks(30).then(() => {
+          system25.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10411,7 +7403,7 @@ var MituriComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.sanNoKata(entity, void 0);
-          system26.waitTicks(30).then(() => {
+          system25.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10420,7 +7412,7 @@ var MituriComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.goNoKata(entity, void 0);
-          system26.waitTicks(30).then(() => {
+          system25.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10429,7 +7421,7 @@ var MituriComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.rokuNoKata(entity, void 0);
-          system26.waitTicks(40).then(() => {
+          system25.waitTicks(40).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10442,7 +7434,7 @@ var MituriComponent = class {
 };
 
 // scripts/kokyu/mob/character/MuitiroComponent.ts
-import { system as system27 } from "@minecraft/server";
+import { system as system26 } from "@minecraft/server";
 var muitiroKokyuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -10474,7 +7466,7 @@ var MuitiroComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system27.waitTicks(20).then(() => {
+          system26.waitTicks(20).then(() => {
             kasumi.ichiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10484,7 +7476,7 @@ var MuitiroComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.niNoKata(entity, void 0);
-          system27.waitTicks(30).then(() => {
+          system26.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10493,7 +7485,7 @@ var MuitiroComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.sanNoKata(entity, void 0);
-          system27.waitTicks(30).then(() => {
+          system26.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10501,7 +7493,7 @@ var MuitiroComponent = class {
           break;
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system27.waitTicks(20).then(() => {
+          system26.waitTicks(20).then(() => {
             kasumi.shiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10511,7 +7503,7 @@ var MuitiroComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.goNoKata(entity, void 0);
-          system27.waitTicks(30).then(() => {
+          system26.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10520,7 +7512,7 @@ var MuitiroComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.rokuNoKata(entity, void 0);
-          system27.waitTicks(30).then(() => {
+          system26.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10529,7 +7521,7 @@ var MuitiroComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.shitiNoKata(entity, void 0);
-          system27.waitTicks(30).then(() => {
+          system26.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10542,7 +7534,7 @@ var MuitiroComponent = class {
 };
 
 // scripts/kokyu/mob/character/GyoumeiComponent.ts
-import { system as system28 } from "@minecraft/server";
+import { system as system27 } from "@minecraft/server";
 var gyoumeiKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -10573,7 +7565,7 @@ var GyoumeiComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.ichiNoKata(entity, void 0);
-          system28.waitTicks(30).then(() => {
+          system27.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10581,7 +7573,7 @@ var GyoumeiComponent = class {
           break;
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system28.waitTicks(30).then(() => {
+          system27.waitTicks(30).then(() => {
             iwa.niNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10591,7 +7583,7 @@ var GyoumeiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.sanNoKata(entity, void 0);
-          system28.waitTicks(30).then(() => {
+          system27.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10600,7 +7592,7 @@ var GyoumeiComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.shiNoKata(entity, void 0);
-          system28.waitTicks(30).then(() => {
+          system27.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10609,7 +7601,7 @@ var GyoumeiComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.goNoKata(entity, void 0);
-          system28.waitTicks(50).then(() => {
+          system27.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10622,7 +7614,7 @@ var GyoumeiComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/MizuComponent.ts
-import { system as system29, TicksPerSecond as TicksPerSecond16 } from "@minecraft/server";
+import { system as system28, TicksPerSecond as TicksPerSecond16 } from "@minecraft/server";
 var mizuKokyuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -10657,7 +7649,7 @@ var MizuComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system29.waitTicks(15).then(() => {
+          system28.waitTicks(15).then(() => {
             mizu.ichiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10667,7 +7659,7 @@ var MizuComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           mizu.niNoKata(entity, void 0);
-          system29.waitTicks(20).then(() => {
+          system28.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10676,7 +7668,7 @@ var MizuComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           mizu.sanNoKata(entity, void 0);
-          system29.waitTicks(20).then(() => {
+          system28.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10685,7 +7677,7 @@ var MizuComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           mizu.shiNoKata(entity, void 0);
-          system29.waitTicks(20).then(() => {
+          system28.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10693,7 +7685,7 @@ var MizuComponent = class {
           break;
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system29.waitTicks(20).then(() => {
+          system28.waitTicks(20).then(() => {
             mizu.goNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10702,7 +7694,7 @@ var MizuComponent = class {
           break;
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system29.waitTicks(20).then(() => {
+          system28.waitTicks(20).then(() => {
             mizu.rokuNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10711,7 +7703,7 @@ var MizuComponent = class {
           break;
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system29.waitTicks(20).then(() => {
+          system28.waitTicks(20).then(() => {
             mizu.shitiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10720,11 +7712,11 @@ var MizuComponent = class {
           break;
         case 8:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system29.waitTicks(5).then(() => {
+          system28.waitTicks(5).then(() => {
             mizu.hachiNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system29.waitTicks(50).then(() => {
+          system28.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10732,7 +7724,7 @@ var MizuComponent = class {
           break;
         case 9:
           mizu.kuNoKata(entity, void 0);
-          system29.waitTicks(15 * TicksPerSecond16).then(() => {
+          system28.waitTicks(15 * TicksPerSecond16).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
           }).catch((error) => {
           });
@@ -10740,7 +7732,7 @@ var MizuComponent = class {
         case 10:
           entity.triggerEvent("kurokumaft:attack_stop");
           mizu.zyuNoKataMob(entity, void 0);
-          system29.waitTicks(40).then(() => {
+          system28.waitTicks(40).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10753,7 +7745,7 @@ var MizuComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/HiComponent.ts
-import { system as system30, TicksPerSecond as TicksPerSecond17 } from "@minecraft/server";
+import { system as system29, TicksPerSecond as TicksPerSecond17 } from "@minecraft/server";
 var hiKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -10791,7 +7783,7 @@ var HiComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.ichiNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10800,7 +7792,7 @@ var HiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.niNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10809,7 +7801,7 @@ var HiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.sanNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10818,7 +7810,7 @@ var HiComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.shiNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10826,7 +7818,7 @@ var HiComponent = class {
           break;
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             hi.goNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -10836,7 +7828,7 @@ var HiComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.rokuNoKata(entity, void 0);
-          system30.waitTicks(90).then(() => {
+          system29.waitTicks(90).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10845,7 +7837,7 @@ var HiComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.shitiNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10854,7 +7846,7 @@ var HiComponent = class {
         case 8:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.hachiNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10863,7 +7855,7 @@ var HiComponent = class {
         case 9:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.kuNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10872,7 +7864,7 @@ var HiComponent = class {
         case 10:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.zyuNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10880,7 +7872,7 @@ var HiComponent = class {
           break;
         case 11:
           hi.zyuichiNoKata(entity, void 0);
-          system30.waitTicks(10 * TicksPerSecond17).then(() => {
+          system29.waitTicks(10 * TicksPerSecond17).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
           }).catch((error) => {
           });
@@ -10888,7 +7880,7 @@ var HiComponent = class {
         case 12:
           entity.triggerEvent("kurokumaft:attack_stop");
           hi.zyuniNoKata(entity, void 0);
-          system30.waitTicks(20).then(() => {
+          system29.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10901,7 +7893,7 @@ var HiComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/KaminariComponent.ts
-import { system as system31 } from "@minecraft/server";
+import { system as system30 } from "@minecraft/server";
 var kaminariKokyuLists = weightChoice([
   { item: 1, weight: 10 },
   { item: 2, weight: 20 },
@@ -10932,11 +7924,11 @@ var KaminariComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system31.waitTicks(40).then(() => {
+          system30.waitTicks(40).then(() => {
             kaminari.ichiNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system31.waitTicks(60).then(() => {
+          system30.waitTicks(60).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10945,7 +7937,7 @@ var KaminariComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaminari.niNoKata(entity, void 0);
-          system31.waitTicks(20).then(() => {
+          system30.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10954,7 +7946,7 @@ var KaminariComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaminari.sanNoKata(entity, void 0);
-          system31.waitTicks(20).then(() => {
+          system30.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10963,7 +7955,7 @@ var KaminariComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaminari.shiNoKata(entity, void 0);
-          system31.waitTicks(40).then(() => {
+          system30.waitTicks(40).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10972,7 +7964,7 @@ var KaminariComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaminari.goNoKata(entity, void 0);
-          system31.waitTicks(40).then(() => {
+          system30.waitTicks(40).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10981,7 +7973,7 @@ var KaminariComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaminari.rokuNoKata(entity, void 0);
-          system31.waitTicks(40).then(() => {
+          system30.waitTicks(40).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -10994,7 +7986,7 @@ var KaminariComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/HanaComponent.ts
-import { system as system32 } from "@minecraft/server";
+import { system as system31 } from "@minecraft/server";
 var hanaKokyuLists = weightChoice([
   { item: 2, weight: 20 },
   { item: 4, weight: 20 },
@@ -11024,7 +8016,7 @@ var HanaComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.niNoKata(entity, void 0);
-          system32.waitTicks(30).then(() => {
+          system31.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11033,7 +8025,7 @@ var HanaComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.shiNoKata(entity, void 0);
-          system32.waitTicks(30).then(() => {
+          system31.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11042,7 +8034,7 @@ var HanaComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.goNoKata(entity, void 0);
-          system32.waitTicks(30).then(() => {
+          system31.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11051,7 +8043,7 @@ var HanaComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           hana.rokuNoKata(entity, void 0);
-          system32.waitTicks(30).then(() => {
+          system31.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11064,7 +8056,7 @@ var HanaComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/HebiComponent.ts
-import { system as system33 } from "@minecraft/server";
+import { system as system32 } from "@minecraft/server";
 var hebiKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -11095,7 +8087,7 @@ var HebiComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.ichiNoKata(entity, void 0);
-          system33.waitTicks(30).then(() => {
+          system32.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11104,7 +8096,7 @@ var HebiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.niNoKata(entity, void 0);
-          system33.waitTicks(30).then(() => {
+          system32.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11113,7 +8105,7 @@ var HebiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.sanNoKata(entity, void 0);
-          system33.waitTicks(30).then(() => {
+          system32.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11122,7 +8114,7 @@ var HebiComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.shiNoKata(entity, void 0);
-          system33.waitTicks(30).then(() => {
+          system32.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11131,7 +8123,7 @@ var HebiComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           hebi.goNoKata(entity, void 0);
-          system33.waitTicks(30).then(() => {
+          system32.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11144,7 +8136,7 @@ var HebiComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/HonoComponent.ts
-import { system as system34 } from "@minecraft/server";
+import { system as system33 } from "@minecraft/server";
 var honoKokyuLists = weightChoice([
   { item: 1, weight: 40 },
   { item: 2, weight: 30 },
@@ -11174,11 +8166,11 @@ var HonoComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system34.waitTicks(30).then(() => {
+          system33.waitTicks(30).then(() => {
             hono.ichiNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system34.waitTicks(60).then(() => {
+          system33.waitTicks(60).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11187,7 +8179,7 @@ var HonoComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.niNoKata(entity, void 0);
-          system34.waitTicks(30).then(() => {
+          system33.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11196,7 +8188,7 @@ var HonoComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.sanNoKata(entity, void 0);
-          system34.waitTicks(30).then(() => {
+          system33.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11205,7 +8197,7 @@ var HonoComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.shiNoKata(entity, void 0);
-          system34.waitTicks(30).then(() => {
+          system33.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11214,7 +8206,7 @@ var HonoComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           hono.goNoKata(entity, void 0);
-          system34.waitTicks(30).then(() => {
+          system33.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11227,7 +8219,7 @@ var HonoComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/IwaComponent.ts
-import { system as system35 } from "@minecraft/server";
+import { system as system34 } from "@minecraft/server";
 var iwaKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -11258,7 +8250,7 @@ var IwaComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.ichiNoKata(entity, void 0);
-          system35.waitTicks(30).then(() => {
+          system34.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11266,7 +8258,7 @@ var IwaComponent = class {
           break;
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system35.waitTicks(30).then(() => {
+          system34.waitTicks(30).then(() => {
             iwa.niNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -11276,7 +8268,7 @@ var IwaComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.sanNoKata(entity, void 0);
-          system35.waitTicks(30).then(() => {
+          system34.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11285,7 +8277,7 @@ var IwaComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.shiNoKata(entity, void 0);
-          system35.waitTicks(30).then(() => {
+          system34.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11294,7 +8286,7 @@ var IwaComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           iwa.goNoKata(entity, void 0);
-          system35.waitTicks(50).then(() => {
+          system34.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11307,7 +8299,7 @@ var IwaComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/KasumiComponent.ts
-import { system as system36 } from "@minecraft/server";
+import { system as system35 } from "@minecraft/server";
 var kasumiKokyuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -11339,7 +8331,7 @@ var KasumiComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system36.waitTicks(20).then(() => {
+          system35.waitTicks(20).then(() => {
             kasumi.ichiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -11349,7 +8341,7 @@ var KasumiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.niNoKata(entity, void 0);
-          system36.waitTicks(30).then(() => {
+          system35.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11358,7 +8350,7 @@ var KasumiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.sanNoKata(entity, void 0);
-          system36.waitTicks(30).then(() => {
+          system35.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11366,7 +8358,7 @@ var KasumiComponent = class {
           break;
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system36.waitTicks(20).then(() => {
+          system35.waitTicks(20).then(() => {
             kasumi.shiNoKata(entity, void 0);
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
@@ -11376,7 +8368,7 @@ var KasumiComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.goNoKata(entity, void 0);
-          system36.waitTicks(30).then(() => {
+          system35.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11385,7 +8377,7 @@ var KasumiComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.rokuNoKata(entity, void 0);
-          system36.waitTicks(30).then(() => {
+          system35.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11394,7 +8386,7 @@ var KasumiComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           kasumi.shitiNoKata(entity, void 0);
-          system36.waitTicks(30).then(() => {
+          system35.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11407,7 +8399,7 @@ var KasumiComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/KazeComponent.ts
-import { system as system37 } from "@minecraft/server";
+import { system as system36 } from "@minecraft/server";
 var kazeKokyuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -11441,11 +8433,11 @@ var KazeComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system37.waitTicks(20).then(() => {
+          system36.waitTicks(20).then(() => {
             kaze.ichiNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system37.waitTicks(50).then(() => {
+          system36.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11454,7 +8446,7 @@ var KazeComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.niNoKata(entity, void 0);
-          system37.waitTicks(30).then(() => {
+          system36.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11463,7 +8455,7 @@ var KazeComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.sanNoKata(entity, void 0);
-          system37.waitTicks(30).then(() => {
+          system36.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11472,7 +8464,7 @@ var KazeComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.shiNoKata(entity, void 0);
-          system37.waitTicks(30).then(() => {
+          system36.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11481,7 +8473,7 @@ var KazeComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.goNoKata(entity, void 0);
-          system37.waitTicks(30).then(() => {
+          system36.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11490,7 +8482,7 @@ var KazeComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.rokuNoKata(entity, void 0);
-          system37.waitTicks(50).then(() => {
+          system36.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11499,7 +8491,7 @@ var KazeComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.shitiNoKata(entity, void 0);
-          system37.waitTicks(50).then(() => {
+          system36.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11508,7 +8500,7 @@ var KazeComponent = class {
         case 8:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.hachiNoKata(entity, void 0);
-          system37.waitTicks(50).then(() => {
+          system36.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11517,7 +8509,7 @@ var KazeComponent = class {
         case 9:
           entity.triggerEvent("kurokumaft:attack_stop");
           kaze.kuNoKata(entity, void 0);
-          system37.waitTicks(50).then(() => {
+          system36.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11530,7 +8522,7 @@ var KazeComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/KoiComponent.ts
-import { system as system38 } from "@minecraft/server";
+import { system as system37 } from "@minecraft/server";
 var koiKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -11561,7 +8553,7 @@ var KoiComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.ichiNoKata(entity, void 0);
-          system38.waitTicks(50).then(() => {
+          system37.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11570,7 +8562,7 @@ var KoiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.niNoKata(entity, void 0);
-          system38.waitTicks(30).then(() => {
+          system37.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11579,7 +8571,7 @@ var KoiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.sanNoKata(entity, void 0);
-          system38.waitTicks(30).then(() => {
+          system37.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11588,7 +8580,7 @@ var KoiComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.goNoKata(entity, void 0);
-          system38.waitTicks(30).then(() => {
+          system37.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11597,7 +8589,7 @@ var KoiComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           koi.rokuNoKata(entity, void 0);
-          system38.waitTicks(40).then(() => {
+          system37.waitTicks(40).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11610,7 +8602,7 @@ var KoiComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/MushiComponent.ts
-import { system as system39 } from "@minecraft/server";
+import { system as system38 } from "@minecraft/server";
 var mushiKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -11640,7 +8632,7 @@ var MushiComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.ichiNoKata(entity, void 0);
-          system39.waitTicks(30).then(() => {
+          system38.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11649,7 +8641,7 @@ var MushiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.niNoKata(entity, void 0);
-          system39.waitTicks(30).then(() => {
+          system38.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11658,7 +8650,7 @@ var MushiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.sanNoKata(entity, void 0);
-          system39.waitTicks(30).then(() => {
+          system38.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11667,7 +8659,7 @@ var MushiComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           mushi.shiNoKata(entity, void 0);
-          system39.waitTicks(30).then(() => {
+          system38.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11680,7 +8672,7 @@ var MushiComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/OtoComponent.ts
-import { system as system40 } from "@minecraft/server";
+import { system as system39 } from "@minecraft/server";
 var otoKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -11711,7 +8703,7 @@ var OtoComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.ichiNoKata(entity, void 0);
-          system40.waitTicks(30).then(() => {
+          system39.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11720,7 +8712,7 @@ var OtoComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.niNoKata(entity, void 0);
-          system40.waitTicks(30).then(() => {
+          system39.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11729,7 +8721,7 @@ var OtoComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.sanNoKata(entity, void 0);
-          system40.waitTicks(30).then(() => {
+          system39.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11738,7 +8730,7 @@ var OtoComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.shiNoKata(entity, void 0);
-          system40.waitTicks(30).then(() => {
+          system39.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11747,7 +8739,7 @@ var OtoComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           oto.goNoKata(entity, void 0);
-          system40.waitTicks(30).then(() => {
+          system39.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11760,7 +8752,7 @@ var OtoComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/TukiComponent.ts
-import { system as system41 } from "@minecraft/server";
+import { system as system40 } from "@minecraft/server";
 var tukiKokyuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 30 },
@@ -11796,11 +8788,11 @@ var TukiComponent = class {
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             tuki.ichiNoKata(entity, void 0);
           }).catch((error) => {
           });
-          system41.waitTicks(60).then(() => {
+          system40.waitTicks(60).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11809,7 +8801,7 @@ var TukiComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.niNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11818,7 +8810,7 @@ var TukiComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.sanNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11827,7 +8819,7 @@ var TukiComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.goNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11836,7 +8828,7 @@ var TukiComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.rokuNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11845,7 +8837,7 @@ var TukiComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.shitiNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11854,7 +8846,7 @@ var TukiComponent = class {
         case 8:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.hachiNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11863,7 +8855,7 @@ var TukiComponent = class {
         case 9:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.kuNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11872,7 +8864,7 @@ var TukiComponent = class {
         case 10:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.zyuNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11881,7 +8873,7 @@ var TukiComponent = class {
         case 14:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.zyushiNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11890,7 +8882,7 @@ var TukiComponent = class {
         case 16:
           entity.triggerEvent("kurokumaft:attack_stop");
           tuki.zyurokuNoKata(entity, void 0);
-          system41.waitTicks(30).then(() => {
+          system40.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11903,7 +8895,7 @@ var TukiComponent = class {
 };
 
 // scripts/kokyu/mob/regimental/KedamonoComponent.ts
-import { system as system42, TicksPerSecond as TicksPerSecond18 } from "@minecraft/server";
+import { system as system41, TicksPerSecond as TicksPerSecond18 } from "@minecraft/server";
 var kedamonoKokyuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 50 },
@@ -11939,7 +8931,7 @@ var KedamonoComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.ichiNoKata(entity, void 0);
-          system42.waitTicks(15).then(() => {
+          system41.waitTicks(15).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11948,7 +8940,7 @@ var KedamonoComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.niNoKata(entity, void 0);
-          system42.waitTicks(20).then(() => {
+          system41.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11957,7 +8949,7 @@ var KedamonoComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.sanNoKata(entity, void 0);
-          system42.waitTicks(20).then(() => {
+          system41.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11966,7 +8958,7 @@ var KedamonoComponent = class {
         case 4:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.shiNoKata(entity, void 0);
-          system42.waitTicks(20).then(() => {
+          system41.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11975,7 +8967,7 @@ var KedamonoComponent = class {
         case 5:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.goNoKata(entity, void 0);
-          system42.waitTicks(20).then(() => {
+          system41.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11984,7 +8976,7 @@ var KedamonoComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.rokuNoKata(entity, void 0);
-          system42.waitTicks(20).then(() => {
+          system41.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -11993,7 +8985,7 @@ var KedamonoComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.shitiNoKata(entity, void 0);
-          system42.waitTicks(20).then(() => {
+          system41.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -12002,7 +8994,7 @@ var KedamonoComponent = class {
         case 8:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.hachiNoKata(entity, void 0);
-          system42.waitTicks(50).then(() => {
+          system41.waitTicks(50).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -12010,7 +9002,7 @@ var KedamonoComponent = class {
           break;
         case 9:
           kedamono.kuNoKata(entity, void 0);
-          system42.waitTicks(15 * TicksPerSecond18).then(() => {
+          system41.waitTicks(15 * TicksPerSecond18).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
           }).catch((error) => {
           });
@@ -12018,7 +9010,7 @@ var KedamonoComponent = class {
         case 10:
           entity.triggerEvent("kurokumaft:attack_stop");
           kedamono.zyuNoKata(entity, void 0);
-          system42.waitTicks(60).then(() => {
+          system41.waitTicks(60).then(() => {
             entity.setProperty("kurokumaft:kokyu_kata", 0);
             entity.triggerEvent("kurokumaft:kokyu_end");
           }).catch((error) => {
@@ -12428,18 +9420,232 @@ var NichirintouComponent = class {
 };
 
 // scripts/item/tool/BloodDrinking.ts
-import { ItemStack as ItemStack22, system as system43, EntityComponentTypes as EntityComponentTypes8, ItemLockMode } from "@minecraft/server";
-var kekkizyutuLists = weightChoice([
+import { system as system43, TicksPerSecond as TicksPerSecond19 } from "@minecraft/server";
+
+// scripts/item/tool/OgreEatCommon.ts
+import { ItemStack as ItemStack22, system as system42, EntityComponentTypes as EntityComponentTypes8, ItemLockMode, EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
+
+// scripts/common/KimetuConst.ts
+var OgreKaikyu = Object.freeze([
+  { name: "kurokumaft:aizetu", rank: "crescent", num: 4 },
+  { name: "kurokumaft:akaza", rank: "crescent", num: 3 },
+  { name: "kurokumaft:douma", rank: "crescent", num: 2 },
+  { name: "kurokumaft:gyutaro", rank: "crescent", num: 6 },
+  { name: "kurokumaft:hantengu_obie", rank: "crescent", num: 4 },
+  { name: "kurokumaft:hantengu", rank: "crescent", num: 4 },
+  { name: "kurokumaft:karaku", rank: "crescent", num: 4 },
+  { name: "kurokumaft:rui", rank: "quarter", num: 5 },
+  { name: "kurokumaft:sekido", rank: "crescent", num: 4 },
+  { name: "kurokumaft:urogi", rank: "crescent", num: 4 },
+  { name: "kurokumaft:zouhakuten", rank: "crescent", num: 4 }
+]);
+var TaishiKaikyu = Object.freeze([
+  { name: "kurokumaft:genya", min: 1, max: 7 },
+  { name: "kurokumaft:kanawo", min: 4, max: 10 },
+  { name: "kurokumaft:tanjiro", min: 1, max: 10 },
+  { name: "kurokumaft:zenitu", min: 1, max: 10 },
+  { name: "kurokumaft:inosuke", min: 1, max: 10 },
+  { name: "kurokumaft:regimental_girl", min: 1, max: 7 },
+  { name: "kurokumaft:regimental_guy", min: 1, max: 7 }
+]);
+var kaikyuPointList = [
+  "0",
+  "100",
+  "300",
+  "600",
+  "1000",
+  "1500",
+  "2100",
+  "2800",
+  "3600",
+  "4500",
+  "10",
+  "-"
+];
+var ogrePointList = [
+  { name: "none", value: "100", regene: 0, regeneTime: 0 },
+  { name: "low", value: "150", regene: 1, regeneTime: 240 },
+  { name: "unusual", value: "200", regene: 2, regeneTime: 480 },
+  { name: "quarter", value: "400", regene: 3, regeneTime: 720 },
+  { name: "crescent", value: "500", regene: 4, regeneTime: 1200 },
+  { name: "king", value: "-", regene: 5, regeneTime: 3600 }
+];
+var kekkizyutuPickLists = weightChoice([
   { item: "kurokumaft:bakketu", weight: 20 },
   { item: "kurokumaft:koushi", weight: 20 },
-  { item: "kurokumaft:obi", weight: 15 },
+  { item: "kurokumaft:obi_item", weight: 15 },
   { item: "kurokumaft:nichirintou_kaigaku", weight: 10 },
   { item: "kurokumaft:gyutaro_kama", weight: 10 },
-  { item: "kurokumaft:zouhakuten_bati", weight: 10 },
-  { item: "kurokumaft:hakaisatu", weight: 5 },
+  { item: "kurokumaft:zouhakuten_bati", weight: 5 },
+  { item: "kurokumaft:gyokko_tubo", weight: 5 },
+  { item: "kurokumaft:hakaisatu_item", weight: 5 },
   { item: "kurokumaft:douma_sensu", weight: 5 },
   { item: "kurokumaft:kyokokukamusari", weight: 5 }
 ]);
+var kekkizyutuLists = Object.freeze([
+  { item: "kurokumaft:bakketu", msg: "item.kurokumaft:bakketu.name" },
+  { item: "kurokumaft:koushi", msg: "item.kurokumaft:koushi.name" },
+  { item: "kurokumaft:obi_item", msg: "item.kurokumaft:obi.name" },
+  { item: "kurokumaft:gyutaro_kama", msg: "item.kurokumaft:tigama.name" },
+  { item: "kurokumaft:zouhakuten_bati", msg: "item.kurokumaft:mogura.name" },
+  { item: "kurokumaft:gyokko_tubo", msg: "item.kurokumaft:suisei.name" },
+  { item: "kurokumaft:hakaisatu_item", msg: "item.kurokumaft:hakaisatu.name" },
+  { item: "kurokumaft:douma_sensu", msg: "item.kurokumaft:koori.name" },
+  { item: "kurokumaft:kyokokukamusari", msg: "item.kurokumaft:mikatuki.name" },
+  { item: "kurokumaft:nichirintou_kaigaku", msg: "item.kurokumaft:kokurai.name" }
+]);
+var NitirintouEquips = Object.freeze([
+  {
+    itemName: "kurokumaft:nichirintou_tanjiro",
+    charaName: "kurokumaft:tanjiro"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_zenitu",
+    charaName: "kurokumaft:zenitu"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_inosuke",
+    charaName: "kurokumaft:inosuke"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_kanawo",
+    charaName: "kurokumaft:kanawo"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_giyu",
+    charaName: "kurokumaft:giyu"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_shinobu",
+    charaName: "kurokumaft:shinobu"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_kyouzyuro",
+    charaName: "kurokumaft:kyouzyuro"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_sanemi",
+    charaName: "kurokumaft:sanemi"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_gyoumei",
+    charaName: "kurokumaft:gyoumei"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_muitiro",
+    charaName: "kurokumaft:muitiro"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_tengen",
+    charaName: "kurokumaft:tengen"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_obanai",
+    charaName: "kurokumaft:obanai"
+  },
+  {
+    itemName: "kurokumaft:nichirintou_mituri",
+    charaName: "kurokumaft:mituri"
+  }
+]);
+
+// scripts/item/tool/OgreEatCommon.ts
+var OgreEatCommon = class {
+  rankUpPoint(rank) {
+    let rankPoint = 0;
+    switch (rank) {
+      case "low":
+        rankPoint = 150;
+        break;
+      case "unusual":
+        rankPoint = 200;
+        break;
+      case "quarter":
+        rankPoint = 400;
+        break;
+      case "crescent":
+        rankPoint = 500;
+        break;
+    }
+    return rankPoint;
+  }
+  upRankCheck(rank, player, becoming) {
+    const rankPoint = this.rankUpPoint(rank);
+    if (becoming >= rankPoint) {
+      switch (rank) {
+        case "low":
+          player.setProperty("kurokumaft:ogre_rank", "unusual");
+          const Inventory = player.getComponent(EntityComponentTypes8.Inventory);
+          const container = Inventory.container;
+          if (container !== void 0) {
+            const itemstack = container.transferItem(0, container);
+            if (itemstack !== void 0) {
+              player.dimension.spawnItem(itemstack, player.location);
+            }
+            const modalForm = new ActionFormData().title({ translate: "msg.kurokumaft:kekkizyutu.title" });
+            kekkizyutuLists.forEach((zyutu) => {
+              modalForm.button(
+                { translate: zyutu.msg }
+              );
+            });
+            modalForm.show(player).then((result) => {
+              let kekkizyutu;
+              if (result.canceled) {
+                kekkizyutu = kekkizyutuPickLists.pick();
+              } else {
+                const index = result.selection;
+                kekkizyutu = kekkizyutuLists[index].item;
+              }
+              if (kekkizyutu === "kurokumaft:obi_item") {
+                const equ = player.getComponent(EntityComponentTypes8.Equippable);
+                const chest = equ.getEquipment(EquipmentSlot5.Chest);
+                if (chest !== void 0) {
+                  player.dimension.spawnItem(chest, player.location);
+                }
+                equ.setEquipment(EquipmentSlot5.Chest, new ItemStack22("kurokumaft:daki_obi", 1));
+              }
+              const zyutu = new ItemStack22(kekkizyutu, 1);
+              zyutu.lockMode = ItemLockMode.slot;
+              container.setItem(0, zyutu);
+            }).catch((error) => {
+              console.log(error.stack);
+              return -1;
+            });
+          }
+          break;
+        case "unusual":
+          player.setProperty("kurokumaft:ogre_rank", "quarter");
+          break;
+        case "quarter":
+          const moon1 = player.getProperty("kurokumaft:ogre_moon");
+          if (moon1 === 1) {
+            player.setProperty("kurokumaft:ogre_moon", 6);
+            player.setProperty("kurokumaft:ogre_rank", "crescent");
+          } else {
+            player.setProperty("kurokumaft:ogre_moon", moon1 - 1);
+          }
+          break;
+        case "crescent":
+          const moon2 = player.getProperty("kurokumaft:ogre_moon");
+          if (moon2 === 1) {
+            player.setProperty("kurokumaft:ogre_rank", "king");
+          } else {
+            player.setProperty("kurokumaft:ogre_moon", moon2 - 1);
+          }
+          break;
+      }
+      player.setProperty("kurokumaft:ogre_becoming", 0);
+      system42.runTimeout(() => {
+        player.triggerEvent("kurokumaft:ogre_rank_change");
+      }, 4);
+    } else {
+      player.setProperty("kurokumaft:ogre_becoming", becoming);
+    }
+  }
+};
+
+// scripts/item/tool/BloodDrinking.ts
 var BloodDrinking = class {
   onConsume(event) {
     const item = event.itemStack;
@@ -12478,88 +9684,29 @@ var BloodDrinking = class {
         }, 4);
       } else {
         player.setProperty("kurokumaft:ogre_becoming", becoming);
-        player.addEffect(MinecraftEffectTypes.Hunger, 20, {
-          amplifier: 10,
+        player.addEffect("minecraft:hunger", 5 * TicksPerSecond19, {
+          amplifier: 5,
           showParticles: false
         });
-        player.addEffect(MinecraftEffectTypes.Wither, 20, {
+        player.addEffect("minecraft:wither", 2 * TicksPerSecond19, {
           amplifier: 5,
           showParticles: false
         });
       }
     } else {
-      let rankPoint = 0;
-      switch (rank) {
-        case "low":
-          rankPoint = 150;
-          break;
-        case "unusual":
-          rankPoint = 200;
-          break;
-        case "quarter":
-          rankPoint = 400;
-          break;
-        case "crescent":
-          rankPoint = 500;
-          break;
-      }
-      if (becoming >= rankPoint) {
-        switch (rank) {
-          case "low":
-            player.setProperty("kurokumaft:ogre_rank", "unusual");
-            const Inventory = player.getComponent(EntityComponentTypes8.Inventory);
-            const container = Inventory.container;
-            if (container !== void 0) {
-              const itemstack = container.transferItem(0, container);
-              if (itemstack !== void 0) {
-                player.dimension.spawnItem(itemstack, player.location);
-              }
-              const kekkizyutu = kekkizyutuLists.pick();
-              const zyutu = new ItemStack22(kekkizyutu, 1);
-              zyutu.lockMode = ItemLockMode.slot;
-              container.setItem(0, zyutu);
-            }
-            break;
-          case "unusual":
-            player.setProperty("kurokumaft:ogre_rank", "quarter");
-            break;
-          case "quarter":
-            const moon1 = player.getProperty("kurokumaft:ogre_moon");
-            if (moon1 === 1) {
-              player.setProperty("kurokumaft:ogre_moon", 6);
-              player.setProperty("kurokumaft:ogre_rank", "crescent");
-            } else {
-              player.setProperty("kurokumaft:ogre_moon", moon1 - 1);
-            }
-            break;
-          case "crescent":
-            const moon2 = player.getProperty("kurokumaft:ogre_moon");
-            if (moon2 === 1) {
-              player.setProperty("kurokumaft:ogre_rank", "king");
-            } else {
-              player.setProperty("kurokumaft:ogre_moon", moon2 - 1);
-            }
-            break;
-        }
-        player.setProperty("kurokumaft:ogre_becoming", 0);
-        system43.runTimeout(() => {
-          player.triggerEvent("kurokumaft:ogre_rank_change");
-        }, 4);
-      } else {
-        player.setProperty("kurokumaft:ogre_becoming", becoming);
-      }
+      new OgreEatCommon().upRankCheck(rank, player, becoming);
     }
   }
 };
 
 // scripts/item/weapon/kekkizyutu/KekkizyutuComponent.ts
-import { EntityComponentTypes as EntityComponentTypes14, EquipmentSlot as EquipmentSlot5 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes16, EquipmentSlot as EquipmentSlot6 } from "@minecraft/server";
 
 // scripts/kekkizyutu/zyutu/Bunretu.ts
-import { system as system44, Player as Player25, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
+import { system as system44, Player as Player26, EntityComponentTypes as EntityComponentTypes10 } from "@minecraft/server";
 
 // scripts/kekkizyutu/zyutu/ZytuComonClass.ts
-import { EntityDamageCause as EntityDamageCause3, Player as Player24 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause3, Player as Player25, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
 var ZytuComonClass = class extends KataComonClass {
   kokyuApplyDamage(entity, filter, enDamage, pDamage) {
     entity.addTag(entity.id);
@@ -12568,18 +9715,28 @@ var ZytuComonClass = class extends KataComonClass {
     const point = ogreRankPoint.find((rank) => rank.rank === ogre_rank);
     targets.forEach((en) => {
       if (en !== void 0 && en.isValid) {
-        if (en instanceof Player24) {
+        if (en instanceof Player25) {
           if (this.gardCheck(en)) {
             en.applyDamage(pDamage * (point !== void 0 ? point.point : 1), {
               cause: EntityDamageCause3.entityAttack,
               damagingEntity: entity
             });
+            const familyTypes = en.getComponent(EntityComponentTypes9.TypeFamily);
+            if (familyTypes.hasTypeFamily("ogre")) {
+              const distance = getLookLocationDistance(en.getRotation().y, -1.25, 0, 0.5);
+              en.applyKnockback({ x: distance.x, z: distance.z }, 0.25);
+            }
           }
         } else {
-          en.applyDamage(enDamage * (point !== void 0 ? point.point : 1) * 1.25, {
+          en.applyDamage(enDamage * (point !== void 0 ? point.point : 1), {
             cause: EntityDamageCause3.entityAttack,
             damagingEntity: entity
           });
+          const familyTypes = en.getComponent(EntityComponentTypes9.TypeFamily);
+          if (familyTypes.hasTypeFamily("ogre")) {
+            const distance = getLookLocationDistance(en.getRotation().y, -1.25, 0, 0.5);
+            en.applyKnockback({ x: distance.x, z: distance.z }, 0.25);
+          }
         }
       }
     });
@@ -12593,7 +9750,7 @@ var ZytuComonClass = class extends KataComonClass {
     const damageNum = point !== void 0 ? point.point : 1;
     targets.forEach((en) => {
       if (en !== void 0 && en.isValid) {
-        if (en instanceof Player24) {
+        if (en instanceof Player25) {
           if (this.gardCheck(en)) {
             en.addEffect(effect, Math.round(duration * damageNum * 0.25), {
               amplifier: Math.round(damage * damageNum * 0.25),
@@ -12622,12 +9779,12 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_kyoumei1.value" }] });
       }
       const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
       const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
-      this.kokyuApplyEffect(entity, filter, 10, 5, MinecraftEffectTypes.Nausea);
+      this.kokyuApplyEffect(entity, filter, 10, 5, "minecraft:nausea");
       const ultrasonic = shooting(entity, "kurokumaft:urogi_ultrasonic", 0, 3, void 0);
       system44.waitTicks(10).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12649,7 +9806,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ikazuti1.value" }] });
       }
       const num = system44.runInterval(() => {
@@ -12680,7 +9837,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_shitotu1.value" }] });
       }
       const num = system44.runInterval(() => {
@@ -12710,7 +9867,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_toppu1.value" }] });
       }
       entity.addTag(entity.id);
@@ -12740,7 +9897,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten1.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12755,14 +9912,14 @@ var Bunretu = class extends ZytuComonClass {
       if (targets.length < 3) {
         const tokage = entity.dimension.spawnEntity("kurokumaft:tuti_dragon", entity.location);
         tokage.triggerEvent("kurokumaft:tokage");
-        const tameable = tokage.getComponent(EntityComponentTypes9.Tameable);
+        const tameable = tokage.getComponent(EntityComponentTypes10.Tameable);
         if (!tameable.isTamed) {
-          if (entity instanceof Player25) {
+          if (entity instanceof Player26) {
             tameable.tame(entity);
           }
         }
       } else {
-        if (entity instanceof Player25) {
+        if (entity instanceof Player26) {
           entity.onScreenDisplay.setActionBar({ text: "\u53EC\u559A\u6570\u4E0A\u9650\u8D85\u904E" });
         }
       }
@@ -12777,7 +9934,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten2.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12785,18 +9942,18 @@ var Bunretu = class extends ZytuComonClass {
       const distanceL = getLookLocationDistance(entity.getRotation().y, 4, -5, 0);
       const tokageL = entity.dimension.spawnEntity("kurokumaft:tuti_dragon", getDistanceLocation(entity.location, distanceL));
       tokageL.triggerEvent("kurokumaft:kyoumeiraisatu");
-      const tameableL = tokageL.getComponent(EntityComponentTypes9.Tameable);
+      const tameableL = tokageL.getComponent(EntityComponentTypes10.Tameable);
       if (!tameableL.isTamed) {
-        if (entity instanceof Player25) {
+        if (entity instanceof Player26) {
           tameableL.tame(entity);
         }
       }
       const distanceR = getLookLocationDistance(entity.getRotation().y, 4, 5, 0);
       const tokageR = entity.dimension.spawnEntity("kurokumaft:tuti_dragon", getDistanceLocation(entity.location, distanceR));
       tokageR.triggerEvent("kurokumaft:kyoumeiraisatu");
-      const tameableR = tokageR.getComponent(EntityComponentTypes9.Tameable);
+      const tameableR = tokageR.getComponent(EntityComponentTypes10.Tameable);
       if (!tameableR.isTamed) {
-        if (entity instanceof Player25) {
+        if (entity instanceof Player26) {
           tameableR.tame(entity);
         }
       }
@@ -12813,7 +9970,7 @@ var Bunretu = class extends ZytuComonClass {
             const distanceL2 = getLookLocationDistancePitch(tokageL.getRotation(), 3, 0);
             const filterL = addOrgeFilter(0, getDistanceLocation(tokageL.location, distanceL2), 4, entity.id);
             filterL.excludeFamilies?.push("tokage");
-            this.kokyuApplyEffect(entity, filterL, 10, 5, MinecraftEffectTypes.Nausea);
+            this.kokyuApplyEffect(entity, filterL, 10, 5, "minecraft:nausea");
             const ultrasonic = shooting(tokageL, "kurokumaft:urogi_ultrasonic", 0, 3, void 0);
             system44.runTimeout(() => {
               if (ultrasonic !== void 0 && ultrasonic.id !== void 0) {
@@ -12847,7 +10004,7 @@ var Bunretu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten3.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12857,7 +10014,7 @@ var Bunretu = class extends ZytuComonClass {
       const num = system44.runInterval(() => {
         try {
           this.kokyuApplyDamage(entity, filter, 3, 1);
-          this.kokyuApplyEffect(entity, filter, 10, 5, MinecraftEffectTypes.Nausea);
+          this.kokyuApplyEffect(entity, filter, 10, 5, "minecraft:nausea");
         } catch (error) {
           system44.clearRun(num);
         }
@@ -12881,7 +10038,7 @@ var Bunretu = class extends ZytuComonClass {
   sonic(entity, side) {
     const distance = getLookLocationDistance(entity.getRotation().y, 1, side, 0.5);
     const bulet = entity.dimension.spawnEntity("kurokumaft:urogi_ultrasonic", getDistanceLocation(entity.location, distance));
-    const projectile = bulet.getComponent(EntityComponentTypes9.Projectile);
+    const projectile = bulet.getComponent(EntityComponentTypes10.Projectile);
     projectile.owner = entity;
     projectile.shoot({
       x: distance.x * 2,
@@ -12895,7 +10052,7 @@ var Bunretu = class extends ZytuComonClass {
    */
   mukengouzyu(entity) {
     try {
-      if (entity instanceof Player25) {
+      if (entity instanceof Player26) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_zouhakuten4.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -12977,7 +10134,7 @@ var ZyutuAizetuComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Hakaisatu.ts
-import { EntityComponentTypes as EntityComponentTypes10, MolangVariableMap as MolangVariableMap11, system as system45, TicksPerSecond as TicksPerSecond19, Player as Player26 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes11, MolangVariableMap as MolangVariableMap11, system as system45, TicksPerSecond as TicksPerSecond20, Player as Player27 } from "@minecraft/server";
 var Hakaisatu = class extends ZytuComonClass {
   /**
    * 破壊殺・羅針
@@ -12987,10 +10144,10 @@ var Hakaisatu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai1.value" }] });
       }
-      const move = entity.getComponent(EntityComponentTypes10.Movement);
+      const move = entity.getComponent(EntityComponentTypes11.Movement);
       move.setCurrentValue(0.2);
       const molang = new MolangVariableMap11();
       molang.setFloat("variable.rotaion", -entity.getRotation().y);
@@ -12999,11 +10156,11 @@ var Hakaisatu = class extends ZytuComonClass {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         move.resetToDefaultValue();
-        entity.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond19, {
+        entity.addEffect("minecraft:speed", 10 * TicksPerSecond20, {
           amplifier: 5,
           showParticles: false
         });
-        entity.addEffect(MinecraftEffectTypes.Strength, 10 * TicksPerSecond19, {
+        entity.addEffect("minecraft:strength", 10 * TicksPerSecond20, {
           amplifier: 1,
           showParticles: false
         });
@@ -13021,7 +10178,7 @@ var Hakaisatu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai2.value" }] });
       }
       const kushiki = shooting(entity, "kurokumaft:kushiki", 0, 3, void 0);
@@ -13029,7 +10186,7 @@ var Hakaisatu = class extends ZytuComonClass {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }, 5);
-      system45.waitTicks(1 * TicksPerSecond19).then(() => {
+      system45.waitTicks(1 * TicksPerSecond20).then(() => {
         if (kushiki.isValid) {
           kushiki.remove();
         }
@@ -13047,7 +10204,7 @@ var Hakaisatu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai3.value" }] });
       }
       const num = system45.runInterval(() => {
@@ -13088,7 +10245,7 @@ var Hakaisatu = class extends ZytuComonClass {
       },
       distance
     ));
-    const projectile = bulet.getComponent(EntityComponentTypes10.Projectile);
+    const projectile = bulet.getComponent(EntityComponentTypes11.Projectile);
     projectile.owner = entity;
     const shotdistance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
     projectile.shoot({
@@ -13107,7 +10264,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   messhiki(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai4.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -13124,7 +10281,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   kamurosakiwari(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai5.value" }] });
       }
       const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 2);
@@ -13146,7 +10303,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   ryusengunkou(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai6.value" }] });
       }
       const num = system45.runInterval(() => {
@@ -13176,7 +10333,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   hiyuuseisenrin(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai7.value" }] });
       }
       const num = system45.runInterval(() => {
@@ -13195,7 +10352,7 @@ var Hakaisatu = class extends ZytuComonClass {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         system45.waitTicks(5).then(() => {
-          entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond19, {
+          entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond20, {
             amplifier: 1,
             showParticles: false
           });
@@ -13214,7 +10371,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   manyousenyanagi(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai8.value" }] });
       }
       const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
@@ -13232,7 +10389,7 @@ var Hakaisatu = class extends ZytuComonClass {
           causesFire: false,
           allowUnderwater: true
         });
-        entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond19, {
+        entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond20, {
           amplifier: 1,
           showParticles: false
         });
@@ -13247,7 +10404,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   kishinyaenshin(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai9.value" }] });
       }
       const num = system45.runInterval(() => {
@@ -13288,7 +10445,7 @@ var Hakaisatu = class extends ZytuComonClass {
       },
       distance
     ));
-    const projectile = bulet.getComponent(EntityComponentTypes10.Projectile);
+    const projectile = bulet.getComponent(EntityComponentTypes11.Projectile);
     projectile.owner = entity;
     const shotdistance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
     projectile.shoot({
@@ -13307,7 +10464,7 @@ var Hakaisatu = class extends ZytuComonClass {
    */
   aoginranzankou(entity) {
     try {
-      if (entity instanceof Player26) {
+      if (entity instanceof Player27) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_hakai10.value" }] });
       }
       const molang = new MolangVariableMap11();
@@ -13326,7 +10483,7 @@ var Hakaisatu = class extends ZytuComonClass {
           system45.clearRun(num);
         }
       }, 5);
-      system45.waitTicks(60).then(() => {
+      system45.waitTicks(80).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
@@ -13350,7 +10507,7 @@ var Hakaisatu = class extends ZytuComonClass {
       },
       distance
     ));
-    const projectile = bulet.getComponent(EntityComponentTypes10.Projectile);
+    const projectile = bulet.getComponent(EntityComponentTypes11.Projectile);
     projectile.owner = entity;
     projectile.shoot({
       x: Math.round(distance.x * 10) / 10,
@@ -13440,7 +10597,7 @@ var ZyutuAkazaComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Obi.ts
-import { Player as Player27, system as system46 } from "@minecraft/server";
+import { Player as Player28, system as system46 } from "@minecraft/server";
 var Obi = class extends ZytuComonClass {
   /**
    * 薙ぎ払い
@@ -13592,7 +10749,7 @@ var Obi = class extends ZytuComonClass {
    */
   yaeobigiri(entity) {
     try {
-      if (entity instanceof Player27) {
+      if (entity instanceof Player28) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_obi4.value" }] });
       }
       const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 2);
@@ -13662,7 +10819,7 @@ var ZyutuDakiComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Tigama.ts
-import { EntityComponentTypes as EntityComponentTypes11, EntityDamageCause as EntityDamageCause4, system as system47, TicksPerSecond as TicksPerSecond20, Player as Player28 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes12, EntityDamageCause as EntityDamageCause4, system as system47, TicksPerSecond as TicksPerSecond21, Player as Player29 } from "@minecraft/server";
 var Tigama = class extends ZytuComonClass {
   /**
    * 飛び血鎌
@@ -13675,7 +10832,7 @@ var Tigama = class extends ZytuComonClass {
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
       if (entity.getProperty("kurokumaft:kokyu_chage") === 0) {
-        if (entity instanceof Player28) {
+        if (entity instanceof Player29) {
           entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama1.value" }] });
         }
         entity.setProperty("kurokumaft:kokyu_chage", 1);
@@ -13804,7 +10961,7 @@ var Tigama = class extends ZytuComonClass {
       },
       distance
     ));
-    const projectile = bulet.getComponent(EntityComponentTypes11.Projectile);
+    const projectile = bulet.getComponent(EntityComponentTypes12.Projectile);
     projectile.owner = entity;
     const distance2 = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
     projectile.shoot({
@@ -13822,7 +10979,7 @@ var Tigama = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player28) {
+      if (entity instanceof Player29) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama2.value" }] });
       }
       entity.addTag(entity.id);
@@ -13832,14 +10989,14 @@ var Tigama = class extends ZytuComonClass {
           const targets = entity.dimension.getEntities(filter);
           targets.forEach((en) => {
             if (en !== void 0 && en.isValid) {
-              if (en instanceof Player28) {
+              if (en instanceof Player29) {
                 if (this.gardCheck(en)) {
                   en.applyDamage(2, {
                     cause: EntityDamageCause4.entityAttack,
                     damagingEntity: entity
                   });
                 }
-                en.addEffect(MinecraftEffectTypes.Poison, 5, {
+                en.addEffect("minecraft:poison", 5, {
                   showParticles: false,
                   amplifier: 2
                 });
@@ -13848,7 +11005,7 @@ var Tigama = class extends ZytuComonClass {
                   cause: EntityDamageCause4.entityAttack,
                   damagingEntity: entity
                 });
-                en.addEffect(MinecraftEffectTypes.Poison, 10, {
+                en.addEffect("minecraft:poison", 10, {
                   showParticles: false,
                   amplifier: 5
                 });
@@ -13859,7 +11016,7 @@ var Tigama = class extends ZytuComonClass {
           system47.clearRun(parnum);
         }
       }, 2);
-      system47.waitTicks(3 * TicksPerSecond20).then(() => {
+      system47.waitTicks(3 * TicksPerSecond21).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
@@ -13879,7 +11036,7 @@ var Tigama = class extends ZytuComonClass {
     }
     try {
       if (entity.getProperty("kurokumaft:kokyu_chage") === 0) {
-        if (entity instanceof Player28) {
+        if (entity instanceof Player29) {
           entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tigama3.value" }] });
         }
         entity.setProperty("kurokumaft:kokyu_chage", 1);
@@ -13893,7 +11050,7 @@ var Tigama = class extends ZytuComonClass {
             const targets = entity.dimension.getEntities(filter);
             targets.forEach((en) => {
               if (en !== void 0 && en.isValid) {
-                if (en instanceof Player28) {
+                if (en instanceof Player29) {
                   if (this.gardCheck(en)) {
                     en.applyDamage(2, {
                       cause: EntityDamageCause4.entityAttack,
@@ -13913,7 +11070,7 @@ var Tigama = class extends ZytuComonClass {
             entity.removeTag(entity.id);
           }
         }, 2);
-        system47.waitTicks(2 * TicksPerSecond20).then(() => {
+        system47.waitTicks(2 * TicksPerSecond21).then(() => {
           entity.setProperty("kurokumaft:kokyu_use", false);
           entity.setProperty("kurokumaft:kokyu_particle", false);
           this.enzanTigama(entity, -5);
@@ -13940,7 +11097,7 @@ var Tigama = class extends ZytuComonClass {
         },
         distance
       ));
-      const projectile = bulet.getComponent(EntityComponentTypes11.Projectile);
+      const projectile = bulet.getComponent(EntityComponentTypes12.Projectile);
       projectile.owner = entity;
       const distance2 = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
       projectile.shoot({
@@ -13973,7 +11130,7 @@ var Tigama = class extends ZytuComonClass {
                 cause: EntityDamageCause4.entityAttack,
                 damagingEntity: entity
               });
-              en.addEffect(MinecraftEffectTypes.Poison, 10, {
+              en.addEffect("minecraft:poison", 10, {
                 showParticles: false,
                 amplifier: 5
               });
@@ -14076,7 +11233,7 @@ var ZyutuKarakuComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Bakketu.ts
-import { EntityDamageCause as EntityDamageCause5, MolangVariableMap as MolangVariableMap12, system as system48, Player as Player29 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause5, MolangVariableMap as MolangVariableMap12, system as system48, Player as Player30 } from "@minecraft/server";
 var Bakketu = class extends ZytuComonClass {
   /**
    * 爆血
@@ -14086,7 +11243,7 @@ var Bakketu = class extends ZytuComonClass {
       return;
     }
     try {
-      if (entity instanceof Player29) {
+      if (entity instanceof Player30) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_bakketu1.value" }] });
       }
       const dimension = entity.dimension;
@@ -14152,7 +11309,7 @@ var Bakketu = class extends ZytuComonClass {
             targets1.forEach((en) => {
               if (en !== void 0 && en.isValid) {
                 dimension.spawnParticle("kurokumaft:bakketu_fire", en.location, molang);
-                en.addEffect(MinecraftEffectTypes.InstantHealth, 2, {
+                en.addEffect("minecraft:instant_health", 2, {
                   amplifier: 2,
                   showParticles: true
                 });
@@ -14161,7 +11318,7 @@ var Bakketu = class extends ZytuComonClass {
             targets2.forEach((en) => {
               if (en !== void 0 && en.isValid && entity.isValid) {
                 dimension.spawnParticle("kurokumaft:bakketu_fire", en.location, molang);
-                if (en instanceof Player29) {
+                if (en instanceof Player30) {
                   if (this.gardCheck(en)) {
                     en.applyDamage(2, {
                       cause: EntityDamageCause5.fire,
@@ -14226,14 +11383,14 @@ var ZyutuNezukoComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Koushi.ts
-import { BlockVolume as BlockVolume3, system as system49, TicksPerSecond as TicksPerSecond21, Player as Player30 } from "@minecraft/server";
+import { BlockVolume as BlockVolume2, system as system49, TicksPerSecond as TicksPerSecond22, Player as Player31 } from "@minecraft/server";
 var Koushi = class extends ZytuComonClass {
   /**
    * 刻糸牢
    */
   kokushirou(entity) {
     try {
-      if (entity instanceof Player30) {
+      if (entity instanceof Player31) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ito1.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -14242,8 +11399,8 @@ var Koushi = class extends ZytuComonClass {
       const targets = entity.dimension.getEntities(filter);
       entity.removeTag(entity.id);
       targets.forEach((en) => {
-        const volume = new BlockVolume3({ x: en.location.x - 1, y: en.location.y, z: en.location.z - 1 }, { x: en.location.x + 1, y: en.location.y + 1, z: en.location.z + 1 });
-        en.dimension.fillBlocks(volume, MinecraftBlockTypes.Web);
+        const volume = new BlockVolume2({ x: en.location.x - 1, y: en.location.y, z: en.location.z - 1 }, { x: en.location.x + 1, y: en.location.y + 1, z: en.location.z + 1 });
+        en.dimension.fillBlocks(volume, "minecraft:web");
       });
       this.kokyuApplyDamage(entity, filter, 3, 1);
       system49.waitTicks(20).then(() => {
@@ -14259,13 +11416,13 @@ var Koushi = class extends ZytuComonClass {
    */
   kokushirinten(entity) {
     try {
-      if (entity instanceof Player30) {
+      if (entity instanceof Player31) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ito2.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
       entity.setProperty("kurokumaft:kokyu_particle", false);
       const ito = shooting(entity, "kurokumaft:kokushirinten", 0, 3, void 0);
-      system49.waitTicks(2 * TicksPerSecond21).then(() => {
+      system49.waitTicks(2 * TicksPerSecond22).then(() => {
         if (ito.isValid) {
           ito.remove();
         }
@@ -14280,7 +11437,7 @@ var Koushi = class extends ZytuComonClass {
    */
   ayamekago(entity) {
     try {
-      if (entity instanceof Player30) {
+      if (entity instanceof Player31) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_ito3.value" }] });
       }
       entity.setProperty("kurokumaft:kokyu_use", false);
@@ -14580,7 +11737,7 @@ var DakiComponent = class {
 };
 
 // scripts/kekkizyutu/mob/GyutaroComponent.ts
-import { system as system51, TicksPerSecond as TicksPerSecond22 } from "@minecraft/server";
+import { system as system51, TicksPerSecond as TicksPerSecond23 } from "@minecraft/server";
 var gyutaroKekkizyutuLists = weightChoice([
   { item: 1, weight: 50 },
   { item: 2, weight: 40 },
@@ -14621,7 +11778,7 @@ var GyutaroComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           kama.bakkotyouryou(entity);
-          system51.waitTicks(3 * TicksPerSecond22).then(() => {
+          system51.waitTicks(3 * TicksPerSecond23).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -15133,19 +12290,19 @@ var ZouhakutenComponent = class {
 import { system as system61 } from "@minecraft/server";
 
 // scripts/kekkizyutu/zyutu/TukiNoKataZyutu.ts
-import { EntityComponentTypes as EntityComponentTypes12, MolangVariableMap as MolangVariableMap13, system as system60, Player as Player31 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes13, MolangVariableMap as MolangVariableMap13, system as system60, Player as Player32 } from "@minecraft/server";
 var TukiNoKataZyutu = class extends ZytuComonClass {
   /**
    * 壱ノ型 闇月・宵の宮
    */
   ichiNoKata(entity) {
     entity.setProperty("kurokumaft:kokyu_use", false);
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu1.value" }] });
     }
     const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 0, 0.5);
     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-    this.kokyuApplyDamage(entity, filter, 3, 1);
+    this.kokyuApplyDamage(entity, filter, 4, 2);
     const molang = new MolangVariableMap13();
     molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
     molang.setFloat("variable.tuki_size_x", 5);
@@ -15161,7 +12318,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 弐ノ型 珠華ノ弄月
    */
   niNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu2.value" }] });
     }
     const molang = new MolangVariableMap13();
@@ -15174,7 +12331,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
         const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0.5);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 3, 1);
         const pdistance = getLookLocationDistance(entity.getRotation().y, 2.5, side, 1);
         entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
         side = side + 3;
@@ -15195,7 +12352,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 参ノ型 厭忌月・銷り
    */
   sanNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu3.value" }] });
     }
     const molang = new MolangVariableMap13();
@@ -15203,13 +12360,13 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
     molang.setFloat("variable.tuki_size_y", 2.5);
     const distance = getLookLocationDistance(entity.getRotation().y, 2.5, -1.5, 1);
     const lfilter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity.id);
-    this.kokyuApplyDamage(entity, lfilter, 3, 1);
+    this.kokyuApplyDamage(entity, lfilter, 4, 2);
     molang.setFloat("variable.tuki_rotaion", 0);
     entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, distance), molang);
     system60.waitTicks(5).then(() => {
       const distance2 = getLookLocationDistance(entity.getRotation().y, 2.5, 1.5, 1);
       const rfilter = addOrgeFilter(0, getDistanceLocation(entity.location, distance2), 3.5, entity.id);
-      this.kokyuApplyDamage(entity, rfilter, 3, 1);
+      this.kokyuApplyDamage(entity, rfilter, 4, 2);
       molang.setFloat("variable.tuki_rotaion", 180);
       entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, distance2), molang);
     }).catch((error) => {
@@ -15226,7 +12383,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 伍ノ型 月魄災渦
    */
   goNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu5.value" }] });
     }
     const molang = new MolangVariableMap13();
@@ -15235,7 +12392,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         const y = getRandomInRange(0.1, 2.5);
         const distance = getLookLocationDistance(entity.getRotation().y, 3.5, 0, 0);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
         const pdistance = getLookLocationDistance(entity.getRotation().y, 6.5, 0, y);
         molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
         molang.setFloat("variable.tuki_size_x", getRandomInRange(8, 12));
@@ -15257,7 +12414,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 陸ノ型 常夜孤月・無間
    */
   rokuNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu6.value" }] });
     }
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
@@ -15274,7 +12431,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
         const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
         const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
         entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
       } catch (error) {
@@ -15293,7 +12450,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 漆ノ型 厄鏡・月映え
    */
   shitiNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu7.value" }] });
     }
     const front = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
@@ -15310,7 +12467,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
       try {
         const distance = getLookLocationDistancePitch(entity.getRotation(), 6, 0);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
       } catch (error) {
         system60.clearRun(num);
       }
@@ -15332,7 +12489,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
       y: location.y,
       z: location.z + distance.z
     });
-    const projectile = tuki.getComponent(EntityComponentTypes12.Projectile);
+    const projectile = tuki.getComponent(EntityComponentTypes13.Projectile);
     projectile.owner = entity;
     projectile.shoot({
       x: distance.x * 3,
@@ -15346,7 +12503,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         if (exes !== void 0) {
           exes.push("tuki_blead");
         }
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
       } catch (error) {
         system60.clearRun(num);
       }
@@ -15364,7 +12521,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 捌ノ型 月龍輪尾
    */
   hachiNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu8.value" }] });
     }
     const molang = new MolangVariableMap13();
@@ -15389,7 +12546,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 玖ノ型 降り月・連面
    */
   kuNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu9.value" }] });
     }
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
@@ -15404,7 +12561,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
         const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
         const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
         entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
         tuki_rotaion = -tuki_rotaion;
@@ -15424,7 +12581,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 拾ノ型 穿面斬・蘿月
    */
   zyuNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu10.value" }] });
     }
     const ldistance = getLookLocationDistance(entity.getRotation().y, 1, -1.5, 0);
@@ -15448,7 +12605,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
       z: location.z + distance.z
     });
     const front = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
-    const projectile = tuki.getComponent(EntityComponentTypes12.Projectile);
+    const projectile = tuki.getComponent(EntityComponentTypes13.Projectile);
     projectile.owner = entity;
     projectile.shoot({
       x: front.x * 3,
@@ -15462,7 +12619,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         if (exes !== void 0) {
           exes.push("tuki_blead");
         }
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
       } catch (error) {
         system60.clearRun(num);
       }
@@ -15480,7 +12637,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 拾肆ノ型 兇変・天満繊月
    */
   zyushiNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu14.value" }] });
     }
     const molang = new MolangVariableMap13();
@@ -15489,7 +12646,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         const y = getRandomInRange(0.1, 2.5);
         const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
         const pdistance = getLookLocationDistance(entity.getRotation().y, 8, 0, y);
         molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
         molang.setFloat("variable.tuki_size_x", getRandomInRange(12, 16));
@@ -15511,7 +12668,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
    * 拾陸ノ型 月虹・片割れ月
    */
   zyurokuNoKata(entity) {
-    if (entity instanceof Player31) {
+    if (entity instanceof Player32) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:tuki_kokyu16.value" }] });
     }
     const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
@@ -15526,7 +12683,7 @@ var TukiNoKataZyutu = class extends ZytuComonClass {
         molang.setFloat("variable.tuki_rotaion", tuki_rotaion);
         const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-        this.kokyuApplyDamage(entity, filter, 2, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
         const pdistance = getLookLocationDistance(entity.getRotation().y, 8, side, 1);
         entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
         tuki_rotaion = -tuki_rotaion;
@@ -15768,13 +12925,13 @@ var ZyutuKokushibouComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Kokurai.ts
-import { MolangVariableMap as MolangVariableMap14, system as system62, TicksPerSecond as TicksPerSecond23, Player as Player32 } from "@minecraft/server";
+import { MolangVariableMap as MolangVariableMap14, system as system62, TicksPerSecond as TicksPerSecond24, Player as Player33 } from "@minecraft/server";
 var Kokurai = class extends ZytuComonClass {
   /**
    * 弐ノ型 稲魂
    */
   niNoKata(entity) {
-    if (entity instanceof Player32) {
+    if (entity instanceof Player33) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kaminari_kokyu2.value" }] });
     }
     const num = system62.runInterval(() => {
@@ -15798,7 +12955,7 @@ var Kokurai = class extends ZytuComonClass {
    * 参ノ型 聚蚊成雷
    */
   sanNoKata(entity) {
-    if (entity instanceof Player32) {
+    if (entity instanceof Player33) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kaminari_kokyu3.value" }] });
     }
     const num = system62.runInterval(() => {
@@ -15846,7 +13003,7 @@ var Kokurai = class extends ZytuComonClass {
    * 肆ノ型 遠雷
    */
   shiNoKata(entity) {
-    if (entity instanceof Player32) {
+    if (entity instanceof Player33) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kaminari_kokyu4.value" }] });
     }
     entity.setProperty("kurokumaft:kokyu_use", false);
@@ -15862,7 +13019,7 @@ var Kokurai = class extends ZytuComonClass {
       } catch (error) {
         system62.clearRun(num);
       }
-    }, 2);
+    }, 4);
     system62.waitTicks(20).then(() => {
       entity.setProperty("kurokumaft:kokyu_particle", false);
     }).catch((error) => {
@@ -15874,15 +13031,12 @@ var Kokurai = class extends ZytuComonClass {
    * 伍ノ型 熱界雷
    */
   goNoKata(entity) {
-    if (entity instanceof Player32) {
+    if (entity instanceof Player33) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kaminari_kokyu5.value" }] });
     }
-    const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
-    const molang = new MolangVariableMap14();
-    molang.setFloat("variable.kaikyu", kaikyuNum);
     const num = system62.runInterval(() => {
       try {
-        entity.dimension.spawnParticle("kurokumaft:kokurai5_particle", entity.location, molang);
+        entity.dimension.spawnParticle("kurokumaft:kokurai5_particle", entity.location);
       } catch (error) {
         system62.clearRun(num);
       }
@@ -15896,14 +13050,8 @@ var Kokurai = class extends ZytuComonClass {
     }).finally(() => {
       system62.clearRun(num);
     });
-    let event = "kurokumaft:small_damage";
-    if (kaikyuNum > 8) {
-      event = "kurokumaft:lage_damage";
-    } else if (kaikyuNum > 4) {
-      event = "kurokumaft:middle_damage";
-    }
-    const dragon = shooting(entity, "kurokumaft:kuro_dragon_small", 0, 3, event);
-    system62.waitTicks(2 * TicksPerSecond23).then(() => {
+    const dragon = shooting(entity, "kurokumaft:kuro_dragon_small", 0, 3, "kurokumaft:lage_damage");
+    system62.waitTicks(2 * TicksPerSecond24).then(() => {
       if (dragon.isValid) {
         dragon.remove();
       }
@@ -15915,22 +13063,19 @@ var Kokurai = class extends ZytuComonClass {
    * 陸ノ型 電轟雷轟
    */
   rokuNoKata(entity) {
-    if (entity instanceof Player32) {
+    if (entity instanceof Player33) {
       entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kaminari_kokyu6.value" }] });
     }
     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
     entity.applyKnockback({ x: distance.x, z: distance.z }, 0.8);
-    entity.addEffect(MinecraftEffectTypes.SlowFalling, 1 * TicksPerSecond23, {
+    entity.addEffect("minecraft:slow_falling", 1 * TicksPerSecond24, {
       amplifier: 1,
       showParticles: false
     });
     const nowloc = entity.location;
-    const kaikyuNum = entity.getProperty("kurokumaft:kaikyu");
-    const molang = new MolangVariableMap14();
-    molang.setFloat("variable.kaikyu", kaikyuNum);
     const num = system62.runInterval(() => {
       try {
-        entity.dimension.spawnParticle("kurokumaft:kokurai6_particle", nowloc, molang);
+        entity.dimension.spawnParticle("kurokumaft:kokurai6_particle", nowloc);
       } catch (error) {
         system62.clearRun(num);
       }
@@ -15968,13 +13113,13 @@ var ZyutuKaigakuComponent = class {
     }
   }
   /**
-   * @param {Player} player
+   * @param {Entity} entity
    */
   hitAttackZyutu(entity) {
   }
   /**
    * @param {ItemStack} itemStack
-   * @param {Player} player
+   * @param {Entity} entity
    */
   useAttackZyutu(entity) {
     const kata = entity.getProperty("kurokumaft:kekkizyutu_kata");
@@ -16012,14 +13157,14 @@ var ZyutuKaigakuComponent = class {
 };
 
 // scripts/kekkizyutu/zyutu/Koori.ts
-import { system as system63, TicksPerSecond as TicksPerSecond24, Player as Player33, world as world12, EntityComponentTypes as EntityComponentTypes13, EntityDamageCause as EntityDamageCause6 } from "@minecraft/server";
+import { system as system63, TicksPerSecond as TicksPerSecond25, Player as Player34, world as world7, EntityComponentTypes as EntityComponentTypes14, EntityDamageCause as EntityDamageCause6 } from "@minecraft/server";
 var Koori = class extends ZytuComonClass {
   /**
    * 蓮葉氷
    */
   hasuhagoori(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori1.value" }] });
       }
       const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
@@ -16043,7 +13188,7 @@ var Koori = class extends ZytuComonClass {
    */
   karesonosizuri(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori2.value" }] });
       }
       const num = system63.runInterval(() => {
@@ -16055,7 +13200,7 @@ var Koori = class extends ZytuComonClass {
           system63.clearRun(num);
         }
       }, 2);
-      system63.waitTicks(2 * TicksPerSecond24).then(() => {
+      system63.waitTicks(2 * TicksPerSecond25).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
@@ -16070,7 +13215,7 @@ var Koori = class extends ZytuComonClass {
    */
   itegumori(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori3.value" }] });
       }
       const num = system63.runInterval(() => {
@@ -16078,13 +13223,13 @@ var Koori = class extends ZytuComonClass {
           const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
           const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
           this.kokyuApplyDamage(entity, filter, 4, 2);
-          this.kokyuApplyEffect(entity, filter, 20, 2, MinecraftEffectTypes.Weakness);
+          this.kokyuApplyEffect(entity, filter, 20, 2, "minecraft:weakness");
         } catch (error) {
           system63.clearRun(num);
         }
       }, 2);
       entity.dimension.spawnParticle("kurokumaft:itegumori_particle", entity.location);
-      system63.waitTicks(1 * TicksPerSecond24).then(() => {
+      system63.waitTicks(1 * TicksPerSecond25).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
@@ -16099,11 +13244,11 @@ var Koori = class extends ZytuComonClass {
    */
   tururenge(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori4.value" }] });
       }
       let owner = void 0;
-      const tameable = entity.getComponent(EntityComponentTypes13.Tameable);
+      const tameable = entity.getComponent(EntityComponentTypes14.Tameable);
       if (tameable !== void 0 && tameable.isTamed) {
         owner = tameable.tamedToPlayer;
       }
@@ -16129,22 +13274,22 @@ var Koori = class extends ZytuComonClass {
    */
   kanretunosirahime(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori5.value" }] });
       }
       const left = getLookLocationDistance(entity.getRotation().y, 2, 2, 0);
       const shirahime1 = entity.dimension.spawnEntity("kurokumaft:kanretunosirahime", getDistanceLocation(entity.location, left));
-      const tameable = shirahime1.getComponent(EntityComponentTypes13.Tameable);
+      const tameable = shirahime1.getComponent(EntityComponentTypes14.Tameable);
       if (!tameable.isTamed) {
-        if (entity instanceof Player33) {
+        if (entity instanceof Player34) {
           tameable.tame(entity);
         }
       }
       const right = getLookLocationDistance(entity.getRotation().y, 2, -2, 0);
       const shirahime2 = entity.dimension.spawnEntity("kurokumaft:kanretunosirahime", getDistanceLocation(entity.location, right));
-      const tameable2 = shirahime2.getComponent(EntityComponentTypes13.Tameable);
+      const tameable2 = shirahime2.getComponent(EntityComponentTypes14.Tameable);
       if (!tameable2.isTamed) {
-        if (entity instanceof Player33) {
+        if (entity instanceof Player34) {
           tameable2.tame(entity);
         }
       }
@@ -16162,7 +13307,7 @@ var Koori = class extends ZytuComonClass {
    */
   fuyuzareturara(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori6.value" }] });
       }
       const num = system63.runInterval(() => {
@@ -16175,7 +13320,7 @@ var Koori = class extends ZytuComonClass {
         }
       }, 2);
       entity.dimension.spawnParticle("kurokumaft:koori_turara_particle", entity.location);
-      system63.waitTicks(2 * TicksPerSecond24).then(() => {
+      system63.waitTicks(2 * TicksPerSecond25).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
@@ -16190,7 +13335,7 @@ var Koori = class extends ZytuComonClass {
    */
   tirirenge(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori7.value" }] });
       }
       const num = system63.runInterval(() => {
@@ -16203,7 +13348,7 @@ var Koori = class extends ZytuComonClass {
         }
       }, 2);
       entity.dimension.spawnParticle("kurokumaft:tirirenge_particle", entity.location);
-      system63.waitTicks(1 * TicksPerSecond24).then(() => {
+      system63.waitTicks(1 * TicksPerSecond25).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
@@ -16218,14 +13363,14 @@ var Koori = class extends ZytuComonClass {
    */
   kessyounomiko(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori8.value" }] });
       }
       const center = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
       const miko = entity.dimension.spawnEntity("kurokumaft:kessyounomiko", getDistanceLocation(entity.location, center));
-      const tameable = miko.getComponent(EntityComponentTypes13.Tameable);
+      const tameable = miko.getComponent(EntityComponentTypes14.Tameable);
       if (!tameable.isTamed) {
-        if (entity instanceof Player33) {
+        if (entity instanceof Player34) {
           tameable.tame(entity);
         }
       }
@@ -16243,14 +13388,14 @@ var Koori = class extends ZytuComonClass {
    */
   muhyousuirenbosatu(entity) {
     try {
-      if (entity instanceof Player33) {
+      if (entity instanceof Player34) {
         entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_koori9.value" }] });
       }
       const center = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
       const bosatu = entity.dimension.spawnEntity("kurokumaft:muhyousuirenbosatu", getDistanceLocation(entity.location, center));
-      const tameable = bosatu.getComponent(EntityComponentTypes13.Tameable);
+      const tameable = bosatu.getComponent(EntityComponentTypes14.Tameable);
       if (!tameable.isTamed) {
-        if (entity instanceof Player33) {
+        if (entity instanceof Player34) {
           tameable.tame(entity);
         }
       }
@@ -16277,7 +13422,7 @@ var Koori = class extends ZytuComonClass {
           system63.clearRun(num);
         }
       }, 2);
-      system63.waitTicks(2 * TicksPerSecond24).then(() => {
+      system63.waitTicks(2 * TicksPerSecond25).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
       }).catch((error) => {
@@ -16334,7 +13479,7 @@ var hasuRenge = class extends ZytuComonClass {
       location: this.entity.location,
       maxDistance: 4
     };
-    if (!world12.gameRules.pvp) {
+    if (!world7.gameRules.pvp) {
       filter.excludeFamilies?.push("player");
     }
     const targets = this.entity.dimension.getEntities(filter);
@@ -16358,12 +13503,12 @@ function ibuki(entity) {
         const targets = entity.dimension.getEntities(filter);
         targets.forEach((en) => {
           if (en !== void 0 && en.isValid) {
-            if (en instanceof Player33) {
+            if (en instanceof Player34) {
               en.applyDamage(2, {
                 cause: EntityDamageCause6.entityAttack,
                 damagingEntity: entity
               });
-              en.addEffect(MinecraftEffectTypes.Weakness, 20, {
+              en.addEffect("minecraft:weakness", 20, {
                 amplifier: 2,
                 showParticles: true
               });
@@ -16372,7 +13517,7 @@ function ibuki(entity) {
                 cause: EntityDamageCause6.entityAttack,
                 damagingEntity: entity
               });
-              en.addEffect(MinecraftEffectTypes.Weakness, 20, {
+              en.addEffect("minecraft:weakness", 20, {
                 amplifier: 4,
                 showParticles: true
               });
@@ -16384,7 +13529,7 @@ function ibuki(entity) {
       }
     }, 2);
     entity.dimension.spawnParticle("kurokumaft:itegumori_particle", entity.location);
-    system63.waitTicks(1 * TicksPerSecond24).then(() => {
+    system63.waitTicks(1 * TicksPerSecond25).then(() => {
     }).catch((error) => {
     }).finally(() => {
       system63.clearRun(num);
@@ -16462,7 +13607,7 @@ var ZyutuDoumaComponent = class {
 };
 
 // scripts/kekkizyutu/mob/DoumaComponent.ts
-import { system as system64, TicksPerSecond as TicksPerSecond25 } from "@minecraft/server";
+import { system as system64, TicksPerSecond as TicksPerSecond26 } from "@minecraft/server";
 var doumaKekkizyutuLists = weightChoice([
   { item: 1, weight: 20 },
   { item: 2, weight: 20 },
@@ -16509,7 +13654,7 @@ var DoumaComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.karesonosizuri(entity);
-          system64.waitTicks(2 * TicksPerSecond25).then(() => {
+          system64.waitTicks(2 * TicksPerSecond26).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16518,7 +13663,7 @@ var DoumaComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.itegumori(entity);
-          system64.waitTicks(1 * TicksPerSecond25).then(() => {
+          system64.waitTicks(1 * TicksPerSecond26).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16545,7 +13690,7 @@ var DoumaComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.fuyuzareturara(entity);
-          system64.waitTicks(2 * TicksPerSecond25).then(() => {
+          system64.waitTicks(2 * TicksPerSecond26).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16554,7 +13699,7 @@ var DoumaComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.tirirenge(entity);
-          system64.waitTicks(1 * TicksPerSecond25).then(() => {
+          system64.waitTicks(1 * TicksPerSecond26).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16585,7 +13730,7 @@ var DoumaComponent = class {
 };
 
 // scripts/kekkizyutu/mob/KessyounomikoComponent.ts
-import { system as system65, TicksPerSecond as TicksPerSecond26 } from "@minecraft/server";
+import { system as system65, TicksPerSecond as TicksPerSecond27 } from "@minecraft/server";
 var kessyounomikoKekkizyutuLists = weightChoice([
   { item: 1, weight: 30 },
   { item: 2, weight: 20 },
@@ -16629,7 +13774,7 @@ var KessyounomikoComponent = class {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.karesonosizuri(entity);
-          system65.waitTicks(2 * TicksPerSecond26).then(() => {
+          system65.waitTicks(2 * TicksPerSecond27).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16638,7 +13783,7 @@ var KessyounomikoComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.itegumori(entity);
-          system65.waitTicks(1 * TicksPerSecond26).then(() => {
+          system65.waitTicks(1 * TicksPerSecond27).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16656,7 +13801,7 @@ var KessyounomikoComponent = class {
         case 6:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.fuyuzareturara(entity);
-          system65.waitTicks(2 * TicksPerSecond26).then(() => {
+          system65.waitTicks(2 * TicksPerSecond27).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16665,7 +13810,7 @@ var KessyounomikoComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.tirirenge(entity);
-          system65.waitTicks(1 * TicksPerSecond26).then(() => {
+          system65.waitTicks(1 * TicksPerSecond27).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16678,7 +13823,7 @@ var KessyounomikoComponent = class {
 };
 
 // scripts/kekkizyutu/mob/MuhyousuirenbosatuComponent.ts
-import { system as system66, TicksPerSecond as TicksPerSecond27 } from "@minecraft/server";
+import { system as system66, TicksPerSecond as TicksPerSecond28 } from "@minecraft/server";
 var muhyousuirenbosatuKekkizyutuLists = weightChoice([
   { item: 1, weight: 70 },
   { item: 3, weight: 15 },
@@ -16710,7 +13855,7 @@ var MuhyousuirenbosatuComponent = class {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.bosatuattack(entity);
-          system66.waitTicks(2 * TicksPerSecond27).then(() => {
+          system66.waitTicks(2 * TicksPerSecond28).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16719,7 +13864,7 @@ var MuhyousuirenbosatuComponent = class {
         case 3:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.itegumori(entity);
-          system66.waitTicks(1 * TicksPerSecond27).then(() => {
+          system66.waitTicks(1 * TicksPerSecond28).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16728,7 +13873,395 @@ var MuhyousuirenbosatuComponent = class {
         case 7:
           entity.triggerEvent("kurokumaft:attack_stop");
           koori.tirirenge(entity);
-          system66.waitTicks(1 * TicksPerSecond27).then(() => {
+          system66.waitTicks(1 * TicksPerSecond28).then(() => {
+            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+            entity.triggerEvent("kurokumaft:kekkizyutu_end");
+          }).catch((error) => {
+          });
+          break;
+      }
+    } catch (error) {
+    }
+  }
+};
+
+// scripts/kekkizyutu/zyutu/Tubo.ts
+import { system as system67, TicksPerSecond as TicksPerSecond29, Player as Player35, EntityComponentTypes as EntityComponentTypes15, EntityDamageCause as EntityDamageCause7 } from "@minecraft/server";
+var Tubo = class extends ZytuComonClass {
+  /**
+   * 水獄鉢
+   */
+  suigokubati(entity) {
+    try {
+      if (entity instanceof Player35) {
+        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo1.value" }] });
+      }
+      entity.setProperty("kurokumaft:kokyu_use", false);
+      entity.setProperty("kurokumaft:kokyu_particle", false);
+      const filter = addOrgeFilter(3, entity.location, 10, entity.id);
+      filter.excludeFamilies?.push("sakana");
+      entity.addTag(entity.id);
+      const targets = entity.dimension.getEntities(filter);
+      targets.forEach((en) => {
+        const suigokubati = en.dimension.spawnEntity("kurokumaft:suigokubati", en.location);
+        this.suigokubatiHold(suigokubati, en);
+      });
+      entity.removeTag(entity.id);
+    } catch (error) {
+    }
+  }
+  async suigokubatiHold(suigokubati, target) {
+    const num = system67.runInterval(() => {
+      try {
+        if (suigokubati.isValid && target.isValid) {
+          target.teleport({ x: suigokubati.location.x, y: suigokubati.location.y + 0.2, z: suigokubati.location.z });
+          target.applyDamage(1, {
+            cause: EntityDamageCause7.drowning,
+            damagingEntity: suigokubati
+          });
+        } else {
+          if (suigokubati.isValid) {
+            suigokubati.remove();
+          }
+          system67.clearRun(num);
+        }
+      } catch (error) {
+        system67.clearRun(num);
+      }
+    }, 2);
+  }
+  /**
+   * 千本針魚殺
+   */
+  senbonbarigyosatu(entity) {
+    try {
+      if (entity instanceof Player35) {
+        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo2.value" }] });
+      }
+      const left = getLookLocationDistance(entity.getRotation().y, 2, 2, 1);
+      const gyosatu1 = entity.dimension.spawnEntity("kurokumaft:gyosatu", getDistanceLocation(entity.location, left));
+      const tameable = gyosatu1.getComponent(EntityComponentTypes15.Tameable);
+      if (!tameable.isTamed) {
+        if (entity instanceof Player35) {
+          tameable.tame(entity);
+        }
+      }
+      const right = getLookLocationDistance(entity.getRotation().y, 2, -2, 1);
+      const gyosatu2 = entity.dimension.spawnEntity("kurokumaft:gyosatu", getDistanceLocation(entity.location, right));
+      const tameable2 = gyosatu2.getComponent(EntityComponentTypes15.Tameable);
+      if (!tameable2.isTamed) {
+        if (entity instanceof Player35) {
+          tameable2.tame(entity);
+        }
+      }
+      system67.waitTicks(6).then(() => {
+        entity.setProperty("kurokumaft:kokyu_use", false);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+      });
+    } catch (error) {
+    }
+  }
+  /**
+   * 蛸壺地獄
+   */
+  takotubozigoku(entity) {
+    try {
+      if (entity instanceof Player35) {
+        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo3.value" }] });
+      }
+      const num = system67.runInterval(() => {
+        try {
+          const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
+          const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
+          filter.excludeFamilies?.push("sakana");
+          this.kokyuApplyDamage(entity, filter, 4, 2);
+        } catch (error) {
+          system67.clearRun(num);
+        }
+      }, 2);
+      system67.waitTicks(2 * TicksPerSecond29).then(() => {
+        entity.setProperty("kurokumaft:kokyu_use", false);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+        system67.clearRun(num);
+      });
+    } catch (error) {
+    }
+  }
+  /**
+   * 一万滑空粘魚
+   */
+  itimankakkuunengyo(entity) {
+    try {
+      if (entity instanceof Player35) {
+        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo4.value" }] });
+      }
+      const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
+      const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 5, entity.id);
+      filter.excludeFamilies?.push("sakana");
+      const num = system67.runInterval(() => {
+        this.nengyo(entity, getRandomInRange(-3, 3), getRandomInRange(-2, 2));
+        this.kokyuApplyDamage(entity, filter, 4, 2);
+      }, 2);
+      system67.waitTicks(30).then(() => {
+        entity.setProperty("kurokumaft:kokyu_use", false);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+        system67.clearRun(num);
+      });
+    } catch (error) {
+    }
+  }
+  async nengyo(entity, side, top) {
+    const distance = getLookLocationDistance(entity.getRotation().y, 1, side, top);
+    const bulet = entity.dimension.spawnEntity("kurokumaft:nengyo", getDistanceLocation(
+      {
+        x: entity.location.x,
+        y: entity.location.y + 0.5,
+        z: entity.location.z
+      },
+      distance
+    ));
+    const distance2 = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+    const projectile = bulet.getComponent(EntityComponentTypes15.Projectile);
+    projectile.owner = entity;
+    projectile.shoot({
+      x: distance2.x,
+      y: 0,
+      z: distance2.z
+    });
+    system67.waitTicks(10).then(() => {
+      if (bulet.isValid) {
+        bulet.remove();
+      }
+    });
+  }
+  /**
+   * 魚召喚
+   */
+  sakanasyoukan(entity) {
+    try {
+      if (entity instanceof Player35) {
+        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo5.value" }] });
+      }
+      const left = getLookLocationDistance(entity.getRotation().y, 2, 2, 0);
+      const sakana1 = entity.dimension.spawnEntity("kurokumaft:kyodaigyo_kiba", getDistanceLocation(entity.location, left));
+      const tameable = sakana1.getComponent(EntityComponentTypes15.Tameable);
+      if (!tameable.isTamed) {
+        if (entity instanceof Player35) {
+          tameable.tame(entity);
+        }
+      }
+      const right = getLookLocationDistance(entity.getRotation().y, 2, -2, 0);
+      const sakana2 = entity.dimension.spawnEntity("kurokumaft:kyodaigyo_kiba", getDistanceLocation(entity.location, right));
+      const tameable2 = sakana2.getComponent(EntityComponentTypes15.Tameable);
+      if (!tameable2.isTamed) {
+        if (entity instanceof Player35) {
+          tameable2.tame(entity);
+        }
+      }
+      system67.waitTicks(6).then(() => {
+        entity.setProperty("kurokumaft:kokyu_use", false);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+      });
+    } catch (error) {
+    }
+  }
+  /**
+   * 陣殺魚鱗
+   */
+  zinsatugyorin(entity) {
+    try {
+      if (entity instanceof Player35) {
+        entity.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo6.value" }] });
+      }
+      const num = system67.runInterval(() => {
+        try {
+          const filter = addOrgeFilter(0, entity.location, 2.5, entity.id);
+          filter.excludeFamilies?.push("sakana");
+          this.kokyuApplyDamage(entity, filter, 4, 2);
+          const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
+          entity.applyKnockback({ x: distance.x, z: distance.z }, 0.15);
+        } catch (error) {
+          system67.clearRun(num);
+        }
+        system67.waitTicks(4).then(() => {
+          entity.teleport(entity.location, {
+            keepVelocity: false,
+            rotation: {
+              x: 0,
+              y: entity.getRotation().y + getRandomInRange(75, 115)
+            }
+          });
+        }).catch((error) => {
+        }).finally(() => {
+        });
+      }, 5);
+      system67.waitTicks(2 * TicksPerSecond29).then(() => {
+        entity.setProperty("kurokumaft:kokyu_use", false);
+        entity.setProperty("kurokumaft:kokyu_particle", false);
+      }).catch((error) => {
+      }).finally(() => {
+        system67.clearRun(num);
+      });
+    } catch (error) {
+    }
+  }
+};
+async function gyokkoMove(entity) {
+  const distance = getLookLocationDistance(entity.getRotation().y, getRandomInRange(-10, 10), getRandomInRange(-10, 10), 0);
+  entity.teleport(getDistanceLocation(entity.location, distance), {
+    checkForBlocks: true
+  });
+}
+
+// scripts/kekkizyutu/player/character/ZyutuGyokkoComponent.ts
+var ZyutuGyokkoComponent = class {
+  /**
+   * 呼吸型変更
+   * @param {Player} player
+   */
+  changeZyutu(player) {
+    const kata = player.getProperty("kurokumaft:kekkizyutu_kata");
+    const kekkizyutuObject = KekkizyutuObjects[13];
+    switch (kata) {
+      case kekkizyutuObject.kata[kekkizyutuObject.kata.length - 1]:
+        player.setProperty("kurokumaft:kekkizyutu_kata", kekkizyutuObject.kata[0]);
+        player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo" + kekkizyutuObject.kata[0] + ".value" }] });
+        break;
+      default:
+        const index = kekkizyutuObject.kata.findIndex((el) => el === kata);
+        player.setProperty("kurokumaft:kekkizyutu_kata", kekkizyutuObject.kata[index + 1]);
+        player.onScreenDisplay.setActionBar({ rawtext: [{ translate: "msg.kurokumaft:kekkizyutu_tubo" + kekkizyutuObject.kata[index + 1] + ".value" }] });
+    }
+  }
+  /**
+   * @param {Entity} entity
+   */
+  hitAttackZyutu(entity) {
+  }
+  /**
+   * @param {Entity} entity
+   */
+  useAttackZyutu(entity) {
+    const kata = entity.getProperty("kurokumaft:kekkizyutu_kata");
+    const tubo = new Tubo();
+    try {
+      switch (kata) {
+        case 1:
+          tubo.suigokubati(entity);
+          break;
+        case 2:
+          tubo.senbonbarigyosatu(entity);
+          break;
+        case 3:
+          tubo.takotubozigoku(entity);
+          break;
+        case 4:
+          tubo.itimankakkuunengyo(entity);
+          break;
+        case 5:
+          tubo.sakanasyoukan(entity);
+          break;
+        case 6:
+          tubo.zinsatugyorin(entity);
+          break;
+      }
+    } catch (error) {
+    }
+  }
+  releaseAttackZyutu(entity) {
+  }
+};
+
+// scripts/kekkizyutu/mob/GyokkoComponent.ts
+import { system as system68, TicksPerSecond as TicksPerSecond30 } from "@minecraft/server";
+var doumaKekkizyutuLists2 = weightChoice([
+  { item: 1, weight: 5 },
+  { item: 2, weight: 30 },
+  { item: 3, weight: 20 },
+  { item: 4, weight: 20 },
+  { item: 5, weight: 15 },
+  { item: 6, weight: 10 }
+]);
+var GyokkoComponent = class {
+  startMonitoring(entity) {
+    try {
+      if (entity !== void 0 && entity.isValid) {
+        entity.setProperty("kurokumaft:kokyu_use", true);
+        entity.setProperty("kurokumaft:kokyu_particle", true);
+        this.useAttackZyutu(entity);
+      }
+    } catch (error) {
+    }
+  }
+  useAttackZyutu(entity) {
+    try {
+      const num = doumaKekkizyutuLists2.pick();
+      entity.setProperty("kurokumaft:kekkizyutu_kata", num);
+      this.kokyuUse(entity, num);
+    } catch (error) {
+    }
+  }
+  kokyuUse(entity, kata) {
+    const tubo = new Tubo();
+    try {
+      switch (kata) {
+        case 1:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          tubo.suigokubati(entity);
+          system68.waitTicks(5).then(() => {
+            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+            entity.triggerEvent("kurokumaft:kekkizyutu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 2:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          tubo.senbonbarigyosatu(entity);
+          system68.waitTicks(5).then(() => {
+            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+            entity.triggerEvent("kurokumaft:kekkizyutu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 3:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          tubo.takotubozigoku(entity);
+          system68.waitTicks(2.5 * TicksPerSecond30).then(() => {
+            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+            entity.triggerEvent("kurokumaft:kekkizyutu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 4:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          tubo.itimankakkuunengyo(entity);
+          system68.waitTicks(2 * TicksPerSecond30).then(() => {
+            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+            entity.triggerEvent("kurokumaft:kekkizyutu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 5:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          tubo.sakanasyoukan(entity);
+          system68.waitTicks(5).then(() => {
+            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+            entity.triggerEvent("kurokumaft:kekkizyutu_end");
+          }).catch((error) => {
+          });
+          break;
+        case 6:
+          entity.triggerEvent("kurokumaft:attack_stop");
+          tubo.zinsatugyorin(entity);
+          system68.waitTicks(2 * TicksPerSecond30).then(() => {
             entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
             entity.triggerEvent("kurokumaft:kekkizyutu_end");
           }).catch((error) => {
@@ -16754,7 +14287,8 @@ var KekkizyutuClassRecord = {
   zouhakuten: ZyutuZouhakutenComponent,
   douma: ZyutuDoumaComponent,
   kokushibou: ZyutuKokushibouComponent,
-  kaigaku: ZyutuKaigakuComponent
+  kaigaku: ZyutuKaigakuComponent,
+  gyokko: ZyutuGyokkoComponent
 };
 var KekkizyutuObjects = Object.freeze([
   {
@@ -16847,6 +14381,13 @@ var KekkizyutuObjects = Object.freeze([
     kata: [2, 3, 4, 5, 6],
     kata_msg: "kaminari_kata",
     className: "kaigaku"
+  },
+  {
+    itemName: "kurokumaft:gyokko_tubo",
+    type: 14,
+    kata: [1, 2, 3, 4, 5, 6],
+    kata_msg: "kekkizyutu_tubo",
+    className: "gyokko"
   }
 ]);
 var KekkizyutuMobClassRecord = {
@@ -16864,7 +14405,8 @@ var KekkizyutuMobClassRecord = {
   kokushibou: KokushibouComponent,
   douma: DoumaComponent,
   kessyounomiko: KessyounomikoComponent,
-  muhyousuirenbosatu: MuhyousuirenbosatuComponent
+  muhyousuirenbosatu: MuhyousuirenbosatuComponent,
+  gyokko: GyokkoComponent
 };
 var KekkizyutuMobObjects = Object.freeze([
   {
@@ -16926,6 +14468,10 @@ var KekkizyutuMobObjects = Object.freeze([
   {
     entityName: "kurokumaft:muhyousuirenbosatu",
     className: "muhyousuirenbosatu"
+  },
+  {
+    entityName: "kurokumaft:gyokko",
+    className: "gyokko"
   }
 ]);
 
@@ -16944,8 +14490,8 @@ var KekkizyutuComponent = class {
       return;
     } else {
       if (!player.getProperty("kurokumaft:kokyu_use")) {
-        const equ = player.getComponent(EntityComponentTypes14.Equippable);
-        const mainHand = equ.getEquipment(EquipmentSlot5.Mainhand);
+        const equ = player.getComponent(EntityComponentTypes16.Equippable);
+        const mainHand = equ.getEquipment(EquipmentSlot6.Mainhand);
         if (mainHand !== void 0) {
           const object = KekkizyutuObjects.find((ob) => ob.itemName === mainHand.typeId);
           const kekkizyutuClass = KekkizyutuClassRecord[object.className];
@@ -16959,49 +14505,102 @@ var KekkizyutuComponent = class {
   }
 };
 
+// scripts/item/tool/MeatEating.ts
+import { TicksPerSecond as TicksPerSecond31 } from "@minecraft/server";
+var MeatEating = class {
+  onConsume(event) {
+    const item = event.itemStack;
+    const player = event.source;
+    const rank = player.getProperty("kurokumaft:ogre_rank");
+    let becoming = player.getProperty("kurokumaft:ogre_becoming");
+    if (item.typeId === "kurokumaft:meat_chunk") {
+      becoming = becoming + 10;
+    } else if (item.typeId === "kurokumaft:rare_blood") {
+      becoming = becoming + 100;
+    }
+    if ("none" === rank) {
+      player.addEffect("minecraft:hunger", 15 * TicksPerSecond31, {
+        amplifier: 5,
+        showParticles: false
+      });
+      player.addEffect("minecraft:nausea", 10 * TicksPerSecond31, {
+        amplifier: 1,
+        showParticles: false
+      });
+    } else {
+      new OgreEatCommon().upRankCheck(rank, player, becoming);
+    }
+  }
+};
+
+// scripts/item/tool/DemonizationReversal.ts
+import { TicksPerSecond as TicksPerSecond32, system as system69, EntityComponentTypes as EntityComponentTypes17 } from "@minecraft/server";
+var DemonizationReversal = class {
+  onConsume(event) {
+    const player = event.source;
+    const rank = player.getProperty("kurokumaft:ogre_rank");
+    if ("none" !== rank) {
+      player.addEffect("minecraft:hunger", 60 * TicksPerSecond32, {
+        amplifier: 5,
+        showParticles: false
+      });
+      player.addEffect("minecraft:weakness", 60 * TicksPerSecond32, {
+        amplifier: 5,
+        showParticles: false
+      });
+      player.addEffect("minecraft:nausea", 30 * TicksPerSecond32, {
+        amplifier: 1,
+        showParticles: false
+      });
+      player.addEffect("minecraft:wither", 60 * TicksPerSecond32, {
+        amplifier: 10,
+        showParticles: false
+      });
+      system69.waitTicks(60 * TicksPerSecond32).then(() => {
+        player.setProperty("kurokumaft:ogre_rank", "none");
+        player.setProperty("kurokumaft:ogre_becoming", 0);
+        player.removeEffect("minecraft:regeneration");
+        system69.runTimeout(() => {
+          player.triggerEvent("kurokumaft:ogre_rank_change");
+          player.triggerEvent("kurokumaft:kaikyu_change");
+        }, 2);
+        const Inventory = player.getComponent(EntityComponentTypes17.Inventory);
+        const container = Inventory.container;
+        if (container !== void 0) {
+          const itemstack = container.getItem(0);
+          const kekkizyutu = kekkizyutuLists.find((items) => items.item === itemstack.typeId);
+          if (kekkizyutu !== void 0) {
+            container.setItem(0, void 0);
+          }
+        }
+      });
+    }
+  }
+};
+
 // scripts/custom/KimetuCustomComponentRegistry.ts
 function initRegisterKimetuCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:nichirintou_component", new NichirintouComponent());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:blood_drinking", new BloodDrinking());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:meat_eating", new MeatEating());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:demonization_reversal_potion", new DemonizationReversal());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:kekkizyutu_component", new KekkizyutuComponent());
 }
 
 // scripts/player/KimetuEquipmentTick.ts
-import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot6, system as system67 } from "@minecraft/server";
-var kaikyuPointList = [
-  "0",
-  "100",
-  "300",
-  "600",
-  "1000",
-  "1500",
-  "2100",
-  "2800",
-  "3600",
-  "4500",
-  "10",
-  "-"
-];
-var ogrePointList = [
-  { name: "none", value: "100" },
-  { name: "low", value: "150" },
-  { name: "unusual", value: "200" },
-  { name: "quarter", value: "400" },
-  { name: "crescent", value: "500" },
-  { name: "king", value: "-" }
-];
+import { EntityComponentTypes as EntityComponentTypes18, EquipmentSlot as EquipmentSlot7, system as system70 } from "@minecraft/server";
 var KimetuEquipmentTick = class {
   constructor(player) {
     this.player = player;
     this.num = 0;
   }
   startMonitoring() {
-    this.num = system67.runInterval(() => {
+    this.num = system70.runInterval(() => {
       if (this.player.isValid) {
         this.checkPlayerKimetuEquTick();
         this.checkPlayerKaikyuTick();
       } else {
-        system67.clearRun(this.num);
+        system70.clearRun(this.num);
       }
     }, 5);
   }
@@ -17017,7 +14616,8 @@ var KimetuEquipmentTick = class {
           const ogreMoon = this.player.getProperty("kurokumaft:ogre_moon");
           kaikyu = "msg.kurokumaft:ogrerank_" + ogreRank + ("quarter" === ogreRank || "crescent" === ogreRank ? ogreMoon : "") + ".value";
           const becoming = this.player.getProperty("kurokumaft:ogre_becoming");
-          rankuPoint = becoming + "/" + ogrePointList.find((rank) => rank.name === ogreRank)?.value;
+          const rank = ogrePointList.find((rank2) => rank2.name === ogreRank);
+          rankuPoint = becoming + "/" + rank?.value;
         } else if (kaikyuNum > 0) {
           kaikyu = "msg.kurokumaft:kaikyu" + kaikyuNum + ".value";
           const point = this.player.getProperty("kurokumaft:ogre_kill");
@@ -17030,10 +14630,9 @@ var KimetuEquipmentTick = class {
             const kataNum = this.player.getProperty("kurokumaft:kokyu_kata");
             const index = kokyuObject.kata.findIndex((el) => el === kataNum);
             if (kokyuObject.type === 2) {
-              if (index > 10) {
+              if (index > 9) {
                 if (kokyuObject.kata[index] !== void 0) {
-                  const hikata = kokyuObject.kata[index] - 10;
-                  kataMess = "msg.kurokumaft:hi_kata" + hikata + ".value";
+                  kataMess = "msg.kurokumaft:hinokami_kata" + kokyuObject.kata[index] + ".value";
                 }
               } else {
                 kataMess = "msg.kurokumaft:" + kokyuObject.kata_msg + kokyuObject.kata[index] + ".value";
@@ -17080,8 +14679,8 @@ var KimetuEquipmentTick = class {
   }
   async checkPlayerKimetuEquTick() {
     if (this.player.isValid) {
-      const equ = this.player.getComponent(EntityComponentTypes15.Equippable);
-      const mainHand = equ.getEquipment(EquipmentSlot6.Mainhand);
+      const equ = this.player.getComponent(EntityComponentTypes18.Equippable);
+      const mainHand = equ.getEquipment(EquipmentSlot7.Mainhand);
       if (mainHand !== void 0) {
         const kokyuObject = KokyuObjects.find((ob) => ob.itemName === mainHand.typeId);
         if (kokyuObject !== void 0) {
@@ -17143,7 +14742,7 @@ var KimetuEquipmentTick = class {
 };
 
 // scripts/player/RaisingStatusCheckClass.ts
-import { system as system68 } from "@minecraft/server";
+import { system as system71 } from "@minecraft/server";
 var Mutex = class {
   constructor() {
     this._lock = Promise.resolve();
@@ -17179,7 +14778,7 @@ var RaisingStatusCheckClass = class {
             if (10 <= count + 1) {
               player.setProperty("kurokumaft:kaikyu", kaikyu + 1);
               player.setProperty("kurokumaft:ogre_kill", 0);
-              system68.runTimeout(() => {
+              system71.runTimeout(() => {
                 player.triggerEvent("kurokumaft:kaikyu_change");
               }, 4);
             } else {
@@ -17208,7 +14807,7 @@ var RaisingStatusCheckClass = class {
           if (upPoint >= killtarget) {
             player.setProperty("kurokumaft:kaikyu", kaikyu + 1);
             player.setProperty("kurokumaft:ogre_kill", 0);
-            system68.runTimeout(() => {
+            system71.runTimeout(() => {
               player.triggerEvent("kurokumaft:kaikyu_change");
             }, 4);
           } else {
@@ -17218,50 +14817,28 @@ var RaisingStatusCheckClass = class {
         case 0:
           player.setProperty("kurokumaft:kaikyu", kaikyu + 1);
           player.setProperty("kurokumaft:ogre_kill", 0);
-          system68.runTimeout(() => {
+          system71.runTimeout(() => {
             player.triggerEvent("kurokumaft:kaikyu_change");
           }, 4);
           break;
       }
     } finally {
-      system68.waitTicks(5).then(() => {
+      system71.waitTicks(5).then(() => {
         unlock();
       });
     }
   }
 };
 
-// scripts/common/KimetuConst.ts
-var OgreKaikyu = Object.freeze([
-  { name: "kurokumaft:aizetu", rank: "crescent", num: 4 },
-  { name: "kurokumaft:akaza", rank: "crescent", num: 3 },
-  { name: "kurokumaft:douma", rank: "crescent", num: 2 },
-  { name: "kurokumaft:gyutaro", rank: "crescent", num: 6 },
-  { name: "kurokumaft:hantengu_obie", rank: "crescent", num: 4 },
-  { name: "kurokumaft:hantengu", rank: "crescent", num: 4 },
-  { name: "kurokumaft:karaku", rank: "crescent", num: 4 },
-  { name: "kurokumaft:rui", rank: "quarter", num: 5 },
-  { name: "kurokumaft:sekido", rank: "crescent", num: 4 },
-  { name: "kurokumaft:urogi", rank: "crescent", num: 4 },
-  { name: "kurokumaft:zouhakuten", rank: "crescent", num: 4 }
-]);
-var TaishiKaikyu = Object.freeze([
-  { name: "kurokumaft:genya", min: 1, max: 7 },
-  { name: "kurokumaft:kanawo", min: 4, max: 10 },
-  { name: "kurokumaft:tanjiro", min: 1, max: 10 },
-  { name: "kurokumaft:zenitu", min: 1, max: 10 },
-  { name: "kurokumaft:regimental_girl", min: 1, max: 7 },
-  { name: "kurokumaft:regimental_guy", min: 1, max: 7 }
-]);
-
 // scripts/kimetu_script.ts
-system69.beforeEvents.startup.subscribe((initEvent) => {
+import { ActionFormData as ActionFormData2 } from "@minecraft/server-ui";
+system72.beforeEvents.startup.subscribe((initEvent) => {
   initRegisterKimetuCustom(initEvent);
 });
-world15.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world9.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world15.afterEvents.playerSpawn.subscribe((event) => {
+world9.afterEvents.playerSpawn.subscribe((event) => {
   if (event.initialSpawn) {
     event.player.setProperty("kurokumaft:kokyu_use", false);
     event.player.setProperty("kurokumaft:kokyu_particle", false);
@@ -17270,7 +14847,7 @@ world15.afterEvents.playerSpawn.subscribe((event) => {
     event.player.setProperty("kurokumaft:kokyu_ran", 0);
     event.player.setDynamicProperty("kurokumaft:chage_type", void 0);
   }
-  const familyTypes = event.player.getComponent(EntityComponentTypes16.TypeFamily);
+  const familyTypes = event.player.getComponent(EntityComponentTypes19.TypeFamily);
   if (familyTypes !== void 0 && familyTypes.hasTypeFamily("ogre")) {
     event.player.triggerEvent("kurokumaft:player_spawned_ogre");
   } else if (familyTypes !== void 0 && familyTypes.hasTypeFamily("regimental_player")) {
@@ -17278,32 +14855,33 @@ world15.afterEvents.playerSpawn.subscribe((event) => {
   } else {
     event.player.triggerEvent("kurokumaft:player_spawned_init");
   }
+  event.player.removeTag("hostility_player");
   const playerTick = new KimetuEquipmentTick(event.player);
   playerTick.startMonitoring();
 });
-world15.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+world9.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   const entity = event.entity;
-  if (entity instanceof Player37) {
+  if (entity instanceof Player41) {
     if (event.eventId === "kurokumaft:attack_time") {
-      const equ = entity.getComponent(EntityComponentTypes16.Equippable);
-      const mainHand = equ.getEquipment(EquipmentSlot7.Mainhand);
+      const equ = entity.getComponent(EntityComponentTypes19.Equippable);
+      const mainHand = equ.getEquipment(EquipmentSlot8.Mainhand);
       if (mainHand !== void 0) {
         const object = KokyuObjects.find((ob) => ob.itemName === mainHand.typeId);
         if (object !== void 0 && object.type > 1 && !entity.getProperty("kurokumaft:kokyu_attack")) {
           entity.setProperty("kurokumaft:kokyu_attack", true);
-          system69.runTimeout(() => {
+          system72.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_attack", false);
           }, 10);
           const kokyuClass = kokyuClassRecord[object.className];
           const kokyuObject = new kokyuClass();
-          const equ2 = entity.getComponent(EntityComponentTypes16.Equippable);
-          const itemStack = equ2.getEquipment(EquipmentSlot7.Mainhand);
+          const equ2 = entity.getComponent(EntityComponentTypes19.Equippable);
+          const itemStack = equ2.getEquipment(EquipmentSlot8.Mainhand);
           kokyuObject.hitAttackKata(entity, itemStack);
         }
       }
     } else if (event.eventId === "kurokumaft:damaged_by_player") {
       entity.applyDamage(0, {
-        cause: EntityDamageCause7.entityAttack,
+        cause: EntityDamageCause8.entityAttack,
         damagingEntity: entity
       });
     }
@@ -17339,16 +14917,24 @@ world15.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
       }
     } else if (event.eventId === "kurokumaft:ibuki_start") {
       ibuki(entity);
+    } else if (event.eventId === "kurokumaft:gyokko_move") {
+      gyokkoMove(entity);
     }
   }
+  if (event.eventId === "kurokumaft:sun_fire") {
+    sunLightFire(entity);
+  }
 });
-world15.afterEvents.itemStopUse.subscribe((event) => {
+async function sunLightFire(entity) {
+  entity.setOnFire(1, true);
+}
+world9.afterEvents.itemStopUse.subscribe((event) => {
   const source = event.source;
   const item = event.itemStack;
-  if (source instanceof Player37 && item !== void 0) {
+  if (source instanceof Player41 && item !== void 0) {
     const use = source.getProperty("kurokumaft:kokyu_use");
-    const equippable = source.getComponent(EntityComponentTypes16.Equippable);
-    const mainHand = equippable.getEquipment(EquipmentSlot7.Mainhand);
+    const equippable = source.getComponent(EntityComponentTypes19.Equippable);
+    const mainHand = equippable.getEquipment(EquipmentSlot8.Mainhand);
     if ((mainHand === void 0 || mainHand.typeId !== item.typeId) && use) {
       source.setProperty("kurokumaft:kokyu_use", false);
       source.setProperty("kurokumaft:kokyu_particle", false);
@@ -17359,7 +14945,7 @@ world15.afterEvents.itemStopUse.subscribe((event) => {
     }
   }
 });
-world15.afterEvents.itemReleaseUse.subscribe((event) => {
+world9.afterEvents.itemReleaseUse.subscribe((event) => {
   const player = event.source;
   const item = event.itemStack;
   const duration = event.useDuration;
@@ -17388,7 +14974,7 @@ var ogreRankLists = weightChoice([
   { item: "quarter", weight: 20 },
   { item: "crescent", weight: 20 }
 ]);
-world15.afterEvents.entitySpawn.subscribe((event) => {
+world9.afterEvents.entitySpawn.subscribe((event) => {
   const entity = event.entity;
   try {
     if (entity !== void 0) {
@@ -17396,8 +14982,10 @@ world15.afterEvents.entitySpawn.subscribe((event) => {
       if (taishibject !== void 0 && event.cause === EntityInitializationCause.Spawned) {
         const kaikyuRan = getRandomInRange(taishibject.min, taishibject.max);
         entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
-        system69.waitTicks(4).then(() => {
+        system72.waitTicks(4).then(() => {
           entity.triggerEvent("kurokumaft:kaikyu_change");
+          const health = entity.getComponent(EntityComponentTypes19.Health);
+          health.resetToMaxValue();
         }).catch((error) => {
         });
       }
@@ -17409,7 +14997,7 @@ world15.afterEvents.entitySpawn.subscribe((event) => {
           if (ogre_rank === "quarter" || ogre_rank === "crescent") {
             entity.setProperty("kurokumaft:ogre_moon", getRandomInRange(1, 6));
           }
-          system69.waitTicks(4).then(() => {
+          system72.waitTicks(4).then(() => {
             entity.triggerEvent("kurokumaft:ogre_rank_change");
           }).catch((error) => {
           });
@@ -17428,22 +15016,53 @@ world15.afterEvents.entitySpawn.subscribe((event) => {
   }
 });
 var raishinStastsCheck = new RaisingStatusCheckClass();
-world15.afterEvents.entityDie.subscribe((event) => {
+world9.afterEvents.entityDie.subscribe((event) => {
   const deadEntity = event.deadEntity;
   if (!deadEntity.isValid) {
     return;
   }
-  const familyTypes = deadEntity.getComponent(EntityComponentTypes16.TypeFamily);
+  const familyTypes = deadEntity.getComponent(EntityComponentTypes19.TypeFamily);
   if (familyTypes !== void 0 && familyTypes.hasTypeFamily("ogre")) {
     const damager = event.damageSource.damagingEntity;
     if (damager !== void 0) {
-      const dfamilyTypes = damager.getComponent(EntityComponentTypes16.TypeFamily);
+      const dfamilyTypes = damager.getComponent(EntityComponentTypes19.TypeFamily);
       if (dfamilyTypes !== void 0 && dfamilyTypes.hasTypeFamily("player") && !dfamilyTypes.hasTypeFamily("ogre")) {
         raishinStastsCheck.statusCheck(damager, deadEntity);
       }
     }
+  } else if (familyTypes !== void 0 && familyTypes.hasTypeFamily("regimental_soldier")) {
+    const tags = deadEntity.getTags();
+    if (tags.indexOf("hostility") !== -1) {
+      const equips = NitirintouEquips.find((soldier) => soldier.charaName === deadEntity.typeId);
+      if (equips !== void 0) {
+        deadEntity.dimension.spawnItem(new ItemStack27(equips.itemName, 1), deadEntity.location);
+      }
+      const damager = event.damageSource.damagingEntity;
+      if (damager?.isValid) {
+        damager.removeTag("hostility_player");
+      }
+    }
   } else if (familyTypes !== void 0 && familyTypes.hasTypeFamily("player")) {
-    deadEntity.removeTag("hostility_player");
+    const tags = deadEntity.getTags();
+    if (tags.indexOf("hostility_player") !== -1) {
+      const damager = event.damageSource.damagingEntity;
+      if (damager !== void 0) {
+        damager.removeTag("hostility");
+      }
+    }
+  } else if (familyTypes !== void 0 && familyTypes.hasTypeFamily("villager")) {
+    const damager = event.damageSource.damagingEntity;
+    if (damager !== void 0) {
+      const dfamilyTypes = damager.getComponent(EntityComponentTypes19.TypeFamily);
+      if (dfamilyTypes !== void 0 && dfamilyTypes.hasTypeFamily("ogre")) {
+        const dimension = deadEntity.dimension;
+        dimension.spawnItem(new ItemStack27("kurokumaft:meat_chunk", getRandomInRange(1, 2)), deadEntity.location);
+        const rare = getRandomInRange(0, 10);
+        if (rare === 10) {
+          dimension.spawnItem(new ItemStack27("kurokumaft:rare_blood", getRandomInRange(1, 2)), deadEntity.location);
+        }
+      }
+    }
   }
   if (deadEntity.typeId === "kurokumaft:hantengu") {
     const dimension = deadEntity.dimension;
@@ -17455,21 +15074,14 @@ world15.afterEvents.entityDie.subscribe((event) => {
     karaku.addTag(deadEntity.id);
   }
 });
-world15.afterEvents.entityHitEntity.subscribe((event) => {
+world9.afterEvents.entityHitEntity.subscribe((event) => {
   const damagingEntity = event.damagingEntity;
   const hitEntity = event.hitEntity;
   if (!hitEntity.isValid) {
     return;
   }
-  const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes16.TypeFamily);
-  const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes16.TypeFamily);
-  if (hitFamilyTypes !== void 0 && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
-    hitEntity.addTag("hostility");
-    damagingEntity.addTag("hostility_player");
-  } else if (hitFamilyTypes !== void 0 && hitFamilyTypes.hasTypeFamily("player") && damageFamilyTypes.hasTypeFamily("player")) {
-    hitEntity.addTag("hostility_player");
-    damagingEntity.addTag("hostility_player");
-  }
+  const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes19.TypeFamily);
+  const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes19.TypeFamily);
   if (hitFamilyTypes !== void 0 && hitFamilyTypes.hasTypeFamily("ogre")) {
     const type = damagingEntity.getProperty("kurokumaft:nichirintou_type");
     if (type === void 0 || type === 0) {
@@ -17478,32 +15090,46 @@ world15.afterEvents.entityHitEntity.subscribe((event) => {
     }
   }
 });
-world15.afterEvents.entityHurt.subscribe((event) => {
+world9.afterEvents.entityHurt.subscribe((event) => {
   const hurtEntity = event.hurtEntity;
   if (!hurtEntity.isValid) {
     return;
   }
-  const health = hurtEntity.getComponent(EntityComponentTypes16.Health);
-  if (hurtEntity.typeId === "kurokumaft:sekido") {
-    if (hurtEntity.getTags().length === 1) {
-      if (isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
+  const ogre_rank = hurtEntity.getProperty("kurokumaft:ogre_rank");
+  if (ogre_rank !== void 0 && ogre_rank !== "none") {
+    const sun_hurt = hurtEntity.getProperty("kurokumaft:sun_hurt");
+    if (!sun_hurt) {
+      const rank = ogrePointList.find((list) => list.name === ogre_rank);
+      event.hurtEntity.addEffect("minecraft:regeneration", rank?.regeneTime, {
+        amplifier: rank?.regene,
+        showParticles: false
+      });
+    } else {
+      event.hurtEntity.removeEffect("minecraft:regeneration");
+    }
+  }
+  const health = hurtEntity.getComponent(EntityComponentTypes19.Health);
+  if (!hurtEntity.getProperty("kurokumaft:bunretu_flg")) {
+    if (isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
+      if (hurtEntity.typeId === "kurokumaft:sekido") {
         hurtEntity.addTag("bunretu_1");
+        hurtEntity.setProperty("kurokumaft:bunretu_flg", true);
         const aizetu = hurtEntity.dimension.spawnEntity("kurokumaft:aizetu", hurtEntity.location);
         aizetu.addTag(hurtEntity.getTags()[0]);
         aizetu.addTag("bunretu_1");
+        aizetu.setProperty("kurokumaft:bunretu_flg", true);
+      } else if (hurtEntity.typeId === "kurokumaft:karaku") {
+        hurtEntity.addTag("bunretu_1");
+        hurtEntity.setProperty("kurokumaft:bunretu_flg", true);
+        const urogi = hurtEntity.dimension.spawnEntity("kurokumaft:urogi", hurtEntity.location);
+        urogi.addTag(hurtEntity.getTags()[0]);
+        urogi.addTag("bunretu_1");
+        urogi.setProperty("kurokumaft:bunretu_flg", true);
       }
     }
   }
-  if (hurtEntity.typeId === "kurokumaft:karaku") {
-    if (hurtEntity.getTags().length === 1 && isBelowThreshold(health.currentValue, health.defaultValue, 0.7)) {
-      hurtEntity.addTag("bunretu_1");
-      const urogi = hurtEntity.dimension.spawnEntity("kurokumaft:urogi", hurtEntity.location);
-      urogi.addTag(hurtEntity.getTags()[0]);
-      urogi.addTag("bunretu_1");
-    }
-  }
   if (hurtEntity.typeId === "kurokumaft:sekido" || hurtEntity.typeId === "kurokumaft:karaku" || hurtEntity.typeId === "kurokumaft:aizetu" || hurtEntity.typeId === "kurokumaft:urogi") {
-    if (hurtEntity.getTags().length === 2 && isBelowThreshold(health.currentValue, health.defaultValue, 0.3)) {
+    if (hurtEntity.getProperty("kurokumaft:bunretu_flg") && isBelowThreshold(health.currentValue, health.defaultValue, 0.3)) {
       const bunretutai = hurtEntity.dimension.getEntities({
         tags: [hurtEntity.getTags()[0]],
         maxDistance: 64,
@@ -17518,12 +15144,12 @@ world15.afterEvents.entityHurt.subscribe((event) => {
     }
   }
 });
-world15.afterEvents.projectileHitEntity.subscribe((event) => {
+world9.afterEvents.projectileHitEntity.subscribe((event) => {
   const projectile = event.projectile;
   const hitEntity = event.getEntityHit().entity;
   if ("kurokumaft:thrown_syringe_dagger" === projectile.typeId) {
     if (hitEntity !== void 0) {
-      const familyTypes = hitEntity.getComponent(EntityComponentTypes16.TypeFamily);
+      const familyTypes = hitEntity.getComponent(EntityComponentTypes19.TypeFamily);
       if (familyTypes.hasTypeFamily("ogre")) {
         const rank = hitEntity.getProperty("kurokumaft:ogre_rank");
         const daggerFull = new ItemStack27("kurokumaft:syringe_dagger_full", 1);
@@ -17555,29 +15181,51 @@ world15.afterEvents.projectileHitEntity.subscribe((event) => {
       } else {
         const num = projectile.getDynamicProperty("hormingNum");
         if (num !== void 0) {
-          system69.clearRun(num);
+          system72.clearRun(num);
           projectile.remove();
         }
       }
     } catch (error) {
-      system69.clearRun(projectile.getDynamicProperty("hormingNum"));
+      system72.clearRun(projectile.getDynamicProperty("hormingNum"));
     }
   } else if (projectile.isValid && "kurokumaft:tobi_tigama" === projectile.typeId) {
     if (hitEntity !== void 0 && hitEntity.isValid) {
-      hitEntity.addEffect(MinecraftEffectTypes.Poison, 10, {
+      hitEntity.addEffect("minecraft:poison", 10, {
         showParticles: false,
         amplifier: 5
       });
     }
   }
 });
-world15.afterEvents.projectileHitBlock.subscribe((event) => {
+world9.afterEvents.projectileHitBlock.subscribe((event) => {
   const projectile = event.projectile;
   if ("kurokumaft:thrown_syringe_dagger" === projectile.typeId) {
     event.dimension.spawnItem(new ItemStack27("kurokumaft:syringe_dagger", 1), event.location);
   }
 });
-system69.afterEvents.scriptEventReceive.subscribe((event) => {
+world9.afterEvents.playerInteractWithEntity.subscribe((event) => {
+  const item = event.itemStack;
+  const player = event.player;
+  const target = event.target;
+  if (item.typeId === "kurokumaft:match_wooden_tag") {
+    const familyTypes = target.getComponent(EntityComponentTypes19.TypeFamily);
+    if (familyTypes !== void 0 && familyTypes.hasTypeFamily("regimental_soldier")) {
+      const form = new ActionFormData2().title({ translate: "msg.kurokumaft:soldier.keiko.title" }).body({ translate: "msg.kurokumaft:soldier.keiko.body" }).button({ translate: "msg.kurokumaft:soldier.keiko.yes" }).button({ translate: "msg.kurokumaft:soldier.keiko.no" });
+      form.show(player).then((result) => {
+        if (result.canceled) {
+          return -1;
+        } else {
+          if (result.selection === 0) {
+            subtractionItem(player, item, EquipmentSlot8.Mainhand, 1);
+            target.addTag("hostility");
+            player.addTag("hostility_player");
+          }
+        }
+      });
+    }
+  }
+});
+system72.afterEvents.scriptEventReceive.subscribe((event) => {
   const id = event.id;
   const message = event.message;
   const initiator = event.initiator;
@@ -17585,33 +15233,34 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
   const sourceType = event.sourceType;
   if (initiator !== void 0) {
   }
-  if (id === "kk:kaikyuchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player37) {
+  if (id === "kk:kaikyuchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player41) {
     const params = message.split(" ");
     if (params[0] !== "set" && params[0] !== "add") {
-      world15.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_method" });
+      sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_method" });
       return;
     }
     if (params[0] === "add") {
       if (params.length !== 3) {
-        world15.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_argument" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_add_argument" });
         return;
       }
       if (params[1] !== "promotion" && params[1] !== "demotion") {
-        world15.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_type" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_add_type" });
         return;
       }
-      if (!(typeof params[2] === "number" && Number.isFinite(params[2]))) {
-        world15.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_add_num" });
+      const num = Number(params[2]);
+      if (!(!isNaN(num) && Number.isFinite(num))) {
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_add_num" });
         return;
       }
     } else if (params[0] === "set") {
       if (params.length !== 2) {
-        world15.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_argument" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_set_argument" });
         return;
       }
       const num = Number(params[1]);
       if (!(!isNaN(num) && Number.isFinite(num))) {
-        world15.sendMessage({ translate: "msg.kurokumaft:kaikyuChange.missing_set_num" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:kaikyu_change.missing_set_num" });
         return;
       }
     }
@@ -17684,7 +15333,7 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
             killtarget = killtarget + 10;
             if (upPoint < 0) {
               sourceEntity.setProperty("kurokumaft:kaikyu", kaikyu - 1);
-              sourceEntity.setProperty("kurokumaft:ogre_kill", killtarget);
+              sourceEntity.setProperty("kurokumaft:ogre_kill", 0);
               sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
             } else {
               sourceEntity.setProperty("kurokumaft:ogre_kill", upPoint);
@@ -17701,48 +15350,48 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
       const num = Number(params[1]);
       if (num > 0 && num <= 11) {
         sourceEntity.setProperty("kurokumaft:kaikyu", num);
-        system69.runTimeout(() => {
+        system72.runTimeout(() => {
           sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
         }, 2);
       } else if (num === 0) {
         sourceEntity.setProperty("kurokumaft:kaikyu", num);
-        system69.runTimeout(() => {
+        system72.runTimeout(() => {
           sourceEntity.triggerEvent("kurokumaft:kaikyu_change");
         }, 2);
       }
     }
   }
-  if (id === "kk:ogrerankchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player37) {
+  if (id === "kk:ogrerankchange" && sourceType === ScriptEventSource.Entity && sourceEntity instanceof Player41) {
     const params = message.split(" ");
     if (params[0] !== "set" && params[0] !== "add") {
-      world15.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_method" });
+      sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_method" });
       return;
     }
     if (params[0] === "add") {
       if (params.length !== 3) {
-        world15.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_argument" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_add_argument" });
         return;
       }
       if (params[1] !== "promotion" && params[1] !== "demotion") {
-        world15.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_type" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_add_type" });
         return;
       }
-      if (!Number.isFinite(params[2])) {
-        world15.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_add_num" });
+      const num = Number(params[2]);
+      if (!(!isNaN(num) && Number.isFinite(num))) {
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_add_num" });
         return;
       }
     } else if (params[0] === "set") {
       if (params.length !== 2) {
-        world15.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_argument" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_set_argument" });
         return;
       }
       const num = Number(params[1]);
       if (!(!isNaN(num) && Number.isFinite(num))) {
-        world15.sendMessage({ translate: "msg.kurokumaft:ogreRankChange.missing_set_num" });
+        sourceEntity.sendMessage({ translate: "msg.kurokumaft:ogre_rank_change.missing_set_num" });
         return;
       }
     }
-    sourceEntity.setProperty("kurokumaft:kaikyu", 0);
     sourceEntity.setProperty("kurokumaft:ogre_kill", 0);
     const rank = sourceEntity.getProperty("kurokumaft:ogre_rank");
     if (params[0] === "add") {
@@ -17752,6 +15401,9 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
         becoming = becoming + num;
         if (becoming >= 100) {
           switch (rank) {
+            case "none":
+              sourceEntity.setProperty("kurokumaft:ogre_rank", "low");
+              break;
             case "low":
               sourceEntity.setProperty("kurokumaft:ogre_rank", "unusual");
               break;
@@ -17777,7 +15429,7 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
               break;
           }
           sourceEntity.setProperty("kurokumaft:ogre_becoming", 0);
-          system69.runTimeout(() => {
+          system72.runTimeout(() => {
             sourceEntity.triggerEvent("kurokumaft:ogre_rank_change");
           }, 2);
         } else {
@@ -17815,7 +15467,7 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
               break;
           }
           sourceEntity.setProperty("kurokumaft:ogre_becoming", 0);
-          system69.runTimeout(() => {
+          system72.runTimeout(() => {
             sourceEntity.triggerEvent("kurokumaft:ogre_rank_change");
           }, 2);
         } else {
@@ -17828,6 +15480,15 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
         switch (num) {
           case 0:
             sourceEntity.setProperty("kurokumaft:ogre_rank", "none");
+            const Inventory = sourceEntity.getComponent(EntityComponentTypes19.Inventory);
+            const container = Inventory.container;
+            if (container !== void 0) {
+              const itemstack = container.getItem(0);
+              const kekkizyutu = kekkizyutuLists.find((items) => items.item === itemstack.typeId);
+              if (kekkizyutu !== void 0) {
+                container.setItem(0, void 0);
+              }
+            }
             break;
           case 1:
             sourceEntity.setProperty("kurokumaft:ogre_rank", "low");
@@ -17887,7 +15548,7 @@ system69.afterEvents.scriptEventReceive.subscribe((event) => {
             sourceEntity.setProperty("kurokumaft:ogre_rank", "king");
             break;
         }
-        system69.runTimeout(() => {
+        system72.runTimeout(() => {
           sourceEntity.triggerEvent("kurokumaft:ogre_rank_change");
         }, 2);
       }

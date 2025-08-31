@@ -28,8 +28,8 @@
           "minecraft:ice"
         ],
         "minecraft:density_limit": {
-          "surface": 5,
-          "underground": 10
+          "surface": 10,
+          "underground": 15
         },
         "minecraft:brightness_filter": {
           "min": 0,

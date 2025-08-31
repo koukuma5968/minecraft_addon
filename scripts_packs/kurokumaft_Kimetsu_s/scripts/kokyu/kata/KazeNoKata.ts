@@ -1,7 +1,6 @@
 import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomInRange } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class KazeNoKata extends KataComonClass {
@@ -192,7 +191,7 @@ export class KazeNoKata extends KataComonClass {
         },2);
 
         system.waitTicks(10).then(() => {
-            entity.addEffect(MinecraftEffectTypes.SlowFalling, 0.5*TicksPerSecond,{
+            entity.addEffect("minecraft:slow_falling", 0.5*TicksPerSecond,{
                 amplifier: 1,
                 showParticles: false
             });
@@ -203,7 +202,7 @@ export class KazeNoKata extends KataComonClass {
         system.waitTicks(30).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
-            entity.addEffect(MinecraftEffectTypes.SlowFalling, 0.5*TicksPerSecond,{
+            entity.addEffect("minecraft:slow_falling", 0.5*TicksPerSecond,{
                 amplifier: 1,
                 showParticles: false
             });
@@ -339,7 +338,7 @@ export class KazeNoKata extends KataComonClass {
             }
         },2);
 
-        entity.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+        entity.addEffect("minecraft:slow_falling", 2*TicksPerSecond,{
             amplifier: 1,
             showParticles: false
         });

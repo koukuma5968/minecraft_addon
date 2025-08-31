@@ -93,6 +93,11 @@
           "range": [1, 6],
           "default": 6,
           "client_sync": true
+        },
+        "kurokumaft:sun_hurt": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": false
         }
       },
       "scripts":{
@@ -143,7 +148,7 @@
       },
       "kurokumaft:ogre_family": {
         "minecraft:type_family": {
-          "family": [ "player", "ogre", "undead", "monster" ]
+          "family": [ "player", "ogre", "monster" ]
         }
       },
 
@@ -182,7 +187,52 @@
         }
       },
       "kurokumaft:ogre_hurt_on_condition": {
-        "minecraft:burns_in_daylight": {
+        "minecraft:hurt_on_condition": {
+          "damage_conditions": [
+            {
+              "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+              "cause": "lava",
+              "damage_per_tick": 4
+            },
+            {
+              "filters": {
+                "all_of": [
+                  { "test": "on_fire", "subject": "self", "operator": "equals", "value": true },
+                  { "test": "is_underground", "subject": "self", "operator": "equals", "value": false },
+                  { "test": "light_level", "subject": "self", "operator": ">", "value": 10 },
+                  { "test": "is_daytime", "subject": "self", "operator": "equals", "value": true }
+                ]
+              },
+              "cause": "fire",
+              "damage_per_tick": 15
+            }
+          ]
+        },
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "all_of": [
+                  { "test": "weather_at_position", "subject": "self", "operator": "equals", "value": "clear" },
+                  { "test": "is_underground", "subject": "self", "operator": "equals", "value": false },
+                  { "test": "light_level", "subject": "self", "operator": ">=", "value": 10 },
+                  { "test": "is_daytime", "subject": "self", "operator": "equals", "value": true }
+                ]
+              },
+              "event": "kurokumaft:sun_fire"
+            },
+            {
+              "filters": {
+                "any_of": [
+                  { "test": "weather_at_position", "subject": "self", "operator": "not", "value": "clear" },
+                  { "test": "is_underground", "subject": "self", "operator": "equals", "value": true },
+                  { "test": "light_level", "subject": "self", "operator": "<", "value": 10 },
+                  { "test": "is_daytime", "subject": "self", "operator": "equals", "value": false }
+                ]
+              },
+              "event": "kurokumaft:sun_shade"
+            }
+          ]
         }
       },
       "kurokumaft:ogre_damage_sensor": {
@@ -315,8 +365,8 @@
       },
       "kurokumaft:soldier_kaikyu9": {
         "minecraft:health": {
-          "value": 100,
-          "max": 100
+          "value": 120,
+          "max": 120
         },
         "minecraft:attack": {
           "damage": 10
@@ -324,8 +374,8 @@
       },
       "kurokumaft:soldier_kaikyu10": {
         "minecraft:health": {
-          "value": 120,
-          "max": 120
+          "value": 160,
+          "max": 160
         },
         "minecraft:attack": {
           "damage": 12
@@ -333,8 +383,8 @@
       },
       "kurokumaft:soldier_kaikyu11": {
         "minecraft:health": {
-          "value": 160,
-          "max": 160
+          "value": 200,
+          "max": 200
         },
         "minecraft:attack": {
           "damage": 16
@@ -442,8 +492,8 @@
       },
       "kurokumaft:ogre_rank_crescent_3": {
         "minecraft:health": {
-          "value": 160,
-          "max": 160
+          "value": 180,
+          "max": 180
         },
         "minecraft:attack": {
           "damage": 27
@@ -451,8 +501,8 @@
       },
       "kurokumaft:ogre_rank_crescent_2": {
         "minecraft:health": {
-          "value": 170,
-          "max": 170
+          "value": 200,
+          "max": 200
         },
         "minecraft:attack": {
           "damage": 28
@@ -460,8 +510,8 @@
       },
       "kurokumaft:ogre_rank_crescent_1": {
         "minecraft:health": {
-          "value": 180,
-          "max": 180
+          "value": 240,
+          "max": 240
         },
         "minecraft:attack": {
           "damage": 29
@@ -469,8 +519,8 @@
       },
       "kurokumaft:ogre_rank_king": {
         "minecraft:health": {
-          "value": 200,
-          "max": 200
+          "value": 300,
+          "max": 300
         },
         "minecraft:attack": {
           "damage": 30
@@ -985,6 +1035,17 @@
           }
         ]
       },
+      "kurokumaft:sun_fire": {
+        "set_property": {
+          "kurokumaft:sun_hurt": true
+        }
+      },
+      "kurokumaft:sun_shade": {
+        "set_property": {
+          "kurokumaft:sun_hurt": false
+        }
+      },
+      "kurokumaft:ogre_regene": {},
       "kurokumaft:damage_clear": {},
       "kurokumaft:nomal_damage": {}
 

@@ -1,7 +1,6 @@
-import { ItemStack, Entity, system, TicksPerSecond, Player, System, EntityQueryOptions, world, EntityComponentTypes, EntityTameableComponent, EntityDamageCause } from "@minecraft/server";
+import { Entity, system, TicksPerSecond, Player, EntityQueryOptions, world, EntityComponentTypes, EntityTameableComponent, EntityDamageCause } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
 import { addOrgeFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, getRandomInRange } from "../../common/KimetuCommonUtil";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 export class Koori extends ZytuComonClass {
 
@@ -79,7 +78,7 @@ export class Koori extends ZytuComonClass {
                     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
                     this.kokyuApplyDamage(entity, filter, 4, 2);
-                    this.kokyuApplyEffect(entity, filter, 20, 2, MinecraftEffectTypes.Weakness);
+                    this.kokyuApplyEffect(entity, filter, 20, 2, "minecraft:weakness");
 
                 } catch (error: any) {
                     system.clearRun(num);
@@ -423,7 +422,7 @@ export function ibuki(entity:Entity) {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
-                            en.addEffect(MinecraftEffectTypes.Weakness, 20, {
+                            en.addEffect("minecraft:weakness", 20, {
                                 amplifier: 2,
                                 showParticles: true
                             });
@@ -432,7 +431,7 @@ export function ibuki(entity:Entity) {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
-                            en.addEffect(MinecraftEffectTypes.Weakness, 20, {
+                            en.addEffect("minecraft:weakness", 20, {
                                 amplifier: 4,
                                 showParticles: true
                             });

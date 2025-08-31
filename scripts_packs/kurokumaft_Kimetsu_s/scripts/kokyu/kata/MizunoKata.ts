@@ -1,7 +1,6 @@
-import { EntityDamageCause, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player, world } from "@minecraft/server";
+import { EntityDamageCause, ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch, weightChoice } from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { shooting } from "../../common/ShooterEvent";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
@@ -286,7 +285,7 @@ export class MizuNoKata extends KataComonClass {
             },4);
 
             system.waitTicks(30).then(() => {
-                entity.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+                entity.addEffect("minecraft:slow_falling", 2*TicksPerSecond,{
                     amplifier: 1,
                     showParticles: false
                 });
@@ -294,7 +293,7 @@ export class MizuNoKata extends KataComonClass {
             });
 
             system.waitTicks(35).then(() => {
-                entity.removeEffect(MinecraftEffectTypes.SlowFalling);
+                entity.removeEffect("minecraft:slow_falling");
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 entity.setDynamicProperty("kurokumaft:mizuroku", false);
             }).catch((error: any) => {
@@ -381,7 +380,7 @@ export class MizuNoKata extends KataComonClass {
             });
 
             system.waitTicks(30).then(() => {
-                entity.addEffect(MinecraftEffectTypes.SlowFalling, 2*TicksPerSecond,{
+                entity.addEffect("minecraft:slow_falling", 2*TicksPerSecond,{
                     amplifier: 1,
                     showParticles: false
                 });
@@ -390,7 +389,7 @@ export class MizuNoKata extends KataComonClass {
             });
     
             system.waitTicks(40).then(() => {
-                entity.removeEffect(MinecraftEffectTypes.SlowFalling);
+                entity.removeEffect("minecraft:slow_falling");
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 entity.setDynamicProperty("kurokumaft:mizuhati", false);
             }).catch((error: any) => {
@@ -417,11 +416,11 @@ export class MizuNoKata extends KataComonClass {
             }
             entity.setDynamicProperty("kurokumaft:chage_type", true);
 
-            entity.addEffect(MinecraftEffectTypes.Speed, 10*TicksPerSecond,{
+            entity.addEffect("minecraft:speed", 10*TicksPerSecond,{
                 amplifier: 5,
                 showParticles: false
             });
-            entity.addEffect(MinecraftEffectTypes.JumpBoost, 10*TicksPerSecond,{
+            entity.addEffect("minecraft:jump_boost", 10*TicksPerSecond,{
                 amplifier: 3,
                 showParticles: false
             });

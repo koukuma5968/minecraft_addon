@@ -59,6 +59,9 @@
       },
       "ice_plate" : {
          "textures" : "textures/kurokumaft/blocks/ice_plate"
+      },
+      "transparent_block" : {
+         "textures" : "textures/kurokumaft/blocks/transparent_block"
       }
    },
    "texture_name" : "atlas.terrain"

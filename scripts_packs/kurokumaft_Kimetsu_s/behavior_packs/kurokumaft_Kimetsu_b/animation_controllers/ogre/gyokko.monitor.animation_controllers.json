@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.10",
+  "animation_controllers": {
+    "controller.animation.gyokko.move": {
+      "states": {
+        "default": {
+          "transitions": [
+            { "start": "query.has_target" }
+          ]
+        },
+        "start":{
+          "animations" : [ "move_cooldown" ],
+          "on_entry": [
+            "/event entity @s kurokumaft:gyokko_move"
+          ],
+          "transitions": [
+            {"default": "(1.0)"}
+          ]
+        }
+      }
+    }
+  }
+}

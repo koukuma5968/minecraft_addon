@@ -89,7 +89,7 @@
       },
       "kurokumaft:soldier_family": {
         "minecraft:type_family": {
-          "family": [ "mob", "regimental_soldier", "villager" ]
+          "family": [ "mob", "regimental_soldier"]
         }
       },
       "kurokumaft:ogre_family": {
@@ -431,19 +431,19 @@
         "on_death": "Math.Min(7, 20)"
       },
       "minecraft:type_family": {
-        "family": [ "mob", "regimental_soldier", "villager" ]
+        "family": [ "mob", "regimental_soldier"]
       },
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/regimental.json"
+        "table": "loot_tables/entities/soldier/regimental.json"
       },
       "minecraft:collision_box": {
         "width": 0.6,
         "height": 1.8
       },
       "minecraft:equipment": {
-        "table": "loot_tables/entities/regimental_girl_gear.json"
+        "table": "loot_tables/entities/soldier/regimental_girl_gear.json"
       },
       "minecraft:navigation.walk": {
         "is_amphibious": true,
@@ -476,19 +476,60 @@
         "value": 64,
         "max": 64
       },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject": "other", "operator": "equals","value": "player"},
+                  { "test": "has_equipment", "domain": "hand", "subject": "other", "value": "kurokumaft:match_wooden_tag"}
+                ]
+              }
+            },
+            "give_item": false,
+            "take_item": false
+          }
+        ]
+      },
+      "minecraft:behavior.look_at_trading_player": {
+        "priority": 2
+      },
       "minecraft:behavior.hurt_by_target": {
         "priority": 3,
-        "alert_same_type": true
+        "alert_same_type": true,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                {
+                  "all_of": [
+                    { "test": "has_tag", "subject": "self", "operator": "equals", "value": "hostility" },
+                    { "test": "has_tag", "subject": "other", "operator": "equals", "value": "hostility_player" }
+                  ]
+                },
+                {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
+                {"test": "is_family","subject": "other","operator": "==","value": "monster"}
+              ]
+            },
+            "max_dist": 64
+          }
+        ]
       },
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "reselect_targets": true,
         "must_see": true,
-        "attack_interval": 5,
         "entity_types": [
           {
             "filters": {
               "any_of": [
+                {
+                  "all_of": [
+                    { "test": "has_tag", "subject": "self", "operator": "equals", "value": "hostility" },
+                    { "test": "has_tag", "subject": "other", "operator": "equals", "value": "hostility_player" }
+                  ]
+                },
                 {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
                 {"test": "is_family","subject": "other","operator": "==","value": "monster"}
               ]

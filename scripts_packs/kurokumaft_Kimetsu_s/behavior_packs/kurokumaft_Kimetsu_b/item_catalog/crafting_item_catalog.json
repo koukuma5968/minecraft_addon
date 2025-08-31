@@ -61,7 +61,8 @@
                             "kurokumaft:hakaisatu_item",
                             "kurokumaft:douma_sensu",
                             "kurokumaft:kyokokukamusari",
-                            "kurokumaft:nichirintou_kaigaku"
+                            "kurokumaft:nichirintou_kaigaku",
+                            "kurokumaft:gyokko_tubo"
                         ]
                     },
                     {
@@ -218,6 +219,34 @@
                             "kurokumaft:daki_geta",
                             "kurokumaft:douma_boots",
                             "kurokumaft:kokushibou_tabi"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "items",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:tanjiro_head",
+                            "name": "kurokumaft:itemGroup.name.soldier_skull"
+                        },
+                        "items": [
+                            "kurokumaft:tanjiro_head",
+                            "kurokumaft:nezuko_head",
+                            "kurokumaft:zenitu_head",
+                            "kurokumaft:inosuke_head",
+                            "kurokumaft:kanawo_head",
+                            "kurokumaft:genya_head",
+                            "kurokumaft:giyu_head",
+                            "kurokumaft:kyouzyuro_head",
+                            "kurokumaft:shinobu_head",
+                            "kurokumaft:tengen_head",
+                            "kurokumaft:mituri_head",
+                            "kurokumaft:muitiro_head",
+                            "kurokumaft:sanemi_head",
+                            "kurokumaft:obanai_head",
+                            "kurokumaft:gyoumei_head"
                         ]
                     }
                 ]

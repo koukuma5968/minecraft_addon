@@ -42,6 +42,21 @@ const tanjiroKokyuLists = weightChoice([
     { item: 22 , weight: 20 },
 ]);
 
+const tanjiroKokyuHiLists = weightChoice([
+    { item: 11 , weight: 30 },
+    { item: 12 , weight: 30 },
+    { item: 13 , weight: 30 },
+    { item: 14 , weight: 20 },
+    { item: 15 , weight: 10 },
+    { item: 16 , weight: 20 },
+    { item: 17 , weight: 20 },
+    { item: 18 , weight: 20 },
+    { item: 19 , weight: 10 },
+    { item: 20 , weight: 20 },
+    { item: 21 , weight: 10 },
+    { item: 22 , weight: 20 },
+]);
+
 /**
  * 炭治郎
  */
@@ -61,7 +76,11 @@ export class TanjiroComponent implements KokyuMobUseComponent {
     useAttackKokyu(entity:Entity): void {
 
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        if (kaikyuNum > 4) {
+        if (kaikyuNum > 7) {
+            const num = tanjiroKokyuHiLists.pick();
+            entity.setProperty("kurokumaft:kokyu_kata", num);
+            this.kokyuUse(entity, num);
+        } else if (kaikyuNum > 4) {
             const num = tanjiroKokyuLists.pick();
             entity.setProperty("kurokumaft:kokyu_kata", num);
             this.kokyuUse(entity, num);

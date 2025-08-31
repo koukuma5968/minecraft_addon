@@ -17,7 +17,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
 
         const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 0, 0.5);
         const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-        this.kokyuApplyDamage(entity, filter, 3, 1);
+        this.kokyuApplyDamage(entity, filter, 4, 2);
 
         const molang = new MolangVariableMap();
         molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
@@ -56,7 +56,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
         
                 const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0.5);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1, );
+                this.kokyuApplyDamage(entity, filter, 3, 1, );
         
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 2.5, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
@@ -93,7 +93,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
         // 左
         const distance = getLookLocationDistance(entity.getRotation().y, 2.5, -1.5, 1);
         const lfilter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity.id);
-        this.kokyuApplyDamage(entity, lfilter, 3, 1, );
+        this.kokyuApplyDamage(entity, lfilter, 4, 2, );
 
         molang.setFloat("variable.tuki_rotaion", 0);
         entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, distance), molang);
@@ -102,7 +102,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
             // 右
             const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 1.5, 1);
             const rfilter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity.id);
-            this.kokyuApplyDamage(entity, rfilter, 3, 1, );
+            this.kokyuApplyDamage(entity, rfilter, 4, 2, );
 
             molang.setFloat("variable.tuki_rotaion", 180);
             entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, distance), molang);
@@ -136,7 +136,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
                 const y = getRandomInRange(0.1, 2.5);
                 const distance = getLookLocationDistance(entity.getRotation().y, 3.5, 0, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1, );
+                this.kokyuApplyDamage(entity, filter, 4, 2 );
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 6.5, 0, y);
                 molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
@@ -186,7 +186,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
 
                 const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1, );
+                this.kokyuApplyDamage(entity, filter, 4, 2, );
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
@@ -231,7 +231,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
             try {
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 6, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1, );
+                this.kokyuApplyDamage(entity, filter, 4, 2, );
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -273,7 +273,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
                 if (exes !== undefined) {
                     exes.push("tuki_blead");
                 }
-                this.kokyuApplyDamage(entity, filter, 2, 1);
+                this.kokyuApplyDamage(entity, filter, 4, 2);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -349,7 +349,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
 
                 const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1, );
+                this.kokyuApplyDamage(entity, filter, 4, 2, );
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
@@ -421,7 +421,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
                 if (exes !== undefined) {
                     exes.push("tuki_blead");
                 }
-                this.kokyuApplyDamage(entity, filter, 2, 1);
+                this.kokyuApplyDamage(entity, filter, 4, 2);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -456,7 +456,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
                 const y = getRandomInRange(0.1, 2.5);
                 const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1, );
+                this.kokyuApplyDamage(entity, filter, 4, 2 );
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 8, 0, y);
                 molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
@@ -502,7 +502,7 @@ export class TukiNoKataZyutu extends ZytuComonClass {
 
                 const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1, );
+                this.kokyuApplyDamage(entity, filter, 4, 2);
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 8, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:mikazuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);

@@ -1,0 +1,52 @@
+{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "kurokumaft:tuki_attack_particle",
+			"basic_render_parameters": {
+				"material": "particles_blend",
+				"texture": "textures/kurokumaft/particle/tuki"
+			}
+		},
+		"components": {
+			"minecraft:emitter_initialization": {
+				"creation_expression": "variable.tuki_size = math.random_integer(0.4, 0.8);"
+			},
+			"minecraft:emitter_rate_steady": {
+				"spawn_rate": "query.property('kurokumaft:kaikyu')*10",
+				"max_particles": "query.property('kurokumaft:kaikyu')*15"
+			},
+			"minecraft:emitter_lifetime_expression": {
+				"activation_expression": 1,
+				"expiration_expression": "(variable.emitter_age > 0.25 ? 1.0 : 0.0)"
+			},
+			"minecraft:emitter_shape_box": {
+				"half_dimensions": [0.25, 0.25, 0.25],
+				"direction": [0, 0, -2]
+			},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": 0.3
+			},
+			"minecraft:particle_initial_speed": 2,
+			"minecraft:particle_appearance_billboard": {
+				"size": [0.25, 0.25],
+				"facing_camera_mode": "lookat_y",
+				"uv": {
+					"texture_width": 8,
+					"texture_height": 32,
+					"flipbook": {
+						"base_UV": [0, 0],
+						"size_UV": [8, 8],
+						"step_UV": [0, 8],
+						"frames_per_second": 4,
+						"max_frame": 4,
+						"loop": true
+					}
+				}
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": [1, 1, 0.53725, 1]
+			}
+		}
+	}
+}

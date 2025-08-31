@@ -1,7 +1,8 @@
 {
    "materials":{
       "version":"1.0.0",
-      "nichirintou:entity_alphablend":{},
-      "dragon:entity_alphablend":{}
+      "nichirintou:entity_alphatest":{},
+      "dragon:entity_alphablend":{},
+      "suigokubati:entity_alphablend":{}
    }
 }

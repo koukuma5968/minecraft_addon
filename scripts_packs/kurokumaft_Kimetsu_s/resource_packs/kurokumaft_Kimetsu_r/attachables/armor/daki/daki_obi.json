@@ -23,12 +23,7 @@
       "animations": {
         "obi.attack": "controller.animation.kekkizyutu.obi.attack",
         "obi": "controller.animation.kekkizyutu.obi",
-        "attack_first": "animation.kekkizyutu.obi.attack_first",
         "attack_third": "animation.kekkizyutu.obi.attack_third",
-        "yokonagi_first": "animation.kekkizyutu.obi.yokonagi_first",
-        "shot_first": "animation.kekkizyutu.obi.shot_first",
-        "yaeobigiri_first": "animation.kekkizyutu.obi.yaeobigiri_first",
-        "barrage_attack_first": "animation.kekkizyutu.obi.barrage_attack_first",
         "yokonagi_third": "animation.kekkizyutu.obi.yokonagi_third",
         "shot_third": "animation.kekkizyutu.obi.shot_third",
         "yaeobigiri_third": "animation.kekkizyutu.obi.yaeobigiri_third",

@@ -1,6 +1,6 @@
-import { ItemStack, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, EquipmentSlot, GameMode, Player, world, ItemEnchantableComponent, EnchantmentType, ContainerSlot, EntityInventoryComponent, Container } from "@minecraft/server";
+import { ItemStack, ItemComponentTypes, ItemDurabilityComponent, Entity, EntityEquippableComponent, EntityComponentTypes, 
+    EquipmentSlot, GameMode, Player, ItemEnchantableComponent } from "@minecraft/server";
 import { getRandomInRange } from "./KimetuCommonUtil";
-import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 
 /**
  * アイテムダメージ
@@ -15,7 +15,7 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack) {
         let dChange = getRandomInRange(dChangeRang.min, dChangeRang.max);
 
         const enchantable = item.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
-        const unbreaking = enchantable.getEnchantment(MinecraftEnchantmentTypes.Unbreaking);
+        const unbreaking = enchantable.getEnchantment("minecraft:unbreaking");
         if (unbreaking !== undefined) {
             dChange = durability.getDamageChance(unbreaking.level);
         }

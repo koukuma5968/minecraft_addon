@@ -1,32 +1,32 @@
-import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent, system } from "@minecraft/server";
-import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, 
+    EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent } from "@minecraft/server";
 import { addProjectionFilter, getDistanceLocation, getLookLocationDistance } from "../../common/KimetuCommonUtil";
 
 export const ogreRankPoint = Object.freeze([
     {
         rank: "low",
-        point: 2,
+        point: 1,
         damage: 3
     },
     {
         rank: "unusual",
-        point: 3,
+        point: 2,
         damage: 2
     },
     {
         rank: "quarter",
-        point: 5,
-        damage: 1
+        point: 4,
+        damage: 1.5
     },
     {
         rank: "crescent",
-        point: 8,
-        damage: 0.5
+        point: 6,
+        damage: 1.0
     },
     {
         rank: "king",
-        point: 12,
-        damage: 0.25
+        point: 8,
+        damage: 0.75
     },
 ]);
 
@@ -81,7 +81,7 @@ export class KataComonClass {
                         const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
                         const tags = entity.getTags();
                         if (tags.indexOf("hostility") !== -1) {
-                            en.applyDamage(pDamage*damageNum * 0.75, {
+                            en.applyDamage(pDamage*damageNum * 0.5, {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
@@ -115,7 +115,7 @@ export class KataComonClass {
                         } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
                             const tags = en.getTags();
                             if (tags.indexOf("hostility") !== -1) {
-                                en.applyDamage(enDamage*damageNum, {
+                                en.applyDamage(enDamage*damageNum * 0.5, {
                                     cause: EntityDamageCause.entityAttack,
                                     damagingEntity: entity
                                 });
@@ -152,7 +152,7 @@ export class KataComonClass {
 
     }
 
-    kokyuApplyEffect(entity:Entity, filter:EntityQueryOptions, duration:number, damage:number, effect:MinecraftEffectTypes): void {
+    kokyuApplyEffect(entity:Entity, filter:EntityQueryOptions, duration:number, damage:number, effect:string): void {
 
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
@@ -250,7 +250,7 @@ export class KataComonClass {
     nitirintouFillBlock(dimension:Dimension, from:Vector3, to:Vector3) {
 
         const volume = new BlockVolume(from, to);
-        dimension.fillBlocks(volume, MinecraftBlockTypes.Air, {
+        dimension.fillBlocks(volume, "minecraft:air", {
             ignoreChunkBoundErrors: true,
             blockFilter: {
                 includeTags: ['minecraft:is_sword_item_destructible']

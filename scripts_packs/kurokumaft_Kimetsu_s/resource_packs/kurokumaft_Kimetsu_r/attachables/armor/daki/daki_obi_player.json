@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:daki_obi",
+      "item": { "kurokumaft:daki_obi": "query.owner_identifier == 'minecraft:player'" },
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/armor/daki/daki_uniform",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.daki_obi"
+      },
+      "scripts": {
+        "animate": [
+          "obi.attack",
+          "obi"
+        ]
+      },
+      "animations": {
+        "obi.attack": "controller.animation.kekkizyutu.obi.attack.player",
+        "obi": "controller.animation.kekkizyutu.obi.player",
+        "attack_first": "animation.kekkizyutu.obi.attack_first",
+        "attack_third": "animation.kekkizyutu.obi.attack_third",
+        "yokonagi_first": "animation.kekkizyutu.obi.yokonagi_first",
+        "shot_first": "animation.kekkizyutu.obi.shot_first",
+        "yaeobigiri_first": "animation.kekkizyutu.obi.yaeobigiri_first",
+        "barrage_attack_first": "animation.kekkizyutu.obi.barrage_attack_first",
+        "yokonagi_third": "animation.kekkizyutu.obi.yokonagi_third",
+        "shot_third": "animation.kekkizyutu.obi.shot_third",
+        "yaeobigiri_third": "animation.kekkizyutu.obi.yaeobigiri_third",
+        "barrage_attack_third": "animation.kekkizyutu.obi.barrage_attack_third"
+
+      },
+      "render_controllers": ["controller.render.armor"]
+    }
+  }
+}

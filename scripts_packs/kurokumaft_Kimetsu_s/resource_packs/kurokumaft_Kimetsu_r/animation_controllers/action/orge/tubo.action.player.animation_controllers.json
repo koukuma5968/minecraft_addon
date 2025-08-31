@@ -1,0 +1,82 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.tubo.action.player" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"equipment": "variable.kekkizyutu_type == 14"}
+					]
+				},
+				"equipment":{
+					"transitions" : [
+						{"first_person": "variable.is_first_person"},
+						{"third_person": "!variable.is_first_person"}
+					]
+				},
+				"first_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 14"},
+						{"equipment": "!variable.is_first_person"},
+						{"first_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"first_use": {
+					"transitions" : [
+						{"first_person": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"first_person": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"takotubozigoku_first": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"first_person": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
+						{"first_person": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"zinsatugyorin_first": "query.property('kurokumaft:kekkizyutu_kata') == 6"}
+					]
+				},
+				"takotubozigoku_first" : {
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"zinsatugyorin_first" : {
+					"transitions" : [
+						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_person": {
+					"transitions" : [
+						{"default": "variable.kekkizyutu_type != 14"},
+						{"equipment": "variable.is_first_person"},
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"third_person": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"third_person": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"takotubozigoku_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"third_person": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
+						{"third_person": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"zinsatugyorin_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"}
+					]
+				},
+				"takotubozigoku_third" : {
+					"animations" : [
+						"tubo.attack",
+						"tubo.takotubozigoku_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"zinsatugyorin_third" : {
+					"animations" : [
+						"tubo.zinsatugyorin_third"
+					],
+					"transitions" : [
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				}
+			}
+		}
+    }
+}

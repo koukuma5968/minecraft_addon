@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:nengyo",
+      "materials": {
+        "default": "cod"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kekkizyutu/gyokko/nengyo"
+      },
+      "geometry": {
+        "default": "geometry.nengyo"
+      },
+      "scripts": {
+        "animate": [
+          "swim"
+        ]
+      },
+      "animations": {
+        "swim": "animation.nengyo.swim"
+      },
+      "render_controllers": [
+        "controller.render.cod"
+      ]
+    }
+  }
+}

@@ -15,6 +15,7 @@
         "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
+        "attack_particle": "kurokumaft:hono_attack_particle",
         "hono_blead_particle": "kurokumaft:hono_blead_particle",
         "hono_flame_particle": "kurokumaft:hono_flame_particle",
         "hono4_flame_particle": "kurokumaft:hono4_flame_particle",

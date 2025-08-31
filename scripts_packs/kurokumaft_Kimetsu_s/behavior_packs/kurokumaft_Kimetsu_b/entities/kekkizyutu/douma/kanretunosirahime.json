@@ -95,7 +95,17 @@
         "alert_same_type": true,
         "entity_types": [
           {
-            "max_dist": 64
+            "filters": {
+              "any_of": [
+                {"test": "is_family","subject": "other","operator": "==","value": "koori"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+              ]
+            },
+            "max_dist": 32,
+            "must_see": true
           }
         ]
       },
@@ -107,13 +117,15 @@
           {
             "filters": {
               "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "koori"},
+                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
                 {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
                 {"test": "is_family","subject": "other","operator": "==","value": "villager"}
               ]
             },
-            "max_dist": 64,
-            "must_see": false
+            "max_dist": 32,
+            "must_see": true
           }
         ]
       },

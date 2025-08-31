@@ -1,7 +1,6 @@
 import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class KasumiNoKata extends KataComonClass {
@@ -241,14 +240,14 @@ export class KasumiNoKata extends KataComonClass {
             const molang = new MolangVariableMap();
             molang.setFloat("variable.kaikyu", kaikyuNum);
 
-            entity.addEffect(MinecraftEffectTypes.Speed, 10*TicksPerSecond,{
+            entity.addEffect("minecraft:speed", 10*TicksPerSecond,{
                 amplifier: 3,
                 showParticles: false
             });
 
             entity.setProperty("kurokumaft:kokyu_chage", 1);
             entity.dimension.spawnParticle("kurokumaft:kasumi_fog_lage_particle",entity.location, molang);
-            entity.addEffect(MinecraftEffectTypes.Invisibility, 20,{
+            entity.addEffect("minecraft:invisibility", 20,{
                 amplifier: 10,
                 showParticles: false
             });
@@ -262,10 +261,10 @@ export class KasumiNoKata extends KataComonClass {
         
                     if (entity.getProperty("kurokumaft:kokyu_chage") === 1) {
                         entity.setProperty("kurokumaft:kokyu_chage", 2);
-                        entity.removeEffect(MinecraftEffectTypes.Invisibility);
+                        entity.removeEffect("minecraft:invisibility");
                     } else {
                         entity.setProperty("kurokumaft:kokyu_chage", 1);
-                        entity.addEffect(MinecraftEffectTypes.Invisibility, 20,{
+                        entity.addEffect("minecraft:invisibility", 20,{
                             amplifier: 10,
                             showParticles: false
                         });

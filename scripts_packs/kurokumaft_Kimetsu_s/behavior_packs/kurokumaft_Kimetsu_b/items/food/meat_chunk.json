@@ -1,0 +1,33 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:meat_chunk",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:meat_chunk.name"
+			},
+      "minecraft:icon": "meat_chunk",
+      "minecraft:max_stack_size": 64,
+      "minecraft:can_destroy_in_creative": true,
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 3,
+        "saturation_modifier": 0.3
+      },
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1.0,
+        "use_duration": 1
+      },
+      "minecraft:custom_components": [
+        "kurokumaft:meat_eating"
+      ]
+    }
+  }
+}
+

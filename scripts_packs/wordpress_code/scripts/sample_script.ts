@@ -1,13 +1,14 @@
-import { Entity, EntityComponentTypes, EntityInitializationCause, EntityRidingComponent, EntityTameableComponent, ItemStack, Player, system, TicksPerSecond, world } from "@minecraft/server";
+import { Dimension, Entity, EntityComponentTypes, EntityDamageCause, EntityInitializationCause, EntityRidingComponent, ExplosionOptions, GameMode, ItemStack, Player, system, Vector3, world } from "@minecraft/server";
 import { ItemDurability } from "./item/ItemDurability";
 import { FortuneDestroy } from "./block/FortuneDestroy";
 import { hitSpear, releaseSpear, removeSpear, spawnSpear, stopSpear, ThrowableSpear } from "./item/ThrowableSpear";
 import { MineDurability } from "./common/MineDurability";
 import { TntSwordBreak } from "./item/TntSwordBreak";
 import { EchoSword } from "./item/EchoSword";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 // ワールド生成時
-world.beforeEvents.worldInitialize.subscribe(initEvent => {
+system.beforeEvents.startup.subscribe(initEvent => {
     // アイテムカスタムコンポーネントの登録
     initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:item_durability", new ItemDurability());
     // スピアー
@@ -58,7 +59,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
                         // 2tick間隔で処理を実行
                         const num = system.runInterval(() => {
                             // フクロウが死亡した場合
-                            if (!entity.isValid()) {
+                            if (!entity.isValid) {
                                 // 処理を停止する
                                 system.clearRun(num);
                             // プレイヤーが着地した場合
@@ -103,7 +104,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
 // });
 
 // world.afterEvents.entityHurt.subscribe(event => {
-//     world.sendMessage("entityHurt");
+//     world.sendMessage(event.hurtEntity + "＝ダメージケース：" + event.damageSource.cause + ",ダメージ量：" + event.damage);
 // });
 
 // world.afterEvents.entityLoad.subscribe(event => {
@@ -147,10 +148,6 @@ world.afterEvents.entitySpawn.subscribe(event => {
     }
 
 });
-
-// world.afterEvents.explosion.subscribe(event => {
-//     world.sendMessage("explosion");
-// });
 
 // world.afterEvents.gameRuleChange.subscribe(event => {
 //     world.sendMessage("gameRuleChange");
@@ -252,29 +249,69 @@ world.afterEvents.itemStopUse.subscribe(event => {
 //     world.sendMessage("pressurePlatePop");
 // });
 
+// world.afterEvents.explosion.subscribe(event => {
+//     world.sendMessage("explosion");
+// });
+
 // 遠距離ブロックhit後
 world.afterEvents.projectileHitBlock.subscribe(event => {
     // world.sendMessage("projectileHitBlock");
-    const projectileEn = event.projectile;
+    const projectile = event.projectile;
     const source = event.source as Entity
-    removeArrow(projectileEn);
+    // explosion(projectile, source, event.dimension, event.location);
+    removeArrow(projectile);
     if (source != undefined && source instanceof Player) {
-        hitSpear(source, projectileEn);
+        hitSpear(source, projectile);
     }
 });
 
 // 遠距離hit後
 world.afterEvents.projectileHitEntity.subscribe(event => {
-    // world.sendMessage("projectileHitEntity");
-    const projectileEn = event.projectile;
-    const source = event.source as Entity
+    const projectile = event.projectile; // 発射したアイテム
+    const source = event.source as Entity; // アイテムを投げたモブ
+    // explosion(projectile, source, event.dimension, event.location);
+
     const hitEn = event.getEntityHit().entity as Entity;
     const hitVector = event.hitVector;
     if (source != undefined && source instanceof Player) {
-        hitSpear(source, projectileEn);
+        hitSpear(source, projectile);
     }
 });
 
+async function explosion(projectile:Entity, source:Entity, dimension:Dimension, location:Vector3) {
+    if (projectile.typeId === "minecraft:snowball") { // 爆発を発生させたいアイテムなら（json側では爆発させない）
+        const option = {
+            allowUnderwater: false, // 対中でも爆発するか
+            breaksBlocks: true, // ブロックを破壊するか
+            causesFire: false, // 爆発で火が付くか
+            source: source // 爆発を発生させたのは誰か
+        } as ExplosionOptions;
+        // イベントが発生した場所で、範囲2ブロック分爆発を発生させる
+        const bom = dimension.createExplosion(location, 2, option);
+        if (bom) { // 爆発が発生した場合
+            source.addTag(source.id); // 爆発物を投げたモブを除外させるためにタグをセット
+            // 条件を付けて爆発した範囲のモブを取る
+            dimension.getEntities({
+                location: location, // 発生源の位置
+                excludeFamilies: ["player"], // すべてのプレイヤーを除外したいなら入れる
+                excludeTypes: ["item"], // ドロップアイテムを除外
+                maxDistance: 2, // 発生源から2ブロックの範囲
+                excludeTags: [source.id] // 投げたモブ自身につけたタグを除外
+            // 範囲内にいる条件に一致したモブの数だけ実行
+            }).forEach(entity => {
+                // モブが水中にいる場合は影響を無くす（判定はなくてもOK）
+                if (!entity.isInWater) {
+                    // モブに爆発ダメージを与える
+                    entity.applyDamage(2, {
+                        cause: EntityDamageCause.entityExplosion,
+                        damagingEntity: source
+                    });
+                }
+            });
+            source.removeTag(source.id); // タグを外す
+        }
+    }
+}
 // world.afterEvents.targetBlockHit.subscribe(event => {
 //     world.sendMessage("targetBlockHit");
 // });

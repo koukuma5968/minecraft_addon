@@ -1,0 +1,90 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.action.tubo.takotubozigoku_third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"rightArmMid": {
+					"rotation": [-90, 0, 0]
+				},
+				"leftArmMid": {
+					"rotation": [-90, 0, 0]
+				}
+			}
+		},
+		"animation.action.tubo.zinsatugyorin_third": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"waist": {
+					"rotation": [35, 0, 0]
+				},
+				"body": {
+					"rotation": {
+						"0.0": [-17.5, 0, 0],
+						"0.25": [-21.67413, -35.49178, 12.99301]
+					},
+					"position": [0, 1, -5]
+				},
+				"tail": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.25": [11.80868, 31.94715, 6.31274]
+					},
+					"position": [0, 1, 5]
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-7.79011, 57.15935, 80.75168],
+						"0.25": [-54.89549, -20.88127, -14.06573]
+					}
+				},
+				"leftArm": {
+					"rotation": [-39.50129, -19.16351, -42.95759]
+				},
+				"tail2": {
+					"position": [0, -0.25, 0]
+				},
+				"tail3": {
+					"rotation": [-15, 0, 0],
+					"position": [0, -1, -2]
+				},
+				"tail4": {
+					"rotation": [-25, 0, 0],
+					"position": [0, -3.75, -2.5]
+				},
+				"tail5": {
+					"rotation": [-12.5, 0, 0],
+					"position": [0, -10, -2.75]
+				}
+			}
+		},
+		"animation.action.tubo.zinsatugyorin_player_third": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"waist": {
+					"rotation": {
+						"0.0": [25, 0, 0],
+						"0.25": [26.82396, -31.99975, -15.00046]
+					}
+				},
+				"rightArm": {
+					"rotation": {
+						"0.0": [-7.79011, 57.15935, 80.75168],
+						"0.25": [-54.89549, -20.88127, -14.06573]
+					}
+				},
+				"leftArm": {
+					"rotation": [-39.50129, -19.16351, -42.95759]
+				},
+				"leftLeg": {
+					"rotation": [27.5, 0, 0]
+				},
+				"rightLeg": {
+					"rotation": [-25, 0, 0]
+				}
+			}
+		}
+	}
+}

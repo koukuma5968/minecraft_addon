@@ -1,4 +1,4 @@
-import { Entity, Player, system, world } from "@minecraft/server";
+import { Entity, Player, system } from "@minecraft/server";
 
 class Mutex {
     private _lock = Promise.resolve();

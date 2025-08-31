@@ -1,7 +1,6 @@
-import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player, world } from "@minecraft/server";
+import { ItemStack, MolangVariableMap, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { addRegimentalFilter, getDistanceLocation, getLookLocationDistance, getLookLocationDistancePitch} from "../../common/KimetuCommonUtil";
 import { KataComonClass } from "./KataComonClass";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export class HiNoKata extends KataComonClass {
@@ -198,7 +197,7 @@ export class HiNoKata extends KataComonClass {
         entity.setDynamicProperty("kurokumaft:chage_type", true);
         entity.setProperty("kurokumaft:kokyu_chage", 1);
 
-        entity.addEffect(MinecraftEffectTypes.Speed, 2*TicksPerSecond,{
+        entity.addEffect("minecraft:speed", 2*TicksPerSecond,{
             amplifier: 6,
             showParticles: false
         });

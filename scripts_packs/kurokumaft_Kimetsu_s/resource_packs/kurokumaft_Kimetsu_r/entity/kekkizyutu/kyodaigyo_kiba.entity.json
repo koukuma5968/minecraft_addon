@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:kyodaigyo_kiba",
+      "materials": {
+        "default": "hoglin"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kekkizyutu/gyokko/kyodaigyo_kiba"
+      },
+      "geometry": {
+        "default": "geometry.kyodaigyo_kiba"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos_right_side = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.tcos_left_side = -variable.tcos_right_side;",
+          "variable.attack_head_rot =  Math.sin(variable.attack_time * 180.0) * -37.3;"
+        ]
+      },
+      "animations": {
+        "target_con": "controller.animation.kyodaigyo_kiba.look_at_target",
+        "walk_con": "controller.animation.kyodaigyo_kiba.walk",
+        "attack_con": "controller.animation.kyodaigyo_kiba.attack",
+        "walk": "animation.kyodaigyo_kiba.walk",
+        "look_at_target": "animation.kyodaigyo_kiba.look_at_target",
+        "attack": "animation.kyodaigyo_kiba.attack"
+      },
+      "spawn_egg": {
+        "base_color": "#53443E",
+        "overlay_color": "#2E6854"
+      },
+      "render_controllers": [
+        "controller.render.hoglin"
+      ]
+    }
+  }
+}

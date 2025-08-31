@@ -1,0 +1,21 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Mashle_Rv1.0",
+		"description": "マッシュル v1.0 リソースパック",
+		"uuid": "d768ee20-0c66-4155-9e7e-547714357f12",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 21, 90]
+	},
+	"modules": [
+		{
+			"description": "マッシュルRv1.0",
+			"type": "resources",
+			"uuid": "c85dc1ae-1ccd-4c7c-bdfb-9ae69711be6a",
+			"version": [1, 0, 0]
+		}
+	],
+	"metadata": {
+		"authors": ["koukumakuraft"]
+	}
+}

@@ -10,7 +10,7 @@ import { getRandomInRange } from "./commonUtil";
  */
 async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number|undefined) {
 
-    if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
     }
 
@@ -42,7 +42,7 @@ async function ItemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
  */
 async function throwItemDurabilityDamage(entity:Entity, item:ItemStack, slotNum:number, damage:number|undefined) {
 
-    if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
     }
 

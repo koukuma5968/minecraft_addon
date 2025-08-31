@@ -1,7 +1,6 @@
 import { BlockVolume, Entity, system, TicksPerSecond, Player } from "@minecraft/server";
 import { ZytuComonClass } from "./ZytuComonClass";
 import { addOrgeFilter } from "../../common/KimetuCommonUtil";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { shooting } from "../../common/ShooterEvent";
 
 export class Koushi extends ZytuComonClass {
@@ -22,7 +21,7 @@ export class Koushi extends ZytuComonClass {
             entity.removeTag(entity.id);
             targets.forEach(en => {
                 const volume = new BlockVolume({x:en.location.x-1,y:en.location.y,z:en.location.z-1}, {x:en.location.x+1,y:en.location.y+1,z:en.location.z+1});
-                en.dimension.fillBlocks(volume, MinecraftBlockTypes.Web);
+                en.dimension.fillBlocks(volume, "minecraft:web");
             });
 
             this.kokyuApplyDamage(entity, filter, 3, 1);

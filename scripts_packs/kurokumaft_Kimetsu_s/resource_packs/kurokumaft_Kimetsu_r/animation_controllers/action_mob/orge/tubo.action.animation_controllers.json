@@ -1,0 +1,42 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.tubo.action" : {
+			"initial_state" : "default",
+			"states" : {
+				"default":{
+					"transitions" : [
+						{"third_use": "query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"third_use": {
+					"transitions" : [
+						{"default": "query.property('kurokumaft:kekkizyutu_kata') == 1"},
+						{"default": "query.property('kurokumaft:kekkizyutu_kata') == 2"},
+						{"takotubozigoku_third": "query.property('kurokumaft:kekkizyutu_kata') == 3"},
+						{"default": "query.property('kurokumaft:kekkizyutu_kata') == 4"},
+						{"default": "query.property('kurokumaft:kekkizyutu_kata') == 5"},
+						{"zinsatugyorin_third": "query.property('kurokumaft:kekkizyutu_kata') == 6"}
+					]
+				},
+				"takotubozigoku_third" : {
+					"animations" : [
+						"tubo.attack",
+						"tubo.takotubozigoku_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"zinsatugyorin_third" : {
+					"animations" : [
+						"tubo.zinsatugyorin_third"
+					],
+					"transitions" : [
+						{"default":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				}
+			}
+		}
+    }
+}

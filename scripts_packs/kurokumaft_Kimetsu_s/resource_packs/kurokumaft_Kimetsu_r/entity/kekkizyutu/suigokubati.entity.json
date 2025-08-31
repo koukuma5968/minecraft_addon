@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:suigokubati",
+        "materials": {
+          "default": "suigokubati"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/kekkizyutu/gyokko/suigokubati"
+        },
+        "geometry": {
+          "default": "geometry.suigokubati"
+        },
+        "scripts": {
+          "scale": "1.0"
+        },
+        "render_controllers": [ "controller.render.armor_stand" ]
+      }
+    }
+  }
+  

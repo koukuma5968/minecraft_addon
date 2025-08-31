@@ -81,7 +81,7 @@
 						"hakaisatu.kamurosakiwari_first"
 					],
 					"transitions" : [
-						{"first_person":"!query.property('kurokumaft:kokyu_use')"}
+						{"first_person":"query.any_animation_finished"}
 					]
 				},
 				"ryuseigunkou_first" : {
@@ -166,7 +166,7 @@
 						"hakaisatu.kushiki_third"
 					],
 					"transitions" : [
-						{"third_person":"query.any_animation_finished"}
+						{"third_person":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"ranshiki_third" : {

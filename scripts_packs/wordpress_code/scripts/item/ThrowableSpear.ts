@@ -187,7 +187,7 @@ export async function hitSpear(throwEntity:Entity, throwSpear:Entity) {
         let level = throwSpear.getDynamicProperty("LoyaltyLevel") as number
         system.runTimeout(() => {
             let intervalNum = system.runInterval(() => {
-                if (throwSpear != undefined && throwSpear.isValid()) {
+                if (throwSpear != undefined && throwSpear.isValid) {
                     let targetLoc = getDirectionVector(throwSpear.location, {x:throwEntity.location.x, y:throwEntity.location.y+1, z:throwEntity.location.z});
                     let tpLoc = {
                         x:throwSpear.location.x+targetLoc.x,

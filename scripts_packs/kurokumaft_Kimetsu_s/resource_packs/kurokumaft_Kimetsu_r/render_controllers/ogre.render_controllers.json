@@ -83,9 +83,23 @@
       "textures": [ "Texture.default" ]
     },
     "controller.render.ogre.gyokko": {
-      "geometry": "Geometry.default",
+      "arrays": {
+        "textures": {
+          "array.texture_frames": [
+            "texture.default",
+            "texture.hentai"
+          ]
+        },
+        "geometries": {
+          "array.geo_frames": [
+            "geometry.default",
+            "geometry.hentai"
+          ]
+        }
+      },
+      "geometry": "array.geo_frames[query.skin_id]",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Texture.default" ]
+      "textures": [ "array.texture_frames[query.skin_id]" ]
     }
 
   }

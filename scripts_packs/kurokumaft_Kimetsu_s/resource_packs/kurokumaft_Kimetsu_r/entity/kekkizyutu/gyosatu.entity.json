@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:gyosatu",
+      "materials": {
+        "default": "cod"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kekkizyutu/gyokko/gyosatu"
+      },
+      "geometry": {
+        "default": "geometry.gyosatu"
+      },
+      "render_controllers": [
+        "controller.render.cod"
+      ]
+    }
+  }
+}
