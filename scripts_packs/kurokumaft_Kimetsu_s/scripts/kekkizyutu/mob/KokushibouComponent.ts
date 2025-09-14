@@ -2,6 +2,7 @@ import { Entity, system } from "@minecraft/server";
 import { weightChoice } from "../../common/KimetuCommonUtil";
 import { KekkizyutuMobUseComponent } from "../KekkizyutuUseComponent";
 import { TukiNoKataZyutu } from "../zyutu/TukiNoKataZyutu";
+import { NomalAttack } from "../../kokyu/kata/NomalAttack";
 
 const kokushibouKekkizyutuLists = weightChoice([
     { item: 1 , weight: 20 },
@@ -32,6 +33,18 @@ export class KokushibouComponent implements KekkizyutuMobUseComponent {
             }
         } catch (error: any) {
         }
+    }
+
+    /**
+     * @param {Entity} entity
+     */
+    async hitAttackZyutu(entity:Entity): Promise<void> {
+        const attack = new NomalAttack();
+        for (let i=0; i<4; i++) {
+            attack.oneAttack(entity, undefined);
+            await system.waitTicks(2.5);
+        }
+        entity.setProperty("kurokumaft:kokyu_attack", false);
     }
 
     useAttackZyutu(entity:Entity): void {

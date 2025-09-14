@@ -1,0 +1,41 @@
+{
+	"format_version": "1.21.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:wisteria_flowers_leaves",
+			"menu_category": {
+				"category": "nature"
+            }
+		},
+		"components": {
+			"minecraft:light_emission": 1.0,
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.5
+			},
+			"minecraft:flammable": {
+				"destroy_chance_modifier": 100,
+				"catch_chance_modifier": 100
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.5,
+				"item_specific_speeds": [
+					{
+					"item": {
+						"tags": "q.any_tag('minecraft:is_hoe', 'minecraft:is_shears')"
+					},
+					"destroy_speed": 0.1
+					}
+				]
+			},
+			"minecraft:geometry": "geometry.wisteria_flowers_leaves",
+			"minecraft:material_instances": {
+				"*" : {
+					"texture": "wisteria_flowers_leaves",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:loot": "loot_tables/blocks/wisteria_flowers/wisteria_flowers_leaves.json"
+		}
+	}
+}

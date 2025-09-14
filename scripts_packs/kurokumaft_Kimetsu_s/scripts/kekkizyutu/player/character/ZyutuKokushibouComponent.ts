@@ -2,6 +2,7 @@ import { Entity, Player } from "@minecraft/server";
 import { TukiNoKataZyutu } from "../../zyutu/TukiNoKataZyutu";
 import { KekkizyutuUseComponent } from "../../KekkizyutuUseComponent";
 import { KekkizyutuObject, KekkizyutuObjects } from "../../../item/weapon/KekkizyutuTypes";
+import { NomalAttack } from "../../../kokyu/kata/NomalAttack";
 
 /**
  * 血気術（黒死牟）
@@ -30,10 +31,11 @@ export class ZyutuKokushibouComponent implements KekkizyutuUseComponent {
     }
 
     /**
-     * @param {Entity} entity
+     * @param {Player} player
      */
-    hitAttackZyutu(entity: Entity): void {
-
+    hitAttackZyutu(player: Player): void {
+        const attack = new NomalAttack();
+        attack.oneAttack(player, undefined);
     }
 
     /**

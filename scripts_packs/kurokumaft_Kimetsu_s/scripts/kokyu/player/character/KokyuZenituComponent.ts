@@ -1,6 +1,7 @@
 import { ItemStack, Player, TicksPerSecond } from "@minecraft/server";
 import { NichirintouUseComponent } from "../../NichirintouUseComponent";
 import { KaminariNoKata } from "../../kata/KaminariNoKata";
+import { NomalAttack } from "../../kata/NomalAttack";
 
 /**
  * 呼吸（善逸）
@@ -18,6 +19,8 @@ export class KokyuZenituComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
+        const attack = new NomalAttack();
+        attack.oneAttack(player, itemStack);
     }
 
     /**

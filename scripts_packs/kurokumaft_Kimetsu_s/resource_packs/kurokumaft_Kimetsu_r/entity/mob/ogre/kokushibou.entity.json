@@ -15,8 +15,9 @@
         "nichirintou_custom": "geometry.nichirintou_custom"
       },
       "particle_effects": {
-        "tuki_blead_particle": "kurokumaft:tuki_blead_particle",
-        "tuki_box_particle": "kurokumaft:tuki_box_particle"
+        "mikazuki_blead_particle": "kurokumaft:mikazuki_blead_particle",
+        "mikazuki_box_particle": "kurokumaft:mikazuki_box_particle",
+        "mikazuki_attack_particle": "kurokumaft:mikazuki_attack_particle"
       },
       "scripts": {
         "scale": "0.9375",
@@ -37,7 +38,8 @@
 
           "nichirintou_custom",
 
-          "action"
+          "action",
+          "kokushibou.attack.particle"
 
         ]
       },
@@ -67,22 +69,27 @@
 
         "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
         "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+        "nichirintou_custom.attack_2_third": "animation.nichirintou_custom.attack_2_third",
+        "nichirintou_custom.attack_3_third": "animation.nichirintou_custom.attack_3_third",
+        "nichirintou_custom.attack_4_third": "animation.nichirintou_custom.attack_4_third",
 
         "action":"controller.animation.zangeki.action",
+        "kokushibou.attack.particle": "controller.animation.kokushibou.attack.particle",
+        "mikazuki_attack": "animation.nichirintou_custom.mikazuki_attack.particle",
 
-        "tuki.ichi_1_third": "animation.action.tuki.ichi_1_third",
-        "tuki.ichi_2_third": "animation.action.tuki.ichi_2_third",
-        "tuki.ni_1_third": "animation.action.tuki.ni_1_third",
-        "tuki.san_1_third": "animation.action.tuki.san_1_third",
-        "tuki.go_1_third": "animation.action.tuki.go_1_third",
-        "tuki.roku_1_third": "animation.action.tuki.roku_1_third",
-        "tuki.shiti_1_third": "animation.action.tuki.shiti_1_third",
-        "tuki.hachi_1_third": "animation.action.tuki.hachi_1_third",
-        "tuki.ku_1_third": "animation.action.tuki.ku_1_third",
-        "tuki.zyu_1_third": "animation.action.tuki.zyu_1_third",
-        "tuki.zyuichi_1_third": "animation.action.tuki.zyuichi_1_third",
-        "tuki.zyushi_1_third": "animation.action.tuki.zyushi_1_third",
-        "tuki.zyuroku_1_third": "animation.action.tuki.zyuroku_1_third"
+        "mikazuki.ichi_1_third": "animation.action.mikazuki.ichi_1_third",
+        "mikazuki.ichi_2_third": "animation.action.mikazuki.ichi_2_third",
+        "mikazuki.ni_1_third": "animation.action.mikazuki.ni_1_third",
+        "mikazuki.san_1_third": "animation.action.mikazuki.san_1_third",
+        "mikazuki.go_1_third": "animation.action.mikazuki.go_1_third",
+        "mikazuki.roku_1_third": "animation.action.mikazuki.roku_1_third",
+        "mikazuki.shiti_1_third": "animation.action.mikazuki.shiti_1_third",
+        "mikazuki.hachi_1_third": "animation.action.mikazuki.hachi_1_third",
+        "mikazuki.ku_1_third": "animation.action.mikazuki.ku_1_third",
+        "mikazuki.zyu_1_third": "animation.action.mikazuki.zyu_1_third",
+        "mikazuki.zyuichi_1_third": "animation.action.mikazuki.zyuichi_1_third",
+        "mikazuki.zyushi_1_third": "animation.action.mikazuki.zyushi_1_third",
+        "mikazuki.zyuroku_1_third": "animation.action.mikazuki.zyuroku_1_third"
 
       },
       "render_controllers": [

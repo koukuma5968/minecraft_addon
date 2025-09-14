@@ -1,0 +1,78 @@
+{
+	"format_version": "1.21.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:stripped_wisteria_flowers_log",
+			"menu_category": {
+				"category": "nature"
+            },
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face"]
+			    }
+			}
+		},
+		"components": {
+			"tag:log": {},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1,
+				"item_specific_speeds": [
+					{
+					"item": {
+						"tags": "q.any_tag('minecraft:is_hatchet_item_destructible')"
+					},
+					"destroy_speed": 0.4
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 1
+			},
+			"minecraft:geometry": "geometry.wisteria_flowers_log",
+			"minecraft:material_instances": {
+				"log_sides": {
+					"texture": "stripped_wisteria_flowers_log_side"
+				},
+				"up": {
+					"texture": "wisteria_flowers_log_top"
+				},
+				"down": {
+					"texture": "wisteria_flowers_log_top"
+				},
+				"north": "log_sides",
+				"south": "log_sides",
+				"east": "log_sides",
+				"west": "log_sides"
+			},
+			"minecraft:map_color": "#572e9d"
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'up' || q.block_state('minecraft:block_face') == 'down' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'east' || q.block_state('minecraft:block_face') == 'west' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 90]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90, 0, 0]
+					}
+				}
+			}
+		]
+	}
+}

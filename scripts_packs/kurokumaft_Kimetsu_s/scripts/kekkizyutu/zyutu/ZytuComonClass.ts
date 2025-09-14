@@ -1,20 +1,23 @@
-import { EntityDamageCause, EntityQueryOptions, Entity, Player, EntityComponentTypes, EntityTypeFamilyComponent } from "@minecraft/server";
+import { EntityDamageCause, EntityQueryOptions, Entity, Player, EntityComponentTypes, EntityTypeFamilyComponent, world } from "@minecraft/server";
 import { KataComonClass, ogreRankPoint } from "../../kokyu/kata/KataComonClass";
 import { getLookLocationDistance } from "../../common/KimetuCommonUtil";
 
 export class ZytuComonClass extends KataComonClass {
 
-    kokyuApplyDamage(entity:Entity, filter:EntityQueryOptions, enDamage:number, pDamage:number): void {
+    zyutuApplyDamage(entity:Entity, filter:EntityQueryOptions, zyutuDamage:number): void {
 
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
         const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
         const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
+
+        const damage = entity.getProperty("kurokumaft:attack_level") as number;
+
         targets.forEach(en => {
             if (en !== undefined && en.isValid) {
                 if (en instanceof Player) {
-                    if (this.gardCheck(en)) {
-                        en.applyDamage(pDamage*(point !== undefined ? point.point : 1), {
+                    if (!this.gardCheck(en)) {
+                        en.applyDamage((damage + zyutuDamage) * (point !== undefined ? point.point : 1) * 0.5, {
                             cause: EntityDamageCause.entityAttack,
                             damagingEntity: entity
                         });
@@ -27,7 +30,7 @@ export class ZytuComonClass extends KataComonClass {
 
                     }
                 } else {
-                    en.applyDamage(enDamage*(point !== undefined ? point.point : 1), {
+                    en.applyDamage((damage + zyutuDamage) * (point !== undefined ? point.point : 1), {
                         cause: EntityDamageCause.entityAttack,
                         damagingEntity: entity
                     });

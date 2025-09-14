@@ -7,6 +7,12 @@
       "is_summonable": true,
       "is_experimental": false,
       "properties": {
+        "kurokumaft:attack_level": {
+          "type": "int",
+          "range": [10, 11],
+          "default": 10,
+          "client_sync": true
+        },
         "kurokumaft:attack_ran": {
           "type": "int",
           "range": [0, 4],

@@ -13,7 +13,7 @@ export class Obi extends ZytuComonClass {
         try {
             const distance = getLookLocationDistancePitch(entity.getRotation(), 5, 0);
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
-            this.kokyuApplyDamage(entity, filter, 4, 2);
+            this.zyutuApplyDamage(entity, filter, 5);
 
             system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
@@ -37,7 +37,7 @@ export class Obi extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 5, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 5, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 2, 1);
+                    this.zyutuApplyDamage(entity, filter, 3);
                 } catch (error: any) {
                     system.clearRun(num);
                 }
@@ -179,7 +179,7 @@ export class Obi extends ZytuComonClass {
             }
             const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 2);
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 10, entity.id);
-            this.kokyuApplyDamage(entity, filter, 6, 3);
+            this.zyutuApplyDamage(entity, filter, 10);
 
             system.waitTicks(6).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);

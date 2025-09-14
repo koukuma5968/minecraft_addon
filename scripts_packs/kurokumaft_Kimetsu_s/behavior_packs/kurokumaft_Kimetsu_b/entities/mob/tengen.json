@@ -39,6 +39,12 @@
           "default": "false",
           "client_sync": true
         },
+        "kurokumaft:attack_level": {
+          "type": "int",
+          "range": [13, 14],
+          "default": 13,
+          "client_sync": true
+        },
         "kurokumaft:kokyu_chage": {
           "type": "int",
           "range": [0, 10],
@@ -79,7 +85,10 @@
       "kurokumaft:attack_normal": {
         "minecraft:behavior.melee_attack": {
           "priority": 4,
-          "track_target": true,
+          "on_attack": {
+            "event": "kurokumaft:attack_time"
+          },
+          "track_target": false,
           "speed_multiplier": 1.25
         }
       },
@@ -413,6 +422,7 @@
           "kurokumaft:nitirintou_equip": true
         }
       },
+      "kurokumaft:attack_time": {},
       "kurokumaft:kokyu_start":{},
       "kurokumaft:attack_stop":{
         "remove": {

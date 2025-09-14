@@ -1,18 +1,18 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "DemonSlayerRv5.0",
-		"description": "鬼滅の刃Rv5.0 日輪刀/キャラクターアドオン リソースパック",
+		"name": "DemonSlayerRv5.1",
+		"description": "鬼滅の刃Rv5.1 日輪刀/キャラクターアドオン リソースパック",
 		"uuid": "7d00f465-dd97-4d70-a72b-df79443c2a6c",
-		"version": [5, 0, 0],
+		"version": [5, 0, 1],
 		"min_engine_version": [1, 21, 60]
 	},
 	"modules": [
 		{
-			"description": "鬼滅の刃アドオンRv5.0",
+			"description": "鬼滅の刃アドオンRv5.1",
 			"type": "resources",
 			"uuid": "1d0be23a-facf-4053-aa3b-83cb9d115c25",
-			"version": [5, 0, 0]
+			"version": [5, 0, 1]
 		}
 	],
 	"metadata": {

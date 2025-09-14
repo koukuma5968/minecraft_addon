@@ -75,13 +75,53 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack": "query.property('kurokumaft:kokyu_attack')"}
+						{"attack": "query.property('kurokumaft:kokyu_attack') && c.is_first_person"},
+						{"attack_third": "query.property('kurokumaft:kokyu_attack') && !c.is_first_person"}
 					]
 				},
 				"attack": {
 					"animations": [
 						{"attack": "c.is_first_person"}
 					],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"attack_third": {
+					"animations": [
+						{"attack_third_wait": "!c.is_first_person"}
+					],
+					"transitions": [
+						{"attack_third_wait": "query.any_animation_finished"}
+					]
+				},
+				"attack_third_wait": {
+					"animations": [
+						{"attack_third_wait": "!c.is_first_person"}
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"},
+						{"attack_2_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"attack_2_third": {
+					"animations": [
+						{"attack_2_third": "!c.is_first_person"}
+					],
+					"transitions": [
+						{"attack_2_third_wait": "query.any_animation_finished"}
+					]
+				},
+				"attack_2_third_wait": {
+					"animations": [
+						{"attack_2_third_wait": "!c.is_first_person"}
+					],
+					"transitions": [
+						{"default": "query.any_animation_finished"},
+						{"attack_3_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"attack_3_third": {
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]

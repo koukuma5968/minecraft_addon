@@ -22,8 +22,8 @@ export class MushiNoKata extends KataComonClass {
 
             try {
                 const filter = addRegimentalFilter(0, entity.location, 3, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-                this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
+                this.kokyuApplyDamage(entity, filter, 2);
+                this.kokyuApplyEffect(entity, filter, 4, 2, "minecraft:poison");
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -64,8 +64,8 @@ export class MushiNoKata extends KataComonClass {
             entity.dimension.spawnParticle("minecraft:cauldron_explosion_emitter",entity.location);
 
             const filter = addRegimentalFilter(0, entity.location, 3, entity);
-            this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-            this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
+            this.kokyuApplyDamage(entity, filter, 3);
+            this.kokyuApplyEffect(entity, filter, 4, 2, "minecraft:poison");
         }).catch((error: any) => {
         }).finally(() => {
         });
@@ -95,8 +95,8 @@ export class MushiNoKata extends KataComonClass {
             try {
                 const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
-                this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
+                this.kokyuApplyDamage(entity, filter, 2);
+                this.kokyuApplyEffect(entity, filter, 6, 3, "minecraft:poison");
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -132,7 +132,7 @@ export class MushiNoKata extends KataComonClass {
 
             try {
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
                 this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
     
                 const distance = getLookLocationDistance(entity.getRotation().y, 8, side, 0);

@@ -184,6 +184,7 @@ export class Tigama extends ZytuComonClass {
         try {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama2.value"}]});
+                entity.startItemCooldown("kurokumaft:tigama", 5*TicksPerSecond);
             }
 
             entity.addTag(entity.id);
@@ -247,6 +248,7 @@ export class Tigama extends ZytuComonClass {
             if (entity.getProperty("kurokumaft:kokyu_chage") === 0) {
                 if (entity instanceof Player) {
                     entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tigama3.value"}]});
+                    entity.startItemCooldown("kurokumaft:tigama", 5*TicksPerSecond);
                 }
                 entity.setProperty("kurokumaft:kokyu_chage", 1);
 

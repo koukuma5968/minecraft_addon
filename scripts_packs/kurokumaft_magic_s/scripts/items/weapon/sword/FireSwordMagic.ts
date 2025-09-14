@@ -9,13 +9,7 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 export async function fireSword(player:Player, entity:Entity) {
 
     entity.dimension.spawnParticle("kurokumaft:fire_sword_slash", entity.location);
-    entity.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-        {
-            x:entity.location.x,
-            y:entity.location.y + 0.75,
-            z:entity.location.z
-        }
-    );
+    entity.setOnFire(5, true);
     if (entity instanceof Player) {
         if (world.gameRules.pvp) {
             entity.applyDamage(10, {
@@ -35,13 +29,13 @@ export async function fireSword(player:Player, entity:Entity) {
  */
 export async function blazeBurst(player:Player) {
 
-    player.addTag("blazeBurst_self");
+    player.addTag(player.id);
     player.dimension.spawnParticle("kurokumaft:explosion_shell", player.location);
     player.dimension.spawnParticle("kurokumaft:explosion_wave", player.location);
 
     const filterOption = {
         excludeTags: [
-            "blazeBurst_self"
+            player.id
         ],
         location: player.location,
         maxDistance: 5
@@ -51,13 +45,7 @@ export async function blazeBurst(player:Player) {
 
     const entitys = player.dimension.getEntities(filterOption) as Entity[];
     entitys.forEach(en => {
-        en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-            {
-                x:en.location.x,
-                y:en.location.y + 0.75,
-                z:en.location.z
-            }
-        );
+        en.setOnFire(10, true);
         let damage = 60;
         if (en instanceof Player) {
             damage = 20;
@@ -67,7 +55,7 @@ export async function blazeBurst(player:Player) {
         });
     });
 
-    player.removeTag("blazeBurst_self");
+    player.removeTag(player.id);
 
 }
 
@@ -79,13 +67,7 @@ export async function blazeBurst(player:Player) {
 export async function fireSwordMons(attack:Entity, hit:Entity) {
 
     hit.dimension.spawnParticle("kurokumaft:fire_sword_slash", hit.location);
-    hit.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-        {
-            x:hit.location.x,
-            y:hit.location.y + 0.75,
-            z:hit.location.z
-        }
-    );
+    hit.setOnFire(5, true);
     if (hit instanceof Player) {
         hit.applyDamage(5, {
             cause: EntityDamageCause.fire

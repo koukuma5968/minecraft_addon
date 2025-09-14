@@ -8,35 +8,39 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function thunderSword(player:Player, entity:Entity) {
 
-    player.addTag("thunder_sword_slash_self");
+    player.addTag(player.id);
     entity.dimension.spawnParticle("kurokumaft:thunder_sword_slash", entity.location);
 
     const entitys = player.dimension.getEntities({
         excludeFamilies: [
-            "player", "inanimate", "familiar"
+            "inanimate", "familiar"
         ],
         excludeTypes: [
             "item"
         ],
         excludeTags: [
-            "thunder_sword_slash_self"
+            player.id
         ],
         location: entity.location,
         maxDistance: 5
     }) as Entity[];
 
     entitys.forEach(en => {
-        en.dimension.spawnEntity("kurokumaft:thunder_sword_magic", 
-            {
-                x:en.location.x,
-                y:en.location.y + 0.75,
-                z:en.location.z
+        if (entity instanceof Player) {
+            if (world.gameRules.pvp) {
+                en.dimension.spawnEntity("kurokumaft:thunder_sword_magic", 
+                    {
+                        x:en.location.x,
+                        y:en.location.y + 0.75,
+                        z:en.location.z
+                    }
+                );
+                en.applyDamage(25, {
+                    cause: EntityDamageCause.lightning
+                });
+                en.addTag("thunder_sword_slash_target");
             }
-        );
-        en.applyDamage(25, {
-            cause: EntityDamageCause.lightning
-        });
-        en.addTag("thunder_sword_slash_target");
+        }
     });
 
     if (world.gameRules.pvp) {
@@ -49,7 +53,7 @@ export async function thunderSword(player:Player, entity:Entity) {
             ],
             excludeTags: [
                 "thunder_sword_slash_target",
-                "thunder_sword_slash_self"
+                player.id
             ],
             location: entity.location,
             maxDistance: 5
@@ -59,13 +63,6 @@ export async function thunderSword(player:Player, entity:Entity) {
         const others = player.dimension.getEntities(filterOption) as Entity[];
     
         others.forEach(en => {
-            en.dimension.spawnEntity("kurokumaft:thunder_sword_magic", 
-                {
-                    x:en.location.x,
-                    y:en.location.y + 0.75,
-                    z:en.location.z
-                }
-            );
             en.applyDamage(8, {
                 cause: EntityDamageCause.lightning
             });
@@ -74,65 +71,10 @@ export async function thunderSword(player:Player, entity:Entity) {
         entitys.forEach(en => {
             en.removeTag("thunder_sword_slash_target");
         });
-        player.removeTag("thunder_sword_slash_self");
+        player.removeTag(player.id);
 
     }
 }
-
-// /**
-//  * §cブレイズバースト
-//  * @param {Player} player
-//  */
-// export async function blazeBurst(player:Player) {
-
-//     player.dimension.spawnParticle("kurokumaft:explosion_shell", player.location);
-//     player.dimension.spawnParticle("kurokumaft:explosion_wave_particle", player.location);
-
-//     const entitys = player.dimension.getEntities({
-//         excludeFamilies: [
-//             "player", "inanimate", "familiar"
-//         ],
-//         excludeTags: [
-//             "item"
-//         ],
-//         maxDistance: 8
-//     }) as Entity[];
-
-//     entitys.forEach(en => {
-//         en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-//             {
-//                 x:en.location.x,
-//                 y:en.location.y + 0.75,
-//                 z:en.location.z
-//             }
-//         );
-//         en.applyDamage(100, {
-//             cause: EntityDamageCause.fire
-//         });
-//     });
-
-//     if (world.gameRules.pvp) {
-//         const players = player.dimension.getEntities({
-//             families: [
-//                 "player"
-//             ],
-//             maxDistance: 8
-//         }) as Player[];
-    
-//         players.forEach(en => {
-//             en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-//                 {
-//                     x:en.location.x,
-//                     y:en.location.y + 0.75,
-//                     z:en.location.z
-//                 }
-//             );
-//             en.applyDamage(10, {
-//                 cause: EntityDamageCause.fire
-//             });
-//         });
-//     }
-// }
 
 /**
  * サンダーソード(モンス)
@@ -141,7 +83,7 @@ export async function thunderSword(player:Player, entity:Entity) {
  */
 export async function thunderSwordMons(attack:Entity, hit:Entity) {
 
-    attack.addTag("thunder_sword_slash_self");
+    attack.addTag(attack.id);
     hit.dimension.spawnParticle("kurokumaft:thunder_sword_slash", hit.location);
 
     const entitys = attack.dimension.getEntities({
@@ -152,7 +94,7 @@ export async function thunderSwordMons(attack:Entity, hit:Entity) {
             "item"
         ],
         excludeTags: [
-            "thunder_sword_slash_self"
+            attack.id
         ],
         location: hit.location,
         maxDistance: 5
@@ -181,7 +123,7 @@ export async function thunderSwordMons(attack:Entity, hit:Entity) {
         ],
         excludeTags: [
             "thunder_sword_slash_target",
-            "thunder_sword_slash_self"
+            attack.id
         ],
         location: hit.location,
         maxDistance: 5
@@ -190,14 +132,7 @@ export async function thunderSwordMons(attack:Entity, hit:Entity) {
     const others = attack.dimension.getEntities(filterOption) as Entity[];
 
     others.forEach(en => {
-        en.dimension.spawnEntity("kurokumaft:thunder_sword_magic", 
-            {
-                x:en.location.x,
-                y:en.location.y + 0.75,
-                z:en.location.z
-            }
-        );
-        en.applyDamage(4, {
+        en.applyDamage(6, {
             cause: EntityDamageCause.lightning
         });
     });
@@ -205,6 +140,6 @@ export async function thunderSwordMons(attack:Entity, hit:Entity) {
     entitys.forEach(en => {
         en.removeTag("thunder_sword_slash_target");
     });
-    attack.removeTag("thunder_sword_slash_self");
+    attack.removeTag(attack.id);
 
 }

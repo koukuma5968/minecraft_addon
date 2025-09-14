@@ -11,6 +11,7 @@ export class Tubo extends ZytuComonClass {
         try {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_tubo1.value"}]});
+                entity.startItemCooldown("kurokumaft:tubo", 10*TicksPerSecond);
             }
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -104,7 +105,7 @@ export class Tubo extends ZytuComonClass {
                     const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
                     filter.excludeFamilies?.push("sakana");
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 5);
 
                 } catch (error: any) {
                     system.clearRun(num);
@@ -138,7 +139,7 @@ export class Tubo extends ZytuComonClass {
             filter.excludeFamilies?.push("sakana");
             const num = system.runInterval(() => {
                 this.nengyo(entity, getRandomInRange(-3, 3), getRandomInRange(-2, 2));
-                this.kokyuApplyDamage(entity, filter, 4, 2);
+                this.zyutuApplyDamage(entity, filter, 5);
             }, 2);
 
             system.waitTicks(30).then(() => {
@@ -232,7 +233,7 @@ export class Tubo extends ZytuComonClass {
                 try {
                     const filter = addOrgeFilter(0, entity.location, 2.5, entity.id);
                     filter.excludeFamilies?.push("sakana");
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 10);
 
                     const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
                     entity.applyKnockback({x:distance.x,z:distance.z},0.15);

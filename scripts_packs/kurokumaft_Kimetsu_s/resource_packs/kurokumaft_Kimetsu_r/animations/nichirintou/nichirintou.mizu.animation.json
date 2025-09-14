@@ -269,27 +269,27 @@
 			}
 		},
 		"animation.nichirintou.mizu.tou_1_first": {
-			"animation_length": 0.5,
+			"animation_length": 0.625,
 			"bones": {
 				"nichirintou": {
 					"rotation": {
 						"0.0": [29.69469, -92.86922, 26.50414],
-						"0.2083": [109.69469, -92.86922, 26.50414]
+						"0.3333": [109.69469, -92.86922, 26.50414]
 					},
 					"position": {
 						"0.0": [0, 6, -9],
-						"0.2083": [-4, 0, 4]
+						"0.3333": [-4, 0, 4]
 					}
 				}
 			}
 		},
 		"animation.nichirintou.mizu.tou_2_first": {
-			"animation_length": 0.5,
+			"animation_length": 0.5833,
 			"bones": {
 				"nichirintou": {
 					"rotation": {
 						"0.0": [-67.62873, -5.1541, -35.561],
-						"0.2083": [37.37127, -5.1541, -35.561]
+						"0.3333": [37.37127, -5.1541, -35.561]
 					}
 				}
 			}

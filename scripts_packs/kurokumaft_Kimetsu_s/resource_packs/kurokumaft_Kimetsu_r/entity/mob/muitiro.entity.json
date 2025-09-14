@@ -67,6 +67,9 @@
 
         "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_one",
         "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_third",
+        "nichirintou_custom.attack_2_third": "animation.nichirintou_custom.attack_2_third",
+        "nichirintou_custom.attack_3_third": "animation.nichirintou_custom.attack_3_third",
+        "nichirintou_custom.attack_4_third": "animation.nichirintou_custom.attack_4_third",
 
         "muitiro.action": "controller.animation.muitiro.action",
 

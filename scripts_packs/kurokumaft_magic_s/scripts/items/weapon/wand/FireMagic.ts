@@ -1,19 +1,18 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
  * バーストロンド
  */
 export async function burstRondo(player:Player, hitEntity:Entity) {
 
-    player.addTag("burstRondo_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:fire_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "burstRondo_self"
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3
@@ -31,7 +30,7 @@ export async function burstRondo(player:Player, hitEntity:Entity) {
         });
     });
 
-    player.removeTag("burstRondo_self");
+    player.removeTag(player.id);
 }
 
 /**
@@ -40,8 +39,8 @@ export async function burstRondo(player:Player, hitEntity:Entity) {
 export async function firewall(player:Player) {
 
     const look = getLookRotaionPointsV2(player.getRotation(), 4, 0);
-    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y, z:player.location.z+look.z}, MinecraftBlockTypes.Magma);
-    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y+1, z:player.location.z+look.z}, MinecraftBlockTypes.Magma);
+    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y, z:player.location.z+look.z}, "minecraft:magma");
+    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y+1, z:player.location.z+look.z}, "minecraft:magma");
 
 }
 

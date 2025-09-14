@@ -11,7 +11,7 @@
 		"components": {
 			"minecraft:emitter_rate_steady": {
 				"spawn_rate": "query.property('kurokumaft:kaikyu')*10",
-				"max_particles": "query.property('kurokumaft:kaikyu')*20"
+				"max_particles": "query.property('kurokumaft:kaikyu')*10"
 			},
 			"minecraft:emitter_lifetime_expression": {
 				"activation_expression": "query.property('kurokumaft:kokyu_particle')",
@@ -30,7 +30,7 @@
 				"linear_acceleration": [0, 0, -1]
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [0.15, 0.25],
+				"size": [0.15, 0.15],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
 					"texture_width": 128,

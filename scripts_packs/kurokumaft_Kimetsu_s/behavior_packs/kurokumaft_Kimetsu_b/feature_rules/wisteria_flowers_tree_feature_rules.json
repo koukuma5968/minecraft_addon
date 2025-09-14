@@ -1,0 +1,30 @@
+{
+    "format_version": "1.20.10",
+    "minecraft:feature_rules": {
+        "description": {
+            "identifier": "kurokumaft:wisteria_flowers_tree_feature_rules",
+            "places_feature": "kurokumaft:wisteria_flowers_tree_feature"
+        },
+        "conditions": {
+            "placement_pass": "final_pass",
+            "minecraft:biome_filter": [
+                {
+                    "any_of": [
+                        {
+                          "test": "has_biome_tag",
+                          "operator": "==",
+                          "value": "wisteria_pile_mountains"
+                        }
+                    ]
+                }
+            ]
+        },
+        "distribution": {
+            "iterations": 5,
+            "coordinate_eval_order": "zxy",
+            "x": 0,
+            "y": "query.heightmap(variable.worldx, variable.worldz)",
+            "z": 0
+        }
+    }
+}

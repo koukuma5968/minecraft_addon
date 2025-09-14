@@ -674,3 +674,11 @@ item.kurokumaft:meat_chunk.name=肉片
 item.kurokumaft:rare_blood.name=稀血
 item.kurokumaft:ogre_meat_chunk.name=鬼の肉片
 item.kurokumaft:demonization_reversal_potion.name=鬼化解除薬
+
+tile.kurokumaft:wisteria_flowers_log.name=藤の原木
+tile.kurokumaft:stripped_wisteria_flowers_log.name=樹皮を剥いだ藤の原木
+tile.kurokumaft:wisteria_flowers_wood.name=藤の木
+tile.kurokumaft:wisteria_flowers_leaves.name=藤の花
+tile.kurokumaft:wisteria_flowers_planks.name=藤の板材
+tile.kurokumaft:wisteria_flowers_petals.name=藤色の花びら
+

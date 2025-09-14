@@ -10,7 +10,7 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": "query.property('kurokumaft:kaikyu')*20",
+				"spawn_rate": "query.property('kurokumaft:kaikyu')*30",
 				"max_particles": "query.property('kurokumaft:kaikyu')*30"
 			},
 			"minecraft:emitter_lifetime_expression": {

@@ -22,6 +22,12 @@ export class TokageComponent implements KekkizyutuMobUseComponent {
         }
     }
 
+    /**
+     * @param {Entity} entity
+     */
+    hitAttackZyutu(entity: Entity): void {
+    }
+
     async useAttackZyutu(entity: Entity): Promise<void> {
 
         try {

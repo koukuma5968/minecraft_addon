@@ -29,6 +29,12 @@
           "default": 0,
           "client_sync": true
         },
+        "kurokumaft:attack_level": {
+          "type": "int",
+          "range": [8, 9],
+          "default": 8,
+          "client_sync": true
+        },
         "kurokumaft:ogre_rank": {
           "type": "enum",
           "values": ["none", "crescent"],

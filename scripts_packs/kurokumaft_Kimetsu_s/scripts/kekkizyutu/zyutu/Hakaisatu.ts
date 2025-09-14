@@ -92,7 +92,7 @@ export class Hakaisatu extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 5, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 5, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 2, 1);
+                    this.zyutuApplyDamage(entity, filter, 5);
 
                     const side = getRandomInRange(-4, 4);
                     const top = getRandomInRange(0, 3);
@@ -164,7 +164,7 @@ export class Hakaisatu extends ZytuComonClass {
             const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 1);
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
             entity.dimension.spawnParticle("kurokumaft:meshiki", getDistanceLocation(entity.location, distance));
-            this.kokyuApplyDamage(entity, filter, 6, 3);
+            this.zyutuApplyDamage(entity, filter, 15);
         } catch (error: any) {
         }
 
@@ -182,9 +182,9 @@ export class Hakaisatu extends ZytuComonClass {
             const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 2);
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity.id);
             entity.dimension.spawnParticle("kurokumaft:ranshiki", getDistanceLocation(entity.location, distance));
-            this.kokyuApplyDamage(entity, filter, 6, 3);
+            this.zyutuApplyDamage(entity, filter, 10);
 
-            this.kokyuApplyKnockback(entity, filter, distance, 4);
+            this.kokyuApplyKnockback(entity, filter, distance, 1.5);
 
             system.waitTicks(5).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
@@ -210,7 +210,7 @@ export class Hakaisatu extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 2, 1);
+                    this.zyutuApplyDamage(entity, filter, 5);
                     this.kokyuApplyKnockback(entity, filter, distance, 0);
 
                     const distance2 = getLookLocationDistance(entity.getRotation().y, 5, getRandomInRange(-3, 3), getRandomInRange(0, 2));
@@ -248,7 +248,7 @@ export class Hakaisatu extends ZytuComonClass {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
                     entity.dimension.spawnParticle("kurokumaft:ryuseigunkou", getDistanceLocation(entity.location, distance));
-                    this.kokyuApplyDamage(entity, filter, 2, 1);
+                    this.zyutuApplyDamage(entity, filter, 5);
                     this.kokyuApplyKnockback(entity, filter, distance, 0.2);
                     entity.applyKnockback({x:distance.x,z:distance.z},0.3);
                 } catch (error: any) {
@@ -294,7 +294,7 @@ export class Hakaisatu extends ZytuComonClass {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 const distance2 = getLookLocationDistance(entity.getRotation().y, 0, 0, -1);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance2), 5, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1);
+                this.zyutuApplyDamage(entity, filter, 10);
 
                 entity.dimension.spawnParticle("kurokumaft:manyousenyanagi", getDistanceLocation(entity.location, distance2));
 
@@ -330,7 +330,7 @@ export class Hakaisatu extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 15);
 
                     const side = getRandomInRange(-6, 6);
                     const top = getRandomInRange(0, 3);
@@ -406,7 +406,7 @@ export class Hakaisatu extends ZytuComonClass {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 10, entity.id);
                     entity.dimension.spawnParticle("kurokumaft:aoginranzankou", getDistanceLocation(entity.location, distance));
-                    this.kokyuApplyDamage(entity, filter, 6, 3);
+                    this.zyutuApplyDamage(entity, filter, 15);
 
                     for (let i = 0; i < 10; i++) {
                         this.aogin(entity);

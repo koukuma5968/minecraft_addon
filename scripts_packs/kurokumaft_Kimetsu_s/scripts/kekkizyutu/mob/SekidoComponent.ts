@@ -24,6 +24,12 @@ export class SekidoComponent implements KekkizyutuMobUseComponent {
         }
     }
 
+    /**
+     * @param {Entity} entity
+     */
+    hitAttackZyutu(entity: Entity): void {
+    }
+
     useAttackZyutu(entity:Entity): void {
 
         try {

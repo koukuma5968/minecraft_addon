@@ -19,6 +19,8 @@ import { earthRhinoKnockback } from "./mob/animal/EarthRhino";
 import { BossActionClassRecord, BossActionObject, BossActionObjects } from "./mob/boos/mover/BossActionInterface";
 import { MagicPlayerMonitorTick } from "./player/MagicArmorEquipment";
 import { checkMagicAttack } from "./items/weapon/MagicAttackEvent";
+import { blazeBurst } from "./items/weapon/sword/FireSwordMagic";
+import { itemDurabilityDamage } from "./common/MagicItemDurabilityDamage";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -138,6 +140,17 @@ world.afterEvents.entityHurt.subscribe(event => {
         if (guards.indexOf(damageSource.cause) != -1) {
             magicShieldGuard(hitEn as Player, false);
         }
+    }
+});
+
+world.afterEvents.itemCompleteUse.subscribe(event => {
+    const item = event.itemStack as ItemStack;
+    const source = event.source as Entity;
+
+    if (source instanceof Player && item.typeId === "kurokumaft:phoenix_sword") {
+        source.onScreenDisplay.setActionBar({rawtext:[{translate:"magic.kurokumaft:blazeBurst.translate"}]});
+        blazeBurst(source);
+        itemDurabilityDamage(source, item, EquipmentSlot.Mainhand);
     }
 });
 

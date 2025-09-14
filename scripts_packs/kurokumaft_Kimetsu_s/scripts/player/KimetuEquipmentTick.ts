@@ -53,6 +53,11 @@ export class KimetuEquipmentTick {
                 const kokyuObject = KokyuObjects.find(ob => ob.type === nichirintou_type) as KokyuObject;
                 // 日輪刀を持っている
                 if (kokyuObject !== undefined) {
+                    if (this.player.isSneaking && !this.player.getDynamicProperty("kurokumaft:attack_time")) {
+                        this.player.triggerEvent("kurokumaft:add_damage_guard");
+                    } else {
+                        this.player.triggerEvent("kurokumaft:remove_damage_guard");
+                    }
                     if (kokyuObject.type > 1) {
                         const kataNum = this.player.getProperty("kurokumaft:kokyu_kata") as number;
                         const index = kokyuObject.kata.findIndex((el) => el === kataNum);
@@ -70,6 +75,8 @@ export class KimetuEquipmentTick {
                             }
                         }
                     }
+                } else {
+                    this.player.triggerEvent("kurokumaft:remove_damage_guard");
                 }
                 const kekkizyutu_type = this.player.getProperty("kurokumaft:kekkizyutu_type") as number;
                 const kekkizyutuObject = KekkizyutuObjects.find(ob => ob.type === kekkizyutu_type) as KekkizyutuObject;

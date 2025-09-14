@@ -1,32 +1,33 @@
 import { BlockVolume, Dimension, EntityComponentTypes, EntityDamageCause, EntityEquippableComponent, EntityProjectileComponent, 
-    EntityQueryOptions, EquipmentSlot, ItemStack, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent } from "@minecraft/server";
+    EntityQueryOptions, EquipmentSlot, ListBlockVolume, Entity, Vector3, world, Player, EntityTypeFamilyComponent } from "@minecraft/server";
 import { addProjectionFilter, getDistanceLocation, getLookLocationDistance } from "../../common/KimetuCommonUtil";
+import { ItemDurabilityDamage } from "../../common/KimetuItemDurabilityDamage";
 
 export const ogreRankPoint = Object.freeze([
     {
         rank: "low",
-        point: 1,
+        point: 0.5,
         damage: 3
     },
     {
         rank: "unusual",
-        point: 2,
-        damage: 2
+        point: 0.75,
+        damage: 2.8
     },
     {
         rank: "quarter",
-        point: 4,
-        damage: 1.5
+        point: 1,
+        damage: 2.0
     },
     {
         rank: "crescent",
-        point: 6,
-        damage: 1.0
+        point: 1.2,
+        damage: 1.8
     },
     {
         rank: "king",
-        point: 8,
-        damage: 0.75
+        point: 1.5,
+        damage: 1.5
     },
 ]);
 
@@ -39,92 +40,157 @@ export class KataComonClass {
         const main = equ.getEquipment(EquipmentSlot.Mainhand);
         const off = equ.getEquipment(EquipmentSlot.Offhand);
 
-        if (en.isSneaking && ((main !== undefined && main.typeId.indexOf("shield") !== -1) || (off !== undefined && off.typeId.indexOf("shield") !== -1))) {
-            en.playSound("item.shield.block", {
-                pitch: 1,
-                volume: 2
-            });
-            return false;
-        }
-        if (en.isSneaking && (main !== undefined && main.typeId.indexOf("nichirintou") !== -1)) {
-            en.playSound("break.iron", {
-                pitch: 1,
-                volume: 2
-            });
-            return false;
+        // 対象がスニークしている
+        if (en.isSneaking) {
+            // オフハンドに盾を持っている場合、ガード音と耐久値減少
+            if (off !== undefined && off.typeId.indexOf("shield") !== -1) {
+                en.playSound("item.shield.block", {
+                    pitch: 1,
+                    volume: 1
+                });
+                ItemDurabilityDamage(en, off);
+                return true;
+            // メインハンドに盾を持っている場合、ガード音と耐久値減少
+            } else if (main !== undefined && main.typeId.indexOf("shield") !== -1) {
+                en.playSound("item.shield.block", {
+                    pitch: 1,
+                    volume: 1
+                });
+                ItemDurabilityDamage(en, main);
+                return true;
+            // メインハンドに日輪刀を持っている場合、ガード音と耐久値減少
+            } else if (main !== undefined && main.typeId.indexOf("nichirintou") !== -1 && !en.getDynamicProperty("kurokumaft:attack_time")) {
+                en.playSound("damage_guard.nitirintou_blocking", {
+                    pitch: 1,
+                    volume: 1
+                });
+                ItemDurabilityDamage(en, main);
+                return true;
+            }
         }
 
-        return true;
+        return false;
     }
 
-    kokyuApplyDamage(entity:Entity, filter:EntityQueryOptions, enDamage:number, pDamage:number, itemStack:ItemStack | undefined): void {
+    kokyuApplyDamage(entity:Entity, filter:EntityQueryOptions, kokyuDamage:number): void {
 
         entity.addTag(entity.id);
         const targets = entity.dimension.getEntities(filter);
+        const damage = entity.getProperty("kurokumaft:attack_level") as number;
 
-        const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
-        const damageNum = kaikyuNum === 0 ? 0.5 : kaikyuNum * 1.5;
         targets.forEach(en => {
             if (en !== undefined && en.isValid) {
+                // 対象がプレイヤー
                 if (en instanceof Player) {
+                    // 対象がガードしている場合は終わり
+                    if (this.gardCheck(en)) {
+                        return;
+                    }
+                    // 攻撃側がプレイヤー
                     if (entity instanceof Player) {
                         const tags = en.getTags();
-                        if (world.gameRules.pvp && tags.indexOf("hostility_player") !== -1) {
-                            if (this.gardCheck(en)) {
-                                en.applyDamage(pDamage*damageNum, {
+                        const ptags = entity.getTags();
+                        // pvpオン、かつ、プレイヤー同士が稽古タグをつけている場合
+                        if (world.gameRules.pvp && tags.indexOf("hostility_player") !== -1 && ptags.indexOf("hostility_player") !== -1) {
+                            en.applyDamage((damage + kokyuDamage) * 0.5, {
+                                cause: EntityDamageCause.entityAttack,
+                                damagingEntity: entity
+                            });
+                        }
+                    // 攻撃側がモブ
+                    } else {
+                        // 対象プレイヤーのファミリーを取得
+                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                        // ファミリーマーがある
+                        if (familyTypes !== undefined) {
+                            // 対象プレイヤーが鬼の場合
+                            if (familyTypes.hasTypeFamily("ogre")) {
+                                // 階位を取る
+                                const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
+                                // 階位ごとのランクポイント
+                                const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
+                                // ランクごとのダメージ率を加算（階位が高いほど下がる）
+                                en.applyDamage(((damage + kokyuDamage) * (point !== undefined ? point.damage : 5)), {
                                     cause: EntityDamageCause.entityAttack,
                                     damagingEntity: entity
                                 });
+                            // 対象プレイヤーが隊士の場合
+                            } else if (familyTypes.hasTypeFamily("regimental_player")) {
+                                const targetTags = en.getTags();
+                                const mobTags = entity.getTags();
+                                // 攻撃モブとプレイヤーが稽古タグをつけている場合
+                                if (mobTags.indexOf("hostility") !== -1 && targetTags.indexOf("hostility_player") !== -1) {
+                                    // 0..5倍にする
+                                    en.applyDamage((damage + kokyuDamage) * 0.5, {
+                                        cause: EntityDamageCause.entityAttack,
+                                        damagingEntity: entity
+                                    });
+                                }
                             }
-                        }
-                    } else {
-                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-                        const tags = entity.getTags();
-                        if (tags.indexOf("hostility") !== -1) {
-                            en.applyDamage(pDamage*damageNum * 0.5, {
-                                cause: EntityDamageCause.entityAttack,
-                                damagingEntity: entity
-                            });
-                        } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
-                            const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
-                            const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                            en.applyDamage(pDamage*(damageNum+(point !== undefined ? point.damage : 5)), {
-                                cause: EntityDamageCause.entityAttack,
-                                damagingEntity: entity
-                            });
+                            // プレイヤーが鬼か隊士以外はダメージを受けない
                         }
                     }
+                // 対象がモブ
                 } else {
+                    // 攻撃側のファミリーを取得
                     const damagerFamilyTypes = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-                    if (damagerFamilyTypes !== undefined && damagerFamilyTypes.hasTypeFamily("ogre")) {
-                        const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
-                        const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                        en.applyDamage(enDamage*(damageNum)*(point !== undefined ? point.point : 0.5), {
-                            cause: EntityDamageCause.entityAttack,
-                            damagingEntity: entity
-                        });
-                    } else {
-                        const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-                        if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
-                            const ogre_rank = en.getProperty("kurokumaft:ogre_rank");
+                    // ファミリーがある
+                    if (damagerFamilyTypes !== undefined) {
+                        // 攻撃側が鬼の場合
+                        if(damagerFamilyTypes.hasTypeFamily("ogre")) {
+                            const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");
                             const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
-                            en.applyDamage(enDamage*(damageNum)*(point !== undefined ? point.damage : 5), {
+                            // ランクごとのダメージ率を加算（階位が高いほど上がる）
+                            en.applyDamage((damage + kokyuDamage) * (point !== undefined ? point.point : 0.2), {
                                 cause: EntityDamageCause.entityAttack,
                                 damagingEntity: entity
                             });
-                        } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
-                            const tags = en.getTags();
-                            if (tags.indexOf("hostility") !== -1) {
-                                en.applyDamage(enDamage*damageNum * 0.5, {
-                                    cause: EntityDamageCause.entityAttack,
-                                    damagingEntity: entity
-                                });
-                            }
+                        // 攻撃側が鬼以外
                         } else {
-                            en.applyDamage(enDamage*damageNum, {
-                                cause: EntityDamageCause.entityAttack,
-                                damagingEntity: entity
-                            });
+                            // ターゲットのファミリーを取得
+                            const familyTypes = en.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+                            if (familyTypes !== undefined) {
+                                // ターゲットが鬼の場合
+                                if (familyTypes.hasTypeFamily("ogre")) {
+                                    const ogre_rank = en.getProperty("kurokumaft:ogre_rank");
+                                    const point = ogreRankPoint.find(rank => rank.rank === ogre_rank);
+                                    // ランクごとのダメージ率を加算（階位が高いほど下がる）
+                                    en.applyDamage((damage + kokyuDamage) * (point !== undefined ? point.damage : 5), {
+                                        cause: EntityDamageCause.entityAttack,
+                                        damagingEntity: entity
+                                    });
+                                // ターゲットが隊士の場合
+                                } else if (familyTypes.hasTypeFamily("regimental_soldier")) {
+                                    // ターゲットのタグ
+                                    const tags = en.getTags();
+                                    // 攻撃側がプレイヤー
+                                    if (entity instanceof Player) {
+                                        const ptags = entity.getTags();
+                                        // モブとプレイヤーが稽古中
+                                        if (tags.indexOf("hostility") !== -1 && ptags.indexOf("hostility_player") !== -1) {
+                                            en.applyDamage((damage + kokyuDamage) * 0.5, {
+                                                cause: EntityDamageCause.entityAttack,
+                                                damagingEntity: entity
+                                            });
+                                        }
+                                    } else {
+                                        const dtags = entity.getTags();
+                                        // モブ同士が稽古中
+                                        if (tags.indexOf("hostility") !== -1 && dtags.indexOf("hostility") !== -1) {
+                                            en.applyDamage((damage + kokyuDamage), {
+                                                cause: EntityDamageCause.entityAttack,
+                                                damagingEntity: entity
+                                            });
+                                        }
+                                    }
+                                // それ以外のモブ
+                                } else {
+                                    en.applyDamage((damage + kokyuDamage), {
+                                        cause: EntityDamageCause.entityAttack,
+                                        damagingEntity: entity
+                                    });
+                                }
+                            }
                         }
                     }
                 }

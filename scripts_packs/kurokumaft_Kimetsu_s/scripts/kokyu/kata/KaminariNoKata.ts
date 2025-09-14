@@ -20,7 +20,7 @@ export class KaminariNoKata extends KataComonClass {
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 5);
                 const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
             } catch (error: any) {
@@ -45,7 +45,7 @@ export class KaminariNoKata extends KataComonClass {
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 2.5, entity);
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
                 const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
             } catch (error: any) {
@@ -157,7 +157,7 @@ export class KaminariNoKata extends KataComonClass {
 
                 entity.dimension.spawnParticle("kurokumaft:kaminari4_particle",entity.location,molang);
                 const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
-                this.kokyuApplyDamage(entity, filter, 5, 2, itemStack);
+                this.kokyuApplyDamage(entity, filter, 8);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -188,7 +188,7 @@ export class KaminariNoKata extends KataComonClass {
             try {
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -217,7 +217,7 @@ export class KaminariNoKata extends KataComonClass {
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -280,7 +280,7 @@ export class KaminariNoKata extends KataComonClass {
             try {
                 const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 2);
         
                 entity.dimension.spawnParticle("kurokumaft:kaminari4_particle",entity.location,molang);
             } catch (error: any) {
@@ -321,7 +321,7 @@ export class KaminariNoKata extends KataComonClass {
         },2);
 
         const filter = addRegimentalFilter(1, entity.location, 6, entity);
-        this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+        this.kokyuApplyDamage(entity, filter, 3);
 
         system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -381,8 +381,8 @@ export class KaminariNoKata extends KataComonClass {
             }
         },1);
 
-        const filter = addRegimentalFilter(1, entity.location, 15, entity);
-        this.kokyuApplyDamage(entity, filter, 6, 2, itemStack);
+        const filter = addRegimentalFilter(1, entity.location, 10, entity);
+        this.kokyuApplyDamage(entity, filter, 5);
 
         system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -419,7 +419,7 @@ export class KaminariNoKata extends KataComonClass {
         }
 
         const filter2 = addRegimentalFilter(0, entity.location, 8, entity);
-        this.kokyuApplyDamage(entity, filter2, 10, 8, itemStack);
+        this.kokyuApplyDamage(entity, filter2, 15);
 
         system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_chage", 0);

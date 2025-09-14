@@ -1,0 +1,46 @@
+{
+    "pools": [
+        {
+            "conditions": [
+                {
+                    "condition": "match_tool",
+                    "item": "minecraft:shears"
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "kurokumaft:wisteria_flowers_leaves",
+                    "weight": 1,
+                    "count": 1
+                }
+
+            ]
+        },
+        {
+            "conditions": [
+                {
+                    "condition": "match_tool",
+                    "minecraft:match_tool_filter_none": [
+                        "minecraft:is_shears"
+                    ]                
+                },
+                {
+                    "condition": "random_chance",
+                    "chance": 0.2
+                }
+            ],
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "kurokumaft:wisteria_flowers_leaves",
+                    "weight": 1,
+                    "count": 1
+                }
+
+            ]
+        }
+    ]
+}

@@ -1,5 +1,4 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
@@ -7,13 +6,13 @@ import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/Magic
  */
 export async function lightFang(player:Player, hitEntity:Entity) {
 
-    player.addTag("light_fang_self");
+    player.addTag(player.id);
 
     const look = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
 
     const filterOption = {
         excludeTags: [
-            "light_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 4
@@ -38,7 +37,7 @@ export async function lightFang(player:Player, hitEntity:Entity) {
             });
         }
     });
-    player.removeTag("light_self");
+    player.removeTag(player.id);
 }
 
 /**
@@ -90,7 +89,7 @@ export async function areaheel(player:Player) {
             return;
         }
 
-        en.addEffect(MinecraftEffectTypes.InstantHealth, 5*TicksPerSecond, {
+        en.addEffect("minecraft:instant_health", 5*TicksPerSecond, {
             amplifier: 5,
             showParticles: true
         });
@@ -100,7 +99,7 @@ export async function areaheel(player:Player) {
             return;
         }
 
-        en.addEffect(MinecraftEffectTypes.InstantHealth, 5*TicksPerSecond, {
+        en.addEffect("minecraft:instant_health", 5*TicksPerSecond, {
             amplifier: 5,
             showParticles: true
         });
@@ -110,7 +109,7 @@ export async function areaheel(player:Player) {
             return;
         }
 
-        en.addEffect(MinecraftEffectTypes.InstantHealth, 5*TicksPerSecond, {
+        en.addEffect("minecraft:instant_health", 5*TicksPerSecond, {
             amplifier: 5,
             showParticles: true
         });

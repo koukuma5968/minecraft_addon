@@ -10,8 +10,8 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": "variable.kaikyu*2",
-				"max_particles": "variable.kaikyu*2"
+				"spawn_rate": "variable.kaikyu*20",
+				"max_particles": "variable.kaikyu*20"
 			},
 			"minecraft:emitter_lifetime_once": {
 				"active_time": 0.5

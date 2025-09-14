@@ -1,0 +1,102 @@
+{
+	"format_version": "1.21.50",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:wisteria_flowers_planks",
+			"menu_category": {
+				"category": "construction"
+            },
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face"]
+			    }
+			}
+		},
+		"components": {
+			"tag:planks": {},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:flammable": {
+				"destroy_chance_modifier": 100,
+				"catch_chance_modifier": 100
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2,
+				"item_specific_speeds": [
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:wooden_tier')"
+					},
+					"destroy_speed": 1.15
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:stone_tier')"
+					},
+					"destroy_speed": 0.6
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:iron_tier')"
+					},
+					"destroy_speed": 0.4
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:golden_tier')"
+					},
+					"destroy_speed": 0.2
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:diamond_tier')"
+					},
+					"destroy_speed": 0.3
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:netherite_tier')"
+					},
+					"destroy_speed": 0.25
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 1
+			},
+			"minecraft:geometry": "geometry.wisteria_flowers_log",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "wisteria_flowers_planks"
+				}
+			},
+			"minecraft:map_color": "#bd9cf5"
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'up' || q.block_state('minecraft:block_face') == 'down' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 0]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'east' || q.block_state('minecraft:block_face') == 'west' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [0, 0, 90]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south' ",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [90, 0, 0]
+					}
+				}
+			}
+		]
+	}
+}

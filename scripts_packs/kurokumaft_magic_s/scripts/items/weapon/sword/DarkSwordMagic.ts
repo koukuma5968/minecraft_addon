@@ -2,7 +2,7 @@ import { Entity, EntityDamageCause, Player, TicksPerSecond, world } from "@minec
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
- * ウォーターソード
+ * ダークーソード
  * @param {Player} player
  * @param {Entity} entity
  */
@@ -28,63 +28,8 @@ export async function darkSword(player:Player, entity:Entity) {
     }
 }
 
-// /**
-//  * §cブレイズバースト
-//  * @param {Player} player
-//  */
-// export async function blazeBurst(player:Player) {
-
-//     player.dimension.spawnParticle("kurokumaft:explosion_shell", player.location);
-//     player.dimension.spawnParticle("kurokumaft:explosion_wave_particle", player.location);
-
-//     const entitys = player.dimension.getEntities({
-//         excludeFamilies: [
-//             "player", "inanimate", "familiar"
-//         ],
-//         excludeTags: [
-//             "item"
-//         ],
-//         maxDistance: 8
-//     }) as Entity[];
-
-//     entitys.forEach(en => {
-//         en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-//             {
-//                 x:en.location.x,
-//                 y:en.location.y + 0.75,
-//                 z:en.location.z
-//             }
-//         );
-//         en.applyDamage(100, {
-//             cause: EntityDamageCause.fire
-//         });
-//     });
-
-//     if (world.gameRules.pvp) {
-//         const players = player.dimension.getEntities({
-//             families: [
-//                 "player"
-//             ],
-//             maxDistance: 8
-//         }) as Player[];
-    
-//         players.forEach(en => {
-//             en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-//                 {
-//                     x:en.location.x,
-//                     y:en.location.y + 0.75,
-//                     z:en.location.z
-//                 }
-//             );
-//             en.applyDamage(10, {
-//                 cause: EntityDamageCause.fire
-//             });
-//         });
-//     }
-// }
-
 /**
- * ウォーターソード(モンス)
+ * ダークーソード(モンス)
  * @param {Entity} attack
  * @param {Entity} hit
  */
@@ -95,14 +40,14 @@ export async function darkSwordMons(attack:Entity, hit:Entity) {
         hit.applyDamage(3, {
             cause: EntityDamageCause.wither
         });
-        hit.addEffect(MinecraftEffectTypes.Wither, 10*TicksPerSecond, {
+        hit.addEffect("minecraft:wither", 10*TicksPerSecond, {
             amplifier: 3
         });
     } else {
         hit.applyDamage(15, {
             cause: EntityDamageCause.wither
         });
-        hit.addEffect(MinecraftEffectTypes.Wither, 20*TicksPerSecond, {
+        hit.addEffect("minecraft:wither", 20*TicksPerSecond, {
             amplifier: 15
         });
    }

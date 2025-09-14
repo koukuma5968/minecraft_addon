@@ -1,5 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
-import { MinecraftEntityTypes } from "@minecraft/vanilla-data";
+import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
 import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
@@ -7,13 +6,13 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function lightningBread(player:Player, hitEntity:Entity) {
 
-    player.addTag("lightning_bread_self");
+    player.addTag(player.id);
 
     player.dimension.spawnParticle("kurokumaft:lightning_bread_particle", {x:hitEntity.location.x, y:player.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "lightning_bread_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:player.location.y+1, z:hitEntity.location.z},
         maxDistance: 4
@@ -38,18 +37,18 @@ export async function lightningBread(player:Player, hitEntity:Entity) {
         }
     });
 
-    player.removeTag("lightning_bread_self");
+    player.removeTag(player.id);
 }
 
 /**
  * サンダークラップ
  */
 export async function thunderclap(player:Player) {
-    player.addTag("thunderclap_self");
+    player.addTag(player.id);
 
     const filterOption = {
         excludeTags: [
-            "thunderclap_self",
+            player.id
         ],
         location: player.location,
         maxDistance: 20,
@@ -65,7 +64,7 @@ export async function thunderclap(player:Player) {
         }
 
         en.dimension.spawnParticle("kurokumaft:lightningbolt_particle", en.location);
-        en.dimension.spawnEntity(MinecraftEntityTypes.LightningBolt, en.location);
+        en.dimension.spawnEntity("minecraft:lightning_bolt", en.location);
         if (en instanceof Player) {
             en.applyDamage(3, {
                 cause: EntityDamageCause.lightning
@@ -77,18 +76,18 @@ export async function thunderclap(player:Player) {
         }
     })
 
-    player.removeTag("thunderclap_self");
+    player.removeTag(player.id);
 }
 
 /**
  * サンダージェイル
  */
 export async function thunderjail(player:Player) {
-    player.addTag("thunder_jail_self");
+    player.addTag(player.id);
  
     const filterOption = {
         excludeTags: [
-            "thunder_jail_self"
+            player.id
         ],
         location: player.location,
         maxDistance: 8
@@ -98,26 +97,34 @@ export async function thunderjail(player:Player) {
 
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid) {
-            return;
-        }
-
-        en.dimension.spawnParticle("kurokumaft:thunder_jail_particle", en.location);
-        if (en instanceof Player) {
-            en.addEffect("slowness", 5*TicksPerSecond, {
-                amplifier: 10
-            });
-            en.applyDamage(1, {
-                cause: EntityDamageCause.lightning
-            });
-        } else {
-            en.addEffect("slowness", 10*TicksPerSecond, {
-                amplifier: 30
-            });
-            en.applyDamage(4, {
-                cause: EntityDamageCause.lightning
-            });
-        }
+        thunderJailHold(en, en.location);
     })
-    player.removeTag("thunder_jail_self");
+    player.removeTag(player.id);
+}
+
+async function thunderJailHold(en: Entity, location: Vector3) {
+
+    en.dimension.spawnParticle("kurokumaft:thunder_jail_particle", location);
+    const num = system.runInterval(() => {
+        try {
+            if (!en.isValid) {
+                system.clearRun(num);
+            }
+            en.teleport(location);
+            if (en instanceof Player) {
+                en.applyDamage(1, {
+                    cause: EntityDamageCause.lightning
+                });
+            } else {
+                en.applyDamage(4, {
+                    cause: EntityDamageCause.lightning
+                });
+            }
+        } catch (error: any) {
+            system.clearRun(num);
+        }
+    }, 2);
+    system.waitTicks(5*TicksPerSecond).then(() => {
+        system.clearRun(num);
+    });
 }

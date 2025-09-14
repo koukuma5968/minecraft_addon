@@ -6,13 +6,13 @@ import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/Magic
  */
 export async function splash(player:Player, hitEntity:Entity) {
 
-    player.addTag("splash_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:water_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "splash_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3
@@ -31,7 +31,7 @@ export async function splash(player:Player, hitEntity:Entity) {
         });
     });
 
-    player.removeTag("splash_self");
+    player.removeTag(player.id);
 }
 
 /**

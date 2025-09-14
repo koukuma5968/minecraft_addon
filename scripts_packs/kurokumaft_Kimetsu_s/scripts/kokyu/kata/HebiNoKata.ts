@@ -17,7 +17,7 @@ export class HebiNoKata extends KataComonClass {
         }
         const distancePitch = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distancePitch), 4, entity);
-        this.kokyuApplyDamage(entity, filter, 3, 2, itemStack);
+        this.kokyuApplyDamage(entity, filter, 5);
 
         const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
         entity.applyKnockback({x:distance.x,z:distance.z},0);
@@ -42,8 +42,8 @@ export class HebiNoKata extends KataComonClass {
         }
         const distancePitch = getLookLocationDistancePitch(entity.getRotation(), 0, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distancePitch), 3, entity);
-        this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
-        this.kokyuApplyEffect(entity, filter, 2, 1, "minecraft:poison");
+        this.kokyuApplyDamage(entity, filter, 5);
+        this.kokyuApplyEffect(entity, filter, 3, 2, "minecraft:poison");
 
         system.waitTicks(6).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -70,7 +70,7 @@ export class HebiNoKata extends KataComonClass {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 6, entity);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 4);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -101,7 +101,7 @@ export class HebiNoKata extends KataComonClass {
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
 
                 const filter = addRegimentalFilter(1, entity.location, 4, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -131,7 +131,7 @@ export class HebiNoKata extends KataComonClass {
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 5);
     
                 const distance = getLookLocationDistance(entity.getRotation().y, 4, side, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);

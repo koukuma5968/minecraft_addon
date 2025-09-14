@@ -42,11 +42,11 @@ export class BloodDrinking implements ItemCustomComponent {
                 }, 4);
             } else {
                 player.setProperty("kurokumaft:ogre_becoming", becoming);
-                player.addEffect("minecraft:hunger", 5*TicksPerSecond, {
+                player.addEffect("minecraft:hunger", 10*TicksPerSecond, {
                     amplifier : 5,
                     showParticles: false
                 });
-                player.addEffect("minecraft:wither", 2*TicksPerSecond, {
+                player.addEffect("minecraft:wither", 10*TicksPerSecond, {
                     amplifier : 5,
                     showParticles: false
                 });

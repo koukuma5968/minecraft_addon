@@ -54,7 +54,7 @@ export class Bunretu extends ZytuComonClass {
 
                 try {
                     const filter = addOrgeFilter(0, entity.location, 10, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 2, 1);
+                    this.zyutuApplyDamage(entity, filter, 5);
 
                     const distance = getLookLocationDistance(entity.getRotation().y, 0, getRandomInRange(-3, 3), 0);
                     entity.dimension.spawnParticle("kurokumaft:ikazuti_particle", getDistanceLocation(entity.location, distance));
@@ -93,7 +93,7 @@ export class Bunretu extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 3, 1);
+                    this.zyutuApplyDamage(entity, filter, 5);
                 } catch (error: any) {
                     system.clearRun(num);
                 }
@@ -230,7 +230,7 @@ export class Bunretu extends ZytuComonClass {
                     if (tokageR !== undefined && tokageR.isValid) {
                         const filterR = addOrgeFilter(0, tokageR.location, 10, entity.id);
                         filterR.excludeFamilies?.push("tokage");
-                        this.kokyuApplyDamage(entity, filterR, 2, 1);
+                        this.zyutuApplyDamage(entity, filterR, 7);
 
                         const distanceR = getLookLocationDistance(tokageR.getRotation().y, 0, getRandomInRange(-3, 3), 0);
                         entity.dimension.spawnParticle("kurokumaft:ikazuti_particle", getDistanceLocation(tokageR.location, distanceR));
@@ -289,7 +289,7 @@ export class Bunretu extends ZytuComonClass {
 
             const num = system.runInterval(() => {
                 try {
-                    this.kokyuApplyDamage(entity, filter, 3, 1);
+                    this.zyutuApplyDamage(entity, filter, 9);
                     this.kokyuApplyEffect(entity, filter, 10, 5, "minecraft:nausea");
                 } catch (error: any) {
                     system.clearRun(num);
@@ -370,7 +370,7 @@ export class Bunretu extends ZytuComonClass {
 
                         const filter = addOrgeFilter(0, tokage.location, 5, entity.id);
                         filter.excludeFamilies?.push("tokage");
-                        this.kokyuApplyDamage(entity, filter, 3, 1);
+                        this.zyutuApplyDamage(entity, filter, 8);
 
                     } else {
                         system.clearRun(num);

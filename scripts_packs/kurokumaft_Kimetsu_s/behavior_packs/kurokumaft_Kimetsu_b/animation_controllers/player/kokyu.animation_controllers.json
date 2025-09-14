@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "attack": "variable.attack_time" }
+            { "attack": "variable.attack_time > 0 && !query.property('kurokumaft:kokyu_attack')" }
           ]
         },
         "attack":{
@@ -13,7 +13,7 @@
             "/event entity @s kurokumaft:attack_time"
           ],
           "transitions": [
-            {"default":"(1.0)"}
+            {"default":"!query.property('kurokumaft:kokyu_attack')"}
           ]
         }
       }

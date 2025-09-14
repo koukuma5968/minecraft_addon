@@ -17,7 +17,8 @@ export class Kokurai extends ZytuComonClass {
             try {
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-                this.kokyuApplyDamage(entity, filter, 3, 1);
+                this.zyutuApplyDamage(entity, filter, 5);
+                this.kokyuApplyEffect(entity, filter, 15*TicksPerSecond, 1, "minecraft:wither");
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -43,7 +44,8 @@ export class Kokurai extends ZytuComonClass {
         const num = system.runInterval(() => {
             try {
                 const filter = addOrgeFilter(0, entity.location, 4, entity.id);
-                this.kokyuApplyDamage(entity, filter, 3, 1);
+                this.zyutuApplyDamage(entity, filter, 5);
+                this.kokyuApplyEffect(entity, filter, 15*TicksPerSecond, 1, "minecraft:wither");
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -92,6 +94,7 @@ export class Kokurai extends ZytuComonClass {
     shiNoKata(entity:Entity) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kokyu4.value"}]});
+            entity.startItemCooldown("kurokumaft:kaminari", 2*TicksPerSecond);
         }
         entity.setProperty("kurokumaft:kokyu_use", false);
 
@@ -103,7 +106,8 @@ export class Kokurai extends ZytuComonClass {
             try {
                 const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
                 const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-                this.kokyuApplyDamage(entity, filter, 2, 1);
+                this.zyutuApplyDamage(entity, filter, 5);
+                this.kokyuApplyEffect(entity, filter, 15*TicksPerSecond, 1, "minecraft:wither");
         
                 entity.dimension.spawnParticle("kurokumaft:kokurai4_particle",entity.location,molang);
             } catch (error: any) {
@@ -126,6 +130,7 @@ export class Kokurai extends ZytuComonClass {
     goNoKata(entity:Entity) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kokyu5.value"}]});
+            entity.startItemCooldown("kurokumaft:kaminari", 2*TicksPerSecond);
         }
 
         const num = system.runInterval(() => {
@@ -137,7 +142,8 @@ export class Kokurai extends ZytuComonClass {
         },2);
 
         const filter = addOrgeFilter(1, entity.location, 6, entity.id);
-        this.kokyuApplyDamage(entity, filter, 5, 2);
+        this.zyutuApplyDamage(entity, filter, 5);
+        this.kokyuApplyEffect(entity, filter, 15*TicksPerSecond, 1, "minecraft:wither");
 
         system.waitTicks(20).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -165,6 +171,7 @@ export class Kokurai extends ZytuComonClass {
     rokuNoKata(entity:Entity) {
         if (entity instanceof Player) {
             entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kokyu6.value"}]});
+            entity.startItemCooldown("kurokumaft:kaminari", 2*TicksPerSecond);
         }
 
         const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
@@ -186,7 +193,8 @@ export class Kokurai extends ZytuComonClass {
         },1);
 
         const filter = addOrgeFilter(1, entity.location, 15, entity.id);
-        this.kokyuApplyDamage(entity, filter, 8, 4);
+        this.zyutuApplyDamage(entity, filter, 5);
+        this.kokyuApplyEffect(entity, filter, 15*TicksPerSecond, 1, "minecraft:wither");
 
         system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);

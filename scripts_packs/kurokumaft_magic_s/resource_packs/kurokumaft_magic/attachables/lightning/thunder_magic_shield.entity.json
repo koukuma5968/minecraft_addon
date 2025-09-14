@@ -44,8 +44,8 @@
         ],
         "pre_animation": [
           "variable.is_using_bow = (query.get_equipped_item_name == 'bow' || query.equipped_item_any_tag('slot.weapon.mainhand', 'kurokumaft:bow')) && (query.main_hand_item_use_duration > 0.0f);",
-          "variable.is_blocking_main_hand = query.blocking && (query.get_equipped_item_name('main_hand') == 'kurokumaft:thunder_magic_shield');",
-          "variable.is_blocking_off_hand = query.blocking && (query.get_equipped_item_name('off_hand') == 'kurokumaft:thunder_magic_shield');"
+          "variable.is_blocking_main_hand = query.blocking && (query.get_equipped_item_name('main_hand') == 'thunder_magic_shield');",
+          "variable.is_blocking_off_hand = query.blocking && (query.get_equipped_item_name('off_hand') == 'thunder_magic_shield');"
         ],
         "animate": [
           "wield"

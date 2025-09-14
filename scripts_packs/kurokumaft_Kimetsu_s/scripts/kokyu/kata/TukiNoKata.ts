@@ -20,7 +20,7 @@ export class TukiNoKata extends KataComonClass {
 
         const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 0, 0.5);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
-        this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+        this.kokyuApplyDamage(entity, filter, 5);
 
         const molang = new MolangVariableMap();
         molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
@@ -62,7 +62,7 @@ export class TukiNoKata extends KataComonClass {
         
                 const distance = getLookLocationDistance(entity.getRotation().y, 3, 0, 0.5);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
         
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 2.5, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
@@ -102,7 +102,7 @@ export class TukiNoKata extends KataComonClass {
         // 左
         const distance = getLookLocationDistance(entity.getRotation().y, 2.5, -1.5, 1);
         const lfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
-        this.kokyuApplyDamage(entity, lfilter, 3, 1, itemStack);
+        this.kokyuApplyDamage(entity, lfilter, 3);
 
         molang.setFloat("variable.tuki_rotaion", 0);
         entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, distance), molang);
@@ -111,7 +111,7 @@ export class TukiNoKata extends KataComonClass {
             // 右
             const distance = getLookLocationDistance(entity.getRotation().y, 2.5, 1.5, 1);
             const rfilter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3.5, entity);
-            this.kokyuApplyDamage(entity, rfilter, 3, 1, itemStack);
+            this.kokyuApplyDamage(entity, rfilter, 3);
 
             molang.setFloat("variable.tuki_rotaion", 180);
             entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, distance), molang);
@@ -147,7 +147,7 @@ export class TukiNoKata extends KataComonClass {
                 const y = getRandomInRange(0.1, 2.5);
                 const distance = getLookLocationDistance(entity.getRotation().y, 3.5, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 4, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 6.5, 0, y);
                 molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
@@ -199,7 +199,7 @@ export class TukiNoKata extends KataComonClass {
 
                 const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 2);
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
@@ -246,7 +246,7 @@ export class TukiNoKata extends KataComonClass {
             try {
                 const distance = getLookLocationDistancePitch(entity.getRotation(), 6, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 4);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -288,7 +288,7 @@ export class TukiNoKata extends KataComonClass {
                 if (exes !== undefined) {
                     exes.push("tuki_blead");
                 }
-                this.kokyuApplyDamage(entity, filter, 2, 1, undefined);
+                this.kokyuApplyDamage(entity, filter, 2);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -330,7 +330,7 @@ export class TukiNoKata extends KataComonClass {
         entity.dimension.spawnParticle("kurokumaft:tuki8_particle", disLotation, molang);
 
         const filter = addRegimentalFilter(0, disLotation, 4, entity);
-        this.kokyuApplyDamage(entity, filter, 6, 3, itemStack);
+        this.kokyuApplyDamage(entity, filter, 7);
 
         system.waitTicks(15).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);
@@ -368,7 +368,7 @@ export class TukiNoKata extends KataComonClass {
 
                 const distance = getLookLocationDistance(entity.getRotation().y, 6, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 4);
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 6, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);
@@ -442,7 +442,7 @@ export class TukiNoKata extends KataComonClass {
                 if (exes !== undefined) {
                     exes.push("tuki_blead");
                 }
-                this.kokyuApplyDamage(entity, filter, 2, 1, undefined);
+                this.kokyuApplyDamage(entity, filter, 4);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -479,7 +479,7 @@ export class TukiNoKata extends KataComonClass {
                 const y = getRandomInRange(0.1, 2.5);
                 const distance = getLookLocationDistance(entity.getRotation().y, 5, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 6);
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 8, 0, y);
                 molang.setFloat("variable.tuki_rotaion", -entity.getRotation().y);
@@ -527,7 +527,7 @@ export class TukiNoKata extends KataComonClass {
 
                 const distance = getLookLocationDistance(entity.getRotation().y, 8, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 8, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 6);
 
                 const pdistance = getLookLocationDistance(entity.getRotation().y, 8, side, 1);
                 entity.dimension.spawnParticle("kurokumaft:tuki_sweep_particle", getDistanceLocation(entity.location, pdistance), molang);

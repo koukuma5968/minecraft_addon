@@ -2,6 +2,7 @@ import { Entity, system, TicksPerSecond } from "@minecraft/server";
 import { KokyuMobUseComponent } from "../../NichirintouUseComponent";
 import { MizuNoKata } from "../../kata/MizuNoKata";
 import { weightChoice } from "../../../common/KimetuCommonUtil";
+import { NomalAttack } from "../../kata/NomalAttack";
 
 const mizuKokyuLists = weightChoice([
     { item: 1 , weight: 50 },
@@ -30,6 +31,18 @@ export class MizuComponent implements KokyuMobUseComponent {
                 this.useAttackKokyu(entity);
             }
         }
+    }
+
+    /**
+     * @param {Entity} entity
+     */
+    async hitAttackKata(entity:Entity): Promise<void> {
+        const attack = new NomalAttack();
+        for (let i=0; i<4; i++) {
+            attack.oneAttack(entity, undefined);
+            await system.waitTicks(2.5);
+        }
+        entity.setProperty("kurokumaft:kokyu_attack", false);
     }
 
     useAttackKokyu(entity:Entity): void {
@@ -131,7 +144,7 @@ export class MizuComponent implements KokyuMobUseComponent {
                 break;
                 case 10 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    mizu.zyuNoKataMob(entity, undefined);
+                    mizu.zyuNoKata(entity, undefined);
                     system.waitTicks(40).then(() => {
                         entity.setProperty("kurokumaft:kokyu_kata", 0);
                         entity.triggerEvent("kurokumaft:kokyu_end");

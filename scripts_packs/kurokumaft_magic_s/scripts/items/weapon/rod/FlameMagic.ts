@@ -1,18 +1,18 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
-import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
+import { Entity, EntityDamageCause, EntityQueryOptions, ExplosionOptions, Player, system } from "@minecraft/server";
+import { addTeamsTagFilter, applyExplosionDamage } from "../../../common/MagicCommonUtil";
 
 /**
  * バムロッド
  */
 export async function bumrod(player:Player, hitEntity:Entity) {
 
-    player.addTag("bumrod_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:bumrod_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "bumrod_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 2
@@ -37,19 +37,19 @@ export async function bumrod(player:Player, hitEntity:Entity) {
         }
     });
 
-    player.removeTag("bumrod_self");
+    player.removeTag(player.id);
 }
 
 /**
  * フレイムサークル
  */
 export async function flarecircle(player:Player) {
-    player.addTag("flamecircle_self");
+    player.addTag(player.id);
     const intervalNum = system.runInterval(() => {
 
         const filterOption = {
             excludeTags: [
-                "flamecircle_self",
+                player.id
             ],
             location: player.location,
             maxDistance: 20,
@@ -79,7 +79,7 @@ export async function flarecircle(player:Player) {
     }, 2);
     system.runTimeout(() => {
         system.clearRun(intervalNum);
-        player.removeTag("flamecircle_self");
+        player.removeTag(player.id);
     }, 60);
 }
 
@@ -87,11 +87,11 @@ export async function flarecircle(player:Player) {
  * バーストフレア
  */
 export async function burstflare(player:Player) {
-    player.addTag("burstflare_self");
+    player.addTag(player.id);
 
     const filterOption = {
         excludeTags: [
-            "burstflare_self",
+            player.id,
         ],
         location: player.location,
         maxDistance: 20,
@@ -101,23 +101,21 @@ export async function burstflare(player:Player) {
     addTeamsTagFilter(player, filterOption);
 
     const targets = player.dimension.getEntities(filterOption);
+    const option = {
+        allowUnderwater: true,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+    } as ExplosionOptions;
+
     targets.forEach(en => {
         if (!en.isValid) {
             return;
         }
 
         en.dimension.spawnParticle("kurokumaft:burstflare_particle", en.location);
-        en.dimension.spawnEntity("kurokumaft:burstflaremagic<minecraft:explode>", en.location);
-        if (en instanceof Player) {
-            en.applyDamage(3, {
-                cause: EntityDamageCause.fire
-            });
-        } else {
-            en.applyDamage(10, {
-                cause: EntityDamageCause.fire
-            });
-        }
+        applyExplosionDamage(option, player, filterOption, player.dimension, en.location, 3, 2);
     });
 
-    player.removeTag("burstflare_self");
+     player.removeTag(player.id);
 }

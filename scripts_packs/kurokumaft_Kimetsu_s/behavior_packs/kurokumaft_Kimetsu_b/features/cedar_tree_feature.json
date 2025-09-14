@@ -1,0 +1,110 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:tree_feature": {
+    "description": {
+      "identifier": "kurokumaft:cedar_tree_feature"
+    },
+    "base_block": [
+      "minecraft:dirt",
+      "minecraft:dirt_with_roots"
+    ],
+    "base_cluster": {
+      "cluster_radius": 2,
+      "num_clusters": 4,
+      "may_replace": [
+        "minecraft:grass",
+        "minecraft:dirt",
+        "minecraft:podzol",
+        "minecraft:mycelium"
+      ]
+    },
+    "may_grow_on": [
+      {
+        "name": "minecraft:dirt",
+        "states": {
+          "dirt_type": "coarse"
+        }
+      }
+    ],
+    "may_replace": [
+      "minecraft:oak_leaves",
+      "minecraft:spruce_leaves",
+      "minecraft:birch_leaves",
+      "minecraft:acacia_leaves",
+      "minecraft:dark_oak_leaves",
+      "minecraft:azalea",
+      "minecraft:flowering_azalea",
+      "minecraft:azalea_leaves",
+      "minecraft:azalea_leaves_flowered",
+      "minecraft:air"
+     ],
+    "may_grow_through": [
+      "minecraft:dirt",
+      "minecraft:grass",
+      "minecraft:podzol",
+      "minecraft:mycelium",
+      {
+        "name": "minecraft:dirt",
+        "states": {
+          "dirt_type": "coarse"
+        }
+      }
+    ],
+    "mega_trunk": {
+      "trunk_block": "minecraft:dark_oak_log",
+      "trunk_width": 1,
+      "trunk_height": {
+        "base": 14,
+        "intervals": [10, 15]
+      },
+      "trunk_decoration": {
+        "decoration_block": "minecraft:web",
+        "decoration_chance": {
+          "numerator": 1,
+          "denominator": 3
+        },
+        "num_steps": 2,
+        "step_direction": "up"
+      },
+      "branches": {
+        "branch_length": 3,
+        "branch_slope": 2,
+        "branch_interval": {
+          "range_min": 3,
+          "range_max": 4
+        },
+        "branch_altitude_factor": {
+          "min": 0.2,
+          "max": 0.9
+        },
+        "branch_canopy": {
+          "canopy": {
+            "leaf_block": "minecraft:dark_oak_leaves",
+            "canopy_offset": {
+              "min": -2,
+              "max": 1
+            },
+            "min_width": 1,
+            "canopy_slope": {
+              "run": 3,
+              "rise": 2
+            },
+            "variation_chance": {
+              "numerator": 1,
+              "denominator": 4
+            }
+          }
+        }
+      }
+    },
+    "mega_canopy": {
+      "leaf_block": "minecraft:dark_oak_leaves",
+      "canopy_height": {
+        "range_min": 2,
+        "range_max": 3
+      },
+      "base_radius": 2,
+      "core_width": 2
+    }
+  }
+}

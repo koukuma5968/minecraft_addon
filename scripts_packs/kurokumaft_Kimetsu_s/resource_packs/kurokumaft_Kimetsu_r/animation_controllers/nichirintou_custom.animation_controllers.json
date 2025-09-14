@@ -12,7 +12,7 @@
 				"third": {
 					"transitions": [
 						{"default": "variable.is_first_person"},
-						{"attack_third": "variable.attack_time > 0.0 && query.property('kurokumaft:nichirintou_type') != 0 && query.property('kurokumaft:kokyu_chage') == 0"}
+						{"attack_third": "query.property('kurokumaft:kokyu_attack') && (variable.nichirintou_equipment != 0 || variable.kekkizyutu_type == 12 || variable.kekkizyutu_type == 13) && query.property('kurokumaft:kokyu_chage') == 0"}
 					]
 				},
 				"attack_third": {
@@ -23,42 +23,136 @@
 					]
 				},
 				"one_third": {
-					"animations": [
-						"nichirintou_custom.attack_third"
-					],
+					"animations": ["nichirintou_custom.attack_third"],
 					"transitions": [
-						{"third": "query.any_animation_finished"}
+						{"one_wait": "!query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"one_wait": {
+					"animations": ["nichirintou_custom.attack_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"one_2_third": "query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
 				"one_2_third": {
-					"animations": [
-						"nichirintou_custom.attack_2_third"
-					],
+					"animations": ["nichirintou_custom.attack_2_third"],
+					"transitions": [
+						{"one_2_wait": "!query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"one_2_wait": {
+					"animations": ["nichirintou_custom.attack_2_third_wait"],
 					"transitions": [
 						{"third": "query.any_animation_finished"},
-						{"one_3_third": "variable.attack_time > 0.0"}
+						{"one_3_third": "query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
 				"one_3_third": {
-					"animations": [
-						"nichirintou_custom.attack_3_third"
-					],
+					"animations": ["nichirintou_custom.attack_3_third"],
+					"transitions": [
+						{"one_3_wait": "!query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"one_3_wait": {
+					"animations": ["nichirintou_custom.attack_3_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"one_4_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"one_4_third": {
+					"animations": ["nichirintou_custom.attack_4_third"],
 					"transitions": [
 						{"third": "query.any_animation_finished"}
 					]
 				},
 				"two_third": {
-					"animations": [
-						"nichirintou_custom.two_attack_third"
-					],
+					"animations": ["nichirintou_custom.two_attack_third"],
+					"transitions": [
+						{"two_wait": "!query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"two_wait": {
+					"animations": ["nichirintou_custom.two_attack_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"two_2_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"two_2_third": {
+					"animations": ["nichirintou_custom.two_attack_2_third"],
+					"transitions": [
+						{"two_2_wait": "!query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"two_2_wait": {
+					"animations": ["nichirintou_custom.two_attack_2_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"two_3_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"two_3_third": {
+					"animations": ["nichirintou_custom.two_attack_3_third"],
+					"transitions": [
+						{"two_3_wait": "!query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"two_3_wait": {
+					"animations": ["nichirintou_custom.two_attack_3_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"two_4_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"two_4_third": {
+					"animations": ["nichirintou_custom.two_attack_4_third"],
+					"transitions": [
+						{"two_4_wait": "query.any_animation_finished"}
+					]
+				},
+				"two_4_wait": {
+					"animations": ["nichirintou_custom.two_attack_4_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"two_5_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"two_5_third": {
+					"animations": ["nichirintou_custom.two_attack_5_third"],
 					"transitions": [
 						{"third": "query.any_animation_finished"}
 					]
 				},
 				"horizontality_third": {
-					"animations": [
-						"nichirintou_custom.attack_horizontality_third"
-					],
+					"animations": ["nichirintou_custom.attack_horizontality_third"],
+					"transitions": [
+						{"horizontality_third_wait": "query.any_animation_finished"}
+					]
+				},
+				"horizontality_third_wait": {
+					"animations": ["nichirintou_custom.attack_horizontality_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"horizontality_2_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"horizontality_2_third": {
+					"animations": ["nichirintou_custom.attack_horizontality_2_third"],
+					"transitions": [
+						{"horizontality_2_third_wait": "query.any_animation_finished"}
+					]
+				},
+				"horizontality_2_third_wait": {
+					"animations": ["nichirintou_custom.attack_horizontality_2_third_wait"],
+					"transitions": [
+						{"third": "query.any_animation_finished"},
+						{"horizontality_3_third": "query.property('kurokumaft:kokyu_attack')"}
+					]
+				},
+				"horizontality_3_third": {
+					"animations": ["nichirintou_custom.attack_horizontality_3_third"],
 					"transitions": [
 						{"third": "query.any_animation_finished"}
 					]
@@ -69,7 +163,7 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack_third": "variable.attack_time > 0.0 && query.property('kurokumaft:nichirintou_type') != 0 && !query.property('kurokumaft:kokyu_use')"}
+						{"attack_third": "!variable.is_first_person && query.property('kurokumaft:kokyu_attack') && (variable.nichirintou_equipment != 0 || variable.kekkizyutu_type == 12 || variable.kekkizyutu_type == 13) && !query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"attack_third": {
@@ -101,117 +195,103 @@
 						{"koi": "variable.nichirintou_equipment == 25"},
 						{"mushi": "variable.nichirintou_equipment == 26"},
 						{"hana": "variable.nichirintou_equipment == 27"},
-						{"tuki": "variable.nichirintou_equipment == 28"}
+						{"tuki": "variable.nichirintou_equipment == 28"},
+						{"kokurai": "variable.kekkizyutu_type == 13"},
+						{"mikazuki": "variable.kekkizyutu_type == 12"}
 					]
 				},
 				"mizu": {
-					"animations": [
-						"mizu_attack"
-					],
+					"animations": ["mizu_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"hi": {
-					"animations": [
-						"hi_attack"
-					],
+					"animations": ["hi_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"kaminari": {
-					"animations": [
-						"kaminari_attack"
-					],
+					"animations": ["kaminari_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"kedamono": {
-					"animations": [
-						"kedamono_attack"
-					],
+					"animations": ["kedamono_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"hana": {
-					"animations": [
-						"hana_attack"
-					],
+					"animations": ["hana_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"mushi": {
-					"animations": [
-						"mushi_attack"
-					],
+					"animations": ["mushi_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"hono": {
-					"animations": [
-						"hono_attack"
-					],
+					"animations": ["hono_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"kaze": {
-					"animations": [
-						"kaze_attack"
-					],
+					"animations": ["kaze_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"iwa": {
-					"animations": [
-						"iwa_attack"
-					],
+					"animations": ["iwa_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"kasumi": {
-					"animations": [
-						"kasumi_attack"
-					],
+					"animations": ["kasumi_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"koi": {
-					"animations": [
-						"koi_attack"
-					],
+					"animations": ["koi_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"hebi": {
-					"animations": [
-						"hebi_attack"
-					],
+					"animations": ["hebi_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"oto": {
-					"animations": [
-						"oto_attack"
-					],
+					"animations": ["oto_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"tuki": {
-					"animations": [
-						"tuki_attack"
-					],
+					"animations": ["tuki_attack"],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"kokurai": {
+					"animations": ["kokurai_attack"],
+					"transitions": [
+						{"default": "query.any_animation_finished"}
+					]
+				},
+				"mikazuki": {
+					"animations": ["mikazuki_attack"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
@@ -222,7 +302,7 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack_third": "variable.attack_time > 0.0 && query.property('kurokumaft:nichirintou_type') != 0"}
+						{"attack_third": "query.property('kurokumaft:kokyu_attack') && query.property('kurokumaft:nichirintou_type') != 0"}
 					]
 				},
 				"attack_third": {
@@ -233,25 +313,19 @@
 					]
 				},
 				"one_third": {
-					"animations": [
-						"nichirintou_custom.attack_third"
-					],
+					"animations": ["nichirintou_custom.attack_third"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"two_third": {
-					"animations": [
-						"nichirintou_custom.two_attack_third"
-					],
+					"animations": ["nichirintou_custom.two_attack_third"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				},
 				"horizontality_third": {
-					"animations": [
-						"nichirintou_custom.attack_horizontality_third"
-					],
+					"animations": ["nichirintou_custom.attack_horizontality_third"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
@@ -262,13 +336,29 @@
 			"states": {
 				"default": {
 					"transitions": [
-						{"attack_third": "variable.attack_time > 0.0"}
+						{"attack_third": "query.property('kurokumaft:kokyu_attack')"}
 					]
 				},
 				"attack_third": {
-					"animations": [
-						"nichirintou_custom.attack_third"
-					],
+					"animations": ["nichirintou_custom.attack_third"],
+					"transitions": [
+						{"attack_2_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_2_third": {
+					"animations": ["nichirintou_custom.attack_2_third"],
+					"transitions": [
+						{"attack_3_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_3_third": {
+					"animations": ["nichirintou_custom.attack_3_third"],
+					"transitions": [
+						{"attack_4_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_4_third": {
+					"animations": ["nichirintou_custom.attack_4_third"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
@@ -283,9 +373,31 @@
 					]
 				},
 				"attack_third": {
-					"animations": [
-						"nichirintou_custom.attack_third"
-					],
+					"animations": ["nichirintou_custom.attack_third"],
+					"transitions": [
+						{"attack_2_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_2_third": {
+					"animations": ["nichirintou_custom.attack_2_third"],
+					"transitions": [
+						{"attack_3_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_3_third": {
+					"animations": ["nichirintou_custom.attack_3_third"],
+					"transitions": [
+						{"attack_4_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_4_third": {
+					"animations": ["nichirintou_custom.attack_4_third"],
+					"transitions": [
+						{"attack_5_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_5_third": {
+					"animations": ["nichirintou_custom.attack_5_third"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
@@ -300,15 +412,24 @@
 					]
 				},
 				"attack_third": {
-					"animations": [
-						"nichirintou_custom.attack_third"
-					],
+					"animations": ["nichirintou_custom.attack_third"],
+					"transitions": [
+						{"attack_2_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_2_third": {
+					"animations": ["nichirintou_custom.attack_2_third"],
+					"transitions": [
+						{"attack_3_third": "query.any_animation_finished"}
+					]
+				},
+				"attack_3_third": {
+					"animations": ["nichirintou_custom.attack_3_third"],
 					"transitions": [
 						{"default": "query.any_animation_finished"}
 					]
 				}
 			}
 		}
-
 	}
 }

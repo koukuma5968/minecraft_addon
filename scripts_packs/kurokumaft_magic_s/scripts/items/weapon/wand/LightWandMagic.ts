@@ -1,5 +1,4 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
@@ -7,13 +6,13 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function lightBread(player:Player, hitEntity:Entity) {
 
-    player.addTag("lightBread_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:light_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "lightBread_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3
@@ -31,14 +30,14 @@ export async function lightBread(player:Player, hitEntity:Entity) {
         });
     });
 
-    player.removeTag("lightBread_self");
+    player.removeTag(player.id);
 }
 
 /**
  * ヒーリング
  */
 export async function healing(player:Player) {
-    player.addEffect(MinecraftEffectTypes.InstantHealth, 1*TicksPerSecond, {
+    player.addEffect("minecraft:instant_health", 1*TicksPerSecond, {
         amplifier: 1
     });
 }

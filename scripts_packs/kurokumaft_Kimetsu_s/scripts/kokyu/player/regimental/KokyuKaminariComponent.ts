@@ -2,6 +2,7 @@ import { ItemStack, Player, world } from "@minecraft/server";
 import { NichirintouUseComponent } from "../../NichirintouUseComponent";
 import { KokyuObjects, KokyuObject } from "../../../item/weapon/NichirintouTypes";
 import { KaminariNoKata } from "../../kata/KaminariNoKata";
+import { NomalAttack } from "../../kata/NomalAttack";
 
 /**
  * 呼吸（雷）
@@ -33,6 +34,8 @@ export class KokyuKaminariComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
+        const attack = new NomalAttack();
+        attack.oneAttack(player, itemStack);
     }
 
     /**

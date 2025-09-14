@@ -1,19 +1,18 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
-import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 /**
  * サンドブラスト
  */
 export async function sandBlast(player:Player, hitEntity:Entity) {
 
-    player.addTag("sand_blast_self");
+    player.addTag(player.id);
 
     player.dimension.spawnParticle("kurokumaft:sand_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "sand_blast_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3
@@ -32,7 +31,7 @@ export async function sandBlast(player:Player, hitEntity:Entity) {
         });
     });
 
-    player.removeTag("sand_blast_self");
+    player.removeTag(player.id);
 }
 
 /**
@@ -41,8 +40,8 @@ export async function sandBlast(player:Player, hitEntity:Entity) {
 export async function stonewall(player:Player) {
 
     const look = getLookRotaionPointsV2(player.getRotation(), 4, 0);
-    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y, z:player.location.z+look.z}, MinecraftBlockTypes.Basalt);
-    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y+1, z:player.location.z+look.z}, MinecraftBlockTypes.Basalt);
+    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y, z:player.location.z+look.z}, "minecraft:basalt");
+    player.dimension.setBlockType({x:player.location.x+look.x, y:player.location.y+1, z:player.location.z+look.z}, "minecraft:basalt");
 
 }
 

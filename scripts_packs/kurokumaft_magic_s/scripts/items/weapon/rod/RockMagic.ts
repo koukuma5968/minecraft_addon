@@ -1,5 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { Entity, EntityComponentTypes, EntityDamageCause, EntityProjectileComponent, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
 import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
@@ -7,13 +6,13 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function stoneBread(player:Player, hitEntity:Entity) {
 
-    player.addTag("stone_bread_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:stone_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "stone_bread_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 4
@@ -38,18 +37,18 @@ export async function stoneBread(player:Player, hitEntity:Entity) {
         }
     });
 
-    player.removeTag("stone_bread_self");
+    player.removeTag(player.id);
 }
 
 /**
  * ロックブレイク
  */
 export async function rockbreak(player:Player) {
-    player.addTag("rock_break_self");
+    player.addTag(player.id);
 
     const filterOption = {
         excludeTags: [
-            "rock_break_self",
+            player.id
         ],
         location: player.location,
         maxDistance: 20,
@@ -65,29 +64,32 @@ export async function rockbreak(player:Player) {
         }
 
         if (en instanceof Player) {
-            en.addEffect(MinecraftEffectTypes.Nausea, 5*TicksPerSecond, {
+            en.addEffect("minecraft:nausea", 5*TicksPerSecond, {
                 amplifier: 2
             });
         } else {
-            en.addEffect(MinecraftEffectTypes.Nausea, 10*TicksPerSecond, {
+            en.addEffect("minecraft:nausea", 10*TicksPerSecond, {
                 amplifier: 10
             });
         }
         const rock = en.dimension.spawnEntity("kurokumaft:rockbreakmagic", {x:en.location.x,y:en.location.y + 10, z:en.location.z});
+        const projectile = rock.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+        projectile.owner = player;
+
     });
 
-    player.removeTag("rock_break_self");
+    player.removeTag(player.id);
 }
 
 /**
  * グレイボム
  */
 export async function greybomb(player:Player) {
-    player.addTag("grey_bomb_self");
+    player.addTag(player.id);
 
     const filterOption = {
         excludeTags: [
-            "grey_bomb_self",
+            player.id
         ],
         location: player.location,
         maxDistance: 20,
@@ -121,5 +123,5 @@ export async function greybomb(player:Player) {
 
     });
 
-    player.removeTag("grey_bomb_self");
+    player.removeTag(player.id);
 }

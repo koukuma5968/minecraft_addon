@@ -18,5 +18,7 @@ export interface KokyuMobUseComponent {
     startMonitoring(entity:Entity): void;
     // 呼吸攻撃
     useAttackKokyu(entity:Entity): void;
+    // 呼吸攻撃（通常攻撃時発動）
+    hitAttackKata(entity:Entity): Promise<void>;
 
 }

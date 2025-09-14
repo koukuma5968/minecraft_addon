@@ -250,7 +250,49 @@
                         ]
                     }
                 ]
-           }
+           },
+           {
+                "category_name": "nature",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.log"
+                        },
+                        "items": [
+                            "kurokumaft:wisteria_flowers_log"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.wood"
+                        },
+                        "items": [
+                            "kurokumaft:wisteria_flowers_wood"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.leaves"
+                        },
+                        "items": [
+                            "kurokumaft:wisteria_flowers_leaves"
+                        ]
+                    }
+                ]
+           },
+           {
+                "category_name": "construction",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.planks"
+                        },
+                        "items": [
+                            "kurokumaft:wisteria_flowers_planks"
+                        ]
+                    }
+                ]
+            }
         ]
     }
 }

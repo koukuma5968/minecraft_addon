@@ -19,7 +19,7 @@
             "dimension": "minecraft:overworld",
             "targets": ["minecraft:stony_peaks"],
             "amount": 1.0,
-            "noise_frequency_scale": 5
+            "noise_frequency_scale": 10
           }
         ]
       },

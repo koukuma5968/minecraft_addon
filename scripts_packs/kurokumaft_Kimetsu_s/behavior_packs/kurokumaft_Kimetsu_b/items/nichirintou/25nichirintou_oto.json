@@ -38,12 +38,12 @@
           }
         ]
       },
+      "minecraft:can_destroy_in_creative": false,
       "minecraft:damage": 5,
       "minecraft:enchantable": {
         "value": 150,
         "slot": "sword"
       },
-      "minecraft:can_destroy_in_creative": true,
       "minecraft:digger": {
         "use_efficiency": true,
         "destroy_speeds": [

@@ -56,7 +56,7 @@ export class IwaNoKata extends KataComonClass {
         system.waitTicks(6).then(() => {
             const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
             const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 6, entity);
-            this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+            this.kokyuApplyDamage(entity, filter, 8);
 
             entity.dimension.spawnParticle("kurokumaft:iwa2_particle", getDistanceLocation(entity.location, distance), molang);
         }).catch((error: any) => {
@@ -90,7 +90,7 @@ export class IwaNoKata extends KataComonClass {
 
             try {
                 const filter = addRegimentalFilter(0, entity.location, 6, entity);
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 4);
 
                 this.projectRefrect(entity, entity.location);
 
@@ -128,9 +128,9 @@ export class IwaNoKata extends KataComonClass {
         const num = system.runInterval(() => {
             try {
                 const filter = addRegimentalFilter(0, entity.location, 4, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
     
-                const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
+                const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
 
                 entity.dimension.spawnParticle("kurokumaft:iwa3_particle", entity.location, molang);
@@ -170,7 +170,7 @@ export class IwaNoKata extends KataComonClass {
             try {
                 const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, -5);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 5, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 6);
 
                 const side = getRandomInRange(-5, 5);
                 const around = getRandomInRange(-5, 5);

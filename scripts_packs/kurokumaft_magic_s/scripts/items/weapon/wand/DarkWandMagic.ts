@@ -1,5 +1,4 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
@@ -7,16 +6,13 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function darkBread(player:Player, hitEntity:Entity) {
 
-    player.addTag("darkBread_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:dark_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
     const filterOption = {
-        propertyOption: [
-            {
-                propertyId : player.id,
-                exclude: true
-            }
+        excludeTags: [
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3
@@ -34,14 +30,14 @@ export async function darkBread(player:Player, hitEntity:Entity) {
         });
     });
 
-    player.removeTag("darkBread_self");
+    player.removeTag(player.id);
 }
 
 /**
  * アブソープション
  */
 export async function absorption(player:Player) {
-    player.addEffect(MinecraftEffectTypes.Absorption, 10*TicksPerSecond, {
+    player.addEffect("minecraft:absorption", 10*TicksPerSecond, {
         amplifier: 1
     });
 }
@@ -50,7 +46,7 @@ export async function absorption(player:Player) {
  * インビジブル
  */
 export async function invisibility(player:Player) {
-    player.addEffect(MinecraftEffectTypes.Invisibility, 20*TicksPerSecond, {
+    player.addEffect("minecraft:invisibility", 20*TicksPerSecond, {
         amplifier: 5
     });
 }

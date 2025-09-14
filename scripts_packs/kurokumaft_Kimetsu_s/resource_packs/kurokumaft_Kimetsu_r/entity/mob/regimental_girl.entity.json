@@ -315,8 +315,8 @@
         "controller.render.soldier.regimental_girl",
         "controller.render.nichirintou_custom",
 
-        { "controller.render.mizu_dragon": "query.property('kurokumaft:nichirintou_type') == 15 && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 10 && query.property('kurokumaft:kokyu_attack')" },
-        { "controller.render.hi_dragon": "query.property('kurokumaft:nichirintou_type') == 17 && query.property('kurokumaft:kokyu_kata') == 6 && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_chage') == 1 && query.property('kurokumaft:kokyu_attack')" },
+        { "controller.render.mizu_dragon": "query.property('kurokumaft:nichirintou_type') == 15 && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 10 && query.property('kurokumaft:kokyu_use')" },
+        { "controller.render.hi_dragon": "query.property('kurokumaft:nichirintou_type') == 17 && query.property('kurokumaft:kokyu_kata') == 6 && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_use')" },
         { "controller.render.kaminari_dragon": "query.property('kurokumaft:nichirintou_type') == 16 && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_kata') == 7 && query.property('kurokumaft:kokyu_chage') == 10" },
         { "controller.render.hebi": "query.property('kurokumaft:nichirintou_type') == 24 && query.property('kurokumaft:kaikyu') >= 3 && query.property('kurokumaft:kokyu_use')" }
 

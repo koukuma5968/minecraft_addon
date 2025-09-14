@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
+import { Entity, EntityComponentTypes, EntityDamageCause, EntityQueryOptions, EntityTameableComponent, Player, system } from "@minecraft/server";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
@@ -6,13 +6,13 @@ import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/Magic
  */
 export async function darkFang(player:Player, hitEntity:Entity) {
 
-    player.addTag("dark_fang_self");
+    player.addTag(player.id);
 
     const look = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
 
     const filterOption = {
         excludeTags: [
-            "dark_fang_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 4
@@ -38,7 +38,7 @@ export async function darkFang(player:Player, hitEntity:Entity) {
         }
     });
 
-    player.removeTag("dark_fang_self");
+    player.removeTag(player.id);
 }
 
 /**
@@ -46,11 +46,11 @@ export async function darkFang(player:Player, hitEntity:Entity) {
  */
 export async function brushash(player:Player) {
 
-    player.addTag("brushash_self");
+    player.addTag(player.id);
 
     const filterOption = {
         excludeTags: [
-            "brushash_self",
+            player.id
         ],
         location: player.location,
         maxDistance: 10,
@@ -80,14 +80,37 @@ export async function brushash(player:Player) {
         system.clearRun(intervalNum);
     }, 40);
  
-    player.removeTag("brushash_self");
+    player.removeTag(player.id);
 }
 
 /**
  * ダークスケルトン召喚
  */
 export async function summonSkeconston(player:Player) {
-    player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x+3,y:player.location.y,z:player.location.z}).nameTag = "ダークスケルトン";
-    player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x-3,y:player.location.y,z:player.location.z}).nameTag = "ダークスケルトン";
-    player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x,y:player.location.y,z:player.location.z+3}).nameTag = "ダークスケルトン";
+    const dark_skeconston1 = player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x+3,y:player.location.y,z:player.location.z}) as Entity;
+    const dark_skeconston2 = player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x-3,y:player.location.y,z:player.location.z}) as Entity;
+    const dark_skeconston3 = player.dimension.spawnEntity("kurokumaft:dark_skeconston", {x:player.location.x,y:player.location.y,z:player.location.z+3}) as Entity;
+    dark_skeconston1.nameTag = "ダークスケルトン1"
+    dark_skeconston2.nameTag = "ダークスケルトン2"
+    dark_skeconston3.nameTag = "ダークスケルトン3"
+
+    const tameable1 = dark_skeconston1.getComponent(EntityComponentTypes.Tameable) as EntityTameableComponent;
+    if (!tameable1.isTamed) {
+        if (player instanceof Player) {
+            tameable1.tame(player);
+        }
+    }
+    const tameable2 = dark_skeconston2.getComponent(EntityComponentTypes.Tameable) as EntityTameableComponent;
+    if (!tameable2.isTamed) {
+        if (player instanceof Player) {
+            tameable2.tame(player);
+        }
+    }
+    const tameable3 = dark_skeconston3.getComponent(EntityComponentTypes.Tameable) as EntityTameableComponent;
+    if (!tameable3.isTamed) {
+        if (player instanceof Player) {
+            tameable3.tame(player);
+        }
+    }
+
 }

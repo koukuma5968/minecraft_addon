@@ -1,6 +1,5 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
 import { getAdjacentSphericalPoints } from "../../../common/MagicShooterPoints";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
@@ -8,13 +7,13 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function watercutter(player:Player, hitEntity:Entity) {
 
-    player.addTag("watercutter_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:watercutter_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "watercutter_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 4
@@ -39,7 +38,7 @@ export async function watercutter(player:Player, hitEntity:Entity) {
         }
     });
 
-    player.removeTag("watercutter_self");
+    player.removeTag(player.id);
 }
 
 /**
@@ -64,11 +63,11 @@ export async function waterwave(player:Player) {
  * ウォータジェイル
  */
 export async function waterjail(player:Player) {
-    player.addTag("waterjail_self");
+    player.addTag(player.id);
 
     const filterOption = {
         excludeTags: [
-            "waterjail_self"
+            player.id
         ],
         location: player.location,
         maxDistance: 20,
@@ -78,20 +77,34 @@ export async function waterjail(player:Player) {
     addTeamsTagFilter(player, filterOption);
     const targets = player.dimension.getEntities(filterOption);
     targets.forEach(en => {
-        if (!en.isValid) {
-            return;
-        }
-
-        en.dimension.spawnParticle("kurokumaft:waterjail_particle", en.location);
-        if (en instanceof Player) {
-            en.addEffect(MinecraftEffectTypes.Slowness, 5*TicksPerSecond, {
-                amplifier: 10
-            });
-        } else {
-            en.addEffect(MinecraftEffectTypes.Slowness, 10*TicksPerSecond, {
-                amplifier: 50
-            });
-        }
+        waterjailHold(en, en.location);
     })
-    player.removeTag("waterjail_self");
+    player.removeTag(player.id);
+}
+
+async function waterjailHold(en: Entity, location: Vector3) {
+
+    en.dimension.spawnParticle("kurokumaft:waterjail_particle", location);
+    const num = system.runInterval(() => {
+        try {
+            if (!en.isValid) {
+                system.clearRun(num);
+            }
+            en.teleport(location);
+            if (en instanceof Player) {
+                en.applyDamage(1, {
+                    cause: EntityDamageCause.drowning
+                });
+            } else {
+                en.applyDamage(4, {
+                    cause: EntityDamageCause.drowning
+                });
+            }
+        } catch (error: any) {
+            system.clearRun(num);
+        }
+    }, 2);
+    system.waitTicks(5*TicksPerSecond).then(() => {
+        system.clearRun(num);
+    });
 }

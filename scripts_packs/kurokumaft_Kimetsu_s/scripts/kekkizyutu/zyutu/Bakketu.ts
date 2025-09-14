@@ -18,6 +18,8 @@ export class Bakketu extends ZytuComonClass {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_bakketu1.value"}]});
             }
 
+            const damage = entity.getProperty("kurokumaft:attack_level") as number;
+
             const dimension = entity.dimension;
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -82,7 +84,7 @@ export class Bakketu extends ZytuComonClass {
                         targets1.forEach(en => {
                             if (en !== undefined && en.isValid) {
                                 dimension.spawnParticle("kurokumaft:bakketu_fire",en.location, molang);
-                                en.addEffect("minecraft:instant_health", 2, {
+                                en.addEffect("minecraft:instant_health", damage / 2, {
                                     amplifier: 2,
                                     showParticles: true
                                 });
@@ -93,8 +95,8 @@ export class Bakketu extends ZytuComonClass {
                             if (en !== undefined && en.isValid && entity.isValid) {
                                 dimension.spawnParticle("kurokumaft:bakketu_fire",en.location, molang);
                                 if (en instanceof Player) {
-                                    if (this.gardCheck(en)) {
-                                        en.applyDamage(2, {
+                                    if (!this.gardCheck(en)) {
+                                        en.applyDamage(damage, {
                                             cause: EntityDamageCause.fire,
                                             damagingEntity: entity
                                         });

@@ -20,7 +20,7 @@
 						{"mizu7_1_third": "query.property('kurokumaft:kokyu_kata') == 7"},
 						{"mizu8_1_third": "query.property('kurokumaft:kokyu_kata') == 8"},
 						{"mizu9_third": "query.property('kurokumaft:kokyu_kata') == 9"},
-						{"mizu10": "query.property('kurokumaft:kokyu_kata') == 10"}
+						{"mizu10_1_third": "query.property('kurokumaft:kokyu_kata') == 10"}
 					]
 				},
 				"mizu1_1_third" : {
@@ -159,9 +159,21 @@
 						{"default": "!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
-				"mizu10" : {
+				"mizu10_1_third" : {
+					"animations" : [
+						"mizu_dragon",
+						"mizu.tou_1_third"
+					],
 					"transitions" : [
-						{"default":"(1.0)"}
+						{"mizu10_2_third":"!query.property('kurokumaft:kokyu_use')"}
+					]
+				},
+				"mizu10_2_third" : {
+					"animations" : [
+						"mizu.tou_2_third"
+					],
+					"transitions" : [
+						{"default":"query.any_animation_finished"}
 					]
 				}
 
@@ -172,8 +184,7 @@
 			"states" : {
 				"default":{
 					"transitions" : [
-						{"mizu9": "query.property('kurokumaft:kokyu_kata') == 9"},
-						{"mizu10": "query.property('kurokumaft:kokyu_kata') == 10"}
+						{"mizu9": "query.property('kurokumaft:kokyu_kata') == 9"}
 					]
 				},
 
@@ -198,34 +209,6 @@
 					],
 					"transitions" : [
 						{"mizu9":"query.any_animation_finished"}
-					]
-				},
-
-				"mizu10" : {
-					"animations" : [
-						{"mizu.tou": "query.property('kurokumaft:kokyu_chage') == 4"}
-					],
-					"transitions" : [
-						{"default": "!query.property('kurokumaft:kokyu_use')"},
-						{"mizu10_1_third": "query.property('kurokumaft:kokyu_attack')"},
-						{"mizu10_2_third": "query.property('kurokumaft:kokyu_chage') == 10"}
-					]
-				},
-				"mizu10_1_third" : {
-					"animations" : [
-						"mizu_dragon",
-						"mizu.tou_1_third"
-					],
-					"transitions" : [
-						{"mizu10":"!query.property('kurokumaft:kokyu_attack')"}
-					]
-				},
-				"mizu10_2_third" : {
-					"animations" : [
-						"mizu.tou_2_third"
-					],
-					"transitions" : [
-						{"mizu10":"query.property('kurokumaft:kokyu_chage') != 10"}
 					]
 				}
 			}

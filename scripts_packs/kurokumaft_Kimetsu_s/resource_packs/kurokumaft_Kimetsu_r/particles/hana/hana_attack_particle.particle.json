@@ -4,22 +4,22 @@
 		"description": {
 			"identifier": "kurokumaft:hana_attack_particle",
 			"basic_render_parameters": {
-				"material": "particles_alpha",
+				"material": "particles_blend",
 				"texture": "textures/particle/particles"
 			}
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": "query.property('kurokumaft:kaikyu')*10",
-				"max_particles": "query.property('kurokumaft:kaikyu')*15"
+				"spawn_rate": "query.property('kurokumaft:kaikyu')*30",
+				"max_particles": "query.property('kurokumaft:kaikyu')*30"
 			},
 			"minecraft:emitter_lifetime_expression": {
 				"activation_expression": 1,
-				"expiration_expression": "(variable.emitter_age > 0.25 ? 1.0 : 0.0)"
+				"expiration_expression": "(variable.emitter_age > 0.5 ? 1.0 : 0.0)"
 			},
 			"minecraft:emitter_shape_box": {
-				"offset": [0, -0.25, 0],
-				"half_dimensions": [0.1, 0.1, 0.1],
+				"offset": ["math.random_integer(-0.1, 0.1)", "math.random_integer(-0.1, 0.1)", "math.random_integer(-0.1, 0.1)"],
+				"half_dimensions": [0.1, 0.4, 0.1],
 				"surface_only": true,
 				"direction": [5, 5, 5]
 			},
@@ -37,7 +37,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.96471, 0, 0.87843, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFF600A1",
+						"1.0": "#FFF186CE"
+					}
+				}
 			}
 		}
 	}

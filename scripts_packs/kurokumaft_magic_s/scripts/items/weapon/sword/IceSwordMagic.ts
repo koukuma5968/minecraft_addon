@@ -1,8 +1,7 @@
 import { Entity, EntityDamageCause, Player, TicksPerSecond, world } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
- * ウォーターソード
+ * アイスソード
  * @param {Player} player
  * @param {Entity} entity
  */
@@ -12,7 +11,7 @@ export async function iceSword(player:Player, entity:Entity) {
 
     if (entity instanceof Player) {
         if (world.gameRules.pvp) {
-            entity.addEffect(MinecraftEffectTypes.InstantHealth, 10*TicksPerSecond, {
+            entity.addEffect("minecraft:poison", 10*TicksPerSecond, {
                 amplifier: 2
             });
         }
@@ -20,69 +19,14 @@ export async function iceSword(player:Player, entity:Entity) {
         entity.applyDamage(25, {
             cause: EntityDamageCause.freezing
         });
-        entity.addEffect(MinecraftEffectTypes.Poison, 20*TicksPerSecond, {
+        entity.addEffect("minecraft:poison", 20*TicksPerSecond, {
             amplifier: 10
         });
     }
 }
 
-// /**
-//  * §cブレイズバースト
-//  * @param {Player} player
-//  */
-// export async function blazeBurst(player:Player) {
-
-//     player.dimension.spawnParticle("kurokumaft:explosion_shell", player.location);
-//     player.dimension.spawnParticle("kurokumaft:explosion_wave_particle", player.location);
-
-//     const entitys = player.dimension.getEntities({
-//         excludeFamilies: [
-//             "player", "inanimate", "familiar"
-//         ],
-//         excludeTags: [
-//             "item"
-//         ],
-//         maxDistance: 8
-//     }) as Entity[];
-
-//     entitys.forEach(en => {
-//         en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-//             {
-//                 x:en.location.x,
-//                 y:en.location.y + 0.75,
-//                 z:en.location.z
-//             }
-//         );
-//         en.applyDamage(100, {
-//             cause: EntityDamageCause.fire
-//         });
-//     });
-
-//     if (world.gameRules.pvp) {
-//         const players = player.dimension.getEntities({
-//             families: [
-//                 "player"
-//             ],
-//             maxDistance: 8
-//         }) as Player[];
-    
-//         players.forEach(en => {
-//             en.dimension.spawnEntity("kurokumaft:fire_sword_magic", 
-//                 {
-//                     x:en.location.x,
-//                     y:en.location.y + 0.75,
-//                     z:en.location.z
-//                 }
-//             );
-//             en.applyDamage(10, {
-//                 cause: EntityDamageCause.fire
-//             });
-//         });
-//     }
-// }
-
 /**
- * ウォーターソード(モンス)
+ * アイスソード(モンス)
  * @param {Entity} attack
  * @param {Entity} hit
  */
@@ -93,14 +37,14 @@ export async function iceSwordMons(attack:Entity, hit:Entity) {
         hit.applyDamage(2, {
             cause: EntityDamageCause.freezing
         });
-        hit.addEffect(MinecraftEffectTypes.Poison, 10*TicksPerSecond, {
+        hit.addEffect("minecraft:poison", 10*TicksPerSecond, {
             amplifier: 2
         });
     } else {
         hit.applyDamage(15, {
             cause: EntityDamageCause.freezing
         });
-        hit.addEffect(MinecraftEffectTypes.Poison, 20*TicksPerSecond, {
+        hit.addEffect("minecraft:poison", 20*TicksPerSecond, {
             amplifier: 10
         });
    }

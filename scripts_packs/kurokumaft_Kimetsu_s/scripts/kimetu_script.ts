@@ -11,7 +11,7 @@ import { ibuki } from "./kekkizyutu/zyutu/Koori";
 import { kekkizyutuLists, NitirintouEquips, OgreKaikyu, ogrePointList, TaishiKaikyu } from "./common/KimetuConst";
 import { gyokkoMove } from "./kekkizyutu/zyutu/Tubo";
 import { ActionFormData, ActionFormResponse } from "@minecraft/server-ui";
-import { subtractionItem } from "./common/KimetuItemDurabilityDamage";
+import { ItemDurabilityDamage, subtractionItem } from "./common/KimetuItemDurabilityDamage";
 
 // ワールド接続時
 system.beforeEvents.startup.subscribe(initEvent => {
@@ -47,32 +47,56 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
   const entity = event.entity;
   if (entity instanceof Player) {
     if (event.eventId === "kurokumaft:attack_time") {
+      entity.setDynamicProperty("kurokumaft:attack_time", true);
+      entity.triggerEvent("kurokumaft:remove_damage_guard");
+      system.runTimeout(() => {
+        entity.setDynamicProperty("kurokumaft:attack_time", false);
+      },20);
       // const nichirintou = entity.getProperty("kurokumaft:nichirintou_type") as number;
       // if (nichirintou > 1) {
       const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
       const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
       if (mainHand !== undefined) {
         const object = KokyuObjects.find(ob => ob.itemName === mainHand.typeId) as KokyuObject;
-        if (object !== undefined && object.type > 1 && !entity.getProperty("kurokumaft:kokyu_attack")) {
+        if (object !== undefined && object.type > 0 && !entity.getProperty("kurokumaft:kokyu_attack")) {
           entity.setProperty("kurokumaft:kokyu_attack", true);
           system.runTimeout(() => {
             entity.setProperty("kurokumaft:kokyu_attack", false);
-          },10);
+          },3);
           const kokyuClass = kokyuClassRecord[object.className];
           const kokyuObject = new kokyuClass();
 
-          const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-          const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-          kokyuObject.hitAttackKata(entity, itemStack);
+          kokyuObject.hitAttackKata(entity, mainHand);
+        } else {
+          if (mainHand.typeId === "kurokumaft:kyokokukamusari" || mainHand.typeId === "kurokumaft:nichirintou_kaigaku") {
+            entity.setProperty("kurokumaft:kokyu_attack", true);
+            system.runTimeout(() => {
+              entity.setProperty("kurokumaft:kokyu_attack", false);
+            },3);
+            const kekkizyutuObject = KekkizyutuObjects.find(ob => ob.itemName === mainHand.typeId) as KekkizyutuObject;
+            const kekkizyutuClass = KekkizyutuClassRecord[kekkizyutuObject.className];
+            const kekkizyutu = new kekkizyutuClass();
 
+            kekkizyutu.hitAttackZyutu(entity);
+          }
         }
       }
     } else if (event.eventId === "kurokumaft:damaged_by_player") {
       entity.applyDamage(0, {
-          cause: EntityDamageCause.entityAttack,
-          damagingEntity: entity
-        });
+        cause: EntityDamageCause.entityAttack,
+        damagingEntity: entity
+      });
+    } else if (event.eventId === "kurokumaft:damage_guard") {
+      entity.playSound("damage_guard.nitirintou_blocking", {
+          pitch: 1,
+          volume: 1
+      });
+      const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+      const mainHand = equ.getEquipment(EquipmentSlot.Mainhand);
+      if (mainHand !== undefined) {
+        ItemDurabilityDamage(entity, mainHand);
       }
+    }
   } else {
     if (event.eventId === "kurokumaft:kokyu_start") {
       if (entity.typeId.indexOf("kurokumaft:regimental") !== -1) {
@@ -88,7 +112,6 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
             }
           }
         }
-
       } else {
         const taishi = KokyuMobObjects.find(ob => ob.entityName === entity.typeId) as KokyuMobObject;
         if (taishi !== undefined) {
@@ -108,6 +131,40 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
       ibuki(entity);
     } else if (event.eventId === "kurokumaft:gyokko_move") {
       gyokkoMove(entity);
+    } else if (event.eventId === "kurokumaft:attack_time") {
+      entity.setProperty("kurokumaft:kokyu_attack", true);
+      system.runTimeout(() => {
+        entity.setProperty("kurokumaft:kokyu_attack", false);
+      },10);
+
+      if (entity.typeId.indexOf("kurokumaft:regimental") !== -1) {
+        const nichirintoutype = entity.getProperty("kurokumaft:nichirintou_type") as number;
+        if (nichirintoutype !== undefined) {
+          const kokyuObject = KokyuObjects.find(ob => ob.type === nichirintoutype) as KokyuObject;
+          if (kokyuObject !== undefined) {
+            const katana = KokyuMobObjects.find(ob => ob.entityName === kokyuObject.itemName) as KokyuMobObject;
+            if (katana !== undefined) {
+              const KokyuClass = KokyuMobClassRecord[katana.className];
+              const KokyuObject = new KokyuClass();
+              KokyuObject.hitAttackKata(entity);
+            }
+          }
+        }
+      } else {
+        const taishi = KokyuMobObjects.find(ob => ob.entityName === entity.typeId) as KokyuMobObject;
+        if (taishi !== undefined) {
+          const KokyuClass = KokyuMobClassRecord[taishi.className];
+          const KokyuObject = new KokyuClass();
+          KokyuObject.hitAttackKata(entity);
+        }
+        const ogre = KekkizyutuMobObjects.find(ob => ob.entityName === entity.typeId) as KekkizyutuMobObject;
+        if (ogre !== undefined) {
+          const kekkizyutuClass = KekkizyutuMobClassRecord[ogre.className];
+          const kekkizyutuObject = new kekkizyutuClass(entity);
+          kekkizyutuObject.hitAttackZyutu(entity);
+        }
+      }
+
     }
   }
 

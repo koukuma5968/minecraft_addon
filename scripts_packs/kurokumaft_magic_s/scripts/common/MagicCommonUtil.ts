@@ -1,4 +1,4 @@
-import { world,Player,Entity,Vector2, Vector3, Direction, EntityQueryOptions, Block} from "@minecraft/server";
+import { world,Player,Entity,Vector2, Vector3, Direction, EntityQueryOptions, Block, ExplosionOptions, Dimension, EntityDamageCause} from "@minecraft/server";
 import { HorizonVector2 } from "./MagicHorizonVector2";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
@@ -375,6 +375,25 @@ const BlockLocationList = Object.freeze([
 
 ]);
 
+async function applyExplosionDamage(option:ExplosionOptions, source:Entity, filterOption:EntityQueryOptions, dimension:Dimension, location:Vector3, amount:number, radius:number) {
+    const bom = dimension.createExplosion(location, radius, option);
+    if (bom) {
+        dimension.getEntities(filterOption).forEach(entity => {
+            if (entity instanceof Player) {
+                entity.applyDamage(amount, {
+                    cause: EntityDamageCause.entityExplosion,
+                    damagingEntity: source
+                });
+            } else {
+                entity.applyDamage(amount*3, {
+                    cause: EntityDamageCause.entityExplosion,
+                    damagingEntity: source
+                });
+            }
+        });
+    }
+}
+
 export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPointsV2, getDistanceLocation, getDirectionVector, addTeamsTagFilter,
-    getLookLocationDistance, getLookLocationDistancePitch, 
+    getLookLocationDistance, getLookLocationDistancePitch, applyExplosionDamage,
     MagicCraftBlocks, BlockLocationList };

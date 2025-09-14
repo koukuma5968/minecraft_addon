@@ -10,15 +10,16 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_steady": {
-				"spawn_rate": "query.property('kurokumaft:kaikyu')*10",
+				"spawn_rate": "query.property('kurokumaft:kaikyu')*30",
 				"max_particles": "query.property('kurokumaft:kaikyu')*30"
 			},
 			"minecraft:emitter_lifetime_expression": {
 				"activation_expression": 1,
-				"expiration_expression": "(variable.emitter_age > 0.25 ? 1.0 : 0.0)"
+				"expiration_expression": "(variable.emitter_age > 0.5 ? 1.0 : 0.0)"
 			},
 			"minecraft:emitter_shape_box": {
-				"half_dimensions": [0.2, 0.2, 0.2],
+				"offset": ["math.random_integer(-0.1, 0.1)", "math.random_integer(-0.1, 0.1)", "math.random_integer(-0.1, 0.1)"],
+				"half_dimensions": [0.1, 0.4, 0.1],
 				"surface_only": true,
 				"direction": "outwards"
 			},
@@ -44,7 +45,13 @@
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [0.98039, 0.9451, 0.4, 1]
+				"color": {
+					"interpolant": "v.particle_age / v.particle_lifetime",
+					"gradient": {
+						"0.0": "#FFD1CA62",
+						"1.0": "#FFF8F3CF"
+					}
+				}
 			}
 		}
 	}

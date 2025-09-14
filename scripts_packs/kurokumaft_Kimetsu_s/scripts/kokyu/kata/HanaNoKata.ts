@@ -26,7 +26,7 @@ export class HanaNoKata extends KataComonClass {
                     const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                     const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
                     entity.dimension.spawnParticle("kurokumaft:hana_ni_particle", getDistanceLocation(entity.location, distance), molang);
-                    this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                    this.kokyuApplyDamage(entity, filter, 5);
                 } catch (error: any) {
                     system.clearRun(num);
                 }
@@ -56,7 +56,7 @@ export class HanaNoKata extends KataComonClass {
         }
         const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
         const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
-        this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+        this.kokyuApplyDamage(entity, filter, 8);
         const kaikyuNum = entity.getProperty("kurokumaft:kaikyu") as number;
         const molang = new MolangVariableMap();
         molang.setFloat("variable.kaikyu", kaikyuNum);
@@ -90,7 +90,7 @@ export class HanaNoKata extends KataComonClass {
             try {
                 const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 2.5, entity);
-                this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
                 if (count <= 9) {
                     entity.dimension.spawnParticle("kurokumaft:hana_go_"+ count +"_particle",getDistanceLocation(entity.location, distance),molang);
                     count++;
@@ -132,7 +132,7 @@ export class HanaNoKata extends KataComonClass {
                 entity.applyKnockback({x:distanceK.x,z:distanceK.z},0);
                 const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0);
                 const filter = addRegimentalFilter(0, getDistanceLocation(entity.location, distance), 3, entity);
-                this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 4);
         
                 entity.dimension.spawnParticle("kurokumaft:hana_roku_particle", getDistanceLocation(entity.location, distance), molang);
             } catch (error: any) {

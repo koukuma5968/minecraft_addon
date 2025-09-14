@@ -14,7 +14,7 @@ export class Koori extends ZytuComonClass {
             }
             const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
-            this.kokyuApplyDamage(entity, filter, 4, 2);
+            this.zyutuApplyDamage(entity, filter, 5);
 
             for (let i=-3; i<=3; i=i+3) {
                 const distance = getLookLocationDistance(entity.getRotation().y, 4, i, 0);
@@ -46,7 +46,7 @@ export class Koori extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 5);
 
                 } catch (error: any) {
                     system.clearRun(num);
@@ -77,7 +77,7 @@ export class Koori extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 5);
                     this.kokyuApplyEffect(entity, filter, 20, 2, "minecraft:weakness");
 
                 } catch (error: any) {
@@ -188,7 +188,7 @@ export class Koori extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 6);
 
                 } catch (error: any) {
                     system.clearRun(num);
@@ -221,7 +221,7 @@ export class Koori extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 6, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 5);
 
                 } catch (error: any) {
                     system.clearRun(num);
@@ -310,7 +310,7 @@ export class Koori extends ZytuComonClass {
                 try {
                     const distance = getLookLocationDistance(entity.getRotation().y, 0, 0, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 8, entity.id);
-                    this.kokyuApplyDamage(entity, filter, 4, 2);
+                    this.zyutuApplyDamage(entity, filter, 5);
 
                 } catch (error: any) {
                     system.clearRun(num);
@@ -395,7 +395,7 @@ class hasuRenge extends ZytuComonClass {
             })
             const ran = getRandomInRange(1, 4);
             this.entity.setProperty("kurokumaft:attack_ran", ran);
-            this.kokyuApplyDamage(this.entity, filter, 3, 1);
+            this.zyutuApplyDamage(this.entity, filter, 2);
         }
     }
 

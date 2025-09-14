@@ -53,6 +53,18 @@
    },
    "ice_plate" : {
       "sound" : "glass"
+   },
+   "wisteria_flowers_log" : {
+      "sound" : "wood"
+   },
+   "stripped_wisteria_flowers_log" : {
+      "sound" : "wood"
+   },
+   "wisteria_flowers_wood" : {
+      "sound" : "wood"
+   },
+   "wisteria_flowers_leaves" : {
+      "sound" : "grass"
    }
 
 }

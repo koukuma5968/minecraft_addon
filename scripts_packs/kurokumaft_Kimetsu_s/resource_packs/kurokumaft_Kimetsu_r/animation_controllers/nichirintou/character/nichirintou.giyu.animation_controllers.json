@@ -23,7 +23,6 @@
 						{"mizu9_1_first": "query.property('kurokumaft:kokyu_kata') == 9 && !query.is_jumping"},
 						{"mizu9_2_first": "query.property('kurokumaft:kokyu_kata') == 9 && query.is_jumping"},
 						{"mizu10_1_first": "query.property('kurokumaft:kokyu_kata') == 10"},
-						{"mizu10_2_first": "query.property('kurokumaft:kokyu_kata') == 10"},
 						{"mizu11_1_first": "query.property('kurokumaft:kokyu_kata') == 11"}
 					]
 				},
@@ -172,18 +171,12 @@
 						{"default":"query.any_animation_finished"}
 					]
 				},
-				"mizu10_first" : {
-					"transitions" : [
-						{"mizu10_1_first":"query.property('kurokumaft:kokyu_attack')"},
-						{"mizu10_2_first":"query.property('kurokumaft:kokyu_finish')"}
-					]
-				},
 				"mizu10_1_first" : {
 					"animations" : [
 						"mizu.tou_1_first"
 					],
 					"transitions" : [
-						{"mizu10_first":"query.any_animation_finished"}
+						{"mizu10_2_first":"!query.property('kurokumaft:kokyu_use')"}
 					]
 				},
 				"mizu10_2_first" : {

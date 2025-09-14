@@ -6,13 +6,13 @@ import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/Magic
  */
 export async function windEdge(player:Player, hitEntity:Entity) {
 
-    player.addTag("wind_edge_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:wind_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "wind_edge_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3
@@ -31,7 +31,7 @@ export async function windEdge(player:Player, hitEntity:Entity) {
         });
     });
 
-    player.removeTag("wind_edge_self");
+    player.removeTag(player.id);
 }
 
 /**

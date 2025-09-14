@@ -130,3 +130,9 @@ export const NitirintouEquips = Object.freeze([
         charaName: "kurokumaft:mituri"
     },
 ])
+
+export const attackTypesLists = Object.freeze([
+    {tag:"attack_one",             count:4},
+    {tag:"attack_two",             count:5},
+    {tag:"attack_horizontality",   count:3},
+]);

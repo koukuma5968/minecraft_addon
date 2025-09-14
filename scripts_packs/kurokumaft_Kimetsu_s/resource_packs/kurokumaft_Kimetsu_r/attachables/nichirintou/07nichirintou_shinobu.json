@@ -28,6 +28,9 @@
           "first": "animation.nichirintou_first",
           "attack_con": "controller.animation.nichirintou.attack",
           "attack": "animation.nichirintou_first.horizontality_attack",
+          "attack_third_wait": "animation.nichirintou_third.horizontality_attack_wait",
+          "attack_2_third": "animation.nichirintou_third.horizontality_attack_2",
+          "attack_2_third_wait": "animation.nichirintou_third.horizontality_attack_2_wait",
 
           "shinobu": "controller.animation.nichirintou.shinobu",
 

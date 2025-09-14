@@ -2,6 +2,7 @@ import { ItemStack, Player, world } from "@minecraft/server";
 import { NichirintouUseComponent } from "../../NichirintouUseComponent";
 import { MizuNoKata } from "../../kata/MizuNoKata";
 import { KokyuObjects, KokyuObject } from "../../../item/weapon/NichirintouTypes";
+import { NomalAttack } from "../../kata/NomalAttack";
 
 /**
  * 呼吸（水）
@@ -33,20 +34,8 @@ export class KokyuMizuComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const mizu = new MizuNoKata();
-
-        try {
-
-            switch (kata) {
-                case 10 :
-                    mizu.zyuNoKata(player, itemStack);
-                break;
-            }
-        } catch (error: any) {
-            
-        }
-
+        const attack = new NomalAttack();
+        attack.oneAttack(player, itemStack);
     }
 
     /**
@@ -74,7 +63,7 @@ export class KokyuMizuComponent implements NichirintouUseComponent {
                     mizu.kuNoKata(player, itemStack);
                 break;
                 case 10 :
-                    mizu.zyuNoKataShot(player, itemStack);
+                    mizu.zyuNoKata(player, itemStack);
                 break;
             }
         } catch (error: any) {

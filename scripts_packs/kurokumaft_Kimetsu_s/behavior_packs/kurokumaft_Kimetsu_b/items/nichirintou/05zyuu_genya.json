@@ -32,6 +32,7 @@
           }
         ]
       },
+      "minecraft:can_destroy_in_creative": false,
       "minecraft:shooter": {
         "ammunition": [
           {
@@ -48,7 +49,6 @@
       "minecraft:use_modifiers": {
         "use_duration": 1
       },
-      "minecraft:can_destroy_in_creative": true,
       "minecraft:damage": 4,
       "minecraft:enchantable": {
         "value": 150,

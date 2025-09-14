@@ -18,13 +18,6 @@
       },
       "minecraft:icon": "douma_sensu",
       "minecraft:max_stack_size": 1,
-      "minecraft:durability": {
-        "max_durability": 3500,
-        "damage_chance": {
-          "min": 2,
-          "max": 5
-        }
-      },
       "minecraft:damage": 10,
       "minecraft:allow_off_hand": true,
       "minecraft:can_destroy_in_creative": false,

@@ -2,6 +2,7 @@ import { Entity, Player, world } from "@minecraft/server";
 import { KekkizyutuUseComponent } from "../../KekkizyutuUseComponent";
 import { Kokurai } from "../../zyutu/Kokurai";
 import { KekkizyutuObject, KekkizyutuObjects } from "../../../item/weapon/KekkizyutuTypes";
+import { NomalAttack } from "../../../kokyu/kata/NomalAttack";
 
 /**
  * 呼吸（雷）
@@ -30,9 +31,11 @@ export class ZyutuKaigakuComponent implements KekkizyutuUseComponent {
     }
 
     /**
-     * @param {Entity} entity
+     * @param {Player} player
      */
-    hitAttackZyutu(entity: Entity): void {
+    hitAttackZyutu(player: Player): void {
+        const attack = new NomalAttack();
+        attack.oneAttack(player, undefined);
     }
 
     /**

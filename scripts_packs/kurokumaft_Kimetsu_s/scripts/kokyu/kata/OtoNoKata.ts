@@ -19,7 +19,7 @@ export class OtoNoKata extends KataComonClass {
         const distance = getLookLocationDistance(entity.getRotation().y, 1.5, 0, 0.5);
         const disLocation = getDistanceLocation(entity.location, distance);
         const filter = addRegimentalFilter(0, disLocation, 3, entity);
-        this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+        this.kokyuApplyDamage(entity, filter, 5);
 
         const option = {
             allowUnderwater: true,
@@ -60,7 +60,7 @@ export class OtoNoKata extends KataComonClass {
                 const distance = getLookLocationDistance(entity.getRotation().y, 2, side, 0.5);
                 const disLocation = getDistanceLocation(entity.location, distance);
                 const filter = addRegimentalFilter(0, disLocation, 4, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
                 entity.dimension.createExplosion(disLocation, 2, option);
                 side=side+2;
             } catch (error: any) {
@@ -101,7 +101,7 @@ export class OtoNoKata extends KataComonClass {
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
 
                 const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
                 const front = getForwardPosition(entity.location, entity.getRotation().y, 1);
                 entity.dimension.createExplosion(front, 2, option);
             } catch (error: any) {
@@ -144,7 +144,7 @@ export class OtoNoKata extends KataComonClass {
 
             try {
                 const filter = addRegimentalFilter(0, entity.location, 5, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
                 this.checkSousouReflection(entity, option);
             } catch (error: any) {
                 system.clearRun(num);
@@ -219,12 +219,12 @@ export class OtoNoKata extends KataComonClass {
             const num = system.runInterval(() => {
 
                 try {
-                    const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0.5);
+                    const distance = getLookLocationDistance(entity.getRotation().y, 2, 0, 0.5);
         
                     entity.applyKnockback({x:distance.x,z:distance.z},0);
 
                     const filter = addRegimentalFilter(0, entity.location, 3.5, entity);
-                    this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                    this.kokyuApplyDamage(entity, filter, 4);
 
                     const right = getRightPosition(entity.location, entity.getRotation().y, 3);
                     entity.dimension.createExplosion(right, 2.5, option);

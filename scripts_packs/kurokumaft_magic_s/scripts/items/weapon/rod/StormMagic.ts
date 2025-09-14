@@ -1,5 +1,4 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
 /**
@@ -7,13 +6,13 @@ import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
  */
 export async function stormBread(player:Player, hitEntity:Entity) {
 
-    player.addTag("storm_bread_self");
+    player.addTag(player.id);
 
     hitEntity.dimension.spawnParticle("kurokumaft:storm_bread_particle", {x:hitEntity.location.x, y:hitEntity.location.y+1.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "storm_bread_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 2
@@ -37,21 +36,18 @@ export async function stormBread(player:Player, hitEntity:Entity) {
         }
     });
 
-    player.removeTag("storm_bread_self");
+    player.removeTag(player.id);
 }
 
 /**
  * ストーム
  */
 export async function storm(player:Player) {
-    player.setDynamicProperty(player.id, true);
+    player.addTag(player.id);
 
     const filterOption = {
-        propertyOptions: [
-            {
-                exclude: true,
-                propertyId: player.id
-            }
+        excludeTags: [
+            player.id
         ],
         location: player.location,
         maxDistance: 20,
@@ -71,14 +67,14 @@ export async function storm(player:Player) {
         en.dimension.spawnParticle("kurokumaft:storm3_particle", {x:en.location.x,y:en.location.y+2,z:en.location.z});
         en.dimension.spawnParticle("kurokumaft:storm4_particle", {x:en.location.x,y:en.location.y+3,z:en.location.z});
         if (en instanceof Player) {
-            en.addEffect(MinecraftEffectTypes.Levitation, 1*TicksPerSecond, {
+            en.addEffect("minecraft:levitation", 1*TicksPerSecond, {
                 amplifier: 10
             });
             en.applyDamage(1, {
                 cause: EntityDamageCause.fall
             });
         } else {
-            en.addEffect(MinecraftEffectTypes.Levitation, 1*TicksPerSecond, {
+            en.addEffect("minecraft:levitation", 1*TicksPerSecond, {
                 amplifier: 15
             });
             en.applyDamage(3, {
@@ -87,21 +83,18 @@ export async function storm(player:Player) {
         }
     });
 
-    player.removeTag("storm_self");
+    player.removeTag(player.id);
 }
 
 /**
  * エアロボム
  */
 export async function aerobomb(player:Player) {
-    player.setDynamicProperty(player.id, true);
+    player.addTag(player.id);
 
     const filterOption = {
-        propertyOptions: [
-            {
-                exclude: true,
-                propertyId: player.id
-            }
+        excludeTags: [
+            player.id
         ],
         location: player.location,
         maxDistance: 20,
@@ -134,6 +127,6 @@ export async function aerobomb(player:Player) {
         })
     });
  
-    player.setDynamicProperty(player.id, undefined);
+    player.removeTag(player.id);
 
 }

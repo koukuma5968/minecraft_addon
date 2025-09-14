@@ -1,14 +1,13 @@
 import { Entity, EntityDamageCause, Player, TicksPerSecond, world } from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
- * ウォーターソード
+ * レインボーソード
  * @param {Player} player
  * @param {Entity} entity
  */
 export async function rainbowSword(player:Player, entity:Entity) {
 
-    player.addTag("rainbow_sword");
+    player.addTag(player.id);
     entity.dimension.spawnParticle("kurokumaft:rainbow_sword_slash", entity.location);
 
     if (entity instanceof Player) {
@@ -22,16 +21,16 @@ export async function rainbowSword(player:Player, entity:Entity) {
             entity.applyDamage(5, {
                 cause: EntityDamageCause.freezing
             });
-            entity.addEffect(MinecraftEffectTypes.Weakness, 10*TicksPerSecond, {
+            entity.addEffect( "minecraft:weakness", 10*TicksPerSecond, {
                 amplifier: 10
             });
-            entity.addEffect(MinecraftEffectTypes.Wither, 10*TicksPerSecond, {
+            entity.addEffect("minecraft:wither", 10*TicksPerSecond, {
                 amplifier: 1
             });
-            entity.addEffect(MinecraftEffectTypes.Slowness, 10*TicksPerSecond, {
+            entity.addEffect("minecraft:slowness", 10*TicksPerSecond, {
                 amplifier: 1
             });
-            entity.addEffect(MinecraftEffectTypes.Blindness, 3*TicksPerSecond, {
+            entity.addEffect("minecraft:blindness", 3*TicksPerSecond, {
                 amplifier: 1
             });
             }
@@ -45,19 +44,19 @@ export async function rainbowSword(player:Player, entity:Entity) {
         entity.applyDamage(20, {
             cause: EntityDamageCause.freezing
         });
-        entity.addEffect(MinecraftEffectTypes.Weakness, 20*TicksPerSecond, {
+        entity.addEffect("minecraft:weakness", 20*TicksPerSecond, {
             amplifier: 15
         });
-        entity.addEffect(MinecraftEffectTypes.Wither, 20*TicksPerSecond, {
+        entity.addEffect("minecraft:wither", 20*TicksPerSecond, {
             amplifier: 10
         });
-        entity.addEffect(MinecraftEffectTypes.Slowness, 20*TicksPerSecond, {
+        entity.addEffect("minecraft:slowness", 20*TicksPerSecond, {
             amplifier: 10
         });
-        entity.addEffect(MinecraftEffectTypes.Blindness, 3*TicksPerSecond, {
+        entity.addEffect("minecraft:blindness", 3*TicksPerSecond, {
             amplifier: 15
         });
     }
-    player.removeTag("rainbow_sword");
+    player.removeTag(player.id);
 
 }

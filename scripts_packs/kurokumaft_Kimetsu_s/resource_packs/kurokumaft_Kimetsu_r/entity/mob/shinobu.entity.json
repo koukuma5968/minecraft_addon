@@ -67,6 +67,8 @@
 
         "nichirintou_custom": "controller.animation.nichirintou_custom.mob.attack_horizontality",
         "nichirintou_custom.attack_third": "animation.nichirintou_custom.attack_horizontality_third",
+        "nichirintou_custom.attack_2_third": "animation.nichirintou_custom.attack_horizontality_2_third",
+        "nichirintou_custom.attack_3_third": "animation.nichirintou_custom.attack_horizontality_3_third",
 
         "shinobu.action": "controller.animation.shinobu.action",
 

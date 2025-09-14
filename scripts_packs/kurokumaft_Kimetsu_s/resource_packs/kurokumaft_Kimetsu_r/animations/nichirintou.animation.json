@@ -59,7 +59,8 @@
 			}
 		},
 		"animation.nichirintou_first.one_attack": {
-			"animation_length": 0.5,
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
 			"bones": {
 				"nichirintou": {
 					"rotation": {
@@ -149,6 +150,98 @@
 					"position": {
 						"0.0": [19, -2, -24],
 						"0.125": [16, -26, 15]
+					}
+				}
+			}
+		},
+		"animation.nichirintou_first.one_3_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [182.54783, -38.00138, 187.41365],
+						"0.0833": [330.05, -38, 187.41]
+					},
+					"position": {
+						"0.0": [-7, -4, 1],
+						"0.0833": [-6, 0, -6]
+					}
+				}
+			}
+		},
+		"animation.nichirintou_first.one_4_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-35.30432, -110.26179, 57.15625],
+						"0.0833": [84.69568, -110.26179, 57.15625]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.0833": [0, -4, 2]
+					}
+				}
+			}
+		},
+		"animation.attack_wait": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.5
+		},
+		"animation.nichirintou_third.horizontality_attack_wait": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25
+		},
+		"animation.nichirintou_third.horizontality_attack_2": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [-65, 0, 0],
+						"0.1667": [87.5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.1667": [0, -4, -3]
+					}
+				}
+			}
+		},
+		"animation.nichirintou_third.horizontality_attack_2_wait": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"nichirintou": {
+					"rotation": [87.5, 0, 0],
+					"position": [0, -4, -3]
+				}
+			}
+		},
+		"animation.nichirintou_first.one_attack_wait": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"nichirintou": {
+					"rotation": [32.77406, -7.36101, -59.3488],
+					"position": [0, 0, -8]
+				}
+			}
+		},
+		"animation.nichirintou_first.one_2_attack": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"nichirintou": {
+					"rotation": {
+						"0.0": [4.94048, -52.01333, 15.13331],
+						"0.0833": [94.94048, -52.01333, 15.13331]
+					},
+					"position": {
+						"0.0": [0, 2, -8],
+						"0.0833": [0, 0, -3]
 					}
 				}
 			}

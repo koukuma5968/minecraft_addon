@@ -1,6 +1,8 @@
-import { ItemStack, Player, ItemComponentTypes, ItemEnchantableComponent, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, Entity } from "@minecraft/server";
-import { weightChoice } from "../common/KimetuCommonUtil";
+import { ItemStack, Player, ItemComponentTypes, ItemEnchantableComponent, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, Entity, system } from "@minecraft/server";
+import { addRegimentalFilter, getDistanceLocation, getLookLocationDistancePitch, weightChoice } from "../common/KimetuCommonUtil";
 import { NichirintouUseComponent } from "./NichirintouUseComponent";
+import { ItemDurabilityDamage } from "../common/KimetuItemDurabilityDamage";
+import { NomalAttack } from "./kata/NomalAttack";
 
 const nichirintouLists = weightChoice([
     { item: 'kurokumaft:nichirintou_mizu' , weight: 50 },
@@ -25,6 +27,8 @@ export class NichirintouChoiceComponent implements NichirintouUseComponent {
     changeKata(player: Player): void {
     }
     hitAttackKata(player: Player, itemStack: ItemStack): void {
+        const attack = new NomalAttack();
+        attack.oneAttack(player, itemStack);
     }
     useAttackKata(player: Player, itemStack: ItemStack): void {
     }

@@ -47,6 +47,12 @@
           "default": "false",
           "client_sync": true
         },
+        "kurokumaft:attack_level": {
+          "type": "int",
+          "range": [1, 30],
+          "default": 1,
+          "client_sync": true
+        },
         "kurokumaft:use_attack": {
           "type": "bool",
           "default": "false",
@@ -160,6 +166,18 @@
                 "event": "kurokumaft:damage_clear"
               },
               "deals_damage": "no"
+            }
+          ]
+        }
+      },
+      "kurokumaft:damage_guard": {
+        "minecraft:damage_sensor": {
+          "triggers": [
+            {
+              "on_damage": {
+                "event": "kurokumaft:damage_guard"
+              },
+              "deals_damage": "no_but_side_effects_apply"
             }
           ]
         }
@@ -387,7 +405,7 @@
           "max": 200
         },
         "minecraft:attack": {
-          "damage": 16
+          "damage": 14
         }
       },
 
@@ -406,7 +424,7 @@
           "max": 50
         },
         "minecraft:attack": {
-          "damage": 10
+          "damage": 7
         }
       },
       "kurokumaft:ogre_rank_quarter_6": {
@@ -415,7 +433,7 @@
           "max": 70
         },
         "minecraft:attack": {
-          "damage": 17
+          "damage": 9
         }
       },
       "kurokumaft:ogre_rank_quarter_5": {
@@ -424,7 +442,7 @@
           "max": 80
         },
         "minecraft:attack": {
-          "damage": 16
+          "damage": 9
         }
       },
       "kurokumaft:ogre_rank_quarter_4": {
@@ -433,7 +451,7 @@
           "max": 90
         },
         "minecraft:attack": {
-          "damage": 17
+          "damage": 9
         }
       },
       "kurokumaft:ogre_rank_quarter_3": {
@@ -442,7 +460,7 @@
           "max": 100
         },
         "minecraft:attack": {
-          "damage": 18
+          "damage": 9
         }
       },
       "kurokumaft:ogre_rank_quarter_2": {
@@ -451,7 +469,7 @@
           "max": 110
         },
         "minecraft:attack": {
-          "damage": 19
+          "damage": 9
         }
       },
       "kurokumaft:ogre_rank_quarter_1": {
@@ -460,7 +478,7 @@
           "max": 120
         },
         "minecraft:attack": {
-          "damage": 20
+          "damage": 9
         }
       },
       "kurokumaft:ogre_rank_crescent_6": {
@@ -469,7 +487,7 @@
           "max": 130
         },
         "minecraft:attack": {
-          "damage": 24
+          "damage": 11
         }
       },
       "kurokumaft:ogre_rank_crescent_5": {
@@ -478,7 +496,7 @@
           "max": 140
         },
         "minecraft:attack": {
-          "damage": 25
+          "damage": 11
         }
       },
       "kurokumaft:ogre_rank_crescent_4": {
@@ -487,7 +505,7 @@
           "max": 150
         },
         "minecraft:attack": {
-          "damage": 26
+          "damage": 11
         }
       },
       "kurokumaft:ogre_rank_crescent_3": {
@@ -496,7 +514,7 @@
           "max": 180
         },
         "minecraft:attack": {
-          "damage": 27
+          "damage": 13
         }
       },
       "kurokumaft:ogre_rank_crescent_2": {
@@ -505,7 +523,7 @@
           "max": 200
         },
         "minecraft:attack": {
-          "damage": 28
+          "damage": 14
         }
       },
       "kurokumaft:ogre_rank_crescent_1": {
@@ -514,7 +532,7 @@
           "max": 240
         },
         "minecraft:attack": {
-          "damage": 29
+          "damage": 15
         }
       },
       "kurokumaft:ogre_rank_king": {
@@ -523,7 +541,7 @@
           "max": 300
         },
         "minecraft:attack": {
-          "damage": 30
+          "damage": 20
         }
       }
 
@@ -704,72 +722,108 @@
                 "kurokumaft:ordinary_person",
                 "kurokumaft:nomal_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 1
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 1 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu1", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu1", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 2
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 2 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu2", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu2", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 3
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 3 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu3", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu3", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 4
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 4 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu4", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu4", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 5
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 5 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu5", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu5", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 6
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 6 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu6", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu6", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 7
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 7 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu7", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu7", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 8
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 8 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu8", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu8", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 9 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu9", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu9", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 10
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 10 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu10", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu10", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 12
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 11 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu11", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage","kurokumaft:soldier_kaikyu11", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 14
             }
           }
         ]
@@ -791,6 +845,9 @@
                 "kurokumaft:ordinary_person",
                 "kurokumaft:nomal_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 1
             }
           },
           {
@@ -802,6 +859,9 @@
                 "kurokumaft:ogre_rank_low",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 6
             }
           },
           {
@@ -813,6 +873,9 @@
                 "kurokumaft:ogre_rank_unusual",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 7
             }
           },
           {
@@ -827,6 +890,9 @@
                 "kurokumaft:ogre_rank_quarter_6",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
@@ -841,6 +907,9 @@
                 "kurokumaft:ogre_rank_quarter_5",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
@@ -855,6 +924,9 @@
                 "kurokumaft:ogre_rank_quarter_4",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
@@ -869,6 +941,9 @@
                 "kurokumaft:ogre_rank_quarter_3",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
@@ -883,6 +958,9 @@
                 "kurokumaft:ogre_rank_quarter_2",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
@@ -897,6 +975,9 @@
                 "kurokumaft:ogre_rank_quarter_1",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
@@ -911,6 +992,9 @@
                 "kurokumaft:ogre_rank_crescent_6",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 11
             }
           },
           {
@@ -925,6 +1009,9 @@
                 "kurokumaft:ogre_rank_crescent_5",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 11
             }
           },
           {
@@ -939,6 +1026,9 @@
                 "kurokumaft:ogre_rank_crescent_4",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 11
             }
           },
           {
@@ -953,6 +1043,9 @@
                 "kurokumaft:ogre_rank_crescent_3",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 13
             }
           },
           {
@@ -967,6 +1060,9 @@
                 "kurokumaft:ogre_rank_crescent_2",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 14
             }
           },
           {
@@ -981,6 +1077,9 @@
                 "kurokumaft:ogre_rank_crescent_1",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 15
             }
           },
           {
@@ -992,7 +1091,41 @@
                 "kurokumaft:ogre_rank_king",
                 "kurokumaft:ogre_family"
               ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 20
             }
+          }
+        ]
+      },
+
+      "kurokumaft:add_damage_guard": {
+        "sequence": [
+          {
+            "add": {
+              "component_groups": [
+                "kurokumaft:damage_guard"
+              ]
+            }
+          }
+        ]
+      },
+      "kurokumaft:remove_damage_guard": {
+        "sequence": [
+          {
+            "remove": {
+              "component_groups": [
+                "kurokumaft:damage_guard"
+              ]
+            }
+          },
+          {
+            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "!=", "value": "none" },
+            "trigger": "kurokumaft:ogre_rank_change"
+          },
+          {
+            "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "none" },
+            "trigger": "kurokumaft:kaikyu_change"
           }
         ]
       },
@@ -1019,19 +1152,11 @@
           },
           {
             "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "!=", "value": "none" },
-            "add": {
-              "component_groups": [
-                "kurokumaft:ogre_damage_sensor"
-              ]
-            }
+            "trigger": "kurokumaft:ogre_rank_change"
           },
           {
             "filters": { "test": "enum_property", "domain": "kurokumaft:ogre_rank", "operator": "==", "value": "none" },
-            "add": {
-              "component_groups": [
-                "kurokumaft:nomal_damage"
-              ]
-            }
+            "trigger": "kurokumaft:kaikyu_change"
           }
         ]
       },
@@ -1047,7 +1172,8 @@
       },
       "kurokumaft:ogre_regene": {},
       "kurokumaft:damage_clear": {},
-      "kurokumaft:nomal_damage": {}
+      "kurokumaft:nomal_damage": {},
+      "kurokumaft:damage_guard": {}
 
     }
   }

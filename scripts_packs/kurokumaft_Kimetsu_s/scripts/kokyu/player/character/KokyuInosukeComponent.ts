@@ -2,6 +2,7 @@ import { ItemStack, Player } from "@minecraft/server";
 import { NichirintouUseComponent } from "../../NichirintouUseComponent";
 import { KokyuObjects, KokyuObject } from "../../../item/weapon/NichirintouTypes";
 import { KedamonoNoKata } from "../../kata/KedamonoNoKata";
+import { NomalAttack } from "../../kata/NomalAttack";
 
 /**
  * 呼吸（伊之助）
@@ -34,10 +35,8 @@ export class KokyuInosukeComponent implements NichirintouUseComponent {
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-
-        switch (kata) {
-        }
+        const attack = new NomalAttack();
+        attack.oneAttack(player, itemStack);
 
     }
 

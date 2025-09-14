@@ -28,6 +28,12 @@
           "default": "false",
           "client_sync": true
         },
+        "kurokumaft:attack_level": {
+          "type": "int",
+          "range": [12, 13],
+          "default": 12,
+          "client_sync": true
+        },
         "kurokumaft:kekkizyutu_kata": {
           "type": "int",
           "range": [0, 10],

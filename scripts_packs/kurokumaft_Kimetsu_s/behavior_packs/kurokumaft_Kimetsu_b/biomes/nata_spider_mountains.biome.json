@@ -1,0 +1,59 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:biome": {
+    "description": {
+      "identifier": "kurokumaft:nata_spider_mountains"
+    },
+    "components": {
+      "minecraft:climate": {
+        "downfall": 0.6,
+        "snow_accumulation": [ 0.0, 0.125 ],
+        "temperature": 0.6
+      },
+      "minecraft:overworld_height": {
+        "noise_type": "default"
+      },
+      "minecraft:replace_biomes": {
+        "replacements": [
+          {
+            "dimension": "minecraft:overworld",
+            "targets": ["minecraft:roofed_forest"],
+            "amount": 1.0,
+            "noise_frequency_scale": 60
+          }
+        ]
+      },
+      "minecraft:surface_builder": {
+        "builder": {
+          "type": "minecraft:overworld",
+          "sea_floor_depth": 7,
+          "sea_floor_material": "minecraft:mud",
+          "foundation_material": "minecraft:cobblestone",
+          "mid_material": "minecraft:dirt",
+          "top_material": {
+            "name": "minecraft:dirt",
+            "states": {
+              "dirt_type": "coarse"
+            }
+          },
+          "sea_material": "minecraft:water"
+        }
+      },
+      "minecraft:overworld_generation_rules": {
+        "hills_transformation": "minecraft:roofed_forest",
+        "mutate_transformation": "minecraft:roofed_forest",
+        "generate_for_climates": [
+          [ "medium", 1 ]
+        ]
+      },
+      "minecraft:tags": {
+        "tags": [
+          "animal",
+          "monster",
+          "overworld",
+          "nata_spider_mountains"
+        ]
+      }
+    }
+  }
+}

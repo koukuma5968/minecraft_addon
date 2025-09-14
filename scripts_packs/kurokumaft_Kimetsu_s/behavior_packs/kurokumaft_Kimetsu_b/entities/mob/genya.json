@@ -44,6 +44,12 @@
           "default": "false",
           "client_sync": true
         },
+        "kurokumaft:attack_level": {
+          "type": "int",
+          "range": [2, 30],
+          "default": 2,
+          "client_sync": true
+        },
         "kurokumaft:kokyu_chage": {
           "type": "int",
           "range": [0, 10],
@@ -262,7 +268,10 @@
       "kurokumaft:nichirintou": {
         "minecraft:behavior.melee_attack": {
           "priority": 4,
-          "track_target": true,
+          "on_attack": {
+            "event": "kurokumaft:attack_time"
+          },
+          "track_target": false,
           "speed_multiplier": 1.25
         },
         "minecraft:attack": {
@@ -510,78 +519,93 @@
       "kurokumaft:kaikyu_change": {
         "sequence": [
           {
-            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 0 },
-            "add": {
-              "component_groups": [
-                "kurokumaft:nomal_damage",
-                "kurokumaft:ordinary_person"
-              ]
-            }
-          },
-          {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 1 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu1" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu1", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 2
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 2 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu2" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu2", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 3
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 3 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu3" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu3", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 4
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 4 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu4" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu4", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 5
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 5 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu5" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu5", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 6
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 6 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu6" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu6", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 7
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 7 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu7" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu7", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 8
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 8 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu8" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu8", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 9
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 9 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu9" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu9", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 10
             }
           },
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 10 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu10" ]
-            }
-          },
-          {
-            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 11 },
-            "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu11" ]
+              "component_groups": [ "kurokumaft:soldier_kaikyu10", "kurokumaft:soldier_family" ]
+            },
+            "set_property": {
+              "kurokumaft:attack_level": 12
             }
           }
         ]

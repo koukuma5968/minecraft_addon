@@ -2,15 +2,16 @@
 	"format_version": "1.8.0",
 	"animations": {
 		"animation.mizu_dragon.attack": {
-			"animation_length": 0.5,
+			"loop": true,
+			"animation_length": 0.6,
 			"bones": {
 				"dragon": {
-					"position": [37, 0, 0]
+					"position": [64, 0, 0]
 				},
 				"beast": {
 					"rotation": {
 						"0.0": [0, 0, 0],
-						"0.5": [0, 360, 0]
+						"0.3": [0, 360, 0]
 					}
 				}
 			},

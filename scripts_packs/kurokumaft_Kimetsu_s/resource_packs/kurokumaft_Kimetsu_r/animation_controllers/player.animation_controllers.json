@@ -43,7 +43,7 @@
 			"states" : {
 				"default" : {
 					"animations" : [ 
-						{"first_person_attack_rotation": "query.property('kurokumaft:nichirintou_type') == 0"}
+						{"first_person_attack_rotation": "query.property('kurokumaft:nichirintou_type') == 0 && query.property('kurokumaft:kekkizyutu_type') != 12 && query.property('kurokumaft:kekkizyutu_type') != 13"}
 					],
 					"transitions" : [
 						{
@@ -201,7 +201,10 @@
 							"charging" : "query.is_charging"
 						},
 						{
-							"sneaking" : "query.is_sneaking && !query.is_sleeping"
+							"sneaking" : "query.is_sneaking && !query.is_sleeping && query.property('kurokumaft:nichirintou_type') == 0"
+						},
+						{
+							"nitirintou_blocking" : "query.is_sneaking && !query.is_sleeping && query.property('kurokumaft:nichirintou_type') != 0"
 						},
 						{
 							"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !variable.is_using_brush"
@@ -228,10 +231,10 @@
 							"sleeping" : "query.is_sleeping && query.is_alive"
 						},
 						{
-							"attack.positions" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0"
+							"attack.positions" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0 && query.property('kurokumaft:kekkizyutu_type') != 12 && query.property('kurokumaft:kekkizyutu_type') != 13"
 						},
 						{
-							"attack.rotations" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0"
+							"attack.rotations" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0 && query.property('kurokumaft:kekkizyutu_type') != 12 && query.property('kurokumaft:kekkizyutu_type') != 13"
 						},
 						{
 							"shield_block_main_hand" : "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"

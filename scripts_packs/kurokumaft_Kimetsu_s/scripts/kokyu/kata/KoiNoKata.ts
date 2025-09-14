@@ -23,7 +23,7 @@ export class KoiNoKata extends KataComonClass {
                 const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0);
                 const filter = addRegimentalFilter(0, entity.location, 8, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
             } catch (error: any) {
                 system.clearRun(num);
             }
@@ -50,7 +50,7 @@ export class KoiNoKata extends KataComonClass {
         }
         try {
             const filter = addRegimentalFilter(0, entity.location, 8, entity);
-            this.kokyuApplyDamage(entity, filter, 4, 2, itemStack);
+            this.kokyuApplyDamage(entity, filter, 5);
             const distance = getLookLocationDistance(entity.getRotation().y, 4, 0, 0);
             entity.applyKnockback({x:distance.x,z:distance.z},0.75);
 
@@ -90,7 +90,7 @@ export class KoiNoKata extends KataComonClass {
 
             try {
                 const filter = addRegimentalFilter(0, entity.location, 8, entity);
-                this.kokyuApplyDamage(entity, filter, 2, 1, itemStack);
+                this.kokyuApplyDamage(entity, filter, 3);
     
                 const distance = getLookLocationDistance(entity.getRotation().y, 3, side, 0);
                 entity.applyKnockback({x:distance.x,z:distance.z},0.3);
@@ -139,7 +139,7 @@ export class KoiNoKata extends KataComonClass {
             const parnum = system.runInterval(() => {
 
                 try {
-                    this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                    this.kokyuApplyDamage(entity, filter, 4);
                 } catch (error: any) {
                     system.clearRun(parnum);
                 }
@@ -198,7 +198,7 @@ export class KoiNoKata extends KataComonClass {
             const parnum = system.runInterval(() => {
 
                 try {
-                    this.kokyuApplyDamage(entity, filter, 3, 1, itemStack);
+                    this.kokyuApplyDamage(entity, filter, 4);
                 } catch (error: any) {
                     system.clearRun(parnum);
                 }

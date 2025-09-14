@@ -62,7 +62,28 @@
       },
       "transparent_block" : {
          "textures" : "textures/kurokumaft/blocks/transparent_block"
+      },
+
+      "wisteria_flowers_leaves": {
+			"textures": "textures/kurokumaft/blocks/wisteria_flowers/wisteria_flowers_leaves.png"
+		},
+		"wisteria_flowers_log_side": {
+			"textures": "textures/kurokumaft/blocks/wisteria_flowers/wisteria_flowers_log_side.png"
+		},
+		"wisteria_flowers_log_top": {
+			"textures": "textures/kurokumaft/blocks/wisteria_flowers/wisteria_flowers_log_top.png"
+		},
+		"stripped_wisteria_flowers_log_side": {
+			"textures": "textures/kurokumaft/blocks/wisteria_flowers/stripped_wisteria_flowers_log_side.png"
+		},
+		"wisteria_flowers_planks": {
+			"textures": "textures/kurokumaft/blocks/wisteria_flowers/wisteria_flowers_planks.png"
+		},
+
+      "wisteria_flowers_branch_red" : {
+         "textures" : "textures/kurokumaft/blocks/wisteria_flowers/wisteria_flowers_branch_red"
       }
+
    },
    "texture_name" : "atlas.terrain"
 }

@@ -6,13 +6,13 @@ import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/Magic
  */
 export async function spark(player:Player, hitEntity:Entity) {
 
-    player.addTag("spark_self");
+    player.addTag(player.id);
 
     player.dimension.spawnParticle("kurokumaft:spark_particle", {x:hitEntity.location.x, y:hitEntity.location.y+0.8, z:hitEntity.location.z});
 
     const filterOption = {
         excludeTags: [
-            "spark_self",
+            player.id
         ],
         location: {x:hitEntity.location.x, y:hitEntity.location.y+1, z:hitEntity.location.z},
         maxDistance: 3
@@ -29,9 +29,9 @@ export async function spark(player:Player, hitEntity:Entity) {
         en.applyDamage(damage, {
             cause: EntityDamageCause.lightning
         });
-});
+    });
 
-    player.removeTag("spark_self");
+    player.removeTag(player.id);
 }
 
 /**

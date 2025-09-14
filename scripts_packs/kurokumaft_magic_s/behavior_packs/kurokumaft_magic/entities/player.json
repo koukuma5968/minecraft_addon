@@ -405,7 +405,7 @@
               }
             },
             "cause": "entity_attack",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           },
           {
             "on_damage": {
@@ -422,7 +422,7 @@
               }
             },
             "cause": "projectile",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           },
           {
             "on_damage": {
@@ -439,7 +439,7 @@
               }
             },
             "cause": "sonic_boom",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           },
           {
             "on_damage": {
@@ -456,7 +456,7 @@
               }
             },
             "cause": "block_explosion",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           },
           {
             "on_damage": {
@@ -473,7 +473,7 @@
               }
             },
             "cause": "entity_explosion",
-            "deals_damage": false
+            "deals_damage": "no_but_side_effects_apply"
           },
           {
             "on_damage": {
@@ -486,7 +486,7 @@
             },
             "cause": "entity_attack",
             "damage_modifier": -5.0,
-            "deals_damage": true
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -499,7 +499,7 @@
             },
             "cause": "block_explosion",
             "damage_modifier": -5.0,
-            "deals_damage": true
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -512,7 +512,7 @@
             },
             "cause": "entity_explosion",
             "damage_modifier": -5.0,
-            "deals_damage": true
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -525,7 +525,7 @@
             },
             "cause": "projectile",
             "damage_modifier": -5.0,
-            "deals_damage": true
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -538,7 +538,7 @@
             },
             "cause": "sonic_boom",
             "damage_modifier": -5.0,
-            "deals_damage": true
+            "deals_damage": "yes"
           },
           {
             "on_damage": {
@@ -550,7 +550,7 @@
               }
             },
             "cause": "all",
-            "deals_damage": false
+            "deals_damage": "no"
           },
           {
             "on_damage": {
@@ -562,7 +562,7 @@
               }
             },
             "cause": "projectile",
-            "deals_damage": false
+            "deals_damage": "no"
           },
           {
             "on_damage": {
@@ -574,7 +574,7 @@
               }
             },
             "cause": "block_explosion",
-            "deals_damage": false
+            "deals_damage": "no"
           },
           {
             "on_damage": {
@@ -586,7 +586,7 @@
               }
             },
             "cause": "entity_explosion",
-            "deals_damage": false
+            "deals_damage": "no"
           }
         ]
       },

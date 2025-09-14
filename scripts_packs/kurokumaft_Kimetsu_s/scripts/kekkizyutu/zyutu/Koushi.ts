@@ -24,7 +24,7 @@ export class Koushi extends ZytuComonClass {
                 en.dimension.fillBlocks(volume, "minecraft:web");
             });
 
-            this.kokyuApplyDamage(entity, filter, 3, 1);
+            this.zyutuApplyDamage(entity, filter, 5);
 
             system.waitTicks(20).then(() => {
                 entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -87,7 +87,7 @@ export class Koushi extends ZytuComonClass {
                             if (targets[0] !== undefined && targets[0].isValid) {
                                 targets[0].teleport(ayamekago.location);
                                 if (entity !== undefined) {
-                                    this.kokyuApplyDamage(entity, filter, 2, 1);
+                                    this.zyutuApplyDamage(entity, filter, 5);
                                 }
                             } else {
                                 system.clearRun(num);
