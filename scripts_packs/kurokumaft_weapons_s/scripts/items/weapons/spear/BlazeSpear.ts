@@ -8,9 +8,9 @@ export class BlazeSpear implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
         blazeHit(attackEntity, hitEntity, itemStack);
     }
 
@@ -18,9 +18,9 @@ export class BlazeSpear implements ItemCustomComponent {
 
 async function blazeHit(attackEntity: Entity, hitEntity: Entity, itemStack: ItemStack) {
     attackEntity.addTag("blazeHit");
-    let dim = attackEntity.dimension;
-    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
-    let targetEn = dim.getEntities({
+    const dim = attackEntity.dimension;
+    const look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    const targetEn = dim.getEntities({
         excludeTags: [
             "blazeHit"
         ],
@@ -35,7 +35,7 @@ async function blazeHit(attackEntity: Entity, hitEntity: Entity, itemStack: Item
     })
 
     targetEn.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
         dim.spawnParticle("kurokumaft:mobflame_firing", look);

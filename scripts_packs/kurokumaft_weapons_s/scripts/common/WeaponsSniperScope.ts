@@ -1,4 +1,4 @@
-import { ItemStack, Player, TicksPerSecond } from "@minecraft/server";
+import { Player, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**

@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, Dimension, Vector3, EquipmentSlot, ItemStack } from "@minecraft/server";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, Entity, Vector3, EquipmentSlot, ItemStack } from "@minecraft/server";
 import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 
 
@@ -9,9 +9,9 @@ export class TntSwordBreak implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let item = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const item = event.itemStack as ItemStack;
         tntBreak(attackEntity, item, hitEntity.location);
     }
 

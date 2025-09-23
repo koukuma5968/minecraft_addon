@@ -1,7 +1,7 @@
-import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause, Dimension, EntityTypeFamilyComponent, EntityInventoryComponent, system, TicksPerSecond } from "@minecraft/server";
+import { world,ItemStack, Player, Block, EquipmentSlot, Entity, EntityEquippableComponent, EntityComponentTypes, EntityInitializationCause, Dimension, EntityTypeFamilyComponent, system, TicksPerSecond, EntityRidingComponent } from "@minecraft/server";
 import { explodeBedrock, WeaponGuards } from "./common/WeaponsCommonUtil";
 import { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection } from "./player/WeaponsShieldEvent";
-import { initWeaponsRegisterCustom, initWeaponsStateChangeMonitor } from "./custom/WeaponsCustomComponentRegistry";
+import { initWeaponsRegisterCustom } from "./custom/WeaponsCustomComponentRegistry";
 import { tntBreak } from "./items/weapons/sword/TntSwordBreak";
 import { breakBlock } from "./common/WeaponsCommonUtil";
 import { hitSpear, releaseSpear, removeSpear, spawnSpear, stopSpear } from "./items/weapons/spear/ThrowableSpear";
@@ -18,32 +18,23 @@ import { playerMithrilset } from "./block/mithril/MithrilBlock";
 import { breackTearEnchant } from "./block/TearEnchant";
 import { stopSniperBow } from "./items/weapons/bow/SniperSteelBow";
 import { explodeBakutikuCancel, explodeBakutikuChain } from "./block/bom/BakutikuFlint";
+import { WeaponsArmorEquipment } from "./player/WeaponsArmorEquipment";
 
 // ワールド接続時
-world.beforeEvents.worldInitialize.subscribe(initEvent => {
+system.beforeEvents.startup.subscribe(initEvent => {
     initWeaponsRegisterCustom(initEvent);
-    initWeaponsStateChangeMonitor(initEvent);
 });
 
 world.beforeEvents.playerLeave.subscribe(leaveEvent => {
     leaveEvent.player.clearDynamicProperties();
 });
 
-// アイテムブロック使用前
-world.beforeEvents.itemUseOn.subscribe(event => {
-    let player = event.source as Player;
-    let item = event.itemStack as ItemStack;
-    let block = event.block as Block;
-});
-// アイテムブロック使用後
-world.afterEvents.itemUseOn.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
-    let block = event.block;
+world.afterEvents.playerSpawn.subscribe(event => {
+    new WeaponsArmorEquipment(event.player).startMonitoring();
 });
 
 world.beforeEvents.explosion.subscribe(event => {
-    let impactBLockList = event.getImpactedBlocks();
+    const impactBLockList = event.getImpactedBlocks();
     let filterBlockList = explodeBedrock(impactBLockList);
     filterBlockList = explodeBakutikuCancel(filterBlockList);
 
@@ -54,12 +45,12 @@ world.beforeEvents.explosion.subscribe(event => {
 
 world.afterEvents.playerInteractWithEntity.subscribe(event => {
 
-    let player = event.player;
-    let target = event.target;
+    const player = event.player;
+    const target = event.target;
 
-    if (target.typeId == "kurokumaft:bamboo_bag") {
+    if (target.typeId === "kurokumaft:bamboo_bag") {
         if (player.isSneaking) {
-            let command = "ride @e[family=bamboo_bag,c=1] start_riding " + player.name;
+            const command = "ride @e[family=bamboo_bag,c=1] start_riding " + player.name;
             player.runCommand(command);
         } else {
 //            target.nameTag = "entity.kurokumaft:bamboo_bag.name";
@@ -68,47 +59,83 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
 });
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
-    let eventId = event.eventId;
-    let entity = event.entity;
-    let family = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-    if (family != undefined && family.hasTypeFamily("bag")) {
-        if (eventId == "kurokumaft:stay") {
+    const eventId = event.eventId;
+    const entity = event.entity;
+    if (!entity.isValid) {
+        return;
+    }
+    const family = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+    if (family !== undefined && family.hasTypeFamily("bag")) {
+        if (eventId === "kurokumaft:stay") {
             entity.runCommand("ride @s stop_riding")
-        } else if (eventId == "kurokumaft:on_breaking") {
+        } else if (eventId === "kurokumaft:on_breaking") {
             entity.kill();
         }
     }
-});
+    // ライド停止イベントを検知
+    if (event.eventId == "kurokumaft:stop_riding") {
+        const entity = event.entity as Entity;
+        // イベント送信者がフクロウの場合
+        if (entity.typeId == "kurokumaft:owl") {
+            const ride = entity.getComponent(EntityComponentTypes.Riding) as EntityRidingComponent;
+            // フクロウがライド状態である場合
+            if (ride != undefined) {
+                const player = ride.entityRidingOn as Entity;
+                // プレイヤーが落下を始めた時、かつ着地するまで
+                if (player.isFalling && !entity.getDynamicProperty("fallingOwner")) {
+                    // 落下中を設定
+                    entity.setDynamicProperty("fallingOwner", true);
+                    // 10tick後に処理を行う
+                    system.runTimeout(() => {
+                        // プレイヤーが落下状態のままである場合
+                        if (player.isFalling) {
+                            // イベント発信者であるフクロウのライドを停止する
+                            event.entity.runCommand("ride @s stop_riding");
+                        }
+                        // 2tick間隔で処理を実行
+                        const num = system.runInterval(() => {
+                            // フクロウが死亡した場合
+                            if (!entity.isValid) {
+                                // 処理を停止する
+                                system.clearRun(num);
+                            // プレイヤーが着地した場合
+                            } else if (player.isOnGround) {
+                                // 落下中を解除する
+                                entity.setDynamicProperty("fallingOwner", false);
+                                // 処理を停止する
+                                system.clearRun(num);
+                            }
+                        }, 2);
+                    }, 10);
+                }
+            }
+        }
+    }
+    if (event.eventId == "minecraft:on_tame") {
+        const entity = event.entity as Entity;
+        if (entity.typeId == "kurokumaft:owl") {
+            entity.setDynamicProperty("fallingOwner", false);
+        }
+    }
 
-// // プレイヤーがブロックをクリック
-// world.afterEvents.playerInteractWithBlock.subscribe(event => {
-//     let block = event.block;
-//     let item = event.itemStack;
-//     let player = event.player;
-//     if (block.typeId == "kurokumaft:tear_enchant") {
-//         setTearEnchantBook(player, item, block);
-//     }
-// });
-
-// アイテム使用開始
-world.afterEvents.itemStartUse.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
 });
 
 // エンティティ削除前
 world.beforeEvents.entityRemove.subscribe(event => {
 
-    let removedEntity = event.removedEntity;
+    const removedEntity = event.removedEntity;
     removeSpear(removedEntity);
     removeHammer(removedEntity);
+    if (removedEntity.getDynamicProperty("flametHrowerShot")) {
+        stopFlametHrower(removedEntity as Player);
+    }
 
 });
 
 // アイテム使用リリース
 world.afterEvents.itemReleaseUse.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
+    const player = event.source;
+    const item = event.itemStack;
     if (item != undefined) {
         if (player.getDynamicProperty("gatlingShot")) {
             stopGatling(player);
@@ -139,9 +166,9 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 
 // アイテム使用停止
 world.afterEvents.itemStopUse.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
-    if (item != undefined) {
+    const player = event.source;
+    const item = event.itemStack;
+    if (item !== undefined) {
         if (player.getDynamicProperty("gatlingShot")) {
             stopGatling(player);
         }
@@ -171,13 +198,13 @@ world.afterEvents.itemStopUse.subscribe(event => {
 
 // エンティティスポーン
 world.afterEvents.entitySpawn.subscribe(event => {
-    let cause = event.cause;
-    let entity = event.entity;
-    if (EntityInitializationCause.Spawned == cause) {
-        let family = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
-        if (family != undefined && family.hasTypeFamily("energy_bullet")) {
+    const cause = event.cause;
+    const entity = event.entity;
+    if (EntityInitializationCause.Spawned === cause && entity.isValid) {
+        const family = entity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+        if (family !== undefined && family.hasTypeFamily("energy_bullet")) {
             system.runTimeout(() => {
-                if (entity.isValid()) {
+                if (entity.isValid) {
                     entity.remove;
                 }
             }, 2*TicksPerSecond);
@@ -191,40 +218,40 @@ world.afterEvents.entitySpawn.subscribe(event => {
 
 // アイテム使用前
 world.beforeEvents.itemUse.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
+    const player = event.source;
+    const item = event.itemStack;
     if (item != undefined) {
     }
 });
 
 // アイテム使用後
 world.afterEvents.itemUse.subscribe(event => {
-    let player = event.source;
-    let item = event.itemStack;
+    const player = event.source;
+    const item = event.itemStack;
 });
 
 // ブロック爆破
 world.afterEvents.blockExplode.subscribe(event => {
-    let dimension = event.dimension as Dimension;
-    let block = event.block as Block;
+    const dimension = event.dimension as Dimension;
+    const block = event.block as Block;
 
-    if (block.typeId == "kurokumaft:tear_enchant") {
+    if (block.typeId === "kurokumaft:tear_enchant") {
         breackTearEnchant(dimension, block);
     }
 });
 
 // ブロック設置
 world.afterEvents.playerPlaceBlock.subscribe(event => {
-    let block = event.block as Block;
-    let dimension = event.dimension as Dimension;
+    const block = event.block as Block;
+    const dimension = event.dimension as Dimension;
     playerMithrilset(block);
 });
 
 // ブロック破壊前
 world.beforeEvents.playerBreakBlock.subscribe(event => {
-    let player = event.player;
-    let item = event.itemStack;
-    let block = event.block;
+    const player = event.player;
+    const item = event.itemStack;
+    const block = event.block;
     if (item != undefined) {
     }
     // if (silkType.indexOf(block.typeId) != -1) {
@@ -239,9 +266,9 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
 
 // 近接hit後
 world.afterEvents.entityHitEntity.subscribe(event => {
-    let damageEn = event.damagingEntity as Entity;
-    let hitEn = event.hitEntity as Entity;
-    if (hitEn != undefined && hitEn instanceof Player) {
+    const damageEn = event.damagingEntity as Entity;
+    const hitEn = event.hitEntity as Entity;
+    if (hitEn !== undefined && hitEn instanceof Player) {
         shieldGuard(hitEn, true);
         shieldCounter(hitEn, damageEn);
     }
@@ -249,15 +276,15 @@ world.afterEvents.entityHitEntity.subscribe(event => {
 
 // 近接ブロックhit後
 world.afterEvents.entityHitBlock.subscribe(event => {
-    let damageEn = event.damagingEntity as Entity;
-    let hitBlock = event.hitBlock as Block;
+    const damageEn = event.damagingEntity as Entity;
+    const hitBlock = event.hitBlock as Block;
     // Object.entries(hitBlock.permutation.getAllStates()).forEach(value => {
     //     world.sendMessage(JSON.stringify(value));
     // });
     if (hitBlock != undefined) {
-        let equ = damageEn.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-        if (itemStack != undefined) {
+        const equ = damageEn.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        if (itemStack !== undefined) {
             if (itemStack.typeId == "kurokumaft:fire_brand") {
                 fireCharcoalBlock(damageEn, itemStack, hitBlock);
             }
@@ -274,18 +301,18 @@ world.afterEvents.entityHitBlock.subscribe(event => {
 
 // 遠距離hit後
 world.afterEvents.projectileHitEntity.subscribe(event => {
-    let projectileEn = event.projectile;
-    let source = event.source as Entity
-    let hitEn = event.getEntityHit().entity as Entity;
-    let hitVector = event.hitVector;
-    if (hitEn != undefined && hitEn instanceof Player) {
+    const projectileEn = event.projectile;
+    const source = event.source as Entity
+    const hitEn = event.getEntityHit().entity as Entity;
+    const hitVector = event.hitVector;
+    if (hitEn !== undefined && hitEn instanceof Player) {
         shieldGuard(hitEn, false);
         glassReflection(hitEn, projectileEn, hitVector);
     }
-    if (source != undefined && source instanceof Player) {
+    if (source !== undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
-    if (projectileEn != undefined && isThrowHammer(projectileEn)) {
+    if (projectileEn !== undefined && isThrowHammer(projectileEn)) {
         waveWardenHammer(source, projectileEn);
         stopHammer(projectileEn);
     }
@@ -293,12 +320,12 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
 
 // 遠距離ブロックhit後
 world.afterEvents.projectileHitBlock.subscribe(event => {
-    let projectileEn = event.projectile;
-    let source = event.source as Entity
-    if (source != undefined && source instanceof Player) {
+    const projectileEn = event.projectile;
+    const source = event.source as Entity
+    if (source !== undefined && source instanceof Player) {
         hitSpear(source, projectileEn);
     }
-    if (projectileEn != undefined && isThrowHammer(projectileEn)) {
+    if (projectileEn !== undefined && isThrowHammer(projectileEn)) {
         waveWardenHammer(source, projectileEn);
         stopHammer(projectileEn);
     }
@@ -306,11 +333,11 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
 
 // ダメージ
 world.afterEvents.entityHurt.subscribe(event => {
-    let damage = event.damage;
-    let damageSource = event.damageSource;
-    let hitEn = event.hurtEntity as Player;
-    if (hitEn instanceof Player && damageSource.cause != "void") {
-        if (WeaponGuards.indexOf(damageSource.cause) != -1) {
+    const damage = event.damage;
+    const damageSource = event.damageSource;
+    const hitEn = event.hurtEntity as Player;
+    if (hitEn instanceof Player && damageSource.cause !== "void") {
+        if (WeaponGuards.indexOf(damageSource.cause) !== -1) {
             shieldGuard(hitEn, false);
         }
         if (hitEn.getDynamicProperty("axolotl_helmet")) {

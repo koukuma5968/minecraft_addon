@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, ExplosionOptions, Player, system, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { getLookRotaionPointsV2, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
@@ -43,6 +43,29 @@ export async function sparkShock(player:Player, entity:Entity) {
     });
 
     player.removeTag("spark_shock_self");
+}
+
+/**
+ * サンダービット
+ */
+export async function thunderBit(player:Player) {
+
+    player.addTag(player.id);
+
+    for (let x=-3.5; x<=3.5; x+=3.5) {
+        for (let z=-3.5; z<=3.5; z+=3.5) {
+            const option = {
+                allowUnderwater: false,
+                breaksBlocks: false,
+                causesFire: false,
+                source: player
+            } as ExplosionOptions;
+            player.dimension.createExplosion({x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z}, 2, option);
+            player.dimension.spawnParticle("kurokumaft:thunder_bit_particle", {x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z});
+        }
+    }
+
+    player.removeTag(player.id);
 }
 
 /**

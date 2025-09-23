@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, ExplosionOptions, Player, TicksPerSecond } from "@minecraft/server";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
@@ -42,6 +42,29 @@ export async function iceShock(player:Player, entity:Entity) {
     });
 
     player.removeTag("ice_shock_self");
+}
+
+/**
+ * フローズンビット
+ */
+export async function frozenBit(player:Player) {
+
+    player.addTag(player.id);
+
+    for (let x=-3.5; x<=3.5; x+=3.5) {
+        for (let z=-3.5; z<=3.5; z+=3.5) {
+            const option = {
+                allowUnderwater: false,
+                breaksBlocks: false,
+                causesFire: false,
+                source: player
+            } as ExplosionOptions;
+            player.dimension.createExplosion({x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z}, 2, option);
+            player.dimension.spawnParticle("kurokumaft:frozen_bit_particle", {x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z});
+        }
+    }
+
+    player.removeTag(player.id);
 }
 
 /**

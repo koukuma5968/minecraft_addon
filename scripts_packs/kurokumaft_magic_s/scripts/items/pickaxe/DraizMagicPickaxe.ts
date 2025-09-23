@@ -1,6 +1,6 @@
 import { Block, BlockVolume, Entity, EquipmentSlot, ItemComponentUseOnEvent, ItemStack } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
-import { itemDurabilityDamageFixed } from "../../common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamageFixed } from "../../common/MagicItemDurabilityDamage";
 
 /**
  * ドレイズマジックピッケル
@@ -44,7 +44,7 @@ export async function wetRangeBlock(event:ItemComponentUseOnEvent) {
             }
             nextValue = blockIt.next();
         }
-        itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
+        itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
         block.dimension.spawnParticle("kurokumaft:water_sword_slash", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
     } catch(error) {
     }

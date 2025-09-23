@@ -41,6 +41,45 @@ export async function stoneBread(player:Player, hitEntity:Entity) {
 }
 
 /**
+ * ストーンニードル
+ */
+export async function stoneNeedle(player:Player) {
+
+    player.addTag(player.id);
+    const filterOption = {
+        excludeTags: [
+            player.id
+        ],
+        location: player.location,
+        maxDistance: 10,
+        closest: 5
+    } as EntityQueryOptions;
+
+    addTeamsTagFilter(player, filterOption);
+
+    const targets = player.dimension.getEntities(filterOption);
+    targets.forEach(en => {
+        if (!en.isValid) {
+            return;
+        }
+
+        en.dimension.spawnParticle("kurokumaft:stone_needle_particle",en.location);
+        if (en instanceof Player) {
+            en.applyDamage(4, {
+                cause: EntityDamageCause.fallingBlock
+            });
+        } else {
+            en.applyDamage(8, {
+                cause: EntityDamageCause.fallingBlock
+            });
+        }
+    });
+
+    player.removeTag(player.id);
+
+}
+
+/**
  * ロックブレイク
  */
 export async function rockbreak(player:Player) {

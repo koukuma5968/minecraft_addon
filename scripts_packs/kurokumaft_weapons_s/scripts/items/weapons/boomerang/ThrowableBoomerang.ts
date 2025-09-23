@@ -38,15 +38,15 @@ const BoomerangObjects = Object.freeze([
 export class ThrowableBoomerang implements ItemCustomComponent {
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         source.addTag("boomerangOwner");
     }
 }
 
 export async function spawnBoomerang(throwBoomerang:Entity) {
 
-    let boomerang = BoomerangObjects.find(obj => obj.throwBoomerang == throwBoomerang.typeId) as BoomerangObject;
+    const boomerang = BoomerangObjects.find(obj => obj.throwBoomerang === throwBoomerang.typeId) as BoomerangObject;
     if (!boomerang) {
         return;
     }
@@ -61,13 +61,13 @@ async function stopBoomerang(player:Player) {
 
 export async function releaseBoomerang(player:Player, boomerang:ItemStack) {
 
-    let boomerangItem = BoomerangObjects.find(obj => obj.itemName == boomerang.typeId) as BoomerangObject;
+    const boomerangItem = BoomerangObjects.find(obj => obj.itemName === boomerang.typeId) as BoomerangObject;
 
-    if (boomerangItem == undefined) {
+    if (boomerangItem === undefined) {
         return;
     }
 
-    let throwBoomerang = player.dimension.getEntities({
+    const throwBoomerang = player.dimension.getEntities({
         tags: [
             "throwBoomerang"
         ],
@@ -90,7 +90,7 @@ export async function releaseBoomerang(player:Player, boomerang:ItemStack) {
 
 async function removeBoomerang(player: Player, throwBoomerang:Entity) {
 
-    let item = BoomerangObjects.find(obj => obj.throwBoomerang == throwBoomerang.typeId) as BoomerangObject;
+    const item = BoomerangObjects.find(obj => obj.throwBoomerang === throwBoomerang.typeId) as BoomerangObject;
     if (item == undefined) {
         return;
     }
@@ -99,21 +99,21 @@ async function removeBoomerang(player: Player, throwBoomerang:Entity) {
         return;
     }
 
-    let invent = throwBoomerang.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-    let container = invent.container as Container;
-    let boomerang = container.getItem(0) as ItemStack;
+    const invent = throwBoomerang.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+    const container = invent.container as Container;
+    const boomerang = container.getItem(0) as ItemStack;
 
     let emptySlot = true;
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-    if (main == undefined) {
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+    if (main === undefined) {
         system.runTimeout(() => {
             equ.setEquipment(EquipmentSlot.Mainhand, boomerang);
         }, 2);
         emptySlot = false;
     } else {
-        let invent = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-        let con = invent.container as Container;
+        const invent = player.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+        const con = invent.container as Container;
         if (con.emptySlotsCount > 0){
             system.runTimeout(() => {
                 con.addItem(boomerang);
@@ -122,8 +122,8 @@ async function removeBoomerang(player: Player, throwBoomerang:Entity) {
         }
     }
     if (emptySlot) {
-        let dim = throwBoomerang.dimension;
-        let loca = throwBoomerang.location;
+        const dim = throwBoomerang.dimension;
+        const loca = throwBoomerang.location;
         system.runTimeout(() => {
             dim.spawnItem(boomerang, loca);
         }, 2);
@@ -132,14 +132,14 @@ async function removeBoomerang(player: Player, throwBoomerang:Entity) {
 
 async function hitBoomerang(throwEntity:Entity, throwBoomerang:Entity) {
 
-    let item = BoomerangObjects.find(obj => obj.throwBoomerang == throwBoomerang.typeId) as BoomerangObject;
-    if (item == undefined) {
+    const item = BoomerangObjects.find(obj => obj.throwBoomerang === throwBoomerang.typeId) as BoomerangObject;
+    if (item === undefined) {
         return;
     }
 
-    let intervalNum = system.runInterval(() => {
-        if (throwBoomerang != undefined && throwBoomerang.isValid()) {
-            let player = throwBoomerang.dimension.getEntities({
+    const intervalNum = system.runInterval(() => {
+        if (throwBoomerang != undefined && throwBoomerang.isValid) {
+            const player = throwBoomerang.dimension.getEntities({
                 families: [
                     "player"
                 ],
@@ -154,8 +154,8 @@ async function hitBoomerang(throwEntity:Entity, throwBoomerang:Entity) {
                 removeBoomerang(player[0], throwBoomerang);
                 throwBoomerang.remove();
             } else {
-                let targetLoc = getDirectionVector(throwBoomerang.location, {x:throwEntity.location.x, y:throwEntity.location.y+1, z:throwEntity.location.z});
-                let tpLoc = {
+                const targetLoc = getDirectionVector(throwBoomerang.location, {x:throwEntity.location.x, y:throwEntity.location.y+1, z:throwEntity.location.z});
+                const tpLoc = {
                     x:throwBoomerang.location.x+targetLoc.x,
                     y:throwBoomerang.location.y+targetLoc.y,
                     z:throwBoomerang.location.z+targetLoc.z

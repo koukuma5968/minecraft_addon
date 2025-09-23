@@ -7,8 +7,8 @@ import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
 export class WeaponMineDurability implements ItemCustomComponent {
 
     onMineBlock(event:ItemComponentMineBlockEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
 }

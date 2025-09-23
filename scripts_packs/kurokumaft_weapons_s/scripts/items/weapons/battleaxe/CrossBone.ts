@@ -10,10 +10,12 @@ export class CrossBone implements ItemCustomComponent {
 
     // チャージ完了
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
-        crossBoneShot(source);
-        itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        if (itemStack !== undefined) {
+            crossBoneShot(source);
+            itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
+        }
     }
 }
 

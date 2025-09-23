@@ -8,7 +8,7 @@ export class CherrySword implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let hitEntity = event.hitEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
         cherrySlash(hitEntity);
     }
 

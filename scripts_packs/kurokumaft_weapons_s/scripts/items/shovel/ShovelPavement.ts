@@ -9,9 +9,9 @@ import { WeaponPavementBlocks } from "../../common/WeaponsConstants";
 export class ShovelPavement implements ItemCustomComponent {
 
     onUseOn(event:ItemComponentUseOnEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
-        let block = event.block as Block;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const block = event.block as Block;
         pavement(block);
         itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
@@ -19,7 +19,7 @@ export class ShovelPavement implements ItemCustomComponent {
 
 async function pavement(block:Block) {
 
-    if (WeaponPavementBlocks.find(type => type == block.typeId) != undefined) {
+    if (WeaponPavementBlocks.find(type => type === block.typeId) !== undefined) {
         block.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.GrassPath));
     }
 }

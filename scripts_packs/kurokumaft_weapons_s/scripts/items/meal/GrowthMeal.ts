@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, BlockPermutation, EquipmentSlot, world, Direction, GameMode, Vector3, ItemComponentTypes, ItemCooldownComponent, system } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, Player, ItemComponentUseOnEvent, Block, EquipmentSlot, Direction } from "@minecraft/server";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { subtractionItem } from "../../common/WeaponsItemDurabilityDamage";
 import { WeaponCraftBlocks, } from "../../common/WeaponsConstants";
@@ -10,9 +10,9 @@ import { ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
 export class GrowthMeal implements ItemCustomComponent {
 
     onUseOn(event:ItemComponentUseOnEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
-        let block = event.block as Block;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const block = event.block as Block;
         growths(source, itemStack, block);
         woodGrowth(source, itemStack, block);
         grassPlant(event);
@@ -21,8 +21,8 @@ export class GrowthMeal implements ItemCustomComponent {
 
 async function growths(source:Player, itemStack:ItemStack, block:Block) {
 
-    let growth = block.permutation.getState("growth");
-    if (growth != undefined && growth as number < 7) {
+    const growth = block.permutation.getState("growth");
+    if (growth !== undefined && growth as number < 7) {
         block.setPermutation(block.permutation.withState("growth", growth as number +1));
         block.dimension.spawnParticle("minecraft:crop_growth_emitter", {x:block.location.x+0.5, y:block.location.y, z:block.location.z+0.5});
         subtractionItem(source, itemStack, EquipmentSlot.Mainhand, 1);
@@ -34,18 +34,18 @@ async function growths(source:Player, itemStack:ItemStack, block:Block) {
 */
 async function woodGrowth(source:Player, itemStack:ItemStack, block:Block) {
 
-    let blockPer = block.permutation;
-    let blockDim = block.dimension;
-    let bx = block.location.x;
-    let by = block.location.y;
-    let bz = block.location.z;
+    const blockPer = block.permutation;
+    const blockDim = block.dimension;
+    const bx = block.location.x;
+    const by = block.location.y;
+    const bz = block.location.z;
 
-    let setFireF = false;
+    const setFireF = false;
 
-    // let states = blockPer.getAllStates();
+    // const states = blockPer.getAllStates();
     // world.sendMessage(JSON.stringify(Object.entries(states)));
-    let age_bit = blockPer.getState("age_bit");
-    if (age_bit != undefined) {
+    const age_bit = blockPer.getState("age_bit");
+    if (age_bit !== undefined) {
     }
 
     // if ((CraftBlocks.indexOf(block.typeId) != -1)) {
@@ -54,10 +54,10 @@ async function woodGrowth(source:Player, itemStack:ItemStack, block:Block) {
     //     if (block.typeId == MinecraftBlockTypes.BambooSapling) {
     //         blockDim.setBlockType(block.location, MinecraftBlockTypes.Bamboo);
     //     }
-    //     let count = 1;
-    //     let demBlock = blockDim.getBlock({"x":bx,"y":by+count,"z":bz}) as Block;
+    //     const count = 1;
+    //     const demBlock = blockDim.getBlock({"x":bx,"y":by+count,"z":bz}) as Block;
     //     while (count <= 15 && demBlock.isAir) {
-    //         let blockCom = BlockPermutation.resolve(MinecraftBlockTypes.Bamboo, {
+    //         const blockCom = BlockPermutation.resolve(MinecraftBlockTypes.Bamboo, {
     //             bamboo_leaf_size: "no_leaves",
     //             bamboo_stalk_thickness: "thick"
     //         });
@@ -78,8 +78,8 @@ async function woodGrowth(source:Player, itemStack:ItemStack, block:Block) {
     //     }
     //     blockDim.spawnParticle("minecraft:crop_growth_emitter", block.location);
     // } else if (block.typeId == MinecraftBlockTypes.TwistingVines) {
-    //     let air_count = 1;
-    //     let airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
+    //     const air_count = 1;
+    //     const airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
     //     while (air_count <= 15 && airBlock.isAir) {
     //         blockDim.setBlockType({"x":bx,"y":by+air_count,"z":bz}, MinecraftBlockTypes.TwistingVines);
     //         air_count++;
@@ -87,8 +87,8 @@ async function woodGrowth(source:Player, itemStack:ItemStack, block:Block) {
     //     }
     //     blockDim.spawnParticle("minecraft:crop_growth_emitter", block.location);
     // } else if (block.typeId == MinecraftBlockTypes.Reeds) {
-    //     let air_count = 1;
-    //     let airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
+    //     const air_count = 1;
+    //     const airBlock = blockDim.getBlock({"x":bx,"y":by+air_count,"z":bz}) as Block;
     //     while (air_count <= 15 && airBlock.isAir) {
     //         blockDim.setBlockType({"x":bx,"y":by+air_count,"z":bz}, MinecraftBlockTypes.Reeds);
     //         air_count++;
@@ -123,34 +123,34 @@ const flowerChoiceLists = ProbabilisticChoice([
  */
 async function grassPlant(event:ItemComponentUseOnEvent) {
 
-    let player = event.source as Player;
-    let itemStack = event.itemStack as ItemStack;
-    let block = event.block as Block;
-    let blockFace = event.blockFace as Direction;
+    const player = event.source as Player;
+    const itemStack = event.itemStack as ItemStack;
+    const block = event.block as Block;
+    const blockFace = event.blockFace as Direction;
 
-    if ((WeaponCraftBlocks.indexOf(block.typeId) != -1) || (block.typeId != MinecraftBlockTypes.GrassBlock && block.typeId != MinecraftBlockTypes.Dirt)) {
+    if ((WeaponCraftBlocks.indexOf(block.typeId) !== -1) || (block.typeId !== MinecraftBlockTypes.GrassBlock && block.typeId !== MinecraftBlockTypes.Dirt)) {
         return;
     }
     if (blockFace == Direction.Up) {
-        let blockDim = block.dimension;
-        let bx = block.location.x;
-        let by = block.location.y;
-        let bz = block.location.z;
+        const blockDim = block.dimension;
+        const bx = block.location.x;
+        const by = block.location.y;
+        const bz = block.location.z;
     
         blockDim.spawnParticle("minecraft:crop_growth_area_emitter", {"x":bx,"y":by+1,"z":bz});
         for (let y=-2; y<=2;y++) {
             for (let z=-2; z<=2;z++) {
-                let vec = {"x":bx+y,"y":by,"z":bz+z};
-                let upvec = {"x":bx+y,"y":by+1,"z":bz+z};
+                const vec = {"x":bx+y,"y":by,"z":bz+z};
+                const upvec = {"x":bx+y,"y":by+1,"z":bz+z};
 
-                let dimeBlock = blockDim.getBlock(vec) as Block;
-                let updimeBlock = blockDim.getBlock(upvec) as Block;
-                if (dimeBlock.typeId == MinecraftBlockTypes.Dirt) {
+                const dimeBlock = blockDim.getBlock(vec) as Block;
+                const updimeBlock = blockDim.getBlock(upvec) as Block;
+                if (dimeBlock.typeId === MinecraftBlockTypes.Dirt) {
                     blockDim.setBlockType(dimeBlock.location, MinecraftBlockTypes.GrassBlock);
                 }
-                if(updimeBlock.isAir && (dimeBlock.typeId == MinecraftBlockTypes.GrassBlock)) {
-                    let randomBlock = flowerChoiceLists.pick();
-                    if (randomBlock != "") {
+                if(updimeBlock.isAir && (dimeBlock.typeId === MinecraftBlockTypes.GrassBlock)) {
+                    const randomBlock = flowerChoiceLists.pick();
+                    if (randomBlock !== "") {
                         blockDim.setBlockType(upvec,randomBlock);
                     }
                 }

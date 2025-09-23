@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentTypes, ItemCooldownComponent } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
 import { crimsonBread, flamingDesires } from "./FireMagicBread";
 import { aquaDesires, mercurySmash } from "./WaterMagicBread";
 import { windBarkSlash, windDesires } from "./WindMagicBread";
@@ -98,7 +98,7 @@ export class BreadWeaponMagic implements ItemCustomComponent {
         const breadMagicObject = BreadHitObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadMagicObject.func(hitEntity);
         attackEntity.onScreenDisplay.setActionBar({rawtext:[{translate:breadMagicObject.sendMsg}]});
-        itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 
     }
 
@@ -113,7 +113,7 @@ export class BreadWeaponMagic implements ItemCustomComponent {
         const breadShotObject = BreadShotObjects.find(obj => obj.itemName == itemStack.typeId) as BreadMagicObject;
         breadShotObject.func(player);
         player.onScreenDisplay.setActionBar({rawtext:[{translate:breadShotObject.sendMsg}]});
-        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
         const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
     }

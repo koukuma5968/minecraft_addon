@@ -17,7 +17,7 @@ export class AxeBatchDestruction implements ItemCustomComponent {
         const mineBlock = event.minedBlockPermutation;
         const entity = event.source;
         const itemStack = event.itemStack;
-        if (itemStack != undefined) {
+        if (itemStack !== undefined) {
             itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
         }
         if (mineBlock.hasTag("minecraft:is_axe_item_destructible")) {

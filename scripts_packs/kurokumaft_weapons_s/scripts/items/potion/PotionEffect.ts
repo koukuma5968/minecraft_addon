@@ -131,16 +131,16 @@ const PotionObjects = Object.freeze([
 export class PotionEffect implements ItemCustomComponent {
 
     onConsume(event:ItemComponentConsumeEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
-        let potionItem = PotionObjects.find(obj => obj.itemName == itemStack.typeId) as PotionObject;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const potionItem = PotionObjects.find(obj => obj.itemName === itemStack.typeId) as PotionObject;
         addEffectPotion(source, potionItem);
     }
 }
 
 async function addEffectPotion(player: Player, potionItem: PotionObject) {
-    let effects = potionItem.effects;
-    if (effects.length == 0) {
+    const effects = potionItem.effects;
+    if (effects.length === 0) {
         player.runCommand("/effect @s clear")
     } else {
         effects.forEach(effectType => {

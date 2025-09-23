@@ -1,0 +1,133 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.owl.base": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["-this", 0, 0],
+					"position": ["-this", 0, 0]
+				},
+				"feather": {
+					"rotation": ["-this", 0, 0]
+				},
+				"head": {
+					"rotation": [0, 0, "-this"],
+					"position": ["-this", 0, 0]
+				},
+				"leg0": {
+					"rotation": ["-16.713-this", 0, "-this"],
+					"position": [0, "-6.0-this", -0.5]
+				},
+				"leg1": {
+					"rotation": ["-16.713-this", 0, "-this"],
+					"position": [0, "-6.0-this", -0.5]
+				},
+				"tail": {
+					"position": ["-this", 0, 0]
+				}
+			}
+		},
+		"animation.owl.dance": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": ["variable.dance.x-this", "variable.dance.y", 0]
+				},
+				"head": {
+					"rotation": ["-this", "-this", "variable.dance.y*23.0 - this"]
+				},
+				"leg0": {
+					"position": ["-variable.dance.x", "-variable.dance.y", 0],
+					"rotation": [0, 0, "-20.0 - this"]
+				},
+				"leg1": {
+					"position": ["-variable.dance.x", "-variable.dance.y", 0],
+					"rotation": [0, 0, "20.0 - this"]
+				},
+				"tail": {
+					"rotation": ["60.0 - this", 0, 0]
+				},
+				"wing0": {
+					"rotation": [0, 0, "-5.0 - variable.wing_flap"]
+				},
+				"wing1": {
+					"rotation": [0, 0, "5.0 + variable.wing_flap"]
+				}
+			}
+		},
+		"animation.owl.flying": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"wing0": {
+					"rotation": {
+						"0.0": [32.5, 0, 0],
+						"0.125": [32.5, 0, -20],
+						"0.25": [32.5, 0, 0]
+					},
+					"position": [0, 0, 1]
+				},
+				"wing1": {
+					"rotation": {
+						"0.0": [32.5, 0, 0],
+						"0.125": [32.5, 0, 20],
+						"0.25": [32.5, 0, 0]
+					},
+					"position": [0, 0, 1]
+				}
+			}
+		},
+		"animation.owl.moving": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [0, "variable.wing_flap * 0.3", 0]
+				},
+				"tail": {
+					"rotation": ["60.0 + math.cos(query.anim_time * 38.17) * 17.0 - this", 0, 0]
+				},
+				"wing0": {
+					"rotation": [0, 0, "-5.0 - variable.wing_flap * 57.3"]
+				},
+				"wing1": {
+					"rotation": [0, 0, "5.0 + variable.wing_flap * 57.3"]
+				}
+			}
+		},
+		"animation.owl.sitting": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [0, -1.9, 0]
+				},
+				"leg0": {
+					"rotation": [90, 0, 0]
+				},
+				"leg1": {
+					"rotation": [90, 0, 0]
+				},
+				"tail": {
+					"rotation": ["90.0 - this", 0, 0]
+				},
+				"wing0": {
+					"rotation": [0, 0, "-5.0-this"]
+				},
+				"wing1": {
+					"rotation": [0, 0, "5.0-this"]
+				}
+			}
+		},
+		"animation.owl.standing": {
+			"loop": true,
+			"bones": {
+				"leg0": {
+					"rotation": [20, 0, 0]
+				},
+				"leg1": {
+					"rotation": [20, 0, 0]
+				}
+			}
+		}
+	}
+}

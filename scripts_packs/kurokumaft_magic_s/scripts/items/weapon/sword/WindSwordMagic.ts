@@ -8,7 +8,7 @@ import { Entity, EntityDamageCause, Player, world } from "@minecraft/server";
 export async function windSword(player:Player, entity:Entity) {
 
     entity.dimension.spawnParticle("kurokumaft:wind_roar_particle", entity.location);
-    entity.applyKnockback({x:player.getViewDirection().x+2, z:player.getViewDirection().z+2}, 0.5);
+    entity.applyKnockback({x:entity.getViewDirection().x-2, z:entity.getViewDirection().z-2}, 0.5);
     if (entity instanceof Player) {
         if (world.gameRules.pvp) {
             entity.applyDamage(2, {
@@ -30,7 +30,7 @@ export async function windSword(player:Player, entity:Entity) {
 export async function windSwordMons(attack:Entity, hit:Entity) {
 
     hit.dimension.spawnParticle("kurokumaft:wind_roar_particle", hit.location);
-    hit.applyKnockback({x:attack.getViewDirection().x, z:attack.getHeadLocation().z}, 0.5);
+    hit.applyKnockback({x:hit.getViewDirection().x, z:hit.getHeadLocation().z}, 0.5);
     if (hit instanceof Player) {
         hit.applyDamage(2, {
             cause: EntityDamageCause.fallingBlock

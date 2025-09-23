@@ -25,10 +25,10 @@ async function mobflameFiring(hitEntity:Entity) {
 
 export async function fireCharcoalBlock(attackingEntity:Entity, itemStack:ItemStack, block:Block) {
 
-    if (WeaponLogBlocks.find(type => type == block.typeId) != undefined 
-    || WeaponStrippedLogBlocks.find(type => type == block.typeId) != undefined 
-    || WeaponWoodBlocks.find(type => type == block.typeId) != undefined
-    || WeaponStrippedWoodBlocks.find(type => type == block.typeId) != undefined) {
+    if (WeaponLogBlocks.find(type => type === block.typeId) !== undefined 
+    || WeaponStrippedLogBlocks.find(type => type === block.typeId) !== undefined 
+    || WeaponWoodBlocks.find(type => type === block.typeId) !== undefined
+    || WeaponStrippedWoodBlocks.find(type => type === block.typeId) !== undefined) {
 
         block.dimension.setBlockType(block.location, "kurokumaft:charcoal_block");
         block.dimension.spawnParticle("kurokumaft:mobflame_firing", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});

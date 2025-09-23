@@ -1,18 +1,18 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "Weapons_KuroRv3.12",
-		"description": "武器アドオンRv3.12\n色々な武器や防具を追加するアドオン リソースパック",
+		"name": "Weapons_KuroRv3.13",
+		"description": "武器アドオンRv3.13\n色々な武器や防具を追加するアドオン リソースパック",
 		"uuid": "73c6da0a-0ae1-4d2e-8b75-000428e43aae",
-		"version": [3, 0, 12],
-		"min_engine_version": [1, 21, 10]
+		"version": [3, 0, 13],
+		"min_engine_version": [1, 21, 100]
 	},
 	"modules": [
 		{
-			"description": "武器アドオンRv3.12",
+			"description": "武器アドオンRv3.13",
 			"type": "resources",
 			"uuid": "878ab913-c67c-48f0-8ba6-22b91e9a9902",
-			"version": [3, 0, 12]
+			"version": [3, 0, 13]
 		}
 	]
 }

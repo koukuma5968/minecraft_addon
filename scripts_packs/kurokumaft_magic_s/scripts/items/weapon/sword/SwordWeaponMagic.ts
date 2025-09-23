@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, EquipmentSlot, ItemComponentCompleteUseEvent, world } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
 import { blazeBurst, fireSword, fireSwordMons } from "./FireSwordMagic";
 import { waterSword, waterSwordMons } from "./WaterSwordMagic";
 import { windSword, windSwordMons } from "./WindSwordMagic";
@@ -140,7 +140,7 @@ export class SwordWeaponMagic implements ItemCustomComponent {
     }
 
     // チャージ完了
-    onCompconsteUse(event:ItemComponentCompleteUseEvent) {
+    onCompleteUse(event:ItemComponentCompleteUseEvent) {
         const itemStack = event.itemStack as ItemStack;
         const player = event.source as Player;
         if (!itemStack) {
@@ -149,7 +149,7 @@ export class SwordWeaponMagic implements ItemCustomComponent {
         // const swordChargeMagicObject = SwordChargeObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicObject;
         // player.onScreenDisplay.setActionBar({rawtext:[{translate:swordChargeMagicObject.sendMsg}]});
         // swordChargeMagicObject.func(player);
-        // itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        // itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
 }
@@ -171,7 +171,7 @@ export class SwordWeaponMagicMons implements ItemCustomComponent {
         }
         const swordMagicObject = SwordHitMonsObjects.find(obj => obj.itemName == itemStack.typeId) as SwordMagicMonsObject;
         swordMagicObject.func(attackEntity, hitEntity);
-        itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(attackEntity, itemStack, EquipmentSlot.Mainhand);
 
     }
 }

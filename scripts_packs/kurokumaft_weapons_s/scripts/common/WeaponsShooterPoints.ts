@@ -9,10 +9,10 @@ import { EntityComponentTypes, EntityProjectileComponent, ItemStack, Player, Vec
  */
 export async function throwing(player:Player, item:ItemStack, throwItem:string, ranNum:number) {
 
-    let bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
+    const bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
     item.amount++;
 
-    let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
     projectile.owner = player;
     projectile.shoot(player.getViewDirection(), {
         uncertainty: ranNum
@@ -29,14 +29,11 @@ export async function throwing(player:Player, item:ItemStack, throwItem:string, 
  */
 export async function shooting(player:Player, throwItem:string, ranNum:number, seepd:number, event:string | undefined) {
 
-    let bulet;
-    if (event != undefined) {
-        bulet = player.dimension.spawnEntity(throwItem+"<"+event+">", player.getHeadLocation());
-    } else {
-        bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
-    }
+    const bulet =player.dimension.spawnEntity(throwItem, player.getHeadLocation(), {
+        spawnEvent: event
+    });
 
-    let projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+    const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
     projectile.owner = player;
     projectile.shoot(player.getViewDirection(),
     {
@@ -52,9 +49,8 @@ export async function shooting(player:Player, throwItem:string, ranNum:number, s
  * @param {Vector3} location
  */
 export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
-    let r = 1.5;  // 半径
 
-    let piNum = 75;
+    const piNum = 75;
     let xapply;
     let yapply;
     let zapply;
@@ -64,12 +60,12 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
 
     // 西～北
     if (rotation.y >= -90 && rotation.y < 0) {
-        let yRotax = -rotation.y / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = -rotation.y / piNum;
+        const yRotaz = (rotation.y + 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * 1.75;
             xapply = yRotax * xRota;
 
@@ -85,7 +81,7 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * 1.75;
             xapply = yRotax * xRota;
 
@@ -104,12 +100,12 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
     // 北～東
     } else if (rotation.y >= 0 && rotation.y <= 90) {
 
-        let yRotax = rotation.y / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = rotation.y / piNum;
+        const yRotaz = -(rotation.y - 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
 
             if (rotation.y >= 45) {
                 xlocation = location.x - (yRotax * xRota) * 1.75;
@@ -135,7 +131,7 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             if (rotation.y >= 45) {
                 xlocation = location.x - (yRotax * xRota) * 1.75;
             } else {
@@ -162,12 +158,12 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
     // 西～南
     } else if (rotation.y < -90 && rotation.y > -180) {
 
-        let yRotax = (rotation.y + 180) / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = (rotation.y + 180) / piNum;
+        const yRotaz = (rotation.y + 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * 1.75;
             xapply = yRotax * xRota;
 
@@ -183,7 +179,7 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + (yRotax * xRota) * 1.75;
             xapply = yRotax * xRota;
 
@@ -201,12 +197,12 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
 
     // 東～南
     } else if (rotation.y > 90 && rotation.y <= 180) {
-        let yRotax = -(rotation.y - 180) / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = -(rotation.y - 180) / piNum;
+        const yRotaz = -(rotation.y - 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x - (yRotax * xRota) * 1.75;
             xapply = -(yRotax * xRota);
 
@@ -227,7 +223,7 @@ export function getAdjacentSphericalPoints(rotation:Vector2, location:Vector3) {
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x - (yRotax * xRota) * 1.75;
             xapply = -(yRotax * xRota);
 

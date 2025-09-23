@@ -11,14 +11,14 @@ export class EnderEyeSword implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
         evilTeleport(attackEntity, hitEntity);
     }
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         evilEye(source);
         itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
         itemCoolDown(source, itemStack);
@@ -27,11 +27,11 @@ export class EnderEyeSword implements ItemCustomComponent {
 
 async function evilTeleport(attackEntity:Entity, hitEntity:Entity) {
 
-    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 6);
+    const look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 6);
 
-    let xraun = getRandomInRange(-5,5);
-    let yraun = getRandomInRange(0,5);
-    let zraun = getRandomInRange(-5,5);
+    const xraun = getRandomInRange(-5,5);
+    const yraun = getRandomInRange(0,5);
+    const zraun = getRandomInRange(-5,5);
 
     let tpLoca;
     while (true) {
@@ -47,9 +47,9 @@ async function evilTeleport(attackEntity:Entity, hitEntity:Entity) {
 
 async function evilEye(player:Player) {
 
-    let health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
-    let zan = health.currentValue/2;
-    if (health.currentValue != 1) {
+    const health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+    const zan = health.currentValue/2;
+    if (health.currentValue !== 1) {
         health.setCurrentValue(zan);
         player.addEffect(MinecraftEffectTypes.Hunger, 10*TicksPerSecond, {
             amplifier: 30-zan*5

@@ -44,7 +44,7 @@ export class PicRangeDestruction implements ItemCustomComponent {
         const mineBlock = event.minedBlockPermutation;
         const entity = event.source;
         const itemStack = event.itemStack;
-        if (itemStack != undefined) {
+        if (itemStack !== undefined) {
             itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
         }
         if (mineBlock.hasTag("minecraft:is_pickaxe_item_destructible")) {
@@ -89,7 +89,7 @@ function destructionBlocks(location: Vector3, dimension: Dimension, brakeBlockLi
             const value = nextValue.value;
             if (value.y >= -64) {
                 const breakBlock = dimension.getBlock(value);
-                if (breakBlock != undefined) {
+                if (breakBlock !== undefined) {
                     if (breakBlock.hasTag("minecraft:is_pickaxe_item_destructible")) {
                         if (brakeBlockList.find(blocks => (blocks.location.x === breakBlock.location.x && blocks.location.y === breakBlock.location.y && blocks.location.z === breakBlock.location.z)) === undefined) {
                             const ore = oreBlocks.find(block => block.ore === breakBlock.typeId);

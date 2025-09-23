@@ -1,20 +1,20 @@
-import { system,EntityComponentTypes,ItemComponentTypes,ItemStack,Block, Player, EntityEquippableComponent, EquipmentSlot, ItemEnchantableComponent, Enchantment, BlockCustomComponent, BlockComponentPlayerInteractEvent, BlockPermutation, world, EntityInventoryComponent, Container, Entity, BlockComponentPlayerDestroyEvent, Dimension } from "@minecraft/server";
+import { system,EntityComponentTypes,ItemComponentTypes,ItemStack,Block, Player, EntityEquippableComponent, EquipmentSlot, ItemEnchantableComponent, Enchantment, BlockCustomComponent, BlockComponentPlayerInteractEvent, BlockPermutation, world, EntityInventoryComponent, Container, Entity, Dimension, BlockComponentPlayerBreakEvent } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import { MinecraftItemTypes } from "@minecraft/vanilla-data";
 
 export class TearEnchant implements BlockCustomComponent {
 
-    onPlayerDestroy(event:BlockComponentPlayerDestroyEvent) {
-        let block = event.block as Block;
-        let dimension = event.dimension as Dimension;
+    onPlayerBreak(event:BlockComponentPlayerBreakEvent) {
+        const block = event.block as Block;
+        const dimension = event.dimension as Dimension;
         breackTearEnchant(dimension, block);
     }
 
     onPlayerInteract(event:BlockComponentPlayerInteractEvent) {
-        let player = event.player as Player;
-        let block = event.block as Block;
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        const player = event.player as Player;
+        const block = event.block as Block;
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         if (block.matches("kurokumaft:tear_enchant",{"kurokumaft:isBook":1})) {
             tearEnchantBlock(player, itemStack, block);
         } else {
@@ -24,7 +24,7 @@ export class TearEnchant implements BlockCustomComponent {
 }
 
 export async function breackTearEnchant(dimension:Dimension, block:Block) {
-    let book_entity = dimension.getEntities({
+    const book_entity = dimension.getEntities({
         families: [
             "tear_enchant_book"
         ],
@@ -33,9 +33,9 @@ export async function breackTearEnchant(dimension:Dimension, block:Block) {
     }) as Entity[];
 
     if (book_entity.length > 0) {
-        let bookInvent = book_entity[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-        let container = bookInvent.container as Container;
-        let setBook = container.getItem(0) as ItemStack;
+        const bookInvent = book_entity[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+        const container = bookInvent.container as Container;
+        const setBook = container.getItem(0) as ItemStack;
     
         dimension.spawnItem(setBook,block.location);
     }
@@ -50,15 +50,15 @@ export async function breackTearEnchant(dimension:Dimension, block:Block) {
  */
 async function tearEnchantBlock(player: Player, item: ItemStack | undefined, block: Block) {
 
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
     // world.sendMessage("エンチャントリリース");
     if (item != undefined) {
-        let actionForm = new ActionFormData().title({ translate: "tile.kurokumaft:tear_enchant.name" });
-        let enc = mainhand.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+        const actionForm = new ActionFormData().title({ translate: "tile.kurokumaft:tear_enchant.name" });
+        const enc = mainhand.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
         if (enc != undefined) {
             // world.sendMessage("エンチャントコンポーネントあり");
-            let encs = enc.getEnchantments();
+            const encs = enc.getEnchantments();
             if (encs != undefined && encs.length>0) {
                 // world.sendMessage("エンチャントあり");
                 actionForm
@@ -75,28 +75,28 @@ async function tearEnchantBlock(player: Player, item: ItemStack | undefined, blo
                     if (formData.selection == 0) {
                         // world.sendMessage("空の本を作る");
                         // セット時に本についていたエンチャントを取る
-                        let book_entity = block.dimension.getEntities({
+                        const book_entity = block.dimension.getEntities({
                             families: [
                                 "tear_enchant_book"
                             ],
                             location: {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5},
                             closest: 1
                         }) as Entity[];
-                        let bookInvent = book_entity[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-                        let container = bookInvent.container as Container;
-                        let setBook = container.getItem(0) as ItemStack;
-                        let setBookEnc = setBook.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+                        const bookInvent = book_entity[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+                        const container = bookInvent.container as Container;
+                        const setBook = container.getItem(0) as ItemStack;
+                        const setBookEnc = setBook.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
 
                         // 右手のアイテムのエンチャント分
                         for (let i=0;i<encs.length;i++) {
-                            let repEnc = encs[i];
+                            const repEnc = encs[i];
                             // world.sendMessage("武器エンチャント" + repEnc.type.id);
                             try {
                                 if (setBookEnc.canAddEnchantment(repEnc)) {
                                     // world.sendMessage("本エンチャント可能");
                                     if (setBookEnc.hasEnchantment(repEnc.type.id)) {
                                         // world.sendMessage("同じエンチャントあり" + repEnc.type.id);
-                                        let tearEnc = setBookEnc.getEnchantment(repEnc.type.id) as Enchantment;
+                                        const tearEnc = setBookEnc.getEnchantment(repEnc.type.id) as Enchantment;
                                         // 同じレベルかつ最大値以下なら＋1
                                         // world.sendMessage("武器レベル" + repEnc.level);
                                         if (repEnc.level == tearEnc.level && repEnc.level < repEnc.type.maxLevel) {
@@ -119,16 +119,16 @@ async function tearEnchantBlock(player: Player, item: ItemStack | undefined, blo
                                 world.sendMessage({ translate: "tear_enchant.mess.notenchant", with: [repEnc.type.id]});
                             }
                         }
-                        let reenc = mainhand.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+                        const reenc = mainhand.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                         if (mainhand.typeId == "minecraft:enchanted_book" && (reenc == undefined || reenc.getEnchantments().length == 0)) {
-                            let newmainhand = new ItemStack("minecraft:book",1);
+                            const newmainhand = new ItemStack("minecraft:book",1);
                             equ.setEquipment(EquipmentSlot.Mainhand, newmainhand);
                         } else {
                             equ.setEquipment(EquipmentSlot.Mainhand, mainhand);
                         }
                         if (setBook.typeId != MinecraftItemTypes.EnchantedBook) {
-                            let newBook = new ItemStack(MinecraftItemTypes.EnchantedBook,1);
-                            let newBookEnc = newBook.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+                            const newBook = new ItemStack(MinecraftItemTypes.EnchantedBook,1);
+                            const newBookEnc = newBook.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
                             newBookEnc.addEnchantments(setBookEnc.getEnchantments());
                             container.setItem(0, newBook);
                         } else {
@@ -166,21 +166,21 @@ async function tearEnchantBlock(player: Player, item: ItemStack | undefined, blo
         }
     } else {
 
-        let book_entity = block.dimension.getEntities({
+        const book_entity = block.dimension.getEntities({
             families: [
                 "tear_enchant_book"
             ],
             location: {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5},
             closest: 1
         }) as Entity[];
-        let bookInvent = book_entity[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-        let container = bookInvent.container as Container;
+        const bookInvent = book_entity[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+        const container = bookInvent.container as Container;
 
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         equ.setEquipment(EquipmentSlot.Mainhand, container.getItem(0));
 
         book_entity[0].remove();
-        block.setPermutation(block.permutation.withState("kurokumaft:isBook", 0));
+        block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:isBook" : 0}));
 
     }
 }
@@ -196,19 +196,19 @@ async function setTearEnchantBook(player: Player, item: ItemStack, block: Block)
     if (block.matches("kurokumaft:tear_enchant",{"kurokumaft:isBook":0})) {
         if (item != undefined) {
             if (item.typeId == "minecraft:book" || item.typeId == "minecraft:enchanted_book") {
-                let book_entity = block.dimension.spawnEntity("kurokumaft:tear_enchant_book_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
-                let bookInvent = book_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-                let container = bookInvent.container as Container;
+                const book_entity = block.dimension.spawnEntity("kurokumaft:tear_enchant_book_entity", {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5});
+                const bookInvent = book_entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+                const container = bookInvent.container as Container;
         
                 // world.sendMessage("本");
-                let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-                let mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-                let clone = mainhand.clone();
+                const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+                const mainhand = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+                const clone = mainhand.clone();
                 clone.amount = clone.amount-(clone.amount-1);
 
                 container.setItem(0, clone);
 
-                block.setPermutation(block.permutation.withState("kurokumaft:isBook", 1));
+                block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:isBook" : 1}));
                 system.runTimeout(() => {
                     if (mainhand.amount == 1) {
                         equ.setEquipment(EquipmentSlot.Mainhand, undefined);
@@ -221,7 +221,7 @@ async function setTearEnchantBook(player: Player, item: ItemStack, block: Block)
         } else {
             // world.sendMessage("アイテムなし");
             system.runTimeout(() => {
-                let actionForm = new ActionFormData()
+                const actionForm = new ActionFormData()
                 .title({ translate: "tile.kurokumaft:tear_enchant.name" })
                 .body({rawtext: [
                     { translate: "tear_enchant.mess.body.notbook" },

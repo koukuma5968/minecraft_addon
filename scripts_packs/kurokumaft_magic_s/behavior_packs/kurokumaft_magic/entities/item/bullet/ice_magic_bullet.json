@@ -46,7 +46,6 @@
           }
         },
         "reflect_on_hurt": true,
-        "hit_sound": "sonic_boom",
         "power": 5,
         "gravity": 0,
         "uncertainty_base": 1,

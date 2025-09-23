@@ -8,20 +8,20 @@ export class MithrilSpear implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
         mithrilHit(attackEntity, hitEntity, itemStack);
     }
 }
 
 async function mithrilHit(attackEntity: Entity, hitEntity: Entity, itemStack: ItemStack) {
     attackEntity.addTag("mithrilHit");
-    let dim = attackEntity.dimension;
-    let look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    const dim = attackEntity.dimension;
+    const look = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
     dim.spawnParticle("kurokumaft:sweep_particle", {x:look.x, y:look.y+0.5,z:look.z});
     dim.spawnParticle("kurokumaft:sweep_particle", {x:look.x, y:look.y+1,z:look.z});
-    let targetEn = dim.getEntities({
+    const targetEn = dim.getEntities({
         excludeTags: [
             "mithrilHit"
         ],
@@ -36,7 +36,7 @@ async function mithrilHit(attackEntity: Entity, hitEntity: Entity, itemStack: It
     })
 
     targetEn.forEach(en => {
-        if (!en.isValid()) {
+        if (!en.isValid) {
             return;
         }
         en.applyDamage(5, {

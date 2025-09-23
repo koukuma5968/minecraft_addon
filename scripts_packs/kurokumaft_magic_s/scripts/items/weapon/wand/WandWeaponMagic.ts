@@ -1,14 +1,15 @@
 import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
 import { throwing } from "../../../common/MagicShooterMagicEvent";
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
 import { deepSnow, icewall, powderedSnow } from "./SnowWandMagic";
-import { absorption, darkBread, invisibility } from "./DarkWandMagic";
-import { healing, lightBread, recovery } from "./LightWandMagic";
+import { absorption, darkBread, darkness, invisibility } from "./DarkWandMagic";
+import { flash, healing, lightBread, recovery } from "./LightWandMagic";
 import { splash, waterball, waterwall } from "./WaterMagic";
 import { burstRondo, fireball, firewall } from "./FireMagic";
 import { windcutter, windEdge, windwall } from "./WindMagic";
 import { sandBlast, stonebarrette, stonewall } from "./StoneMagic";
 import { lightningbolt, lightningwall, spark } from "./LightningMagic";
+import { ItemMagicCustomComponent } from "../MagicAttackEvent";
 
 interface WandMagicObject {
     itemName:string,
@@ -176,10 +177,35 @@ const OtherDownMagicObjects = Object.freeze([
 
 ]);
 
+const WandSneakAttackObjects = Object.freeze([
+    {
+        itemName: "kurokumaft:dark_wand",
+        event: "",
+        func: darkness,
+        sendMsg: "magic.kurokumaft:darkness.translate"
+    },
+    {
+        itemName: "kurokumaft:light_wand",
+        event: "",
+        func: flash,
+        sendMsg: "magic.kurokumaft:flash.translate"
+    }
+
+]);
+
 /**
  * ワンド系魔法
  */
-export class WandWeaponMagic implements ItemCustomComponent {
+export class WandWeaponMagic implements ItemCustomComponent, ItemMagicCustomComponent {
+
+    attackSneak(player: Player, itemStack: ItemStack): void {
+        const wandSneakAttackObjectt = WandSneakAttackObjects.find(obj => obj.itemName == itemStack.typeId) as WandMagicObject;
+        if (wandSneakAttackObjectt !== undefined) {
+            player.onScreenDisplay.setActionBar({rawtext:[{translate:wandSneakAttackObjectt.sendMsg}]});
+            wandSneakAttackObjectt.func(player);
+        }
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
+    }
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
@@ -222,7 +248,7 @@ export class WandWeaponMagic implements ItemCustomComponent {
 
         player.onScreenDisplay.setActionBar({rawtext:[{translate:wandMagic.sendMsg}]});
 
-        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

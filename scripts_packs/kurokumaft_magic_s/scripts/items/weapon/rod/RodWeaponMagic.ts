@@ -1,14 +1,15 @@
 import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player } from "@minecraft/server";
 import { shooting } from "../../../common/MagicShooterMagicEvent";
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
-import { bumrod, burstflare, flarecircle } from "./FlameMagic";
-import { watercutter, waterjail, waterwave } from "./WaterWaveMagic";
-import { aerobomb, storm, stormBread } from "./StormMagic";
-import { greybomb, rockbreak, stoneBread } from "./RockMagic";
-import { lightningBread, thunderclap, thunderjail } from "./ThunderclapMagic";
-import { freezConclusion, iceBread } from "./FreezeMagic";
-import { brushash, darkFang, summonSkeconston } from "./DarknessMagic";
-import { areaheel, lightFang, summonGolem } from "./BrightnessMagic";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
+import { bumrod, burstflare, flarecircle, framePillar } from "./FlameMagic";
+import { watercutter, waterjail, waterPillar, waterwave } from "./WaterWaveMagic";
+import { aerobomb, storm, stormBread, windRoar } from "./StormMagic";
+import { greybomb, rockbreak, stoneBread, stoneNeedle } from "./RockMagic";
+import { lightningBread, thunderclap, thunderCutter, thunderjail } from "./ThunderclapMagic";
+import { freezConclusion, iceBread, iceNeedle } from "./FreezeMagic";
+import { brushash, darkFang, hellBlast, summonSkeleton } from "./DarknessMagic";
+import { ability, areaheel, lightFang, summonGolem } from "./BrightnessMagic";
+import { ItemMagicCustomComponent } from "../MagicAttackEvent";
 
 interface RodFuncMagicObject {
     itemName:string,
@@ -149,8 +150,8 @@ const RodRightFuncMagicObjects = Object.freeze([
     },
     {
         itemName: "kurokumaft:darkness_rod",
-        func: summonSkeconston,
-        sendMsg: "magic.kurokumaft:summonSkeconston.translate"
+        func: summonSkeleton,
+        sendMsg: "magic.kurokumaft:summonSkeleton.translate"
     },
     {
         itemName: "kurokumaft:brightness_rod",
@@ -160,10 +161,63 @@ const RodRightFuncMagicObjects = Object.freeze([
 
 ]);
 
+const RodSneakMagicObjects = Object.freeze([
+    {
+        itemName: "kurokumaft:flame_rod",
+        func: framePillar,
+        sendMsg: "magic.kurokumaft:framepillar.translate"
+    },
+    {
+        itemName: "kurokumaft:waterwave_rod",
+        func: waterPillar,
+        sendMsg: "magic.kurokumaft:waterpillar.translate"
+    },
+    {
+        itemName: "kurokumaft:storm_rod",
+        func: windRoar,
+        sendMsg: "magic.kurokumaft:wind_roar.translate"
+    },
+    {
+        itemName: "kurokumaft:rock_rod",
+        func: stoneNeedle,
+        sendMsg: "magic.kurokumaft:stone_needle.translate"
+    },
+    {
+        itemName: "kurokumaft:thunderclap_rod",
+        func: thunderCutter,
+        sendMsg: "magic.kurokumaft:thunder_cutter.translate"
+    },
+    {
+        itemName: "kurokumaft:freeze_rod",
+        func: iceNeedle,
+        sendMsg: "magic.kurokumaft:ice_needle.translate"
+    },
+    {
+        itemName: "kurokumaft:darkness_rod",
+        func: hellBlast,
+        sendMsg: "magic.kurokumaft:hellblast.translate"
+    },
+    {
+        itemName: "kurokumaft:brightness_rod",
+        func: ability,
+        sendMsg: "magic.kurokumaft:ability.translate"
+    }
+
+]);
+
 /**
  * ロッド系魔法
  */
-export class RodWeaponMagic implements ItemCustomComponent {
+export class RodWeaponMagic implements ItemCustomComponent, ItemMagicCustomComponent {
+
+    attackSneak(player: Player, itemStack: ItemStack): void {
+        const rodFuncMagicObject = RodSneakMagicObjects.find(obj => obj.itemName == itemStack.typeId) as RodFuncMagicObject;
+        if (rodFuncMagicObject !== undefined) {
+            player.onScreenDisplay.setActionBar({rawtext:[{translate:rodFuncMagicObject.sendMsg}]});
+            rodFuncMagicObject.func(player);
+        }
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
+    }
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
@@ -206,7 +260,7 @@ export class RodWeaponMagic implements ItemCustomComponent {
             }
         }
 
-        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);

@@ -1,5 +1,5 @@
 import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond, Vector3 } from "@minecraft/server";
-import { addTeamsTagFilter } from "../../../common/MagicCommonUtil";
+import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * ライトニングブレード
@@ -38,6 +38,46 @@ export async function lightningBread(player:Player, hitEntity:Entity) {
     });
 
     player.removeTag(player.id);
+}
+
+/**
+ * サンダーカッター
+ */
+export async function thunderCutter(player:Player) {
+
+    player.addTag(player.id);
+    const center = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
+    const filterOption = {
+        excludeTags: [
+            player.id
+        ],
+        location: {x:player.location.x+center.x, y:player.location.y+1.8, z:player.location.z+center.z},
+        maxDistance: 5
+    } as EntityQueryOptions;
+
+    addTeamsTagFilter(player, filterOption);
+
+    player.dimension.spawnParticle("kurokumaft:thunder_cutter_particle", {x:player.location.x+center.x, y:player.location.y+1.8, z:player.location.z+center.z});
+
+    const targets = player.dimension.getEntities(filterOption);
+    targets.forEach(en => {
+        if (!en.isValid) {
+            return;
+        }
+
+        if (en instanceof Player) {
+            en.applyDamage(4, {
+                cause: EntityDamageCause.lightning
+            });
+        } else {
+            en.applyDamage(10, {
+                cause: EntityDamageCause.lightning
+            });
+        }
+    });
+
+    player.removeTag(player.id);
+
 }
 
 /**

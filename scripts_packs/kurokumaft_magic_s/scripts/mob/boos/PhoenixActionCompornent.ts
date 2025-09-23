@@ -22,7 +22,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
 
     startMoniter(): void {
         this.entity.setProperty("kurokumaft:boss_pattern", 0);
-        world.sendMessage("移動");
+        // world.sendMessage("移動");
         this.startMoveing();
     }
 
@@ -38,7 +38,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
                 }
                 if (this.moveCount >= 300) {
                     this.moveCount = 0;
-                    world.sendMessage("中心移動");
+                    // world.sendMessage("中心移動");
                     this.mover.setPotion(this.entity.location);
                     this.mover.setCenterY(brokHi - 9);
                     this.entity.setProperty("kurokumaft:boss_pattern", 1);
@@ -93,7 +93,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
                     checkForBlocks: true
                 });
                 if (this.mover.isComplete()) {
-                    world.sendMessage("中心移動終わり");
+                    // world.sendMessage("中心移動終わり");
                     system.waitTicks(getRandomInRange(3, 8)*TicksPerSecond).then(() => {
                         this.entity.setProperty("kurokumaft:boss_pattern", 0);
                         this.flameStream(0);
@@ -124,7 +124,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
                     checkForBlocks: true
                 });
                 if (this.mover.isCompleteOrigin()) {
-                    world.sendMessage("オリジン移動終わり");
+                    // world.sendMessage("オリジン移動終わり");
                     this.entity.setProperty("kurokumaft:boss_pattern", 0);
                     this.startMoveing();
                 } else {
@@ -142,7 +142,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
     private flameStream(count: number) {
 
         try {
-            world.sendMessage("火焔放射");
+            // world.sendMessage("火焔放射");
             if (this.entity !== undefined && this.entity.isValid) {
                 const filterOption1 = {
                     location: this.entity.location,
@@ -169,7 +169,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
                         this.flameStream(count + 1);
                     } else {
                         system.waitTicks(TicksPerSecond).then(() => {
-                            world.sendMessage("もとに位置に戻る");
+                            // world.sendMessage("もとに位置に戻る");
                             this.originMoveing(1.5);
                         });
                     }
@@ -183,7 +183,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
    }
 
     private async fireBlast(count: number) {
-        world.sendMessage("火球乱射");
+        // world.sendMessage("火球乱射");
 
         try {
             const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.location);
@@ -210,7 +210,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
 
     private blazeWear(count: number, hight: number) {
 
-        world.sendMessage("火焔纏");
+        // world.sendMessage("火焔纏");
  
         try {
             system.waitTicks(5).then(() => {
@@ -234,7 +234,7 @@ export class PhoenixActionCompornent implements BossActionInterface {
 
     private blazeWearAttack(count: number) {
 
-        world.sendMessage("火焔纏アタック");
+        // world.sendMessage("火焔纏アタック");
         try {
             system.waitTicks(1).then(() => {
                 const distance = getLookLocationDistance(this.entity.getRotation().y, 1, 0, 0);

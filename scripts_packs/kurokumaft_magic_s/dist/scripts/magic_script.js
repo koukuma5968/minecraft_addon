@@ -1,5 +1,5 @@
 // scripts/magic_script.ts
-import { world as world39, Player as Player101, system as system44, TicksPerSecond as TicksPerSecond54, ScriptEventSource, EntityInitializationCause, EquipmentSlot as EquipmentSlot28 } from "@minecraft/server";
+import { world as world40, Player as Player102, system as system44, TicksPerSecond as TicksPerSecond57, ScriptEventSource, EntityInitializationCause, EquipmentSlot as EquipmentSlot29 } from "@minecraft/server";
 
 // scripts/items/weapon/shield/MagicShieldEvent.ts
 import { system, Player as Player3, EntityComponentTypes as EntityComponentTypes2, EquipmentSlot as EquipmentSlot2 } from "@minecraft/server";
@@ -3250,6 +3250,26 @@ function addTeamsTagFilter(player, filterOption) {
     }
   }
 }
+async function explosionMagic(source, target, location, option, radius, damage, dcase) {
+  const bom = target.dimension.createExplosion(location, radius, option);
+  if (bom) {
+    if (!target.isInWater) {
+      if (target instanceof Player) {
+        if (world.gameRules.pvp) {
+          target.applyDamage(damage, {
+            cause: dcase,
+            damagingEntity: source
+          });
+        }
+      } else {
+        target.applyDamage(damage, {
+          cause: dcase,
+          damagingEntity: source
+        });
+      }
+    }
+  }
+}
 function explodeBedrock(impactBLockList) {
   try {
     const filterBlockList = impactBLockList.filter((block) => {
@@ -3310,7 +3330,7 @@ async function applyExplosionDamage(option, source, filterOption, dimension, loc
 
 // scripts/common/MagicItemDurabilityDamage.ts
 import { ItemStack, Player as Player2, ItemComponentTypes, EntityComponentTypes, GameMode } from "@minecraft/server";
-async function itemDurabilityDamage(entity, item, slot) {
+async function itemDurabilityMagicDamage(entity, item, slot) {
   if (entity instanceof Player2 && entity.getGameMode() != GameMode.Creative) {
     const equ = entity.getComponent(EntityComponentTypes.Equippable);
     const durability = item.getComponent(ItemComponentTypes.Durability);
@@ -3329,7 +3349,7 @@ async function itemDurabilityDamage(entity, item, slot) {
     }
   }
 }
-async function itemDurabilityDamageFixed(entity, item, slot, damage) {
+async function itemDurabilityMagicDamageFixed(entity, item, slot, damage) {
   if (entity instanceof Player2 && entity.getGameMode() == GameMode.Creative) {
     return;
   }
@@ -3384,10 +3404,10 @@ function magicShieldGuard(player, range) {
   const mainhand = equ.getEquipment(EquipmentSlot2.Mainhand);
   if (player.isSneaking) {
     if (offhand != void 0 && offhand.typeId.indexOf("_shield") != -1) {
-      itemDurabilityDamage(player, offhand, EquipmentSlot2.Offhand);
+      itemDurabilityMagicDamage(player, offhand, EquipmentSlot2.Offhand);
       playsound(player, "item.shield.block");
     } else if (mainhand != void 0 && mainhand.typeId.indexOf("_shield") != -1) {
-      itemDurabilityDamage(player, mainhand, EquipmentSlot2.Mainhand);
+      itemDurabilityMagicDamage(player, mainhand, EquipmentSlot2.Mainhand);
       playsound(player, "item.shield.block");
     }
   }
@@ -3525,12 +3545,12 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
         damager.applyDamage(5, { "cause": "entityExplosion" });
         damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
         damager.applyKnockback({ x: Math.round(view.x) * 10, z: Math.round(view.z) * 10 }, 10);
-        itemDurabilityDamage(player, chest, EquipmentSlot3.Chest);
+        itemDurabilityMagicDamage(player, chest, EquipmentSlot3.Chest);
       }
       if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chest") {
         damager.applyDamage(5, { "cause": "lightning" });
         damager.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", damager.location);
-        itemDurabilityDamage(player, chest, EquipmentSlot3.Chest);
+        itemDurabilityMagicDamage(player, chest, EquipmentSlot3.Chest);
       }
     }
   }
@@ -3543,7 +3563,7 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
         const randomInRange1 = Math.floor(Math.random() * 2) == 1 ? -randomNum1 : randomNum1;
         const randomInRange2 = Math.floor(Math.random() * 2) == 1 ? -randomNum2 : randomNum2;
         damager.teleport({ x: location.x + randomInRange1, y: location.y, z: location.z + randomInRange2 });
-        itemDurabilityDamage(player, legs, EquipmentSlot3.Legs);
+        itemDurabilityMagicDamage(player, legs, EquipmentSlot3.Legs);
       }
     }
   }
@@ -3562,7 +3582,7 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
         system2.runTimeout(() => {
           system2.clearRun(intervalNum);
         }, 30);
-        itemDurabilityDamage(player, head, EquipmentSlot3.Head);
+        itemDurabilityMagicDamage(player, head, EquipmentSlot3.Head);
       } catch (error) {
       }
     }
@@ -3575,7 +3595,7 @@ async function hitMagicAmor(player, damager, projectile, hitVector) {
         projComp.shoot(projectile.getViewDirection(), {
           uncertainty: 0
         });
-        itemDurabilityDamage(player, head, EquipmentSlot3.Head);
+        itemDurabilityMagicDamage(player, head, EquipmentSlot3.Head);
       } catch (error) {
       }
     }
@@ -3597,12 +3617,9 @@ function throwing(player, item, throwItem, ranNum) {
   });
 }
 function shooting(player, throwItem, ranNum, seepd, event) {
-  let bulet;
-  if (event != void 0) {
-    bulet = player.dimension.spawnEntity(throwItem + "<" + event + ">", player.getHeadLocation());
-  } else {
-    bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation());
-  }
+  const bulet = player.dimension.spawnEntity(throwItem, player.getHeadLocation(), {
+    spawnEvent: event
+  });
   const projectile = bulet.getComponent(EntityComponentTypes4.Projectile);
   projectile.owner = player;
   projectile.shoot(
@@ -3699,6 +3716,33 @@ async function darkBread(player, hitEntity) {
   });
   player.removeTag(player.id);
 }
+async function darkness(player) {
+  player.addTag(player.id);
+  const filterOption = {
+    excludeTags: [
+      player.id
+    ],
+    location: player.location,
+    maxDistance: 5,
+    closest: 10
+  };
+  addTeamsTagFilter(player, filterOption);
+  const targets = player.dimension.getEntities(filterOption);
+  targets.forEach((en) => {
+    en.dimension.spawnParticle("kurokumaft:dark_particle", en.location);
+    let damage = 2;
+    if (en instanceof Player7) {
+      damage = 1;
+    }
+    en.addEffect(MinecraftEffectTypes.Weakness, 5 * TicksPerSecond, {
+      amplifier: 5
+    });
+    en.applyDamage(damage, {
+      cause: EntityDamageCause3.wither
+    });
+  });
+  player.removeTag(player.id);
+}
 async function absorption(player) {
   player.addEffect("minecraft:absorption", 10 * TicksPerSecond, {
     amplifier: 1
@@ -3729,6 +3773,33 @@ async function lightBread(player, hitEntity) {
     if (en instanceof Player8) {
       damage = 1;
     }
+    en.applyDamage(damage, {
+      cause: EntityDamageCause4.soulCampfire
+    });
+  });
+  player.removeTag(player.id);
+}
+async function flash(player) {
+  player.addTag(player.id);
+  const filterOption = {
+    excludeTags: [
+      player.id
+    ],
+    location: player.location,
+    maxDistance: 5,
+    closest: 10
+  };
+  addTeamsTagFilter(player, filterOption);
+  const targets = player.dimension.getEntities(filterOption);
+  targets.forEach((en) => {
+    en.dimension.spawnParticle("kurokumaft:light_particle", en.location);
+    let damage = 2;
+    if (en instanceof Player8) {
+      damage = 1;
+    }
+    en.addEffect(MinecraftEffectTypes.Blindness, 5 * TicksPerSecond2, {
+      amplifier: 5
+    });
     en.applyDamage(damage, {
       cause: EntityDamageCause4.soulCampfire
     });
@@ -4074,7 +4145,29 @@ var OtherDownMagicObjects = Object.freeze([
     sendMsg: "magic.kurokumaft:recovery.translate"
   }
 ]);
+var WandSneakAttackObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:dark_wand",
+    event: "",
+    func: darkness,
+    sendMsg: "magic.kurokumaft:darkness.translate"
+  },
+  {
+    itemName: "kurokumaft:light_wand",
+    event: "",
+    func: flash,
+    sendMsg: "magic.kurokumaft:flash.translate"
+  }
+]);
 var WandWeaponMagic = class {
+  attackSneak(player, itemStack) {
+    const wandSneakAttackObjectt = WandSneakAttackObjects.find((obj) => obj.itemName == itemStack.typeId);
+    if (wandSneakAttackObjectt !== void 0) {
+      player.onScreenDisplay.setActionBar({ rawtext: [{ translate: wandSneakAttackObjectt.sendMsg }] });
+      wandSneakAttackObjectt.func(player);
+    }
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot4.Mainhand);
+  }
   // 通常攻撃
   onHitEntity(event) {
     const itemStack = event.itemStack;
@@ -4111,7 +4204,7 @@ var WandWeaponMagic = class {
       }
     }
     player.onScreenDisplay.setActionBar({ rawtext: [{ translate: wandMagic.sendMsg }] });
-    itemDurabilityDamage(player, itemStack, EquipmentSlot4.Mainhand);
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot4.Mainhand);
     const cool = itemStack.getComponent(ItemComponentTypes2.Cooldown);
     cool.startCooldown(player);
   }
@@ -4264,7 +4357,7 @@ async function waterSwordMons(attack, hit) {
 import { EntityDamageCause as EntityDamageCause12, Player as Player17, world as world5 } from "@minecraft/server";
 async function windSword(player, entity) {
   entity.dimension.spawnParticle("kurokumaft:wind_roar_particle", entity.location);
-  entity.applyKnockback({ x: player.getViewDirection().x + 2, z: player.getViewDirection().z + 2 }, 0.5);
+  entity.applyKnockback({ x: entity.getViewDirection().x - 2, z: entity.getViewDirection().z - 2 }, 0.5);
   if (entity instanceof Player17) {
     if (world5.gameRules.pvp) {
       entity.applyDamage(2, {
@@ -4279,7 +4372,7 @@ async function windSword(player, entity) {
 }
 async function windSwordMons(attack, hit) {
   hit.dimension.spawnParticle("kurokumaft:wind_roar_particle", hit.location);
-  hit.applyKnockback({ x: attack.getViewDirection().x, z: attack.getHeadLocation().z }, 0.5);
+  hit.applyKnockback({ x: hit.getViewDirection().x, z: hit.getHeadLocation().z }, 0.5);
   if (hit instanceof Player17) {
     hit.applyDamage(2, {
       cause: EntityDamageCause12.fallingBlock
@@ -4743,7 +4836,7 @@ var SwordWeaponMagic = class {
     swordMagicObject.func(attackEntity, hitEntity);
   }
   // チャージ完了
-  onCompconsteUse(event) {
+  onCompleteUse(event) {
     const itemStack = event.itemStack;
     const player = event.source;
     if (!itemStack) {
@@ -4763,7 +4856,7 @@ var SwordWeaponMagicMons = class {
     }
     const swordMagicObject = SwordHitMonsObjects.find((obj) => obj.itemName == itemStack.typeId);
     swordMagicObject.func(attackEntity, hitEntity);
-    itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot5.Mainhand);
+    itemDurabilityMagicDamage(attackEntity, itemStack, EquipmentSlot5.Mainhand);
   }
 };
 
@@ -5095,7 +5188,7 @@ async function magicBowShot(player, itemStack, duration) {
       shooting(player, bowMagicObject.event, 0, speed, void 0);
     }
     player.onScreenDisplay.setActionBar({ rawtext: [{ translate: bowMagicObject.sendMsg }] });
-    itemDurabilityDamage(player, itemStack, EquipmentSlot6.Mainhand);
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot6.Mainhand);
   }
 }
 var BowCProjectilehargeObjects = Object.freeze([
@@ -5149,7 +5242,7 @@ import { EquipmentSlot as EquipmentSlot7, ItemComponentTypes as ItemComponentTyp
 // scripts/items/weapon/stick/WaterCurrentMagic.ts
 import { EntityDamageCause as EntityDamageCause26, Player as Player34, system as system11, TicksPerSecond as TicksPerSecond18 } from "@minecraft/server";
 async function aquaShock(player, entity) {
-  player.addTag("aqua_shock_self");
+  player.addTag(player.id);
   const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
   entity.dimension.spawnParticle("kurokumaft:aqua_shock_particle", { x: entity.location.x + left.x, y: entity.location.y + 1.8, z: entity.location.z + left.z });
   const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
@@ -5158,7 +5251,7 @@ async function aquaShock(player, entity) {
   entity.dimension.spawnParticle("kurokumaft:aqua_shock_particle", { x: entity.location.x + right.x, y: entity.location.y + 1.8, z: entity.location.z + right.z });
   const filterOption = {
     excludeTags: [
-      "aqua_shock_self"
+      player.id
     ],
     location: entity.location,
     maxDistance: 5
@@ -5179,14 +5272,14 @@ async function aquaShock(player, entity) {
       });
     }
   });
-  player.removeTag("aqua_shock_self");
+  player.removeTag(player.id);
 }
 async function aquaShot(player) {
-  player.addTag("aqua_shot_self");
+  player.addTag(player.id);
   const dimension = player.dimension;
   const filterOption = {
     excludeTags: [
-      "aqua_shot_self"
+      player.id
     ],
     location: player.location,
     closest: 4,
@@ -5217,11 +5310,26 @@ async function aquaShot(player) {
   system11.runTimeout(() => {
     system11.clearRun(intervalNum);
   }, 40);
-  player.removeTag("aqua_shot_self");
+  player.removeTag(player.id);
+}
+async function aquaBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const option = {
+        allowUnderwater: true,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:aqua_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
 }
 async function tidalWave(player) {
-  player.addTag("tidal_wave_self");
-  const dimension = player.dimension;
+  player.addTag(player.id);
   const filterOption = {
     excludeFamilies: [
       "inanimate",
@@ -5233,16 +5341,18 @@ async function tidalWave(player) {
       "item"
     ],
     excludeTags: [
-      "tidal_wave_target",
-      "tidal_wave_self"
+      player.id
     ],
     location: player.location,
     maxDistance: 15
   };
   addTeamsTagFilter(player, filterOption);
-  const targets = dimension.getEntities(filterOption);
+  const targets = player.dimension.getEntities(filterOption);
   const intervalNum = system11.runInterval(() => {
     targets.forEach((en) => {
+      if (!en.isValid) {
+        return;
+      }
       en.dimension.spawnParticle("kurokumaft:tidal_wave_particle", en.location);
       if (en instanceof Player34) {
         en.addEffect(MinecraftEffectTypes.Slowness, 2 * TicksPerSecond18, {
@@ -5264,13 +5374,13 @@ async function tidalWave(player) {
   system11.runTimeout(() => {
     system11.clearRun(intervalNum);
   }, 100);
-  player.removeTag("tidal_wave_self");
+  player.removeTag(player.id);
 }
 
 // scripts/items/weapon/stick/AtmosphereMagic.ts
 import { EntityDamageCause as EntityDamageCause27, Player as Player35, system as system12, TicksPerSecond as TicksPerSecond19 } from "@minecraft/server";
 async function stormShock(player, entity) {
-  player.addTag("storm_shock_self");
+  player.addTag(player.id);
   const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
   entity.dimension.spawnParticle("kurokumaft:storm_shock_particle", { x: entity.location.x + left.x, y: entity.location.y + 1.8, z: entity.location.z + left.z });
   const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
@@ -5279,7 +5389,7 @@ async function stormShock(player, entity) {
   entity.dimension.spawnParticle("kurokumaft:storm_shock_particle", { x: entity.location.x + right.x, y: entity.location.y + 1.8, z: entity.location.z + right.z });
   const filterOption = {
     excludeTags: [
-      "storm_shock_self"
+      player.id
     ],
     location: entity.location,
     maxDistance: 5
@@ -5298,7 +5408,23 @@ async function stormShock(player, entity) {
       cause: EntityDamageCause27.fall
     });
   });
-  player.removeTag("storm_shock_self");
+  player.removeTag(player.id);
+}
+async function aeroBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const option = {
+        allowUnderwater: false,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:aero_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
 }
 async function atmosphere(player) {
   player.addTag("atmosphere_self");
@@ -5376,6 +5502,22 @@ async function earthShock(player, entity) {
   });
   player.removeTag("earth_shock_self");
 }
+async function jewelBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const option = {
+        allowUnderwater: false,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:jewel_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
+}
 async function gravityField(player) {
   player.addTag("gravity_field_self");
   const intervalNum = system13.runInterval(() => {
@@ -5452,6 +5594,22 @@ async function sparkShock(player, entity) {
   });
   player.removeTag("spark_shock_self");
 }
+async function thunderBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const option = {
+        allowUnderwater: false,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:thunder_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
+}
 async function lightningStrike(player) {
   player.addTag("lightningstrike_self");
   const intervalNum = system14.runInterval(() => {
@@ -5494,7 +5652,7 @@ async function lightningStrike(player) {
 }
 
 // scripts/items/weapon/stick/JetBlackMagic.ts
-import { EntityDamageCause as EntityDamageCause30, Player as Player38, system as system15 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause30, Player as Player38, system as system15, TicksPerSecond as TicksPerSecond22 } from "@minecraft/server";
 async function jetblackShock(player, entity) {
   player.addTag("jetblack_shock_self");
   const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
@@ -5527,6 +5685,40 @@ async function jetblackShock(player, entity) {
     }
   });
   player.removeTag("jetblack_shock_self");
+}
+async function nightBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const filterOption = {
+        excludeTags: [
+          player.id
+        ],
+        location: { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z },
+        maxDistance: 2
+      };
+      addTeamsTagFilter(player, filterOption);
+      const targets = player.dimension.getEntities(filterOption);
+      targets.forEach((en) => {
+        let damage = 4;
+        if (en instanceof Player38) {
+          damage = 2;
+        }
+        en.addEffect(MinecraftEffectTypes.InstantDamage, 2 * TicksPerSecond22, {
+          amplifier: damage
+        });
+      });
+      const option = {
+        allowUnderwater: false,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:night_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
 }
 async function blackHole(player) {
   player.addTag("black_hole_self");
@@ -5577,7 +5769,7 @@ async function blackHole(player) {
 }
 
 // scripts/items/weapon/stick/SparkleMagic.ts
-import { EntityDamageCause as EntityDamageCause31, Player as Player39, system as system16 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause31, Player as Player39, system as system16, TicksPerSecond as TicksPerSecond23 } from "@minecraft/server";
 async function sparkleShock(player, entity) {
   player.addTag("sparkle_shock_self");
   const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
@@ -5610,6 +5802,40 @@ async function sparkleShock(player, entity) {
     }
   });
   player.removeTag("sparkle_shock_self");
+}
+async function flashBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const filterOption = {
+        excludeTags: [
+          player.id
+        ],
+        location: { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z },
+        maxDistance: 2
+      };
+      addTeamsTagFilter(player, filterOption);
+      const targets = player.dimension.getEntities(filterOption);
+      targets.forEach((en) => {
+        let damage = 4;
+        if (en instanceof Player39) {
+          damage = 2;
+        }
+        en.addEffect(MinecraftEffectTypes.InstantHealth, 2 * TicksPerSecond23, {
+          amplifier: damage
+        });
+      });
+      const option = {
+        allowUnderwater: false,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:flash_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
 }
 async function hollyField(player) {
   const holly_field = player.dimension.spawnEntity(
@@ -5659,7 +5885,7 @@ async function hollyField(player) {
 // scripts/items/weapon/stick/BlazeMagic.ts
 import { EntityDamageCause as EntityDamageCause32, Player as Player40 } from "@minecraft/server";
 async function flameShock(player, entity) {
-  player.addTag("flame_shock_self");
+  player.addTag(player.id);
   const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
   entity.dimension.spawnParticle("kurokumaft:flame_shock_particle", { x: entity.location.x + left.x, y: entity.location.y + 1.8, z: entity.location.z + left.z });
   const center = getLookRotaionPointsV2(entity.getRotation(), 0, 0);
@@ -5668,7 +5894,7 @@ async function flameShock(player, entity) {
   entity.dimension.spawnParticle("kurokumaft:flame_shock_particle", { x: entity.location.x + right.x, y: entity.location.y + 1.8, z: entity.location.z + right.z });
   const filterOption = {
     excludeTags: [
-      "flame_shock_self"
+      player.id
     ],
     location: player.location,
     maxDistance: 5
@@ -5687,13 +5913,29 @@ async function flameShock(player, entity) {
       cause: EntityDamageCause32.fire
     });
   });
-  player.removeTag("flame_shock_self");
+  player.removeTag(player.id);
+}
+async function flareBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const option = {
+        allowUnderwater: false,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:flare_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
 }
 async function blastbomb(player) {
-  player.addTag("blastbomb_self");
+  player.addTag(player.id);
   const filterOption = {
     excludeTags: [
-      "blastbomb_self"
+      player.id
     ],
     location: player.location,
     maxDistance: 20,
@@ -5709,17 +5951,20 @@ async function blastbomb(player) {
     if (en instanceof Player40) {
       damage = 4;
     }
-    en.applyDamage(damage, {
-      cause: EntityDamageCause32.fire
-    });
     en.dimension.spawnParticle("kurokumaft:burstflare_particle", { x: en.location.x + 0.5, y: en.location.y + 0.5, z: en.location.z + 0.5 });
-    en.dimension.spawnEntity("kurokumaft:blastbombmagic<minecraft:explode>", { x: en.location.x + 0.5, y: en.location.y + 0.5, z: en.location.z + 0.5 });
+    const option = {
+      allowUnderwater: false,
+      breaksBlocks: false,
+      causesFire: false,
+      source: player
+    };
+    explosionMagic(player, en, en.location, option, 3, damage, EntityDamageCause32.fire);
   });
-  player.removeTag("blastbomb_self");
+  player.removeTag(player.id);
 }
 
 // scripts/items/weapon/stick/BlockiceMagic.ts
-import { EntityDamageCause as EntityDamageCause33, Player as Player41, TicksPerSecond as TicksPerSecond22 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause33, Player as Player41, TicksPerSecond as TicksPerSecond24 } from "@minecraft/server";
 async function iceShock(player, entity) {
   player.addTag("ice_shock_self");
   const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
@@ -5751,6 +5996,22 @@ async function iceShock(player, entity) {
   });
   player.removeTag("ice_shock_self");
 }
+async function frozenBit(player) {
+  player.addTag(player.id);
+  for (let x = -3.5; x <= 3.5; x += 3.5) {
+    for (let z = -3.5; z <= 3.5; z += 3.5) {
+      const option = {
+        allowUnderwater: false,
+        breaksBlocks: false,
+        causesFire: false,
+        source: player
+      };
+      player.dimension.createExplosion({ x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z }, 2, option);
+      player.dimension.spawnParticle("kurokumaft:frozen_bit_particle", { x: player.location.x + x, y: player.location.y + 1.8, z: player.location.z + z });
+    }
+  }
+  player.removeTag(player.id);
+}
 async function iceBlock(player) {
   player.addTag("iceblock_self");
   const filterOption = {
@@ -5771,10 +6032,10 @@ async function iceBlock(player) {
     if (en instanceof Player41) {
       damage = 2;
     }
-    en.addEffect(MinecraftEffectTypes.Slowness, 10 * TicksPerSecond22, {
+    en.addEffect(MinecraftEffectTypes.Slowness, 10 * TicksPerSecond24, {
       amplifier: damage
     });
-    en.addEffect(MinecraftEffectTypes.Weakness, 10 * TicksPerSecond22, {
+    en.addEffect(MinecraftEffectTypes.Weakness, 10 * TicksPerSecond24, {
       amplifier: damage
     });
     en.dimension.spawnEntity("kurokumaft:ice_blockmagic", { x: en.location.x + 0.5, y: en.location.y + 10, z: en.location.z + 0.5 });
@@ -5823,6 +6084,48 @@ var StickHitObjects = Object.freeze([
     itemName: "kurokumaft:sparkle_stick",
     func: sparkleShock,
     sendMsg: "magic.kurokumaft:sparkleShock.translate"
+  }
+]);
+var StickBitObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:blaze_stick",
+    func: flareBit,
+    sendMsg: "magic.kurokumaft:flare_bit.translate"
+  },
+  {
+    itemName: "kurokumaft:watercurrent_stick",
+    func: aquaBit,
+    sendMsg: "magic.kurokumaft:aqua_bit.translate"
+  },
+  {
+    itemName: "kurokumaft:atmosphere_stick",
+    func: aeroBit,
+    sendMsg: "magic.kurokumaft:aero_bit.translate"
+  },
+  {
+    itemName: "kurokumaft:earth_stick",
+    func: jewelBit,
+    sendMsg: "magic.kurokumaft:jewel_bit.translate"
+  },
+  {
+    itemName: "kurokumaft:lightningstrike_stick",
+    func: thunderBit,
+    sendMsg: "magic.kurokumaft:thunder_bit.translate"
+  },
+  {
+    itemName: "kurokumaft:blockice_stick",
+    func: frozenBit,
+    sendMsg: "magic.kurokumaft:frozen_bit.translate"
+  },
+  {
+    itemName: "kurokumaft:jetblack_stick",
+    func: nightBit,
+    sendMsg: "magic.kurokumaft:night_bit.translate"
+  },
+  {
+    itemName: "kurokumaft:sparkle_stick",
+    func: flashBit,
+    sendMsg: "magic.kurokumaft:flash_bit.translate"
   }
 ]);
 var StickShotMagicObjects = Object.freeze([
@@ -5938,13 +6241,13 @@ var StickWeaponMagic = class {
     const player = event.source;
     if (player.isSneaking) {
       const stickFuncMagicObject = StickRightFuncMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
-      if (stickFuncMagicObject) {
+      if (stickFuncMagicObject !== void 0) {
         player.onScreenDisplay.setActionBar({ rawtext: [{ translate: stickFuncMagicObject.sendMsg }] });
         stickFuncMagicObject.func(player);
       }
     } else {
       const stickShotMagicObject = StickShotMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
-      if (stickShotMagicObject) {
+      if (stickShotMagicObject !== void 0) {
         if (itemStack.typeId == "kurokumaft:atmosphere_stick") {
           const intervalNum = system17.runInterval(() => {
             shooting(player, stickShotMagicObject.event, 1, stickShotMagicObject.addition, void 0);
@@ -5958,14 +6261,22 @@ var StickWeaponMagic = class {
         player.onScreenDisplay.setActionBar({ rawtext: [{ translate: stickShotMagicObject.sendMsg }] });
       }
       const stickRightOneMagicObject = StickRightOneMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
-      if (stickRightOneMagicObject) {
+      if (stickRightOneMagicObject !== void 0) {
         player.onScreenDisplay.setActionBar({ rawtext: [{ translate: stickRightOneMagicObject.sendMsg }] });
         stickRightOneMagicObject.func(player);
       }
     }
-    itemDurabilityDamage(player, itemStack, EquipmentSlot7.Mainhand);
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot7.Mainhand);
     const cool = itemStack.getComponent(ItemComponentTypes3.Cooldown);
     cool.startCooldown(player);
+  }
+  attackSneak(player, itemStack) {
+    const stickBitObjectt = StickBitObjects.find((obj) => obj.itemName == itemStack.typeId);
+    if (stickBitObjectt !== void 0) {
+      player.onScreenDisplay.setActionBar({ rawtext: [{ translate: stickBitObjectt.sendMsg }] });
+      stickBitObjectt.func(player);
+    }
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot7.Mainhand);
   }
 };
 
@@ -6001,6 +6312,40 @@ async function bumrod(player, hitEntity) {
     }
   });
   player.removeTag(player.id);
+}
+async function framePillar(player) {
+  player.addTag(player.id);
+  const intervalNum = system18.runInterval(() => {
+    const filterOption = {
+      excludeTags: [
+        player.id
+      ],
+      location: player.location,
+      maxDistance: 10,
+      closest: 5
+    };
+    addTeamsTagFilter(player, filterOption);
+    const targets = player.dimension.getEntities(filterOption);
+    targets.forEach((en) => {
+      if (!en.isValid) {
+        return;
+      }
+      en.dimension.spawnParticle("kurokumaft:framepillar_particle", en.location);
+      if (en instanceof Player43) {
+        en.applyDamage(2, {
+          cause: EntityDamageCause34.fire
+        });
+      } else {
+        en.applyDamage(5, {
+          cause: EntityDamageCause34.fire
+        });
+      }
+    });
+  }, 2);
+  system18.runTimeout(() => {
+    system18.clearRun(intervalNum);
+    player.removeTag(player.id);
+  }, 20);
 }
 async function flarecircle(player) {
   player.addTag(player.id);
@@ -6065,7 +6410,7 @@ async function burstflare(player) {
 }
 
 // scripts/items/weapon/rod/WaterWaveMagic.ts
-import { EntityDamageCause as EntityDamageCause35, Player as Player44, system as system19, TicksPerSecond as TicksPerSecond23 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause35, Player as Player44, system as system19, TicksPerSecond as TicksPerSecond25 } from "@minecraft/server";
 
 // scripts/common/MagicShooterPoints.ts
 function getAdjacentSphericalPoints(rotation, location) {
@@ -6249,6 +6594,40 @@ async function watercutter(player, hitEntity) {
   });
   player.removeTag(player.id);
 }
+async function waterPillar(player) {
+  player.addTag(player.id);
+  const intervalNum = system19.runInterval(() => {
+    const filterOption = {
+      excludeTags: [
+        player.id
+      ],
+      location: player.location,
+      maxDistance: 10,
+      closest: 5
+    };
+    addTeamsTagFilter(player, filterOption);
+    const targets = player.dimension.getEntities(filterOption);
+    targets.forEach((en) => {
+      if (!en.isValid) {
+        return;
+      }
+      en.dimension.spawnParticle("kurokumaft:waterpillar_particle", en.location);
+      if (en instanceof Player44) {
+        en.applyDamage(2, {
+          cause: EntityDamageCause35.drowning
+        });
+      } else {
+        en.applyDamage(5, {
+          cause: EntityDamageCause35.drowning
+        });
+      }
+    });
+  }, 2);
+  system19.runTimeout(() => {
+    system19.clearRun(intervalNum);
+    player.removeTag(player.id);
+  }, 20);
+}
 async function waterwave(player) {
   const { xapply, yapply, zapply, xlocation, ylocation, zlocation } = getAdjacentSphericalPoints(player.getRotation(), player.location);
   const wave = player.dimension.spawnEntity("kurokumaft:waterwavemagic", { x: xlocation, y: player.location.y, z: zlocation });
@@ -6299,13 +6678,13 @@ async function waterjailHold(en, location) {
       system19.clearRun(num);
     }
   }, 2);
-  system19.waitTicks(5 * TicksPerSecond23).then(() => {
+  system19.waitTicks(5 * TicksPerSecond25).then(() => {
     system19.clearRun(num);
   });
 }
 
 // scripts/items/weapon/rod/StormMagic.ts
-import { EntityDamageCause as EntityDamageCause36, Player as Player45, TicksPerSecond as TicksPerSecond24 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause36, Player as Player45, TicksPerSecond as TicksPerSecond26 } from "@minecraft/server";
 async function stormBread(player, hitEntity) {
   player.addTag(player.id);
   hitEntity.dimension.spawnParticle("kurokumaft:storm_bread_particle", { x: hitEntity.location.x, y: hitEntity.location.y + 1.8, z: hitEntity.location.z });
@@ -6334,6 +6713,26 @@ async function stormBread(player, hitEntity) {
   });
   player.removeTag(player.id);
 }
+async function windRoar(player) {
+  player.addTag(player.id);
+  const filterOption = {
+    excludeTags: [
+      player.id
+    ],
+    location: player.location,
+    maxDistance: 10
+  };
+  addTeamsTagFilter(player, filterOption);
+  player.dimension.spawnParticle("kurokumaft:wind_roar_particle", player.location);
+  const targets = player.dimension.getEntities(filterOption);
+  targets.forEach((en) => {
+    if (!en.isValid) {
+      return;
+    }
+    en.applyKnockback({ x: en.getViewDirection().x - 15, z: en.getViewDirection().z - 15 }, 3);
+  });
+  player.removeTag(player.id);
+}
 async function storm(player) {
   player.addTag(player.id);
   const filterOption = {
@@ -6355,14 +6754,14 @@ async function storm(player) {
     en.dimension.spawnParticle("kurokumaft:storm3_particle", { x: en.location.x, y: en.location.y + 2, z: en.location.z });
     en.dimension.spawnParticle("kurokumaft:storm4_particle", { x: en.location.x, y: en.location.y + 3, z: en.location.z });
     if (en instanceof Player45) {
-      en.addEffect("minecraft:levitation", 1 * TicksPerSecond24, {
+      en.addEffect("minecraft:levitation", 1 * TicksPerSecond26, {
         amplifier: 10
       });
       en.applyDamage(1, {
         cause: EntityDamageCause36.fall
       });
     } else {
-      en.addEffect("minecraft:levitation", 1 * TicksPerSecond24, {
+      en.addEffect("minecraft:levitation", 1 * TicksPerSecond26, {
         amplifier: 15
       });
       en.applyDamage(3, {
@@ -6409,7 +6808,7 @@ async function aerobomb(player) {
 }
 
 // scripts/items/weapon/rod/RockMagic.ts
-import { EntityComponentTypes as EntityComponentTypes5, EntityDamageCause as EntityDamageCause37, Player as Player46, TicksPerSecond as TicksPerSecond25 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes5, EntityDamageCause as EntityDamageCause37, Player as Player46, TicksPerSecond as TicksPerSecond27 } from "@minecraft/server";
 async function stoneBread(player, hitEntity) {
   player.addTag(player.id);
   hitEntity.dimension.spawnParticle("kurokumaft:stone_bread_particle", { x: hitEntity.location.x, y: hitEntity.location.y + 1.8, z: hitEntity.location.z });
@@ -6438,6 +6837,35 @@ async function stoneBread(player, hitEntity) {
   });
   player.removeTag(player.id);
 }
+async function stoneNeedle(player) {
+  player.addTag(player.id);
+  const filterOption = {
+    excludeTags: [
+      player.id
+    ],
+    location: player.location,
+    maxDistance: 10,
+    closest: 5
+  };
+  addTeamsTagFilter(player, filterOption);
+  const targets = player.dimension.getEntities(filterOption);
+  targets.forEach((en) => {
+    if (!en.isValid) {
+      return;
+    }
+    en.dimension.spawnParticle("kurokumaft:stone_needle_particle", en.location);
+    if (en instanceof Player46) {
+      en.applyDamage(4, {
+        cause: EntityDamageCause37.fallingBlock
+      });
+    } else {
+      en.applyDamage(8, {
+        cause: EntityDamageCause37.fallingBlock
+      });
+    }
+  });
+  player.removeTag(player.id);
+}
 async function rockbreak(player) {
   player.addTag(player.id);
   const filterOption = {
@@ -6455,11 +6883,11 @@ async function rockbreak(player) {
       return;
     }
     if (en instanceof Player46) {
-      en.addEffect("minecraft:nausea", 5 * TicksPerSecond25, {
+      en.addEffect("minecraft:nausea", 5 * TicksPerSecond27, {
         amplifier: 2
       });
     } else {
-      en.addEffect("minecraft:nausea", 10 * TicksPerSecond25, {
+      en.addEffect("minecraft:nausea", 10 * TicksPerSecond27, {
         amplifier: 10
       });
     }
@@ -6506,7 +6934,7 @@ async function greybomb(player) {
 }
 
 // scripts/items/weapon/rod/ThunderclapMagic.ts
-import { EntityDamageCause as EntityDamageCause38, Player as Player47, system as system20, TicksPerSecond as TicksPerSecond26 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause38, Player as Player47, system as system20, TicksPerSecond as TicksPerSecond28 } from "@minecraft/server";
 async function lightningBread(player, hitEntity) {
   player.addTag(player.id);
   player.dimension.spawnParticle("kurokumaft:lightning_bread_particle", { x: hitEntity.location.x, y: player.location.y + 1.8, z: hitEntity.location.z });
@@ -6529,6 +6957,35 @@ async function lightningBread(player, hitEntity) {
       });
     } else {
       en.applyDamage(6, {
+        cause: EntityDamageCause38.lightning
+      });
+    }
+  });
+  player.removeTag(player.id);
+}
+async function thunderCutter(player) {
+  player.addTag(player.id);
+  const center = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
+  const filterOption = {
+    excludeTags: [
+      player.id
+    ],
+    location: { x: player.location.x + center.x, y: player.location.y + 1.8, z: player.location.z + center.z },
+    maxDistance: 5
+  };
+  addTeamsTagFilter(player, filterOption);
+  player.dimension.spawnParticle("kurokumaft:thunder_cutter_particle", { x: player.location.x + center.x, y: player.location.y + 1.8, z: player.location.z + center.z });
+  const targets = player.dimension.getEntities(filterOption);
+  targets.forEach((en) => {
+    if (!en.isValid) {
+      return;
+    }
+    if (en instanceof Player47) {
+      en.applyDamage(4, {
+        cause: EntityDamageCause38.lightning
+      });
+    } else {
+      en.applyDamage(10, {
         cause: EntityDamageCause38.lightning
       });
     }
@@ -6602,13 +7059,13 @@ async function thunderJailHold(en, location) {
       system20.clearRun(num);
     }
   }, 2);
-  system20.waitTicks(5 * TicksPerSecond26).then(() => {
+  system20.waitTicks(5 * TicksPerSecond28).then(() => {
     system20.clearRun(num);
   });
 }
 
 // scripts/items/weapon/rod/FreezeMagic.ts
-import { EntityDamageCause as EntityDamageCause39, Player as Player48, TicksPerSecond as TicksPerSecond27 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause39, Player as Player48, TicksPerSecond as TicksPerSecond29 } from "@minecraft/server";
 async function iceBread(player, hitEntity) {
   player.addTag(player.id);
   hitEntity.dimension.spawnParticle("kurokumaft:ice_bread_particle", { x: hitEntity.location.x, y: hitEntity.location.y + 1.8, z: hitEntity.location.z });
@@ -6631,6 +7088,35 @@ async function iceBread(player, hitEntity) {
       });
     } else {
       en.applyDamage(6, {
+        cause: EntityDamageCause39.freezing
+      });
+    }
+  });
+  player.removeTag(player.id);
+}
+async function iceNeedle(player) {
+  player.addTag(player.id);
+  const filterOption = {
+    excludeTags: [
+      player.id
+    ],
+    location: player.location,
+    maxDistance: 10,
+    closest: 5
+  };
+  addTeamsTagFilter(player, filterOption);
+  const targets = player.dimension.getEntities(filterOption);
+  targets.forEach((en) => {
+    if (!en.isValid) {
+      return;
+    }
+    en.dimension.spawnParticle("kurokumaft:ice_needle_particle", en.location);
+    if (en instanceof Player48) {
+      en.applyDamage(4, {
+        cause: EntityDamageCause39.freezing
+      });
+    } else {
+      en.applyDamage(8, {
         cause: EntityDamageCause39.freezing
       });
     }
@@ -6673,11 +7159,11 @@ async function freezConclusion(player) {
     en.dimension.setBlockType({ x: en.location.x + 1, y: en.location.y + 1, z: en.location.z + 1 }, "minecraft:packed_ice");
     en.dimension.setBlockType({ x: en.location.x + 1, y: en.location.y + 1, z: en.location.z - 1 }, "minecraft:packed_ice");
     if (en instanceof Player48) {
-      en.addEffect("minecraft:weakness", 5 * TicksPerSecond27, {
+      en.addEffect("minecraft:weakness", 5 * TicksPerSecond29, {
         amplifier: 1
       });
     } else {
-      en.addEffect("minecraft:weakness", 20 * TicksPerSecond27, {
+      en.addEffect("minecraft:weakness", 20 * TicksPerSecond29, {
         amplifier: 3
       });
     }
@@ -6686,7 +7172,7 @@ async function freezConclusion(player) {
 }
 
 // scripts/items/weapon/rod/DarknessMagic.ts
-import { EntityComponentTypes as EntityComponentTypes6, EntityDamageCause as EntityDamageCause40, Player as Player49, system as system21 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes6, EntityDamageCause as EntityDamageCause40, Player as Player49, system as system21, TicksPerSecond as TicksPerSecond30 } from "@minecraft/server";
 async function darkFang(player, hitEntity) {
   player.addTag(player.id);
   const look = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
@@ -6713,6 +7199,41 @@ async function darkFang(player, hitEntity) {
         cause: EntityDamageCause40.wither
       });
     }
+  });
+  player.removeTag(player.id);
+}
+async function hellBlast(player) {
+  player.addTag(player.id);
+  const center = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
+  const filterOption = {
+    excludeTags: [
+      player.id
+    ],
+    location: { x: player.location.x + center.x, y: player.location.y + 1.8, z: player.location.z + center.z },
+    maxDistance: 5
+  };
+  addTeamsTagFilter(player, filterOption);
+  player.dimension.spawnParticle("kurokumaft:dark_brushash_particle", { x: player.location.x + center.x, y: player.location.y + 1.8, z: player.location.z + center.z });
+  const targets = player.dimension.getEntities(filterOption);
+  targets.forEach((en) => {
+    if (!en.isValid) {
+      return;
+    }
+    if (en instanceof Player49) {
+      en.applyDamage(2, {
+        cause: EntityDamageCause40.wither
+      });
+    } else {
+      en.applyDamage(4, {
+        cause: EntityDamageCause40.wither
+      });
+    }
+    en.addEffect(MinecraftEffectTypes.Weakness, 10 * TicksPerSecond30, {
+      amplifier: 2
+    });
+    en.addEffect(MinecraftEffectTypes.Slowness, 10 * TicksPerSecond30, {
+      amplifier: 1
+    });
   });
   player.removeTag(player.id);
 }
@@ -6749,26 +7270,26 @@ async function brushash(player) {
   }, 40);
   player.removeTag(player.id);
 }
-async function summonSkeconston(player) {
-  const dark_skeconston1 = player.dimension.spawnEntity("kurokumaft:dark_skeconston", { x: player.location.x + 3, y: player.location.y, z: player.location.z });
-  const dark_skeconston2 = player.dimension.spawnEntity("kurokumaft:dark_skeconston", { x: player.location.x - 3, y: player.location.y, z: player.location.z });
-  const dark_skeconston3 = player.dimension.spawnEntity("kurokumaft:dark_skeconston", { x: player.location.x, y: player.location.y, z: player.location.z + 3 });
-  dark_skeconston1.nameTag = "\u30C0\u30FC\u30AF\u30B9\u30B1\u30EB\u30C8\u30F31";
-  dark_skeconston2.nameTag = "\u30C0\u30FC\u30AF\u30B9\u30B1\u30EB\u30C8\u30F32";
-  dark_skeconston3.nameTag = "\u30C0\u30FC\u30AF\u30B9\u30B1\u30EB\u30C8\u30F33";
-  const tameable1 = dark_skeconston1.getComponent(EntityComponentTypes6.Tameable);
+async function summonSkeleton(player) {
+  const dark_skeleton1 = player.dimension.spawnEntity("kurokumaft:dark_skeleton", { x: player.location.x + 3, y: player.location.y, z: player.location.z });
+  const dark_skeleton2 = player.dimension.spawnEntity("kurokumaft:dark_skeleton", { x: player.location.x - 3, y: player.location.y, z: player.location.z });
+  const dark_skeleton3 = player.dimension.spawnEntity("kurokumaft:dark_skeleton", { x: player.location.x, y: player.location.y, z: player.location.z + 3 });
+  dark_skeleton1.nameTag = "\u30C0\u30FC\u30AF\u30B9\u30B1\u30EB\u30C8\u30F31";
+  dark_skeleton2.nameTag = "\u30C0\u30FC\u30AF\u30B9\u30B1\u30EB\u30C8\u30F32";
+  dark_skeleton3.nameTag = "\u30C0\u30FC\u30AF\u30B9\u30B1\u30EB\u30C8\u30F33";
+  const tameable1 = dark_skeleton1.getComponent(EntityComponentTypes6.Tameable);
   if (!tameable1.isTamed) {
     if (player instanceof Player49) {
       tameable1.tame(player);
     }
   }
-  const tameable2 = dark_skeconston2.getComponent(EntityComponentTypes6.Tameable);
+  const tameable2 = dark_skeleton2.getComponent(EntityComponentTypes6.Tameable);
   if (!tameable2.isTamed) {
     if (player instanceof Player49) {
       tameable2.tame(player);
     }
   }
-  const tameable3 = dark_skeconston3.getComponent(EntityComponentTypes6.Tameable);
+  const tameable3 = dark_skeleton3.getComponent(EntityComponentTypes6.Tameable);
   if (!tameable3.isTamed) {
     if (player instanceof Player49) {
       tameable3.tame(player);
@@ -6777,7 +7298,7 @@ async function summonSkeconston(player) {
 }
 
 // scripts/items/weapon/rod/BrightnessMagic.ts
-import { EntityDamageCause as EntityDamageCause41, Player as Player50, TicksPerSecond as TicksPerSecond28 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes7, EntityDamageCause as EntityDamageCause41, Player as Player50, TicksPerSecond as TicksPerSecond31 } from "@minecraft/server";
 async function lightFang(player, hitEntity) {
   player.addTag(player.id);
   const look = getLookRotaionPointsV2(player.getRotation(), 3.5, 0);
@@ -6806,6 +7327,23 @@ async function lightFang(player, hitEntity) {
     }
   });
   player.removeTag(player.id);
+}
+async function ability(player) {
+  player.addEffect(MinecraftEffectTypes.Strength, 30 * TicksPerSecond31, {
+    amplifier: 5
+  });
+  player.addEffect(MinecraftEffectTypes.Speed, 30 * TicksPerSecond31, {
+    amplifier: 5
+  });
+  player.addEffect(MinecraftEffectTypes.JumpBoost, 30 * TicksPerSecond31, {
+    amplifier: 5
+  });
+  player.addEffect(MinecraftEffectTypes.Resistance, 30 * TicksPerSecond31, {
+    amplifier: 5
+  });
+  player.addEffect(MinecraftEffectTypes.Haste, 30 * TicksPerSecond31, {
+    amplifier: 5
+  });
 }
 async function areaheel(player) {
   player.dimension.spawnParticle("kurokumaft:areaheel_particle", player.location);
@@ -6858,7 +7396,7 @@ async function areaheel(player) {
     if (!en.isValid) {
       return;
     }
-    en.addEffect("minecraft:instant_health", 5 * TicksPerSecond28, {
+    en.addEffect("minecraft:instant_health", 5 * TicksPerSecond31, {
       amplifier: 5,
       showParticles: true
     });
@@ -6867,7 +7405,7 @@ async function areaheel(player) {
     if (!en.isValid) {
       return;
     }
-    en.addEffect("minecraft:instant_health", 5 * TicksPerSecond28, {
+    en.addEffect("minecraft:instant_health", 5 * TicksPerSecond31, {
       amplifier: 5,
       showParticles: true
     });
@@ -6876,15 +7414,22 @@ async function areaheel(player) {
     if (!en.isValid) {
       return;
     }
-    en.addEffect("minecraft:instant_health", 5 * TicksPerSecond28, {
+    en.addEffect("minecraft:instant_health", 5 * TicksPerSecond31, {
       amplifier: 5,
       showParticles: true
     });
   });
 }
 async function summonGolem(player) {
-  const golem = player.dimension.spawnEntity("kurokumaft:brightness_golem<minecraft:from_player>", { x: player.location.x, y: player.location.y, z: player.location.z + 3 });
+  const golem = player.dimension.spawnEntity("kurokumaft:brightness_golem", { x: player.location.x, y: player.location.y, z: player.location.z + 3 });
   golem.nameTag = "\u30D6\u30E9\u30A4\u30C8\u30B4\u30FC\u30EC\u30E0";
+  golem.triggerEvent("minecraft:from_player");
+  const tameable1 = golem.getComponent(EntityComponentTypes7.Tameable);
+  if (!tameable1.isTamed) {
+    if (player instanceof Player50) {
+      tameable1.tame(player);
+    }
+  }
 }
 
 // scripts/items/weapon/rod/RodWeaponMagic.ts
@@ -7008,8 +7553,8 @@ var RodRightFuncMagicObjects = Object.freeze([
   },
   {
     itemName: "kurokumaft:darkness_rod",
-    func: summonSkeconston,
-    sendMsg: "magic.kurokumaft:summonSkeconston.translate"
+    func: summonSkeleton,
+    sendMsg: "magic.kurokumaft:summonSkeleton.translate"
   },
   {
     itemName: "kurokumaft:brightness_rod",
@@ -7017,7 +7562,57 @@ var RodRightFuncMagicObjects = Object.freeze([
     sendMsg: "magic.kurokumaft:summonGolem.translate"
   }
 ]);
+var RodSneakMagicObjects = Object.freeze([
+  {
+    itemName: "kurokumaft:flame_rod",
+    func: framePillar,
+    sendMsg: "magic.kurokumaft:framepillar.translate"
+  },
+  {
+    itemName: "kurokumaft:waterwave_rod",
+    func: waterPillar,
+    sendMsg: "magic.kurokumaft:waterpillar.translate"
+  },
+  {
+    itemName: "kurokumaft:storm_rod",
+    func: windRoar,
+    sendMsg: "magic.kurokumaft:wind_roar.translate"
+  },
+  {
+    itemName: "kurokumaft:rock_rod",
+    func: stoneNeedle,
+    sendMsg: "magic.kurokumaft:stone_needle.translate"
+  },
+  {
+    itemName: "kurokumaft:thunderclap_rod",
+    func: thunderCutter,
+    sendMsg: "magic.kurokumaft:thunder_cutter.translate"
+  },
+  {
+    itemName: "kurokumaft:freeze_rod",
+    func: iceNeedle,
+    sendMsg: "magic.kurokumaft:ice_needle.translate"
+  },
+  {
+    itemName: "kurokumaft:darkness_rod",
+    func: hellBlast,
+    sendMsg: "magic.kurokumaft:hellblast.translate"
+  },
+  {
+    itemName: "kurokumaft:brightness_rod",
+    func: ability,
+    sendMsg: "magic.kurokumaft:ability.translate"
+  }
+]);
 var RodWeaponMagic = class {
+  attackSneak(player, itemStack) {
+    const rodFuncMagicObject = RodSneakMagicObjects.find((obj) => obj.itemName == itemStack.typeId);
+    if (rodFuncMagicObject !== void 0) {
+      player.onScreenDisplay.setActionBar({ rawtext: [{ translate: rodFuncMagicObject.sendMsg }] });
+      rodFuncMagicObject.func(player);
+    }
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot8.Mainhand);
+  }
   // 通常攻撃
   onHitEntity(event) {
     const itemStack = event.itemStack;
@@ -7053,7 +7648,7 @@ var RodWeaponMagic = class {
         rodRightOneMagicObject.func(player);
       }
     }
-    itemDurabilityDamage(player, itemStack, EquipmentSlot8.Mainhand);
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot8.Mainhand);
     const cool = itemStack.getComponent(ItemComponentTypes4.Cooldown);
     cool.startCooldown(player);
   }
@@ -7122,7 +7717,7 @@ async function fireStorm(player) {
 }
 
 // scripts/items/weapon/staff/ExplosionMagic.ts
-import { EntityComponentTypes as EntityComponentTypes7, EntityDamageCause as EntityDamageCause43, Player as Player53, system as system23 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes8, EntityDamageCause as EntityDamageCause43, Player as Player53, system as system23 } from "@minecraft/server";
 async function megaBrand(player) {
   player.addTag("megaBrand_self");
   player.dimension.spawnParticle(
@@ -7174,7 +7769,7 @@ async function explosion(player) {
       z: look.z
     }
   );
-  const projectile = explosion2.getComponent(EntityComponentTypes7.Projectile);
+  const projectile = explosion2.getComponent(EntityComponentTypes8.Projectile);
   projectile.owner = player;
   let dim = explosion2.dimension;
   let loca = explosion2.location;
@@ -7482,7 +8077,7 @@ var StaffWeaponMagic = class {
       player.onScreenDisplay.setActionBar({ rawtext: [{ translate: staffRightOneMagicObject.sendMsg }] });
       staffRightOneMagicObject.func(player);
     }
-    itemDurabilityDamage(player, itemStack, EquipmentSlot9.Mainhand);
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot9.Mainhand);
     const cool = itemStack.getComponent(ItemComponentTypes5.Cooldown);
     cool.startCooldown(player);
   }
@@ -7675,7 +8270,7 @@ var BreadWeaponMagic = class {
     const breadMagicObject = BreadHitObjects.find((obj) => obj.itemName == itemStack.typeId);
     breadMagicObject.func(hitEntity);
     attackEntity.onScreenDisplay.setActionBar({ rawtext: [{ translate: breadMagicObject.sendMsg }] });
-    itemDurabilityDamage(attackEntity, itemStack, EquipmentSlot10.Mainhand);
+    itemDurabilityMagicDamage(attackEntity, itemStack, EquipmentSlot10.Mainhand);
   }
   // 右クリック
   onUse(event) {
@@ -7687,7 +8282,7 @@ var BreadWeaponMagic = class {
     const breadShotObject = BreadShotObjects.find((obj) => obj.itemName == itemStack.typeId);
     breadShotObject.func(player);
     player.onScreenDisplay.setActionBar({ rawtext: [{ translate: breadShotObject.sendMsg }] });
-    itemDurabilityDamage(player, itemStack, EquipmentSlot10.Mainhand);
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot10.Mainhand);
     const cool = itemStack.getComponent(ItemComponentTypes6.Cooldown);
     cool.startCooldown(player);
   }
@@ -7982,7 +8577,7 @@ var ShellBomObjects = Object.freeze([
 ]);
 var BazookaShotMagic = class {
   // チャージ完了
-  onCompconsteUse(event) {
+  onCompleteUse(event) {
     const itemStack = event.itemStack;
     const player = event.source;
   }
@@ -8011,95 +8606,88 @@ import { EquipmentSlot as EquipmentSlot11 } from "@minecraft/server";
 var GunChargeObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_magic_gun",
-    event: "kurokumaft:fire_magic_bulconst",
-    sendMsg: "magic.kurokumaft:fire_magic_bulconst.translate",
-    property: "kurokumaft:gun_charge_fire"
+    event: "kurokumaft:fire_magic_bullet",
+    sendMsg: "magic.kurokumaft:fire_magic_bullet.translate",
+    property: "kurokumaft:gun_charge_fire",
+    sound: "cauldron.explode"
   },
   {
     itemName: "kurokumaft:water_magic_gun",
-    event: "kurokumaft:water_magic_bulconst",
-    sendMsg: "magic.kurokumaft:water_magic_bulconst.translate",
-    property: "kurokumaft:gun_charge_water"
+    event: "kurokumaft:water_magic_bullet",
+    sendMsg: "magic.kurokumaft:water_magic_bullet.translate",
+    property: "kurokumaft:gun_charge_water",
+    sound: "cauldron.explode"
   },
   {
     itemName: "kurokumaft:wind_magic_gun",
-    event: "kurokumaft:wind_magic_bulconst",
-    sendMsg: "magic.kurokumaft:wind_magic_bulconst.translate",
-    property: "kurokumaft:gun_charge_wind"
+    event: "kurokumaft:wind_magic_bullet",
+    sendMsg: "magic.kurokumaft:wind_magic_bullet.translate",
+    property: "kurokumaft:gun_charge_wind",
+    sound: "cauldron.explode"
   },
   {
     itemName: "kurokumaft:stone_magic_gun",
-    event: "kurokumaft:stone_magic_bulconst",
-    sendMsg: "magic.kurokumaft:stone_magic_bulconst.translate",
-    property: "kurokumaft:gun_charge_stone"
+    event: "kurokumaft:stone_magic_bullet",
+    sendMsg: "magic.kurokumaft:stone_magic_bullet.translate",
+    property: "kurokumaft:gun_charge_stone",
+    sound: "cauldron.explode"
   },
   {
     itemName: "kurokumaft:lightning_magic_gun",
-    event: "kurokumaft:lightning_magic_bulconst",
-    sendMsg: "magic.kurokumaft:lightning_magic_bulconst.translate",
-    property: "kurokumaft:gun_charge_lightning"
+    event: "kurokumaft:lightning_magic_bullet",
+    sendMsg: "magic.kurokumaft:lightning_magic_bullet.translate",
+    property: "kurokumaft:gun_charge_lightning",
+    sound: "cauldron.explode"
   },
   {
     itemName: "kurokumaft:ice_magic_gun",
-    event: "kurokumaft:ice_magic_bulconst",
-    sendMsg: "magic.kurokumaft:ice_magic_bulconst.translate",
-    property: "kurokumaft:gun_charge_ice"
+    event: "kurokumaft:ice_magic_bullet",
+    sendMsg: "magic.kurokumaft:ice_magic_bullet.translate",
+    property: "kurokumaft:gun_charge_ice",
+    sound: "cauldron.explode"
   }
 ]);
 var GunShotMagic = class {
   // チャージ完了
-  onCompconsteUse(event) {
+  onCompleteUse(event) {
     const itemStack = event.itemStack;
     const player = event.source;
-    if (!itemStack) {
-      return;
-    }
     const gunMagicObject = GunChargeObjects.find((obj) => obj.itemName == itemStack.typeId);
-    if (gunMagicObject) {
-      player.setProperty(gunMagicObject.property, 1);
+    if (gunMagicObject !== void 0) {
+      player.setProperty(gunMagicObject.property, true);
     }
   }
   // 右クリック
   onUse(event) {
     const itemStack = event.itemStack;
     const player = event.source;
-    if (!itemStack) {
-      return;
-    }
     const gunMagicObject = GunChargeObjects.find((obj) => obj.itemName == itemStack.typeId);
-    if (gunMagicObject) {
-      if (player.getProperty(gunMagicObject.property) == 2) {
+    if (gunMagicObject !== void 0) {
+      if (player.getProperty(gunMagicObject.property)) {
         magicGunShot(player, itemStack, gunMagicObject);
       }
     }
   }
 };
-function isChargeed(player, itemStack) {
-  const gunMagicObject = GunChargeObjects.find((obj) => obj.itemName == itemStack.typeId);
-  if (gunMagicObject) {
-    if (player.getProperty(gunMagicObject.property) == 1) {
-      player.setProperty(gunMagicObject.property, 2);
-      return true;
-    }
-    return false;
-  }
-  return false;
-}
 async function magicGunShot(player, itemStack, gunMagicObject) {
-  if (gunMagicObject.itemName == "kurokumaft:water_magic_gun") {
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_1>", 0, 3, void 0);
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_2>", 0, 3, void 0);
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_3>", 0, 3, void 0);
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_4>", 0, 3, void 0);
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_5>", 0, 3, void 0);
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_6>", 0, 3, void 0);
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_7>", 0, 3, void 0);
-    shooting(player, gunMagicObject.event + "<kurokumaft:projectile_8>", 0, 3, void 0);
+  if (gunMagicObject.itemName === "kurokumaft:water_magic_gun") {
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_1");
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_2");
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_3");
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_4");
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_5");
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_6");
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_7");
+    shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_8");
   } else {
     shooting(player, gunMagicObject.event, 0, 3, void 0);
   }
-  itemDurabilityDamage(player, itemStack, EquipmentSlot11.Mainhand);
-  player.setProperty(gunMagicObject.property, 0);
+  player.dimension.playSound(gunMagicObject.sound, player.location, {
+    pitch: 1,
+    volume: 1
+  });
+  itemDurabilityMagicDamage(player, itemStack, EquipmentSlot11.Mainhand);
+  player.setProperty(gunMagicObject.property, false);
   player.onScreenDisplay.setActionBar({ rawtext: [{ translate: gunMagicObject.sendMsg }] });
 }
 
@@ -8983,7 +9571,7 @@ var SummonStoneMagic = class {
 };
 
 // scripts/block/MagicLecternBlock.ts
-import { ItemStack as ItemStack16, EquipmentSlot as EquipmentSlot13, EntityComponentTypes as EntityComponentTypes8, world as world23 } from "@minecraft/server";
+import { ItemStack as ItemStack16, EquipmentSlot as EquipmentSlot13, EntityComponentTypes as EntityComponentTypes9 } from "@minecraft/server";
 import { ActionFormData as ActionFormData2 } from "@minecraft/server-ui";
 
 // scripts/block/magicLectern/GrimoireBookComponent.ts
@@ -9202,8 +9790,7 @@ var MagicLecternBlock = class {
   }
   onPlayerInteract(blockEvent) {
     const player = blockEvent.player;
-    world23.sendMessage(player.typeId);
-    const equ = player?.getComponent(EntityComponentTypes8.Equippable);
+    const equ = player?.getComponent(EntityComponentTypes9.Equippable);
     const item = equ.getEquipment(EquipmentSlot13.Mainhand);
     const block = blockEvent.block;
     const dimension = blockEvent.dimension;
@@ -9221,7 +9808,7 @@ function magic_lectern(player, item, block) {
         const grimoire_book_entity = block.dimension.spawnEntity("kurokumaft:grimoire_book_entity", { x: block.location.x + 0.5, y: block.location.y + 1, z: block.location.z + 0.5 });
         const bookObj = getGrimoireAllObjectsId(item.typeId);
         grimoire_book_entity.triggerEvent(bookObj.event);
-        const invent = grimoire_book_entity.getComponent(EntityComponentTypes8.Inventory);
+        const invent = grimoire_book_entity.getComponent(EntityComponentTypes9.Inventory);
         const container = invent.container;
         const grimoire_empty = item.clone();
         grimoire_empty.amount = 1;
@@ -9255,14 +9842,14 @@ function magic_lectern(player, item, block) {
       } else {
         new_magic_stone_entity.triggerEvent("kurokumaft:west");
       }
-      const invent = new_magic_stone_entity.getComponent(EntityComponentTypes8.Inventory);
+      const invent = new_magic_stone_entity.getComponent(EntityComponentTypes9.Inventory);
       const container = invent.container;
       const magic_stone = item.clone();
       magic_stone.amount = 1;
       container.addItem(magic_stone);
     } else {
       if (grimoire_entity !== void 0) {
-        const invent = grimoire_entity.getComponent(EntityComponentTypes8.Inventory);
+        const invent = grimoire_entity.getComponent(EntityComponentTypes9.Inventory);
         const container = invent.container;
         const grimoire_book = container.getItem(0);
         if (grimoire_book == void 0) {
@@ -9306,7 +9893,7 @@ function magic_lectern(player, item, block) {
             new_grimoire_book.setLore(["\u6B8B\u6570\uFF1A" + remainingNum]);
           }
           container.setItem(0, new_grimoire_book);
-          const equ = player.getComponent(EntityComponentTypes8.Equippable);
+          const equ = player.getComponent(EntityComponentTypes9.Equippable);
           equ.setEquipment(EquipmentSlot13.Mainhand);
           const magic_stone_entitys = block.dimension.getEntitiesAtBlockLocation({ x: block.location.x, y: block.location.y + 1, z: block.location.z });
           for (let i = 0; i < magic_stone_entitys.length; i++) {
@@ -9325,9 +9912,9 @@ function magic_lectern(player, item, block) {
     }
   } else {
     if (grimoire_entity !== void 0) {
-      const pinvent = player.getComponent(EntityComponentTypes8.Inventory);
+      const pinvent = player.getComponent(EntityComponentTypes9.Inventory);
       const pcontainer = pinvent.container;
-      const invent = grimoire_entity.getComponent(EntityComponentTypes8.Inventory);
+      const invent = grimoire_entity.getComponent(EntityComponentTypes9.Inventory);
       const gcontainer = invent.container;
       if (pcontainer.emptySlotsCount != 0) {
         pcontainer.setItem(player.selectedSlotIndex, gcontainer.getItem(0));
@@ -9352,7 +9939,7 @@ function magic_lectern(player, item, block) {
 async function magic_lectern_break(block, dimension) {
   const entitys = dimension.getEntitiesAtBlockLocation({ x: block.location.x, y: block.location.y + 1, z: block.location.z });
   entitys.forEach((en) => {
-    let invent = en.getComponent(EntityComponentTypes8.Inventory);
+    let invent = en.getComponent(EntityComponentTypes9.Inventory);
     let item = invent.container?.getItem(0);
     if (item) {
       dimension.spawnItem(item, en.location);
@@ -9365,7 +9952,7 @@ function noBookItem(player) {
 }
 
 // scripts/block/WallBlock.ts
-import { EntityDamageCause as EntityDamageCause59, TicksPerSecond as TicksPerSecond35, system as system36 } from "@minecraft/server";
+import { EntityDamageCause as EntityDamageCause59, TicksPerSecond as TicksPerSecond38, system as system36 } from "@minecraft/server";
 var WallMagicObjects2 = Object.freeze([
   {
     itemName: "kurokumaft:lightningwall_block",
@@ -9437,7 +10024,7 @@ async function windwall2(blockEvent) {
   const block = blockEvent.block;
   const dimension = blockEvent.dimension;
   const entity = blockEvent.entity;
-  entity.addEffect(MinecraftEffectTypes.Levitation, 2 * TicksPerSecond35, {
+  entity.addEffect(MinecraftEffectTypes.Levitation, 2 * TicksPerSecond38, {
     amplifier: 3
   });
 }
@@ -9463,7 +10050,7 @@ var FlagStoneMagic = class {
     const magicObject = FlagStoneObjects.find((obj) => obj.itemName == itemStack.typeId);
     if (magicObject) {
       setPortalStand(magicObject, event);
-      itemDurabilityDamage(player, itemStack, EquipmentSlot14.Mainhand);
+      itemDurabilityMagicDamage(player, itemStack, EquipmentSlot14.Mainhand);
     }
   }
 };
@@ -9700,7 +10287,7 @@ async function portalGateBreak(block, blockPermutation) {
 }
 
 // scripts/items/food/RepatriationFruitMagic.ts
-import { EntityComponentTypes as EntityComponentTypes9, world as world28 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes10, world as world28 } from "@minecraft/server";
 import { ModalFormData } from "@minecraft/server-ui";
 var RepatriationFruitMagic = class {
   onConsume(event) {
@@ -9731,7 +10318,7 @@ function homeSetDialog(player, item, block) {
       "x:" + block.location.z,
       block.dimension.id
     ]);
-    const inventory = player.getComponent(EntityComponentTypes9.Inventory);
+    const inventory = player.getComponent(EntityComponentTypes10.Inventory);
     if (inventory && inventory.container) {
       inventory.container.setItem(player.selectedSlotIndex, item);
       player.sendMessage({ translate: "mess.kurokumaft:homegate.commit" });
@@ -9759,64 +10346,10 @@ async function home_tp(player, item) {
 }
 
 // scripts/items/food/lognut/FireLogNut.ts
-import { TicksPerSecond as TicksPerSecond36 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond39 } from "@minecraft/server";
 async function fireNutStrengthUp(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.Strength, 10 * TicksPerSecond36, {
-      amplifier: 10
-    });
-    player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond36, {
-      amplifier: 5
-    });
-    player.addEffect(MinecraftEffectTypes.Poison, 15 * TicksPerSecond36, {
-      amplifier: 5
-    });
-  } catch (error) {
-  }
-}
-
-// scripts/items/food/lognut/WaterLogNut.ts
-import { TicksPerSecond as TicksPerSecond37 } from "@minecraft/server";
-async function waterNutHealthBoost(player) {
-  try {
-    player.addEffect(MinecraftEffectTypes.HealthBoost, 10 * TicksPerSecond37, {
-      amplifier: 20
-    });
-    player.addEffect(MinecraftEffectTypes.InstantHealth, 1 * TicksPerSecond37, {
-      amplifier: 20
-    });
-    player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond37, {
-      amplifier: 5
-    });
-    player.addEffect(MinecraftEffectTypes.Poison, 15 * TicksPerSecond37, {
-      amplifier: 5
-    });
-  } catch (error) {
-  }
-}
-
-// scripts/items/food/lognut/WindLogNut.ts
-import { TicksPerSecond as TicksPerSecond38 } from "@minecraft/server";
-async function windNutJumpBoost(player) {
-  try {
-    player.addEffect(MinecraftEffectTypes.JumpBoost, 10 * TicksPerSecond38, {
-      amplifier: 10
-    });
-    player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond38, {
-      amplifier: 5
-    });
-    player.addEffect(MinecraftEffectTypes.Poison, 15 * TicksPerSecond38, {
-      amplifier: 5
-    });
-  } catch (error) {
-  }
-}
-
-// scripts/items/food/lognut/StoneLogNut.ts
-import { TicksPerSecond as TicksPerSecond39 } from "@minecraft/server";
-async function stoneNutResistance(player) {
-  try {
-    player.addEffect(MinecraftEffectTypes.Resistance, 10 * TicksPerSecond39, {
+    player.addEffect(MinecraftEffectTypes.Strength, 10 * TicksPerSecond39, {
       amplifier: 10
     });
     player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond39, {
@@ -9829,12 +10362,15 @@ async function stoneNutResistance(player) {
   }
 }
 
-// scripts/items/food/lognut/IceLogNut.ts
+// scripts/items/food/lognut/WaterLogNut.ts
 import { TicksPerSecond as TicksPerSecond40 } from "@minecraft/server";
-async function iceNutAbsorption(player) {
+async function waterNutHealthBoost(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.Absorption, 10 * TicksPerSecond40, {
-      amplifier: 10
+    player.addEffect(MinecraftEffectTypes.HealthBoost, 10 * TicksPerSecond40, {
+      amplifier: 20
+    });
+    player.addEffect(MinecraftEffectTypes.InstantHealth, 1 * TicksPerSecond40, {
+      amplifier: 20
     });
     player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond40, {
       amplifier: 5
@@ -9846,17 +10382,68 @@ async function iceNutAbsorption(player) {
   }
 }
 
-// scripts/items/food/lognut/LightningLogNut.ts
+// scripts/items/food/lognut/WindLogNut.ts
 import { TicksPerSecond as TicksPerSecond41 } from "@minecraft/server";
-async function lightningNutSpeedUp(player) {
+async function windNutJumpBoost(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond41, {
+    player.addEffect(MinecraftEffectTypes.JumpBoost, 10 * TicksPerSecond41, {
       amplifier: 10
     });
     player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond41, {
       amplifier: 5
     });
     player.addEffect(MinecraftEffectTypes.Poison, 15 * TicksPerSecond41, {
+      amplifier: 5
+    });
+  } catch (error) {
+  }
+}
+
+// scripts/items/food/lognut/StoneLogNut.ts
+import { TicksPerSecond as TicksPerSecond42 } from "@minecraft/server";
+async function stoneNutResistance(player) {
+  try {
+    player.addEffect(MinecraftEffectTypes.Resistance, 10 * TicksPerSecond42, {
+      amplifier: 10
+    });
+    player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond42, {
+      amplifier: 5
+    });
+    player.addEffect(MinecraftEffectTypes.Poison, 15 * TicksPerSecond42, {
+      amplifier: 5
+    });
+  } catch (error) {
+  }
+}
+
+// scripts/items/food/lognut/IceLogNut.ts
+import { TicksPerSecond as TicksPerSecond43 } from "@minecraft/server";
+async function iceNutAbsorption(player) {
+  try {
+    player.addEffect(MinecraftEffectTypes.Absorption, 10 * TicksPerSecond43, {
+      amplifier: 10
+    });
+    player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond43, {
+      amplifier: 5
+    });
+    player.addEffect(MinecraftEffectTypes.Poison, 15 * TicksPerSecond43, {
+      amplifier: 5
+    });
+  } catch (error) {
+  }
+}
+
+// scripts/items/food/lognut/LightningLogNut.ts
+import { TicksPerSecond as TicksPerSecond44 } from "@minecraft/server";
+async function lightningNutSpeedUp(player) {
+  try {
+    player.addEffect(MinecraftEffectTypes.Speed, 10 * TicksPerSecond44, {
+      amplifier: 10
+    });
+    player.addEffect(MinecraftEffectTypes.Hunger, 30 * TicksPerSecond44, {
+      amplifier: 5
+    });
+    player.addEffect(MinecraftEffectTypes.Poison, 15 * TicksPerSecond44, {
       amplifier: 5
     });
   } catch (error) {
@@ -9900,7 +10487,7 @@ var MagicLogNutEat = class {
 };
 
 // scripts/items/potion/DiamondBottle.ts
-import { Direction as Direction5, EntityComponentTypes as EntityComponentTypes10, EquipmentSlot as EquipmentSlot15, ItemStack as ItemStack19 } from "@minecraft/server";
+import { Direction as Direction5, EntityComponentTypes as EntityComponentTypes11, EquipmentSlot as EquipmentSlot15, ItemStack as ItemStack19 } from "@minecraft/server";
 var DiamondBottle = class {
   onUseOn(event) {
     const bottle = event.itemStack;
@@ -9927,8 +10514,8 @@ var DiamondBottle = class {
         return;
       }
     }
-    const equippable = player.getComponent(EntityComponentTypes10.Equippable);
-    const inventory = player.getComponent(EntityComponentTypes10.Inventory);
+    const equippable = player.getComponent(EntityComponentTypes11.Equippable);
+    const inventory = player.getComponent(EntityComponentTypes11.Inventory);
     const waterBottle = new ItemStack19("kurokumaft:diamond_bottle_water", 1);
     const remaining = bottle.amount - 1;
     if (remaining <= 0) {
@@ -9949,7 +10536,7 @@ var DiamondBottle = class {
 };
 
 // scripts/block/MagicBrewingStand.ts
-import { ItemStack as ItemStack20, EntityComponentTypes as EntityComponentTypes11, system as system37, TicksPerSecond as TicksPerSecond42 } from "@minecraft/server";
+import { ItemStack as ItemStack20, EntityComponentTypes as EntityComponentTypes12, system as system37, TicksPerSecond as TicksPerSecond45 } from "@minecraft/server";
 var MagicBrewingItemObjects = Object.freeze([
   {
     materialItem: "kurokumaft:fire_log_nut",
@@ -10036,7 +10623,7 @@ var MagicBrewingStand = class {
   }
   async checkJob() {
     if (this.stand.isValid) {
-      const inventory = this.stand.getComponent(EntityComponentTypes11.Inventory);
+      const inventory = this.stand.getComponent(EntityComponentTypes12.Inventory);
       const container = inventory.container;
       const materialItem = container.getItem(0);
       const stoneItem = container.getItem(1);
@@ -10093,7 +10680,7 @@ var MagicBrewingStand = class {
         this.stand.setProperty("kurokumaft:brewing_fuel", 0);
         this.stand.setProperty("kurokumaft:bottle_type", "empty");
       }
-      system37.runTimeout(this.checkJob.bind(this), TicksPerSecond42);
+      system37.runTimeout(this.checkJob.bind(this), TicksPerSecond45);
     }
   }
 };
@@ -10111,7 +10698,7 @@ function isPorionBottle(potion) {
 }
 async function breakMagicBrewing(block, dimension) {
   const stand = dimension.getEntitiesAtBlockLocation({ x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
-  const inventory = stand[0].getComponent(EntityComponentTypes11.Inventory);
+  const inventory = stand[0].getComponent(EntityComponentTypes12.Inventory);
   const container = inventory.container;
   const materialItem = container.getItem(0);
   if (materialItem != void 0) {
@@ -10133,10 +10720,10 @@ async function breakMagicBrewing(block, dimension) {
 }
 
 // scripts/items/potion/FirePotion.ts
-import { TicksPerSecond as TicksPerSecond43 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond46 } from "@minecraft/server";
 async function firePotionStrengthUp(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.Strength, 600 * TicksPerSecond43, {
+    player.addEffect(MinecraftEffectTypes.Strength, 600 * TicksPerSecond46, {
       amplifier: 6
     });
   } catch (error) {
@@ -10144,10 +10731,10 @@ async function firePotionStrengthUp(player) {
 }
 
 // scripts/items/potion/IcePotion.ts
-import { TicksPerSecond as TicksPerSecond44 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond47 } from "@minecraft/server";
 async function icePotionAbsorption(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.Absorption, 600 * TicksPerSecond44, {
+    player.addEffect(MinecraftEffectTypes.Absorption, 600 * TicksPerSecond47, {
       amplifier: 6
     });
   } catch (error) {
@@ -10155,10 +10742,10 @@ async function icePotionAbsorption(player) {
 }
 
 // scripts/items/potion/LightningPotion.ts
-import { TicksPerSecond as TicksPerSecond45 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond48 } from "@minecraft/server";
 async function lightningPotionSpeedUp(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.Speed, 600 * TicksPerSecond45, {
+    player.addEffect(MinecraftEffectTypes.Speed, 600 * TicksPerSecond48, {
       amplifier: 6
     });
   } catch (error) {
@@ -10166,10 +10753,10 @@ async function lightningPotionSpeedUp(player) {
 }
 
 // scripts/items/potion/StonePotion.ts
-import { TicksPerSecond as TicksPerSecond46 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond49 } from "@minecraft/server";
 async function stonePotionResistance(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.Resistance, 600 * TicksPerSecond46, {
+    player.addEffect(MinecraftEffectTypes.Resistance, 600 * TicksPerSecond49, {
       amplifier: 6
     });
   } catch (error) {
@@ -10177,13 +10764,13 @@ async function stonePotionResistance(player) {
 }
 
 // scripts/items/potion/WaterPotion.ts
-import { TicksPerSecond as TicksPerSecond47 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond50 } from "@minecraft/server";
 async function waterPotionHealthBoost(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.HealthBoost, 600 * TicksPerSecond47, {
+    player.addEffect(MinecraftEffectTypes.HealthBoost, 600 * TicksPerSecond50, {
       amplifier: 10
     });
-    player.addEffect(MinecraftEffectTypes.InstantHealth, 1 * TicksPerSecond47, {
+    player.addEffect(MinecraftEffectTypes.InstantHealth, 1 * TicksPerSecond50, {
       amplifier: 20
     });
   } catch (error) {
@@ -10191,10 +10778,10 @@ async function waterPotionHealthBoost(player) {
 }
 
 // scripts/items/potion/WindPotion.ts
-import { TicksPerSecond as TicksPerSecond48 } from "@minecraft/server";
+import { TicksPerSecond as TicksPerSecond51 } from "@minecraft/server";
 async function windPotionJumpBoost(player) {
   try {
-    player.addEffect(MinecraftEffectTypes.JumpBoost, 600 * TicksPerSecond48, {
+    player.addEffect(MinecraftEffectTypes.JumpBoost, 600 * TicksPerSecond51, {
       amplifier: 6
     });
   } catch (error) {
@@ -10243,7 +10830,7 @@ var MagicMineDurability = class {
   onMineBlock(event) {
     const source = event.source;
     const itemStack = event.itemStack;
-    itemDurabilityDamage(source, itemStack, EquipmentSlot16.Mainhand);
+    itemDurabilityMagicDamage(source, itemStack, EquipmentSlot16.Mainhand);
   }
 };
 
@@ -10292,7 +10879,7 @@ async function firingOreBlock(event) {
       block.dimension.setBlockType(block.location, MinecraftBlockTypes.Air);
       block.dimension.spawnItem(new ItemStack22(oreBlock.item, getRandomInRange(1, 3)), { x: block.location.x, y: block.location.y + 1, z: block.location.z });
       block.dimension.spawnParticle("kurokumaft:mobflame_firing", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
-      itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot17.Mainhand, 5);
+      itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot17.Mainhand, 5);
     }
     const blockVol = new BlockVolume(
       {
@@ -10316,7 +10903,7 @@ async function firingOreBlock(event) {
           if (breakBlock.typeId.indexOf("_terracotta") != -1 && breakBlock.typeId.indexOf("_glazed_") == -1) {
             breakBlock.dimension.setBlockType(breakBlock.location, breakBlock.typeId.split("_").join("_glazed_"));
             breakBlock.dimension.spawnParticle("kurokumaft:mobflame_firing", { x: breakBlock.location.x + 0.5, y: breakBlock.location.y, z: breakBlock.location.z + 0.5 });
-            itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot17.Mainhand, 1);
+            itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot17.Mainhand, 1);
           }
         }
       }
@@ -10365,7 +10952,7 @@ async function breakRangeBlock(event) {
       },
       ignoreChunkBoundErrors: true
     });
-    itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot18.Mainhand, 5);
+    itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot18.Mainhand, 5);
     block.dimension.spawnParticle("kurokumaft:stone_charge_burst", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
   } catch (error) {
   }
@@ -10403,7 +10990,7 @@ async function breakLineBlock(event) {
       },
       ignoreChunkBoundErrors: true
     });
-    itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot19.Mainhand, 5);
+    itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot19.Mainhand, 5);
     block.dimension.spawnParticle("kurokumaft:thunder_sword_particle", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
   } catch (error) {
   }
@@ -10452,7 +11039,7 @@ async function freezeRangeBlock(event) {
       }
       nextValue = blockIt.next();
     }
-    itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot20.Mainhand, 5);
+    itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot20.Mainhand, 5);
     block.dimension.spawnParticle("kurokumaft:ice_arrow_particle", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
   } catch (error) {
   }
@@ -10558,7 +11145,7 @@ async function polishBlock(event) {
       }
       nextValue = blockIt.next();
     }
-    itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot21.Mainhand, 5);
+    itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot21.Mainhand, 5);
     block.dimension.spawnParticle("kurokumaft:mowing_particle", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
   } catch (error) {
   }
@@ -10603,7 +11190,7 @@ async function wetRangeBlock(event) {
       }
       nextValue = blockIt.next();
     }
-    itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot22.Mainhand, 5);
+    itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot22.Mainhand, 5);
     block.dimension.spawnParticle("kurokumaft:water_sword_slash", { x: block.location.x + 0.5, y: block.location.y, z: block.location.z + 0.5 });
   } catch (error) {
   }
@@ -10828,7 +11415,7 @@ async function earthRhinoKnockback(hitEntity) {
 }
 
 // scripts/mob/boos/PhoenixActionCompornent.ts
-import { EntityComponentTypes as EntityComponentTypes12, EntityDamageCause as EntityDamageCause65, Player as Player95, system as system38, TicksPerSecond as TicksPerSecond49, world as world34 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes13, EntityDamageCause as EntityDamageCause65, Player as Player95, system as system38, TicksPerSecond as TicksPerSecond52 } from "@minecraft/server";
 
 // scripts/mob/boos/mover/BossMoverBase.ts
 var BossMoverBase = class {
@@ -10923,7 +11510,6 @@ var PhoenixActionCompornent = class {
   }
   startMoniter() {
     this.entity.setProperty("kurokumaft:boss_pattern", 0);
-    world34.sendMessage("\u79FB\u52D5");
     this.startMoveing();
   }
   startMoveing() {
@@ -10936,7 +11522,6 @@ var PhoenixActionCompornent = class {
         }
         if (this.moveCount >= 300) {
           this.moveCount = 0;
-          world34.sendMessage("\u4E2D\u5FC3\u79FB\u52D5");
           this.mover.setPotion(this.entity.location);
           this.mover.setCenterY(brokHi - 9);
           this.entity.setProperty("kurokumaft:boss_pattern", 1);
@@ -10988,8 +11573,7 @@ var PhoenixActionCompornent = class {
           checkForBlocks: true
         });
         if (this.mover.isComplete()) {
-          world34.sendMessage("\u4E2D\u5FC3\u79FB\u52D5\u7D42\u308F\u308A");
-          system38.waitTicks(getRandomInRange(3, 8) * TicksPerSecond49).then(() => {
+          system38.waitTicks(getRandomInRange(3, 8) * TicksPerSecond52).then(() => {
             this.entity.setProperty("kurokumaft:boss_pattern", 0);
             this.flameStream(0);
           });
@@ -11015,7 +11599,6 @@ var PhoenixActionCompornent = class {
           checkForBlocks: true
         });
         if (this.mover.isCompleteOrigin()) {
-          world34.sendMessage("\u30AA\u30EA\u30B8\u30F3\u79FB\u52D5\u7D42\u308F\u308A");
           this.entity.setProperty("kurokumaft:boss_pattern", 0);
           this.startMoveing();
         } else {
@@ -11030,7 +11613,6 @@ var PhoenixActionCompornent = class {
   }
   flameStream(count) {
     try {
-      world34.sendMessage("\u706B\u7114\u653E\u5C04");
       if (this.entity !== void 0 && this.entity.isValid) {
         const filterOption1 = {
           location: this.entity.location,
@@ -11054,8 +11636,7 @@ var PhoenixActionCompornent = class {
           if (count !== 10) {
             this.flameStream(count + 1);
           } else {
-            system38.waitTicks(TicksPerSecond49).then(() => {
-              world34.sendMessage("\u3082\u3068\u306B\u4F4D\u7F6E\u306B\u623B\u308B");
+            system38.waitTicks(TicksPerSecond52).then(() => {
               this.originMoveing(1.5);
             });
           }
@@ -11066,10 +11647,9 @@ var PhoenixActionCompornent = class {
     }
   }
   async fireBlast(count) {
-    world34.sendMessage("\u706B\u7403\u4E71\u5C04");
     try {
       const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.location);
-      const projectile = bulet.getComponent(EntityComponentTypes12.Projectile);
+      const projectile = bulet.getComponent(EntityComponentTypes13.Projectile);
       projectile.owner = this.entity;
       projectile.shoot({
         x: this.entity.getViewDirection().x,
@@ -11088,7 +11668,6 @@ var PhoenixActionCompornent = class {
     }
   }
   blazeWear(count, hight) {
-    world34.sendMessage("\u706B\u7114\u7E8F");
     try {
       system38.waitTicks(5).then(() => {
         const loc = this.entity.location;
@@ -11107,7 +11686,6 @@ var PhoenixActionCompornent = class {
     }
   }
   blazeWearAttack(count) {
-    world34.sendMessage("\u706B\u7114\u7E8F\u30A2\u30BF\u30C3\u30AF");
     try {
       system38.waitTicks(1).then(() => {
         const distance = getLookLocationDistance(this.entity.getRotation().y, 1, 0, 0);
@@ -11137,81 +11715,81 @@ var BossActionClassRecord = {
 };
 
 // scripts/player/MagicArmorEquipment.ts
-import { EntityComponentTypes as EntityComponentTypes17, EquipmentSlot as EquipmentSlot27, system as system43 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes18, EquipmentSlot as EquipmentSlot27, system as system43 } from "@minecraft/server";
 
 // scripts/items/weapon/armor/MagicHelmetSurveillance.ts
-import { EntityComponentTypes as EntityComponentTypes13, EquipmentSlot as EquipmentSlot23, system as system39, TicksPerSecond as TicksPerSecond50 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes14, EquipmentSlot as EquipmentSlot23, system as system39, TicksPerSecond as TicksPerSecond53 } from "@minecraft/server";
 var MagicHelmetObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_magic_helmet",
     func: fireResistanceEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: fireResistanceEffectReset
   },
   {
     itemName: "kurokumaft:water_magic_helmet",
     func: waterBreathingEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: waterBreathingEffectReset
   },
   {
     itemName: "kurokumaft:wind_magic_helmet",
     func: projectileInvalid,
-    delay: TicksPerSecond50 * 1,
+    delay: TicksPerSecond53 * 1,
     removeFunc: projectileInvalidReset
   },
   {
     itemName: "kurokumaft:lightning_magic_helmet",
     func: projectileInvalid,
-    delay: TicksPerSecond50 * 1,
+    delay: TicksPerSecond53 * 1,
     removeFunc: projectileInvalidReset
   },
   {
     itemName: "kurokumaft:stone_magic_helmet",
     func: resistanceEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: resistanceEffectReset
   },
   {
     itemName: "kurokumaft:ice_magic_helmet",
     func: nightVisionEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: nightVisionEffectReset
   },
   {
     itemName: "kurokumaft:nether_fire_magic_helmet",
     func: fireResistanceEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: fireResistanceEffectReset
   },
   {
     itemName: "kurokumaft:nether_water_magic_helmet",
     func: waterBreathingEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: waterBreathingEffectReset
   },
   {
     itemName: "kurokumaft:nether_wind_magic_helmet",
     func: projectileInvalid,
-    delay: TicksPerSecond50 * 1,
+    delay: TicksPerSecond53 * 1,
     removeFunc: projectileInvalidReset
   },
   {
     itemName: "kurokumaft:nether_lightning_magic_helmet",
     func: projectileInvalid,
-    delay: TicksPerSecond50 * 1,
+    delay: TicksPerSecond53 * 1,
     removeFunc: projectileInvalidReset
   },
   {
     itemName: "kurokumaft:nether_stone_magic_helmet",
     func: resistanceEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: resistanceEffectReset
   },
   {
     itemName: "kurokumaft:nether_ice_magic_helmet",
     func: nightVisionEffect,
-    delay: TicksPerSecond50 * 10,
+    delay: TicksPerSecond53 * 10,
     removeFunc: nightVisionEffectReset
   }
 ]);
@@ -11231,7 +11809,7 @@ var MagicHelmetSurveillance = class {
     if (equItem == void 0) {
       return;
     }
-    const equ = this.player.getComponent(EntityComponentTypes13.Equippable);
+    const equ = this.player.getComponent(EntityComponentTypes14.Equippable);
     const head = equ.getEquipment(EquipmentSlot23.Head);
     if (head != null && head.typeId == equItem.itemName) {
       this.player.setDynamicProperty("magic_helmet_equ", true);
@@ -11245,25 +11823,25 @@ var MagicHelmetSurveillance = class {
   }
 };
 async function fireResistanceEffect(player) {
-  player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond50 * 60, {
+  player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond53 * 60, {
     amplifier: 5,
     showParticles: false
   });
 }
 async function waterBreathingEffect(player) {
-  player.addEffect(MinecraftEffectTypes.WaterBreathing, TicksPerSecond50 * 60, {
+  player.addEffect(MinecraftEffectTypes.WaterBreathing, TicksPerSecond53 * 60, {
     amplifier: 5,
     showParticles: false
   });
 }
 async function resistanceEffect(player) {
-  player.addEffect(MinecraftEffectTypes.Resistance, TicksPerSecond50 * 60, {
+  player.addEffect(MinecraftEffectTypes.Resistance, TicksPerSecond53 * 60, {
     amplifier: 3,
     showParticles: false
   });
 }
 async function nightVisionEffect(player) {
-  player.addEffect(MinecraftEffectTypes.NightVision, TicksPerSecond50 * 60, {
+  player.addEffect(MinecraftEffectTypes.NightVision, TicksPerSecond53 * 60, {
     amplifier: 10,
     showParticles: false
   });
@@ -11288,18 +11866,18 @@ async function nightVisionEffectReset(player) {
 }
 
 // scripts/items/weapon/armor/MagicChestSurveillance.ts
-import { EntityComponentTypes as EntityComponentTypes14, EquipmentSlot as EquipmentSlot24, system as system40, TicksPerSecond as TicksPerSecond51, BlockVolume as BlockVolume7, BlockPermutation as BlockPermutation6 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot24, system as system40, TicksPerSecond as TicksPerSecond54, BlockVolume as BlockVolume7, BlockPermutation as BlockPermutation6 } from "@minecraft/server";
 var MagicChestObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_magic_chestplate",
     func: fireAttackUp,
-    delay: TicksPerSecond51,
+    delay: TicksPerSecond54,
     removeFunc: fireAttackReset
   },
   {
     itemName: "kurokumaft:water_magic_chestplate",
     func: waterHealthUp,
-    delay: TicksPerSecond51 * 20,
+    delay: TicksPerSecond54 * 20,
     removeFunc: waterHealthReset
   },
   {
@@ -11311,13 +11889,13 @@ var MagicChestObjects = Object.freeze([
   {
     itemName: "kurokumaft:nether_fire_magic_chestplate",
     func: fireAttackUp,
-    delay: TicksPerSecond51,
+    delay: TicksPerSecond54,
     removeFunc: fireAttackReset
   },
   {
     itemName: "kurokumaft:nether_water_magic_chestplate",
     func: waterHealthUp,
-    delay: TicksPerSecond51 * 10,
+    delay: TicksPerSecond54 * 10,
     removeFunc: waterHealthReset
   },
   {
@@ -11343,7 +11921,7 @@ var MagicChestSurveillance = class {
     if (equItem == void 0) {
       return;
     }
-    const equ = this.player.getComponent(EntityComponentTypes14.Equippable);
+    const equ = this.player.getComponent(EntityComponentTypes15.Equippable);
     const chest = equ.getEquipment(EquipmentSlot24.Chest);
     if (chest != null && chest.typeId == equItem.itemName) {
       this.player.setDynamicProperty("magic_chest_equ", true);
@@ -11360,7 +11938,7 @@ async function fireAttackUp(player) {
   player.triggerEvent("kurokumaft:attack10_up");
 }
 async function waterHealthUp(player) {
-  player.addEffect(MinecraftEffectTypes.HealthBoost, 60 * TicksPerSecond51, {
+  player.addEffect(MinecraftEffectTypes.HealthBoost, 60 * TicksPerSecond54, {
     amplifier: 2,
     showParticles: true
   });
@@ -11397,42 +11975,42 @@ async function lavaFreezeReset(player) {
 }
 
 // scripts/items/weapon/armor/MagicLeggingsSurveillance.ts
-import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot25, system as system41, TicksPerSecond as TicksPerSecond52 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes16, EquipmentSlot as EquipmentSlot25, system as system41, TicksPerSecond as TicksPerSecond55 } from "@minecraft/server";
 var MagicLeggingsObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_magic_leggings",
     func: jumpBoostEffect,
-    delay: TicksPerSecond52 * 10,
+    delay: TicksPerSecond55 * 10,
     removeFunc: jumpBoostEffectReset
   },
   {
     itemName: "kurokumaft:water_magic_leggings",
     func: waterRegenerationEffect,
-    delay: TicksPerSecond52 * 10,
+    delay: TicksPerSecond55 * 10,
     removeFunc: waterRegenerationEffectReset
   },
   {
     itemName: "kurokumaft:ice_magic_leggings",
     func: iceResistanceEffect,
-    delay: TicksPerSecond52 * 10,
+    delay: TicksPerSecond55 * 10,
     removeFunc: iceResistanceEffectReset
   },
   {
     itemName: "kurokumaft:nether_fire_magic_leggings",
     func: jumpBoostEffect,
-    delay: TicksPerSecond52 * 10,
+    delay: TicksPerSecond55 * 10,
     removeFunc: jumpBoostEffectReset
   },
   {
     itemName: "kurokumaft:nether_water_magic_leggings",
     func: waterRegenerationEffect,
-    delay: TicksPerSecond52 * 10,
+    delay: TicksPerSecond55 * 10,
     removeFunc: waterRegenerationEffectReset
   },
   {
     itemName: "kurokumaft:nether_ice_magic_leggings",
     func: iceResistanceEffect,
-    delay: TicksPerSecond52 * 10,
+    delay: TicksPerSecond55 * 10,
     removeFunc: iceResistanceEffectReset
   }
 ]);
@@ -11452,7 +12030,7 @@ var MagicLeggingsSurveillance = class {
     if (equItem == void 0) {
       return;
     }
-    const equ = this.player.getComponent(EntityComponentTypes15.Equippable);
+    const equ = this.player.getComponent(EntityComponentTypes16.Equippable);
     const leg = equ.getEquipment(EquipmentSlot25.Legs);
     if (leg != null && leg.typeId == equItem.itemName) {
       this.player.setDynamicProperty("magic_leg_equ", true);
@@ -11466,19 +12044,19 @@ var MagicLeggingsSurveillance = class {
   }
 };
 async function jumpBoostEffect(player) {
-  player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond52 * 60, {
+  player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond55 * 60, {
     amplifier: 1,
     showParticles: false
   });
 }
 async function waterRegenerationEffect(player) {
-  player.addEffect(MinecraftEffectTypes.Regeneration, TicksPerSecond52 * 60, {
+  player.addEffect(MinecraftEffectTypes.Regeneration, TicksPerSecond55 * 60, {
     amplifier: 2,
     showParticles: false
   });
 }
 async function iceResistanceEffect(player) {
-  player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond52 * 60, {
+  player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond55 * 60, {
     amplifier: 5,
     showParticles: false
   });
@@ -11494,7 +12072,7 @@ async function iceResistanceEffectReset(player) {
 }
 
 // scripts/items/weapon/armor/MagicBootsSurveillance.ts
-import { EntityComponentTypes as EntityComponentTypes16, EquipmentSlot as EquipmentSlot26, system as system42, TicksPerSecond as TicksPerSecond53, BlockPermutation as BlockPermutation7, BlockVolume as BlockVolume8 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes17, EquipmentSlot as EquipmentSlot26, system as system42, TicksPerSecond as TicksPerSecond56, BlockPermutation as BlockPermutation7, BlockVolume as BlockVolume8 } from "@minecraft/server";
 var MagicBootsObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_magic_boots",
@@ -11505,25 +12083,25 @@ var MagicBootsObjects = Object.freeze([
   {
     itemName: "kurokumaft:water_magic_boots",
     func: waterSpeedUp,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: waterSpeedReset
   },
   {
     itemName: "kurokumaft:wind_magic_boots",
     func: windSpeedUp,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: windSpeedReset
   },
   {
     itemName: "kurokumaft:stone_magic_boots",
     func: stoneFallInvalid,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: stoneFallInvalidReset
   },
   {
     itemName: "kurokumaft:lightning_magic_boots",
     func: lightningSpeedUp,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: lightningSpeedReset
   },
   {
@@ -11541,25 +12119,25 @@ var MagicBootsObjects = Object.freeze([
   {
     itemName: "kurokumaft:nether_water_magic_boots",
     func: waterSpeedUp,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: waterSpeedReset
   },
   {
     itemName: "kurokumaft:nether_wind_magic_boots",
     func: windSpeedUp,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: windSpeedReset
   },
   {
     itemName: "kurokumaft:nether_stone_magic_boots",
     func: stoneFallInvalid,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: stoneFallInvalidReset
   },
   {
     itemName: "kurokumaft:nether_lightning_magic_boots",
     func: lightningSpeedUp,
-    delay: TicksPerSecond53 * 1,
+    delay: TicksPerSecond56 * 1,
     removeFunc: lightningSpeedReset
   },
   {
@@ -11585,7 +12163,7 @@ var MagicBootsSurveillance = class {
     if (equItem == void 0) {
       return;
     }
-    const equ = this.player.getComponent(EntityComponentTypes16.Equippable);
+    const equ = this.player.getComponent(EntityComponentTypes17.Equippable);
     const boot = equ.getEquipment(EquipmentSlot26.Feet);
     if (boot != null && boot.typeId == equItem.itemName) {
       this.player.setDynamicProperty("magic_boot_equ", true);
@@ -11622,7 +12200,7 @@ async function lavaWalker(player) {
   });
 }
 async function waterSpeedUp(player) {
-  const move = player.getComponent(EntityComponentTypes16.UnderwaterMovement);
+  const move = player.getComponent(EntityComponentTypes17.UnderwaterMovement);
   if (player.isInWater) {
     move.setCurrentValue(0.15);
   } else {
@@ -11630,7 +12208,7 @@ async function waterSpeedUp(player) {
   }
 }
 async function windSpeedUp(player) {
-  const move = player.getComponent(EntityComponentTypes16.Movement);
+  const move = player.getComponent(EntityComponentTypes17.Movement);
   if (!player.isInWater) {
     move.setCurrentValue(0.2);
   } else {
@@ -11644,7 +12222,7 @@ async function stoneFallInvalidReset(player) {
   player.removeTag("fall_invalid");
 }
 async function lightningSpeedUp(player) {
-  const move = player.getComponent(EntityComponentTypes16.Movement);
+  const move = player.getComponent(EntityComponentTypes17.Movement);
   if (move.currentValue != 0.4) {
     move.setCurrentValue(0.4);
   }
@@ -11675,19 +12253,19 @@ async function iceWalker(player) {
 async function lavaWalkerReset(player) {
 }
 async function waterSpeedReset(player) {
-  const move = player.getComponent(EntityComponentTypes16.UnderwaterMovement);
+  const move = player.getComponent(EntityComponentTypes17.UnderwaterMovement);
   if (move.currentValue != 0.02) {
     move.setCurrentValue(0.02);
   }
 }
 async function windSpeedReset(player) {
-  const move = player.getComponent(EntityComponentTypes16.Movement);
+  const move = player.getComponent(EntityComponentTypes17.Movement);
   if (move.currentValue != 0.1) {
     move.setCurrentValue(0.1);
   }
 }
 async function lightningSpeedReset(player) {
-  const move = player.getComponent(EntityComponentTypes16.Movement);
+  const move = player.getComponent(EntityComponentTypes17.Movement);
   if (move.currentValue != 0.1) {
     move.setCurrentValue(0.1);
   }
@@ -11706,7 +12284,7 @@ var MagicPlayerMonitorTick = class _MagicPlayerMonitorTick {
   async checkPlayerMagicEquTick() {
     if (this.player.isValid) {
       try {
-        const equ = this.player.getComponent(EntityComponentTypes17.Equippable);
+        const equ = this.player.getComponent(EntityComponentTypes18.Equippable);
         const offHand = equ.getEquipment(EquipmentSlot27.Offhand);
         if (offHand != void 0) {
           if (offHand.hasTag("kurokumaft:magic_shield") && this.player.isSneaking) {
@@ -11800,27 +12378,44 @@ function checkAttackProtection(player, head, chest, legs, feet) {
 }
 
 // scripts/items/weapon/MagicAttackEvent.ts
-function checkMagicAttack(player) {
-}
+import { EntityComponentTypes as EntityComponentTypes19, EquipmentSlot as EquipmentSlot28 } from "@minecraft/server";
+var MagicAttackEvent = class {
+  checkMagicAttack(player) {
+    const equ = player.getComponent(EntityComponentTypes19.Equippable);
+    const mainHand = equ.getEquipment(EquipmentSlot28.Mainhand);
+    if (mainHand !== void 0) {
+      if (player.isSneaking) {
+        if (mainHand.typeId.indexOf("_stick") !== -1) {
+          new StickWeaponMagic().attackSneak(player, mainHand);
+        } else if (mainHand.typeId.indexOf("_wand") !== -1) {
+          new WandWeaponMagic().attackSneak(player, mainHand);
+        } else if (mainHand.typeId.indexOf("_rod") !== -1) {
+          new RodWeaponMagic().attackSneak(player, mainHand);
+        }
+      } else {
+      }
+    }
+  }
+};
 
 // scripts/magic_script.ts
 var guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 system44.beforeEvents.startup.subscribe((initEvent) => {
   initRegisterMagicCustom(initEvent);
 });
-world39.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world40.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world39.afterEvents.playerSpawn.subscribe((event) => {
+world40.afterEvents.playerSpawn.subscribe((event) => {
   new MagicPlayerMonitorTick(event.player).startMonitoring();
 });
-world39.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+world40.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
   const entity = event.entity;
   if (event.eventId == "kurokumaft:explosion_guard_knockback") {
     MagicShieldKnockback(entity);
   } else if (event.eventId == "kurokumaft:attack_event") {
-    if (entity instanceof Player101) {
-      checkMagicAttack(entity);
+    if (entity instanceof Player102) {
+      new MagicAttackEvent().checkMagicAttack(entity);
     }
   } else if (event.eventId == "kurokumaft:moniter_boss_event") {
     const object = BossActionObjects.find((ob) => ob.entityName == entity.typeId);
@@ -11831,7 +12426,7 @@ world39.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
     }
   }
 });
-world39.afterEvents.entityHitEntity.subscribe((event) => {
+world40.afterEvents.entityHitEntity.subscribe((event) => {
   const dameger = event.damagingEntity;
   const hitEn = event.hitEntity;
   if (hitEn.typeId == "minecraft:player") {
@@ -11852,7 +12447,7 @@ world39.afterEvents.entityHitEntity.subscribe((event) => {
     flamePorcupineGuard(dameger);
   }
 });
-world39.afterEvents.projectileHitEntity.subscribe((event) => {
+world40.afterEvents.projectileHitEntity.subscribe((event) => {
   const projectileEn = event.projectile;
   const hitEn = event.getEntityHit().entity;
   const dameger = event.source;
@@ -11874,11 +12469,11 @@ world39.afterEvents.projectileHitEntity.subscribe((event) => {
     }
   }
 });
-world39.afterEvents.entityHitBlock.subscribe((event) => {
+world40.afterEvents.entityHitBlock.subscribe((event) => {
   const block = event.hitBlock;
   const entity = event.damagingEntity;
 });
-world39.afterEvents.projectileHitBlock.subscribe((event) => {
+world40.afterEvents.projectileHitBlock.subscribe((event) => {
   const projectileEn = event.projectile;
   const dameger = event.source;
   if (projectileEn != void 0) {
@@ -11890,7 +12485,7 @@ world39.afterEvents.projectileHitBlock.subscribe((event) => {
     }
   }
 });
-world39.afterEvents.entityHurt.subscribe((event) => {
+world40.afterEvents.entityHurt.subscribe((event) => {
   const damageSource = event.damageSource;
   const hitEn = event.hurtEntity;
   if (hitEn != void 0 && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
@@ -11899,16 +12494,16 @@ world39.afterEvents.entityHurt.subscribe((event) => {
     }
   }
 });
-world39.afterEvents.itemCompleteUse.subscribe((event) => {
+world40.afterEvents.itemCompleteUse.subscribe((event) => {
   const item = event.itemStack;
   const source = event.source;
-  if (source instanceof Player101 && item.typeId === "kurokumaft:phoenix_sword") {
+  if (source instanceof Player102 && item.typeId === "kurokumaft:phoenix_sword") {
     source.onScreenDisplay.setActionBar({ rawtext: [{ translate: "magic.kurokumaft:blazeBurst.translate" }] });
     blazeBurst(source);
-    itemDurabilityDamage(source, item, EquipmentSlot28.Mainhand);
+    itemDurabilityMagicDamage(source, item, EquipmentSlot29.Mainhand);
   }
 });
-world39.afterEvents.itemReleaseUse.subscribe((event) => {
+world40.afterEvents.itemReleaseUse.subscribe((event) => {
   const player = event.source;
   const item = event.itemStack;
   const duration = event.useDuration;
@@ -11916,10 +12511,9 @@ world39.afterEvents.itemReleaseUse.subscribe((event) => {
     if (player.getDynamicProperty("BowShotMagicCharge")) {
       magicBowShot(player, item, duration);
     }
-    isChargeed(player, item);
   }
 });
-world39.afterEvents.blockExplode.subscribe((event) => {
+world40.afterEvents.blockExplode.subscribe((event) => {
   const block = event.block;
   if (block.typeId == "kurokumaft:magic_lectern") {
     magic_lectern_break(block, block.dimension);
@@ -11928,27 +12522,27 @@ world39.afterEvents.blockExplode.subscribe((event) => {
     portalGateBreak(block, event.explodedBlockPermutation);
   }
 });
-world39.beforeEvents.explosion.subscribe((event) => {
+world40.beforeEvents.explosion.subscribe((event) => {
   const impactBLockList = event.getImpactedBlocks();
   const filterBlockList = explodeBedrock(impactBLockList);
   if (filterBlockList != void 0) {
     event.setImpactedBlocks(filterBlockList);
   }
 });
-world39.beforeEvents.playerBreakBlock.subscribe((event) => {
+world40.beforeEvents.playerBreakBlock.subscribe((event) => {
   const player = event.player;
   const block = event.block;
   if (player != void 0) {
   }
 });
-world39.afterEvents.entityLoad.subscribe((event) => {
+world40.afterEvents.entityLoad.subscribe((event) => {
   const entity = event.entity;
   if (entity.typeId == "kurokumaft:magic_brewing_stand") {
     const brewing_block = entity.dimension.getBlock(entity.location);
     new MagicBrewingStand(entity, brewing_block).checkPosionBrewTick();
   }
 });
-world39.afterEvents.entitySpawn.subscribe((event) => {
+world40.afterEvents.entitySpawn.subscribe((event) => {
   const entity = event.entity;
   const cause = event.cause;
   if (cause == EntityInitializationCause.Spawned) {
@@ -11965,7 +12559,7 @@ world39.afterEvents.entitySpawn.subscribe((event) => {
     }
   }
 });
-world39.afterEvents.buttonPush.subscribe((event) => {
+world40.afterEvents.buttonPush.subscribe((event) => {
   const entity = event.source;
   const block = event.block;
   A:
@@ -11978,7 +12572,7 @@ world39.afterEvents.buttonPush.subscribe((event) => {
             entity.setDynamicProperty("teamCommandSet", true);
             system44.runTimeout(() => {
               entity.setDynamicProperty("teamCommandSet", void 0);
-            }, TicksPerSecond54 * 2);
+            }, TicksPerSecond57 * 2);
             break A;
           }
         }
@@ -12028,7 +12622,7 @@ system44.afterEvents.scriptEventReceive.subscribe((event) => {
     }
   } else if (sourceType == ScriptEventSource.Entity) {
     const sourceEntity = event.sourceEntity;
-    if (sourceEntity != void 0 && sourceEntity instanceof Player101) {
+    if (sourceEntity != void 0 && sourceEntity instanceof Player102) {
       if (id == "kk:teamtag") {
         const params = message.split(" ");
         if (params[0] == "add") {

@@ -16,7 +16,6 @@ export class MagicLecternBlock implements BlockCustomComponent {
 
     onPlayerInteract(blockEvent:BlockComponentPlayerInteractEvent) {
         const player = blockEvent.player as Player;
-        world.sendMessage(player.typeId);
         const equ = player?.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         const item = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         const block = blockEvent.block;
@@ -120,7 +119,7 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
                         }
                         const mulVal = getGrimoireItemsMultiValue(grimoireItemType, item.typeId) as number;
                         new_grimoire_book = grimoire_book;
-                        if (new_grimoire_book.typeId == "kurokumaft:grimoire_music_sound") {
+                        if (new_grimoire_book.typeId === "kurokumaft:grimoire_music_sound") {
                             new_grimoire_book.setDynamicProperty(item.typeId, item.typeId);
                         }
                         remainingNum = remainingNum + (item.amount * mulVal);
@@ -208,8 +207,8 @@ function magic_lectern(player:Player, item:ItemStack, block:Block) {
 export async function magic_lectern_break(block: Block, dimension: Dimension) {
     const entitys = dimension.getEntitiesAtBlockLocation({x:block.location.x, y:block.location.y+1,z:block.location.z});
     entitys.forEach(en => {
-        let invent = en.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-        let item = invent.container?.getItem(0);
+        const invent = en.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+        const item = invent.container?.getItem(0);
         if (item) {
             dimension.spawnItem(item, en.location);
         }

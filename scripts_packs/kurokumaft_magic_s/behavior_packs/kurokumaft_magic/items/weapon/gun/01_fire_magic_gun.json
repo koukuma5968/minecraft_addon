@@ -38,11 +38,11 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:fire_magic_stone" ],
-            "repair_amount": 300
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 6 < query.max_durability ? (query.max_durability - query.remaining_durability) / 6 : query.max_durability - query.remaining_durability"
           },
           {
             "items": [ "kurokumaft:fire_magic_gun" ],
-            "repair_amount": 800
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 3 < query.max_durability ? (query.max_durability - query.remaining_durability) / 3 : query.max_durability - query.remaining_durability"
           }
         ]
       },
@@ -55,7 +55,7 @@
       },
       "minecraft:use_modifiers": {
         "movement_modifier": 0.25,
-        "use_duration": 8
+        "use_duration": 4
       },
       "minecraft:custom_components": [
         "kurokumaft:gun_magic"

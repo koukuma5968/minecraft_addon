@@ -40,6 +40,35 @@ export async function stormBread(player:Player, hitEntity:Entity) {
 }
 
 /**
+ * ウィンドロアー
+ */
+export async function windRoar(player:Player) {
+
+    player.addTag(player.id);
+    const filterOption = {
+        excludeTags: [
+            player.id
+        ],
+        location: player.location,
+        maxDistance: 10
+    } as EntityQueryOptions;
+
+    addTeamsTagFilter(player, filterOption);
+    player.dimension.spawnParticle("kurokumaft:wind_roar_particle",player.location);
+
+    const targets = player.dimension.getEntities(filterOption);
+    targets.forEach(en => {
+        if (!en.isValid) {
+            return;
+        }
+        en.applyKnockback({x:en.getViewDirection().x-15, z:en.getViewDirection().z-15}, 3);
+
+    });
+    player.removeTag(player.id);
+
+}
+
+/**
  * ストーム
  */
 export async function storm(player:Player) {

@@ -1,6 +1,4 @@
-import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { TntSwordBreak } from "../items/weapons/sword/TntSwordBreak";
-import { checkWeaponsPlayerEquTick } from "../player/WeaponsArmorEquipment";
 import { MagmaSwordFire } from "../items/weapons/sword/MagmaSwordFire";
 import { BuleSwordIce } from "../items/weapons/sword/BuleSwordIce";
 import { MithrilSword } from "../items/weapons/sword/MithrilSword";
@@ -55,12 +53,13 @@ import { AxeBatchDestruction } from "../items/axe/AxeBatchDestruction";
 import { HoeBatchDestruction } from "../items/hoe/HoeBatchDestruction";
 import { StraightDownHole } from "../items/shovel/StraightDownHole";
 import { PicRangeDestruction } from "../items/pickaxe/PicRangeDestruction";
+import { StartupEvent } from "@minecraft/server";
 
 /**
  * カスタムコンポーネントの登録
- * @param {WorldInitializeBeforeEvent} initEvent
+ * @param {StartupEvent} initEvent
  */
-function initWeaponsRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
+function initWeaponsRegisterCustom(initEvent:StartupEvent) {
 
     // アイテム類
     // TNTソード
@@ -193,12 +192,4 @@ function initWeaponsRegisterCustom(initEvent:WorldInitializeBeforeEvent) {
 
 }
 
-/**
- * 監視スレッドの登録
- * @param {WorldInitializeBeforeEvent} initEvent
- */
-function initWeaponsStateChangeMonitor(initEvent:WorldInitializeBeforeEvent) {
-    checkWeaponsPlayerEquTick();
-}
-
-export {initWeaponsRegisterCustom, initWeaponsStateChangeMonitor}
+export {initWeaponsRegisterCustom}

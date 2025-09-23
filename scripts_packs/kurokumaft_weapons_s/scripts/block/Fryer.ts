@@ -1,4 +1,4 @@
-import { EntityComponentTypes,ItemStack,Block, Player, EntityEquippableComponent, EquipmentSlot, BlockCustomComponent, BlockComponentPlayerInteractEvent } from "@minecraft/server";
+import { EntityComponentTypes,ItemStack,Block, Player, EntityEquippableComponent, EquipmentSlot, BlockCustomComponent, BlockComponentPlayerInteractEvent, BlockPermutation } from "@minecraft/server";
 import { MinecraftItemTypes } from "@minecraft/vanilla-data";
 import { subtractionItem } from "../common/WeaponsItemDurabilityDamage";
 
@@ -25,11 +25,11 @@ const FlyItems = Object.freeze([
 export class Fryer implements BlockCustomComponent {
 
     onPlayerInteract(event:BlockComponentPlayerInteractEvent) {
-        let player = event.player as Player;
-        let block = event.block as Block;
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-        if (itemStack != undefined) {
+        const player = event.player as Player;
+        const block = event.block as Block;
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        if (itemStack !== undefined) {
             if (block.matches("kurokumaft:fryer",{"kurokumaft:oil_type":"empty"})) {
                 setOilType(equ, itemStack, block);
             } else {
@@ -47,9 +47,9 @@ export class Fryer implements BlockCustomComponent {
  */
 async function setOilType(equ: EntityEquippableComponent, item: ItemStack, block: Block) {
 
-    if (item.typeId == "kurokumaft:olive_oil") {
+    if (item.typeId === "kurokumaft:olive_oil") {
         equ.setEquipment(EquipmentSlot.Mainhand, new ItemStack(MinecraftItemTypes.GlassBottle, 1));
-        block.setPermutation(block.permutation.withState("kurokumaft:oil_type", "olive"));
+        block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:oil_count" : 0, "kurokumaft:oil_type" : "olive"}));
     }
 
 }
@@ -63,29 +63,29 @@ async function setOilType(equ: EntityEquippableComponent, item: ItemStack, block
  */
 async function deepFlyEat(player: Player, equ: EntityEquippableComponent, item: ItemStack, block: Block) {
 
-    let count = block.permutation.getState("kurokumaft:oil_count") as number;
+    const states = block.permutation.getAllStates();
+    const count =  states["kurokumaft:oil_count"] as number;
     if (count < 10) {
         if (block.matches("kurokumaft:fryer",{"kurokumaft:oil_type":"olive"})) {
-            let flyItem = FlyItems.find(obj => obj.item == item.typeId) as FlyItems;
+            const flyItem = FlyItems.find(obj => obj.item == item.typeId) as FlyItems;
             if (flyItem != undefined) {
-                let fried = new ItemStack(flyItem.flyItem, 1);
+                const fried = new ItemStack(flyItem.flyItem, 1);
                 if (item.amount == 1) {
                     equ.setEquipment(EquipmentSlot.Mainhand, fried);
                 } else {
                     block.dimension.spawnItem(fried, {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
                     subtractionItem(player, item, EquipmentSlot.Mainhand, 1);
                 }
+                block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:oil_count" : count+1, "kurokumaft:oil_type":"olive"}));
+                if (count+1 === 10) {
+                    block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:oil_count" : 10, "kurokumaft:oil_type" : "dirty"}));
+                }
             }
         }
-        block.setPermutation(block.permutation.withState("kurokumaft:oil_count", count+1));
-        if (count+1 == 10) {
-            block.setPermutation(block.permutation.withState("kurokumaft:oil_type", "dirty"));
-        }
     } else {
-        if (item.typeId == MinecraftItemTypes.GlassBottle) {
+        if (item.typeId === MinecraftItemTypes.GlassBottle) {
             equ.setEquipment(EquipmentSlot.Mainhand, new ItemStack("kurokumaft:dirty_oil", 1));
-            block.setPermutation(block.permutation.withState("kurokumaft:oil_count", 0));
-            block.setPermutation(block.permutation.withState("kurokumaft:oil_type", "empty"));
+            block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:oil_count" : 0, "kurokumaft:oil_type" : "empty"}));
         }
     }
 

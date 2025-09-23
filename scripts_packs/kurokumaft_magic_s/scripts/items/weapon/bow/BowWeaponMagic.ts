@@ -1,6 +1,6 @@
 import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, Entity, world, TicksPerSecond } from "@minecraft/server";
 import { clamp } from "../../../common/MagicCommonUtil";
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
 import { shooting } from "../../../common/MagicShooterMagicEvent";
 import { fireArrow } from "./FireArrowMagic";
 import { waterArrow, waterArrowHoming } from "./WaterArrowMagic";
@@ -119,7 +119,7 @@ async function magicBowShot(player:Player, itemStack:ItemStack, duration:number)
             shooting(player, bowMagicObject.event, 0, speed, undefined);
         }
         player.onScreenDisplay.setActionBar({rawtext:[{translate:bowMagicObject.sendMsg}]});
-        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
     }
 
 }

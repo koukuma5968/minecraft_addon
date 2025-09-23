@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, system } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, ExplosionOptions, Player, system, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { getLookRotaionPointsV2, addTeamsTagFilter } from "../../../common/MagicCommonUtil";
 
@@ -43,6 +43,49 @@ export async function sparkleShock(player:Player, entity:Entity) {
     });
 
     player.removeTag("sparkle_shock_self");
+}
+
+/**
+ * フラッシュビット
+ */
+export async function flashBit(player:Player) {
+
+    player.addTag(player.id);
+
+    for (let x=-3.5; x<=3.5; x+=3.5) {
+        for (let z=-3.5; z<=3.5; z+=3.5) {
+            const filterOption = {
+                excludeTags: [
+                    player.id,
+                ],
+                location: {x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z},
+                maxDistance: 2
+            } as EntityQueryOptions;
+
+            addTeamsTagFilter(player, filterOption);
+
+            const targets = player.dimension.getEntities(filterOption);
+            targets.forEach(en => {
+                let damage = 4 as number;
+                if (en instanceof Player) {
+                    damage = 2;
+                }
+                en.addEffect(MinecraftEffectTypes.InstantHealth, 2*TicksPerSecond, {
+                    amplifier: damage
+                });
+            });
+            const option = {
+                allowUnderwater: false,
+                breaksBlocks: false,
+                causesFire: false,
+                source: player
+            } as ExplosionOptions;
+            player.dimension.createExplosion({x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z}, 2, option);
+            player.dimension.spawnParticle("kurokumaft:flash_bit_particle", {x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z});
+        }
+    }
+
+    player.removeTag(player.id);
 }
 
 /**

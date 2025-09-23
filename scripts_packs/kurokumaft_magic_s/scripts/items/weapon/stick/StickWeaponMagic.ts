@@ -1,14 +1,15 @@
 import { Entity, EquipmentSlot, ItemComponentHitEntityEvent, ItemComponentTypes, ItemComponentUseEvent, ItemCooldownComponent, ItemCustomComponent, ItemStack, Player, system, world } from "@minecraft/server";
 import { shooting } from "../../../common/MagicShooterMagicEvent";
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
-import { aquaShock, aquaShot, tidalWave } from "./WaterCurrentMagic";
-import { atmosphere, stormShock } from "./AtmosphereMagic";
-import { earthShock, gravityField } from "./EarthMagic";
-import { lightningStrike, sparkShock } from "./LightningStrikeMagic";
-import { blackHole, jetblackShock } from "./JetBlackMagic";
-import { hollyField, sparkleShock } from "./SparkleMagic";
-import { blastbomb, flameShock } from "./BlazeMagic";
-import { iceBlock, iceShock } from "./BlockiceMagic";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
+import { aquaBit, aquaShock, aquaShot, tidalWave } from "./WaterCurrentMagic";
+import { aeroBit, atmosphere, stormShock } from "./AtmosphereMagic";
+import { earthShock, gravityField, jewelBit } from "./EarthMagic";
+import { lightningStrike, sparkShock, thunderBit } from "./LightningStrikeMagic";
+import { blackHole, jetblackShock, nightBit } from "./JetBlackMagic";
+import { flashBit, hollyField, sparkleShock } from "./SparkleMagic";
+import { blastbomb, flameShock, flareBit } from "./BlazeMagic";
+import { frozenBit, iceBlock, iceShock } from "./BlockiceMagic";
+import { ItemMagicCustomComponent } from "../MagicAttackEvent";
 
 interface StickFuncMagicObject {
     itemName:string,
@@ -63,6 +64,50 @@ const StickHitObjects = Object.freeze([
         itemName: "kurokumaft:sparkle_stick",
         func: sparkleShock,
         sendMsg: "magic.kurokumaft:sparkleShock.translate"
+    }
+
+]);
+
+const StickBitObjects = Object.freeze([
+    {
+        itemName: "kurokumaft:blaze_stick",
+        func: flareBit,
+        sendMsg: "magic.kurokumaft:flare_bit.translate"
+    },
+    {
+        itemName: "kurokumaft:watercurrent_stick",
+        func: aquaBit,
+        sendMsg: "magic.kurokumaft:aqua_bit.translate"
+    },
+    {
+        itemName: "kurokumaft:atmosphere_stick",
+        func: aeroBit,
+        sendMsg: "magic.kurokumaft:aero_bit.translate"
+    },
+    {
+        itemName: "kurokumaft:earth_stick",
+        func: jewelBit,
+        sendMsg: "magic.kurokumaft:jewel_bit.translate"
+    },
+    {
+        itemName: "kurokumaft:lightningstrike_stick",
+        func: thunderBit,
+        sendMsg: "magic.kurokumaft:thunder_bit.translate"
+    },
+    {
+        itemName: "kurokumaft:blockice_stick",
+        func: frozenBit,
+        sendMsg: "magic.kurokumaft:frozen_bit.translate"
+    },
+    {
+        itemName: "kurokumaft:jetblack_stick",
+        func: nightBit,
+        sendMsg: "magic.kurokumaft:night_bit.translate"
+    },
+    {
+        itemName: "kurokumaft:sparkle_stick",
+        func: flashBit,
+        sendMsg: "magic.kurokumaft:flash_bit.translate"
     }
 
 ]);
@@ -169,7 +214,7 @@ const StickRightFuncMagicObjects = Object.freeze([
 /**
  * スティック系魔法
  */
-export class StickWeaponMagic implements ItemCustomComponent {
+export class StickWeaponMagic implements ItemCustomComponent, ItemMagicCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
@@ -194,13 +239,13 @@ export class StickWeaponMagic implements ItemCustomComponent {
 
         if (player.isSneaking) {
             const stickFuncMagicObject = StickRightFuncMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
-            if (stickFuncMagicObject) {
+            if (stickFuncMagicObject !== undefined) {
                 player.onScreenDisplay.setActionBar({rawtext:[{translate:stickFuncMagicObject.sendMsg}]});
                 stickFuncMagicObject.func(player);
             }
         } else {
             const stickShotMagicObject = StickShotMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickMagicObject;
-            if (stickShotMagicObject) {
+            if (stickShotMagicObject !== undefined) {
 
                 if (itemStack.typeId == "kurokumaft:atmosphere_stick") {
                     const intervalNum = system.runInterval(() => {
@@ -215,16 +260,27 @@ export class StickWeaponMagic implements ItemCustomComponent {
                 player.onScreenDisplay.setActionBar({rawtext:[{translate:stickShotMagicObject.sendMsg}]});
             }
             const stickRightOneMagicObject = StickRightOneMagicObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
-            if (stickRightOneMagicObject) {
+            if (stickRightOneMagicObject !== undefined) {
                 player.onScreenDisplay.setActionBar({rawtext:[{translate:stickRightOneMagicObject.sendMsg}]});
                 stickRightOneMagicObject.func(player);
             }
         }
 
-        itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
 
         const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
         cool.startCooldown(player);
+
+    }
+
+    attackSneak(player: Player, itemStack: ItemStack) {
+
+        const stickBitObjectt = StickBitObjects.find(obj => obj.itemName == itemStack.typeId) as StickFuncMagicObject;
+        if (stickBitObjectt !== undefined) {
+            player.onScreenDisplay.setActionBar({rawtext:[{translate:stickBitObjectt.sendMsg}]});
+            stickBitObjectt.func(player);
+        }
+        itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
 
     }
 

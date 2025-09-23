@@ -6,7 +6,7 @@ import { BlockCustomComponent, Block, BlockComponentTickEvent, world } from "@mi
 export class BakutikuFire implements BlockCustomComponent {
 
     onTick(event:BlockComponentTickEvent) {
-        let block = event.block as Block;
+        const block = event.block as Block;
         block.dimension.spawnEntity("kurokumaft:bakutiku_entity<from_explosion>", {x:block.location.x+0.5,y:block.location.y+0.5,z:block.location.z+0.5});
     }
 }

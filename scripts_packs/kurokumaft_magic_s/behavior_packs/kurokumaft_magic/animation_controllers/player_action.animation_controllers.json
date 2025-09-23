@@ -5,7 +5,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "attack_time": "query.is_sneaking && !query.is_using_item && variable.attack_time" }
+            { "attack_time": "!query.is_using_item && variable.attack_time" }
           ]
         },
         "attack_time": {
@@ -13,7 +13,7 @@
             "/event entity @s kurokumaft:attack_event"
           ],
           "transitions": [
-            {"default":"1.0"}
+            {"default":"variable.attack_delay = (variable.attack_delay ?? 0);variable.attack_delay = variable.attack_delay < 10 ? variable.attack_delay + 1:0;return variable.attack_delay == 0;"}
           ]
         }
       }

@@ -37,12 +37,14 @@ export class Battleaxe implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
 
-        let sickle = BattleaxeObjects.find(obj => obj.itemName == itemStack.typeId) as BattleaxeObject;
-        slashHit(attackEntity, hitEntity, sickle.damage);
+        if (itemStack !== undefined) {
+            const sickle = BattleaxeObjects.find(obj => obj.itemName === itemStack.typeId) as BattleaxeObject;
+            slashHit(attackEntity, hitEntity, sickle.damage);
+        }
     }
 
 }

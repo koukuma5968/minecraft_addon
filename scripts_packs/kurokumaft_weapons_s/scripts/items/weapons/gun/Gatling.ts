@@ -38,7 +38,7 @@ async function shotGatling(player: Player, item: ItemStack) {
 
         const reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         const reItem = reEqu.getEquipment(EquipmentSlot.Offhand);
-        if (reItem == undefined || reItem.typeId != "kurokumaft:twenty_two_lr") {
+        if (reItem === undefined || reItem.typeId !== "kurokumaft:twenty_two_lr") {
             system.clearRun(intervalNum);
             return;
         }

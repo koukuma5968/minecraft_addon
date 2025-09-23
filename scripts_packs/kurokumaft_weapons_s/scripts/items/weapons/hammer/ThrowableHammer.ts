@@ -1,7 +1,5 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, EntityDamageCause, world, EntityProjectileComponent } from "@minecraft/server";
-import { getLookPoints } from "../../../common/WeaponsCommonUtil";
+import { ItemCustomComponent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent, EntityInventoryComponent, Container, EntityProjectileComponent } from "@minecraft/server";
 import { throwItemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
-import { shooting } from "../../../common/WeaponsShooterPoints";
 
 interface HammerObject {
     itemName: string,
@@ -45,14 +43,14 @@ const HammerObjects = Object.freeze([
 export class ThrowableHammer implements ItemCustomComponent {
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
     }
 }
 
 export async function spawnHammer(throwHammer:Entity) {
 
-    let hammer = HammerObjects.find(obj => obj.throwHammer == throwHammer.typeId) as HammerObject;
+    const hammer = HammerObjects.find(obj => obj.throwHammer == throwHammer.typeId) as HammerObject;
     if (!hammer) {
         return;
     }
@@ -63,13 +61,13 @@ export async function spawnHammer(throwHammer:Entity) {
 
 export async function releaseHammer(player:Player, hammer:ItemStack) {
 
-    let hammerItem = HammerObjects.find(obj => obj.itemName == hammer.typeId) as HammerObject;
+    const hammerItem = HammerObjects.find(obj => obj.itemName == hammer.typeId) as HammerObject;
 
     if (!hammerItem) {
         return;
     }
 
-    let throwHammer = player.dimension.getEntities({
+    const throwHammer = player.dimension.getEntities({
         tags: [
             "throwHammer"
         ],
@@ -81,7 +79,7 @@ export async function releaseHammer(player:Player, hammer:ItemStack) {
     }) as Entity[];
 
     if (throwHammer.length > 0) {
-        let projectile = throwHammer[0].getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+        const projectile = throwHammer[0].getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
         projectile.owner = player;
         throwItemDurabilityDamage(throwHammer[0], hammer, 0, undefined);
     }
@@ -90,14 +88,16 @@ export async function releaseHammer(player:Player, hammer:ItemStack) {
 
 export async function stopHammer(throwHammer:Entity) {
     system.runTimeout(() => {
-        throwHammer.triggerEvent("variant1");
+        if (throwHammer.isValid) {
+            throwHammer.triggerEvent("variant1");
+        }
     },10);
 }
 
 export async function removeHammer(throwHammer:Entity) {
 
-    let item = HammerObjects.find(obj => obj.throwHammer == throwHammer.typeId) as HammerObject;
-    if (item == undefined) {
+    const item = HammerObjects.find(obj => obj.throwHammer == throwHammer.typeId) as HammerObject;
+    if (item === undefined) {
         return;
     }
 
@@ -105,11 +105,11 @@ export async function removeHammer(throwHammer:Entity) {
         return;
     }
 
-    let invent = throwHammer.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-    let container = invent.container as Container;
-    let hammer = container.getItem(0) as ItemStack;
+    const invent = throwHammer.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+    const container = invent.container as Container;
+    const hammer = container.getItem(0) as ItemStack;
 
-    let player = throwHammer.dimension.getEntities({
+    const player = throwHammer.dimension.getEntities({
         families: [
             "player"
         ],
@@ -119,16 +119,16 @@ export async function removeHammer(throwHammer:Entity) {
 
     let emptySlot = true;
     if (player.length > 0) {
-        let equ = player[0].getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-        if (main == undefined) {
+        const equ = player[0].getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        if (main === undefined) {
             system.runTimeout(() => {
                 equ.setEquipment(EquipmentSlot.Mainhand, hammer);
             }, 2);
             emptySlot = false;
         } else {
-            let invent = player[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-            let con = invent.container as Container;
+            const invent = player[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+            const con = invent.container as Container;
             if (con.emptySlotsCount > 0){
                 system.runTimeout(() => {
                     con.addItem(hammer);
@@ -138,8 +138,8 @@ export async function removeHammer(throwHammer:Entity) {
         }
     }
     if (emptySlot) {
-        let dim = throwHammer.dimension;
-        let loca = throwHammer.location;
+        const dim = throwHammer.dimension;
+        const loca = throwHammer.location;
         system.runTimeout(() => {
             dim.spawnItem(hammer, loca);
         }, 2);
@@ -147,6 +147,6 @@ export async function removeHammer(throwHammer:Entity) {
 }
 
 export function isThrowHammer(throwHammer:Entity) : boolean {
-   let item = HammerObjects.find(obj => obj.throwHammer == throwHammer.typeId) as HammerObject;
+   const item = HammerObjects.find(obj => obj.throwHammer == throwHammer.typeId) as HammerObject;
     return item != undefined;
 }

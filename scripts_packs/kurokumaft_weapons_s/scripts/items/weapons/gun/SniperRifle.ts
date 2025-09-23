@@ -7,8 +7,8 @@ import { clearScope, lageScope } from "../../../common/WeaponsSniperScope";
 export class SniperRifle implements ItemCustomComponent {
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         shotSniper(source, itemStack);
     }
 }
@@ -20,15 +20,15 @@ export class SniperRifle implements ItemCustomComponent {
  */
 async function shotSniper(player: Player, item: ItemStack) {
     player.setDynamicProperty("SniperRifleShot", true);
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
         if (player.isSneaking) {
             lageScope(player);
         } else {
             clearScope(player);
         }
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-        if (main == undefined || main.typeId != item.typeId) {
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        if (main === undefined || main.typeId !== item.typeId) {
             clearScope(player);
             system.clearRun(intervalNum);
         }

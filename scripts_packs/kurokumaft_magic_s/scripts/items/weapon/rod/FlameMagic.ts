@@ -41,6 +41,51 @@ export async function bumrod(player:Player, hitEntity:Entity) {
 }
 
 /**
+ * フレームピラー
+ */
+export async function framePillar(player:Player) {
+
+    player.addTag(player.id);
+    const intervalNum = system.runInterval(() => {
+
+        const filterOption = {
+            excludeTags: [
+                player.id
+            ],
+            location: player.location,
+            maxDistance: 10,
+            closest: 5
+        } as EntityQueryOptions;
+
+        addTeamsTagFilter(player, filterOption);
+
+        const targets = player.dimension.getEntities(filterOption);
+        targets.forEach(en => {
+            if (!en.isValid) {
+                return;
+            }
+
+            en.dimension.spawnParticle("kurokumaft:framepillar_particle",en.location);
+            if (en instanceof Player) {
+                en.applyDamage(2, {
+                    cause: EntityDamageCause.fire
+                });
+            } else {
+                en.applyDamage(5, {
+                    cause: EntityDamageCause.fire
+                });
+            }
+        });
+
+    }, 2);
+    system.runTimeout(() => {
+        system.clearRun(intervalNum);
+        player.removeTag(player.id);
+    }, 20);
+
+}
+
+/**
  * フレイムサークル
  */
 export async function flarecircle(player:Player) {

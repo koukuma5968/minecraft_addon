@@ -8,34 +8,34 @@ import { itemDurabilityDamageFixed } from "../common/WeaponsItemDurabilityDamage
  * @param {Boolean} range
  */
 function shieldGuard(player: Player, range: boolean) {
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let offhand = equ.getEquipment(EquipmentSlot.Offhand);
-    let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const offhand = equ.getEquipment(EquipmentSlot.Offhand);
+    const mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
     if (player.isSneaking) {
         // シールド耐久
-        if (offhand != undefined && (offhand.typeId.indexOf("_shield") != -1 || offhand.typeId == "kurokumaft:kettle_lid")) {
+        if (offhand !== undefined && (offhand.typeId.indexOf("_shield") !== -1 || offhand.typeId === "kurokumaft:kettle_lid")) {
             // ガラスで近接は10減少
-            if (offhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
+            if (offhand.typeId.indexOf("kurokumaft:glass_shield") !== -1 && range) {
                 itemDurabilityDamageFixed(player, offhand, EquipmentSlot.Offhand, 10);
                 playsound(player, "random.glass");
             } else {
                 itemDurabilityDamageFixed(player, offhand, EquipmentSlot.Offhand, 1);
-                if (offhand.typeId == "kurokumaft:tnt_shield" && range) {
+                if (offhand.typeId === "kurokumaft:tnt_shield" && range) {
                     playsound(player, "random.explode");
-                } else if (offhand.typeId == "kurokumaft:steel_shield") {
+                } else if (offhand.typeId === "kurokumaft:steel_shield") {
                     playsound(player, "item.trident.hit_ground");
                 } else {
                     playsound(player, "item.shield.block");
                 }
             }
-        } else if (mainhand != undefined && (mainhand.typeId.indexOf("_shield") != -1 || mainhand.typeId == "kurokumaft:kettle_lid")) {
+        } else if (mainhand !== undefined && (mainhand.typeId.indexOf("_shield") !== -1 || mainhand.typeId === "kurokumaft:kettle_lid")) {
             // ガラスで近接は10減少
-            if (mainhand.typeId.indexOf("kurokumaft:glass_shield") != -1 && range) {
+            if (mainhand.typeId.indexOf("kurokumaft:glass_shield") !== -1 && range) {
                 itemDurabilityDamageFixed(player, mainhand, EquipmentSlot.Mainhand, 10);
                 playsound(player, "random.glass");
             } else {
                 itemDurabilityDamageFixed(player, mainhand, EquipmentSlot.Mainhand, 1);
-                if (mainhand.typeId == "kurokumaft:tnt_shield" && range) {
+                if (mainhand.typeId === "kurokumaft:tnt_shield" && range) {
                     playsound(player, "random.explode");
                 } else {
                     playsound(player, "item.shield.block");
@@ -46,18 +46,18 @@ function shieldGuard(player: Player, range: boolean) {
 }
 // シールドカウンター
 function shieldCounter(player: Player, damager: Entity) {
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let offhand = equ.getEquipment(EquipmentSlot.Offhand);
-    let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const offhand = equ.getEquipment(EquipmentSlot.Offhand);
+    const mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
     if (player.isSneaking) {
         // マグマ
-        if ((offhand != undefined && offhand.typeId == "kurokumaft:magma_shield") || (mainhand != undefined && mainhand.typeId == "kurokumaft:magma_shield")) {
+        if ((offhand !== undefined && offhand.typeId === "kurokumaft:magma_shield") || (mainhand !== undefined && mainhand.typeId === "kurokumaft:magma_shield")) {
             damager.applyDamage(1,{cause:EntityDamageCause.lava});
             damager.dimension.spawnParticle("kurokumaft:mobflame_firing", damager.location);
-            let intervalNum = system.runInterval(() => {
+            const intervalNum = system.runInterval(() => {
                 if (damager) {
-                    let health = damager.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
-                    if (health && health.isValid()) {
+                    const health = damager.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+                    if (health && health.isValid) {
                         damager.applyDamage(1,{cause:EntityDamageCause.lava});
                         damager.dimension.spawnParticle("kurokumaft:mobflame_firing", damager.location);
                     }
@@ -67,12 +67,12 @@ function shieldCounter(player: Player, damager: Entity) {
                 system.clearRun(intervalNum);
             }, 30);
         // アイス
-        } else if ((offhand != undefined && offhand.typeId == "kurokumaft:blueice_shield") || (mainhand != undefined && mainhand.typeId == "kurokumaft:blueice_shield")) {
+        } else if ((offhand !== undefined && offhand.typeId === "kurokumaft:blueice_shield") || (mainhand !== undefined && mainhand.typeId === "kurokumaft:blueice_shield")) {
             damager.applyDamage(1,{cause:EntityDamageCause.freezing});
             damager.dimension.spawnParticle("minecraft:snowflake_particle", damager.location);
-            let intervalNum = system.runInterval(() => {
+            const intervalNum = system.runInterval(() => {
                 if (damager) {
-                    let health = damager.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+                    const health = damager.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
                     if (health) {
                         damager.applyDamage(1,{cause:EntityDamageCause.freezing});
                         damager.dimension.spawnParticle("minecraft:snowflake_particle", damager.location);
@@ -83,11 +83,11 @@ function shieldCounter(player: Player, damager: Entity) {
                 system.clearRun(intervalNum);
             }, 30);
         // TNT
-        } else if ((offhand != undefined && offhand.typeId == "kurokumaft:tnt_shield") || (mainhand != undefined && mainhand.typeId == "kurokumaft:tnt_shield")) {
-            let view = player.getViewDirection();
+        } else if ((offhand !== undefined && offhand.typeId === "kurokumaft:tnt_shield") || (mainhand !== undefined && mainhand.typeId === "kurokumaft:tnt_shield")) {
+            const view = player.getViewDirection();
             damager.applyDamage(5,{cause:EntityDamageCause.entityExplosion});
             damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
-            damager.applyKnockback(Math.round(view.x)*10,Math.round(view.z)*10,10,1);
+            damager.applyKnockback({x:Math.round(view.x)*10, z:Math.round(view.z)*10},1);
         } else {
             guardKnockback(damager, player);
         }
@@ -95,19 +95,19 @@ function shieldCounter(player: Player, damager: Entity) {
 }
 // 蘇生
 function resuscitationEquipment(player: Player) {
-    let health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
-    let healthInt = health.currentValue;
+    const health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+    const healthInt = health.currentValue;
     if (healthInt <= 2) {
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let offhand = equ.getEquipment(EquipmentSlot.Offhand);
-        let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const offhand = equ.getEquipment(EquipmentSlot.Offhand);
+        const mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
         // 不死の守盾
-        if (offhand != undefined && (offhand.typeId == "kurokumaft:immortal_shield")) {
-            let dur = offhand.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+        if (offhand !== undefined && (offhand.typeId === "kurokumaft:immortal_shield")) {
+            const dur = offhand.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
             resuscitation(player);
             itemDurabilityDamageFixed(player, offhand, EquipmentSlot.Offhand, (30/100)*dur.maxDurability);
-        } else if (mainhand != undefined && (mainhand.typeId == "kurokumaft:immortal_shield")) {
-            let dur = mainhand.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+        } else if (mainhand !== undefined && (mainhand.typeId === "kurokumaft:immortal_shield")) {
+            const dur = mainhand.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
             resuscitation(player);
             itemDurabilityDamageFixed(player, mainhand, EquipmentSlot.Mainhand, (30/100)*dur.maxDurability);
         }
@@ -116,9 +116,9 @@ function resuscitationEquipment(player: Player) {
 // ガラス反射
 function glassReflection(player: Player, projectile: Entity, hitVector: Vector3) {
     if (projectile != undefined) {
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let offhand = equ.getEquipment(EquipmentSlot.Offhand);
-        let mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const offhand = equ.getEquipment(EquipmentSlot.Offhand);
+        const mainhand = equ.getEquipment(EquipmentSlot.Mainhand);
         if (player.isSneaking) {
             // ガラス
             if ((offhand != undefined && offhand.typeId.indexOf("glass_shield") != -1) || (mainhand != undefined && mainhand.typeId.indexOf("glass_shield") != -1)) {
@@ -131,8 +131,8 @@ function glassReflection(player: Player, projectile: Entity, hitVector: Vector3)
 }
 
 function guardKnockback(damager: Entity, player: Player) {
-    let view = player.getViewDirection();
-    damager.applyKnockback(Math.round(view.x)*2,Math.round(view.z)*2,3,0.3);
+    const view = player.getViewDirection();
+    damager.applyKnockback({x:Math.round(view.x)*2, z:Math.round(view.z)*2}, 0.3);
 }
 
 export { shieldGuard,shieldCounter,resuscitationEquipment,glassReflection };

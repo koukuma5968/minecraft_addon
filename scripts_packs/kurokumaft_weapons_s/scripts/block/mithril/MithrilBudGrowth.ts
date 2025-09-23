@@ -1,5 +1,4 @@
 import { BlockCustomComponent, Block, BlockComponentTickEvent, BlockPermutation } from "@minecraft/server";
-import { getRandomInRange } from "../../common/WeaponsCommonUtil";
 
 /**
  * 芽吹きミスリル成長
@@ -7,10 +6,10 @@ import { getRandomInRange } from "../../common/WeaponsCommonUtil";
 export class MithrilBudGrowth implements BlockCustomComponent {
 
     onTick(event:BlockComponentTickEvent) {
-        let block = event.block as Block;
-        let place_type = block.permutation.getState("kurokumaft:place_type") as number;
-        if (place_type == 1) {
-            let rotation = block.permutation.getState("kurokumaft:rotation") as number;
+        const block = event.block as Block;
+        if (block.permutation.matches(block.typeId, {"kurokumaft:place_type":1})) {
+            const states = block.permutation.getAllStates();
+            const rotation = states["kurokumaft:rotation"] as number;
             if (block.typeId == "kurokumaft:small_mithril_bud") {
                 block.setPermutation(BlockPermutation.resolve("kurokumaft:medium_mithril_bud", {
                     "kurokumaft:rotation": rotation,

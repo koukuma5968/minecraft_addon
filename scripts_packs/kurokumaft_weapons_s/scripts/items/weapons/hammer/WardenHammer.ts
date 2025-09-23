@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, ItemComponentUseEvent, Player, EntityDamageCause, world } from "@minecraft/server";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, Player, EntityDamageCause } from "@minecraft/server";
 import { getLookPoints } from "../../../common/WeaponsCommonUtil";
 import { shooting } from "../../../common/WeaponsShooterPoints";
 
@@ -9,9 +9,9 @@ export class WardenHammer implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
 
         hammerHit(attackEntity, hitEntity);
     }
@@ -19,7 +19,7 @@ export class WardenHammer implements ItemCustomComponent {
 
 async function hammerHit(attackEntity:Entity, hitEntity: Entity) {
 
-    let loock = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
+    const loock = getLookPoints(attackEntity.getRotation(), attackEntity.location, 4.5);
     attackEntity.dimension.spawnParticle("kurokumaft:shock_particle", loock); 
 
     hitEntity.applyDamage(5, {
@@ -31,13 +31,13 @@ async function hammerHit(attackEntity:Entity, hitEntity: Entity) {
 
 export async function waveWardenHammer(attackEntity:Entity, hammer: Entity) {
 
-    if (hammer.typeId != "kurokumaft:thrown_warden_hammer") {
+    if (hammer.typeId !== "kurokumaft:thrown_warden_hammer") {
         return;
     }
 
     hammer.dimension.spawnParticle("kurokumaft:warden_shock", hammer.location); 
 
-    let hitEntitys = hammer.dimension.getEntities({
+    const hitEntitys = hammer.dimension.getEntities({
         excludeFamilies: [
             "inanimate",
             "player",

@@ -1,5 +1,5 @@
-import { BlockCustomComponent, Block, BlockComponentTickEvent, Dimension, Vector3, BlockPermutation, BlockComponentOnPlaceEvent, BlockComponentPlayerPlaceBeforeEvent, world, BlockComponentPlayerInteractEvent, Player, system, TicksPerSecond } from "@minecraft/server";
-import { getRandomInRange, ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
+import { BlockCustomComponent, Block, BlockComponentTickEvent, Dimension, Vector3, BlockPermutation, BlockComponentPlayerInteractEvent } from "@minecraft/server";
+import { ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
 
 const mithrilChoiceLists = ProbabilisticChoice([
     { item: 0 , weight: 70 },
@@ -18,33 +18,34 @@ const mithrilChoiceLists = ProbabilisticChoice([
 export class MithrilBlock implements BlockCustomComponent {
 
     onTick(event:BlockComponentTickEvent) {
-        let block = event.block as Block;
-        let dimension = event.dimension as Dimension;
-        let budding_type = block.permutation.getState("kurokumaft:budding_type") as string;
-        if (budding_type == "none") {
-            block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "spawn"));
-        } else if (budding_type == "spawn") {
-            let budding_set = block.permutation.getState("kurokumaft:budding_set") as boolean;
+        const block = event.block as Block;
+        const dimension = event.dimension as Dimension;
+        const states = block.permutation.getAllStates();
+        const budding_type = states["kurokumaft:budding_type"] as string;
+        if (budding_type === "none") {
+            block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:budding_set":false, "kurokumaft:budding_type" : "spawn"}));
+        } else if (budding_type === "spawn") {
+            const budding_set = states["kurokumaft:budding_set"] as boolean;
             if (budding_set) {
-                let budding_pos = block.permutation.getState("kurokumaft:budding_pos") as number;
+                const budding_pos = states["kurokumaft:budding_pos"] as number;
                 let bloc = {x:block.location.x,y:block.location.y,z:block.location.z} as Vector3;
                 let b;
-                if (budding_pos == 1) {
+                if (budding_pos === 1) {
                     bloc = {x:block.location.x,y:block.location.y+1,z:block.location.z} as Vector3;
                     b = dimension.getBlock(bloc) as Block;
-                } else if (budding_pos == 2) {
+                } else if (budding_pos === 2) {
                     bloc = {x:block.location.x,y:block.location.y-1,z:block.location.z} as Vector3;
                     b = dimension.getBlock(bloc) as Block;
-                } else if (budding_pos == 3) {
+                } else if (budding_pos === 3) {
                     bloc = {x:block.location.x,y:block.location.y,z:block.location.z+1} as Vector3;
                     b = dimension.getBlock(bloc) as Block;
-                } else if (budding_pos == 4) {
+                } else if (budding_pos === 4) {
                     bloc = {x:block.location.x,y:block.location.y,z:block.location.z-1} as Vector3;
                     b = dimension.getBlock(bloc) as Block;
-                } else if (budding_pos == 5) {
+                } else if (budding_pos === 5) {
                     bloc = {x:block.location.x+1,y:block.location.y,z:block.location.z} as Vector3;
                     b = dimension.getBlock(bloc) as Block;
-                } else if (budding_pos == 6) {
+                } else if (budding_pos === 6) {
                     bloc = {x:block.location.x-1,y:block.location.y,z:block.location.z} as Vector3;
                     b = dimension.getBlock(bloc) as Block;
                 }
@@ -55,22 +56,25 @@ export class MithrilBlock implements BlockCustomComponent {
                     }));
                 }
             } else {
-                let set_budding_pos = mithrilChoiceLists.pick() as number;
-                block.setPermutation(block.permutation.withState("kurokumaft:budding_pos", set_budding_pos));
-                block.setPermutation(block.permutation.withState("kurokumaft:budding_set", true));
+                const set_budding_pos = mithrilChoiceLists.pick() as number;
+                block.setPermutation(BlockPermutation.resolve(block.typeId, { 
+                    "kurokumaft:budding_type" : "spawn",
+                    "kurokumaft:budding_set" : true,
+                    "kurokumaft:budding_pos" : set_budding_pos
+                }));
             }
         }
     }
 
     onPlayerInteract(event:BlockComponentPlayerInteractEvent) {
-        let block = event.block;
+        const block = event.block;
         checkMithrilBlock(block);
     }
 }
 
 export async function playerMithrilset(block:Block) {
     if (block.typeId == "kurokumaft:mithril_block") {
-        block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "player"));
+        block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:budding_type" : "player"}));
     }
     
 }
@@ -78,7 +82,9 @@ export async function playerMithrilset(block:Block) {
 async function checkMithrilBlock(block:Block) {
 
     if (block != undefined && block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_type":"geode"})) {
-        block.setPermutation(block.permutation.withState("kurokumaft:budding_type", "spawn"));
-        block.setPermutation(block.permutation.withState("kurokumaft:budding_set", true));
+        block.setPermutation(BlockPermutation.resolve(block.typeId, { 
+            "kurokumaft:budding_set" : true,
+            "kurokumaft:budding_type" : "spawn"
+        }));
     }
 }

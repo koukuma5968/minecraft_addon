@@ -1,50 +1,57 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentCompleteUseEvent } from "@minecraft/server";
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, EquipmentSlot, ItemComponentCompleteUseEvent, CustomComponentParameters } from "@minecraft/server";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
 import { shooting } from "../../../common/MagicShooterMagicEvent";
 
 interface GunMagicObject {
     itemName:string,
     event:string
     sendMsg:string,
-    property:string
+    property:string,
+    sound:string
 }
 
 const GunChargeObjects = Object.freeze([
     {
         itemName: "kurokumaft:fire_magic_gun",
-        event: "kurokumaft:fire_magic_bulconst",
-        sendMsg: "magic.kurokumaft:fire_magic_bulconst.translate",
-        property: "kurokumaft:gun_charge_fire"
+        event: "kurokumaft:fire_magic_bullet",
+        sendMsg: "magic.kurokumaft:fire_magic_bullet.translate",
+        property: "kurokumaft:gun_charge_fire",
+        sound: "cauldron.explode"
     },
     {
         itemName: "kurokumaft:water_magic_gun",
-        event: "kurokumaft:water_magic_bulconst",
-        sendMsg: "magic.kurokumaft:water_magic_bulconst.translate",
-        property: "kurokumaft:gun_charge_water"
+        event: "kurokumaft:water_magic_bullet",
+        sendMsg: "magic.kurokumaft:water_magic_bullet.translate",
+        property: "kurokumaft:gun_charge_water",
+        sound: "cauldron.explode"
     },
     {
         itemName: "kurokumaft:wind_magic_gun",
-        event: "kurokumaft:wind_magic_bulconst",
-        sendMsg: "magic.kurokumaft:wind_magic_bulconst.translate",
-        property: "kurokumaft:gun_charge_wind"
+        event: "kurokumaft:wind_magic_bullet",
+        sendMsg: "magic.kurokumaft:wind_magic_bullet.translate",
+        property: "kurokumaft:gun_charge_wind",
+        sound: "cauldron.explode"
     },
     {
         itemName: "kurokumaft:stone_magic_gun",
-        event: "kurokumaft:stone_magic_bulconst",
-        sendMsg: "magic.kurokumaft:stone_magic_bulconst.translate",
-        property: "kurokumaft:gun_charge_stone"
+        event: "kurokumaft:stone_magic_bullet",
+        sendMsg: "magic.kurokumaft:stone_magic_bullet.translate",
+        property: "kurokumaft:gun_charge_stone",
+        sound: "cauldron.explode"
     },
     {
         itemName: "kurokumaft:lightning_magic_gun",
-        event: "kurokumaft:lightning_magic_bulconst",
-        sendMsg: "magic.kurokumaft:lightning_magic_bulconst.translate",
-        property: "kurokumaft:gun_charge_lightning"
+        event: "kurokumaft:lightning_magic_bullet",
+        sendMsg: "magic.kurokumaft:lightning_magic_bullet.translate",
+        property: "kurokumaft:gun_charge_lightning",
+        sound: "cauldron.explode"
     },
     {
         itemName: "kurokumaft:ice_magic_gun",
-        event: "kurokumaft:ice_magic_bulconst",
-        sendMsg: "magic.kurokumaft:ice_magic_bulconst.translate",
-        property: "kurokumaft:gun_charge_ice"
+        event: "kurokumaft:ice_magic_bullet",
+        sendMsg: "magic.kurokumaft:ice_magic_bullet.translate",
+        property: "kurokumaft:gun_charge_ice",
+        sound: "cauldron.explode"
     }
 ]);
 
@@ -55,16 +62,13 @@ const GunChargeObjects = Object.freeze([
 export class GunShotMagic implements ItemCustomComponent {
 
     // チャージ完了
-    onCompconsteUse(event:ItemComponentCompleteUseEvent) {
+    onCompleteUse(event:ItemComponentCompleteUseEvent) {
         const itemStack = event.itemStack as ItemStack;
         const player = event.source as Player;
-        if (!itemStack) {
-            return;
-        }
 
         const gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
-        if (gunMagicObject) {
-           player.setProperty(gunMagicObject.property, 1);
+        if (gunMagicObject !== undefined) {
+           player.setProperty(gunMagicObject.property, true);
         }
     }
 
@@ -73,29 +77,13 @@ export class GunShotMagic implements ItemCustomComponent {
         const itemStack = event.itemStack as ItemStack;
         const player = event.source as Player;
 
-        if (!itemStack) {
-            return;
-        }
         const gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
-        if (gunMagicObject) {
-            if (player.getProperty(gunMagicObject.property) == 2) {
+        if (gunMagicObject !== undefined) {
+            if (player.getProperty(gunMagicObject.property)) {
                 magicGunShot(player, itemStack, gunMagicObject);
             }
         }
     }
-}
-
-export function isChargeed(player:Player, itemStack:ItemStack) : boolean {
-
-    const gunMagicObject = GunChargeObjects.find(obj => obj.itemName == itemStack.typeId) as GunMagicObject;
-    if (gunMagicObject) {
-        if (player.getProperty(gunMagicObject.property) == 1) {
-            player.setProperty(gunMagicObject.property, 2);
-            return true;
-        }
-        return false;
-    }
-    return false;
 }
 
 /**
@@ -107,20 +95,24 @@ export function isChargeed(player:Player, itemStack:ItemStack) : boolean {
  */
 async function magicGunShot(player: Player, itemStack: ItemStack, gunMagicObject: GunMagicObject) {
 
-    if (gunMagicObject.itemName == "kurokumaft:water_magic_gun") {
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_1>", 0, 3, undefined);
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_2>", 0, 3, undefined);
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_3>", 0, 3, undefined);
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_4>", 0, 3, undefined);
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_5>", 0, 3, undefined);
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_6>", 0, 3, undefined);
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_7>", 0, 3, undefined);
-        shooting(player, gunMagicObject.event+"<kurokumaft:projectile_8>", 0, 3, undefined);
+    if (gunMagicObject.itemName === "kurokumaft:water_magic_gun") {
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_1");
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_2");
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_3");
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_4");
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_5");
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_6");
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_7");
+        shooting(player, gunMagicObject.event, 0, 3, "kurokumaft:projectile_8");
     } else {
         shooting(player, gunMagicObject.event, 0, 3, undefined);
     }
-    itemDurabilityDamage(player, itemStack, EquipmentSlot.Mainhand);
-    player.setProperty(gunMagicObject.property, 0);
+    player.dimension.playSound(gunMagicObject.sound, player.location, {
+        pitch:1,
+        volume:1
+    });
+    itemDurabilityMagicDamage(player, itemStack, EquipmentSlot.Mainhand);
+    player.setProperty(gunMagicObject.property, false);
     player.onScreenDisplay.setActionBar({rawtext:[{translate:gunMagicObject.sendMsg}]});
 
 }

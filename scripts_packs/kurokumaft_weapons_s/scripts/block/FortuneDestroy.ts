@@ -1,4 +1,4 @@
-import { Block, BlockComponentPlayerDestroyEvent, BlockCustomComponent, BlockPermutation, Enchantment, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, ItemComponentTypes, ItemEnchantableComponent, ItemStack, Player } from "@minecraft/server";
+import { Block, BlockComponentPlayerBreakEvent, BlockCustomComponent, BlockPermutation, CustomComponentParameters, Enchantment, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, ItemComponentTypes, ItemEnchantableComponent, ItemStack, Player } from "@minecraft/server";
 import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
 
 interface CustomBlock {
@@ -35,13 +35,13 @@ const CustomBlocks = Object.freeze([
 
 export class FortuneDestroy implements BlockCustomComponent {
     // プレイヤーがブロックを破壊した時のイベント
-    onPlayerDestroy(event:BlockComponentPlayerDestroyEvent) {
+    onPlayerBreak(event:BlockComponentPlayerBreakEvent) {
         // 破壊したしたプレイヤー
-        let player = event.player as Player;
+        const player = event.player as Player;
         // 破壊後のブロック
-        let block = event.block as Block;
+        const block = event.block as Block;
         // 破壊されたブロック情報
-        let blockPermutation = event.destroyedBlockPermutation as BlockPermutation;
+        const blockPermutation = event.brokenBlockPermutation as BlockPermutation;
         fortuneDestroy(player, block, blockPermutation);
     }
 }
@@ -54,23 +54,23 @@ export class FortuneDestroy implements BlockCustomComponent {
  */
 async function fortuneDestroy(player:Player, block:Block, blockPermutation:BlockPermutation) {
     // プレイヤーの装備スロットを取得
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     // 右手のアイテムを取得
-    let itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+    const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
     // アイテムを持っていれば
     if (itemStack) {
         // エンチャントを取得
-        let enc = itemStack.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+        const enc = itemStack.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
         // エンチャントコンポーネントを持っている
         if (enc) {
             // 幸運エンチャントが付与されている
             if(enc.hasEnchantment(MinecraftEnchantmentTypes.Fortune)) {
                 // 幸運エンチャントを取得
-                let fortune = enc.getEnchantment(MinecraftEnchantmentTypes.Fortune) as Enchantment
+                const fortune = enc.getEnchantment(MinecraftEnchantmentTypes.Fortune) as Enchantment
                 // 破壊されたブロックの定義取得
-                let customBlock = CustomBlocks.find(obj => obj.block == blockPermutation.type.id) as CustomBlock;
+                const customBlock = CustomBlocks.find(obj => obj.block === blockPermutation.type.id) as CustomBlock;
                 // 0~エンチャントレベルまでの値で追加
-                let count = getRandomInRange(0, fortune.level);
+                const count = getRandomInRange(0, fortune.level);
                 for (let i=0; i<count; i++) {
                     // 破壊されたブロックがある場所に対象のアイテムをスポーンさせる
                     block.dimension.spawnItem(new ItemStack(customBlock.item), block.location);

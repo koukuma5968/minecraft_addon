@@ -1,6 +1,6 @@
 import { system,Player,Entity,EntityComponentTypes,EntityEquippableComponent,EquipmentSlot,EntityApplyDamageOptions } from "@minecraft/server";
 import { playsound } from "../../../common/MagicCommonUtil"
-import { itemDurabilityDamage } from "../../../common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
 
 // シールドガード
 /**
@@ -14,10 +14,10 @@ function magicShieldGuard(player:Player, range:Boolean) {
     if (player.isSneaking) {
         // シールド耐久
         if (offhand != undefined && (offhand.typeId.indexOf("_shield") != -1)) {
-            itemDurabilityDamage(player, offhand, EquipmentSlot.Offhand);
+            itemDurabilityMagicDamage(player, offhand, EquipmentSlot.Offhand);
             playsound(player, "item.shield.block");
         } else if (mainhand != undefined && (mainhand.typeId.indexOf("_shield") != -1)) {
-            itemDurabilityDamage(player, mainhand, EquipmentSlot.Mainhand);
+            itemDurabilityMagicDamage(player, mainhand, EquipmentSlot.Mainhand);
             playsound(player, "item.shield.block");
         }
     }

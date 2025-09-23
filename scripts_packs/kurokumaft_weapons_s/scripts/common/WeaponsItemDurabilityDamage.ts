@@ -10,7 +10,7 @@ import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
  */
 async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
-    if (entity instanceof Player && entity.getGameMode() != GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() != GameMode.Creative) {
         const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
         const dChangeRang = durability.getDamageChanceRange();
         let dChange = getRandomInRange(dChangeRang.min, dChangeRang.max);
@@ -47,13 +47,13 @@ async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
  */
 async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number) {
 
-    if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
     }
 
-    let equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
 
-    let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
 
     if ((durability.damage + damage) >= durability.maxDurability) {
         equ.setEquipment(slot, undefined);
@@ -73,16 +73,16 @@ async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:Equ
  */
 async function throwItemDurabilityDamage(entity:Entity, item:ItemStack, slotNum:number, damage:number|undefined) {
 
-    if (entity instanceof Player && entity.getGameMode() == GameMode.creative) {
+    if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
     }
 
-    let invent = entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-    let container = invent.container as Container;
+    const invent = entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+    const container = invent.container as Container;
 
-    let durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
     let dChange;
-    if (damage) {
+    if (damage !== undefined) {
         dChange = damage;
     } else {
         dChange = durability.getDamageChance(Math.ceil(getRandomInRange(0, 3)));
@@ -105,8 +105,8 @@ async function throwItemDurabilityDamage(entity:Entity, item:ItemStack, slotNum:
  * @param {number} decNum
  */
 async function subtractionItem(player: Player, item: ItemStack, slot: EquipmentSlot, decNum: number) {
-    let remaining = item.amount - decNum;
-    let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const remaining = item.amount - decNum;
+    const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
     if (remaining <= 0) {
         equ.setEquipment(slot, undefined);
     } else {

@@ -24,21 +24,21 @@ export class HelmetSurveillance {
 
     private async checkJob() {
 
-        let equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let head = equ.getEquipment(EquipmentSlot.Head) as ItemStack;
+        const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const head = equ.getEquipment(EquipmentSlot.Head) as ItemStack;
 
-        if (head != null && head.typeId == this.itemStack.typeId) {
+        if (head !== undefined && head.typeId === this.itemStack.typeId) {
             this.player.setDynamicProperty("helmet_equ", this.itemStack.typeId);
             head.getTags().forEach(tag => {
-                if ("axolotl_helmet" == tag) {
+                if ("axolotl_helmet" === tag) {
                     this.player.setDynamicProperty("axolotl_helmet", true);
-                } else if ("chicken_helmet" == tag) {
+                } else if ("chicken_helmet" === tag) {
                     chickenSlowFalling(this.player);
-                } else if ("fox_helmet" == tag) {
+                } else if ("fox_helmet" === tag) {
                     foxSpeedBoost(this.player);
-                } else if ("rabbit_helmet" == tag) {
+                } else if ("rabbit_helmet" === tag) {
                     rabbitJumpBoost(this.player);
-                } else if ("wolf_helmet" == tag) {
+                } else if ("wolf_helmet" === tag) {
                     wolfPowerBoost(this.player);
                 }
             });
@@ -59,13 +59,13 @@ export class HelmetSurveillance {
 
 export async function axolotlRegeneration(player:Player) {
 
-    let health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+    const health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
 
     if (health.currentValue <= 4) {
         health.setCurrentValue(health.defaultValue);
-        let equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let head = equ.getEquipment(EquipmentSlot.Head) as ItemStack;
-        let itemDur = head.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+        const equ = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const head = equ.getEquipment(EquipmentSlot.Head) as ItemStack;
+        const itemDur = head.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
         playsound(player, "random.totem");
 
         itemDurabilityDamageFixed(player, head, EquipmentSlot.Head, itemDur.maxDurability/3);

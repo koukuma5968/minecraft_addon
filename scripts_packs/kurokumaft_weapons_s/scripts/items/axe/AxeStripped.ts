@@ -11,25 +11,25 @@ export class AxeStripped implements ItemCustomComponent {
         const source = event.source as Player;
         const itemStack = event.itemStack as ItemStack;
         const block = event.block as Block;
-        stripped(block);
+        stripped(source, block);
         itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
 }
 
-async function stripped(block:Block) {
+async function stripped(source:Player, block:Block) {
 
-    if (WeaponLogBlocks.find(type => type == block.typeId) != undefined 
-    || WeaponWoodBlocks.find(type => type == block.typeId) != undefined
-    || WeaponOtherLogBlocks.find(type => type == block.typeId) != undefined
-    || WeaponOtherWoodBlocks.find(type => type == block.typeId) != undefined) {
+    if (WeaponLogBlocks.find(type => type === block.typeId) != undefined 
+    || WeaponWoodBlocks.find(type => type === block.typeId) != undefined
+    || WeaponOtherLogBlocks.find(type => type === block.typeId) != undefined
+    || WeaponOtherWoodBlocks.find(type => type === block.typeId) != undefined) {
 
         const log = WeaponStrippedLogBlocks.find(type => {
             const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
-            return type == str;
+            return type === str;
         });
         if (log) {
             block.setPermutation(BlockPermutation.resolve(log));
-            world.playSound("use.wood", block.location, {
+            source.playSound("use.wood", {
                 pitch:2,
                 volume:3
             });
@@ -38,11 +38,11 @@ async function stripped(block:Block) {
 
         const otlog = WeaponOtherStrippedLogBlocks.find(type => {
             const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
-            return type == str;
+            return type === str;
         });
         if (otlog) {
             block.setPermutation(BlockPermutation.resolve(otlog));
-            world.playSound("use.wood", block.location, {
+            source.playSound("use.wood", {
                 pitch:2,
                 volume:3
             });
@@ -51,11 +51,11 @@ async function stripped(block:Block) {
 
         const wood = WeaponStrippedWoodBlocks.find(type => {
             const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
-            return type == str;
+            return type === str;
         });
         if (wood) {
             block.setPermutation(BlockPermutation.resolve(wood));
-            world.playSound("use.wood", block.location, {
+            source.playSound("use.wood", {
                 pitch:2,
                 volume:3
             });
@@ -64,11 +64,11 @@ async function stripped(block:Block) {
 
         const otwood = WeaponOtherStrippedWoodBlocks.find(type => {
             const str = "minecraft:stripped_" + block.typeId.substring("minecraft:".length);
-            return type == str;
+            return type === str;
         });
         if (otwood) {
             block.setPermutation(BlockPermutation.resolve(otwood));
-            world.playSound("use.wood", block.location, {
+            source.playSound("use.wood", {
                 pitch:2,
                 volume:3
             });

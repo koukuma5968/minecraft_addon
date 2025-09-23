@@ -50,7 +50,6 @@
         },
         "reflect_on_hurt": true,
         "on_fire_time": 50,
-        "hit_sound": "sonic_boom",
         "power": 4,
         "gravity": 0.01,
         "uncertainty_base": 1,

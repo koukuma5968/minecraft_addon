@@ -9,9 +9,9 @@ import { WeaponFarmingBlocks } from "../../common/WeaponsConstants";
 export class HoeFarming implements ItemCustomComponent {
 
     onUseOn(event:ItemComponentUseOnEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
-        let block = event.block as Block;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
+        const block = event.block as Block;
         farming(block);
         itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
@@ -19,7 +19,7 @@ export class HoeFarming implements ItemCustomComponent {
 
 async function farming(block:Block) {
 
-    if (WeaponFarmingBlocks.find(type => type == block.typeId) != undefined) {
+    if (WeaponFarmingBlocks.find(type => type === block.typeId) !== undefined) {
         block.setPermutation(BlockPermutation.resolve(MinecraftBlockTypes.Farmland));
     }
 }

@@ -8,7 +8,6 @@ import { checkShellProjectile, hitShellEvent } from "./items/weapon/bazooka/Bazo
 import { magic_lectern_break } from "./block/MagicLecternBlock";
 import { portalGateBreak } from "./block/PortalBlock";
 import { explodeBedrock } from "./common/MagicCommonUtil";
-import { isChargeed } from "./items/weapon/gun/GunWeaponMagic";
 import { MagicBrewingStand } from "./block/MagicBrewingStand";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 import { fireChickenAttack } from "./mob/animal/FireChicken";
@@ -18,9 +17,9 @@ import { snowWolfAttack } from "./mob/animal/SnowWolf";
 import { earthRhinoKnockback } from "./mob/animal/EarthRhino";
 import { BossActionClassRecord, BossActionObject, BossActionObjects } from "./mob/boos/mover/BossActionInterface";
 import { MagicPlayerMonitorTick } from "./player/MagicArmorEquipment";
-import { checkMagicAttack } from "./items/weapon/MagicAttackEvent";
+import { MagicAttackEvent } from "./items/weapon/MagicAttackEvent";
 import { blazeBurst } from "./items/weapon/sword/FireSwordMagic";
-import { itemDurabilityDamage } from "./common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamage } from "./common/MagicItemDurabilityDamage";
 
 const guards = ["anvil", "blockExplosion", "entityAttack", "entityExplosion", "sonicBoom", "projectile"];
 
@@ -42,7 +41,7 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
         MagicShieldKnockback(entity);
     } else if (event.eventId == "kurokumaft:attack_event") {
         if (entity instanceof Player) {
-            checkMagicAttack(entity);
+            new MagicAttackEvent().checkMagicAttack(entity);
         }
 
     // } else if (event.eventId == "kurokumaft:jump_event") {
@@ -150,7 +149,7 @@ world.afterEvents.itemCompleteUse.subscribe(event => {
     if (source instanceof Player && item.typeId === "kurokumaft:phoenix_sword") {
         source.onScreenDisplay.setActionBar({rawtext:[{translate:"magic.kurokumaft:blazeBurst.translate"}]});
         blazeBurst(source);
-        itemDurabilityDamage(source, item, EquipmentSlot.Mainhand);
+        itemDurabilityMagicDamage(source, item, EquipmentSlot.Mainhand);
     }
 });
 
@@ -163,7 +162,6 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
         if (player.getDynamicProperty("BowShotMagicCharge")) {
             magicBowShot(player, item, duration);
         }
-        isChargeed(player, item);
     }
 
 });

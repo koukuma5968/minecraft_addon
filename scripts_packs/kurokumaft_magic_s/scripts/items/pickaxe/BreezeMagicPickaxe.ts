@@ -1,5 +1,5 @@
 import { Block, BlockVolume, Entity, EquipmentSlot, ItemComponentUseOnEvent, ItemStack, world } from "@minecraft/server";
-import { itemDurabilityDamageFixed } from "../../common/MagicItemDurabilityDamage";
+import { itemDurabilityMagicDamageFixed } from "../../common/MagicItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
 const polishedStone = [
@@ -107,7 +107,7 @@ export async function polishBlock(event:ItemComponentUseOnEvent) {
             }
             nextValue = blockIt.next();
         }
-        itemDurabilityDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
+        itemDurabilityMagicDamageFixed(entity, itemStack, EquipmentSlot.Mainhand, 5);
         block.dimension.spawnParticle("kurokumaft:mowing_particle", {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
     } catch(error) {
     }

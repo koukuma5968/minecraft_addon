@@ -1,4 +1,4 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, system, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityDamageCause, EntityQueryOptions, ExplosionOptions, Player, system, TicksPerSecond } from "@minecraft/server";
 import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
@@ -7,7 +7,7 @@ import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/Magic
  */
 export async function stormShock(player:Player, entity:Entity) {
 
-    player.addTag("storm_shock_self");
+    player.addTag(player.id);
 
     const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
     entity.dimension.spawnParticle("kurokumaft:storm_shock_particle", {x:entity.location.x+left.x, y:entity.location.y+1.8, z:entity.location.z+left.z});
@@ -18,7 +18,7 @@ export async function stormShock(player:Player, entity:Entity) {
 
     const filterOption = {
         excludeTags: [
-            "storm_shock_self",
+            player.id,
         ],
         location: entity.location,
         maxDistance: 5
@@ -40,7 +40,30 @@ export async function stormShock(player:Player, entity:Entity) {
         });
     });
 
-    player.removeTag("storm_shock_self");
+    player.removeTag(player.id);
+}
+
+/**
+ * エアロビット
+ */
+export async function aeroBit(player:Player) {
+
+    player.addTag(player.id);
+
+    for (let x=-3.5; x<=3.5; x+=3.5) {
+        for (let z=-3.5; z<=3.5; z+=3.5) {
+            const option = {
+                allowUnderwater: false,
+                breaksBlocks: false,
+                causesFire: false,
+                source: player
+            } as ExplosionOptions;
+            player.dimension.createExplosion({x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z}, 2, option);
+            player.dimension.spawnParticle("kurokumaft:aero_bit_particle", {x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z});
+        }
+    }
+
+    player.removeTag(player.id);
 }
 
 /**

@@ -1,4 +1,4 @@
-import { world,Player,Entity,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Vector2, Vector3, Direction, Block, EntityHealthComponent, Enchantment, ItemCooldownComponent, EffectTypes, TicksPerSecond} from "@minecraft/server";
+import { world,Player,ItemStack,EntityComponentTypes,ItemComponentTypes,EntityEquippableComponent,EquipmentSlot,ItemEnchantableComponent,ItemDurabilityComponent, Vector2, Vector3, Direction, Block, EntityHealthComponent, Enchantment, ItemCooldownComponent, EffectTypes, TicksPerSecond} from "@minecraft/server";
 import { MinecraftBlockTypes, MinecraftEffectTypes } from "@minecraft/vanilla-data";
 import { HorizonVector2 } from "./WeaponsHorizonVector2";
 
@@ -16,10 +16,10 @@ export const WeaponGuards = ["anvil", "blockExplosion", "entityAttack", "entityE
  */
 async function itemTans(player: Player, item: ItemStack, replaceitem: string, slot: EquipmentSlot) {
 
-    let eqc = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-    let newItem = new ItemStack(replaceitem, 1);
-    let dur = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
-    let newDur = newItem.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const eqc = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+    const newItem = new ItemStack(replaceitem, 1);
+    const dur = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+    const newDur = newItem.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
     newDur.damage = dur.damage;
 
     replaceEnchant(item, newItem);
@@ -36,8 +36,8 @@ async function itemTans(player: Player, item: ItemStack, replaceitem: string, sl
  */
 async function replaceEnchant(oldItem: ItemStack, newItem: ItemStack) {
 
-    let oldEnc = oldItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
-    let newEnc = newItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+    const oldEnc = oldItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+    const newEnc = newItem.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
 
     newEnc.addEnchantments(oldEnc.getEnchantments());
 
@@ -71,11 +71,14 @@ function getRandomInRange(min:number, max:number) {
 
 // サウンド再生
 /**
- * @param {Entity} entity
+ * @param {Player} entity
  * @param {string} sound
  */
-async function playsound(entity:Entity, sound:string) {
-    world.playSound(sound, entity.location);
+async function playsound(entity:Player, sound:string) {
+    entity.playSound(sound, {
+        pitch: 1,
+        volume: 1
+    });
 };
 
 /**
@@ -84,7 +87,7 @@ async function playsound(entity:Entity, sound:string) {
  * @param {ItemStack} itemStack
  */
 async function itemCoolDown(player:Player, itemStack:ItemStack) {
-    let cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
+    const cool = itemStack.getComponent(ItemComponentTypes.Cooldown) as ItemCooldownComponent;
     cool.startCooldown(player);
 }
 
@@ -98,7 +101,7 @@ async function breakBlock(block:Block) {
 
 // 蘇生
 function resuscitation(player: Player) {
-    let health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
+    const health = player.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
     health.setCurrentValue(5);
     player.addEffect(MinecraftEffectTypes.Absorption, TicksPerSecond * 30, {
         amplifier: 5,
@@ -109,7 +112,7 @@ function resuscitation(player: Player) {
 
 // 岩盤破壊キャンセル
 export function explodeBedrock(impactBLockList:Block[]): Block[] {
-    let filterBlockList = impactBLockList.filter(block => {
+    const filterBlockList = impactBLockList.filter(block => {
         if (!block.matches("minecraft:bedrock")) {
             return block;
         }
@@ -140,26 +143,26 @@ export const ProbabilisticChoice = (list: any[]) => {
  * @param {number} point
  */
 function getLookPoints(rotation:Vector2, location:Vector3, point:number) : Vector3 {
-    let piNum = 90;
+    const piNum = 90;
     let xlocation;
     let ylocation;
     let zlocation;
 
     // 西～北
     if (rotation.y >= -90 && rotation.y < 0) {
-        let yRotax = -rotation.y / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = -rotation.y / piNum;
+        const yRotaz = (rotation.y + 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point);
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point)
@@ -168,18 +171,18 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) : Vecto
     // 北～東
     } else if (rotation.y >= 0 && rotation.y <= 90) {
 
-        let yRotax = -rotation.y / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = -rotation.y / piNum;
+        const yRotaz = -(rotation.y - 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point);
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point);
@@ -188,19 +191,19 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) : Vecto
     // 西～南
     } else if (rotation.y < -90 && rotation.y > -180) {
 
-        let yRotax = (rotation.y + 180) / piNum;
-        let yRotaz = (rotation.y + 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = (rotation.y + 180) / piNum;
+        const yRotaz = (rotation.y + 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point);
 
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point);
@@ -208,18 +211,18 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) : Vecto
 
     // 東～南
     } else if (rotation.y > 90 && rotation.y <= 180) {
-        let yRotax = (rotation.y - 180) / piNum;
-        let yRotaz = -(rotation.y - 90) / piNum;
-        let yRota = -(rotation.x / piNum);
+        const yRotax = (rotation.y - 180) / piNum;
+        const yRotaz = -(rotation.y - 90) / piNum;
+        const yRota = -(rotation.x / piNum);
         // 上～正面
         if (rotation.x >= -90 && rotation.x < 0) {
-            let xRota = (rotation.x + 90) / piNum;
+            const xRota = (rotation.x + 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point);
         // 正面～下
         } else if (rotation.x >= 0 && rotation.x <= 90) {
-            let xRota = -(rotation.x - 90) / piNum;
+            const xRota = -(rotation.x - 90) / piNum;
             xlocation = location.x + ((yRotax * xRota) * point);
             ylocation = (location.y + 0.5) + (yRota);
             zlocation = location.z + ((yRotaz * xRota) * point);
@@ -236,7 +239,7 @@ function getLookPoints(rotation:Vector2, location:Vector3, point:number) : Vecto
  * @param {number} side
  */
 function getLookRotaionPoints(rotation:Vector2, point:number, side:number) : HorizonVector2 {
-    let piNum = 90;
+    const piNum = 90;
     let rotax;
     let rotaz;
 

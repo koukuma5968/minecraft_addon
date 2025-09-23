@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityDamageCause } from "@minecraft/server";
+import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityDamageCause, CustomComponentParameters, ItemComponentBeforeDurabilityDamageEvent, ItemComponentTypes, ItemDurabilityComponent } from "@minecraft/server";
 import { getLookPoints } from "../../../common/WeaponsCommonUtil";
 import { itemDurabilityDamage } from "../../../common/WeaponsItemDurabilityDamage";
 import { getAdjacentSphericalPoints } from "../../../common/WeaponsShooterPoints";
@@ -35,33 +35,42 @@ async function shotFlametHrower(player: Player, item: ItemStack) {
     let count = 0;
     const intervalNum = system.runInterval(() => {
 
-        for (let i=1;i<=5;i++) {
-            const loock = getLookPoints(player.getRotation(), player.location, i);
-            const loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
-            player.dimension.spawnParticle("kurokumaft:flamethrower_fire", {x:loockpoint.xlocation!, y:loockpoint.ylocation!-1, z:loockpoint.zlocation!});
+        try {
+            for (let i=1;i<=5;i++) {
+                const loock = getLookPoints(player.getRotation(), player.location, i);
+                const loockpoint = getAdjacentSphericalPoints(player.getRotation(), loock);
+                player.dimension.spawnParticle("kurokumaft:flamethrower_fire", {x:loockpoint.xlocation!, y:loockpoint.ylocation!-1, z:loockpoint.zlocation!});
 
-            const target = dimension.getEntities({
-                excludeTags: [
-                    "flametHrowerSelf"
-                ],
-                excludeTypes: [
-                    "item"
-                ],
-                location: {x:loockpoint.xlocation!, y:loockpoint.ylocation!-0.5, z:loockpoint.zlocation!},
-                maxDistance: 2
-            }) as Entity[];
-        
-            target.forEach(en => {
-                en.applyDamage(4, {
-                    cause: EntityDamageCause.fire
+                const target = dimension.getEntities({
+                    excludeTags: [
+                        "flametHrowerSelf"
+                    ],
+                    excludeTypes: [
+                        "item"
+                    ],
+                    location: {x:loockpoint.xlocation!, y:loockpoint.ylocation!-0.5, z:loockpoint.zlocation!},
+                    maxDistance: 2
+                }) as Entity[];
+            
+                target.forEach(en => {
+                    en.applyDamage(4, {
+                        cause: EntityDamageCause.fire
+                    })
                 })
-            })
-            if (count % 4 === 0) {
-                itemDurabilityDamage(player, item, EquipmentSlot.Mainhand);
+                if (count % 4 === 0) {
+                    itemDurabilityDamage(player, item, EquipmentSlot.Mainhand);
+                    const durability = item.getComponent(ItemComponentTypes.Durability) as ItemDurabilityComponent;
+                    if (item === undefined || durability.damage === 0) {
+                        stopFlametHrower(player);
+                        return;
+                    }
+                }
             }
+            count = count + 1;
+        } catch (error:any) {
+            stopFlametHrower(player);
         }
 
-        count = count + 1;
     }, 4);
     player.setDynamicProperty("flametHrowerEventNum", intervalNum);
 

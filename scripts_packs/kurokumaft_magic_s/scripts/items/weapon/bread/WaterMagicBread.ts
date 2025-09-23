@@ -22,8 +22,8 @@ export async function aquaDesires(entity:Entity) {
  */
 export async function mercurySmash(player:Player) {
 
-    shooting(player, "kurokumaft:mercury_smash", 0, 2,"kurokumaft:projectile_1");
-    shooting(player, "kurokumaft:mercury_smash", 0, 2,"kurokumaft:projectile_2");
-    shooting(player, "kurokumaft:mercury_smash", 0, 2,"kurokumaft:projectile_3");
+    shooting(player, "kurokumaft:mercury_smash", 0, 2, "kurokumaft:projectile_1");
+    shooting(player, "kurokumaft:mercury_smash", 0, 2, "kurokumaft:projectile_2");
+    shooting(player, "kurokumaft:mercury_smash", 0, 2, "kurokumaft:projectile_3");
 
 }

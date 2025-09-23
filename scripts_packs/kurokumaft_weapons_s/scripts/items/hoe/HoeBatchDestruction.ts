@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemStack, Block, EquipmentSlot, ItemComponentMineBlockEvent, BlockVolume, world, BlockPermutation, Vector3, Dimension, system } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, EquipmentSlot, ItemComponentMineBlockEvent, BlockVolume, Vector3, Dimension, system } from "@minecraft/server";
 import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
@@ -17,7 +17,7 @@ export class HoeBatchDestruction implements ItemCustomComponent {
         const mineBlock = event.minedBlockPermutation;
         const entity = event.source;
         const itemStack = event.itemStack;
-        if (itemStack != undefined) {
+        if (itemStack !== undefined) {
             itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
         }
         if (mineBlock.hasTag("minecraft:is_hoe_item_destructible")) {
@@ -65,7 +65,7 @@ function destructionBlocks(location: Vector3, dimension: Dimension, brakeBlockLi
                     break;
                 }
                 const breakBlock = dimension.getBlock(value);
-                if (breakBlock != undefined) {
+                if (breakBlock !== undefined) {
                     if (breakBlock.typeId.lastIndexOf("leaves") !== -1) {
                         if (brakeBlockList.find(blocks => (blocks.location.x === breakBlock.location.x && blocks.location.y === breakBlock.location.y && blocks.location.z === breakBlock.location.z)) === undefined) {
                             brakeBlockList.push({id:breakBlock.typeId, location: breakBlock.location});

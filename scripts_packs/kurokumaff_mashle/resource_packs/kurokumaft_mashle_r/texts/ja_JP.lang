@@ -1,19 +1,29 @@
 entity.kurokumaft:mash_burnedead.name=マッシュ・バーンデッド
+entity.kurokumaft:finn_ames.name=フィン・エイムズ
+entity.kurokumaft:lance_crown.name=ランス・クラウン
+entity.kurokumaft:dot_barrett.name=ドット・バレット
+entity.kurokumaft:lemon_irvine.name=レモン・アーヴィン
 
 item.spawn_egg.entity.kurokumaft:mash_burnedead.name=マッシュ・バーンデッド
+item.spawn_egg.entity.kurokumaft:finn_ames.name=フィン・エイムズ
+item.spawn_egg.entity.kurokumaft:lance_crown.name=ランス・クラウン
+item.spawn_egg.entity.kurokumaft:dot_barrett.name=ドット・バレット
+item.spawn_egg.entity.kurokumaft:lemon_irvine.name=レモン・アーヴィン
 
-kurokumaft:itemGroup.name.dormitory_shirt_adora=アドラ寮服（シャツ）
-kurokumaft:itemGroup.name.dormitory_shirt_oruka=オルカ寮服（シャツ）
-kurokumaft:itemGroup.name.dormitory_shirt_rean=レアン寮服（シャツ）
+kurokumaft:itemGroup.name.dormitory_cape_adora=アドラ寮ケープ
+kurokumaft:itemGroup.name.dormitory_cape_oruka=オルカ寮ケープ
+kurokumaft:itemGroup.name.dormitory_cape_rean=レアン寮ケープ
 
-kurokumaft:itemGroup.name.dormitory_cape_adora=アドラ寮服（ケープあり）
-kurokumaft:itemGroup.name.dormitory_cape_oruka=オルカ寮服（ケープあり）
-kurokumaft:itemGroup.name.dormitory_cape_rean=レアン寮服（ケープあり）
+kurokumaft:itemGroup.name.guy_school_uniform_shirt=男性服シャツ
+kurokumaft:itemGroup.name.guy_school_uniform_pants=男性服ズボン
 
-kurokumaft:itemGroup.name.dormitory_pants_adora=アドラ寮服（ズボン）
-kurokumaft:itemGroup.name.dormitory_pants_oruka=オルカ寮服（ズボン）
-kurokumaft:itemGroup.name.dormitory_pants_rean=レアン寮服（ズボン）
+kurokumaft:itemGroup.name.girl_school_uniform_shirt=女性服シャツ
+kurokumaft:itemGroup.name.girl_school_uniform_skirt=女性服スカート
 
-kurokumaft:itemGroup.name.dormitory_skirt_adora=アドラ寮服（スカート）
-kurokumaft:itemGroup.name.dormitory_skirt_oruka=オルカ寮服（スカート）
-kurokumaft:itemGroup.name.dormitory_skirt_rean=レアン寮服（スカート）
+msg.kurokumaft:unique.magic.text=固有魔法：
+
+item.kurokumaft:unique.magic.none=筋肉魔法
+item.kurokumaft:unique.magic.changes=転置魔法
+item.kurokumaft:unique.magic.gravior=重力魔法
+item.kurokumaft:unique.magic.explom=爆裂魔法
+item.kurokumaft:unique.magic.cuffs=拘束魔法

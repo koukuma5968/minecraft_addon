@@ -41,6 +41,45 @@ export async function iceBread(player:Player, hitEntity:Entity) {
 }
 
 /**
+ * アイスニードル
+ */
+export async function iceNeedle(player:Player) {
+
+    player.addTag(player.id);
+    const filterOption = {
+        excludeTags: [
+            player.id
+        ],
+        location: player.location,
+        maxDistance: 10,
+        closest: 5
+    } as EntityQueryOptions;
+
+    addTeamsTagFilter(player, filterOption);
+
+    const targets = player.dimension.getEntities(filterOption);
+    targets.forEach(en => {
+        if (!en.isValid) {
+            return;
+        }
+
+        en.dimension.spawnParticle("kurokumaft:ice_needle_particle",en.location);
+        if (en instanceof Player) {
+            en.applyDamage(4, {
+                cause: EntityDamageCause.freezing
+            });
+        } else {
+            en.applyDamage(8, {
+                cause: EntityDamageCause.freezing
+            });
+        }
+    });
+
+    player.removeTag(player.id);
+
+}
+
+/**
  * フリーズコフィン
  */
 export async function freezConclusion(player:Player) {

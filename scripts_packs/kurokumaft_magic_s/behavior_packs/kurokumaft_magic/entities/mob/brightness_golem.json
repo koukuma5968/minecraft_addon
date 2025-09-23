@@ -78,9 +78,11 @@
       "minecraft:behavior.owner_hurt_target": {
         "priority": 2
       },
+      "minecraft:tameable": {
+        "probability": 1.0
+      },
       "minecraft:is_tamed": {
       },
-
       "minecraft:is_hidden_when_invisible": {
       },
       "minecraft:type_family": {

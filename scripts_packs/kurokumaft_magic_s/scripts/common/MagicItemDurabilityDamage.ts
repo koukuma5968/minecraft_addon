@@ -8,7 +8,7 @@ import { MinecraftEnchantmentTypes } from "@minecraft/vanilla-data";
  * @param {ItemStack} item
  * @param {EquipmentSlot} slot
  */
-async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
+async function itemDurabilityMagicDamage(entity:Entity, item:ItemStack, slot:EquipmentSlot) {
 
     if (entity instanceof Player && entity.getGameMode() != GameMode.Creative) {
         const equ = entity.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
@@ -40,7 +40,7 @@ async function itemDurabilityDamage(entity:Entity, item:ItemStack, slot:Equipmen
  * @param {EquipmentSlot} slot
  * @param {number} damage
  */
-async function itemDurabilityDamageFixed(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number) {
+async function itemDurabilityMagicDamageFixed(entity:Entity, item:ItemStack, slot:EquipmentSlot, damage:number) {
 
     if (entity instanceof Player && entity.getGameMode() == GameMode.Creative) {
         return;
@@ -109,4 +109,4 @@ async function decrimentGrimoireCount(player:Player, item:ItemStack) {
     }
 }
 
-export {itemDurabilityDamage, itemDurabilityDamageFixed, summonGrimoireDurabilityDamage, decrimentGrimoireCount};
+export {itemDurabilityMagicDamage, itemDurabilityMagicDamageFixed, summonGrimoireDurabilityDamage, decrimentGrimoireCount};

@@ -402,3 +402,9 @@ kurokumaft:itemGroup.name.weapons_knife=ナイフ
 kurokumaft:itemGroup.name.weapons_knuckle=ナックル
 kurokumaft:itemGroup.name.weapons_scythe=鎌
 kurokumaft:itemGroup.name.weapons_bom=ボム
+
+entity.kurokumaft:ghoul.name=グール	#
+item.spawn_egg.entity.kurokumaft:ghoul.name=グールをスポーンさせる
+
+entity.kurokumaft:owl.name=フクロウ	#
+item.spawn_egg.entity.kurokumaft:owl.name=フクロウをスポーンさせる

@@ -331,6 +331,27 @@ function addTeamsTagFilter(player:Player, filterOption:EntityQueryOptions) {
 
 };
 
+async function explosionMagic(source:Entity, target:Entity, location:Vector3, option:ExplosionOptions, radius:number, damage:number, dcase:EntityDamageCause) {
+    const bom = target.dimension.createExplosion(location, radius, option);
+    if (bom) {
+        if (!target.isInWater) {
+            if (target instanceof Player) {
+                if (world.gameRules.pvp) {
+                    target.applyDamage(damage, {
+                        cause: dcase,
+                        damagingEntity: source
+                    });
+                }
+            } else {
+                target.applyDamage(damage, {
+                    cause: dcase,
+                    damagingEntity: source
+                });
+            }
+        }
+    }
+}
+
 // 岩盤破壊キャンセル
 export function explodeBedrock(impactBLockList:Block[]): Block[] | undefined {
     try {
@@ -395,5 +416,5 @@ async function applyExplosionDamage(option:ExplosionOptions, source:Entity, filt
 }
 
 export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPointsV2, getDistanceLocation, getDirectionVector, addTeamsTagFilter,
-    getLookLocationDistance, getLookLocationDistancePitch, applyExplosionDamage,
+    getLookLocationDistance, getLookLocationDistancePitch, applyExplosionDamage, explosionMagic,
     MagicCraftBlocks, BlockLocationList };

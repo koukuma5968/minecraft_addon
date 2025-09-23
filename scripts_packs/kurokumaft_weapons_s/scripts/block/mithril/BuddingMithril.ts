@@ -1,5 +1,5 @@
 import { BlockCustomComponent, Block, BlockComponentTickEvent, Vector3, Dimension, BlockPermutation } from "@minecraft/server";
-import { getRandomInRange, ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
+import { ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
 
 const mithrilChoiceLists = ProbabilisticChoice([
     { item: 1 , weight: 20 },
@@ -16,27 +16,27 @@ const mithrilChoiceLists = ProbabilisticChoice([
 export class BuddingMithril implements BlockCustomComponent {
 
     onTick(event:BlockComponentTickEvent) {
-        let block = event.block as Block;
-        let dimension = event.dimension as Dimension;
-        let budding_pos = mithrilChoiceLists.pick() as number;
+        const block = event.block as Block;
+        const dimension = event.dimension as Dimension;
+        const budding_pos = mithrilChoiceLists.pick() as number;
         let bloc = {x:block.location.x,y:block.location.y,z:block.location.z} as Vector3;
         let b;
-        if (budding_pos == 1) {
+        if (budding_pos === 1) {
             bloc = {x:block.location.x,y:block.location.y+1,z:block.location.z} as Vector3;
             b = dimension.getBlock(bloc) as Block;
-        } else if (budding_pos == 2) {
+        } else if (budding_pos === 2) {
             bloc = {x:block.location.x,y:block.location.y-1,z:block.location.z} as Vector3;
             b = dimension.getBlock(bloc) as Block;
-        } else if (budding_pos == 3) {
+        } else if (budding_pos === 3) {
             bloc = {x:block.location.x,y:block.location.y,z:block.location.z+1} as Vector3;
             b = dimension.getBlock(bloc) as Block;
-        } else if (budding_pos == 4) {
+        } else if (budding_pos === 4) {
             bloc = {x:block.location.x,y:block.location.y,z:block.location.z-1} as Vector3;
             b = dimension.getBlock(bloc) as Block;
-        } else if (budding_pos == 5) {
+        } else if (budding_pos === 5) {
             bloc = {x:block.location.x+1,y:block.location.y,z:block.location.z} as Vector3;
             b = dimension.getBlock(bloc) as Block;
-        } else if (budding_pos == 6) {
+        } else if (budding_pos === 6) {
             bloc = {x:block.location.x-1,y:block.location.y,z:block.location.z} as Vector3;
             b = dimension.getBlock(bloc) as Block;
         }

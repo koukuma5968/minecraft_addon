@@ -72,25 +72,25 @@ export class ThrowableSpear implements ItemCustomComponent {
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
 
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
 
-        let spear = SpearObjects.find(obj => obj.itemName == itemStack.typeId) as SpearObject;
+        const spear = SpearObjects.find(obj => obj.itemName == itemStack.typeId) as SpearObject;
         sweepHit(attackEntity, hitEntity, spear.damage);
     }
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         source.addTag("spearOwner");
     }
 }
 
 export async function spawnSpear(throwSpear:Entity) {
 
-    let spear = SpearObjects.find(obj => obj.throwSpear == throwSpear.typeId) as SpearObject;
-    if (spear == undefined) {
+    const spear = SpearObjects.find(obj => obj.throwSpear == throwSpear.typeId) as SpearObject;
+    if (spear === undefined) {
         return;
     }
     throwSpear.setDynamicProperty("throwSpear", true);
@@ -104,13 +104,13 @@ export async function stopSpear(player:Player) {
 
 export async function releaseSpear(player:Player, spear:ItemStack) {
 
-    let spearItem = SpearObjects.find(obj => obj.itemName == spear.typeId) as SpearObject;
+    const spearItem = SpearObjects.find(obj => obj.itemName == spear.typeId) as SpearObject;
 
-    if (spearItem == undefined) {
+    if (spearItem === undefined) {
         return;
     }
 
-    let throwSpear = player.dimension.getEntities({
+    const throwSpear = player.dimension.getEntities({
         tags: [
             "throwSpear"
         ],
@@ -124,9 +124,9 @@ export async function releaseSpear(player:Player, spear:ItemStack) {
     if (throwSpear.length > 0) {
         throwItemDurabilityDamage(throwSpear[0], spear, 0, undefined);
 
-        let enchant = spear.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
+        const enchant = spear.getComponent(ItemComponentTypes.Enchantable) as ItemEnchantableComponent;
         if (enchant.hasEnchantment(MinecraftEnchantmentTypes.Loyalty)) {
-            let loyalty = enchant.getEnchantment(MinecraftEnchantmentTypes.Loyalty) as Enchantment;
+            const loyalty = enchant.getEnchantment(MinecraftEnchantmentTypes.Loyalty) as Enchantment;
             throwSpear[0].setDynamicProperty("Loyalty", true);
             throwSpear[0].setDynamicProperty("LoyaltyLevel", loyalty.level);
         } else {
@@ -138,7 +138,7 @@ export async function releaseSpear(player:Player, spear:ItemStack) {
 
 export async function removeSpear(throwSpear:Entity) {
 
-    let item = SpearObjects.find(obj => obj.throwSpear == throwSpear.typeId) as SpearObject;
+    const item = SpearObjects.find(obj => obj.throwSpear == throwSpear.typeId) as SpearObject;
     if (!item) {
         return;
     }
@@ -147,11 +147,11 @@ export async function removeSpear(throwSpear:Entity) {
         return;
     }
 
-    let invent = throwSpear.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-    let container = invent.container as Container;
-    let spear = container.getItem(0) as ItemStack;
+    const invent = throwSpear.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+    const container = invent.container as Container;
+    const spear = container.getItem(0) as ItemStack;
 
-    let player = throwSpear.dimension.getEntities({
+    const player = throwSpear.dimension.getEntities({
         families: [
             "player"
         ],
@@ -160,17 +160,17 @@ export async function removeSpear(throwSpear:Entity) {
     }) as Player[];
 
     let emptySlot = true;
-    if (player != undefined && player.length > 0 && player[0].isValid()) {
-        let equ = player[0].getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
-        if (main == undefined) {
+    if (player !== undefined && player.length > 0 && player[0].isValid) {
+        const equ = player[0].getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const main = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
+        if (main === undefined) {
             system.runTimeout(() => {
                 equ.setEquipment(EquipmentSlot.Mainhand, spear);
             }, 2);
             emptySlot = false;
         } else {
-            let invent = player[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
-            let con = invent.container as Container;
+            const invent = player[0].getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent;
+            const con = invent.container as Container;
             if (con.emptySlotsCount > 0){
                 system.runTimeout(() => {
                     con.addItem(spear);
@@ -180,8 +180,8 @@ export async function removeSpear(throwSpear:Entity) {
         }
     }
     if (emptySlot) {
-        let dim = throwSpear.dimension;
-        let loca = throwSpear.location;
+        const dim = throwSpear.dimension;
+        const loca = throwSpear.location;
         system.runTimeout(() => {
             dim.spawnItem(spear, loca);
         }, 2);
@@ -190,18 +190,18 @@ export async function removeSpear(throwSpear:Entity) {
 
 export async function hitSpear(throwEntity:Entity, throwSpear:Entity) {
 
-    let item = SpearObjects.find(obj => obj.throwSpear == throwSpear.typeId) as SpearObject;
+    const item = SpearObjects.find(obj => obj.throwSpear == throwSpear.typeId) as SpearObject;
     if (!item) {
         return;
     }
 
     if (throwSpear.getDynamicProperty("Loyalty")) {
-        let level = throwSpear.getDynamicProperty("LoyaltyLevel") as number
+        const level = throwSpear.getDynamicProperty("LoyaltyLevel") as number
         system.runTimeout(() => {
-            let intervalNum = system.runInterval(() => {
-                if (throwSpear != undefined && throwSpear.isValid()) {
-                    let targetLoc = getDirectionVector(throwSpear.location, {x:throwEntity.location.x, y:throwEntity.location.y+1, z:throwEntity.location.z});
-                    let tpLoc = {
+            const intervalNum = system.runInterval(() => {
+                if (throwSpear !== undefined && throwSpear.isValid) {
+                    const targetLoc = getDirectionVector(throwSpear.location, {x:throwEntity.location.x, y:throwEntity.location.y+1, z:throwEntity.location.z});
+                    const tpLoc = {
                         x:throwSpear.location.x+targetLoc.x,
                         y:throwSpear.location.y+targetLoc.y,
                         z:throwSpear.location.z+targetLoc.z
@@ -213,7 +213,7 @@ export async function hitSpear(throwEntity:Entity, throwSpear:Entity) {
                 } else {
                     system.clearRun(intervalNum);
                 }
-            }, level==1?3:level==2?2:1);
+            }, level===1?3:level===2?2:1);
         }, 5);
     }
 }

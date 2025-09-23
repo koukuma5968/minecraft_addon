@@ -146,7 +146,7 @@
       "minecraft:collision_box": {
         "width": 0.31,
         "height": 0.31
-       },
+      },
       "minecraft:physics": {
       },
       "minecraft:pushable": {

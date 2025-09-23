@@ -11,16 +11,16 @@ export class EchoSword implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
         sweepThreeHit(attackEntity, hitEntity, 2);
     }
 
     // チャージ完了
     onCompleteUse(event:ItemComponentCompleteUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         sonicBullet(source);
         itemDurabilityDamage(source, itemStack, EquipmentSlot.Mainhand);
     }
@@ -28,5 +28,5 @@ export class EchoSword implements ItemCustomComponent {
 
 async function sonicBullet(player:Player) {
     shooting(player, "kurokumaft:sonic_bullet", 0, 5, undefined);
-    player.runCommandAsync("/titleraw @s actionbar {\"rawtext\": [{\"translate\": \"mess.kurokumaft:echo_sword.sonic_bullet\"}]}");
+    player.onScreenDisplay.setActionBar({translate:"mess.kurokumaft:echo_sword.sonic_bullet"});
 }

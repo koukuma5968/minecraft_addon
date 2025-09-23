@@ -1,5 +1,6 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player, TicksPerSecond } from "@minecraft/server";
+import { Entity, EntityComponentTypes, EntityDamageCause, EntityQueryOptions, EntityTameableComponent, Player, TicksPerSecond } from "@minecraft/server";
 import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
+import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
 
 /**
  * ライトファング
@@ -38,6 +39,28 @@ export async function lightFang(player:Player, hitEntity:Entity) {
         }
     });
     player.removeTag(player.id);
+}
+
+/**
+ * アビリティ
+ */
+export async function ability(player:Player) {
+
+    player.addEffect(MinecraftEffectTypes.Strength, 30*TicksPerSecond, {
+        amplifier: 5
+    })
+    player.addEffect(MinecraftEffectTypes.Speed, 30*TicksPerSecond, {
+        amplifier: 5
+    })
+    player.addEffect(MinecraftEffectTypes.JumpBoost, 30*TicksPerSecond, {
+        amplifier: 5
+    })
+    player.addEffect(MinecraftEffectTypes.Resistance, 30*TicksPerSecond, {
+        amplifier: 5
+    })
+    player.addEffect(MinecraftEffectTypes.Haste, 30*TicksPerSecond, {
+        amplifier: 5
+    })
 }
 
 /**
@@ -120,6 +143,14 @@ export async function areaheel(player:Player) {
  * ブライトゴーレム召喚
  */
 export async function summonGolem(player:Player) {
-    const golem = player.dimension.spawnEntity("kurokumaft:brightness_golem<minecraft:from_player>", {x:player.location.x,y:player.location.y,z:player.location.z+3});
+    const golem = player.dimension.spawnEntity("kurokumaft:brightness_golem", {x:player.location.x,y:player.location.y,z:player.location.z+3});
     golem.nameTag = "ブライトゴーレム";
+    golem.triggerEvent("minecraft:from_player");
+    const tameable1 = golem.getComponent(EntityComponentTypes.Tameable) as EntityTameableComponent;
+    if (!tameable1.isTamed) {
+        if (player instanceof Player) {
+            tameable1.tame(player);
+        }
+    }
+
 }

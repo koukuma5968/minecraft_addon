@@ -65,7 +65,7 @@ const ShellBomObjects = Object.freeze([
 export class BazookaShotMagic implements ItemCustomComponent {
 
     // チャージ完了
-    onCompconsteUse(event:ItemComponentCompleteUseEvent) {
+    onCompleteUse(event:ItemComponentCompleteUseEvent) {
         const itemStack = event.itemStack as ItemStack;
         const player = event.source as Player;
     }

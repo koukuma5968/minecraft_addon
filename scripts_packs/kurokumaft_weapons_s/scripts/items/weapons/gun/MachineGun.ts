@@ -1,5 +1,5 @@
 import { ItemCustomComponent, ItemComponentHitEntityEvent, ItemStack, Entity, system, ItemComponentUseEvent, Player, EquipmentSlot, EntityComponentTypes, EntityEquippableComponent } from "@minecraft/server";
-import { getLookPoints, getRandomInRange } from "../../../common/WeaponsCommonUtil";
+import { getLookPoints } from "../../../common/WeaponsCommonUtil";
 import { itemDurabilityDamage, subtractionItem } from "../../../common/WeaponsItemDurabilityDamage";
 import { shooting } from "../../../common/WeaponsShooterPoints";
 
@@ -10,14 +10,14 @@ export class MachineGun implements ItemCustomComponent {
 
     // 通常攻撃
     onHitEntity(event:ItemComponentHitEntityEvent) {
-        let attackEntity = event.attackingEntity as Entity;
-        let hitEntity = event.hitEntity as Entity;
-        let itemStack = event.itemStack as ItemStack;
+        const attackEntity = event.attackingEntity as Entity;
+        const hitEntity = event.hitEntity as Entity;
+        const itemStack = event.itemStack as ItemStack;
     }
 
     onUse(event:ItemComponentUseEvent) {
-        let source = event.source as Player;
-        let itemStack = event.itemStack as ItemStack;
+        const source = event.source as Player;
+        const itemStack = event.itemStack as ItemStack;
         shotMachineGun(source, itemStack);
     }
 }
@@ -31,10 +31,10 @@ async function shotMachineGun(player: Player, item: ItemStack) {
 
     player.setDynamicProperty("machineGunShot", true);
     let count = 0;
-    let intervalNum = system.runInterval(() => {
+    const intervalNum = system.runInterval(() => {
 
-        let reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
-        let reItem = reEqu.getEquipment(EquipmentSlot.Offhand);
+        const reEqu = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
+        const reItem = reEqu.getEquipment(EquipmentSlot.Offhand);
         if (reItem == undefined || reItem.typeId != "kurokumaft:thirty_eight_special") {
             system.clearRun(intervalNum);
             return;
@@ -42,7 +42,7 @@ async function shotMachineGun(player: Player, item: ItemStack) {
 
         shooting(player, "kurokumaft:thirty_eight_special_entity", 0.2, 5, undefined);
         if (count % 4 === 0) {
-            let loock = getLookPoints(player.getRotation(), player.location, 1.5);
+            const loock = getLookPoints(player.getRotation(), player.location, 1.5);
             player.dimension.spawnParticle("minecraft:explosion_manual", {x:loock.x, y:loock.y, z:loock.z});
             subtractionItem(player, reItem, EquipmentSlot.Offhand, 1);
             itemDurabilityDamage(player, item, EquipmentSlot.Mainhand);
@@ -59,7 +59,7 @@ async function shotMachineGun(player: Player, item: ItemStack) {
  */
 export async function stopMachineGun(player: Player) {
 
-    let eventNum = player.getDynamicProperty("machineGunShotEventNum") as number;
+    const eventNum = player.getDynamicProperty("machineGunShotEventNum") as number;
     player.setDynamicProperty("machineGunShot", undefined);
     player.setDynamicProperty("machineGunShotEventNum", undefined);
     system.clearRun(eventNum);

@@ -62,6 +62,9 @@
           "target": "self"
         }
       },
+      "minecraft:tameable": {
+        "probability": 1.0
+      },
       "minecraft:is_tamed": {
       },
       "minecraft:color": {

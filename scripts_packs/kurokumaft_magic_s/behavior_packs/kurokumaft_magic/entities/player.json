@@ -13,39 +13,33 @@
           "client_sync": true
         },
         "kurokumaft:gun_charge_fire": {
-          "range": [ 0, 2 ],
-          "type": "int",
-          "default": 0,
+          "type": "bool",
+          "default": false,
           "client_sync": true
         },
         "kurokumaft:gun_charge_water": {
-          "range": [ 0, 2 ],
-          "type": "int",
-          "default": 0,
+          "type": "bool",
+          "default": false,
           "client_sync": true
         },
         "kurokumaft:gun_charge_wind": {
-          "range": [ 0, 2 ],
-          "type": "int",
-          "default": 0,
+          "type": "bool",
+          "default": false,
           "client_sync": true
         },
         "kurokumaft:gun_charge_stone": {
-          "range": [ 0, 2 ],
-          "type": "int",
-          "default": 0,
+          "type": "bool",
+          "default": false,
           "client_sync": true
         },
         "kurokumaft:gun_charge_lightning": {
-          "range": [ 0, 2 ],
-          "type": "int",
-          "default": 0,
+          "type": "bool",
+          "default": false,
           "client_sync": true
         },
         "kurokumaft:gun_charge_ice": {
-          "range": [ 0, 2 ],
-          "type": "int",
-          "default": 0,
+          "type": "bool",
+          "default": false,
           "client_sync": true
         },
 
@@ -66,12 +60,6 @@
         "animate":[
           "attack_action",
 
-          "light","dark",
-
-          "flame","waterwave","storm","rock","thunderclap","freeze","brightness","darkness",
-
-          "blaze","watercurrent","earth","atmosphere","blockice","lightningstrike","sparkle","jetblack",
-
           "wind_magic_chestplate"
         ]
       },
@@ -81,30 +69,6 @@
         "twenty_mine": "animation.cooldown.twenty_mine",
 
         "attack_action": "controller.animation.attack_action",
-
-        "light":"controller.animation.light_magic.light",
-        "dark":"controller.animation.dark_magic.dark",
-
-        "flame":"controller.animation.flame_magic.flame",
-        "waterwave":"controller.animation.water_magic.waterwave",
-        "storm":"controller.animation.storm_magic.storm",
-        "rock":"controller.animation.rock_magic.rock",
-        "thunderclap":"controller.animation.thunderclap_magic.thunderclap",
-        "freeze":"controller.animation.freeze_magic.freeze",
-        "brightness":"controller.animation.linght_magic.brightness",
-        "darkness":"controller.animation.dark_magic.darkness",
-
-        "framepillar_ani": "animation.fire.framepillar",
-        "waterpillar_ani": "animation.water.waterpillar",
-
-        "blaze":"controller.animation.fire_magic.blaze",
-        "watercurrent":"controller.animation.water_magic.watercurrent",
-        "earth":"controller.animation.stone_magic.earth",
-        "atmosphere":"controller.animation.wind_magic.atmosphere",
-        "blockice":"controller.animation.ice_magic.blockice",
-        "lightningstrike":"controller.animation.lightning_magic.lightningstrike",
-        "sparkle":"controller.animation.light_magic.sparkle",
-        "jetblack":"controller.animation.dark_magic.jetblack",
 
         "wind_magic_chestplate": "controller.animation.armor.wind_magic_chestplate",
         "wind_magic_takeoff": "animation.wind_magic_chestplate.takeoff","wind_magic_landing": "animation.wind_magic_chestplate.landing"

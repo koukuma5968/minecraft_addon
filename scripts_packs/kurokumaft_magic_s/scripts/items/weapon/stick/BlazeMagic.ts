@@ -1,12 +1,12 @@
-import { Entity, EntityDamageCause, EntityQueryOptions, Player } from "@minecraft/server";
-import { addTeamsTagFilter, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
+import { Entity, EntityDamageCause, EntityQueryOptions, ExplosionOptions, Player } from "@minecraft/server";
+import { addTeamsTagFilter, explosionMagic, getLookRotaionPointsV2 } from "../../../common/MagicCommonUtil";
 
 /**
  * フレイムショック
  */
 export async function flameShock(player:Player, entity:Entity) {
 
-    player.addTag("flame_shock_self");
+    player.addTag(player.id);
 
     const left = getLookRotaionPointsV2(entity.getRotation(), 0, 2.5);
     entity.dimension.spawnParticle("kurokumaft:flame_shock_particle", {x:entity.location.x+left.x, y:entity.location.y+1.8, z:entity.location.z+left.z});
@@ -17,7 +17,7 @@ export async function flameShock(player:Player, entity:Entity) {
 
     const filterOption = {
         excludeTags: [
-            "flame_shock_self",
+            player.id,
         ],
         location: player.location,
         maxDistance: 5
@@ -40,7 +40,30 @@ export async function flameShock(player:Player, entity:Entity) {
         });
     });
 
-    player.removeTag("flame_shock_self");
+    player.removeTag(player.id);
+}
+
+/**
+ * フレイムビット
+ */
+export async function flareBit(player:Player) {
+
+    player.addTag(player.id);
+
+    for (let x=-3.5; x<=3.5; x+=3.5) {
+        for (let z=-3.5; z<=3.5; z+=3.5) {
+            const option = {
+                allowUnderwater: false,
+                breaksBlocks: false,
+                causesFire: false,
+                source: player
+            } as ExplosionOptions;
+            player.dimension.createExplosion({x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z}, 2, option);
+            player.dimension.spawnParticle("kurokumaft:flare_bit_particle", {x:player.location.x+x, y:player.location.y+1.8, z:player.location.z+z});
+        }
+    }
+
+    player.removeTag(player.id);
 }
 
 /**
@@ -48,11 +71,11 @@ export async function flameShock(player:Player, entity:Entity) {
  */
 export async function blastbomb(player:Player) {
 
-    player.addTag("blastbomb_self");
+    player.addTag(player.id);
 
     const filterOption = {
         excludeTags: [
-            "blastbomb_self",
+            player.id,
         ],
         location: player.location,
         maxDistance: 20,
@@ -71,12 +94,15 @@ export async function blastbomb(player:Player) {
         if (en instanceof Player) {
             damage = 4;
         }
-        en.applyDamage(damage, {
-            cause: EntityDamageCause.fire
-        });
         en.dimension.spawnParticle("kurokumaft:burstflare_particle", {x:en.location.x+0.5, y:en.location.y+0.5, z:en.location.z+0.5});
-        en.dimension.spawnEntity("kurokumaft:blastbombmagic<minecraft:explode>", {x:en.location.x+0.5, y:en.location.y+0.5, z:en.location.z+0.5})
+        const option = {
+            allowUnderwater: false,
+            breaksBlocks: false,
+            causesFire: false,
+            source: player
+        } as ExplosionOptions;
+        explosionMagic(player, en, en.location, option, 3, damage, EntityDamageCause.fire);
     });
 
-    player.removeTag("blastbomb_self");
+    player.removeTag(player.id);
 }
