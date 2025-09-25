@@ -237,13 +237,16 @@ world.afterEvents.entitySpawn.subscribe(event => {
     if (entity !== undefined) {
       const taishibject = TaishiKaikyu.find(taishi => taishi.name === entity.typeId);
       if (taishibject !== undefined && event.cause === EntityInitializationCause.Spawned) {
+        // console.debug("name=" + taishibject.name + ",min=" + taishibject.min + ",max=" + taishibject.max);
         const kaikyuRan = getRandomInRange(taishibject.min, taishibject.max);
+        // console.debug("kaikyu=" + kaikyuRan);
         entity.setProperty("kurokumaft:kaikyu", kaikyuRan);
         system.waitTicks(4).then(() => {
           entity.triggerEvent("kurokumaft:kaikyu_change");
           const health = entity.getComponent(EntityComponentTypes.Health) as EntityHealthComponent;
           health.resetToMaxValue();
         }).catch((error: any) => {
+          console.error(error);
         });
       }
       const ogre_rank = entity.getProperty("kurokumaft:ogre_rank") as string;

@@ -546,6 +546,7 @@ entity.kurokumaft:douma.name=童磨
 entity.kurokumaft:kokushibou.name=黒死牟
 entity.kurokumaft:kyodaigyo_kiba.name=巨大魚（牙）
 entity.kurokumaft:nengyo.name=粘魚
+entity.kurokumaft:gyosatu.name=魚殺
 
 item.spawn_egg.entity.kurokumaft:ogre.name=鬼（下級）
 item.spawn_egg.entity.kurokumaft:rui.name=累

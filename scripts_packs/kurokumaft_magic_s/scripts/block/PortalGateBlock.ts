@@ -60,12 +60,12 @@ async function portalGateTp(gateObj:PortalGateObject, blockEvent:BlockComponentS
     const location = block.location;
     const dimension = blockEvent.dimension;
     const portal = dimension.getBlock({x:location.x,y:location.y+1,z:location.z});
-    if (portal && (portal.typeId == gateObj.gate.x || portal.typeId == gateObj.gate.z)) {
+    if (portal && (portal.typeId === gateObj.gate.x || portal.typeId === gateObj.gate.z)) {
 
-        if (dimension.id == MinecraftDimensionTypes.Overworld) {
+        if (dimension.id === MinecraftDimensionTypes.Overworld) {
             const portal = dimension.getBlock({x:location.x,y:location.y+1,z:location.z});
-            if (portal && (portal.typeId == gateObj.gate.x || portal.typeId == gateObj.gate.z)) {
-                if (world.getDynamicProperty(gateObj.portalState) == 0) {
+            if (portal && (portal.typeId === gateObj.gate.x || portal.typeId === gateObj.gate.z)) {
+                if (world.getDynamicProperty(gateObj.portalState) === 0) {
                     world.setDynamicProperty(gateObj.portalState, 1);
                     let zloca = gateObj.hellLocate.z;
                     for (let x=1; x<=8; x++) {
@@ -80,7 +80,7 @@ async function portalGateTp(gateObj:PortalGateObject, blockEvent:BlockComponentS
                         zloca += 16;
                     }
                 }
-                if (portal.typeId == gateObj.gate.x) {
+                if (portal.typeId === gateObj.gate.x) {
                     entity?.setDynamicProperty("hell_tp_point", {x:location.x,y:location.y,z:location.z+2});
                 } else {
                     entity?.setDynamicProperty("hell_tp_point", {x:location.x+2,y:location.y,z:location.z});

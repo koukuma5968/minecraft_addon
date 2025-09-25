@@ -33,8 +33,8 @@ export class PortalBlock implements BlockCustomComponent {
 
 export async function portalGateBreak(block:Block, blockPermutation:BlockPermutation) {
 
-    const portalObj = PortalObjects.find(obj => obj.itemName == blockPermutation.type.id) as PortalObject;
-    if (portalObj) {
+    const portalObj = PortalObjects.find(obj => obj.itemName === blockPermutation.type.id) as PortalObject;
+    if (portalObj !== undefined) {
         world.setDynamicProperty(portalObj.portalState, 0);
         for (let x=-2; x<=2; x++) {
             for (let y=-2; y<=2; y++) {

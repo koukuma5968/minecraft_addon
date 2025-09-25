@@ -10578,6 +10578,7 @@ var Hakaisatu = class extends ZytuComonClass {
           entity.dimension.spawnParticle("kurokumaft:ranshiki", getDistanceLocation(entity.location, distance2));
           this.ran(entity, side, top);
         } catch (error) {
+          console.info(error);
           system46.clearRun(num);
         }
       }, 2);
@@ -10698,17 +10699,17 @@ var Hakaisatu = class extends ZytuComonClass {
       }
       const num = system46.runInterval(() => {
         try {
-          const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
+          const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
           const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
           entity.dimension.spawnParticle("kurokumaft:ryuseigunkou", getDistanceLocation(entity.location, distance));
           this.zyutuApplyDamage(entity, filter, 5);
-          this.kokyuApplyKnockback(entity, filter, distance, 0.2);
+          this.kokyuApplyKnockback(entity, filter, distance, 0.3);
           entity.applyKnockback({ x: distance.x, z: distance.z }, 0.3);
         } catch (error) {
           system46.clearRun(num);
         }
       }, 4);
-      system46.waitTicks(40).then(() => {
+      system46.waitTicks(20).then(() => {
         entity.setProperty("kurokumaft:kokyu_use", false);
         entity.setProperty("kurokumaft:kokyu_particle", false);
         system46.waitTicks(5).then(() => {
@@ -10829,7 +10830,7 @@ var Hakaisatu = class extends ZytuComonClass {
       }
       const molang = new MolangVariableMap11();
       molang.setFloat("variable.rotaion", -entity.getRotation().y);
-      entity.dimension.spawnParticle("kurokumaft:rashin", entity.location, molang);
+      entity.dimension.spawnParticle("kurokumaft:rashin_aogin", entity.location, molang);
       const num = system46.runInterval(() => {
         try {
           const distance = getLookLocationDistancePitch(entity.getRotation(), 0, 0);
@@ -15512,6 +15513,7 @@ world11.afterEvents.entitySpawn.subscribe((event) => {
           const health = entity.getComponent(EntityComponentTypes20.Health);
           health.resetToMaxValue();
         }).catch((error) => {
+          console.error(error);
         });
       }
       const ogre_rank = entity.getProperty("kurokumaft:ogre_rank");

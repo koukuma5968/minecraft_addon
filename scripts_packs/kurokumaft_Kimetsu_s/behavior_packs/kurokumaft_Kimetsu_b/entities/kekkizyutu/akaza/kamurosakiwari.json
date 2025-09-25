@@ -15,6 +15,9 @@
     },
 
     "components": {
+			"minecraft:type_family": {
+				"family": [ "inanimate" ]
+			},
       "minecraft:behavior.knockback_roar": {
         "attack_time": 0.1,
         "knockback_damage": 10,

@@ -68,7 +68,8 @@
         "damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs.v1.0",
         "swimming": "animation.humanoid.swimming.v1.0",
         "use_item_progress": "animation.humanoid.use_item_progress.v1.0",
-        "skeleton_attack": "animation.skeleton.attack.v1.0"
+        "skeleton_attack": "animation.skeleton.attack.v1.0",
+        "riding.body": "animation.humanoid.riding.body"
       },
       "render_controllers": [ "controller.render.skeleton" ],
       "enable_attachables": true

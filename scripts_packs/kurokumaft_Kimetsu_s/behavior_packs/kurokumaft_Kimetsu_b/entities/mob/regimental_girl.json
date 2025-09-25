@@ -9,7 +9,7 @@
       "properties": {
         "kurokumaft:kaikyu": {
           "type": "int",
-          "range": [1, 10],
+          "range": [1, 7],
           "default": 1,
           "client_sync": true
         },
@@ -201,7 +201,7 @@
           "on_death": "Math.Min(10, 50)"
         },
         "minecraft:health": {
-          "value": "math.random(25, 40)",
+          "value": "math.random(25, 35)",
           "max": 35
         },
         "minecraft:attack": {
@@ -213,7 +213,7 @@
           "on_death": "Math.Min(10, 70)"
         },
         "minecraft:health": {
-          "value": "math.random(30, 45)",
+          "value": "math.random(30, 40)",
           "max": 40
         },
         "minecraft:attack": {
@@ -225,7 +225,7 @@
           "on_death": "Math.Min(20, 80)"
         },
         "minecraft:health": {
-          "value": "math.random(45, 50)",
+          "value": "math.random(40, 45)",
           "max": 45
         },
         "minecraft:attack": {
@@ -237,7 +237,7 @@
           "on_death": "Math.Min(30, 90)"
         },
         "minecraft:health": {
-          "value": "math.random(55, 60)",
+          "value": "math.random(45, 50)",
           "max": 50
         },
         "minecraft:attack": {
@@ -249,7 +249,7 @@
           "on_death": "Math.Min(40, 100)"
         },
         "minecraft:health": {
-          "value": "math.random(60, 70)",
+          "value": "math.random(50, 55)",
           "max": 55
         },
         "minecraft:attack": {
@@ -261,7 +261,7 @@
           "on_death": "Math.Min(50, 120)"
         },
         "minecraft:health": {
-          "value": "math.random(70, 80)",
+          "value": "math.random(55, 60)",
           "max": 60
         },
         "minecraft:attack": {
@@ -755,7 +755,7 @@
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 1 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu1", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage", "kurokumaft:soldier_kaikyu1", "kurokumaft:soldier_family" ]
             },
             "set_property": {
               "kurokumaft:attack_level": 2
@@ -764,7 +764,7 @@
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 2 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu2", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage", "kurokumaft:soldier_kaikyu2", "kurokumaft:soldier_family" ]
             },
             "set_property": {
               "kurokumaft:attack_level": 3
@@ -773,7 +773,7 @@
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 3 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu3", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage", "kurokumaft:soldier_kaikyu3", "kurokumaft:soldier_family" ]
             },
             "set_property": {
               "kurokumaft:attack_level": 4
@@ -782,7 +782,7 @@
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 4 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu4", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage", "kurokumaft:soldier_kaikyu4", "kurokumaft:soldier_family" ]
             },
             "set_property": {
               "kurokumaft:attack_level": 5
@@ -791,7 +791,7 @@
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 5 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu5", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage", "kurokumaft:soldier_kaikyu5", "kurokumaft:soldier_family" ]
             },
             "set_property": {
               "kurokumaft:attack_level": 6
@@ -800,7 +800,7 @@
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 6 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu6", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage", "kurokumaft:soldier_kaikyu6", "kurokumaft:soldier_family" ]
             },
             "set_property": {
               "kurokumaft:attack_level": 7
@@ -809,37 +809,10 @@
           {
             "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 7 },
             "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu7", "kurokumaft:soldier_family" ]
+              "component_groups": [ "kurokumaft:nomal_damage", "kurokumaft:soldier_kaikyu7", "kurokumaft:soldier_family" ]
             },
             "set_property": {
               "kurokumaft:attack_level": 8
-            }
-          },
-          {
-            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 8 },
-            "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu8", "kurokumaft:soldier_family" ]
-            },
-            "set_property": {
-              "kurokumaft:attack_level": 9
-            }
-          },
-          {
-            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 9 },
-            "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu9", "kurokumaft:soldier_family" ]
-            },
-            "set_property": {
-              "kurokumaft:attack_level": 10
-            }
-          },
-          {
-            "filters": { "test": "int_property", "domain": "kurokumaft:kaikyu", "operator": "==", "value": 10 },
-            "add": {
-              "component_groups": [ "kurokumaft:soldier_kaikyu10", "kurokumaft:soldier_family" ]
-            },
-            "set_property": {
-              "kurokumaft:attack_level": 12
             }
           }
         ]

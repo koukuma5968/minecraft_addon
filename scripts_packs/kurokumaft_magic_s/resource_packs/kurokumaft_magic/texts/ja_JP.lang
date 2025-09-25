@@ -1,3 +1,6 @@
+pack.name=MagicKuroRv4.3
+pack.description=魔法アドオンRv4.3 魔法の武器/防具が追加されるアドオン リソースパック
+
 container.kurokumaft:magic_enchant_table=魔法エンチャント台
 container.kurokumaft:magic_enchant_table_block=魔法エンチャント台
 container.kurokumaft:magic_enchant_table.upgrade=装備に魔法をエンチャントする
@@ -107,6 +110,8 @@ entity.kurokumaft:fenrir.name=§3フェンリル
 
 item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスのスポーンエッグ	#
 item.spawn_egg.entity.kurokumaft:fenrir.name=フェンリルのスポーンエッグ	#
+
+tile.kurokumaft:phoenix_summon.name=§4フェニックスのスポナー
 
 item.kurokumaft:phoenix_feather.name=§4魔炎鳥の羽
 item.kurokumaft:fenrir_fang.name=§3魔嵐狼の牙

@@ -100,6 +100,7 @@ export class Hakaisatu extends ZytuComonClass {
                     entity.dimension.spawnParticle("kurokumaft:ranshiki", getDistanceLocation(entity.location, distance2));
                     this.ran(entity, side, top);
                 } catch (error: any) {
+                    console.info(error);
                     system.clearRun(num);
                 }
 
@@ -245,18 +246,18 @@ export class Hakaisatu extends ZytuComonClass {
             const num = system.runInterval(() => {
 
                 try {
-                    const distance = getLookLocationDistancePitch(entity.getRotation(), 3, 0);
+                    const distance = getLookLocationDistancePitch(entity.getRotation(), 1.5, 0);
                     const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 3, entity.id);
                     entity.dimension.spawnParticle("kurokumaft:ryuseigunkou", getDistanceLocation(entity.location, distance));
                     this.zyutuApplyDamage(entity, filter, 5);
-                    this.kokyuApplyKnockback(entity, filter, distance, 0.2);
+                    this.kokyuApplyKnockback(entity, filter, distance, 0.3);
                     entity.applyKnockback({x:distance.x,z:distance.z},0.3);
                 } catch (error: any) {
                     system.clearRun(num);
                 }
             },4);
 
-            system.waitTicks(40).then(() => {
+            system.waitTicks(20).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
 
@@ -399,7 +400,7 @@ export class Hakaisatu extends ZytuComonClass {
             }
             const molang = new MolangVariableMap();
             molang.setFloat("variable.rotaion", -entity.getRotation().y);
-            entity.dimension.spawnParticle("kurokumaft:rashin", entity.location, molang);
+            entity.dimension.spawnParticle("kurokumaft:rashin_aogin", entity.location, molang);
             const num = system.runInterval(() => {
 
                 try {

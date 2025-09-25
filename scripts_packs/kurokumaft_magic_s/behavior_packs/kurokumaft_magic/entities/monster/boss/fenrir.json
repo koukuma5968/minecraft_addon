@@ -5,7 +5,48 @@
       "identifier": "kurokumaft:fenrir",
       "is_spawnable": true,
       "is_summonable": true,
-      "is_experimental": false
+      "is_experimental": false,
+      "properties": {
+        "kurokumaft:boss_pattern": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:spawn_on": {
+          "type": "bool",
+          "default": false,
+          "client_sync": false
+        },
+        "kurokumaft:spawn_point_x": {
+          "range": [ -2147483648, 2147483647],
+          "type": "int",
+          "default": 0,
+          "client_sync": false
+        },
+        "kurokumaft:spawn_point_y": {
+          "range": [ -64, 300],
+          "type": "int",
+          "default": 0,
+          "client_sync": false
+        },
+        "kurokumaft:spawn_point_z": {
+          "range": [ -2147483648, 2147483647],
+          "type": "int",
+          "default": 0,
+          "client_sync": false
+        }
+      },
+      "scripts":{
+        "animate":[
+          "action"
+        ]
+      },
+      "animations":{
+        "action":"controller.animation.boss.action",
+        "cooldown": "animation.cooldown.ten_mine",
+        "move": "animation.cooldown.five_mine"
+      }
     },
     "components": {
       "minecraft:experience_reward": {

@@ -1,4 +1,4 @@
-import { BlockCustomComponent, BlockComponentStepOnEvent } from "@minecraft/server";
+import { BlockCustomComponent, BlockComponentStepOnEvent, BlockPermutation } from "@minecraft/server";
 
 interface BossSummonObject {
     itemName:string,
@@ -36,12 +36,12 @@ async function phoenixSummon(sumOb:BossSummonObject ,blockEvent:BlockComponentSt
     const block = blockEvent.block;
     const dimension = blockEvent.dimension;
     dimension.spawnEntity(sumOb.entityName, {x:block.location.x+0.5,y:block.location.y+6,z:block.location.z+0.5})
-    block.dimension.setBlockType(block.location, sumOb.itemName+"_empty");
+    block.setPermutation(BlockPermutation.resolve(block.typeId, {"kurokumaft:summon_check":1}));
 }
 
 async function fenrirSummon(sumOb:BossSummonObject ,blockEvent:BlockComponentStepOnEvent) {
     const block = blockEvent.block;
     const dimension = blockEvent.dimension;
     dimension.spawnEntity(sumOb.entityName, {x:block.location.x+0.5,y:block.location.y+1,z:block.location.z+0.5})
-    block.dimension.setBlockType(block.location, sumOb.itemName+"_empty");
+    block.setPermutation(BlockPermutation.resolve(block.typeId, {"kurokumaft:summon_check":1}));
 }

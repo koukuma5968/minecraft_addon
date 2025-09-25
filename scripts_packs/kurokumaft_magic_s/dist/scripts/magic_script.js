@@ -9870,7 +9870,7 @@ function magic_lectern(player, item, block) {
             }
             const mulVal = getGrimoireItemsMultiValue(grimoireItemType, item.typeId);
             new_grimoire_book = grimoire_book;
-            if (new_grimoire_book.typeId == "kurokumaft:grimoire_music_sound") {
+            if (new_grimoire_book.typeId === "kurokumaft:grimoire_music_sound") {
               new_grimoire_book.setDynamicProperty(item.typeId, item.typeId);
             }
             remainingNum = remainingNum + item.amount * mulVal;
@@ -9939,8 +9939,8 @@ function magic_lectern(player, item, block) {
 async function magic_lectern_break(block, dimension) {
   const entitys = dimension.getEntitiesAtBlockLocation({ x: block.location.x, y: block.location.y + 1, z: block.location.z });
   entitys.forEach((en) => {
-    let invent = en.getComponent(EntityComponentTypes9.Inventory);
-    let item = invent.container?.getItem(0);
+    const invent = en.getComponent(EntityComponentTypes9.Inventory);
+    const item = invent.container?.getItem(0);
     if (item) {
       dimension.spawnItem(item, en.location);
     }
@@ -10132,6 +10132,7 @@ async function setPortalStand(magicObject, event) {
 }
 
 // scripts/block/BossSummonBlock.ts
+import { BlockPermutation as BlockPermutation4 } from "@minecraft/server";
 var BossSummonObjects = Object.freeze([
   {
     itemName: "kurokumaft:phoenix_summon",
@@ -10154,13 +10155,13 @@ async function phoenixSummon(sumOb, blockEvent) {
   const block = blockEvent.block;
   const dimension = blockEvent.dimension;
   dimension.spawnEntity(sumOb.entityName, { x: block.location.x + 0.5, y: block.location.y + 6, z: block.location.z + 0.5 });
-  block.dimension.setBlockType(block.location, sumOb.itemName + "_empty");
+  block.setPermutation(BlockPermutation4.resolve(block.typeId, { "kurokumaft:summon_check": 1 }));
 }
 async function fenrirSummon(sumOb, blockEvent) {
   const block = blockEvent.block;
   const dimension = blockEvent.dimension;
   dimension.spawnEntity(sumOb.entityName, { x: block.location.x + 0.5, y: block.location.y + 1, z: block.location.z + 0.5 });
-  block.dimension.setBlockType(block.location, sumOb.itemName + "_empty");
+  block.setPermutation(BlockPermutation4.resolve(block.typeId, { "kurokumaft:summon_check": 1 }));
 }
 
 // scripts/block/PortalGateBlock.ts
@@ -10196,11 +10197,11 @@ async function portalGateTp(gateObj, blockEvent) {
   const location = block.location;
   const dimension = blockEvent.dimension;
   const portal = dimension.getBlock({ x: location.x, y: location.y + 1, z: location.z });
-  if (portal && (portal.typeId == gateObj.gate.x || portal.typeId == gateObj.gate.z)) {
-    if (dimension.id == MinecraftDimensionTypes.Overworld) {
+  if (portal && (portal.typeId === gateObj.gate.x || portal.typeId === gateObj.gate.z)) {
+    if (dimension.id === MinecraftDimensionTypes.Overworld) {
       const portal2 = dimension.getBlock({ x: location.x, y: location.y + 1, z: location.z });
-      if (portal2 && (portal2.typeId == gateObj.gate.x || portal2.typeId == gateObj.gate.z)) {
-        if (world26.getDynamicProperty(gateObj.portalState) == 0) {
+      if (portal2 && (portal2.typeId === gateObj.gate.x || portal2.typeId === gateObj.gate.z)) {
+        if (world26.getDynamicProperty(gateObj.portalState) === 0) {
           world26.setDynamicProperty(gateObj.portalState, 1);
           let zloca = gateObj.hellLocate.z;
           for (let x = 1; x <= 8; x++) {
@@ -10216,7 +10217,7 @@ async function portalGateTp(gateObj, blockEvent) {
             zloca += 16;
           }
         }
-        if (portal2.typeId == gateObj.gate.x) {
+        if (portal2.typeId === gateObj.gate.x) {
           entity?.setDynamicProperty("hell_tp_point", { x: location.x, y: location.y, z: location.z + 2 });
         } else {
           entity?.setDynamicProperty("hell_tp_point", { x: location.x + 2, y: location.y, z: location.z });
@@ -10264,8 +10265,8 @@ var PortalBlock = class {
   }
 };
 async function portalGateBreak(block, blockPermutation) {
-  const portalObj = PortalObjects.find((obj) => obj.itemName == blockPermutation.type.id);
-  if (portalObj) {
+  const portalObj = PortalObjects.find((obj) => obj.itemName === blockPermutation.type.id);
+  if (portalObj !== void 0) {
     world27.setDynamicProperty(portalObj.portalState, 0);
     for (let x = -2; x <= 2; x++) {
       for (let y = -2; y <= 2; y++) {
@@ -11502,11 +11503,22 @@ var BossEllipticalMover = class extends BossMoverBase {
 var PhoenixActionCompornent = class {
   constructor(entity) {
     this.entity = entity;
-    this.center = entity.location;
-    this.mover = new BossEllipticalMover(this.center, 25, 35, Math.PI / 3);
     this.entity.addTag(this.entity.id);
     this.attackCount = 0;
     this.moveCount = 0;
+    if (!entity.getProperty("kurokumaft:spawn_on")) {
+      entity.setProperty("kurokumaft:spawn_on", true);
+      entity.setProperty("kurokumaft:spawn_point_x", entity.location.x);
+      entity.setProperty("kurokumaft:spawn_point_y", entity.location.y);
+      entity.setProperty("kurokumaft:spawn_point_z", entity.location.z);
+      this.center = entity.location;
+    } else {
+      const x = entity.getProperty("kurokumaft:spawn_point_x");
+      const y = entity.getProperty("kurokumaft:spawn_point_y");
+      const z = entity.getProperty("kurokumaft:spawn_point_z");
+      this.center = { x, y, z };
+    }
+    this.mover = new BossEllipticalMover(this.center, 25, 35, Math.PI / 3);
   }
   startMoniter() {
     this.entity.setProperty("kurokumaft:boss_pattern", 0);
@@ -11648,21 +11660,23 @@ var PhoenixActionCompornent = class {
   }
   async fireBlast(count) {
     try {
-      const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.location);
-      const projectile = bulet.getComponent(EntityComponentTypes13.Projectile);
-      projectile.owner = this.entity;
-      projectile.shoot({
-        x: this.entity.getViewDirection().x,
-        y: this.entity.getViewDirection().y - 3,
-        z: this.entity.getViewDirection().z
-      }, {
-        uncertainty: 3
-      });
-      system38.waitTicks(5).then(() => {
-        if (count !== 5) {
-          this.fireBlast(count + 1);
-        }
-      });
+      if (this.entity !== void 0 && this.entity.isValid) {
+        const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.location);
+        const projectile = bulet.getComponent(EntityComponentTypes13.Projectile);
+        projectile.owner = this.entity;
+        projectile.shoot({
+          x: this.entity.getViewDirection().x,
+          y: this.entity.getViewDirection().y - 3,
+          z: this.entity.getViewDirection().z
+        }, {
+          uncertainty: 3
+        });
+        system38.waitTicks(5).then(() => {
+          if (count !== 5) {
+            this.fireBlast(count + 1);
+          }
+        });
+      }
     } catch (error) {
       throw error;
     }
@@ -11670,16 +11684,18 @@ var PhoenixActionCompornent = class {
   blazeWear(count, hight) {
     try {
       system38.waitTicks(5).then(() => {
-        const loc = this.entity.location;
-        this.entity.teleport({ x: loc.x, y: hight, z: loc.z }, {
-          checkForBlocks: true,
-          facingLocation: this.mover.getCenter()
-        });
-        if (count === 8) {
-          this.entity.setProperty("kurokumaft:boss_pattern", 0);
-          this.blazeWearAttack(0);
-        } else {
-          this.blazeWear(count + 1, hight - 1);
+        if (this.entity !== void 0 && this.entity.isValid) {
+          const loc = this.entity.location;
+          this.entity.teleport({ x: loc.x, y: hight, z: loc.z }, {
+            checkForBlocks: true,
+            facingLocation: this.mover.getCenter()
+          });
+          if (count === 8) {
+            this.entity.setProperty("kurokumaft:boss_pattern", 0);
+            this.blazeWearAttack(0);
+          } else {
+            this.blazeWear(count + 1, hight - 1);
+          }
         }
       });
     } catch (error) {
@@ -11688,14 +11704,16 @@ var PhoenixActionCompornent = class {
   blazeWearAttack(count) {
     try {
       system38.waitTicks(1).then(() => {
-        const distance = getLookLocationDistance(this.entity.getRotation().y, 1, 0, 0);
-        this.entity.teleport(getDistanceLocation(this.entity.location, distance), {
-          checkForBlocks: true
-        });
-        if (count === 30) {
-          this.originMoveing(3);
-        } else {
-          this.blazeWearAttack(count + 1);
+        if (this.entity !== void 0 && this.entity.isValid) {
+          const distance = getLookLocationDistance(this.entity.getRotation().y, 2, 0, 0);
+          this.entity.teleport(getDistanceLocation(this.entity.location, distance), {
+            checkForBlocks: true
+          });
+          if (count === 30) {
+            this.originMoveing(3);
+          } else {
+            this.blazeWearAttack(count + 1);
+          }
         }
       });
     } catch (error) {
@@ -11866,7 +11884,7 @@ async function nightVisionEffectReset(player) {
 }
 
 // scripts/items/weapon/armor/MagicChestSurveillance.ts
-import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot24, system as system40, TicksPerSecond as TicksPerSecond54, BlockVolume as BlockVolume7, BlockPermutation as BlockPermutation6 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes15, EquipmentSlot as EquipmentSlot24, system as system40, TicksPerSecond as TicksPerSecond54, BlockVolume as BlockVolume7, BlockPermutation as BlockPermutation7 } from "@minecraft/server";
 var MagicChestObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_magic_chestplate",
@@ -11959,8 +11977,8 @@ async function lavaFreeze(player) {
   player.dimension.fillBlocks(blockVol, MinecraftBlockTypes.Ice, {
     blockFilter: {
       includePermutations: [
-        BlockPermutation6.resolve(MinecraftBlockTypes.Lava),
-        BlockPermutation6.resolve(MinecraftBlockTypes.Magma)
+        BlockPermutation7.resolve(MinecraftBlockTypes.Lava),
+        BlockPermutation7.resolve(MinecraftBlockTypes.Magma)
       ]
     },
     ignoreChunkBoundErrors: true
@@ -12072,7 +12090,7 @@ async function iceResistanceEffectReset(player) {
 }
 
 // scripts/items/weapon/armor/MagicBootsSurveillance.ts
-import { EntityComponentTypes as EntityComponentTypes17, EquipmentSlot as EquipmentSlot26, system as system42, TicksPerSecond as TicksPerSecond56, BlockPermutation as BlockPermutation7, BlockVolume as BlockVolume8 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes17, EquipmentSlot as EquipmentSlot26, system as system42, TicksPerSecond as TicksPerSecond56, BlockPermutation as BlockPermutation8, BlockVolume as BlockVolume8 } from "@minecraft/server";
 var MagicBootsObjects = Object.freeze([
   {
     itemName: "kurokumaft:fire_magic_boots",
@@ -12192,8 +12210,8 @@ async function lavaWalker(player) {
   player.dimension.fillBlocks(blockVol, MinecraftBlockTypes.Magma, {
     blockFilter: {
       includePermutations: [
-        BlockPermutation7.resolve(MinecraftBlockTypes.Lava),
-        BlockPermutation7.resolve(MinecraftBlockTypes.FlowingLava)
+        BlockPermutation8.resolve(MinecraftBlockTypes.Lava),
+        BlockPermutation8.resolve(MinecraftBlockTypes.FlowingLava)
       ]
     },
     ignoreChunkBoundErrors: true
@@ -12243,8 +12261,8 @@ async function iceWalker(player) {
   player.dimension.fillBlocks(blockVol, MinecraftBlockTypes.PackedIce, {
     blockFilter: {
       includePermutations: [
-        BlockPermutation7.resolve(MinecraftBlockTypes.Water),
-        BlockPermutation7.resolve(MinecraftBlockTypes.FlowingWater)
+        BlockPermutation8.resolve(MinecraftBlockTypes.Water),
+        BlockPermutation8.resolve(MinecraftBlockTypes.FlowingWater)
       ]
     },
     ignoreChunkBoundErrors: true

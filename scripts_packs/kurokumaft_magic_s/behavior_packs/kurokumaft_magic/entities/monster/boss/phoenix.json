@@ -12,6 +12,29 @@
           "type": "int",
           "default": 0,
           "client_sync": true
+        },
+        "kurokumaft:spawn_on": {
+          "type": "bool",
+          "default": false,
+          "client_sync": false
+        },
+        "kurokumaft:spawn_point_x": {
+          "range": [ -2147483648, 2147483647],
+          "type": "int",
+          "default": 0,
+          "client_sync": false
+        },
+        "kurokumaft:spawn_point_y": {
+          "range": [ -64, 300],
+          "type": "int",
+          "default": 0,
+          "client_sync": false
+        },
+        "kurokumaft:spawn_point_z": {
+          "range": [ -2147483648, 2147483647],
+          "type": "int",
+          "default": 0,
+          "client_sync": false
         }
       },
       "scripts":{

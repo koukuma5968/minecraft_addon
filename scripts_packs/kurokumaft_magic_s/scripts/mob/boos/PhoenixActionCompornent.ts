@@ -13,11 +13,22 @@ export class PhoenixActionCompornent implements BossActionInterface {
 
     constructor(entity: Entity) {
         this.entity = entity;
-        this.center = entity.location;
-        this.mover = new BossEllipticalMover(this.center, 25, 35,  Math.PI / 3);
         this.entity.addTag(this.entity.id);
         this.attackCount = 0;
         this.moveCount = 0;
+        if (!entity.getProperty("kurokumaft:spawn_on")) {
+            entity.setProperty("kurokumaft:spawn_on", true);
+            entity.setProperty("kurokumaft:spawn_point_x", entity.location.x);
+            entity.setProperty("kurokumaft:spawn_point_y", entity.location.y);
+            entity.setProperty("kurokumaft:spawn_point_z", entity.location.z);
+            this.center = entity.location;
+        } else {
+            const x = entity.getProperty("kurokumaft:spawn_point_x") as number;
+            const y = entity.getProperty("kurokumaft:spawn_point_y") as number;
+            const z = entity.getProperty("kurokumaft:spawn_point_z") as number;
+            this.center = {x:x,y:y,z:z};
+        }
+        this.mover = new BossEllipticalMover(this.center, 25, 35,  Math.PI / 3);
     }
 
     startMoniter(): void {
@@ -186,22 +197,23 @@ export class PhoenixActionCompornent implements BossActionInterface {
         // world.sendMessage("火球乱射");
 
         try {
-            const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.location);
-            const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
-            projectile.owner = this.entity;
-            projectile.shoot({
-                x:this.entity.getViewDirection().x,
-                y:this.entity.getViewDirection().y - 3,
-                z:this.entity.getViewDirection().z
-            }, {
-                uncertainty: 3
-            });
-            system.waitTicks(5).then(() => {
-                if (count !== 5) {
-                    this.fireBlast(count + 1);
-                }
-            });
-
+            if (this.entity !== undefined && this.entity.isValid) {
+                const bulet = this.entity.dimension.spawnEntity("kurokumaft:fireballmagic", this.entity.location);
+                const projectile = bulet.getComponent(EntityComponentTypes.Projectile) as EntityProjectileComponent;
+                projectile.owner = this.entity;
+                projectile.shoot({
+                    x:this.entity.getViewDirection().x,
+                    y:this.entity.getViewDirection().y - 3,
+                    z:this.entity.getViewDirection().z
+                }, {
+                    uncertainty: 3
+                });
+                system.waitTicks(5).then(() => {
+                    if (count !== 5) {
+                        this.fireBlast(count + 1);
+                    }
+                });
+            }
         } catch (error: any) {
             throw error
         }
@@ -214,17 +226,19 @@ export class PhoenixActionCompornent implements BossActionInterface {
  
         try {
             system.waitTicks(5).then(() => {
-                const loc = this.entity.location;
-                this.entity.teleport({x:loc.x,y:hight,z:loc.z}, {
-                    checkForBlocks: true,
-                    facingLocation: this.mover.getCenter()
-                });
+                if (this.entity !== undefined && this.entity.isValid) {
+                    const loc = this.entity.location;
+                    this.entity.teleport({x:loc.x,y:hight,z:loc.z}, {
+                        checkForBlocks: true,
+                        facingLocation: this.mover.getCenter()
+                    });
 
-                if (count === 8) {
-                    this.entity.setProperty("kurokumaft:boss_pattern", 0);
-                    this.blazeWearAttack(0);
-                } else {
-                    this.blazeWear(count + 1, hight - 1);
+                    if (count === 8) {
+                        this.entity.setProperty("kurokumaft:boss_pattern", 0);
+                        this.blazeWearAttack(0);
+                    } else {
+                        this.blazeWear(count + 1, hight - 1);
+                    }
                 }
             });
         } catch (error: any) {
@@ -237,14 +251,16 @@ export class PhoenixActionCompornent implements BossActionInterface {
         // world.sendMessage("火焔纏アタック");
         try {
             system.waitTicks(1).then(() => {
-                const distance = getLookLocationDistance(this.entity.getRotation().y, 1, 0, 0);
-                this.entity.teleport(getDistanceLocation(this.entity.location, distance), {
-                    checkForBlocks: true
-                });
-                if (count === 30) {
-                    this.originMoveing(3);
-                } else {
-                    this.blazeWearAttack(count + 1);
+                if (this.entity !== undefined && this.entity.isValid) {
+                    const distance = getLookLocationDistance(this.entity.getRotation().y, 2, 0, 0);
+                    this.entity.teleport(getDistanceLocation(this.entity.location, distance), {
+                        checkForBlocks: true
+                    });
+                    if (count === 30) {
+                        this.originMoveing(3);
+                    } else {
+                        this.blazeWearAttack(count + 1);
+                    }
                 }
             });
         } catch (error: any) {

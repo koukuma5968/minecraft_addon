@@ -318,6 +318,9 @@
                     "minecraft:yellow_stained_glass_pane"
                 ]
             },
+			"minecraft:type_family": {
+				"family": [ "inanimate", "arrow" ]
+			},
             "minecraft:collision_box": {
                 "width": 2.5,
                 "height": 2.5
