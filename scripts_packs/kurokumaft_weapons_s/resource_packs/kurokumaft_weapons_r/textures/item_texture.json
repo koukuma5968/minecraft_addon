@@ -837,6 +837,9 @@
       },
       "soup_bowl" : {
          "textures" : "textures/kurokumaft/items/tool/soup_bowl"
+      },
+      "copper_shears" : {
+         "textures" : "textures/kurokumaft/items/tool/copper_shears"
       }
 
    },

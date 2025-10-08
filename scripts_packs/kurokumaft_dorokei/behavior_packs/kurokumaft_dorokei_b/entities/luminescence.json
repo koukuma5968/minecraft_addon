@@ -1,0 +1,43 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:luminescence",
+      "is_spawnable": false,
+      "is_summonable": true
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "parrot_tame", "mob" ]
+      },
+      "minecraft:is_tamed": {
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:breathable": {
+        "breathes_lava": true,
+        "breathes_solids": true,
+        "breathes_water": true,
+        "total_supply": 300,
+        "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 2.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "all",
+          "deals_damage": "no"
+        }
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    }
+  }
+}

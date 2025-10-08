@@ -35,7 +35,6 @@
                     },
                     "items": [
                       "kurokumaft:bamboo_axe",
-                      "kurokumaft:copper_axe",
                       "kurokumaft:steel_axe",
                       "kurokumaft:mithril_axe",
                       "kurokumaft:orichalcum_axe",
@@ -98,7 +97,6 @@
                     },
                     "items": [
                       "kurokumaft:cherry_helmet",
-                      "kurokumaft:copper_helmet",
                       "kurokumaft:steel_helmet",
                       "kurokumaft:blackstone_helmet",
                       "kurokumaft:orichalcum_helmet"
@@ -115,7 +113,6 @@
                     },
                     "items": [
                       "kurokumaft:cherry_chestplate",
-                      "kurokumaft:copper_chestplate",
                       "kurokumaft:steel_chestplate",
                       "kurokumaft:blackstone_chestplate",
                       "kurokumaft:orichalcum_chestplate"
@@ -132,7 +129,6 @@
                     },
                     "items": [
                       "kurokumaft:cherry_leggings",
-                      "kurokumaft:copper_leggings",
                       "kurokumaft:steel_leggings",
                       "kurokumaft:blackstone_leggings",
                       "kurokumaft:orichalcum_leggings"
@@ -149,7 +145,6 @@
                         },
                         "items": [
                             "kurokumaft:cherry_boots",
-                            "kurokumaft:copper_boots",
                             "kurokumaft:steel_boots",
                             "kurokumaft:blackstone_boots",
                             "kurokumaft:orichalcum_boots"

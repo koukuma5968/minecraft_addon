@@ -1,0 +1,35 @@
+{
+    "format_version": "1.21.50",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kurokumaft:wrap_block",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+            "minecraft:selection_box": true,
+            "minecraft:display_name": "tile.kurokumaft:wrap_block.name",
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 5
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 96
+            },
+            "minecraft:geometry": "geometry.wrap_block",
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "wrap_block",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:tick": {
+                "interval_range": [10,10],
+                "looping": true
+            },
+            "kurokumaft:wrap_component": [
+            ]
+        }
+    }
+}

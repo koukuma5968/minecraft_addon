@@ -54,6 +54,7 @@ import { HoeBatchDestruction } from "../items/hoe/HoeBatchDestruction";
 import { StraightDownHole } from "../items/shovel/StraightDownHole";
 import { PicRangeDestruction } from "../items/pickaxe/PicRangeDestruction";
 import { StartupEvent } from "@minecraft/server";
+import { ShearsReap } from "../items/tool/ShearsReap";
 
 /**
  * カスタムコンポーネントの登録
@@ -143,6 +144,9 @@ function initWeaponsRegisterCustom(initEvent:StartupEvent) {
     // くわ
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:hoe_farming', new HoeFarming());
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:batch_destruction_hoe', new HoeBatchDestruction());
+
+    // ハサミ
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:shears_component', new ShearsReap());
 
     // ファイアブランド
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:fire_brand', new FireBrand());

@@ -1,5 +1,5 @@
 // scripts/weapons_script.ts
-import { world as world15, Player as Player44, EquipmentSlot as EquipmentSlot47, EntityComponentTypes as EntityComponentTypes27, EntityInitializationCause, system as system18, TicksPerSecond as TicksPerSecond10 } from "@minecraft/server";
+import { world as world15, Player as Player45, EquipmentSlot as EquipmentSlot48, EntityComponentTypes as EntityComponentTypes27, EntityInitializationCause, system as system19, TicksPerSecond as TicksPerSecond10 } from "@minecraft/server";
 
 // scripts/common/WeaponsCommonUtil.ts
 import { world, ItemStack, EntityComponentTypes, ItemComponentTypes, Direction, TicksPerSecond } from "@minecraft/server";
@@ -6630,6 +6630,49 @@ function destructionBlocks4(location, dimension, brakeBlockList = []) {
   return brakeBlockList;
 }
 
+// scripts/items/tool/ShearsReap.ts
+import { ItemStack as ItemStack51, EquipmentSlot as EquipmentSlot45, BlockPermutation as BlockPermutation19, system as system16 } from "@minecraft/server";
+var ShearsReap = class {
+  onUseOn(event, arg) {
+    const source = event.source;
+    const block = event.block;
+    const itemStack = event.itemStack;
+    if (block.typeId === MinecraftBlockTypes.Pumpkin) {
+      itemDurabilityDamage(source, itemStack, EquipmentSlot45.Mainhand);
+      block.dimension.setBlockType(block.location, MinecraftBlockTypes.CarvedPumpkin);
+      const item = new ItemStack51("minecraft:pumpkin_seeds", 1);
+      block.dimension.spawnItem(item, { x: block.location.x, y: block.location.y + 1, z: block.location.z });
+    } else if (block.permutation.getState("honey_level") === 5) {
+      itemDurabilityDamage(source, itemStack, EquipmentSlot45.Mainhand);
+      block.setPermutation(BlockPermutation19.resolve(block.typeId, { honey_level: 0 }));
+      const item = new ItemStack51("minecraft:honeycomb", 1);
+      block.dimension.spawnItem(item, { x: block.location.x, y: block.location.y + 1, z: block.location.z });
+    }
+  }
+  onMineBlock(event, arg) {
+    const source = event.source;
+    const itemStack = event.itemStack;
+    if (itemStack !== void 0) {
+      itemDurabilityDamage(source, itemStack, EquipmentSlot45.Mainhand);
+    }
+  }
+  async breakReap(source, itemStack, block) {
+    system16.waitTicks(1).then(() => {
+      try {
+        if (itemStack !== void 0) {
+          itemDurabilityDamage(source, itemStack, EquipmentSlot45.Mainhand);
+        }
+        const item = block.getItemStack(1, true);
+        if (item !== void 0) {
+          block.dimension.spawnItem(item, block.location);
+        }
+        block.dimension.setBlockType(block.location, MinecraftBlockTypes.Air);
+      } catch (error) {
+      }
+    });
+  }
+};
+
 // scripts/custom/WeaponsCustomComponentRegistry.ts
 function initWeaponsRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:tnt_sword", new TntSwordBreak());
@@ -6668,6 +6711,7 @@ function initWeaponsRegisterCustom(initEvent) {
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:batch_destruction", new AxeBatchDestruction());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:hoe_farming", new HoeFarming());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:batch_destruction_hoe", new HoeBatchDestruction());
+  initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:shears_component", new ShearsReap());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:fire_brand", new FireBrand());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:weapon_mine_durability", new WeaponMineDurability());
   initEvent.itemComponentRegistry.registerCustomComponent("kurokumaft:growth_meal", new GrowthMeal());
@@ -6690,7 +6734,7 @@ function initWeaponsRegisterCustom(initEvent) {
 }
 
 // scripts/items/armor/HelmetSurveillance.ts
-import { EntityComponentTypes as EntityComponentTypes25, EquipmentSlot as EquipmentSlot45, system as system16, TicksPerSecond as TicksPerSecond9, ItemComponentTypes as ItemComponentTypes8 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes25, EquipmentSlot as EquipmentSlot46, system as system17, TicksPerSecond as TicksPerSecond9, ItemComponentTypes as ItemComponentTypes8 } from "@minecraft/server";
 var HelmetSurveillance = class {
   constructor(player, itemStack) {
     this.player = player;
@@ -6704,7 +6748,7 @@ var HelmetSurveillance = class {
   }
   async checkJob() {
     const equ = this.player.getComponent(EntityComponentTypes25.Equippable);
-    const head = equ.getEquipment(EquipmentSlot45.Head);
+    const head = equ.getEquipment(EquipmentSlot46.Head);
     if (head !== void 0 && head.typeId === this.itemStack.typeId) {
       this.player.setDynamicProperty("helmet_equ", this.itemStack.typeId);
       head.getTags().forEach((tag) => {
@@ -6720,8 +6764,8 @@ var HelmetSurveillance = class {
           wolfPowerBoost(this.player);
         }
       });
-      system16.runTimeout(() => {
-        system16.run(this.checkJob.bind(this));
+      system17.runTimeout(() => {
+        system17.run(this.checkJob.bind(this));
       }, TicksPerSecond9 * 5);
     } else {
       this.player.setDynamicProperty("helmet_equ", void 0);
@@ -6734,10 +6778,10 @@ async function axolotlRegeneration(player) {
   if (health.currentValue <= 4) {
     health.setCurrentValue(health.defaultValue);
     const equ = player.getComponent(EntityComponentTypes25.Equippable);
-    const head = equ.getEquipment(EquipmentSlot45.Head);
+    const head = equ.getEquipment(EquipmentSlot46.Head);
     const itemDur = head.getComponent(ItemComponentTypes8.Durability);
     playsound(player, "random.totem");
-    itemDurabilityDamageFixed(player, head, EquipmentSlot45.Head, itemDur.maxDurability / 3);
+    itemDurabilityDamageFixed(player, head, EquipmentSlot46.Head, itemDur.maxDurability / 3);
   }
 }
 async function chickenSlowFalling(player) {
@@ -6766,7 +6810,7 @@ async function wolfPowerBoost(player) {
 }
 
 // scripts/player/WeaponsArmorEquipment.ts
-import { EntityComponentTypes as EntityComponentTypes26, EquipmentSlot as EquipmentSlot46, system as system17, world as world14 } from "@minecraft/server";
+import { EntityComponentTypes as EntityComponentTypes26, EquipmentSlot as EquipmentSlot47, system as system18, world as world14 } from "@minecraft/server";
 var WeaponsArmorEquipment = class _WeaponsArmorEquipment {
   constructor(player) {
     this.player = player;
@@ -6779,7 +6823,7 @@ var WeaponsArmorEquipment = class _WeaponsArmorEquipment {
     for (let i = 0; i < players.length; i++) {
       const player = players[i];
       const equ = player.getComponent(EntityComponentTypes26.Equippable);
-      const offHand = equ.getEquipment(EquipmentSlot46.Offhand);
+      const offHand = equ.getEquipment(EquipmentSlot47.Offhand);
       if (offHand !== void 0) {
         if (offHand.hasTag("kurokumaft:shield") && player.isSneaking) {
           if (!player.hasTag("off_shield_guard")) {
@@ -6805,7 +6849,7 @@ var WeaponsArmorEquipment = class _WeaponsArmorEquipment {
           player.triggerEvent("kurokumaft:knockback_resist_reset");
         }
       }
-      const mainHand = equ.getEquipment(EquipmentSlot46.Mainhand);
+      const mainHand = equ.getEquipment(EquipmentSlot47.Mainhand);
       if (mainHand !== void 0) {
         if (mainHand.hasTag("kurokumaft:shield") && player.isSneaking) {
           if (!player.hasTag("main_shield_guard")) {
@@ -6831,7 +6875,7 @@ var WeaponsArmorEquipment = class _WeaponsArmorEquipment {
           player.triggerEvent("kurokumaft:knockback_resist_reset");
         }
       }
-      const head = equ.getEquipment(EquipmentSlot46.Head);
+      const head = equ.getEquipment(EquipmentSlot47.Head);
       if (head !== void 0) {
         if (player.getDynamicProperty("helmet_equ") !== head.typeId) {
           new HelmetSurveillance(player, head).checkHelmetTick();
@@ -6840,14 +6884,14 @@ var WeaponsArmorEquipment = class _WeaponsArmorEquipment {
         player.setDynamicProperty("helmet_equ", void 0);
       }
     }
-    system17.waitTicks(2).then(() => {
+    system18.waitTicks(2).then(() => {
       new _WeaponsArmorEquipment(this.player).startMonitoring();
     });
   }
 };
 
 // scripts/weapons_script.ts
-system18.beforeEvents.startup.subscribe((initEvent) => {
+system19.beforeEvents.startup.subscribe((initEvent) => {
   initWeaponsRegisterCustom(initEvent);
 });
 world15.beforeEvents.playerLeave.subscribe((leaveEvent) => {
@@ -6896,16 +6940,16 @@ world15.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
         const player = ride.entityRidingOn;
         if (player.isFalling && !entity2.getDynamicProperty("fallingOwner")) {
           entity2.setDynamicProperty("fallingOwner", true);
-          system18.runTimeout(() => {
+          system19.runTimeout(() => {
             if (player.isFalling) {
               event.entity.runCommand("ride @s stop_riding");
             }
-            const num = system18.runInterval(() => {
+            const num = system19.runInterval(() => {
               if (!entity2.isValid) {
-                system18.clearRun(num);
+                system19.clearRun(num);
               } else if (player.isOnGround) {
                 entity2.setDynamicProperty("fallingOwner", false);
-                system18.clearRun(num);
+                system19.clearRun(num);
               }
             }, 2);
           }, 10);
@@ -6977,13 +7021,13 @@ world15.afterEvents.itemStopUse.subscribe((event) => {
     if (player.getDynamicProperty("SniperSteelBowShot")) {
       stopSniperBow(player);
     }
-    if (item.typeId.indexOf("spear") != -1) {
+    if (item.typeId.indexOf("spear") !== -1) {
       stopSpear(player);
     }
-    if (item.typeId.indexOf("hammer") != -1) {
+    if (item.typeId.indexOf("hammer") !== -1) {
       releaseHammer(player, item);
     }
-    if (item.typeId.indexOf("boomerang") != -1) {
+    if (item.typeId.indexOf("boomerang") !== -1) {
       releaseBoomerang(player, item);
     }
   }
@@ -6994,7 +7038,7 @@ world15.afterEvents.entitySpawn.subscribe((event) => {
   if (EntityInitializationCause.Spawned === cause && entity.isValid) {
     const family = entity.getComponent(EntityComponentTypes27.TypeFamily);
     if (family !== void 0 && family.hasTypeFamily("energy_bullet")) {
-      system18.runTimeout(() => {
+      system19.runTimeout(() => {
         if (entity.isValid) {
           entity.remove;
         }
@@ -7009,7 +7053,7 @@ world15.afterEvents.entitySpawn.subscribe((event) => {
 world15.beforeEvents.itemUse.subscribe((event) => {
   const player = event.source;
   const item = event.itemStack;
-  if (item != void 0) {
+  if (item !== void 0) {
   }
 });
 world15.afterEvents.itemUse.subscribe((event) => {
@@ -7032,13 +7076,19 @@ world15.beforeEvents.playerBreakBlock.subscribe((event) => {
   const player = event.player;
   const item = event.itemStack;
   const block = event.block;
-  if (item != void 0) {
+  if (item !== void 0) {
+    if (item.typeId === "kurokumaft:copper_shears") {
+      if (block.typeId.indexOf("leaves") !== -1 || block.typeId.indexOf("plant") !== -1 || block.typeId.indexOf("grass") !== -1) {
+        event.cancel = true;
+        new ShearsReap().breakReap(player, item, block);
+      }
+    }
   }
 });
 world15.afterEvents.entityHitEntity.subscribe((event) => {
   const damageEn = event.damagingEntity;
   const hitEn = event.hitEntity;
-  if (hitEn !== void 0 && hitEn instanceof Player44) {
+  if (hitEn !== void 0 && hitEn instanceof Player45) {
     shieldGuard(hitEn, true);
     shieldCounter(hitEn, damageEn);
   }
@@ -7046,17 +7096,17 @@ world15.afterEvents.entityHitEntity.subscribe((event) => {
 world15.afterEvents.entityHitBlock.subscribe((event) => {
   const damageEn = event.damagingEntity;
   const hitBlock = event.hitBlock;
-  if (hitBlock != void 0) {
+  if (hitBlock !== void 0) {
     const equ = damageEn.getComponent(EntityComponentTypes27.Equippable);
-    const itemStack = equ.getEquipment(EquipmentSlot47.Mainhand);
+    const itemStack = equ.getEquipment(EquipmentSlot48.Mainhand);
     if (itemStack !== void 0) {
-      if (itemStack.typeId == "kurokumaft:fire_brand") {
+      if (itemStack.typeId === "kurokumaft:fire_brand") {
         fireCharcoalBlock(damageEn, itemStack, hitBlock);
       }
-      if (itemStack.typeId == "kurokumaft:tnt_sword") {
+      if (itemStack.typeId === "kurokumaft:tnt_sword") {
         tntBreak(damageEn, itemStack, hitBlock.location);
       }
-      if (itemStack.typeId == "kurokumaft:mithril_sword") {
+      if (itemStack.typeId === "kurokumaft:mithril_sword") {
         breakBlock(hitBlock);
       }
     }
@@ -7067,11 +7117,11 @@ world15.afterEvents.projectileHitEntity.subscribe((event) => {
   const source = event.source;
   const hitEn = event.getEntityHit().entity;
   const hitVector = event.hitVector;
-  if (hitEn !== void 0 && hitEn instanceof Player44) {
+  if (hitEn !== void 0 && hitEn instanceof Player45) {
     shieldGuard(hitEn, false);
     glassReflection(hitEn, projectileEn, hitVector);
   }
-  if (source !== void 0 && source instanceof Player44) {
+  if (source !== void 0 && source instanceof Player45) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn !== void 0 && isThrowHammer(projectileEn)) {
@@ -7082,7 +7132,7 @@ world15.afterEvents.projectileHitEntity.subscribe((event) => {
 world15.afterEvents.projectileHitBlock.subscribe((event) => {
   const projectileEn = event.projectile;
   const source = event.source;
-  if (source !== void 0 && source instanceof Player44) {
+  if (source !== void 0 && source instanceof Player45) {
     hitSpear(source, projectileEn);
   }
   if (projectileEn !== void 0 && isThrowHammer(projectileEn)) {
@@ -7094,7 +7144,7 @@ world15.afterEvents.entityHurt.subscribe((event) => {
   const damage = event.damage;
   const damageSource = event.damageSource;
   const hitEn = event.hurtEntity;
-  if (hitEn instanceof Player44 && damageSource.cause !== "void") {
+  if (hitEn instanceof Player45 && damageSource.cause !== "void") {
     if (WeaponGuards.indexOf(damageSource.cause) !== -1) {
       shieldGuard(hitEn, false);
     }

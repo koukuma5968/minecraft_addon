@@ -19,6 +19,7 @@ import { breackTearEnchant } from "./block/TearEnchant";
 import { stopSniperBow } from "./items/weapons/bow/SniperSteelBow";
 import { explodeBakutikuCancel, explodeBakutikuChain } from "./block/bom/BakutikuFlint";
 import { WeaponsArmorEquipment } from "./player/WeaponsArmorEquipment";
+import { ShearsReap } from "./items/tool/ShearsReap";
 
 // ワールド接続時
 system.beforeEvents.startup.subscribe(initEvent => {
@@ -184,13 +185,13 @@ world.afterEvents.itemStopUse.subscribe(event => {
         if (player.getDynamicProperty("SniperSteelBowShot")) {
             stopSniperBow(player);
         }
-        if (item.typeId.indexOf("spear") != -1) {
+        if (item.typeId.indexOf("spear") !== -1) {
             stopSpear(player);
         }
-        if (item.typeId.indexOf("hammer") != -1) {
+        if (item.typeId.indexOf("hammer") !== -1) {
             releaseHammer(player, item);
         }
-        if (item.typeId.indexOf("boomerang") != -1) {
+        if (item.typeId.indexOf("boomerang") !== -1) {
             releaseBoomerang(player, item);
         }
     }
@@ -220,7 +221,7 @@ world.afterEvents.entitySpawn.subscribe(event => {
 world.beforeEvents.itemUse.subscribe(event => {
     const player = event.source;
     const item = event.itemStack;
-    if (item != undefined) {
+    if (item !== undefined) {
     }
 });
 
@@ -252,7 +253,13 @@ world.beforeEvents.playerBreakBlock.subscribe(event => {
     const player = event.player;
     const item = event.itemStack;
     const block = event.block;
-    if (item != undefined) {
+    if (item !== undefined) {
+        if (item.typeId === "kurokumaft:copper_shears") {
+            if (block.typeId.indexOf("leaves") !== -1 || block.typeId.indexOf("plant") !== -1 || block.typeId.indexOf("grass") !== -1) {
+                event.cancel = true;
+                new ShearsReap().breakReap(player, item, block);
+            }
+        }
     }
     // if (silkType.indexOf(block.typeId) != -1) {
     //     event.cancel = true;
@@ -281,17 +288,17 @@ world.afterEvents.entityHitBlock.subscribe(event => {
     // Object.entries(hitBlock.permutation.getAllStates()).forEach(value => {
     //     world.sendMessage(JSON.stringify(value));
     // });
-    if (hitBlock != undefined) {
+    if (hitBlock !== undefined) {
         const equ = damageEn.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         if (itemStack !== undefined) {
-            if (itemStack.typeId == "kurokumaft:fire_brand") {
+            if (itemStack.typeId === "kurokumaft:fire_brand") {
                 fireCharcoalBlock(damageEn, itemStack, hitBlock);
             }
-            if (itemStack.typeId == "kurokumaft:tnt_sword") {
+            if (itemStack.typeId === "kurokumaft:tnt_sword") {
                 tntBreak(damageEn, itemStack, hitBlock.location);
             }
-            if (itemStack.typeId == "kurokumaft:mithril_sword") {
+            if (itemStack.typeId === "kurokumaft:mithril_sword") {
                 breakBlock(hitBlock);
             }
         }

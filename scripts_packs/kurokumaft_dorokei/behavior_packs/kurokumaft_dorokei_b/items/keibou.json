@@ -1,0 +1,25 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:keibou",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:keibou.name"
+			},
+      "minecraft:icon": "keibou",
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 1,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:hand_equipped": true,
+      "kurokumaft:keibou_component": {
+        
+      }
+    }
+  }
+}
+

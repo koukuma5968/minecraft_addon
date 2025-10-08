@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.90",
+  "format_version": "1.21.110",
   "minecraft:biome": {
     "description": {
       "identifier": "kurokumaft:wisteria_pile_mountains"
@@ -33,13 +33,6 @@
           "top_material": "minecraft:grass_block",
           "sea_material": "minecraft:water"
         }
-      },
-      "minecraft:overworld_generation_rules": {
-        "hills_transformation": "minecraft:birch_forest_hills",
-        "mutate_transformation": "minecraft:birch_forest_mutated",
-        "generate_for_climates": [
-          [ "medium", 1 ]
-        ]
       },
       "minecraft:tags": {
         "tags": [

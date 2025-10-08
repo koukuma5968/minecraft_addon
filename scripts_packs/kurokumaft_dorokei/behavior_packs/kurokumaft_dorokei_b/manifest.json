@@ -1,0 +1,43 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"uuid": "f0ace9f8-f139-4c31-b5a7-06a9ea540997",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 21, 90]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "c0bbd771-e6fe-421c-b0b3-dfc4210976d8",
+			"version": [1, 0, 0]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "57ac7a47-b345-421b-946c-db078b1bfe17",
+			"version": [1,0,0],
+			"entry": "scripts/dorokei_script.js"
+		}
+
+	],
+	"metadata": {
+		"authors": ["koukumakuraft"],
+		"product_type": "addon"
+	},
+	"dependencies": [
+		{
+			"uuid": "d768ee20-0c66-4155-9e7e-547714357f12",
+			"version": [1, 0, 0]
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "2.0.0"
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.2.0"
+		}
+	]
+}

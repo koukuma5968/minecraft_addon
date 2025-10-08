@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.90",
+  "format_version": "1.21.110",
   "minecraft:biome": {
     "description": {
       "identifier": "kurokumaft:nata_spider_mountains"
@@ -38,13 +38,6 @@
           },
           "sea_material": "minecraft:water"
         }
-      },
-      "minecraft:overworld_generation_rules": {
-        "hills_transformation": "minecraft:roofed_forest",
-        "mutate_transformation": "minecraft:roofed_forest",
-        "generate_for_climates": [
-          [ "medium", 1 ]
-        ]
       },
       "minecraft:tags": {
         "tags": [

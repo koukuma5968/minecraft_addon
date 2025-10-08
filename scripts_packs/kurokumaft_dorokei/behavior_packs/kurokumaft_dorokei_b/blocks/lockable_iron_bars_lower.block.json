@@ -1,0 +1,133 @@
+{
+    "format_version": "1.21.50",
+    "minecraft:block": {
+        "description": {
+            "identifier": "kurokumaft:lockable_iron_bars_lower",
+            "menu_category": {
+                "category": "none"
+			},
+			"states": {
+                "kurokumaft:lock": ["locking", "open"]
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": [
+                        "minecraft:cardinal_direction"
+                    ]
+                }
+            }
+        },
+        "components": {
+            "minecraft:display_name": "tile.kurokumaft:lockable_iron_bars_lower.name",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 7.5,
+				"item_specific_speeds": [
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+					},
+					"destroy_speed": 1.15
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+					},
+					"destroy_speed": 0.6
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+					},
+					"destroy_speed": 0.4
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+					},
+					"destroy_speed": 0.2
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+					},
+					"destroy_speed": 0.3
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+					},
+					"destroy_speed": 0.25
+					}
+				]
+			},
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "lockable_iron_bars_lower",
+                    "render_method": "alpha_test"
+                }
+            },
+            "minecraft:destructible_by_explosion": {
+                "explosion_resistance": 96
+            },
+            "kurokumaft:lockable_bars_on": {
+                "type": "lower"
+            }
+        },
+        "permutations": [
+            {
+                "condition": "query.block_state ('kurokumaft:lock') == 'locking'",
+                "components": {
+                    "minecraft:collision_box": true,
+                    "minecraft:selection_box": {
+                        "origin": [-8.0,0.0,-1.0],
+                        "size": [16.0,16.0,2.0]
+                    },
+                    "minecraft:geometry": "geometry.lockable_iron_bars_lower"
+                }
+            },
+            {
+                "condition": "query.block_state ('kurokumaft:lock') == 'open'",
+                "components": {
+                    "minecraft:collision_box": false,
+                    "minecraft:selection_box": {
+                        "origin": [-8.0,0.0,-1.0],
+                        "size": [16.0,16.0,2.0]
+                    },
+                    "minecraft:geometry": "geometry.open_lockable_iron_bars_lower"
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,180,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,0,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,-90,0]
+                    }
+                }
+            },
+            {
+                "condition": "query.block_state ('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [0,90,0]
+                    }
+                }
+            }
+        ]
+    }
+}
