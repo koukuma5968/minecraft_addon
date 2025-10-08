@@ -1,0 +1,45 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"uuid": "cd040d56-4f0e-4e8f-9fbd-b998a6c9c1ef",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 21, 100]
+	},
+	"modules": [
+		{
+			"description": "マッシュルアドオンB",
+			"type": "data",
+			"uuid": "73c92765-f8bc-499c-be65-b25644baac26",
+			"version": [1, 0, 0]
+		},
+		{
+			"description": "マッシュルアドオンscripting",
+			"type": "script",
+			"language": "javascript",
+			"uuid": "e5722294-76c0-445c-b0d5-f1782f01c1f7",
+			"version": [1,0,0],
+			"entry": "scripts/mashle_script.js"
+		}
+
+	],
+	"metadata": {
+		"authors": ["koukumakuraft"],
+		"product_type": "addon"
+	},
+	"dependencies": [
+		{
+			"uuid": "a582664e-a6dd-485d-8a9e-5f6118c5f944",
+			"version": [1, 0, 0]
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "2.0.0"
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.1.0"
+		}
+	]
+}

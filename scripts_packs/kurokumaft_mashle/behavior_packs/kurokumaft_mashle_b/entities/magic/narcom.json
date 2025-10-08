@@ -1,0 +1,68 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:narcom",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "runtime_identifier": "minecraft:snow_ball"
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "arrow","inanimate","magic" ]
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 0.55,
+            "height": 0.55,
+            "pivot": [0,0,0]
+          }
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.55,
+        "height": 0.55
+      },
+      "minecraft:projectile": {
+        "on_hit": {
+          "impact_damage": {
+            "damage": 2,
+            "knockback": false,
+            "catch_fire": false,
+            "semi_random_diff_damage": false,
+            "destroy_on_hit": true,
+            "max_critical_damage": 10,
+            "min_critical_damage": 9,
+            "power_multiplier": 0.97
+          },
+          "remove_on_hit": {}
+        },
+        "power": 4,
+        "gravity": 0.00,
+        "uncertainty_base": 1,
+        "uncertainty_multiplier": 0,
+        "anchor": 1,
+        "should_bounce": true,
+        "offset": [ 0, 0.1, 0 ]
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 7,
+          "use_motion_prediction_hints": true
+        }
+      }
+    }
+  }
+}

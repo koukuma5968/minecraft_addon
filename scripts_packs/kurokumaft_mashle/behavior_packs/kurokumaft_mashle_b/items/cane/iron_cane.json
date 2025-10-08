@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:iron_cane",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:iron_cane.name"
+			},
+      "minecraft:icon": "iron_cane",
+      "minecraft:max_stack_size": 1,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:damage": 1,
+      "minecraft:enchantable": {
+        "value": 150,
+        "slot": "g_tool"
+      },
+      "minecraft:rarity": {
+        "minecraft:rarity": "common"
+      },
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.5,
+        "use_duration": 1000
+      },
+      "kurokumaft:cane_component": [
+        {
+          "type": "none"
+        }
+      ]
+    }
+  }
+}
+

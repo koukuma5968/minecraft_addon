@@ -1,0 +1,25 @@
+{
+   "resource_pack_name" : "kurokumaft_mashle_r",
+   "texture_data" : {
+      "dormitory_cape_adora": {
+         "textures" : "textures/kurokumaft/items/armor/dormitory_cape_adora"
+      },
+      "dormitory_cape_oruka": {
+         "textures" : "textures/kurokumaft/items/armor/dormitory_cape_oruka"
+      },
+      "dormitory_cape_rean": {
+         "textures" : "textures/kurokumaft/items/armor/dormitory_cape_rean"
+      },
+
+      "adora_spawn_egg" : {
+         "textures" : [
+            "textures/kurokumaft/items/spawn_egg/adora/mash_burnedead_egg",
+            "textures/kurokumaft/items/spawn_egg/adora/finn_ames",
+            "textures/kurokumaft/items/spawn_egg/adora/lance_crown",
+            "textures/kurokumaft/items/spawn_egg/adora/dot_barrett"
+         ]
+      }
+
+   },
+   "texture_name" : "atlas.items"
+}

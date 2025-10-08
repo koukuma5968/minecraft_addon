@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:luminescence",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/luminescence"
+      },
+      "geometry": {
+        "default": "geometry.luminescence"
+      },
+      "scripts": {
+        "scale": "0.9375"
+      },
+      "render_controllers": [
+        {
+          "controller.render.player.first_person": "variable.is_first_person && !query.is_spectator"
+        },
+        {
+          "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon && !query.is_spectator"
+        }
+      ]
+    }
+  }
+}

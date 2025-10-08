@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cane.first": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"cane": {
+					"rotation": [20, 0, -132.5],
+					"position": [0, 25, 0]
+				}
+			}
+		},
+		"animation.cane.third": {
+			"loop": "hold_on_last_frame",
+			"bones": {
+				"cane": {
+					"rotation": [90, 0, 0],
+					"position": [0, 23, 0]
+				}
+			}
+		}
+	}
+}

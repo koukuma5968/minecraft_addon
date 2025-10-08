@@ -1,0 +1,20 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.cane.person": {
+			"states": {
+				"default": {
+					"animations": ["first"],
+					"transitions": [
+						{"third": "!c.is_first_person"}
+					]
+				},
+				"third": {
+					"transitions": [
+						{"default": "c.is_first_person"}
+					]
+				}
+			}
+		}
+	}
+}

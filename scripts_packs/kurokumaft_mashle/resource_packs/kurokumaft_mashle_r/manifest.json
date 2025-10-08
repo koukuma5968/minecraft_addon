@@ -1,0 +1,28 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"uuid": "a582664e-a6dd-485d-8a9e-5f6118c5f944",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 21, 90]
+	},
+	"modules": [
+		{
+			"description": "マッシュルRv1.0",
+			"type": "resources",
+			"uuid": "9ec2ff72-1085-4c51-8402-1de30fac2ffe",
+			"version": [1, 0, 0]
+		}
+	],
+	"metadata": {
+		"authors": ["koukumakuraft"],
+		"product_type": "addon"
+	},
+	"dependencies": [
+		{
+			"uuid": "cd040d56-4f0e-4e8f-9fbd-b998a6c9c1ef",
+			"version": [1, 0, 0]
+		}
+	]
+}

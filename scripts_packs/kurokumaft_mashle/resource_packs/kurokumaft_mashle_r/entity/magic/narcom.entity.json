@@ -1,0 +1,29 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:narcom",
+      "materials": {
+        "default": "arrow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/magic/narcom"
+      },
+      "geometry": {
+        "default": "geometry.narcom"
+      },
+      "animations": {
+        "shot": "animation.magic.shot"
+      },
+      "particle_effects": {
+        "magic_shot": "kurokumaft:narcom"
+      },
+      "scripts": {
+        "animate": [
+          "shot"
+        ]
+      },
+      "render_controllers": [ "controller.render.arrow" ]
+    }
+  }
+}

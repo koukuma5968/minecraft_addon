@@ -1,0 +1,18 @@
+{
+   "resource_pack_name" : "kurokumaft_dorokei_r",
+   "texture_data" : {
+      "keibou": {
+         "textures" : "textures/kurokumaft/items/keibou"
+      },
+      "stun_gun": {
+         "textures" : "textures/kurokumaft/items/stun_gun"
+      },
+      "prison_cell_key": {
+         "textures" : "textures/kurokumaft/items/prison_cell_key"
+      },
+      "lockable_iron_bars": {
+         "textures" : "textures/kurokumaft/items/lockable_iron_bars"
+      }
+   },
+   "texture_name" : "atlas.items"
+}

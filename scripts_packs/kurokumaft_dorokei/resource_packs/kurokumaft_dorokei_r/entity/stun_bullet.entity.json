@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:stun_bullet",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/bullet/stun_bullet"
+        },
+        "geometry": {
+          "default": "geometry.stun_bullet"
+        },
+        "render_controllers": ["controller.render.arrow"]
+      }
+    }
+  }
+  

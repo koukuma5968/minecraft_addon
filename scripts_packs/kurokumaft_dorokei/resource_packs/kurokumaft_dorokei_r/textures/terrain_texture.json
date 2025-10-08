@@ -1,0 +1,20 @@
+{
+	"resource_pack_name": "kurokumaft_dorokei_r",
+	"texture_name": "atlas.terrain",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"systemboard": {
+			"textures": "textures/kurokumaft/blocks/systemboard"
+		},
+		"lockable_iron_bars_upper": {
+			"textures": "textures/kurokumaft/blocks/lockable_iron_bars_upper"
+		},
+		"lockable_iron_bars_lower": {
+			"textures": "textures/kurokumaft/blocks/lockable_iron_bars_lower"
+		},
+		"wrap_block": {
+			"textures": "textures/kurokumaft/blocks/wrap_block"
+		}
+	}
+}
