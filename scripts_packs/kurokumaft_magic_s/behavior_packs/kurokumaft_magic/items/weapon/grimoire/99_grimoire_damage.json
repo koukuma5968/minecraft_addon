@@ -15,7 +15,7 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "grimoire_damage"
+          "default": "kurokumaft:grimoire_damage"
         }
       }
     }

@@ -15,7 +15,7 @@
           "kurokumaft:scope_l"
         ]
       },
-      "minecraft:icon": "sniper_rifle",
+      "minecraft:icon": "kurokumaft:sniper_rifle",
       "minecraft:display_name": {
         "value": "item.kurokumaft:sniper_rifle.name"
       },

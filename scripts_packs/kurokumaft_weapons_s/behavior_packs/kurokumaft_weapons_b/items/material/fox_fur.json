@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fox_fur.name"
 			},
-      "minecraft:icon": "fox_fur"
+      "minecraft:icon": "kurokumaft:fox_fur"
     }
   }
 }

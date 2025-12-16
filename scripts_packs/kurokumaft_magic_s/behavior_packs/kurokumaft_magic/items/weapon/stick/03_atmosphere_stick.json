@@ -34,13 +34,13 @@
           },
           {
             "items": [ "kurokumaft:atmosphere_stick" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },
       "minecraft:icon": {
         "textures": {
-          "default": "atmosphere_stick"
+          "default": "kurokumaft:atmosphere_stick"
         }
       },
       "minecraft:display_name": {

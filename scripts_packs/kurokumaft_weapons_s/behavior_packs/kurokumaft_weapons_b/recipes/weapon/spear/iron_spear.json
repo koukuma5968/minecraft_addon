@@ -7,12 +7,15 @@
     "tags": [ "crafting_table" ],
     "pattern": [
       "  F",
-      " # ",
+      " b ",
       "#  "
     ],
     "key": {
       "#": {
         "item": "minecraft:stick"
+      },
+      "b": {
+        "item": "kurokumaft:bamboo_fiber"
       },
       "F": {
         "item": "minecraft:iron_ingot"

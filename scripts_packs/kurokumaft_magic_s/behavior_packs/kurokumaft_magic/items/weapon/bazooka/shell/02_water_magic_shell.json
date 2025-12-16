@@ -11,7 +11,7 @@
       "minecraft:max_stack_size": 16,
       "minecraft:icon": {
         "textures": {
-          "default": "water_magic_shell"
+          "default": "kurokumaft:water_magic_shell"
         }
       },
       "minecraft:allow_off_hand": true,

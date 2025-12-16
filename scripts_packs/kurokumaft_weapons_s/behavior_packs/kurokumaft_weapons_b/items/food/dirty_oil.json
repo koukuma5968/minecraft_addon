@@ -13,7 +13,7 @@
 				"value": "item.kurokumaft:dirty_oil.name"
 			},
       "minecraft:max_stack_size": 1,
-      "minecraft:icon": "dirty_oil"
+      "minecraft:icon": "kurokumaft:dirty_oil"
     }
   }
 }

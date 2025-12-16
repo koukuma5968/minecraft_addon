@@ -14,7 +14,7 @@
       "minecraft:fuel": {
         "duration": 80.0
       },
-      "minecraft:icon":  "charcoal_block_item",
+      "minecraft:icon": "kurokumaft:charcoal_block_item",
       "minecraft:block_placer": {
         "block": "kurokumaft:charcoal_block"
       }

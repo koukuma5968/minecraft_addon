@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "water_log_nut"
+          "default": "kurokumaft:water_log_nut"
         }
       },
       "minecraft:use_animation":"eat",

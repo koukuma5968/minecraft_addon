@@ -315,6 +315,7 @@
         "priority": 3,
         "must_reach": true,
         "must_see": true,
+        "attack_interval": 5,
 
         "entity_types": [
           {

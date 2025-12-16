@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "water_magic_chestplate"
+          "default": "kurokumaft:water_magic_chestplate"
         }
       },
       "minecraft:tags": {
@@ -30,7 +30,7 @@
           },
           {
             "items": [ "kurokumaft:water_magic_chestplate" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

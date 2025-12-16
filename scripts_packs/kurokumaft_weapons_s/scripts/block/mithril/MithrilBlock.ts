@@ -73,7 +73,7 @@ export class MithrilBlock implements BlockCustomComponent {
 }
 
 export async function playerMithrilset(block:Block) {
-    if (block.typeId == "kurokumaft:mithril_block") {
+    if (block.typeId === "kurokumaft:mithril_block") {
         block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:budding_type" : "player"}));
     }
     
@@ -81,7 +81,7 @@ export async function playerMithrilset(block:Block) {
 
 async function checkMithrilBlock(block:Block) {
 
-    if (block != undefined && block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_type":"geode"})) {
+    if (block !== undefined && block.matches("kurokumaft:mithril_block",{"kurokumaft:budding_type":"geode"})) {
         block.setPermutation(BlockPermutation.resolve(block.typeId, { 
             "kurokumaft:budding_set" : true,
             "kurokumaft:budding_type" : "spawn"

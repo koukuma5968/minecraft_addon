@@ -10,7 +10,7 @@
     "components": {
       "minecraft:icon": {
         "textures": {
-          "default": "ice_charge"
+          "default": "kurokumaft:ice_charge"
         }
       },
       "minecraft:projectile": {

@@ -9,7 +9,7 @@
       }
     },
     "components": {
-      "minecraft:icon": "barista_arrow",
+      "minecraft:icon": "kurokumaft:barista_arrow",
       "minecraft:display_name": {
 				"value": "item.kurokumaft:barista_arrow.name"
 			},

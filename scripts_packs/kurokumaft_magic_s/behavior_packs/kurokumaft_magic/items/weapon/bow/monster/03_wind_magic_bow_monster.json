@@ -28,7 +28,7 @@
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
         "textures": {
-          "default": "wind_magic_bow"
+          "default": "kurokumaft:wind_magic_bow"
         }
       },
       "minecraft:display_name": {

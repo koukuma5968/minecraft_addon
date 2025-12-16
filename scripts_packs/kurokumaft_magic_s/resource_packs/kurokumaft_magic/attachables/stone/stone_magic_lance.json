@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:stone_magic_lance",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/lance/stone_magic_lance",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.magic_lance"
+      },
+      "animations": {
+        "first_person": "animation.magic_lance.wield_first_person",
+        "third_person": "animation.magic_lance.wield_third_person"
+      },
+      "scripts": {
+        "animate": [
+          {"first_person": "c.is_first_person"},
+          {"third_person": "!c.is_first_person"}
+        ]
+      },
+      "render_controllers": [ "controller.render.magic_lance" ]
+    }
+  }
+}

@@ -6,7 +6,7 @@
       "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false,
-      "runtime_identifier": "minecraft:snow_ball"
+      "runtime_identifier": "minecraft:snowball"
     },
     "components": {
       "minecraft:type_family": {
@@ -39,13 +39,14 @@
           },
           "remove_on_hit": {}
         },
+        "reflect_on_hurt": true,
         "power": 4,
-        "gravity": 0.00,
+        "gravity": 0.01,
         "uncertainty_base": 1,
         "uncertainty_multiplier": 0,
         "anchor": 1,
         "should_bounce": true,
-        "offset": [ 0, 0.1, 0 ]
+        "offset": [ 0, -0.2, 0 ]
       },
       "minecraft:despawn": {
         "despawn_from_distance": {}

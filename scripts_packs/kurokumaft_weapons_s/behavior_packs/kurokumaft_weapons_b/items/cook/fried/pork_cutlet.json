@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:pork_cutlet.name"
 			},
-      "minecraft:icon": "pork_cutlet",
+      "minecraft:icon": "kurokumaft:pork_cutlet",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "nutrition": 10,

@@ -28,7 +28,7 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "firestorm_staff"
+          "default": "kurokumaft:firestorm_staff"
         }
       },
       "minecraft:repairable": {
@@ -39,7 +39,7 @@
           },
           {
             "items": [ "kurokumaft:firestorm_staff" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

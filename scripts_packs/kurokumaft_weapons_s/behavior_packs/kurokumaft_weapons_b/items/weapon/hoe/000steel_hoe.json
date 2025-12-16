@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:steel_hoe.name"
       },
-      "minecraft:icon": "steel_hoe",
+      "minecraft:icon": "kurokumaft:steel_hoe",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

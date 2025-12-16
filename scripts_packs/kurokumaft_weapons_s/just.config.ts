@@ -19,6 +19,7 @@ import path from "path";
 
 // Setup env variables
 setupEnvironment(path.resolve(__dirname, ".env"));
+process.env.LOCALAPPDATA = "C:/Users/hiran/AppData/Roaming/";
 const projectName = getOrThrowFromProcess("PROJECT_NAME");
 const mainScriptName = getOrThrowFromProcess("MAIN_SCRIPT_NAME");
 

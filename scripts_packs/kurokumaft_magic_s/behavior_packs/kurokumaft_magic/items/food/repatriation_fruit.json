@@ -14,7 +14,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "repatriation_fruit"
+          "default": "kurokumaft:repatriation_fruit"
         }
       },
       "minecraft:use_animation":"eat",

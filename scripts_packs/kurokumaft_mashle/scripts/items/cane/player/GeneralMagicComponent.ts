@@ -1,4 +1,4 @@
-import { EntityComponentTypes, EntityProjectileComponent, ItemStack, Player } from "@minecraft/server";
+import { EntityComponentTypes, EntityProjectileComponent, ItemStack, Player, system, world } from "@minecraft/server";
 import { CaneUseComponent } from "../CaneUseComponent";
 
 /**

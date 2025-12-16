@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "wind_log_nut"
+          "default": "kurokumaft:wind_log_nut"
         }
       },
       "minecraft:use_animation":"eat",

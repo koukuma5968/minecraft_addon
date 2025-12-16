@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:planks_lightning"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "planks",
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:lightning_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:lightning_log"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:lightning_planks",
+      "count": 4
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:frost_owl_chestplate",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:frost_owl_chestplate.name"
+			},
+      "minecraft:icon": {
+        "textures": {
+          "default": "kurokumaft:frost_owl_chestplate"
+        }
+      },
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:magic_chestplate",
+          "minecraft:trimmable_armors"
+        ]
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:frost_owl_chestplate" ],
+            "repair_amount": "context.other->query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "armor_torso"
+      },
+      "minecraft:durability": {
+        "max_durability": 300,
+        "damage_chance": {
+          "min": 1,
+          "max": 2
+        }
+      },
+      "minecraft:wearable": {
+        "protection": 3,
+        "slot": "slot.armor.chest"
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:poisonous_plant.name"
 			},
-      "minecraft:icon": "poisonous_plant",
+      "minecraft:icon": "kurokumaft:poisonous_plant",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "can_always_eat": true,

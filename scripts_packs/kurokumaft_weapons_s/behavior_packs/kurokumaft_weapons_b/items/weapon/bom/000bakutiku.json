@@ -16,7 +16,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:bakutiku.name"
 			},
-      "minecraft:icon": "bakutiku",
+      "minecraft:icon": "kurokumaft:bakutiku",
       "minecraft:projectile": {
         "minimum_critical_power": 1.0,
         "projectile_entity": "kurokumaft:bakutiku_entity<throwable_bakutiku>"

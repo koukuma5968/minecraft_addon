@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "blackstone_helmet"
+          "default": "kurokumaft:blackstone_helmet"
         }
       },
       "minecraft:tags": {

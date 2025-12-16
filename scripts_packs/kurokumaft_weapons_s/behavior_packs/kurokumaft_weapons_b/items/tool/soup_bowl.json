@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:soup_bowl.name"
 			},
-      "minecraft:icon": "soup_bowl"
+      "minecraft:icon": "kurokumaft:soup_bowl"
     }
   }
 }

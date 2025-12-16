@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:bamboo_battleaxe.name"
       },
-      "minecraft:icon": "bamboo_battleaxe",
+      "minecraft:icon": "kurokumaft:bamboo_battleaxe",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

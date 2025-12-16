@@ -14,7 +14,7 @@
         ]
       },
       "minecraft:max_stack_size": 16,
-      "minecraft:icon": "hyper_shell",
+      "minecraft:icon": "kurokumaft:hyper_shell",
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
         "value": "item.kurokumaft:hyper_shell.name"

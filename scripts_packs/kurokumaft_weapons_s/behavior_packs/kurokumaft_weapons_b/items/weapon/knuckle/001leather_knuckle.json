@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:leather_knuckle.name"
       },
-      "minecraft:icon": "leather_knuckle",
+      "minecraft:icon": "kurokumaft:leather_knuckle",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

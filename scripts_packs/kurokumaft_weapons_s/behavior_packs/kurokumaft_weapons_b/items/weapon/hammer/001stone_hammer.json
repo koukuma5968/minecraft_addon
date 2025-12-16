@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_hammer.name"
       },
-      "minecraft:icon": "stone_hammer",
+      "minecraft:icon": "kurokumaft:stone_hammer",
       "minecraft:use_animation": "spear",
       "minecraft:hand_equipped": true,
       "minecraft:damage": 6,

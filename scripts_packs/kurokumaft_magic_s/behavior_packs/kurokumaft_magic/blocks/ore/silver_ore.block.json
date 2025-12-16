@@ -1,0 +1,80 @@
+{
+	"format_version": "1.21.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:silver_ore",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:collision_box": true,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 5,
+				"item_specific_speeds": [
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+					},
+					"destroy_speed": 4.0
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+					},
+					"destroy_speed": 3.5
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:copper_tier')"
+					},
+					"destroy_speed": 2.8
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+					},
+					"destroy_speed": 2.2
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+					},
+					"destroy_speed": 0.8
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+					},
+					"destroy_speed": 1.8
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+					},
+					"destroy_speed": 1.2
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('kurokumaft:is_magic_picaxe')"
+					},
+					"destroy_speed": 0.15
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 30
+			},
+			"minecraft:geometry": "geometry.silver_ore",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "silver_ore",
+					"render_method": "alpha_test"
+				}
+			},
+			"minecraft:loot": "loot_tables/blocks/ore/silver_ore.json",
+			"minecraft:map_color": "#9af0f2"
+		}
+	}
+}

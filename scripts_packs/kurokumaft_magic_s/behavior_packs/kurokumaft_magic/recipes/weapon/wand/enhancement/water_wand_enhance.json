@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:water_wand_enhance"
+    },
+    "tags": [ "magic_enhance" ],
+    "pattern": [
+      "tim"
+    ],
+    "key": {
+      "t": {
+        "item": "kurokumaft:water_planks"
+      },
+      "i": {
+        "item": "kurokumaft:water_wand"
+      },
+      "m": {
+        "item": "kurokumaft:wet_hunting_horn"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:water_planks"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:water_wand_enhance"
+    }
+  }
+}

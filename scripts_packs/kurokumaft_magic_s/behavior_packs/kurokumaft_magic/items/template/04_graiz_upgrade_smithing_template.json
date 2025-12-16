@@ -16,7 +16,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:graiz_upgrade_smithing_template.name"
 			},
-      "minecraft:icon": "graiz_upgrade_smithing_template"
+      "minecraft:icon": "kurokumaft:graiz_upgrade_smithing_template"
     }
   }
 }

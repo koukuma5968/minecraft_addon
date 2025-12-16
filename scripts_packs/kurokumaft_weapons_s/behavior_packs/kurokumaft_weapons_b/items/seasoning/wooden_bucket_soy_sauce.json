@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:wooden_bucket_soy_sauce.name"
 			},
-      "minecraft:icon": "wooden_bucket_soy_sauce"
+      "minecraft:icon": "kurokumaft:wooden_bucket_soy_sauce"
     }
   }
 }

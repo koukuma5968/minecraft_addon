@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:wither_sword.name"
 			},
-      "minecraft:icon": "wither_sword",
+      "minecraft:icon": "kurokumaft:wither_sword",
       "minecraft:cooldown": {
         "category": "wither_sword",
         "duration": 5.0
@@ -30,7 +30,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:wither_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

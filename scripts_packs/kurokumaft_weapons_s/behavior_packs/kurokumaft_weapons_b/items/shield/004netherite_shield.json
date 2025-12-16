@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:netherite_shield.name"
       },
-      "minecraft:icon": "netherite_shield",
+      "minecraft:icon": "kurokumaft:netherite_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

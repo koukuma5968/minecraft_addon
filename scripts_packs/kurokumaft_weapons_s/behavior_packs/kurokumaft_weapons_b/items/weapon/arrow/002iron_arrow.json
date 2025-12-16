@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:max_stack_size": 64,
-      "minecraft:icon": "iron_arrow",
+      "minecraft:icon": "kurokumaft:iron_arrow",
       "minecraft:allow_off_hand": true,
       "minecraft:display_name": {
         "value": "item.kurokumaft:iron_arrow.name"

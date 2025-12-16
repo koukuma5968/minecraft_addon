@@ -1,286 +1,286 @@
 {
    "resource_pack_name" : "kurokuma_Resource_Pack",
    "texture_data" : {
-      "bamboo_sword" : {
+      "kurokumaft:bamboo_sword" : {
          "textures" : "textures/kurokumaft/items/sword/bamboo_sword"
       },
-      "copper_sword" : {
+      "kurokumaft:copper_sword" : {
          "textures" : "textures/kurokumaft/items/sword/copper_sword"
       },
-      "tnt_sword" : {
+      "kurokumaft:tnt_sword" : {
          "textures" : "textures/kurokumaft/items/sword/tnt_sword"
       },
-      "granite_sword" : {
+      "kurokumaft:granite_sword" : {
          "textures" : "textures/kurokumaft/items/sword/granite_sword"
       },
-      "glow_sword" : {
+      "kurokumaft:glow_sword" : {
          "textures" : "textures/kurokumaft/items/sword/glow_sword"
       },
-      "steel_sword" : {
+      "kurokumaft:steel_sword" : {
          "textures" : "textures/kurokumaft/items/sword/steel_sword"
       },
-      "amethyst_sword" : {
+      "kurokumaft:amethyst_sword" : {
          "textures" : "textures/kurokumaft/items/sword/amethyst_sword"
       },
-      "magma_sword" : {
+      "kurokumaft:magma_sword" : {
          "textures" : "textures/kurokumaft/items/sword/magma_sword"
       },
-      "blue_ice_sword" : {
+      "kurokumaft:blue_ice_sword" : {
          "textures" : "textures/kurokumaft/items/sword/blue_ice_sword"
       },
-      "mithril_sword" : {
+      "kurokumaft:mithril_sword" : {
          "textures" : "textures/kurokumaft/items/sword/mithril_sword"
       },
-      "echo_sword" : {
+      "kurokumaft:echo_sword" : {
          "textures" : "textures/kurokumaft/items/sword/echo_sword"
       },
-      "cherry_sword" : {
+      "kurokumaft:cherry_sword" : {
          "textures" : "textures/kurokumaft/items/sword/cherry_sword"
       },
-      "ender_dragon_sword": {
+      "kurokumaft:ender_dragon_sword": {
          "textures" : "textures/kurokumaft/items/sword/ender_dragon_sword"
       },
-      "wither_sword": {
+      "kurokumaft:wither_sword": {
          "textures" : "textures/kurokumaft/items/sword/wither_sword"
       },
-      "ender_eye_sword": {
+      "kurokumaft:ender_eye_sword": {
          "textures" : "textures/kurokumaft/items/sword/ender_eye_sword"
       },
 
-      "bamboo_axe" : {
+      "kurokumaft:bamboo_axe" : {
          "textures" : "textures/kurokumaft/items/axe/bamboo_axe"
       },
-      "copper_axe" : {
+      "kurokumaft:copper_axe" : {
          "textures" : "textures/kurokumaft/items/axe/copper_axe"
       },
-      "steel_axe" : {
+      "kurokumaft:steel_axe" : {
          "textures" : "textures/kurokumaft/items/axe/steel_axe"
       },
-      "mithril_axe" : {
+      "kurokumaft:mithril_axe" : {
          "textures" : "textures/kurokumaft/items/axe/mithril_axe"
       },
-      "orichalcum_axe" : {
+      "kurokumaft:orichalcum_axe" : {
          "textures" : "textures/kurokumaft/items/axe/orichalcum_axe"
       },
-      "fire_brand" : {
+      "kurokumaft:fire_brand" : {
          "textures" : "textures/kurokumaft/items/axe/fire_brand"
       },
 
-      "bamboo_battleaxe" : {
+      "kurokumaft:bamboo_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/bamboo_battleaxe"
       },
-      "wooden_battleaxe" : {
+      "kurokumaft:wooden_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/wooden_battleaxe"
       },
-      "iron_battleaxe" : {
+      "kurokumaft:iron_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/iron_battleaxe"
       },
-      "steel_battleaxe" : {
+      "kurokumaft:steel_battleaxe" : {
          "textures" : "textures/kurokumaft/items/battleaxe/steel_battleaxe"
       },
-      "bone_battleaxe": {
+      "kurokumaft:bone_battleaxe": {
          "textures" : "textures/kurokumaft/items/battleaxe/bone_battleaxe"
       },
 
-      "bamboo_spear": {
+      "kurokumaft:bamboo_spear": {
          "textures" : "textures/kurokumaft/items/spear/bamboo_spear"
       },
-      "wooden_spear": {
+      "kurokumaft:wooden_spear": {
          "textures": "textures/kurokumaft/items/spear/wooden_spear"
       },
-      "stone_spear": {
+      "kurokumaft:stone_spear": {
          "textures": "textures/kurokumaft/items/spear/stone_spear"
       },
-      "iron_spear": {
+      "kurokumaft:iron_spear": {
          "textures": "textures/kurokumaft/items/spear/iron_spear"
       },
-      "steel_spear": {
+      "kurokumaft:steel_spear": {
          "textures": "textures/kurokumaft/items/spear/steel_spear"
       },
-      "cherry_spear": {
+      "kurokumaft:cherry_spear": {
          "textures": "textures/kurokumaft/items/spear/cherry_spear"
       },
-      "blaze_spear": {
+      "kurokumaft:blaze_spear": {
          "textures": "textures/kurokumaft/items/spear/blaze_spear"
       },
-      "mithril_spear": {
+      "kurokumaft:mithril_spear": {
          "textures": "textures/kurokumaft/items/spear/mithril_spear"
       },
-      "diamond_spear": {
+      "kurokumaft:diamond_spear": {
          "textures": "textures/kurokumaft/items/spear/diamond_spear"
       },
-      "netherite_spear": {
+      "kurokumaft:netherite_spear": {
          "textures": "textures/kurokumaft/items/spear/netherite_spear"
       },
 
-      "bamboo_knife": {
+      "kurokumaft:bamboo_knife": {
          "textures" : "textures/kurokumaft/items/knife/bamboo_knife"
       },
-      "wooden_knife": {
+      "kurokumaft:wooden_knife": {
          "textures" : "textures/kurokumaft/items/knife/wooden_knife"
       },
-      "stone_knife": {
+      "kurokumaft:stone_knife": {
          "textures" : "textures/kurokumaft/items/knife/stone_knife"
       },
-      "tnt_knife": {
+      "kurokumaft:tnt_knife": {
          "textures" : "textures/kurokumaft/items/knife/tnt_knife"
       },
-      "phantom_knife": {
+      "kurokumaft:phantom_knife": {
          "textures" : "textures/kurokumaft/items/knife/phantom_knife"
       },
-      "scissors_knife": {
+      "kurokumaft:scissors_knife": {
          "textures" : "textures/kurokumaft/items/knife/scissors_knife"
       },
 
-      "wooden_bread": {
+      "kurokumaft:wooden_bread": {
    		"textures": "textures/kurokumaft/items/bread/wooden_bread"
       },
-      "stone_bread": {
+      "kurokumaft:stone_bread": {
    		"textures": "textures/kurokumaft/items/bread/stone_bread"
       },
-      "iron_bread": {
+      "kurokumaft:iron_bread": {
    		"textures": "textures/kurokumaft/items/bread/iron_bread"
       },
-      "diamond_bread": {
+      "kurokumaft:diamond_bread": {
    		"textures": "textures/kurokumaft/items/bread/diamond_bread"
       },
 
-      "wooden_boomerang": {
+      "kurokumaft:wooden_boomerang": {
    		"textures": "textures/kurokumaft/items/boomerang/wooden_boomerang"
       },
-      "stone_boomerang": {
+      "kurokumaft:stone_boomerang": {
    		"textures": "textures/kurokumaft/items/boomerang/stone_boomerang"
       },
-      "iron_boomerang": {
+      "kurokumaft:iron_boomerang": {
    		"textures": "textures/kurokumaft/items/boomerang/iron_boomerang"
       },
-      "diamond_boomerang": {
+      "kurokumaft:diamond_boomerang": {
    		"textures": "textures/kurokumaft/items/boomerang/diamond_boomerang"
       },
 
-      "wooden_hammer": {
+      "kurokumaft:wooden_hammer": {
          "textures": "textures/kurokumaft/items/hammer/wood_hammer"
       },
-      "stone_hammer": {
+      "kurokumaft:stone_hammer": {
          "textures": "textures/kurokumaft/items/hammer/stone_hammer"
       },
-      "iron_hammer": {
+      "kurokumaft:iron_hammer": {
          "textures": "textures/kurokumaft/items/hammer/iron_hammer"
       },
-      "golden_hammer": {
+      "kurokumaft:golden_hammer": {
          "textures": "textures/kurokumaft/items/hammer/golden_hammer"
       },
-      "diamond_hammer": {
+      "kurokumaft:diamond_hammer": {
          "textures": "textures/kurokumaft/items/hammer/diamond_hammer"
       },
-      "netherite_hammer": {
+      "kurokumaft:netherite_hammer": {
          "textures": "textures/kurokumaft/items/hammer/netherite_hammer"
       },
-      "warden_hammer": {
+      "kurokumaft:warden_hammer": {
          "textures": "textures/kurokumaft/items/hammer/warden_hammer"
       },
 
-      "wood_sickle": {
+      "kurokumaft:wood_sickle": {
          "textures": "textures/kurokumaft/items/sickle/wood_sickle"
       },
-      "stone_sickle": {
+      "kurokumaft:stone_sickle": {
          "textures": "textures/kurokumaft/items/sickle/stone_sickle"
       },
-      "iron_sickle": {
+      "kurokumaft:iron_sickle": {
          "textures": "textures/kurokumaft/items/sickle/iron_sickle"
       },
 
-      "wood_scythe": {
+      "kurokumaft:wood_scythe": {
          "textures": "textures/kurokumaft/items/scythe/wood_scythe"
       },
-      "stone_scythe": {
+      "kurokumaft:stone_scythe": {
          "textures": "textures/kurokumaft/items/scythe/stone_scythe"
       },
-      "iron_scythe": {
+      "kurokumaft:iron_scythe": {
          "textures": "textures/kurokumaft/items/scythe/iron_scythe"
       },
 
-      "powder_ball": {
+      "kurokumaft:powder_ball": {
          "textures": "textures/kurokumaft/items/bom/powder_ball"
       },
-      "hand_grenade": {
+      "kurokumaft:hand_grenade": {
          "textures": "textures/kurokumaft/items/bom/hand_grenade"
       },
-      "bakutiku": {
+      "kurokumaft:bakutiku": {
          "textures": "textures/kurokumaft/items/bom/bakutiku"
       },
 
-      "arquebus": {
+      "kurokumaft:arquebus": {
          "textures": "textures/kurokumaft/items/gun/arquebus"
       },
-      "revolver": {
+      "kurokumaft:revolver": {
          "textures": "textures/kurokumaft/items/gun/revolver"
       },
-      "gatling": {
+      "kurokumaft:gatling": {
          "textures": "textures/kurokumaft/items/gun/gatling"
       },
-      "sniper_rifle": {
+      "kurokumaft:sniper_rifle": {
          "textures": "textures/kurokumaft/items/gun/sniper_rifle"
       },
-      "machine_gun": {
+      "kurokumaft:machine_gun": {
          "textures": [
             "textures/kurokumaft/items/gun/machine_gun",
             "textures/kurokumaft/items/gun/machine_gun_chage"
          ]
       },
-      "ghast_bazooka": {
+      "kurokumaft:ghast_bazooka": {
          "textures": "textures/kurokumaft/items/gun/ghast_bazooka"
       },
-      "flamethrower": {
+      "kurokumaft:flamethrower": {
          "textures": "textures/kurokumaft/items/gun/flamethrower"
       },
-      "railgun": {
+      "kurokumaft:railgun": {
          "textures": "textures/kurokumaft/items/gun/railgun"
       },
-      "hyper_bazooka" :{
+      "kurokumaft:hyper_bazooka" :{
          "textures": "textures/kurokumaft/items/gun/hyper_bazooka"
       },
 
-      "lead_ball": {
+      "kurokumaft:lead_ball": {
          "textures": "textures/kurokumaft/items/gun/bullet/lead_ball"
       },
-      "forty_four_magnum": {
+      "kurokumaft:forty_four_magnum": {
          "textures": "textures/kurokumaft/items/gun/bullet/forty_four_magnum"
       },
-      "twenty_two_lr": {
+      "kurokumaft:twenty_two_lr": {
          "textures": "textures/kurokumaft/items/gun/bullet/twenty_two_lr"
       },
-      "blue_fire_charge": {
+      "kurokumaft:blue_fire_charge": {
          "textures": "textures/kurokumaft/items/gun/bullet/blue_fire_charge"
       },
-      "thirty_eight_special": {
+      "kurokumaft:thirty_eight_special": {
          "textures": "textures/kurokumaft/items/gun/bullet/thirty_eight_special"
       },
-      "thr_hund_e_winchester": {
+      "kurokumaft:thr_hund_e_winchester": {
          "textures": "textures/kurokumaft/items/gun/bullet/thr_hund_e_winchester"
       },
-      "railgun_energy_bottle": {
+      "kurokumaft:railgun_energy_bottle": {
          "textures": "textures/kurokumaft/items/gun/bullet/railgun_energy_bottle"
       },
-      "hyper_shell": {
+      "kurokumaft:hyper_shell": {
          "textures": "textures/kurokumaft/items/gun/bullet/hyper_shell"
       },
 
-      "barista": {
+      "kurokumaft:barista": {
          "textures": "textures/kurokumaft/items/fort/barista"
       },
-      "tank": {
+      "kurokumaft:tank": {
          "textures": "textures/kurokumaft/items/fort/tank"
       },
 
-      "barista_arrow": {
+      "kurokumaft:barista_arrow": {
          "textures": "textures/kurokumaft/items/fort/bullt/barista_arrow"
       },
-      "shell": {
+      "kurokumaft:shell": {
          "textures": "textures/kurokumaft/items/fort/bullt/shell"
       },
 
-      "bamboo_bow" : {
+      "kurokumaft:bamboo_bow" : {
          "textures" : [
             "textures/kurokumaft/items/bow/bamboo/bamboo_bow_standby",
             "textures/kurokumaft/items/bow/bamboo/bamboo_bow_pulling_0",
@@ -289,11 +289,11 @@
          ]
       },
 
-      "bamboo_arrow" : {
+      "kurokumaft:bamboo_arrow" : {
          "textures" : "textures/kurokumaft/items/arrow/bamboo_arrow"
       },
 
-      "iron_bow" : {
+      "kurokumaft:iron_bow" : {
          "textures" : [
             "textures/kurokumaft/items/bow/iron/iron_bow_standby",
             "textures/kurokumaft/items/bow/iron/iron_bow_pulling_0",
@@ -302,11 +302,11 @@
          ]
       },
 
-      "iron_arrow" : {
+      "kurokumaft:iron_arrow" : {
          "textures" : "textures/kurokumaft/items/arrow/iron_arrow"
       },
 
-      "steel_bow" : {
+      "kurokumaft:steel_bow" : {
          "textures" : [
             "textures/kurokumaft/items/bow/steel/steel_bow_standby",
             "textures/kurokumaft/items/bow/steel/steel_bow_pulling_0",
@@ -315,7 +315,7 @@
          ]
       },
 
-      "sniper_steel_bow" : {
+      "kurokumaft:sniper_steel_bow" : {
          "textures" : [
             "textures/kurokumaft/items/bow/steel/sniper_steel_bow_standby",
             "textures/kurokumaft/items/bow/steel/sniper_steel_bow_pulling_0",
@@ -324,11 +324,11 @@
          ]
       },
 
-      "steel_arrow" : {
+      "kurokumaft:steel_arrow" : {
          "textures" : "textures/kurokumaft/items/arrow/steel_arrow"
       },
 
-      "diamond_bow" : {
+      "kurokumaft:diamond_bow" : {
          "textures" : [
             "textures/kurokumaft/items/bow/diamond/diamond_bow_standby",
             "textures/kurokumaft/items/bow/diamond/diamond_bow_pulling_0",
@@ -337,11 +337,11 @@
          ]
       },
 
-      "diamond_arrow" : {
+      "kurokumaft:diamond_arrow" : {
          "textures" : "textures/kurokumaft/items/arrow/diamond_arrow"
       },
 
-      "cherry_bow" : {
+      "kurokumaft:cherry_bow" : {
          "textures" : [
             "textures/kurokumaft/items/bow/cherry/cherry_bow_standby",
             "textures/kurokumaft/items/bow/cherry/cherry_bow_pulling_0",
@@ -350,495 +350,482 @@
          ]
       },
 
-      "cherry_arrow" : {
+      "kurokumaft:cherry_arrow" : {
          "textures" : "textures/kurokumaft/items/arrow/cherry_arrow"
       },
 
-      "leather_knuckle": {
+      "kurokumaft:leather_knuckle": {
          "textures" : "textures/kurokumaft/items/knuckle/leather_knuckle"
       },
-      "stone_knuckle": {
+      "kurokumaft:stone_knuckle": {
          "textures" : "textures/kurokumaft/items/knuckle/stone_knuckle"
       },
-      "iron_knuckle": {
+      "kurokumaft:iron_knuckle": {
          "textures" : "textures/kurokumaft/items/knuckle/iron_knuckle"
       },
-      "golden_knuckle": {
+      "kurokumaft:golden_knuckle": {
          "textures" : "textures/kurokumaft/items/knuckle/golden_knuckle"
       },
-      "diamond_knuckle": {
+      "kurokumaft:diamond_knuckle": {
          "textures" : "textures/kurokumaft/items/knuckle/diamond_knuckle"
       },
-      "netherite_knuckle": {
+      "kurokumaft:netherite_knuckle": {
          "textures" : "textures/kurokumaft/items/knuckle/netherite_knuckle"
       },
 
-      "kettle_lid" : {
+      "kurokumaft:kettle_lid" : {
          "textures" : "textures/kurokumaft/items/shield/kettle_lid"
       },
-      "copper_shield" : {
+      "kurokumaft:copper_shield" : {
          "textures" : "textures/kurokumaft/items/shield/copper_shield"
       },
-      "cherry_shield" : {
+      "kurokumaft:cherry_shield" : {
          "textures" : "textures/kurokumaft/items/shield/cherry_shield"
       },
-      "diamond_shield" : {
+      "kurokumaft:diamond_shield" : {
          "textures" : "textures/kurokumaft/items/shield/diamond_shield"
       },
-      "netherite_shield" : {
+      "kurokumaft:netherite_shield" : {
          "textures" : "textures/kurokumaft/items/shield/netherite_shield"
       },
-      "magma_shield" : {
+      "kurokumaft:magma_shield" : {
          "textures" : "textures/kurokumaft/items/shield/magma_shield"
       },
-      "blueice_shield" : {
+      "kurokumaft:blueice_shield" : {
          "textures" : "textures/kurokumaft/items/shield/blueice_shield"
       },
-      "steel_shield" : {
+      "kurokumaft:steel_shield" : {
          "textures" : "textures/kurokumaft/items/shield/steel_shield"
       },
-      "tnt_shield" : {
+      "kurokumaft:tnt_shield" : {
          "textures" : "textures/kurokumaft/items/shield/tnt_shield"
       },
-      "immortal_shield" : {
+      "kurokumaft:immortal_shield" : {
          "textures" : "textures/kurokumaft/items/shield/immortal_shield"
       },
-      "glass_shield_clear" : {
+      "kurokumaft:glass_shield_clear" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_clear"
       },
-      "glass_shield_black" : {
+      "kurokumaft:glass_shield_black" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_black"
       },
-      "glass_shield_blue" : {
+      "kurokumaft:glass_shield_blue" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_blue"
       },
-      "glass_shield_brown" : {
+      "kurokumaft:glass_shield_brown" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_brown"
       },
-      "glass_shield_cyan" : {
+      "kurokumaft:glass_shield_cyan" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_cyan"
       },
-      "glass_shield_yellow" : {
+      "kurokumaft:glass_shield_yellow" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_yellow"
       },
-      "glass_shield_gray" : {
+      "kurokumaft:glass_shield_gray" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_gray"
       },
-      "glass_shield_green" : {
+      "kurokumaft:glass_shield_green" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_green"
       },
-      "glass_shield_light_blue" : {
+      "kurokumaft:glass_shield_light_blue" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_light_blue"
       },
-      "glass_shield_lime" : {
+      "kurokumaft:glass_shield_lime" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_lime"
       },
-      "glass_shield_magenta" : {
+      "kurokumaft:glass_shield_magenta" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_magenta"
       },
-      "glass_shield_orange" : {
+      "kurokumaft:glass_shield_orange" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_orange"
       },
-      "glass_shield_pink" : {
+      "kurokumaft:glass_shield_pink" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_pink"
       },
-      "glass_shield_purple" : {
+      "kurokumaft:glass_shield_purple" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_purple"
       },
-      "glass_shield_red" : {
+      "kurokumaft:glass_shield_red" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_red"
       },
-      "glass_shield_light_gray" : {
+      "kurokumaft:glass_shield_light_gray" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_light_gray"
       },
-      "glass_shield_white" : {
+      "kurokumaft:glass_shield_white" : {
          "textures" : "textures/kurokumaft/items/shield/glass/glass_shield_white"
       },
 
-      "chromium_nugget" : {
+      "kurokumaft:chromium_nugget" : {
          "textures" : "textures/kurokumaft/items/material/chromium_nugget"
       },
-      "lead_nugget" : {
+      "kurokumaft:lead_nugget" : {
          "textures" : "textures/kurokumaft/items/material/lead_nugget"
       },
-      "bamboo_fiber" : {
+      "kurokumaft:bamboo_fiber" : {
          "textures" : "textures/kurokumaft/items/material/bamboo_fiber"
       },
-      "nitre_nugget" : {
+      "kurokumaft:nitre_nugget" : {
          "textures" : "textures/kurokumaft/items/material/nitre_nugget"
       },
 
-      "steel_ingot" : {
+      "kurokumaft:steel_ingot" : {
          "textures" : "textures/kurokumaft/items/material/steel_ingot"
       },
-      "mithril_ingot" : {
+      "kurokumaft:mithril_ingot" : {
          "textures" : "textures/kurokumaft/items/material/mithril_ingot"
       },
-      "mithril_shard" : {
+      "kurokumaft:mithril_shard" : {
          "textures" : "textures/kurokumaft/items/material/mithril_shard"
       },
-      "orichalcum" : {
+      "kurokumaft:orichalcum" : {
          "textures" : "textures/kurokumaft/items/material/orichalcum"
       },
-      "black_quartz" : {
+      "kurokumaft:black_quartz" : {
          "textures" : "textures/kurokumaft/items/material/black_quartz"
       },
 
-      "wolf_fur" : {
+      "kurokumaft:wolf_fur" : {
          "textures" : "textures/kurokumaft/items/material/wolf_fur"
       },
-      "fox_fur" : {
+      "kurokumaft:fox_fur" : {
          "textures" : "textures/kurokumaft/items/material/fox_fur"
       },
 
-      "black_powder" : {
+      "kurokumaft:black_powder" : {
          "textures" : "textures/kurokumaft/items/material/black_powder"
       },
 
-      "medicinal_plant" : {
+      "kurokumaft:medicinal_plant" : {
          "textures" : "textures/kurokumaft/items/crops/medicinal_plant"
       },
-      "poisonous_plant" : {
+      "kurokumaft:poisonous_plant" : {
          "textures" : "textures/kurokumaft/items/crops/poisonous_plant"
       },
 
-      "copper_helmet": {
-         "textures" : "textures/kurokumaft/items/armor/copper/copper_helmet"
-      },
-      "copper_chestplate": {
-         "textures" : "textures/kurokumaft/items/armor/copper/copper_chestplate"
-      },
-      "copper_leggings": {
-         "textures" : "textures/kurokumaft/items/armor/copper/copper_leggings"
-      },
-      "copper_boots": {
-         "textures" : "textures/kurokumaft/items/armor/copper/copper_boots"
-      },
-
-      "steel_helmet": {
+      "kurokumaft:steel_helmet": {
          "textures" : "textures/kurokumaft/items/armor/steel/steel_helmet"
       },
-      "steel_chestplate": {
+      "kurokumaft:steel_chestplate": {
          "textures" : "textures/kurokumaft/items/armor/steel/steel_chestplate"
       },
-      "steel_leggings": {
+      "kurokumaft:steel_leggings": {
          "textures" : "textures/kurokumaft/items/armor/steel/steel_leggings"
       },
-      "steel_boots": {
+      "kurokumaft:steel_boots": {
          "textures" : "textures/kurokumaft/items/armor/steel/steel_boots"
       },
 
-      "orichalcum_helmet": {
+      "kurokumaft:orichalcum_helmet": {
          "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_helmet"
       },
-      "orichalcum_chestplate": {
+      "kurokumaft:orichalcum_chestplate": {
          "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_chestplate"
       },
-      "orichalcum_leggings": {
+      "kurokumaft:orichalcum_leggings": {
          "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_leggings"
       },
-      "orichalcum_boots": {
+      "kurokumaft:orichalcum_boots": {
          "textures" : "textures/kurokumaft/items/armor/orichalcum/orichalcum_boots"
       },
 
-      "blackstone_helmet": {
+      "kurokumaft:blackstone_helmet": {
          "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_helmet"
       },
-      "blackstone_chestplate": {
+      "kurokumaft:blackstone_chestplate": {
          "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_chestplate"
       },
-      "blackstone_leggings": {
+      "kurokumaft:blackstone_leggings": {
          "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_leggings"
       },
-      "blackstone_boots": {
+      "kurokumaft:blackstone_boots": {
          "textures" : "textures/kurokumaft/items/armor/blackstone/blackstone_boots"
       },
 
-      "cherry_chestplate" : {
+      "kurokumaft:cherry_chestplate" : {
          "textures" : "textures/kurokumaft/items/armor/cherry/cherry_chestplate"
       },
-      "cherry_helmet": {
+      "kurokumaft:cherry_helmet": {
          "textures" : "textures/kurokumaft/items/armor/cherry/cherry_helmet"
       },
-      "cherry_leggings": {
+      "kurokumaft:cherry_leggings": {
          "textures" : "textures/kurokumaft/items/armor/cherry/cherry_leggings"
       },
-      "cherry_boots": {
+      "kurokumaft:cherry_boots": {
          "textures" : "textures/kurokumaft/items/armor/cherry/cherry_boots"
       },
 
-      "rabbit_helmet_brown": {
+      "kurokumaft:rabbit_helmet_brown": {
          "textures" : "textures/kurokumaft/items/armor/rabbit/rabbit_helmet_brown"
       },
-      "rabbit_helmet_white": {
+      "kurokumaft:rabbit_helmet_white": {
          "textures" : "textures/kurokumaft/items/armor/rabbit/rabbit_helmet_white"
       },
 
-      "wolf_helmet_white": {
+      "kurokumaft:wolf_helmet_white": {
          "textures" : "textures/kurokumaft/items/armor/wolf/wolf_helmet_white"
       },
-      "wolf_helmet_black": {
+      "kurokumaft:wolf_helmet_black": {
          "textures" : "textures/kurokumaft/items/armor/wolf/wolf_helmet_black"
       },
 
-      "chicken_helmet_white": {
+      "kurokumaft:chicken_helmet_white": {
          "textures" : "textures/kurokumaft/items/armor/chicken/chicken_helmet_white"
       },
 
-      "fox_helmet_orange": {
+      "kurokumaft:fox_helmet_orange": {
          "textures" : "textures/kurokumaft/items/armor/fox/fox_helmet_orange"
       },
 
-      "axolotl_helmet_blue": {
+      "kurokumaft:axolotl_helmet_blue": {
          "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_blue"
       },
-      "axolotl_helmet_cyan": {
+      "kurokumaft:axolotl_helmet_cyan": {
          "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_cyan"
       },
-      "axolotl_helmet_gold": {
+      "kurokumaft:axolotl_helmet_gold": {
          "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_gold"
       },
-      "axolotl_helmet_lucy": {
+      "kurokumaft:axolotl_helmet_lucy": {
          "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_lucy"
       },
-      "axolotl_helmet_wild": {
+      "kurokumaft:axolotl_helmet_wild": {
          "textures" : "textures/kurokumaft/items/armor/axolotl/axolotl_helmet_wild"
       },
 
-      "potion_bottle_hiheal" : {
+      "kurokumaft:potion_bottle_hiheal" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_hiheal"
       },
-      "potion_bottle_hidamage_boost" : {
+      "kurokumaft:potion_bottle_hidamage_boost" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_hidamage_boost"
       },
-      "potion_bottle_histurdiness" : {
+      "kurokumaft:potion_bottle_histurdiness" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_histurdiness"
       },
-      "potion_bottle_himove_speed" : {
+      "kurokumaft:potion_bottle_himove_speed" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_himove_speed"
       },
-      "potion_bottle_hipoison" : {
+      "kurokumaft:potion_bottle_hipoison" : {
          "textures" : "textures/kurokumaft/items/potion/potion_bottle_hipoison"
       },
 
-      "steel_pickaxe" : {
+      "kurokumaft:steel_pickaxe" : {
          "textures" : "textures/kurokumaft/items/pickaxe/steel_pickaxe"
       },
-      "mithril_pickaxe" : {
+      "kurokumaft:mithril_pickaxe" : {
          "textures" : "textures/kurokumaft/items/pickaxe/mithril_pickaxe"
       },
-      "orichalcum_pickaxe" : {
+      "kurokumaft:orichalcum_pickaxe" : {
          "textures" : "textures/kurokumaft/items/pickaxe/orichalcum_pickaxe"
       },
 
-      "steel_shovel" : {
+      "kurokumaft:steel_shovel" : {
          "textures" : "textures/kurokumaft/items/shovel/steel_shovel"
       },
-      "mithril_shovel" : {
+      "kurokumaft:mithril_shovel" : {
          "textures" : "textures/kurokumaft/items/shovel/mithril_shovel"
       },
-      "orichalcum_shovel": {
+      "kurokumaft:orichalcum_shovel": {
          "textures" : "textures/kurokumaft/items/shovel/orichalcum_shovel"
       },
 
-      "steel_hoe" : {
+      "kurokumaft:steel_hoe" : {
          "textures" : "textures/kurokumaft/items/hoe/steel_hoe"
       },
-      "mithril_hoe" : {
+      "kurokumaft:mithril_hoe" : {
          "textures" : "textures/kurokumaft/items/hoe/mithril_hoe"
       },
-      "orichalcum_hoe": {
+      "kurokumaft:orichalcum_hoe": {
          "textures" : "textures/kurokumaft/items/hoe/orichalcum_hoe"
       },
 
-      "copper_bucket_axolotl" : {
+      "kurokumaft:copper_bucket_axolotl" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_axolotl"
       },
-      "copper_bucket_cod" : {
+      "kurokumaft:copper_bucket_cod" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_cod"
       },
-      "copper_bucket" : {
+      "kurokumaft:copper_bucket" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_empty"
       },
-      "copper_bucket_lava" : {
+      "kurokumaft:copper_bucket_lava" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_lava"
       },
-      "copper_bucket_milk" : {
+      "kurokumaft:copper_bucket_milk" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_milk"
       },
-      "copper_bucket_powder_snow" : {
+      "kurokumaft:copper_bucket_powder_snow" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_powder_snow"
       },
-      "copper_bucket_pufferfish" : {
+      "kurokumaft:copper_bucket_pufferfish" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_pufferfish"
       },
-      "copper_bucket_salmon" : {
+      "kurokumaft:copper_bucket_salmon" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_salmon"
       },
-      "copper_bucket_tadpole" : {
+      "kurokumaft:copper_bucket_tadpole" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_tadpole"
       },
-      "copper_bucket_tropical" : {
+      "kurokumaft:copper_bucket_tropical" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_tropical"
       },
-      "copper_bucket_water" : {
+      "kurokumaft:copper_bucket_water" : {
          "textures" : "textures/kurokumaft/items/bucket/copper/copper_bucket_water"
       },
 
-      "mithril_cluster" : {
+      "kurokumaft:mithril_cluster" : {
 			"textures" : "textures/kurokumaft/blocks/ore/mithril/mithril_cluster"
 		},
-		"large_mithril_bud" : {
+		"kurokumaft:large_mithril_bud" : {
 			"textures" : "textures/kurokumaft/blocks/ore/mithril/large_mithril_bud"
 		},
-		"medium_mithril_bud" : {
+		"kurokumaft:medium_mithril_bud" : {
 		   "textures" : "textures/kurokumaft/blocks/ore/mithril/medium_mithril_bud"
 		},
-		"small_mithril_bud" : {
+		"kurokumaft:small_mithril_bud" : {
 		   "textures" : "textures/kurokumaft/blocks/ore/mithril/small_mithril_bud"
 		},
 
-      "charcoal_block_item": {
+      "kurokumaft:charcoal_block_item": {
 			"textures": "textures/kurokumaft/items/block/charcoal_block"
 		},
 
-      "bamboo_bag": {
+      "kurokumaft:bamboo_bag": {
          "textures" : "textures/kurokumaft/items/bag/bamboo_bag"
       },
 
-      "fish_meal" : {
+      "kurokumaft:fish_meal" : {
          "textures" : "textures/kurokumaft/items/fertilizer/fish_meal"
       },
-      "seeds_medicinal_plant" : {
+      "kurokumaft:seeds_medicinal_plant" : {
          "textures" : "textures/kurokumaft/items/crops/seeds/seeds_medicinal_plant"
       },
-      "seeds_rice_plant" : {
+      "kurokumaft:seeds_rice_plant" : {
          "textures" : "textures/kurokumaft/items/crops/seeds/seeds_rice_plant"
       },
-      "rice_plant" : {
+      "kurokumaft:rice_plant" : {
          "textures" : "textures/kurokumaft/items/crops/rice_plant"
       },
 
-      "baked_carrot" : {
+      "kurokumaft:baked_carrot" : {
          "textures" : "textures/kurokumaft/items/cook/baked/baked_carrot"
       },
 
-      "apple_pie" : {
+      "kurokumaft:apple_pie" : {
          "textures" : "textures/kurokumaft/items/cook/pie/apple_pie"
       },
 
-      "carrot_stew" : {
+      "kurokumaft:carrot_stew" : {
          "textures" : "textures/kurokumaft/items/cook/stew/carrot_stew"
       },
 
-      "toast_bread" : {
+      "kurokumaft:toast_bread" : {
          "textures" : "textures/kurokumaft/items/cook/bread/toast_bread"
       },
-      "apple_jam_bread" : {
+      "kurokumaft:apple_jam_bread" : {
          "textures" : "textures/kurokumaft/items/cook/bread/apple_jam_bread"
       },
-      "sweet_berries_jam_bread" : {
+      "kurokumaft:sweet_berries_jam_bread" : {
          "textures" : "textures/kurokumaft/items/cook/bread/sweet_berries_jam_bread"
       },
-      "glow_berries_jam_bread" : {
+      "kurokumaft:glow_berries_jam_bread" : {
          "textures" : "textures/kurokumaft/items/cook/bread/glow_berries_jam_bread"
       },
 
-      "fried_chicken" : {
+      "kurokumaft:fried_chicken" : {
          "textures" : "textures/kurokumaft/items/cook/fried/fried_chicken"
       },
-      "pork_cutlet" : {
+      "kurokumaft:pork_cutlet" : {
          "textures" : "textures/kurokumaft/items/cook/fried/pork_cutlet"
       },
-      "french_fries" : {
+      "kurokumaft:french_fries" : {
          "textures" : "textures/kurokumaft/items/cook/fried/french_fries"
       },
 
-      "apple_jam" : {
+      "kurokumaft:apple_jam" : {
          "textures" : "textures/kurokumaft/items/cook/jam/apple_jam"
       },
-      "sweet_berries_jam" : {
+      "kurokumaft:sweet_berries_jam" : {
          "textures" : "textures/kurokumaft/items/cook/jam/sweet_berries_jam"
       },
-      "glow_berries_jam" : {
+      "kurokumaft:glow_berries_jam" : {
          "textures" : "textures/kurokumaft/items/cook/jam/glow_berries_jam"
       },
 
-      "miso_soup_no_ingredient" : {
+      "kurokumaft:miso_soup_no_ingredient" : {
          "textures" : "textures/kurokumaft/items/cook/miso_soup_no_ingredient"
       },
 
-      "chocolate_cake" : {
+      "kurokumaft:chocolate_cake" : {
          "textures" : "textures/kurokumaft/items/cook/cake/chocolate_cake"
       },
 
-      "chocolate" : {
+      "kurokumaft:chocolate" : {
          "textures" : "textures/kurokumaft/items/cook/chocolate/chocolate"
       },
-      "milk_chocolate" : {
+      "kurokumaft:milk_chocolate" : {
          "textures" : "textures/kurokumaft/items/cook/chocolate/milk_chocolate"
       },
 
-      "cheese" : {
+      "kurokumaft:cheese" : {
          "textures" : "textures/kurokumaft/items/cook/cheese/cheese"
       },
 
-      "cooked_rice" : {
+      "kurokumaft:cooked_rice" : {
          "textures" : "textures/kurokumaft/items/cook/rice/cooked_rice"
       },
-      "beef_rice" : {
+      "kurokumaft:beef_rice" : {
          "textures" : "textures/kurokumaft/items/cook/rice/beef_rice"
       },
-      "chicken_egg_rice" : {
+      "kurokumaft:chicken_egg_rice" : {
          "textures" : "textures/kurokumaft/items/cook/rice/chicken_egg_rice"
       },
 
-      "onion" : {
+      "kurokumaft:onion" : {
          "textures" : "textures/kurokumaft/items/food/onion"
       },
-      "soybean" : {
+      "kurokumaft:soybean" : {
          "textures" : "textures/kurokumaft/items/food/soybean"
       },
-      "green_soybean" : {
+      "kurokumaft:green_soybean" : {
          "textures" : "textures/kurokumaft/items/food/green_soybean"
       },
-      "rice" : {
+      "kurokumaft:rice" : {
          "textures" : "textures/kurokumaft/items/food/rice"
       },
 
-      "olive" : {
+      "kurokumaft:olive" : {
          "textures" : "textures/kurokumaft/items/food/olive"
       },
-      "olive_green" : {
+      "kurokumaft:olive_green" : {
          "textures" : "textures/kurokumaft/items/food/olive_green"
       },
-      "olive_oil" : {
+      "kurokumaft:olive_oil" : {
          "textures" : "textures/kurokumaft/items/food/olive_oil"
       },
-      "dirty_oil" : {
+      "kurokumaft:dirty_oil" : {
          "textures" : "textures/kurokumaft/items/food/dirty_oil"
       },
 
-      "malt" : {
+      "kurokumaft:malt" : {
          "textures" : "textures/kurokumaft/items/seasoning/malt"
       },
-      "salt" : {
+      "kurokumaft:salt" : {
          "textures" : "textures/kurokumaft/items/seasoning/salt"
       },
 
-      "wooden_bucket_empty" : {
+      "kurokumaft:wooden_bucket_empty" : {
          "textures" : "textures/kurokumaft/items/tool/wooden_bucket_empty"
       },
-      "wooden_bucket_miso" : {
+      "kurokumaft:wooden_bucket_miso" : {
          "textures" : "textures/kurokumaft/items/tool/wooden_bucket_miso"
       },
-      "wooden_bucket_soy_sauce" : {
+      "kurokumaft:wooden_bucket_soy_sauce" : {
          "textures" : "textures/kurokumaft/items/tool/wooden_bucket_soy_sauce"
       },
-      "soup_bowl" : {
+      "kurokumaft:soup_bowl" : {
          "textures" : "textures/kurokumaft/items/tool/soup_bowl"
       },
-      "copper_shears" : {
+      "kurokumaft:copper_shears" : {
          "textures" : "textures/kurokumaft/items/tool/copper_shears"
       }
 

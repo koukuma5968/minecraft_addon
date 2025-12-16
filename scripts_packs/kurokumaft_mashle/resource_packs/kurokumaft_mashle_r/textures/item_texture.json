@@ -1,6 +1,13 @@
 {
    "resource_pack_name" : "kurokumaft_mashle_r",
    "texture_data" : {
+      "cane": {
+         "textures" : "textures/kurokumaft/items/cane/cane"
+      },
+      "iron_cane": {
+         "textures" : "textures/kurokumaft/items/cane/iron_cane"
+      },
+
       "dormitory_cape_adora": {
          "textures" : "textures/kurokumaft/items/armor/dormitory_cape_adora"
       },
@@ -16,7 +23,8 @@
             "textures/kurokumaft/items/spawn_egg/adora/mash_burnedead_egg",
             "textures/kurokumaft/items/spawn_egg/adora/finn_ames",
             "textures/kurokumaft/items/spawn_egg/adora/lance_crown",
-            "textures/kurokumaft/items/spawn_egg/adora/dot_barrett"
+            "textures/kurokumaft/items/spawn_egg/adora/dot_barrett",
+            "textures/kurokumaft/items/spawn_egg/adora/lemon_irvine"
          ]
       }
 

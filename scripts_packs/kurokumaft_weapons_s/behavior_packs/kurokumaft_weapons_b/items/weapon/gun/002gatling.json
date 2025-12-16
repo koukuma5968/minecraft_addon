@@ -30,7 +30,7 @@
         "slot": "bow"
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:icon": "gatling",
+      "minecraft:icon": "kurokumaft:gatling",
       "minecraft:repairable": {
         "repair_items": [
           {

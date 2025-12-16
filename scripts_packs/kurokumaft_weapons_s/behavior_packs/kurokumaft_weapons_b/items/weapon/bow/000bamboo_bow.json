@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:bamboo_bow.name"
       },
-      "minecraft:icon": "bamboo_bow",
+      "minecraft:icon": "kurokumaft:bamboo_bow",
       "minecraft:durability": {
         "damage_chance": {
           "min": 1,

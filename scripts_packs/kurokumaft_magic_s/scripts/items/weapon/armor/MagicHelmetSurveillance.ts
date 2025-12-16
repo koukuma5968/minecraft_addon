@@ -1,5 +1,5 @@
-import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, BlockPermutation, ButtonPushAfterEvent, DimensionLocation, TicksPerSecond} from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, TicksPerSecond} from "@minecraft/server";
+import { fireAttackReset, fireAttackUpLow, fireResistanceEffect, fireResistanceEffectReset, nightVisionEffect, nightVisionEffectReset, projectileInvalid, projectileInvalidReset, resistanceEffect, resistanceEffectReset, waterBreathingEffect, waterBreathingEffectReset } from "./MagicFunctionCommon";
 
 interface MagicHelmetObject {
     itemName:string,
@@ -9,6 +9,12 @@ interface MagicHelmetObject {
 }
 
 const MagicHelmetObjects = Object.freeze([
+    {
+        itemName: "kurokumaft:fire_chicken_helmet",
+        func: fireAttackUpLow,
+        delay: TicksPerSecond,
+        removeFunc: fireAttackReset
+    },
     {
         itemName: "kurokumaft:fire_magic_helmet",
         func: fireResistanceEffect,
@@ -125,54 +131,3 @@ export class MagicHelmetSurveillance {
     };
 }
 
-async function fireResistanceEffect(player:Player) {
-    player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond * 60, {
-        amplifier: 5,
-        showParticles: false
-    });
-}
-
-async function waterBreathingEffect(player:Player) {
-    player.addEffect(MinecraftEffectTypes.WaterBreathing, TicksPerSecond * 60, {
-        amplifier: 5,
-        showParticles: false
-    });
-}
-
-async function resistanceEffect(player:Player) {
-    player.addEffect(MinecraftEffectTypes.Resistance, TicksPerSecond * 60, {
-        amplifier: 3,
-        showParticles: false
-    });
-}
-
-async function nightVisionEffect(player:Player) {
-    player.addEffect(MinecraftEffectTypes.NightVision, TicksPerSecond * 60, {
-        amplifier: 10,
-        showParticles: false
-    });
-}
-
-async function projectileInvalid(player:Player) {
-    player.addTag("projectile_invalid");
-}
-
-async function projectileInvalidReset(player:Player) {
-    player.removeTag("projectile_invalid");
-}
-
-async function fireResistanceEffectReset(player:Player) {
-    player.removeEffect(MinecraftEffectTypes.FireResistance);
-}
-
-async function waterBreathingEffectReset(player:Player) {
-    player.removeEffect(MinecraftEffectTypes.WaterBreathing);
-}
-
-async function resistanceEffectReset(player:Player) {
-    player.removeEffect(MinecraftEffectTypes.Resistance);
-}
-
-async function nightVisionEffectReset(player:Player) {
-    player.removeEffect(MinecraftEffectTypes.NightVision);
-}

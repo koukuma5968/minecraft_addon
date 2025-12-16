@@ -16,7 +16,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:blizzas_upgrade_smithing_template.name"
 			},
-      "minecraft:icon": "blizzas_upgrade_smithing_template"
+      "minecraft:icon": "kurokumaft:blizzas_upgrade_smithing_template"
     }
   }
 }

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:aqua_jackal_boots"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "l l",
+      "m m"
+    ],
+    "key": {
+      "l": {
+        "item": "kurokumaft:aqua_jackal_pill"
+      },
+      "m": {
+        "item": "kurokumaft:muddy_fang"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:muddy_fang"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:aqua_jackal_boots",
+      "count": 1
+    }
+  }
+  
+}

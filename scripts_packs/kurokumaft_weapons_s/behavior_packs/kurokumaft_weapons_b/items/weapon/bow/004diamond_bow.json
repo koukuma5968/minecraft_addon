@@ -13,7 +13,7 @@
           "kurokumaft:bow"
         ]
       },
-      "minecraft:icon": "diamond_bow",
+      "minecraft:icon": "kurokumaft:diamond_bow",
       "minecraft:display_name": {
         "value": "item.kurokumaft:diamond_bow.name"
       },

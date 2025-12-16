@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:glass_shield_green.name"
       },
-      "minecraft:icon": "glass_shield_green",
+      "minecraft:icon": "kurokumaft:glass_shield_green",
       "minecraft:repairable": {
         "repair_items": [
           {

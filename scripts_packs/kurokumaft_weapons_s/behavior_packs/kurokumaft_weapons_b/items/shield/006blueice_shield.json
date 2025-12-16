@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:blueice_shield.name"
       },
-      "minecraft:icon": "blueice_shield",
+      "minecraft:icon": "kurokumaft:blueice_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

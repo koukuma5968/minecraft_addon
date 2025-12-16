@@ -14,7 +14,7 @@
         ]
       },
       "minecraft:max_stack_size": 1,
-      "minecraft:icon": "warden_hammer",
+      "minecraft:icon": "kurokumaft:warden_hammer",
       "minecraft:display_name": {
         "value": "item.kurokumaft:warden_hammer.name"
       },

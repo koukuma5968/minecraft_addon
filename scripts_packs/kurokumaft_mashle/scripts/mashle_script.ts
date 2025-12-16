@@ -1,6 +1,7 @@
 import { world,system, Player, ItemStack} from "@minecraft/server";
 import { initRegisterMashleCustom } from "./custom/MashleCustomComponentRegistry";
 import { CaneList } from "./common/MashleMagicConst";
+import { MagicPowerTick } from "./player/MagicPowerTick";
 
 // ワールド接続時
 system.beforeEvents.startup.subscribe(initEvent => {
@@ -12,6 +13,8 @@ world.beforeEvents.playerLeave.subscribe(leaveEvent => {
 });
 
 world.afterEvents.playerSpawn.subscribe(event => {
+  const playerTick = new MagicPowerTick(event.player);
+  playerTick.startMonitoring();
 });
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {

@@ -10,8 +10,24 @@
 					]
 				},
 				"third": {
+					"animations": ["third"],
 					"transitions": [
 						{"default": "c.is_first_person"}
+					]
+				}
+			}
+		},
+		"controller.animation.cane.chage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"chage": "q.main_hand_item_use_duration > 0.0f"}
+					]
+				},
+				"chage": {
+					"animations": ["chage"],
+					"transitions": [
+						{"default": "q.main_hand_item_use_duration == 0.0f"}
 					]
 				}
 			}

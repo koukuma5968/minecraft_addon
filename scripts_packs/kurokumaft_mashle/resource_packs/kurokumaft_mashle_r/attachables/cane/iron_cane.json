@@ -1,32 +1,36 @@
 {
-    "format_version": "1.10.0",
-    "minecraft:attachable": {
-      "description": {
-        "identifier": "kurokumaft:iron_cane",
-        "materials": {
-          "default": "entity_alphatest",
-          "enchanted": "entity_alphatest_glint"
-        },
-        "textures": {
-          "default": "textures/kurokumaft/models/cane/iron_cane",
-          "enchanted": "textures/misc/enchanted_item_glint"
-        },
-        "geometry": {
-          "default": "geometry.cane"
-        },
-        "scripts": {
-          "animate": [
-            "person"
-          ]
-        },
-        "animations": {
-          "person": "controller.animation.cane.person",
-          "first": "animation.cane.first",
-          "third": "animation.cane.third"
-
-        },
-        "render_controllers": ["controller.render.item_default"]
-      }
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:iron_cane",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/cane/iron_cane",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.cane"
+      },
+      "particle_effects": {
+        "magic_chage": "kurokumaft:chage_particle"
+      },
+      "scripts": {
+        "animate": [
+          "person",
+          "chage_con"
+        ]
+      },
+      "animations": {
+        "person": "controller.animation.cane.person",
+        "chage_con": "controller.animation.cane.chage",
+        "first": "animation.cane.first",
+        "third": "animation.cane.third",
+        "chage": "animation.cane.chage"
+      },
+      "render_controllers": ["controller.render.item_default"]
     }
   }
-  
+}

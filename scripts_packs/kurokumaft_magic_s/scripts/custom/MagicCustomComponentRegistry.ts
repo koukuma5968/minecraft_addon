@@ -25,6 +25,7 @@ import { MagicPotionDrink } from "../items/potion/MagicPotionDrink";
 import { MagicMineDurability } from "../items/tool/MagicMineDurability";
 import { PicMagicAttack, PicMagicTool } from "../items/pickaxe/MagicPickaxe";
 import { StartupEvent } from "@minecraft/server";
+import { LanceWeaponMagic } from "../items/weapon/lance/LanceWeaponMagic";
 
 /**
  * カスタムコンポーネントの登録
@@ -55,6 +56,8 @@ function initRegisterMagicCustom(initEvent:StartupEvent) {
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:gun_magic', new GunShotMagic());
     // バズーカ
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:bazooka_magic', new BazookaShotMagic());
+    // スピア
+    initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:lance_magic', new LanceWeaponMagic());
 
     // 打ちがね
     initEvent.itemComponentRegistry.registerCustomComponent('kurokumaft:magic_flagstone', new FlagStoneMagic());

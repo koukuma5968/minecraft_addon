@@ -1,5 +1,5 @@
-import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond, Block, EffectTypes, BlockVolume, BlockPermutation} from "@minecraft/server";
-import { MinecraftBlockTypes, MinecraftEffectTypes, MinecraftPotionEffectTypes } from "@minecraft/vanilla-data";
+import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, TicksPerSecond} from "@minecraft/server";
+import { fireAttackUp, fireAttackReset, waterHealthUp, waterHealthReset, lavaFreeze, lavaFreezeReset } from "./MagicFunctionCommon";
 
 interface MagicChestObject {
     itemName:string,
@@ -70,13 +70,13 @@ export class MagicChestSurveillance {
     private async checkJob() {
 
         const equItem = MagicChestObjects.find(obj => obj.itemName == this.itemStack.typeId) as MagicChestObject;
-        if (equItem == undefined) {
+        if (equItem === undefined) {
             return;
         }
         const equ = this.player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
         const chest = equ.getEquipment(EquipmentSlot.Chest) as ItemStack;
 
-        if (chest != null && chest.typeId == equItem.itemName) {
+        if (chest !== null && chest.typeId === equItem.itemName) {
             this.player.setDynamicProperty("magic_chest_equ", true);
             equItem.func(this.player);
             system.runTimeout(() => {
@@ -89,49 +89,3 @@ export class MagicChestSurveillance {
     };
 }
 
-async function fireAttackUp(player:Player) {
-    player.triggerEvent("kurokumaft:attack10_up");
-}
-
-async function waterHealthUp(player:Player) {
-    player.addEffect(MinecraftEffectTypes.HealthBoost, 60*TicksPerSecond, {
-        amplifier: 2,
-        showParticles: true
-    });
-}
-
-async function lavaFreeze(player:Player) {
-    const blockVol = new BlockVolume(
-        {
-            x:player.location.x-2,
-            y:player.location.y-2,
-            z:player.location.z-2
-        },
-        {
-            x:player.location.x+2,
-            y:player.location.y+2,
-            z:player.location.z+2
-        }
-    );
-
-    player.dimension.fillBlocks(blockVol, MinecraftBlockTypes.Ice, {
-        blockFilter: {
-            includePermutations: [
-                BlockPermutation.resolve(MinecraftBlockTypes.Lava),
-                BlockPermutation.resolve(MinecraftBlockTypes.Magma),
-            ]
-        },
-        ignoreChunkBoundErrors: true
-    });
-
-}
-
-async function fireAttackReset(player:Player) {
-    player.triggerEvent("kurokumaft:attack_down");
-}
-
-async function waterHealthReset(player:Player) {
-}
-
-async function lavaFreezeReset(player:Player) {
-}

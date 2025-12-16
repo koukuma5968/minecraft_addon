@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:lightning_wand_enhance"
+    },
+    "tags": [ "magic_enhance" ],
+    "pattern": [
+      "tim"
+    ],
+    "key": {
+      "t": {
+        "item": "kurokumaft:lightning_planks"
+      },
+      "i": {
+        "item": "kurokumaft:lightning_wand"
+      },
+      "m": {
+        "item": "kurokumaft:resound_patagium"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:lightning_planks"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:lightning_wand_enhance"
+    }
+  }
+}

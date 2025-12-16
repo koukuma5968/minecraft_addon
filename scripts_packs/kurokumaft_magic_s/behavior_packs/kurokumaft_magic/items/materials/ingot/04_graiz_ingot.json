@@ -17,7 +17,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:graiz_ingot.name"
 			},
-      "minecraft:icon": "graiz_ingot"
+      "minecraft:icon": "kurokumaft:graiz_ingot"
     }
   }
 }

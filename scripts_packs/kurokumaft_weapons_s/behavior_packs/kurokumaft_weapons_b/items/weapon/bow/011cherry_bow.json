@@ -13,7 +13,7 @@
           "kurokumaft:bow"
         ]
       },
-      "minecraft:icon": "cherry_bow",
+      "minecraft:icon": "kurokumaft:cherry_bow",
       "minecraft:display_name": {
         "value": "item.kurokumaft:cherry_bow.name"
       },

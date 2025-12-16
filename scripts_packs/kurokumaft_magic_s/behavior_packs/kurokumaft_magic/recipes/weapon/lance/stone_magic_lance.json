@@ -1,0 +1,38 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:stone_magic_lance"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "  n",
+      "mg ",
+      "#m "
+    ],
+    "key": {
+      "n": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "g": {
+        "item": "minecraft:gold_ingot"
+      },
+      "m": {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      "#": {
+        "item": "minecraft:diamond_spear"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:stone_magic_stone"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:stone_magic_lance",
+      "count": 1
+    }
+  }
+  
+}

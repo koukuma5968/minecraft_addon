@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:frost_owl_chestplate"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "l l",
+      "mlm",
+      "mlm"
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:leather"
+      },
+      "m": {
+        "item": "kurokumaft:freeze_windbreak"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:freeze_windbreak"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:frost_owl_chestplate",
+      "count": 1
+    }
+  }
+  
+}

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:phoenix_feather",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:hand_equipped": false,
+      "minecraft:max_stack_size": 16,
+      "minecraft:icon": {
+        "textures": {
+          "default": "kurokumaft:phoenix_feather"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:phoenix_feather.name"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:silver_nugget",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.nugget"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:silver_nugget.name"
+			},
+      "minecraft:icon": "kurokumaft:silver_nugget"
+    }
+  }
+}

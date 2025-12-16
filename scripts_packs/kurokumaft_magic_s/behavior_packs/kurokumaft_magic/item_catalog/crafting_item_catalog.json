@@ -3,6 +3,24 @@
     "minecraft:crafting_items_catalog": {
         "categories": [
             {
+                "category_name": "construction",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.planks"
+                        },
+                        "items": [
+                            "kurokumaft:fire_planks",
+                            "kurokumaft:water_planks",
+                            "kurokumaft:wind_planks",
+                            "kurokumaft:stone_planks",
+                            "kurokumaft:lightning_planks",
+                            "kurokumaft:ice_planks"
+                        ]
+                    }
+                ]
+            },
+            {
                 "category_name": "equipment",
                 "groups": [
                     {
@@ -24,12 +42,7 @@
                             "kurokumaft:nether_lightning_magic_helmet",
                             "kurokumaft:nether_ice_magic_helmet"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_chestplate",
@@ -49,12 +62,7 @@
                             "kurokumaft:nether_lightning_magic_chest",
                             "kurokumaft:nether_ice_magic_chestplate"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_leggings",
@@ -74,12 +82,7 @@
                             "kurokumaft:nether_lightning_magic_leggings",
                             "kurokumaft:nether_ice_magic_leggings"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_boots",
@@ -99,12 +102,27 @@
                             "kurokumaft:nether_lightning_magic_boots",
                             "kurokumaft:nether_ice_magic_boots"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:fire_chicken_helmet",
+                            "name": "kurokumaft:itemGroup.name.magic_animal_armor"
+                        },
+                        "items": [
+                            "kurokumaft:fire_chicken_helmet",
+                            "kurokumaft:water_buffalo_helmet",
+                            "kurokumaft:snow_wolf_helmet",
+                            "kurokumaft:flame_porcupine_chestplate",
+                            "kurokumaft:frost_owl_chestplate",
+                            "kurokumaft:earth_rhino_chestplate",
+                            "kurokumaft:wind_dolphin_leggings",
+                            "kurokumaft:stone_armadillo_leggings",
+                            "kurokumaft:thunder_bat_leggings",
+                            "kurokumaft:aqua_jackal_boots",
+                            "kurokumaft:breeze_fish_boots",
+                            "kurokumaft:lightning_sheep_boots"
+                        ]
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_sword",
@@ -121,12 +139,7 @@
                             "kurokumaft:holly_magic_sword",
                             "kurokumaft:rainbow_magic_sword"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:phoenix_sword",
@@ -135,12 +148,7 @@
                         "items": [
                             "kurokumaft:phoenix_sword"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_pickaxe",
@@ -160,12 +168,7 @@
                             "kurokumaft:volzas_magic_pickaxe",
                             "kurokumaft:blizzas_magic_pickaxe"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_shield",
@@ -179,12 +182,7 @@
                             "kurokumaft:thunder_magic_shield",
                             "kurokumaft:ice_magic_shield"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_wand",
@@ -200,12 +198,21 @@
                             "kurokumaft:dark_wand",
                             "kurokumaft:light_wand"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:fire_wand_enhance",
+                            "name": "kurokumaft:itemGroup.name.magic_wand_enhancement"
+                        },
+                        "items": [
+                            "kurokumaft:fire_wand_enhance",
+                            "kurokumaft:water_wand_enhance",
+                            "kurokumaft:wind_wand_enhance",
+                            "kurokumaft:stone_wand_enhance",
+                            "kurokumaft:lightning_wand_enhance",
+                            "kurokumaft:snow_wand_enhance"
+                        ]
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:flame_rod",
@@ -221,12 +228,7 @@
                             "kurokumaft:darkness_rod",
                             "kurokumaft:brightness_rod"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:blaze_stick",
@@ -242,12 +244,7 @@
                             "kurokumaft:jetblack_stick",
                             "kurokumaft:sparkle_stick"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:explosion_staff",
@@ -259,12 +256,7 @@
                             "kurokumaft:flamespark_staff",
                             "kurokumaft:mailstrom_staff"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_bow",
@@ -280,12 +272,7 @@
                             "kurokumaft:dark_magic_bow",
                             "kurokumaft:holly_magic_bow"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_bread",
@@ -299,12 +286,7 @@
                             "kurokumaft:thunder_magic_bread",
                             "kurokumaft:ice_magic_bread"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_gun",
@@ -318,12 +300,7 @@
                             "kurokumaft:lightning_magic_gun",
                             "kurokumaft:ice_magic_gun"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_magic_bazooka",
@@ -337,12 +314,7 @@
                             "kurokumaft:lightning_magic_bazooka",
                             "kurokumaft:ice_magic_bazooka"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:magic_shell",
@@ -357,12 +329,21 @@
                             "kurokumaft:lightning_magic_shell",
                             "kurokumaft:ice_magic_shell"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:flame_magic_lance",
+                            "name": "kurokumaft:itemGroup.name.magic_lance"
+                        },
+                        "items": [
+                            "kurokumaft:flame_magic_lance",
+                            "kurokumaft:water_magic_lance",
+                            "kurokumaft:wind_magic_lance",
+                            "kurokumaft:stone_magic_lance",
+                            "kurokumaft:lightning_magic_lance",
+                            "kurokumaft:ice_magic_lance"
+                        ]
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:grimoire_empty",
@@ -380,12 +361,7 @@
                             "kurokumaft:grimoire_damage",
                             "kurokumaft:fire_grimoire"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "equipment",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:diamond_bottle",
@@ -410,6 +386,18 @@
                 "groups": [
                     {
                         "group_identifier": {
+                            "icon": "kurokumaft:magic_enchant_table",
+                            "name": "kurokumaft:itemGroup.name.magic_craft"
+                        },
+                        "items": [
+                            "kurokumaft:magic_enchant_table",
+                            "kurokumaft:magic_lectern",
+                            "kurokumaft:magic_brewing",
+                            "kurokumaft:magic_enhance_table"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
                             "icon": "kurokumaft:fire_magic_stone",
                             "name": "kurokumaft:itemGroup.name.magic_stone"
                         },
@@ -423,12 +411,7 @@
                             "kurokumaft:dark_magic_stone",
                             "kurokumaft:light_magic_stone"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "items",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_horse_summon_stone",
@@ -442,12 +425,7 @@
                             "kurokumaft:lightning_hornet_summon_stone",
                             "kurokumaft:snow_bear_summon_stone"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "items",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:blaze_upgrade_smithing_template",
@@ -461,12 +439,7 @@
                             "kurokumaft:volzas_upgrade_smithing_template",
                             "kurokumaft:blizzas_upgrade_smithing_template"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "items",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:blaze_ingot",
@@ -480,13 +453,12 @@
                             "kurokumaft:volzas_ingot",
                             "kurokumaft:blizzas_ingot"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "items",
-                "groups": [
+                    },
                     {
+                        "group_identifier": {
+                            "icon": "kurokumaft:phoenix_feather",
+                            "name": "kurokumaft:itemGroup.name.magic_monster_material"
+                        },
                         "items": [
                             "kurokumaft:phoenix_feather",
                             "kurokumaft:fire_chicken_crest",
@@ -500,7 +472,14 @@
                             "kurokumaft:lightning_wool",
                             "kurokumaft:resound_patagium",
                             "kurokumaft:snow_fang",
-                            "kurokumaft:freeze_windbreak"
+                            "kurokumaft:freeze_windbreak",
+                            "kurokumaft:snow_wolf_fur",
+                            "kurokumaft:wind_dolphin_leather",
+                            "kurokumaft:breeze_fish_leather",
+                            "kurokumaft:earth_rhino_leather",
+                            "kurokumaft:water_buffalo_leather",
+                            "kurokumaft:aqua_jackal_pill",
+                            "kurokumaft:lightning_corner"
                         ]
                     }
                 ]
@@ -522,12 +501,7 @@
                             "kurokumaft:lightning_log_nut",
                             "kurokumaft:ice_log_nut"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "nature",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_log",
@@ -541,12 +515,7 @@
                             "kurokumaft:lightning_log",
                             "kurokumaft:ice_log"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "nature",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_leaves",
@@ -560,12 +529,7 @@
                             "kurokumaft:lightning_leaves",
                             "kurokumaft:ice_leaves"
                         ]
-                    }
-                ]
-            },
-            {
-                "category_name": "nature",
-                "groups": [
+                    },
                     {
                         "group_identifier": {
                             "icon": "kurokumaft:fire_froglight",

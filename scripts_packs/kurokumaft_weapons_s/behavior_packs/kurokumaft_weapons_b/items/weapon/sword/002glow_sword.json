@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:glow_sword.name"
 			},
-      "minecraft:icon": "glow_sword",
+      "minecraft:icon": "kurokumaft:glow_sword",
       "minecraft:glint": true,
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
@@ -31,7 +31,7 @@
           },
           {
             "items": [ "kurokumaft:glow_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

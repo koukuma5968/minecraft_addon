@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "kurokumaft:planks_water"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "planks",
+    "pattern": [
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "kurokumaft:water_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:water_log"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:water_planks",
+      "count": 4
+    }
+  }
+}

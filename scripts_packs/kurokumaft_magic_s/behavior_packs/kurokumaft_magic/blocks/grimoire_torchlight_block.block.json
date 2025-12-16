@@ -9,7 +9,7 @@
 		},
 		"components": {
 			"minecraft:collision_box": false,
-            "minecraft:selection_box": {
+			"minecraft:selection_box": {
 				"origin": [-4.0, 4.0, -4.0],
 				"size": [8.0, 8.0, 8.0]
 			},

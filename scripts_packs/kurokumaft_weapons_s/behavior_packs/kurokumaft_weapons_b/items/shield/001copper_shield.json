@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:copper_shield.name"
       },
-      "minecraft:icon":"copper_shield",
+      "minecraft:icon": "kurokumaft:copper_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

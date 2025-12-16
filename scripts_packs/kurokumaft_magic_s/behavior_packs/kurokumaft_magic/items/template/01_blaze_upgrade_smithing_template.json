@@ -16,7 +16,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:blaze_upgrade_smithing_template.name"
 			},
-      "minecraft:icon": "blaze_upgrade_smithing_template"
+      "minecraft:icon": "kurokumaft:blaze_upgrade_smithing_template"
     }
   }
 }

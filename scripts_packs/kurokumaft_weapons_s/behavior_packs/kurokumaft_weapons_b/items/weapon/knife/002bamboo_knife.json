@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:bamboo_knife.name"
       },
-      "minecraft:icon": "bamboo_knife",
+      "minecraft:icon": "kurokumaft:bamboo_knife",
       "minecraft:tags": {
         "tags": [
           "kurokumaft:spear"

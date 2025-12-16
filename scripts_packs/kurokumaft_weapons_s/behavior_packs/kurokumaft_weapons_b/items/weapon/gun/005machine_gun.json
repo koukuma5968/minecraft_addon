@@ -13,7 +13,7 @@
           "kurokumaft:gun"
         ]
       },
-      "minecraft:icon": "machine_gun",
+      "minecraft:icon": "kurokumaft:machine_gun",
       "minecraft:display_name": {
         "value": "item.kurokumaft:machine_gun.name"
       },

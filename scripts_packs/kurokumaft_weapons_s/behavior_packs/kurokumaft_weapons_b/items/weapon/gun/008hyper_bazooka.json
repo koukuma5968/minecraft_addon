@@ -20,7 +20,7 @@
         },
         "max_durability": 1500
       },
-      "minecraft:icon": "hyper_bazooka",
+      "minecraft:icon": "kurokumaft:hyper_bazooka",
       "minecraft:display_name": {
         "value": "item.kurokumaft:hyper_bazooka.name"
       },

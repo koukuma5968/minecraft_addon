@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "magic_potion"
+          "default": "kurokumaft:magic_potion"
         }
       },
       "minecraft:use_animation":"eat",

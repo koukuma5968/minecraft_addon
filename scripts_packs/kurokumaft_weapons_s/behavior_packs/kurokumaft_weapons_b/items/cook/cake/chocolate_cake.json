@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:chocolate_cake.name"
 			},
-      "minecraft:icon": "chocolate_cake",
+      "minecraft:icon": "kurokumaft:chocolate_cake",
       "minecraft:block_placer": {
         "block": "kurokumaft:chocolate_cake_block"
       }

@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:revolver.name"
       },
-      "minecraft:icon": "revolver",
+      "minecraft:icon": "kurokumaft:revolver",
       "minecraft:durability": {
         "damage_chance": {
           "min": 1,

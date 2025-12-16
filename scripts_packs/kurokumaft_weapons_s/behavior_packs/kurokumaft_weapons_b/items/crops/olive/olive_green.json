@@ -13,7 +13,7 @@
 				"value": "item.kurokumaft:olive_green.name"
 			},
       "minecraft:max_stack_size": 16,
-      "minecraft:icon": "olive_green",
+      "minecraft:icon": "kurokumaft:olive_green",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "nutrition": 1

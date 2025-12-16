@@ -15,7 +15,7 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "grimoire_life_magic_fire"
+          "default": "kurokumaft:grimoire_life_magic_fire"
         }
       },
       "minecraft:custom_components": [

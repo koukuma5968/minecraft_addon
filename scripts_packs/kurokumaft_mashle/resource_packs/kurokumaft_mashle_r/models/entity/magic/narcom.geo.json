@@ -6,7 +6,7 @@
 				"identifier": "geometry.narcom",
 				"texture_width": 16,
 				"texture_height": 16,
-				"visible_bounds_width": 2,
+				"visible_bounds_width": 3,
 				"visible_bounds_height": 1.5,
 				"visible_bounds_offset": [0, 0.25, 0]
 			},

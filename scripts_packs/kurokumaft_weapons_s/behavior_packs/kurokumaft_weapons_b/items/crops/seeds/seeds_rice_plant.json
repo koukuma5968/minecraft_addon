@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:seeds_rice_plant.name"
 			},
-      "minecraft:icon": "seeds_rice_plant",
+      "minecraft:icon": "kurokumaft:seeds_rice_plant",
       "minecraft:block_placer": {
         "block": "kurokumaft:rice_plant",
         "use_on" : [

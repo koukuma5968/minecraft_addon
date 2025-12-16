@@ -1,5 +1,4 @@
-import { system,Player,Entity,EntityComponentTypes,Vector3,EntityEquippableComponent,EquipmentSlot,EntityApplyDamageOptions, EntityProjectileComponent } from "@minecraft/server";
-import { itemDurabilityMagicDamage } from "../../../common/MagicItemDurabilityDamage";
+import { system,Player,Entity,EntityComponentTypes,Vector3,EntityEquippableComponent,EquipmentSlot,EntityApplyDamageOptions, EntityProjectileComponent, EntityDamageCause } from "@minecraft/server";
 
 /**
  * 魔法防具反撃効果
@@ -17,38 +16,38 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
     const chest = equ.getEquipment(EquipmentSlot.Chest);
     const legs = equ.getEquipment(EquipmentSlot.Legs);
     const head = equ.getEquipment(EquipmentSlot.Head);
-    if (chest != undefined) {
-        if (damager != undefined && projectile == undefined) {
-            if (chest.typeId == "kurokumaft:stone_magic_chestplate" || chest.typeId == "kurokumaft:nether_stone_magic_chestplate") {
+    if (chest !== undefined) {
+        if (damager !== undefined && projectile === undefined) {
+            if (chest.typeId === "kurokumaft:stone_magic_chestplate" || chest.typeId === "kurokumaft:nether_stone_magic_chestplate") {
                 const view = player.getViewDirection();
-                damager.applyDamage(5,{"cause":"entityExplosion"} as EntityApplyDamageOptions);
+                damager.applyDamage(5,{"cause":EntityDamageCause.entityExplosion} as EntityApplyDamageOptions);
                 damager.dimension.spawnParticle("minecraft:large_explosion", damager.location);
                 damager.applyKnockback({x:Math.round(view.x)*10, z:Math.round(view.z)*10}, 10);
-                itemDurabilityMagicDamage(player, chest, EquipmentSlot.Chest);
             }
-            if (chest.typeId == "kurokumaft:lightning_magic_chestplate" || chest.typeId == "kurokumaft:nether_lightning_magic_chest") {
-                damager.applyDamage(5,{"cause":"lightning"} as EntityApplyDamageOptions);
+            if (chest.typeId === "kurokumaft:lightning_magic_chestplate" || chest.typeId === "kurokumaft:nether_lightning_magic_chest") {
+                damager.applyDamage(5,{"cause":EntityDamageCause.lightning} as EntityApplyDamageOptions);
                 damager.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", damager.location);
-                itemDurabilityMagicDamage(player, chest, EquipmentSlot.Chest);
+            }
+            if (chest.typeId === "kurokumaft:flame_porcupine_chestplate") {
+                damager.applyDamage(2,{"cause":EntityDamageCause.fire} as EntityApplyDamageOptions);
             }
         }
     }
-    if (legs != undefined) {
-        if (damager != undefined && projectile == undefined) {
-            if (legs.typeId == "kurokumaft:lightning_magic_leggings" || legs.typeId == "kurokumaft:nether_lightning_magic_leggings") {
+    if (legs !== undefined) {
+        if (damager !== undefined && projectile === undefined) {
+            if (legs.typeId === "kurokumaft:lightning_magic_leggings" || legs.typeId === "kurokumaft:nether_lightning_magic_leggings") {
                 const location = damager.location;
                 // 5から15の範囲のランダムな数値を取得
                 const randomNum1 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
                 const randomNum2 = Math.floor(Math.random() * (15 - 5 + 1)) + 5;
-                const randomInRange1 = Math.floor(Math.random()*2) == 1 ? -randomNum1 : randomNum1;
-                const randomInRange2 = Math.floor(Math.random()*2) == 1 ? -randomNum2 : randomNum2;
+                const randomInRange1 = Math.floor(Math.random()*2) === 1 ? -randomNum1 : randomNum1;
+                const randomInRange2 = Math.floor(Math.random()*2) === 1 ? -randomNum2 : randomNum2;
                 damager.teleport({x:location.x + randomInRange1, y:location.y, z:location.z + randomInRange2});
-                itemDurabilityMagicDamage(player, legs, EquipmentSlot.Legs);
             }
         }
     }
-    if (head != undefined) {
-        if ((head.typeId == "kurokumaft:lightning_magic_helmet" || head.typeId == "kurokumaft:nether_lightning_magic_helmet") && projectile != undefined) {
+    if (head !== undefined) {
+        if ((head.typeId === "kurokumaft:lightning_magic_helmet" || head.typeId === "kurokumaft:nether_lightning_magic_helmet") && projectile !== undefined) {
             try {
                 projectile.clearVelocity();
                 projectile.dimension.spawnParticle("kurokumaft:lightning_arrow_particle", projectile.location);
@@ -62,11 +61,10 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 system.runTimeout(() => {
                     system.clearRun(intervalNum);
                 }, 30);
-                itemDurabilityMagicDamage(player, head, EquipmentSlot.Head);
             } catch (error) {
             }
         }
-        if ((head.typeId == "kurokumaft:wind_magic_helmet" || head.typeId == "kurokumaft:nether_wind_magic_helmet") && projectile != undefined) {
+        if ((head.typeId === "kurokumaft:wind_magic_helmet" || head.typeId === "kurokumaft:nether_wind_magic_helmet") && projectile !== undefined) {
             try {
                 projectile.clearVelocity();
                 projectile.dimension.spawnParticle("kurokumaft:wind_arrow_particle", projectile.location);
@@ -77,7 +75,6 @@ async function hitMagicAmor(player:Player, damager:Entity, projectile:Entity | u
                 });
 
                 // projectile.applyImpulse({x:hitVector!.x,y:hitVector!.y,z:-hitVector!.z});
-                itemDurabilityMagicDamage(player, head, EquipmentSlot.Head);
             } catch (error) {
             }
         }

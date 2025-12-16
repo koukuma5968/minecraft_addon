@@ -21,11 +21,11 @@
           "adjust_for_weather": true
         },
         "minecraft:weight": {
-          "default": 10
+          "default": 30
         },
         "minecraft:herd": {
-          "min_size": 8,
-          "max_size": 8
+          "min_size": 4,
+          "max_size": 6
         },
         "minecraft:density_limit": {
           "surface": 5

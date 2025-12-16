@@ -19,9 +19,7 @@
         "value": 150,
         "slot": "g_tool"
       },
-      "minecraft:rarity": {
-        "minecraft:rarity": "common"
-      },
+      "minecraft:rarity": "rare",
       "minecraft:use_modifiers": {
         "movement_modifier": 0.5,
         "use_duration": 1000

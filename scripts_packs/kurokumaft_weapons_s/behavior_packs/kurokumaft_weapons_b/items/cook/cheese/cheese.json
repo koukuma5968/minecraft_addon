@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:cheese.name"
 			},
-      "minecraft:icon": "cheese",
+      "minecraft:icon": "kurokumaft:cheese",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "nutrition": 6

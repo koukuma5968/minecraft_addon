@@ -13,7 +13,7 @@
           "kurokumaft:gun"
         ]
       },
-      "minecraft:icon": "flamethrower",
+      "minecraft:icon": "kurokumaft:flamethrower",
       "minecraft:display_name": {
         "value": "item.kurokumaft:flamethrower.name"
       },

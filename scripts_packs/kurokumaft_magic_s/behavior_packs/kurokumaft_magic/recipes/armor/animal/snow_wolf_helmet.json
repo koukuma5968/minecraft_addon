@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:snow_wolf_helmet"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "mmm",
+      "f f"
+    ],
+    "key": {
+      "l": {
+        "item": "kurokumaft:snow_fang"
+      },
+      "m": {
+        "item": "kurokumaft:snow_wolf_fur"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:snow_wolf_fur"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:snow_wolf_helmet",
+      "count": 1
+    }
+  }
+  
+}

@@ -1,8 +1,11 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
-			"identifier": "kurokumaft:stone_leaves"
+			"identifier": "kurokumaft:stone_leaves",
+			"menu_category": {
+				"category": "nature"
+			}
 		},
 		"components": {
 			"tag:minecraft:is_hoe_item_destructible": {},
@@ -12,7 +15,19 @@
 				"explosion_resistance": 0.5
 			},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.2
+				"seconds_to_destroy": 0.7,
+				"item_specific_speeds": [
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_hoe')"
+						},
+						"destroy_speed": 0.2
+					},
+					{
+						"item": "shears",
+						"destroy_speed": 0.2
+					}
+				]
 			},
 			"minecraft:loot": "loot_tables/blocks/leaves/stone_leaves.json",
 			"minecraft:geometry": "geometry.stone_leaves",

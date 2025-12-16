@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:holy_silver_ingot",
+      "menu_category": {
+        "category": "items",
+        "group": "itemGroup.name.ingot"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:holy_silver_ingot.name"
+			},
+      "minecraft:icon": "kurokumaft:holy_silver_ingot"
+    }
+  }
+}

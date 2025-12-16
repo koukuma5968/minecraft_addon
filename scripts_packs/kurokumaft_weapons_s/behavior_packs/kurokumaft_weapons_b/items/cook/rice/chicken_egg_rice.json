@@ -13,7 +13,7 @@
 				"value": "item.kurokumaft:chicken_egg_rice.name"
 			},
       "minecraft:max_stack_size": 1,
-      "minecraft:icon": "chicken_egg_rice",
+      "minecraft:icon": "kurokumaft:chicken_egg_rice",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "nutrition": 16,

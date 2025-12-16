@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:tnt_shield.name"
       },
-      "minecraft:icon": "tnt_shield",
+      "minecraft:icon": "kurokumaft:tnt_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

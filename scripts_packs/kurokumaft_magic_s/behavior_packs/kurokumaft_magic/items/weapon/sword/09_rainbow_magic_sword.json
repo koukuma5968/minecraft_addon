@@ -18,7 +18,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "rainbow_magic_sword"
+          "default": "kurokumaft:rainbow_magic_sword"
         }
       },
       "minecraft:max_stack_size": 1,
@@ -34,7 +34,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:rainbow_magic_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

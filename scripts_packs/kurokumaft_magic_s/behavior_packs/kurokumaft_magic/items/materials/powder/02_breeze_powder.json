@@ -10,7 +10,7 @@
     "components": {
       "minecraft:icon": {
         "textures": {
-          "default": "breeze_powder"
+          "default": "kurokumaft:breeze_powder"
         }
       },
       "minecraft:display_name": {

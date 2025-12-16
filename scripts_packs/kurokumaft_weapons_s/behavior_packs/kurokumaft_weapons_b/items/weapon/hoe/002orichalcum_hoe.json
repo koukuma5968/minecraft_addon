@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:orichalcum_hoe.name"
       },
-      "minecraft:icon":"orichalcum_hoe",
+      "minecraft:icon": "kurokumaft:orichalcum_hoe",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

@@ -106,7 +106,7 @@
       "minecraft:nameable": {
       },
       "minecraft:type_family": {
-        "family": [ "fire", "monster", "boss", "magic_boss" ]
+        "family": [ "fire", "monster", "boss", "mob", "magic_boss" ]
       },
       "minecraft:persistent": {
       },

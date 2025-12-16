@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:immortal_shield.name"
       },
-      "minecraft:icon": "immortal_shield",
+      "minecraft:icon": "kurokumaft:immortal_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

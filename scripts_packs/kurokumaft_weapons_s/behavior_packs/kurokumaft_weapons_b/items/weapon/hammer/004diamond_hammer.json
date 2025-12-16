@@ -14,7 +14,7 @@
           "minecraft:transformable_items"
         ]
       },
-      "minecraft:icon": "diamond_hammer",
+      "minecraft:icon": "kurokumaft:diamond_hammer",
       "minecraft:display_name": {
         "value": "item.kurokumaft:diamond_hammer.name"
       },

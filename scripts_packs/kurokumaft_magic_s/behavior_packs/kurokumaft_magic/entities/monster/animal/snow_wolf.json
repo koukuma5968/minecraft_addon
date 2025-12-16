@@ -66,6 +66,7 @@
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 2,
         "must_see": true,
+        "attack_interval": 4,
         "reselect_targets": true,
         "within_radius": 10.0,
         "must_see_forget_duration": 17.0,

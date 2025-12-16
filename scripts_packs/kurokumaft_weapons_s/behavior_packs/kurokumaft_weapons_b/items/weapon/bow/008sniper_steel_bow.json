@@ -15,7 +15,7 @@
           "kurokumaft:scope_m"
         ]
       },
-      "minecraft:icon": "sniper_steel_bow",
+      "minecraft:icon": "kurokumaft:sniper_steel_bow",
       "minecraft:display_name": {
         "value": "item.kurokumaft:sniper_steel_bow.name"
       },

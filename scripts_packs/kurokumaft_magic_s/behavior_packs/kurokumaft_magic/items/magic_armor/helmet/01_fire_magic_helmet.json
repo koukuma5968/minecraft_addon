@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "fire_magic_helmet"
+          "default": "kurokumaft:fire_magic_helmet"
         }
       },
       "minecraft:tags": {
@@ -30,7 +30,7 @@
           },
           {
             "items": [ "kurokumaft:fire_magic_helmet" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

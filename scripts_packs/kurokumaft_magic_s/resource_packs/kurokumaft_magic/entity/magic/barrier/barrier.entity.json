@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:barrier",
+        "materials": {
+          "default": "entity_alphablend_nocolor"
+        },
+        "textures": {
+          "default": "textures/kurokumaft/models/magic/barrier"
+        },
+        "geometry": {
+          "default": "geometry.barrier"
+        },
+        "render_controllers": [ "controller.render.armor_stand" ]
+      }
+    }
+  }
+  

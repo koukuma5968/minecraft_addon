@@ -23,7 +23,7 @@
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
         "textures": {
-          "default": "dark_magic_bow"
+          "default": "kurokumaft:dark_magic_bow"
         }
       },
       "minecraft:display_name": {

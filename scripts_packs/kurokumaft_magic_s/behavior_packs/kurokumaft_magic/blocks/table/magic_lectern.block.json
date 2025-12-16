@@ -14,8 +14,8 @@
 		},
 		"components": {
 			"tag:minecraft:is_pickaxe_item_destructible": {},
-            "minecraft:selection_box": true,
-            "minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:collision_box": true,
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 0.4
 			},

@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:icon": {
-        "texture": "blizzas_rod"
+        "texture": "kurokumaft:blizzas_rod"
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:blizzas_rod.name"

@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:green_soybean.name"
 			},
-      "minecraft:icon": "green_soybean",
+      "minecraft:icon": "kurokumaft:green_soybean",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "nutrition": 2

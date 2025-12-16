@@ -1,11 +1,12 @@
 // scripts/mashle_script.ts
-import { world, system } from "@minecraft/server";
+import { world as world3, system as system3 } from "@minecraft/server";
 
 // scripts/items/CaneComponent.ts
 var CaneComponent = class {
   onUse(event, arg) {
     const caneType = arg.params;
-    event.source.setDynamicProperty("cane_type", caneType.tyep);
+    event.source.setDynamicProperty("cane_type", caneType[0].type);
+    console.info(JSON.stringify(caneType));
   }
 };
 
@@ -53,18 +54,56 @@ var UniqueMagicList = Object.freeze([
   { id: 4, name: "cuffs" }
 ]);
 
+// scripts/player/MagicPowerTick.ts
+import { system as system2, TicksPerSecond } from "@minecraft/server";
+var MagicPowerTick = class {
+  constructor(player) {
+    this.player = player;
+    this.num = 0;
+  }
+  startMonitoring() {
+    this.num = system2.runInterval(() => {
+      if (this.player.isValid) {
+        this.checkPlayerMagicTick();
+      } else {
+        system2.clearRun(this.num);
+      }
+    }, 5);
+  }
+  async checkPlayerMagicTick() {
+    if (this.player.isValid) {
+      try {
+      } catch (error) {
+      } finally {
+        this.player.onScreenDisplay.setTitle(
+          {
+            translate: "icon.kurokumaft:magic.power.full"
+          },
+          {
+            stayDuration: 10 * TicksPerSecond,
+            fadeInDuration: 0,
+            fadeOutDuration: 50 * TicksPerSecond
+          }
+        );
+      }
+    }
+  }
+};
+
 // scripts/mashle_script.ts
-system.beforeEvents.startup.subscribe((initEvent) => {
+system3.beforeEvents.startup.subscribe((initEvent) => {
   initRegisterMashleCustom(initEvent);
 });
-world.beforeEvents.playerLeave.subscribe((leaveEvent) => {
+world3.beforeEvents.playerLeave.subscribe((leaveEvent) => {
   leaveEvent.player.clearDynamicProperties();
 });
-world.afterEvents.playerSpawn.subscribe((event) => {
+world3.afterEvents.playerSpawn.subscribe((event) => {
+  const playerTick = new MagicPowerTick(event.player);
+  playerTick.startMonitoring();
 });
-world.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
+world3.afterEvents.dataDrivenEntityTrigger.subscribe((event) => {
 });
-world.afterEvents.itemReleaseUse.subscribe((event) => {
+world3.afterEvents.itemReleaseUse.subscribe((event) => {
   const source = event.source;
   const itemStack = event.itemStack;
   const useDuration = event.useDuration;

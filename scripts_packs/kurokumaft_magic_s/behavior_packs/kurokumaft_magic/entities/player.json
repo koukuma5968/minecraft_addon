@@ -112,6 +112,11 @@
         }
       },
 
+      "kurokumaft:attack3_up": {
+        "minecraft:attack": {
+          "damage": 3
+        }
+      },
       "kurokumaft:attack10_up": {
         "minecraft:attack": {
           "damage": 10
@@ -707,6 +712,11 @@
         }
 			},
 
+      "kurokumaft:attack3_up": {
+				"add": {
+          "component_groups": [ "kurokumaft:attack3_up" ]
+        }
+      },
       "kurokumaft:attack10_up": {
 				"add": {
           "component_groups": [ "kurokumaft:attack10_up" ]

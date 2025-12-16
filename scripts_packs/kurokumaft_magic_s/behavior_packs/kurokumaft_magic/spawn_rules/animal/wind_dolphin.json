@@ -23,8 +23,8 @@
           "default": 30
         },
         "minecraft:herd": {
-          "min_size":2,
-          "max_size":3
+          "min_size": 2,
+          "max_size": 3
         },
     
         "minecraft:biome_filter": {

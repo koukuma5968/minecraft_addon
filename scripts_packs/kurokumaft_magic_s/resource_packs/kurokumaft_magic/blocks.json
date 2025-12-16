@@ -96,11 +96,13 @@
         "sound": "metal"
     },
     "kurokumaft:lightning_wool": {
-        "textures" : {
-            "down" : "lightning_wool",
-            "side" : "lightning_wool",
-            "up" : "lightning_wool"
-        }
-  }
+        "sound" : "cloth"
+    },
+	"silver_ore": {
+		"sound": "stone"
+	},
+	"deepslate_silver_ore": {
+		"sound": "stone"
+	}
  
  }

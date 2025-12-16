@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:water_buffalo_helmet"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "mlm",
+      "l l"
+    ],
+    "key": {
+      "l": {
+        "item": "kurokumaft:water_buffalo_leather"
+      },
+      "m": {
+        "item": "kurokumaft:wet_hunting_horn"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:wet_hunting_horn"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:water_buffalo_helmet",
+      "count": 1
+    }
+  }
+  
+}

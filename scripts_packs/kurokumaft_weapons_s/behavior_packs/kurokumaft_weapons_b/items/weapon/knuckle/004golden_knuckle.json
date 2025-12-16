@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:golden_knuckle.name"
       },
-      "minecraft:icon": "golden_knuckle",
+      "minecraft:icon": "kurokumaft:golden_knuckle",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

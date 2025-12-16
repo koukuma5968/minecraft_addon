@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "diamond_bottle"
+          "default": "kurokumaft:diamond_bottle"
         }
       },
       "minecraft:liquid_clipped": {

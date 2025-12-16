@@ -17,7 +17,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:breeze_ingot.name"
 			},
-      "minecraft:icon": "breeze_ingot"
+      "minecraft:icon": "kurokumaft:breeze_ingot"
     }
   }
 }

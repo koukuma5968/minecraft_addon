@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:black_quartz.name"
 			},
-      "minecraft:icon": "black_quartz"
+      "minecraft:icon": "kurokumaft:black_quartz"
     }
   }
 }

@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "steel_chestplate"
+          "default": "kurokumaft:steel_chestplate"
         }
       },
       "minecraft:tags": {

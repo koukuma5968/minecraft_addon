@@ -1,4 +1,4 @@
-import { ItemStack, EntityComponentTypes, system, Entity, EntityInventoryComponent, Container, TicksPerSecond, world, Block, BlockComponentOnPlaceEvent, BlockComponentPlayerBreakEvent, BlockCustomComponent, Dimension, Direction } from "@minecraft/server";
+import { ItemStack, EntityComponentTypes, system, Entity, EntityInventoryComponent, Container, TicksPerSecond, world, Block, BlockComponentOnPlaceEvent, BlockComponentPlayerBreakEvent, BlockCustomComponent, Dimension, Direction, BlockComponentPlayerInteractEvent, CustomComponentParameters } from "@minecraft/server";
 
 interface MagicBrewingItemObject {
     materialItem:string,
@@ -74,13 +74,13 @@ export class MagicBrewingStandBlock implements BlockCustomComponent {
 
         const direction = block.permutation.getState("minecraft:cardinal_direction");
 
-        if (direction == "north") {
+        if (direction === "north") {
             magic_brewing_stand.setProperty("kurokumaft:stand_pos", "n");
-        } else if (direction == "south") {
+        } else if (direction === "south") {
             magic_brewing_stand.setProperty("kurokumaft:stand_pos", "s");
-        } else if (direction == "east") {
+        } else if (direction === "east") {
             magic_brewing_stand.setProperty("kurokumaft:stand_pos", "e");
-        } else if (direction == "west") {
+        } else if (direction === "west") {
             magic_brewing_stand.setProperty("kurokumaft:stand_pos", "w");
         }
 
@@ -123,40 +123,40 @@ export class MagicBrewingStand {
             const stoneItem = container.getItem(1) as ItemStack;
             const fuelItem = container.getItem(2) as ItemStack;
             const outputItem = container.getItem(3) as ItemStack;
-            if (outputItem != undefined) {
-                if (outputItem.typeId == "kurokumaft:diamond_bottle_water") {
+            if (outputItem !== undefined) {
+                if (outputItem.typeId === "kurokumaft:diamond_bottle_water") {
                     this.stand.setProperty("kurokumaft:bottle_type", "magic");
                 } else  {
                     this.stand.setProperty("kurokumaft:bottle_type", isPorionBottle(outputItem));
                 }
 
-                if (materialItem != undefined && stoneItem != undefined) {
+                if (materialItem !== undefined && stoneItem !== undefined) {
                     const brewingItemObject = getBrewingItemObject(materialItem, stoneItem);
-                    if (brewingItemObject != undefined ) {
-                        if (fuelItem != undefined && fuelItem.typeId == "minecraft:blaze_powder" && outputItem.typeId == "kurokumaft:diamond_bottle_water") {
+                    if (brewingItemObject !== undefined ) {
+                        if (fuelItem !== undefined && fuelItem.typeId === "minecraft:blaze_powder" && outputItem.typeId === "kurokumaft:diamond_bottle_water") {
                             let brewingCount = this.stand.getProperty("kurokumaft:brewing_fuel") as number;
                             this.stand.dimension.spawnParticle(brewingItemObject.particle, this.stand.location);
                             brewingCount++;
-                            if (brewingCount == 10) {
+                            if (brewingCount === 10) {
                                 const newOutputItem = new ItemStack(brewingItemObject.outputItem, 1);
                                 newOutputItem.setLore([brewingItemObject.lore]);
                                 container.setItem(3, undefined);
                                 container.setItem(3, newOutputItem);
 
                                 materialItem.amount--;
-                                if (materialItem.amount == 0) {
+                                if (materialItem.amount === 0) {
                                     container.setItem(0, undefined);
                                 } else {
                                     container.setItem(0, materialItem);
                                 }
                                 stoneItem.amount--;
-                                if (stoneItem.amount == 0) {
+                                if (stoneItem.amount === 0) {
                                     container.setItem(1, undefined);
                                 } else {
                                     container.setItem(1, stoneItem);
                                 }
                                 fuelItem.amount--;
-                                if (fuelItem.amount == 0) {
+                                if (fuelItem.amount === 0) {
                                     container.setItem(2, undefined);
                                 } else {
                                     container.setItem(2, fuelItem);
@@ -184,7 +184,7 @@ export class MagicBrewingStand {
 function getBrewingItemObject(materialItem:ItemStack, stoneItem:ItemStack) : MagicBrewingItemObject {
 
     const brewingItem = MagicBrewingItemObjects.find((predicate) => {
-        return (predicate.materialItem == materialItem.typeId && predicate.stoneItem == stoneItem.typeId);
+        return (predicate.materialItem === materialItem.typeId && predicate.stoneItem === stoneItem.typeId);
     }) as MagicBrewingItemObject;
 
     return brewingItem;
@@ -193,7 +193,7 @@ function getBrewingItemObject(materialItem:ItemStack, stoneItem:ItemStack) : Mag
 function isPorionBottle(potion:ItemStack) : string {
 
     const brewingItem = MagicBrewingItemObjects.find((predicate) => {
-        return (predicate.outputItem == potion.typeId);
+        return (predicate.outputItem === potion.typeId);
     }) as MagicBrewingItemObject;
 
     return brewingItem != undefined ? brewingItem.type : "empty";
@@ -210,19 +210,19 @@ export async function breakMagicBrewing(block: Block, dimension: Dimension) {
     const container = inventory.container as Container;
 
     const materialItem = container.getItem(0) as ItemStack;
-    if (materialItem != undefined) {
+    if (materialItem !== undefined) {
         dimension.spawnItem(materialItem, stand[0].location);
     }
     const stoneItem = container.getItem(1) as ItemStack;
-    if (stoneItem != undefined) {
+    if (stoneItem !== undefined) {
         dimension.spawnItem(stoneItem, stand[0].location);
     }
     const fuelItem = container.getItem(2) as ItemStack;
-    if (fuelItem != undefined) {
+    if (fuelItem !== undefined) {
         dimension.spawnItem(fuelItem, stand[0].location);
     }
     const outputItem = container.getItem(3) as ItemStack;
-    if (outputItem != undefined) {
+    if (outputItem !== undefined) {
         dimension.spawnItem(outputItem, stand[0].location);
     }
     stand[0].remove();

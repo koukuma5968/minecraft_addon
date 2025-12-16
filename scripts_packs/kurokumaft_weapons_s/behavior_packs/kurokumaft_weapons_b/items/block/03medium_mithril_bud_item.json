@@ -11,7 +11,7 @@
       "minecraft:display_name": {
 				"value": "tile.kurokumaft:medium_mithril_bud.name"
 			},
-      "minecraft:icon": "medium_mithril_bud",
+      "minecraft:icon": "kurokumaft:medium_mithril_bud",
       "minecraft:block_placer": {
         "block": "kurokumaft:medium_mithril_bud"
       }

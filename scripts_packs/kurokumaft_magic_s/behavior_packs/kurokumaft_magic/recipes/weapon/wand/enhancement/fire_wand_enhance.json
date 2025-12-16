@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:fire_wand_enhance"
+    },
+    "tags": [ "magic_enhance" ],
+    "pattern": [
+      "tim"
+    ],
+    "key": {
+      "t": {
+        "item": "kurokumaft:fire_planks"
+      },
+      "i": {
+        "item": "kurokumaft:fire_wand"
+      },
+      "m": {
+        "item": "kurokumaft:fire_chicken_crest"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:fire_planks"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:fire_wand_enhance"
+    }
+  }
+}

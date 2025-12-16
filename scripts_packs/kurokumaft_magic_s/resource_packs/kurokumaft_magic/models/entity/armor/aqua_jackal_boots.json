@@ -1,0 +1,92 @@
+{
+	"format_version": "1.8.0",
+	"geometry.magic.aqua_jackal_boots.base": {
+		"texturewidth": 64,
+		"textureheight": 32,
+		"visible_bounds_width": 2,
+		"visible_bounds_height": 2,
+		"visible_bounds_offset": [0, 1, 0],
+		"bones": [
+			{
+				"name": "waist",
+				"pivot": [0, 12, 0]
+			},
+			{
+				"name": "body",
+				"parent": "waist",
+				"pivot": [0, 24, 0]
+			},
+			{
+				"name": "rightLeg",
+				"parent": "body",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-3.9, 0, -2], "size": [4, 12, 4], "uv": [0, 16]}
+				]
+			},
+			{
+				"name": "rightkiba",
+				"parent": "rightLeg",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-2.4, 0, 3], "size": [1, 1, 2], "uv": [16, 29]},
+					{"origin": [-2.4, 1, 4], "size": [1, 1, 2], "uv": [16, 29]}
+				]
+			},
+			{
+				"name": "leftLeg",
+				"parent": "body",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "uv": [0, 16]}
+				]
+			},
+			{
+				"name": "leftkiba",
+				"parent": "leftLeg",
+				"pivot": [0, 0, 0],
+				"cubes": [
+					{"origin": [1.4, 0, 3], "size": [1, 1, 2], "uv": [16, 29]},
+					{"origin": [1.4, 1, 4], "size": [1, 1, 2], "uv": [16, 29]}
+				]
+			}
+		]
+	},
+	"geometry.magic.aqua_jackal_armor1:geometry.magic.aqua_jackal_boots.base": {
+		"bones": [
+			{
+				"name": "rightLeg",
+				"inflate": 1
+			},
+			{
+				"name": "leftLeg",
+				"inflate": 1
+			}
+		]
+	},
+	"geometry.magic.armor.aqua_jackal_boots:geometry.magic.aqua_jackal_armor1": {
+		"bones": [
+			{
+				"name": "head",
+				"reset": true
+			},
+			{
+				"name": "hat",
+				"reset": true
+			},
+			{
+				"name": "body",
+				"reset": true
+			},
+			{
+				"name": "rightArm",
+				"reset": true
+			},
+			{
+				"name": "leftArm",
+				"reset": true
+			}
+		]
+	}
+}

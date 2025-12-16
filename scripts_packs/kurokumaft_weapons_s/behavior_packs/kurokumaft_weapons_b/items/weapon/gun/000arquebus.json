@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:arquebus.name"
       },
-      "minecraft:icon": "arquebus",
+      "minecraft:icon": "kurokumaft:arquebus",
       "minecraft:durability": {
         "damage_chance": {
           "min": 1,

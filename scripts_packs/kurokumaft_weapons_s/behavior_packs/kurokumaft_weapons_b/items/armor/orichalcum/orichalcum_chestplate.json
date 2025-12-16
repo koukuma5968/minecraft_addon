@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "orichalcum_chestplate"
+          "default": "kurokumaft:orichalcum_chestplate"
         }
       },
       "minecraft:tags": {

@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:earth_rhino_chestplate"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "l l",
+      "lml",
+      "lml"
+    ],
+    "key": {
+      "l": {
+        "item": "kurokumaft:earth_rhino_leather"
+      },
+      "m": {
+        "item": "kurokumaft:thrust_horn"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:thrust_horn"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:earth_rhino_chestplate",
+      "count": 1
+    }
+  }
+  
+}

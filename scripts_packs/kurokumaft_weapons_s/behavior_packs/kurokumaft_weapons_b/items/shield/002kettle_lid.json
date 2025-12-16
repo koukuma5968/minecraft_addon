@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:kettle_lid.name"
       },
-      "minecraft:icon": "kettle_lid",
+      "minecraft:icon": "kurokumaft:kettle_lid",
       "minecraft:repairable": {
         "repair_items": [
           {

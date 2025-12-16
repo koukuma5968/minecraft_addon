@@ -16,7 +16,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:volzas_upgrade_smithing_template.name"
 			},
-      "minecraft:icon": "volzas_upgrade_smithing_template"
+      "minecraft:icon": "kurokumaft:volzas_upgrade_smithing_template"
     }
   }
 }

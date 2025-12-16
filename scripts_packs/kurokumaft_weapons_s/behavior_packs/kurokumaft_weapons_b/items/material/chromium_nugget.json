@@ -12,7 +12,7 @@
       "minecraft:display_name": {
          "value": "item.kurokumaft:chromium_nugget.name"
       },
-      "minecraft:icon": "chromium_nugget"
+      "minecraft:icon": "kurokumaft:chromium_nugget"
     }
   }
 }

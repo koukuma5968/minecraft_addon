@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:wooden_hammer.name"
       },
-      "minecraft:icon": "wooden_hammer",
+      "minecraft:icon": "kurokumaft:wooden_hammer",
       "minecraft:hand_equipped": true,
       "minecraft:damage": 5,
       "minecraft:use_animation": "spear",

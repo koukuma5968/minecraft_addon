@@ -1,5 +1,5 @@
-import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, world, TicksPerSecond} from "@minecraft/server";
-import { MinecraftEffectTypes } from "@minecraft/vanilla-data";
+import { Player, ItemStack, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, system, TicksPerSecond} from "@minecraft/server";
+import { jumpBoostEffect, jumpBoostEffectReset, waterRegenerationEffect, waterRegenerationEffectReset, iceResistanceEffect, iceResistanceEffectReset } from "./MagicFunctionCommon";
 
 interface MagicLeggingsObject {
     itemName:string,
@@ -89,34 +89,3 @@ export class MagicLeggingsSurveillance {
     };
 }
 
-async function jumpBoostEffect(player:Player) {
-    player.addEffect(MinecraftEffectTypes.JumpBoost, TicksPerSecond * 60, {
-        amplifier: 1,
-        showParticles: false
-    });
-}
-
-async function waterRegenerationEffect(player:Player) {
-    player.addEffect(MinecraftEffectTypes.Regeneration, TicksPerSecond * 60, {
-        amplifier: 2,
-        showParticles: false
-    });
-}
-
-async function iceResistanceEffect(player:Player) {
-    player.addEffect(MinecraftEffectTypes.FireResistance, TicksPerSecond * 60, {
-        amplifier: 5,
-        showParticles: false
-    });
-}
-
-async function jumpBoostEffectReset(player:Player) {
-    player.removeEffect(MinecraftEffectTypes.JumpBoost);
-}
-
-async function waterRegenerationEffectReset(player:Player) {
-    player.removeEffect(MinecraftEffectTypes.Regeneration);
-}
-async function iceResistanceEffectReset(player:Player) {
-    player.removeEffect(MinecraftEffectTypes.FireResistance);
-}

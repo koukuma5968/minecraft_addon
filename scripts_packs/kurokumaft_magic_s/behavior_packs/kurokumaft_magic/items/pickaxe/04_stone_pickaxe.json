@@ -16,7 +16,7 @@
           "minecraft:transformable_items"
         ]
       },
-      "minecraft:icon": "stone_pickaxe",
+      "minecraft:icon": "kurokumaft:stone_pickaxe",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

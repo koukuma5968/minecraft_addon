@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:wooden_battleaxe.name"
       },
-      "minecraft:icon": "wooden_battleaxe",
+      "minecraft:icon": "kurokumaft:wooden_battleaxe",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

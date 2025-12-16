@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "holly_magic_sword"
+          "default": "kurokumaft:holly_magic_sword"
         }
       },
       "minecraft:max_stack_size": 1,

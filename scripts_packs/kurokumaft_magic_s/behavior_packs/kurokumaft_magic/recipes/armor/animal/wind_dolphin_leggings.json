@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:wind_dolphin_leggings"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "lml",
+      "l l",
+      "l l"
+    ],
+    "key": {
+      "l": {
+        "item": "kurokumaft:wind_dolphin_leather"
+      },
+      "m": {
+        "item": "kurokumaft:swirl_horn"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:swirl_horn"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:wind_dolphin_leggings",
+      "count": 1
+    }
+  }
+  
+}

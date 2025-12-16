@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:orichalcum.name"
 			},
-      "minecraft:icon": "orichalcum"
+      "minecraft:icon": "kurokumaft:orichalcum"
     }
   }
 }

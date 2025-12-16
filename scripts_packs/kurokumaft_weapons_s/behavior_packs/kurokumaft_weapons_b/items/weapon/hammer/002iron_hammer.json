@@ -13,7 +13,7 @@
           "kurokumaft:is_hammer"
         ]
       },
-      "minecraft:icon": "iron_hammer",
+      "minecraft:icon": "kurokumaft:iron_hammer",
       "minecraft:display_name": {
         "value": "item.kurokumaft:iron_hammer.name"
       },

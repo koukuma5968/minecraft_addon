@@ -13,7 +13,7 @@
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
         "textures": {
-          "default": "aqua_frog_summon_stone"
+          "default": "kurokumaft:aqua_frog_summon_stone"
         }
       },
       "minecraft:durability": {

@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:steel_shield.name"
       },
-      "minecraft:icon": "steel_shield",
+      "minecraft:icon": "kurokumaft:steel_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

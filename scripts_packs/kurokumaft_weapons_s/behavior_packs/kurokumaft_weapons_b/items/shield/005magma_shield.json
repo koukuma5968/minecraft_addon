@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:magma_shield.name"
       },
-      "minecraft:icon": "magma_shield",
+      "minecraft:icon": "kurokumaft:magma_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

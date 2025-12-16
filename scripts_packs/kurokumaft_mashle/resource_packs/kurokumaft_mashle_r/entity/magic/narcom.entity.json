@@ -16,7 +16,7 @@
         "shot": "animation.magic.shot"
       },
       "particle_effects": {
-        "magic_shot": "kurokumaft:narcom"
+        "magic_shot": "kurokumaft:narcom_particle"
       },
       "scripts": {
         "animate": [

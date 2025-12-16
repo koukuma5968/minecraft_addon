@@ -11,7 +11,7 @@
       "minecraft:display_name": {
 				"value": "tile.kurokumaft:mithril_cluster.name"
 			},
-      "minecraft:icon": "mithril_cluster",
+      "minecraft:icon": "kurokumaft:mithril_cluster",
       "minecraft:block_placer": {
         "block": "kurokumaft:mithril_cluster"
       }

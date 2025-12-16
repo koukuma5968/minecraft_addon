@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:fried_chicken.name"
 			},
-      "minecraft:icon": "fried_chicken",
+      "minecraft:icon": "kurokumaft:fried_chicken",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "nutrition": 8,

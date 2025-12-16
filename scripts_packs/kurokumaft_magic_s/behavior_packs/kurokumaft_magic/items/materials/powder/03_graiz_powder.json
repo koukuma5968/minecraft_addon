@@ -10,7 +10,7 @@
     "components": {
       "minecraft:icon": {
         "textures": {
-          "default": "graiz_powder"
+          "default": "kurokumaft:graiz_powder"
         }
       },
       "minecraft:display_name": {

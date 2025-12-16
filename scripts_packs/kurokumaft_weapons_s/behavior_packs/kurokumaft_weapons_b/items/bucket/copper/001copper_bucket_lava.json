@@ -12,7 +12,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:copper_bucket_lava.name"
       },
-      "minecraft:icon": "copper_bucket_lava",
+      "minecraft:icon": "kurokumaft:copper_bucket_lava",
       "minecraft:fuel": {
         "duration": 2000
       },

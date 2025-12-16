@@ -11,9 +11,10 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:steel_spear.name"
       },
-      "minecraft:icon": "steel_spear",
+      "minecraft:icon": "kurokumaft:steel_spear",
       "minecraft:tags": {
         "tags": [
+          "minecraft:is_spear",
           "kurokumaft:spear"
         ]
       },
@@ -34,7 +35,7 @@
           },
           {
             "items": ["kurokumaft:steel_spear"],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

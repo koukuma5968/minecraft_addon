@@ -1,0 +1,45 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:magic_enhance_table"
+    },
+    "tags": [ "magic_enchant" ],
+    "pattern": [
+      "fam",
+      "ghg",
+      "was"
+    ],
+    "key": {
+      "a": {
+        "item": "minecraft:amethyst_block"
+      },
+      "h": {
+        "item": "minecraft:creaking_heart"
+      },
+      "g": {
+        "item": "minecraft:gold_ingot"
+      },
+      "s": {
+        "item": "kurokumaft:stone_magic_stone"
+      },
+      "w": {
+        "item": "kurokumaft:wind_magic_stone"
+      },
+      "m": {
+        "item": "kurokumaft:water_magic_stone"
+      },
+      "f": {
+        "item": "kurokumaft:fire_magic_stone"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:creaking_heart"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:magic_enhance_table"
+    }
+  }
+}

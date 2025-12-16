@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:black_powder.name"
 			},
-      "minecraft:icon": "black_powder"
+      "minecraft:icon": "kurokumaft:black_powder"
     }
   }
 }

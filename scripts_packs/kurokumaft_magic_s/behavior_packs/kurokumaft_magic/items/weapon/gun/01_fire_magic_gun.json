@@ -28,7 +28,7 @@
       "minecraft:max_stack_size": 1,
       "minecraft:icon": {
         "textures": {
-          "default": "fire_magic_gun"
+          "default": "kurokumaft:fire_magic_gun"
         }
       },
       "minecraft:display_name": {

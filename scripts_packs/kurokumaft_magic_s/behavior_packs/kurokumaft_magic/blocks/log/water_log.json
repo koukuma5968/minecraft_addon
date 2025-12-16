@@ -1,15 +1,15 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.21.100",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:water_log",
 			"menu_category": {
 				"category": "nature"
-            },
+			},
 			"traits": {
 				"minecraft:placement_position": {
 					"enabled_states": ["minecraft:block_face"]
-			    }
+				}
 			}
 		},
 		"components": {
@@ -17,7 +17,57 @@
 			"minecraft:collision_box": true,
 			"minecraft:selection_box": true,
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 0.4
+				"seconds_to_destroy": 3.5,
+				"item_specific_speeds": [
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:wooden_tier')"
+					},
+					"destroy_speed": 1.2
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:stone_tier')"
+					},
+					"destroy_speed": 1.0
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:copper_tier')"
+					},
+					"destroy_speed": 0.8
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:iron_tier')"
+					},
+					"destroy_speed": 0.7
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:golden_tier')"
+					},
+					"destroy_speed": 0.6
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:diamond_tier')"
+					},
+					"destroy_speed": 0.4
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('minecraft:is_axe', 'minecraft:netherite_tier')"
+					},
+					"destroy_speed": 0.25
+					},
+					{
+					"item": {
+						"tags": "q.all_tags('kurokumaft:is_magic_axe', 'kurokumaft:water_tier')"
+					},
+					"destroy_speed": 0.15
+					}
+				]
 			},
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 15

@@ -1,0 +1,31 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:breeze_fish_boots"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "l l",
+      "m m"
+    ],
+    "key": {
+      "l": {
+        "item": "kurokumaft:breeze_fish_leather"
+      },
+      "m": {
+        "item": "kurokumaft:flutter_tail_fin"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:flutter_tail_fin"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:breeze_fish_boots",
+      "count": 1
+    }
+  }
+  
+}

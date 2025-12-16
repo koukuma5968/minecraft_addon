@@ -415,6 +415,29 @@ async function applyExplosionDamage(option:ExplosionOptions, source:Entity, filt
     }
 }
 
+type Vec3 = { x: number; y: number; z: number };
+
+function add(a: Vec3, b: Vec3): Vec3 { return { x: a.x + b.x, y: a.y + b.y, z: a.z + b.z }; }
+function sub(a: Vec3, b: Vec3): Vec3 { return { x: a.x - b.x, y: a.y - b.y, z: a.z - b.z }; }
+function length(v: Vec3): number { return Math.sqrt(v.x*v.x + v.y*v.y + v.z*v.z); }
+function normalize(v: Vec3): Vec3 { const L = length(v) || 1; return { x: v.x/L, y: v.y/L, z: v.z/L }; }
+export const ProbabilisticChoice = (list: any[]) => {
+    const totalWeight = list.reduce((p, c) => {
+        return { weight: p.weight + c.weight }
+    }).weight
+
+    return {
+        pick () {
+        const r = Math.random() * totalWeight;
+        let s = 0.0;
+        for (const l of list) {
+            s += l.weight
+            if (r < s) { return l.item }
+        }
+        }
+    }
+};
+
 export { print, clamp, getRandomInRange, playsound, getLookPoints, getLookRotaionPointsV2, getDistanceLocation, getDirectionVector, addTeamsTagFilter,
     getLookLocationDistance, getLookLocationDistancePitch, applyExplosionDamage, explosionMagic,
     MagicCraftBlocks, BlockLocationList };

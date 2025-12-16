@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "fire_log_nut"
+          "default": "kurokumaft:fire_log_nut"
         }
       },
       "minecraft:use_animation":"eat",

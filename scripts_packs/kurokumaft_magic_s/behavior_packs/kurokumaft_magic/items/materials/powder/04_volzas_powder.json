@@ -10,7 +10,7 @@
     "components": {
       "minecraft:icon": {
         "textures": {
-          "default": "volzas_powder"
+          "default": "kurokumaft:volzas_powder"
         }
       },
       "minecraft:display_name": {

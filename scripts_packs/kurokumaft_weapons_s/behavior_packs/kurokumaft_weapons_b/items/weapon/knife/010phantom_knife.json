@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:phantom_knife.name"
       },
-      "minecraft:icon": "phantom_knife",
+      "minecraft:icon": "kurokumaft:phantom_knife",
       "minecraft:tags": {
         "tags": [
           "kurokumaft:spear"

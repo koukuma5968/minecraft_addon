@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:lead_nugget.name"
 			},
-      "minecraft:icon": "lead_nugget"
+      "minecraft:icon": "kurokumaft:lead_nugget"
     }
   }
 }

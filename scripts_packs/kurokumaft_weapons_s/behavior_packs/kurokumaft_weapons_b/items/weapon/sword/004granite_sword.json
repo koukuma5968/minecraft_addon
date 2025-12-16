@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:granite_sword.name"
 			},
-      "minecraft:icon": "granite_sword",
+      "minecraft:icon": "kurokumaft:granite_sword",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {
@@ -26,7 +26,7 @@
         "repair_items": [
           {
             "items": [ "kurokumaft:granite_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

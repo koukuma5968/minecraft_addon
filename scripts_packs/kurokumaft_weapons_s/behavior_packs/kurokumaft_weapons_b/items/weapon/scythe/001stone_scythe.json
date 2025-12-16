@@ -8,7 +8,7 @@
       }
     },
     "components": {
-      "minecraft:icon": "stone_scythe",
+      "minecraft:icon": "kurokumaft:stone_scythe",
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_scythe.name"
       },
@@ -21,7 +21,7 @@
             "items": [
               "kurokumaft:stone_scythe"
             ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

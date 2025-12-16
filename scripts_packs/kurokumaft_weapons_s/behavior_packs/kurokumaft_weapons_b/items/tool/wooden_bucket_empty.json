@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:wooden_bucket_empty.name"
 			},
-      "minecraft:icon": "wooden_bucket_empty"
+      "minecraft:icon": "kurokumaft:wooden_bucket_empty"
     }
   }
 }

@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:malt.name"
 			},
-      "minecraft:icon": "malt"
+      "minecraft:icon": "kurokumaft:malt"
     }
   }
 }

@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:mithril_ingot.name"
 			},
-      "minecraft:icon": "mithril_ingot"
+      "minecraft:icon": "kurokumaft:mithril_ingot"
     }
   }
 }

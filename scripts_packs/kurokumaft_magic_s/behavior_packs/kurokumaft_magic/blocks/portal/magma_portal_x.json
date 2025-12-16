@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:magma_portal_x",
 			"is_experimental": false,
-            "register_to_creative_menu": false,
+			"register_to_creative_menu": false,
 			"menu_category": {
 				"category": "none"
 			}
@@ -17,17 +17,17 @@
 			},
 			"minecraft:flammable": false,
 			"minecraft:loot": "loot_tables/blocks/magma_portal.json",
-            "minecraft:geometry": "geometry.magma_portal_x",
+			"minecraft:geometry": "geometry.magma_portal_x",
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "magma_portal",
-                    "face_dimming": false,
+					"face_dimming": false,
 					"render_method": "blend"
 				}
 			},
 			"minecraft:custom_components": [
 				"kurokumaft:portal"
 			]
-        }
-    }
+		}
+	}
 }

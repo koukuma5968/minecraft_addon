@@ -3,7 +3,7 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "kurokumaft:volzas",
-      "population_control": "monster"
+      "population_control": "magic_element"
     },
     "conditions": [
       {

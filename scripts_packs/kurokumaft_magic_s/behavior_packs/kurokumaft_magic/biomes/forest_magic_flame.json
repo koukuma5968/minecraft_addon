@@ -1,6 +1,6 @@
 
 {
-  "format_version": "1.21.90",
+  "format_version": "1.21.110",
   "minecraft:biome": {
     "description": {
       "identifier": "kurokumaft:forest_magic_flame"
@@ -9,10 +9,6 @@
       "minecraft:climate": {
         "temperature" : 0.8,
         "downfall" : 0.8,
-        "red_spores" : 0.8,
-        "blue_spores" : 0.1,
-        "ash" : 0.8,
-        "white_ash" : 0.0,
         "snow_accumulation": [
           0.1, 0.2
         ]

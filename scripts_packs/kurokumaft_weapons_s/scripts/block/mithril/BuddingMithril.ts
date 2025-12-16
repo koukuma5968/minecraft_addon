@@ -1,4 +1,4 @@
-import { BlockCustomComponent, Block, BlockComponentTickEvent, Vector3, Dimension, BlockPermutation } from "@minecraft/server";
+import { BlockCustomComponent, Block, BlockComponentTickEvent, Vector3, Dimension, BlockPermutation, BlockComponentOnPlaceEvent, CustomComponentParameters } from "@minecraft/server";
 import { ProbabilisticChoice } from "../../common/WeaponsCommonUtil";
 
 const mithrilChoiceLists = ProbabilisticChoice([

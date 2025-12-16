@@ -9,7 +9,7 @@
     },
     "components": {
       "minecraft:icon": {
-        "texture": "draiz_rod"
+        "texture": "kurokumaft:draiz_rod"
       },
       "minecraft:display_name": {
         "value": "item.kurokumaft:draiz_rod.name"

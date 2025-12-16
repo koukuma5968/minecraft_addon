@@ -13,7 +13,7 @@
           "kurokumaft:bow"
         ]
       },
-      "minecraft:icon": "steel_bow",
+      "minecraft:icon": "kurokumaft:steel_bow",
       "minecraft:display_name": {
         "value": "item.kurokumaft:steel_bow.name"
       },

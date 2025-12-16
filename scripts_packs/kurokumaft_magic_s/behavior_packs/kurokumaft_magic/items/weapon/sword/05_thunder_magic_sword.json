@@ -18,7 +18,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "thunder_magic_sword"
+          "default": "kurokumaft:thunder_magic_sword"
         }
       },
       "minecraft:max_stack_size": 1,
@@ -38,7 +38,7 @@
           },
           {
             "items": [ "kurokumaft:thunder_magic_sword" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

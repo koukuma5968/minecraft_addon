@@ -13,7 +13,7 @@
           "kurokumaft:gun"
         ]
       },
-      "minecraft:icon": "railgun",
+      "minecraft:icon": "kurokumaft:railgun",
       "minecraft:display_name": {
         "value": "item.kurokumaft:railgun.name"
       },

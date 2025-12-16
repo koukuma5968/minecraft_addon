@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "cherry_leggings"
+          "default": "kurokumaft:cherry_leggings"
         }
       },
       "minecraft:tags": {

@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:nitre_nugget.name"
 			},
-      "minecraft:icon": "nitre_nugget"
+      "minecraft:icon": "kurokumaft:nitre_nugget"
     }
   }
 }

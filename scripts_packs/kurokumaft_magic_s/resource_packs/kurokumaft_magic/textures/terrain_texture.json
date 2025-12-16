@@ -36,56 +36,56 @@
 		},
 
 		"aqua_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/aqua_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/aqua_froglight_side"
 		},
 		"aqua_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/aqua_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/aqua_froglight_top"
 		},
 		"fire_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/fire_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/fire_froglight_side"
 		},
 		"fire_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/fire_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/fire_froglight_top"
 		},
 		"aero_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/aero_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/aero_froglight_side"
 		},
 		"aero_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/aero_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/aero_froglight_top"
 		},
 		"gaia_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/gaia_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/gaia_froglight_side"
 		},
 		"gaia_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/gaia_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/gaia_froglight_top"
 		},
 		"lightning_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/lightning_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/lightning_froglight_side"
 		},
 		"lightning_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/lightning_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/lightning_froglight_top"
 		},
 		"cold_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/cold_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/cold_froglight_side"
 		},
 		"cold_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/cold_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/cold_froglight_top"
 		},
 		"dark_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/dark_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/dark_froglight_side"
 		},
 		"dark_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/dark_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/dark_froglight_top"
 		},
 		"shining_froglight_side": {
-			"textures": "textures/kurokumaft/blocks/frog/shining_froglight_side.png"
+			"textures": "textures/kurokumaft/blocks/frog/shining_froglight_side"
 		},
 		"shining_froglight_top": {
-			"textures": "textures/kurokumaft/blocks/frog/shining_froglight_top.png"
+			"textures": "textures/kurokumaft/blocks/frog/shining_froglight_top"
 		},
 
 		"grimoire_torchlight_block": {
-			"textures": "textures/kurokumaft/blocks/grimoire_torchlight_block.png"
+			"textures": "textures/kurokumaft/blocks/grimoire_torchlight_block"
 		},
 		"magic_lectern": {
 			"textures": "textures/kurokumaft/blocks/magic_lectern"
@@ -118,86 +118,114 @@
 		},
 
 		"fire_leaves_left": {
-			"textures": "textures/kurokumaft/blocks/leaves/fire_leaves_left.png"
+			"textures": "textures/kurokumaft/blocks/leaves/fire_leaves_left"
 		},
 		"fire_leaves_right": {
-			"textures": "textures/kurokumaft/blocks/leaves/fire_leaves_right.png"
+			"textures": "textures/kurokumaft/blocks/leaves/fire_leaves_right"
 		},
 		"fire_log_side": {
-			"textures": "textures/kurokumaft/blocks/log/fire_log_side.png"
+			"textures": "textures/kurokumaft/blocks/log/fire_log_side"
 		},
 		"fire_log_top": {
-			"textures": "textures/kurokumaft/blocks/log/fire_log_top.png"
+			"textures": "textures/kurokumaft/blocks/log/fire_log_top"
 		},
 
 		"water_leaves_left": {
-			"textures": "textures/kurokumaft/blocks/leaves/water_leaves_left.png"
+			"textures": "textures/kurokumaft/blocks/leaves/water_leaves_left"
 		},
 		"water_leaves_right": {
-			"textures": "textures/kurokumaft/blocks/leaves/water_leaves_right.png"
+			"textures": "textures/kurokumaft/blocks/leaves/water_leaves_right"
 		},
 		"water_log_side": {
-			"textures": "textures/kurokumaft/blocks/log/water_log_side.png"
+			"textures": "textures/kurokumaft/blocks/log/water_log_side"
 		},
 		"water_log_top": {
-			"textures": "textures/kurokumaft/blocks/log/water_log_top.png"
+			"textures": "textures/kurokumaft/blocks/log/water_log_top"
 		},
 
 		"wind_leaves_left": {
-			"textures": "textures/kurokumaft/blocks/leaves/wind_leaves_left.png"
+			"textures": "textures/kurokumaft/blocks/leaves/wind_leaves_left"
 		},
 		"wind_leaves_right": {
-			"textures": "textures/kurokumaft/blocks/leaves/wind_leaves_right.png"
+			"textures": "textures/kurokumaft/blocks/leaves/wind_leaves_right"
 		},
 		"wind_log_side": {
-			"textures": "textures/kurokumaft/blocks/log/wind_log_side.png"
+			"textures": "textures/kurokumaft/blocks/log/wind_log_side"
 		},
 		"wind_log_top": {
-			"textures": "textures/kurokumaft/blocks/log/wind_log_top.png"
+			"textures": "textures/kurokumaft/blocks/log/wind_log_top"
 		},
 
 		"stone_leaves_left": {
-			"textures": "textures/kurokumaft/blocks/leaves/stone_leaves_left.png"
+			"textures": "textures/kurokumaft/blocks/leaves/stone_leaves_left"
 		},
 		"stone_leaves_right": {
-			"textures": "textures/kurokumaft/blocks/leaves/stone_leaves_right.png"
+			"textures": "textures/kurokumaft/blocks/leaves/stone_leaves_right"
 		},
 		"stone_log_side": {
-			"textures": "textures/kurokumaft/blocks/log/stone_log_side.png"
+			"textures": "textures/kurokumaft/blocks/log/stone_log_side"
 		},
 		"stone_log_top": {
-			"textures": "textures/kurokumaft/blocks/log/stone_log_top.png"
+			"textures": "textures/kurokumaft/blocks/log/stone_log_top"
 		},
 
 		"lightning_leaves_left": {
-			"textures": "textures/kurokumaft/blocks/leaves/lightning_leaves_left.png"
+			"textures": "textures/kurokumaft/blocks/leaves/lightning_leaves_left"
 		},
 		"lightning_leaves_right": {
-			"textures": "textures/kurokumaft/blocks/leaves/lightning_leaves_right.png"
+			"textures": "textures/kurokumaft/blocks/leaves/lightning_leaves_right"
 		},
 		"lightning_log_side": {
-			"textures": "textures/kurokumaft/blocks/log/lightning_log_side.png"
+			"textures": "textures/kurokumaft/blocks/log/lightning_log_side"
 		},
 		"lightning_log_top": {
-			"textures": "textures/kurokumaft/blocks/log/lightning_log_top.png"
+			"textures": "textures/kurokumaft/blocks/log/lightning_log_top"
 		},
 
 		"ice_leaves_left": {
-			"textures": "textures/kurokumaft/blocks/leaves/ice_leaves_left.png"
+			"textures": "textures/kurokumaft/blocks/leaves/ice_leaves_left"
 		},
 		"ice_leaves_right": {
-			"textures": "textures/kurokumaft/blocks/leaves/ice_leaves_right.png"
+			"textures": "textures/kurokumaft/blocks/leaves/ice_leaves_right"
 		},
 		"ice_log_side": {
-			"textures": "textures/kurokumaft/blocks/log/ice_log_side.png"
+			"textures": "textures/kurokumaft/blocks/log/ice_log_side"
 		},
 		"ice_log_top": {
-			"textures": "textures/kurokumaft/blocks/log/ice_log_top.png"
+			"textures": "textures/kurokumaft/blocks/log/ice_log_top"
+		},
+
+		"planks_fire": {
+			"textures": "textures/kurokumaft/blocks/planks/planks_fire"
+		},
+		"planks_water": {
+			"textures": "textures/kurokumaft/blocks/planks/planks_water"
+		},
+		"planks_wind": {
+			"textures": "textures/kurokumaft/blocks/planks/planks_wind"
+		},
+		"planks_lightning": {
+			"textures": "textures/kurokumaft/blocks/planks/planks_lightning"
+		},
+		"planks_stone": {
+			"textures": "textures/kurokumaft/blocks/planks/planks_stone"
+		},
+		"planks_ice": {
+			"textures": "textures/kurokumaft/blocks/planks/planks_ice"
 		},
 
 		"lightning_wool": {
-			"textures": "textures/kurokumaft/blocks/lightning_wool.png"
-		}
+			"textures": "textures/kurokumaft/blocks/lightning_wool"
+		},
+		"magic_enhance_table": {
+			"textures": "textures/kurokumaft/blocks/magic_enhance_table"
+		},
 
+		"silver_ore" : {
+			"textures" : "textures/kurokumaft/blocks/ore/silver_ore"
+		},
+		"deepslate_silver_ore" : {
+			"textures" : "textures/kurokumaft/blocks/ore/deepslate_silver_ore"
+		}
 	}
 }

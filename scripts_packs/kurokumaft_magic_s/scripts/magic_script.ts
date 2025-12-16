@@ -37,9 +37,9 @@ world.afterEvents.playerSpawn.subscribe(event => {
 
 world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     const entity = event.entity;
-    if (event.eventId == "kurokumaft:explosion_guard_knockback") {
+    if (event.eventId === "kurokumaft:explosion_guard_knockback") {
         MagicShieldKnockback(entity);
-    } else if (event.eventId == "kurokumaft:attack_event") {
+    } else if (event.eventId === "kurokumaft:attack_event") {
         if (entity instanceof Player) {
             new MagicAttackEvent().checkMagicAttack(entity);
         }
@@ -51,9 +51,9 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
     //     entity.applyKnockback(0, 1, 0, 0.8);
     // } else if (event.eventId == "kurokumaft:on_ground_event") {
     //     player.onScreenDisplay.setActionBar(event.eventId);
-    } else if (event.eventId == "kurokumaft:moniter_boss_event") {
-        const object = BossActionObjects.find(ob => ob.entityName == entity.typeId) as BossActionObject;
-        if (object != undefined) {
+    } else if (event.eventId === "kurokumaft:moniter_boss_event") {
+        const object = BossActionObjects.find(ob => ob.entityName === entity.typeId) as BossActionObject;
+        if (object !== undefined) {
             const actionClass = BossActionClassRecord[object.className];
             const actionObject = new actionClass(entity);
 
@@ -66,18 +66,18 @@ world.afterEvents.dataDrivenEntityTrigger.subscribe(event => {
 world.afterEvents.entityHitEntity.subscribe(event => {
     const dameger = event.damagingEntity as Entity;
     const hitEn = event.hitEntity as Entity;
-    if (hitEn.typeId == "minecraft:player") {
+    if (hitEn.typeId === "minecraft:player") {
         magicShieldGuard(hitEn as Player, true);
         magicShieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player, dameger, undefined, undefined);
     } 
-    if (dameger.typeId == "kurokumaft:fire_chicken") {
+    if (dameger.typeId === "kurokumaft:fire_chicken") {
         fireChickenAttack(hitEn);
-    } else if (dameger.typeId == "kurokumaft:aqua_jackal") {
+    } else if (dameger.typeId === "kurokumaft:aqua_jackal") {
         aquaJackalAttack(hitEn);
-    } else if (dameger.typeId == "kurokumaft:snow_wolf") {
+    } else if (dameger.typeId === "kurokumaft:snow_wolf") {
         snowWolfAttack(hitEn);
-    } else if (dameger.typeId == "kurokumaft:earth_rhino") {
+    } else if (dameger.typeId === "kurokumaft:earth_rhino") {
         earthRhinoKnockback(hitEn);
     }
 
@@ -92,12 +92,12 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
     const hitEn = event.getEntityHit().entity as Entity;
     const dameger = event.source as Entity;
     const hitVector = event.hitVector;
-    if (hitEn != undefined && hitEn.typeId == "minecraft:player") {
+    if (hitEn !== undefined && hitEn.typeId === "minecraft:player") {
         magicShieldGuard(hitEn as Player, false);
         magicShieldCounter(hitEn as Player, dameger);
         hitMagicAmor(hitEn as Player,dameger,projectileEn, hitVector);
     }
-    if (projectileEn != undefined) {
+    if (projectileEn !== undefined) {
         if (checkWandProjectile(projectileEn.typeId)) {
             hitWandProjectileEvent(projectileEn);
         }
@@ -121,7 +121,7 @@ world.afterEvents.entityHitBlock.subscribe(event => {
 world.afterEvents.projectileHitBlock.subscribe(event => {
     const projectileEn = event.projectile;
     const dameger = event.source as Entity;
-    if (projectileEn != undefined) {
+    if (projectileEn !== undefined) {
         if (checkWandProjectile(projectileEn.typeId)) {
             hitWandProjectileEvent(projectileEn);
         }
@@ -135,7 +135,7 @@ world.afterEvents.projectileHitBlock.subscribe(event => {
 world.afterEvents.entityHurt.subscribe(event => {
     const damageSource = event.damageSource as EntityDamageSource;
     const hitEn = event.hurtEntity as Entity;
-    if (hitEn != undefined && hitEn.typeId == "minecraft:player" && damageSource.cause != "void") {
+    if (hitEn !== undefined && hitEn.typeId === "minecraft:player" && damageSource.cause !== "void") {
         if (guards.indexOf(damageSource.cause) != -1) {
             magicShieldGuard(hitEn as Player, false);
         }
@@ -158,7 +158,7 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
     const player = event.source;
     const item = event.itemStack;
     const duration = event.useDuration;
-    if (item != undefined) {
+    if (item !== undefined) {
         if (player.getDynamicProperty("BowShotMagicCharge")) {
             magicBowShot(player, item, duration);
         }
@@ -169,10 +169,10 @@ world.afterEvents.itemReleaseUse.subscribe(event => {
 // ブロック爆発後
 world.afterEvents.blockExplode.subscribe(event => {
     const block = event.block;
-    if (block.typeId == "kurokumaft:magic_lectern") {
+    if (block.typeId === "kurokumaft:magic_lectern") {
         magic_lectern_break(block, block.dimension);
     }
-    if (block.typeId == "kurokumaft:magma_portal_x" || block.typeId == "kurokumaft:magma_portal_z") {
+    if (block.typeId === "kurokumaft:magma_portal_x" || block.typeId === "kurokumaft:magma_portal_z") {
         portalGateBreak(block, event.explodedBlockPermutation);
     }
 });
@@ -181,24 +181,28 @@ world.beforeEvents.explosion.subscribe(event => {
     const impactBLockList = event.getImpactedBlocks();
     const filterBlockList = explodeBedrock(impactBLockList);
 
-    if (filterBlockList != undefined) {
+    if (filterBlockList !== undefined) {
         event.setImpactedBlocks(filterBlockList);
     }
 
+});
+
+world.afterEvents.playerPlaceBlock.subscribe(event => {
+    const block = event.block;
 });
 
 // ブロック破壊前
 world.beforeEvents.playerBreakBlock.subscribe(event => {
     const player = event.player;
     const block = event.block;
-    if (player != undefined) {
+    if (player !== undefined) {
     }
 });
 
 // エンティティ読み込み
 world.afterEvents.entityLoad.subscribe(event => {
     const entity = event.entity;
-    if (entity.typeId == "kurokumaft:magic_brewing_stand") {
+    if (entity.typeId === "kurokumaft:magic_brewing_stand") {
         const brewing_block = entity.dimension.getBlock(entity.location) as Block;
         new MagicBrewingStand(entity, brewing_block).checkPosionBrewTick();
     }
@@ -209,13 +213,13 @@ world.afterEvents.entitySpawn.subscribe(event => {
     const entity = event.entity;
     const cause = event.cause;
 
-    if (cause == EntityInitializationCause.Spawned){
-        if (entity.typeId == "kurokumaft:dolphin_ultrasonic") {
+    if (cause === EntityInitializationCause.Spawned){
+        if (entity.typeId === "kurokumaft:dolphin_ultrasonic") {
             entity.dimension.playSound("mob.dolphin.death", entity.location, {
                 pitch:1,
                 volume:2
             });
-        } else if (entity.typeId == "kurokumaft:bat_ultrasonic") {
+        } else if (entity.typeId === "kurokumaft:bat_ultrasonic") {
             entity.dimension.playSound("mob.bat.death", entity.location, {
                 pitch:1,
                 volume:2
@@ -234,7 +238,7 @@ world.afterEvents.buttonPush.subscribe(event => {
             for (let z=-1; z<=1; z++) {
                 const nearLoc = {x:block.location.x+x,y:block.location.y+y,z:block.location.z+z};
                 const nearblock = event.dimension.getBlock(nearLoc) as Block;
-                if (nearblock.typeId == MinecraftBlockTypes.CommandBlock) {
+                if (nearblock.typeId === MinecraftBlockTypes.CommandBlock) {
                     entity.setDynamicProperty("teamCommandSet", true);
                     system.runTimeout(() => {
                         entity.setDynamicProperty("teamCommandSet", undefined);
@@ -251,13 +255,13 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
     const id = event.id;
     const message = event.message;
     const initiator = event.initiator;
-    if (initiator != undefined) {
+    if (initiator !== undefined) {
     }
     const sourceType = event.sourceType;
-    if (sourceType == ScriptEventSource.Block) {
+    if (sourceType === ScriptEventSource.Block) {
         const sourceBlock = event.sourceBlock;
-        if (sourceBlock != undefined && sourceBlock.typeId == MinecraftBlockTypes.CommandBlock) {
-            if (id == "kk:teamtag") {
+        if (sourceBlock !== undefined && sourceBlock.typeId === MinecraftBlockTypes.CommandBlock) {
+            if (id === "kk:teamtag") {
                 const players = sourceBlock.dimension.getPlayers({
                     location: sourceBlock.location,
                     maxDistance: 2
@@ -265,7 +269,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                 players.forEach(player => {
                     if(player.getDynamicProperty("teamCommandSet")) {
                         const params = message.split(" ");
-                        if (params[0] == "add") {
+                        if (params[0] === "add") {
                             const tags = player.getTags();
                             tags.forEach(tag => {
                                 if (tag.indexOf("team") != -1) {
@@ -286,10 +290,10 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                             //     objective: scoreObject,
                             //     sortOrder: ObjectiveSortOrder.Descending,
                             // });
-                        } else if (params[0] == "remove") {
+                        } else if (params[0] === "remove") {
                             const tags = player.getTags();
                             tags.forEach(tag => {
-                                if (tag.indexOf("team") != -1) {
+                                if (tag.indexOf("team") !== -1) {
                                     player.removeTag(tag);
                                     player.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
                                 }
@@ -310,13 +314,13 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
         }
     } else if (sourceType == ScriptEventSource.Entity) {
         const sourceEntity = event.sourceEntity;
-        if (sourceEntity != undefined && sourceEntity instanceof Player) {
-            if (id == "kk:teamtag") {
+        if (sourceEntity !== undefined && sourceEntity instanceof Player) {
+            if (id === "kk:teamtag") {
                 const params = message.split(" ");
-                if (params[0] == "add") {
+                if (params[0] === "add") {
                     const tags = sourceEntity.getTags();
                     tags.forEach(tag => {
-                        if (tag.indexOf("team") != -1) {
+                        if (tag.indexOf("team") !== -1) {
                             sourceEntity.removeTag(tag);
                             sourceEntity.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
                         }
@@ -337,7 +341,7 @@ system.afterEvents.scriptEventReceive.subscribe(event => {
                 } else if (params[0] == "remove") {
                     const tags = sourceEntity.getTags();
                     tags.forEach(tag => {
-                        if (tag.indexOf("team") != -1) {
+                        if (tag.indexOf("team") !== -1) {
                             sourceEntity.removeTag(tag);
                             sourceEntity.onScreenDisplay.setActionBar({ translate: "mess.kurokumaft:team_name.remove", with: [tag.substring(4)]});
                         }

@@ -16,7 +16,7 @@
           "minecraft:transformable_items"
         ]
       },
-      "minecraft:icon": "ice_pickaxe",
+      "minecraft:icon": "kurokumaft:ice_pickaxe",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

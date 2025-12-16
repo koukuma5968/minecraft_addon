@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_knuckle.name"
       },
-      "minecraft:icon": "stone_knuckle",
+      "minecraft:icon": "kurokumaft:stone_knuckle",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

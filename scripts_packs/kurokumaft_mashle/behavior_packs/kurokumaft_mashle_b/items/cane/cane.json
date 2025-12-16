@@ -17,8 +17,9 @@
       "minecraft:damage": 1,
       "minecraft:enchantable": {
         "value": 150,
-        "slot": "sword"
+        "slot": "g_tool"
       },
+      "minecraft:rarity": "common",
       "minecraft:use_modifiers": {
         "movement_modifier": 0.5,
         "use_duration": 1000

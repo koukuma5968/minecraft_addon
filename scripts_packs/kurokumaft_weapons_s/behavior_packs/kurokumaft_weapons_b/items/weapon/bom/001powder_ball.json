@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:powder_ball.name"
       },
-      "minecraft:icon":"powder_ball",
+      "minecraft:icon": "kurokumaft:powder_ball",
       "minecraft:max_stack_size": 16,
       "minecraft:hand_equipped": true,
       "minecraft:projectile": {

@@ -1,0 +1,92 @@
+{
+	"format_version": "1.8.0",
+	"geometry.magic.breeze_fish_boots.base": {
+		"texturewidth": 64,
+		"textureheight": 32,
+		"visible_bounds_width": 3,
+		"visible_bounds_height": 2,
+		"visible_bounds_offset": [0, 1, 0],
+		"bones": [
+			{
+				"name": "waist",
+				"pivot": [0, 12, 0]
+			},
+			{
+				"name": "body",
+				"parent": "waist",
+				"pivot": [0, 24, 0]
+			},
+			{
+				"name": "rightLeg",
+				"parent": "body",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-3.9, 0, -2], "size": [4, 12, 4], "uv": [0, 16]}
+				]
+			},
+			{
+				"name": "wing_right",
+				"parent": "rightLeg",
+				"pivot": [-3.8, 2, 0],
+				"rotation": [14.99677, -2.25178, -10.94897],
+				"cubes": [
+					{"origin": [-4.8, 2, 0], "size": [0, 2, 9], "uv": [16, 21]}
+				]
+			},
+			{
+				"name": "leftLeg",
+				"parent": "body",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "uv": [0, 16]}
+				]
+			},
+			{
+				"name": "wing_left",
+				"parent": "leftLeg",
+				"pivot": [3.8, 2, 0.5],
+				"rotation": [15.21479, 5.49624, 11.8487],
+				"cubes": [
+					{"origin": [4.9, 2, 0], "size": [0, 2, 9], "uv": [16, 19]}
+				]
+			}
+		]
+	},
+	"geometry.magic.breeze_fish_armor1:geometry.magic.breeze_fish_boots.base": {
+		"bones": [
+			{
+				"name": "rightLeg",
+				"inflate": 1
+			},
+			{
+				"name": "leftLeg",
+				"inflate": 1
+			}
+		]
+	},
+	"geometry.magic.armor.breeze_fish_boots:geometry.magic.breeze_fish_armor1": {
+		"bones": [
+			{
+				"name": "head",
+				"reset": true
+			},
+			{
+				"name": "hat",
+				"reset": true
+			},
+			{
+				"name": "body",
+				"reset": true
+			},
+			{
+				"name": "rightArm",
+				"reset": true
+			},
+			{
+				"name": "leftArm",
+				"reset": true
+			}
+		]
+	}
+}

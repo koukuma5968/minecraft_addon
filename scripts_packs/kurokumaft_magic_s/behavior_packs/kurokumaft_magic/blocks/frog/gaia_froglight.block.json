@@ -3,8 +3,11 @@
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:gaia_froglight",
+			"menu_category": {
+				"category": "nature"
+			},
 			"is_experimental": false,
-            "register_to_creative_menu": false
+			"register_to_creative_menu": false
 		},
 		"components": {
 			"tag:minecraft:is_pickaxe_item_destructible": {},

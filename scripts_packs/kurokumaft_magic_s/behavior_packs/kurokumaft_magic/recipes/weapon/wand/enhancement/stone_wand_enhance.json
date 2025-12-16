@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:stone_wand_enhance"
+    },
+    "tags": [ "magic_enhance" ],
+    "pattern": [
+      "tim"
+    ],
+    "key": {
+      "t": {
+        "item": "kurokumaft:stone_planks"
+      },
+      "i": {
+        "item": "kurokumaft:stone_wand"
+      },
+      "m": {
+        "item": "kurokumaft:polished_scute"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:stone_planks"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:stone_wand_enhance"
+    }
+  }
+}

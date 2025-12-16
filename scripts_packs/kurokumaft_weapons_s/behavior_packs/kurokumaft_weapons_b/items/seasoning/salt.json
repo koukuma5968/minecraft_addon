@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:salt.name"
 			},
-      "minecraft:icon": "salt"
+      "minecraft:icon": "kurokumaft:salt"
     }
   }
 }

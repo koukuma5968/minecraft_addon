@@ -1,0 +1,23 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.magic_lance.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"magic_lance": {
+					"rotation": [108.17526, -75.36495, 76.7076],
+					"position": [-7, 36, -1]
+				}
+			}
+		},
+		"animation.magic_lance.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"magic_lance": {
+					"rotation": [87.31568, -0.7791, 57.63544],
+					"position": [0, 23, 5]
+				}
+			}
+		}
+	}
+}

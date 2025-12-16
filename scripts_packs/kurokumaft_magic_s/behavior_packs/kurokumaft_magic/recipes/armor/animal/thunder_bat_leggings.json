@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:thunder_bat_leggings"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "mlm",
+      "l l",
+      "l l"
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:leather"
+      },
+      "m": {
+        "item": "kurokumaft:resound_patagium"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:resound_patagium"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:thunder_bat_leggings",
+      "count": 1
+    }
+  }
+  
+}

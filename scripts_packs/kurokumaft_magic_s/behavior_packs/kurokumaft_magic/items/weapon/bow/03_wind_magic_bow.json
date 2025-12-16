@@ -31,7 +31,7 @@
       },
       "minecraft:icon": {
         "textures": {
-          "default": "wind_magic_bow"
+          "default": "kurokumaft:wind_magic_bow"
         }
       },
       "minecraft:repairable": {
@@ -42,7 +42,7 @@
           },
           {
             "items": [ "kurokumaft:wind_magic_bow" ],
-            "repair_amount": "(query.max_durability - query.remaining_durability) / 2 < query.max_durability ? (query.max_durability - query.remaining_durability) / 2 : query.max_durability - query.remaining_durability"
+            "repair_amount": "context.other->query.remaining_durability"
           }
         ]
       },

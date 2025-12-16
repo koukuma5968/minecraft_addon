@@ -17,7 +17,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:diamond_shield.name"
       },
-      "minecraft:icon": "diamond_shield",
+      "minecraft:icon": "kurokumaft:diamond_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:bamboo_fiber.name"
 			},
-      "minecraft:icon": "bamboo_fiber"
+      "minecraft:icon": "kurokumaft:bamboo_fiber"
     }
   }
 }

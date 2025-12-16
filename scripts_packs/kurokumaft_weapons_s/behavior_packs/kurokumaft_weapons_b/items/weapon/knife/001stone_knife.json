@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:stone_knife.name"
       },
-      "minecraft:icon": "stone_knife",
+      "minecraft:icon": "kurokumaft:stone_knife",
       "minecraft:tags": {
         "tags": [
           "kurokumaft:spear"

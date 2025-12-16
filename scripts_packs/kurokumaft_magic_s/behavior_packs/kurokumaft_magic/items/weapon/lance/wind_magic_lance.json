@@ -1,0 +1,77 @@
+{
+  "format_version": "1.21.120",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:wind_magic_lance",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:cooldown": {
+        "category": "wind_magic_lance",
+        "duration": 5
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:damage": 6,
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 1,
+          "max": 5
+        },
+        "max_durability": 100
+      },
+      "minecraft:enchantable": {
+        "value": 15,
+        "slot": "sword"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": {
+        "textures": {
+          "default": "kurokumaft:wind_magic_lance"
+        }
+      },
+      "minecraft:display_name": {
+        "value": "item.kurokumaft:wind_magic_lance.name"
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": [ "kurokumaft:wind_magic_stone" ],
+            "repair_amount": "(query.max_durability - query.remaining_durability) / 4 < query.max_durability ? (query.max_durability - query.remaining_durability) / 4 : query.max_durability - query.remaining_durability"
+          },
+          {
+            "items": [ "kurokumaft:wind_magic_lance" ],
+            "repair_amount": "context.other->query.remaining_durability"
+          }
+        ]
+      },
+      "minecraft:kinetic_weapon": {
+        "damage_multiplier": 3,
+        "knockback_conditions":{
+        }
+      },
+      "minecraft:piercing_weapon": {
+        "hitbox_margin": 3,
+        "reach": {
+          "min": 2,
+          "max": 5
+        }
+      },
+      "minecraft:shooter": {
+        "charge_on_draw" : true,
+        "max_draw_duration": 1.0,
+        "scale_power_by_draw_duration": true
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 1.5,
+        "movement_modifier": 0.3,
+        "emit_vibrations": true
+      },
+      "kurokumaft:lance_magic": {
+        "magic": "wind",
+        "type": "nomal"
+      }
+    }
+  }
+}

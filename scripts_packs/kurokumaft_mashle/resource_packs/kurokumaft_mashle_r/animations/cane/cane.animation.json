@@ -18,6 +18,16 @@
 					"position": [0, 23, 0]
 				}
 			}
+		},
+		"animation.cane.chage": {
+			"loop": true,
+			"animation_length": 0.0417,
+			"particle_effects": {
+				"0.0": {
+					"effect": "magic_chage",
+					"locator": "cane"
+				}
+			}
 		}
 	}
 }

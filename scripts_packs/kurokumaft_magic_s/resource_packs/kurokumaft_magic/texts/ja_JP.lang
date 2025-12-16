@@ -1,8 +1,8 @@
-pack.name=MagicKuroRv4.3
-pack.description=魔法アドオンRv4.3 魔法の武器/防具が追加されるアドオン リソースパック
+pack.name=MagicKuroRv4.5
+pack.description=魔法アドオンRv4.5 魔法の武器/防具が追加されるアドオン リソースパック
 
-container.kurokumaft:magic_enchant_table=魔法エンチャント台
-container.kurokumaft:magic_enchant_table_block=魔法エンチャント台
+container.kurokumaft:magic_enchant_table=魔法付与台
+container.kurokumaft:magic_enchant_table_block=魔法付与台
 container.kurokumaft:magic_enchant_table.upgrade=装備に魔法をエンチャントする
 container.kurokumaft:magma_portal=マグマポータル
 
@@ -84,31 +84,31 @@ entity.kurokumaft:stone_skeleton_archer.name=§7ストーンスケルトン・�
 entity.kurokumaft:wind_skeleton_archer.name=§3ウィンドスケルトン・アーチャー
 entity.kurokumaft:ice_skeleton_archer.name=§fアイススケルトン・アーチャー
 
-item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:fire_zombie.name=ファイアゾンビのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:thunder_zombie.name=サンダーゾンビのスポーンエッグ	#
 item.spawn_egg.entity.kurokumaft:water_zombie.name=ウォーターゾンビのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:wind_zombie.name=ウィンドゾンビのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:wind_zombie.name=ウィンドゾンビのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:stone_zombie.name=ストーンゾンビのスポーンエッグ	#
 item.spawn_egg.entity.kurokumaft:ice_zombie.name=アイスゾンビのスポーンエッグ	#
 
-item.spawn_egg.entity.kurokumaft:fire_skeleton_warrior.name=ファイアスケルトン・ウォリアーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:fire_skeleton_warrior.name=ファイアスケルトン・ウォリアーのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:thunder_skeleton_warrior.name=サンダーケルトン・ウォリアーのスポーンエッグ	#
 item.spawn_egg.entity.kurokumaft:water_skeleton_warrior.name=ウォーターケルトン・ウォリアーのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:wind_skeleton_warrior.name=ウィンドケルトン・ウォリアーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:wind_skeleton_warrior.name=ウィンドケルトン・ウォリアーのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:stone_skeleton_warrior.name=ストーンケルトン・ウォリアーのスポーンエッグ	#
 item.spawn_egg.entity.kurokumaft:ice_skeleton_warrior.name=アイスケルトン・ウォリアーのスポーンエッグ	#
 
 item.spawn_egg.entity.kurokumaft:fire_skeleton_archer.name=ファイアスケルトン・アーチャーのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:thunder_skeleton_archer.name=サンダーケルトン・アーチャーのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:water_skeleton_archer.name=ウォーターケルトン・アーチャーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:thunder_skeleton_archer.name=サンダーケルトン・アーチャーのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:water_skeleton_archer.name=ウォーターケルトン・アーチャーのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:wind_skeleton_archer.name=ウィンドケルトン・アーチャーのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:stone_skeleton_archer.name=ストーンケルトン・アーチャーのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン・アーチャーのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:stone_skeleton_archer.name=ストーンケルトン・アーチャーのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:ice_skeleton_archer.name=アイスケルトン・アーチャーのスポーンエッグ #
 
 entity.kurokumaft:phoenix.name=§4フェニックス
 entity.kurokumaft:fenrir.name=§3フェンリル
 
-item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:phoenix.name=フェニックスのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:fenrir.name=フェンリルのスポーンエッグ	#
 
 tile.kurokumaft:phoenix_summon.name=§4フェニックスのスポナー
@@ -138,33 +138,40 @@ entity.kurokumaft:frost_owl.name=§fフロストオウル
 item.kurokumaft:fire_chicken_crest.name=§4燃える鶏冠
 item.kurokumaft:flame_spine.name=§4熱い山棘
 item.kurokumaft:wet_hunting_horn.name=§1湿った角笛
+item.kurokumaft:water_buffalo_leather.name=§1湿水牛の革
 item.kurokumaft:muddy_fang.name=§1濁った胡狼牙
+item.kurokumaft:aqua_jackal_pill.name=§1泡胡狼の毛玉
+item.kurokumaft:lightning_corner.name=§6雷鳴未の巻角
 tile.kurokumaft:lightning_wool.name=§6痺れる羊毛
 item.kurokumaft:resound_patagium.name=§6響く翼膜
 item.kurokumaft:swirl_horn.name=§3渦巻く一角
+item.kurokumaft:wind_dolphin_leather.name=§3渦一角の皮
 item.kurokumaft:flutter_tail_fin.name=§3そよぐ尾鰭
+item.kurokumaft:breeze_fish_leather.name=§3飛翔魚の皮
 item.kurokumaft:polished_scute.name=§7磨かれた甲羅
 item.kurokumaft:thrust_horn.name=§7突き立つ黒角
+item.kurokumaft:earth_rhino_leather.name=§7黒曜犀の革
 item.kurokumaft:snow_fang.name=§f白銀の狼牙
+item.kurokumaft:snow_wolf_fur.name=§f白銀狼の毛皮
 item.kurokumaft:freeze_windbreak.name=§f凍える風切
 
 item.spawn_egg.entity.kurokumaft:fire_chicken.name=ファイアバードのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:flame_porcupine.name=フレイムポークパインのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:lightning_sheep.name=ライトニングシープのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:thunder_bat.name=サンダーバットのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:water_buffalo.name=ウォーターバッファローのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:aqua_jackal.name=アクアジャッカルのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:flame_porcupine.name=フレイムポークパインのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:lightning_sheep.name=ライトニングシープのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:thunder_bat.name=サンダーバットのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:water_buffalo.name=ウォーターバッファローのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:aqua_jackal.name=アクアジャッカルのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:wind_dolphin.name=ウィンドドルフィンのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:breeze_fish.name=ブリーズフィッシュのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:stone_armadillo.name=ストーンアルマジロのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:earth_rhino.name=アースライノのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:snow_wolf.name=スノーウルフのスポーンエッグ	#
-item.spawn_egg.entity.kurokumaft:frost_owl.name=フロストオウルのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:breeze_fish.name=ブリーズフィッシュのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:stone_armadillo.name=ストーンアルマジロのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:earth_rhino.name=アースライノのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:snow_wolf.name=スノーウルフのスポーンエッグ #
+item.spawn_egg.entity.kurokumaft:frost_owl.name=フロストオウルのスポーンエッグ #
 
-item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムのスポーンエッグ	#
+item.spawn_egg.entity.kurokumaft:magma_golem.name=マグマゴーレムのスポーンエッグ #
 item.spawn_egg.entity.kurokumaft:blue_ice_golem.name=ブルーアイスゴーレムのスポーンエッグ	#
 
-tile.kurokumaft:magic_enchant_table.name=魔法エンチャントテーブル
+tile.kurokumaft:magic_enchant_table.name=魔法付与台
 tile.kurokumaft:magic_lectern.name=魔導書見台
 magic_lectern.mess.title=魔導書見台
 magic_lectern.mess.body1=魔導書と魔法石をセット後、各属性に対応したアイテムを持って右クリックして使用します。
@@ -173,6 +180,8 @@ magic_lectern.mess.noboobk=このアイテムは対応していません
 magic_lectern.mess.confirm=OK
 tile.kurokumaft:magic_brewing.name=魔法薬錬成炉
 entity.kurokumaft:magic_brewing_stand.name=魔法薬錬成炉
+tile.kurokumaft:magic_enhance_table.name=魔槌台
+entity.kurokumaft:magic_enhance_table.name=魔槌台
 
 tile.kurokumaft:waterwall_block.name=水ブロック
 tile.kurokumaft:lightningwall_block.name=雷ブロック
@@ -185,26 +194,32 @@ tile.kurokumaft:magma_portal_gate.name=ゲートブロック（炎）
 tile.kurokumaft:fire_log.name=§4魔炎樹の原木
 tile.kurokumaft:fire_leaves.name=§4魔炎樹の葉
 item.kurokumaft:fire_log_nut.name=§4魔炎樹の木の実
+tile.kurokumaft:fire_planks.name=§4魔炎樹の板材
 
 tile.kurokumaft:water_log.name=§1魔槐樹の原木
 tile.kurokumaft:water_leaves.name=§1魔槐樹の葉
 item.kurokumaft:water_log_nut.name=§1魔槐樹の木の実
+tile.kurokumaft:water_planks.name=§1魔槐樹の板材
 
 tile.kurokumaft:wind_log.name=§3魔嵐樹の原木
 tile.kurokumaft:wind_leaves.name=§3魔嵐樹の葉
 item.kurokumaft:wind_log_nut.name=§3魔嵐樹の木の実
+tile.kurokumaft:wind_planks.name=§3魔嵐樹の板材
 
 tile.kurokumaft:stone_log.name=§7魔礫樹の原木
 tile.kurokumaft:stone_leaves.name=§7魔礫樹の葉
 item.kurokumaft:stone_log_nut.name=§7魔礫樹の木の実
+tile.kurokumaft:stone_planks.name=§7魔礫樹の板材
 
 tile.kurokumaft:lightning_log.name=§6魔霆樹の原木
 tile.kurokumaft:lightning_leaves.name=§6魔霆樹の葉
 item.kurokumaft:lightning_log_nut.name=§6魔霆樹の木の実
+tile.kurokumaft:lightning_planks.name=§6魔霆樹の板材
 
 tile.kurokumaft:ice_log.name=§f魔凍樹の原木
 tile.kurokumaft:ice_leaves.name=§f魔凍樹の葉
 item.kurokumaft:ice_log_nut.name=§f魔凍樹の木の実
+tile.kurokumaft:ice_planks.name=§f魔凍樹の板材
 
 item.kurokumaft:diamond_bottle.name=ダイヤモンドの瓶
 item.kurokumaft:diamond_bottle_water.name=水入りダイヤモンドの瓶
@@ -242,6 +257,13 @@ item.kurokumaft:snow_wand.name=§f雪の杖 初級氷魔法
 item.kurokumaft:light_wand.name=§e光の杖 初級光魔法
 item.kurokumaft:dark_wand.name=§5闇の杖 初級闇魔法
 
+item.kurokumaft:fire_wand_enhance.name=§4火の杖 初級火魔法(強化)
+item.kurokumaft:water_wand_enhance.name=§1水の杖 初級水魔法(強化)
+item.kurokumaft:stone_wand_enhance.name=§7石の杖 初級土魔法(強化)
+item.kurokumaft:wind_wand_enhance.name=§3風の杖 初級風魔法(強化)
+item.kurokumaft:lightning_wand_enhance.name=§6雷の杖 初級雷魔法(強化)
+item.kurokumaft:snow_wand_enhance.name=§f雪の杖 初級氷魔法(強化)
+
 item.kurokumaft:flame_rod.name=§4炎の杖 中級火魔法
 item.kurokumaft:waterwave_rod.name=§1波の杖 中級水魔法
 item.kurokumaft:rock_rod.name=§7岩の杖 中級土魔法
@@ -250,6 +272,15 @@ item.kurokumaft:thunderclap_rod.name=§6霹靂の杖 中級雷魔法
 item.kurokumaft:freeze_rod.name=§f凍結の杖 中級氷魔法
 item.kurokumaft:brightness_rod.name=§e輝きの杖 中級光魔法
 item.kurokumaft:darkness_rod.name=§5暗闇の杖 中級闇魔法
+
+item.kurokumaft:flame_rod_enhance.name=§4炎の杖 中級火魔法(強化)
+item.kurokumaft:waterwave_rod_enhance.name=§1波の杖 中級水魔法(強化)
+item.kurokumaft:rock_rod_enhance.name=§7岩の杖 中級土魔法(強化)
+item.kurokumaft:storm_rod_enhance.name=§3嵐の杖 中級風魔法(強化)
+item.kurokumaft:thunderclap_rod_enhance.name=§6霹靂の杖 中級雷魔法(強化)
+item.kurokumaft:freeze_rod_enhance.name=§f凍結の杖 中級氷魔法(強化)
+item.kurokumaft:brightness_rod_enhance.name=§e輝きの杖 中級光魔法(強化)
+item.kurokumaft:darkness_rod_enhance.name=§5暗闇の杖 中級闇魔法(強化)
 
 item.kurokumaft:blaze_stick.name=§4火炎の杖 上級炎魔法
 item.kurokumaft:watercurrent_stick.name=§1水流の杖 上級水魔法
@@ -436,11 +467,25 @@ magic.kurokumaft:powderedSnow.translate=§fパウダースノー
 magic.kurokumaft:darkBread.translate=§8ダークブレード
 magic.kurokumaft:lightBread.translate=§eライトブレード
 
+magic.kurokumaft:burstcrash.translate=§4バーストクラッシュ
+magic.kurokumaft:ripplerush.translate=§bリプルラッシュ
+magic.kurokumaft:windvolley.translate=§aウィンドボレー
+magic.kurokumaft:stonedust.translate=§7ストーンダスト
+magic.kurokumaft:dreadspark.translate=§6ドレットスパーク
+magic.kurokumaft:snowtaunt.translate=§fスノータウント
+
 magic.kurokumaft:fireball.translate=§4ファイヤーボール
 magic.kurokumaft:waterball.translate=§bウォーターボール
 magic.kurokumaft:windcutter.translate=§aウィンドカッター
 magic.kurokumaft:stonebarrette.translate=§7ストーンバレット
 magic.kurokumaft:lightningbolt.translate=§6ライトニングボルト
+
+magic.kurokumaft:rapidfire.translate=§4ラピッドファイヤ
+magic.kurokumaft:waterburst.translate=§bウォーターブラスト
+magic.kurokumaft:galewind.translate=§aゲイルウィンド
+magic.kurokumaft:stonebarrage.translate=§7ストーンバラージ
+magic.kurokumaft:lightningrush.translate=§6ライトニングラッシュ
+magic.kurokumaft:frostrush.translate=§fフロストラッシュ
 
 magic.kurokumaft:firewall.translate=§4ファイアウォール
 magic.kurokumaft:waterwall.translate=§bウォーターウォール
@@ -448,6 +493,13 @@ magic.kurokumaft:windwall.translate=§aウィンドウォール
 magic.kurokumaft:stonewall.translate=§7ストーンウォール
 magic.kurokumaft:lightningwall.translate=§6ライトニングウォール
 magic.kurokumaft:icewall.translate=§fアイスウォール
+
+magic.kurokumaft:firebarrier.translate=§4ファイアバリア
+magic.kurokumaft:waterbarrier.translate=§bウォーターバリア
+magic.kurokumaft:windbarrier.translate=§aウィンドバリア
+magic.kurokumaft:stonebarrier.translate=§7ストーンバリア
+magic.kurokumaft:lightningbarrier.translate=§6ライトニングバリア
+magic.kurokumaft:icebarrier.translate=§fアイスバリア
 
 magic.kurokumaft:darkness.translate=§8ダークネス
 magic.kurokumaft:flash.translate=§eフラッシュ
@@ -564,14 +616,14 @@ magic.kurokumaft:wind_roar.translate=§aウィンドロアー
 magic.kurokumaft:thunder_cutter.translate=§6サンダーカッター
 magic.kurokumaft:waterpillar.translate=§bウォーターピラー
 
-magic.kurokumaft:aero_bit.translate=§aエアロビット
 magic.kurokumaft:flare_bit.translate=§cフレアビット
-magic.kurokumaft:frozen_bit.translate=§fフローズンビット
-magic.kurokumaft:jewel_bit.translate=§7ジュエルビット
-magic.kurokumaft:night_bit.translate=§8ナイトビット
-magic.kurokumaft:thunder_bit.translate=§6サンダービット
-magic.kurokumaft:flash_bit.translate=§eフラッシュビット
 magic.kurokumaft:aqua_bit.translate=§bアクアビット
+magic.kurokumaft:aero_bit.translate=§aエアロビット
+magic.kurokumaft:jewel_bit.translate=§7ジュエルビット
+magic.kurokumaft:thunder_bit.translate=§6サンダービット
+magic.kurokumaft:frozen_bit.translate=§fフローズンビット
+magic.kurokumaft:night_bit.translate=§8ナイトビット
+magic.kurokumaft:flash_bit.translate=§eフラッシュビット
 
 mess.kurokumaft:team_name.add=チーム 「%1」 を設定しました。
 mess.kurokumaft:team_name.remove=チーム 「%1」 を削除しました。
@@ -634,12 +686,15 @@ kurokumaft:itemGroup.name.magic_helmet=マジックヘルム
 kurokumaft:itemGroup.name.magic_chestplate=マジックチェストプレート
 kurokumaft:itemGroup.name.magic_leggings=マジックレギンス
 kurokumaft:itemGroup.name.magic_boots=マジックブーツ
+kurokumaft:itemGroup.name.magic_animal_armor=魔獣の皮装備
 kurokumaft:itemGroup.name.magic_sword=魔法剣
 kurokumaft:itemGroup.name.magic_treasured_sword=宝剣
 kurokumaft:itemGroup.name.magic_pickaxe=マジックピッケル
 kurokumaft:itemGroup.name.magic_shield=魔法盾
 kurokumaft:itemGroup.name.magic_wand=杖（初級）
+kurokumaft:itemGroup.name.magic_wand_enhancement=杖（初級強化）
 kurokumaft:itemGroup.name.magic_rod=杖（中級）
+kurokumaft:itemGroup.name.magic_rod_enhancement=杖（中級強化）
 kurokumaft:itemGroup.name.magic_stick=杖（上級）
 kurokumaft:itemGroup.name.magic_staff=錫杖（帝級）
 kurokumaft:itemGroup.name.magic_bow=魔弓
@@ -647,6 +702,7 @@ kurokumaft:itemGroup.name.magic_bread=妖魔刀
 kurokumaft:itemGroup.name.magic_gun=魔法銃
 kurokumaft:itemGroup.name.magic_bazooka=魔導砲
 kurokumaft:itemGroup.name.magic_shell=魔弾
+kurokumaft:itemGroup.name.magic_lance=魔銃槍
 kurokumaft:itemGroup.name.grimoire=魔導書
 kurokumaft:itemGroup.name.magic_bottle=魔法薬
 kurokumaft:itemGroup.name.magic_smithing_template=魔鍛型
@@ -656,6 +712,56 @@ kurokumaft:itemGroup.name.magic_ingot=魔法生物の鋳塊
 
 kurokumaft:itemGroup.name.magic_nut=魔樹の実
 
+kurokumaft:itemGroup.name.magic_monster_material=魔物素材
+kurokumaft:itemGroup.name.magic_craft=魔法作業台
 kurokumaft:itemGroup.name.magic_log=魔樹の原木
 kurokumaft:itemGroup.name.magic_leaves=魔樹の葉
+kurokumaft:itemGroup.name.magic_planks=魔樹の板材
 kurokumaft:itemGroup.name.magic_froglight=アクアフロッグライト
+
+item.kurokumaft:flame_magic_lance.name=§4轟炎の魔銃槍
+item.kurokumaft:water_magic_lance.name=§1泡爆の魔銃槍
+item.kurokumaft:wind_magic_lance.name=§3空衝の魔銃槍
+item.kurokumaft:stone_magic_lance.name=§7烈震の魔銃槍
+item.kurokumaft:lightning_magic_lance.name=§6轟雷の魔銃槍
+item.kurokumaft:ice_magic_lance.name=§f氷衝の魔銃槍
+item.kurokumaft:dark_magic_lance.name=§5黒爆の魔銃槍
+item.kurokumaft:holly_magic_lance.name=§e煌衝の魔銃槍
+
+magic.kurokumaft:lance_fire_howitzer.translate=§cハウザーブラスト
+magic.kurokumaft:lance_water_howitzer.translate=§bグレイズハウザー
+magic.kurokumaft:lance_wind_howitzer.translate=§aハウザーストーム
+magic.kurokumaft:lance_stone_howitzer.translate=§7グランドハウザー
+magic.kurokumaft:lance_lightning_howitzer.translate=§6ライトニングハウザー
+magic.kurokumaft:lance_ice_howitzer.translate=§fフロストハウザー
+
+magic.kurokumaft:lance_fire_penetrate.translate=§cペネトレイトファイア
+magic.kurokumaft:lance_water_penetrate.translate=§bペネトレイトアクア
+magic.kurokumaft:lance_wind_penetrate.translate=§aペネトレイトウィンド
+magic.kurokumaft:lance_stone_penetrate.translate=§7ペネトレイトロック
+magic.kurokumaft:lance_lightning_penetrate.translate=§6ペネトレイトサンダー
+magic.kurokumaft:lance_ice_penetrate.translate=§fペネトレイトアイス
+
+tile.kurokumaft:silver_ore.name=銀鉱石
+tile.kurokumaft:deepslate_silver_ore.name=深層銀鉱石
+item.kurokumaft:raw_silver.name=銀の原石
+item.kurokumaft:silver_nugget.name=銀塊
+item.kurokumaft:silver_ingot.name=銀のインゴット
+
+item.kurokumaft:holy_silver_ingot.name=聖銀のインゴット
+
+item.kurokumaft:fire_chicken_helmet.name=熱鶏冠の皮の帽子
+item.kurokumaft:water_buffalo_helmet.name=湿水牛の角帽子
+item.kurokumaft:snow_wolf_helmet.name=白銀狼の角帽子
+
+item.kurokumaft:flame_porcupine_chestplate.name=火山嵐の皮の胸当て
+item.kurokumaft:earth_rhino_chestplate.name=黒曜犀の重鎧
+item.kurokumaft:frost_owl_chestplate.name=氷結梟の外套
+
+item.kurokumaft:wind_dolphin_leggings.name=渦一角の皮の脚絆
+item.kurokumaft:stone_armadillo_leggings.name=鉱鎧鼠の臑当
+item.kurokumaft:thunder_bat_leggings.name=霹蝙蝠の脚絆
+
+item.kurokumaft:aqua_jackal_boots.name=泡胡狼の牙の革靴
+item.kurokumaft:breeze_fish_boots.name=飛翔魚の皮靴
+item.kurokumaft:lightning_sheep_boots.name=雷鳴羊の毛皮靴

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:stone_armadillo_leggings"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "lsl",
+      "m m",
+      "l l"
+    ],
+    "key": {
+      "s": {
+        "item": "minecraft:armadillo_scute"
+      },
+      "l": {
+        "item": "minecraft:leather"
+      },
+      "m": {
+        "item": "kurokumaft:polished_scute"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:polished_scute"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:stone_armadillo_leggings",
+      "count": 1
+    }
+  }
+  
+}

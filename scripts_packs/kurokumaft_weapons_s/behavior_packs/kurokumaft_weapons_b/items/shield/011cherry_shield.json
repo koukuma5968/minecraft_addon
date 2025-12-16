@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:cherry_shield.name"
       },
-      "minecraft:icon": "cherry_shield",
+      "minecraft:icon": "kurokumaft:cherry_shield",
       "minecraft:repairable": {
         "repair_items": [
           {

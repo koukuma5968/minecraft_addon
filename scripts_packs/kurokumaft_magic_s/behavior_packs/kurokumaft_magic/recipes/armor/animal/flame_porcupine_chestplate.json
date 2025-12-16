@@ -1,0 +1,32 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:flame_porcupine_chestplate"
+    },
+    "tags": [ "crafting_table", "magic_enchant" ],
+    "pattern": [
+      "l l",
+      "mlm",
+      "mlm"
+    ],
+    "key": {
+      "l": {
+        "item": "minecraft:leather"
+      },
+      "m": {
+        "item": "kurokumaft:flame_spine"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:flame_spine"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:flame_porcupine_chestplate",
+      "count": 1
+    }
+  }
+  
+}

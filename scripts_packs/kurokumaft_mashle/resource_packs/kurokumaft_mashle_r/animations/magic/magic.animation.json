@@ -3,6 +3,7 @@
 	"animations": {
 		"animation.magic.shot": {
 			"loop": true,
+			"animation_length": 0.0417,
 			"particle_effects": {
 				"0.0": {
 					"effect": "magic_shot",

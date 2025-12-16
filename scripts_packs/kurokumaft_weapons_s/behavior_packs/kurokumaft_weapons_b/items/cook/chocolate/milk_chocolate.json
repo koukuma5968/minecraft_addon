@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:milk_chocolate.name"
 			},
-      "minecraft:icon": "milk_chocolate",
+      "minecraft:icon": "kurokumaft:milk_chocolate",
       "minecraft:use_animation":"eat",
       "minecraft:max_stack_size": 32,
       "minecraft:food": {

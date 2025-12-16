@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:steel_ingot.name"
 			},
-      "minecraft:icon": "steel_ingot"
+      "minecraft:icon": "kurokumaft:steel_ingot"
     }
   }
 }

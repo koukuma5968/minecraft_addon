@@ -16,7 +16,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:wooden_boomerang.name"
       },
-      "minecraft:icon": "wooden_boomerang",
+      "minecraft:icon": "kurokumaft:wooden_boomerang",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:damage": 2,

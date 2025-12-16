@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "orichalcum_boots"
+          "default": "kurokumaft:orichalcum_boots"
         }
       },
       "minecraft:tags": {

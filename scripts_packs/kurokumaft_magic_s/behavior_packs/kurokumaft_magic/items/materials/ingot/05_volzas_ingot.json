@@ -17,7 +17,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:volzas_ingot.name"
 			},
-      "minecraft:icon": "volzas_ingot"
+      "minecraft:icon": "kurokumaft:volzas_ingot"
     }
   }
 }

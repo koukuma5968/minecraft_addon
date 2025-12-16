@@ -11,7 +11,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:bone_battleaxe.name"
       },
-      "minecraft:icon": "bone_battleaxe",
+      "minecraft:icon": "kurokumaft:bone_battleaxe",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

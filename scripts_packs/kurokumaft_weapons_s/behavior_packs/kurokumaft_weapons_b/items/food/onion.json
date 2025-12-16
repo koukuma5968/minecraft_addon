@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:onion.name"
 			},
-      "minecraft:icon": "onion",
+      "minecraft:icon": "kurokumaft:onion",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "nutrition": 1

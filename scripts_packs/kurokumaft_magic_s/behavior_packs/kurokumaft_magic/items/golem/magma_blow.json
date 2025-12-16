@@ -13,7 +13,7 @@
 			},
       "minecraft:icon": {
         "textures": {
-          "default": "magma_blow"
+          "default": "kurokumaft:magma_blow"
         }
       },
       "minecraft:max_stack_size": 1,

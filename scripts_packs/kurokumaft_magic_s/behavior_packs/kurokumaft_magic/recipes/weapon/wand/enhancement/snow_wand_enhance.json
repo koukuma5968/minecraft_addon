@@ -1,0 +1,31 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:snow_wand_enhance"
+    },
+    "tags": [ "magic_enhance" ],
+    "pattern": [
+      "tim"
+    ],
+    "key": {
+      "t": {
+        "item": "kurokumaft:ice_planks"
+      },
+      "i": {
+        "item": "kurokumaft:snow_wand"
+      },
+      "m": {
+        "item": "kurokumaft:snow_fang"
+      }
+    },
+    "unlock": [
+      {
+        "item": "kurokumaft:ice_planks"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:snow_wand_enhance"
+    }
+  }
+}

@@ -8,7 +8,7 @@
       }
     },
     "components": {
-      "minecraft:icon": "wood_sickle",
+      "minecraft:icon": "kurokumaft:wood_sickle",
       "minecraft:display_name": {
         "value": "item.kurokumaft:wood_sickle.name"
       },

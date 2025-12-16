@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:medicinal_plant.name"
 			},
-      "minecraft:icon": "medicinal_plant",
+      "minecraft:icon": "kurokumaft:medicinal_plant",
       "minecraft:use_animation":"eat",
       "minecraft:food": {
         "can_always_eat": true,

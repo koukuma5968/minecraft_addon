@@ -5353,12 +5353,12 @@ var MithrilBlock = class {
   }
 };
 async function playerMithrilset(block) {
-  if (block.typeId == "kurokumaft:mithril_block") {
+  if (block.typeId === "kurokumaft:mithril_block") {
     block.setPermutation(BlockPermutation5.resolve(block.typeId, { "kurokumaft:budding_type": "player" }));
   }
 }
 async function checkMithrilBlock(block) {
-  if (block != void 0 && block.matches("kurokumaft:mithril_block", { "kurokumaft:budding_type": "geode" })) {
+  if (block !== void 0 && block.matches("kurokumaft:mithril_block", { "kurokumaft:budding_type": "geode" })) {
     block.setPermutation(BlockPermutation5.resolve(block.typeId, {
       "kurokumaft:budding_set": true,
       "kurokumaft:budding_type": "spawn"

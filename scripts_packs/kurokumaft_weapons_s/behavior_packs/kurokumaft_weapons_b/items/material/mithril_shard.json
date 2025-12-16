@@ -12,7 +12,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:mithril_shard.name"
 			},
-      "minecraft:icon": "mithril_shard"
+      "minecraft:icon": "kurokumaft:mithril_shard"
     }
   }
 }

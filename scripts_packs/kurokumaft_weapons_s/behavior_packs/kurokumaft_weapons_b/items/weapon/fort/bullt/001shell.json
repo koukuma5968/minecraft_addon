@@ -9,7 +9,7 @@
       }
     },
     "components": {
-      "minecraft:icon": "shell",
+      "minecraft:icon": "kurokumaft:shell",
       "minecraft:display_name": {
         "value": "item.kurokumaft:shell.name"
       },

@@ -17,7 +17,7 @@
       "minecraft:display_name": {
         "value": "item.kurokumaft:diamond_knuckle.name"
       },
-      "minecraft:icon": "diamond_knuckle",
+      "minecraft:icon": "kurokumaft:diamond_knuckle",
       "minecraft:max_stack_size": 1,
       "minecraft:hand_equipped": true,
       "minecraft:durability": {

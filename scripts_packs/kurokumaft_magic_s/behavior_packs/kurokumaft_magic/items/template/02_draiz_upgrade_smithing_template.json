@@ -16,7 +16,7 @@
       "minecraft:display_name": {
 				"value": "item.kurokumaft:draiz_upgrade_smithing_template.name"
 			},
-      "minecraft:icon": "draiz_upgrade_smithing_template"
+      "minecraft:icon": "kurokumaft:draiz_upgrade_smithing_template"
     }
   }
 }

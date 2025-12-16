@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "kurokumaft:magic_enchant_table",
 			"is_experimental": false,
-            "register_to_creative_menu": false,
+			"register_to_creative_menu": false,
 			"menu_category": {
 				"category": "items"
 			}
@@ -15,7 +15,7 @@
 				"origin": [-8.0, 0.0, -8.0],
 				"size": [16.0, 10.0, 16.0]
 			},
-            "minecraft:selection_box": {
+			"minecraft:selection_box": {
 				"origin": [-8.0, 0.0, -8.0],
 				"size": [16.0, 10.0, 16.0]
 			},
@@ -28,25 +28,7 @@
 			"minecraft:light_dampening": 0,
 			"minecraft:geometry": "geometry.magic_enchant_table",
 			"minecraft:material_instances": {
-				"down": {
-					"render_method": "alpha_test"
-				},
-				"up": {
-					"render_method": "alpha_test"
-				},
-				"east": {
-					"render_method": "alpha_test"
-				},
-				"west": {
-					"render_method": "alpha_test"
-				},
-				"north": {
-					"render_method": "alpha_test"
-				},
-				"south": {
-					"render_method": "alpha_test"
-				},
-				"magic_enchant_table": {
+				"*": {
 					"texture": "magic_enchant_table",
 					"render_method": "alpha_test",
 					"ambient_occlusion": false,
