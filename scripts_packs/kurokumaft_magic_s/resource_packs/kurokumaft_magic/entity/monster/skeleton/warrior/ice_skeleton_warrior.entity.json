@@ -13,7 +13,7 @@
         "default": "geometry.magic_skeleton"
       },
       "spawn_egg": {
-        "texture": "magic_skeleton_spawn_egg",
+        "texture": "kurokumaft:magic_skeleton_spawn_egg",
         "texture_index": 5
       },
       "scripts": {

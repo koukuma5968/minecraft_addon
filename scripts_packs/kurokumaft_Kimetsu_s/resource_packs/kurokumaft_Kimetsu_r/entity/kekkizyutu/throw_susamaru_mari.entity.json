@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:throw_susamaru_mari",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/susamaru/susamaru_mari"
+          },
+          "geometry": {
+            "default": "geometry.susamaru_mari"
+          },
+          "animations": {
+            "shot": "animation.susamaru_mari.shot"
+          },
+          "scripts": {
+            "animate": [
+              "shot"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

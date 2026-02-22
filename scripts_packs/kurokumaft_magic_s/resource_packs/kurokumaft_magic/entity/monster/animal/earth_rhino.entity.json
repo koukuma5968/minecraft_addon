@@ -13,7 +13,7 @@
         "default": "geometry.earth_rhino"
       },
       "spawn_egg": {
-        "texture": "magic_animal_spawn_egg",
+        "texture": "kurokumaft:magic_animal_spawn_egg",
         "texture_index": 2
       },
       "scripts": {

@@ -59,7 +59,7 @@
         "unroll_finish": "mob.armadillo.unroll_finish"
       },
       "spawn_egg": {
-        "texture": "magic_animal_spawn_egg",
+        "texture": "kurokumaft:magic_animal_spawn_egg",
         "texture_index": 8
       }
     }

@@ -177,20 +177,23 @@
 					"animations" : [
 						"humanoid_base_pose",
 						{
-							"look_at_target" : "!query.is_sleeping && !query.is_emoting"
+							"look_at_target": "!query.is_sleeping && !query.is_emoting"
 						},
 						"move.arms",
 						"move.legs",
 						"cape",
 						{
-							"riding.arms" : "query.is_riding"
+							"riding.root": "query.is_riding"
 						},
 						{
-							"riding.legs" : "query.is_riding"
+							"riding.arms": "query.is_riding"
+						},
+						{
+							"riding.legs": "query.is_riding"
 						},
 						"holding",
 						{
-							"brandish_spear" : "variable.is_brandishing_spear"
+							"brandish_spear": "variable.is_brandishing_spear"
 						},
 						{
 							"brandish_spear" : "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:spear') && query.main_hand_item_use_duration > 0.0f"
@@ -202,34 +205,46 @@
 							"charging" : "query.is_charging && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:spear')"
 						},
 						{
-							"sneaking" : "query.is_sneaking && !query.is_sleeping"
+							"sneaking": "query.is_sneaking && !query.is_sleeping"
 						},
 						{
-							"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn"
+							"bob": "!variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !variable.is_using_brush"
 						},
 						{
-							"damage_nearby_mobs" : "variable.damage_nearby_mobs"
+							"damage_nearby_mobs": "variable.damage_nearby_mobs"
 						},
 						{
-							"swimming" : "variable.swim_amount > 0.0"
+							"swimming": "variable.swim_amount > 0.0 && !variable.melee_spear_equipped"
 						},
 						{
-							"swimming.legs" : "variable.swim_amount > 0.0"
+							"swimming.no_right_arm": "variable.swim_amount > 0.0 && variable.melee_spear_equipped"
 						},
 						{
-							"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:bow')"
+							"swimming.legs": "variable.swim_amount > 0.0"
 						},
 						{
-							"sleeping" : "query.is_sleeping && query.is_alive"
+							"crawling": "query.is_crawling && !variable.melee_spear_equipped"
 						},
 						{
-							"attack.positions" : "variable.attack_time >= 0.0"
+							"crawling.no_right_arm": "query.is_crawling && variable.melee_spear_equipped"
 						},
 						{
-							"attack.rotations" : "variable.attack_time >= 0.0"
+							"crawling.legs": "query.is_crawling"
 						},
 						{
-							"shield_block_main_hand" : "query.blocking && (query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield')"
+							"use_item_progress": "( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) && !variable.is_brandishing_spear && !variable.is_holding_spyglass && !variable.is_tooting_goat_horn && !variable.is_using_brush && !query.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && !query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:bow')"
+						},
+						{
+							"sleeping": "query.is_sleeping && query.is_alive"
+						},
+						{
+							"attack.positions": "variable.attack_time >= 0.0 && !variable.melee_spear_equipped"
+						},
+						{
+							"attack.rotations": "variable.attack_time >= 0.0 && !variable.melee_spear_equipped"
+						},
+						{
+							"shield_block_main_hand": "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"
 						},
 						{
 							"shield_block_main_hand" : "query.blocking && query.equipped_item_any_tag('slot.weapon.mainhand', 'kurokumaft:shield')"
@@ -241,10 +256,10 @@
 							"shield_block_off_hand" : "query.blocking && query.equipped_item_any_tag('slot.weapon.offhand', 'kurokumaft:shield')"
 						},
 						{
-							"crossbow_controller" : "query.get_equipped_item_name == 'crossbow'"
+							"crossbow_controller": "query.get_equipped_item_name == 'crossbow'"
 						},
 						{
-							"third_person_bow_equipped" : "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"
+							"third_person_bow_equipped": "query.get_equipped_item_name == 'bow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"
 						},
 						{
 							"third_person_bow_equipped" : "query.equipped_item_any_tag('slot.weapon.mainhand','kurokumaft:bow') && query.main_hand_item_use_duration > 0.0f"
@@ -254,6 +269,18 @@
 						},
 						{
 							"tooting_goat_horn": "variable.is_tooting_goat_horn"
+						},
+						{
+							"holding_brush": "query.get_equipped_item_name == 'brush'"
+						},
+						{
+							"brushing": "variable.is_using_brush"
+						},
+						{
+							"holding_heavy_core": "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:heavy_core')"
+						},
+						{
+							"third_person_melee_spear_controller": "variable.melee_spear_equipped"
 						}
 					],
 					"transitions" : [

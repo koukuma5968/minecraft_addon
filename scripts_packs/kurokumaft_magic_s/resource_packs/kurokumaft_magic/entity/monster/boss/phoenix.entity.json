@@ -26,7 +26,7 @@
       },
       "render_controllers": [ "controller.render.phoenix" ],
       "spawn_egg": {
-        "texture": "magic_boss_spawn_egg",
+        "texture": "kurokumaft:magic_boss_spawn_egg",
         "texture_index": 0
       }
     }

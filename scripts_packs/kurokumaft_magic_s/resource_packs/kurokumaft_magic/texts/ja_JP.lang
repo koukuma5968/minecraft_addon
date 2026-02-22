@@ -1,5 +1,5 @@
-pack.name=MagicKuroRv4.5
-pack.description=魔法アドオンRv4.5 魔法の武器/防具が追加されるアドオン リソースパック
+pack.name=MagicKuroRv4.6
+pack.description=魔法アドオンRv4.6 魔法の武器/防具が追加されるアドオン リソースパック
 
 container.kurokumaft:magic_enchant_table=魔法付与台
 container.kurokumaft:magic_enchant_table_block=魔法付与台
@@ -752,7 +752,7 @@ item.kurokumaft:holy_silver_ingot.name=聖銀のインゴット
 
 item.kurokumaft:fire_chicken_helmet.name=熱鶏冠の皮の帽子
 item.kurokumaft:water_buffalo_helmet.name=湿水牛の角帽子
-item.kurokumaft:snow_wolf_helmet.name=白銀狼の角帽子
+item.kurokumaft:snow_wolf_helmet.name=白銀狼の牙帽子
 
 item.kurokumaft:flame_porcupine_chestplate.name=火山嵐の皮の胸当て
 item.kurokumaft:earth_rhino_chestplate.name=黒曜犀の重鎧

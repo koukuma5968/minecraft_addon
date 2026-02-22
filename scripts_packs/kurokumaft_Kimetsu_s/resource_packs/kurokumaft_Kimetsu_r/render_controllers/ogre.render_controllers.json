@@ -100,6 +100,30 @@
       "geometry": "array.geo_frames[query.skin_id]",
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "array.texture_frames[query.skin_id]" ]
+    },
+    "controller.render.ogre.susamaru": {
+      "part_visibility": [
+        { "leftArm2": "q.is_saddled" },
+        { "leftArm3": "q.is_saddled" },
+        { "rightArm2": "q.is_saddled" },
+        { "rightArm3": "q.is_saddled" }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+    "controller.render.ogre.nakime": {
+      "part_visibility": [
+        { "ftont_har": "q.skin_id = 0" }
+      ],
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+    "controller.render.ogre.tamayo": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
     }
 
   }

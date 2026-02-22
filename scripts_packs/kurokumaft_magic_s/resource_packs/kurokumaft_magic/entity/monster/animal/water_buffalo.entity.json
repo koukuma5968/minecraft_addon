@@ -34,7 +34,7 @@
         "controller.render.cow"
       ],
       "spawn_egg": {
-        "texture": "magic_animal_spawn_egg",
+        "texture": "kurokumaft:magic_animal_spawn_egg",
         "texture_index": 10
       }
     }

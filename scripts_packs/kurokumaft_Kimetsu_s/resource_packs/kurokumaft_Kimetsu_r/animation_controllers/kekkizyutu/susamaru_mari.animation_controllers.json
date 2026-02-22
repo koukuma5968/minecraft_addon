@@ -1,0 +1,21 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.susamaru_mari.person": {
+			"states": {
+				"default": {
+					"animations": ["first"],
+					"transitions": [
+						{"thrid": "!c.is_first_person"}
+					]
+				},
+				"thrid": {
+					"animations": ["third"],
+					"transitions": [
+						{"default": "c.is_first_person"}
+					]
+				}
+			}
+		}
+	}
+}

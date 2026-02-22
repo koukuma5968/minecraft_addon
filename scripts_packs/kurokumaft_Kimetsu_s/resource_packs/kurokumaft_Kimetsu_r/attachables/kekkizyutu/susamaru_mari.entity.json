@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:susamaru_mari",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kekkizyutu/susamaru/susamaru_mari",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.susamaru_mari"
+      },
+      "animations": {
+        "person": "controller.animation.susamaru_mari.person",
+        "first": "animation.susamaru_mari.first",
+        "third": "animation.susamaru_mari.third"
+      },
+      "scripts": {
+        "scale": "0.8",
+        "animate": [
+          "person"
+        ]
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

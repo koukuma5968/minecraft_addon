@@ -23,7 +23,7 @@
       },
       "render_controllers": [ "controller.render.fenrir" ],
       "spawn_egg": {
-        "texture": "magic_boss_spawn_egg",
+        "texture": "kurokumaft:magic_boss_spawn_egg",
         "texture_index": 1
       }
     }

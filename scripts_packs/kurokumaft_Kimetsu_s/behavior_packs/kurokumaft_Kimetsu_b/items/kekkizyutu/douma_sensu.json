@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.10",
+  "format_version": "1.21.100",
   "minecraft:item": {
     "description": {
       "identifier": "kurokumaft:douma_sensu",
@@ -25,9 +25,12 @@
         "movement_modifier": 1,
         "use_duration": 1000
       },
-      "minecraft:custom_components": [
-        "kurokumaft:kekkizyutu_component"
-      ]
+      "kurokumaft:kekkizyutu_component": {
+        "type": 11,
+        "kata": [1,2,3,4,5,6,7,8,9],
+        "kata_msg": "kekkizyutu_koori",
+        "className": "douma"
+      }
     }
   }
 }

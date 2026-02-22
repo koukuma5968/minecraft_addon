@@ -3,7 +3,7 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "kurokumaft:draiz",
-      "population_control": "magic_element"
+      "population_control": "monster"
     },
     "conditions": [
       {
@@ -17,11 +17,11 @@
           "max": "hard"
         },
         "minecraft:weight": {
-          "default": 6
+          "default": 4
         },
         "minecraft:herd": {
-          "min_size": 2,
-          "max_size": 4
+          "min_size": 1,
+          "max_size": 3
         },
         "minecraft:biome_filter": {
           "test": "has_biome_tag",

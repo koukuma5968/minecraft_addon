@@ -13,7 +13,7 @@
         "default": "geometry.magic_zombie"
       },
       "spawn_egg": {
-        "texture": "magic_zombie_spawn_egg",
+        "texture": "kurokumaft:magic_zombie_spawn_egg",
         "texture_index": 5
       },
       "scripts": {

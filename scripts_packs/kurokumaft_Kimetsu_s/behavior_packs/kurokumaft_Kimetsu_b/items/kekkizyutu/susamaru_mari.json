@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:susamaru_mari",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:susamaru_mari.name"
+			},
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:kekkizyutu"
+        ]
+      },
+      "minecraft:icon": "susamaru_mari",
+      "minecraft:max_stack_size": 1,
+      "minecraft:damage": 0,
+      "minecraft:allow_off_hand": true,
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1,
+        "use_duration": 1000
+      },
+      "kurokumaft:kekkizyutu_component": {
+        "type": 15,
+        "kata": [1],
+        "kata_msg": "kekkizyutu_mari",
+        "className": "susamaru"
+      }
+    }
+  }
+}
+

@@ -30,6 +30,8 @@ import { KessyounomikoComponent } from "../../kekkizyutu/mob/KessyounomikoCompon
 import { MuhyousuirenbosatuComponent } from "../../kekkizyutu/mob/MuhyousuirenbosatuComponent";
 import { ZyutuGyokkoComponent } from "../../kekkizyutu/player/character/ZyutuGyokkoComponent";
 import { GyokkoComponent } from "../../kekkizyutu/mob/GyokkoComponent";
+import { ZyutuSusamaruComponent } from "../../kekkizyutu/player/character/ZyutuSusamaruComponent";
+import { SusamaruComponent } from "../../kekkizyutu/mob/SusamaruComponent";
 
 export interface KekkizyutuObject {
     itemName:string,
@@ -54,6 +56,7 @@ export const KekkizyutuClassRecord: Record<string, new () => KekkizyutuUseCompon
     kokushibou: ZyutuKokushibouComponent,
     kaigaku: ZyutuKaigakuComponent,
     gyokko: ZyutuGyokkoComponent,
+    susamaru: ZyutuSusamaruComponent,
 };
 
 export const KekkizyutuObjects = Object.freeze([
@@ -155,6 +158,13 @@ export const KekkizyutuObjects = Object.freeze([
         kata_msg: "kekkizyutu_tubo",
         className: "gyokko"
     },
+    {
+        itemName: "kurokumaft:susamaru_mari",
+        type: 15,
+        kata: [1],
+        kata_msg: "kekkizyutu_mari",
+        className: "susamaru"
+    },
 ]);
 
 export interface KekkizyutuMobObject {
@@ -178,7 +188,8 @@ export const KekkizyutuMobClassRecord: Record<string, new (entity:Entity) => Kek
     douma: DoumaComponent,
     kessyounomiko: KessyounomikoComponent,
     muhyousuirenbosatu: MuhyousuirenbosatuComponent,
-    gyokko: GyokkoComponent
+    gyokko: GyokkoComponent,
+    susamaru: SusamaruComponent
 };
 
 export const KekkizyutuMobObjects = Object.freeze([
@@ -245,5 +256,9 @@ export const KekkizyutuMobObjects = Object.freeze([
     {
         entityName: "kurokumaft:gyokko",
         className: "gyokko"
+    },
+    {
+        entityName: "kurokumaft:susamaru",
+        className: "susamaru"
     },
 ]);

@@ -3,7 +3,7 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "kurokumaft:flame_porcupine",
-      "population_control": "animal"
+      "population_control": "monster"
     },
     "conditions": [
       {

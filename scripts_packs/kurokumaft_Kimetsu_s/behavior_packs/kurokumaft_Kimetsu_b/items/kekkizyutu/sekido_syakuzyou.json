@@ -25,9 +25,12 @@
         "movement_modifier": 1,
         "use_duration": 1000
       },
-      "minecraft:custom_components": [
-        "kurokumaft:kekkizyutu_component"
-      ]
+      "kurokumaft:kekkizyutu_component": {
+        "type": 6,
+        "kata": [1],
+        "kata_msg": "kekkizyutu_ikazuti",
+        "className": "sekido"
+      }
     }
   }
 }

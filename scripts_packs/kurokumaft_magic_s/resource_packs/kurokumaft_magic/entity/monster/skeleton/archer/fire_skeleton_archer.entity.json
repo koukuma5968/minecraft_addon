@@ -71,7 +71,7 @@
         "riding.body": "animation.humanoid.riding.body"
       },
       "spawn_egg": {
-        "texture": "magic_skeleton_spawn_egg",
+        "texture": "kurokumaft:magic_skeleton_spawn_egg",
         "texture_index": 0
       },
       "render_controllers": [ "controller.render.skeleton" ],

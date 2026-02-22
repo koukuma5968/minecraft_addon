@@ -38,6 +38,41 @@
 				}
 			}
 		},
+		"controller.animation.player.melee_spear": {
+			"initial_state": "hold",
+			"states": {
+				"hold": {
+					"animations": [ "third_person_melee_spear_hold" ],
+					"transitions": [
+						{
+							"use": "variable.item_use_normalized > 0.0"
+						},
+						{
+							"attack": "variable.attack_time > 0.0"
+						}
+					]
+				},
+				"use": {
+					"animations": [ "third_person_melee_spear_use" ],
+					"transitions": [
+						{
+							"hold": "variable.item_use_normalized == 0.0"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "third_person_melee_spear_attack" ],
+					"transitions": [
+						{
+							"hold": "variable.attack_time == 0.0"
+						},
+						{
+							"use": "variable.item_use_normalized > 0.0"
+						}
+					]
+				}
+			}
+		},
 		"controller.animation.player.first_person_attack" : {
 			"initial_state" : "default",
 			"states" : {
@@ -105,11 +140,50 @@
 				}
 			}
 		},
+		"controller.animation.player.first_person_melee_spear": {
+			"initial_state": "hold",
+			"states": {
+				"hold": {
+					"animations": [ "first_person_melee_spear_hold" ],
+					"transitions": [
+						{
+							"use": "variable.item_use_normalized > 0.0"
+						},
+						{
+							"attack": "variable.attack_time > 0.0"
+						}
+					]
+				},
+				"use": {
+					"animations": [ "first_person_melee_spear_use" ],
+					"transitions": [
+						{
+							"hold": "variable.item_use_normalized == 0.0"
+						}
+					]
+				},
+				"attack": {
+					"animations": [ "first_person_melee_spear_attack" ],
+					"transitions": [
+						{
+							"hold": "variable.attack_time == 0.0"
+						},
+						{
+							"use": "variable.item_use_normalized > 0.0"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
 		"controller.animation.player.root" : {
 			"initial_state" : "first_person",
 			"states" : {
 				"first_person" : {
 					"animations" : [
+						"first_person_base_pose",
+						"first_person_breathing_bob",
 						{
 							"first_person_swap_item": "!query.blocking"
 						},
@@ -117,9 +191,8 @@
 							"first_person_shield_block": "query.blocking"
 						},
 						{
-							"first_person_attack_controller" : "variable.attack_time > 0.0f && query.get_equipped_item_name != 'filled_map'"
+							"first_person_attack_controller" : "variable.attack_time > 0.0f && query.get_equipped_item_name != 'filled_map' && !variable.melee_spear_equipped"
 						},
-						"first_person_base_pose",
 						{
 							"first_person_empty_hand" : "query.get_equipped_item_name(0, 1) != 'filled_map'"
 						},
@@ -127,13 +200,13 @@
 							"first_person_walk" : "variable.bob_animation"
 						},
 						{
-							"first_person_map_controller" : "(query.get_equipped_item_name(0, 1) == 'filled_map' || query.get_equipped_item_name('off_hand') == 'filled_map')"
+							"first_person_map_controller": "query.get_equipped_item_name(0, 1) == 'filled_map' || query.get_equipped_item_name('off_hand') == 'filled_map'"
 						},
 						{
-							"first_person_crossbow_equipped": "query.get_equipped_item_name == 'crossbow' && (variable.item_use_normalized > 0 && variable.item_use_normalized < 1.0)"
+							"first_person_crossbow_equipped": "query.get_equipped_item_name == 'crossbow' && variable.item_use_normalized > 0.0 && variable.item_use_normalized < 1.0"
 						},
 						{
-							"first_person_breathing_bob": "variable.attack_time <= 0.0"
+							"first_person_melee_spear_controller": "variable.melee_spear_equipped"
 						}
 					],
 					"transitions" : [
@@ -185,6 +258,9 @@
 						"move.legs",
 						"cape",
 						{
+							"riding.root": "query.is_riding"
+						},
+						{
 							"riding.arms" : "query.is_riding"
 						},
 						{
@@ -213,13 +289,19 @@
 							"damage_nearby_mobs" : "variable.damage_nearby_mobs"
 						},
 						{
-							"swimming" : "variable.swim_amount > 0.0"
+							"swimming": "variable.swim_amount > 0.0 && !variable.melee_spear_equipped"
+						},
+						{
+							"swimming.no_right_arm": "variable.swim_amount > 0.0 && variable.melee_spear_equipped"
 						},
 						{
 							"swimming.legs" : "variable.swim_amount > 0.0"
 						},
 						{
-							"crawling" : "query.is_crawling"
+							"crawling": "query.is_crawling && !variable.melee_spear_equipped"
+						},
+						{
+							"crawling.no_right_arm": "query.is_crawling && variable.melee_spear_equipped"
 						},
 						{
 							"crawling.legs" : "query.is_crawling"
@@ -231,10 +313,10 @@
 							"sleeping" : "query.is_sleeping && query.is_alive"
 						},
 						{
-							"attack.positions" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0 && query.property('kurokumaft:kekkizyutu_type') != 12 && query.property('kurokumaft:kekkizyutu_type') != 13"
+							"attack.positions" : "variable.attack_time >= 0.0 && !variable.melee_spear_equipped && query.property('kurokumaft:nichirintou_type') == 0 && query.property('kurokumaft:kekkizyutu_type') != 12 && query.property('kurokumaft:kekkizyutu_type') != 13"
 						},
 						{
-							"attack.rotations" : "variable.attack_time >= 0.0 && query.property('kurokumaft:nichirintou_type') == 0 && query.property('kurokumaft:kekkizyutu_type') != 12 && query.property('kurokumaft:kekkizyutu_type') != 13"
+							"attack.rotations" : "variable.attack_time >= 0.0 && !variable.melee_spear_equipped && query.property('kurokumaft:nichirintou_type') == 0 && query.property('kurokumaft:kekkizyutu_type') != 12 && query.property('kurokumaft:kekkizyutu_type') != 13"
 						},
 						{
 							"shield_block_main_hand" : "query.blocking && query.get_equipped_item_name('off_hand') != 'shield' && query.get_equipped_item_name == 'shield'"
@@ -262,6 +344,9 @@
 						},
 						{
 							"holding_heavy_core" : "query.is_item_name_any('slot.weapon.mainhand', 'minecraft:heavy_core')"
+						},
+						{
+							"third_person_melee_spear_controller": "variable.melee_spear_equipped"
 						}
 					],
 					"transitions" : [

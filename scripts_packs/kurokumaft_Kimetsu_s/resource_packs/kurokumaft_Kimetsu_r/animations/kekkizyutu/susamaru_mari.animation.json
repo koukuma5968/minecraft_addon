@@ -1,0 +1,40 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.susamaru_mari.first": {
+			"loop": true,
+			"bones": {
+				"mari": {
+					"position": [3, 23, -1],
+					"scale": 0.7
+				}
+			}
+		},
+		"animation.susamaru_mari.third": {
+			"loop": true,
+			"bones": {
+				"mari": {
+					"rotation": [27.5, 0, 0],
+					"position": [0, 23, -4],
+					"scale": 0.4
+				}
+			}
+		},
+		"animation.susamaru_mari.shot": {
+			"loop": true,
+			"animation_length": 0.125,
+			"bones": {
+				"mari": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-90, 0, 90],
+						"0.0833": [180, 0, 90],
+						"0.125": [90, -360, 90]
+					},
+					"position": [0, 0, 0],
+					"scale": 0.8
+				}
+			}
+		}
+	}
+}

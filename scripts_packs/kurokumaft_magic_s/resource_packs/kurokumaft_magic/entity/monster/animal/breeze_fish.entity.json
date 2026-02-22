@@ -27,7 +27,7 @@
         "controller.render.breeze_fish"
       ],
       "spawn_egg": {
-        "texture": "magic_animal_spawn_egg",
+        "texture": "kurokumaft:magic_animal_spawn_egg",
         "texture_index": 1
       }
     }

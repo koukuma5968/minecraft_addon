@@ -234,73 +234,43 @@ msg.kurokumaft:koi_kokyu3.value=§d恋猫しぐれ
 msg.kurokumaft:koi_kokyu5.value=§d揺らめく恋情・乱れ爪
 msg.kurokumaft:koi_kokyu6.value=§d猫足恋風
 
-msg.kurokumaft:tuki_kokyu1.value=§e闇月・宵の宮
-msg.kurokumaft:tuki_kokyu2.value=§e珠華ノ弄月
-msg.kurokumaft:tuki_kokyu3.value=§e厭忌月・銷り
-msg.kurokumaft:tuki_kokyu5.value=§e月魄災渦
-msg.kurokumaft:tuki_kokyu6.value=§e常夜孤月・無間
-msg.kurokumaft:tuki_kokyu7.value=§e厄鏡・月映え
-msg.kurokumaft:tuki_kokyu8.value=§e月龍輪尾
-msg.kurokumaft:tuki_kokyu9.value=§e降り月・連面
-msg.kurokumaft:tuki_kokyu10.value=§e穿面斬・蘿月
-msg.kurokumaft:tuki_kokyu14.value=§e兇変・天満繊月
-msg.kurokumaft:tuki_kokyu16.value=§e月虹・片割れ月
+entity.kurokumaft:tanjiro.name=竈門 炭次郎
+entity.kurokumaft:zenitu.name=我妻 善逸
+entity.kurokumaft:inosuke.name=嘴平 伊之助
+entity.kurokumaft:kanawo.name=栗花落 カナヲ
+entity.kurokumaft:nezuko.name=竈門 禰豆子
+entity.kurokumaft:giyu.name=冨岡 義勇
+entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
+entity.kurokumaft:shinobu.name=胡蝶 しのぶ
+entity.kurokumaft:tengen.name=宇髄 天元
+entity.kurokumaft:mituri.name=甘露寺 蜜璃
+entity.kurokumaft:sanemi.name=不死川 実弥
+entity.kurokumaft:genya.name=不死川 玄弥
+entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
+entity.kurokumaft:muitiro.name=時透 無一郎
+entity.kurokumaft:obanai.name=伊黒 小芭内
+entity.kurokumaft:regimental_guy.name=隊士（男）
+entity.kurokumaft:regimental_girl.name=隊士（女）
 
-msg.kurokumaft:kekkizyutu_bakketu1.value=爆血
+kurokumaft:itemGroup.name.soldier_spawn_egg=鬼殺隊スポーンエッグ
 
-msg.kurokumaft:kekkizyutu_koori1.value=蓮葉氷
-msg.kurokumaft:kekkizyutu_koori2.value=枯園垂り
-msg.kurokumaft:kekkizyutu_koori3.value=凍て曇
-msg.kurokumaft:kekkizyutu_koori4.value=蔓蓮華
-msg.kurokumaft:kekkizyutu_koori5.value=寒烈の白姫
-msg.kurokumaft:kekkizyutu_koori6.value=冬ざれ氷柱
-msg.kurokumaft:kekkizyutu_koori7.value=散り蓮華
-msg.kurokumaft:kekkizyutu_koori8.value=結晶ノ御子
-msg.kurokumaft:kekkizyutu_koori9.value=霧氷・睡蓮菩薩
-
-msg.kurokumaft:kekkizyutu_hakai1.value=破壊殺・羅針
-msg.kurokumaft:kekkizyutu_hakai2.value=破壊殺・空式
-msg.kurokumaft:kekkizyutu_hakai3.value=破壊殺・乱式
-msg.kurokumaft:kekkizyutu_hakai4.value=破壊殺・滅式
-msg.kurokumaft:kekkizyutu_hakai5.value=破壊殺・脚式 冠先割
-msg.kurokumaft:kekkizyutu_hakai6.value=破壊殺・脚式 流閃群光
-msg.kurokumaft:kekkizyutu_hakai7.value=破壊殺・脚式 飛遊星千輪
-msg.kurokumaft:kekkizyutu_hakai8.value=破壊殺・砕式 万葉閃柳
-msg.kurokumaft:kekkizyutu_hakai9.value=破壊殺・鬼芯八重芯
-msg.kurokumaft:kekkizyutu_hakai10.value=終式・青銀乱残光
-
-msg.kurokumaft:kekkizyutu_tigama1.value=飛び血鎌
-msg.kurokumaft:kekkizyutu_tigama2.value=跋扈跳梁
-msg.kurokumaft:kekkizyutu_tigama3.value=円斬旋回・飛び血鎌
-
-msg.kurokumaft:kekkizyutu_obi1.value=横払い
-msg.kurokumaft:kekkizyutu_obi2.value=連撃
-msg.kurokumaft:kekkizyutu_obi3.value=帯（遠距離）
-msg.kurokumaft:kekkizyutu_obi4.value=八重帯斬り
-
-msg.kurokumaft:kekkizyutu_ikazuti1.value=雷殺
-msg.kurokumaft:kekkizyutu_toppu1.value=爆風
-msg.kurokumaft:kekkizyutu_kyoumei1.value=狂鳴
-msg.kurokumaft:kekkizyutu_shitotu1.value=激涙刺突
-
-msg.kurokumaft:kekkizyutu_zouhakuten1.value=石竜子
-msg.kurokumaft:kekkizyutu_zouhakuten2.value=狂鳴雷殺
-msg.kurokumaft:kekkizyutu_zouhakuten3.value=狂圧鳴波
-msg.kurokumaft:kekkizyutu_zouhakuten4.value=無間業樹
-
-msg.kurokumaft:kekkizyutu_tubo1.value=水獄鉢
-msg.kurokumaft:kekkizyutu_tubo2.value=千本針魚殺
-msg.kurokumaft:kekkizyutu_tubo3.value=蛸壺地獄
-msg.kurokumaft:kekkizyutu_tubo4.value=一万滑空粘魚
-msg.kurokumaft:kekkizyutu_tubo5.value=魚召喚
-msg.kurokumaft:kekkizyutu_tubo6.value=陣殺魚鱗
-
-msg.kurokumaft:kekkizyutu_akumu1.value=強制昏倒 催眠の囁
-msg.kurokumaft:kekkizyutu_akumu2.value=強制昏倒 睡眠眼
-
-msg.kurokumaft:kekkizyutu_ito1.value=刻糸牢
-msg.kurokumaft:kekkizyutu_ito2.value=刻糸輪転
-msg.kurokumaft:kekkizyutu_ito3.value=殺目篭
+item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
+item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
+item.spawn_egg.entity.kurokumaft:inosuke.name=嘴平 伊之助
+item.spawn_egg.entity.kurokumaft:kanawo.name=栗花落 カナヲ
+item.spawn_egg.entity.kurokumaft:nezuko.name=竈門 禰豆子
+item.spawn_egg.entity.kurokumaft:giyu.name=冨岡 義勇
+item.spawn_egg.entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
+item.spawn_egg.entity.kurokumaft:shinobu.name=胡蝶 しのぶ
+item.spawn_egg.entity.kurokumaft:tengen.name=宇髄 天元
+item.spawn_egg.entity.kurokumaft:mituri.name=甘露寺 蜜璃
+item.spawn_egg.entity.kurokumaft:sanemi.name=不死川 実弥
+item.spawn_egg.entity.kurokumaft:genya.name=不死川 玄弥
+item.spawn_egg.entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
+item.spawn_egg.entity.kurokumaft:muitiro.name=時透 無一郎
+item.spawn_egg.entity.kurokumaft:obanai.name=伊黒 小芭内
+item.spawn_egg.entity.kurokumaft:regimental_guy.name=隊士（男）
+item.spawn_egg.entity.kurokumaft:regimental_girl.name=隊士（女）
 
 msg.kurokumaft:kaikyu1.value=§b§l癸
 msg.kurokumaft:kaikyu2.value=§9§l壬
@@ -347,65 +317,6 @@ item.kurokumaft:nichirintou_kaze.name=日輪刀 風
 item.kurokumaft:nichirintou_iwa.name=日輪刀 岩
 item.kurokumaft:nichirintou_hebi.name=日輪刀 蛇
 item.kurokumaft:nichirintou_tuki.name=日輪刀 月
-
-kurokumaft:itemGroup.name.kekkizyutu=血気術
-
-item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
-item.kurokumaft:koushi.name=血気術 累(鋼糸)
-item.kurokumaft:obi.name=血気術 堕姫(帯)
-item.kurokumaft:tigama.name=血気術 妓夫太郎(血鎌)
-item.kurokumaft:suisei.name=血気術 玉壺(水生)
-item.kurokumaft:mogura.name=血気術 憎珀天(土竜)
-item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
-item.kurokumaft:koori.name=血気術 童磨(氷)
-item.kurokumaft:mikatuki.name=血気術 黒死牟(月)
-item.kurokumaft:kokurai.name=血気術 獪岳(亀裂)
-
-item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
-
-tile.kurokumaft:scarlet_gravel.name=緋の砂利
-tile.kurokumaft:scarlet_ore.name=緋の鉱石
-
-item.kurokumaft:scarlet_ironfish.name=猩々緋砂鉄
-item.kurokumaft:scarlet_nugget.name=猩々緋鉱石
-
-entity.kurokumaft:tanjiro.name=竈門 炭次郎
-entity.kurokumaft:zenitu.name=我妻 善逸
-entity.kurokumaft:inosuke.name=嘴平 伊之助
-entity.kurokumaft:kanawo.name=栗花落 カナヲ
-entity.kurokumaft:nezuko.name=竈門 禰豆子
-entity.kurokumaft:giyu.name=冨岡 義勇
-entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
-entity.kurokumaft:shinobu.name=胡蝶 しのぶ
-entity.kurokumaft:tengen.name=宇髄 天元
-entity.kurokumaft:mituri.name=甘露寺 蜜璃
-entity.kurokumaft:sanemi.name=不死川 実弥
-entity.kurokumaft:genya.name=不死川 玄弥
-entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
-entity.kurokumaft:muitiro.name=時透 無一郎
-entity.kurokumaft:obanai.name=伊黒 小芭内
-entity.kurokumaft:regimental_guy.name=隊士（男）
-entity.kurokumaft:regimental_girl.name=隊士（女）
-
-kurokumaft:itemGroup.name.soldier_spawn_egg=鬼殺隊スポーンエッグ
-
-item.spawn_egg.entity.kurokumaft:tanjiro.name=竈門 炭次郎
-item.spawn_egg.entity.kurokumaft:zenitu.name=我妻 善逸
-item.spawn_egg.entity.kurokumaft:inosuke.name=嘴平 伊之助
-item.spawn_egg.entity.kurokumaft:kanawo.name=栗花落 カナヲ
-item.spawn_egg.entity.kurokumaft:nezuko.name=竈門 禰豆子
-item.spawn_egg.entity.kurokumaft:giyu.name=冨岡 義勇
-item.spawn_egg.entity.kurokumaft:kyouzyuro.name=煉獄 杏寿郎
-item.spawn_egg.entity.kurokumaft:shinobu.name=胡蝶 しのぶ
-item.spawn_egg.entity.kurokumaft:tengen.name=宇髄 天元
-item.spawn_egg.entity.kurokumaft:mituri.name=甘露寺 蜜璃
-item.spawn_egg.entity.kurokumaft:sanemi.name=不死川 実弥
-item.spawn_egg.entity.kurokumaft:genya.name=不死川 玄弥
-item.spawn_egg.entity.kurokumaft:gyoumei.name=悲鳴嶼 行冥
-item.spawn_egg.entity.kurokumaft:muitiro.name=時透 無一郎
-item.spawn_egg.entity.kurokumaft:obanai.name=伊黒 小芭内
-item.spawn_egg.entity.kurokumaft:regimental_guy.name=隊士（男）
-item.spawn_egg.entity.kurokumaft:regimental_girl.name=隊士（女）
 
 kurokumaft:itemGroup.name.soldier_head=隊士服頭
 kurokumaft:itemGroup.name.soldier_chestplate=隊士服上着
@@ -531,6 +442,98 @@ tile.kurokumaft:gyoumei_skull.name=行冥の頭
 tile.kurokumaft:muitiro_skull.name=無一郎の頭
 tile.kurokumaft:obanai_skull.name=小芭内の頭
 
+
+msg.kurokumaft:tuki_kokyu1.value=§e闇月・宵の宮
+msg.kurokumaft:tuki_kokyu2.value=§e珠華ノ弄月
+msg.kurokumaft:tuki_kokyu3.value=§e厭忌月・銷り
+msg.kurokumaft:tuki_kokyu5.value=§e月魄災渦
+msg.kurokumaft:tuki_kokyu6.value=§e常夜孤月・無間
+msg.kurokumaft:tuki_kokyu7.value=§e厄鏡・月映え
+msg.kurokumaft:tuki_kokyu8.value=§e月龍輪尾
+msg.kurokumaft:tuki_kokyu9.value=§e降り月・連面
+msg.kurokumaft:tuki_kokyu10.value=§e穿面斬・蘿月
+msg.kurokumaft:tuki_kokyu14.value=§e兇変・天満繊月
+msg.kurokumaft:tuki_kokyu16.value=§e月虹・片割れ月
+
+msg.kurokumaft:kekkizyutu_bakketu1.value=爆血
+
+msg.kurokumaft:kekkizyutu_koori1.value=蓮葉氷
+msg.kurokumaft:kekkizyutu_koori2.value=枯園垂り
+msg.kurokumaft:kekkizyutu_koori3.value=凍て曇
+msg.kurokumaft:kekkizyutu_koori4.value=蔓蓮華
+msg.kurokumaft:kekkizyutu_koori5.value=寒烈の白姫
+msg.kurokumaft:kekkizyutu_koori6.value=冬ざれ氷柱
+msg.kurokumaft:kekkizyutu_koori7.value=散り蓮華
+msg.kurokumaft:kekkizyutu_koori8.value=結晶ノ御子
+msg.kurokumaft:kekkizyutu_koori9.value=霧氷・睡蓮菩薩
+
+msg.kurokumaft:kekkizyutu_hakai1.value=破壊殺・羅針
+msg.kurokumaft:kekkizyutu_hakai2.value=破壊殺・空式
+msg.kurokumaft:kekkizyutu_hakai3.value=破壊殺・乱式
+msg.kurokumaft:kekkizyutu_hakai4.value=破壊殺・滅式
+msg.kurokumaft:kekkizyutu_hakai5.value=破壊殺・脚式 冠先割
+msg.kurokumaft:kekkizyutu_hakai6.value=破壊殺・脚式 流閃群光
+msg.kurokumaft:kekkizyutu_hakai7.value=破壊殺・脚式 飛遊星千輪
+msg.kurokumaft:kekkizyutu_hakai8.value=破壊殺・砕式 万葉閃柳
+msg.kurokumaft:kekkizyutu_hakai9.value=破壊殺・鬼芯八重芯
+msg.kurokumaft:kekkizyutu_hakai10.value=終式・青銀乱残光
+
+msg.kurokumaft:kekkizyutu_tigama1.value=飛び血鎌
+msg.kurokumaft:kekkizyutu_tigama2.value=跋扈跳梁
+msg.kurokumaft:kekkizyutu_tigama3.value=円斬旋回・飛び血鎌
+
+msg.kurokumaft:kekkizyutu_obi1.value=横払い
+msg.kurokumaft:kekkizyutu_obi2.value=連撃
+msg.kurokumaft:kekkizyutu_obi3.value=帯（遠距離）
+msg.kurokumaft:kekkizyutu_obi4.value=八重帯斬り
+
+msg.kurokumaft:kekkizyutu_ikazuti1.value=雷殺
+msg.kurokumaft:kekkizyutu_toppu1.value=爆風
+msg.kurokumaft:kekkizyutu_kyoumei1.value=狂鳴
+msg.kurokumaft:kekkizyutu_shitotu1.value=激涙刺突
+
+msg.kurokumaft:kekkizyutu_zouhakuten1.value=石竜子
+msg.kurokumaft:kekkizyutu_zouhakuten2.value=狂鳴雷殺
+msg.kurokumaft:kekkizyutu_zouhakuten3.value=狂圧鳴波
+msg.kurokumaft:kekkizyutu_zouhakuten4.value=無間業樹
+
+msg.kurokumaft:kekkizyutu_tubo1.value=水獄鉢
+msg.kurokumaft:kekkizyutu_tubo2.value=千本針魚殺
+msg.kurokumaft:kekkizyutu_tubo3.value=蛸壺地獄
+msg.kurokumaft:kekkizyutu_tubo4.value=一万滑空粘魚
+msg.kurokumaft:kekkizyutu_tubo5.value=魚召喚
+msg.kurokumaft:kekkizyutu_tubo6.value=陣殺魚鱗
+
+msg.kurokumaft:kekkizyutu_akumu1.value=強制昏倒 催眠の囁
+msg.kurokumaft:kekkizyutu_akumu2.value=強制昏倒 睡眠眼
+
+msg.kurokumaft:kekkizyutu_ito1.value=刻糸牢
+msg.kurokumaft:kekkizyutu_ito2.value=刻糸輪転
+msg.kurokumaft:kekkizyutu_ito3.value=殺目篭
+
+msg.kurokumaft:kekkizyutu_mari1.value=毬
+
+kurokumaft:itemGroup.name.kekkizyutu=血気術
+
+item.kurokumaft:bakketu.name=血気術 禰豆子(爆血)
+item.kurokumaft:koushi.name=血気術 累(鋼糸)
+item.kurokumaft:obi.name=血気術 堕姫(帯)
+item.kurokumaft:tigama.name=血気術 妓夫太郎(血鎌)
+item.kurokumaft:suisei.name=血気術 玉壺(水生)
+item.kurokumaft:mogura.name=血気術 憎珀天(土竜)
+item.kurokumaft:hakaisatu.name=血気術 猗窩座(破壊殺)
+item.kurokumaft:koori.name=血気術 童磨(氷)
+item.kurokumaft:mikatuki.name=血気術 黒死牟(月)
+item.kurokumaft:kokurai.name=血気術 獪岳(亀裂)
+item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
+item.kurokumaft:susamaru_mari.name=血気術 朱紗丸(毬)
+
+tile.kurokumaft:scarlet_gravel.name=緋の砂利
+tile.kurokumaft:scarlet_ore.name=緋の鉱石
+
+item.kurokumaft:scarlet_ironfish.name=猩々緋砂鉄
+item.kurokumaft:scarlet_nugget.name=猩々緋鉱石
+
 entity.kurokumaft:rui.name=累
 entity.kurokumaft:akaza.name=猗窩座
 entity.kurokumaft:daki.name=堕姫
@@ -547,6 +550,9 @@ entity.kurokumaft:kokushibou.name=黒死牟
 entity.kurokumaft:kyodaigyo_kiba.name=巨大魚（牙）
 entity.kurokumaft:nengyo.name=粘魚
 entity.kurokumaft:gyosatu.name=魚殺
+entity.kurokumaft:susamaru.name=朱紗丸
+entity.kurokumaft:nakime.name=鳴女
+entity.kurokumaft:tamayo.name=珠代
 
 item.spawn_egg.entity.kurokumaft:ogre.name=鬼（下級）
 item.spawn_egg.entity.kurokumaft:rui.name=累
@@ -563,6 +569,9 @@ item.spawn_egg.entity.kurokumaft:zouhakuten.name=憎珀天
 item.spawn_egg.entity.kurokumaft:douma.name=童磨
 item.spawn_egg.entity.kurokumaft:kokushibou.name=黒死牟
 item.spawn_egg.entity.kurokumaft:kyodaigyo_kiba.name=巨大魚（牙）
+item.spawn_egg.entity.kurokumaft:susamaru.name=朱紗丸
+item.spawn_egg.entity.kurokumaft:nakime.name=鳴女
+item.spawn_egg.entity.kurokumaft:tamayo.name=珠代
 
 kurokumaft:itemGroup.name.ogre_head=鬼の頭巾
 kurokumaft:itemGroup.name.ogre_chestplate=鬼の着物
@@ -625,7 +634,11 @@ item.kurokumaft:kokushibou_kimono.name=黒死牟の着物
 item.kurokumaft:kokushibou_hakama.name=黒死牟の袴
 item.kurokumaft:kokushibou_tabi.name=黒死牟の足袋
 
-item.kurokumaft:gyokko_tubo.name=玉壺の壺
+item.kurokumaft:susamaru_haori.name=朱紗丸の羽織
+item.kurokumaft:susamaru_kimono.name=朱紗丸の着物
+item.kurokumaft:susamaru_tabi.name=朱紗丸の足袋
+
+item.kurokumaft:nakime_kimono.name=鳴女の着物
 
 msg.kurokumaft:ogrerank_low.value=§f§l鬼(下)
 msg.kurokumaft:ogrerank_unusual.value=§7§l鬼(異)

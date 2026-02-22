@@ -3,7 +3,7 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "kurokumaft:aqua_jackal",
-      "population_control": "animal"
+      "population_control": "monster"
     },
     "conditions": [
       {

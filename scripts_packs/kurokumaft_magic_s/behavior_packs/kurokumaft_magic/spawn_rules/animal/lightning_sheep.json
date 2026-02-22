@@ -3,7 +3,7 @@
   "minecraft:spawn_rules": {
     "description": {
       "identifier": "kurokumaft:lightning_sheep",
-      "population_control": "animal"
+      "population_control": "monster"
     },
     "conditions": [
       {

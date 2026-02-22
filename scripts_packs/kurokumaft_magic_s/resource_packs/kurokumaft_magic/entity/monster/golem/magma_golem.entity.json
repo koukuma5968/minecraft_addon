@@ -38,7 +38,7 @@
         "move_con": "controller.animation.golem.move"
       },
       "spawn_egg": {
-        "texture": "magic_golem_spawn_egg",
+        "texture": "kurokumaft:magic_golem_spawn_egg",
         "texture_index": 0
       },
       "render_controllers": [ "controller.render.magic_golem", "controller.render.magic_golem_cracks" ],

@@ -472,6 +472,19 @@
          "textures" : "textures/kurokumaft/items/armor/kokushibou/kokushibou_tabi"
       },
 
+      "susamaru_mari": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/susamaru_mari"
+      },
+      "susamaru_haori": {
+         "textures" : "textures/kurokumaft/items/armor/susamaru/susamaru_haori"
+      },
+      "susamaru_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/susamaru/susamaru_kimono"
+      },
+      "susamaru_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/susamaru/susamaru_tabi"
+      },
+
       "gyokko_tubo": {
          "textures" : "textures/kurokumaft/items/kekkizyutu/gyokko_tubo"
       },
@@ -583,7 +596,9 @@
             "textures/kurokumaft/items/spawn_egg/ogre/douma_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/gyokko_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/kokushibou_egg",
-            "textures/kurokumaft/items/spawn_egg/ogre/kaigaku_egg"
+            "textures/kurokumaft/items/spawn_egg/ogre/kaigaku_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/susamaru_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/nakime_egg"
          ]
       }
 

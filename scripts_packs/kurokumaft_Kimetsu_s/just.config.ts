@@ -19,7 +19,7 @@ import path from "path";
 
 // Setup env variables
 setupEnvironment(path.resolve(__dirname, ".env"));
-process.env.LOCALAPPDATA = "C:/Users/hiran/AppData/Roaming/";
+// process.env.LOCALAPPDATA = "C:/Users/hiran/AppData/Roaming/";
 const projectName = getOrThrowFromProcess("PROJECT_NAME");
 const mainScriptName = getOrThrowFromProcess("MAIN_SCRIPT_NAME");
 
@@ -51,9 +51,14 @@ task("typescript", tscTask());
 task("bundle", bundleTask(bundleTaskOptions));
 task("build", series("typescript", "bundle"));
 
+const CUSTOM_CLEAN_PATHS = [
+    'C:/Users/hiran/AppData/Roaming/Minecraft Bedrock/Users/Shared/games/com.mojang/development_behavior_packs/PROJECT_NAME',
+    'C:/Users/hiran/AppData/Roaming/Minecraft Bedrock/Users/Shared/games/com.mojang/development_resource_packs/PROJECT_NAME',
+];
+
 // Clean
 task("clean-local", cleanTask(DEFAULT_CLEAN_DIRECTORIES));
-task("clean-collateral", cleanCollateralTask(STANDARD_CLEAN_PATHS));
+task("clean-collateral", cleanCollateralTask(CUSTOM_CLEAN_PATHS));
 task("clean", parallel("clean-local", "clean-collateral"));
 
 // Package
