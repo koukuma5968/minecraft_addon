@@ -1,0 +1,227 @@
+{
+   "resource_pack_name" : "CraftersHunter_Resource_Pack",
+   "texture_data" : {
+		"kurokumaft:great_sword_icon" : {
+			"textures" : "textures/kurokumaft/icon/great_sword_icon"
+		},
+		"kurokumaft:long_sword_icon" : {
+			"textures" : "textures/kurokumaft/icon/long_sword_icon"
+		},
+		"kurokumaft:one_handed_sword_icon" : {
+			"textures" : "textures/kurokumaft/icon/one_handed_sword_icon"
+		},
+		"kurokumaft:dual_blades_icon" : {
+			"textures" : "textures/kurokumaft/icon/dual_blades_icon"
+		},
+		"kurokumaft:hammer_icon" : {
+			"textures" : "textures/kurokumaft/icon/hammer_icon"
+		},
+		"kurokumaft:lance_icon" : {
+			"textures" : "textures/kurokumaft/icon/lance_icon"
+		},
+
+		"kurokumaft:mh_helm_icon" : {
+			"textures" : "textures/kurokumaft/icon/mh_helm_icon"
+		},
+		"kurokumaft:mh_armor_icon" : {
+			"textures" : "textures/kurokumaft/icon/mh_armor_icon"
+		},
+		"kurokumaft:mh_legs_icon" : {
+			"textures" : "textures/kurokumaft/icon/mh_legs_icon"
+		},
+		"kurokumaft:mh_feet_icon" : {
+			"textures" : "textures/kurokumaft/icon/mh_feet_icon"
+		},
+
+      "kurokumaft:mh_ore_icon" : {
+			"textures" : "textures/kurokumaft/icon/mh_ore_icon"
+		},
+		"kurokumaft:mh_meat_icon" : {
+			"textures" : "textures/kurokumaft/icon/mh_meat_icon"
+		},
+		"kurokumaft:monster_materials_icon" : {
+			"textures" : "textures/kurokumaft/icon/monster_materials_icon"
+		},
+		"kurokumaft:potion_icon" : {
+			"textures" : "textures/kurokumaft/icon/potion_icon"
+		},
+		"kurokumaft:medicine_icon" : {
+			"textures" : "textures/kurokumaft/icon/medicine_icon"
+		},
+
+      "kurokumaft:non_combustible_waste": {
+			"textures" : "textures/kurokumaft/items/other/non_combustible_waste"
+      },
+
+      "kurokumaft:healing_potion" : {
+         "textures" : "textures/kurokumaft/items/medicine/healing_potion"
+      },
+      "kurokumaft:healing_potion_great" : {
+         "textures" : "textures/kurokumaft/items/medicine/healing_potion_great"
+      },
+      "kurokumaft:nutritional_supplement" : {
+         "textures" : "textures/kurokumaft/items/medicine/nutritional_supplement"
+      },
+      "kurokumaft:nutritional_supplement_great" : {
+         "textures" : "textures/kurokumaft/items/medicine/nutritional_supplement_great"
+      },
+      "kurokumaft:antidote": {
+         "textures" : "textures/kurokumaft/items/medicine/antidote"
+      },
+      "kurokumaft:energy_booster" : {
+         "textures" : "textures/kurokumaft/items/medicine/energy_booster"
+      },
+
+      "kurokumaft:traditional_chinese_medicine": {
+         "textures" : "textures/kurokumaft/items/medicine/traditional_chinese_medicine"
+      },
+      "kurokumaft:elixir": {
+         "textures" : "textures/kurokumaft/items/medicine/elixir"
+      },
+      "kurokumaft:booster": {
+         "textures" : "textures/kurokumaft/items/medicine/booster"
+      },
+
+      "kurokumaft:mh_meat" : {
+         "textures" : "textures/kurokumaft/items/food/mh_meat"
+      },
+      "kurokumaft:mh_undercooked_meat" : {
+         "textures" : "textures/kurokumaft/items/food/mh_undercooked_meat"
+      },
+      "kurokumaft:mh_crispy_meat" : {
+         "textures" : "textures/kurokumaft/items/food/mh_crispy_meat"
+      },
+      "kurokumaft:mh_burnt_meat" : {
+         "textures" : "textures/kurokumaft/items/food/mh_burnt_meat"
+      },
+
+      "kurokumaft:small_keel" : {
+         "textures" : "textures/kurokumaft/items/materials/small_keel"
+      },
+      "kurokumaft:middle_keel" : {
+         "textures" : "textures/kurokumaft/items/materials/middle_keel"
+      },
+      "kurokumaft:rampos_scale" : {
+         "textures" : "textures/kurokumaft/items/materials/rampos_scale"
+      },
+      "kurokumaft:rampos_fang" : {
+         "textures" : "textures/kurokumaft/items/materials/rampos_fang"
+      },
+      "kurokumaft:rampos_skin" : {
+         "textures" : "textures/kurokumaft/items/materials/rampos_skin"
+      },
+      "kurokumaft:kerubi_horn" : {
+         "textures" : "textures/kurokumaft/items/materials/kerubi_horn"
+      },
+
+      "kurokumaft:peeling_knife" : {
+         "textures" : "textures/kurokumaft/items/other/peeling_knife"
+      },
+      "kurokumaft:meat_roaster" : {
+         "textures" : "textures/kurokumaft/items/other/meat_roaster"
+      },
+      "kurokumaft:insect_net" : {
+         "textures" : "textures/kurokumaft/items/other/insect_net"
+      },
+
+      "kurokumaft:buster_sword" : {
+         "textures" : "textures/kurokumaft/items/weapon/great_sword/buster_sword"
+      },
+      "kurokumaft:bone_blade" : {
+         "textures" : "textures/kurokumaft/items/weapon/great_sword/bone_blade"
+      },
+
+      "kurokumaft:iron_long_sword" : {
+         "textures" : "textures/kurokumaft/items/weapon/long_sword/iron_long_sword"
+      },
+      "kurokumaft:bone_long_sword" : {
+         "textures" : "textures/kurokumaft/items/weapon/long_sword/bone_long_sword"
+      },
+
+      "kurokumaft:hunter_knife" : {
+         "textures" : "textures/kurokumaft/items/weapon/one_handed_sword/hunter_knife"
+      },
+      "kurokumaft:hunter_kalinga" : {
+         "textures" : "textures/kurokumaft/items/weapon/one_handed_sword/hunter_kalinga"
+      },
+      "kurokumaft:bone_kuri" : {
+         "textures" : "textures/kurokumaft/items/weapon/one_handed_sword/bone_kuri"
+      },
+
+      "kurokumaft:twin_daggers" : {
+         "textures" : "textures/kurokumaft/items/weapon/dual_blades/twin_daggers"
+      },
+      "kurokumaft:bone_sickle" : {
+         "textures" : "textures/kurokumaft/items/weapon/dual_blades/bone_sickle"
+      },
+
+      "kurokumaft:war_hammer" : {
+         "textures" : "textures/kurokumaft/items/weapon/hammer/war_hammer"
+      },
+      "kurokumaft:bone_fragment" : {
+         "textures" : "textures/kurokumaft/items/weapon/hammer/bone_fragment"
+      },
+
+      "kurokumaft:hunter_helm_guy" : {
+         "textures" : "textures/kurokumaft/items/armor/sword/hunter_helm_guy"
+      },
+      "kurokumaft:hunter_mail_guy" : {
+         "textures" : "textures/kurokumaft/items/armor/sword/hunter_mail_guy"
+      },
+      "kurokumaft:hunter_faure_guy": {
+         "textures" : "textures/kurokumaft/items/armor/sword/hunter_faure_guy"
+      },
+      "kurokumaft:hunter_grieve_guy": {
+         "textures" : "textures/kurokumaft/items/armor/sword/hunter_grieve_guy"
+      },
+
+      "kurokumaft:crystal_earth": {
+         "textures" : "textures/kurokumaft/items/ore/crystal_earth"
+      },
+      "kurokumaft:macalite": {
+         "textures" : "textures/kurokumaft/items/ore/macalite"
+      },
+
+      "kurokumaft:medicinal_plant": {
+         "textures" : "textures/kurokumaft/items/plants/medicinal_plant"
+      },
+      "kurokumaft:seeds_medicinal_plant": {
+         "textures" : "textures/kurokumaft/items/plants/seeds_medicinal_plant"
+      },
+      "kurokumaft:detoxifying_herb": {
+         "textures" : "textures/kurokumaft/items/plants/detoxifying_herb"
+      },
+      "kurokumaft:seeds_detoxifying_herb": {
+         "textures" : "textures/kurokumaft/items/plants/seeds_detoxifying_herb"
+      },
+
+      "kurokumaft:mushroom_blue": {
+			"textures": "textures/kurokumaft/blocks/plants/blue_mushroom"
+      },
+      "kurokumaft:mushroom_specialty": {
+			"textures": "textures/kurokumaft/blocks/plants/specialty_mushroom"
+      },
+      "kurokumaft:mandragora": {
+			"textures": "textures/kurokumaft/blocks/plants/mandragora"
+      },
+
+      "kurokumaft:immortal_insect" : {
+         "textures" : "textures/kurokumaft/egg/insect/immortal_insect"
+      },
+      "kurokumaft:bitter_bug" : {
+         "textures" : "textures/kurokumaft/egg/insect/bitter_bug"
+      },
+
+      "kurokumaft:aptonos_spawn_egg" : {
+         "textures" : "textures/kurokumaft/egg/monster/aptonos"
+      },
+      "kurokumaft:rampos_spawn_egg" : {
+         "textures" : "textures/kurokumaft/egg/monster/rampos"
+      },
+      "kurokumaft:doss_rampos_spawn_egg" : {
+         "textures" : "textures/kurokumaft/egg/monster/doss_rampos"
+      }
+
+   },
+   "texture_name" : "atlas.items"
+}

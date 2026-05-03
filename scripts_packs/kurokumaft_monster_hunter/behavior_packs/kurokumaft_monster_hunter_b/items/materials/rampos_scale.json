@@ -1,0 +1,25 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:rampos_scale",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_materials"
+        ]
+      },
+      "minecraft:icon": "kurokumaft:rampos_scale",
+      "minecraft:display_name": {
+				"value": "item.materials.kurokumaft:rampos_scale.name"
+			},
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:rarity": "common"
+    }
+  }
+}
+

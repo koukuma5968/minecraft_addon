@@ -1,0 +1,25 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:kerubi_horn",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_materials"
+        ]
+      },
+      "minecraft:icon": "kurokumaft:kerubi_horn",
+      "minecraft:display_name": {
+				"value": "item.materials.kurokumaft:kerubi_horn.name"
+			},
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:rarity": "common"
+    }
+  }
+}
+

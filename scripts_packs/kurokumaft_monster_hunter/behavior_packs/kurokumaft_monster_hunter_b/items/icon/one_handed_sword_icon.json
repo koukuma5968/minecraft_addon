@@ -1,0 +1,15 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:one_handed_sword_icon",
+      "menu_category": {
+        "category": "none",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:icon": "kurokumaft:one_handed_sword_icon"
+    }
+  }
+}

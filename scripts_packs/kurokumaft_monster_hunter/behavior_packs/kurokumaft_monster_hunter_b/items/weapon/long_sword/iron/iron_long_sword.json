@@ -1,0 +1,58 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:iron_long_sword",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_weapons",
+          "kurokumaft:great_sword",
+          "kurokumaft:is_iron"
+        ]
+      },
+      "minecraft:damage": 8,
+      "minecraft:icon": "kurokumaft:iron_long_sword",
+      "minecraft:display_name": {
+				"value": "item.weapon.kurokumaft:iron_long_sword.name"
+			},
+      "minecraft:durability": {
+        "damage_chance": {
+          "min": 0,
+          "max": 0
+        },
+        "max_durability": 50
+      },
+      "minecraft:cooldown": {
+        "category": "great_sword",
+        "duration": 2.5,
+        "type": "attack"
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:fire_resistant": {
+        "value": true
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:rarity": "common",
+      "minecraft:should_despawn": false,
+      "minecraft:swing_duration": {
+        "value": 0.5
+      },
+      "kurokumaft:mh_wepons_custom": {
+        "type": "kurokumaft:long_sword",
+        "attack": 8,
+        "rarity": 1,
+        "critical": 0,
+        "slot": 0,
+        "element": ["-", "0"],
+        "sharpness": [45, 45]
+      }
+    }
+  }
+}
+

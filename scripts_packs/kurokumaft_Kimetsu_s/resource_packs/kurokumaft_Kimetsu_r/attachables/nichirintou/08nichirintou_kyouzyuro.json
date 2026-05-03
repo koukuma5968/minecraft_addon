@@ -25,6 +25,7 @@
           "scale": "animation.nichirintou_scale",
           "person": "controller.animation.nichirintou.person",
           "first": "animation.nichirintou_first",
+          "third": "animation.nichirintou_third",
           "attack_con": "controller.animation.nichirintou.attack",
           "attack": "animation.nichirintou_first.one_attack"
         },

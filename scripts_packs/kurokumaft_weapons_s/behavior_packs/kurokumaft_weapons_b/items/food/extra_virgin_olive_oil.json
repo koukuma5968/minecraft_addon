@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:extra_virgin_olive_oil",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.kurokumaft:extra_virgin_olive_oil.name"
+			},
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "kurokumaft:extra_virgin_olive_oil"
+    }
+  }
+}

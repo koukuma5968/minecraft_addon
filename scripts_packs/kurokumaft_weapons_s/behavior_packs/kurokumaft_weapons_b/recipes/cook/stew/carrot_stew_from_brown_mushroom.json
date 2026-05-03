@@ -4,7 +4,7 @@
     "description": {
     "identifier": "kurokumaft:carrot_stew_from_brown_mushroom"
     },
-    "tags": [ "crafting_table" ],
+    "tags": [ "kitchen_table" ],
     "group": "carrot_stew",
     "ingredients": [
       {

@@ -82,6 +82,11 @@
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Texture.default" ]
     },
+    "controller.render.ogre.kaigaku": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
     "controller.render.ogre.gyokko": {
       "arrays": {
         "textures": {
@@ -114,8 +119,13 @@
     },
     "controller.render.ogre.nakime": {
       "part_visibility": [
-        { "ftont_har": "q.skin_id = 0" }
+        { "ftont_har": "q.is_saddled" }
       ],
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+    "controller.render.ogre.yahaba": {
       "geometry": "Geometry.default",
       "materials": [ { "*": "Material.default" } ],
       "textures": [ "Texture.default" ]

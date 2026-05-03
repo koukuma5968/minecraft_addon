@@ -1,8 +1,8 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "DemonSlayerBv5.2",
-		"description": "鬼滅の刃Bv5.2 日輪刀/キャラクターアドオン ビヘイビアーパック",
+		"name": "pack.name",
+		"description": "pack.description",
 		"uuid": "d174c416-a595-4bfc-86d3-0d993dd8b45c",
 		"version": [5, 0, 2],
 		"min_engine_version": [1, 21, 60]
@@ -23,7 +23,7 @@
 
 	],
 	"metadata": {
-		"authors": ["koukumakuraft"],
+		"authors": ["koukumacraft"],
 		"product_type": "addon"
 	},
 	"dependencies": [
@@ -37,7 +37,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "2.1.0"
+			"version": "2.5.0"
 		}
 	]
 }

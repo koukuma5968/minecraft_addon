@@ -92,6 +92,7 @@ item.kurokumaft:cherry_sword.name=桜の剣
 item.kurokumaft:ender_dragon_sword.name=エンダードラゴンソード
 item.kurokumaft:wither_sword.name=呪いの剣
 item.kurokumaft:ender_eye_sword.name=邪眼の剣
+item.kurokumaft:long_sword.name=ロングソード（鉄）
 
 item.kurokumaft:diorite_sword.name=閃緑剣
 item.kurokumaft:andesite_sword.name=安山剣
@@ -307,6 +308,7 @@ item.kurokumaft:carrot_stew.name=ニンジンシチュー
 item.kurokumaft:cooked_rice.name=ご飯
 item.kurokumaft:beef_rice.name=牛丼
 item.kurokumaft:chicken_egg_rice.name=親子丼
+item.kurokumaft:pork_rice.name=かつ丼
 
 item.kurokumaft:miso_soup_no_ingredient.name=味噌汁(具なし)
 
@@ -330,11 +332,12 @@ item.kurokumaft:salt.name=塩
 item.kurokumaft:olive_green.name=オリーブ（未熟）
 item.kurokumaft:olive.name=オリーブ（完熟）
 item.kurokumaft:olive_oil.name=オリーブオイル
+item.kurokumaft:extra_virgin_olive_oil.name=エクストラバージンオリーブオイル
 item.kurokumaft:dirty_oil.name=汚れた油
 item.kurokumaft:rice_plant.name=稲
+item.kurokumaft:rice_bran_oil.name=こめ油
 item.kurokumaft:seeds_rice_plant.name=稲の種子
 item.kurokumaft:rice.name=米
-item.kurokumaft:Beef_bowl.name=牛丼
 
 item.kurokumaft:fried_chicken.name=フライドチキン
 item.kurokumaft:pork_cutlet.name=とんかつ

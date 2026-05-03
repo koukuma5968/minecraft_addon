@@ -29,14 +29,15 @@ export class KokyuGyoumeiComponent implements NichirintouUseComponent {
             }
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    iwa = new IwaNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -44,24 +45,23 @@ export class KokyuGyoumeiComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const iwa = new IwaNoKata();
 
         player.addTag(player.id);
         switch (kata) {
             case 1 :
-                iwa.ichiNoKata(player, itemStack);
+                this.iwa.ichiNoKata(player, itemStack);
             break;
             case 2 :
-                iwa.niNoKata(player, itemStack);
+                this.iwa.niNoKata(player, itemStack);
             break;
             case 3 :
-                iwa.sanNoKata(player, itemStack);
+                this.iwa.sanNoKata(player, itemStack);
             break;
             case 4 :
-                iwa.shiNoKata(player, itemStack);
+                this.iwa.shiNoKata(player, itemStack);
             break;
             case 5 :
-                iwa.goNoKata(player, itemStack);
+                this.iwa.goNoKata(player, itemStack);
             break;
         }
         player.removeTag(player.id);

@@ -4,7 +4,7 @@
     "description": {
       "identifier": "kurokumaft:apple_pie"
     },
-    "tags": [ "crafting_table" ],
+    "tags": [ "kitchen_table" ],
     "ingredients": [
       {
         "item": "minecraft:apple"

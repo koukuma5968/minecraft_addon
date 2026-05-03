@@ -1,0 +1,38 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:aptonos",
+      "materials": {
+        "default": "cow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/monster/herbivore/aptonos"
+      },
+      "geometry": {
+        "default": "geometry.aptonos"
+      },
+      "animations": {
+        "action": "controller.animation.aptonos.action",
+        "wait": "animation.aptonos.wait",
+        "walk": "animation.aptonos.walk",
+        "eat": "animation.aptonos.eat",
+        "escape": "animation.aptonos.escape",
+        "tail_attack": "animation.aptonos.tail_attack",
+        "damage": "animation.aptonos.damage",
+        "dai": "animation.aptonos.dai"
+      },
+      "scripts": {
+        "animate": [
+          "action"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.monster"
+      ],
+      "spawn_egg": {
+        "texture": "kurokumaft:aptonos_spawn_egg"
+      }
+    }
+  }
+}

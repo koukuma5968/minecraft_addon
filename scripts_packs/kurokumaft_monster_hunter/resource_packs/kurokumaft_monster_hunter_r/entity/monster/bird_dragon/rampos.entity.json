@@ -1,0 +1,41 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:rampos",
+      "materials": {
+        "default": "cow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/monster/bird_dragon/rampos"
+      },
+      "geometry": {
+        "default": "geometry.rampos"
+      },
+      "animations": {
+        "action": "controller.animation.rampos.action",
+        "wait": "animation.rampos.wait",
+        "walk": "animation.rampos.walk",
+        "jump_attack": "animation.rampos.jump_attack",
+        "attack": "animation.rampos.attack",
+        "damage": "animation.rampos.damage",
+        "blow": "animation.rampos.blow",
+        "intimidation": "animation.rampos.intimidation",
+        "dizziness": "animation.rampos.dizziness",
+        "action_wait": "animation.rampos.action_wait",
+        "dai": "animation.rampos.dai"
+      },
+      "scripts": {
+        "animate": [
+          "action"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.monster"
+      ],
+      "spawn_egg": {
+        "texture": "kurokumaft:rampos_spawn_egg"
+      }
+    }
+  }
+}

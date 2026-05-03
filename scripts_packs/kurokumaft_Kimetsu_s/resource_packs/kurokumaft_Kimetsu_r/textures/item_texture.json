@@ -472,6 +472,26 @@
          "textures" : "textures/kurokumaft/items/armor/kokushibou/kokushibou_tabi"
       },
 
+      "nakime_biwa": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/nakime_biwa"
+      },
+      "nakime_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/nakime/nakime_kimono"
+      },
+      "nakime_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/nakime/nakime_tabi"
+      },
+
+      "kaigaku_haori_soldier_jacket": {
+         "textures" : "textures/kurokumaft/items/armor/kaigaku/kaigaku_haori_soldier_jacket"
+      },
+      "kaigaku_pants": {
+         "textures" : "textures/kurokumaft/items/armor/kaigaku/kaigaku_pants"
+      },
+      "kaigaku_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/kaigaku/kaigaku_tabi"
+      },
+
       "susamaru_mari": {
          "textures" : "textures/kurokumaft/items/kekkizyutu/susamaru_mari"
       },
@@ -483,6 +503,19 @@
       },
       "susamaru_tabi": {
          "textures" : "textures/kurokumaft/items/armor/susamaru/susamaru_tabi"
+      },
+
+      "kouketunoya": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/kouketunoya"
+      },
+      "yahaba_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/yahaba/yahaba_kimono"
+      },
+      "yahaba_zyuzu": {
+         "textures" : "textures/kurokumaft/items/armor/yahaba/yahaba_zyuzu"
+      },
+      "yahaba_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/yahaba/yahaba_tabi"
       },
 
       "gyokko_tubo": {
@@ -558,6 +591,10 @@
          "textures" : "textures/kurokumaft/items/food/demonization_reversal_potion"
       },
 
+      "soldier_spawn_egg_icon" : {
+         "textures" : "textures/kurokumaft/items/spawn_egg/soldier/tanjiro_egg"
+      },
+
       "soldier_spawn_egg" : {
          "textures" : [
             "textures/kurokumaft/items/spawn_egg/soldier/tanjiro_egg",
@@ -598,6 +635,7 @@
             "textures/kurokumaft/items/spawn_egg/ogre/kokushibou_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/kaigaku_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/susamaru_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/yahaba_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/nakime_egg"
          ]
       }

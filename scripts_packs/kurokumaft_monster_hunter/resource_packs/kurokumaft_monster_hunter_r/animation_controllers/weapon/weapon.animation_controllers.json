@@ -1,0 +1,21 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.weapon.wield": {
+			"states": {
+				"default": {
+					"animations": ["wield_first_person"],
+					"transitions": [
+						{"wield_third_person": "!context.is_first_person"}
+					]
+				},
+				"wield_third_person": {
+					"animations": ["wield_third_person"],
+					"transitions": [
+						{"default": "context.is_first_person"}
+					]
+				}
+			}
+		}
+	}
+}

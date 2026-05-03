@@ -29,14 +29,15 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
         }
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    kasumi = new KasumiNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -44,20 +45,19 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const kasumi = new KasumiNoKata();
 
         switch (kata) {
             case 2 :
-                kasumi.niNoKata(player, itemStack);
+                this.kasumi.niNoKata(player, itemStack);
             break;
             case 5 :
-                kasumi.goNoKata(player, itemStack);
+                this.kasumi.goNoKata(player, itemStack);
             break;
             case 6 :
-                kasumi.rokuNoKata(player, itemStack);
+                this.kasumi.rokuNoKata(player, itemStack);
             break;
             case 7 :
-                kasumi.shitiNoKata(player, itemStack);
+                this.kasumi.shitiNoKata(player, itemStack);
             break;
         }
 
@@ -65,17 +65,16 @@ export class KokyuMuitiroComponent implements NichirintouUseComponent {
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const kasumi = new KasumiNoKata();
 
         switch (kata) {
             case 1 :
-                kasumi.ichiNoKata(player, itemStack);
+                this.kasumi.ichiNoKata(player, itemStack);
             break;
             case 3 :
-                kasumi.sanNoKata(player, itemStack);
+                this.kasumi.sanNoKata(player, itemStack);
             break;
             case 4 :
-                kasumi.shiNoKata(player, itemStack);
+                this.kasumi.shiNoKata(player, itemStack);
             break;
         }
     }

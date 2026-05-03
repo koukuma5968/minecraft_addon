@@ -1,0 +1,35 @@
+{
+	"format_version": "1.26.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:whetstone",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.3
+			},
+			"minecraft:collision_box": {
+				"origin": [-4,0,-7],
+				"size": [8,5,14]
+			},
+			"minecraft:selection_box": {
+				"origin": [-4,0,-7],
+				"size": [8,5,14]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 5
+			},
+			"minecraft:geometry": "geometry.whetstone",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "kurokumaft:whetstone",
+					"render_method": "alpha_test"
+				}
+			}
+		}
+	}
+}

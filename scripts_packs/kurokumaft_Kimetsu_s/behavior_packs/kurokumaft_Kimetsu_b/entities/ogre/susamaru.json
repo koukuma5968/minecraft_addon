@@ -19,6 +19,22 @@
           "default": 60,
           "client_sync": true
         },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kekkizyutu_kata": {
+          "type": "int",
+          "range": [0, 2],
+          "default": 0,
+          "client_sync": true
+        },
         "kurokumaft:attack_level": {
           "type": "int",
           "range": [5, 8],
@@ -30,6 +46,15 @@
           "default": "false",
           "client_sync": false
         }
+      },
+      "scripts":{
+        "animate":[
+          "kekkizyutu"
+        ]
+      },
+      "animations":{
+        "kekkizyutu":"controller.animation.kekkizyutu.monitor",
+        "cooldown": "animation.cooldown.five_sec"
       }
     },
 
@@ -105,8 +130,8 @@
       },
       "minecraft:behavior.ranged_attack": {
         "priority": 0,
-        "attack_interval_min": 0.5,
-        "attack_interval_max": 1.5,
+        "attack_interval_min": 1.5,
+        "attack_interval_max": 3.5,
         "attack_radius": 32.0
       },
       "minecraft:shooter": {

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:medicinal_plant",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.plants.kurokumaft:medicinal_plant.name"
+			},
+      "minecraft:icon": "kurokumaft:medicinal_plant",
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 1
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
+      },
+      "kurokumaft:mh_use_item_effect": [
+        {
+          "type": "custom",
+          "name": "instant_health",
+          "chance": 1,
+          "duration": 1,
+          "amplifier": 1,
+          "particle": "kurokumaft:mh_healing"
+        }
+      ]
+    }
+  }
+}

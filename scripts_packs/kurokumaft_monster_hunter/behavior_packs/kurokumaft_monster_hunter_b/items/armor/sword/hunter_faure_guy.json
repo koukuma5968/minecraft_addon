@@ -1,0 +1,47 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:hunter_faure_guy",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_armors",
+          "kurokumaft:is_legs",
+          "kurokumaft:is_sword",
+          "minecraft:trimmable_armors"
+        ]
+      },
+      "minecraft:icon": "kurokumaft:hunter_faure_guy",
+      "minecraft:display_name": {
+				"value": "item.armor.kurokumaft:hunter_faure_guy.name"
+			},
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:fire_resistant": {
+        "value": true
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:rarity": "common",
+      "minecraft:should_despawn": false,
+      "minecraft:wearable": {
+        "protection": 1,
+        "slot": "slot.armor.legs"
+      },
+      "kurokumaft:mh_armors_custom": {
+        "name": "kurokumaft:hunter_faure",
+        "type": "kurokumaft:armor_sword",
+        "rarity": 1,
+        "slot": 1,
+        "protection": {
+          "level": 0,
+          "value": 0
+        }
+      }
+    }
+  }
+}

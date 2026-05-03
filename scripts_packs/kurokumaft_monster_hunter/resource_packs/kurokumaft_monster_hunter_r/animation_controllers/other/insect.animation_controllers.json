@@ -1,0 +1,27 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.insect.action": {
+			"initial_state": "wait",
+			"states": {
+				"wait": {
+					"animations": ["wait"],
+					"transitions": [
+						{"move": "query.property('kurokumaft:mh_action') == 'move'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"}
+					]
+				},
+				"move": {
+					"animations": ["move"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"}
+					]
+				},
+				"dai": {
+					"animations": ["dai"]
+				}
+			}
+		}
+	}
+}

@@ -4,15 +4,19 @@
     "description": {
       "identifier": "kurokumaft:olive_oil",
       "menu_category": {
-        "category": "items",
-        "group": "itemGroup.name.oil"
+        "category": "items"
       }
     },
     "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:fryer_oil"
+        ]
+      },
       "minecraft:display_name": {
 				"value": "item.kurokumaft:olive_oil.name"
 			},
-      "minecraft:max_stack_size": 1,
+      "minecraft:max_stack_size": 16,
       "minecraft:icon": "kurokumaft:olive_oil"
     }
   }

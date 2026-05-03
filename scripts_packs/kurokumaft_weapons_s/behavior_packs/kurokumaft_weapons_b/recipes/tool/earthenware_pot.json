@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "kurokumaft:earthenware_pot"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "I I",
+      "III"
+    ],
+    "key": {
+      "I": {
+        "item": "minecraft:clay_ball"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:clay_ball"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:earthenware_pot"
+    }
+  }
+}

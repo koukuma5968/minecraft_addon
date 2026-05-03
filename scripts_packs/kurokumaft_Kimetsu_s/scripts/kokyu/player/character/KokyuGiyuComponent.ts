@@ -30,14 +30,15 @@ export class KokyuGiyuComponent implements NichirintouUseComponent {
 
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    mizu = new MizuNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -45,26 +46,25 @@ export class KokyuGiyuComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const mizu = new MizuNoKata();
 
         switch (kata) {
             case 2 :
-                mizu.niNoKata(player, itemStack);
+                this.mizu.niNoKata(player, itemStack);
             break;
             case 3 :
-                mizu.sanNoKata(player, itemStack);
+                this.mizu.sanNoKata(player, itemStack);
             break;
             case 4 :
-                mizu.shiNoKata(player, itemStack);
+                this.mizu.shiNoKata(player, itemStack);
             break;
             case 9 :
-                mizu.kuNoKata(player, itemStack);
+                this.mizu.kuNoKata(player, itemStack);
             break;
             case 10 :
-                mizu.zyuNoKata(player, itemStack);
+                this.mizu.zyuNoKata(player, itemStack);
             break;
             case 11 :
-                mizu.zyuichiNoKata(player, itemStack);
+                this.mizu.zyuichiNoKata(player, itemStack);
             break;
         }
 
@@ -72,23 +72,22 @@ export class KokyuGiyuComponent implements NichirintouUseComponent {
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const mizu = new MizuNoKata();
 
         switch (kata) {
             case 1 :
-                mizu.ichiNoKata(player, itemStack);
+                this.mizu.ichiNoKata(player, itemStack);
             break;
             case 5 :
-                mizu.goNoKata(player, itemStack);
+                this.mizu.goNoKata(player, itemStack);
             break;
             case 6 :
-                mizu.rokuNoKata(player, itemStack);
+                this.mizu.rokuNoKata(player, itemStack);
             break;
             case 7 :
-                mizu.shitiNoKata(player, itemStack);
+                this.mizu.shitiNoKata(player, itemStack);
             break;
             case 8 :
-                mizu.hachiNoKata(player, itemStack);
+                this.mizu.hachiNoKata(player, itemStack);
             break;
        }
     }

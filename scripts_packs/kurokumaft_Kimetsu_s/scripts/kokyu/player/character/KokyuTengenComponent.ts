@@ -29,14 +29,15 @@ export class KokyuTengenComponent implements NichirintouUseComponent {
         }
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    oto = new OtoNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -44,20 +45,19 @@ export class KokyuTengenComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const oto = new OtoNoKata();
 
         switch (kata) {
             case 1 :
-                oto.ichiNoKata(player, itemStack);
+                this.oto.ichiNoKata(player, itemStack);
             break;
             case 2 :
-                oto.niNoKata(player, itemStack);
+                this.oto.niNoKata(player, itemStack);
             break;
             case 4 :
-                oto.shiNoKata(player, itemStack);
+                this.oto.shiNoKata(player, itemStack);
             break;
             case 5 :
-                oto.goNoKata(player, itemStack);
+                this.oto.goNoKata(player, itemStack);
             break;
         }
 
@@ -65,11 +65,10 @@ export class KokyuTengenComponent implements NichirintouUseComponent {
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const oto = new OtoNoKata();
 
         switch (kata) {
             case 3 :
-                oto.sanNoKata(player, itemStack);
+                this.oto.sanNoKata(player, itemStack);
             break;
         }
     }

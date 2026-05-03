@@ -1,0 +1,25 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:rampos_skin",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_materials"
+        ]
+      },
+      "minecraft:icon": "kurokumaft:rampos_skin",
+      "minecraft:display_name": {
+				"value": "item.materials.kurokumaft:rampos_skin.name"
+			},
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:rarity": "common"
+    }
+  }
+}
+

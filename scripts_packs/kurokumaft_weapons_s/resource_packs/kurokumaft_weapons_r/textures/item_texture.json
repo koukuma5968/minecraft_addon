@@ -46,6 +46,9 @@
       "kurokumaft:ender_eye_sword": {
          "textures" : "textures/kurokumaft/items/sword/ender_eye_sword"
       },
+      "kurokumaft:long_sword": {
+         "textures" : "textures/kurokumaft/items/sword/long_sword"
+      },
 
       "kurokumaft:bamboo_axe" : {
          "textures" : "textures/kurokumaft/items/axe/bamboo_axe"
@@ -779,6 +782,9 @@
       "kurokumaft:chicken_egg_rice" : {
          "textures" : "textures/kurokumaft/items/cook/rice/chicken_egg_rice"
       },
+      "kurokumaft:pork_rice" : {
+         "textures" : "textures/kurokumaft/items/cook/rice/pork_rice"
+      },
 
       "kurokumaft:onion" : {
          "textures" : "textures/kurokumaft/items/food/onion"
@@ -802,8 +808,14 @@
       "kurokumaft:olive_oil" : {
          "textures" : "textures/kurokumaft/items/food/olive_oil"
       },
+      "kurokumaft:extra_virgin_olive_oil" : {
+         "textures" : "textures/kurokumaft/items/food/extra_virgin_olive_oil"
+      },
       "kurokumaft:dirty_oil" : {
          "textures" : "textures/kurokumaft/items/food/dirty_oil"
+      },
+      "kurokumaft:rice_bran_oil" : {
+         "textures" : "textures/kurokumaft/items/food/rice_bran_oil"
       },
 
       "kurokumaft:malt" : {

@@ -23,7 +23,7 @@ export class OtoNoKata extends KataComonClass {
 
         const option = {
             allowUnderwater: true,
-            breaksBlocks: true,
+            breaksBlocks: (entity instanceof Player) ? true : false,
             causesFire: false,
             source: entity
         };

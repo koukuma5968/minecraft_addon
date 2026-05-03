@@ -277,6 +277,14 @@
                         "items": [
                             "kurokumaft:wisteria_flowers_leaves"
                         ]
+                    },
+                    {
+                        "group_identifier": {
+                            "name": "minecraft:itemGroup.name.spawn_egg"
+                        },
+                        "items": [
+                            "kurokumaft:tanjiro_spawn_egg"
+                        ]
                     }
                 ]
            },

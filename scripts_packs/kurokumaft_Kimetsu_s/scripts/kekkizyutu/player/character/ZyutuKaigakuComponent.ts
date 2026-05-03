@@ -8,6 +8,8 @@ import { NomalAttack } from "../../../kokyu/kata/NomalAttack";
  * 呼吸（雷）
  */
 export class ZyutuKaigakuComponent implements KekkizyutuUseComponent {
+
+    kokurai = new Kokurai();
     /**
      * 呼吸型変更
      * @param {Player} player
@@ -45,22 +47,21 @@ export class ZyutuKaigakuComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const kokurai = new Kokurai();
 
         try {
 
             switch (kata) {
                 case 2 :
-                    kokurai.niNoKata(entity);
+                    this.kokurai.niNoKata(entity);
                 break;
                 case 3 :
-                    kokurai.sanNoKata(entity);
+                    this.kokurai.sanNoKata(entity);
                 break;
                 case 5 :
-                    kokurai.goNoKata(entity);
+                    this.kokurai.goNoKata(entity);
                 break;
                 case 6 :
-                    kokurai.rokuNoKata(entity);
+                    this.kokurai.rokuNoKata(entity);
                 break;
             }
         } catch (error: any) {
@@ -70,13 +71,12 @@ export class ZyutuKaigakuComponent implements KekkizyutuUseComponent {
 
     releaseAttackZyutu(entity: Entity): void {
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const kokurai = new Kokurai();
 
         try {
 
             switch (kata) {
                 case 4 :
-                    kokurai.shiNoKata(entity);
+                    this.kokurai.shiNoKata(entity);
                 break;
             }
         } catch (error: any) {

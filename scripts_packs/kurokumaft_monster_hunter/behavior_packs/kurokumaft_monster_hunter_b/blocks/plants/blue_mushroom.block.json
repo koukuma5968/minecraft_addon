@@ -1,0 +1,127 @@
+{
+	"format_version": "1.26.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:blue_mushroom",
+			"menu_category": {
+				"category": "none"
+			},
+			"states": {
+				"kurokumaft:growth": [0, 1]
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": ["minecraft:block_face"]
+				}
+			}
+		},
+		"components": {
+			"tag:minecraft:is_hoe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.1
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.1
+			},
+			"minecraft:tick": {
+				"interval_range": [680, 1360],
+				"looping": false
+			},
+			"kurokumaft:plants_growth": {
+				"type": "log",
+				"grow_size": 1
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 0",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4,0,-4],
+						"size": [8,7,8]
+					},
+					"minecraft:selection_box": {
+						"origin": [-1,0,-1],
+						"size": [2,1,2]
+					},
+					"minecraft:geometry": "geometry.mushroom_mycelium",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "kurokumaft:mushroom_mycelium",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('kurokumaft:growth') == 1",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [-4,0,-4],
+						"size": [8,7,8]
+					},
+					"minecraft:selection_box": {
+						"origin": [-4,0,-4],
+						"size": [8,7,8]
+					},
+					"minecraft:loot": "loot_tables/blocks/plants/blue_mushroom.json",
+					"minecraft:geometry": "geometry.blue_mushroom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "kurokumaft:blue_mushroom",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'up'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 0, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 180, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 90, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 270, 0, 0 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 0, 0, 270 ]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [ 0, 0, 90 ]
+					}
+				}
+			}
+		]
+	}
+}

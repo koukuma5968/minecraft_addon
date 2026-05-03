@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:immortal_insect",
+      "materials": {
+        "default": "cow"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/insect/immortal_insect"
+      },
+      "geometry": {
+        "default": "geometry.insect"
+      },
+      "animations": {
+        "action": "controller.animation.insect.action",
+        "wait": "animation.insect.wait",
+        "move": "animation.insect.move",
+        "dai": "animation.insect.dai"
+      },
+      "scripts": {
+        "scale": "0.13",
+        "animate": [
+          "action"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.insect"
+      ],
+      "spawn_egg": {
+        "texture": "kurokumaft:immortal_insect"
+      }
+    }
+  }
+}

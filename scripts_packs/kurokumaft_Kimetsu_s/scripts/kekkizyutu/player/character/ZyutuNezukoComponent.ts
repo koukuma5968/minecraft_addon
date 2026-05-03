@@ -6,6 +6,8 @@ import { Bakketu } from "../../zyutu/Bakketu";
  * 血気術（禰豆子）
  */
 export class ZyutuNezukoComponent implements KekkizyutuUseComponent {
+
+    bakketu = new Bakketu();
     /**
      * 変更
      * @param {Player} player
@@ -27,11 +29,10 @@ export class ZyutuNezukoComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const bakketu = new Bakketu();
 
         switch (kata) {
             case 1 :
-                bakketu.bakketu(entity);
+                this.bakketu.bakketu(entity);
             break;
         }
 

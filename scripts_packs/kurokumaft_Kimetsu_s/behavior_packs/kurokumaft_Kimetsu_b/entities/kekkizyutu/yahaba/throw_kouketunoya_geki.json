@@ -1,0 +1,52 @@
+{
+    "format_version": "1.21.10",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "kurokumaft:throw_kouketunoya_geki",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "is_experimental": false,
+            "runtime_identifier": "minecraft:arrow",
+            "properties": {
+                "kurokumaft:hit": {
+                    "type": "bool",
+                    "default": "false",
+                    "client_sync": true
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 1.5,
+                "height": 1.5
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "impact_damage": {
+                        "damage": 2,
+                        "knockback": false,
+                        "semirandomdiffdamage": false,
+                        "destroyonhit": false
+                    }
+                },
+                "power": 3.0,
+                "gravity": 0.0,
+                "inertia": 1.0,
+                "uncertaintyBase": 8,
+                "uncertaintyMultiplier": 2.5,
+                "anchor": 1,
+                "offset": [0, 0.5, 0],
+                "reflectOnHurt": false,
+                "catch_fire": false
+            },
+            "minecraft:physics": {},
+            "minecraft:conditional_bandwidth_optimization": {
+                "default_values": {
+                  "max_optimized_distance": 80.0,
+                  "max_dropped_ticks": 7,
+                  "use_motion_prediction_hints": true
+                }
+            }
+        }
+    }
+}

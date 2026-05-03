@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.40",
+	"kurokumaft:crystal_earth_block": {
+    "textures": "kurokumaft:crystal_earth",
+		"sound": "stone"
+	},
+	"kurokumaft:macalite_ore": {
+    "textures": "kurokumaft:macalite_ore",
+		"sound": "stone"
+	},
+	"kurokumaft:whetstone": {
+    "textures": "kurokumaft:whetstone",
+		"sound": "stone"
+	},
+	"kurokumaft:blue_mushroom": {
+		"sound": "grass"
+	},
+	"kurokumaft:specialty_mushroom": {
+		"sound": "grass"
+	},
+	"kurokumaft:medicinal_plants": {
+		"sound": "grass"
+	},
+	"kurokumaft:mandragora": {
+		"sound": "grass"
+	},
+	"kurokumaft:detoxifying_plants": {
+		"sound": "grass"
+	},
+	"kurokumaft:introduction_recipe_book": {
+		"sound": "wood"
+	}
+}

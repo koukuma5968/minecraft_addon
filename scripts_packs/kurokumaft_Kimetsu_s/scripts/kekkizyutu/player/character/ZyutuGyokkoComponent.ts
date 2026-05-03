@@ -7,6 +7,8 @@ import { Tubo } from "../../zyutu/Tubo";
  * 血気術（玉壺）
  */
 export class ZyutuGyokkoComponent implements KekkizyutuUseComponent {
+
+    tubo = new Tubo();
     /**
      * 呼吸型変更
      * @param {Player} player
@@ -42,27 +44,26 @@ export class ZyutuGyokkoComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const tubo = new Tubo();
 
         try {
             switch (kata) {
                 case 1 :
-                    tubo.suigokubati(entity);
+                    this.tubo.suigokubati(entity);
                 break;
                 case 2 :
-                    tubo.senbonbarigyosatu(entity);
+                    this.tubo.senbonbarigyosatu(entity);
                 break;
                 case 3 :
-                    tubo.takotubozigoku(entity);
+                    this.tubo.takotubozigoku(entity);
                 break;
                 case 4 :
-                    tubo.itimankakkuunengyo(entity);
+                    this.tubo.itimankakkuunengyo(entity);
                 break;
                 case 5 :
-                    tubo.sakanasyoukan(entity);
+                    this.tubo.sakanasyoukan(entity);
                 break;
                 case 6 :
-                    tubo.zinsatugyorin(entity);
+                    this.tubo.zinsatugyorin(entity);
                 break;
             }
         } catch (error: any) {

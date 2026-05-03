@@ -1,0 +1,205 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:doss_rampos",
+      "spawn_category": "monster",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "kurokumaft:mh_action": {
+          "type": "enum",
+          "values": ["wait", "walk", "jump_attack", "attack", "damage", "blow", "intimidation", "dizziness", "dai"],
+          "default": "wait",
+          "client_sync": true
+        },
+        "kurokumaft:health": {
+          "range": [ 0, 200 ],
+          "type": "int",
+          "default": 200,
+          "client_sync": true
+        },
+        "kurokumaft:mh_action_status": {
+          "type": "enum",
+          "values": ["none", "peacetime", "hostile", "inactive"],
+          "default": "peacetime",
+          "client_sync": true
+        },
+        "kurokumaft:peeling_count": {
+          "range": [ 0, 1 ],
+          "type": "int",
+          "default": 1,
+          "client_sync": true
+        },
+        "kurokumaft:ailment_state": {
+          "type": "bool",
+          "default": false,
+          "client_sync": true
+        },
+        "kurokumaft:poison_gauge": {
+          "range": [ 0, 100 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:paralysis_gauge": {
+          "range": [ 0, 100 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:sleep_gauge": {
+          "range": [ 0, 100 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        },
+        "kurokumaft:dizziness_gauge": {
+          "range": [ 0, 100 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+
+    "component_groups": {
+
+      "kurokumaft:dai": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "max": 100,
+          "value": 100
+        },
+        "minecraft:interact": {
+          "interactions": [
+            {
+              "on_interact": {
+                "filters": {
+                  "all_of": [
+                    { "test": "is_family", "subject" : "other", "value" :  "player"},
+                    { "test": "has_equipment", "domain": "hand", "subject": "other", "value": "kurokumaft:peeling_knife"}
+                  ]
+                }
+              },
+              "use_item": false,
+              "swing": true
+            }
+          ]
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "monster", "mob", "mh_monster", "bird_dragon" ]
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 60 : 0"
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "entity_attack",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "block_explosion",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "entity_explosion",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "fire",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "fire_tick",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "projectile",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "sonic_boom",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "wither",
+            "deals_damage": "no_but_side_effects_apply"
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 8.0
+      },
+      "minecraft:breathable": {
+        "suffocate_time": 0,
+        "total_supply": 15
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 1.25,
+            "height": 1.3125,
+            "pivot": [0, 1.1, -2.25]
+          },
+          {
+            "width": 1.625,
+            "height": 2,
+            "pivot": [0, 0.9, 0.03]
+          }
+        ]
+      },
+      "minecraft:health": {
+        "max": 15,
+        "value": 15
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava", "subject": "self"
+            },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:jump.static": {},
+      "minecraft:movement.basic": {},
+      "minecraft:nameable": {},
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      }
+    },
+
+    "events": {
+      "kurokumaft:dai": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:dai"
+          ]
+        }
+      }
+
+    }
+  }
+}

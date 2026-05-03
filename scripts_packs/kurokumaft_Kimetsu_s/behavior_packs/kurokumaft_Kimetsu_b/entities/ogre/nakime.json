@@ -37,8 +37,8 @@
         },
         "kurokumaft:ogre_point": {
           "type": "int",
-          "range": [340, 350],
-          "default": 350,
+          "range": [240, 250],
+          "default": 250,
           "client_sync": true
         },
         "kurokumaft:sun_hurt": {
@@ -50,6 +50,10 @@
     },
 
     "component_groups": {
+      "kurokumaft:is_hear": {
+        "minecraft:is_saddled": {
+        }
+      },
       "kurokumaft:damage_clear": {
         "minecraft:damage_sensor": {
           "triggers": [
@@ -143,13 +147,6 @@
             "must_see": true
           }
         ]
-      },
-      "minecraft:behavior.random_stroll": {
-        "priority": 6,
-        "speed_multiplier": 1
-      },
-      "minecraft:behavior.random_look_around": {
-        "priority": 8
       },
       "minecraft:behavior.equip_item": {
         "priority": 3
@@ -283,7 +280,8 @@
       "minecraft:entity_spawned": {
         "add": {
           "component_groups": [
-            "kurokumaft:attack_normal"
+            "kurokumaft:attack_normal",
+            "kurokumaft:is_hear"
           ]
         }
       },

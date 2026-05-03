@@ -1,0 +1,70 @@
+{
+   "format_version" : "1.20.20",
+   "sound_definitions" : {
+      "item.use.whoosh" : {
+         "category" : "music",
+         "max_distance" : 2,
+         "min_distance" : 1,
+         "sounds" : [
+            {
+               "is3D" : false,
+               "name" : "sounds/event/item/whoosh",
+               "stream" : true,
+               "volume" : 0.5
+            }
+         ]
+      },
+      "meat_roast.start" : {
+         "category" : "music",
+         "max_distance" : 3,
+         "min_distance" : 2,
+         "sounds" : [
+            {
+               "is3D" : false,
+               "name" : "sounds/event/other/meat_roast",
+               "stream" : true,
+               "volume" : 0.5
+            }
+         ]
+      },
+      "meat_roast.crispy" : {
+         "category" : "music",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "is3D" : false,
+               "name" : "sounds/event/other/crispy_meat_roast",
+               "stream" : true,
+               "volume" : 0.5
+            }
+         ]
+      },
+      "meat_roast.failure" : {
+         "category" : "music",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "is3D" : false,
+               "name" : "sounds/event/other/failure",
+               "stream" : true,
+               "volume" : 2.0
+            }
+         ]
+      },
+      "meat_roast.open" : {
+         "category" : "music",
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            {
+               "is3D" : false,
+               "name" : "sounds/event/other/open",
+               "stream" : true,
+               "volume" : 2.0
+            }
+         ]
+      }
+   }
+}

@@ -1,0 +1,46 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:war_hammer",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_weapons",
+          "kurokumaft:hammer",
+          "kurokumaft:is_iron"
+        ]
+      },
+      "minecraft:damage": 8,
+      "minecraft:icon": "kurokumaft:war_hammer",
+      "minecraft:display_name": {
+				"value": "item.weapon.kurokumaft:war_hammer.name"
+			},
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:fire_resistant": {
+        "value": true
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:rarity": "common",
+      "minecraft:should_despawn": false,
+      "minecraft:swing_duration": {
+        "value": 0.3
+      },
+      "kurokumaft:mh_wepons_custom": {
+        "type": "kurokumaft:hammer",
+        "attack": 8,
+        "rarity": 1,
+        "critical": 0,
+        "slot": 0,
+        "element": ["-", "0"],
+        "sharpness": [45, 45]
+      }
+    }
+  }
+}
+

@@ -27,7 +27,8 @@
 					{
 						"allowed_faces": ["up"],
 						"block_filter": [
-							{"name": "dirt"}
+							{"name": "dirt"},
+							{"name": "grass_block"}
 						]
 					}
 				]

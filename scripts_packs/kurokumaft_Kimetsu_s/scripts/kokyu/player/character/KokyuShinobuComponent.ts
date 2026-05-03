@@ -30,14 +30,15 @@ export class KokyuShinobuComponent implements NichirintouUseComponent {
 
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    mushi = new MushiNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -45,20 +46,19 @@ export class KokyuShinobuComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const mushi = new MushiNoKata();
 
         switch (kata) {
             case 1 :
-                mushi.ichiNoKata(player, itemStack);
+                this.mushi.ichiNoKata(player, itemStack);
             break;
             case 2 :
-                mushi.niNoKata(player, itemStack);
+                this.mushi.niNoKata(player, itemStack);
             break;
             case 3 :
-                mushi.sanNoKata(player, itemStack);
+                this.mushi.sanNoKata(player, itemStack);
             break;
             case 4 :
-                mushi.shiNoKata(player, itemStack);
+                this.mushi.shiNoKata(player, itemStack);
             break;
         }
 

@@ -41,7 +41,7 @@
 
           "nichirintou_custom",
 
-          "kaigaku.action"
+          "kokurai.action"
         ]
       },
       "animations": {
@@ -85,7 +85,7 @@
 
       },
       "render_controllers": [
-        "controller.render.soldier.zenitu",
+        "controller.render.ogre.kaigaku",
         "controller.render.nichirintou_custom"
       ],
       "spawn_egg": {

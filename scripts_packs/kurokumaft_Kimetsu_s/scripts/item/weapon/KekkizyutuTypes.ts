@@ -32,6 +32,9 @@ import { ZyutuGyokkoComponent } from "../../kekkizyutu/player/character/ZyutuGyo
 import { GyokkoComponent } from "../../kekkizyutu/mob/GyokkoComponent";
 import { ZyutuSusamaruComponent } from "../../kekkizyutu/player/character/ZyutuSusamaruComponent";
 import { SusamaruComponent } from "../../kekkizyutu/mob/SusamaruComponent";
+import { ZyutuYahabaComponent } from "../../kekkizyutu/player/character/ZyutuYahabaComponent";
+import { YahabaComponent } from "../../kekkizyutu/mob/YahabaComponent";
+import { KaigakuComponent } from "../../kekkizyutu/mob/KaigakuComponent";
 
 export interface KekkizyutuObject {
     itemName:string,
@@ -41,23 +44,23 @@ export interface KekkizyutuObject {
     className: string
 }
 
-export const KekkizyutuClassRecord: Record<string, new () => KekkizyutuUseComponent> = {
-    nezuko: ZyutuNezukoComponent,
-    rui: ZyutuRuiComponent,
-    akaza: ZyutuAkazaComponent,
-    daki: ZyutuDakiComponent,
-    gyutaro: ZyutuGyutaroComponent,
-    sekido: ZyutuSekidoComponent,
-    karaku: ZyutuKarakuComponent,
-    aizetu: ZyutuAizetuComponent,
-    urogi: ZyutuUrogiComponent,
-    zouhakuten: ZyutuZouhakutenComponent,
-    douma: ZyutuDoumaComponent,
-    kokushibou: ZyutuKokushibouComponent,
-    kaigaku: ZyutuKaigakuComponent,
-    gyokko: ZyutuGyokkoComponent,
-    susamaru: ZyutuSusamaruComponent,
-};
+export const KekkizyutuClassRecord = new Map<string, KekkizyutuUseComponent>();
+KekkizyutuClassRecord.set("nezuko", new ZyutuNezukoComponent());
+KekkizyutuClassRecord.set("rui", new ZyutuRuiComponent());
+KekkizyutuClassRecord.set("akaza", new ZyutuAkazaComponent());
+KekkizyutuClassRecord.set("daki", new ZyutuDakiComponent());
+KekkizyutuClassRecord.set("gyutaro", new ZyutuGyutaroComponent());
+KekkizyutuClassRecord.set("sekido", new ZyutuSekidoComponent());
+KekkizyutuClassRecord.set("karaku", new ZyutuKarakuComponent());
+KekkizyutuClassRecord.set("aizetu", new ZyutuAizetuComponent());
+KekkizyutuClassRecord.set("urogi", new ZyutuUrogiComponent());
+KekkizyutuClassRecord.set("zouhakuten", new ZyutuZouhakutenComponent());
+KekkizyutuClassRecord.set("douma", new ZyutuDoumaComponent());
+KekkizyutuClassRecord.set("kokushibou", new ZyutuKokushibouComponent());
+KekkizyutuClassRecord.set("kaigaku", new ZyutuKaigakuComponent());
+KekkizyutuClassRecord.set("gyokko", new ZyutuGyokkoComponent());
+KekkizyutuClassRecord.set("susamaru", new ZyutuSusamaruComponent());
+KekkizyutuClassRecord.set("yahaba", new ZyutuYahabaComponent());
 
 export const KekkizyutuObjects = Object.freeze([
     {
@@ -161,9 +164,16 @@ export const KekkizyutuObjects = Object.freeze([
     {
         itemName: "kurokumaft:susamaru_mari",
         type: 15,
-        kata: [1],
+        kata: [1,2],
         kata_msg: "kekkizyutu_mari",
         className: "susamaru"
+    },
+    {
+        itemName: "kurokumaft:kouketunoya",
+        type: 16,
+        kata: [1,2,3,4],
+        kata_msg: "kekkizyutu_kouketunoya",
+        className: "yahaba"
     },
 ]);
 
@@ -172,25 +182,26 @@ export interface KekkizyutuMobObject {
     className: string
 }
 
-export const KekkizyutuMobClassRecord: Record<string, new (entity:Entity) => KekkizyutuMobUseComponent> = {
-    tokage: TokageComponent,
-    nezuko: NezukoComponent,
-    daki: DakiComponent,
-    gyutaro: GyutaroComponent,
-    rui: RuiComponent,
-    akaza: AkazaComponent,
-    aizetu: AizetuComponent,
-    karaku: KarakuComponent,
-    sekido: SekidoComponent,
-    urogi: UrogiComponent,
-    zouhakuten: ZouhakutenComponent,
-    kokushibou: KokushibouComponent,
-    douma: DoumaComponent,
-    kessyounomiko: KessyounomikoComponent,
-    muhyousuirenbosatu: MuhyousuirenbosatuComponent,
-    gyokko: GyokkoComponent,
-    susamaru: SusamaruComponent
-};
+export const KekkizyutuMobClassRecord = new Map<string, KekkizyutuMobUseComponent>();
+KekkizyutuMobClassRecord.set("tokage", new TokageComponent());
+KekkizyutuMobClassRecord.set("nezuko", new NezukoComponent());
+KekkizyutuMobClassRecord.set("daki", new DakiComponent());
+KekkizyutuMobClassRecord.set("gyutaro", new GyutaroComponent());
+KekkizyutuMobClassRecord.set("rui", new RuiComponent());
+KekkizyutuMobClassRecord.set("akaza", new AkazaComponent());
+KekkizyutuMobClassRecord.set("aizetu", new AizetuComponent());
+KekkizyutuMobClassRecord.set("karaku", new KarakuComponent());
+KekkizyutuMobClassRecord.set("sekido", new SekidoComponent());
+KekkizyutuMobClassRecord.set("urogi", new UrogiComponent());
+KekkizyutuMobClassRecord.set("zouhakuten", new ZouhakutenComponent());
+KekkizyutuMobClassRecord.set("kokushibou", new KokushibouComponent());
+KekkizyutuMobClassRecord.set("kaigaku", new KaigakuComponent());
+KekkizyutuMobClassRecord.set("douma", new DoumaComponent());
+KekkizyutuMobClassRecord.set("kessyounomiko", new KessyounomikoComponent());
+KekkizyutuMobClassRecord.set("muhyousuirenbosatu", new MuhyousuirenbosatuComponent());
+KekkizyutuMobClassRecord.set("gyokko", new GyokkoComponent());
+KekkizyutuMobClassRecord.set("susamaru", new SusamaruComponent());
+KekkizyutuMobClassRecord.set("yahaba", new YahabaComponent());
 
 export const KekkizyutuMobObjects = Object.freeze([
     {
@@ -242,6 +253,10 @@ export const KekkizyutuMobObjects = Object.freeze([
         className: "kokushibou"
     },
     {
+        entityName: "kurokumaft:kaigaku",
+        className: "kaigaku"
+    },
+    {
         entityName: "kurokumaft:douma",
         className: "douma"
     },
@@ -261,4 +276,29 @@ export const KekkizyutuMobObjects = Object.freeze([
         entityName: "kurokumaft:susamaru",
         className: "susamaru"
     },
+    {
+        entityName: "kurokumaft:yahaba",
+        className: "yahaba"
+    },
 ]);
+
+export async function startKekkizyutuMonitoringMob(entity:Entity, className:string) {
+    const kekkizyutuClass = KekkizyutuMobClassRecord.get(className);
+    if (kekkizyutuClass !== undefined) {
+        kekkizyutuClass.startMonitoring(entity);
+    }
+}
+
+export async function hitKekkizyutuAttackKataMob(entity:Entity, className:string) {
+    const kekkizyutuClass = KekkizyutuMobClassRecord.get(className);
+    if (kekkizyutuClass !== undefined) {
+        kekkizyutuClass.hitAttackZyutu(entity);
+    }
+}
+
+export async function hitKekkizyutuAttackKata(entity:Entity, className:string) {
+    const kekkizyutuClass = KekkizyutuClassRecord.get(className);
+    if (kekkizyutuClass !== undefined) {
+        kekkizyutuClass.hitAttackZyutu(entity);
+    }
+}

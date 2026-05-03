@@ -1,0 +1,31 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:nakime_biwa",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/kekkizyutu/nakime/nakime_biwa",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.nakime_biwa"
+      },
+      "animations": {
+        "person": "controller.animation.nakime_biwa.person",
+        "first": "animation.nakime_biwa.first",
+        "third": "animation.nakime_biwa.third"
+      },
+      "scripts": {
+        "scale": "0.8",
+        "animate": [
+          "person"
+        ]
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

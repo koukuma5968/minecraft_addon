@@ -1,0 +1,43 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"uuid": "75dde1a9-6699-4dc4-bc63-12280d39377e",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 26, 0]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "dd01af05-0ebc-4171-97bb-41b62b071df4",
+			"version": [1, 0, 0]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "1c2e2cba-1cca-419a-b35a-3adab2a23f83",
+			"version": [1, 0, 0],
+			"entry": "scripts/kk_mh_script.js"
+		}
+
+	],
+	"metadata": {
+		"authors": ["koukumacraft"],
+		"product_type": "addon"
+	},
+	"dependencies": [
+		{
+			"uuid": "4b4e6ec3-7a67-4e95-b4ed-f80be364fa7f",
+			"version": [1, 0, 0]
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "2.0.0"
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.6.0"
+		}
+	]
+}

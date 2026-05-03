@@ -30,14 +30,15 @@ export class KokyuKanawoComponent implements NichirintouUseComponent {
 
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    hana = new HanaNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -45,23 +46,22 @@ export class KokyuKanawoComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const hana = new HanaNoKata();
 
         switch (kata) {
             case 2 :
-                hana.niNoKata(player, itemStack);
+                this.hana.niNoKata(player, itemStack);
             break;
             case 4 :
-                hana.shiNoKata(player, itemStack);
+                this.hana.shiNoKata(player, itemStack);
             break;
             case 5 :
-                hana.goNoKata(player, itemStack);
+                this.hana.goNoKata(player, itemStack);
             break;
             case 6 :
-                hana.rokuNoKata(player, itemStack);
+                this.hana.rokuNoKata(player, itemStack);
             break;
             case 7 :
-                hana.shitiNoKata(player, itemStack);
+                this.hana.shitiNoKata(player, itemStack);
             break;
         }
 

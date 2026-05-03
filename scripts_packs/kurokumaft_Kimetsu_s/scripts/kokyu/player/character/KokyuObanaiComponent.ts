@@ -29,14 +29,15 @@ export class KokyuObanaiComponent implements NichirintouUseComponent {
         }
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    hebi = new HebiNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -44,23 +45,22 @@ export class KokyuObanaiComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const hebi = new HebiNoKata();
 
         switch (kata) {
             case 1 :
-                hebi.ichiNoKata(player, itemStack);
+                this.hebi.ichiNoKata(player, itemStack);
             break;
             case 2 :
-                hebi.niNoKata(player, itemStack);
+                this.hebi.niNoKata(player, itemStack);
             break;
             case 3 :
-                hebi.sanNoKata(player, itemStack);
+                this.hebi.sanNoKata(player, itemStack);
             break;
             case 4 :
-                hebi.shiNoKata(player, itemStack);
+                this.hebi.shiNoKata(player, itemStack);
             break;
             case 5 :
-                hebi.goNoKata(player, itemStack);
+                this.hebi.goNoKata(player, itemStack);
             break;
         }
 

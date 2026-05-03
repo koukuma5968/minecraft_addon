@@ -169,40 +169,52 @@ export class Kokurai extends ZytuComonClass {
      * 陸ノ型 電轟雷轟
      */
     rokuNoKata(entity:Entity) {
-        if (entity instanceof Player) {
-            entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kokyu6.value"}]});
-            entity.startItemCooldown("kurokumaft:kaminari", 2*TicksPerSecond);
-        }
 
-        const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
-        entity.applyKnockback({x:distance.x,z:distance.z},0.8);
-
-        entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
-            amplifier: 1,
-            showParticles: false
-        });
-
-        const nowloc = entity.location;
-        const num = system.runInterval(() => {
-
-            try {
-                entity.dimension.spawnParticle("kurokumaft:kokurai6_particle",nowloc);
-            } catch (error: any) {
-                system.clearRun(num);
+        try {
+            if (entity instanceof Player) {
+                entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kaminari_kokyu6.value"}]});
+                entity.startItemCooldown("kurokumaft:kaminari", 2*TicksPerSecond);
             }
-        },1);
 
-        const filter = addOrgeFilter(1, entity.location, 15, entity.id);
-        this.zyutuApplyDamage(entity, filter, 5);
-        this.kokyuApplyEffect(entity, filter, 15*TicksPerSecond, 1, "minecraft:wither");
+            const distance = getLookLocationDistance(entity.getRotation().y, 1, 0, 0);
+            entity.applyKnockback({x:distance.x,z:distance.z},0.8);
 
-        system.waitTicks(10).then(() => {
-            entity.setProperty("kurokumaft:kokyu_use", false);
-            entity.setProperty("kurokumaft:kokyu_particle", false);
-        }).catch((error: any) => {
-        }).finally(() => {
-            system.clearRun(num);
-        });
+            entity.addEffect("minecraft:slow_falling", 1*TicksPerSecond,{
+                amplifier: 1,
+                showParticles: false
+            });
+
+            const nowloc = entity.location;
+            const num = system.runInterval(() => {
+
+                try {
+                    entity.dimension.spawnParticle("kurokumaft:kokurai6_particle",nowloc);
+                } catch (error: any) {
+                    console.error(error);
+                    system.clearRun(num);
+                }
+            },1);
+
+            const filter = addOrgeFilter(1, entity.location, 15, entity.id);
+            this.zyutuApplyDamage(entity, filter, 5);
+            this.kokyuApplyEffect(entity, filter, 15*TicksPerSecond, 1, "minecraft:wither");
+
+            system.waitTicks(10).then(() => {
+                entity.setProperty("kurokumaft:kokyu_particle", false);
+            }).catch((error: any) => {
+                console.error(error);
+            }).finally(() => {
+                system.clearRun(num);
+            });
+        } catch (error: any) {
+            console.error(error);
+        } finally {
+            system.waitTicks(30).then(() => {
+                entity.setProperty("kurokumaft:kokyu_use", false);
+            }).catch((error: any) => {
+                console.error(error);
+            });
+        }
 
     }
 

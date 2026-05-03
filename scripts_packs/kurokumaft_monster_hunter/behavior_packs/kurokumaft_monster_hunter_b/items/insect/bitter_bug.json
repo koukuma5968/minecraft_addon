@@ -1,0 +1,51 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:bitter_bug_item",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_materials"
+        ]
+      },
+      "minecraft:icon": "kurokumaft:bitter_bug",
+      "minecraft:display_name": {
+				"value": "item.insect.kurokumaft:bitter_bug.name"
+			},
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 0
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 1
+      },
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:rarity": "common",
+      "kurokumaft:mh_use_item_effect": [
+        {
+          "type": "custom",
+          "name": "detoxifying",
+          "chance": 0.5,
+          "duration": 1,
+          "amplifier": 1,
+          "particle": "kurokumaft:mh_detoxifying"
+        },
+        {
+          "type": "custom",
+          "name": "instant_damage",
+          "chance": 1,
+          "duration": 1,
+          "amplifier": 1,
+          "particle": "kurokumaft:mh_damage"
+        }
+      ]
+    }
+  }
+}
+

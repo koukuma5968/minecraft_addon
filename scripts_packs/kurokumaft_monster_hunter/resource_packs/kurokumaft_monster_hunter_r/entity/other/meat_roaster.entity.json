@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "kurokumaft:meat_roaster",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "raw": "textures/kurokumaft/models/other/meat_roaster/meat_roaster_0",
+        "unfired": "textures/kurokumaft/models/other/meat_roaster/meat_roaster_1",
+        "browned": "textures/kurokumaft/models/other/meat_roaster/meat_roaster_2",
+        "burnt": "textures/kurokumaft/models/other/meat_roaster/meat_roaster_3"
+      },
+      "geometry": {
+        "default": "geometry.meat_roaster"
+      },
+      "particle_effects": {
+        "mh_roast_fire": "kurokumaft:mh_roast_fire"
+      },
+      "animations": {
+        "controller.meat_roaster": "controller.animation.meat_roaster.roast",
+        "roast": "animation.meat_roaster.roast"
+      },
+      "scripts": {
+        "animate": [
+          "controller.meat_roaster"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.meat_roaster"
+      ]
+    }
+  }
+}

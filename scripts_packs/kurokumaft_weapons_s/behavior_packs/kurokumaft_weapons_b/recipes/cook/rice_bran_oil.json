@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:rice_bran_oil"
+    },
+    "tags": [ "millstone" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:rice_plant"
+      },
+      {
+        "item": "minecraft:glass_bottle"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "kurokumaft:rice_plant"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:rice_bran_oil"
+    }
+  }
+}
