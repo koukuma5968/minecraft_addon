@@ -46,6 +46,15 @@
           "default": "false",
           "client_sync": false
         }
+      },
+      "scripts":{
+        "animate":[
+          "kekkizyutu"
+        ]
+      },
+      "animations":{
+        "kekkizyutu":"controller.animation.kekkizyutu.monitor",
+        "cooldown": "animation.cooldown.two_sec"
       }
     },
 
@@ -117,11 +126,17 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+              "all_of": [
+                { "test": "has_tag", "subject": "other", "operator": "!=", "value": "exclusion_target" },
+                {
+                  "any_of": [
+                    {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+                  ]
+                }
               ]
             },
             "max_dist": 64,
@@ -136,11 +151,17 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+              "all_of": [
+                { "test": "has_tag", "subject": "other", "operator": "!=", "value": "exclusion_target" },
+                {
+                  "any_of": [
+                    {"test": "has_tag", "subject": "other", "operator": "==", "value": "confusion_target"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+                  ]
+                }
               ]
             },
             "max_dist": 64,
@@ -153,6 +174,11 @@
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
+          {
+            "filters": { "test": "has_tag", "subject": "self", "operator": "==", "value": "fuzi_poison" },
+            "cause": "wither",
+            "damage_per_tick": 20
+          },
           {
             "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
             "cause": "lava",

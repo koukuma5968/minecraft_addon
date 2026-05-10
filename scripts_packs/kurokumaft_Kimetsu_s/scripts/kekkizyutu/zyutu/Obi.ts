@@ -63,7 +63,7 @@ export class Obi extends ZytuComonClass {
 
         try {
 
-            const obi = shooting(entity, "kurokumaft:obi", 0, 3, undefined);
+            const obi = shooting(entity, "kurokumaft:obi", 0, 3, undefined, 0);
 
             let targethoming = false;
 

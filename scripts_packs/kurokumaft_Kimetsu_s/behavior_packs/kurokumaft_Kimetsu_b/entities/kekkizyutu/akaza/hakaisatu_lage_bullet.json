@@ -16,7 +16,7 @@
         },
         "components": {
 			"minecraft:type_family": {
-				"family": [ "inanimate", "arrow" ]
+				"family": [ "inanimate", "bullet", "arrow" ]
 			},
             "minecraft:collision_box": {
                 "width": 2.5,

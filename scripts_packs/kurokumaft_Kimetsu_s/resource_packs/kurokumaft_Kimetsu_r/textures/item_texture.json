@@ -522,6 +522,19 @@
          "textures" : "textures/kurokumaft/items/kekkizyutu/gyokko_tubo"
       },
 
+      "wakuti": {
+         "textures" : "textures/kurokumaft/items/kekkizyutu/wakuti"
+      },
+      "tamayo_kimono": {
+         "textures" : "textures/kurokumaft/items/armor/tamayo/tamayo_kimono"
+      },
+      "tamayo_kanzasi": {
+         "textures" : "textures/kurokumaft/items/armor/tamayo/tamayo_kanzasi"
+      },
+      "tamayo_tabi": {
+         "textures" : "textures/kurokumaft/items/armor/tamayo/tamayo_tabi"
+      },
+
       "tanjiro_head": {
          "textures" : "textures/kurokumaft/items/head/tanjiro_head"
       },
@@ -636,7 +649,8 @@
             "textures/kurokumaft/items/spawn_egg/ogre/kaigaku_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/susamaru_egg",
             "textures/kurokumaft/items/spawn_egg/ogre/yahaba_egg",
-            "textures/kurokumaft/items/spawn_egg/ogre/nakime_egg"
+            "textures/kurokumaft/items/spawn_egg/ogre/nakime_egg",
+            "textures/kurokumaft/items/spawn_egg/ogre/tamayo_egg"
          ]
       }
 

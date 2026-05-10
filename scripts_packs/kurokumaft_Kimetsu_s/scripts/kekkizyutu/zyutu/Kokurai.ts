@@ -153,7 +153,7 @@ export class Kokurai extends ZytuComonClass {
             system.clearRun(num);
         });
 
-        const dragon = shooting(entity, "kurokumaft:kuro_dragon_small", 0, 3, "kurokumaft:lage_damage");
+        const dragon = shooting(entity, "kurokumaft:kuro_dragon_small", 0, 3, "kurokumaft:lage_damage", 0);
 
         system.waitTicks(2*TicksPerSecond).then(() => {
             if (dragon.isValid) {

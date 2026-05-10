@@ -42,7 +42,7 @@ function getRandomRange(min:number, max:number, round:number) {
  * @param {number} min
  * @param {number} max
  * @param {number} exclud
- * @param {number} rand
+ * @param {number} round
  */
 function getRandomExcludingZero(min: number, max: number, exclud:number, round:number): number {
 

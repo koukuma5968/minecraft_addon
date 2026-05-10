@@ -337,7 +337,7 @@ export class KaminariNoKata extends KataComonClass {
         } else if (kaikyuNum > 4) {
             event = "kurokumaft:middle_damage";
         }
-        const dragon = shooting(entity, "kurokumaft:kaminari_dragon_small", 0, 3, event);
+        const dragon = shooting(entity, "kurokumaft:kaminari_dragon_small", 0, 3, event, 0);
 
         system.waitTicks(2*TicksPerSecond).then(() => {
             if (dragon.isValid) {

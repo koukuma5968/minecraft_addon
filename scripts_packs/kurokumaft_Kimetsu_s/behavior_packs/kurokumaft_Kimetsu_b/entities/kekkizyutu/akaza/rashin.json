@@ -15,7 +15,7 @@
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "inanimate", "rashin" ]
+        "family": [ "armor_stand", "inanimate", "bullet", "rashin" ]
       },
       "minecraft:collision_box": {
         "width": 0.11,

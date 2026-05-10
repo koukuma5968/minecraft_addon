@@ -1,6 +1,7 @@
 import { world,system, EquipmentSlot, Player, EntityComponentTypes, EntityEquippableComponent, ItemStack, EntityTypeFamilyComponent, 
   ScriptEventSource, Entity, EntityInitializationCause, EntityHealthComponent, EntityDamageCause, 
-  EntityInventoryComponent} from "@minecraft/server";
+  EntityInventoryComponent,
+  AABB} from "@minecraft/server";
 import { initRegisterKimetuCustom } from "./custom/KimetuCustomComponentRegistry";
 import { hitKokyuAttackKataMob, KokyuMobClassRecord, KokyuMobObject, KokyuMobObjects, KokyuObject, KokyuObjects, startKokyuMonitoringMob } from "./item/weapon/NichirintouTypes";
 import { KimetuEquipmentTick } from "./player/KimetuEquipmentTick";

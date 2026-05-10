@@ -1,4 +1,4 @@
-import { ItemCustomComponent, Player, ItemComponentConsumeEvent, TicksPerSecond, ItemStack, system, EntityComponentTypes, EntityInventoryComponent } from "@minecraft/server";
+import { ItemCustomComponent, Player, ItemComponentConsumeEvent, TicksPerSecond, ItemStack, system, EntityComponentTypes, EntityInventoryComponent, ItemLockMode } from "@minecraft/server";
 import { kekkizyutuLists } from "../../common/KimetuConst";
 
 export class DemonizationReversal implements ItemCustomComponent {
@@ -37,9 +37,11 @@ export class DemonizationReversal implements ItemCustomComponent {
                 const container = Inventory.container;
                 if (container !== undefined) {
                     const itemstack = container.getItem(0) as ItemStack;
-                    const kekkizyutu = kekkizyutuLists.find(items => items.item === itemstack.typeId);
-                    if (kekkizyutu !== undefined) {
-                        container.setItem(0, undefined);
+                    if (itemstack !== undefined) {
+                        const kekkizyutu = kekkizyutuLists.find(items => items.item === itemstack.typeId);
+                        if (kekkizyutu !== undefined) {
+                            container.setItem(0, new ItemStack(kekkizyutu.item));
+                        }
                     }
                 }
             });

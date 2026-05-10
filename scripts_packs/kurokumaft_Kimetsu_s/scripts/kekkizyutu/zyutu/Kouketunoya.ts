@@ -17,7 +17,7 @@ export class Kouketunoya extends ZytuComonClass {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
 
-            const hi = shooting(entity, "kurokumaft:throw_kouketunoya_hi", 0, 3, undefined);
+            const hi = shooting(entity, "kurokumaft:throw_kouketunoya_hi", 0, 3, undefined, 0);
 
             system.waitTicks(2*TicksPerSecond).then(() => {
                 if (hi.isValid) {
@@ -43,7 +43,7 @@ export class Kouketunoya extends ZytuComonClass {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
 
-            const ya = shooting(entity, "kurokumaft:throw_kouketunoya_show", 0, 3, undefined);
+            const ya = shooting(entity, "kurokumaft:throw_kouketunoya_show", 0, 3, undefined, 0);
 
             system.waitTicks(2*TicksPerSecond).then(() => {
                 if (ya.isValid) {
@@ -69,7 +69,7 @@ export class Kouketunoya extends ZytuComonClass {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
 
-            const ya = shooting(entity, "kurokumaft:throw_kouketunoya_raku", 0, 3, undefined);
+            const ya = shooting(entity, "kurokumaft:throw_kouketunoya_raku", 0, 3, undefined, 0);
 
             system.waitTicks(2*TicksPerSecond).then(() => {
                 if (ya.isValid) {

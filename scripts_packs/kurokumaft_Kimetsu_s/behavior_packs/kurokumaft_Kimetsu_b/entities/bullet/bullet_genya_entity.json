@@ -9,6 +9,9 @@
             "runtime_identifier": "minecraft:snowball"
         },
         "components": {
+            "minecraft:type_family": {
+                "family": [ "inanimate", "bullet" ]
+            },
             "minecraft:break_blocks": {
                 "breakable_blocks": [
                     "glass",

@@ -48,7 +48,7 @@ export class Koushi extends ZytuComonClass {
             entity.setProperty("kurokumaft:kokyu_use", false);
             entity.setProperty("kurokumaft:kokyu_particle", false);
 
-            const ito = shooting(entity, "kurokumaft:kokushirinten", 0, 3, undefined);
+            const ito = shooting(entity, "kurokumaft:kokushirinten", 0, 3, undefined, 0);
 
             system.waitTicks(2*TicksPerSecond).then(() => {
                 if (ito.isValid) {

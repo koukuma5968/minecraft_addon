@@ -17,8 +17,8 @@ export class IwaNoKata extends KataComonClass {
                 ItemDurabilityDamage(entity, itemStack);
             }
         }
-        const ono = shooting(entity, "kurokumaft:iwa_axe", 0, 3, undefined);
-        const ball = shooting(entity, "kurokumaft:iwa_iron_ball", 0, 3, undefined);
+        const ono = shooting(entity, "kurokumaft:iwa_axe", 0, 3, undefined, 0);
+        const ball = shooting(entity, "kurokumaft:iwa_iron_ball", 0, 3, undefined, 0);
 
         system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);

@@ -1,0 +1,18 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.nakime_fusuma.zyutu": {
+			"states": {
+				"default": {
+					"animations": ["guard"],
+					"transitions": [
+						{"gate": "query.property('kurokumaft:mode') == 'gate'"}
+					]
+				},
+				"gate": {
+					"animations": ["gate"]
+				}
+			}
+		}
+	}
+}

@@ -35,6 +35,10 @@ import { SusamaruComponent } from "../../kekkizyutu/mob/SusamaruComponent";
 import { ZyutuYahabaComponent } from "../../kekkizyutu/player/character/ZyutuYahabaComponent";
 import { YahabaComponent } from "../../kekkizyutu/mob/YahabaComponent";
 import { KaigakuComponent } from "../../kekkizyutu/mob/KaigakuComponent";
+import { ZyutuNakimeComponent } from "../../kekkizyutu/player/character/ZyutuNakimeComponent";
+import { NakimeComponent } from "../../kekkizyutu/mob/NakimeComponent";
+import { ZyutuTamayoComponent } from "../../kekkizyutu/player/character/ZyutuTamayoComponent";
+import { TamayoComponent } from "../../kekkizyutu/mob/TamayoComponent";
 
 export interface KekkizyutuObject {
     itemName:string,
@@ -61,6 +65,8 @@ KekkizyutuClassRecord.set("kaigaku", new ZyutuKaigakuComponent());
 KekkizyutuClassRecord.set("gyokko", new ZyutuGyokkoComponent());
 KekkizyutuClassRecord.set("susamaru", new ZyutuSusamaruComponent());
 KekkizyutuClassRecord.set("yahaba", new ZyutuYahabaComponent());
+KekkizyutuClassRecord.set("nakime", new ZyutuNakimeComponent());
+KekkizyutuClassRecord.set("tamayo", new ZyutuTamayoComponent());
 
 export const KekkizyutuObjects = Object.freeze([
     {
@@ -175,6 +181,20 @@ export const KekkizyutuObjects = Object.freeze([
         kata_msg: "kekkizyutu_kouketunoya",
         className: "yahaba"
     },
+    {
+        itemName: "kurokumaft:nakime_biwa",
+        type: 17,
+        kata: [1,2],
+        kata_msg: "kekkizyutu_biwa",
+        className: "nakime"
+    },
+    {
+        itemName: "kurokumaft:wakuti",
+        type: 18,
+        kata: [1,2,3,4,5],
+        kata_msg: "kekkizyutu_wakuti",
+        className: "tamayo"
+    },
 ]);
 
 export interface KekkizyutuMobObject {
@@ -202,6 +222,8 @@ KekkizyutuMobClassRecord.set("muhyousuirenbosatu", new MuhyousuirenbosatuCompone
 KekkizyutuMobClassRecord.set("gyokko", new GyokkoComponent());
 KekkizyutuMobClassRecord.set("susamaru", new SusamaruComponent());
 KekkizyutuMobClassRecord.set("yahaba", new YahabaComponent());
+KekkizyutuMobClassRecord.set("nakime", new NakimeComponent());
+KekkizyutuMobClassRecord.set("tamayo", new TamayoComponent());
 
 export const KekkizyutuMobObjects = Object.freeze([
     {
@@ -280,6 +302,14 @@ export const KekkizyutuMobObjects = Object.freeze([
         entityName: "kurokumaft:yahaba",
         className: "yahaba"
     },
+    {
+        entityName: "kurokumaft:nakime",
+        className: "nakime"
+    },
+    {
+        entityName: "kurokumaft:tamayo",
+        className: "tamayo"
+    }
 ]);
 
 export async function startKekkizyutuMonitoringMob(entity:Entity, className:string) {

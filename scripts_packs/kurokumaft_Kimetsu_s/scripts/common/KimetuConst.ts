@@ -74,6 +74,10 @@ export const kekkizyutuLists = Object.freeze([
     {item:"kurokumaft:douma_sensu",         msg:"item.kurokumaft:koori.name",},
     {item:"kurokumaft:kyokokukamusari",     msg:"item.kurokumaft:mikatuki.name",},
     {item:"kurokumaft:nichirintou_kaigaku", msg:"item.kurokumaft:kokurai.name",},
+    {item:"kurokumaft:nakime_biwa",         msg:"item.kurokumaft:kuukan.name",},
+    {item:"kurokumaft:susamaru_mari",       msg:"item.kurokumaft:susamaru_mari.name",},
+    {item:"kurokumaft:kouketunoya",         msg:"item.kurokumaft:kouketunoya.name",},
+    {item:"kurokumaft:wakuti",              msg:"item.kurokumaft:wakuti.name",},
 ]);
 
 export const NitirintouEquips = Object.freeze([

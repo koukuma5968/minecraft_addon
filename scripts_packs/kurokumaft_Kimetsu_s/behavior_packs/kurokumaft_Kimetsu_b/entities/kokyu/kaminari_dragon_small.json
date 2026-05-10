@@ -94,7 +94,7 @@
       
         "components": {
             "minecraft:type_family": {
-                "family": [ "inanimate", "kaminari_dragon", "arrow" ]
+                "family": [ "inanimate", "bullet", "kaminari_dragon", "arrow" ]
             },
             "minecraft:collision_box": {
                 "width": 0.8,

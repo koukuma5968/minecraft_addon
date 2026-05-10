@@ -10,7 +10,7 @@
         },
         "components": {
             "minecraft:type_family": {
-                "family": [ "obi" ]
+                "family": [ "obi", "bullet" ]
             },
             "minecraft:collision_box": {
                 "width": 2.5,

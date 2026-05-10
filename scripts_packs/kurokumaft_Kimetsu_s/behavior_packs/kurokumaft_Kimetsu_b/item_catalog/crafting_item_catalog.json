@@ -62,7 +62,11 @@
                             "kurokumaft:douma_sensu",
                             "kurokumaft:kyokokukamusari",
                             "kurokumaft:nichirintou_kaigaku",
-                            "kurokumaft:gyokko_tubo"
+                            "kurokumaft:gyokko_tubo",
+                            "kurokumaft:nakime_biwa",
+                            "kurokumaft:susamaru_mari",
+                            "kurokumaft:kouketunoya",
+                            "kurokumaft:wakuti"
                         ]
                     },
                     {
@@ -166,7 +170,8 @@
                         "items": [
                             "kurokumaft:nezuko_mask",
                             "kurokumaft:daki_kanzashi",
-                            "kurokumaft:douma_boushi"
+                            "kurokumaft:douma_boushi",
+                            "kurokumaft:tamayo_kanzasi"
                         ]
                     },
                     {
@@ -187,7 +192,12 @@
                             "kurokumaft:urogi_zyuzu",
                             "kurokumaft:zouhakuten_taiko",
                             "kurokumaft:douma_haori",
-                            "kurokumaft:kokushibou_kimono"
+                            "kurokumaft:kokushibou_kimono",
+                            "kurokumaft:kaigaku_haori_soldier_jacket",
+                            "kurokumaft:susamaru_haori",
+                            "kurokumaft:yahaba_kimono",
+                            "kurokumaft:nakime_kimono",
+                            "kurokumaft:tamayo_kimono"
                         ]
                     },
                     {
@@ -205,7 +215,10 @@
                             "kurokumaft:urogi_hakama",
                             "kurokumaft:zouhakuten_hakama",
                             "kurokumaft:douma_hakama",
-                            "kurokumaft:kokushibou_hakama"
+                            "kurokumaft:kokushibou_hakama",
+                            "kurokumaft:kaigaku_pants",
+                            "kurokumaft:susamaru_kimono",
+                            "kurokumaft:yahaba_zyuzu"
                         ]
                     },
                     {
@@ -218,7 +231,12 @@
                             "kurokumaft:akaza_ashiwa",
                             "kurokumaft:daki_geta",
                             "kurokumaft:douma_boots",
-                            "kurokumaft:kokushibou_tabi"
+                            "kurokumaft:kokushibou_tabi",
+                            "kurokumaft:kaigaku_tabi",
+                            "kurokumaft:susamaru_tabi",
+                            "kurokumaft:yahaba_tabi",
+                            "kurokumaft:nakime_tabi",
+                            "kurokumaft:tamayo_tabi"
                         ]
                     }
                 ]
@@ -276,14 +294,6 @@
                         },
                         "items": [
                             "kurokumaft:wisteria_flowers_leaves"
-                        ]
-                    },
-                    {
-                        "group_identifier": {
-                            "name": "minecraft:itemGroup.name.spawn_egg"
-                        },
-                        "items": [
-                            "kurokumaft:tanjiro_spawn_egg"
                         ]
                     }
                 ]

@@ -7,6 +7,13 @@
          "sounds" : [
             "sounds/item/trident/pierce3"
          ]
+      },
+      "kekkizyutu.biwa" : {
+         "max_distance" : null,
+         "min_distance" : null,
+         "sounds" : [
+            "sounds/kekkizyutu/biwa"
+         ]
       }
    }
 }

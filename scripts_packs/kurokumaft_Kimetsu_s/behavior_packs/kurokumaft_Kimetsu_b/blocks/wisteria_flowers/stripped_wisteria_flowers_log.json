@@ -1,11 +1,11 @@
 {
-	"format_version": "1.21.50",
+	"format_version": "1.26.10",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:stripped_wisteria_flowers_log",
 			"menu_category": {
 				"category": "nature"
-            },
+			},
 			"traits": {
 				"minecraft:placement_position": {
 					"enabled_states": ["minecraft:block_face"]

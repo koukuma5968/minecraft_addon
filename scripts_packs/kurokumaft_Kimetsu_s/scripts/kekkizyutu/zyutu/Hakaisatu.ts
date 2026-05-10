@@ -56,7 +56,7 @@ export class Hakaisatu extends ZytuComonClass {
             if (entity instanceof Player) {
                 entity.onScreenDisplay.setActionBar({rawtext:[{translate:"msg.kurokumaft:kekkizyutu_hakai2.value"}]});
             }
-            const kushiki = shooting(entity, "kurokumaft:kushiki", 0, 3, undefined);
+            const kushiki = shooting(entity, "kurokumaft:kushiki", 0, 3, undefined, 0);
 
             system.runTimeout(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
