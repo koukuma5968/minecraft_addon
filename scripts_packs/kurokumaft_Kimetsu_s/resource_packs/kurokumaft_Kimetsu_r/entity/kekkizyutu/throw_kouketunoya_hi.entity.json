@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:throw_kouketunoya_hi",
+        "materials": {
+            "default": "arrow"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/yahaba/kouketunoya_hi"
+          },
+          "geometry": {
+            "default": "geometry.kouketunoya_hi"
+          },
+          "animations": {
+            "shot": "animation.kouketunoya.shot"
+          },
+          "scripts": {
+            "animate": [
+              "shot"
+            ]
+          },
+          "render_controllers": [ "controller.render.arrow" ]
+        }
+    }
+  }
+  

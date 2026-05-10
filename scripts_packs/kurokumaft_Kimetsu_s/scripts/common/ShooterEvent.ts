@@ -27,8 +27,9 @@ function throwing(entity:Entity, item:ItemStack, throwItem:string, ranNum:number
  * @param {string} throwItem
  * @param {number} ranNum
  * @param {string} event
+ * @param {number} uncertainty
  */
-function shooting(entity:Entity, throwItem:string, ranNum:number, seepd:number, event:string | undefined) {
+function shooting(entity:Entity, throwItem:string, ranNum:number, seepd:number, event:string | undefined, uncertainty:number) {
 
     const distance = getLookLocationDistancePitch(entity.getRotation(), 1, ranNum);
     const bulet = entity.dimension.spawnEntity(throwItem, getDistanceLocation(
@@ -51,7 +52,7 @@ function shooting(entity:Entity, throwItem:string, ranNum:number, seepd:number, 
         z:distance.z * seepd
     },
     {
-        uncertainty: ranNum
+        uncertainty: uncertainty
     });
 
     return bulet;

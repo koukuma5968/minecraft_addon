@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.nakime_fusuma.guard": {
+			"loop": "hold_on_last_frame"
+		},
+		"animation.nakime_fusuma.gate": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.25,
+			"bones": {
+				"left": {
+					"rotation": [-90, 0, 0],
+					"position": {
+						"0.0": [0, 0, -16],
+						"0.25": [16, 0, -16]
+					}
+				},
+				"right": {
+					"rotation": [-90, 0, 0],
+					"position": {
+						"0.0": [0, 0, -16],
+						"0.25": [-16, 0, -16]
+					}
+				},
+				"gate": {
+					"rotation": [-90, 0, 0],
+					"position": [0, 0, -16]
+				}
+			}
+		}
+	}
+}

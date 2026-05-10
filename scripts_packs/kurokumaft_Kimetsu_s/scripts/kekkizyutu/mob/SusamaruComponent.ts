@@ -1,10 +1,11 @@
 import { Entity, system } from "@minecraft/server";
 import { weightChoice } from "../../common/KimetuCommonUtil";
 import { KekkizyutuMobUseComponent } from "../KekkizyutuUseComponent";
-import { Bakketu } from "../zyutu/Bakketu";
+import { Mari } from "../zyutu/Mari";
 
 const susamarukkizyutuLists = weightChoice([
-    { item: 1 , weight: 100 },
+    { item: 1 , weight: 80 },
+    { item: 2 , weight: 20 },
 ]);
 
 /**
@@ -43,13 +44,22 @@ export class SusamaruComponent implements KekkizyutuMobUseComponent {
 
     private kokyuUse(entity:Entity, kata:number) {
 
-        const bakketu = new Bakketu();
+        const mari = new Mari();
 
         try {
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
-                    bakketu.bakketu(entity);
+                    mari.mari(entity);
+                    system.waitTicks(80).then(() => {
+                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                    }).catch((error: any) => {
+                    });
+                break;
+                case 2 :
+                    entity.triggerEvent("kurokumaft:attack_stop");
+                    mari.mari(entity);
                     system.waitTicks(80).then(() => {
                         entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
                         entity.triggerEvent("kurokumaft:kekkizyutu_end");

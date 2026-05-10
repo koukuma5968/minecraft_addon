@@ -1,0 +1,118 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.rampos.action": {
+			"initial_state": "wait",
+			"states": {
+				"wait": {
+					"animations": ["wait"],
+					"transitions": [
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"jump_attack": "query.property('kurokumaft:mh_action') == 'jump_attack'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"blow": "query.property('kurokumaft:mh_action') == 'blow'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"intimidation": "query.property('kurokumaft:mh_action') == 'intimidation'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"action_wait": {
+					"animations": ["action_wait"],
+					"transitions": [
+						{"wait": "query.all_animations_finished"}
+					]
+				},
+				"walk": {
+					"animations": ["walk"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"jump_attack": "query.property('kurokumaft:mh_action') == 'jump_attack'"},
+						{"blow": "query.property('kurokumaft:mh_action') == 'blow'"},
+						{"intimidation": "query.property('kurokumaft:mh_action') == 'intimidation'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"jump_attack": {
+					"animations": ["jump_attack"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"intimidation": "query.property('kurokumaft:mh_action') == 'intimidation'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"blow": "query.property('kurokumaft:mh_action') == 'blow'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"attack": {
+					"animations": ["attack"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"intimidation": "query.property('kurokumaft:mh_action') == 'intimidation'"},
+						{"jump_attack": "query.property('kurokumaft:mh_action') == 'jump_attack'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"blow": "query.property('kurokumaft:mh_action') == 'blow'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"damage": {
+					"animations": ["damage"],
+					"transitions": [
+						{"action_wait": "query.all_animations_finished"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"blow": "query.property('kurokumaft:mh_action') == 'blow'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"blow": {
+					"animations": ["blow"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"intimidation": "query.property('kurokumaft:mh_action') == 'intimidation'"},
+						{"jump_attack": "query.property('kurokumaft:mh_action') == 'jump_attack'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"intimidation": {
+					"animations": ["intimidation"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"jump_attack": "query.property('kurokumaft:mh_action') == 'jump_attack'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"blow": "query.property('kurokumaft:mh_action') == 'blow'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"dizziness": {
+					"animations": ["dizziness"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"jump_attack": "query.property('kurokumaft:mh_action') == 'jump_attack'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"blow": "query.property('kurokumaft:mh_action') == 'blow'"}
+					]
+				},
+				"dai": {
+					"animations": ["dai"]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"resource_pack_name": "CraftersHunter_Resource_Pack",
+	"texture_name": "atlas.terrain",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"kurokumaft:crystal_earth": {
+			"textures": "textures/kurokumaft/blocks/ore/crystal_earth"
+		},
+		"kurokumaft:macalite_ore": {
+			"textures": "textures/kurokumaft/blocks/ore/macalite_ore"
+		},
+		"kurokumaft:whetstone": {
+			"textures": "textures/kurokumaft/blocks/other/whetstone"
+		},
+		"kurokumaft:introduction_recipe_book": {
+			"textures": "textures/kurokumaft/blocks/other/introduction_recipe_book"
+		},
+
+		"kurokumaft:mushroom_mycelium": {
+			"textures": "textures/kurokumaft/blocks/plants/mushroom_mycelium"
+		},
+		"kurokumaft:blue_mushroom": {
+			"textures": "textures/kurokumaft/blocks/plants/blue_mushroom"
+		},
+		"kurokumaft:specialty_mushroom": {
+			"textures": "textures/kurokumaft/blocks/plants/specialty_mushroom"
+		},
+		"kurokumaft:mandragora": {
+			"textures": "textures/kurokumaft/blocks/plants/mandragora"
+		},
+
+		"kurokumaft:medicinal_plants_stage_0": {
+			"textures": "textures/kurokumaft/blocks/plants/medicinal/medicinal_plants_stage_0"
+		},
+		"kurokumaft:medicinal_plants_stage_1": {
+			"textures": "textures/kurokumaft/blocks/plants/medicinal/medicinal_plants_stage_1"
+		},
+		"kurokumaft:medicinal_plants_stage_2": {
+			"textures": "textures/kurokumaft/blocks/plants/medicinal/medicinal_plants_stage_2"
+		},
+		"kurokumaft:medicinal_plants_stage_3": {
+			"textures": "textures/kurokumaft/blocks/plants/medicinal/medicinal_plants_stage_3"
+		},
+
+		"kurokumaft:detoxifying_plants_stage_0": {
+			"textures": "textures/kurokumaft/blocks/plants/detoxifying/detoxifying_plants_stage_0"
+		},
+		"kurokumaft:detoxifying_plants_stage_1": {
+			"textures": "textures/kurokumaft/blocks/plants/detoxifying/detoxifying_plants_stage_1"
+		},
+		"kurokumaft:detoxifying_plants_stage_2": {
+			"textures": "textures/kurokumaft/blocks/plants/detoxifying/detoxifying_plants_stage_2"
+		},
+		"kurokumaft:detoxifying_plants_stage_3": {
+			"textures": "textures/kurokumaft/blocks/plants/detoxifying/detoxifying_plants_stage_3"
+		}
+
+	}
+}

@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "kurokumaft:extra_virgin_olive_oil"
+    },
+    "tags": [ "millstone" ],
+    "ingredients": [
+      {
+        "item": "kurokumaft:olive_green"
+      },
+      {
+        "item": "minecraft:glass_bottle"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "kurokumaft:olive_green"
+      }
+    ],
+    "result": {
+      "item": "kurokumaft:extra_virgin_olive_oil"
+    }
+  }
+}

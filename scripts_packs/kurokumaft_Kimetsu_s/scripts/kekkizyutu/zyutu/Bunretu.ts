@@ -22,7 +22,7 @@ export class Bunretu extends ZytuComonClass {
             const filter = addOrgeFilter(0, getDistanceLocation(entity.location, distance), 4, entity.id);
             this.kokyuApplyEffect(entity, filter, 10, 5, "minecraft:nausea");
 
-            const ultrasonic = shooting(entity, "kurokumaft:urogi_ultrasonic", 0, 3, undefined);
+            const ultrasonic = shooting(entity, "kurokumaft:urogi_ultrasonic", 0, 3, undefined, 0);
             system.waitTicks(10).then(() => {
                 entity.setProperty("kurokumaft:kokyu_use", false);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
@@ -242,7 +242,7 @@ export class Bunretu extends ZytuComonClass {
                         filterL.excludeFamilies?.push("tokage");
                         this.kokyuApplyEffect(entity, filterL, 10, 5, "minecraft:nausea");
 
-                        const ultrasonic = shooting(tokageL, "kurokumaft:urogi_ultrasonic", 0, 3, undefined);
+                        const ultrasonic = shooting(tokageL, "kurokumaft:urogi_ultrasonic", 0, 3, undefined, 0);
                         system.runTimeout(() => {
                             if (ultrasonic !== undefined && ultrasonic.id !== undefined) {
                                 ultrasonic.remove();

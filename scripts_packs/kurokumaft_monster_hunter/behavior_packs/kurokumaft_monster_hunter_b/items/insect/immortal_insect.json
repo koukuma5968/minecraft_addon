@@ -1,0 +1,25 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:immortal_insect_item",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_materials"
+        ]
+      },
+      "minecraft:icon": "kurokumaft:immortal_insect",
+      "minecraft:display_name": {
+				"value": "item.insect.kurokumaft:immortal_insect.name"
+			},
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:rarity": "common"
+    }
+  }
+}
+

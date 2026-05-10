@@ -1,0 +1,18 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:macalite",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.ore.kurokumaft:macalite.name"
+			},
+      "minecraft:icon": "kurokumaft:macalite",
+      "minecraft:rarity": "common"
+    }
+  }
+}

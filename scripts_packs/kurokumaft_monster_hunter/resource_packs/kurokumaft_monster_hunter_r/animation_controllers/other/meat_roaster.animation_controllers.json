@@ -1,0 +1,20 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.meat_roaster.roast": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"roast": "query.property('kurokumaft:mh_action') == 'roast'"}
+					]
+				},
+				"roast": {
+					"animations": ["roast"],
+					"transitions": [
+						{"default": "query.property('kurokumaft:mh_action') == 'none'"}
+					]
+				}
+			}
+		}
+	}
+}

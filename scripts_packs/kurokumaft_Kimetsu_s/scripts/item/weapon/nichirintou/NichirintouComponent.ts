@@ -1,5 +1,5 @@
-import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, world, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot, ContainerSlot } from "@minecraft/server";
-import { KokyuObjects, KokyuObject, kokyuClassRecord } from "../NichirintouTypes";
+import { ItemCustomComponent, ItemStack, ItemComponentUseEvent, Player, world, EntityComponentTypes, EntityEquippableComponent, EquipmentSlot } from "@minecraft/server";
+import { KokyuObjects, KokyuObject, changeKokyuKata, useAttackKokyuKata, releaseAttackKata } from "../NichirintouTypes";
 
 export class NichirintouComponent implements ItemCustomComponent {
 
@@ -11,24 +11,15 @@ export class NichirintouComponent implements ItemCustomComponent {
         if (player.isSneaking) {
             const nichirintou = player.getProperty("kurokumaft:nichirintou_type") as number;
             const object = KokyuObjects.find(ob => ob.type === nichirintou) as KokyuObject;
-            const kokyuClass = kokyuClassRecord[object.className];
-            const kokyuObject = new kokyuClass();
-            kokyuObject.changeKata(player);
+            changeKokyuKata(player, object.className);
             return;
         } else {
             if (!player.getProperty("kurokumaft:kokyu_use")) {
                 const equippable = player.getComponent(EntityComponentTypes.Equippable) as EntityEquippableComponent;
                 const mainHand = equippable.getEquipment(EquipmentSlot.Mainhand);
                 if (mainHand !== undefined) {
-
                     const object = KokyuObjects.find(ob => ob.itemName === itemStack.typeId) as KokyuObject;
-                    // const nichirintou = player.getProperty("kurokumaft:nichirintou_type") as number;
-                    // const object = KokyuObjects.find(ob => ob.type === nichirintou) as KokyuObject;
-                    const kokyuClass = kokyuClassRecord[object.className];
-                    const kokyuObject = new kokyuClass();
-                    player.setProperty("kurokumaft:kokyu_use", true);
-                    player.setProperty("kurokumaft:kokyu_particle", true);
-                    kokyuObject.useAttackKata(player, itemStack);
+                    useAttackKokyuKata(player, itemStack, object.className);
                 }
             }
    
@@ -36,3 +27,18 @@ export class NichirintouComponent implements ItemCustomComponent {
     }
 
 }
+
+// アイテム右クリックリリース後
+world.afterEvents.itemReleaseUse.subscribe(event => {
+    const player = event.source;
+    const item = event.itemStack;
+    const duration = event.useDuration;
+    const nichirintou = player.getProperty("kurokumaft:nichirintou_type");
+    if (item !== undefined && nichirintou !== undefined && nichirintou !== 0) {
+        if (player.getProperty("kurokumaft:kokyu_use")) {
+            const object = KokyuObjects.find(ob => ob.type === nichirintou) as KokyuObject;
+            releaseAttackKata(player, item, duration, object.className);
+        }
+    }
+});
+

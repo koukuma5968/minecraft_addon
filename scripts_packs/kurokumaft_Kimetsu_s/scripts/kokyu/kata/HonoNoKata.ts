@@ -127,7 +127,7 @@ export class HonoNoKata extends KataComonClass {
                 ItemDurabilityDamage(entity, itemStack);
             }
         }
-        const dragon = shooting(entity, "kurokumaft:hono_tiger", 0, 3, undefined);
+        const dragon = shooting(entity, "kurokumaft:hono_tiger", 0, 3, undefined, 0);
 
         system.waitTicks(10).then(() => {
             entity.setProperty("kurokumaft:kokyu_use", false);

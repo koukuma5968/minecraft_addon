@@ -1,0 +1,72 @@
+{
+	"format_version": "1.8.0",
+	"geometry.armor.hunter_grieve_guy.base": {
+		"texturewidth": 64,
+		"textureheight": 32,
+		"visible_bounds_width": 3,
+		"visible_bounds_height": 2,
+		"visible_bounds_offset": [0, 1, 0],
+		"bones": [
+			{
+				"name": "waist",
+				"pivot": [0, 12, 0]
+			},
+			{
+				"name": "body",
+				"parent": "waist",
+				"pivot": [0, 24, 0]
+			},
+			{
+				"name": "rightLeg",
+				"parent": "body",
+				"pivot": [-1.9, 12, 0],
+				"cubes": [
+					{"origin": [-4.4, 4, -2.5], "size": [5, 3, 5], "uv": [0, 1], "inflate": -0.25},
+					{"origin": [-3.9, 0, -2], "size": [4, 12, 4], "uv": [0, 16]}
+				]
+			},
+			{
+				"name": "leftLeg",
+				"parent": "body",
+				"pivot": [1.9, 12, 0],
+				"mirror": true,
+				"cubes": [
+					{"origin": [-0.1, 0, -2], "size": [4, 12, 4], "uv": [0, 16]},
+					{"origin": [-0.6, 4, -2.5], "size": [5, 3, 5], "uv": [0, 1], "inflate": -0.25}
+				]
+			}
+		]
+	},
+	"geometry.armor.hunter_grieve_guy:geometry.armor.hunter_grieve_guy.base": {
+		"bones": [
+			{
+				"name": "rightLeg",
+				"inflate": 0.6
+			},
+			{
+				"name": "leftLeg",
+				"inflate": 0.6
+			},
+			{
+				"name": "head",
+				"reset": true
+			},
+			{
+				"name": "hat",
+				"reset": true
+			},
+			{
+				"name": "body",
+				"reset": true
+			},
+			{
+				"name": "rightArm",
+				"reset": true
+			},
+			{
+				"name": "leftArm",
+				"reset": true
+			}
+		]
+	}
+}

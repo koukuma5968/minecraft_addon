@@ -1,0 +1,29 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "kurokumaft:nakime_fusuma",
+        "materials": {
+            "default": "armor_stand"
+          },
+          "textures": {
+            "default": "textures/kurokumaft/models/kekkizyutu/nakime/nakime_fusuma"
+          },
+          "geometry": {
+            "default": "geometry.nakime_fusuma"
+          },
+          "animations": {
+            "zyutu": "controller.animation.nakime_fusuma.zyutu",
+            "guard": "animation.nakime_fusuma.guard",
+            "gate": "animation.nakime_fusuma.gate"
+          },
+          "scripts": {
+            "animate": [
+              "zyutu"
+            ]
+          },
+          "render_controllers": [ "controller.render.armor_stand" ]
+        }
+    }
+  }
+  

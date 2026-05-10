@@ -10,22 +10,6 @@
 				}
 			}
 		},
-		"animation.dagger.wield_first_person_eat": {
-			"loop": true,
-			"animation_length": 0.25,
-			"bones": {
-				"dagger": {
-					"rotation": {
-						"0.0": [-122.08138, 3.51326, 9.26125],
-						"0.25": [-122.08138, 3.51326, 9.26125]
-					},
-					"position": {
-						"0.0": [10, 2, 5],
-						"0.25": [9, -3, 5]
-					}
-				}
-			}
-		},
 		"animation.dagger.wield_first_person_raise": {
 			"loop": true,
 			"bones": {
@@ -74,6 +58,19 @@
 				"dagger": {
 					"rotation": [-172.66151, 4.39976, -177.66262],
 					"position": [-0.7, -2, 11.5]
+				}
+			}
+		},
+		"animation.dagger.wield_first_person_eat": {
+			"loop": true,
+			"animation_length": 0.25,
+			"bones": {
+				"dagger": {
+					"rotation": [-69.652, -8.5123, 26.8761],
+					"position": {
+						"0.0": [-1, -6, -4],
+						"0.25": [-1, -3, -4]
+					}
 				}
 			}
 		},

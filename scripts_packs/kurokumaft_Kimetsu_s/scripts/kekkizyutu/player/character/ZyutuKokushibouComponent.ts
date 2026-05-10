@@ -8,6 +8,8 @@ import { NomalAttack } from "../../../kokyu/kata/NomalAttack";
  * 血気術（黒死牟）
  */
 export class ZyutuKokushibouComponent implements KekkizyutuUseComponent {
+
+    tuki = new TukiNoKataZyutu();
     /**
      * 呼吸型変更
      * @param {Player} player
@@ -44,39 +46,38 @@ export class ZyutuKokushibouComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const tuki = new TukiNoKataZyutu();
 
         try {
             switch (kata) {
                 case 2 :
-                    tuki.niNoKata(entity);
+                    this.tuki.niNoKata(entity);
                 break;
                 case 3 :
-                    tuki.sanNoKata(entity);
+                    this.tuki.sanNoKata(entity);
                 break;
                 case 5 :
-                    tuki.goNoKata(entity);
+                    this.tuki.goNoKata(entity);
                 break;
                 case 6 :
-                    tuki.rokuNoKata(entity);
+                    this.tuki.rokuNoKata(entity);
                 break;
                 case 7 :
-                    tuki.shitiNoKata(entity);
+                    this.tuki.shitiNoKata(entity);
                 break;
                 case 8 :
-                    tuki.hachiNoKata(entity);
+                    this.tuki.hachiNoKata(entity);
                 break;
                 case 9 :
-                    tuki.kuNoKata(entity);
+                    this.tuki.kuNoKata(entity);
                 break;
                 case 10 :
-                    tuki.zyuNoKata(entity);
+                    this.tuki.zyuNoKata(entity);
                 break;
                 case 14 :
-                    tuki.zyushiNoKata(entity);
+                    this.tuki.zyushiNoKata(entity);
                 break;
                 case 16 :
-                    tuki.zyurokuNoKata(entity);
+                    this.tuki.zyurokuNoKata(entity);
                 break;
             }
         } catch (error: any) {
@@ -87,13 +88,12 @@ export class ZyutuKokushibouComponent implements KekkizyutuUseComponent {
 
     releaseAttackZyutu(entity: Entity): void {
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const tuki = new TukiNoKataZyutu();
 
         try {
 
             switch (kata) {
                 case 1 :
-                    tuki.ichiNoKata(entity);
+                    this.tuki.ichiNoKata(entity);
                 break;
             }
         } catch (error: any) {

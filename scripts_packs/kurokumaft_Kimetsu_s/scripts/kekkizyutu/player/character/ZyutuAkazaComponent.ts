@@ -7,6 +7,8 @@ import { Hakaisatu } from "../../zyutu/Hakaisatu";
  * 血気術（猗窩座）
  */
 export class ZyutuAkazaComponent implements KekkizyutuUseComponent {
+
+    hakaisatu = new Hakaisatu();
     /**
      * 変更
      * @param {Player} player
@@ -43,35 +45,34 @@ export class ZyutuAkazaComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const hakaisatu = new Hakaisatu();
 
         switch (kata) {
             case 1 :
-                hakaisatu.rashin(entity);
+                this.hakaisatu.rashin(entity);
             break;
             case 2 :
-                hakaisatu.kushiki(entity);
+                this.hakaisatu.kushiki(entity);
             break;
             case 3 :
-                hakaisatu.ranshiki(entity);
+                this.hakaisatu.ranshiki(entity);
             break;
             case 5 :
-                hakaisatu.kamurosakiwari(entity);
+                this.hakaisatu.kamurosakiwari(entity);
             break;
             case 6 :
-                hakaisatu.ryusengunkou(entity);
+                this.hakaisatu.ryusengunkou(entity);
             break;
             case 7 :
-                hakaisatu.hiyuuseisenrin(entity);
+                this.hakaisatu.hiyuuseisenrin(entity);
             break;
             case 8 :
-                hakaisatu.manyousenyanagi(entity);
+                this.hakaisatu.manyousenyanagi(entity);
             break;
             case 9 :
-                hakaisatu.kishinyaenshin(entity);
+                this.hakaisatu.kishinyaenshin(entity);
             break;
             case 10 :
-                hakaisatu.aoginranzankou(entity);
+                this.hakaisatu.aoginranzankou(entity);
             break;
         }
 
@@ -80,10 +81,9 @@ export class ZyutuAkazaComponent implements KekkizyutuUseComponent {
     releaseAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const hakaisatu = new Hakaisatu();
         switch (kata) {
             case 4 :
-                hakaisatu.messhiki(entity);
+                this.hakaisatu.messhiki(entity);
             break;
         }
     }

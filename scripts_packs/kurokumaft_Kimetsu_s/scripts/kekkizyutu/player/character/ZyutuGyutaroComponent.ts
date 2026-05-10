@@ -7,6 +7,8 @@ import { Tigama } from "../../zyutu/Tigama";
  * 血気術（妓夫太郎）
  */
 export class ZyutuGyutaroComponent implements KekkizyutuUseComponent {
+
+    tigama = new Tigama();
     /**
      * 変更
      * @param {Player} player
@@ -42,17 +44,16 @@ export class ZyutuGyutaroComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const tigama = new Tigama();
 
         switch (kata) {
             case 1 :
-                tigama.tobiTigama(entity);
+                this.tigama.tobiTigama(entity);
             break;
             case 2 :
-                tigama.bakkotyouryou(entity);
+                this.tigama.bakkotyouryou(entity);
             break;
             case 3 :
-                tigama.enzansenkai(entity);
+                this.tigama.enzansenkai(entity);
             break;
         }
 

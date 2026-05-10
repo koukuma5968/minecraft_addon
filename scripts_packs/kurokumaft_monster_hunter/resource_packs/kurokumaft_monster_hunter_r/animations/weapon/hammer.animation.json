@@ -1,0 +1,32 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.hammer.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"hammer": {
+					"rotation": [31.7653, 51.7263, -83.9499],
+					"position": [26, 15, 18]
+				}
+			}
+		},
+		"animation.hammer.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"hammer": {
+					"rotation": [90, 0, 0],
+					"position": [0, 23, -1]
+				}
+			}
+		},
+		"animation.hammer.model": {
+			"loop": true,
+			"bones": {
+				"hammer": {
+					"rotation": [-45, 0, 0],
+					"position": [0, -3, -10]
+				}
+			}
+		}
+	}
+}

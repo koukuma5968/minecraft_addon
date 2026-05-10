@@ -1,0 +1,39 @@
+{
+	"format_version": "1.26.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "kurokumaft:introduction_recipe_book",
+			"runtime_identifier": "minecraft:chest",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"tag:minecraft:is_axe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.3
+			},
+			"minecraft:collision_box": {
+				"origin": [-8,0,-8],
+				"size": [16,16,16]
+			},
+			"minecraft:selection_box": {
+				"origin": [-8,0,-8],
+				"size": [16,16,16]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 2
+			},
+			"minecraft:geometry": "geometry.recipe_book",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "kurokumaft:introduction_recipe_book",
+					"render_method": "alpha_test"
+				}
+			},
+			"kurokumaft:recipe_book_craft": {
+				"type": "introduction"
+			}
+		}
+	}
+}

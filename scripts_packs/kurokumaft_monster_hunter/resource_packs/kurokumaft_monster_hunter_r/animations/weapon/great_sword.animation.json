@@ -1,0 +1,41 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.great_sword.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"great_sword": {
+					"rotation": [-258.48689, 69.14798, 269.19516],
+					"position": [7, 24, 15]
+				}
+			}
+		},
+		"animation.great_sword.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"great_sword": {
+					"rotation": [87.5, 0, 0],
+					"position": [0, 22, 7]
+				}
+			}
+		},
+		"animation.great_sword.wait_first_person": {
+			"loop": true,
+			"bones": {
+				"great_sword": {
+					"rotation": [-345.98689, 69.14798, 269.19516],
+					"position": [7, 24, 15]
+				}
+			}
+		},
+		"animation.great_sword.wait_third_person": {
+			"loop": true,
+			"bones": {
+				"great_sword": {
+					"rotation": [-21.3181, 75.15703, 98.84908],
+					"position": [-6, 39, 1]
+				}
+			}
+		}
+	}
+}

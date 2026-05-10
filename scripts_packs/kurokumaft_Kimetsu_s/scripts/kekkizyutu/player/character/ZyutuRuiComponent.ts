@@ -7,6 +7,8 @@ import { Koushi } from "../../zyutu/Koushi";
  * 血気術（累）
  */
 export class ZyutuRuiComponent implements KekkizyutuUseComponent {
+
+    koushi = new Koushi();
     /**
      * 変更
      * @param {Player} player
@@ -43,17 +45,16 @@ export class ZyutuRuiComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const koushi = new Koushi();
 
         switch (kata) {
             case 1 :
-                koushi.kokushirou(entity);
+                this.koushi.kokushirou(entity);
             break;
             case 2 :
-                koushi.kokushirinten(entity);
+                this.koushi.kokushirinten(entity);
             break;
             case 3 :
-                koushi.ayamekago(entity);
+                this.koushi.ayamekago(entity);
             break;
         }
 

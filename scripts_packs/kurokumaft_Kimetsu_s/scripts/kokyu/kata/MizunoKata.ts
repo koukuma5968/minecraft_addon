@@ -410,7 +410,7 @@ export class MizuNoKata extends KataComonClass {
             }
             entity.setProperty("kurokumaft:kokyu_chage", 10);
             system.waitTicks(10).then(() => {
-                const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, undefined);
+                const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, undefined, 0);
                 entity.setProperty("kurokumaft:kokyu_chage", 0);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 system.waitTicks(15).then(() => {
@@ -478,7 +478,7 @@ export class MizuNoKata extends KataComonClass {
         },4);
 
         system.waitTicks(2.5*TicksPerSecond).then(() => {
-            const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, undefined);
+            const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, undefined, 0);
             system.waitTicks(15).then(() => {
                 if (dragon.isValid) {
                     dragon.remove();
@@ -519,7 +519,7 @@ export class MizuNoKata extends KataComonClass {
             entity.setProperty("kurokumaft:kokyu_attack", false);
             entity.setProperty("kurokumaft:kokyu_chage", 10);
             system.waitTicks(10).then(() => {
-                const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, undefined);
+                const dragon = shooting(entity, "kurokumaft:mizu_dragon", 0, 3, undefined, 0);
                 entity.setProperty("kurokumaft:kokyu_chage", 0);
                 entity.setProperty("kurokumaft:kokyu_particle", false);
                 system.waitTicks(2*TicksPerSecond).then(() => {

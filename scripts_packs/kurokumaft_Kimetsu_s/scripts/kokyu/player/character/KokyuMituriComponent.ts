@@ -29,14 +29,15 @@ export class KokyuMituriComponent implements NichirintouUseComponent {
         }
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    koi = new KoiNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -44,20 +45,19 @@ export class KokyuMituriComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const koi = new KoiNoKata();
 
         switch (kata) {
             case 2 :
-                koi.niNoKata(player, itemStack);
+                this.koi.niNoKata(player, itemStack);
             break;
             case 3 :
-                koi.sanNoKata(player, itemStack);
+                this.koi.sanNoKata(player, itemStack);
             break;
             case 5 :
-                koi.goNoKata(player, itemStack);
+                this.koi.goNoKata(player, itemStack);
             break;
             case 6 :
-                koi.rokuNoKata(player, itemStack);
+                this.koi.rokuNoKata(player, itemStack);
             break;
         }
 
@@ -65,11 +65,10 @@ export class KokyuMituriComponent implements NichirintouUseComponent {
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const koi = new KoiNoKata();
 
         switch (kata) {
             case 1 :
-                koi.ichiNoKata(player, itemStack);
+                this.koi.ichiNoKata(player, itemStack);
             break;
         }
     }

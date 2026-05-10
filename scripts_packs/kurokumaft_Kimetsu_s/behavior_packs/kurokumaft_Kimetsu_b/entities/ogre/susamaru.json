@@ -19,6 +19,22 @@
           "default": 60,
           "client_sync": true
         },
+        "kurokumaft:kokyu_use": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kokyu_particle": {
+          "type": "bool",
+          "default": "false",
+          "client_sync": true
+        },
+        "kurokumaft:kekkizyutu_kata": {
+          "type": "int",
+          "range": [0, 2],
+          "default": 0,
+          "client_sync": true
+        },
         "kurokumaft:attack_level": {
           "type": "int",
           "range": [5, 8],
@@ -30,6 +46,15 @@
           "default": "false",
           "client_sync": false
         }
+      },
+      "scripts":{
+        "animate":[
+          "kekkizyutu"
+        ]
+      },
+      "animations":{
+        "kekkizyutu":"controller.animation.kekkizyutu.monitor",
+        "cooldown": "animation.cooldown.five_sec"
       }
     },
 
@@ -105,8 +130,8 @@
       },
       "minecraft:behavior.ranged_attack": {
         "priority": 0,
-        "attack_interval_min": 0.5,
-        "attack_interval_max": 1.5,
+        "attack_interval_min": 1.5,
+        "attack_interval_max": 3.5,
         "attack_radius": 32.0
       },
       "minecraft:shooter": {
@@ -119,11 +144,17 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+              "all_of": [
+                { "test": "has_tag", "subject": "other", "operator": "!=", "value": "exclusion_target" },
+                {
+                  "any_of": [
+                    {"test": "is_family","subject": "other","operator": "==","value": "ogre"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+                  ]
+                }
               ]
             },
             "max_dist": 64,
@@ -138,11 +169,17 @@
         "entity_types": [
           {
             "filters": {
-              "any_of": [
-                {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
-                {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
-                {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+              "all_of": [
+                { "test": "has_tag", "subject": "other", "operator": "!=", "value": "exclusion_target" },
+                {
+                  "any_of": [
+                    {"test": "has_tag", "subject": "other", "operator": "==", "value": "confusion_target"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_player"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "regimental_soldier"},
+                    {"test": "is_family","subject": "other","operator": "==","value": "villager"}
+                  ]
+                }
               ]
             },
             "max_dist": 64,
@@ -162,6 +199,11 @@
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
+          {
+            "filters": { "test": "has_tag", "subject": "self", "operator": "==", "value": "fuzi_poison" },
+            "cause": "wither",
+            "damage_per_tick": 20
+          },
           {
             "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
             "cause": "lava",

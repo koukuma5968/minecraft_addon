@@ -1,0 +1,181 @@
+{
+    "format_version": "1.21.60",
+    "minecraft:crafting_items_catalog": {
+        "categories": [
+            {
+                "category_name": "equipment",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:one_handed_sword_icon",
+                            "name": "itemGroup.kurokumaft:one_handed_sword.name"
+                        },
+                        "items": [
+                            "kurokumaft:hunter_knife",
+                            "kurokumaft:hunter_kalinga",
+                            "kurokumaft:bone_kuri"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:dual_blades_icon",
+                            "name": "itemGroup.kurokumaft:dual_blades.name"
+                        },
+                        "items": [
+                            "kurokumaft:twin_daggers",
+                            "kurokumaft:bone_sickle"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:great_sword_icon",
+                            "name": "itemGroup.kurokumaft:great_sword.name"
+                        },
+                        "items": [
+                            "kurokumaft:buster_sword",
+                            "kurokumaft:bone_blade"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:long_sword_icon",
+                            "name": "itemGroup.kurokumaft:long_sword.name"
+                        },
+                        "items": [
+                            "kurokumaft:iron_long_sword",
+                            "kurokumaft:bone_long_sword"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:hammer_icon",
+                            "name": "itemGroup.kurokumaft:hammer.name"
+                        },
+                        "items": [
+                            "kurokumaft:war_hammer",
+                            "kurokumaft:bone_fragment"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:mh_helm_icon",
+                            "name": "itemGroup.kurokumaft:mh.helm.name"
+                        },
+                        "items": [
+                            "kurokumaft:hunter_helm_guy"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:mh_armor_icon",
+                            "name": "itemGroup.kurokumaft:mh.armor.name"
+                        },
+                        "items": [
+                            "kurokumaft:hunter_mail_guy"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:mh_legs_icon",
+                            "name": "itemGroup.kurokumaft:mh.legs.name"
+                        },
+                        "items": [
+                            "kurokumaft:hunter_faure_guy"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:mh_feet_icon",
+                            "name": "itemGroup.kurokumaft:mh.feet.name"
+                        },
+                        "items": [
+                            "kurokumaft:hunter_grieve_guy"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:potion_icon",
+                            "name": "itemGroup.kurokumaft:mh.potion.name"
+                        },
+                        "items": [
+                            "kurokumaft:healing_potion",
+                            "kurokumaft:healing_potion_great",
+                            "kurokumaft:nutritional_supplement",
+                            "kurokumaft:nutritional_supplement_great",
+                            "kurokumaft:antidote",
+                            "kurokumaft:energy_booster"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:medicine_icon",
+                            "name": "itemGroup.kurokumaft:mh.medicine.name"
+                        },
+                        "items": [
+                            "kurokumaft:traditional_chinese_medicine",
+                            "kurokumaft:elixir",
+                            "kurokumaft:booster"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "items",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:mh_meat_icon",
+                            "name": "itemGroup.kurokumaft:mh.food.name"
+                        },
+                        "items": [
+                            "kurokumaft:mh_meat",
+                            "kurokumaft:mh_undercooked_meat",
+                            "kurokumaft:mh_crispy_meat",
+                            "kurokumaft:mh_burnt_meat"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:mh_ore_icon",
+                            "name": "itemGroup.kurokumaft:mh.ore.name"
+                        },
+                        "items": [
+                            "kurokumaft:crystal_earth",
+                            "kurokumaft:macalite"
+                        ]
+                    },
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:monster_materials_icon",
+                            "name": "itemGroup.kurokumaft:mh.monster_materials.name"
+                        },
+                        "items": [
+                            "kurokumaft:small_keel",
+                            "kurokumaft:middle_keel",
+                            "kurokumaft:kerubi_horn",
+                            "kurokumaft:rampos_scale",
+                            "kurokumaft:rampos_skin",
+                            "kurokumaft:rampos_fang"
+                        ]
+                    }
+                ]
+            },
+            {
+                "category_name": "nature",
+                "groups": [
+                    {
+                        "group_identifier": {
+                            "icon": "kurokumaft:mh_ore_icon",
+                            "name": "itemGroup.kurokumaft:mh.ore.block.name"
+                        },
+                        "items": [
+                            "kurokumaft:crystal_earth_block",
+                            "kurokumaft:macalite_ore"
+                        ]
+                    }
+                ]
+            }
+
+        ]
+    }
+}

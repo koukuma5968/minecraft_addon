@@ -7,6 +7,8 @@ import { KekkizyutuObjects, KekkizyutuObject } from "../../../item/weapon/Kekkiz
  * 血気術（）
  */
 export class ZyutuZouhakutenComponent implements KekkizyutuUseComponent {
+
+    bunretu = new Bunretu();
     /**
      * 変更
      * @param {Player} player
@@ -42,20 +44,19 @@ export class ZyutuZouhakutenComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const bunretu = new Bunretu();
 
         switch (kata) {
             case 1 :
-                bunretu.tokage(entity);
+                this.bunretu.tokage(entity);
             break;
             case 2 :
-                bunretu.kyoumeiraisatu(entity);
+                this.bunretu.kyoumeiraisatu(entity);
             break;
             case 3 :
-                bunretu.kyouatumeiha(entity);
+                this.bunretu.kyouatumeiha(entity);
             break;
             case 4 :
-                bunretu.mukengouzyu(entity);
+                this.bunretu.mukengouzyu(entity);
             break;
         }
 

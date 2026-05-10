@@ -1,0 +1,20 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:mushroom_specialty",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.plants.kurokumaft:mushroom_specialty.name"
+			},
+      "minecraft:icon": "kurokumaft:mushroom_specialty",
+      "minecraft:block_placer": {
+        "block": "kurokumaft:specialty_mushroom"
+      }
+    }
+  }
+}

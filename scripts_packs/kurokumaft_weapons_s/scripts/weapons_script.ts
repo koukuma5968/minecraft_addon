@@ -56,6 +56,14 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
         } else {
 //            target.nameTag = "entity.kurokumaft:bamboo_bag.name";
         }
+    } else {
+        const family = target.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+        if (family !== undefined && family.hasTypeFamily("ride_tool")) {
+            if (player.isSneaking) {
+                target.dimension.spawnItem(new ItemStack(target.typeId, 1), target.location);
+                target.remove();
+            }
+        }
     }
 });
 
@@ -353,3 +361,4 @@ world.afterEvents.entityHurt.subscribe(event => {
         resuscitationEquipment(hitEn);
     }
 });
+

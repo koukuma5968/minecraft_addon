@@ -54,6 +54,7 @@ import { MushiComponent } from "../../kokyu/mob/regimental/MushiComponent";
 import { OtoComponent } from "../../kokyu/mob/regimental/OtoComponent";
 import { TukiComponent } from "../../kokyu/mob/regimental/TukiComponent";
 import { KedamonoComponent } from "../../kokyu/mob/regimental/KedamonoComponent";
+import { Entity, ItemStack, Player } from "@minecraft/server";
 
 export interface KokyuObject {
     itemName:string,
@@ -63,36 +64,35 @@ export interface KokyuObject {
     className: string
 }
 
-export const kokyuClassRecord: Record<string, new () => NichirintouUseComponent> = {
-    nichirintou: NichirintouChoiceComponent,
-    tanjiro: KokyuTanjiroComponent,
-    zenitu: KokyuZenituComponent,
-    inosuke: KokyuInosukeComponent,
-    kanawo: KokyuKanawoComponent,
-    giyu: KokyuGiyuComponent,
-    shinobu: KokyuShinobuComponent,
-    kyouzyuro: KokyuKyouzyuroComponent,
-    sanemi: KokyuSanemiComponent,
-    gyoumei: KokyuGyoumeiComponent,
-    muitiro: KokyuMuitiroComponent,
-    tengen: KokyuTengenComponent,
-    obanai: KokyuObanaiComponent,
-    mituri: KokyuMituriComponent,
-    mizu: KokyuMizuComponent,
-    kaminari: KokyuKaminariComponent,
-    hi: KokyuHiComponent,
-    kedamono: KokyuKedamonoComponent,
-    hono: KokyuHonoComponent,
-    kaze: KokyuKazeComponent,
-    iwa: KokyuIwaComponent,
-    kasumi: KokyuKasumiComponent,
-    oto: KokyuOtoComponent,
-    hebi: KokyuHebiComponent,
-    koi: KokyuKoiComponent,
-    mushi: KokyuMushiComponent,
-    hana: KokyuHanaComponent,
-    tuki: KokyuTukiComponent
-};
+export const kokyuClassRecord = new Map<string, NichirintouUseComponent>();
+kokyuClassRecord.set("nichirintou", new NichirintouChoiceComponent());
+kokyuClassRecord.set("tanjiro", new KokyuTanjiroComponent());
+kokyuClassRecord.set("zenitu", new KokyuZenituComponent());
+kokyuClassRecord.set("inosuke", new KokyuInosukeComponent());
+kokyuClassRecord.set("kanawo", new KokyuKanawoComponent());
+kokyuClassRecord.set("giyu", new KokyuGiyuComponent());
+kokyuClassRecord.set("shinobu", new KokyuShinobuComponent());
+kokyuClassRecord.set("kyouzyuro", new KokyuKyouzyuroComponent());
+kokyuClassRecord.set("sanemi", new KokyuSanemiComponent());
+kokyuClassRecord.set("gyoumei", new KokyuGyoumeiComponent());
+kokyuClassRecord.set("muitiro", new KokyuMuitiroComponent());
+kokyuClassRecord.set("tengen", new KokyuTengenComponent());
+kokyuClassRecord.set("obanai", new KokyuObanaiComponent());
+kokyuClassRecord.set("mituri", new KokyuMituriComponent());
+kokyuClassRecord.set("mizu", new KokyuMizuComponent());
+kokyuClassRecord.set("kaminari", new KokyuKaminariComponent());
+kokyuClassRecord.set("hi", new KokyuHiComponent());
+kokyuClassRecord.set("kedamono", new KokyuKedamonoComponent());
+kokyuClassRecord.set("hono", new KokyuHonoComponent());
+kokyuClassRecord.set("kaze", new KokyuKazeComponent());
+kokyuClassRecord.set("iwa", new KokyuIwaComponent());
+kokyuClassRecord.set("kasumi", new KokyuKasumiComponent());
+kokyuClassRecord.set("oto", new KokyuOtoComponent());
+kokyuClassRecord.set("hebi", new KokyuHebiComponent());
+kokyuClassRecord.set("koi", new KokyuKoiComponent());
+kokyuClassRecord.set("mushi", new KokyuMushiComponent());
+kokyuClassRecord.set("hana", new KokyuHanaComponent());
+kokyuClassRecord.set("tuki", new KokyuTukiComponent());
 
 export const KokyuObjects = Object.freeze([
     {
@@ -296,36 +296,35 @@ export interface KokyuMobObject {
     className: string
 }
 
-export const KokyuMobClassRecord: Record<string, new () => KokyuMobUseComponent> = {
-    tanjiro: TanjiroComponent,
-    zenitu: ZenituComponent,
-    inosuke: InosukeComponent,
-    kanawo: KanawoComponent,
-    giyu: GiyuComponent,
-    shinobu:ShinobuComponent,
-    kyouzyuro:KyouzyuroComponent,
-    tengen:TengenComponent,
-    obanai:ObanaiComponent,
-    sanemi:SanemiComponent,
-    mituri:MituriComponent,
-    muitiro:MuitiroComponent,
-    gyoumei:GyoumeiComponent,
-    mizu:MizuComponent,
-    hi:HiComponent,
-    kaminari:KaminariComponent,
-    hono:HonoComponent,
-    kemono:KedamonoComponent,
-    mushi:MushiComponent,
-    hana:HanaComponent,
-    koi:KoiComponent,
-    oto:OtoComponent,
-    kaze:KazeComponent,
-    iwa:IwaComponent,
-    hebi:HebiComponent,
-    kasumi:KasumiComponent,
-    tuki:TukiComponent
+export const KokyuMobClassRecord = new Map<string, KokyuMobUseComponent>();
+KokyuMobClassRecord.set("tanjiro", new TanjiroComponent());
+KokyuMobClassRecord.set("zenitu", new ZenituComponent());
+KokyuMobClassRecord.set("inosuke", new InosukeComponent());
+KokyuMobClassRecord.set("kanawo", new KanawoComponent());
+KokyuMobClassRecord.set("giyu", new GiyuComponent());
+KokyuMobClassRecord.set("shinobu", new ShinobuComponent());
+KokyuMobClassRecord.set("kyouzyuro", new KyouzyuroComponent());
+KokyuMobClassRecord.set("tengen", new TengenComponent());
+KokyuMobClassRecord.set("obanai", new ObanaiComponent());
+KokyuMobClassRecord.set("sanemi", new SanemiComponent());
+KokyuMobClassRecord.set("mituri", new MituriComponent());
+KokyuMobClassRecord.set("muitiro", new MuitiroComponent());
+KokyuMobClassRecord.set("gyoumei", new GyoumeiComponent());
+KokyuMobClassRecord.set("mizu", new MizuComponent());
+KokyuMobClassRecord.set("hi", new HiComponent());
+KokyuMobClassRecord.set("kaminari", new KaminariComponent());
+KokyuMobClassRecord.set("hono", new HonoComponent());
+KokyuMobClassRecord.set("kemono", new KedamonoComponent());
+KokyuMobClassRecord.set("mushi", new MushiComponent());
+KokyuMobClassRecord.set("hana", new HanaComponent());
+KokyuMobClassRecord.set("koi", new KoiComponent());
+KokyuMobClassRecord.set("oto", new OtoComponent());
+KokyuMobClassRecord.set("kaze", new KazeComponent());
+KokyuMobClassRecord.set("iwa", new IwaComponent());
+KokyuMobClassRecord.set("hebi", new HebiComponent());
+KokyuMobClassRecord.set("kasumi", new KasumiComponent());
+KokyuMobClassRecord.set("tuki", new TukiComponent());
 
-};
 
 export const KokyuMobObjects = Object.freeze([
     {
@@ -437,3 +436,41 @@ export const KokyuMobObjects = Object.freeze([
         className: "tuki"
     },
 ]);
+
+export async function startKokyuMonitoringMob(entity:Entity, className:string) {
+    const KokyuClass = KokyuMobClassRecord.get(className);
+    if (KokyuClass !== undefined) {
+        KokyuClass.startMonitoring(entity);
+    }
+}
+
+export async function hitKokyuAttackKataMob(entity:Entity, className:string) {
+    const KokyuClass = KokyuMobClassRecord.get(className);
+    if (KokyuClass !== undefined) {
+        KokyuClass.hitAttackKata(entity);
+    }
+}
+
+export async function changeKokyuKata(player:Player, className:string) {
+    const kokyuClass = kokyuClassRecord.get(className);
+    if (kokyuClass !== undefined) {
+        kokyuClass.changeKata(player);
+    }
+}
+
+export async function useAttackKokyuKata(player:Player, itemStack:ItemStack ,className:string) {
+    const kokyuClass = kokyuClassRecord.get(className);
+    if (kokyuClass !== undefined) {
+        player.setProperty("kurokumaft:kokyu_use", true);
+        player.setProperty("kurokumaft:kokyu_particle", true);
+        kokyuClass.useAttackKata(player, itemStack);
+    }
+}
+
+export async function releaseAttackKata(player:Player, item:ItemStack, duration:number, className:string) {
+    const kokyuClass = kokyuClassRecord.get(className);
+    if (kokyuClass !==undefined) {
+        kokyuClass.releaseAttackKata(player, item, duration);
+    }
+   
+}

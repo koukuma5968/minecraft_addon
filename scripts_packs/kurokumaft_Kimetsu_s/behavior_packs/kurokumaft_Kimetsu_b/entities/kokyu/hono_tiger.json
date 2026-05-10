@@ -10,7 +10,7 @@
         },
         "components": {
             "minecraft:type_family": {
-                "family": [ "inanimate", "hono_tiger", "arrow" ]
+                "family": [ "inanimate", "bullet", "hono_tiger", "arrow" ]
             },
             "minecraft:collision_box": {
                 "width": 5.0,

@@ -1,0 +1,41 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:peeling_knife",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "kurokumaft:mh_other"
+        ]
+      },
+      "minecraft:cooldown": {
+        "category": "peeling_knife",
+        "duration": 0.5,
+        "type": "use"
+      },
+      "minecraft:damage": 1,
+      "minecraft:icon": "kurokumaft:peeling_knife",
+      "minecraft:display_name": {
+				"value": "item.other.kurokumaft:peeling_knife.name"
+			},
+      "minecraft:can_destroy_in_creative": false,
+      "minecraft:fire_resistant": {
+        "value": true
+      },
+      "minecraft:use_modifiers": {
+        "movement_modifier": 0.5,
+        "use_duration": 1
+      },
+      "minecraft:hand_equipped": true,
+      "minecraft:max_stack_size": 1,
+      "minecraft:rarity": "common",
+      "minecraft:should_despawn": false
+    }
+  }
+}
+

@@ -7,6 +7,8 @@ import { Koori } from "../../zyutu/Koori";
  * 血気術（童磨）
  */
 export class ZyutuDoumaComponent implements KekkizyutuUseComponent {
+
+    koori = new Koori();
     /**
      * 呼吸型変更
      * @param {Player} player
@@ -42,36 +44,35 @@ export class ZyutuDoumaComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const koori = new Koori();
 
         try {
             switch (kata) {
                 case 1 :
-                    koori.hasuhagoori(entity);
+                    this.koori.hasuhagoori(entity);
                 break;
                 case 2 :
-                    koori.karesonosizuri(entity);
+                    this.koori.karesonosizuri(entity);
                 break;
                 case 3 :
-                    koori.itegumori(entity);
+                    this.koori.itegumori(entity);
                 break;
                 case 4 :
-                    koori.tururenge(entity);
+                    this.koori.tururenge(entity);
                 break;
                 case 5 :
-                    koori.kanretunosirahime(entity);
+                    this.koori.kanretunosirahime(entity);
                 break;
                 case 6 :
-                    koori.fuyuzareturara(entity);
+                    this.koori.fuyuzareturara(entity);
                 break;
                 case 7 :
-                    koori.tirirenge(entity);
+                    this.koori.tirirenge(entity);
                 break;
                 case 8 :
-                    koori.kessyounomiko(entity);
+                    this.koori.kessyounomiko(entity);
                 break;
                 case 9 :
-                    koori.muhyousuirenbosatu(entity);
+                    this.koori.muhyousuirenbosatu(entity);
                 break;
             }
         } catch (error: any) {

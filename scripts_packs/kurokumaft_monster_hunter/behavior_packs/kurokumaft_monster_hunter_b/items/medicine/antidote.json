@@ -1,0 +1,36 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:antidote",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "kurokumaft:antidote",
+      "minecraft:display_name": {
+				"value": "item.medicine.kurokumaft:antidote.name"
+			},
+      "minecraft:max_stack_size": 10,
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 0
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 1
+      },
+      "kurokumaft:mh_use_item_effect": [
+        {
+          "type": "custom",
+          "name": "detoxifying",
+          "chance": 1,
+          "duration": 1,
+          "amplifier": 1,
+          "particle": "kurokumaft:mh_detoxifying"
+        }
+      ]
+    }
+  }
+}

@@ -31,7 +31,7 @@ export class Fryer implements BlockCustomComponent {
         const itemStack = equ.getEquipment(EquipmentSlot.Mainhand) as ItemStack;
         if (itemStack !== undefined) {
             if (block.matches("kurokumaft:fryer",{"kurokumaft:oil_type":"empty"})) {
-                setOilType(equ, itemStack, block);
+                setOilType(player, equ, itemStack, block);
             } else {
                 deepFlyEat(player, equ, itemStack, block);
             }
@@ -45,10 +45,11 @@ export class Fryer implements BlockCustomComponent {
  * @param {ItemStack} item
  * @param {Block} block
  */
-async function setOilType(equ: EntityEquippableComponent, item: ItemStack, block: Block) {
+async function setOilType(player: Player,  equ: EntityEquippableComponent, item: ItemStack, block: Block) {
 
-    if (item.typeId === "kurokumaft:olive_oil") {
-        equ.setEquipment(EquipmentSlot.Mainhand, new ItemStack(MinecraftItemTypes.GlassBottle, 1));
+    if (item.hasTag("kurokumaft:fryer_oil")) {
+        subtractionItem(player, item, EquipmentSlot.Mainhand, 1);
+        player.dimension.spawnItem(new ItemStack(MinecraftItemTypes.GlassBottle, 1), {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
         block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:oil_count" : 0, "kurokumaft:oil_type" : "olive"}));
     }
 
@@ -84,7 +85,7 @@ async function deepFlyEat(player: Player, equ: EntityEquippableComponent, item: 
         }
     } else {
         if (item.typeId === MinecraftItemTypes.GlassBottle) {
-            equ.setEquipment(EquipmentSlot.Mainhand, new ItemStack("kurokumaft:dirty_oil", 1));
+            player.dimension.spawnItem(new ItemStack("kurokumaft:dirty_oil", 1), {x:block.location.x+0.5,y:block.location.y,z:block.location.z+0.5});
             block.setPermutation(BlockPermutation.resolve(block.typeId, { "kurokumaft:oil_count" : 0, "kurokumaft:oil_type" : "empty"}));
         }
     }

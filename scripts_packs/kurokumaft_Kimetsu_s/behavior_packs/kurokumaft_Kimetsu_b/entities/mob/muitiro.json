@@ -99,15 +99,6 @@
           "speed_multiplier": 0.25
         }
       },
-      "kurokumaft:damage_clear": {
-        "minecraft:damage_sensor": {
-          "triggers": [
-            {
-              "deals_damage": "no"
-            }
-          ]
-        }
-      },
       "kurokumaft:nomal_damage": {
         "minecraft:damage_sensor": {
           "triggers": [
@@ -437,24 +428,10 @@
       },
 
       "kurokumaft:add_damage_clear": {
-        "sequence": [
-          {
-            "add": {
-              "component_groups": [
-                "kurokumaft:damage_clear"
-              ]
-            }
-          }
-        ]
       },
       "kurokumaft:remove_damage_clear": {
         "sequence": [
           {
-            "remove": {
-              "component_groups": [
-                "kurokumaft:damage_clear"
-              ]
-            },
             "add": {
               "component_groups": [
                 "kurokumaft:nomal_damage"

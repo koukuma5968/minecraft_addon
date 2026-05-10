@@ -1,0 +1,25 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.insect_net.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"insect_net": {
+					"rotation": [59.4199, 53.0907, -83.7923],
+					"position": [2, 22, 7],
+					"scale": 0.75
+				}
+			}
+		},
+		"animation.insect_net.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"insect_net": {
+					"rotation": [87.5, 0, 0],
+					"position": [0, 23, -4],
+					"scale": 0.5
+				}
+			}
+		}
+	}
+}

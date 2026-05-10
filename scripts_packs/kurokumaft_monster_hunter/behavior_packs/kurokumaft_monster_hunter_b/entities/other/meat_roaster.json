@@ -1,0 +1,92 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:meat_roaster",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+        "kurokumaft:mh_action": {
+          "type": "enum",
+          "values": ["none", "roast"],
+          "default": "none",
+          "client_sync": true
+        },
+        "kurokumaft:roast_state": {
+          "range": [ 0, 3 ],
+          "type": "int",
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "meat_roaster", "inanimate" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.8,
+        "height": 1.575
+      },
+      "minecraft:health": {
+        "value": 6,
+        "max": 6
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "deals_damage": "no_but_side_effects_apply"
+          }
+        ]
+      },
+      "minecraft:knockback_resistance": {
+        "value": 100
+      },
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "passenger_max_width": 1.375,
+        "interact_text": "action.interact.ride.meat_roaster",
+        "pull_in_entities": true,
+        "seats": [
+          {
+            "position": [ 0.0, 0.3, 1.6 ],
+            "min_rider_count": 0,
+            "max_rider_count": 1,
+            "rotate_rider_by": 180,
+            "lock_rider_rotation": 90
+          }
+        ]
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:persistent": {
+      },
+      "minecraft:is_stackable": {
+      },
+      "minecraft:is_collidable": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+    }
+  }
+}

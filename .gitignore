@@ -40,4 +40,10 @@
 /scripts_packs/kurokumaft_mashle/package-lock.json
 /scripts_packs/kurokumaft_mashle/README.md
 /scripts_packs/kurokumaft_mashle/.prettierrc.json
-
+/scripts_packs/kurokumaft_mashle/.vscode
+/scripts_packs/kurokumaft_monster_hunter/node_modules
+/scripts_packs/kurokumaft_monster_hunter/lib
+/scripts_packs/kurokumaft_monster_hunter/package-lock.json
+/scripts_packs/kurokumaft_monster_hunter/README.md
+/scripts_packs/kurokumaft_monster_hunter/.prettierrc.json
+/scripts_packs/kurokumaft_monster_hunter/.vscode

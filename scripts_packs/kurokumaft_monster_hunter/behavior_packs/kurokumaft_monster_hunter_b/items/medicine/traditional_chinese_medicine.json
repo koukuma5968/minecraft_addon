@@ -1,0 +1,44 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:traditional_chinese_medicine",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:icon": "kurokumaft:traditional_chinese_medicine",
+      "minecraft:display_name": {
+				"value": "item.medicine.kurokumaft:traditional_chinese_medicine.name"
+			},
+      "minecraft:max_stack_size": 10,
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 0
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 1
+      },
+      "kurokumaft:mh_use_item_effect": [
+        {
+          "type": "custom",
+          "name": "detoxifying",
+          "chance": 1,
+          "duration": 1,
+          "amplifier": 1,
+          "particle": "kurokumaft:mh_detoxifying"
+        },
+        {
+          "type": "custom",
+          "name": "instant_health",
+          "chance": 1,
+          "duration": 1,
+          "amplifier": 1,
+          "particle": "kurokumaft:mh_healing"
+        }
+      ]
+    }
+  }
+}

@@ -6,6 +6,8 @@ import { Bunretu } from "../../zyutu/Bunretu";
  * 血気術（うろぎ）
  */
 export class ZyutuUrogiComponent implements KekkizyutuUseComponent {
+
+    bunretu = new Bunretu();
     /**
      * 変更
      * @param {Player} player
@@ -27,11 +29,10 @@ export class ZyutuUrogiComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const bunretu = new Bunretu();
 
         switch (kata) {
             case 1 :
-                bunretu.ultrasonic(entity);
+                this.bunretu.ultrasonic(entity);
             break;
         }
 

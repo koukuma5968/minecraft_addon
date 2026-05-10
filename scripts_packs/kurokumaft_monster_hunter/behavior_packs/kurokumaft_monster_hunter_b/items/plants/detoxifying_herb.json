@@ -1,0 +1,35 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:detoxifying_herb",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.plants.kurokumaft:detoxifying_herb.name"
+			},
+      "minecraft:icon": "kurokumaft:detoxifying_herb",
+      "minecraft:use_animation":"eat",
+      "minecraft:food": {
+        "can_always_eat": true,
+        "nutrition": 1
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 2
+      },
+      "kurokumaft:mh_use_item_effect": [
+        {
+          "type": "custom",
+          "name": "detoxifying",
+          "chance": 0.6,
+          "duration": 1,
+          "amplifier": 1,
+          "particle": "kurokumaft:mh_detoxifying"
+        }
+      ]
+    }
+  }
+}

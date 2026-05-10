@@ -4,7 +4,7 @@
     "description": {
     "identifier": "kurokumaft:wooden_bucket_soy_sauce"
     },
-    "tags": [ "crafting_table" ],
+    "tags": [ "kitchen_table" ],
     "group": "wooden_bucket",
     "pattern": [
       "SKS",

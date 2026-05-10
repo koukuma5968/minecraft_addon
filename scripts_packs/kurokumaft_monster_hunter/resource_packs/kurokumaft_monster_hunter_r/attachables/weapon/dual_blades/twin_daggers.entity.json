@@ -1,0 +1,30 @@
+{
+  "format_version": "1.10",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "kurokumaft:twin_daggers",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/kurokumaft/models/weapon/dual_blades/twin_daggers",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.twin_daggers"
+      },
+      "animations": {
+        "wield": "controller.animation.weapon.wield",
+        "wield_first_person": "animation.dual_blades.wield_first_person",
+        "wield_third_person": "animation.dual_blades.wield_third_person"
+      },
+      "scripts": {
+        "animate": [
+          "wield"
+        ]
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

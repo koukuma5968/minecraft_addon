@@ -23,9 +23,10 @@
           ]
         },
         "animations": {
-          "scale": "animation.nichirintou_scale_twin",
+          "scale": "animation.nichirintou_scale_iwa_twin",
           "person": "controller.animation.nichirintou.person",
           "first": "animation.nichirintou_first_twin",
+          "third": "animation.nichirintou_third",
           "attack_con": "controller.animation.nichirintou.attack",
           "attack": "animation.nichirintou_first.two_attack",
 

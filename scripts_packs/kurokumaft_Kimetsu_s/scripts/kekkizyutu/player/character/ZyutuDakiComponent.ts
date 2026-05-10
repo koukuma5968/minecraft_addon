@@ -7,6 +7,8 @@ import { Obi } from "../../zyutu/Obi";
  * 血気術（堕姫）
  */
 export class ZyutuDakiComponent implements KekkizyutuUseComponent {
+
+    obi = new Obi();
     /**
      * 変更
      * @param {Player} player
@@ -43,20 +45,19 @@ export class ZyutuDakiComponent implements KekkizyutuUseComponent {
     useAttackZyutu(entity: Entity): void {
 
         const kata = entity.getProperty("kurokumaft:kekkizyutu_kata") as number;
-        const obi = new Obi();
 
         switch (kata) {
             case 1 :
-                obi.yokonagi(entity);
+                this.obi.yokonagi(entity);
             break;
             case 2 :
-                obi.barrage(entity);
+                this.obi.barrage(entity);
             break;
             case 3 :
-                obi.shot(entity);
+                this.obi.shot(entity);
             break;
             case 4 :
-                obi.yaeobigiri(entity);
+                this.obi.yaeobigiri(entity);
             break;
         }
 

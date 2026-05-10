@@ -30,14 +30,15 @@ export class KokyuKyouzyuroComponent implements NichirintouUseComponent {
 
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    hono = new HonoNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -45,20 +46,19 @@ export class KokyuKyouzyuroComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const hono = new HonoNoKata();
 
         switch (kata) {
             case 2 :
-                hono.niNoKata(player, itemStack);
+                this.hono.niNoKata(player, itemStack);
             break;
             case 3 :
-                hono.sanNoKata(player, itemStack);
+                this.hono.sanNoKata(player, itemStack);
             break;
             case 4 :
-                hono.shiNoKata(player, itemStack);
+                this.hono.shiNoKata(player, itemStack);
             break;
             case 5 :
-                hono.goNoKata(player, itemStack);
+                this.hono.goNoKata(player, itemStack);
             break;
         }
 
@@ -66,14 +66,13 @@ export class KokyuKyouzyuroComponent implements NichirintouUseComponent {
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const hono = new HonoNoKata();
 
         switch (kata) {
             case 1 :
-                hono.ichiNoKata(player, itemStack);
+                this.hono.ichiNoKata(player, itemStack);
             break;
             case 9 :
-                hono.kuNoKata(player, itemStack);
+                this.hono.kuNoKata(player, itemStack);
             break;
        }
     }

@@ -10,7 +10,7 @@
         },
         "components": {
             "minecraft:type_family": {
-                "family": [ "inanimate", "tuki_blead" ]
+                "family": [ "inanimate", "bullet", "tuki_blead" ]
             },
             "minecraft:collision_box": {
                 "width": 0.25,

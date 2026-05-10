@@ -1,10 +1,8 @@
 {
-	"format_version": "1.21.10",
+	"format_version": "1.26.10",
 	"minecraft:block": {
 		"description": {
 			"identifier": "kurokumaft:gyoumei_skull",
-			"is_experimental": false,
-            "register_to_creative_menu": false,
 			"menu_category": {
 				"category": "none"
             },

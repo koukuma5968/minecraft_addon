@@ -29,6 +29,9 @@ export class RaisingStatusCheckClass {
         try {
             const kaikyu = player.getProperty("kurokumaft:kaikyu") as number;
             const count = player.getProperty("kurokumaft:ogre_kill") as number;
+            if (ogre === undefined || !ogre.isValid) {
+                return;
+            }
             const point = ogre.getProperty("kurokumaft:ogre_point") as number;
             let upPoint = count+point;
             let killtarget=0;

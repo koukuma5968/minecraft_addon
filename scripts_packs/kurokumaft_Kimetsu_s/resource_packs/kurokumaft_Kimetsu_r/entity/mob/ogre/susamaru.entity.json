@@ -66,7 +66,7 @@
       ],
       "spawn_egg": {
         "texture": "ogre_spawn_egg",
-        "texture_index": 16
+        "texture_index": 15
       },
       "enable_attachables": true
     }

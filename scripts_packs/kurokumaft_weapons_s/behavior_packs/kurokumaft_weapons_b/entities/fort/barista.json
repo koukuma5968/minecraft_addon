@@ -52,7 +52,7 @@
 
     "components": {
       "minecraft:type_family": {
-        "family": [ "barista", "inanimate" ]
+        "family": [ "barista", "inanimate", "ride_tool" ]
       },
       "minecraft:collision_box": {
         "width": 1.0,
@@ -78,6 +78,22 @@
       },
       "minecraft:movement": {
         "value": 0.15
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject" : "other", "value" :  "player"},
+                  { "test": "is_sneaking", "subject": "other", "operator": "equals", "value": true }
+                ]
+              }
+            },
+            "use_item": false,
+            "swing": true
+          }
+        ]
       },
       "minecraft:rideable": {
         "seat_count": 1,

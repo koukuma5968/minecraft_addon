@@ -30,16 +30,17 @@ export class KokyuInosukeComponent implements NichirintouUseComponent {
 
     }
 
+    attack = new NomalAttack();
     /**
      * 伊之助 呼吸
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
 
     }
 
+    kedamono = new KedamonoNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -47,48 +48,43 @@ export class KokyuInosukeComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const kedamono = new KedamonoNoKata();
 
         switch (kata) {
             case 1 :
-                kedamono.ichiNoKata(player, itemStack);
+                this.kedamono.ichiNoKata(player, itemStack);
             break;
             case 2 :
-                kedamono.niNoKata(player, itemStack);
+                this.kedamono.niNoKata(player, itemStack);
             break;
             case 3 :
-                kedamono.sanNoKata(player, itemStack);
+                this.kedamono.sanNoKata(player, itemStack);
             break;
             case 4 :
-                kedamono.shiNoKata(player, itemStack);
+                this.kedamono.shiNoKata(player, itemStack);
             break;
             case 5 :
-                kedamono.goNoKata(player, itemStack);
+                this.kedamono.goNoKata(player, itemStack);
             break;
             case 6 :
-                kedamono.rokuNoKata(player, itemStack);
+                this.kedamono.rokuNoKata(player, itemStack);
             break;
             case 7 :
-                kedamono.shitiNoKata(player, itemStack);
+                this.kedamono.shitiNoKata(player, itemStack);
             break;
             case 8 :
-                kedamono.hachiNoKata(player, itemStack);
+                this.kedamono.hachiNoKata(player, itemStack);
             break;
             case 9 :
-                kedamono.kuNoKata(player, itemStack);
+                this.kedamono.kuNoKata(player, itemStack);
             break;
             case 10 :
-                kedamono.zyuNoKata(player, itemStack);
+                this.kedamono.zyuNoKata(player, itemStack);
             break;
         }
 
     }
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
-        const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-
-        switch (kata) {
-        }
     }
 
 }

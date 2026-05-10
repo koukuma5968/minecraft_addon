@@ -1,0 +1,23 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:seeds_detoxifying_herb",
+      "menu_category": {
+        "category": "nature"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+				"value": "item.plants.kurokumaft:seeds_detoxifying_herb.name"
+			},
+      "minecraft:icon": "kurokumaft:seeds_detoxifying_herb",
+      "minecraft:block_placer": {
+        "block": "kurokumaft:detoxifying_plants",
+        "use_on" : [
+          "farmland"
+        ]
+      }
+    }
+  }
+}

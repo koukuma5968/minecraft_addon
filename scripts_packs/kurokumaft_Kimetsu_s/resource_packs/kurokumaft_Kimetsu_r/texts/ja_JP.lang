@@ -1,3 +1,6 @@
+pack.name=DemonSlayerRv5.3
+pack.description=鬼滅の刃Rv5.3 日輪刀/キャラクターアドオン リソースパック
+
 msg.kurokumaft:mizu_kata1.value=§9水の呼吸 壱ノ型
 msg.kurokumaft:mizu_kata2.value=§9水の呼吸 弐ノ型
 msg.kurokumaft:mizu_kata3.value=§9水の呼吸 参ノ型
@@ -512,6 +515,21 @@ msg.kurokumaft:kekkizyutu_ito2.value=刻糸輪転
 msg.kurokumaft:kekkizyutu_ito3.value=殺目篭
 
 msg.kurokumaft:kekkizyutu_mari1.value=毬
+msg.kurokumaft:kekkizyutu_mari2.value=毬(連投)
+
+msg.kurokumaft:kekkizyutu_kouketunoya1.value=飛
+msg.kurokumaft:kekkizyutu_kouketunoya2.value=衝
+msg.kurokumaft:kekkizyutu_kouketunoya3.value=落
+msg.kurokumaft:kekkizyutu_kouketunoya4.value=撃
+
+msg.kurokumaft:kekkizyutu_biwa1.value=防壁
+msg.kurokumaft:kekkizyutu_biwa2.value=転送
+
+msg.kurokumaft:kekkizyutu_wakuti1.value=視覚夢幻の香
+msg.kurokumaft:kekkizyutu_wakuti2.value=芳霞呪縛の香
+msg.kurokumaft:kekkizyutu_wakuti3.value=白夢幻惑の香
+msg.kurokumaft:kekkizyutu_wakuti4.value=飢餓蝕命の香
+msg.kurokumaft:kekkizyutu_wakuti5.value=紫樹腐毒の香
 
 kurokumaft:itemGroup.name.kekkizyutu=血気術
 
@@ -526,7 +544,10 @@ item.kurokumaft:koori.name=血気術 童磨(氷)
 item.kurokumaft:mikatuki.name=血気術 黒死牟(月)
 item.kurokumaft:kokurai.name=血気術 獪岳(亀裂)
 item.kurokumaft:urogi_ultrasonic.name=血気術 空喜(超音波)
+item.kurokumaft:kuukan.name=血気術 鳴女(空間)
 item.kurokumaft:susamaru_mari.name=血気術 朱紗丸(毬)
+item.kurokumaft:kouketunoya.name=血気術 矢琶羽(紅潔の矢)
+item.kurokumaft:wakuti.name=血気術 珠世(惑血)
 
 tile.kurokumaft:scarlet_gravel.name=緋の砂利
 tile.kurokumaft:scarlet_ore.name=緋の鉱石
@@ -547,12 +568,14 @@ entity.kurokumaft:urogi.name=空喜
 entity.kurokumaft:zouhakuten.name=憎珀天
 entity.kurokumaft:douma.name=童磨
 entity.kurokumaft:kokushibou.name=黒死牟
+entity.kurokumaft:kaigaku.name=獪岳
 entity.kurokumaft:kyodaigyo_kiba.name=巨大魚（牙）
 entity.kurokumaft:nengyo.name=粘魚
 entity.kurokumaft:gyosatu.name=魚殺
 entity.kurokumaft:susamaru.name=朱紗丸
+entity.kurokumaft:yahaba.name=矢琶羽
 entity.kurokumaft:nakime.name=鳴女
-entity.kurokumaft:tamayo.name=珠代
+entity.kurokumaft:tamayo.name=珠世
 
 item.spawn_egg.entity.kurokumaft:ogre.name=鬼（下級）
 item.spawn_egg.entity.kurokumaft:rui.name=累
@@ -568,10 +591,12 @@ item.spawn_egg.entity.kurokumaft:urogi.name=空喜
 item.spawn_egg.entity.kurokumaft:zouhakuten.name=憎珀天
 item.spawn_egg.entity.kurokumaft:douma.name=童磨
 item.spawn_egg.entity.kurokumaft:kokushibou.name=黒死牟
+item.spawn_egg.entity.kurokumaft:kaigaku.name=獪岳
 item.spawn_egg.entity.kurokumaft:kyodaigyo_kiba.name=巨大魚（牙）
 item.spawn_egg.entity.kurokumaft:susamaru.name=朱紗丸
+item.spawn_egg.entity.kurokumaft:yahaba.name=矢琶羽
 item.spawn_egg.entity.kurokumaft:nakime.name=鳴女
-item.spawn_egg.entity.kurokumaft:tamayo.name=珠代
+item.spawn_egg.entity.kurokumaft:tamayo.name=珠世
 
 kurokumaft:itemGroup.name.ogre_head=鬼の頭巾
 kurokumaft:itemGroup.name.ogre_chestplate=鬼の着物
@@ -599,6 +624,8 @@ item.kurokumaft:daki_geta.name=堕姫の下駄
 item.kurokumaft:gyutaro_obi.name=妓夫太郎の帯
 item.kurokumaft:gyutaro_hakama.name=妓夫太郎の袴
 item.kurokumaft:gyutaro_kama.name=妓夫太郎の鎌
+
+item.kurokumaft:gyokko_tubo.name=玉壺の壺
 
 item.kurokumaft:hantengu_kimono.name=半天狗の着物
 
@@ -628,6 +655,9 @@ item.kurokumaft:douma_boots.name=童磨のブーツ
 item.kurokumaft:kessyounomiko_sensu.name=結晶の御子の扇子
 
 item.kurokumaft:nichirintou_kaigaku.name=日輪刀 獪岳
+item.kurokumaft:kaigaku_haori_soldier_jacket.name=獪岳の羽織
+item.kurokumaft:kaigaku_pants.name=獪岳のズボン
+item.kurokumaft:kaigaku_tabi.name=獪岳の足袋
 
 item.kurokumaft:kyokokukamusari.name=虚哭神去
 item.kurokumaft:kokushibou_kimono.name=黒死牟の着物
@@ -638,7 +668,17 @@ item.kurokumaft:susamaru_haori.name=朱紗丸の羽織
 item.kurokumaft:susamaru_kimono.name=朱紗丸の着物
 item.kurokumaft:susamaru_tabi.name=朱紗丸の足袋
 
+item.kurokumaft:yahaba_kimono.name=矢琶羽の着物
+item.kurokumaft:yahaba_zyuzu.name=矢琶羽の数珠
+item.kurokumaft:yahaba_tabi.name=矢琶羽の足袋
+
 item.kurokumaft:nakime_kimono.name=鳴女の着物
+item.kurokumaft:nakime_tabi.name=鳴女の足袋
+item.kurokumaft:nakime_biwa.name=鳴女の琵琶
+
+item.kurokumaft:tamayo_kimono.name=珠世の着物
+item.kurokumaft:tamayo_tabi.name=珠世の足袋
+item.kurokumaft:tamayo_kanzasi.name=珠世の簪
 
 msg.kurokumaft:ogrerank_low.value=§f§l鬼(下)
 msg.kurokumaft:ogrerank_unusual.value=§7§l鬼(異)
@@ -695,4 +735,3 @@ tile.kurokumaft:wisteria_flowers_wood.name=藤の木
 tile.kurokumaft:wisteria_flowers_leaves.name=藤の花
 tile.kurokumaft:wisteria_flowers_planks.name=藤の板材
 tile.kurokumaft:wisteria_flowers_petals.name=藤色の花びら
-

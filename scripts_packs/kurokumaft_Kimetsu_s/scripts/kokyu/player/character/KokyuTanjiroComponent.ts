@@ -35,14 +35,16 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
 
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    mizu = new MizuNoKata();
+    hi = new HiNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -50,57 +52,52 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const mizu = new MizuNoKata();
-        const hi = new HiNoKata();
 
         switch (kata) {
             case 2 :
-                mizu.niNoKata(player, itemStack);
+                this.mizu.niNoKata(player, itemStack);
             break;
             case 3 :
-                mizu.sanNoKata(player, itemStack);
+                this.mizu.sanNoKata(player, itemStack);
             break;
             case 4 :
-                mizu.shiNoKata(player, itemStack);
+                this.mizu.shiNoKata(player, itemStack);
             break;
             case 9 :
-                mizu.kuNoKata(player, itemStack);
+                this.mizu.kuNoKata(player, itemStack);
             break;
-            // case 10 :
-            //     mizu.zyuNoKataShot(player, itemStack);
-            // break;
             case 10 :
-                mizu.zyuNoKata(player, itemStack);
+                this.mizu.zyuNoKata(player, itemStack);
             break;
             case 12 :
-                hi.niNoKata(player, itemStack);
+                this.hi.niNoKata(player, itemStack);
             break;
             case 13 :
-                hi.sanNoKata(player, itemStack);
+                this.hi.sanNoKata(player, itemStack);
             break;
             case 14 :
-                hi.shiNoKata(player, itemStack);
+                this.hi.shiNoKata(player, itemStack);
             break;
             case 16 :
-                hi.rokuNoKata(player, itemStack);
+                this.hi.rokuNoKata(player, itemStack);
             break;
             case 17 :
-                hi.shitiNoKata(player, itemStack);
+                this.hi.shitiNoKata(player, itemStack);
             break;
             case 18 :
-                hi.hachiNoKata(player, itemStack);
+                this.hi.hachiNoKata(player, itemStack);
             break;
             case 19 :
-                hi.kuNoKata(player, itemStack);
+                this.hi.kuNoKata(player, itemStack);
             break;
             case 20 :
-                hi.zyuNoKata(player, itemStack);
+                this.hi.zyuNoKata(player, itemStack);
             break;
             case 21 :
-                hi.zyuichiNoKata(player, itemStack);
+                this.hi.zyuichiNoKata(player, itemStack);
             break;
             case 22 :
-                hi.zyuniNoKata(player, itemStack);
+                this.hi.zyuniNoKata(player, itemStack);
             break;
         }
 
@@ -108,36 +105,34 @@ export class KokyuTanjiroComponent implements NichirintouUseComponent {
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const mizu = new MizuNoKata();
-        const hi = new HiNoKata();
 
         switch (kata) {
             case 1 :
-                mizu.ichiNoKata(player, itemStack);
+                this.mizu.ichiNoKata(player, itemStack);
             break;
             case 5 :
-                mizu.goNoKata(player, itemStack);
+                this.mizu.goNoKata(player, itemStack);
             break;
             case 6 :
-                mizu.rokuNoKata(player, itemStack);
+                this.mizu.rokuNoKata(player, itemStack);
             break;
             case 7 :
-                mizu.shitiNoKata(player, itemStack);
+                this.mizu.shitiNoKata(player, itemStack);
             break;
             case 8 :
-                mizu.hachiNoKata(player, itemStack);
+                this.mizu.hachiNoKata(player, itemStack);
             break;
             case 11 :
                 const chage = (duration / TicksPerSecond);
                 if (chage > 997) {
-                    hi.ichiNoKata(player, itemStack);
+                    this.hi.ichiNoKata(player, itemStack);
                 } else {
-                    hi.ichiNoKataIssen(player, itemStack);
+                    this.hi.ichiNoKataIssen(player, itemStack);
                 }
 
             break;
             case 15 :
-                hi.goNoKata(player, itemStack);
+                this.hi.goNoKata(player, itemStack);
             break;
        }
     }

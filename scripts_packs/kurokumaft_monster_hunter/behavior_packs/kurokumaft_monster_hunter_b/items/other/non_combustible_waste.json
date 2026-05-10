@@ -1,0 +1,19 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "kurokumaft:non_combustible_waste",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "kurokumaft:non_combustible_waste",
+      "minecraft:display_name": {
+				"value": "item.other.kurokumaft:non_combustible_waste.name"
+			},
+      "minecraft:can_destroy_in_creative": false
+    }
+  }
+}
+

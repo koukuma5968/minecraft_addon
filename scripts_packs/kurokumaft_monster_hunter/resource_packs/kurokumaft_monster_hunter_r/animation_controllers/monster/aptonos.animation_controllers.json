@@ -1,0 +1,96 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.aptonos.action": {
+			"initial_state": "wait",
+			"states": {
+				"wait": {
+					"animations": ["wait"],
+					"transitions": [
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"eat": "query.property('kurokumaft:mh_action') == 'eat'"},
+						{"escape": "query.property('kurokumaft:mh_action') == 'escape'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"walk": {
+					"animations": ["walk"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"eat": "query.property('kurokumaft:mh_action') == 'eat'"},
+						{"escape": "query.property('kurokumaft:mh_action') == 'escape'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"eat": {
+					"animations": ["eat"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"escape": "query.property('kurokumaft:mh_action') == 'escape'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"escape": {
+					"animations": ["escape"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"eat": "query.property('kurokumaft:mh_action') == 'eat'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"attack": {
+					"animations": ["tail_attack"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"eat": "query.property('kurokumaft:mh_action') == 'eat'"},
+						{"escape": "query.property('kurokumaft:mh_action') == 'escape'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"damage": "query.property('kurokumaft:mh_action') == 'damage'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"damage": {
+					"animations": ["damage"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"eat": "query.property('kurokumaft:mh_action') == 'eat'"},
+						{"escape": "query.property('kurokumaft:mh_action') == 'escape'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"},
+						{"dizziness": "query.property('kurokumaft:mh_action') == 'dizziness'"}
+					]
+				},
+				"dizziness": {
+					"animations": ["damage"],
+					"transitions": [
+						{"wait": "query.property('kurokumaft:mh_action') == 'wait'"},
+						{"walk": "query.property('kurokumaft:mh_action') == 'walk'"},
+						{"eat": "query.property('kurokumaft:mh_action') == 'eat'"},
+						{"escape": "query.property('kurokumaft:mh_action') == 'escape'"},
+						{"dai": "query.property('kurokumaft:mh_action') == 'dai'"},
+						{"attack": "query.property('kurokumaft:mh_action') == 'attack'"}
+					]
+				},
+				"dai": {
+					"animations": ["dai"]
+				}
+			}
+		}
+	}
+}

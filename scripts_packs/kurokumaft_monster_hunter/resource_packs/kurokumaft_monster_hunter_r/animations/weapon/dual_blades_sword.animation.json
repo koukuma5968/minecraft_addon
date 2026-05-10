@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.dual_blades.wield_first_person": {
+			"loop": true,
+			"bones": {
+				"dual_blades_right": {
+					"rotation": [52.11444, 55.9858, -67.69415],
+					"position": [9, 23, 1],
+					"scale": 1.3
+				},
+				"dual_blades_left": {
+					"rotation": [174.47256, -11.0587, 179.92382],
+					"position": [-18, 27, 13]
+				}
+			}
+		},
+		"animation.dual_blades.wield_third_person": {
+			"loop": true,
+			"bones": {
+				"dual_blades_right": {
+					"rotation": [85, 0, 0],
+					"position": [6, 22, -2]
+				},
+				"dual_blades_left": {
+					"rotation": [85, 0, 0],
+					"position": [-5, 22, -2]
+				}
+			}
+		},
+		"animation.dual_blades.model": {
+			"loop": true,
+			"bones": {
+				"dual_blades_right": {
+					"position": [5, 0, -2]
+				},
+				"dual_blades_left": {
+					"position": [-6, 0, 4]
+				}
+			}
+		}
+	}
+}

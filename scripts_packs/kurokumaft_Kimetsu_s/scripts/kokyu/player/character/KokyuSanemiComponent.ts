@@ -29,14 +29,15 @@ export class KokyuSanemiComponent implements NichirintouUseComponent {
         }
     }
 
+    attack = new NomalAttack();
     /**
      * @param {Player} player
      */
     hitAttackKata(player: Player, itemStack:ItemStack): void {
-        const attack = new NomalAttack();
-        attack.oneAttack(player, itemStack);
+        this.attack.oneAttack(player, itemStack);
     }
 
+    kaze = new KazeNoKata();
     /**
      * @param {ItemStack} itemStack
      * @param {Player} player
@@ -44,32 +45,31 @@ export class KokyuSanemiComponent implements NichirintouUseComponent {
     useAttackKata(player: Player, itemStack: ItemStack): void {
 
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const kaze = new KazeNoKata();
 
         switch (kata) {
             case 2 :
-                kaze.niNoKata(player, itemStack);
+                this.kaze.niNoKata(player, itemStack);
             break;
             case 3 :
-                kaze.sanNoKata(player, itemStack);
+                this.kaze.sanNoKata(player, itemStack);
             break;
             case 4 :
-                kaze.shiNoKata(player, itemStack);
+                this.kaze.shiNoKata(player, itemStack);
             break;
             case 5 :
-                kaze.goNoKata(player, itemStack);
+                this.kaze.goNoKata(player, itemStack);
             break;
             case 6 :
-                kaze.rokuNoKata(player, itemStack);
+                this.kaze.rokuNoKata(player, itemStack);
             break;
             case 7 :
-                kaze.shitiNoKata(player, itemStack);
+                this.kaze.shitiNoKata(player, itemStack);
             break;
             case 8 :
-                kaze.hachiNoKata(player, itemStack);
+                this.kaze.hachiNoKata(player, itemStack);
             break;
             case 9 :
-                kaze.kuNoKata(player, itemStack);
+                this.kaze.kuNoKata(player, itemStack);
             break;
         }
 
@@ -77,11 +77,10 @@ export class KokyuSanemiComponent implements NichirintouUseComponent {
 
     releaseAttackKata(player: Player, itemStack: ItemStack, duration:number): void {
         const kata = player.getProperty("kurokumaft:kokyu_kata") as number;
-        const kaze = new KazeNoKata();
 
         switch (kata) {
             case 1 :
-                kaze.ichiNoKata(player, itemStack);
+                this.kaze.ichiNoKata(player, itemStack);
             break;
        }
     }

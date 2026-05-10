@@ -1,4 +1,4 @@
-import { ItemCustomComponent, ItemStack, EquipmentSlot, ItemComponentMineBlockEvent, BlockVolume, Vector3, Dimension, system } from "@minecraft/server";
+import { ItemCustomComponent, ItemStack, EquipmentSlot, ItemComponentMineBlockEvent, BlockVolume, Vector3, Dimension, system, Block } from "@minecraft/server";
 import { itemDurabilityDamage } from "../../common/WeaponsItemDurabilityDamage";
 import { MinecraftBlockTypes } from "@minecraft/vanilla-data";
 
@@ -19,10 +19,10 @@ export class HoeBatchDestruction implements ItemCustomComponent {
         const itemStack = event.itemStack;
         if (itemStack !== undefined) {
             itemDurabilityDamage(entity, itemStack, EquipmentSlot.Mainhand);
-        }
-        if (mineBlock.hasTag("minecraft:is_hoe_item_destructible")) {
-            const brakeBlockList = destructionBlocks(block.location, block.dimension);
-            processListWithDelay(block.dimension, brakeBlockList);
+            if (mineBlock.hasTag("minecraft:is_hoe_item_destructible")) {
+                const brakeBlockList = destructionBlocks(block.location, block.dimension);
+                processListWithDelay(block.dimension, brakeBlockList);
+            }
         }
         
     }
@@ -58,6 +58,7 @@ function destructionBlocks(location: Vector3, dimension: Dimension, brakeBlockLi
         );
         const blockIt = blockVol.getBlockLocationIterator();
         let nextValue = blockIt.next();
+        let lastBlock = undefined as Block | undefined;
         do {
             const value = nextValue.value;
             if (value.y >= -64) {
@@ -69,13 +70,17 @@ function destructionBlocks(location: Vector3, dimension: Dimension, brakeBlockLi
                     if (breakBlock.typeId.lastIndexOf("leaves") !== -1) {
                         if (brakeBlockList.find(blocks => (blocks.location.x === breakBlock.location.x && blocks.location.y === breakBlock.location.y && blocks.location.z === breakBlock.location.z)) === undefined) {
                             brakeBlockList.push({id:breakBlock.typeId, location: breakBlock.location});
-                            return destructionBlocks(breakBlock.location, dimension, brakeBlockList);
                         }
+                        lastBlock = breakBlock;
                     }
                 }
             }
             nextValue = blockIt.next();
         } while (!nextValue.done);
+
+        if (lastBlock !== undefined) {
+            return destructionBlocks(lastBlock.location, dimension, brakeBlockList);
+        }
 
     } catch (error:any) {
         console.error(error);

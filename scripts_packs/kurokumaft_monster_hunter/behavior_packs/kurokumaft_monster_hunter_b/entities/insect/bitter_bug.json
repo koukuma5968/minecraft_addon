@@ -1,0 +1,160 @@
+{
+  "format_version": "1.26.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "kurokumaft:bitter_bug",
+      "spawn_category": "creature",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "properties": {
+        "kurokumaft:mh_action": {
+          "type": "enum",
+          "values": ["wait", "move", "dai"],
+          "default": "wait",
+          "client_sync": true
+        },
+        "kurokumaft:health": {
+          "range": [ 0, 2 ],
+          "type": "int",
+          "default": 2,
+          "client_sync": true
+        },
+        "kurokumaft:mh_action_status": {
+          "type": "enum",
+          "values": ["none", "peacetime"],
+          "default": "peacetime",
+          "client_sync": true
+        }
+      }
+    },
+
+    "component_groups": {
+
+      "kurokumaft:dai": {
+        "minecraft:movement": {
+          "value": 0
+        },
+        "minecraft:knockback_resistance": {
+          "max": 100,
+          "value": 100
+        }
+      }
+    },
+    "components": {
+      "minecraft:experience_reward": {
+        "on_bred": "Math.Random(1,2)",
+        "on_death": "query.last_hit_by_player ? Math.Random(1,2) : 0"
+      },
+      "minecraft:collision_box": {
+        "width": 0.2,
+        "height": 0.15
+      },
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "mob", "arthropod", "mh_insect" ]
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  { "test": "is_family", "subject" : "other", "value" :  "player"},
+                  { "test": "has_equipment", "domain": "hand", "subject": "other", "value": "kurokumaft:insect_net"}
+                ]
+              }
+            },
+            "use_item": false,
+            "swing": true
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "entity_attack",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "block_explosion",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "entity_explosion",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "fire",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "fire_tick",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "projectile",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "sonic_boom",
+            "deals_damage": "no_but_side_effects_apply"
+          },
+          {
+            "cause": "wither",
+            "deals_damage": "no_but_side_effects_apply"
+          }
+        ]
+      },
+      "minecraft:attack": {
+        "damage": 1
+      },
+      "minecraft:movement.hover": {},
+      "minecraft:jump.static": {
+      },
+      "minecraft:can_climb": {
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:nameable": {
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "cause": "lava",
+            "damage_per_tick": 4
+          }
+        ]
+      },
+      "minecraft:despawn": {
+        "despawn_from_distance": {}
+      },
+      "minecraft:leashable": {
+      },
+      "minecraft:balloonable": {
+      },
+      "minecraft:physics": {
+      },
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+
+      "kurokumaft:dai": {
+        "add": {
+          "component_groups": [
+            "kurokumaft:dai"
+          ]
+        }
+      }
+    }
+  }
+}
