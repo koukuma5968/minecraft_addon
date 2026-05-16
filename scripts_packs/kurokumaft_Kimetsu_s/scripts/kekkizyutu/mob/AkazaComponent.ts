@@ -61,6 +61,9 @@ export class AkazaComponent implements KekkizyutuMobUseComponent {
 
         try {
 
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

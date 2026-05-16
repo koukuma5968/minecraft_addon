@@ -53,6 +53,9 @@ export class KanawoComponent implements KokyuMobUseComponent {
         const hana = new HanaNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 2 :

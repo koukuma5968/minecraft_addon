@@ -46,6 +46,9 @@ export class KarakuComponent implements KekkizyutuMobUseComponent {
         const bunretu = new Bunretu();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

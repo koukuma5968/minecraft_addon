@@ -57,6 +57,9 @@ export class SanemiComponent implements KokyuMobUseComponent {
         const kaze = new KazeNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

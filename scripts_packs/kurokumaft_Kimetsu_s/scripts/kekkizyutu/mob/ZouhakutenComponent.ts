@@ -49,6 +49,9 @@ export class ZouhakutenComponent implements KekkizyutuMobUseComponent {
         const bunretu = new Bunretu();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

@@ -48,6 +48,9 @@ export class MuhyousuirenbosatuComponent implements KekkizyutuMobUseComponent {
         const koori = new Koori();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

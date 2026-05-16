@@ -48,6 +48,9 @@ export class RuiComponent implements KekkizyutuMobUseComponent {
         const koushi = new Koushi();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

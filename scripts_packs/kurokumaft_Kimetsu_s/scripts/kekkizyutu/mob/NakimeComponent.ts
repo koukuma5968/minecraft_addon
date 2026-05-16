@@ -47,6 +47,9 @@ export class NakimeComponent implements KekkizyutuMobUseComponent {
         const biwa = new Biwa();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

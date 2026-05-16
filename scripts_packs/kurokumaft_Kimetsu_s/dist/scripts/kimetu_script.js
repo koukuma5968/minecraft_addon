@@ -6330,6 +6330,9 @@ var TanjiroComponent = class {
     const mizu = new MizuNoKata();
     const hi = new HiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -6589,6 +6592,9 @@ var GiyuComponent = class {
   kokyuUse(entity, kata) {
     const mizu = new MizuNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -6731,6 +6737,9 @@ var ZenituComponent = class {
   kokyuUse(entity, kata) {
     const kaminari = new KaminariNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -6809,6 +6818,9 @@ var InosukeComponent = class {
   kokyuUse(entity, kata) {
     const kedamono = new KedamonoNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -6945,6 +6957,9 @@ var KanawoComponent = class {
   kokyuUse(entity, kata) {
     const hana = new HanaNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7035,6 +7050,9 @@ var ShinobuComponent = class {
   kokyuUse(entity, kata) {
     const mushi = new MushiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7118,6 +7136,9 @@ var KyouzyuroComponent = class {
   kokyuUse(entity, kata) {
     const hono = new HonoNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7224,6 +7245,9 @@ var TengenComponent = class {
   kokyuUse(entity, kata) {
     const oto = new OtoNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7315,6 +7339,9 @@ var ObanaiComponent = class {
   kokyuUse(entity, kata) {
     const hebi = new HebiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7410,6 +7437,9 @@ var SanemiComponent = class {
   kokyuUse(entity, kata) {
     const kaze = new KazeNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7540,6 +7570,9 @@ var MituriComponent = class {
   kokyuUse(entity, kata) {
     const koi = new KoiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7633,6 +7666,9 @@ var MuitiroComponent = class {
   kokyuUse(entity, kata) {
     const kasumi = new KasumiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7742,6 +7778,9 @@ var GyoumeiComponent = class {
   kokyuUse(entity, kata) {
     const iwa = new IwaNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7838,6 +7877,9 @@ var MizuComponent = class {
   kokyuUse(entity, kata) {
     const mizu = new MizuNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -7987,6 +8029,9 @@ var HiComponent = class {
   kokyuUse(entity, kata) {
     const hi = new HiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8140,6 +8185,9 @@ var KaminariComponent = class {
   kokyuUse(entity, kata) {
     const kaminari = new KaminariNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8242,6 +8290,9 @@ var HanaComponent = class {
   kokyuUse(entity, kata) {
     const hana = new HanaNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8324,6 +8375,9 @@ var HebiComponent = class {
   kokyuUse(entity, kata) {
     const hebi = new HebiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8415,6 +8469,9 @@ var HonoComponent = class {
   kokyuUse(entity, kata) {
     const hono = new HonoNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8509,6 +8566,9 @@ var IwaComponent = class {
   kokyuUse(entity, kata) {
     const iwa = new IwaNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8602,6 +8662,9 @@ var KasumiComponent = class {
   kokyuUse(entity, kata) {
     const kasumi = new KasumiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8715,6 +8778,9 @@ var KazeComponent = class {
   kokyuUse(entity, kata) {
     const kaze = new KazeNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8845,6 +8911,9 @@ var KoiComponent = class {
   kokyuUse(entity, kata) {
     const koi = new KoiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -8935,6 +9004,9 @@ var MushiComponent = class {
   kokyuUse(entity, kata) {
     const mushi = new MushiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -9017,6 +9089,9 @@ var OtoComponent = class {
   kokyuUse(entity, kata) {
     const oto = new OtoNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -9114,6 +9189,9 @@ var TukiComponent = class {
   kokyuUse(entity, kata) {
     const tuki = new TukiNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -9267,6 +9345,9 @@ var KedamonoComponent = class {
   kokyuUse(entity, kata) {
     const kedamono = new KedamonoNoKata();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12092,6 +12173,9 @@ var DakiComponent = class {
   kokyuUse(entity, kata) {
     const obi = new Obi();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12169,6 +12253,9 @@ var GyutaroComponent = class {
   kokyuUse(entity, kata) {
     const kama = new Tigama();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12239,6 +12326,9 @@ var RuiComponent = class {
   kokyuUse(entity, kata) {
     const koushi = new Koushi();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12305,6 +12395,9 @@ var NezukoComponent = class {
   kokyuUse(entity, kata) {
     const bakketu = new Bakketu();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12366,6 +12459,9 @@ var AkazaComponent = class {
   kokyuUse(entity, kata) {
     const hakaisatu = new Hakaisatu();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12492,16 +12588,18 @@ var AizetuComponent = class {
   kokyuUse(entity, kata) {
     const bunretu = new Bunretu();
     try {
-      switch (kata) {
-        case 1:
-          entity.triggerEvent("kurokumaft:attack_stop");
-          bunretu.shitotu(entity);
-          system56.waitTicks(80).then(() => {
-            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-            entity.triggerEvent("kurokumaft:kekkizyutu_end");
-          }).catch((error) => {
-          });
-          break;
+      if (entity.isValid) {
+        switch (kata) {
+          case 1:
+            entity.triggerEvent("kurokumaft:attack_stop");
+            bunretu.shitotu(entity);
+            system56.waitTicks(80).then(() => {
+              entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+              entity.triggerEvent("kurokumaft:kekkizyutu_end");
+            }).catch((error) => {
+            });
+            break;
+        }
       }
     } catch (error) {
     }
@@ -12540,6 +12638,9 @@ var KarakuComponent = class {
   kokyuUse(entity, kata) {
     const bunretu = new Bunretu();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12588,6 +12689,9 @@ var SekidoComponent = class {
   kokyuUse(entity, kata) {
     const bunretu = new Bunretu();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12636,6 +12740,9 @@ var UrogiComponent = class {
   kokyuUse(entity, kata) {
     const bunretu = new Bunretu();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -12687,6 +12794,9 @@ var ZouhakutenComponent = class {
   kokyuUse(entity, kata) {
     const bunretu = new Bunretu();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -13192,6 +13302,9 @@ var KokushibouComponent = class {
   kokyuUse(entity, kata) {
     const tuki = new TukiNoKataZyutu();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -14126,6 +14239,9 @@ var DoumaComponent = class {
   kokyuUse(entity, kata) {
     const koori = new Koori();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -14251,6 +14367,9 @@ var KessyounomikoComponent = class {
   kokyuUse(entity, kata) {
     const koori = new Koori();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -14346,6 +14465,9 @@ var MuhyousuirenbosatuComponent = class {
   kokyuUse(entity, kata) {
     const koori = new Koori();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -14713,6 +14835,9 @@ var GyokkoComponent = class {
   kokyuUse(entity, kata) {
     const tubo = new Tubo();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -14929,6 +15054,9 @@ var SusamaruComponent = class {
   kokyuUse(entity, kata) {
     const mari = new Mari();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -15208,6 +15336,9 @@ var YahabaComponent = class {
   kokyuUse(entity, kata) {
     const ya = new Kouketunoya();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -15287,6 +15418,9 @@ var KaigakuComponent = class {
   kokyuUse(entity, kata) {
     const kokurai = new Kokurai();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 2:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -15531,6 +15665,9 @@ var NakimeComponent = class {
   kokyuUse(entity, kata) {
     const biwa = new Biwa();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -19042,6 +19179,9 @@ var TamayoComponent = class {
   kokyuUse(entity, kata) {
     const wakuti = new Wakuti();
     try {
+      if (!entity.isValid) {
+        return;
+      }
       switch (kata) {
         case 1:
           entity.triggerEvent("kurokumaft:attack_stop");
@@ -19918,7 +20058,7 @@ var ogreRankLists = weightChoice([
 world13.afterEvents.entitySpawn.subscribe((event) => {
   const entity = event.entity;
   try {
-    if (entity !== void 0) {
+    if (entity !== void 0 && entity.isValid) {
       const taishibject = TaishiKaikyu.find((taishi) => taishi.name === entity.typeId);
       if (taishibject !== void 0 && event.cause === EntityInitializationCause.Spawned) {
         const kaikyuRan = getRandomInRange(taishibject.min, taishibject.max);
@@ -19970,7 +20110,7 @@ world13.afterEvents.entityDie.subscribe((event) => {
   const familyTypes = deadEntity.getComponent(EntityComponentTypes22.TypeFamily);
   if (familyTypes !== void 0 && familyTypes.hasTypeFamily("ogre")) {
     const damager = event.damageSource.damagingEntity;
-    if (damager !== void 0) {
+    if (damager !== void 0 && damager.isValid) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes22.TypeFamily);
       if (dfamilyTypes !== void 0 && dfamilyTypes.hasTypeFamily("player") && !dfamilyTypes.hasTypeFamily("ogre")) {
         raishinStastsCheck.statusCheck(damager, deadEntity);
@@ -19992,13 +20132,13 @@ world13.afterEvents.entityDie.subscribe((event) => {
     const tags = deadEntity.getTags();
     if (tags.indexOf("hostility_player") !== -1) {
       const damager = event.damageSource.damagingEntity;
-      if (damager !== void 0) {
+      if (damager !== void 0 && damager.isValid) {
         damager.removeTag("hostility");
       }
     }
   } else if (familyTypes !== void 0 && familyTypes.hasTypeFamily("villager")) {
     const damager = event.damageSource.damagingEntity;
-    if (damager !== void 0) {
+    if (damager !== void 0 && damager.isValid) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes22.TypeFamily);
       if (dfamilyTypes !== void 0 && dfamilyTypes.hasTypeFamily("ogre")) {
         const dimension = deadEntity.dimension;
@@ -20026,7 +20166,6 @@ world13.afterEvents.entityHitEntity.subscribe((event) => {
   if (!hitEntity.isValid) {
     return;
   }
-  const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes22.TypeFamily);
   const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes22.TypeFamily);
   if (hitFamilyTypes !== void 0 && hitFamilyTypes.hasTypeFamily("ogre")) {
     const type = damagingEntity.getProperty("kurokumaft:nichirintou_type");
@@ -20094,7 +20233,7 @@ world13.afterEvents.projectileHitEntity.subscribe((event) => {
   const projectile = event.projectile;
   const hitEntity = event.getEntityHit().entity;
   if ("kurokumaft:thrown_syringe_dagger" === projectile.typeId) {
-    if (hitEntity !== void 0) {
+    if (hitEntity !== void 0 && hitEntity.isValid) {
       const familyTypes = hitEntity.getComponent(EntityComponentTypes22.TypeFamily);
       if (familyTypes.hasTypeFamily("ogre")) {
         const rank = hitEntity.getProperty("kurokumaft:ogre_rank");
@@ -20154,6 +20293,9 @@ world13.afterEvents.playerInteractWithEntity.subscribe((event) => {
   const player = event.player;
   const target = event.target;
   if (item.typeId === "kurokumaft:match_wooden_tag") {
+    if (target === void 0 || !target.isValid) {
+      return;
+    }
     const familyTypes = target.getComponent(EntityComponentTypes22.TypeFamily);
     if (familyTypes !== void 0 && familyTypes.hasTypeFamily("regimental_soldier")) {
       const form = new ActionFormData2().title({ translate: "msg.kurokumaft:soldier.keiko.title" }).body({ translate: "msg.kurokumaft:soldier.keiko.body" }).button({ translate: "msg.kurokumaft:soldier.keiko.yes" }).button({ translate: "msg.kurokumaft:soldier.keiko.no" });

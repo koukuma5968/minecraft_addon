@@ -50,6 +50,9 @@ export class TamayoComponent implements KekkizyutuMobUseComponent {
         const wakuti = new Wakuti();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

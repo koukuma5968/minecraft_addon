@@ -54,6 +54,9 @@ export class KaminariComponent implements KokyuMobUseComponent {
         const kaminari = new KaminariNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

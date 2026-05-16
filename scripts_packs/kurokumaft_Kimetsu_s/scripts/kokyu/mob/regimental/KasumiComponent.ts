@@ -55,6 +55,9 @@ export class KasumiComponent implements KokyuMobUseComponent {
         const kasumi = new KasumiNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

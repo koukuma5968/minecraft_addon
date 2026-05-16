@@ -50,6 +50,9 @@ export class GyutaroComponent implements KekkizyutuMobUseComponent {
         const kama = new Tigama();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

@@ -53,6 +53,9 @@ export class GyoumeiComponent implements KokyuMobUseComponent {
         const iwa = new IwaNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

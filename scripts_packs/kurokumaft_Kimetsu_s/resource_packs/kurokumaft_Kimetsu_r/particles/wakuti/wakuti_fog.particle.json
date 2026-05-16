@@ -5,7 +5,7 @@
 			"identifier": "kurokumaft:wakuti_fog",
 			"basic_render_parameters": {
 				"material": "particles_add",
-				"texture": "textures/particle/campfire_smoke"
+				"texture": "textures/kurokumaft/particle/wakuti/wakuti_murasaki"
 			}
 		},
 		"components": {

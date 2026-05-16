@@ -53,6 +53,9 @@ export class KoiComponent implements KokyuMobUseComponent {
         const koi = new KoiNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

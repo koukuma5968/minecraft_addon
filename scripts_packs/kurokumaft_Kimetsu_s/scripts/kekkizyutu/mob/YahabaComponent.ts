@@ -49,6 +49,9 @@ export class YahabaComponent implements KekkizyutuMobUseComponent {
         const ya = new Kouketunoya();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

@@ -52,6 +52,9 @@ export class ShinobuComponent implements KokyuMobUseComponent {
         const mushi = new MushiNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

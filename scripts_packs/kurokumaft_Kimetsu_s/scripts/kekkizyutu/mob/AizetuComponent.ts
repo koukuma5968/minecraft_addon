@@ -40,16 +40,18 @@ export class AizetuComponent implements KekkizyutuMobUseComponent {
 
         try {
 
-            switch (kata) {
-                case 1 :
-                    entity.triggerEvent("kurokumaft:attack_stop");
-                    bunretu.shitotu(entity);
-                    system.waitTicks(80).then(() => {
-                        entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
-                        entity.triggerEvent("kurokumaft:kekkizyutu_end");
-                    }).catch((error: any) => {
-                    });
-                break;
+            if (entity.isValid) {
+                switch (kata) {
+                    case 1 :
+                        entity.triggerEvent("kurokumaft:attack_stop");
+                        bunretu.shitotu(entity);
+                        system.waitTicks(80).then(() => {
+                            entity.setProperty("kurokumaft:kekkizyutu_kata", 0);
+                            entity.triggerEvent("kurokumaft:kekkizyutu_end");
+                        }).catch((error: any) => {
+                        });
+                    break;
+                }
             }
         } catch (error: any) {
         }

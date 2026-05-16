@@ -58,6 +58,9 @@ export class InosukeComponent implements KokyuMobUseComponent {
         const kedamono = new KedamonoNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

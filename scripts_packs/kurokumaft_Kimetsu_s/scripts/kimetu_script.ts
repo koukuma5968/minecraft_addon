@@ -195,7 +195,7 @@ const ogreRankLists = weightChoice([
 world.afterEvents.entitySpawn.subscribe(event => {
   const entity = event.entity as Entity;
   try {
-    if (entity !== undefined) {
+    if (entity !== undefined && entity.isValid) {
       const taishibject = TaishiKaikyu.find(taishi => taishi.name === entity.typeId);
       if (taishibject !== undefined && event.cause === EntityInitializationCause.Spawned) {
         const kaikyuRan = getRandomInRange(taishibject.min, taishibject.max);
@@ -261,7 +261,7 @@ world.afterEvents.entityDie.subscribe(event => {
   const familyTypes = deadEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
   if (familyTypes !== undefined && familyTypes.hasTypeFamily("ogre")) {
     const damager = event.damageSource.damagingEntity;
-    if (damager !== undefined) {
+    if (damager !== undefined && damager.isValid) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
       if (dfamilyTypes !== undefined && dfamilyTypes.hasTypeFamily("player") && !dfamilyTypes.hasTypeFamily("ogre")) {
         raishinStastsCheck.statusCheck(damager as Player, deadEntity);
@@ -285,14 +285,14 @@ world.afterEvents.entityDie.subscribe(event => {
     const tags = deadEntity.getTags();
     if (tags.indexOf("hostility_player") !== -1) {
       const damager = event.damageSource.damagingEntity;
-      if (damager !== undefined) {
+      if (damager !== undefined && damager.isValid) {
         damager.removeTag("hostility");
       }
     }
   // 村人が鬼に倒されたら肉を落とす
   } else if (familyTypes !== undefined && familyTypes.hasTypeFamily("villager")) {
     const damager = event.damageSource.damagingEntity;
-    if (damager !== undefined) {
+    if (damager !== undefined && damager.isValid) {
       const dfamilyTypes = damager.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
       if (dfamilyTypes !== undefined && dfamilyTypes.hasTypeFamily("ogre")) {
         const dimension = deadEntity.dimension;
@@ -321,7 +321,7 @@ world.afterEvents.entityHitEntity.subscribe(event => {
   if (!hitEntity.isValid) {
     return;
   }
-  const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
+  // const damageFamilyTypes = damagingEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
   const hitFamilyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
   // if (hitFamilyTypes !== undefined && hitFamilyTypes.hasTypeFamily("regimental_soldier") && damageFamilyTypes.hasTypeFamily("player")) {
   //   hitEntity.addTag("hostility");
@@ -403,7 +403,7 @@ world.afterEvents.projectileHitEntity.subscribe(event => {
   const projectile = event.projectile as Entity;
   const hitEntity = event.getEntityHit().entity;
   if ("kurokumaft:thrown_syringe_dagger" === projectile.typeId) {
-    if (hitEntity !== undefined) {
+    if (hitEntity !== undefined && hitEntity.isValid) {
       const familyTypes = hitEntity.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
       if (familyTypes.hasTypeFamily("ogre")) {
         const rank = hitEntity.getProperty("kurokumaft:ogre_rank");
@@ -469,6 +469,9 @@ world.afterEvents.playerInteractWithEntity.subscribe(event => {
   const player = event.player as Player;
   const target = event.target as Entity;
   if (item.typeId === "kurokumaft:match_wooden_tag") {
+    if (target === undefined || !target.isValid) {
+      return;
+    }
     const familyTypes = target.getComponent(EntityComponentTypes.TypeFamily) as EntityTypeFamilyComponent;
     if (familyTypes !== undefined && familyTypes.hasTypeFamily("regimental_soldier")) {
       const form = new ActionFormData()

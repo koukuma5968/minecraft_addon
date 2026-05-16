@@ -21,6 +21,27 @@
 					"rotation": [-40, 0, 0]
 				}
 			}
+		},
+		"animation.kerubi_male.move": {
+			"loop": true,
+			"bones": {
+				"back": {
+					"position": [0, -0.25, 0]
+				},
+				"back_right_leg_down": {
+					"rotation": [40, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"back_left_leg_down": {
+					"rotation": [40, 0, 0]
+				},
+				"back_left_leg_down2": {
+					"rotation": [-40, 0, 0]
+				},
+				"back_right_leg_down2": {
+					"rotation": [-40, 0, 0]
+				}
+			}
 		}
 	}
 }

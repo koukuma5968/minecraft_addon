@@ -51,6 +51,9 @@ export class DakiComponent implements KekkizyutuMobUseComponent {
         const obi = new Obi();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

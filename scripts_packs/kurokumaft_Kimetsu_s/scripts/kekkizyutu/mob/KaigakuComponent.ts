@@ -50,6 +50,9 @@ export class KaigakuComponent implements KekkizyutuMobUseComponent {
         const kokurai = new Kokurai();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");

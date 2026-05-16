@@ -52,6 +52,9 @@ export class HanaComponent implements KokyuMobUseComponent {
         const hana = new HanaNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 2 :
                     entity.triggerEvent("kurokumaft:attack_stop");

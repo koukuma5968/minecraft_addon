@@ -53,6 +53,9 @@ export class ObanaiComponent implements KokyuMobUseComponent {
         const hebi = new HebiNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

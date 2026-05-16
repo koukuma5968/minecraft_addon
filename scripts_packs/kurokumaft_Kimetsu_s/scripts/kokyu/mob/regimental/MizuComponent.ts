@@ -58,6 +58,9 @@ export class MizuComponent implements KokyuMobUseComponent {
         const mizu = new MizuNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

@@ -53,6 +53,9 @@ export class TengenComponent implements KokyuMobUseComponent {
         const oto = new OtoNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

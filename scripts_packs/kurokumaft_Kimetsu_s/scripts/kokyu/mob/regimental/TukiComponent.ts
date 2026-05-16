@@ -59,6 +59,9 @@ export class TukiComponent implements KokyuMobUseComponent {
         const tuki = new TukiNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");

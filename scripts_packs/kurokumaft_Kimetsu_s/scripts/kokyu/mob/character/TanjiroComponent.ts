@@ -111,6 +111,9 @@ export class TanjiroComponent implements KokyuMobUseComponent {
         const hi = new HiNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

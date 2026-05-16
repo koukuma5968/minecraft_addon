@@ -54,6 +54,9 @@ export class KyouzyuroComponent implements KokyuMobUseComponent {
         const hono = new HonoNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
 
             switch (kata) {
                 case 1 :

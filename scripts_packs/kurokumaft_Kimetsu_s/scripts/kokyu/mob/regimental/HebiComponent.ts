@@ -53,6 +53,9 @@ export class HebiComponent implements KokyuMobUseComponent {
         const hebi = new HebiNoKata();
 
         try {
+            if (!entity.isValid) {
+                return;
+            }
             switch (kata) {
                 case 1 :
                     entity.triggerEvent("kurokumaft:attack_stop");
